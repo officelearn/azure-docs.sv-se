@@ -5,37 +5,46 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/06/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f443cd5603e6ca0f60dc0e69b734bfa46138d476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab7749c93f39d0c7b630b63e0b0e68589b61ede2
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018951"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090955"
 ---
 # <a name="list-blob-containers-with-net"></a>Lista BLOB-behållare med .NET
 
-När du listar behållarna i ett Azure Storage konto från din kod kan du ange ett antal alternativ för att hantera hur resultaten returneras från Azure Storage. Den här artikeln visar hur du visar behållare med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).  
+När du listar behållarna i ett Azure Storage konto från din kod kan du ange ett antal alternativ för att hantera hur resultaten returneras från Azure Storage. Den här artikeln visar hur du visar behållare med hjälp av [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage).  
 
 ## <a name="understand-container-listing-options"></a>Förstå alternativ för behållar lista
 
 Om du vill lista behållare i ditt lagrings konto, anropa någon av följande metoder:
 
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+- [GetBlobContainers](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainers)
+- [GetBlobContainersAsync](/dotnet/api/azure.storage.blobs.blobserviceclient.getblobcontainersasync)
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
+
 - [ListContainersSegmented](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmented)
 - [ListContainersSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.listcontainerssegmentedasync)
+
+---
 
 Överlagringarna för dessa metoder ger ytterligare alternativ för att hantera hur behållare returneras av list åtgärden. De här alternativen beskrivs i följande avsnitt.
 
 ### <a name="manage-how-many-results-are-returned"></a>Hantera hur många resultat som returneras
 
-Som standard returnerar en List åtgärd upp till 5000 resultat i taget. Om du vill returnera en mindre uppsättning resultat anger du ett värde som inte är noll för `maxresults` parametern när du anropar en av **ListContainerSegmented** -metoderna.
+Som standard returnerar en List åtgärd upp till 5000 resultat i taget. Om du vill returnera en mindre uppsättning resultat anger du ett värde som inte är noll för storleken på sidan med resultat som ska returneras.
 
-Om ditt lagrings konto innehåller fler än 5000 behållare, eller om du har angett ett värde för en `maxresults` sådan att List åtgärden returnerar en delmängd av behållare i lagrings kontot, Azure Storage returnerar en *fortsättnings-token* med listan över behållare. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
+Om ditt lagrings konto innehåller fler än 5000 behållare, eller om du har angett en sid storlek som visar en del av behållare i lagrings kontot, Azure Storage returnerar en *fortsättnings-token* med listan över behållare. En fortsättnings-token är ett ogenomskinligt värde som du kan använda för att hämta nästa uppsättning resultat från Azure Storage.
 
-I din kod kontrollerar du värdet för fortsättnings-token för att avgöra om det är null. När tilläggs-token är null slutförs uppsättningen av resultat. Om tilläggs-token inte är null anropar du **ListContainersSegmented** eller **ListContainersSegmentedAsync** igen och skickar i fortsättnings-token för att hämta nästa uppsättning resultat, tills den fortsatta token är null.
+I din kod kontrollerar du värdet för fortsättnings-token för att avgöra om det är tomt (för .NET V12) eller null (för .NET V11 och tidigare). När tilläggs-token är null slutförs uppsättningen av resultat. Om tilläggs-token inte är null anropar du List metoden igen och skickar i fortsättnings-token för att hämta nästa uppsättning resultat, tills den fortsatta token är null.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrera resultat med ett prefix
 
@@ -43,31 +52,39 @@ Om du vill filtrera listan över behållare anger du en sträng för `prefix` pa
 
 ### <a name="return-metadata"></a>Returnera metadata
 
-Om du vill returnera metadata för containern med resultaten anger du värdet för **metadata** för [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) -uppräkningen. Azure Storage innehåller metadata med varje behållare som returneras, så du behöver inte också anropa en av **FetchAttributes** -metoderna för att hämta containerns metadata.
+Om du vill returnera metadata för behållare med resultaten anger du värdet för **metadata** för [BlobContainerTraits](/dotnet/api/azure.storage.blobs.models.blobcontainertraits) Enum (för .net V12) eller [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) Enum (för .net V11 och tidigare). Azure Storage innehåller metadata för varje behållare som returneras, så du behöver inte också hämta containerns metadata.
 
 ## <a name="example-list-containers"></a>Exempel: list behållare
 
-I följande exempel visas en asynkron lista över behållare i ett lagrings konto som börjar med ett angivet prefix. Exemplet visar behållare i steg om fem resultat i taget, och använder en fortsättnings-token för att hämta nästa resultat segment. Exemplet returnerar även containerns metadata med resultaten.
+I följande exempel visas en asynkron lista över behållare i ett lagrings konto som börjar med ett angivet prefix. I exemplet visas behållare som börjar med det angivna prefixet och returnerar det angivna antalet resultat per anrop till List åtgärden. Sedan används en fortsättnings-token för att hämta nästa resultat segment. Exemplet returnerar även containerns metadata med resultaten.
+
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Containers.cs" id="ListContainers":::
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 
 ```csharp
 private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClient,
-                                                        string prefix)
+                                                        string prefix,
+                                                        int? segmentSize)
 {
-    Console.WriteLine("List all containers beginning with prefix {0}, plus container metadata:", prefix);
+    Console.WriteLine("List containers beginning with prefix {0}, plus container metadata:", prefix);
+
+    BlobContinuationToken continuationToken = null;
+    ContainerResultSegment resultSegment;
 
     try
     {
-        ContainerResultSegment resultSegment = null;
-        BlobContinuationToken continuationToken = null;
-
         do
         {
-            // List containers beginning with the specified prefix, returning segments of 5 results each.
-            // Passing null for the maxResults parameter returns the max number of results (up to 5000).
-            // Requesting the container's metadata with the listing operation populates the metadata,
-            // so it's not necessary to also call FetchAttributes() to read the metadata.
+            // List containers beginning with the specified prefix,
+            // returning segments of 5 results each.
+            // Passing in null for the maxResults parameter returns the maximum number of results (up to 5000).
+            // Requesting the container's metadata as part of the listing operation populates the metadata,
+            // so it's not necessary to call FetchAttributes() to read the metadata.
             resultSegment = await blobClient.ListContainersSegmentedAsync(
-                prefix, ContainerListingDetails.Metadata, 5, continuationToken, null, null);
+                prefix, ContainerListingDetails.Metadata, segmentSize, continuationToken, null, null);
 
             // Enumerate the containers returned.
             foreach (var container in resultSegment.Results)
@@ -82,24 +99,27 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
                 }
             }
 
-            // Get the continuation token. If not null, get the next segment.
+            // Get the continuation token.
             continuationToken = resultSegment.ContinuationToken;
 
         } while (continuationToken != null);
+
+        Console.WriteLine();
     }
     catch (StorageException e)
     {
-        Console.WriteLine("HTTP error code {0} : {1}",
-                            e.RequestInformation.HttpStatusCode,
-                            e.RequestInformation.ErrorCode);
         Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
     }
 }
 ```
+
+---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## <a name="see-also"></a>Se även
 
-[Lista behållare](/rest/api/storageservices/list-containers2) 
- [Räkna upp BLOB-resurser](/rest/api/storageservices/enumerating-blob-resources)
+- [Lista behållare](/rest/api/storageservices/list-containers2)
+- [Räkna upp BLOB-resurser](/rest/api/storageservices/enumerating-blob-resources)

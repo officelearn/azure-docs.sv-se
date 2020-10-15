@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 657373bdc899cb53c8dd934d18d144fe37eb370b
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874337"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071514"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Distribuera OPC, sammanflätade moduler och beroenden från grunden
 
@@ -25,8 +25,8 @@ Den OPC dubbla modulen körs på IoT Edge och ger flera Edge-tjänster till OPC-
 
 Det finns flera alternativ för att distribuera moduler till din [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) -Gateway, bland dem
 
-- [Distribuera från Azure Portal IoT Edge bladet](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
-- [Distribuera med AZ CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
+- [Distribuera från Azure Portal IoT Edge bladet](../iot-edge/how-to-deploy-modules-portal.md)
+- [Distribuera med AZ CLI](../iot-edge/how-to-deploy-cli-at-scale.md)
 
 > [!NOTE]
 > Mer information om distributions information och instruktioner finns i GitHub- [lagringsplatsen](https://github.com/Azure/azure-iiot-components).
@@ -117,7 +117,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
 
 1. Distribuera OPC dubbla [beroenden](howto-opc-twin-deploy-dependencies.md) och hämta den resulterande `.env` filen. Observera den distribuerade `hub name` `PCS_IOTHUBREACT_HUB_NAME` variabeln i den resulterande `.env` filen.
 
-2. Registrera och starta en [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) -eller [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge-gateway och anteckna dess `device id` .
+2. Registrera och starta en [Linux](../iot-edge/how-to-install-iot-edge-linux.md) -eller [Windows](../iot-edge/how-to-install-iot-edge-windows.md) IoT Edge-gateway och anteckna dess `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Distribuera till en Edge-enhet
 
@@ -143,7 +143,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
-   Fyll i de valfria fälten om det behövs. För ytterligare information om behållar skapande alternativ, starta om princip och önskad status, se [EdgeAgent önskade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Mer information om modulen finns i [definiera eller uppdatera önskade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties).
+   Fyll i de valfria fälten om det behövs. För ytterligare information om behållar skapande alternativ, starta om princip och önskad status, se [EdgeAgent önskade egenskaper](../iot-edge/module-edgeagent-edgehub.md#edgeagent-desired-properties). Mer information om modulen finns i [definiera eller uppdatera önskade egenskaper](../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 7. Välj **Spara** och upprepa steg **5**.  
 
@@ -182,7 +182,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-1. Installera den senaste versionen av [Azures kommando rads gränssnitt (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) [här](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Installera den senaste versionen av [Azures kommando rads gränssnitt (AZ)](/cli/azure/?view=azure-cli-latest) [här](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="quickstart"></a>Snabbstart
 
@@ -195,7 +195,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
    ```
 
    `device id`Parametern är Skift läges känslig. Innehålls parametern pekar på den distributions manifest fil som du sparade. 
-    ![AZ IoT Edge set-modules utdata](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![AZ IoT Edge set-modules utdata](/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. När du har distribuerat moduler till din enhet kan du Visa alla med följande kommando:
 
@@ -203,7 +203,7 @@ Det enklaste sättet att distribuera modulerna till en Azure IoT Edge gateway-en
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   Parametern för enhets-ID är Skift läges känslig. ![AZ IoT Hub-modul – utdata för identitets lista](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   Parametern för enhets-ID är Skift läges känslig. ![AZ IoT Hub-modul – utdata för identitets lista](/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

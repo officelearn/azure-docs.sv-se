@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
 ms.custom: devx-track-js
-ms.openlocfilehash: 1b68cb2c99a0a4fa5e60047a6a695da2abfb0278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ecaccf36988e94d0cb1114bd04c5d571d4fe86d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327518"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071871"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Bygg och distribuera ett Node.js-webbprogram med hjälp av Express på en Azure-Cloud Services
 
@@ -136,13 +136,8 @@ När distributions åtgärden har slutförts öppnas och visas webb sidan i webb
 ![En webbläsare som visar Express-sidan. URL: en anger att den nu finns på Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [Node.js Developer Center](https://docs.microsoft.com/azure/developer/javascript/).
+Mer information finns i [Node.js Developer Center](/azure/developer/javascript/).
 
 [Node.js Web Application]: https://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: https://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
-
-
-
-
-

@@ -3,12 +3,12 @@ title: Vägledning och metodtips
 description: Upptäck de bästa metoderna och vägledningen för att säkerhetskopiera molnet och den lokala arbets belastningen till molnet
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: f999c568dda6eae60f3060cc4672eccaf06541c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 522f7d2502a49b912f34f392c52e5046eba8d01f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985524"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092315"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Säkerhetskopiera molnet och lokala arbets belastningar till molnet
 
@@ -42,13 +42,13 @@ Azure Backup aktiverar data skydd för olika arbets belastningar (lokalt och i m
 
 * **Skydd mot skadlig borttagning –** Skydda mot oavsiktliga och skadliga försök att ta bort säkerhets kopior via mjuk borttagning av säkerhets kopior. De borttagna säkerhetskopierade data lagras i 14 dagar utan kostnad och kan återställas från det här läget.
 
-* **Säkra krypterade säkerhets kopieringar –** Azure Backup säkerställer att dina säkerhets kopierings data lagras på ett säkert sätt och använder inbyggda säkerhetsfunktioner i Azure-plattformen, t. ex. RBAC och kryptering.
+* **Säkra krypterade säkerhets kopieringar –** Azure Backup ser till att dina säkerhets kopierings data lagras på ett säkert sätt och använder inbyggda säkerhetsfunktioner i Azure-plattformen som Azure RBAC och kryptering.
 
 * **Hantering av säkerhets kopierings data –** Azure Backup rensar automatiskt äldre säkerhetskopierade data för att följa bevarande principerna. Du kan också lagra dina data från användnings lagring till valv lagring.
 
 ### <a name="management-plane"></a>Hanteringsplanet
 
-* **Åtkomst kontroll** – valv (Recovery Services-och säkerhets kopierings valv) tillhandahåller hanterings funktioner och är tillgängliga via Azure Portal, säkerhets kopierings Center, valv instrument paneler, SDK, CLI och till och med REST-API: er. Det är också en RBAC-begränsning, som ger dig möjlighet att begränsa åtkomsten till säkerhets kopior enbart till behöriga säkerhets kopierings administratörer.
+* **Åtkomst kontroll** – valv (Recovery Services-och säkerhets kopierings valv) tillhandahåller hanterings funktioner och är tillgängliga via Azure Portal, säkerhets kopierings Center, valv instrument paneler, SDK, CLI och till och med REST-API: er. Det är också en Azure RBAC-begränsning, som ger dig möjlighet att begränsa åtkomsten till säkerhets kopior enbart till behöriga säkerhets kopierings administratörer.
 
 * **Princip hantering** – Azure Backup principer i varje valv definierar när säkerhets kopiorna ska utlösas och hur länge de behöver behållas. Du kan också hantera dessa principer och tillämpa dem på flera objekt.
 

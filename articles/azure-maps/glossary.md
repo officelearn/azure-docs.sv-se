@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 4c3e6216c172b0ba1273fea1690c030a05f4c456
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 831fc28711a181d45a8c69e3f46056604b30649e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83742222"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089476"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -53,7 +53,7 @@ I följande lista beskrivs vanliga ord som används med Azure Maps-tjänsterna.
 
 <a name="azure-location-based-services-lbs"></a>**Azure Location Based Services (pund)**: det tidigare namnet på Azure Maps när det fanns i för hands versionen.
 
-<a name="azure-active-directory"></a>**Azure Active Directory (Azure AD)**: Azure AD är Microsofts molnbaserade identitets-och åtkomst hanterings tjänst. Azure Maps Azure AD-integrering är för närvarande tillgänglig i för hands versionen för alla Azure Maps-API: er. Azure AD har stöd för rollbaserad åtkomst kontroll (RBAC) som ger detaljerad åtkomst till Azure Maps resurser. Mer information om Azure Maps Azure AD-integrering finns i [Azure Maps och Azure AD](azure-maps-authentication.md) och [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
+<a name="azure-active-directory"></a>**Azure Active Directory (Azure AD)**: Azure AD är Microsofts molnbaserade identitets-och åtkomst hanterings tjänst. Azure Maps Azure AD-integrering är för närvarande tillgänglig i för hands versionen för alla Azure Maps-API: er. Azure AD har stöd för rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att ge detaljerad åtkomst till Azure Maps resurser. Mer information om Azure Maps Azure AD-integrering finns i [Azure Maps och Azure AD](azure-maps-authentication.md) och [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 <a name="azure-maps-key"></a>**Azure Maps nyckel**: Visa [autentisering med delad nyckel](#shared-key-authentication).
 

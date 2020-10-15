@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 1c649499fd9eaedac0ca4ff9c182e13a9da223ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88053158"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072007"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics data fel
 
@@ -211,6 +211,10 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 ```
 
 ## <a name="output-data-errors"></a>Fel vid utdata
+
+Azure Stream Analytics kan identifiera fel i utgående data med eller utan en I/O-begäran till den utgående sinken beroende på konfigurationen. Till exempel saknas en obligatorisk kolumn, t. ex  `PartitionKey` . När du använder Azure Table-utdata som kan identifieras utan I/O-begäran. Begränsnings överträdelser i SQL-utdata kräver dock en I/O-begäran.
+
+Det finns flera datafel som bara kan identifieras efter ett anrop till utgående mottagare, vilket kan sakta ned bearbetningen. Lös detta genom att ändra jobbets konfiguration eller den fråga som orsakar data felet.
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 

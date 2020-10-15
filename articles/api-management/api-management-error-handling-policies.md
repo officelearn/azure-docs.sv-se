@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
-ms.openlocfilehash: bddb4ea3759d19d1e122739fb69cf9bf96c66635
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b6f90d0aa26b478c0f2fcefac55dcd509da437
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243553"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070953"
 ---
 # <a name="error-handling-in-api-management-policies"></a>Felhantering i API Management-principer
 
@@ -82,13 +82,13 @@ När ett fel uppstår och styr hopp till `on-error` princip avsnittet lagras fel
 
 | Namn       | Typ   | Beskrivning                                                                                               | Krävs |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------- | -------- |
-| `Source`   | sträng | Namnger elementet där felet inträffade. Kan vara antingen en princip eller ett inbyggt steg namn för pipelinen.      | Ja      |
-| `Reason`   | sträng | Maskin vänlig felkod som kan användas vid fel hantering.                                       | Inga       |
-| `Message`  | sträng | Fel Beskrivning av människo läsbarhet.                                                                         | Ja      |
-| `Scope`    | sträng | Namnet på det omfång där felet inträffade och kan vara en av "global", "Product", "API" eller "operation" | Inga       |
-| `Section`  | sträng | Avsnitts namn där fel uppstod. Möjliga värden: "inkommande", "backend", "utgående" eller "på-fel".      | Inga       |
-| `Path`     | sträng | Anger kapslad princip, till exempel "Välj [3]/when [2]".                                                 | Inga       |
-| `PolicyId` | sträng | Värdet för `id` attributet, om det anges av kunden, på principen där felet uppstod             | Inga       |
+| `Source`   | sträng | Namnger elementet där felet inträffade. Kan vara antingen en princip eller ett inbyggt steg namn för pipelinen.      | Yes      |
+| `Reason`   | sträng | Maskin vänlig felkod som kan användas vid fel hantering.                                       | No       |
+| `Message`  | sträng | Fel Beskrivning av människo läsbarhet.                                                                         | Yes      |
+| `Scope`    | sträng | Namnet på det omfång där felet inträffade och kan vara en av "global", "Product", "API" eller "operation" | No       |
+| `Section`  | sträng | Avsnitts namn där fel uppstod. Möjliga värden: "inkommande", "backend", "utgående" eller "på-fel".      | No       |
+| `Path`     | sträng | Anger kapslad princip, till exempel "Välj [3]/when [2]".                                                 | No       |
+| `PolicyId` | sträng | Värdet för `id` attributet, om det anges av kunden, på principen där felet uppstod             | No       |
 
 > [!TIP]
 > Du kan komma åt status koden via kontexten. Response. StatusCode.
@@ -190,4 +190,4 @@ Mer information om hur du arbetar med principer finns i:
 -   [Principer i API Management](api-management-howto-policies.md)
 -   [Transformera API: er](transform-api.md)
 -   [Princip referens](./api-management-policies.md) för en fullständig lista över princip satser och deras inställningar
--   [Princip exempel](policy-samples.md)
+-   [Princip exempel](./policy-reference.md)

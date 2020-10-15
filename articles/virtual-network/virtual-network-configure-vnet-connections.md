@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: f25e42b1785f83e0b93c346e260055247a4ab29d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6532747c50311ada4df6a0038bd0e05f4d9ce31
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400714"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089698"
 ---
 # <a name="configure-and-validate-virtual-network-or-vpn-connections"></a>Konfigurera och verifiera virtuella nätverk eller VPN-anslutningar
 
@@ -122,7 +122,7 @@ Du kan skapa en anslutning mellan virtuella nätverk som finns i olika prenumera
 
 Om du vill konfigurera en anslutning mellan ett klassiskt virtuellt nätverk och ett virtuellt Resource Manager-nätverk, se [Anslut virtuella nätverk från olika distributions modeller med hjälp av Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal).
 
-![Klassisk virtuell nätverks anslutning till ett Azure Resource Manager virtuellt nätverk](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
+![Diagram som visar en klassisk virtuell nätverks anslutning till ett Azure Resource Manager virtuellt nätverk.](./media/virtual-network-configure-vnet-connections/4034389_en_2.png)
 
 Följ dessa instruktioner för att kontrol lera konfigurationen när du ansluter ett klassiskt virtuellt nätverk till ett Azure Resource Manager virtuellt nätverk.
 

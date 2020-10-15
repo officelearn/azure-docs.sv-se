@@ -266,10 +266,10 @@
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Storage Explorer-hjälpmedel
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Azure Storage på Microsoft Q&A
+    - name: Queue Storage på Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
-    - name: Azure Storage på Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Queue Storage på Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-queues'
     - name: Prissättning för Queue Storage
       href: 'https://azure.microsoft.com/pricing/details/storage/queues/'
     - name: Priskalkylator för Azure

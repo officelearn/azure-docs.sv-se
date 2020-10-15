@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2020
 ms.author: mlottner
-ms.openlocfilehash: 3ecb2e2022cab80abf6a8692ac8cc3ba54eff1e4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f949d52d4ba461da94153cbbd17ca5fb3eb214d7
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948530"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092094"
 ---
 # <a name="quickstart-configure-your-azure-defender-for-iot-solution"></a>Snabb start: Konfigurera din Azure Defender för IoT-lösning
 
@@ -43,7 +43,7 @@ När du har definierat alla resurs relationer utnyttjar Defender för IoT Defend
 Gör så här om du vill lägga till en ny resurs i IoT-lösningen:
 
 1. Öppna din **IoT Hub** i Azure Portal.
-1. Välj och öppna **Inställningar** från avsnittet **säkerhet** i den vänstra menyn och välj sedan **övervakade resurser**.
+1. Under **säkerhet** Välj **Översikt** följt av **Inställningar**och välj sedan **övervakade resurser**.
 1. Välj **Redigera** och välj de övervakade resurser som hör till din IoT-lösning.
 1. Klicka på **Lägg till**.
 

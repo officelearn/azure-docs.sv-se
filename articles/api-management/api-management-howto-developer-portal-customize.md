@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/05/2020
 ms.author: apimpm
-ms.openlocfilehash: 345b4950e25f48eb1a48c5e583908d0f771771ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ceb8fd154e8ad533f4bf6bc9eb0ec3900749f8b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86206235"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075373"
 ---
 # <a name="access-and-customize-developer-portal"></a>Komma åt och anpassa Developer-portalen
 
 Developer Portal är en automatiskt genererad, helt anpassningsbar webbplats med dokumentationen för dina API: er. Det är där API-konsumenter kan identifiera dina API: er, lära sig hur de används och begära åtkomst.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Öppna den hanterade versionen av Developer-portalen
@@ -36,7 +36,7 @@ Du hittar mer information om Developer-portalen i [Översikt över Azure API Man
 
 ![API Management Developer-portalen-admin-läge](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 - Importera och publicera en Azure API Management-instans. Mer information finns i [Importera och publicera](import-and-publish.md)
@@ -131,7 +131,7 @@ När du har publicerat portalen kan du använda den på samma URL som administra
 Du måste aktivera CORS (resurs delning mellan ursprung) i dina API: er så att besökare av portalen kan testa API: erna via den inbyggda interaktiva konsolen. Mer information finns i [den här dokumentations artikeln](api-management-howto-developer-portal.md#cors) .
 
 ## <a name="next-steps"></a>Nästa steg
-- [Optimera och Spara på dina moln utgifter](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Optimera och Spara på dina moln utgifter](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Läs mer om Developer-portalen:
 

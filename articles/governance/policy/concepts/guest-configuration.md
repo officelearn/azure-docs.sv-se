@@ -1,14 +1,14 @@
 ---
 title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
-ms.date: 08/07/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974727"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075492"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Om Azure Policys gästkonfiguration
 
@@ -18,8 +18,7 @@ Azure Policy kan granska inställningar i en dator, både för datorer som körs
 - Programkonfiguration eller förekomst
 - Miljöinställningar
 
-För närvarande granskar de flesta gästkonfigurationprinciper i Azure Policy endast inställningar i datorn.
-De tillämpar inte konfigurationer. Undantaget är en inbyggd princip som [refereras nedan](#applying-configurations-using-guest-configuration).
+För närvarande har de flesta Azure Policy endast gransknings inställningar på datorn. De tillämpar inte konfigurationer. Undantaget är en inbyggd princip som [refereras nedan](#applying-configurations-using-guest-configuration).
 
 ## <a name="enable-guest-configuration"></a>Aktivera gäst konfiguration
 
@@ -48,7 +47,7 @@ I datorn använder gäst konfigurations klienten lokala verktyg för att köra g
 
 I följande tabell visas en lista över de lokala verktyg som används på varje operativ system som stöds. För inbyggt innehåll hanterar gäst konfigurationen inläsning av dessa verktyg automatiskt.
 
-|Operativsystem|Validerings verktyg|Anteckningar|
+|Operativsystem|Validerings verktyg|Kommentarer|
 |-|-|-|
 |Windows|[PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| Sidan har lästs in till en mapp som endast används av Azure Policy. Är inte i konflikt med Windows PowerShell DSC. PowerShell-kärnan har inte lagts till i System Sök vägen.|
 |Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Installerar chefs inspecens version 2.2.61 på standard platsen och läggs till i System Sök vägen. Beroenden för INSPEC-paketet inklusive ruby och python installeras också. |
@@ -59,10 +58,9 @@ Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. N�
 
 ## <a name="supported-client-types"></a>Klient typer som stöds
 
-Konfigurations principer för gäster är inklusive nya versioner. Äldre versioner av operativ system som är tillgängliga i Azure Marketplace ingår inte om gäst konfigurations agenten inte är kompatibel.
-I följande tabell visas en lista över operativ system som stöds på Azure-avbildningar:
+Princip definitioner för gäst konfiguration inkluderar nya versioner. Äldre versioner av operativ system som är tillgängliga i Azure Marketplace ingår inte om gäst konfigurations agenten inte är kompatibel. I följande tabell visas en lista över operativ system som stöds på Azure-avbildningar:
 
-|Publisher|Namn|Versioner|
+|Publisher|Name|Versioner|
 |-|-|-|
 |Canonical|Ubuntu Server|14,04 och senare|
 |Credativ|Debian|8 och senare|
@@ -72,7 +70,7 @@ I följande tabell visas en lista över operativ system som stöds på Azure-avb
 |Red Hat|Red Hat Enterprise Linux|7,4 – 7,8|
 |SUSE|SLES|12 SP3-SP5|
 
-Anpassade avbildningar av virtuella datorer stöds av principer för gäst konfiguration så länge de är ett av operativ systemen i tabellen ovan.
+Anpassade avbildningar av virtuella datorer stöds av princip definitioner för gäst konfiguration så länge de är ett av operativ systemen i tabellen ovan.
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
@@ -86,7 +84,7 @@ Virtuella datorer som använder virtuella nätverk för kommunikation kommer att
 
 ### <a name="communicate-over-private-link-in-azure"></a>Kommunicera via privat länk i Azure
 
-Virtuella datorer kan använda [privat länk](../../../private-link/private-link-overview.md) för kommunikation till gäst konfigurations tjänsten. Använd taggen med namnet `EnablePrivateNeworkGC` och värdet `TRUE` för att aktivera den här funktionen. Taggen kan tillämpas före eller efter principer för gäst konfiguration som tillämpas på datorn.
+Virtuella datorer kan använda [privat länk](../../../private-link/private-link-overview.md) för kommunikation till gäst konfigurations tjänsten. Använd taggen med namnet `EnablePrivateNeworkGC` och värdet `TRUE` för att aktivera den här funktionen. Taggen kan tillämpas före eller efter princip definitioner för gäst konfiguration som tillämpas på datorn.
 
 Trafiken dirigeras med hjälp av den [offentliga Azure-IP-adressen](../../../virtual-network/what-is-ip-address-168-63-129-16.md) för att upprätta en säker, autentiserad kanal med Azures plattforms resurser.
 
@@ -111,9 +109,9 @@ Om datorn för närvarande har en användardefinierad system identitet kommer de
 
 ## <a name="guest-configuration-definition-requirements"></a>Krav för konfigurations definition för gäst
 
-Principer för gäst konfiguration använder **AuditIfNotExists** -effekter. När definitionen har tilldelats hanterar en backend-tjänst automatiskt livs cykeln för alla krav i `Microsoft.GuestConfiguration` Azure Resource Provider.
+Princip definitioner för gäst konfiguration använder **AuditIfNotExists** -effekter. När definitionen har tilldelats hanterar en backend-tjänst automatiskt livs cykeln för alla krav i `Microsoft.GuestConfiguration` Azure Resource Provider.
 
-**AuditIfNotExists** -principerna returnerar inte några träffar förrän alla krav är uppfyllda på datorn. Kravet beskrivs i avsnittet [distribuera krav för Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines)
+**AuditIfNotExists** princip definitioner returnerar inte några träffar förrän alla krav har uppfyllts på datorn. Kraven beskrivs i avsnittet [distribuera krav för Azure Virtual Machines](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
 > I en tidigare version av gäst konfigurationen krävdes ett initiativ för att kombinera **DeployIfNoteExists** -och **AuditIfNotExists** -definitioner. **DeployIfNotExists** -definitioner krävs inte längre. Definitionerna och intiaitives är märkta `[Deprecated]` men befintliga tilldelningar fungerar fortfarande. Mer information finns i blogg inlägget: [viktig ändring har lanserats för gransknings principer för gäst konfiguration](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
@@ -138,15 +136,15 @@ Det är bara definitionen som _konfigurerar tids zonen på Windows-datorer_ som 
 När du tilldelar definitioner som börjar med _Konfigurera_måste du också tilldela _krav för definitions distribution för att aktivera principen för gäst konfiguration på virtuella Windows-datorer_. Du kan kombinera dessa definitioner i ett initiativ om du väljer.
 
 > [!NOTE]
-> Den inbyggda tids zons principen är den enda definition som har stöd för konfiguration av inställningar i datorer och anpassade principer som konfigurerar inställningar i datorer som inte stöds.
+> Den inbyggda tids zons principen är den enda definition som stöder konfiguration av inställningar i datorer och anpassade princip definitioner som konfigurerar inställningar i datorer som inte stöds.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Tilldela principer till datorer utanför Azure
 
-De gransknings principer som är tillgängliga för gäst konfiguration är resurs typen **Microsoft. HybridCompute/Machines** . Alla datorer som har publicerats till [Azure-bågen för servrar](../../../azure-arc/servers/overview.md) som omfattas av princip tilldelningen ingår automatiskt.
+De gransknings princip definitioner som är tillgängliga för gäst konfiguration är resurs typen **Microsoft. HybridCompute/Machines** . Alla datorer som har publicerats till [Azure-bågen för servrar](../../../azure-arc/servers/overview.md) som omfattas av princip tilldelningen ingår automatiskt.
 
 ### <a name="multiple-assignments"></a>Flera tilldelningar
 
-Principer för gäst konfiguration stöder för närvarande bara tilldelning av samma gäst tilldelning en gång per dator, även om princip tilldelningen använder olika parametrar.
+Princip definitioner för gäst konfiguration stöder för närvarande endast tilldelning av samma gäst tilldelning en gång per dator, även om princip tilldelningen använder olika parametrar.
 
 ## <a name="client-log-files"></a>Loggfiler för klienter
 

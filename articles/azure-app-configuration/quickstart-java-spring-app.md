@@ -11,21 +11,21 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: e3bc26b8f4d66c95f6f777af06d71172a4b882b9
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: dd2305e13322540e9e30223f200baed9919d1840
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767645"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075407"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Snabb start: skapa en Java våren-app med Azure App konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-app för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-- En [Java Development Kit (JDK)](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
+- En [Java Development Kit (JDK)](/java/azure/jdk) som stöds med version 8.
 - [Apache maven](https://maven.apache.org/download.cgi) version 3,0 eller senare.
 
 ## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
@@ -40,7 +40,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en Java våren-
 
     Lämna **etiketten** och **innehålls typen** tom för tillfället.
 
-8. Välj **Använd**.
+8. Välj **Tillämpa**.
 
 ## <a name="create-a-spring-boot-app"></a>Skapa en Spring Boot-app
 
@@ -188,7 +188,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en Java våren-app. Mer information finns i [våren på Azure](https://docs.microsoft.com/java/azure/spring-framework/). Fortsätt till nästa självstudie om du vill lära dig hur du aktiverar din Java våren-app för att dynamiskt uppdatera konfigurations inställningar.
+I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en Java våren-app. Mer information finns i [våren på Azure](/java/azure/spring-framework/). Fortsätt till nästa självstudie om du vill lära dig hur du aktiverar din Java våren-app för att dynamiskt uppdatera konfigurations inställningar.
 
 > [!div class="nextstepaction"]
 > [Aktivera dynamisk konfiguration](./enable-dynamic-configuration-java-spring-app.md)

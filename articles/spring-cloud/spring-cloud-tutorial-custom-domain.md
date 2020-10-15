@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 2fc20737ab371135a62d510d9d083e084b592fae
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: ea0887dd1d28bb958b27813df7f4c7a221470bac
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945778"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088762"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mappa en befintlig anpassad domän till Azure våren Cloud
 
@@ -26,7 +26,7 @@ Certifikaten krypterar webb trafik. Dessa TLS/SSL-certifikat kan lagras i Azure 
 * Ett program som distribueras till Azure våren Cloud (se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart.md)eller Använd en befintlig app).
 * Ett domän namn med åtkomst till DNS-registret för domän leverantören, till exempel GoDaddy.
 * Ett privat certifikat (det vill säga ditt självsignerade certifikat) från en tredje parts leverantör. Certifikatet måste matcha domänen.
-* En distribuerad instans av [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* En distribuerad instans av [Azure Key Vault](../key-vault/general/overview.md)
 
 ## <a name="import-certificate"></a>Importera certifikatet
 ### <a name="prepare-your-certificate-file-in-pfx-optional"></a>Förbered din certifikat fil i PFX (valfritt)
@@ -224,7 +224,6 @@ az spring-cloud app update -n <app name> --resource-group <resource group name> 
 När åtgärden har slutförts navigerar du till någon av HTTPS-URL: erna som pekar på din app. Observera att HTTP-URL: er inte fungerar.
 
 ## <a name="see-also"></a>Se även
-* [Vad är Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
-* [Importera ett certifikat](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
-* [Starta din våren Cloud-App med hjälp av Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
-
+* [Vad är Azure Key Vault?](../key-vault/general/overview.md)
+* [Importera ett certifikat](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)
+* [Starta din våren Cloud-App med hjälp av Azure CLI](./spring-cloud-quickstart.md)

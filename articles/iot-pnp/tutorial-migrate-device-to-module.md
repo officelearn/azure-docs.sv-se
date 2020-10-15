@@ -1,28 +1,28 @@
 ---
-title: Konvertera en IoT Plug and Play-enhet till en generisk modul | Microsoft Docs
-description: Använd C# PnP-enhets kod och konvertera den till en modul.
+title: Anslut en allmän IoT Plug and Play generisk modul | Microsoft Docs
+description: Använd exempel C# IoT Plug and Play enhets kod i en allmän modul.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046344"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089170"
 ---
-# <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Självstudie: så här konverterar du en IoT Plug and Play-enhet till en modul (C#)
+# <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Självstudie: ansluta en IoT Plug and Play-modul (C#)
 
-Den här självstudien visar hur du konverterar IoT Plug and Play enhets kod till att köras som en generisk modul.
+Den här självstudien visar hur du ansluter en allmän IoT Plug and Play- [modul](../iot-hub/iot-hub-devguide-module-twins.md).
 
 En enhet är en IoT Plug and Play-enhet om den publicerar sitt modell-ID när den ansluter till en IoT-hubb och implementerar de egenskaper och metoder som beskrivs i DTDL-modellen (Digital-definitions språk) som identifieras av modell-ID: t. Mer information om hur enheter använder ett DTDL och modell-ID finns i [IoT plug and Play Developer Guide](./concepts-developer-guide-device-csharp.md). Moduler använder modell-ID: n och DTDL modeller på samma sätt.
 
 För att demonstrera hur du implementerar en IoT Plug and Play-modul visar den här självstudien hur du konverterar termostat C#-enhets exemplet till en allmän modul.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 

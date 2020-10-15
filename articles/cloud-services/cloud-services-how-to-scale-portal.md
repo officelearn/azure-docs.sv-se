@@ -7,21 +7,21 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: e5452e0794083afabbee2759c5b37feb1eed0c88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86223694"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076682"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Så här konfigurerar du automatisk skalning för en moln tjänst i portalen
 
 Villkor kan anges för en arbets roll för en moln tjänst som utlöser en skalning i eller ut-åtgärd. Villkoren för rollen kan baseras på CPU, disk eller nätverks belastning för rollen. Du kan också ange ett villkor baserat på en meddelandekö eller mått för en annan Azure-resurs som är associerad med din prenumeration.
 
 > [!NOTE]
-> Den här artikeln fokuserar på webb-och arbets roller i moln tjänster. När du skapar en virtuell dator (klassisk) direkt är den värdbaserad i en moln tjänst. Du kan skala en virtuell standard dator genom att associera den med en [tillgänglighets uppsättning](../virtual-machines/windows/classic/configure-availability-classic.md) och aktivera eller inaktivera dem manuellt.
+> Den här artikeln fokuserar på webb-och arbets roller i moln tjänster. När du skapar en virtuell dator (klassisk) direkt är den värdbaserad i en moln tjänst. Du kan skala en virtuell standard dator genom att associera den med en [tillgänglighets uppsättning](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) och aktivera eller inaktivera dem manuellt.
 
-## <a name="considerations"></a>Överväganden
+## <a name="considerations"></a>Att tänka på
 Du bör fundera över följande information innan du konfigurerar skalning för programmet:
 
 * Skalning påverkas av kärn användning.
@@ -105,6 +105,3 @@ Den här inställningen tar bort automatisk skalning från rollen och du kan sed
 3. Instanser av rollen som ska skalas till.
 
 När du har konfigurerat skalnings inställningarna väljer du ikonen **Spara** längst upp.
-
-
-

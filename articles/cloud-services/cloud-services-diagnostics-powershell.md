@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: tagore
-ms.openlocfilehash: e3c4beac5bd88ba0bbefa91fc83976416b24d2fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0bf7fa56ca511981820f63cd7178493a7d048e3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88141082"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077515"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Aktivera diagnostik i Azure Cloud Services med PowerShell
 Du kan samla in diagnostikdata som program loggar, prestanda räknare osv. från en moln tjänst med hjälp av Azure-diagnostik tillägget. I den här artikeln beskrivs hur du aktiverar Azure-diagnostik-tillägget för en moln tjänst med hjälp av PowerShell.  Se [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/) för de krav som krävs för den här artikeln.
@@ -129,10 +129,7 @@ Så här tar du bort diagnostiktillägget från varje enskild roll:
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * Ytterligare vägledning om hur du använder Azure Diagnostics och andra tekniker för att felsöka problem finns i [Aktivera diagnostik i Azure Cloud Services och Virtual Machines](cloud-services-dotnet-diagnostics.md).
-* [Konfigurations schemat för diagnostik](/azure/azure-monitor/platform/diagnostics-extension-schema-1dot3) förklarar olika alternativ för XML-konfigurationer för tillägget för diagnostik.
-* Information om hur du aktiverar diagnostik-tillägget för Virtual Machines finns i [skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager mall](../virtual-machines/windows/extensions-diagnostics-template.md)
-
-
-
+* [Konfigurations schemat för diagnostik](../azure-monitor/platform/diagnostics-extension-schema-windows.md) förklarar olika alternativ för XML-konfigurationer för tillägget för diagnostik.
+* Information om hur du aktiverar diagnostik-tillägget för Virtual Machines finns i [skapa en virtuell Windows-dator med övervakning och diagnostik med Azure Resource Manager mall](../virtual-machines/extensions/diagnostics-template.md)

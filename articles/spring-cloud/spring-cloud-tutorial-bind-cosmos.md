@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 9b7af755c7f0903787bb3798ea1f6877cae180f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20926988d554d562f36587734bd99c34b4731e69
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908310"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088728"
 ---
 # <a name="bind-an-azure-cosmos-db-database-to-your-azure-spring-cloud-application"></a>Bind en Azure Cosmos DB-databas till ditt Azure våren Cloud-program
 
@@ -29,7 +29,7 @@ Krav:
 
 Azure Cosmos DB har fem olika API-typer som stöder bindning. Följande procedur visar hur du använder dem:
 
-1. Skapa en Azure Cosmos DB-databas. Se snabb starten för att [skapa en databas](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) för hjälp. 
+1. Skapa en Azure Cosmos DB-databas. Se snabb starten för att [skapa en databas](../cosmos-db/create-cosmosdb-resources-portal.md) för hjälp. 
 
 1. Anteckna namnet på databasen. I den här proceduren är databas namnet **testdb**.
 

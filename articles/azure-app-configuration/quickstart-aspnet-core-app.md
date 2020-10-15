@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 5fd042b91ede91491590a53abf4dec552fbf6487
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13283a9531804502b8a8d72e615be955b413658c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91440400"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075849"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabb start: skapa en ASP.NET Core-app med Azure App konfiguration
 
@@ -117,7 +117,7 @@ dotnet new mvc --no-https --output TestAppConfig
 
     ---
 
-    Med den föregående ändringen har [konfigurations leverantören för app-konfigurationen](https://go.microsoft.com/fwlink/?linkid=2074664) registrerats med API för .net Core-konfiguration.
+    Med den föregående ändringen har [konfigurations leverantören för app-konfigurationen](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) registrerats med API för .net Core-konfiguration.
 
 ## <a name="read-from-the-app-configuration-store"></a>Läsa från appens konfigurations Arkiv
 

@@ -12,18 +12,18 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: joscot
 ms.custom: fasttrack-new
-ms.openlocfilehash: 45e16c9aa9e4b04e7225320951e9f839fae75ba3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8249cc543c6334841c8e5152d5d1ceb84d4097dc
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75942482"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076121"
 ---
 # <a name="filter-on-request-ip-address-when-using-an-application-gateway"></a>Filtrera på begär IP-adress när du använder en Application Gateway
 
-I den här artikeln visas ett exempel på en Azure API Management-princip som visar hur filtret på IP-adressen för begäran när API Management-instansen nås via en Application Gateway eller annan mellanhand. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+I den här artikeln visas ett exempel på en Azure API Management-princip som visar hur filtret på IP-adressen för begäran när API Management-instansen nås via en Application Gateway eller annan mellanhand. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-reference.md).
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 Klistra in koden i det **inkommande** blocket.
 
@@ -34,4 +34,4 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Principer för åtkomst begränsningar](../api-management-access-restriction-policies.md)
-+ [Princip exempel](../policy-samples.md)
++ [Princip exempel](../policy-reference.md)

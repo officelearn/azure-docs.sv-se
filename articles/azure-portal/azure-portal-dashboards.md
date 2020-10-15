@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4241e51f186ea973702562ab27bb7f13a77de57
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764017"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089493"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Skapa och dela instrumentpaneler i Azure-portalen
 
@@ -118,7 +118,7 @@ Data på instrument panelen visar automatiskt aktivitet under de senaste 24 timm
 
 1. Välj tids kornig het som ska visas. Du kan visa var som helst från en minut till en månad.
 
-1. Välj **Använd**.
+1. Välj **Tillämpa**.
 
 ## <a name="delete-a-tile"></a>Ta bort en panel
 
@@ -142,7 +142,7 @@ Följ dessa steg om du vill använda en befintlig instrument panel som mall för
 
 ## <a name="publish-and-share-a-dashboard"></a>Publicera och dela en instrument panel
 
-När du skapar en instrument panel är den privat som standard, vilket innebär att du är den enda som kan se den. Om du vill göra instrument paneler tillgängliga för andra kan du publicera och dela dem. Mer information finns i [dela Azure-instrumentpaneler med hjälp av Role-Based Access Control](azure-portal-dashboard-share-access.md).
+När du skapar en instrument panel är den privat som standard, vilket innebär att du är den enda som kan se den. Om du vill göra instrument paneler tillgängliga för andra kan du publicera och dela dem. Mer information finns i [dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomst kontroll i Azure](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Öppna en delad instrument panel
 
@@ -178,5 +178,5 @@ Följ dessa steg om du vill ta bort en privat eller delad instrument panel perma
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomstkontroll](azure-portal-dashboard-share-access.md)
+* [Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomst kontroll i Azure](azure-portal-dashboard-share-access.md)
 * [Skapa Azure-instrumentpaneler programmässigt](azure-portal-dashboards-create-programmatically.md)

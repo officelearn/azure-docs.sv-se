@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715439"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074965"
 ---
 # <a name="azure-app-configuration-faq"></a>Vanliga frågor om Azure App konfiguration
 
@@ -45,11 +45,11 @@ Ja. App-konfigurationen krypterar alla nyckel värden som den innehåller och kr
 
 ## <a name="where-does-data-stored-in-app-configuration-reside"></a>Var finns data som lagras i appens konfiguration? 
 
-Kund information som lagras i appens konfiguration finns i den region där kundens app Configuration Store skapades. App-konfigurationen kan replikera data till [kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) för data återhämtning, men inte replikera eller flytta kunddata utanför deras geografiska område som definieras av [data placering i Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Kunder och slutanvändare kan flytta, kopiera eller komma åt kund information från alla platser globalt.
+Kund information som lagras i appens konfiguration finns i den region där kundens app Configuration Store skapades. App-konfigurationen kan replikera data till [kopplade regioner](../best-practices-availability-paired-regions.md) för data återhämtning, men inte replikera eller flytta kunddata utanför deras geografiska område som definieras av [data placering i Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Kunder och slutanvändare kan flytta, kopiera eller komma åt kund information från alla platser globalt.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>Hur skiljer sig app-konfigurationen från Azure App Service inställningar?
 
-Med Azure App Service kan du definiera inställningar för appar för varje App Service instans. De här inställningarna skickas som miljövariabler till program koden. Du kan associera en inställning med en angiven distributions plats om du vill. Mer information finns i [Konfigurera appinställningar](/azure/app-service/configure-common#configure-app-settings).
+Med Azure App Service kan du definiera inställningar för appar för varje App Service instans. De här inställningarna skickas som miljövariabler till program koden. Du kan associera en inställning med en angiven distributions plats om du vill. Mer information finns i [Konfigurera appinställningar](../app-service/configure-common.md#configure-app-settings).
 
 Med hjälp av Azure App konfiguration kan du däremot definiera inställningar som kan delas mellan flera appar. Detta inkluderar appar som körs i App Service, samt andra plattformar. Program koden använder de här inställningarna via konfigurationsprovidern för .NET och Java, via Azure SDK eller direkt via REST-API: er.
 

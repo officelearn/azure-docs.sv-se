@@ -6,12 +6,12 @@ ms.author: margard
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
-ms.openlocfilehash: 44268bf1b7805ece8de4a3499a7d53fc851af142
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ea8376307807abff8227d82bb6de7956fa3de99
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664995"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088541"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Självstudie: Använd en hanterad identitet för att anropa Azure Functions från en Azure våren Cloud-App
 
@@ -20,12 +20,12 @@ Den här artikeln visar hur du skapar en hanterad identitet för en Azure våren
 Både Azure Functions och App Services har inbyggt stöd för Azure Active Directory (Azure AD)-autentisering. Genom att utnyttja den här inbyggda autentiseringen tillsammans med hanterade identiteter för Azure våren Cloud kan vi anropa RESTful Services med modern OAuth-semantik. Den här metoden kräver inte att du lagrar hemligheter i kod och ger mer detaljerade kontroller för att kontrol lera åtkomst till externa resurser. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
-* [Installera Azure CLI-versionen 2.0.67 eller högre](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Installera Azure CLI-versionen 2.0.67 eller högre](/cli/azure/install-azure-cli)
 * [Installera maven 3,0 eller senare](https://maven.apache.org/download.cgi)
-* [Installera Azure Functions Core Tools version 3.0.2009 eller högre](https://docs.microsoft.com/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools)
+* [Installera Azure Functions Core Tools version 3.0.2009 eller högre](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
@@ -77,7 +77,7 @@ func init --worker-runtime node
 func new --template HttpTrigger --name HttpTrigger
 ```
 
-Som standard används nyckelbaserad autentisering för att skydda http-slutpunkter. Eftersom vi aktiverar Azure AD-autentisering för att skydda åtkomsten till funktionerna, vill vi [ställa in funktions verifierings nivån på anonym](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger#secure-an-http-endpoint-in-production).
+Som standard används nyckelbaserad autentisering för att skydda http-slutpunkter. Eftersom vi aktiverar Azure AD-autentisering för att skydda åtkomsten till funktionerna, vill vi [ställa in funktions verifierings nivån på anonym](../azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
 
 ```json function.json
 {
@@ -124,7 +124,7 @@ az spring-cloud app create --name "msiapp" --service "mymsispringcloud" --resour
 
 ## <a name="build-sample-spring-boot-app-to-invoke-the-function"></a>Bygg exempel på våren Boot-appen för att anropa funktionen
 
-Det här exemplet anropar funktionen http-utlöst genom att först begära en åtkomsttoken från [MSI-slutpunkten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token#get-a-token-using-http) och använda denna token för att autentisera funktionen http-begäran.
+Det här exemplet anropar funktionen http-utlöst genom att först begära en åtkomsttoken från [MSI-slutpunkten](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#get-a-token-using-http) och använda denna token för att autentisera funktionen http-begäran.
 
 1. Klona exempelprojektet. 
 
@@ -173,6 +173,6 @@ Det här exemplet anropar funktionen http-utlöst genom att först begära en å
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Så här aktiverar du systemtilldelad hanterad identitet för Azure våren Cloud Application](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
+* [Så här aktiverar du systemtilldelad hanterad identitet för Azure våren Cloud Application](./spring-cloud-howto-enable-system-assigned-managed-identity.md)
 * [Lär dig mer om hanterade identiteter för Azure-resurser](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
-* [Konfigurera ett daemon-klientprogram för tjänst-till-tjänst-anrop](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad#configure-a-daemon-client-application-for-service-to-service-calls)
+* [Konfigurera ett daemon-klientprogram för tjänst-till-tjänst-anrop](../app-service/configure-authentication-provider-aad.md#configure-a-daemon-client-application-for-service-to-service-calls)

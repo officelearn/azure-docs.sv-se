@@ -1,18 +1,18 @@
 ---
 title: 'Konfigurera ExpressRoute-kryptering: IPsec över ExpressRoute för Azure Virtual WAN'
-description: I den här självstudien får du lära dig hur du använder Azure Virtual WAN för att skapa en plats-till-plats-VPN-anslutning via ExpressRoute privata peering.
+description: Lär dig hur du använder Azure Virtual WAN för att skapa en plats-till-plats-VPN-anslutning via ExpressRoute privata peering.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: bbce84ad917da71ab363b20f3aef9da79ed3f2b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c6f71277c276bed603989774637bd95999de333
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828000"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079062"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>ExpressRoute-kryptering: IPsec över ExpressRoute för virtuellt WAN
 

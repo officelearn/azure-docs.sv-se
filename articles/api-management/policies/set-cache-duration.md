@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 3101c5695272e8fa6b577ad313897cbc1fa29629
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 088dfbcbfe00357c47de4662ac31b52e83d1d8ab
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75442401"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070987"
 ---
 # <a name="set-response-cache-duration"></a>Ange varaktighet för svarscache
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du ställer in varaktigheten för svars cachen med ett maxAge-värde i Cache-Control rubriken som skickas av Server Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du ställer in varaktigheten för svars cachen med ett maxAge-värde i Cache-Control rubriken som skickas av Server Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-reference.md).
 
-## <a name="policy"></a>Princip
+## <a name="policy"></a>Policy
 
 Klistra in koden i det **inkommande** blocket.
 
@@ -35,5 +35,4 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip exempel](../policy-samples.md)
-
++ [Princip exempel](../policy-reference.md)

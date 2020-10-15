@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: e525029ae8eab086d11126a4e18958423e207aa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df72ae5e9a1471e1387539d2c89a1eca0b09d866
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70067503"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078620"
 ---
 # <a name="add-a-forwarded-header"></a>Lägg till en vidarebefordrad rubrik
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du lägger till en vidarebefordrad rubrik i den inkommande begäran för att tillåta Server dels-API: et att skapa korrekta URL: er. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du lägger till en vidarebefordrad rubrik i den inkommande begäran för att tillåta Server dels-API: et att skapa korrekta URL: er. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-reference.md).
 
 ## <a name="code"></a>Kod
 
@@ -34,4 +34,4 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip exempel](../policy-samples.md)
++ [Princip exempel](../policy-reference.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 24de1b2cfc5e0804039923f23b6a5cd9f6c6fb80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88235713"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070375"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) automatisk användar etablering fören klar pr
 
 Se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md) för att bättre förstå funktionerna.
 
-## <a name="learn"></a>Läs mer
+## <a name="learn"></a>Learn
 
 Användar etablering skapar en grund för pågående identitets styrning och förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -69,11 +69,11 @@ I den här artikeln används följande villkor:
 | Resurser| Länk och beskrivning |
 | - | - |
 | Webbseminarier på begäran| [Hantera dina företags program med Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Lär dig hur Azure AD kan hjälpa dig att få SSO till dina företags SaaS-program och bästa praxis för att kontrol lera åtkomst. |
-| Videoklipp| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Video| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Onlinekurser| SkillUp online:  [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
 | Böcker| [Modern autentisering med Azure Active Directory för webb program (referens för utvecklare) 1: a utgåvan](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Det här är en auktoritativ och djupgående guide för att skapa Active Directory-autentiseringsbegäranden för de här nya miljöerna. |
 | Självstudier| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md). |
-| VANLIGA FRÅGOR OCH SVAR| [Vanliga frågor](../app-provisioning/user-provisioning.md) om automatisk användar etablering |
+| Vanliga frågor| [Vanliga frågor](../app-provisioning/user-provisioning.md) om automatisk användar etablering |
 
 ### <a name="solution-architectures"></a>Lösningsarkitekturer
 
@@ -129,7 +129,7 @@ I det här exemplet skapas användare och grupper i ett moln HR-program som arbe
 
 ### <a name="engage-the-right-stakeholders"></a>Engagera rätt intressenter
 
-När teknik projekt kraschar är det vanligt vis på grund av en felaktig matchning av konsekvenserna, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du engagerar rätt intressenter](https://aka.ms/deploymentplans) och att från intressenter-rollerna i projektet är väl förstå genom att dokumentera intressenterna och deras ingångs-och Accountabilities i projektet.
+När teknik projekt kraschar är det vanligt vis på grund av en felaktig matchning av konsekvenserna, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du engagerar rätt intressenter](../fundamentals/active-directory-deployment-plans.md) och att från intressenter-rollerna i projektet är väl förstå genom att dokumentera intressenterna och deras ingångs-och Accountabilities i projektet.
 
 ### <a name="plan-communications"></a>Planera kommunikation
 
@@ -264,7 +264,7 @@ Etablerings tjänsten lagrar tillstånd för båda systemen efter den första cy
 
 Använd [Azure Portal](https://portal.azure.com/) för att hantera automatisk etablering av användar konton och avetablering för program som stöder det. Följ stegen i [Hur gör jag för att konfigurera automatisk etablering för ett program?](../app-provisioning/user-provisioning.md)
 
-Azure AD-tjänsten för användar etablering kan också konfigureras och hanteras med hjälp av [Microsoft Graph-API: et](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+Azure AD-tjänsten för användar etablering kan också konfigureras och hanteras med hjälp av [Microsoft Graph-API: et](/graph/api/resources/synchronization-overview).
 
 ## <a name="manage-automatic-user-provisioning"></a>Hantera automatisk användar etablering
 
@@ -274,7 +274,7 @@ Nu när du har distribuerat måste du hantera lösningen.
 
 Efter en lyckad [första cykel](../app-provisioning/user-provisioning.md)körs stegvisa uppdateringar i Azure AD Provisioning-tjänsten, med intervall som är specifika för varje program, tills någon av följande händelser inträffar:
 
-* Tjänsten stoppas manuellt och en ny första cykel utlöses med hjälp av [Azure Portal](https://portal.azure.com/)eller med lämpligt [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) -kommando.
+* Tjänsten stoppas manuellt och en ny första cykel utlöses med hjälp av [Azure Portal](https://portal.azure.com/)eller med lämpligt [Microsoft Graph API](/graph/api/resources/synchronization-overview) -kommando.
 
 * En ny första cykel utlöses av en ändring av attributens mappningar eller omfångs filter.
 
@@ -310,7 +310,7 @@ Se följande länkar för att felsöka eventuella problem som kan uppstå under 
 
 * [Skriver uttryck för mappningar av attribut](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Översikt över Azure AD Synchronization API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Översikt över Azure AD Synchronization API](/graph/api/resources/synchronization-overview)
 
 * [Hoppa över borttagning av användar konton som ingår i omfånget](skip-out-of-scope-deletions.md)
 

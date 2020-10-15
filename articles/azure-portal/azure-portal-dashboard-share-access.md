@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89c2b90b12a4fc16dd48571c00ff46dc62168d42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87923891"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077889"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Dela Azure-instrumentpaneler med hjälp av rollbaserad åtkomstkontroll
 
@@ -88,4 +88,4 @@ Du kan tilldela en grupp användare en roll för den instrument panelen.
 ## <a name="next-steps"></a>Nästa steg
 
 * För en lista över roller, se [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md).
-* Mer information om hur du hanterar resurser finns i [Hantera Azure-resurser med hjälp av Azure Portal](resource-group-portal.md).
+* Mer information om hur du hanterar resurser finns i [Hantera Azure-resurser med hjälp av Azure Portal](../azure-resource-manager/management/manage-resources-portal.md).

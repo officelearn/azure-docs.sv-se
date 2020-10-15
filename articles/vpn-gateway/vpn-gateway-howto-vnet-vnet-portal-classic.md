@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9ca190ae9e5679ce7622f89b39507d69d87f5b88
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 4b1007fe89cf455b6af8ebba00f24e8019ad8013
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875588"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078297"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Konfigurera en VNet-till-VNet-anslutning (klassisk)
 
@@ -22,7 +22,7 @@ ms.locfileid: "91875588"
 Den här artikeln hjälper dig att skapa en VPN gateway-anslutning mellan virtuella nätverk. De virtuella nätverken kan finnas i samma eller olika regioner och i samma eller olika prenumerationer. Stegen i den här artikeln gäller den klassiska distributions modellen och Azure Portal. Du kan också skapa den här konfigurationen med ett annat distributionsverktyg eller en annan distributionsmodell genom att välja ett annat alternativ i listan nedan:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure Portal (klassisk)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
@@ -32,8 +32,6 @@ Den här artikeln hjälper dig att skapa en VPN gateway-anslutning mellan virtue
 >
 
 ![Diagram över VNet till VNet-anslutning](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
-
-
 
 ## <a name="about-vnet-to-vnet-connections"></a>Om VNet-till-VNet-anslutningar
 
@@ -61,7 +59,7 @@ Du kan vilja ansluta virtuella nätverk av följande skäl:
 
 Mer information om VNet-till-VNet-anslutningar finns i [Att tänka på när du använder VNet-till-VNet](#faq) i slutet av den här artikeln.
 
-### <a name="working-with-azure-powershell"></a><a name="powershell"></a>Arbeta med Azure PowerShell
+## <a name="prerequisites"></a>Förutsättningar
 
 Vi använder portalen för de flesta av stegen, men du måste använda PowerShell för att skapa anslutningarna mellan virtuella nätverk. Du kan inte skapa anslutningar med hjälp av Azure Portal. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
@@ -87,7 +85,7 @@ I det här steget skapar du två klassiska virtuella nätverk. Om du använder d
 Namn: TestVNet1<br>
 Adress utrymme: 10.11.0.0/16, 10.12.0.0/16 (valfritt)<br>
 Under näts namn: standard<br>
-Adress intervall för under nätet: 10.11.0.1/24<br>
+Adressintervall för undernätet: 10.11.0.0/24<br>
 Resurs grupp: ClassicRG<br>
 Plats: USA, östra<br>
 GatewaySubnet: 10.11.1.0/27

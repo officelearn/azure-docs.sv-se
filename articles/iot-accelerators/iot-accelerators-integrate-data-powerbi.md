@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba669c86c406959a3f92949e5f806fa011527d47
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975998"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070919"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualisera data för fjärrövervakning med Power BI
 
@@ -38,7 +38,7 @@ I den här självstudien får du lära dig hur du ansluter data från CosmosDB t
 
 4. På sidan Översikt klickar du på objektet, som har typen "Azure Cosmos DB konto", sedan kommer du till sidan Översikt i Cosmos DB Stream för den IoT-lösningen.
 
-    ![Resursgrupp](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
+    ![Resource Group](./media/iot-accelerators-integrate-data-powerbi/resource_groups.png)
 
 5. I panelen till vänster klickar du på avsnittet "nycklar" och noterar följande värden som ska användas i Power BI:
 
@@ -94,9 +94,9 @@ När strömmen är ansluten är du redo att skapa dina anpassade instrument pane
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Publicera instrument panelen och uppdatera data
 
-När du har skapat dina instrument paneler rekommenderar vi att du [publicerar dina Power BI-instrumentpaneler](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) för att dela med andra.
+När du har skapat dina instrument paneler rekommenderar vi att du [publicerar dina Power BI-instrumentpaneler](/power-bi/desktop-upload-desktop-files) för att dela med andra.
 
-Du vill också [Uppdatera data](https://docs.microsoft.com/power-bi/refresh-data) på den publicerade instrument panelen för att kontrol lera att du har den senaste data uppsättningen.
+Du vill också [Uppdatera data](/power-bi/refresh-data) på den publicerade instrument panelen för att kontrol lera att du har den senaste data uppsättningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -107,4 +107,3 @@ Mer information om hur du anpassar fjärr styrnings lösningen finns i:
 * [Anpassa gränssnittet för fjärr styrnings lösning](iot-accelerators-remote-monitoring-customize.md)
 * [Referensguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Felsökningsguide för utvecklare](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-

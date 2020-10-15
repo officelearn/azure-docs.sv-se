@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c3f3aad08266337756038dfa6ac6ff0c9afe093c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996823"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076988"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Använd anpassningsbara program kontroller för att minska dina datorers attack ytor
 
@@ -46,7 +46,7 @@ Genom att definiera listor över kända säkra program och generera aviseringar 
 
 
 
-## <a name="availability"></a>Tillgängligt
+## <a name="availability"></a>Tillgänglighet
 
 |Aspekt|Information|
 |----|:----|
@@ -54,7 +54,7 @@ Genom att definiera listor över kända säkra program och generera aviseringar 
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Datorer som stöds:|![Ja ](./media/icons/yes-icon.png) Azure-och icke-Azure-datorer som kör Windows och Linux<br>![Ja ](./media/icons/yes-icon.png) [Azure båg](https://docs.microsoft.com/azure/azure-arc/) -datorer|
 |Nödvändiga roller och behörigheter:|**Säkerhets läsare** och **läsar** roller kan båda Visa grupper och listor över kända säkra program<br>Rollerna **deltagare** och **säkerhets administratör** kan både redigera grupper och listor över kända säkra program|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -159,7 +159,7 @@ Redigera reglerna för en grupp datorer:
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Öppna adaptiva program kontroller från Azure-instrumentpanelen" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
-    > Alternativet **Använd** i inställningar för fil typs skydd är nedtonat i alla scenarier. Det finns inga tillgängliga tvingande alternativ för tillfället. 
+    > Alternativet **tillämpa** i inställningarna för fil typs skydds läge är grått i **alla** scenarier. Det finns inga tillgängliga tvingande alternativ för tillfället. 
     >
     > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Öppna adaptiva program kontroller från Azure-instrumentpanelen":::
 

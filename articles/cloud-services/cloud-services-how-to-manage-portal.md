@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: 471aa6e5297f8b68f08567a66e3f07e9688ca57e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84e450a55f9482c3a713943adfcc4d7940ab873f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87002938"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076716"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Hantera Cloud Services i Azure Portal
 I **Cloud Servicess** delen av Azure Portal kan du:
@@ -83,7 +83,7 @@ Observera att gäst operativ system uppdateringar och tjänst återställnings �
 
 **Uppstår avbrott för mitt program i byte? Hur ska jag hantera det?**
 
-Som det beskrivs i föregående avsnitt är en distributions växling vanligt vis snabb eftersom det bara är en konfigurations ändring i Azure Load Balancer. I vissa fall kan det ta 10 sekunder och leda till tillfälliga anslutnings problem. Om du vill begränsa påverkan till dina kunder kan du överväga att implementera [logik för omprövning av klienter](../best-practices-retry-general.md).
+Som det beskrivs i föregående avsnitt är en distributions växling vanligt vis snabb eftersom det bara är en konfigurations ändring i Azure Load Balancer. I vissa fall kan det ta 10 sekunder och leda till tillfälliga anslutnings problem. Om du vill begränsa påverkan till dina kunder kan du överväga att implementera [logik för omprövning av klienter](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="delete-deployments-and-a-cloud-service"></a>Ta bort distributioner och en moln tjänst
 Innan du kan ta bort en moln tjänst måste du ta bort varje befintlig distribution.
@@ -124,6 +124,3 @@ Bladet **Översikt** har ett statusfält överst. När du väljer stapeln öppna
 * Lär dig hur du [distribuerar en moln tjänst](cloud-services-how-to-create-deploy-portal.md).
 * Konfigurera ett [anpassat domän namn](cloud-services-custom-domain-name-portal.md).
 * Konfigurera [TLS/SSL-certifikat](cloud-services-configure-ssl-certificate-portal.md).
-
-
-

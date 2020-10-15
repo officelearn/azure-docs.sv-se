@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b4c02efffb39e88a01c35d3c818930a0f6fd9cf
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052399"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069763"
 ---
 # <a name="known-issues-application-provisioning"></a>Kända problem: program etablering
 Kända problem som kan vara medvetna om när du arbetar med app-etablering. Du kan ge feedback om program etablerings tjänsten på UserVoice, se [Azure AD Application-etablering UserVoice](https://aka.ms/appprovisioningfeaturerequest). Vi tittar på UserVoice så att vi kan förbättra tjänsten. 
@@ -72,7 +72,7 @@ Om du skapar en app-registrering, aktive ras inte motsvarande tjänst huvud namn
 
 **Etablerings intervallet är fast**
 
-[Tiden](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) mellan etablerings cykler kan för närvarande inte konfigureras. 
+[Tiden](./application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users) mellan etablerings cykler kan för närvarande inte konfigureras. 
 
 **Ändringar som inte flyttas från mål programmet till Azure AD**
 

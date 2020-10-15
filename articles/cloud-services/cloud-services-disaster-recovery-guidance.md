@@ -10,24 +10,24 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: d4f869c8b4ae6e90cfe64a2bf3d13839d72727be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ae1509d552de1d5473c7d995af2db68d7113e79
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84015309"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077532"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Vad du gör om ett avbrott uppstår i Azure-tjänsten som påverkar Azure Cloud Services
 På Microsoft arbetar vi hårt för att se till att våra tjänster alltid är tillgängliga när du behöver dem. Det kommer inte längre att påverka vår kontroll på sätt som orsakar oplanerade avbrott i tjänsten.
 
 Microsoft tillhandahåller en Serviceavtal (SLA) för sina tjänster som ett åtagande för drift tid och anslutning. Service avtalet för enskilda Azure-tjänster finns på [Azure Service nivå avtal](https://azure.microsoft.com/support/legal/sla/).
 
-Azure har redan många inbyggda plattforms funktioner som stöder program med hög tillgänglighet. Läs [haveri beredskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)om du vill ha mer information om dessa tjänster.
+Azure har redan många inbyggda plattforms funktioner som stöder program med hög tillgänglighet. Läs [haveri beredskap och hög tillgänglighet för Azure-program](/azure/architecture/framework/resiliency/backup-and-recovery)om du vill ha mer information om dessa tjänster.
 
 Den här artikeln beskriver ett verkligt haveri återställnings scenario, när en hel region upplever ett avbrott på grund av stor natur katastrof eller omfattande avbrott i tjänsten. Detta är ovanliga förekomster, men du måste förbereda dig för möjligheten att det uppstår ett avbrott i en hel region. Om en hel region upplever avbrott i tjänsten blir de lokalt redundanta kopiorna av dina data tillfälligt otillgängliga. Om du har aktiverat geo-replikering lagras tre ytterligare kopior av dina Azure Storage blobbar och tabeller i en annan region. I händelse av ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte kan återskapas mappar Azure om alla DNS-poster till den geo-replikerade regionen.
 
 > [!NOTE]
-> Tänk på att du inte har någon kontroll över den här processen och att den endast kommer att ske för data Center som är i stor drifts störning. Därför måste du också förlita dig på andra programspecifika säkerhets kopierings strategier för att uppnå den högsta tillgängliga tillgänglighets nivån. Mer information finns i [haveri beredskap och hög tillgänglighet för program som bygger på Microsoft Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Om du vill kunna påverka din egen redundans kanske du vill överväga att använda [Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-redundancy.md), vilket skapar en skrivskyddad kopia av dina data i en annan region.
+> Tänk på att du inte har någon kontroll över den här processen och att den endast kommer att ske för data Center som är i stor drifts störning. Därför måste du också förlita dig på andra programspecifika säkerhets kopierings strategier för att uppnå den högsta tillgängliga tillgänglighets nivån. Mer information finns i [haveri beredskap och hög tillgänglighet för program som bygger på Microsoft Azure](/azure/architecture/framework/resiliency/backup-and-recovery). Om du vill kunna påverka din egen redundans kanske du vill överväga att använda [Geo-redundant lagring med Läs behörighet (RA-GRS)](../storage/common/storage-redundancy.md), vilket skapar en skrivskyddad kopia av dina data i en annan region.
 >
 >
 
@@ -54,6 +54,6 @@ Beroende på dina program data källor kan du behöva kontrol lera återställni
 I det här fallet krävs ingen åtgärd på din del, men tjänsten blir otillgänglig tills regionen har återställts. Du kan se aktuell status för tjänsten på [Azure Service Health instrument panelen](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du implementerar en strategi för haveri beredskap och hög tillgänglighet finns i [haveri beredskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md).
+Mer information om hur du implementerar en strategi för haveri beredskap och hög tillgänglighet finns i [haveri beredskap och hög tillgänglighet för Azure-program](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 Information om hur du utvecklar en detaljerad teknisk förståelse av moln plattformens funktioner finns i [teknisk vägledning för Azure-återhämtning](/azure/architecture/checklist/resiliency-per-service).

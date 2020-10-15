@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 75603593e8c290b6bcb059207858d663ab5c96d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68daec6bb6682d2b488abacb2f79bdfadc4ae628
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460124"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076580"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Felsöka moln tjänst roller som inte startar
 Här följer några vanliga problem och lösningar som rör Azure Cloud Services roller som inte startar.
@@ -122,6 +122,6 @@ Följ dessa steg om du vill åtgärda saknade DLL-och sammansättnings fel:
 När du har kontrollerat att alla fel har åtgärd ATS kan du distribuera tjänsten utan att markera kryss rutan **Aktivera IntelliTrace för .NET 4 roller** .
 
 ## <a name="next-steps"></a>Nästa steg
-Visa fler [fel söknings artiklar](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) för Cloud Services.
+Visa fler [fel söknings artiklar](../index.yml?product=cloud-services&tag=top-support-issue) för Cloud Services.
 
-Information om hur du felsöker problem med moln tjänst roller med hjälp av Azure PaaS Computer Diagnostics-data finns i [blogg serien för Kevin Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Information om hur du felsöker problem med moln tjänst roller med hjälp av Azure PaaS Computer Diagnostics-data finns i [blogg serien för Kevin Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

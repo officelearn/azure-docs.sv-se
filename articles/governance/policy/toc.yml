@@ -240,6 +240,8 @@
           href: /rest/api/resources/policyassignments
         - name: Principdefinitioner
           href: /rest/api/resources/policydefinitions
+        - name: Principundantag
+          href: /rest/api/resources/policyexemptions
         - name: Initiativdefinitioner
           href: /rest/api/resources/policysetdefinitions
         - name: Principspårade resurser

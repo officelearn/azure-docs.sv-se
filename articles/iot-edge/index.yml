@@ -11,12 +11,12 @@ metadata:
   ms.author: kgremban
   manager: philmea
   ms.date: 08/05/2019
-  ms.openlocfilehash: d3a71cd919660686c77b866b9e7fab461678da96
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 63c36cf0f602c7c19e3ec1eb0b38b84a2e3a6e15
+  ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "89300365"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92048346"
 landingContent:
 - title: Utveckla för Linux-enheter
   linkLists:
@@ -46,18 +46,16 @@ landingContent:
     links:
     - text: Använda Visual Studio 2017 för att utveckla och felsöka moduler
       url: how-to-visual-studio-develop-module.md
-- title: Etablera IoT Edge-enheter
+- title: Skapa en IoT Edge-enhet
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Installera IoT Edge på Linux
-      url: how-to-install-iot-edge-linux.md
-    - text: Installera IoT Edge på Windows
-      url: how-to-install-iot-edge-windows.md
-    - text: Etablera Linux-enheter automatiskt
-      url: how-to-auto-provision-simulated-device-linux.md
-    - text: Etablera Windows-enheter automatiskt
-      url: how-to-auto-provision-simulated-device-windows.md
+    - text: Installera IoT Edge-körningen
+      url: how-to-install-iot-edge.md
+    - text: Registrera och etablera en enskild enhet
+      url: how-to-manual-provision-symmetric-key.md
+    - text: Registrera och etablera enheter i stor skala
+      url: how-to-auto-provision-symmetric-keys.md
 - title: Interagera med communityn för öppen källkod
   linkLists:
   - linkListType: get-started
@@ -105,7 +103,7 @@ landingContent:
   - linkListType: deploy
     links:
     - text: REST-API för IoT Hub
-      url: https://docs.microsoft.com/rest/api/iothub/
+      url: /rest/api/iothub/
 - title: Distribuera AI till gränsen
   linkLists:
   - linkListType: tutorial

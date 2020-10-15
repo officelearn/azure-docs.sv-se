@@ -5,9 +5,14 @@
     - name: Vad är Azure Bastion?
       href: bastion-overview.md
 - name: Snabbstarter
+  expanded: true
   items:
-    - name: Skapa en Bastion-värd från VM-inställningar
+    - name: Skapa en värd med hjälp av VM-inställningar
       href: quickstart-host-portal.md
+- name: Självstudier
+  items:
+    - name: Skapa värd och ansluta till en virtuell Windows-dator
+      href: tutorial-create-host-portal.md
 - name: Begrepp
   items:
     - name: Stöd för distansarbete
@@ -16,10 +21,10 @@
       href: work-remotely-support.md
 - name: Anvisningar
   items:
-    - name: Skapa en Bastion-värd
+    - name: Skapa en värd
       items:
         - name: Azure Portal
-          href: bastion-create-host-portal.md
+          href: tutorial-create-host-portal.md
         - name: Azure PowerShell
           href: bastion-create-host-powershell.md
         - name: Azure CLI
@@ -65,7 +70,7 @@
     - name: Blogg
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-virtual-network.html'
+      href: /answers/topics/azure-virtual-network.html
     - name: Förhandsversion – serviceavtal
       href: 'https://azure.microsoft.com/support/legal/preview-supplemental-terms'
     - name: SLA

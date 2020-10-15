@@ -5,6 +5,7 @@
     - name: Vad är Virtual WAN?
       href: virtual-wan-about.md
 - name: Självstudier
+  expanded: true
   items:
     - name: Skapa en plats-till-plats-anslutning
       href: virtual-wan-site-to-site-portal.md

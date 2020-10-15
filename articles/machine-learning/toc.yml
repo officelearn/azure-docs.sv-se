@@ -166,6 +166,8 @@
               href: how-to-setup-authentication.md
             - name: Hantera användare och roller
               href: how-to-assign-roles.md
+            - name: Använda hanterade identiteter för åtkomstkontroll
+              href: how-to-use-managed-identities.md
             - name: Använda Azure AD-identitet i AKS-distributioner
               href: how-to-use-azure-ad-identity.md
         - name: Nätverkssäkerhet

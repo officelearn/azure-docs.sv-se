@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7fcced1833cb5f4ccb9c2c2fd44dd84a9abb3cb
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764051"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077872"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Skapa Azure-instrumentpaneler program mässigt
 
@@ -78,13 +78,13 @@ Om du vill publicera den här instrument panelen för en virtuell dator i framti
 Det finns två metoder för API: er som skapar resurser i Azure:
 
 * Tvingande API: er skapa en resurs i taget. Mer information finns i [resurser](/rest/api/resources/resources).
-* Ett mallbaserat distributions system som skapar flera beroende resurser med ett enda API-anrop. Mer information finns i  [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+* Ett mallbaserat distributions system som skapar flera beroende resurser med ett enda API-anrop. Mer information finns i  [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 Mall baserad distribution stöder parameterisering och mall. Vi använder den här metoden i den här artikeln.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Skapa en instrument panel från din mall program mässigt med hjälp av en mall distribution
 
-Azure ger möjlighet att dirigera distributionen av flera resurser. Du skapar en distributions mall som uttrycker den uppsättning resurser som ska distribueras och relationerna mellan dem.  JSON-formatet för varje resurs är detsamma som om du skapade dem en i taget. Skillnaden är att mallens språk lägger till några begrepp som variabler, parametrar, grundläggande funktioner och mycket annat. Den här utökade syntaxen stöds bara i kontexten för en mall distribution. Den fungerar inte om den används med de tvingande API: erna som beskrivs ovan. Mer information finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure ger möjlighet att dirigera distributionen av flera resurser. Du skapar en distributions mall som uttrycker den uppsättning resurser som ska distribueras och relationerna mellan dem.  JSON-formatet för varje resurs är detsamma som om du skapade dem en i taget. Skillnaden är att mallens språk lägger till några begrepp som variabler, parametrar, grundläggande funktioner och mycket annat. Den här utökade syntaxen stöds bara i kontexten för en mall distribution. Den fungerar inte om den används med de tvingande API: erna som beskrivs ovan. Mer information finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md).
 
 Parameterisering bör göras med mallens parameter-syntax.  Du ersätter alla instanser av resurs-ID: t som vi tidigare hittade här.
 
@@ -125,7 +125,7 @@ Deklarera nödvändiga mall-metadata och parametrarna överst i JSON-mallen så 
 När du har konfigurerat mallen kan du distribuera den med någon av följande metoder:
 
 * [REST API:er](/rest/api/resources/deployments)
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
 * [Sidan distribution av Azure Portal mall](https://portal.azure.com/#create/Microsoft.Template)
 

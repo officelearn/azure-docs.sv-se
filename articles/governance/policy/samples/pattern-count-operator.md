@@ -1,14 +1,14 @@
 ---
 title: 'Mönster: operatorn Count i en princip definition'
 description: Detta Azure Policy mönster ger ett exempel på hur du använder operatorn Count i en princip definition.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 807890b7fb08d790deff6e0be9e08ad91c4ec44d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85565748"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076410"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Azure Policy mönster: operatorn Count
 

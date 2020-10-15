@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de060be7ace84ea309b71087a50fd572091bed43
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72965376"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076461"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Lägga till en IoT Edge enhet till din lösning för fjärr styrnings lösning
 
@@ -40,15 +40,15 @@ Det är också möjligt att registrera en IoT Edge-enhet direkt med IoT Hub-inst
 
 När du registrerar en enhet direkt med IoT Hub i lösnings acceleratorn för fjärrövervakning visas den på sidan **Device Explorer** i webb gränssnittet.
 
-## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge runtime
+## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
 Innan du kan distribuera moduler till din gräns enhet måste du installera IoT Edge runtime på den riktiga enheten. Följande instruktions guider visar hur du installerar körningen på vanliga enhets plattformar:
 
 - [Installera Azure IoT Edge runtime på Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Installera Azure IoT Edge runtime på Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)
-- [Installera Azure IoT Edge runtime på Windows som ska användas med Windows-behållare](../iot-edge/how-to-install-iot-edge-windows-with-windows.md)
+- [Installera Azure IoT Edge runtime på Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux.md)
+- [Installera Azure IoT Edge runtime på Windows som ska användas med Windows-behållare](../iot-edge/how-to-install-iot-edge-windows.md)
 - [Installera Azure IoT Edge runtime på Windows som ska användas med Linux-behållare](../iot-edge/how-to-install-iot-edge-windows-with-linux.md)
-- [Installera IoT Edge runtime på Windows IoT Core](../iot-edge/how-to-install-iot-core.md)
+- [Installera IoT Edge runtime på Windows IoT Core](../iot-edge/how-to-install-iot-edge-windows.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

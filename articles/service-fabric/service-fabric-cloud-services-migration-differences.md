@@ -5,12 +5,12 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: c98aeaff3ba39a28fad68454d76f6f4d33f44e5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 763b9977f756075789b826c2f1e01cd41ac60a73
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836742"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091176"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Lär dig mer om skillnaderna mellan Cloud Services och Service Fabric innan du migrerar program.
 Microsoft Azure Service Fabric är nästa generations moln program plattform för mycket skalbara, mycket pålitliga distribuerade program. Den introducerar många nya funktioner för paketering, distribution, uppgradering och hantering av distribuerade moln program. 
@@ -69,7 +69,7 @@ Med direkt kommunikation kan nivåer kommunicera direkt genom slut punkt som exp
 
 Service Fabric tillhandahåller en funktion för identifiering av tjänst, som kallas Naming Service, som kan användas för att lösa slut punkts adresser för tjänster. 
 
-![Service Fabric direkt kommunikation][6]
+![Diagram som visar hur Service Fabric tillhandahåller en funktion för identifiering av tjänst, som kallas Naming Service, som kan användas för att lösa slut punkts adresser för tjänster.][6]
 
 ### <a name="queues"></a>Köer
 En gemensam kommunikations mekanism mellan nivåer i tillstånds lösa miljöer som Cloud Services är att använda en extern lagrings kö för att varaktigt lagra arbets uppgifter från en nivå till en annan. Ett vanligt scenario är en webb nivå som skickar jobb till en Azure-kö eller Service Bus där arbets Rolls instanser kan ta ur kö och bearbeta jobben.
@@ -98,7 +98,7 @@ Samma kommunikations modell kan användas i Service Fabric. Detta kan vara anvä
 | Roll. GetInstances | FabricClient. QueryManager. GetNodeList eller ResolveService | * |
 | RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime. GetActivationContext eller Naming (ResolveService) | * |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Den enklaste sökvägen från Cloud Services till Service Fabric är att bara ersätta Cloud Services-distributionen med ett Service Fabric program, så att programmets övergripande arkitektur är ungefär samma. Följande artikel innehåller en guide som hjälper dig att konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst.
 
 * [Enkel migrering: konvertera en webb-eller arbets roll till en Service Fabric tillstånds lös tjänst](service-fabric-cloud-services-migration-worker-role-stateless-service.md)

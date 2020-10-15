@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cf5553bec5985ba0310b4a347b0d2c60da6924
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888472"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090717"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Konfigurera en utvecklings miljö i Azure våren Cloud
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du konfigurerar en mellanlagrings distribution m
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du redan har distribuerat PiggyMetrics-programmet från vår [själv studie kurs om hur du startar ett Azure våren Cloud-program](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics består av tre program: "Gateway", "Account-service" och "auth-service".  
+Den här artikeln förutsätter att du redan har distribuerat PiggyMetrics-programmet från vår [själv studie kurs om hur du startar ett Azure våren Cloud-program](./spring-cloud-quickstart.md). PiggyMetrics består av tre program: "Gateway", "Account-service" och "auth-service".  
 
 Om du vill använda ett annat program för det här exemplet måste du göra en enkel ändring i en offentlig del av programmet.  Den här ändringen särskiljer mellanlagrings distributionen från produktionen.
 

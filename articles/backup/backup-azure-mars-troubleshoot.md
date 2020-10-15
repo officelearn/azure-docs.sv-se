@@ -3,12 +3,12 @@ title: Felsöka Azure Backup Agent
 description: I den här artikeln får du lära dig hur du felsöker installationen och registreringen av den Azure Backup agenten.
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: 86f9dfd8554e2560ea16a85c3551dba3f7dc01f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e2e807a8b849af435fe82d54bbfdd96b729fa38
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019631"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091465"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -67,7 +67,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 
 | Fel   | Rekommenderade åtgärder |
 | ---     | ---    |
-|Det gick inte att ladda ned filen med valv behörighet. (ID: 403) | <ul><li> Försök att ladda ned autentiseringsuppgifter för valvet med hjälp av en annan webbläsare eller utför följande steg: <ul><li> Starta Internet Explorer. Välj F12. </li><li> Gå till fliken **nätverk** och rensa cacheminnet och cookies. </li> <li> Uppdatera sidan.<br></li></ul> <li> Kontrol lera om prenumerationen är inaktive rad/upphör att gälla.<br></li> <li> Kontrol lera om någon brand Väggs regel blockerar nedladdningen. <br></li> <li> Se till att du inte har förbrukat gränsen för valvet (50 datorer per valv).<br></li>  <li> Se till att användaren har de Azure Backup behörigheter som krävs för att hämta autentiseringsuppgifter för valvet och registrera en server med valvet. Se [använda Role-Based Access Control för att hantera Azure Backup återställnings punkter](backup-rbac-rs-vault.md).</li></ul> |
+|Det gick inte att ladda ned filen med valv behörighet. (ID: 403) | <ul><li> Försök att ladda ned autentiseringsuppgifter för valvet med hjälp av en annan webbläsare eller utför följande steg: <ul><li> Starta Internet Explorer. Välj F12. </li><li> Gå till fliken **nätverk** och rensa cacheminnet och cookies. </li> <li> Uppdatera sidan.<br></li></ul> <li> Kontrol lera om prenumerationen är inaktive rad/upphör att gälla.<br></li> <li> Kontrol lera om någon brand Väggs regel blockerar nedladdningen. <br></li> <li> Se till att du inte har förbrukat gränsen för valvet (50 datorer per valv).<br></li>  <li> Se till att användaren har de Azure Backup behörigheter som krävs för att hämta autentiseringsuppgifter för valvet och registrera en server med valvet. Se [använda rollbaserad åtkomst kontroll i Azure för att hantera Azure Backup återställnings punkter](backup-rbac-rs-vault.md).</li></ul> |
 
 ## <a name="the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup"></a>Microsoft Azure Recovery Service-agenten kunde inte ansluta till Microsoft Azure Backup
 

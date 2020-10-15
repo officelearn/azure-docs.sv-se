@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087262"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091618"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Konfigurera Azure Storage-anslutningssträngar
 
@@ -110,9 +110,10 @@ Slut punkts värden i en anslutnings sträng används för att konstruera begär
 
 Om du har mappat en lagrings slut punkt till en anpassad domän och utelämnar slut punkten från en anslutnings sträng, kommer du inte att kunna använda anslutnings strängen för att komma åt data i den tjänsten från din kod.
 
+Mer information om hur du konfigurerar en anpassad domän för Azure Storage finns i [Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](../blobs/storage-custom-domain-name.md).
+
 > [!IMPORTANT]
-> Värdena för tjänst slut punkten i anslutnings strängarna måste vara välformulerade URI: er, inklusive `https://` (rekommenderas) eller `http://` . Eftersom Azure Storage ännu inte stöder HTTPS för anpassade domäner *måste* du ange `http://` för alla slut punkts-URI: er som pekar på en anpassad domän.
->
+> Värdena för tjänst slut punkten i anslutnings strängarna måste vara välformulerade URI: er, inklusive `https://` (rekommenderas) eller `http://` .
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Skapa en anslutnings sträng med ett slut punkts suffix
 

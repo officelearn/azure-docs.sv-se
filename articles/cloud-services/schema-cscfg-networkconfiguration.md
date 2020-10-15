@@ -9,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 28
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: 695ba3acfd5af8797de6e6f7454e493d7863627c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3f62bb33332e818cc40c5195a1cc2f667f819b4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79529296"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072585"
 ---
 # <a name="azure-cloud-services-config-networkconfiguration-schema"></a>NetworkConfiguration-schema för Azure Cloud Services config
 
@@ -24,7 +24,7 @@ Du kan använda följande resurs för att lära dig mer om virtuella nätverk oc
 
 - [Konfigurations schema för moln tjänst (klassisk)](schema-cscfg-file.md)
 - [Definitions schema för moln tjänst (klassisk)](schema-csdef-file.md)
-- [Skapa en Virtual Network (klassisk)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)
+- [Skapa en Virtual Network (klassisk)](/previous-versions/azure/virtual-network/virtual-networks-create-vnet-classic-pportal)
 
 ## <a name="networkconfiguration-element"></a>NetworkConfiguration-element
 I följande exempel visas `NetworkConfiguration` elementet och dess underordnade element.

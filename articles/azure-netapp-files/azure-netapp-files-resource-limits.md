@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/16/2020
+ms.date: 10/14/2020
 ms.author: b-juche
-ms.openlocfilehash: 0ddb9998c1e1b9b70303aeb4608bc0b53bc103ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6963a1f39534573bca39431febe391e89d462875
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325495"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072789"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
 
@@ -31,23 +31,23 @@ I följande tabell beskrivs resurs gränser för Azure NetApp Files:
 
 |  Resurs  |  Standardgräns  |  Justerbar via supportbegäran  |
 |----------------|---------------------|--------------------------------------|
-|  Antal NetApp-konton per Azure-region   |  10    |  Ja   |
-|  Antal kapacitets pooler per NetApp-konto   |    25     |   Ja   |
-|  Antal volymer per prenumeration   |    500     |   Ja   |
-|  Antal volymer per kapacitets grupp     |    500   |    Ja     |
-|  Antal ögonblicks bilder per volym       |    255     |    Inga        |
-|  Antal undernät som har delegerats till Azure NetApp Files (Microsoft. NetApp/Volumes) per Azure-Virtual Network    |   1   |    Inga    |
-|  Antal använda IP-adresser i ett VNet (inklusive direkt peer-virtuella nätverk) med Azure NetApp Files   |    1000   |    Inga   |
-|  Minsta storlek på en pool med enskild kapacitet   |  4 TiB     |    Inga  |
-|  Maximal storlek för en pool med enskild kapacitet    |  500 TiB   |   Inga   |
-|  Minsta storlek på en enskild volym    |    100 GiB    |    Inga    |
-|  Maximal storlek på en enskild volym     |    100 TiB    |    Inga    |
-|  Maximal storlek för en enskild fil     |    16 TiB    |    Inga    |    
-|  Maximal storlek på katalogens metadata i en enskild katalog      |    320 MB    |    Inga    |    
-|  Maximalt antal filer ([maxfiles](#maxfiles)) per volym     |    100 000 000    |    Ja    |    
-|  Lägsta tilldelade data flöde för en manuell QoS-volym     |    1 MiB/s   |    Inga    |    
-|  Maximalt kopplat data flöde för en manuell QoS-volym     |    4 500 MiB/s    |    Inga    |    
-|  Antal data skydds volymer för replikering mellan regioner (mål volymer)     |    5    |    Ja    |     
+|  Antal NetApp-konton per Azure-region   |  10    |  Yes   |
+|  Antal kapacitets pooler per NetApp-konto   |    25     |   Yes   |
+|  Antal volymer per prenumeration   |    500     |   Yes   |
+|  Antal volymer per kapacitets grupp     |    500   |    Yes     |
+|  Antal ögonblicks bilder per volym       |    255     |    No        |
+|  Antal undernät som har delegerats till Azure NetApp Files (Microsoft. NetApp/Volumes) per Azure-Virtual Network    |   1   |    No    |
+|  Antal använda IP-adresser i ett VNet (inklusive direkt peer-virtuella nätverk) med Azure NetApp Files   |    1000   |    No   |
+|  Minsta storlek på en pool med enskild kapacitet   |  4 TiB     |    No  |
+|  Maximal storlek för en pool med enskild kapacitet    |  500 TiB   |   No   |
+|  Minsta storlek på en enskild volym    |    100 GiB    |    No    |
+|  Maximal storlek på en enskild volym     |    100 TiB    |    No    |
+|  Maximal storlek för en enskild fil     |    16 TiB    |    No    |    
+|  Maximal storlek på katalogens metadata i en enskild katalog      |    320 MB    |    No    |    
+|  Maximalt antal filer ([maxfiles](#maxfiles)) per volym     |    100 000 000    |    Yes    |    
+|  Lägsta tilldelade data flöde för en manuell QoS-volym     |    1 MiB/s   |    No    |    
+|  Maximalt kopplat data flöde för en manuell QoS-volym     |    4 500 MiB/s    |    No    |    
+|  Antal data skydds volymer för replikering mellan regioner (mål volymer)     |    5    |    Yes    |     
 
 Mer information finns i [vanliga frågor och svar om kapacitets hantering](azure-netapp-files-faqs.md#capacity-management-faqs).
 
@@ -65,7 +65,7 @@ Tjänsten justerar dynamiskt maxfiles-gränsen för en volym baserat på dess et
 |    > 3 TiB men <= 4 TiB    |    80 000 000     |
 |    > 4 TiB                 |    100 000 000    |
 
-Om du redan har tilldelat minst 4 TiB av kvoten för en volym kan du initiera en [support förfrågan](#limit_increase) för att öka maxfiles-gränsen bortom 100 000 000.
+Om du redan har tilldelat minst 4 TiB av kvoten för en volym kan du initiera en [support förfrågan](#limit_increase) för att öka maxfiles-gränsen bortom 100 000 000. För varje 100 000 000-filer som du ökar (eller en del av) måste du öka den motsvarande volym kvoten med 4 TiB.  Om du till exempel ökar maxfiles-gränsen från 100 000 000-filer till 200 000 000-filer (eller ett värde mellan) måste du öka volym kvoten från 4 TiB till 8 TiB.
 
 ## <a name="request-limit-increase"></a>Begär gräns ökning <a name="limit_increase"></a> 
 

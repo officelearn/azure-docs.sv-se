@@ -50,7 +50,7 @@
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
         - name: Azure Defender för Kubernetes
-          displayName: 'clusters, k8s'
+          displayName: 'clusters, k8s, aks'
           href: defender-for-kubernetes-introduction.md
         - name: Azure Defender för containerregister
           displayName: 'ACR, registry, images'
@@ -58,7 +58,7 @@
         - name: Ytterligare skydd mot hot
           href: other-threat-protections.md
     - name: Säkerhetsfunktioner för containrar i Security Center
-      displayName: 'kubernetes, aks, acr, registries'
+      displayName: 'kubernetes, aks, acr, registries, k8s'
       href: container-security.md
     - name: Prissättning
       href: security-center-pricing.md
@@ -79,6 +79,8 @@
           href: quickstart-onboard-gcp.md
     - name: Automatisera registrering med PowerShell
       href: security-center-powershell-onboarding.md
+    - name: Aktivera Security Center för en hanteringsgrupp
+      href: onboard-management-group.md
     - name: Konfigurera datainsamling
       href: security-center-enable-data-collection.md
     - name: Konfigurera e-postmeddelanden
@@ -140,8 +142,6 @@
             - name: Automatisera svar på rekommendationer
               displayName: workflow
               href: workflow-automation.md
-            - name: Exportera rekommendationer
-              href: continuous-export.md
             - name: Undanta en resurs från en rekommendation
               href: exempt-resource.md
     - name: Azure Defender-aviseringar
@@ -169,17 +169,20 @@
           href: update-regulatory-compliance-packages.md
     - name: Använda Azure Defender för servrar
       items:
-        - name: Sårbarhetssökning för virtuella datorer
+        - name: Sårbarhetsgenomsökning
           items:
-            - name: Sök igenom virtuella datorer med den integrerade VA-lösningen
-              displayName: 'qualys, vulnerability'
+            - name: Integrerad VA-genomsökare för datorer
+              displayName: 'qualys, vulnerability, arc'
               href: deploy-vulnerability-assessment-vm.md
             - name: Sök igenom virtuella datorer med BYOL VA-lösningen
               displayName: 'qualys, rapid7, vulnerability'
               href: deploy-vulnerability-assessment-byol-vm.md
-            - name: Granska och åtgärda sårbarheter i dina virtuella datorer
+            - name: Granska och åtgärda sårbarheter
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
+            - name: Inaktivera specifika sårbarhetsresultat
+              displayName: 'qualys, rapid7, vulnerability'
+              href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Skydda hanteringsportar med just-in-time-åtkomst till virtuella datorer
           items:
             - name: Översikt över just-in-time-åtkomst till virtuella datorer
@@ -213,6 +216,15 @@
     - name: Använda Azure Defender för containerregister
       displayName: 'ACR, registry, images'
       href: defender-for-container-registries-usage.md
+    - name: Exportera aviseringar och rekommendationer
+      items:
+        - name: 'Exportera till en SIEM, SOAR eller ITSM'
+          displayName: 'continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,'
+          href: export-to-siem.md
+        - name: Exportera till en Log Analytics-arbetsyta eller Azure Event Hub
+          href: continuous-export.md
+        - name: Ladda ned en CSV-rapport med alla aviseringar
+          href: continuous-export.md#manual-one-time-export-of-alerts-and-recommendations
     - name: Hantera Azure Defender-aviseringar
       items:
         - name: Hantera säkerhetsaviseringar
@@ -226,16 +238,14 @@
           href: security-center-incident.md
         - name: Generera rapporter om hotinformation
           href: security-center-threat-report.md
-        - name: Verifiera din aviseringskonfiguration (EICAR-testningsfil)
+        - name: Verifiera din aviseringskonfiguration
+          displayname: 'eicar, Kubernetes, Linux'
           href: security-center-alert-validation.md
         - name: Automatisera svar på aviseringar
           displayName: workflow
           href: workflow-automation.md
-        - name: Exportera aviseringar
-          displayName: continuous
-          href: continuous-export.md
     - name: Skydda dina Kubernetes-arbetsbelastningar
-      displayName: 'k8s, containers'
+      displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
     - name: Hantera användardata för undersökning
       href: security-center-investigation-user-data.md

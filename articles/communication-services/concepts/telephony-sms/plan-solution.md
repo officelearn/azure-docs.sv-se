@@ -10,19 +10,19 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0420360b70485e49dc6cd06dbeb19400c0f73ef5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048227"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070358"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planera din telefoni- och SMS-lösning
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Azure Communication Services gör att du kan använda telefonnummer för att ringa röst samtal och skicka SMS-meddelanden med det offentliga telefonnätet. I det här dokumentet granskar vi telefonnummer typer, planer och regions tillgänglighet för att planera din telefoni-och SMS-lösning med hjälp av kommunikations tjänster.
+Azure Communication Services gör att du kan använda telefonnummer för att ringa röst samtal och skicka SMS-meddelanden med det offentliga telefonnätet. I det här dokumentet granskar vi telefonnummer typer, konfigurations alternativ och regions tillgänglighet för att planera din telefoni-och SMS-lösning med hjälp av kommunikations tjänster.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -51,19 +51,19 @@ I tabellen nedan sammanfattas dessa telefonnummer typer:
 | Toll-Free         | + 1 (avgiftsfrit rikt *nummer*) xxx xx xx | USA                      | Anrop (utgående), SMS (inkommande/utgående)| Tilldela telefonnummer till IVR-system/robotar-system (Interactive Voice Response), SMS-program                                        |
 
 
-## <a name="phone-number-plans-in-azure-communication-services"></a>Telefonnummers planer i Azure Communication Services 
+## <a name="phone-number-features-in-azure-communication-services"></a>Telefonnummer funktioner i Azure Communication Services 
 
-För de flesta telefonnummer ger vi dig möjlighet att konfigurera en "a la carte"-uppsättning planer. Vissa utvecklare behöver bara en utgående samtals plan. vissa kan välja utgående uppringnings-och utgående SMS-planer. Dessa planer kan väljas när du lånar dina telefonnummer i Azure Communication Services.
+För de flesta telefonnummer ger vi dig möjlighet att konfigurera en "a la carte"-uppsättning funktioner. Dessa funktioner kan väljas när du lånar dina telefonnummer i Azure Communication Services.
 
-Vilka planer som är tillgängliga beror på vilket land du arbetar i, ditt användnings fall och vilken typ av telefonnummer som du har valt. Dessa planer varierar mellan länder, på grund av myndighets krav. Azure Communication Services erbjuder följande planer:
+Vilka funktioner som är tillgängliga beror på vilket land du arbetar i, ditt användnings fall och vilken typ av telefonnummer som du har valt. De här funktionerna varierar beroende på vilket land som är på grund av myndighets krav. Azure Communication Services erbjuder följande telefonnummer funktioner:
 
-- **Envägs utgående SMS** Med den här planen kan du skicka SMS-meddelanden till dina användare. Den här planen är användbar för scenarier som meddelanden och aviseringar med två faktorer. 
-- **Tvåvägs inkommande och utgående SMS** Med den här planen kan du skicka och ta emot meddelanden från dina användare med hjälp av telefonnummer. Den här planen är användbar i scenarier med kund tjänst.
-- **Envägs utgående telefon samtal** Med den här planen kan du ringa till dina användare och konfigurera uppringnings-ID för utgående samtal som har lagts till av tjänsten. Den här planen är användbar i scenarier för kund tjänst och röst meddelanden.
+- **Envägs utgående SMS** Med det här alternativet kan du skicka SMS-meddelanden till dina användare. Detta kan vara användbart i meddelande-och tvåfaktorautentisering. 
+- **Tvåvägs inkommande och utgående SMS** Med det här alternativet kan du skicka och ta emot meddelanden från dina användare med hjälp av telefonnummer. Detta kan vara användbart i kund tjänst scenarier.
+- **Envägs utgående telefon samtal** Med det här alternativet kan du ringa till dina användare och konfigurera uppringnings-ID för utgående samtal som har placerats av tjänsten. Detta kan vara användbart i scenarier för kund tjänst och röst meddelanden.
 
 ## <a name="countryregion-availability"></a>Tillgänglighet för land/region
 
-I följande tabell visas var du kan hämta olika typer av telefonnummer tillsammans med de inkommande och utgående samtals-och SMS-funktionerna som är associerade med dessa telefonnummer typer.
+I följande tabell visas var du kan hämta olika typer av telefonnummer tillsammans med de inkommande och utgående anrops-och SMS-funktionerna som är kopplade till dessa telefonnummer typer.
 
 |Siffer typ| Hämta nummer i | Gör anrop till                                        | Ta emot samtal från                                    |Skicka meddelanden till       | Ta emot meddelanden från |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|

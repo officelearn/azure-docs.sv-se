@@ -2,15 +2,15 @@
 title: Felsöka Azure Automation Uppdateringshantering problem
 description: Den här artikeln beskriver hur du felsöker och löser problem med Azure Automation Uppdateringshantering.
 services: automation
-ms.date: 09/30/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: c70d164325f536187c5ce99419bb41daaa9b1e88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d6a87d9b420ea394baaa21c87dff457e4c908d0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858412"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070341"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Felsöka problem med Uppdateringshantering
 
@@ -486,6 +486,8 @@ Kontrol lera att system-kontot har Läs behörighet till mappen **C:\ProgramData
 Standard underhålls perioden för uppdateringar är 120 minuter. Du kan öka underhålls perioden till högst 6 timmar eller 360 minuter.
 
 ### <a name="resolution"></a>Lösning
+
+För att förstå varför detta inträffade under en uppdaterings körning när den har startats, [kontrollerar du jobbets utdata](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) från den berörda datorn i körnings processen. Du kan hitta vissa fel meddelanden från dina datorer som du kan söka efter och vidta åtgärder för.  
 
 Redigera eventuella misslyckade schemalagda uppdaterings distributioner och öka underhålls perioden.
 

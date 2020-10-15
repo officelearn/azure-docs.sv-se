@@ -3,12 +3,12 @@ title: Översikt över säkerhets kopierings valv
 description: En översikt över säkerhets kopierings valv.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 773152212ed831c0083cfdf912f45ece578d079f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c189997ecc4814917182246b35003649d317ac77
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997258"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091295"
 ---
 # <a name="backup-vaults-overview"></a>Översikt över säkerhets kopierings valv
 
@@ -16,7 +16,7 @@ I den här artikeln beskrivs funktionerna i ett säkerhets kopierings valv. Ett 
 
 - **Förbättrade funktioner för att skydda säkerhets kopierings data**: med säkerhets kopierings valv ger Azure Backup säkerhetsfunktioner för säkerhets kopiering av molnet. Säkerhetsfunktionerna garanterar att du kan skydda dina säkerhets kopior och återställa data på ett säkert sätt, även om produktions-och säkerhets kopierings servrar komprometteras. [Läs mer](backup-azure-security-feature.md)
 
-- **Rollbaserad Access Control (RBAC)**: RBAC ger detaljerad åtkomst hanterings kontroll i Azure. [Azure tillhandahåller olika inbyggda roller](../role-based-access-control/built-in-roles.md)och Azure Backup har tre [inbyggda roller för att hantera återställnings punkter](backup-rbac-rs-vault.md). Säkerhets kopierings valv är kompatibla med RBAC, vilket begränsar säkerhets kopierings-och återställnings åtkomsten till den definierade uppsättningen användar roller. [Läs mer](backup-rbac-rs-vault.md)
+- **Rollbaserad åtkomst kontroll i Azure (Azure RBAC)**: Azure RBAC tillhandahåller detaljerade åtkomst hanterings kontroller i Azure. [Azure tillhandahåller olika inbyggda roller](../role-based-access-control/built-in-roles.md)och Azure Backup har tre [inbyggda roller för att hantera återställnings punkter](backup-rbac-rs-vault.md). Säkerhets kopierings valv är kompatibla med Azure RBAC, vilket begränsar säkerhets kopierings-och återställnings åtkomsten till den definierade uppsättningen användar roller. [Läs mer](backup-rbac-rs-vault.md)
 
 ## <a name="storage-settings-in-the-backup-vault"></a>Lagrings inställningar i säkerhets kopierings valvet
 

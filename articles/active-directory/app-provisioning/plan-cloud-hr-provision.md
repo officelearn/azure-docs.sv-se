@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706361"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070392"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -31,7 +31,7 @@ Azure AD använder denna integrering för att aktivera följande moln-arbets fl�
 - **Skriv tillbaka till Cloud HR-appen:** Skriv e-postadresserna och attributen för användar namn från Azure AD tillbaka till Cloud HR-appen.
 
 > [!NOTE]
-> I den här distributions planen lär du dig hur du distribuerar dina Cloud HR app-arbetsflöden med användar etablering i Azure AD. Information om hur du distribuerar automatisk användar etablering för SaaS-appar (program vara som en tjänst) finns i [Planera en automatisk distribution av användar etablering](https://aka.ms/deploymentplans/provisioning).
+> I den här distributions planen lär du dig hur du distribuerar dina Cloud HR app-arbetsflöden med användar etablering i Azure AD. Information om hur du distribuerar automatisk användar etablering för SaaS-appar (program vara som en tjänst) finns i [Planera en automatisk distribution av användar etablering](./plan-auto-user-provisioning.md).
 
 ## <a name="enabled-hr-scenarios"></a>Aktiverade HR-scenarier
 
@@ -52,7 +52,7 @@ Cloud HR app-integrering med Azure AD-användar etablering passar utmärkt för 
 - Kräv anslutning till, flytta och lämna användare för att synkroniseras till en eller flera Active Directory skogar, domäner och organisationsenheter enbart baserat på ändrings information som identifieras i Cloud HR-appen.
 - Använd Microsoft 365 för e-post.
 
-## <a name="learn"></a>Läs mer
+## <a name="learn"></a>Learn
 
 Användar etablering skapar en grund för pågående identitets styrning. Det förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -92,11 +92,11 @@ Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations li
 
 | **Resurser** | **Länk och beskrivning** |
 |:-|:-|
-| Videoklipp | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
+| Video | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
 | | [Så här distribuerar du användar etablering i Active Azure-katalogen](https://youtu.be/pKzyts6kfrw) |
 | Självstudier | [Lista över självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md) |
 | | [Självstudie: Konfigurera arbets dag för automatisk användar etablering](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| VANLIGA FRÅGOR OCH SVAR | [Automatiserad användar etablering](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| Vanliga frågor | [Automatiserad användar etablering](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Etablering från Workday till Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>Lösningsarkitektur
@@ -126,7 +126,7 @@ Följande viktiga steg visas i diagrammet:  
 
 ### <a name="engage-the-right-stakeholders"></a>Engagera rätt intressenter
 
-När teknik projekt inte fungerar gör de vanligt vis det på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du är engagerande rätt intressenter](https://aka.ms/deploymentplans). Se också till att från intressenter roller i projektet är väl förstå. Dokumentera intressenterna och deras ingångs-och Accountabilities.
+När teknik projekt inte fungerar gör de vanligt vis det på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du är engagerande rätt intressenter](../fundamentals/active-directory-deployment-plans.md). Se också till att från intressenter roller i projektet är väl förstå. Dokumentera intressenterna och deras ingångs-och Accountabilities.
 
 Ta med en representant från den HR-organisation som kan tillhandahålla indata på befintliga arbets processer och arbets uppgifter för arbets flöde samt jobb data bearbetnings krav.
 
@@ -378,7 +378,7 @@ Azure AD kan ge ytterligare insikter om din organisations användar etablering o
 
 Efter en lyckad [första cykel](../app-provisioning/how-provisioning-works.md#initial-cycle)fortsätter Azure AD Provisioning-tjänsten att köra stegvisa säkerhets uppdateringar på obestämd tid, med intervall som definierats i självstudierna som är särskilda för varje app, tills någon av följande händelser inträffar:
 
-- Tjänsten stoppas manuellt. En ny första cykel utlöses med hjälp av [Azure Portal](https://portal.azure.com/) eller lämpligt [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) -kommando.
+- Tjänsten stoppas manuellt. En ny första cykel utlöses med hjälp av [Azure Portal](https://portal.azure.com/) eller lämpligt [Microsoft Graph API](/graph/api/resources/synchronization-overview) -kommando.
 - En ny första cykel utlöses på grund av en ändring av attributens mappningar eller omfångs filter.
 - Etablerings processen går i karantän på grund av en hög fel frekvens. Den finns kvar i karantän i mer än fyra veckor, då den inaktive ras automatiskt.
 
@@ -416,6 +416,6 @@ Information om hur du felsöker problem som kan uppstå under etableringen finns
 ### <a name="next-steps"></a>Nästa steg
 
 - [Skriver uttryck för mappningar av attribut](functions-for-customizing-application-data.md)
-- [Översikt över Azure AD Synchronization API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Översikt över Azure AD Synchronization API](/graph/api/resources/synchronization-overview)
 - [Hoppa över borttagning av användar konton som ingår i omfånget](skip-out-of-scope-deletions.md)
 - [Azure AD Connect etablerings agent: versions historik](provisioning-agent-release-version-history.md)

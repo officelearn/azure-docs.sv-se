@@ -9,12 +9,12 @@ ms.topic: reference
 caps.latest.revision: 42
 author: tgore03
 ms.author: tagore
-ms.openlocfilehash: dadb50bd0663f47e6a1bf3d58b5187c8b466964d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1896ee8385d1e41feffe7a9f542550ea7f34a8a3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79528378"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072568"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Definitions schema för Azure-Cloud Services (. csdef-fil)
 Tjänst definitions filen definierar tjänst modellen för ett program. Filen innehåller definitionerna för de roller som är tillgängliga för en moln tjänst, anger tjänstens slut punkter och upprättar konfigurations inställningar för tjänsten. Konfigurations inställnings värden anges i tjänst konfigurations filen, enligt beskrivningen i [konfigurations schema för moln tjänst (klassisk)](/previous-versions/azure/reference/ee758710(v=azure.100)).
@@ -68,4 +68,4 @@ I följande tabell beskrivs attributen för- `ServiceDefinition` elementet.
 | name                    |Krävs. Namnet på tjänsten. Namnet måste vara unikt inom tjänst kontot.|
 | topologyChangeDiscovery | Valfritt. Anger typ av meddelande om ändring av topologin. Möjliga värden:<br /><br /> -   `Blast` – Skickar uppdateringen så snart som möjligt till alla roll instanser. Om du väljer alternativet ska rollen kunna hantera topologins uppdatering utan att starta om.<br />-   `UpgradeDomainWalk` – Skickar uppdateringen till varje roll instans på ett sekventiellt sätt efter att uppdateringen har godkänts av föregående instans.|
 | Schema           | Valfritt. Anger versionen för tjänst definitions schema. Med schema versionen kan Visual Studio välja rätt SDK-verktyg som ska användas för schema validering om fler än en version av SDK: n installeras sida vid sida.|
-| upgradeDomainCount      | Valfritt. Anger det antal uppgraderings domäner över vilka roller i den här tjänsten allokeras. Roll instanser tilldelas en uppgraderings domän när tjänsten distribueras. Mer information finns i [Uppdatera en moln tjänst roll eller distribution](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [Hantera tillgängligheten för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) och [vad som är en moln tjänst modell](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> Du kan ange upp till 20 uppgraderings domäner. Om inget värde anges är standard antalet uppgraderings domäner 5.|
+| upgradeDomainCount      | Valfritt. Anger det antal uppgraderings domäner över vilka roller i den här tjänsten allokeras. Roll instanser tilldelas en uppgraderings domän när tjänsten distribueras. Mer information finns i [Uppdatera en moln tjänst roll eller distribution](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [Hantera tillgängligheten för virtuella datorer](../virtual-machines/manage-availability.md) och [vad som är en moln tjänst modell](./cloud-services-model-and-package.md).<br /><br /> Du kan ange upp till 20 uppgraderings domäner. Om inget värde anges är standard antalet uppgraderings domäner 5.|

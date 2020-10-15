@@ -1,10 +1,10 @@
 ---
-title: Lösningsarkitektur
-description: Lär dig mer om informations flödet i Azure Defender for IoT-tjänsten.
+title: Azure Defender för IoT-arkitektur
+description: Lär dig mer om Azure Defender för IoT-arkitektur och informations flöde.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: elazark
+author: rkarlin
 manager: rkarlin
 editor: ''
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
-ms.author: v-ekrieg
-ms.openlocfilehash: 3fc695770350e5a60ae3da9ab1796da5cac99370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: rkarlin
+ms.openlocfilehash: ea62592ed155215b14666d0d56e09dbb1a83ed6e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843421"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093471"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Azure Defender för IoT-arkitektur
 
@@ -26,26 +26,79 @@ I den här artikeln beskrivs den funktionella system arkitekturen i Defender for
 
 ## <a name="defender-for-iot-components"></a>Defender för IoT-komponenter
 
-Defender för IoT består av följande komponenter:
+Defender för IoT ansluter både till Azure-molnet och lokala komponenter. Lösningen är utformad för skalbarhet i stora och geografiskt distribuerade miljöer med flera fjärranslutna platser. Den här lösningen möjliggör en distribuerad arkitektur med flera lager efter land, region, affär senhet eller zon. 
 
-- IoT Hub-integrering
-- Enhets agenter (valfritt)
-- Skicka Security Message SDK
-- Analytics-pipeline
+Azure Defender för IoT innehåller följande komponenter: 
+- Azure Defender för IoT-sensorer
+- Hanterings konsoler:
+    - Sensor konsol
+    - Lokal hanterings konsol
+    - Azure Portal
+- Inbäddad säkerhets agent (säkerhetsmodulen och IoT SDK)
 
-### <a name="defender-for-iot-workflows"></a>Defender för IoT-arbetsflöden
+![Defender för IoT-arkitektur](./media/architecture/defender-iot-security-architecture.png)
 
-Defender för IoT fungerar i ett av två funktions arbets flöden: inbyggda och förbättrade
+### <a name="azure-defender-for-iot-sensors"></a>Azure Defender för IoT-sensorer
 
-### <a name="built-in"></a>Inbyggd
+Defender för IoT-sensorer identifierar och övervakar nätverks enheter kontinuerligt. Sensorer samlar in ICS-nätverkstrafik med passiv (agent utan agent) övervakning på IoT-och-enheter-enheter. 
+ 
+Syfte – byggd för IoT och andra nätverk, men utan agent ger en djup insyn i IoT och synlig risk inom några minuter efter anslutning till nätverket. Prestanda påverkas av nätverks-och nätverks enheter på grund av den icke-invasiva NTA-metoden (Network Traffic Analysis). 
+ 
+Med hjälp av patenterad, IoT och med funktions medveten analys och lager 7 djup paket inspektion (DPI) kan du analysera mer än traditionella signaturer för att omedelbart identifiera avancerade IoT-och känsligt hot (t. ex. filskadlig kod) baserat på avvikande eller otillåten aktivitet. 
+  
+Defender för IoT-sensorer ansluter till en intervall port eller ett nätverk, och börjar direkt utföra DPI på IoT-och nätverks trafik. 
+ 
+Data insamling, bearbetning, analys och avisering äger rum direkt på sensorn. Detta gör det lämpligt för platser med låg bandbredd eller hög latens anslutning, eftersom endast metadata överförs till hanterings konsolen.
 
-I det **inbyggda** läget är Defender för IoT aktiverat när du väljer att aktivera **säkerhets** alternativet i IoT Hub. Vi erbjuder övervakning i real tid, rekommendationer och aviseringar, det inbyggda läget erbjuder en synlighet för enskilda steg och en oöverträffad säkerhet. Det krävs ingen agent installation på några enheter och det går inte att använda avancerad analys av loggade aktiviteter för att analysera och skydda fält enheten.
+Sensorn inkluderar fem analys motorer. Motorer utlöser aviseringar baserat på analys av både real tids och förregistrerade trafik. Följande motorer är tillgängliga: 
 
-### <a name="enhanced"></a>Optimerad
+#### <a name="protocol-violation-detection-engine"></a>Motor för identifiering av protokoll fel
+Identifierings motorn för protokoll igenkänning identifierar användningen av paket strukturer och fält värden som strider mot ICS-protokollets specifikationer, till exempel: Modbus undantag och inledande av en inaktuell funktions kod aviseringar.
 
-I **Avancerat** läge, efter att du har aktiverat **säkerhets** alternativet i din IoT Hub och installerat Defender för IoT-enhets agenter på dina enheter, samlar agenterna samman, sammanställa och analyserar rå säkerhets händelser från dina enheter. Rå säkerhets händelser kan omfatta IP-anslutningar, process skapande, användar inloggningar och annan säkerhetsrelaterad information. Skydds ansvariga för IoT-enhets agenter hanterar också händelse agg regering för att undvika hög nätverks data flöde. Agenterna är mycket anpassningsbara, så att du kan använda dem för olika uppgifter, t. ex. genom att bara skicka viktig information till det snabbaste service avtalet, eller för att samla in omfattande säkerhets information och kontext i större segment, vilket kan undvika högre tjänste kostnader.
+#### <a name="policy-violation-detection-engine"></a>Motor för identifiering av princip överträdelser
+Med hjälp av Machine Learning, varnar identifierings motorn användare om eventuella avvikelser från bas linje beteendet, till exempel otillåten användning av vissa funktions koder, åtkomst till vissa objekt eller ändringar i enhets konfigurationen. Till exempel: DeltaV program version har ändrats och otillåtna PLC programmerings aviseringar. Mer specifikt modellererar princip överträdelse-motorn ICS-nätverken som deterministiska sekvenser av tillstånd och över gångar – med hjälp av en patenterad teknik som kallas för IFSM (industriellt begränsad tillstånds modellering). Identifierings motorn för princip avkänning upprättar en bas linje för ICS-nätverken, så att plattformen kräver en kortare inlärnings period för att bygga en bas linje för nätverket än allmänna matematiska metoder eller analyser, som ursprungligen utvecklades för IT i stället för nätverk.
 
-![Defender för IoT-arkitektur](./media/architecture/azure-iot-security-architecture.png)
+#### <a name="industrial-malware-detection-engine"></a>Identifierings motor för industriella skadlig kod
+Den industriella motorn för identifiering av skadlig kod identifierar beteenden som indikerar förekomst av känt skadlig kod, till exempel Conficker, svart energi, Havex, WannaCry, NotPetya och Triton. 
+
+#### <a name="anomaly-detection-engine"></a>Avvikelse identifierings motor
+Motorn för avvikelse identifiering identifierar onormal kommunikation mellan maskin-till-dator (M2M) och beteenden. Genom att modellera ICS-nätverk som deterministiska sekvenser av tillstånd och över gångar, kräver plattformen en kortare inlärnings period än allmänna matematiska metoder eller analyser som ursprungligen utvecklades för IT snarare än. Den identifierar även avvikelser snabbare, med minimala falska positiva identifieringar. Aviseringar för avvikelse identifierings motorn inkluderar överdriven SMB-inloggningsförsök och PLC-genomsökning upptäckte varningar.
+
+#### <a name="operational-incident-detection"></a>Identifiering av drift incident
+Identifieringen av drifts incidenter identifierar drift problem, till exempel tillfällig anslutning som kan indikera tidig tecken på utrustnings fel. Till exempel är enheten misstänkt att frånkopplas (svarar inte) och Siemens S7 Stop PLC-kommandot skickade aviseringar.
+
+
+### <a name="management-consoles"></a>Hanterings konsoler
+Hantering av Azure Defender för IoT i hybrid miljöer sker via två hanterings portaler: 
+- Sensor konsol
+- Den lokala hanterings konsolen
+- Azure-portalen
+
+#### <a name="sensor-console"></a>Sensor konsol
+Sensor identifieringar visas i sensor konsolen där de kan visas, undersökas och analyseras i en nätverks karta, till gångs inventering och i många olika rapporter, till exempel riskhanterings rapporter, frågor om Data utvinning och angrepps vektorer. Du kan också använda-konsolen för att visa och hantera hot som upptäckts av sensor motorer, vidarebefordra information till tredje parts system, hantera användare med mera.
+
+![Defender för IoT sensor konsol](./media/architecture/sensor-console.png)
+
+#### <a name="on-premises-management-console"></a>Lokal hanterings konsol
+Den lokala hanterings konsolen gör det möjligt för SOC-operatörer att hantera och analysera aviseringar som sammanställs från flera sensorer till en enda instrument panel och ger en övergripande vy över hälsan hos de olika nätverken.
+
+Den här arkitekturen ger en heltäckande vy över nätverket på en SOC nivå, optimerad aviserings hantering och kontroll av drift nätverks säkerhet, vilket säkerställer att besluts fattande och riskhantering är felfritt.
+
+Förutom hantering av flera innehavare, övervakning, data analys och centraliserad sensor, innehåller hanterings konsolen ytterligare system underhålls verktyg (t. ex. varnings undantag) och helt anpassade rapportfunktioner för varje fjärran sluten utrustning. Den här skalbara arkitekturen stöder både lokal hantering på webbplats nivå, zon nivå och global hantering inom SOC.
+
+Hanterings konsolen kan distribueras för konfiguration med hög tillgänglighet, vilket ger en säkerhets kopierings konsol som regelbundet tar emot säkerhets kopior av alla konfigurationsfiler som krävs för återställning. Om fel uppstår i huvud konsolen redundansväxlas de lokala plats hanterings utrustningarna automatiskt över till synkronisering med säkerhets kopierings konsolen för att upprätthålla tillgänglighet utan avbrott.
+
+#### <a name="azure-portal"></a>Azure Portal
+
+Defender för IoT-portalen i Azure används för att hjälpa dig: ·   Köp lösnings utrustning ·   Installera och uppdatera program vara ·   Publicera sensorer till Azure ·   Uppdatera hot informations paket
+
+## <a name="embedded-security-agent-built-in-mode"></a>Inbäddad säkerhets agent: inbyggt läge
+
+I det **inbyggda** läget är Defender för IoT aktiverat när du väljer att aktivera **säkerhets** alternativet i IoT Hub. Vi erbjuder övervakning i real tid, rekommendationer och aviseringar, det inbyggda läget erbjuder en synlighet för enskilda steg och en oöverträffad säkerhet. I det här läget krävs ingen agent installation på några enheter och avancerad analys används för loggade aktiviteter för att analysera och skydda fält enheten och IoT Hub.
+
+## <a name="embedded-security-agent-enhanced-mode"></a>Inbäddad säkerhets agent: Avancerat läge
+
+I **Avancerat** läge, efter att du har aktiverat **säkerhets** alternativet i din IoT Hub och installerat Defender för IoT-enhets agenter på dina enheter, samlar agenterna samman, sammanställa och analyserar rå säkerhets händelser från dina enheter. Rå säkerhets händelser kan omfatta IP-anslutningar, process skapande, användar inloggningar och annan säkerhetsrelaterad information. Defender för IoT-enhets agenter hanterar även händelse agg regering för att undvika hög nätverks data flöde. Agenterna är mycket anpassningsbara, så att du kan använda dem för olika uppgifter, t. ex. genom att bara skicka viktig information till det snabbaste service avtalet, eller för att samla in omfattande säkerhets information och kontext i större segment, vilket kan undvika högre tjänste kostnader.
 
 Enhets agenter och andra program använder Azure-funktionen för att **Skicka säkerhets meddelande-SDK** för att skicka säkerhets information till Azure IoT Hub. IoT Hub hämtar den här informationen och vidarebefordrar den till tjänsten Defender for IoT.
 

@@ -10,12 +10,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 482fcf7d100a90d9527f510382c5dafb4f67adfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67830f8c00d9f74f62883e0714ffe1c2bbbd6903
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72439068"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075628"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Hantera Azure-Cloud Services med Azure Automation
 I den här guiden får du lära dig Azure Automation tjänsten och hur den kan användas för att förenkla hanteringen av dina Azure Cloud Services.
@@ -35,8 +35,8 @@ Några exempel på användning av Azure Automation för att hantera Azure Cloud 
 * [Kontinuerlig distribution av en moln tjänst när cscfg eller cspkg uppdateras i Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
 * [Starta om moln tjänst instanser parallellt, en uppgraderings domän i taget](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Nu när du har lärt dig grunderna om Azure Automation och hur det kan användas för att hantera Azure Cloud Services, kan du följa dessa länkar om du vill veta mer om Azure Automation.
 
 * [Översikt över Azure Automation](../automation/automation-intro.md)
-* [Min första Runbook](../automation/automation-first-runbook-graphical.md)
+* [Min första Runbook](../automation/learn/automation-tutorial-runbook-graphical.md)

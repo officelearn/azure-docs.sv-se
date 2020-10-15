@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263240"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075713"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på Azure Virtual Machines
 
@@ -242,7 +242,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
 12. I kolumnen **åtgärd** i dialog rutan **all information om Server aktivitet** väljer **du befordra den här servern till en**domänkontrollant.
 13. I **konfigurations guiden för Active Directory Domain Services**använder du följande värden:
 
-    | **Sida** | Inställning |
+    | **Sida** | Inställningen |
     | --- | --- |
     | **Distributionskonfiguration** |**Lägg till en ny skog**<br/> **Rot domän namn** = Corp.contoso.com |
     | **Alternativ för domänkontrollant** |**DSRM-lösenord** = contoso! 0000<br/>**Bekräfta lösen ord** = contoso! 0000 |
@@ -397,7 +397,7 @@ Skapa sedan tre virtuella datorer – två SQL Server virtuella datorer och en v
 | **Grundläggande** konfiguration av virtuella datorer |**Namn** = kluster-FSW<br/>**Användar namn** = DomainAdmin<br/>**Lösen ord** = contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resurs grupp** = SQL-ha-rg<br/>**Plats** = din Azure-plats |**Namn** = SQLServer-0<br/>**Användar namn** = DomainAdmin<br/>**Lösen ord** = contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resurs grupp** = SQL-ha-rg<br/>**Plats** = din Azure-plats |**Namn** = SQLServer-1<br/>**Användar namn** = DomainAdmin<br/>**Lösen ord** = contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resurs grupp** = SQL-ha-rg<br/>**Plats** = din Azure-plats |
 | Konfigurations **storlek** för virtuell dator |**Size** = ds1 \_ v2 (1 VCPU, 3,5 GB) |**Size** = DS2 \_ v2 (2 virtuella processorer, 7 GB)</br>Storleken måste ha stöd för SSD-lagring (stöd för Premium-diskar). )) |**Size** = DS2 \_ v2 (2 virtuella processorer, 7 GB) |
 | Konfigurations **Inställningar** för virtuell dator |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet (10.1.1.0/24)<br/>**Offentlig IP-adress** genereras automatiskt.<br/>**Nätverks säkerhets grupp** = ingen<br/>**Övervaka diagnostik** = aktive rad<br/>**Lagrings konto för diagnostik** = Använd ett automatiskt genererat lagrings konto<br/>**Tillgänglighets uppsättning** = sqlAvailabilitySet<br/> |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet (10.1.1.0/24)<br/>**Offentlig IP-adress** genereras automatiskt.<br/>**Nätverks säkerhets grupp** = ingen<br/>**Övervaka diagnostik** = aktive rad<br/>**Lagrings konto för diagnostik** = Använd ett automatiskt genererat lagrings konto<br/>**Tillgänglighets uppsättning** = sqlAvailabilitySet<br/> |**Lagring**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet (10.1.1.0/24)<br/>**Offentlig IP-adress** genereras automatiskt.<br/>**Nätverks säkerhets grupp** = ingen<br/>**Övervaka diagnostik** = aktive rad<br/>**Lagrings konto för diagnostik** = Använd ett automatiskt genererat lagrings konto<br/>**Tillgänglighets uppsättning** = sqlAvailabilitySet<br/> |
-| Konfigurations **SQL Server inställningar** för virtuell dator |Inte tillämpligt |**SQL-anslutning** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagrings konfiguration** = allmänt<br/>**Automatiserad uppdatering** = söndag vid 2:00<br/>**Automatisk säkerhets kopiering** = inaktive rad</br>**Azure Key Vault integration** = inaktive rad |**SQL-anslutning** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagrings konfiguration** = allmänt<br/>**Automatiserad uppdatering** = söndag vid 2:00<br/>**Automatisk säkerhets kopiering** = inaktive rad</br>**Azure Key Vault integration** = inaktive rad |
+| Konfigurations **SQL Server inställningar** för virtuell dator |Ej tillämpligt |**SQL-anslutning** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagrings konfiguration** = allmänt<br/>**Automatiserad uppdatering** = söndag vid 2:00<br/>**Automatisk säkerhets kopiering** = inaktive rad</br>**Azure Key Vault integration** = inaktive rad |**SQL-anslutning** = privat (inom Virtual Network)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagrings konfiguration** = allmänt<br/>**Automatiserad uppdatering** = söndag vid 2:00<br/>**Automatisk säkerhets kopiering** = inaktive rad</br>**Azure Key Vault integration** = inaktive rad |
 
 <br/>
 
@@ -420,6 +420,10 @@ Nu kan du ansluta de virtuella datorerna till **Corp.contoso.com**. Utför följ
 7. När du ser meddelandet "Välkommen till corp.contoso.com-domänen" väljer du **OK**.
 8. Välj **Stäng**och välj sedan **starta om nu** i popup-dialogrutan.
 
+## <a name="add-accounts"></a>Lägga till konton
+
+Lägg till installations kontot som administratör på varje virtuell dator, bevilja behörighet till installations kontot och lokala konton inom SQL Server och uppdatera SQL Servers tjänst kontot. 
+
 ### <a name="add-the-corpinstall-user-as-an-administrator-on-each-cluster-vm"></a>Lägg till Corp\Install-användaren som administratör på varje virtuell kluster dator
 
 När varje virtuell dator har startats om som medlem i domänen lägger du till **CORP\Install** som medlem i den lokala administratörs gruppen.
@@ -438,16 +442,6 @@ När varje virtuell dator har startats om som medlem i domänen lägger du till 
 7. Klicka på **OK** för att stänga dialog rutan **Administratörs egenskaper** .
 8. Upprepa föregående steg för **SQLServer-1** och **cluster-FSW**.
 
-### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Ange SQL Server tjänst konton
-
-Ange SQL Server-tjänstkontot på varje SQL Server VM. Använd de konton som du skapade när du konfigurerade domän kontona.
-
-1. Öppna **SQL Server Configuration Manager**.
-2. Högerklicka på tjänsten SQL Server och välj sedan **Egenskaper**.
-3. Ange kontot och lösen ordet.
-4. Upprepa de här stegen på andra SQL Server VM.  
-
-För SQL Server tillgänglighets grupper måste varje SQL Server VM köras som ett domän konto.
 
 ### <a name="create-a-sign-in-on-each-sql-server-vm-for-the-installation-account"></a>Skapa en inloggning på varje SQL Server VM för installations kontot
 
@@ -467,13 +461,54 @@ Använd installations kontot (CORP\install) för att konfigurera tillgänglighet
 
 1. Ange domän administratörens autentiseringsuppgifter för nätverket.
 
-1. Använd installations kontot.
+1. Använd installations kontot (CORP\install).
 
 1. Ange att inloggningen ska vara medlem i den fasta Server rollen **sysadmin** .
 
 1. Välj **OK**.
 
 Upprepa föregående steg på den andra SQL Server VM.
+
+### <a name="configure-system-account-permissions"></a>Konfigurera system konto behörigheter
+
+Om du vill skapa ett konto för system kontot och bevilja rätt behörighet, utför du följande steg på varje SQL Server instans:
+
+1. Skapa ett konto för `[NT AUTHORITY\SYSTEM]` på varje SQL Server instans. Följande skript skapar det här kontot:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. Ge följande behörigheter för `[NT AUTHORITY\SYSTEM]` varje SQL Server-instans:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   Följande skript ger följande behörigheter:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
+
+### <a name="set-the-sql-server-service-accounts"></a><a name="setServiceAccount"></a>Ange SQL Server tjänst konton
+
+Ange SQL Server-tjänstkontot på varje SQL Server VM. Använd de konton som du skapade när du konfigurerade domän kontona.
+
+1. Öppna **SQL Server Configuration Manager**.
+2. Högerklicka på tjänsten SQL Server och välj sedan **Egenskaper**.
+3. Ange kontot och lösen ordet.
+4. Upprepa de här stegen på andra SQL Server VM.  
+
+För SQL Server tillgänglighets grupper måste varje SQL Server VM köras som ett domän konto.
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>Lägg till funktioner för redundanskluster till båda SQL Server virtuella datorer
 
@@ -524,35 +559,6 @@ Metoden för att öppna portarna beror på vilken brand Väggs lösning du anvä
 
 Upprepa de här stegen på den andra SQL Server VM.
 
-## <a name="configure-system-account-permissions"></a>Konfigurera system konto behörigheter
-
-Om du vill skapa ett konto för system kontot och bevilja rätt behörighet, utför du följande steg på varje SQL Server instans:
-
-1. Skapa ett konto för `[NT AUTHORITY\SYSTEM]` på varje SQL Server instans. Följande skript skapar det här kontot:
-
-   ```sql
-   USE [master]
-   GO
-   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
-   GO 
-   ```
-
-1. Ge följande behörigheter för `[NT AUTHORITY\SYSTEM]` varje SQL Server-instans:
-
-   - `ALTER ANY AVAILABILITY GROUP`
-   - `CONNECT SQL`
-   - `VIEW SERVER STATE`
-
-   Följande skript ger följande behörigheter:
-
-   ```sql
-   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
-   GO 
-   ```
 
 ## <a name="next-steps"></a>Nästa steg
 

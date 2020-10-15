@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 94f3fd9f9c66082beace47d675539e9f73c21e83
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824205"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075543"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
@@ -23,7 +23,7 @@ Biblioteken våren Boot Feature Management utökar ramverket med omfattande stö
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* En [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
+* En [Java Development Kit SDK](/java/azure/jdk) som stöds med version 8.
 * [Apache maven](https://maven.apache.org/download.cgi) version 3,0 eller senare.
 
 ## <a name="create-an-app-configuration-instance"></a>Skapa en app Configuration-instans
@@ -290,7 +290,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 1. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
 
-    | Tangent | Tillstånd |
+    | Nyckel | Tillstånd |
     |---|---|
     | Beta | På |
 
@@ -304,7 +304,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det för att hantera funktioner i en våren Boot-webbapp via [biblioteken för funktions hantering](https://go.microsoft.com/fwlink/?linkid=2074664).
+I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det för att hantera funktioner i en våren Boot-webbapp via [biblioteken för funktions hantering](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Läs mer om [funktions hantering](./concept-feature-management.md).
 * [Hantera funktions flaggor](./manage-feature-flags.md).

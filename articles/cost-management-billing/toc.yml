@@ -180,8 +180,10 @@
               href: manage/pay-by-invoice.md
             - name: Skapa ytterligare prenumerationer
               href: manage/create-subscription.md
-            - name: Skapa prenumerationer programmässigt
+            - name: 'Skapa prenumerationer programmatiskt med det senaste API:et'
               href: manage/programmatically-create-subscription.md
+            - name: Skapa prenumerationer programmatiskt med förhandsversions-API
+              href: manage/programmatically-create-subscription-preview.md
             - name: Bevilja åtkomst för att skapa EA-prenumerationer
               href: manage/grant-access-to-create-subscription.md
             - name: Exportera prenumerationsinformation
@@ -338,6 +340,12 @@
               href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
     - name: Felsöka
       items:
+        - name: EA-faktureringsproblem med användningsfiler
+          href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+        - name: MCA-faktureringsproblem med användningsfiler
+          href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+        - name: CSP-faktureringsproblem med användningsfiler
+          href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
         - name: Inga prenumerationer hittades
           href: manage/no-subscriptions-found.md
         - name: Betalningsproblem

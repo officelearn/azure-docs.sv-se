@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b6219c82dc23deb467e87a6866839b8eace8b5d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536614"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072653"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrera Azure Time Series Insights med fjärrövervakning
 
@@ -24,7 +24,7 @@ Lösnings acceleratorn för fjärrövervakning tillhandahåller nu automatisk di
 > [!NOTE]
 > Time Series Insights är för närvarande inte tillgängligt i Azure Kina-molnet. Nya distributioner av Solution Accelerator för fjärrövervakning i molnet i Azure Kina använder Cosmos DB för all lagring.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktionen måste du redan ha distribuerat en lösning för fjärrövervakning:
 
@@ -62,7 +62,7 @@ Sedan distribuerar du Time Series Insights som en ytterligare resurs i din lösn
     | Namn på miljö | Följande skärm bild använder namnet **contorosrmtsi**. Välj ditt eget unika namn när du är klar med det här steget. |
     | Prenumeration | I listrutan väljer du din Azure-prenumeration. |
     | Resursgrupp | **Använd befintlig**. Välj namnet på din befintliga resurs grupp för fjärr övervakning. |
-    | Location | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
+    | Plats | Vi använder **USA, östra**. Skapa din miljö i samma region som din lösning för fjärrövervakning om möjligt. |
     | Sku |**S1** |
     | Kapacitet | **1** |
 
@@ -126,7 +126,7 @@ För att se till att alla användare som har åtkomst till din lösning för fj�
 1. Välj **spara** för att skapa rolltilldelningen. Efter en liten stund tilldelas säkerhets objekt rollen i data åtkomst principer.
 
 > [!NOTE]
-> Om du behöver ge fler användare åtkomst till Time Series Insights Explorer kan du använda de här stegen för att [bevilja åtkomst till data](../time-series-insights/time-series-insights-data-access.md#grant-data-access).
+> Om du behöver ge fler användare åtkomst till Time Series Insights Explorer kan du använda de här stegen för att [bevilja åtkomst till data](../time-series-insights/concepts-access-policies.md#grant-data-access).
 
 ## <a name="configure-azure-stream-analytics"></a>Konfigurera Azure Stream Analytics 
 
@@ -217,7 +217,7 @@ Konfigurera `basic` distributions miljön för uppdaterade mikrotjänster.
 
 1. Hämta den [senaste docker-yaml-filen](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) från GitHub lagrings platsen med den senaste taggen. 
 
-1. Använda SSH i den virtuella datorn genom att följa stegen som beskrivs i [skapa och använda SSH-nycklar](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+1. Använda SSH i den virtuella datorn genom att följa stegen som beskrivs i [skapa och använda SSH-nycklar](../virtual-machines/linux/ssh-from-windows.md).
 
 1. När du är ansluten skriver du `cd /app` .
 
@@ -300,4 +300,4 @@ Konfigurera `standard` distributions miljön för de uppdaterade Micro-tjänster
 
 * Information om hur du utforskar dina data och diagnostiserar en avisering i Time Series Insights Explorer finns i vår självstudie om hur du [utför en rotor Saks analys](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
-* Information om hur du utforskar och frågar efter data i Time Series Insights Explorer finns i dokumentationen i [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+* Information om hur du utforskar och frågar efter data i Time Series Insights Explorer finns i dokumentationen i [Azure Time Series Insights Explorer](../time-series-insights/time-series-insights-explorer.md).

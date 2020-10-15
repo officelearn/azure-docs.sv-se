@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 6d05f5fa20b5deee14b1a2fada389d869d48908a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709095"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091210"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i Python
 
@@ -343,7 +343,7 @@ Efter &nbsp; en &nbsp; viss &nbsp; &nbsp; tid| Använd `experiment_timeout_minut
 
 Du kan visa dina utbildnings resultat i en widget eller infogad om du befinner dig i en bärbar dator. Se [spåra och utvärdera modeller](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) för mer information.
 
-Se [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md) för definitioner och exempel på prestanda diagram och mått som tillhandahålls för varje körning. 
+Se [utvärdera automatiserade experiment resultat för maskin inlärning](how-to-understand-automated-ml.md) för definitioner och exempel på prestanda diagram och mått som tillhandahålls för varje körning. 
 
 För att få en funktionalisering-Sammanfattning och förstå vilka funktioner som har lagts till i en viss modell, se [funktionalisering Transparency](how-to-configure-auto-features.md#featurization-transparency). 
 

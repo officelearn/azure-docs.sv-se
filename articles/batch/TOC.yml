@@ -43,7 +43,19 @@
         - name: Lagringsplats för Batch-exempel
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Azure CLI
-      href: cli-samples.md
+      items:
+        - name: Skapa ett Batch-konto i Batch-tjänstläge
+          href: ./scripts/batch-cli-sample-create-account.md
+        - name: Skapa ett Batch-konto i användarprenumerationsläge
+          href: ./scripts/batch-cli-sample-create-user-subscription-account.md
+        - name: Lägga till ett program i ett Azure Batch-konto
+          href: ./scripts/batch-cli-sample-add-application.md
+        - name: Skapa och hantera en Linux-pool
+          href: ./scripts/batch-cli-sample-manage-linux-pool.md
+        - name: Skapa och hantera en Windows-pool
+          href: ./scripts/batch-cli-sample-manage-windows-pool.md
+        - name: Köra ett jobb och aktiviteter
+          href: ./scripts/batch-cli-sample-run-job.md
 - name: Begrepp
   items:
     - name: Säkerhet

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999324"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091159"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Skydda dina Kubernetes-arbetsbelastningar
 
@@ -31,7 +31,7 @@ Security Center innehåller fler säkerhets funktioner för behållare om du akt
 
 
 
-## <a name="availability"></a>Tillgängligt
+## <a name="availability"></a>Tillgänglighet
 
 |Aspekt|Information|
 |----|:----|
@@ -39,7 +39,7 @@ Security Center innehåller fler säkerhets funktioner för behållare om du akt
 |Priset|Kostnadsfri|
 |Nödvändiga roller och behörigheter:|**Ägare** eller **säkerhets administratör** för att redigera en tilldelning<br>**Läsare** för att Visa rekommendationerna|
 |Kluster som stöds:|Kubernetes v-1.14 (eller högre) krävs<br>Ingen PodSecurityPolicy-resurs (gammal PSP-modell) i klustren<br>Windows-noder stöds inte|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -67,21 +67,21 @@ Azure Security Center innehåller en samling rekommendationer som är tillgängl
     > 
     > Om du inte anger de nödvändiga parametrarna för de rekommendationer som kräver konfiguration, visas dina arbets belastningar som felaktiga.
 
-    | Rekommendations namn                                                                   | Säkerhets kontroll                         | Konfiguration krävs |
-    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Behållarens processor-och minnes gränser måste tillämpas (för hands version)                          | Skydda program mot DDoS-attacker | Inga                     |
-    | Privilegierade behållare bör undvikas (förhands granskning)                                     | Hantera åtkomst och behörigheter            | Inga                     |
-    | Oföränderligt (skrivskyddat) rot fil system måste tillämpas för behållare (för hands version)     | Hantera åtkomst och behörigheter            | Inga                     |
-    | Container med behörighets eskalering bör undvikas (för hands version)                       | Hantera åtkomst och behörigheter            | Inga                     |
-    | Att köra behållare som rot användare bör undvikas (förhands granskning)                           | Hantera åtkomst och behörigheter            | Inga                     |
-    | Behållare som delar känsliga värd namn områden bör undvikas (förhands granskning)              | Hantera åtkomst och behörigheter            | Inga                     |
-    | Minst privilegierade Linux-funktioner bör tillämpas för behållare (för hands version)       | Hantera åtkomst och behörigheter            | **Ja**                |
-    | Användningen av Pod HostPath-volym monteringar bör begränsas till en känd lista (för hands version)    | Hantera åtkomst och behörigheter            | **Ja**                |
-    | Behållare ska bara lyssna på tillåtna portar (för hands version)                              | Begränsa obehörig nätverks åtkomst     | **Ja**                |
-    | Tjänsterna ska bara lyssna på tillåtna portar (för hands version)                                | Begränsa obehörig nätverks åtkomst     | **Ja**                |
-    | Användning av värd nätverk och portar ska begränsas (för hands version)                     | Begränsa obehörig nätverks åtkomst     | **Ja**                |
-    | Åsidosättning eller inaktive ring av behållare AppArmor-profilen bör vara begränsad (förhands granskning) | Åtgärda säkerhetskonfigurationer        | **Ja**                |
-    | Behållar avbildningar ska endast distribueras från betrodda register (för hands version)            | Åtgärda sårbarheter                | **Ja**                |
+    | Rekommendations namn                                                         | Säkerhets kontroll                         | Konfiguration krävs |
+    |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | CPU-och minnes gränser för containern ska tillämpas                          | Skydda program mot DDoS-attacker | Nej                     |
+    | Privilegierade behållare bör undvikas                                     | Hantera åtkomst och behörigheter            | Nej                     |
+    | Oföränderligt (skrivskyddat) rot fil system ska tillämpas för behållare     | Hantera åtkomst och behörigheter            | Nej                     |
+    | Container med behörighets eskalering bör undvikas                       | Hantera åtkomst och behörigheter            | Nej                     |
+    | Att köra behållare som rot användare bör undvikas                           | Hantera åtkomst och behörigheter            | Nej                     |
+    | Behållare som delar känsliga värd namn områden bör undvikas              | Hantera åtkomst och behörigheter            | Nej                     |
+    | Minst privilegierade Linux-funktioner bör tillämpas för behållare       | Hantera åtkomst och behörigheter            | **Ja**                |
+    | Användningen av Pod HostPath-volym monteringar bör begränsas till en känd lista    | Hantera åtkomst och behörigheter            | **Ja**                |
+    | Behållare ska bara lyssna på tillåtna portar                              | Begränsa obehörig nätverks åtkomst     | **Ja**                |
+    | Tjänsterna ska bara lyssna på tillåtna portar                                | Begränsa obehörig nätverks åtkomst     | **Ja**                |
+    | Användning av värd nätverk och portar ska begränsas                     | Begränsa obehörig nätverks åtkomst     | **Ja**                |
+    | Åsidosättning eller inaktive ring av behållare AppArmor-profilen bör vara begränsad | Åtgärda säkerhetskonfigurationer        | **Ja**                |
+    | Behållar avbildningar ska endast distribueras från betrodda register            | Åtgärda sårbarheter                | **Ja**                |
 
 
 1. För rekommendationer med parametrar måste anpassas anger du parametrarna:

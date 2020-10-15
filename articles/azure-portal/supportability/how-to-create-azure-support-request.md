@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: d8a480481e47995f9f819122a3e8cc0b0a21a254
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b44b38e52b50dd7994326f09bebbb775c93c0e2e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851873"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073707"
 ---
 # <a name="create-an-azure-support-request"></a>Skapa en Azure-supportbegäran
 
@@ -114,5 +114,5 @@ Följ dessa länkar om du vill veta mer:
 * [REST-API för Azure-supportbegäranden](/rest/api/support)
 * [Skicka feedback och förslag till oss](https://feedback.azure.com/forums/266794-support-feedback)
 * Engagera oss på [Twitter](https://twitter.com/azuresupport)
-* Få hjälp från dina kollegor på [sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/products/azure)
+* Få hjälp från dina kollegor på [sidan Microsoft Q&en fråga](/answers/products/azure)
 * Läs mer i [vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq)

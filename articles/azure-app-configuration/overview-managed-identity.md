@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82981229"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072806"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Använda hanterade identiteter för Azure App konfiguration
 
@@ -33,7 +33,7 @@ Om du vill konfigurera en hanterad identitet med Azure CLI använder du kommando
 
 - Använd [Azure Cloud Shell](../cloud-shell/overview.md) från Azure Portal.
 - Använd den inbäddade Azure Cloud Shell via knappen "testa", som finns i det övre högra hörnet av varje kodblock nedan.
-- [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2,1 eller senare) om du föredrar att använda en lokal CLI-konsol.
+- [Installera den senaste versionen av Azure CLI](/cli/azure/install-azure-cli) (2,1 eller senare) om du föredrar att använda en lokal CLI-konsol.
 
 Följande steg vägleder dig genom att skapa ett konfigurations lager för appar och tilldela det en identitet med hjälp av CLI:
 
@@ -66,7 +66,7 @@ Om du vill konfigurera en hanterad identitet med Azure CLI använder du kommando
 
 - Använd [Azure Cloud Shell](../cloud-shell/overview.md) från Azure Portal.
 - Använd den inbäddade Azure Cloud Shell via knappen "testa", som finns i det övre högra hörnet av varje kodblock nedan.
-- [Installera den senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 eller senare) om du föredrar att använda en lokal CLI-konsol.
+- [Installera den senaste versionen av Azure CLI](/cli/azure/install-azure-cli) (2.0.31 eller senare) om du föredrar att använda en lokal CLI-konsol.
 
 Följande steg vägleder dig genom att skapa en användardefinierad identitet och ett konfigurations lager för appar och sedan tilldela identiteten till butiken med CLI:
 

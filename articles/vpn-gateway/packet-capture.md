@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 486ac23f26a7eee6b31322de79bfb68076a598ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3be01f6d8e1fb1f6ba541f8d1cb0c92d2a43b0da
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441603"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073112"
 ---
 # <a name="configure-packet-capture-for-vpn-gateways"></a>Konfigurera paket fångst för VPN-gatewayer
 
@@ -318,7 +318,7 @@ Följande exempel på JSON och ett JSON-schema innehåller förklaringar av varj
 
 ## <a name="set-up-packet-capture-by-using-powershell"></a>Konfigurera paket avbildning med hjälp av PowerShell
 
-I följande exempel visas PowerShell-kommandon som startar och stoppar paket fångster. Mer information om parameter alternativ finns i [detta PowerShell-dokument](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
+I följande exempel visas PowerShell-kommandon som startar och stoppar paket fångster. Mer information om parameter alternativ finns i [Start-AzVirtualnetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Starta paket fångst för en VPN-gateway
 
@@ -354,6 +354,9 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 - Föreslagen minsta paket hämtnings tid är 600 sekunder. På grund av synkroniseringsproblem mellan flera komponenter på sökvägen kanske inte kortare paket insamlingar ger fullständiga data.
 - Paket insamlings data genereras i PCAP-format. Använd wireshark eller andra program som ofta är tillgängliga för att öppna PCAP-filer.
 - Paket fångster stöds inte på principbaserad gatewayer.
+- Om `SASurl` parametern inte är korrekt konfigurerad, kan det hända att spårningen Miss känner till lagrings fel. Exempel på hur du skapar en parameter på rätt sätt `SASurl` finns i [Stop-AzVirtualNetworkGatewayPacketCapture](https://docs.microsoft.com/powershell/module/az.network/stop-azvirtualnetworkgatewaypacketcapture).
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

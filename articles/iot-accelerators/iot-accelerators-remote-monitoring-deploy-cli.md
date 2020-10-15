@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9dcf19f5318021df5d9fdde777b8786942e33d8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80258302"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072262"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera lösnings acceleratorn för fjärr styrning med hjälp av CLI
 
 Den här instruktions guiden visar hur du distribuerar lösnings acceleratorn för fjärrövervakning. Du distribuerar lösningen med hjälp av CLI. Du kan också distribuera lösningen med hjälp av det webbaserade användar gränssnittet på azureiotsolutions.com. mer information om det här alternativet finns i Distribuera snabb starten för [fjärrövervakning av Solution Accelerator](quickstart-remote-monitoring-deploy.md) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en aktiv Azure-prenumeration för att kunna distribuera lösnings acceleratorn för fjärrövervakning.
 
@@ -68,17 +68,17 @@ Grundläggande distribution är riktad mot att presentera lösningen. För att m
 
 En grundläggande distribution skapar följande tjänster i din Azure-prenumeration:
 
-| Antal | Resurs                       | Typ         | Används för |
+| Count | Resurs                       | Typ         | Används för |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Virtuell Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 v2  | Värd för mikrotjänster |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – standard nivå | Enhets hantering och kommunikation |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Lagra konfigurations data, regler, aviseringar och annan kall lagring |  
-| 1     | [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Lagring för VM-och strömmande kontroll punkter |
+| 1     | [Azure Storage-konto](../storage/common/storage-introduction.md#types-of-storage-accounts)  | Standard        | Lagring för VM-och strömmande kontroll punkter |
 | 1     | [Webb program](https://azure.microsoft.com/services/app-service/web/)        |                 | Värd för klient webb program |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användar identiteter och säkerhet |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visa till gångs platser |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 enheter              | Aktivera analys i real tid |
-| 1     | [Azure Device Provisioning-tjänst](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablering av enheter i stor skala |
+| 1     | [Azure Device Provisioning-tjänst](../iot-dps/index.yml)        |       S1          | Etablering av enheter i stor skala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelande data och möjliggör djupgående telemetri-analys |
 
 ### <a name="standard"></a>Standard
@@ -89,17 +89,17 @@ En standard distribution är en produktions färdig distribution som en utveckla
 
 En standard distribution skapar följande tjänster i din Azure-prenumeration:
 
-| Antal | Resurs                                     | SKU/storlek      | Används för |
+| Count | Resurs                                     | SKU/storlek      | Används för |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Använd en fullständigt hanterad Kubernetes container Orchestration-tjänst, som standard tre agenter|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – standard nivå | Enhets hantering, kommando och kontroll |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Lagra konfigurations data och telemetri för enheter som regler, aviseringar och meddelanden |
-| 5     | [Azure Storage konton](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 för VM-lagring och 1 för de strömmande kontroll punkterna |
+| 5     | [Azure Storage konton](../storage/common/storage-introduction.md#types-of-storage-accounts)    | Standard        | 4 för VM-lagring och 1 för de strömmande kontroll punkterna |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Application Gateway över TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användar identiteter och säkerhet |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visa till gångs platser |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 enheter              | Aktivera analys i real tid |
-| 1     | [Azure Device Provisioning-tjänst](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Etablering av enheter i stor skala |
+| 1     | [Azure Device Provisioning-tjänst](../iot-dps/index.yml)        |       S1          | Etablering av enheter i stor skala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 enhet              | Lagring för meddelande data och möjliggör djupgående telemetri-analys |
 
 > [!NOTE]

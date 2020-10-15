@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4338bc4a11b785b27f6316748f9cbc4eeaaddbea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db4f49c1b788cd7a55fd6fbbd48f845f2c94d757
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015110"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073537"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Starta ett Runbook-flöde från en webhook
 
@@ -29,7 +29,7 @@ I följande tabell beskrivs de egenskaper som du måste konfigurera för en webh
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| Namn |Webhookens namn. Du kan ange vilket namn du vill, eftersom det inte visas för klienten. Den används bara för att identifiera runbooken i Azure Automation. Vi rekommenderar att du ger webhooken ett namn som är relaterat till klienten som använder den. |
+| Name |Webhookens namn. Du kan ange vilket namn du vill, eftersom det inte visas för klienten. Den används bara för att identifiera runbooken i Azure Automation. Vi rekommenderar att du ger webhooken ett namn som är relaterat till klienten som använder den. |
 | URL |Webhookens URL. Detta är den unika adress som en klient anropar med ett HTTP-inlägg för att starta den Runbook som är länkad till webhooken. Den skapas automatiskt när du skapar webhooken. Du kan inte ange en anpassad URL. <br> <br> URL: en innehåller en säkerhetstoken som gör det möjligt för ett system från tredje part att anropa runbooken utan ytterligare autentisering. Därför bör du behandla URL: en som ett lösen ord. Av säkerhets skäl kan du bara Visa webb adressen i Azure Portal när du skapar webhooken. Notera URL: en på en säker plats för framtida användning. |
 | Förfallodatum | Utgångs datum för webhooken, efter vilken den inte längre kan användas. Du kan ändra utgångs datumet efter att webhooken har skapats, så länge webhooken inte har upphört att gälla. |
 | Enabled | Anger om webhooken är aktive rad som standard när den skapas. Om du ställer in den här egenskapen på inaktive rad kan inte klienten använda webhooken. Du kan ange den här egenskapen när du skapar webhooken eller någon annan gång när den har skapats. |
@@ -89,7 +89,7 @@ Tänk på följande strategier:
 
 * Låt runbooken utföra en validering av ett externt villkor när den får en webhook-begäran. Anta till exempel att en Runbook som anropas av GitHub när som helst är en ny incheckning av en GitHub-lagringsplats. Runbooken kan ansluta till GitHub för att kontrol lera att ett nytt genomförande har skett innan du fortsätter.
 
-* Azure Automation stöder Azure Virtual Network Service-taggar, särskilt [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md) och utlösa Webhooks från det virtuella nätverket. Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement**  i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
+* Azure Automation stöder Azure Virtual Network Service-taggar, särskilt [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md) och utlösa Webhooks från det virtuella nätverket. Service märken kan användas i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet **GuestAndHybridManagement**  i rätt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för Automation-tjänsten. Den här Service tag-koden har inte stöd för att tillåta mer detaljerad kontroll genom att begränsa IP-intervallen till en speciell region.
 
 ## <a name="create-a-webhook"></a>Skapa en webhook
 

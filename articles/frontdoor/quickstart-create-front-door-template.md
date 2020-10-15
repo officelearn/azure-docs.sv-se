@@ -13,12 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 41ad240b7232895a83839777f9942011edfaf5f4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: subject-armqs
+ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90529397"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088932"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Snabb start: skapa en front dörr med en ARM-mall
 
@@ -87,7 +88,7 @@ Azure PowerShell används för att distribuera mallen. Förutom Azure PowerShell
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **resurs grupper** i det vänstra fönstret.
 

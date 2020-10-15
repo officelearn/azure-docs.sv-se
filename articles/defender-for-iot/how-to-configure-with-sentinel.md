@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 71147352c5b75195ed0dff2b05acc5315f3183cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12f65d0e7f9c380f77fe4189d26fdeafd426295b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941901"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090802"
 ---
 # <a name="connect-your-data-from-defender-for-iot-to-azure-sentinel-preview"></a>Anslut dina data från Defender för IoT till Azure Sentinel (för hands version)
 
-Azure Security Center för IoT data Connector i Azure Sentinel är för närvarande en offentlig för hands version. Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
+Azure Defender för IoT data Connector i Azure Sentinel är för närvarande en offentlig för hands version. Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/).
 
 I den här guiden får du lära dig hur du ansluter dina Defender för IoT-data till Azure Sentinel.
 
@@ -32,6 +32,8 @@ I den här guiden får du lära dig hur du ansluter dina Defender för IoT-data 
 
 Anslut aviseringar från Defender för IoT och strömma dem direkt till Azure Sentinel.
 
+Genom att mer tätt integrera Azure Defender för IoT med Azure Sentinel, de första molnbaserade SIEM och de första SIEM med inbyggd IoT och annan säkerhet, ger Microsoft en enklare metod för enhetlig säkerhet i IT och i industriella nätverk. I kombination med Azure Sentinel Machine Learning gör den här integrationen att organisationer snabbt kan identifiera angrepp på många faser som ofta passerar IT-och-gränser. Azure Defender för IoT: s integrering med Azure Sentinel-funktionerna för säkerhets dirigering, automation och Response (SOAR) möjliggör dessutom automatiserad respons och förebyggande användning av inbyggda spel böcker-optimerade. 
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha **Läs** -och **Skriv** behörighet för arbets ytan.
@@ -39,8 +41,6 @@ Anslut aviseringar från Defender för IoT och strömma dem direkt till Azure Se
 - Du måste ha både **Läs** -och **Skriv** behörighet för **Azure-IoT Hub** du vill ansluta.
 - Du måste också ha **Läs** -och **Skriv** behörighet för **Azure IoT Hub resurs gruppen**.
 
-> [!NOTE]
-> Du måste ha Azure Security Center standard nivå licensiering som körs på din prenumeration för att skicka allmänna Azure Resource-aviseringar. Med den kostnads fria nivå licensiering som krävs för Defender för IoT vidarebefordras bara Defender för IoT-relaterade aviseringar till Azure Sentinel.
 
 ## <a name="connect-to-defender-for-iot"></a>Ansluta till Defender för IoT
 
@@ -53,7 +53,7 @@ Anslut aviseringar från Defender för IoT och strömma dem direkt till Azure Se
 > [!NOTE]
 >Det kan ta 10 sekunder eller mer att uppdatera Hub-listan när du har ändrat anslutnings ändringarna.
 
-## <a name="log-analytics-alert-display"></a>Log Analytics aviserings visning
+## <a name="using-log-analytics-for-alert-display"></a>Använda Log Analytics för aviserings visning
 
 Så här använder du det relevanta schemat i Log Analytics för att Visa Defender för IoT-aviseringar:
 

@@ -3,18 +3,18 @@ title: Så här skapar du uppdaterings distributioner för Azure Automation Uppd
 description: Den här artikeln beskriver hur du schemalägger uppdaterings distributioner och granskar deras status.
 services: automation
 ms.subservice: update-management
-ms.date: 09/16/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: fa5cabd5410f0cbe7382db0289d98bc69d4a01fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5f7d86ff668a151bdf83908c3199d01a0a53246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294724"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073758"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Så här distribuerar du uppdateringar och granskar resultat
 
-Den här artikeln beskriver hur du schemalägger en uppdaterings distribution och granskar processen när distributionen är klar. Du kan konfigurera en uppdaterings distribution från en vald virtuell Azure-dator från den valda Arc-aktiverade servern eller från Automation-kontot för alla konfigurerade datorer och servrar. 
+Den här artikeln beskriver hur du schemalägger en uppdaterings distribution och granskar processen när distributionen är klar. Du kan konfigurera en uppdaterings distribution från en vald virtuell Azure-dator från den valda Arc-aktiverade servern eller från Automation-kontot för alla konfigurerade datorer och servrar.
 
 Under varje scenario kan du skapa mål för den valda datorn eller servern, eller om du vill skapa en distribution från ditt Automation-konto, kan du ange en eller flera datorer. När du schemalägger en uppdaterings distribution från en virtuell Azure-dator eller en ARC-aktiverad server är stegen samma som att distribuera från ditt Automation-konto, med följande undantag:
 
@@ -59,7 +59,7 @@ Utför följande steg för att schemalägga en ny uppdaterings distribution. Ber
     > [!NOTE]
     > Det här alternativet är inte tillgängligt om du har valt en virtuell Azure-dator eller en ARC-aktiverad server. Datorn är automatiskt avsedd för den schemalagda distributionen.
 
-6. I området **datorer att uppdatera** väljer du en sparad sökning, en importerad grupp eller väljer **datorer** från List menyn och väljer enskilda datorer. Med det här alternativet kan du se beredskap för Log Analytics agenten för varje dator. Om du vill veta mer om olika metoder för att skapa dator grupper i Azure Monitor loggar, se [dator grupper i Azure Monitor loggar](../../azure-monitor/platform/computer-groups.md).
+6. I området **datorer att uppdatera** väljer du en sparad sökning, en importerad grupp eller väljer **datorer** från List menyn och väljer enskilda datorer. Med det här alternativet kan du se beredskap för Log Analytics agenten för varje dator. Om du vill veta mer om olika metoder för att skapa dator grupper i Azure Monitor loggar, se [dator grupper i Azure Monitor loggar](../../azure-monitor/platform/computer-groups.md). Du kan inkludera upp till högst 500 datorer i en schemalagd uppdaterings distribution.
 
     > [!NOTE]
     > Det här alternativet är inte tillgängligt om du har valt en virtuell Azure-dator eller en ARC-aktiverad server. Datorn är automatiskt avsedd för den schemalagda distributionen.
@@ -89,7 +89,7 @@ Utför följande steg för att schemalägga en ny uppdaterings distribution. Ber
 
     * Underhålls fönster styr hur många uppdateringar som är installerade.
     * Uppdateringshantering slutar inte att installera nya uppdateringar om slutet av en underhålls period närmar sig.
-    * Uppdateringshantering avslutar inte pågående uppdateringar om underhålls perioden har överskridits.
+    * Uppdateringshantering avslutar inte pågående uppdateringar om underhålls perioden har överskridits. Eventuella återstående uppdateringar som ska installeras görs inte. Om detta sker konsekvent, bör du utvärdera tiden för underhålls perioden.
     * Om underhålls perioden överskrids i Windows beror det ofta på att en service pack uppdatering tar lång tid att installera.
 
     > [!NOTE]

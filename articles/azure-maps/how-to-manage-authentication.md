@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 3383971b9984e6f565feebc3bdfb968fb77cbe85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fb4d1459584e8dd2b230a424f043ad086f2570d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311112"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089459"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Hantera autentisering i Azure Maps
 
@@ -41,11 +41,11 @@ Beroende på programmets behov finns det specifika vägar för att skydda progra
 I följande tabell beskrivs vanliga scenarier för autentisering och auktorisering i Azure Maps. Tabellen innehåller en jämförelse av de typer av skydd som varje scenario erbjuder.
 
 > [!IMPORTANT]
-> Microsoft rekommenderar att du implementerar Azure Active Directory (Azure AD) med rollbaserad åtkomst kontroll (RBAC) för produktions program.
+> Microsoft rekommenderar att du implementerar Azure Active Directory (Azure AD) med rollbaserad åtkomst kontroll i Azure (Azure RBAC) för produktions program.
 
 | Scenario                                                                                    | Autentisering | Auktorisering | Utvecklings arbete | Drift ansträngning |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Delad nyckel     | E.t.           | Medium             | Hög               |
+| [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Delad nyckel     | Saknas           | Medium             | Hög               |
 | [Trusted daemon/icke-interaktiv klient program](./how-to-secure-daemon-app.md)        | Azure AD       | Högt          | Lågt                | Medium             |
 | [Webb program med en enda sida med interaktiv enkel inloggning](./how-to-secure-spa-users.md) | Azure AD       | Högt          | Medel             | Medel             |
 | [Webb program med en enda sida med icke-interaktiv inloggning](./how-to-secure-spa-app.md)      | Azure AD       | Högt          | Medel             | Medel             |
@@ -63,10 +63,10 @@ Om du vill visa Azure-roller som är tillgängliga för Azure Maps går du till 
 
 ## <a name="view-role-assignments"></a>Visa rolltilldelningar
 
-Om du vill visa användare och appar som har beviljats RBAC för Azure Maps går du till **Access Control (IAM)**. Där väljer du **roll tilldelningar**och filtrerar sedan efter **Azure Maps**.
+Om du vill visa användare och appar som har beviljats åtkomst för Azure Maps går du till **Access Control (IAM)**. Där väljer du **roll tilldelningar**och filtrerar sedan efter **Azure Maps**.
 
 > [!div class="mx-imgBorder"]
-> ![Visa användare och appar som har beviljats RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+> ![Visa användare och appar som har beviljats åtkomst](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## <a name="request-tokens-for-azure-maps"></a>Begär token för Azure Maps
 

@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 08ce69856dd36b6029297109fcb8610b856c8b98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8650b8670c61cab15b26163dd5108145b8509434
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142374"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072432"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certifikatöversikt för Azure Cloud Services
 Certifikat används i Azure för moln tjänster ([tjänst certifikat](#what-are-service-certificates)) och för autentisering med hanterings-API: et ([hanterings certifikat](#what-are-management-certificates)). Det här avsnittet innehåller en allmän översikt över båda certifikat typerna, hur du [skapar](#create) och distribuerar dem till Azure.
@@ -76,7 +76,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > Använd IP-adressen i parametern-DnsName om du vill använda certifikatet med en IP-adress i stället för en domän.
 
 
-Om du vill använda det här [certifikatet med hanterings portalen](../azure-api-management-certs.md)exporterar du det till en **CER** -fil:
+Om du vill använda det här [certifikatet med hanterings portalen](/previous-versions/azure/azure-api-management-certs)exporterar du det till en **CER** -fil:
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -91,8 +91,4 @@ Det finns många sidor på Internet som beskriver hur du gör detta med IIS. [H�
 ## <a name="next-steps"></a>Nästa steg
 [Ladda upp tjänst certifikatet till Azure Portal](cloud-services-configure-ssl-certificate-portal.md).
 
-Överför ett [hanterings-API-certifikat](../azure-api-management-certs.md) till Azure Portal.
-
-
-
-
+Överför ett [hanterings-API-certifikat](/previous-versions/azure/azure-api-management-certs) till Azure Portal.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941673"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090853"
 ---
 # <a name="tutorial-configure-security-agents"></a>Självstudie: Konfigurera säkerhets agenter
 
@@ -117,8 +117,8 @@ Följande tabell innehåller de egenskaper som går att kontrol lera för säker
 
 Standardvärden är tillgängliga i rätt schema i [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Namn| Status | Giltiga värden| Standardvärden| Beskrivning |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+| Name| Status | Giltiga värden| Standardvärden| Beskrivning |
+|----------|--------|--|-------|----|
 |highPriorityMessageFrequency|Krävs: falskt |Giltiga värden: varaktighet i ISO 8601-format |Standardvärde: PT7M |Max tidsintervall innan meddelanden med hög prioritet skickas.|
 |lowPriorityMessageFrequency |Krävs: falskt|Giltiga värden: varaktighet i ISO 8601-format |Standardvärde: PT5H |Max tid innan meddelanden med låg prioritet skickas.|
 |snapshotFrequency |Kräv: falskt|Giltiga värden: varaktighet i ISO 8601-format |Standardvärde PT13H |Tidsintervall för att skapa ögonblicks bilder av enhets status.|
@@ -129,7 +129,7 @@ Standardvärden är tillgängliga i rätt schema i [GitHub](https\://aka.ms/iot-
 ### <a name="supported-security-events"></a>Säkerhets händelser som stöds
 
 |Händelse namn| PropertyName | Standardvärde| Ögonblicks bilds händelse| Information status  |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|-|---------|----|----|
 |Diagnostisk händelse|eventPriorityDiagnostic| Av| Falskt| Agent relaterade diagnostiska händelser. Använd den här händelsen för utförlig loggning.|
 |Konfigurationsfel |eventPriorityConfigurationError |Låg |Falskt |Agenten kunde inte parsa konfigurationen. Verifiera konfigurationen mot schemat.|
 |Statistik över ignorerade händelser |eventPriorityDroppedEventsStatistics |Låg |Sant|Agent relaterad händelse statistik. |

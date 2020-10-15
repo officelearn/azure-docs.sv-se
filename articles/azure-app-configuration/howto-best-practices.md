@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c45d1668ad39e9584a89921f46218ba243978a05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588066"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078059"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Metod tips för Azure App konfiguration
 
@@ -42,7 +42,7 @@ Ett viktigt att tänka på är att nycklarna är vad din program kod refererar t
 
 App Configuration behandlar alla nycklar som lagras med den som oberoende entiteter. App-konfigurationen försöker inte härleda någon relation mellan nycklar eller ärva nyckel värden baserat på deras hierarki. Du kan använda flera uppsättningar med nycklar, men med hjälp av etiketter tillsammans med korrekt konfigurations stack i program koden.
 
-Vi tittar på ett exempel. Anta att du har en inställning med namnet **Asset1**, vars värde kan variera beroende på utvecklings miljön. Du skapar en nyckel med namnet "Asset1" med en tom etikett och en etikett med namnet "Development". I den första etiketten sätter du standardvärdet för **Asset1**och du anger ett särskilt värde för "utveckling" i den senare.
+Låt oss ta en titt på ett exempel. Anta att du har en inställning med namnet **Asset1**, vars värde kan variera beroende på utvecklings miljön. Du skapar en nyckel med namnet "Asset1" med en tom etikett och en etikett med namnet "Development". I den första etiketten sätter du standardvärdet för **Asset1**och du anger ett särskilt värde för "utveckling" i den senare.
 
 I din kod hämtar du först nyckel värden utan några etiketter, och sedan hämtar du samma uppsättning nyckel värden en andra gång med etiketten "utveckling". När du hämtar värdena den andra gången skrivs de tidigare värdena i nycklarna över. Med konfigurations systemet för .NET Core kan du "stacka" flera uppsättningar konfigurations data ovanpå varandra. Om det finns en nyckel i fler än en uppsättning används den sista uppsättningen som innehåller den. Med ett modernt programmerings ramverk, till exempel .NET Core, får du den här stack funktionen kostnads fritt om du använder en inbyggd Konfigurationsprovider för att komma åt appens konfiguration. Följande kodfragment visar hur du kan implementera stackning i ett .NET Core-program:
 
@@ -69,7 +69,7 @@ Ett bättre alternativ är att använda funktionen hanterade identiteter i Azure
 Du kan ge åtkomst till app-konfiguration för webbappar eller funktioner med någon av följande metoder:
 
 * Ange anslutnings strängen till appens konfigurations Arkiv i program inställningarna för App Service Azure Portal.
-* Lagra anslutnings strängen i appens konfigurations Arkiv i Key Vault och [referera den från App Service](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references).
+* Lagra anslutnings strängen i appens konfigurations Arkiv i Key Vault och [referera den från App Service](../app-service/app-service-key-vault-references.md).
 * Använd Azure Managed Identities för att få åtkomst till appens konfigurations arkiv. Mer information finns i [integrera med Azure Managed Identities](howto-integrate-azure-managed-service-identity.md).
 * Push-konfiguration från App Configuration till App Service. App-konfigurationen tillhandahåller en export funktion (i Azure Portal och Azure CLI) som skickar data direkt till App Service. Med den här metoden behöver du inte ändra program koden alls.
 
@@ -85,7 +85,7 @@ För många begär anden till app-konfigurationen kan leda till begränsning ell
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importera konfigurations data till konfigurations program
 
-Med konfiguration av appar kan du välja Mass [import](https://aka.ms/azconfig-importexport1) av konfigurations inställningar från dina aktuella konfigurationsfiler med hjälp av antingen Azure Portal eller cli. Du kan också använda samma alternativ för att exportera värden från App-konfigurationen, till exempel mellan relaterade butiker. Om du vill konfigurera en pågående synkronisering med din GitHub-lagrings platsen kan du använda vår [GitHub-åtgärd](https://aka.ms/azconfig-gha2) så att du kan fortsätta att använda dina befintliga käll kontroll metoder samtidigt som du får fördelarna med app-konfigurationen.
+Med konfiguration av appar kan du välja Mass [import](./howto-import-export-data.md) av konfigurations inställningar från dina aktuella konfigurationsfiler med hjälp av antingen Azure Portal eller cli. Du kan också använda samma alternativ för att exportera värden från App-konfigurationen, till exempel mellan relaterade butiker. Om du vill konfigurera en pågående synkronisering med din GitHub-lagrings platsen kan du använda vår [GitHub-åtgärd](./concept-github-action.md) så att du kan fortsätta att använda dina befintliga käll kontroll metoder samtidigt som du får fördelarna med app-konfigurationen.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>Distribution i flera regioner i appens konfiguration
 

@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbd895686b52ae7d1ced00b635d4d33e93c970a7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73889242"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069853"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Integrera lösningen för fjärrövervakning med Azure Data Lake Store
 
@@ -21,7 +21,7 @@ Du kan ha avancerade analys krav utöver vad som erbjuds i lösningen för fjär
 
 I den här instruktionen ska du använda ett Azure Stream Analytics jobb för att strömma data från IoT Hub i din lösning för fjärrövervakning till en Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här instruktionen behöver du följande:
 
@@ -178,6 +178,6 @@ Azure Stream Analytics använder ett SQL-liknande frågespråk för att ange en 
 
     ![Utforska strömmande data](./media/iot-accelerators-integrate-data-lake/data-lake-store-file-preview.png)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-Azure Data Lake Analytics kan användas för att utföra stor data analys på dina Data Lake Store data uppsättningar. Läs mer i [data Lake Analytics-dokumentationen](https://docs.microsoft.com/azure/data-lake-analytics).
+Azure Data Lake Analytics kan användas för att utföra stor data analys på dina Data Lake Store data uppsättningar. Läs mer i [data Lake Analytics-dokumentationen](../data-lake-analytics/index.yml).

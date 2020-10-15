@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bdab132d4d22dced97273e9d1d051f155f9d69b6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e10336b9c817c71026c167144a190b2ed6b4ab6d
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970732"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070273"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
@@ -85,7 +85,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel | Datatyp |
+| Name | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | utgivare | Microsoft.Azure.KeyVault | sträng |
@@ -106,6 +106,10 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver uppdatering av certifikat. Tillägget kan distribueras till enskilda virtuella datorer eller skalnings uppsättningar för virtuella datorer. Schemat och konfigurationen är gemensamma för båda typerna av mallar. 
 
 JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []` objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella datorer under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objekt.
+
+ > [!NOTE]
+> VM-tillägget kräver att system-eller användarens hanterade identitet tilldelas till autentisering till Key Vault.  Se [hur du autentiserar till Key Vault och tilldelar en Key Vault åtkomst princip.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+> 
 
 ```json
     {

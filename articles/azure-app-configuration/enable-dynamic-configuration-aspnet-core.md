@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98ec384876da1d30952d1c4edc1d00049e44682
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300297"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077005"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Självstudie: Använd dynamisk konfiguration i en ASP.NET Core app
 
@@ -34,13 +34,13 @@ Den här självstudien visar hur du kan implementera dynamiska konfigurationsupp
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera ditt program för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
 > * Mata in den senaste konfigurationen i dina programs kontrollanter.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill göra den här själv studie kursen installerar du [.net Core SDK](https://dotnet.microsoft.com/download).
 
@@ -54,7 +54,7 @@ En *kontroll nyckel* är en särskild nyckel som används för att signalera nä
 
 1. I Azure Portal väljer du **Configuration Explorer > skapa > nyckel värde**.
 1. För **nyckel**anger du *TestApp: Settings (inställningar: Sentinel*). För **värde**anger du 1. Lämna **etikett** och **innehålls typ** tom.
-1. Välj **Använd**.
+1. Välj **Tillämpa**.
 
 > [!NOTE]
 > Om du inte använder en kontroll nyckel måste du registrera varje nyckel som du vill se manuellt.
@@ -161,7 +161,7 @@ En *kontroll nyckel* är en särskild nyckel som används för att signalera nä
     ```
     ---
     > [!Tip]
-    > Mer information om alternativ mönster när du läser konfigurations värden finns [i alternativ mönster i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > Mer information om alternativ mönster när du läser konfigurations värden finns [i alternativ mönster i ASP.net Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Uppdatera `Configure` metoden, Lägg till `UseAzureAppConfiguration` mellanprogram för att tillåta att konfigurations inställningarna som registreras för uppdatering uppdateras medan den ASP.net Core webbappen fortsätter att ta emot begär Anden.
 

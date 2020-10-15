@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab83344f779f93107b59ca28348da3a66f1efc1a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844248"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076869"
 ---
 # <a name="api-management-policy-expressions"></a>API Management princip uttryck
 I den här artikeln beskrivs syntaxen för princip uttryck i C# 7. Varje uttryck har åtkomst till den implicit tillhandahållna [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och en tillåten [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework typer.
@@ -156,7 +156,7 @@ I följande tabell visas de .NET Framework typer och medlemmar som tillåts i pr
 |System. Security. Cryptography. SymmetricAlgorithm|Alla|
 |System. Security. Cryptography. X509Certificates. PublicKey|Alla|
 |System. Security. Cryptography. X509Certificates. RSACertificateExtensions|Alla|
-|System. Security. Cryptography. X509Certificates. X500DistinguishedName|Namn|
+|System. Security. Cryptography. X509Certificates. X500DistinguishedName|Name|
 |System. Security. Cryptography. X509Certificates. X509Certificate|Alla|
 |System. Security. Cryptography. X509Certificates. X509Certificate2|Alla|
 |System. Security. Cryptography. X509Certificates. X509ContentType|Alla|
@@ -253,4 +253,4 @@ Mer information om hur du arbetar med principer finns i:
 + [Principer i API Management](api-management-howto-policies.md)
 + [Transformera API: er](transform-api.md)
 + [Princip referens](./api-management-policies.md) för en fullständig lista över princip satser och deras inställningar
-+ [Princip exempel](policy-samples.md)
++ [Princip exempel](./policy-reference.md)

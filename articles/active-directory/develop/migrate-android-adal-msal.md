@@ -1,5 +1,6 @@
 ---
 title: ADAL till MSAL migration-guide för Android | Azure
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du migrerar din Android-app för Azure Active Directory Authentication Library (ADAL) till Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy
@@ -9,16 +10,16 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
-ms.date: 09/6/2019
+ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: b2a6722cfff392a18629c8bb47fad0ad5ac1a95b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 752e7dae9040059c662a93d9a9d668bac0e8e2d8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966006"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074676"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>ADAL till MSAL migration guide för Android
 
@@ -31,7 +32,7 @@ ADAL fungerar med Azure Active Directory v 1.0-slutpunkten. Microsoft Authentica
 Uppfyller
   - Organisations identitet (Azure Active Directory)
   - Icke-organisatoriska identiteter som Outlook.com, Xbox Live och så vidare
-  - (Endast B2C) Federerad inloggning med Google, Facebook, Twitter och Amazon
+  - (Endast Azure AD B2C) Federerad inloggning med Google, Facebook, Twitter och Amazon
 
 - Är standarder som är kompatibla med:
   - OAuth v 2.0
@@ -67,7 +68,7 @@ I din app-registrering i portalen visas fliken **API-behörigheter** . Detta ger
 
 ### <a name="user-consent"></a>Användargodkännande
 
-Med ADAL och AAD v1-slutpunkten beviljades användaren de resurser de äger vid första användningen. Med MSAL och Microsoft Identity Platform kan medgivande begäras stegvis. Ett stegvist godkännande är användbart för behörigheter som en användare kan överväga med hög behörighet eller som annars kan frågas om det inte finns en tydlig förklaring av varför behörigheten krävs. I ADAL kan de behörigheterna ha resulterat i att användaren överger inloggningen i din app.
+Med ADAL och Azure AD v1-slutpunkten beviljades användaren de resurser de äger vid första användningen. Med MSAL och Microsoft Identity Platform kan medgivande begäras stegvis. Ett stegvist godkännande är användbart för behörigheter som en användare kan överväga med hög behörighet eller som annars kan frågas om det inte finns en tydlig förklaring av varför behörigheten krävs. I ADAL kan de behörigheterna ha resulterat i att användaren överger inloggningen i din app.
 
 > [!TIP]
 > Vi rekommenderar att du använder ett stegvist tillstånd i scenarier där du behöver ge ytterligare kontext till din användare om varför appen behöver en behörighet.
@@ -229,8 +230,6 @@ public interface SilentAuthenticationCallback {
      */
     void onError(final MsalException exception);
 }
-
-
 ```
 
 ## <a name="migrate-to-the-new-exceptions"></a>Migrera till de nya undantagen
@@ -240,16 +239,27 @@ I MSAL finns det en hierarki med undantag och var och en har en egen uppsättnin
 
 | Undantag                                        | Beskrivning                                                         |
 |--------------------------------------------------|---------------------------------------------------------------------|
-| `MsalException`                                  | Ett checkat standard undantag utlöstes av MSAL.                           |
-| `MsalClientException`                            | Genereras om felet är klient sidan.                                 |
 | `MsalArgumentException`                          | Utlöstes om ett eller flera argument för indata är ogiltiga.                 |
-| `MsalServiceException`                           | Utlöstes om felet är Server sidan.                                 |
-| `MsalUserCancelException`                        | Utlöses om användaren avbröt verifierings flödet.                |
-| `MsalUiRequiredException`                        | Genereras om token inte kan uppdateras tyst.                    |
+| `MsalClientException`                            | Genereras om felet är klient sidan.                                 |
 | `MsalDeclinedScopeException`                     | Utlöses om en eller flera begärda omfattningar nekades av servern. |
+| `MsalException`                                  | Ett checkat standard undantag utlöstes av MSAL.                           |
 | `MsalIntuneAppProtectionPolicyRequiredException` | Utlöses om MAMCA Protection-princip är aktive rad i resursen.         |
+| `MsalServiceException`                           | Utlöstes om felet är Server sidan.                                 |
+| `MsalUiRequiredException`                        | Genereras om token inte kan uppdateras tyst.                    |
+| `MsalUserCancelException`                        | Utlöses om användaren avbröt verifierings flödet.                |
 
-### <a name="adalerror-to-msalexception-errorcode"></a>ADALError till MsalException-felkod
+### <a name="adalerror-to-msalexception-translation"></a>ADALError till MsalException-Översättning
+
+| Om du fångar de här felen i ADAL...  | ... fånga dessa MSAL-undantag:                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| *Ingen motsvarande ADALError* | `MsalArgumentException`                          |
+| <ul><li>`ADALError.ANDROIDKEYSTORE_FAILED`<li>`ADALError.AUTH_FAILED_USER_MISMATCH`<li>`ADALError.DECRYPTION_FAILED`<li>`ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`<li>`ADALError.EVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`<li>`ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`<li>`ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`<li>`ADALError.DEVICE_NO_SUCH_ALGORITHM`<li>`ADALError.ENCODING_IS_NOT_SUPPORTED`<li>`ADALError.ENCRYPTION_ERROR`<li>`ADALError.IO_EXCEPTION`<li>`ADALError.JSON_PARSE_ERROR`<li>`ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`<li>`ADALError.SOCKET_TIMEOUT_EXCEPTION`</ul> | `MsalClientException`                            |
+| *Ingen motsvarande ADALError* | `MsalDeclinedScopeException`                     |
+| <ul><li>`ADALError.APP_PACKAGE_NAME_NOT_FOUND`<li>`ADALError.BROKER_APP_VERIFICATION_FAILED`<li>`ADALError.PACKAGE_NAME_NOT_FOUND`</ul> | `MsalException`                                  |
+| *Ingen motsvarande ADALError* | `MsalIntuneAppProtectionPolicyRequiredException` |
+| <ul><li>`ADALError.SERVER_ERROR`<li>`ADALError.SERVER_INVALID_REQUEST`</ul> | `MsalServiceException`                           |
+| <ul><li>`ADALError.AUTH_REFRESH_FAILED_PROMPT_NOT_ALLOWED` | `MsalUiRequiredException`</ul>                        |
+| *Ingen motsvarande ADALError* | `MsalUserCancelException`                        |
 
 ### <a name="adal-logging-to-msal-logging"></a>ADAL-loggning till MSAL-loggning
 

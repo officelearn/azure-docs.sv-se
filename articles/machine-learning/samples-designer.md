@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: 15f8e424529513b2932dcb18de941a8fe1867c1d
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045456"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074608"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Exempel på pipelines & data uppsättningar för Azure Machine Learning designer
 
@@ -67,8 +67,8 @@ Utforska de här inbyggda Regressions exemplen.
 
 | Exempelrubrik | Beskrivning | 
 | --- | --- |
-| [Regression – pris förutsägelse för bilar (grundläggande)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Förutsäga bil priser med linjär regression. |
-| [Regression – pris förutsägelse för bilar (avancerat)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Förutsäga bil priser med hjälp av besluts skog och utökat besluts träd regressorer. Jämför modeller för att hitta den bästa algoritmen.
+| [Regression – pris förutsägelse för bilar (grundläggande)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-basic.md) | Förutsäga bil priser med linjär regression. |
+| [Regression – pris förutsägelse för bilar (avancerat)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) | Förutsäga bil priser med hjälp av besluts skog och utökat besluts träd regressorer. Jämför modeller för att hitta den bästa algoritmen.
 
 ## <a name="classification"></a>Klassificering
 
@@ -76,10 +76,10 @@ Utforska de här inbyggda klassificerings exemplen. Du kan lära dig mer om exem
 
 | Exempelrubrik | Beskrivning | 
 | --- | --- |
-| [Binära klassificering med funktions val – inkomst förutsägelse](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Förutsäga inkomst som hög eller låg genom att använda ett besluts träd med två klasser. Använd Pearson-korrelation för att välja funktioner.
-| [Binära klassificering med anpassat Python-skript – kredit risk förutsägelse](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Klassificera kredit program som hög eller låg risk. Använd modulen kör Python-skript för att vikta dina data.
-| [Binär klassificering – förutsägelse av kund relation](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Förutsäga kund omsättningen med hjälp av två klass förstärknings besluts träd. Använd SMOTE för att sampla förprioriterade data.
-| [Text klassificering-Wikipedia SP 500-datauppsättning](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Klassificera företags typer från Wikipedia-artiklar med multiklass logistik regression. |
+| [Binära klassificering med funktions val – inkomst förutsägelse](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-feature-selection-income-prediction.md) | Förutsäga inkomst som hög eller låg genom att använda ett besluts träd med två klasser. Använd Pearson-korrelation för att välja funktioner.
+| [Binära klassificering med anpassat Python-skript – kredit risk förutsägelse](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Klassificera kredit program som hög eller låg risk. Använd modulen kör Python-skript för att vikta dina data.
+| [Binär klassificering – förutsägelse av kund relation](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-customer-relationship-prediction.md) | Förutsäga kund omsättningen med hjälp av två klass förstärknings besluts träd. Använd SMOTE för att sampla förprioriterade data.
+| [Text klassificering-Wikipedia SP 500-datauppsättning](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/text-classification-wiki.md) | Klassificera företags typer från Wikipedia-artiklar med multiklass logistik regression. |
 | Klassificering av klassificering i multiklass – brev igenkänning | Skapa en ensemble med binära klassificerare för att klassificera skrivna bokstäver. |
 
 ## <a name="computer-vision"></a>Datorvision
@@ -104,7 +104,7 @@ Lär dig mer om de exempel som demonstrerar verktyg och funktioner för maskin i
 | Exempelrubrik | Beskrivning | 
 | --- | --- |
 | Binära klassificering med Vowpal Wabbit-modell – vuxen inkomst förutsägelse | Vowpal Wabbit är ett maskin inlärnings system som skjuter gränsen för maskin inlärning med tekniker som online, hashing, allreduce, reduktioner, learning2search, aktiv och interaktiv utbildning. Det här exemplet visar hur du använder Vowpal Wabbit-modellen för att bygga en binär klassificerings modell. 
-| [Använd anpassat R-skript – flyg fördröjnings förutsägelse](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) | Använd anpassat R-skript för att förutsäga om en schemalagd passagerar flygning kommer att fördröjas med mer än 15 minuter.
+| [Använd anpassat R-skript – flyg fördröjnings förutsägelse](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/r-script-flight-delay-prediction.md) | Använd anpassat R-skript för att förutsäga om en schemalagd passagerar flygning kommer att fördröjas med mer än 15 minuter.
 | Kors validering för binär klassificering – vuxen inkomst förutsägelse | Använd kors validering för att bygga en binär klassificerare för vuxen inkomster.
 | Permutationfunktionsprioritet | Använd permutation-funktionen för att beräkna prioritets resultat för test data uppsättningen. 
 | Finjustera parametrar för binär klassificering-förutsägelse av vuxen inkomster | Använd finjustera modellens egenskaper för att hitta optimala disponeringsparametrarna för att bygga en binär klassificerare. |

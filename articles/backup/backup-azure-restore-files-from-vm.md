@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du återställer filer och mapp
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 654ed7467410743e0db1abc2e51f1304b4f91a5d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292973"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093726"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -266,7 +266,7 @@ I följande tabell visas kompatibiliteten mellan server-och dator operativ syste
 | --------------- | ---- |
 | Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
-| Windows Server 2012 R2 | Windows 8,1 |
+| Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
@@ -376,7 +376,7 @@ Den här funktionen har skapats för att komma åt VM-data utan att behöva åte
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Välj återställnings punkt (som kan generera skript)
 
-Skriptet ger åtkomst till VM-data, så det är viktigt att reglera vem som kan generera det på den första platsen. Du måste logga in i Azure Portal och vara RBAC- [auktoriserade](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) för att generera skriptet.
+Skriptet ger åtkomst till VM-data, så det är viktigt att reglera vem som kan generera det på den första platsen. Du måste logga in på Azure Portal och vara [Azure RBAC-auktoriserad](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) för att kunna generera skriptet.
 
 Fil återställning måste ha samma behörighets nivå som krävs för återställning av virtuella datorer och diskar. Med andra ord kan endast behöriga användare se de virtuella dator data som kan generera skriptet.
 

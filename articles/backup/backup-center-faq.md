@@ -3,12 +3,12 @@ title: Säkerhets kopierings Center – vanliga frågor och svar
 description: I den här artikeln får du svar på vanliga frågor om Backup Center
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: b10a9e73e65cf12c43ce28b429a8f12e0b960a76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e227eb6a14d06791e52ec33e090afdcb01bab61
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997689"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094049"
 ---
 # <a name="backup-center---frequently-asked-questions"></a>Säkerhets kopierings Center – vanliga frågor och svar
 
@@ -34,7 +34,7 @@ Nej. Säkerhets kopierings Center kommer att vara klart från lådan. Om du vill
 
 ### <a name="do-i-need-to-have-any-special-permissions-to-use-backup-center"></a>Måste jag ha några särskilda behörigheter för att använda Backup Center?
 
-Backup Center eftersom det inte behövs några nya behörigheter. Så länge du har rätt nivå av RBAC-åtkomst för de resurser som du hanterar kan du använda Backup Center för dessa resurser. Om du till exempel vill visa information om dina säkerhets kopior behöver du **läsa in läsare** till dina valv. Om du vill konfigurera säkerhets kopiering och utföra andra säkerhets kopierings åtgärder behöver du rollen **säkerhets kopierings deltagare** eller **ansvariga för säkerhets kopiering** . Lär dig mer om [RBAC-roller för Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
+Backup Center eftersom det inte behövs några nya behörigheter. Så länge du har rätt nivå av Azure RBAC-åtkomst för de resurser som du hanterar kan du använda Backup Center för dessa resurser. Om du till exempel vill visa information om dina säkerhets kopior behöver du **läsa in läsare** till dina valv. Om du vill konfigurera säkerhets kopiering och utföra andra säkerhets kopierings åtgärder behöver du rollen **säkerhets kopierings deltagare** eller **ansvariga för säkerhets kopiering** . Lär dig mer om [Azure-roller för Azure Backup](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault).
 
 ## <a name="pricing"></a>Prissättning
 

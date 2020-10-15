@@ -3,12 +3,12 @@ title: Optimera Azure-arbetsbelastningar med Advisor-Poäng
 description: Använd Advisor-Poäng för att få ut mesta möjliga av Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335627"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074030"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Optimera Azure-arbetsbelastningar med Advisor-Poäng
 
@@ -17,7 +17,7 @@ ms.locfileid: "91335627"
 Azure Advisor innehåller rekommendationer för bästa praxis för dina arbets belastningar. Dessa rekommendationer är anpassade och åtgärdade för att hjälpa dig:
 * Förbättra position i dina arbets belastningar och optimera dina Azure-distributioner
 * Förhindra de vanligaste problemen proaktivt genom att följa bästa praxis
-* Utvärdera dina Azure-arbetsbelastningar mot de fem pelarna i [Microsoft Azure Well-Architected Framework](https://docs.microsoft.com/azure/architecture/framework/)
+* Utvärdera dina Azure-arbetsbelastningar mot de fem pelarna i [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/)
 
 Som grund funktion i Advisor, är **Advisor-poängen** lättare att hjälpa dig att uppnå dessa mål effektivt och effektivt. 
 
@@ -56,7 +56,7 @@ Beräkningen av Advisor-poängen kan sammanfattas i fyra steg:
   * Resurser med långsiktiga rekommendationer kommer att räkna mer än dina poäng.
   * Resurser som du skjuter upp eller tar bort i Advisor tas helt och hållet bort från dina poäng beräkningar. 
     
-Advisor tillämpar den här modellen på en rådgivares kategori nivå (säkerhet använder [säker Poäng](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) modell) och ger oss Advisor-Poäng för varje kategori och ytterligare ett enkelt genomsnitt ger slut på Advisor-poängen.
+Advisor tillämpar den här modellen på en rådgivares kategori nivå (säkerhet använder [säker Poäng](../security-center/secure-score-security-controls.md#introduction-to-secure-score) modell) och ger oss Advisor-Poäng för varje kategori och ytterligare ett enkelt genomsnitt ger slut på Advisor-poängen.
 
 
 ## <a name="advisor-score-faq"></a>Vanliga frågor och svar om Advisor

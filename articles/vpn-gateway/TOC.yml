@@ -5,6 +5,7 @@
     - name: Vad är en VPN-gateway?
       href: vpn-gateway-about-vpngateways.md
 - name: Självstudier
+  expanded: true
   items:
     - name: Skapa och hantera VPN Gateway
       href: vpn-gateway-tutorial-create-gateway-powershell.md

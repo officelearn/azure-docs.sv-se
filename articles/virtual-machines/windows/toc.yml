@@ -555,6 +555,8 @@
           href: client-images.md
         - name: Ladda ned befintlig disk
           href: download-vhd.md
+        - name: Hanterad disk från avbildningsversion
+          href: ../managed-disk-from-image-version.md
     - name: Säkra virtuella datorer
       items:
         - name: Rekommendationer

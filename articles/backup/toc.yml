@@ -386,7 +386,7 @@
       items:
         - name: Översikt
           href: security-overview.md
-        - name: Rollbaserad Access Control
+        - name: Rollbaserad Azure-åtkomstkontroll
           href: backup-rbac-rs-vault.md
         - name: Mjuk borttagning
           items:

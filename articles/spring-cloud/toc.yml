@@ -40,7 +40,7 @@
     - name: Etablera en Azure Spring Cloud-instans med terraform
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: CI/CD med Jenkins
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+      href: /azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli
     - name: Använda en hanterad identitet för att ansluta Key Vault till en Azure Spring Cloud-app
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Distribuera Azure Spring Cloud i virtuellt nätverk
@@ -114,15 +114,15 @@
 - name: Referens
   items:
     - name: Azure CLI-plugin
-      href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
+      href: /cli/azure/ext/spring-cloud/spring-cloud
     - name: Azure PowerShell
-      href: 'https://docs.microsoft.com/powershell/module/az.springcloud'
+      href: /powershell/module/az.springcloud
     - name: Resurser
       href: spring-cloud-resources.md
     - name: Vanliga frågor och svar
       href: spring-cloud-faq.md
     - name: Referens för REST-API
-      href: 'https://docs.microsoft.com/rest/api/azurespringclould/'
+      href: /rest/api/azurespringclould/
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md

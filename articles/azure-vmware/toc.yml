@@ -92,6 +92,10 @@
           href: vrealize-operations-for-azure-vmware-solution.md
         - name: Distribuera VMware Horizon
           href: azure-vmware-solution-horizon.md
+    - name: VMware-ekosystem
+      items:
+        - name: Säkerhetskopieringslösningar för virtuella datorer
+          href: ecosystem-back-up-vms.md
 - name: Resurser
   items:
     - name: Felsökning

@@ -168,6 +168,7 @@
         - name: Aktiviteter för jobbförberedelse och -slutförande
           href: batch-job-prep-release.md
         - name: Samtidiga nodaktiviteter
+          displayName: concurrent
           href: batch-parallel-node-tasks.md
         - name: Aktivitetsberoenden
           href: batch-task-dependencies.md

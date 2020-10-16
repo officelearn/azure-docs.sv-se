@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ee2eb7586489527272d92dd1eaef6976bc41f94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532983f2df6689f840b71673ede3fd86842c1d22
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524858"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Självstudie: Azure Active Directory integrering med StatusPage
 
@@ -30,7 +30,7 @@ Genom att integrera StatusPage med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med StatusPage behöver du följande objekt:
 
@@ -138,17 +138,17 @@ Utför följande steg för att konfigurera enkel inloggning med StatusPage i Azu
 
 1. Klicka på **Hantera konto**i huvud verktygsfältet.
 
-    ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Skärm bild som visar hanterat konto valt från StatusPage företags webbplats.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Klicka på fliken **enkel inloggning** .
 
-    ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![Skärm bild som visar fliken enkel inloggning.](./media/statuspage-tutorial/tutorial_statuspage_07.png)
 
 1. Utför följande steg på sidan SSO-konfiguration:
 
-    ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![Skärm bild som visar sidan S O-inställningar där du kan ange de värden som beskrivs.](./media/statuspage-tutorial/tutorial_statuspage_08.png)
 
-    ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![Skärm bild som visar knappen Spara konfiguration.](./media/statuspage-tutorial/tutorial_statuspage_09.png)
 
     a. I text rutan för **SSO-mål-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
@@ -219,19 +219,19 @@ StatusPage stöder just-in-Time-etablering. Du har redan aktiverat det i [Konfig
 
 1. I menyn högst upp klickar du på **Hantera konto**.
 
-    ![Konfigurera enkel inloggning](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![Skärm bild som visar hanterat konto valt från StatusPage företags webbplats.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Klicka på fliken **grupp medlemmar** .
   
-    ![Skapa en testanvändare för Azure AD](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
+    ![Skärm bild som visar fliken grupp medlemmar.](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
 
 1. Klicka på **Lägg till grupp medlem**.
   
-    ![Skapa en testanvändare för Azure AD](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
+    ![Skärm bild som visar knappen Lägg till grupp medlem.](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
 1. Ange **e-postadress**, **förnamn**och efter **namn** för en giltig användare som du vill etablera i de relaterade text rutorna. 
 
-    ![Skapa en testanvändare för Azure AD](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
+    ![Skärm bild som visar dialog rutan Lägg till en användare där du kan ange de värden som beskrivs.](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 
 1. Som **roll**väljer du **klient administratör**.
 

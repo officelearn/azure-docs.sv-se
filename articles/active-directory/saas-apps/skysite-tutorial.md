@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 1454be235c98e5348d1b57028d988252191ad270
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c522ae70314a5f9bf691e935f1f171cd66c938b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528054"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122389"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SKYSITE
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar SKYSITE med Azure A
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -88,15 +88,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. SKYSITE-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar användarattribut med redigerings ikonen vald.](common/edit-attribute.png)
 
 1. Utöver ovan förväntar sig SKYSITE-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)** utför du följande steg:
 
     a. Klicka på **pennan** bredvid **grupper som returneras i anspråk**.
 
-    ![image](./media/skysite-tutorial/config01.png)
+    ![Skärm bild som visar användar anspråk med alternativet att lägga till ett nytt anspråk.](./media/skysite-tutorial/config01.png)
 
-    ![image](./media/skysite-tutorial/config02.png)
+    ![Skärm bild som visar dialog rutan hantera användar anspråk där du kan ange de värden som beskrivs.](./media/skysite-tutorial/config02.png)
 
     b. Välj **alla grupper** i alternativ listan.
 
@@ -148,11 +148,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. Klicka på **Inställningar** på den övre högra sidan av sidan och gå sedan till **konto inställningen**.
 
-    ![Konfiguration](./media/skysite-tutorial/config03.png)
+    ![Skärm bild som visar konto inställningar som valts från inställningar.](./media/skysite-tutorial/config03.png)
 
 5. Växla till fliken **enkel inloggning (SSO)** och utför följande steg:
 
-    ![Konfiguration](./media/skysite-tutorial/config04.png)
+    ![Skärm bild som visar fliken enkel inloggning där du kan ange de värden som beskrivs.](./media/skysite-tutorial/config04.png)
 
     a. I text rutan **identitets leverantörens inloggnings-URL** klistrar du in värdet för **URL för användar åtkomst**som du har kopierat från fliken **Egenskaper** i Azure Portal.
 

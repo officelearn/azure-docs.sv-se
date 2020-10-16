@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: f9c7412afcc191470902cc256586f9db21f8e78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe0dbe55f903c25556698a5d510bf9e67b408be
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91852150"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126728"
 ---
 # <a name="frequently-asked-questions-for-iot-central"></a>Vanliga frågor och svar om IoT Central
 
@@ -61,7 +61,7 @@ Azure IoT Central använder Azure IoT Hub som en molnbaserad gateway som aktiver
 - Enhets hantering.
 - Skydda enhets anslutningen.
 
-Mer information om IoT Hub finns i [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+Mer information om IoT Hub finns i [Azure IoT Hub](../../iot-hub/index.yml).
 
 **Var kan jag lära mig mer om enhets etablerings tjänsten (DPS)?**
 

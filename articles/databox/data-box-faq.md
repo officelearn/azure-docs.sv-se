@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b65d1be9fa3ddb28a216d51e91ce2a8b20f15e6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051176"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127190"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -236,8 +236,8 @@ A.  När du kopierar data till Data Box laddas de upp till någon av följande s
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>F. Jag har precis märkt att jag inte följde namngivningskraven för min container. Misslyckas dataöverföringen till Azure?
 A.  Om containernamnet innehåller versaler omvandlas namnet automatiskt till gemener. Om namnen inte uppfyller kraven på andra sätt (specialtecken, andra språk och så vidare) misslyckas uppladdningen. Mer information om metodtips för namngivning av resurser, containrar och filer finns här:
-- [Namnge och referera till resurser](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Konventioner för blockblobar och sidblobar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+- [Namnge och referera till resurser](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Konventioner för blockblobar och sidblobar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-data-box"></a>F. Hur verifierar jag de data som jag har kopierat till Data Box?
 A.  Dina data verifieras när datakopieringen är klar och du kör **Förbered för att skicka**. Data Box genererar en lista över filer och kontrollsummor för data under verifieringsprocessen. Du kan ladda ned fillistan och verifiera listan mot filerna i källdata. Om du vill ha mer information går du till [Förbered för att skicka](data-box-deploy-picked-up.md#prepare-to-ship).

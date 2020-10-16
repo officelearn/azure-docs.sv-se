@@ -9,12 +9,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 755d0077abcba71d705a14643f5c2b28001bfa13
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 335b564225bc2b7a4c2217c1d912f952239ecf24
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951442"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127207"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Självstudie: Använd Data Box Heavy för att importera data som Managed disks i Azure
 
@@ -38,7 +38,7 @@ Innan du börjar ska du kontrollera att:
 4. Du har granskat:
 
     - [Hanterade disk storlekar som stöds i storleks gränser för Azure-objekt](data-box-heavy-limits.md#azure-object-size-limits).
-    - [Introduktion till Azure Managed disks](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Introduktion till Azure Managed disks](../virtual-machines/managed-disks-overview.md). 
 
 ## <a name="connect-to-data-box-heavy"></a>Ansluta till Data Box Heavy
 
@@ -182,4 +182,3 @@ Gå vidare till nästa självstudie och lär dig hur du skickar tillbaka din Dat
 
 > [!div class="nextstepaction"]
 > [Skicka Azure Data Box Heavy till Microsoft](./data-box-heavy-deploy-picked-up.md)
-

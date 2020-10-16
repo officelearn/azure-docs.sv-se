@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 6807f3d4ef0596b4dbb51f6bc8c0348901e78d0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2969c963b491e4b08a0959d548e43ba11276d28a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439938"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126557"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mysql"></a>SSL/TLS-anslutning i Azure Database for MySQL
 
@@ -20,8 +20,11 @@ Azure Database for MySQL stöder anslutning av databas servern till klient progr
 > [!NOTE]
 > Uppdatering av `require_secure_transport` värdet för Server parametern påverkar inte MySQL-tjänstens beteende. Använd de funktioner för SSL-och TLS-tillämpning som beskrivs i den här artikeln för att skydda anslutningar till databasen.
 
+>[!NOTE]
+> Baserat på feedback från kunder har vi utökat rot certifikatets utfasning för vår befintliga Baltimore rot certifikat utfärdare till 15 februari 2021 (02/15/2021).
+
 > [!IMPORTANT] 
-> SSL-rotcertifikat är inställt på att gå ut från oktober 26 2020 (10/26/2020). Uppdatera ditt program för att använda det [nya certifikatet](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Mer information finns i avsnittet om [planerade certifikat uppdateringar](concepts-certificate-rotation.md)
+> SSL-rotcertifikat är inställt på att upphöra att gälla den 15 februari 2021 (02/15/2021). Uppdatera ditt program för att använda det [nya certifikatet](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Mer information finns i avsnittet om [planerade certifikat uppdateringar](concepts-certificate-rotation.md)
 
 ## <a name="ssl-default-settings"></a>Standardinställningar för SSL
 

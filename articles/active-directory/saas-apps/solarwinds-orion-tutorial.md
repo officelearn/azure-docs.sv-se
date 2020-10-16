@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 723546d6a997d895c1a1df39b558aabb797d0a11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9f93457edc4276422eb97b56c90b83ad6a19a65
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545105"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126900"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-solarwinds-orion"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SolarWinds Orion
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera SolarWinds-Orion med Az
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -96,7 +96,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig SolarWinds Orion-program att fler attribut skickas tillbaka i SAML-svar, som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
     
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ----------- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -144,19 +144,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Logga in på SolarWinds-Orion och gå till **Inställningar**  ->  **alla inställningar**.
 
-    ![ Konfiguration SolarWinds Orion ](./media/solarwinds-orion-tutorial/settings.png)
+    ![Skärm bilden visar alla inställningar som valts från inställningar.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. I avsnittet **användar konton** väljer du **SAML-konfiguration**.
 
-    ![ Konfiguration SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
+    ![Skärm bild som visar SAML-konfiguration som valts från användar konton.](./media/solarwinds-orion-tutorial/configure-user-accounts.png)
 
 1. Klicka på **Lägg till identitets leverantör**.
 
-    ![ Konfiguration SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
+    ![Skärm bild som visar SAML-konfiguration där du kan välja Lägg till identitets leverantör.](./media/solarwinds-orion-tutorial/configure-add-identity-provider.png)
 
 1. Utför följande steg på sidan **Lägg till identitetsprovider** :
 
-    ![ Konfiguration SolarWinds Orion ](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
+    ![Skärm bild som visar sidan Lägg till identitets leverantör där du kan ange de värden som beskrivs.](./media/solarwinds-orion-tutorial/configure-solarwinds.png)
 
     a. Gå till fliken **Konfigurera** .
 
@@ -174,25 +174,25 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Logga in på SolarWinds Orion-webbplatsen och gå till **Inställningar**  ->  **alla inställningar**.
 
-    ![ SolarWinds Orion skapa test användare ](./media/solarwinds-orion-tutorial/settings.png)
+    ![Skärm bilden visar alla inställningar som valts från inställningar.](./media/solarwinds-orion-tutorial/settings.png)
 
 1. I avsnittet **användar konton** väljer du **Hantera konton**.
 
-    ![ SolarWinds Orion skapa test användare ](./media/solarwinds-orion-tutorial/user-accounts.png)
+    ![Skärm bild som visar att SAML-konfigurationen har valts.](./media/solarwinds-orion-tutorial/user-accounts.png)
 
 1. På fliken **enskilda konton** klickar du på **Lägg till nytt konto**.
 
-    ![ SolarWinds Orion skapa test användare ](./media/solarwinds-orion-tutorial/create-user.png)
+    ![Skärm bild som visar Lägg till nytt konto valt i Hantera konton.](./media/solarwinds-orion-tutorial/create-user.png)
 
 1. Välj den typ av konto som du behöver för att skapa antingen SAML-enskilda användare eller grupper.
 
-    ![ SolarWinds Orion skapa test användare ](./media/solarwinds-orion-tutorial/create-user-new-account.png)
+    ![Skärm bild som visar Lägg till nytt konto där du kan välja typ av konto.](./media/solarwinds-orion-tutorial/create-user-new-account.png)
 
 1.  I text rutan **namn-ID** anger du det namn som måste matcha användar namnet eller grupp namnet exakt som i Azure AD.
 
 1.  Klicka på **Nästa** och skicka sedan sidan.
 
-    ![ SolarWinds Orion skapa test användare ](./media/solarwinds-orion-tutorial/create-user-name-id.png)
+    ![Skärm bild som visar Lägg till nytt konto där du kan ange namnet I D från Azure A D.](./media/solarwinds-orion-tutorial/create-user-name-id.png)
 
 ## <a name="test-sso"></a>Testa SSO 
 

@@ -6,16 +6,19 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 976b423822fa667df713382b34d7208cb0e3b002
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b57a1f3dc1f2d86b992ce2480acd9c44df8d1e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540667"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122508"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for PostgreSQL enskild server
 
-Azure Database for PostgreSQL kommer att ändra rot certifikatet för klient programmet/driv rutinen som är aktive rad med SSL, som används för att [ansluta till databas servern](concepts-connectivity-architecture.md). Rot certifikatet som för närvarande är tillgängligt upphör att gälla den 26 oktober 2020 (10/26/2020) som en del av standard underhåll och rekommenderade säkerhets metoder. Den här artikeln innehåller mer information om kommande ändringar, vilka resurser som kommer att påverkas och de steg som krävs för att säkerställa att programmet upprätthåller anslutningen till databas servern.
+Azure Database for PostgreSQL kommer att ändra rot certifikatet för klient programmet/driv rutinen som är aktive rad med SSL, som används för att [ansluta till databas servern](concepts-connectivity-architecture.md). Rot certifikatet som för närvarande är tillgängligt upphör att gälla den 15 februari 2021 (02/15/2021) som en del av standard underhåll och rekommenderade säkerhets metoder. Den här artikeln innehåller mer information om kommande ändringar, vilka resurser som kommer att påverkas och de steg som krävs för att säkerställa att programmet upprätthåller anslutningen till databas servern.
+
+>[!NOTE]
+> Baserat på feedback från kunder har vi utökat rot certifikatets utfasning för vår befintliga Baltimore rot certifikat utfärdare från oktober 26, 2020 till 15 februari 2021. Vi hoppas att det här tillägget ger tillräckligt med ledtid för att våra användare ska kunna implementera klient ändringarna om de påverkas.
 
 ## <a name="what-update-is-going-to-happen"></a>Vilken uppdatering ska ske?
 
@@ -23,7 +26,7 @@ I vissa fall använder program en lokal certifikat fil som genererats från en b
 
 Som enligt branschens krav på efterlevnad började CA-leverantörer återkallade CA-certifikat för icke-kompatibla ca: er, vilket kräver att servrar använder certifikat som utfärdats av kompatibla ca: er och signeras av CA-certifikat från dessa kompatibla certifikat utfärdare. Eftersom Azure Database for PostgreSQL för närvarande använder ett av dessa icke-kompatibla certifikat, som klient program använder för att verifiera sina SSL-anslutningar, måste vi se till att lämpliga åtgärder vidtas (beskrivs nedan) för att minimera den potentiella påverkan på dina PostgreSQL-servrar.
 
-Det nya certifikatet kommer att användas från och med den 26 oktober 2020 (10/26/2020). Om du använder antingen CA-validering eller fullständig verifiering av Server certifikatet vid anslutning från en PostgreSQL-klient (sslmode = verifiera-ca eller sslmode = verifiera-full) måste du uppdatera program konfigurationen före den 26 oktober 2020 (10/26/2020).
+Det nya certifikatet kommer att användas från och med 15 februari 2021 (02/15/2021). Om du använder antingen CA-validering eller fullständig verifiering av Server certifikatet vid anslutning från en PostgreSQL-klient (sslmode = verifiera-ca eller sslmode = verifiera-full) måste du uppdatera program konfigurationen före 15 februari 2021 (02/15/2021).
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Hur gör jag för att veta om min databas kommer att påverkas?
 
@@ -84,6 +87,9 @@ Om du använder Baltimore CyberTrust-rotcertifikat för att verifiera SSL-anslut
 *   Ogiltigt certifikat/återkallat certifikat
 *   Anslutningens tidsgräns uppnåddes
 
+> [!NOTE]
+> Ta inte bort eller ändra **Baltimore-certifikatet** förrän certifikat ändringen har gjorts. Vi kommer att skicka en kommunikation när ändringen har gjorts, och det är säkert att ta bort Baltimore-certifikatet. 
+
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. om jag inte använder SSL/TLS måste jag fortfarande uppdatera rot certifikat utfärdaren?
@@ -92,8 +98,8 @@ Inga åtgärder krävs om du inte använder SSL/TLS.
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. om jag använder SSL/TLS måste jag starta om min databas server för att uppdatera rot certifikat utfärdaren?
 Nej, du behöver inte starta om databas servern för att börja använda det nya certifikatet. Detta är en ändring på klient sidan och inkommande klient anslutningar måste använda det nya certifikatet för att säkerställa att de kan ansluta till databas servern.
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. Vad händer om jag inte uppdaterar rot certifikatet före den 26 oktober 2020 (10/26/2020)?
-Om du inte uppdaterar rot certifikatet före den 26 oktober 2020 kommer dina program som ansluter via SSL/TLS och verifiering av rot certifikatet inte att kunna kommunicera med PostgreSQL-databas servern och programmet kommer att uppleva anslutnings problem till PostgreSQL-databasservern.
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3. Vad händer om jag inte uppdaterar rot certifikatet före den 15 februari 2021 (02/15/2021)?
+Om du inte uppdaterar rot certifikatet före den 15 februari 2021 (02/15/2021) kommer dina program som ansluter via SSL/TLS och verifiering för rot certifikatet inte att kunna kommunicera med PostgreSQL-databas servern och programmet kommer att uppleva anslutnings problem till PostgreSQL-databasservern.
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4. Vad är effekten om du använder App Service med Azure Database for PostgreSQL?
 För Azure App Services, som ansluter till Azure Database for PostgreSQL, kan vi ha två möjliga scenarier och det beror på hur du använder SSL med ditt program.
@@ -111,11 +117,11 @@ För koppling med egen värd Integration Runtime där du uttryckligen inkluderar
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. behöver jag planera ett avbrott för databas server underhåll för den här ändringen?
 Nej. Eftersom ändringen bara finns på klient sidan för att ansluta till databas servern, finns det inga underhålls avbrott som krävs för databas servern för den här ändringen.
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. Vad händer om jag inte kan få en schemalagd stillestånds tid för den här ändringen före den 26 oktober 2020 (10/26/2020)?
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. Vad händer om jag inte kan få en schemalagd stillestånds tid för den här ändringen före den 15 februari 2021 (02/15/2021)?
 Eftersom klienterna som används för att ansluta till servern måste uppdatera certifikat informationen enligt beskrivningen i avsnittet åtgärda [här](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), behöver vi inte något drift stopp för-servern i det här fallet.
 
-### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. om jag skapar en ny server efter den 26 oktober 2020 kommer jag att påverkas?
-För servrar som skapats efter den 26 oktober 2020 (10/26/2020) kan du använda det nyligen utfärdade certifikatet för dina program för att ansluta med SSL.
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. om jag skapar en ny server efter den 15 februari 2021 (02/15/2021) kommer jag att påverkas?
+För servrar som skapats efter den 15 februari 2021 (02/15/2021) kan du använda det nyligen utfärdade certifikatet för dina program för att ansluta med SSL.
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. hur ofta uppdaterar Microsoft sina certifikat eller vad är förfallo principen?
 Dessa certifikat som används av Azure Database for PostgreSQL tillhandahålls av betrodda certifikat utfärdare (CA). Stöd för dessa certifikat på Azure Database for PostgreSQL är knutet till stöd för dessa certifikat av CA. Men i så fall kan det vara oförutsedda buggar i dessa fördefinierade certifikat, vilket måste åtgärdas tidigast.
@@ -129,5 +135,8 @@ För att kontrol lera om du använder SSL-anslutning för att ansluta till serve
 ### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. finns det en åtgärd som behövs om jag redan har DigiCertGlobalRootG2 i min certifikat fil?
 Nej. Ingen åtgärd krävs om certifikat filen redan har **DigiCertGlobalRootG2**.
 
-### <a name="14-what-if-i-have-further-questions"></a>14. Vad händer om jag har fler frågor?
+### <a name="14-what-is-you-are-using-docker-image-of-pgbouncer-sidecar-provided-by-microsoft"></a>14. Vad använder du Docker-avbildning av PgBouncer sidvagn från Microsoft?
+En ny Docker-avbildning som stöder både [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) och [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) publiceras [till nedan (](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) senaste taggen). Du kan hämta den här nya avbildningen för att undvika avbrott i anslutningen från den 15 februari 2021. 
+
+### <a name="15-what-if-i-have-further-questions"></a>15. Vad händer om jag har fler frågor?
 Om du har frågor kan du få svar från community-experter i [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). [Kontakta oss](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com) om du har en Support plan och behöver teknisk hjälp

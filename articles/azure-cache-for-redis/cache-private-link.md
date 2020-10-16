@@ -5,13 +5,13 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: e2c071ff9cf020f99e990e670cfb29cca3c1ebbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 93a21b627acfb127c98ead465ebeadc8a472bdfd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91838661"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122712"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure cache för Redis med Azures privata länk (offentlig för hands version)
 I den här artikeln får du lära dig hur du skapar ett virtuellt nätverk och en Azure-cache för Redis-instans med en privat slut punkt med hjälp av Azure Portal. Du får också lära dig hur du lägger till en privat slut punkt i en befintlig Azure-cache för Redis-instansen.
@@ -21,8 +21,9 @@ Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat 
 ## <a name="prerequisites"></a>Förutsättningar
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Om du vill använda privata slut punkter måste Azure-cachen för Redis-instansen ha skapats efter 28 juli 2020.
+> För närvarande finns det inte stöd för geo-replikering, brand Väggs regler, stöd för Portal konsol, flera slut punkter per klustrad cache, persistence till brand väggen och VNet-inmatnings cache. 
 >
 >
 
@@ -109,6 +110,23 @@ Följ dessa steg om du vill skapa en cache-instans.
 
 Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts**sidan för Azure-cache för Redis   . När **statusen**   är **igång**är cacheminnet redo att användas. 
     
+> [!IMPORTANT]
+> 
+> Det finns en `publicNetworkAccess` flagga som är som `Enabled` standard. 
+> Den här flaggan är avsedd att tillåta att både offentlig och privat slut punkt får åtkomst till cachen om den är inställd på `Enabled` . Om detta är inställt på `Disabled` , tillåter det bara åtkomst till privat slut punkt. Du kan ställa in värdet på `Disabled` med följande patch-begäran.
+> ```http
+> PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
+> {    "properties": {
+>        "publicNetworkAccess":"Disabled"
+>    }
+> }
+> ```
+>
+
+> [!IMPORTANT]
+> 
+> För att ansluta till en klustrad cache `publicNetworkAccess` måste anges till `Disabled` och det får bara finnas en privat slut punkts anslutning. 
+>
 
 ## <a name="create-a-private-endpoint-with-an-existing-azure-cache-for-redis-instance"></a>Skapa en privat slut punkt med en befintlig Azure-cache för Redis-instans 
 

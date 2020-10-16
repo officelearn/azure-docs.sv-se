@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ffecd09d1084188195da83568ab3fe32ef2cdaac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3ef4790f9f7a3b3488dade9312203de41be1ff75
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90972234"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122159"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Arkitektur för kontinuerlig övervakning av patienter
 
@@ -33,11 +33,11 @@ Många medicinska wearables som används i vård-och sjukvårds lösningar är B
 
 ### <a name="mobile-phone-gateway"></a>Mobil telefon Gateway
 
-Mobil telefon programmets primära funktion är att samla in tabell data från medicinska enheter och kommunicera med IoT Central. Appen guidar även patienter genom enhets konfigurationen och gör det möjligt för dem att visa sina personliga hälso data. Andra lösningar kan använda en surfplatta gateway eller en statisk gateway i ett sjukhus rum. Ett mobilt exempel mobil program med öppen källkod är tillgängligt för Android och iOS och används som utgångs punkt för program utvecklingen. Mer information finns i mobilappen för [IoT Central kontinuerlig övervakning av patienter](https://docs.microsoft.com/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
+Mobil telefon programmets primära funktion är att samla in tabell data från medicinska enheter och kommunicera med IoT Central. Appen guidar även patienter genom enhets konfigurationen och gör det möjligt för dem att visa sina personliga hälso data. Andra lösningar kan använda en surfplatta gateway eller en statisk gateway i ett sjukhus rum. Ett mobilt exempel mobil program med öppen källkod är tillgängligt för Android och iOS och används som utgångs punkt för program utvecklingen. Mer information finns i mobilappen för [IoT Central kontinuerlig övervakning av patienter](/samples/iot-for-all/iotc-cpm-sample/iotc-cpm-sample/).
 
 ### <a name="export-to-azure-api-for-fhirreg"></a>Exportera till Azure API för FHIR&reg;
 
-Azure IoT Central är HIPAA-kompatibelt och HITRUST- &reg; certifierat. Du kan också skicka patient hälso data till andra tjänster med hjälp av [Azure API för FHIR](../../healthcare-apis/overview.md). Azure API för FHIR är ett standard-baserat API för kliniska hälso data. Med [Azure IoT-anslutningsprogrammet för FHIR](https://docs.microsoft.com/azure/healthcare-apis/iot-fhir-portal-quickstart) kan du använda Azure API för FHIR som ett kontinuerligt data export mål från IoT Central.
+Azure IoT Central är HIPAA-kompatibelt och HITRUST- &reg; certifierat. Du kan också skicka patient hälso data till andra tjänster med hjälp av [Azure API för FHIR](../../healthcare-apis/overview.md). Azure API för FHIR är ett standard-baserat API för kliniska hälso data. Med [Azure IoT-anslutningsprogrammet för FHIR](../../healthcare-apis/iot-fhir-portal-quickstart.md) kan du använda Azure API för FHIR som ett kontinuerligt data export mål från IoT Central.
 
 ### <a name="machine-learning"></a>Maskininlärning
 

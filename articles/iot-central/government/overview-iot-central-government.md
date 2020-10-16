@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1ed5a64a76d27f87b590573894e34f2560a5c2aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5f92750217dd0bcf5d7a5074a6187d994f19722a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90972297"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126574"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Skapa lösningar för myndigheter med Azure IoT Central
 
@@ -78,4 +78,4 @@ Kom igång med [självstudierna för anslutet hanterings program](./tutorial-con
 * Lär dig mer om [begrepp för övervakning av vatten kvalitet](./concepts-waterqualitymonitoring-architecture.md)
 * Lär dig mer om [övervaknings koncept för vattenförbrukning](./concepts-waterconsumptionmonitoring-architecture.md)
 * Lär dig mer om [anslutna avfalls hanterings koncept](./concepts-connectedwastemanagement-architecture.md)  
-* Läs mer om IoT Central i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central) 
+* Läs mer om IoT Central i [IoT Central översikt](../core/overview-iot-central.md)

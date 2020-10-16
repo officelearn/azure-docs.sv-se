@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449664"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127532"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Använd det lokala webb gränssnittet för att administrera Data Box-enhet och Data Box Heavy
 
@@ -177,7 +177,7 @@ Vi rekommenderar starkt att du inte inaktiverar kontrollsumman såvida inte pres
     ![Inaktivera kontrollsumma](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Inaktivera** validering av kontrollsummor
-3. Välj **Använd**.
+3. Välj **Tillämpa**.
 
 > [!NOTE]
 > Alternativet för att hoppa över beräkning av kontroll summa är endast tillgängligt när Azure Data Box har låsts upp. Du ser inte det här alternativet när enheten är låst.
@@ -198,7 +198,7 @@ Så här aktiverar du SMB-signering i din Azure-enhet:
 
     ![Aktivera SMB-signering](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
 
-3. Välj **Använd**.
+3. Välj **Tillämpa**.
 4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
 5. Välj **starta om**.
 
@@ -206,7 +206,7 @@ Så här aktiverar du SMB-signering i din Azure-enhet:
 
 Dina webb GRÄNSSNITTs användare har behörighet som ansvarig för säkerhets kopiering på SMB-resurser som standard. Om du inte vill ha det kan du använda **behörigheten aktivera back operator** för att inaktivera eller aktivera privilegierna.
 
-Mer information finns i säkerhets kopierings ansvariga i [Active Directory säkerhets grupper](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+Mer information finns i säkerhets kopierings ansvariga i [Active Directory säkerhets grupper](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
 
 Så här aktiverar du behörighet för ansvarig för säkerhets kopiering i din Azure-enhet:
 
@@ -241,7 +241,7 @@ Så här aktiverar du överföring av ACL: er för Azure Files:
 
      ![Aktivera ACL: er för Azure Files](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
   
-3. Välj **Använd**.
+3. Välj **Tillämpa**.
 4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
 5. Välj **starta om**.
 
@@ -261,7 +261,7 @@ Så här aktiverar du TLS 1,1 i din Azure-enhet:
 
     ![Aktivera TLS 1,1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
 
-3. Välj **Använd**.
+3. Välj **Tillämpa**.
 4. I det lokala webbgränssnittet går du till **Stäng av eller starta om**.
 5. Välj **starta om**.
 

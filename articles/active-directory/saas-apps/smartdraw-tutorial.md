@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2020
 ms.author: jeedes
-ms.openlocfilehash: f99993792c2d5f4300025f26d8409207382553d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46b4387252be7e0b76f6e0733d6fd4f95d39e2f0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88527629"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125960"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartdraw"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SmartDraw
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar SmartDraw med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -93,7 +93,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig SmartDraw-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -152,11 +152,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **enkel inloggning** under hantera din SmartDraw-licens.
 
-    ![SmartDraw-konfiguration](./media/smartdraw-tutorial/configure01.png)
+    ![Skärm bild som visar dialog rutan hantera din SmartDraw-licens där du kan välja enkel inloggning.](./media/smartdraw-tutorial/configure01.png)
 
 1. Utför följande steg på sidan konfiguration:
 
-    ![SmartDraw-konfiguration](./media/smartdraw-tutorial/configure02.png)
+    ![Skärm bild som visar konfigurations sidan där du kan ange de värden som beskrivs.](./media/smartdraw-tutorial/configure02.png)
 
     a. Skriv din domän i text rutan **din domän (t. ex. Acme.com)** .
 

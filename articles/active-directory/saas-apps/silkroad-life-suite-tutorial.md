@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 49dd333454f0eb92f5fb0dddc40390ec1baa91c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a40d4c82391f8f8cb55374c8c2d02bee5bf24ae4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525602"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Självstudie: Azure Active Directory integrering med SilkRoad Life Suite
 
@@ -30,7 +30,7 @@ Genom att integrera SilkRoad Life Suite med Azure AD får du följande fördelar
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med SilkRoad Life Suite behöver du följande objekt:
 
@@ -104,15 +104,15 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Si
 
     a. Klicka på **Ladda upp metadatafil**.
 
-    ![image](common/upload-metadata.png)
+    ![Skärm bild som visar en grundläggande SAML-konfiguration med fil länken Ladda upp metadata.](common/upload-metadata.png)
 
     b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![Skärm bild som visar en dialog ruta där du kan välja och ladda upp en fil.](common/browse-upload-metadata.png)
 
     c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet grundläggande SAML-konfiguration:
 
-    ![image](common/sp-identifier-reply.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/sp-identifier-reply.png)
 
     > [!Note]
     > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
@@ -161,23 +161,23 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Si
 
 1. Gå till **tjänst leverantör**och klicka sedan på **Federations information**.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
+    ![Skärm bild visar den Federations information som valts från tjänst leverantören.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
 
 1. Klicka på **Ladda ned federationsmetadata**och spara sedan metadatafilen på datorn. Använd hämtade federationsmetadata som en fil för en **tjänst leverantörs-metadata** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
+    ![Skärm bild som visar länken Hämta federationsmetadata.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 
 1. I ditt **Silkroad** -program klickar du på **källor för autentisering**.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
+    ![Skärm bild som visar de valda autentiseringsinställningarna.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
 
 1. Klicka på **Lägg till källa för autentisering**.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
+    ![Skärm bild som visar länken Lägg till källa för autentisering.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
 
 1. I avsnittet **Lägg till autentiserings källa** utför du följande steg:
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
+    ![Skärm bild som visar Lägg till autentiserings källa med knappen Skapa identitets leverantör med fil data vald.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
   
     a. Under **Alternativ 2 – metadatafil**klickar du på **Bläddra** för att ladda upp den hämtade Metadata-filen från Azure Portal.
   
@@ -185,11 +185,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Si
 
 1. I avsnittet **autentiseringsnivåer** klickar du på **Redigera**.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
+    ![Skärm bild som visar autentiseringsscheman med alternativet Redigera markerat.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
 
 1. Utför följande steg i dialog rutan **Redigera Authentication source** :
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
+    ![Skärm bild som visar dialog rutan Redigera autentiserings källa där du kan ange de värden som beskrivs.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
     a. Välj **Ja**som **aktive rad**.
 
@@ -209,7 +209,7 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Si
 
 1. Inaktivera alla andra källor för autentisering.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
+    ![Skärm bild som visar autentiseringsscheman där du kan inaktivera andra källor. ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

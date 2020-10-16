@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 7c708268eaeade1cfb625c73ff8758a1941ff5b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b3e006f717ed1c66c7db29dbd70c226d2d75ea8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157457"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127224"
 ---
 # <a name="build-end-to-end-solution-with-azure-iot-central-and-dynamics-365-field-service"></a>Bygg lösningen från slut punkt till slut punkt med Azure IoT Central-och Dynamics 365-fälttjänster 
 
@@ -34,5 +34,5 @@ Du kan enkelt implementera integrerings processerna baserat på en ren konfigura
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om [mallar för IoT Central myndigheter](./overview-iot-central-government.md)
-* Läs mer om [IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
-* Läs mer om [Dynamics 365 Field Services](https://docs.microsoft.com/dynamics365/field-service/cfs-iot-overview)
+* Läs mer om [IoT Central](../core/overview-iot-central.md)
+* Läs mer om [Dynamics 365 Field Services](/dynamics365/field-service/cfs-iot-overview)

@@ -3,12 +3,12 @@ title: Kluster versioner som stöds i Azure Service Fabric
 description: Lär dig mer om kluster versioner i Azure Service Fabric, inklusive en länk till de senaste versionerna från Service Fabric teamets blogg.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: e3194a59607563656f6624dabf51e9369e9258ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0d53c704645fdeb1e68898c4cadf8429bcb5645
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843251"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122440"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric versioner som stöds
 
@@ -39,11 +39,11 @@ I följande tabell visas de versioner av Service Fabric och deras support slutda
 | 6,3. * | 6.1.480.* |Mindre än eller lika med version 3,2 |31 mars 2019  |
 | 6,4. * | 6.2.301.* |Mindre än eller lika med version 3,3 |15 september 2019 |
 | 6,5. * | 6.4.617.* |Mindre än eller lika med version 3,4 |Den 1 augusti 2020 |
-| 7.0.466.* | 6.4.664.* |Mindre än eller lika med version 4,0|1 november 2020  |
-| 7.0.466.* | 6,5. * |Mindre än eller lika med version 4,0|1 november 2020 |
-| 7.0.470.* | 7.0.466.* |Mindre än eller lika med version 4,0 |1 november 2020  |
-| 7.0.472.* | 7.0.466.* |Mindre än eller lika med version 4,0 |1 november 2020  |
-| 7.0.478.* | 7.0.466.* |Mindre än eller lika med version 4,0 |1 november 2020  |
+| 7.0.466.* | 6.4.664.* |Mindre än eller lika med version 4,0|31 januari 2021  |
+| 7.0.466.* | 6,5. * |Mindre än eller lika med version 4,0|31 januari 2021 |
+| 7.0.470.* | 7.0.466.* |Mindre än eller lika med version 4,0 |31 januari 2021  |
+| 7.0.472.* | 7.0.466.* |Mindre än eller lika med version 4,0 |31 januari 2021  |
+| 7.0.478.* | 7.0.466.* |Mindre än eller lika med version 4,0 |31 januari 2021  |
 | 7.1.409.* | 7.0.466.* |Mindre än eller lika med version 4,1 |Aktuell version, så inget slutdatum |
 | 7.1.417.* | 7.0.466.* |Mindre än eller lika med version 4,1 |Aktuell version, så inget slutdatum |
 | 7.1.428.* | 7.0.466.* |Mindre än eller lika med version 4,1 |Aktuell version, så inget slutdatum |

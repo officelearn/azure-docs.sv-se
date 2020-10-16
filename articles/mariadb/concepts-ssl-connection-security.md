@@ -6,18 +6,21 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: b23783080e976f70ba8c5e02f67dcee36bbc9c34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eb4ad48554b8ca2ce6af9f89652fad685998a2a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444966"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126062"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>SSL/TLS-anslutning i Azure Database for MariaDB
 Azure Database for MariaDB stöder anslutning av databas servern till klient program med hjälp av Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
 
+>[!NOTE]
+> Baserat på feedback från kunder har vi utökat rot certifikatets utfasning för vår befintliga Baltimore rot certifikat utfärdare till 15 februari 2021 (02/15/2021).
+
 > [!IMPORTANT] 
-> SSL-rotcertifikat är inställt på att gå ut från oktober 26 2020 (10/26/2020). Uppdatera ditt program för att använda det [nya certifikatet](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Mer information finns i avsnittet om [planerade certifikat uppdateringar](concepts-certificate-rotation.md)
+> SSL-rotcertifikat är inställt på att upphöra att gälla den 15 februari 2021 (02/15/2021). Uppdatera ditt program för att använda det [nya certifikatet](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Mer information finns i avsnittet om [planerade certifikat uppdateringar](concepts-certificate-rotation.md)
 
 ## <a name="default-settings"></a>Standardinställningar
 Som standard ska databas tjänsten konfigureras för att kräva SSL-anslutningar vid anslutning till MariaDB.  Vi rekommenderar att du inte inaktiverar SSL-alternativet när det är möjligt.

@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 288fb5b552eab2029ea72f73a835fc73d97244b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c8272f736e2f83b4d33f3d61ce83356aa40e5d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018207"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126764"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Utöka Azure IoT Central med anpassade regler med hjälp av Stream Analytics, Azure Functions och SendGrid
 
-Den här instruktions guiden visar dig som lösnings utvecklare och hur du utökar ditt IoT Central program med anpassade regler och meddelanden. Exemplet visar hur du skickar ett meddelande till en operatör när en enhet slutar skicka telemetri. Lösningen använder en [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) fråga för att identifiera när en enhet har slutat skicka telemetri. Stream Analytics jobbet använder [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) för att skicka e-postmeddelanden med hjälp av [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
+Den här instruktions guiden visar dig som lösnings utvecklare och hur du utökar ditt IoT Central program med anpassade regler och meddelanden. Exemplet visar hur du skickar ett meddelande till en operatör när en enhet slutar skicka telemetri. Lösningen använder en [Azure Stream Analytics](../../stream-analytics/index.yml) fråga för att identifiera när en enhet har slutat skicka telemetri. Stream Analytics jobbet använder [Azure Functions](../../azure-functions/index.yml) för att skicka e-postmeddelanden med hjälp av [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
 Den här instruktions guiden visar hur du utökar IoT Central bortom det som redan kan utföras med de inbyggda reglerna och åtgärderna.
 
@@ -32,7 +32,7 @@ I den här instruktions guiden får du lära dig att:
 
 För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ### <a name="iot-central-application"></a>IoT Central program
 
@@ -104,7 +104,7 @@ Använd [Azure Portal för att skapa ett SendGrid-konto](https://portal.azure.co
 | Inställning | Värde |
 | ------- | ----- |
 | Namn    | Välj ditt SendGrid-konto namn |
-| lösenordsinställning | Skapa ett lösen ord |
+| Lösenord | Skapa ett lösen ord |
 | Prenumeration | Din prenumeration |
 | Resursgrupp | DetectStoppedDevices |
 | Prisnivå | F1 Kostnadsfri |
@@ -319,7 +319,7 @@ På webbplatsen [Azure IoT Central Application Manager](https://aka.ms/iotcentra
     | Event Hubs-namnområde | Namnet på Event Hubs namn området |
     | Händelsehubb | centralexport |
     | Mått | På |
-    | Egenskaper | Av |
+    | Enheter | Av |
     | Enhetsmallar | Av |
 
 ![Konfiguration av kontinuerlig data export](media/howto-create-custom-rules/cde-configuration.png)

@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317335"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127241"
 ---
 # <a name="storage-configuration"></a>Storage-konfiguration
 
@@ -238,6 +238,6 @@ Vi kan göra följande rekommendationer för offentliga molnbaserade, hanterade 
 
 |Offentlig moln tjänst|Rekommendation|
 |---|---|
-|**Azure Kubernetes Service (AKS)**|Azure Kubernetes service (AKS) har två typer av lagrings Azure Files och Azure-diskar. Varje typ av lagring har två pris-/prestanda nivåer – standard (HDD) och Premium (SSD). Därför är de fyra lagrings klasserna i AKS `azurefile` (Azure Files standard nivå), `azurefile-premium` (Azure Files Premium nivå), `default` (Azure disks standard nivå) och `managed-premium` (Azure disks Premium-nivå). Standard lagrings klassen är `default` (standard nivån för Azure-diskar). Det finns betydande **[pris skillnader](https://azure.microsoft.com/en-us/pricing/details/storage/)** mellan de typer och nivåer som bör delas in i ditt beslut. För produktions arbets belastningar med höga prestanda krav rekommenderar vi att du använder `managed-premium` för alla lagrings klasser. För arbets belastningar för utveckling/testning, bevis på koncept osv. där kostnad är ett övervägande `azurefile` är det minst dyra alternativet. Alla fyra av alternativen kan användas för situationer som kräver fjärran sluten, delad lagring som alla nätverksanslutna lagrings enheter i Azure. Läs mer om [AKS-lagring](../../aks/concepts-storage.md).|
+|**Azure Kubernetes Service (AKS)**|Azure Kubernetes service (AKS) har två typer av lagrings Azure Files och Azure Managed Disks. Varje typ av lagring har två pris-/prestanda nivåer – standard (HDD) och Premium (SSD). Därför är de fyra lagrings klasserna i AKS `azurefile` (Azure Files standard nivå), `azurefile-premium` (Azure Files Premium nivå), `default` (Azure disks standard nivå) och `managed-premium` (Azure disks Premium-nivå). Standard lagrings klassen är `default` (standard nivån för Azure-diskar). Det finns betydande **[pris skillnader](https://azure.microsoft.com/en-us/pricing/details/storage/)** mellan de typer och nivåer som bör delas in i ditt beslut. För produktions arbets belastningar med höga prestanda krav rekommenderar vi att du använder `managed-premium` för alla lagrings klasser. För arbets belastningar för utveckling/testning, bevis på koncept osv. där kostnad är ett övervägande `azurefile` är det minst dyra alternativet. Alla fyra av alternativen kan användas för situationer som kräver fjärran sluten, delad lagring som alla nätverksanslutna lagrings enheter i Azure. Läs mer om [AKS-lagring](../../aks/concepts-storage.md).|
 |**AWS Elastic Kubernetes Service (EKS)**| Amazon: s elastiska Kubernetes-tjänst har en primär lagrings klass baserad på [EBS CSI-lagringsenheten](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html). Detta rekommenderas för produktions arbets belastningar. Det finns en ny lagrings driv rutin – [EFS CSI-lagringsenhet](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) – som kan läggas till i ett EKS-kluster, men den är för närvarande i ett beta steg och kan komma att ändras. Även om AWS säger att den här lagrings driv rutinen stöds för produktion rekommenderar vi inte att du använder den eftersom den fortfarande är i beta syfte och kan komma att ändras. Lagrings klassen EBS är standard och kallas `gp2` . Läs mer om [EKS-lagring](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html).|
 |**Google Kubernetes Engine (GKE)**|Google Kubernetes Engine (GKE) har bara en lagrings klass med namnet `standard` som används för [GCE-beständiga diskar](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk). Det är bara det enda, det är också standardvärdet. Även om det finns en [lokal, statisk volym](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) för GKE som du kan använda med direktansluten SSD rekommenderar vi inte att du använder den eftersom den inte hanteras eller stöds av Google. Läs mer om [GKE-lagring](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes).

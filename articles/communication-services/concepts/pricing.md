@@ -9,24 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 4eec258cf642688c87b363ff467f1f368727a013
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761234"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126198"
 ---
 # <a name="pricing-scenarios"></a>Prissättnings scenarier
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
--->
 
-Priserna för Azure Communication Services baseras på en modell där du betalar per användning utan några start avgifter. Du debiteras bara för förbrukningen och användningen av tjänsterna.
+Priserna för Azure Communication Services baseras vanligt vis på en modell där du betalar per användning.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Röst-/video samtal och skärm delning
 
@@ -84,6 +79,16 @@ Ros ser meddelandena och börjar chatta. I Casey får du ett samtal och han best
 ## <a name="price"></a>Pris 
 
 Telefoni tjänster priss ätts per minut, medan SMS priss ätts per meddelande. Priserna bestäms av typ och plats för det nummer som du använder samt målet för dina anrop och SMS-meddelanden.
+
+### <a name="telephone-number-leasing"></a>Leasing nummer
+
+Avgifter för telefonnummer leasing debiteras före och efter en månad till månad:
+
+|Nummertyp   |Månads avgift   |
+|--------------|-----------|
+|Lokal (USA)     |$1/månad        |
+|Avgiftsfritt (USA) |$2/Mo |
+
 
 ### <a name="telephone-calling"></a>Telefon samtal
 

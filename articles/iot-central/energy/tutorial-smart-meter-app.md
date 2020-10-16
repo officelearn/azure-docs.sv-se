@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: bdcfeeede8b16bf9a92a885364e4c8fef7ea5cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af4940ae6b0dc001667602b8729faaa3a10d19da
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986559"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127139"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>Självstudie: skapa och gå igenom App-mallen för smart avläsning av övervakning 
 
@@ -29,8 +29,8 @@ Den här självstudien vägleder dig genom processen att skapa ett program för 
 
 Om du inte har någon prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free)
 
-## <a name="prerequisites"></a>Krav
-- Inget
+## <a name="prerequisites"></a>Förutsättningar
+- Inga
 - Azure-prenumeration rekommenderas, men du behöver inte testa
 
 ## <a name="create-a-smart-meter-monitoring-app"></a>Skapa en app för smart mätarövervakning 
@@ -77,7 +77,7 @@ Adatum är ett fiktivt energi företag som övervakar och hanterar smarta mätar
 > [!div class="mx-imgBorder"]
 > ![Instrument panel för smart mätnings övervakning](media/tutorial-iot-central-smart-meter/smart-meter-dashboard.png)
 
-### <a name="devices"></a>Egenskaper
+### <a name="devices"></a>Enheter
 Appen levereras med ett exempel på en smart meters enhet. Du kan se enhets informationen genom att klicka på fliken **enheter** .
 
 > [!div class="mx-imgBorder"]
@@ -108,6 +108,6 @@ Om du väljer att inte fortsätta använda programmet tar du bort programmet med
 
 Lär dig mer om Smart avläsning av program arkitektur se 
 > [!div class="nextstepaction"]
-> [begrepps artikeln](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
+> [begrepps artikeln](./concept-iot-central-smart-meter-app.md)
 * Skapa mallar för smart avläsning av program vara kostnads fritt: [appen Smart avläsning](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Läs mer om IoT Central i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/)
+* Läs mer om IoT Central i [IoT Central översikt](../index.yml)

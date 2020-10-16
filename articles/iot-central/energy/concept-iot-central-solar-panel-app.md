@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c94109746545a1f7ff33534ca3ec54f55357281
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 00ef6cf6d4149f139876cb0c2d845133ba00157c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91316042"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127514"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>App-arkitektur för Azure IoT Central-solpanel
 
@@ -29,7 +29,7 @@ Den här arkitekturen består av följande komponenter. Vissa program kanske int
 
 ## <a name="solar-panels-and-connectivity"></a>Sol paneler och anslutningar 
 
-Sol-paneler är en av de betydande källorna till förnybar energi. Beroende på typ av sol panel och konfiguration kan du ansluta den antingen med hjälp av gatewayer eller andra mellanliggande enheter och patentskyddade system. Du kan behöva skapa IoT Central enhets brygga för att ansluta enheter som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Sol-paneler är en av de betydande källorna till förnybar energi. Beroende på typ av sol panel och konfiguration kan du ansluta den antingen med hjälp av gatewayer eller andra mellanliggande enheter och patentskyddade system. Du kan behöva skapa IoT Central enhets brygga för att ansluta enheter som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](../core/howto-build-iotc-device-bridge.md). 
 
 
 
@@ -43,4 +43,4 @@ IoT Centrals plattformen innehåller två alternativ för utöknings barhet: kon
 ## <a name="next-steps"></a>Nästa steg
 
 * Nu när du har lärt dig om arkitekturen kan du [skapa en solpanel-app utan kostnad](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Mer information om IoT Central finns i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/)
+* Mer information om IoT Central finns i [IoT Central översikt](../index.yml)

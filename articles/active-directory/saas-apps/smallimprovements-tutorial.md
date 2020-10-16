@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c659af83034a2406449e586723341e1ae535934f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee5927e19dfb6864d7edcde9dceadfd744d7ddbf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525432"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126626"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Självstudie: Azure Active Directory integrering med små förbättringar
 
@@ -30,7 +30,7 @@ Att integrera små förbättringar med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med små förbättringar behöver du följande objekt:
 
@@ -128,15 +128,15 @@ Utför följande steg för att konfigurera enkel inloggning med små förbättri
 
 1. På huvud instrument panelens sida klickar du på knappen **Administration** till vänster.
 
-    ![Konfigurera enkel inloggning](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
+    ![Skärm bild som visar knappen Administration markerad.](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
 1. Klicka på knappen **SAML SSO** i avsnittet **integrations** .
 
-    ![Konfigurera enkel inloggning](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
+    ![Skärm bild som visar den SAML S O-ikon som valts i integreringar.](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
 1. Utför följande steg på sidan SSO-konfiguration:
 
-    ![Konfigurera enkel inloggning](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
+    ![Skärm bild som visar sidan S O-inställningar där du kan ange de värden som beskrivs.](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
     a. I text rutan **http-slutpunkt** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
@@ -211,15 +211,15 @@ Om du vill att Azure AD-användare ska kunna logga in på små förbättringar m
 
 1. Klicka på knappen **användar katalog** från avsnittet användar hantering.
 
-    ![Skapa en testanvändare för Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
+    ![Skärm bild som visar användar katalogen som valts från administrations översikt.](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
 1. Klicka på **Lägg till användare**.
 
-    ![Skapa en testanvändare för Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
+    ![Skärm bild som visar knappen Lägg till användare.](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
 1. I dialog rutan **Lägg till användare** utför du följande steg: 
 
-    ![Skapa en testanvändare för Azure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    ![Skärm bild som visar dialog rutan Lägg till användare där du kan ange de värden som beskrivs.](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
     a. Ange det **första namnet** på användaren, t. ex. **Britta**.
 

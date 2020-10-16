@@ -1,38 +1,42 @@
 ---
 title: Skapa en App Service-app med en Azure Resource Manager-mall
-description: Skapa din första app för att Azure App Service på några sekunder med hjälp av en Azure Resource Manager-mall, som är en av många sätt att distribuera till App Service.
+description: Skapa din första app för att Azure App Service på några sekunder med hjälp av en Azure Resource Manager-mall (ARM-mall), som är en av många sätt att distribuera till App Service.
 author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 05/25/2020
+ms.date: 10/15/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e577616e0976ca050a55c8524e68129545ed1912
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ca8301e9be51279cd9b80791126b41b99d89d6b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89653599"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127394"
 ---
-# <a name="create-app-service-app-using-an-azure-resource-manager-template"></a>Skapa App Service-app med hjälp av en Azure Resource Manager-mall
+# <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Snabb start: skapa App Service app med en ARM-mall
 
-Kom igång med [Azure App Service](overview.md) genom att distribuera en app till molnet med hjälp av en Azure Resource Manager-mall och [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell. Eftersom du använder en kostnads fri App Service nivå debiteras du inga kostnader för att slutföra den här snabb starten.
+Kom igång med [Azure App Service](overview.md) genom att distribuera en app till molnet med hjälp av en Azure Resource Manager-mall (arm-mall) och [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell. Eftersom du använder en kostnads fri App Service nivå debiteras du inga kostnader för att slutföra den här snabb starten.
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar väljer du knappen **Distribuera till Azure**. Mallen öppnas på Azure-portalen.
+
+Använd följande knapp för att distribuera i **Linux**:
+
+[![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-an-azure-app-service-app"></a>Skapa en Azure App Service-app
-
-### <a name="review-the-template"></a>Granska mallen
+## <a name="review-the-template"></a>Granska mallen
 
 ::: zone pivot="platform-windows"
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates/). Den distribuerar en App Service plan och en App Service-app i Windows. Den är kompatibel med .NET Core, .NET Framework, PHP, Node.js och statiska HTML-appar. För Java, se [skapa Java-app](app-service-web-get-started-java.md). 
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Den distribuerar en App Service plan och en App Service-app i Windows. Den är kompatibel med .NET Core, .NET Framework, PHP, Node.js och statiska HTML-appar. För Java, se [skapa Java-app](app-service-web-get-started-java.md).
 
-[!code-json[<Azure Resource Manager template App Service Windows app>](~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
 Två Azure-resurser definieras i mallen:
 
@@ -51,9 +55,9 @@ Den här mallen innehåller flera parametrar som är fördefinierade för din be
 | Repo    | sträng  | " "                          | Extern git-lagrings platsen (valfritt) |
 ::: zone-end
 ::: zone pivot="platform-linux"
-Mallen som används i den här snabbstarten är från [Azure snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates/). Den distribuerar en App Service plan och en App Service-app i Linux. Den är kompatibel med alla programmeringsspråk som stöds på App Service.
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). Den distribuerar en App Service plan och en App Service-app i Linux. Den är kompatibel med alla programmeringsspråk som stöds på App Service.
 
-[!code-json[<Azure Resource Manager template App Service Linux app>](~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
 
 Två Azure-resurser definieras i mallen:
 
@@ -73,10 +77,9 @@ Den här mallen innehåller flera parametrar som är fördefinierade för din be
 ---
 ::: zone-end
 
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-### <a name="deploy-the-template"></a>Distribuera mallen
-
-Azure CLI används här för att distribuera mallen. Du kan också använda Azure Portal, Azure PowerShell och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md). 
+Azure CLI används här för att distribuera mallen. Du kan också använda Azure Portal, Azure PowerShell och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
 
 Följande kod skapar en resurs grupp, ett App Service plan och en webbapp. En standard resurs grupp, App Service plan och plats har angetts för dig. Ersätt `<app-name>` med ett globalt unikt namn på appen (giltiga tecken är `a-z` , `0-9` och `-` ).
 
@@ -86,11 +89,11 @@ Kör koden nedan för att distribuera en .NET Framework-app i Windows.
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
---parameters language=".net" sample="true" webAppName="<app-name>" \
+--parameters language=".net" helloWorld="true" webAppName="<app-name>" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
-Run the code below to create a Python app on Linux. 
+Run the code below to create a Python app on Linux.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -114,7 +117,6 @@ Om du vill distribuera en annan språks tack uppdaterar du `linuxFxVersion` med 
 
 > [!NOTE]
 > Du hittar fler [Azure App Service mall-exempel här](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
-
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 

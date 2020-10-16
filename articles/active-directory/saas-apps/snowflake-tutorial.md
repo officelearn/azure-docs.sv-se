@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 485e55d7a17027fa8b8ec1f313a326ddbc5f40eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0051deeef467fda93ca5e13221d391a15133403
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545227"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123036"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudie: Azure Active Directory integrering med snö flingor
 
@@ -30,7 +30,7 @@ Genom att integrera Snowflake med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Snowflake behöver du följande objekt:
 
@@ -100,7 +100,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
 4. I avsnittet **grundläggande SAML-konfiguration** utför du följande steg, om du vill konfigurera programmet i **IDP** initierat läge:
 
-    ![Information om enkel inloggning med Snowflake-domäner och URL:er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
@@ -108,7 +108,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i SP-initierat läge:
 
-    ![Information om enkel inloggning med Snowflake-domäner och URL:er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
     

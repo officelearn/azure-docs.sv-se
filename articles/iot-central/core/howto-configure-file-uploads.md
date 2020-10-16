@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 6b717fd15b25ae4abd2af3520dba2e72f8f9f3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6fbf84ec3822195f62970dbf08115059ffb7e4a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556375"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122610"
 ---
 # <a name="upload-files-from-your-devices-to-the-cloud"></a>Ladda upp filer från dina enheter till molnet
 
@@ -54,7 +54,7 @@ Om du vill inaktivera överföring av enhets filen till ditt IoT Central-program
 
 ## <a name="upload-a-file-from-a-device"></a>Ladda upp en fil från en enhet
 
-IoT Central använder IoT Hubs fil överförings funktion för att göra det möjligt för enheter att ladda upp filer. Exempel kod som visar hur du laddar upp filer från en enhet finns i exemplet på [IoT Central fil överförings enhet](https://docs.microsoft.com/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
+IoT Central använder IoT Hubs fil överförings funktion för att göra det möjligt för enheter att ladda upp filer. Exempel kod som visar hur du laddar upp filer från en enhet finns i exemplet på [IoT Central fil överförings enhet](/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
 
 ## <a name="next-steps"></a>Nästa steg
 

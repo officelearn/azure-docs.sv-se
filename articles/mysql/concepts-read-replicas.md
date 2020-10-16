@@ -1,17 +1,17 @@
 ---
-title: Läs repliker – Azure Database for MySQL.
+title: Läsa repliker – Azure Database for MySQL
 description: 'Lär dig mer om att läsa repliker i Azure Database for MySQL: välja regioner, skapa repliker, ansluta till repliker, övervaka replikering och stoppa replikering.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
-ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 10/15/2020
+ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876557"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126675"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -38,7 +38,7 @@ Eftersom repliker är skrivskyddade kan de inte direkt minska Skriv kapacitets b
 Funktionen Läs replik använder MySQL-asynkron replikering. Funktionen är inte avsedd för synkrona scenarier för replikering. Det kommer att bli en mätbar fördröjning mellan källan och repliken. Data på repliken kommer slutligen att bli konsekventa med data i huvud servern. Använd den här funktionen för arbets belastningar som kan hantera denna fördröjning.
 
 > [!IMPORTANT]
-> Azure Database for MySQL använder **rad** -baserad binär loggning. Om tabellen saknar primär nyckel genomsöks alla rader i tabellen efter DML-åtgärder. Detta gör att fördröjningen i replikeringen ökar. För att säkerställa att repliken kan behålla ändringar på källan rekommenderar vi vanligt vis att lägga till en primär nyckel för tabeller på käll servern innan du skapar replik servern eller skapar replik servern igen om du redan har en.
+> Azure Database for MySQL använder **ROW**-baserad binär loggning. Om tabellen inte har någon primärnyckel genomsöks samtliga rader i tabellen efter DML-åtgärder, vilket resulterar i längre replikeringsfördröjning. För att säkerställa att repliken inte halkar efter när källan ändras, rekommenderar vi vanligtvis att du lägger till en primärnyckel i tabeller på källservern innan du skapar replikservern eller återskapar replikservern om du redan har en.
 
 ## <a name="cross-region-replication"></a>Replikering mellan regioner
 Du kan skapa en Läs replik i en annan region än käll servern. Replikering mellan regioner kan vara användbart för scenarier som haveri beredskap planering eller för att hämta data närmare dina användare.
@@ -50,7 +50,7 @@ Du kan ha en käll server i valfri [Azure Database for MySQL region](https://azu
 ### <a name="universal-replica-regions"></a>Universal Replica-regioner
 Du kan skapa en Läs replik i någon av följande regioner, oavsett var käll servern finns. De Universal Replica-regioner som stöds är:
 
-Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Japan, östra, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA, västra USA 2, västra centrala USA.
+Östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala USA, Asien, östra, östra USA, östra USA 2, Östra Japan, västra Japan, Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, västra Europa, västra USA, västra USA 2, västra centrala USA.
 
 ### <a name="paired-regions"></a>Länkade regioner
 Förutom Universal Replica-regioner kan du skapa en Läs replik i den Azure-kopplade regionen på käll servern. Om du inte känner till din regions par kan du läsa mer i [artikeln Azure-kopplade regioner](../best-practices-availability-paired-regions.md).

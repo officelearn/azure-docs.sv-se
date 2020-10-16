@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d8a1b2192784c26ed17b31be262b22efbf935d84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36d3fdbe05a4fac63415e34aea879a9ef576b725
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225612"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127105"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Azures säkerhets bas linje för Azure Data Box
 
 Azures säkerhets bas linje för Azure Data Box innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
 
-Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
+Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](../security/benchmarks/overview.md), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
 
-Mer information finns i [Översikt över Azure Security-bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Mer information finns i [Översikt över Azure Security-bas linjer](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets kontroll: nätverks säkerhet](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Mer information finns i [säkerhets kontroll: nätverks säkerhet](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
@@ -70,9 +70,9 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 **Vägledning**: vägledning: de slut punkter som används av Azure Data Box hanteras av Microsoft. Du ansvarar för eventuella ytterligare kontroller som du vill distribuera till dina lokala system.
 
-* [Förstå Azure Data Box säkerhet](https://docs.microsoft.com/azure/databox/data-box-security)
+* [Förstå Azure Data Box säkerhet](./data-box-security.md)
 
-* [Portinformation för Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-system-requirements#port-requirements)
+* [Portinformation för Azure Data Box](./data-box-system-requirements.md#port-requirements)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -120,7 +120,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets kontroll: loggning och övervakning](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets kontroll: loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
 
@@ -134,7 +134,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 **Vägledning**: motsvarar varje steg i din data Box-enhets ordning kan du vidta flera åtgärder för att kontrol lera åtkomsten till ordern, granska händelserna, spåra beställningen och tolka de olika loggar som genereras.
 
-* [Förstå spårning och händelse loggning för din Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-logs)
+* [Förstå spårning och händelse loggning för din Azure Data Box](./data-box-logs.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -144,7 +144,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 **Vägledning**: motsvarar varje steg i din data Box-enhets ordning kan du vidta flera åtgärder för att kontrol lera åtkomsten till ordern, granska händelserna, spåra beställningen och tolka de olika loggar som genereras.
 
-* [Förstå spårning och händelse loggning för din Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-logs)
+* [Förstå spårning och händelse loggning för din Azure Data Box](./data-box-logs.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -170,7 +170,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 **Vägledning**: motsvarar varje steg i din data Box-enhets ordning kan du vidta flera åtgärder för att kontrol lera åtkomsten till ordern, granska händelserna, spåra beställningen och tolka de olika loggar som genereras.
 
-* [Förstå spårning och händelse loggning för din Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-logs)
+* [Förstå spårning och händelse loggning för din Azure Data Box](./data-box-logs.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -180,7 +180,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 **Vägledning**: motsvarar varje steg i din data Box-enhets ordning kan du vidta flera åtgärder för att kontrol lera åtkomsten till ordern, granska händelserna, spåra beställningen och tolka de olika loggar som genereras.
 
-* [Förstå spårning och händelse loggning för din Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-logs)
+* [Förstå spårning och händelse loggning för din Azure Data Box](./data-box-logs.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -212,17 +212,17 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
 **Vägledning**: underhålla en inventering av de användar konton som har administrativ åtkomst till din Azure Data box. Du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. du kan styra vem som kan komma åt din beställning när ordern skapas första gången. Konfigurera Azure-roller i olika scope för att kontrol lera åtkomsten till Data Box-enhets ordningen. En Azure-roll avgör typ av åtkomst – Läs-och Skriv behörighet, skrivskyddad, Läs-och skriv åtgärder för en delmängd åtgärder.
 
-* [Förstå anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+* [Förstå anpassade roller](../role-based-access-control/custom-roles.md)
 
-* [Så här konfigurerar du Azure RBAC för arbets böcker](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Så här konfigurerar du Azure RBAC för arbets böcker](../sentinel/quickstart-get-visibility.md)
 
-* [Förstå hur du konfigurerar åtkomst kontroll på ordern](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+* [Förstå hur du konfigurerar åtkomst kontroll på ordern](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Azure Security Center övervakning**: Nej
 
@@ -245,9 +245,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 - Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med ägar behörigheter bör tas bort från din prenumeration
 
-* [Använda Azure Security Center för att övervaka identitet och åtkomst (för hands version)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Använda Azure Security Center för att övervaka identitet och åtkomst (för hands version)](../security-center/security-center-identity-access.md)
 
-* [Använda Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Använda Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -273,9 +273,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 **Vägledning**: Använd en privilegie rad åtkomst arbets Station (Paw) med Azure Multi-Factor Authentication (MFA) aktiverat för att logga in på och konfigurera Azure Data Box beställningar.
 
-* [Arbetsstationer för privilegierad åtkomst (PAW)](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+* [Arbetsstationer för privilegierad åtkomst (PAW)](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-* [Planera en molnbaserad distribution av Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Planera en molnbaserad distribution av Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -287,9 +287,9 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-* [Distribuera Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+* [Distribuera Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-* [Förstå identifieringar av Azure AD-risker](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+* [Förstå identifieringar av Azure AD-risker](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -299,7 +299,7 @@ Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseri
 
 **Vägledning**: Använd villkorlig åtkomst med namngivna platser för att tillåta åtkomst till Azure Portal från enbart vissa logiska grupperingar av IP-adressintervall eller länder/regioner.
 
-* [Så här konfigurerar du namngivna platser i Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Så här konfigurerar du namngivna platser i Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -309,7 +309,7 @@ Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseri
 
 **Vägledning**: använda Azure Active Directory (AD) som den centrala autentiserings-och auktoriserings systemet i förekommande fall. Azure AD skyddar data med stark kryptering för data i vila och under överföring. Azure AD innehåller även salter, hash-värden och lagrar användarautentiseringsuppgifter på ett säkert sätt.
 
-* [Så här skapar och konfigurerar du en Azure AD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Så här skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -321,9 +321,9 @@ Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseri
 
 Detta stöds inte i real tid för Data Box-enhet-enheten. Du kan granska loggarna i slutet av jobbet.
 
-* [Förstå Azure AD repor ting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Förstå Azure AD repor ting](../active-directory/reports-monitoring/index.yml)
 
-* [Så här använder du granskningar av Azure Identity Access](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Så här använder du granskningar av Azure Identity Access](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -339,9 +339,9 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 Azure Data Box tjänst loggar skrivs inte till Log Analytics-arbetsytan.
 
-* [Så här integrerar du Azures aktivitets loggar i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Så här integrerar du Azures aktivitets loggar i Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Aktivera Azure-kontroll på kort](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Aktivera Azure-kontroll på kort](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -351,11 +351,11 @@ Azure Data Box tjänst loggar skrivs inte till Log Analytics-arbetsytan.
 
 **Vägledning**: för konto inloggning beteende avvikelse i kontroll planet (t. ex. Azure Portal) använder du funktioner för Azure AD Identity Protection och risk identifiering för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Du kan också mata in data i Azure Sentinel för ytterligare undersökning.
 
-* [Visa Azure AD-riskfylld inloggning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Visa Azure AD-riskfylld inloggning](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Så här konfigurerar och aktiverar du risk principer för identitets skydd](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -365,7 +365,7 @@ Azure Data Box tjänst loggar skrivs inte till Log Analytics-arbetsytan.
 
 **Vägledning**: Customer lockbox stöds för närvarande inte för Azure Data box.
 
-* [Lista över Customer Lockbox tjänster som stöds](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Lista över Customer Lockbox tjänster som stöds](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -373,7 +373,7 @@ Azure Data Box tjänst loggar skrivs inte till Log Analytics-arbetsytan.
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [säkerhets kontroll: data skydd](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [säkerhets kontroll: data skydd](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
@@ -389,7 +389,7 @@ Azure Data Box tjänst loggar skrivs inte till Log Analytics-arbetsytan.
 
 Under data överföringen till Azure isoleras Data Box-enhet-installationen och tjänsten som användes för att överföra data.
 
-* [Komma igång med Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)
+* [Komma igång med Azure Data Box](./data-box-quickstart-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -399,7 +399,7 @@ Under data överföringen till Azure isoleras Data Box-enhet-installationen och 
 
 **Vägledning**: Microsoft hanterar den underliggande infrastrukturen för Azure Data Box och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information. När Data Box-enhet är på kund platsen följer du bästa praxis för att se till att känsliga data överförs är skyddade.
 
-* [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -409,9 +409,9 @@ Under data överföringen till Azure isoleras Data Box-enhet-installationen och 
 
 **Vägledning**: Microsoft hanterar den underliggande infrastrukturen för Azure Data Box och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information. När Data Box-enhet är på kund platsen följer du bästa praxis för att se till att känsliga data överförs är skyddade.
 
-* [Förstå migrering av data i Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-faq)
+* [Förstå migrering av data i Azure Data Box](./data-box-faq.md)
 
-* [Översikt över Data Box-enhet säkerhet](https://docs.microsoft.com/azure/databox/data-box-security)
+* [Översikt över Data Box-enhet säkerhet](./data-box-security.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -421,7 +421,7 @@ Under data överföringen till Azure isoleras Data Box-enhet-installationen och 
 
 **Vägledning**: inte tillgänglig för tillfället. funktionerna för data identifiering, klassificering och förlust av förlust är ännu inte tillgängliga för Azure Data Box. Microsoft hanterar den underliggande infrastrukturen för Azure Data Box och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-* [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -431,9 +431,9 @@ Under data överföringen till Azure isoleras Data Box-enhet-installationen och 
 
 **Vägledning**: kontrol lera att du har ägar-eller deltagar åtkomst till prenumerationen för att skapa en data Box-enhets order. Du kan också definiera Data Box-enhet läsare och Data Box-enhet deltagar roller på resurs nivå.
 
-* [Lär dig hur du kommer igång med Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal)
+* [Lär dig hur du kommer igång med Azure Data Box](./data-box-quickstart-portal.md)
 
-* [Förstå hur du konfigurerar åtkomst kontroll](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
+* [Förstå hur du konfigurerar åtkomst kontroll](./data-box-logs.md#set-up-access-control-on-the-order)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -443,7 +443,7 @@ Under data överföringen till Azure isoleras Data Box-enhet-installationen och 
 
 **Vägledning**: ej tillämpligt; den här rekommendationen är avsedd för beräknings resurser. Microsoft hanterar den underliggande infrastrukturen för Azure Data Box och har implementerat strikta kontroller för att förhindra förlust eller exponering av kund information.
 
-* [Data skydd för Azure-kunder](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Data skydd för Azure-kunder](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -455,9 +455,9 @@ Under data överföringen till Azure isoleras Data Box-enhet-installationen och 
 
 Azure Data Box implementerar AES 256-bitars kryptering för data i vila. Azure Data Box skyddar dessutom enhetens upplåsnings nyckel (även kallat enhets lösen ord) som används för att låsa enheten via en krypterings nyckel. Som standard krypteras enhetens upplåsnings nyckel för en Data Box-enhet ordning med en hanterad Microsoft-nyckel. Du kan även ange en kundhanterad nyckel för ytterligare kontroll över enhetens upplåsnings nyckel. Kundhanterade nycklar måste skapas och lagras i en Azure Key Vault.
 
-* [Förstå Data Box-enhet data skydd](https://docs.microsoft.com/azure/databox/data-box-security)
+* [Förstå Data Box-enhet data skydd](./data-box-security.md)
 
-* [Använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-customer-managed-encryption-key-portal)
+* [Använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box](./data-box-customer-managed-encryption-key-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -467,7 +467,7 @@ Azure Data Box implementerar AES 256-bitars kryptering för data i vila. Azure D
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i Azure Data Box samt andra kritiska eller relaterade resurser.
 
-* [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -475,7 +475,7 @@ Azure Data Box implementerar AES 256-bitars kryptering för data i vila. Azure D
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [säkerhets kontroll: sårbarhets hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Mer information finns i [säkerhets kontroll: sårbarhets hantering](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
@@ -519,7 +519,7 @@ Azure Data Box implementerar AES 256-bitars kryptering för data i vila. Azure D
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
 
@@ -605,7 +605,7 @@ Azure Data Box implementerar AES 256-bitars kryptering för data i vila. Azure D
 
 **Vägledning**: Konfigurera villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
-* [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -629,7 +629,7 @@ Azure Data Box implementerar AES 256-bitars kryptering för data i vila. Azure D
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [säkerhets kontroll: säker konfiguration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [säkerhets kontroll: säker konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
@@ -715,7 +715,7 @@ Azure Data Box implementerar AES 256-bitars kryptering för data i vila. Azure D
 
 **Vägledning**: Kundhanterade nycklar måste skapas och lagras i en Azure Key Vault.
 
-* [Använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-customer-managed-encryption-key-portal)
+* [Använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box](./data-box-customer-managed-encryption-key-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -725,7 +725,7 @@ Azure Data Box implementerar AES 256-bitars kryptering för data i vila. Azure D
 
 **Vägledning**: ej tillämpligt; Azure Data Box använder inte hanterade identiteter.
 
-* [Azure-tjänster som har stöd för hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+* [Azure-tjänster som har stöd för hanterade identiteter](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -743,7 +743,7 @@ Azure Data Box implementerar AES 256-bitars kryptering för data i vila. Azure D
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd centralt hanterat program mot skadlig kod
 
@@ -773,7 +773,7 @@ Det är ditt ansvar att i förväg genomsöka allt innehåll som laddas upp till
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [säkerhets kontroll: Data återställning](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Mer information finns i [säkerhets kontroll: Data återställning](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
 
@@ -809,7 +809,7 @@ Det är ditt ansvar att i förväg genomsöka allt innehåll som laddas upp till
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [säkerhets kontroll: incident svar](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [säkerhets kontroll: incident svar](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
@@ -831,9 +831,9 @@ Det är ditt ansvar att i förväg genomsöka allt innehåll som laddas upp till
 
 Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data. Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
 
-* [Säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-* [Använd taggar till att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Använd taggar till att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -853,7 +853,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olagligt eller obehörig part. Granska incidenter när du är säker på att problemen är lösta.
 
-* [Så här ställer du in Azure Security Center säkerhets kontakt](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -863,9 +863,9 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export för att identifiera risker för Azure-resurser. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviseringarna till Azure Sentinel.
 
-* [Så här konfigurerar du kontinuerlig export](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md)
 
-* [Strömma aviseringar till Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -875,7 +875,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: Använd funktionen för arbets flödes automatisering i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer för att skydda dina Azure-resurser.
 
-* [Konfigurera automatisering av arbets flöden och Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Konfigurera automatisering av arbets flöden och Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -883,7 +883,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
-*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
@@ -899,5 +899,5 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)

@@ -21,7 +21,7 @@
           href: quick-create-template.md
 - name: Begrepp
   items:
-    - name: Dela instrumentpaneler med rollbaserad åtkomstkontroll
+    - name: Dela instrumentpaneler med rollbaserad åtkomstkontroll i Azure
       href: azure-portal-dashboard-share-access.md
     - name: Skapa Azure-instrumentpaneler programmässigt
       href: azure-portal-dashboards-create-programmatically.md

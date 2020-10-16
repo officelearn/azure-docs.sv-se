@@ -3,12 +3,12 @@ title: Förbättra drift excellency med Advisor
 description: Använd Azure Advisor för att optimera och mogna din operativa kompetens för dina Azure-prenumerationer.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 63e88129a7418e82ea13429c33d8735e96616476
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077396"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122627"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Få drifts kvalitet genom att använda Azure Advisor
 
@@ -53,6 +53,12 @@ Azure Policy är en tjänst i Azure som du kan använda för att skapa, tilldela
 **Framtvinga *granskning av virtuella datorer som inte använder hanterade diskar*.**
 
 **Aktivera *Ärv en tagg från resurs grupper*.** Den här principen lägger till eller ersätter den angivna taggen och värdet från den överordnade resursgruppen när en resurs skapas eller uppdateras. Du kan åtgärda befintliga resurser genom att utlösa en reparations uppgift.
+
+Advisor rekommenderar några enskilda Azure-principer som hjälper kunderna att uppnå drifts kvalitet genom att använda bästa praxis. Om en kund bestämmer sig för att tilldela en rekommenderad princip, kommer vi att utelämna rekommendationen. Om kunden bestämmer sig för att ta bort principen senare fortsätter Advisor att utelämna rekommendationen eftersom vi tolkar borttagningen som en stark signal av följande:
+
+1.  Kunden tog bort principen eftersom den, trots rådgivarens rekommendation, inte gäller för deras specifika användnings fall. 
+2.  Kunden är medveten om principen efter att du har tilldelat och tagit bort den, och de kan tilldela eller ta bort den igen om det behövs utan rikt linjer om den senare blir relevant för deras användnings fall. Om kunden finner det i det bästa intresset att tilldela samma princip igen, kan de göra det i Azure Policy utan att det krävs någon rekommendation i Advisor. Observera att den här logiken gäller specifikt för princip rekommendationen i kategorin drift kvalitet. Dessa regler gäller inte för säkerhets rekommendationer.  
+
 
 ## <a name="no-validation-environment-enabled"></a>Ingen valideringsmiljö är aktiverad
 Azure Advisor anger att du inte har en validerings miljö aktive rad i den aktuella prenumerationen. När du skapar värd grupper har du valt \" Nej \" för \" validerings miljö \" på fliken Egenskaper. Att ha minst en adresspool med en validerings miljö aktive rad säkerställer affärs kontinuiteten genom distributioner av Windows Virtual Desktop-tjänster med tidig identifiering av potentiella problem. [Läs mer](../virtual-desktop/create-validation-host-pool.md)

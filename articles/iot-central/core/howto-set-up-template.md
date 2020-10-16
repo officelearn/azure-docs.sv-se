@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperfq1
 - device-developer
-ms.openlocfilehash: d6dd1bbf853a13948f55db4ae694b28cb7549c9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8fb60a4b549a7203057dd60298d2ae0540450d6
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803797"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122661"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definiera en ny IoT-enhetstyp i Azure IoT Central-programmet
 
@@ -45,7 +45,7 @@ I ett IoT Central-program använder en mall en enhets kapacitets modell för att
 - Skapa en enhets kapacitets modell med hjälp av Visual Studio Code. Implementera din enhets kod från modellen. Importera enhetens kapacitets modell manuellt till IoT Central programmet och Lägg sedan till eventuella moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver.
 - Skapa en enhets kapacitets modell med hjälp av Visual Studio Code. Implementera din enhets kod från modellen och Anslut din riktiga enhet till ditt IoT Central program genom att använda en enhets första anslutning. IoT Central hittar och importerar enhets kapacitets modellen från den offentliga lagrings platsen åt dig. Du kan sedan lägga till alla moln egenskaper, anpassningar och instrument paneler som ditt IoT Central program behöver för enhets mal len.
 
-Du kan också lägga till enhets mallar i ett IoT Central program med hjälp av [REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) eller [CLI](howto-manage-iot-central-from-cli.md).
+Du kan också lägga till enhets mallar i ett IoT Central program med hjälp av [REST API](/learn/modules/manage-iot-central-apps-with-rest-api/) eller [CLI](howto-manage-iot-central-from-cli.md).
 
 Vissa [programmallar](concepts-app-templates.md) innehåller redan enhetsspecifika mallar som är användbara i det scenario som program mal len stöder. Se till exempel [in-Store Analytics-arkitektur](../retail/store-analytics-architecture.md).
 
@@ -120,7 +120,7 @@ Telemetri är en data ström med värden som skickas från enheten, vanligt vis 
 
 I följande tabell visas konfigurations inställningarna för en telemetri-funktion:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för telemetri-värdet som används på instrument paneler och formulär. |
 | Namn | Namnet på fältet i telemetri meddelandet. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt. |
@@ -140,7 +140,7 @@ Egenskaperna representerar tidpunkts värden. En enhet kan till exempel använda
 
 I följande tabell visas konfigurations inställningarna för en egenskaps funktion:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för egenskap svärdet som används på instrument paneler och formulär. |
 | Namn | Egenskapens namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt. |
@@ -161,7 +161,7 @@ Du kan anropa enhets kommandon från IoT Central. Kommandon kan skicka parametra
 
 I följande tabell visas konfigurations inställningarna för en kommando funktion:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för kommandot som används på instrument paneler och formulär. |
 | Namn | Kommandots namn. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt. |
@@ -199,7 +199,7 @@ Använd moln egenskaper för att lagra information om enheter i IoT Central. Mol
 
 I följande tabell visas konfigurations inställningarna för en moln egenskap:
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | ----- | ----------- |
 | Visningsnamn | Visnings namnet för moln egenskap svärdet som används på instrument paneler och formulär. |
 | Namn | Namnet på moln egenskapen. IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. |

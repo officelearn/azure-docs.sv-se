@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 99a038b23eb0978b6e1d8a65b061c2f744852def
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082113"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126813"
 ---
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -58,7 +58,7 @@ dependencies {
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient biblioteket:
 
-| Name                                  | Beskrivning                                                  |
+| Namn                                  | Beskrivning                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient| CallClient är den huvudsakliga start punkten för det anropande klient biblioteket.|
 | CallAgent | CallAgent används för att starta och hantera samtal. |
@@ -143,8 +143,8 @@ Mobila push-meddelanden är de popup-meddelanden som visas på mobila enheter. F
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra det här avsnittet skapar du ett Firebase-konto och aktiverar Cloud Messaging (FCM). Se till att Firebase Cloud Messaging är anslutet till en ANH-instans (Azure Notification Hub). Instruktioner finns i [ansluta Firebase till Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) .
-Det här avsnittet förutsätter också att du använder Android Studio version 3,6 eller senare för att bygga ditt program.
+Ett Firebase-konto som har kon figurer ATS med Cloud Messaging (FCM) aktiverat och med din Firebase-moln meddelande tjänst ansluten till en Azure Notification Hub-instans. Mer information finns i [meddelanden om kommunikations tjänster](https://docs.microsoft.com/azure/communication-services/concepts/notifications) .
+Dessutom förutsätter du själv studie kursen att du använder Android Studio version 3,6 eller senare för att bygga ditt program.
 
 En uppsättning behörigheter krävs för att Android-programmet ska kunna ta emot meddelanden från Firebase Cloud Messaging. I `AndroidManifest.xml` filen lägger du till följande behörighets uppsättning direkt efter *<manifestet... >* eller under *</application>* taggen
 
@@ -195,21 +195,21 @@ Lägg till det här kodfragmentet för att hämta token:
                     @Override
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
                         if (!task.isSuccessful()) {
-                            Log.w(TAG, "getInstanceId failed", task.getException());
+                            Log.w("PushNotification", "getInstanceId failed", task.getException());
                             return;
                         }
 
                         // Get new Instance ID token
                         String deviceToken = task.getResult().getToken();
                         // Log
-                        Log.d(TAG, "Device Registration token retrieved successfully");
+                        Log.d("PushNotification", "Device Registration token retrieved successfully");
                     }
                 });
 ```
 Registrera token för enhets registrering med klient biblioteket för uppringnings tjänster för inkommande push-meddelanden för push-meddelanden:
 
 ```java
-String deviceRegistrationToken = "some_token";
+String deviceRegistrationToken = "<Device Token from previous section>";
 try {
     callAgent.registerPushNotification(deviceRegistrationToken).get();
 }
@@ -226,16 +226,16 @@ Om du vill hämta nytto lasten från Firebase Cloud Messaging börjar du med att
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
-    private java.util.Map<String, String> pushNotificationMessageData;
+    private java.util.Map<String, String> pushNotificationMessageDataFromFCM;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            Log.d("PushNotification", "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
         else {
-            pushNotificationMessageData = serializeDictionaryAsJson(remoteMessage.getData());
+            pushNotificationMessageDataFromFCM = remoteMessage.getData();
         }
     }
 }
@@ -252,10 +252,9 @@ Lägg till följande tjänst definition i `AndroidManifest.xml` filen, inuti <ap
         </service>
 ```
 
-När nytto lasten har hämtats kan den skickas till klient biblioteket för kommunikations tjänster som ska hanteras genom att anropa `handlePushNotification` metoden på en `CallAgent` instans.
+- När nytto lasten har hämtats kan den skickas till klient biblioteket för *kommunikations tjänster* som ska hanteras genom att anropa metoden *HandlePushNotification* på en *CallAgent* -instans. En `CallAgent` instans skapas genom att anropa- `createCallAgent(...)` metoden i `CallClient` klassen.
 
 ```java
-java.util.Map<String, String> pushNotificationMessageDataFromFCM = remoteMessage.getData();
 try {
     callAgent.handlePushNotification(pushNotificationMessageDataFromFCM).get();
 }

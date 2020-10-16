@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34a9350f830171a137ca3a63ecae2203edec92b2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89322457"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127377"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Felsök varför data från dina enheter inte visas i Azure IoT Central
 
@@ -34,9 +34,9 @@ Det här avsnittet hjälper dig att avgöra om dina data når IoT Central.
 
 Installera verktyget och tillägget om du inte redan gjort det `az cli` `azure-iot` .
 
-Information om hur du installerar `az cli` finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Information om hur du installerar `az cli` finns i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-[Installera](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) `azure-iot` tillägget genom att köra följande kommando:
+[Installera](/cli/azure/azure-cli-reference-for-IoT?view=azure-cli-latest#extension-reference-installation) `azure-iot` tillägget genom att köra följande kommando:
 
 ```cmd/bash
 az extension add --name azure-iot
@@ -131,7 +131,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 | Enhets etablerings status | Beskrivning | Möjlig minskning |
 | - | - | - |
-| Etablerad | Ingen direkt identifierbar fråga. | E.t. |
+| Etablerad | Ingen direkt identifierbar fråga. | Saknas |
 | Registrerad | Enheten har ännu inte anslutits till IoT Central. | Kontrol lera dina enhets loggar för anslutnings problem. |
 | Blockerad | Enheten har blockerats från att ansluta till IoT Central. | Enheten blockeras från att ansluta till IoT Central-programmet. Avblockera enheten i IoT Central och försök igen. Mer information finns i [blockera enheter](concepts-get-connected.md#device-status-values). |
 | Ej godkända | Enheten är inte godkänd. | Enheten är inte godkänd för att ansluta till IoT Central-programmet. Godkänn enheten i IoT Central och försök igen. Läs mer i [Godkänn enheter](concepts-get-connected.md#connect-without-registering-devices) |
@@ -155,7 +155,7 @@ Om du ser problem som rör ditt autentiseringspaket:
 | 401 | Det går inte att verifiera autentiseringstoken. Till exempel har den upphört att gälla eller inte gäller för frågans URI. Den här felkoden returneras även till enheter som en del av flödet för TPM-attestering. | Kontrol lera att enheten har rätt autentiseringsuppgifter. |
 | 404 | Enhets etablerings tjänstens instans eller en resurs, till exempel en registrering, finns inte. | [Filen a Ticket med kund support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 412 | `ETag`I begäran matchar inte den `ETag` befintliga resursen som per RFC7232. | [Filen a Ticket med kund support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
-| 429 | Åtgärder begränsas av tjänsten. Information om begränsningar för vissa tjänster finns i [IoT Hub Device Provisioning service gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits). | Minska meddelande frekvensen, dela ansvar mellan fler enheter. |
+| 429 | Åtgärder begränsas av tjänsten. Information om begränsningar för vissa tjänster finns i [IoT Hub Device Provisioning service gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Minska meddelande frekvensen, dela ansvar mellan fler enheter. |
 | 500 | Ett internt fel har inträffat. | [Filen a Ticket med kund support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) för att se om de kan hjälpa dig. |
 
 ## <a name="payload-shape-issues"></a>Problem med nytto Last form

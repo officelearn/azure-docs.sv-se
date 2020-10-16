@@ -10,18 +10,18 @@ ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 9a70cfe3c9ced2d22fcb50224d991e34c516a04c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e5b0e88c4a84e27d662b2f2c4b39b14538af92a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941905"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126814"
 ---
 # <a name="quickstart-use-the-communication-services-calling-client-library"></a>Snabb start: Använd kommunikations tjänsterna som anropar klient biblioteket
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-Kom igång med Azure Communication Services genom att använda kommunikations tjänsterna som anropar klient biblioteket för att lägga till röst-och video samtal till din app. 
+Kom igång med Azure Communication Services genom att använda kommunikations tjänsterna som anropar klient biblioteket för att lägga till röst-och video samtal till din app.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/calling-sdk-js.md)]

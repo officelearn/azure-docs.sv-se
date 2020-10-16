@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: 8d05ab19ff7fee43d91a9620f96699d73bc38a1a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c41a6679009f1467c5bcd04d9629ef9256238e00
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873310"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127053"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Självstudie: skapa en IoT Edge-instans för video analys (Intel NUC)
 
@@ -27,7 +27,7 @@ I IoT Edge körs dessa tjänster direkt på IoT-enheter över plattformar, så a
 
 Den här självstudien visar hur du installerar och konfigurerar IoT Edge runtime på en Intel NUC-enhet.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Uppdatera och konfigurera IoT Edge
 > * Konfigurera IoT Edge Gateway
@@ -37,13 +37,13 @@ I den här guiden får du lära dig att:
 
 * Innan du börjar bör du slutföra själv studie kursen [skapa ett video analys program i azure IoT Central (Yolo v3)](./tutorial-video-analytics-create-app-yolo-v3.md) eller [skapa en video analys i Azure IoT Central (openproduktion &trade; )](tutorial-video-analytics-create-app-openvino.md).
 * En enhet, till exempel en Intel-NUC, som kör Linux, som kan köra Docker-behållare och har tillräckligt med processor kraft för att köra video analys.
-* Den [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge-linux.md) som är installerad och körs på enheten.
+* Den [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) som är installerad och körs på enheten.
 * För att kunna ansluta till den IoT Edge enheten från din Windows-dator behöver du den [SPARATILLFIL SSH-klienten](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) eller ett motsvarande verktyg.
 * Du behöver också en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa en kostnads fri på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
 
 ## <a name="configure-the-iot-edge-device"></a>Konfigurera IoT Edge-enheten
 
-Om du inte har installerat IoT Edge runtime på din Intel NUC-dator kan du läsa mer i [installera Azure IoT Edge runtime på Debian-baserade Linux Systems-](../../iot-edge/how-to-install-iot-edge-linux.md) instruktioner.
+Om du inte har installerat IoT Edge runtime på din Intel NUC-dator kan du läsa mer i [installera Azure IoT Edge runtime på Debian-baserade Linux Systems-](../../iot-edge/how-to-install-iot-edge.md) instruktioner.
 
 Så här uppdaterar du IoT Edge Runtime:
 

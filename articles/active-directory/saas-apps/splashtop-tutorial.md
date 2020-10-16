@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 72c7a24f165d48d3ba2ea0dbcc2b41c818e3f1d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 934953437c2d156f220d5b0a1847e16358e3bfb8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524576"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126883"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Splashtop
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Splashtop med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -84,7 +84,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Splashtop-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärm bild visar en lista över standardattribut, medan **NameIdentifier** mappas med **User. UserPrincipalName**. TicketManager-programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar användarattribut med redigerings ikonen vald.](common/edit-attribute.png)
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på datorn.
 
@@ -129,31 +129,33 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 I det här avsnittet måste du använda för en ny SSO-metod från [Splashtop-webbportalen](https://my.splashtop.com/login).
 1. I webb portalen för Splashtop går du till fliken **konto information**  /  **team** och bläddrar ned till avsnittet om att hitta **enkel inloggning** . Klicka sedan på **Använd för ny SSO-metod**.
 
-    ![image](media/splashtop-tutorial/apply-for-new-SSO-method.png)
+    ![Skärm bild som visar sidan enkel inloggning där du kan välja Använd för ny S O-metod.](media/splashtop-tutorial/apply-for-new-SSO-method.png)
 
 1. I fönstret tillämpa ger du ett **SSO-namn**. Till exempel New Azure och välj sedan **Azure** som IDP typ och infoga **inloggnings-URL** och **Azure AD-identifierare** som kopierats från Splashtop-programmet på Azure Portal.
 
-    ![image](media/splashtop-tutorial/azure-sso-1.png)
+    ![Skärm bild som visar sidan Ansök om S O-metod där du kan ange ett namn och annan information.](media/splashtop-tutorial/azure-sso-1.png)
 
 1. För certifikat information högerklickar du på den certifikat fil som hämtats från Splashtop-programmet på Azure Portal, redigerar den med anteckningar och kopierar sedan innehållet och klistrar in det i fältet **Hämta certifikat (base64)** .
 
-    ![bild ](media/splashtop-tutorial/cert-1.png) av bild ![ ](media/splashtop-tutorial/cert-2.png) ![](media/splashtop-tutorial/azure-sso-2.png)
+    ![Skärm bild som visar att du väljer en certifikat fil och öppnar den med anteckningar.](media/splashtop-tutorial/cert-1.png)
+    ![Skärm bild som visar innehållet i certifikat filen.](media/splashtop-tutorial/cert-2.png)
+    ![Skärm bild som visar text rutan Ladda ned certifikat.](media/splashtop-tutorial/azure-sso-2.png)
 
-1. Det är allt. Klicka på **Spara** och SPLASHTOP för SSO-validering kommer att kontakta dig för verifierings informationen och sedan aktivera SSO-metoden.
+1. Klart! Klicka på **Spara** och SPLASHTOP för SSO-validering kommer att kontakta dig för verifierings informationen och sedan aktivera SSO-metoden.
 
 ### <a name="create-splashtop-test-user"></a>Skapa Splashtop test användare
 
 1. När SSO-metoden har Aktiver ATS kontrollerar du den nyligen skapade SSO-metoden för att aktivera den i avsnittet **enkel inloggning** .
 
-    ![image](media/splashtop-tutorial/enable.png)
+    ![Skärm bild som visar sidan enkel inloggning där du kan aktivera den nya metoden.](media/splashtop-tutorial/enable.png)
 
 1. Bjud in test användaren, till exempel `B.Simon@contoso.com` till Splashtop-teamet med den nyligen skapade SSO-metoden.
 
-    ![image](media/splashtop-tutorial/invite.png)
+    ![Skärm bild som visar sidan Bjud in användare där du kan välja den nya metoden.](media/splashtop-tutorial/invite.png)
 
 1. Du kan också ändra ett befintligt Splashtop-konto till ett SSO-konto, se [anvisningar](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-).
 
-1. Det är allt. Du kan använda SSO-kontot för att logga in på Splashtop webb portal eller Splashtop Business app.
+1. Klart! Du kan använda SSO-kontot för att logga in på Splashtop webb portal eller Splashtop Business app.
 
 ## <a name="test-sso"></a>Testa SSO 
 

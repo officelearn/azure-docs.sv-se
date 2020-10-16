@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873286"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127036"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Självstudie: skapa en IoT Edge-instans för video analys (Linux VM)
 
@@ -27,7 +27,7 @@ I IoT Edge körs dessa tjänster direkt på IoT-enheter över plattformar, så a
 
 Den här självstudien visar hur du förbereder en IoT Edge-enhet på en virtuell Azure-dator. IoT Edge-instansen kör de direktsända video analys moduler som används av program mal len Azure IoT Central video analys – objekt och rörelse identifiering.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Skapa en virtuell Azure-dator med Azure IoT Edge Runtime installerat
 > * Förbered IoT Edge-installationen för att vara värd för modulen för video analys och Anslut till IoT Central
@@ -46,7 +46,7 @@ Om du vill skapa en virtuell Azure-dator med de senaste IoT Edge Runtime-och Liv
 
 Använd informationen i följande tabell för att slutföra det **anpassade distributions** formuläret:
 
-| Field | Värde |
+| Fält | Värde |
 | ----- | ----- |
 | Prenumeration | Välj din Azure-prenumeration. |
 | Resursgrupp | *lva-RG* – resurs gruppen du skapade i föregående självstudie. |
@@ -94,7 +94,7 @@ Distributionen konfigurerade följande fem IoT Edge moduler att köra:
 
 Distributionen skapade en anpassad IoT Edge miljö med de moduler som krävs för live video analys. Distributionen uppdaterade standard **config. yaml** för att säkerställa att IoT Edge runtime använde IoT Device Provisioning-tjänsten för att ansluta till IoT Central. Distributionen skapade också en fil med namnet **state.js** i mappen **/data/Storage** för att tillhandahålla ytterligare konfigurations data till modulerna. Mer information finns i själv studie kursen [skapa en IoT Edge instans för video analys (Intel NUC)](./tutorial-video-analytics-iot-edge-nuc.md) .
 
-Information om hur du felsöker IoT Edge-enheten finns i [felsöka IoT Edge-enheten](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+Information om hur du felsöker IoT Edge-enheten finns i [felsöka IoT Edge-enheten](../../iot-edge/troubleshoot.md)
 
 ## <a name="use-the-rtsp-simulator"></a>Använda RTSP-simulatorn
 

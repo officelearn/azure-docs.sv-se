@@ -6,16 +6,19 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 437fe4636fd5b93656758c9fa55f2b18d64a4b6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d36fe791e34544a4d6132a49fc5ec3f2aa334654
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540701"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127292"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for MySQL
 
-Azure Database for MySQL kommer att ändra rot certifikatet för klient programmet/driv rutinen som är aktive rad med SSL, som används för att [ansluta till databas servern](concepts-connectivity-architecture.md). Rot certifikatet som för närvarande är tillgängligt upphör att gälla den 26 oktober 2020 (10/26/2020) som en del av standard underhåll och rekommenderade säkerhets metoder. Den här artikeln innehåller mer information om kommande ändringar, vilka resurser som kommer att påverkas och de steg som krävs för att säkerställa att programmet upprätthåller anslutningen till databas servern.
+Azure Database for MySQL kommer att ändra rot certifikatet för klient programmet/driv rutinen som är aktive rad med SSL, som används för att [ansluta till databas servern](concepts-connectivity-architecture.md). Rot certifikatet som för närvarande är tillgängligt upphör att gälla den 15 februari 2021 (02/15/2021) som en del av standard underhåll och rekommenderade säkerhets metoder. Den här artikeln innehåller mer information om kommande ändringar, vilka resurser som kommer att påverkas och de steg som krävs för att säkerställa att programmet upprätthåller anslutningen till databas servern.
+
+>[!NOTE]
+> Baserat på feedback från kunder har vi utökat rot certifikatets utfasning för vår befintliga Baltimore rot certifikat utfärdare från oktober 26, 2020 till 15 februari 2021. Vi hoppas att det här tillägget ger tillräckligt med ledtid för att våra användare ska kunna implementera klient ändringarna om de påverkas.
 
 ## <a name="what-update-is-going-to-happen"></a>Vilken uppdatering ska ske?
 
@@ -23,12 +26,12 @@ I vissa fall använder program en lokal certifikat fil som genererats från en b
 
 Som enligt branschens krav på efterlevnad började CA-leverantörer återkallade CA-certifikat för icke-kompatibla ca: er, vilket kräver att servrar använder certifikat som utfärdats av kompatibla ca: er och signeras av CA-certifikat från dessa kompatibla certifikat utfärdare. Eftersom Azure Database for MySQL för närvarande använder ett av dessa icke-kompatibla certifikat, som klient program använder för att verifiera sina SSL-anslutningar, måste vi se till att lämpliga åtgärder vidtas (beskrivs nedan) för att minimera den potentiella påverkan på MySQL-servrarna.
 
-Det nya certifikatet kommer att användas från och med den 26 oktober 2020 (10/26/2020). Om du använder antingen CA-validering eller fullständig verifiering av Server certifikatet vid anslutning från en MySQL-klient (sslmode = verify-ca eller sslmode = verify-full) måste du uppdatera program konfigurationen före den 26 oktober 2020 (10/26/2020).
+Det nya certifikatet kommer att användas från och med 15 februari 2021 (02/15/2021). Om du använder antingen CA-validering eller fullständig verifiering av Server certifikatet vid anslutning från en MySQL-klient (sslmode = verify-ca eller sslmode = verify-full) måste du uppdatera program konfigurationen före 15 februari 2021 (03/15/2021).
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Hur gör jag för att veta om min databas kommer att påverkas?
 
 Alla program som använder SSL/TLS och kontrollerar att rot certifikatet måste uppdatera rot certifikatet. Du kan identifiera om dina anslutningar verifierar rot certifikatet genom att granska anslutnings strängen.
--   Om din anslutnings sträng innehåller `sslmode=verify-ca` eller `sslmode=verify-full` måste du uppdatera certifikatet.
+-   Om din anslutnings sträng innehåller `sslmode=verify-ca` eller `sslmode=verify-identity` måste du uppdatera certifikatet.
 -   Om din anslutnings sträng innehåller `sslmode=disable` , `sslmode=allow` , `sslmode=prefer` eller `sslmode=require` , behöver du inte uppdatera certifikat. 
 -  Om du använder Java-anslutningar och din anslutnings sträng innehåller useSSL = falskt eller requireSSL = false, behöver du inte uppdatera certifikat.
 -   Om anslutnings strängen inte anger sslmode behöver du inte uppdatera certifikat.
@@ -84,6 +87,9 @@ Om du använder det Azure Database for MySQL utfärdade certifikatet som dokumen
 *   Ogiltigt certifikat/återkallat certifikat
 *   Anslutningens tidsgräns uppnåddes
 
+> [!NOTE]
+> Ta inte bort eller ändra **Baltimore-certifikatet** förrän certifikat ändringen har gjorts. Vi kommer att skicka en kommunikation när ändringen har gjorts, och det är säkert att ta bort Baltimore-certifikatet. 
+
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. om jag inte använder SSL/TLS måste jag fortfarande uppdatera rot certifikat utfärdaren?
@@ -92,8 +98,8 @@ Inga åtgärder krävs om du inte använder SSL/TLS.
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. om jag använder SSL/TLS måste jag starta om min databas server för att uppdatera rot certifikat utfärdaren?
 Nej, du behöver inte starta om databas servern för att börja använda det nya certifikatet. Detta rot certifikat är en ändring på klient sidan och inkommande klient anslutningar måste använda det nya certifikatet för att säkerställa att de kan ansluta till databas servern.
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. Vad händer om jag inte uppdaterar rot certifikatet före den 26 oktober 2020 (10/26/2020)?
-Om du inte uppdaterar rot certifikatet före den 26 oktober 2020 kommer dina program som ansluter via SSL/TLS och som verifierar för rot certifikatet inte att kunna kommunicera med MySQL-databasservern och programmet kommer att uppleva anslutnings problem till din MySQL Database-Server.
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3. Vad händer om jag inte uppdaterar rot certifikatet före den 15 februari 2021 (02/15/2021)?
+Om du inte uppdaterar rot certifikatet före den 15 februari 2021 (02/15/2021), kommer dina program som ansluter via SSL/TLS och verifiering för rot certifikatet inte att kunna kommunicera med MySQL-databasservern och programmet kommer att uppleva anslutnings problem till din MySQL Database-Server.
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4. Vad är effekten om du använder App Service med Azure Database for MySQL?
 För Azure App Services, som ansluter till Azure Database for MySQL, kan vi ha två möjliga scenarier och det beror på hur du använder SSL med ditt program.
@@ -111,11 +117,11 @@ För koppling med egen värd Integration Runtime där du uttryckligen inkluderar
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. behöver jag planera ett avbrott för databas server underhåll för den här ändringen?
 Nej. Eftersom ändringen bara finns på klient sidan för att ansluta till databas servern, finns det inga underhålls avbrott som krävs för databas servern för den här ändringen.
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. Vad händer om jag inte kan få en schemalagd stillestånds tid för den här ändringen före den 26 oktober 2020 (10/26/2020)?
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. Vad händer om jag inte kan få en schemalagd stillestånds tid för den här ändringen före den 15 februari 2021 (02/15/2021)?
 Eftersom klienterna som används för att ansluta till servern måste uppdatera certifikat informationen enligt beskrivningen i avsnittet åtgärda [här](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), behöver vi inte något drift stopp för-servern i det här fallet.
 
-### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. om jag skapar en ny server efter den 26 oktober 2020 kommer jag att påverkas?
-För servrar som skapats efter den 26 oktober 2020 (10/26/2020) kan du använda det nyligen utfärdade certifikatet för dina program för att ansluta med SSL.
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. om jag skapar en ny server efter den 15 februari 2021 (02/15/2021) kommer jag att påverkas?
+För servrar som skapats efter den 15 februari 2021 (02/15/2021) kan du använda det nyligen utfärdade certifikatet för dina program för att ansluta med SSL.
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. hur ofta uppdaterar Microsoft sina certifikat eller vad är förfallo principen?
 Dessa certifikat som används av Azure Database for MySQL tillhandahålls av betrodda certifikat utfärdare (CA). Stöd för dessa certifikat på Azure Database for MySQL är knutet till stöd för dessa certifikat av CA. Men i så fall kan det vara oförutsedda buggar i dessa fördefinierade certifikat, vilket måste åtgärdas tidigast.

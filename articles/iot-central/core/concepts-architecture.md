@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 1e4b81f2350795b1244289119d714e99bc06ba6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc33d3c07461b5662e1454ec131dbc2b5f19a390
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337151"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126181"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central-arkitektur
 
@@ -23,7 +23,7 @@ Den här artikeln ger en översikt över Microsoft Azure IoT Central-arkitekture
 
 ![Arkitektur på översta nivån](media/concepts-architecture/architecture.png)
 
-## <a name="devices"></a>Egenskaper
+## <a name="devices"></a>Enheter
 
 Enheter utbyter data med ditt Azure IoT Central-program. En enhet kan:
 
@@ -104,7 +104,7 @@ Azure IoT Central använder Azure IoT Hub som en molnbaserad gateway som aktiver
 - Enhets hantering.
 - Skydda enhets anslutningen.
 
-Mer information om IoT Hub finns i [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
+Mer information om IoT Hub finns i [Azure IoT Hub](../../iot-hub/index.yml).
 
 Mer information om enhets anslutning i Azure IoT Central finns i [enhets anslutning](concepts-get-connected.md).
 

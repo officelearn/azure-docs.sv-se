@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cbdeca41746099643fb06ff5861a39b2e032b33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974397"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126711"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportera IoT-data till moln mål med hjälp av data export
 
@@ -93,7 +93,7 @@ Följ dessa steg om du inte har ett befintligt Service Bus namn område att expo
 
 Följ dessa steg om du inte har ett befintligt Azure Storage-konto att exportera till:
 
-1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan lära dig mer om att skapa nya [Azure Blob Storage-konton](https://aka.ms/blobdocscreatestorageaccount) eller [Azure Data Lake Storage v2-lagrings konton](../../storage/blobs/data-lake-storage-quickstart-create-account.md). Data export kan bara skriva data till lagrings konton som stöder block-blobbar. I följande lista visas kända kompatibla lagrings konto typer:
+1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan lära dig mer om att skapa nya [Azure Blob Storage-konton](../../storage/blobs/storage-quickstart-blobs-portal.md) eller [Azure Data Lake Storage v2-lagrings konton](../../storage/common/storage-account-create.md). Data export kan bara skriva data till lagrings konton som stöder block-blobbar. I följande lista visas kända kompatibla lagrings konto typer:
 
     |Prestanda nivå|Kontotyp|
     |-|-|
@@ -275,8 +275,8 @@ I följande tabell visas skillnaderna mellan [äldre data export](howto-export-d
 | Funktioner  | Äldre data export | Ny data export |
 | :------------- | :---------- | :----------- |
 | Tillgängliga data typer | Telemetri, enheter, enhetsspecifika mallar | Telemetri, egenskaps ändringar |
-| Filtrering | Inget | Beror på vilken data typ som exporteras. För telemetri, filtrera efter telemetri, meddelande egenskaper, egenskaps värden |
-| Berikningar | Inget | Utöka med en anpassad sträng eller ett egenskaps värde på enheten |
+| Filtrering | Inga | Beror på vilken data typ som exporteras. För telemetri, filtrera efter telemetri, meddelande egenskaper, egenskaps värden |
+| Berikningar | Inga | Utöka med en anpassad sträng eller ett egenskaps värde på enheten |
 | Mål | Azure Event Hubs, Azure Service Bus köer och ämnen, Azure Blob Storage | Samma som för äldre data export plus Webhooks|
 | Program versioner som stöds | V2, V3 | Endast v3 |
 | Viktiga begränsningar | 5 exporter per app, 1 mål per export | 10 exporter – mål anslutningar per app |

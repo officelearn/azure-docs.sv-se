@@ -12,12 +12,12 @@ metadata:
   author: mblythe
   ms.author: mblythe
   ms.date: 08/05/2020
-  ms.openlocfilehash: f45fc98073dcc6eeee10c691fe9f93860e0fb654
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 4a491a2924af90afc43ddb4aa097f9967c8f156a
+  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88212082"
+  ms.lasthandoff: 10/15/2020
+  ms.locfileid: "92089289"
 landingContent:
 - title: Om Azure-portalen
   linkLists:
@@ -43,13 +43,13 @@ landingContent:
     links:
     - text: Lägga till Azure-portalens URL:er i listan över säkra URL:er
       url: azure-portal-safelist-urls.md
-    - text: Rollbaserad åtkomstkontroll för instrumentpaneler
+    - text: Rollbaserad åtkomstkontroll i Azure för instrumentpaneler
       url: azure-portal-dashboard-share-access.md
   - linkListType: learn
     links:
     - text: Hantera resurser i Azure
       url: /learn/paths/manage-resources-in-azure/
-    - text: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll (RBAC)
+    - text: Skydda dina Azure-resurser med rollbaserad åtkomstkontroll i Azure (Azure RBAC)
       url: /learn//modules/secure-azure-resources-with-rbac/
 - title: Kom igång
   linkLists:

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 71150ea5ba7d6f25b07a9afaa1f1dc60adcb3e24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72aaa1a19ef5a375ec1ee6c2938f64cb37aac139
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518796"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126985"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Självstudie: Azure Active Directory integrering med SkyDesk e-post
 
@@ -30,7 +30,7 @@ Att integrera SkyDesk e-post med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med SkyDesk e-post behöver du följande objekt:
 
@@ -126,32 +126,32 @@ Utför följande steg för att konfigurera enkel inloggning med SkyDesk e-post i
 
 1. I menyn högst upp klickar du på **konfiguration**och väljer **org**.
 
-    ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
+    ![Skärm bild som visar org valt från menyn installation.](./media/skydeskemail-tutorial/tutorial_skydeskemail_51.png)
   
 1. Klicka på **domäner** i den vänstra panelen.
 
-    ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
+    ![Skärm bild som visar domäner som valts från kontroll panelen.](./media/skydeskemail-tutorial/tutorial_skydeskemail_53.png)
 
 1. Klicka på **Lägg till domän**.
 
-    ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
+    ![Skärm bild som visar Lägg till domän vald.](./media/skydeskemail-tutorial/tutorial_skydeskemail_54.png)
 
 1. Ange ditt domän namn och verifiera sedan domänen.
 
-    ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
+    ![Skärm bild som visar fliken Lägg till domän där du kan ange din domän.](./media/skydeskemail-tutorial/tutorial_skydeskemail_55.png)
 
 1. Klicka på **SAML-autentisering** på den vänstra panelen.
 
-    ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
+    ![Skärm bild visar SAML-autentisering som valts från kontroll panelen.](./media/skydeskemail-tutorial/tutorial_skydeskemail_52.png)
 
 1. Utför följande steg på dialog sidan **SAML-autentisering** :
 
-    ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
+    ![Skärm bild som visar dialog rutan information om SAML-autentisering där du kan ange de värden som beskrivs.](./media/skydeskemail-tutorial/tutorial_skydeskemail_56.png)
 
     > [!NOTE]
     > Om du vill använda SAML-baserad autentisering bör du antingen ha **verifierad domän** -eller **portal-URL** -installation. Du kan ange portalens URL med det unika namnet.
 
-    ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
+    ![Skärm bild visar portalen U R L där du anger namnet.](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
     a. I text rutan **inloggnings-URL** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
@@ -222,7 +222,7 @@ I det här avsnittet skapar du en användare som heter Britta Simon i SkyDesk e-
 
 Klicka på **användar åtkomst** på den vänstra panelen i SkyDesk e-post och ange ditt användar namn.
 
-![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
+![Skärm bild som visar användar åtkomst som valts från kontroll panelen.](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 > [!NOTE]
 > Om du behöver skapa Mass användare måste du kontakta [support teamet för SkyDesk e-postklient](https://www.skydesk.jp/apps/support/).

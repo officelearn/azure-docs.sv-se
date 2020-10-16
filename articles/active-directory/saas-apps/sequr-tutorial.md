@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d0ce5031dc5972cac81b92477d3de049bc1f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6efb96448cc99df95b8f898c9fb7dd3ef166c5ea
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543126"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127002"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Självstudie: Azure Active Directory integrering med Sequr
 
@@ -30,7 +30,7 @@ Genom att integrera Sequr med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Sequr behöver du följande objekt:
 
@@ -131,15 +131,15 @@ Utför följande steg för att konfigurera enkel inloggning med Sequr i Azure AD
 
 1. Klicka på **integreringarna** på den vänstra navigerings panelen.
 
-    ![Sequr-konfiguration](./media/sequr-tutorial/configure1.png)
+    ![Skärm bild som visar den integrering som valts på navigerings panelen.](./media/sequr-tutorial/configure1.png)
 
 1. Rulla ned till avsnittet **enkel inloggning** och klicka på **Hantera**.
 
-    ![Sequr-konfiguration](./media/sequr-tutorial/configure2.png)
+    ![Skärm bild som visar avsnittet enkel inloggning med knappen Hantera valt.](./media/sequr-tutorial/configure2.png)
 
 1. I avsnittet **hantera enkel inloggning** utför du följande steg:
 
-    ![Sequr-konfiguration](./media/sequr-tutorial/configure3.png)
+    ![Skärm bild som visar avsnittet hantera en enda Sign-On där du kan ange de värden som beskrivs.](./media/sequr-tutorial/configure3.png)
 
     a. I text rutan för **identitets leverantörens enkla Sign-On URL** klistrar du in URL-värdet för **inloggning** som du har kopierat från Azure Portal.
 

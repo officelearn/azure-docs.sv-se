@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d99355a88a52e318b231d9032ede770ee0ba5208
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3520597ef8c02bc225e6f8a7625e6a961a7e37
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548694"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126934"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Självstudie: Azure Active Directory integrering med mänskligheten
 
@@ -30,7 +30,7 @@ Integreringen av Humanity med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Humanity behöver du följande:
 
@@ -131,11 +131,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Human
     ![Administratör](./media/shiftplanning-tutorial/iC786619.png "Administratör")
 3. Under **Integrering** klickar du på **Enkel inloggning**.
 
-    ![Enkel inloggning](./media/shiftplanning-tutorial/iC786620.png "för Aha!")
+    ![Skärm bild som visar enskilda Sign-On som valts från integrations menyn.](./media/shiftplanning-tutorial/iC786620.png "för Aha!")
 
 4. I avsnittet **enkel inloggning** utför du följande steg:
 
-    ![Enkel inloggning](./media/shiftplanning-tutorial/iC786905.png "för Aha!")
+    ![Skärm bild som visar det enkla Sign-On avsnittet där du kan ange de värden som beskrivs.](./media/shiftplanning-tutorial/iC786905.png "för Aha!")
 
     a. Välj **SAML-aktiverat **.
 

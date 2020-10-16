@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714239"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126849"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ansluta till Azure IoT Central
 
@@ -185,7 +185,7 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Enskild registrering baserad på enhets anslutning
 
-För kunder som ansluter enheter som var och en har sina egna autentiseringsuppgifter, använder du enskilda registreringar. En enskild registrering är en post för en enskild enhet som tillåts ansluta. Enskilda registreringar kan använda antingen X. 509-löv certifikat eller SAS-token (från en fysisk eller virtuell Trusted Platform Module) som attesterings metoder. Enhets-ID: t (även kallat registrerings-ID) i en enskild registrering är alfanumeriskt, gement och får innehålla bindestreck. Mer information finns i [DPS individuell registrering](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment).
+För kunder som ansluter enheter som var och en har sina egna autentiseringsuppgifter, använder du enskilda registreringar. En enskild registrering är en post för en enskild enhet som tillåts ansluta. Enskilda registreringar kan använda antingen X. 509-löv certifikat eller SAS-token (från en fysisk eller virtuell Trusted Platform Module) som attesterings metoder. Enhets-ID: t (även kallat registrerings-ID) i en enskild registrering är alfanumeriskt, gement och får innehålla bindestreck. Mer information finns i [DPS individuell registrering](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > När du skapar en enskild registrering för en enhet har den företräde framför standard alternativen för grupp registrering i IoT Central programmet.
@@ -204,7 +204,7 @@ IoT Central stöder följande mekanismer för attestering för enskilda registre
     > [!TIP]
     > För testning kan du använda [verktyg för Azure IoT Device Provisioning-enheten SDK för Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) att generera ett självsignerat certifikat: `node create_test_cert.js device "mytestdevice"`
 
-- **Trusted Platform Module (TPM) attestering:** En [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) är en typ av modul för maskin varu säkerhet. Att använda en TPM är ett av de säkraste sätten att ansluta en enhet. I den här artikeln förutsätter vi att du använder en diskret, inbyggd program vara eller integrerad TPM. Programvarubaserade TPM: er lämpar sig väl för prototyper eller testning, men de ger inte samma säkerhets nivå som diskreta, inbyggda program eller integrerade TPM: er. Använd inte programvaru-TPM: er i produktion. Om du vill skapa en enskild registrering som använder en TPM öppnar du sidan **enhets anslutning** , väljer **individuell registrering** som anslutnings metod och **TPM** som mekanism. Ange TPM-bekräftelse nyckeln och spara anslutnings informationen för enheten.
+- **Trusted Platform Module (TPM) attestering:** En [TPM](../../iot-dps/concepts-tpm-attestation.md) är en typ av modul för maskin varu säkerhet. Att använda en TPM är ett av de säkraste sätten att ansluta en enhet. I den här artikeln förutsätter vi att du använder en diskret, inbyggd program vara eller integrerad TPM. Programvarubaserade TPM: er lämpar sig väl för prototyper eller testning, men de ger inte samma säkerhets nivå som diskreta, inbyggda program eller integrerade TPM: er. Använd inte programvaru-TPM: er i produktion. Om du vill skapa en enskild registrering som använder en TPM öppnar du sidan **enhets anslutning** , väljer **individuell registrering** som anslutnings metod och **TPM** som mekanism. Ange TPM-bekräftelse nyckeln och spara anslutnings informationen för enheten.
 
 ## <a name="automatically-associate-with-a-device-template"></a>Associera automatiskt med en enhets mall
 

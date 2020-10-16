@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 7/7/2020
-ms.openlocfilehash: ec06fff73b1a4209546af5ca845e28aaa9dfb0b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: fcf368c9fbbb185ac3f47faa5705e1933d085c81
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532354"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126468"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Skrivskyddad replik i Azure Database for MariaDB
 
@@ -47,7 +47,7 @@ Du kan ha en käll server i valfri [Azure Database for MariaDB region](https://a
 ### <a name="universal-replica-regions"></a>Universal Replica-regioner
 Du kan skapa en Läs replik i någon av följande regioner, oavsett var käll servern finns. De Universal Replica-regioner som stöds är:
 
-Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Japan, östra, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA, västra USA 2, västra centrala USA.
+Östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala USA, Asien, östra, östra USA, östra USA 2, Östra Japan, västra Japan, Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, västra Europa, västra USA, västra USA 2, västra centrala USA.
 
 ### <a name="paired-regions"></a>Länkade regioner
 Förutom Universal Replica-regioner kan du skapa en Läs replik i den Azure-kopplade regionen på käll servern. Om du inte känner till din regions par kan du läsa mer i [artikeln Azure-kopplade regioner](../best-practices-availability-paired-regions.md).

@@ -1,5 +1,5 @@
 ---
-title: Fråga Azure Cosmos DB data med SQL Server utan i Azure Synapse Link (för hands version)
+title: Fråga Azure Cosmos DB data med Server lös SQL-pool i Azure Synapse Link (för hands version)
 description: I den här artikeln får du lära dig hur du frågar Azure Cosmos DB med SQL på begäran i Azure Synapse Link (för hands version).
 services: synapse analytics
 author: jovanpop-msft
@@ -9,24 +9,24 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: d0f8fa313687b3bd45bd95f1c9ea864567821775
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102365"
+ms.locfileid: "92122729"
 ---
-# <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med SQL Server utan i Azure Synapse Link (för hands version)
+# <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med Server lös SQL-pool i Azure Synapse Link (för hands version)
 
-Med Synapse SQL Server (tidigare SQL på begäran) kan du analysera data i dina Azure Cosmos DB behållare som är aktiverade med [Azure Synapse-länken](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i nära real tid utan att påverka prestandan för dina transaktions arbets belastningar. Den erbjuder en välkänd T-SQL-syntax för att fråga data från [analys lagret](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) och integrerad anslutning till en mängd olika bi-och ad hoc-frågemeddelanden via T-SQL-gränssnittet.
+Synapse server utan SQL-pool (tidigare SQL på begäran) gör att du kan analysera data i dina Azure Cosmos DB behållare som är aktiverade med [Azure Synapse-länken](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) i nära real tid utan att påverka prestandan för dina transaktions arbets belastningar. Den erbjuder en välkänd T-SQL-syntax för att fråga data från [analys lagret](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) och integrerad anslutning till en mängd olika bi-och ad hoc-frågemeddelanden via T-SQL-gränssnittet.
 
-För att skicka frågor till Azure Cosmos DB stöds det fullständiga [Select](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) -området via funktionen [OpenRowSet](develop-openrowset.md) , inklusive majoriteten av [SQL Functions och operatorer](overview-features.md). Du kan också lagra resultat från frågan som läser data från Azure Cosmos DB tillsammans med data i Azure Blob Storage eller Azure Data Lake Storage med hjälp av [skapa extern tabell som Välj](develop-tables-cetas.md#cetas-in-sql-on-demand). Du kan för närvarande inte spara SQL Server-frågeresultat för att Azure Cosmos DB med [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+För att skicka frågor till Azure Cosmos DB stöds det fullständiga [Select](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) -området via funktionen [OpenRowSet](develop-openrowset.md) , inklusive majoriteten av [SQL Functions och operatorer](overview-features.md). Du kan också lagra resultat från frågan som läser data från Azure Cosmos DB tillsammans med data i Azure Blob Storage eller Azure Data Lake Storage med hjälp av [skapa extern tabell som Välj](develop-tables-cetas.md#cetas-in-sql-on-demand). För närvarande kan du inte lagra frågeresultat för SQL-pooler för att Azure Cosmos DB med [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
-I den här artikeln får du lära dig hur du skriver en fråga med hjälp av SQL Server utan att fråga data från Azure Cosmos DB behållare som är Synapse-länk aktiverade. Du kan sedan lära dig mer om hur du skapar SQL Server-felutan vyer över Azure Cosmos DB behållare och kopplar dem till Power BI modeller i [den här](./tutorial-data-analyst.md) självstudien. 
+I den här artikeln får du lära dig hur du skriver en fråga med en server lös SQL-pool som kommer att fråga efter data från Azure Cosmos DB behållare som är Synapse-länk aktiverade. Du kan sedan lära dig mer om hur du skapar SQL-pooler utan server över Azure Cosmos DB behållare och ansluter dem till Power BI modeller i [den här](./tutorial-data-analyst.md) självstudien. 
 
 ## <a name="overview"></a>Översikt
 
-För att stödja frågor och analys av data i Azure Cosmos DB analys lager, använder SQL Server utan följande `OPENROWSET` syntax:
+För att stödja frågor och analys av data i Azure Cosmos DB analys lager, använder SQL-poolen utan server följande `OPENROWSET` syntax:
 
 ```sql
 OPENROWSET( 
@@ -49,7 +49,7 @@ Anslutnings strängen har följande format:
 Namnet på Azure Cosmos DB containern anges utan citat tecken i `OPENROWSET` syntaxen. Om behållar namnet innehåller specialtecken (till exempel ett bindestreck "-"), ska namnet omslutas inom `[]` (hakparenteser) i `OPENROWSET` syntaxen.
 
 > [!NOTE]
-> SQL Server stöder inte frågor om Azure Cosmos DB transaktions lager.
+> SQL-poolen utan Server stöder inte frågor om Azure Cosmos DB transaktions lager.
 
 ## <a name="sample-data-set"></a>Exempel på datauppsättning
 
@@ -57,14 +57,14 @@ Exemplen i den här artikeln baseras på data från [Europeiska centrum för sju
 
 Du kan se licensen och strukturen för data på dessa sidor och hämta exempel data för [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) -och [Cord19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) -datauppsättningar.
 
-Om du vill följa med i den här artikeln som demonstrerar hur du frågar Cosmos DB data med SQL Server lös kontrollerar du att du skapar följande resurser:
+Om du vill följa med i den här artikeln som demonstrerar hur du frågar Cosmos DB data med en server lös SQL-pool kontrollerar du att du skapar följande resurser:
 * Ett Azure Cosmos DB databas konto som är [Synapse-länk aktiverat](../../cosmos-db/configure-synapse-link.md)
 * En Azure Cosmos DB databas med namnet `covid`
 * Två Azure Cosmos DB behållare med namnet `EcdcCases` och `Cord19` med ovanstående exempel data uppsättningar lästes in.
 
 ## <a name="explore-azure-cosmos-db-data-with-automatic-schema-inference"></a>Utforska Azure Cosmos DB data med automatisk schema härledning
 
-Det enklaste sättet att utforska data i Azure Cosmos DB är genom att dra nytta av funktionen för automatisk schema härledning. Genom att utelämna- `WITH` satsen från `OPENROWSET` instruktionen kan du instruera SQL Server-lös automatisk identifiering (Härled) schemat för den Azure Cosmos DB behållarens analys arkiv.
+Det enklaste sättet att utforska data i Azure Cosmos DB är genom att dra nytta av funktionen för automatisk schema härledning. Genom att utelämna- `WITH` satsen från `OPENROWSET` instruktionen kan du instruera Server lös SQL-poolen att automatiskt identifiera (härleda) schemat för den Azure Cosmos DB behållarens analys arkiv.
 
 ```sql
 SELECT TOP 10 *
@@ -73,7 +73,7 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-I ovanstående exempel instruerar vi SQL Server att ansluta till `covid` databasen i Azure Cosmos DB konto som `MyCosmosDbAccount` autentiseras med hjälp av Azure Cosmos DBS nyckeln (dummy i exemplet ovan). Vi ansluter sedan till behållarens `EcdcCases` analys lager i `West US 2` regionen. Eftersom ingen projektion av vissa egenskaper visas, `OPENROWSET` returnerar funktionen alla egenskaper från Azure Cosmos DB objekt.
+I ovanstående exempel instruerar vi SQL-poolen utan server att ansluta till `covid` databasen i Azure Cosmos DB konto som `MyCosmosDbAccount` autentiserats med hjälp av Azure Cosmos DBS nyckeln (dummy i exemplet ovan). Vi ansluter sedan till behållarens `EcdcCases` analys lager i `West US 2` regionen. Eftersom ingen projektion av vissa egenskaper visas, `OPENROWSET` returnerar funktionen alla egenskaper från Azure Cosmos DB objekt.
 
 Om du behöver utforska data från den andra behållaren i samma Azure Cosmos DB databas kan du använda samma anslutnings sträng och referens som krävs för behållare som tredje parameter:
 
@@ -120,7 +120,7 @@ Se [reglerna för SQL Type-mappningar](#azure-cosmos-db-to-sql-type-mappings) i 
 
 ## <a name="querying-nested-objects-and-arrays"></a>Fråga efter kapslade objekt och matriser
 
-Azure Cosmos DB gör att du kan representera mer komplexa data modeller genom att skriva dem som kapslade objekt eller matriser. Funktionen för automatisk synkronisering av Synapse för Azure Cosmos DB hanterar schema representationen i den analytiska lagrings platsen, som omfattar hantering av kapslade data typer som tillåter omfattande frågor från SQL Server.
+Azure Cosmos DB gör att du kan representera mer komplexa data modeller genom att skriva dem som kapslade objekt eller matriser. Funktionen för automatisk synkronisering av Synapse för Azure Cosmos DB hanterar schema representationen i den analytiska lagrings platsen, som omfattar hantering av kapslade data typer som tillåter omfattande frågor från SQL-poolen utan server.
 
 Till exempel innehåller [kabel-19-](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) data uppsättningen JSON-dokument efter följande struktur:
 
@@ -172,7 +172,7 @@ FROM
     ) AS docs;
 ```
 
-Lär dig mer om att analysera [komplexa data typer i Synapse-länk](../how-to-analyze-complex-schema.md) och [kapslade strukturer i SQL Server](query-parquet-nested-types.md)-lös.
+Lär dig mer om att analysera [komplexa data typer i Synapse-länk](../how-to-analyze-complex-schema.md) och [kapslade strukturer i SQL-poolen utan server](query-parquet-nested-types.md).
 
 > [!IMPORTANT]
 > Om du ser oväntade tecken i din text `MÃƒÂ©lade` , t. ex. i stället för `Mélade` databas sorteringen, är inte inställd på [utf8](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support#utf8) -sortering. 
@@ -181,7 +181,7 @@ Lär dig mer om att analysera [komplexa data typer i Synapse-länk](../how-to-an
 
 ## <a name="flattening-nested-arrays"></a>Förenkla utkapslade matriser
 
-Azure Cosmos DB data kan ha kapslade underordnade matriser som författarens matris från [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) data uppsättning:
+Azure Cosmos DB data kan ha kapslade undermatriser som författarens matris från [Cord19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) data uppsättning:
 
 ```json
 {
@@ -203,7 +203,7 @@ Azure Cosmos DB data kan ha kapslade underordnade matriser som författarens mat
 }
 ```
 
-I vissa fall kan du behöva "koppla" egenskaperna från det översta objektet (metadata) med alla element i matrisen (författarna). Med SQL Server lös kan du förenkla kapslade strukturer genom `OPENJSON` att använda funktionen på den kapslade matrisen:
+I vissa fall kan du behöva "koppla" egenskaperna från det översta objektet (metadata) med alla element i matrisen (författarna). Med Server lös SQL-pool kan du förenkla inkapslade strukturer genom att använda `OPENJSON` funktionen på den kapslade matrisen:
 
 ```sql
 SELECT
@@ -238,7 +238,7 @@ Extra information ett eko-epidemi... | `[{"first":"Nicolas","last":"4#","suffix"
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Azure Cosmos DB mappningar av SQL-typ
 
-Det är viktigt att först Observera att när Azure Cosmos DB transaktions lager är schema-oberoende, är analys lagret schematiserade för att optimera prestandan för analytiska frågor. Med funktionen för automatisk synkronisering av Synapse, hanterar Azure Cosmos DB schema representationen i den analytiska lagrings platsen som omfattar hantering av kapslade data typer. Eftersom SQL Server inte skickar frågor till analys lagret är det viktigt att du förstår hur du mappar Azure Cosmos DB indata-typer till SQL-datatyper.
+Det är viktigt att först Observera att när Azure Cosmos DB transaktions lager är schema-oberoende, är analys lagret schematiserade för att optimera prestandan för analytiska frågor. Med funktionen för automatisk synkronisering av Synapse, hanterar Azure Cosmos DB schema representationen i den analytiska lagrings platsen som omfattar hantering av kapslade data typer. Eftersom SQL-poolen utan server frågar analys lagret är det viktigt att du förstår hur du mappar Azure Cosmos DB indata-typer till SQL-datatyper.
 
 Azure Cosmos DB konton av SQL-API (Core) stöder JSON-egenskapsvärde av typen Number, String, Boolean, null, nested Object eller array. Du måste välja SQL-typer som matchar dessa JSON-typer om du använder- `WITH` satsen i `OPENROWSET` . Se under de SQL-kolumn typer som ska användas för olika egenskaps typer i Azure Cosmos DB.
 
@@ -258,9 +258,9 @@ Om du vill fråga Azure Cosmos DB konton i Mongo DB API-typ kan du lära dig mer
 ## <a name="known-issues"></a>Kända problem
 
 - Alias **måste** anges efter `OPENROWSET` funktion (till exempel `OPENROWSET (...) AS function_alias` ). Att utelämna alias kan orsaka anslutnings problem och Synapse SQL-slutpunkt kan vara tillfälligt otillgängligt. Det här problemet kommer att lösas i nov 2020.
-- Synapse-server utan SQL stöder för närvarande inte [Azure Cosmos DB full Fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). Använd endast Synapse server utan SQL för att få åtkomst till Cosmos DB väldefinierat schema.
+- SQL-poolen utan Server stöder för närvarande inte [Azure Cosmos DB schema med fullständig åter givning](../../cosmos-db/analytical-store-introduction.md#schema-representation). Använd endast Server lös SQL-pool för att komma åt Cosmos DB väldefinierat schema.
 
-Lista över möjliga fel och fel söknings åtgärder visas i följande tabell:
+Möjliga fel och fel söknings åtgärder visas i följande tabell:
 
 | Fel | Rotorsak |
 | --- | --- |
@@ -269,7 +269,7 @@ Lista över möjliga fel och fel söknings åtgärder visas i följande tabell:
 | Det gick inte att matcha CosmosDB-sökvägen med felet "felaktigt konto namn" eller "felaktigt databas namn" | Det angivna konto namnet, databas namnet eller behållaren kan inte hittas, eller så har ingen analytisk lagring Aktiver ATS o den angivna samlingen|
 | Det gick inte att matcha CosmosDB Sök väg med felet "felaktigt hemligt värde" eller "hemlighet är null eller tomt" | Konto nyckeln är inte giltig eller saknas. |
 | Kolumn `column name` av typen `type name` är inte kompatibel med den externa data typen `type name` | Den angivna kolumn typen i `WITH` satsen matchar inte typen i Cosmos DB containern. Försök att ändra kolumn typen enligt beskrivningen i avsnittet [Azure Cosmos dB till SQL-typ mappningar](#azure-cosmos-db-to-sql-type-mappings) eller användnings `VARCHAR` typ. |
-| Kolumnen innehåller `NULL` värden i alla celler. | Eventuellt felaktigt kolumn namn eller Sök vägs uttryck i `WITH` satsen. Kolumn namn (eller Sök vägs uttryck efter kolumn typen) i `WITH` satsen måste matcha ett egenskaps namn i Cosmos DB samlingen. Jämförelse är **SKIFT läges känslig**  (till exempel `productCode` och `ProductCode` är olika egenskaper). |
+| Kolumnen innehåller `NULL` värden i alla celler. | Eventuellt felaktigt kolumn namn eller Sök vägs uttryck i `WITH` satsen. Kolumn namn (eller Sök vägs uttryck efter kolumn typen) i `WITH` satsen måste matcha ett egenskaps namn i Cosmos DB samlingen. Jämförelse är **SKIFT**  läges känslig (till exempel `productCode` och `ProductCode` är olika egenskaper). |
 
 Du kan rapportera förslag och problem på [feedback-sidan för Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 

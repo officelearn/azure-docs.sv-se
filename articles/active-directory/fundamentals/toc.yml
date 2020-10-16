@@ -49,6 +49,34 @@
           href: active-directory-architecture.md
         - name: Integrera alla dina appar med Azure AD
           href: five-steps-to-full-application-integration-with-azure-ad.md
+        - name: Protokoll för autentisering och etablering
+          items:
+            - name: Översikt
+              href: auth-sync-overview.md
+            - name: Huvudbaserad autentisering
+              href: auth-header-based.md
+            - name: LDAP-autentisering
+              href: auth-ldap.md
+            - name: OAuth 2.0-autentisering
+              href: auth-oauth2.md
+            - name: Open ID Connect-autentisering
+              href: auth-oidc.md
+            - name: Lösenordsbaserad autentisering
+              href: auth-password-based-sso.md
+            - name: RADIUS-autentisering
+              href: auth-radius.md
+            - name: Gatewayautentisering för fjärrskrivbord
+              href: auth-remote-desktop-gateway.md
+            - name: SAML-autentisering
+              href: auth-saml.md
+            - name: Windows-autentisering – KCD
+              href: auth-kcd.md
+            - name: Katalogsynkronisering
+              href: sync-directory.md
+            - name: LDAP-synkronisering
+              href: sync-ldap.md
+            - name: SCIM-synkronisering
+              href: sync-scim.md
     - name: Distributionsguide
       items:
         - name: 'Distribution 30, 90 och senare'

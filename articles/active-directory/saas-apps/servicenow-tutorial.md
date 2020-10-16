@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 9748c772466db73fc49b1291ffe2ce7d13da1d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3c5fc8e7ac4e61d44bb6cd54e1690d7c053526
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88540243"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127173"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ServiceNow
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar ServiceNow med Azur
 
 Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -290,11 +290,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
              > [!NOTE]
              > Om test anslutningen Miss lyckas och du inte kan aktivera den här anslutningen, kommer ServiceNow att erbjuda override-växeln. Du måste ange **Sys_properties. LISTA** i **Sök navigeringen** så öppnas den nya sidan med system egenskaper. Här måste du skapa en ny egenskap med namnet som **Glide. autentisera. multisso. test. Connection. obligatoriskt** med **data typen** **True/false** och ange **värdet** som **falskt**.
 
-             > ![Skärm bild av Testresultat sida](./media/servicenow-tutorial/testconnection-fail.png "Konfigurera enkel inloggning")
+             > ![Skärm bild som visar fliken System egenskaper med en test anslutning som kallas.](./media/servicenow-tutorial/testconnection-fail.png "Konfigurera enkel inloggning")
         
           1. När du uppmanas att ange dina autentiseringsuppgifter anger du dem. Du ser följande sida. **SSO-Utloggningen testresultat** ett fel förväntas. Ignorera felet och välj  **Aktivera**.
 
-             ![Skärm bild av Testresultat sida](./media/servicenow-tutorial/servicenowactivate.png "Konfigurera enkel inloggning")
+             ![Skärm bild som visar S S O-inloggning Testresultat och S S O-utloggnings Testresultat, tillsammans med knappen Aktivera.](./media/servicenow-tutorial/servicenowactivate.png "Konfigurera enkel inloggning")
   
 1. Följ dessa steg om du vill konfigurera **ServiceNow** manuellt:
 
@@ -347,11 +347,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
           > [!NOTE]
           > Om test anslutningen Miss lyckas och du inte kan aktivera den här anslutningen, kommer ServiceNow att erbjuda override-växeln. Du måste ange **Sys_properties. LISTA** i **Sök navigeringen** så öppnas den nya sidan med system egenskaper. Här måste du skapa en ny egenskap med namnet som **Glide. autentisera. multisso. test. Connection. obligatoriskt** med **data typen** **True/false** och ange **värdet** som **falskt**.
 
-          > ![Skärm bild av Testresultat sida](./media/servicenow-tutorial/testconnection-fail.png "Konfigurera enkel inloggning")
+          > ![Skärm bild som visar fliken System egenskaper med en test anslutning som kallas.](./media/servicenow-tutorial/testconnection-fail.png "Konfigurera enkel inloggning")
 
         * När du uppmanas att ange dina autentiseringsuppgifter anger du dem. Du ser följande sida. **SSO-Utloggningen testresultat** ett fel förväntas. Ignorera felet och välj  **Aktivera**.
 
-          ![Skärm bild av Testresultat sida](./media/servicenow-tutorial/servicenowactivate.png "Konfigurera enkel inloggning")
+          ![Skärm bild som visar S S O-inloggning Testresultat och S S O-utloggnings Testresultat, tillsammans med knappen Aktivera.](./media/servicenow-tutorial/servicenowactivate.png "Konfigurera enkel inloggning")
 
 ### <a name="create-servicenow-test-user"></a>Skapa ServiceNow-testanvändare
 

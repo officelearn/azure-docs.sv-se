@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 105578df0a37ba1d53df2be8ebed1d1f6d77499f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e041ed67513a9be79c45f9fb4d1658d9d44aeeac
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89018798"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123087"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: bygga en .NET-webbapp med Azure Cosmos DB s API för MongoDB 
 
@@ -53,7 +53,7 @@ Ladda först ned eller klona exempelappen från GitHub.
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Öppna ett git-terminalfönster, t.ex. git bash, och använd kommandot `cd` för att ändra till den nya mappen där du vill installera exempelappen.

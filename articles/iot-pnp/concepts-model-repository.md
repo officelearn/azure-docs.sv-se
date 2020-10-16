@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cfdf22ac9b97ff7187bc360efe07cfe16249bd6b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 95c9b6dee402bc0c2dd2cab8ef3200cfd9213d61
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042889"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126832"
 ---
 # <a name="device-model-repository"></a>Enhets modellens lagrings plats
 
@@ -30,7 +30,7 @@ Microsoft är värd för en offentlig DMR med följande egenskaper:
 
 ## <a name="custom-device-model-repository"></a>Anpassad lagrings plats för enhets modell
 
-Du kan använda samma DMR-mönster i valfritt lagrings medium, t. ex. lokalt fil system eller anpassade HTTP-webbservrar, för att skapa en anpassad DMR. Du kan hämta modeller från den anpassade DMR på samma sätt som från det offentliga DRM genom att ändra bas-URL: en som används för att få åtkomst till DMR.
+Du kan använda samma DMR-mönster i valfritt lagrings medium, t. ex. lokalt fil system eller anpassade HTTP-webbservrar, för att skapa en anpassad DMR. Du kan hämta modeller från den anpassade DMR på samma sätt som från offentliga DMR genom att ändra bas-URL: en som används för att få åtkomst till DMR.
 
 > [!NOTE]
 > De verktyg som används för att validera modellerna i den offentliga DMR kan återanvändas i anpassade lagrings platser.

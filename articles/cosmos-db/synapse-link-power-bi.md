@@ -1,24 +1,24 @@
 ---
-title: Power BI och Synapse SQL Server lös för att analysera Azure Cosmos DB-data med Synapse-länk
-description: Lär dig hur du skapar en Synapse SQL Server-databas och vyer över Synapse-länken för Azure Cosmos DB, frågar Azure Cosmos-behållare och sedan skapar en modell med Power BI över dessa vyer.
+title: Power BI-och Server lös Synapse SQL-pool för att analysera Azure Cosmos DB data med Synapse-länk
+description: Lär dig hur du skapar en server lös Synapse SQL-adresspool och vyer över Synapse-länken för Azure Cosmos DB, fråga Azure Cosmos-behållare och sedan bygga en modell med Power BI över dessa vyer.
 author: ArnoMicrosoft
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26a6ddf3ea3009c1463f40403c9d1860a7cb81f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937983"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126011"
 ---
-# <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Använd Power BI och Synapse SQL Server för att analysera Azure Cosmos DB-data med Synapse-länk (för hands version)
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Använd Power BI-och Server lös Synapse SQL-pool för att analysera Azure Cosmos DB data med Synapse-länk (för hands version) 
 
-I den här artikeln får du lära dig hur du skapar en SQL Server-Synapse (som tidigare kallades som **SQL på begäran**)-databas och vyer över Synapse-länken för Azure Cosmos dB. Du kommer att fråga Azure Cosmos-behållare och sedan bygga en modell med Power BI över dessa vyer för att återspegla den frågan.
+I den här artikeln får du lära dig hur du skapar en server lös Synapse SQL-pool (som tidigare kallades som **SQL på begäran**)-databas och vyer över Synapse-länken för Azure Cosmos dB. Du kommer att fråga Azure Cosmos-behållare och sedan bygga en modell med Power BI över dessa vyer för att återspegla den frågan.
 
 > [!NOTE]
-> Att använda Azure Cosmos DB analytiska lagrings platsen med Synapse SQL Server är för närvarande under överanvändning av gated. Kontakta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com)för att begära åtkomst.
+> Det finns för närvarande en för hands version av den Azure Cosmos DB analys lagringen med en server lös SQL-pool. Kontakta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com)för att begära åtkomst.
 
 I det här scenariot ska du använda dummy-data om produkt försäljning i en partner butik. Du analyserar intäkterna per butik baserat på närhet till stora hushåll och effekten av annonsering under en viss vecka. I den här artikeln skapar du två vyer med namnet **RetailSales** och **StoreDemographics** och en fråga mellan dem. Du kan hämta exempel produkt data från den här [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) -lagrings platsen.
 
@@ -40,11 +40,11 @@ Se till att skapa följande resurser innan du börjar:
 
 ## <a name="create-a-database-and-views"></a>Skapa en databas och vyer
 
-Från arbets ytan Synapse går du till fliken **utveckla** , väljer på **+** ikonen och väljer **SQL-skript**.
+Från arbets ytan Synapse går du till fliken **utveckla** , väljer **+** ikonen och väljer **SQL-skript**.
 
 :::image type="content" source="./media/synapse-link-power-bi/add-sql-script.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
 
-Varje arbets yta levereras med en Synapse SQL Server-slutpunkt. När du har skapat ett SQL-skript från verktygsfältet längst upp ansluter du till **SQL på begäran**.
+Varje arbets yta levereras med en SQL-slutpunkt utan server. När du har skapat ett SQL-skript från verktygsfältet längst upp ansluter du till **SQL på begäran**.
 
 :::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
 
@@ -55,7 +55,7 @@ Skapa en ny databas med namnet **RetailCosmosDB**och en SQL-vy över Synapse-lä
 Create database RetailCosmosDB
 ```
 
-Skapa sedan flera vyer över olika Synapse-länkade Azure Cosmos-behållare. På så sätt kan du använda T-SQL för att ansluta och fråga Azure Cosmos DB data som sitter i olika behållare.  Se till att välja **RetailCosmosDB** -databasen när du skapar vyerna.
+Skapa sedan flera vyer över olika Synapse-länkade Azure Cosmos-behållare. Med vyer kan du använda T-SQL för att ansluta till och fråga Azure Cosmos DB data som sitter i olika behållare.  Se till att välja **RetailCosmosDB** -databasen när du skapar vyerna.
 
 Följande skript visar hur du skapar vyer för varje behållare. För enkelhetens skull ska vi använda funktionen för [automatiskt schema härledning](analytical-store-introduction.md#analytical-schema) i SYNAPSE för SQL Server-Synapse för:
 
@@ -110,7 +110,7 @@ Välj **körning** som ger följande tabell resultat:
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Modellera vyer över behållare med Power BI
 
-Öppna sedan Power BI Skriv bordet och Anslut till den Synapse SQL Server-slutpunkten med hjälp av följande steg:
+Öppna sedan Power BI Skriv bordet och Anslut till den serverbaserade SQL-slutpunkten med hjälp av följande steg:
 
 1. Öppna programmet Power BI Desktop. Välj **Hämta data** och välj **mer**.
 
@@ -128,7 +128,7 @@ Välj **körning** som ger följande tabell resultat:
 
 1. Dra kolumnen **StoreId** från vyn **RetailSales** till kolumnen **StoreId** i **StoreDemographics** -vyn.
 
-1. Välj många till en (*: 1) relation eftersom det finns flera rader med samma lagrings-ID i vyn **RetailSales** , men **StoreDemographics** har bara en butiks-ID-rad (det är en dimensions tabell)
+1. Välj relationen många till en (*: 1) eftersom det finns flera rader med samma lagrings-ID i vyn **RetailSales** . **StoreDemographics** har bara en lager-ID-rad (det är en dimensions tabell).
 
 Gå nu till **rapport** fönstret och skapa en rapport för att jämföra den relativa vikten av hushålls storleken med den genomsnittliga intäkten per lager baserat på den spridda representationen av intäkterna och LargeHH index:
 
@@ -145,4 +145,4 @@ När du har valt dessa alternativ bör du se ett diagram som följande skärm bi
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd Synapse SQL Server lös för att [analysera Azure Open data uppsättningar och visualisera resultaten i Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)
+Använd Server lös Synapse SQL-pool för att [analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

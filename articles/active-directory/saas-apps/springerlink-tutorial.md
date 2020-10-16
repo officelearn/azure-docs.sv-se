@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a203bbd65c07d21c7d96b59c57b441748ed5b9a9
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372535"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Självstudie: Azure Active Directory integrering med springer-länk
 
@@ -30,7 +30,7 @@ Genom att integrera springer-länken med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med springer-länken behöver du följande objekt:
 
@@ -97,7 +97,7 @@ Utför följande steg för att konfigurera enkel inloggning med springer-länken
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Springer länk domän och URL enkel inloggning information](common/idp-relay.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-relay.png)
 
     a. Skriv en URL i text rutan **identifierare** : `https://fsso.springer.com`
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera enkel inloggning med springer-länken
 
 5. Utför följande steg om du vill konfigurera programmet i **SP** initierat läge:
 
-    ![Springer länk domän och URL enkel inloggning information](common/both-signonurl.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/both-signonurl.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 

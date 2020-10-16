@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88923695"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126781"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Om Azure Key Vault-certifikat
 
@@ -103,14 +103,14 @@ Följande tabell visar mappningen av principen för x509-nyckel användning till
 
 |**Användnings flaggor för X509-nyckel**|**Key Vault Key OPS**|**Standardbeteende**|
 |----------|--------|--------|
-|DataEncipherment|kryptera, dekryptera| E.t. |
-|DecipherOnly|innehållet| E.t.  |
+|DataEncipherment|kryptera, dekryptera| Saknas |
+|DecipherOnly|innehållet| Saknas  |
 |DigitalSignature|signera, verifiera| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|EncipherOnly|encrypt| E.t. |
-|KeyCertSign|signera, verifiera|E.t.|
+|EncipherOnly|encrypt| Saknas |
+|KeyCertSign|signera, verifiera|Saknas|
 |KeyEncipherment|wrapKey, unwrapKey| Key Vault standard utan användnings specifikation när certifikat skapas | 
-|Oavvislig het|signera, verifiera| E.t. |
-|cRLSign|signera, verifiera| E.t. |
+|Oavvislig het|signera, verifiera| Saknas |
+|cRLSign|signera, verifiera| Saknas |
 
 ## <a name="certificate-issuer"></a>Certifikat utfärdare
 
@@ -141,42 +141,11 @@ Issuer-objekt skapas i valvet och kan bara användas med KV-certifikat i samma v
 
 ## <a name="certificate-contacts"></a>Certifikat kontakter
 
-Certifikat kontakter innehåller kontakt information för att skicka meddelanden som utlöses av händelser för certifikat livs längd. Kontakt information delas av alla certifikat i nyckel valvet. Ett meddelande skickas till alla angivna kontakter för en händelse för ett certifikat i nyckel valvet.  
-
-Om ett certifikats princip ställs in på automatisk förnyelse skickas ett meddelande vid följande händelser.  
-
-- Innan certifikat förnyas
-- Efter förnyelse av certifikat, anger om certifikatet har förnyats eller om det uppstod ett fel, vilket kräver manuell förnyelse av certifikatet.  
-
-  När en certifikat princip som anges ska förnyas manuellt (endast e-post) skickas ett meddelande när det är dags att förnya certifikatet.  
+Certifikat kontakter innehåller kontakt information för att skicka meddelanden som utlöses av händelser för certifikat livs längd. Kontakt information delas av alla certifikat i nyckel valvet. Ett meddelande skickas till alla angivna kontakter för en händelse för ett certifikat i nyckel valvet. Information om hur du anger certifikat kontakt, finns [här](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
 
 ## <a name="certificate-access-control"></a>Certifikat Access Control
 
- Åtkomstkontroll för certifikat hanteras av Key Vault och tillhandahålls av Key Vault som innehåller dessa certifikat. Åtkomst kontroll principen för certifikat skiljer sig från principerna för åtkomst kontroll för nycklar och hemligheter i samma Key Vault. Användare kan skapa ett eller flera valv för att lagra certifikat, för att upprätthålla lämplig segmentering och hantering av certifikat.  
-
- Följande behörigheter kan användas, per huvud konto, i åtkomst kontroll posten hemligheter i ett nyckel valv och speglar noggrant de åtgärder som tillåts för ett hemligt objekt:  
-
-- Behörigheter för certifikat hanterings åtgärder
-  - *Hämta*: hämta den aktuella certifikat versionen eller en version av ett certifikat 
-  - *lista*: visar aktuella certifikat eller versioner av ett certifikat  
-  - *Uppdatera*: uppdatera ett certifikat
-  - *skapa*: skapa ett Key Vault certifikat
-  - *Importera*: Importera certifikat material till ett Key Vault certifikat
-  - *ta bort*: ta bort ett certifikat, dess princip och alla dess versioner  
-  - *återställa*: Återställ ett borttaget certifikat
-  - *säkerhets kopiering*: säkerhetskopiera ett certifikat i ett nyckel valv
-  - *återställa*: Återställ ett säkerhetskopierat certifikat till ett nyckel valv
-  - *managecontacts*: hantera Key Vault certifikats kontakter  
-  - *manageissuers*: hantera Key Vault certifikat utfärdare/utfärdare
-  - *getissuers*: Hämta ett certifikats myndigheter/utfärdare
-  - *listissuers*: Visa en lista över certifikatets myndigheter/utfärdare  
-  - *setissuers*: skapa eller uppdatera ett Key Vault certifikats myndigheter/utfärdare  
-  - *deleteissuers*: ta bort en Key Vault certifikatets myndigheter/utfärdare  
- 
-- Behörigheter för privilegierade åtgärder
-  - *Rensa*: Rensa (ta bort permanent) ett borttaget certifikat
-
-Mer information finns i [certifikat åtgärderna i Key Vault REST API referens](/rest/api/keyvault). Information om hur du etablerar behörigheter finns i [valv – skapa eller uppdatera](/rest/api/keyvault/vaults/createorupdate) och [valv – uppdatera åtkomst princip](/rest/api/keyvault/vaults/updateaccesspolicy).
+ Åtkomstkontroll för certifikat hanteras av Key Vault och tillhandahålls av Key Vault som innehåller dessa certifikat. Åtkomst kontroll principen för certifikat skiljer sig från principerna för åtkomst kontroll för nycklar och hemligheter i samma Key Vault. Användare kan skapa ett eller flera valv för att lagra certifikat, för att upprätthålla lämplig segmentering och hantering av certifikat.  Mer information om åtkomst kontroll för certifikat finns [här](certificate-access-control.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

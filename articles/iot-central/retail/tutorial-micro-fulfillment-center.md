@@ -7,18 +7,18 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: d6b5d337090ebd664e855be47128e76d3c61e151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840446"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125977"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Självstudie: Distribuera och gå igenom en Programmall för Micro-uppfyllelse Center
 
 I den här självstudien använder du programmallen Azure IoT Central Micro-uppfyllelse Center för att bygga en detalj handels lösning. Du får lära dig mer om hur du distribuerar mallen, vad som ingår i den och vad du kanske vill göra härnäst.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Du behöver en Azure-prenumeration för att kunna slutföra den här själv studie serien. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application"></a>Skapa ett program 
@@ -47,7 +47,7 @@ Skapa ett nytt program för Micro-uppfyllelse Center som använder för hands ve
 
 1. Om du har en Azure-prenumeration anger du din katalog, din Azure-prenumeration och region. Om du inte har en prenumeration kan du aktivera den kostnads fria utvärderings versionen på 7 dagar och slutföra den nödvändiga kontakt informationen.  
 
-    Mer information om kataloger och prenumerationer finns i snabb start för att [skapa ett program](../preview/quick-deploy-iot-central.md) .
+    Mer information om kataloger och prenumerationer finns i snabb start för att [skapa ett program](../core/quick-deploy-iot-central.md) .
 
 1. Välj **Skapa**.
 
@@ -96,4 +96,4 @@ Lär dig mer om
 > [!div class="nextstepaction"]
 > [lösnings arkitektur för Micro-uppfyllelse Center](./architecture-micro-fulfillment-center.md)
 * Läs mer om [mallar för Azure IoT Central återförsäljarversion](./overview-iot-central-retail.md)
-* Läs mer om [Azure IoT Central](../preview/overview-iot-central.md)
+* Läs mer om [Azure IoT Central](../core/overview-iot-central.md)

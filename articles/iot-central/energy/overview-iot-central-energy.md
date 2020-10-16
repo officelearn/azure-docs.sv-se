@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 1a7502a77f8dca526c95e92302f0ca0a06a1dd32
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0cc9fd5836371a925be531de773ea9c2e276c0eb
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90970435"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127360"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Skapa energilösningar med IoT Central 
 
@@ -66,6 +66,6 @@ När du har distribuerat appen ser du de simulerade solpanels data inom 1-2 minu
 ## <a name="next-steps"></a>Nästa steg
 För att komma igång med att skapa en energi lösning:
 * Skapa programmallar kostnads fritt: [appen för smart avläsning](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), program i [solfönster](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Lär dig mer om [appar för smart avläsning av övervakning](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-smart-meter-app)
-* Lär dig mer om [begrepp för övervakning av solpanels program](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
-* Lär dig mer om [IoT Central Platform](https://docs.microsoft.com/azure/iot-central/)
+* Lär dig mer om [appar för smart avläsning av övervakning](./concept-iot-central-smart-meter-app.md)
+* Lär dig mer om [begrepp för övervakning av solpanels program](./concept-iot-central-solar-panel-app.md)
+* Lär dig mer om [IoT Central Platform](../index.yml)

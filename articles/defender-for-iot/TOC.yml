@@ -23,6 +23,10 @@
 - name: Snabbstarter
   expanded: true
   items:
+    - name: Förbereda nätverket
+      href: quickstart-prepare-network-for-defender-for-iot.md
+    - name: Registrera sensorer
+      href: quickstart-onboard-sensors.md
     - name: Konfigurera säkerhetsmodul för Azure RTOS
       href: quickstart-azure-rtos-security-module.md
     - name: Registrera Azure Defender for IoT i IoT Hub
@@ -63,6 +67,10 @@
       href: concept-pricing.md
 - name: Anvisningar
   items:
+    - name: Visa och hantera sensorer
+      href: how-to-deploy-view-sensors.md
+    - name: Distribuera den lokala hanteringskonsolen
+      href: how-to-deploy-management-console-appliance.md
     - name: Arbeta med säkerhetsmodul för Azure RTOS
       href: how-to-azure-rtos-security-module.md
     - name: Vilken agent ska jag distribuera?
@@ -95,14 +103,16 @@
       href: how-to-investigate-device.md
     - name: Ansluta till Azure Sentinel
       href: how-to-configure-with-sentinel.md
-    - name: Anpassa din lösning
+    - name: Anpassa din agent
       href: how-to-customize-solution.md
 - name: Referenser
   items:
     - name: Säkerhetsmodul för Azure RTOS-API
       href: azure-rtos-security-module-api.md
-    - name: Vanliga frågor och svar
+    - name: Vanliga frågor och svar – tjänst
       href: resources-frequently-asked-questions.md
+    - name: Vanliga frågor och svar – agent
+      href: resources-agent-frequently-asked-questions.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
 - name: Resurser

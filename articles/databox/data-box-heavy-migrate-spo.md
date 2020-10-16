@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a87181e7d1c776648781a2672dfd73ac2eaab1b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00a944b69b8492d4aa00258154bf00f1c66ad33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396866"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127122"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Använd Azure Data Box Heavy för att migrera ditt fil resurs innehåll till SharePoint Online
 
@@ -21,9 +21,9 @@ Använd Azure Data Box Heavy och verktyget för SharePoint-migrering (SPMT) för
 
 Microsoft Azure Data Box-enhet är en tjänst som gör det möjligt att beställa en enhet från Microsoft Azure-portalen. Du kan sedan kopiera terabyte av data från dina servrar till enheten. När den har levererats tillbaka till Microsoft kopieras dina data till Azure. Beroende på storleken på de data som du vill överföra kan du välja mellan:
 
-- [Data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) med 35-TB användbar kapacitet per order för små till medel stora data mängder.
-- [Data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-overview) med 80-TB användbar kapacitet per enhet för medel stora till stora data uppsättningar.
-- [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) med 770-TB användbar kapacitet per enhet för stora data mängder.
+- [Data Box disk](./data-box-disk-overview.md) med 35-TB användbar kapacitet per order för små till medel stora data mängder.
+- [Data Box-enhet](./data-box-overview.md) med 80-TB användbar kapacitet per enhet för medel stora till stora data uppsättningar.
+- [Data Box Heavy](./data-box-heavy-overview.md) med 770-TB användbar kapacitet per enhet för stora data mängder.
 
 Den här artikeln innehåller information om hur du använder Data Box Heavy för att migrera ditt fil resurs innehåll till SharePoint Online.
 
@@ -37,7 +37,7 @@ Den här artikeln innehåller information om hur du använder Data Box Heavy fö
 
 ### <a name="for-sharepoint-online"></a>För SharePoint Online
 
-- Granska [minimi kraven för SPMT (SharePoint Migration Tool)](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+- Granska [minimi kraven för SPMT (SharePoint Migration Tool)](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 ## <a name="workflow-overview"></a>Översikt över arbets flöde
 
@@ -84,7 +84,7 @@ För bästa prestanda och anslutning rekommenderar vi att du skapar en virtuell 
 3. [Hämta verktyget för SharePoint-migrering](https://spmtreleasescus.blob.core.windows.net/install/default.htm) och installera det på den virtuella Azure-datorn.
 4. Starta verktyget SharePoint-migrering. Klicka på **Logga** in och ange användar namn och lösen ord för ditt arbets-eller skol konto.
 5. När du tillfrågas **om var data finns?** väljer du **fil resurs**. Ange sökvägen till Azure-filresursen där dina data finns.
-6. Följ de återstående prompterna som vanligt, inklusive mål platsen. Mer information finns i så här [använder du verktyget för SharePoint-migrering](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+6. Följ de återstående prompterna som vanligt, inklusive mål platsen. Mer information finns i så här [använder du verktyget för SharePoint-migrering](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 > [!IMPORTANT]
 > - Den hastighet med vilken data matas in i SharePoint Online påverkas av flera faktorer, oavsett om du redan har dina data i Azure. Genom att förstå dessa faktorer kan du planera och maximera effektiviteten hos migreringen.  Mer information finns i [SharePoint Online och migrerings hastigheten för OneDrive](/sharepointmigration/sharepoint-online-and-onedrive-migration-speed).

@@ -3,18 +3,18 @@ title: Distribuera en .NET-app i en behållare till Azure Service Fabric
 description: Lär dig hur du använder en container med ett befintligt .NET-program med hjälp av Visual Studio och hur du felsöker containrar i Service Fabric lokalt. Programmet i containern skickas via push-teknik till ett Azure-containerregister och distribueras till ett Service Fabric-kluster. När det har distribuerats till Azure använder programmet Azure SQL DB för att spara data.
 ms.topic: tutorial
 ms.date: 07/08/2019
-ms.openlocfilehash: b841591bb200bca7edbde24744c5b47302816ea0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2e44db9bc813b346493b4d23b9f48b279e245b3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817644"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122071"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
 I den här självstudiekursen lär du dig hur du skapar en container för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör containrarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -25,7 +25,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 1. Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Installera [Docker CE för Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) så att du kan köra containrar i Windows 10.
@@ -157,7 +157,7 @@ När du skapar klustret:
 
 1. Högerklicka på **FabrikamFiber.CallCenterApplication**-programprojektet i Solution Explorer och välj **Publicera**.
 2. Logga in med ditt Azure-konto så att du får åtkomst till dina prenumerationer.
-3. Välj listrutan för **Anslutningens slutpunkt** och välj alternativet **Skapa nytt kluster**.
+3. Under List rutan för **anslutnings slut punkten**väljer du alternativet **Skapa nytt kluster...** .
 4. Ändra följande inställningar i dialogrutan **Skapa kluster**:
 
     a. Ange namnet på klustret i fältet **Klusternamn**, samt den prenumeration och plats som du vill använda. Anteckna namnet på klusterresursgruppen.

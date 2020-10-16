@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d7d477e50ef4fc47042d57aa973d483a784465d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070589"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127343"
 ---
-# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
+# <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödesloggning för nätverkssäkerhetsgrupper
 
 ## <a name="introduction"></a>Introduktion
 
@@ -309,7 +309,7 @@ För tilläggs- _C_ -och slut- _E_ -flöde-tillstånd är antalet byte och paket
 
 Använd den relevanta länken nedan om du vill ha hjälp med att aktivera flödes loggar.
 
-- [Azure Portal](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Azure-portalen](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 - [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-powershell)
 - [CLI](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-cli)
 - [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-rest)
@@ -317,7 +317,7 @@ Använd den relevanta länken nedan om du vill ha hjälp med att aktivera flöde
 
 ## <a name="updating-parameters"></a>Uppdaterar parametrar
 
-**Azure Portal**
+**Azure-portalen**
 
 På Azure Portal går du till avsnittet NSG Flow-loggar i Network Watcher. Klicka sedan på namnet på NSG. Då öppnas fönstret inställningar för flödes loggen. Ändra de parametrar som du vill ha och tryck på **Spara** för att distribuera ändringarna.
 
@@ -360,6 +360,10 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 **Problem med användardefinierade inkommande TCP-regler**: [nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/security-overview) implementeras som en [tillstånds känslig brand vägg](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). På grund av aktuella plattforms begränsningar implementeras dock användardefinierade regler som påverkar inkommande TCP-flöden i ett tillstånds lös läge. På grund av detta blir flöden som påverkas av användardefinierade regler för inkommande trafik som inte avslutas. Dessutom registreras inte byte och antal paket för dessa flöden. Därför kan antalet byte och paket som rapporter ATS i NSG Flow-loggar (och Trafikanalys) skilja sig från de faktiska talen. En valbar flagga som åtgärdar de här problemen är schemalagda att vara tillgängliga senast 2020 senaste. Kunder som drabbas av allvarliga problem på grund av det här beteendet kan begära väljer via support, ge en supportbegäran under Network Watcher > flödes loggar.  
 
 **Inkommande flöden som loggats från Internet-IP-adresser till virtuella datorer utan offentliga**IP-adresser: virtuella datorer som inte har en offentlig IP-adress som tilldelats via en offentlig IP-adress som är kopplad till nätverkskortet som en offentlig IP-adress på instans nivå eller som är en del av en grundläggande belastningsutjämnare, använder [standard SNAT](../load-balancer/load-balancer-outbound-connections.md) och har en IP-adress som tilldelats av Azure för att under lätta Därför kan du se flödes logg poster för flöden från Internet-IP-adresser, om flödet är avsett för en port i intervallet för de portar som tilldelats för SNAT. Även om Azure inte tillåter dessa flöden till den virtuella datorn, loggas försöket och visas i Network Watcher flödes loggen för NSG efter design. Vi rekommenderar att oönskad inkommande Internet trafik uttryckligen blockeras med NSG.
+
+**Inkompatibla tjänster**: på grund av aktuella plattforms begränsningar stöds inte en liten uppsättning Azure-tjänster av NSG Flow-loggar. Den aktuella listan över inkompatibla tjänster är
+- [Azure Kubernetes Services (AKS)](https://azure.microsoft.com/services/kubernetes-service/)
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
 ## <a name="best-practices"></a>Bästa praxis
 

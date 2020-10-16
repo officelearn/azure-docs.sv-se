@@ -34,6 +34,8 @@
           href: quickstarts/voice-video-calling/getting-started-with-calling.md
         - name: Använda klientbiblioteket för samtal
           href: quickstarts/voice-video-calling/calling-client-samples.md
+        - name: Anslut din samtalsapp till ett Teams-möte
+          href: quickstarts/voice-video-calling/get-started-teams-interop.md
 - name: Självstudier
   expanded: false
   items:
@@ -62,6 +64,8 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Begrepp inom röst- och videosamtal
           href: concepts/voice-video-calling/about-call-types.md
+        - name: Samverkan mellan team
+          href: concepts/voice-video-calling/teams-interop.md
     - name: Klient- och serverarkitektur
       href: concepts/client-and-server-architecture.md
     - name: Samtalsflöden

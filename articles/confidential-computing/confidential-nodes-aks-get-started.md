@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: c8c64dadebb092d7f376fd2b6590b26f4dde0ee0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001084"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122192"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med konfidentiella databeräknings-noder med Azure CLI (för hands version)
 
@@ -118,6 +118,8 @@ Gå till [Hello World](#hello-world) distributions avsnittet för enklaven för 
 ```azurecli-interactive
 az aks update --enable-addons confcom --resource-group myResourceGroup --name myAKSCluster
 ```
+
+![Skapa DCSv2 AKS-kluster](./media/confidential-nodes-aks-overview/CLIAKSProvisioning.gif)
 
 ## <a name="adding-confidential-computing-node-to-existing-aks-cluster"></a>Lägga till en konfidentiell databearbetnings nod i befintligt AKS-kluster<a id="existing-cluster"></a>
 

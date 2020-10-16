@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 02b9adcb72b4d26a19b6514d19ce94a70a2415ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6a7784d052a03971fad84c90cdd70cd16b4a872
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534225"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122576"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Självstudie: Azure Active Directory integrering med sprinkler
 
@@ -30,7 +30,7 @@ Att integrera sprinkler med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med sprinkler behöver du följande objekt:
 
@@ -136,11 +136,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med sp
 
 1. Klicka på **+ Lägg till enkla inloggningar**.
 
-    ![Enkel inloggning](./media/sprinklr-tutorial/ic782909.png "Enstaka Sign-Ons")
+    ![Skärm bild som visar knappen Lägg till enkla inloggningar.](./media/sprinklr-tutorial/ic782909.png "Enstaka Sign-Ons")
 
 1. Utför följande steg på sidan **enkel inloggning** :
 
-    ![Enkel inloggning](./media/sprinklr-tutorial/ic782910.png "Enstaka Sign-Ons")
+    ![Skärm bild som visar sidan enkel inloggning där du kan ange de värden som beskrivs.](./media/sprinklr-tutorial/ic782910.png "Enstaka Sign-Ons")
 
     a. I text rutan **namn** anger du ett namn för din konfiguration (till exempel: *WAADSSOTest*).
 
@@ -225,11 +225,11 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 1. Gå till **Hantera klient \> användare** i det vänstra fönstret.
 
-    ![Inställningar](./media/sprinklr-tutorial/ic782914.png "Inställningar")
+    ![Skärm bild som visar knappen Lägg till användare i inställningar/användare.](./media/sprinklr-tutorial/ic782914.png "Inställningar")
 
 1. Klicka på **Lägg till användare**.
 
-    ![Inställningar](./media/sprinklr-tutorial/ic782915.png "Inställningar")
+    ![Skärm bild som visar dialog rutan Redigera användare där du kan ange de värden som beskrivs.](./media/sprinklr-tutorial/ic782915.png "Inställningar")
 
 1. I dialog rutan **Redigera användare** utför du följande steg:
 

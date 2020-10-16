@@ -7,12 +7,12 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812fd0c10b63cfe469a10a99069f201fcc2cc658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974424"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126745"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportera IoT-data till moln mål med hjälp av data export (bakåtkompatibelt)
 
@@ -63,7 +63,7 @@ När du väljer Service Bus som export mål får inte köer och ämnen ha sessio
 
 Följ dessa steg om du inte har ett befintligt Azure Storage-konto att exportera till:
 
-1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan lära dig mer om att skapa nya [Azure Blob Storage-konton](https://aka.ms/blobdocscreatestorageaccount) eller [Azure Data Lake Storage v2-lagrings konton](../../storage/blobs/data-lake-storage-quickstart-create-account.md). Data export kan bara skriva data till lagrings konton som stöder block-blobbar. I följande lista visas kända kompatibla lagrings konto typer:
+1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan lära dig mer om att skapa nya [Azure Blob Storage-konton](../../storage/blobs/storage-quickstart-blobs-portal.md) eller [Azure Data Lake Storage v2-lagrings konton](../../storage/common/storage-account-create.md). Data export kan bara skriva data till lagrings konton som stöder block-blobbar. I följande lista visas kända kompatibla lagrings konto typer:
 
     |Prestanda nivå|Kontotyp|
     |-|-|
@@ -156,7 +156,7 @@ I följande exempel visas ett meddelande från en händelsehubben eller Service 
 
 Det här meddelandet innehåller inte enhets-ID: t för den sändande enheten.
 
-Om du vill hämta enhets-ID: t från meddelande data i en Azure Stream Analytics fråga använder du funktionen [GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) . Ett exempel finns i frågan i [utöka Azure IoT Central med anpassade regler med hjälp av Stream Analytics, Azure Functions och SendGrid](./howto-create-custom-rules.md).
+Om du vill hämta enhets-ID: t från meddelande data i en Azure Stream Analytics fråga använder du funktionen [GetMetadataPropertyValue](/stream-analytics-query/getmetadatapropertyvalue) . Ett exempel finns i frågan i [utöka Azure IoT Central med anpassade regler med hjälp av Stream Analytics, Azure Functions och SendGrid](./howto-create-custom-rules.md).
 
 Om du vill hämta enhets-ID: t i en Azure Databricks eller Apache Spark arbets yta använder du [systemProperties](https://github.com/Azure/azure-event-hubs-spark/blob/master/docs/structured-streaming-eventhubs-integration.md). Ett exempel finns i arbets ytan Databricks i [utöka Azure IoT Central med anpassad analys med Azure Databricks](./howto-create-custom-analytics.md).
 
@@ -184,7 +184,7 @@ I följande exempel visas en post som exporter ATS till Blob Storage:
 }
 ```
 
-## <a name="devices"></a>Egenskaper
+## <a name="devices"></a>Enheter
 
 Varje meddelande eller post i en ögonblicks bild representerar en eller flera ändringar av en enhet och dess enhets-och moln egenskaper sedan det senaste exporterade meddelandet. Meddelandet innehåller:
 
@@ -557,7 +557,7 @@ Detta exempel på en ögonblicks bild visar ett meddelande som innehåller enhet
 
 Om du har en befintlig data export i ditt för hands versions program där strömmarna *enheter* och *enhets mallar* är aktiverade, uppdaterar du exporten senast **30 juni 2020**. Detta krav gäller för export till Azure Blob Storage, Azure Event Hubs och Azure Service Bus.
 
-Från och med 3 februari 2020 kommer data formatet som beskrivs ovan att visas i alla nya exporter i program med enheter och enhetsspecifika aktiverade. Alla exporter som skapats före det här datumet förblir i det gamla data formatet fram till den 30 juni 2020, då dessa exporter automatiskt migreras till det nya data formatet. Det nya data formatet matchar [enheten](https://docs.microsoft.com/rest/api/iotcentral/devices/get), [enhets egenskapen](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties), [enhetens moln egenskap](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties)och [enhets mal len](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) objekt i IoT Central offentliga API: et.
+Från och med 3 februari 2020 kommer data formatet som beskrivs ovan att visas i alla nya exporter i program med enheter och enhetsspecifika aktiverade. Alla exporter som skapats före det här datumet förblir i det gamla data formatet fram till den 30 juni 2020, då dessa exporter automatiskt migreras till det nya data formatet. Det nya data formatet matchar [enheten](/rest/api/iotcentral/devices/get), [enhets egenskapen](/rest/api/iotcentral/devices/getproperties), [enhetens moln egenskap](/rest/api/iotcentral/devices/getcloudproperties)och [enhets mal len](/rest/api/iotcentral/devicetemplates/get) objekt i IoT Central offentliga API: et.
 
 För **enheter**är viktiga skillnader mellan det gamla data formatet och det nya data formatet:
 - `@id` för enheten tas bort `deviceId` byter namn till `id` 

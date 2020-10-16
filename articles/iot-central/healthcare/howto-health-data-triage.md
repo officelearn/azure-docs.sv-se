@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497054"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127088"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Självstudie: Bygg en Power BI leverantörs instrument panel
 
@@ -29,7 +29,7 @@ Den grundläggande arkitekturen följer den här strukturen:
 >[!div class="mx-imgBorder"] 
 >![Provider prioritering-instrumentpanel](media/dashboard-architecture.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Exportera data från Azure IoT Central till Azure Event Hubs
@@ -44,14 +44,14 @@ I den här guiden får du lära dig att:
 
 * En Azure IoT Central-Mall för kontinuerlig övervakning av patienter. Om du inte redan har en, kan du följa stegen för att [distribuera en Programmall](overview-iot-central-healthcare.md).
 
-* Ett Azure [Event Hubs-namnområde och händelsehubben](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* Ett Azure [Event Hubs-namnområde och händelsehubben](../../event-hubs/event-hubs-create.md).
 
-* Den Logic-app som du vill använda för att komma åt Händelsehubben. Om du vill starta din Logic-app med en Azure Event Hubs-utlösare behöver du en [Tom Logic-app](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow).
+* Den Logic-app som du vill använda för att komma åt Händelsehubben. Om du vill starta din Logic-app med en Azure Event Hubs-utlösare behöver du en [Tom Logic-app](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Ett Power BI-tjänst konto. Om du inte redan har en, kan du [skapa ett kostnads fritt utvärderings konto för Power BI-tjänst](https://app.powerbi.com/). Om du inte har använt Power BI tidigare kan det vara bra att gå igenom [Kom igång med Power BI](https://docs.microsoft.com/power-bi/service-get-started).
+* Ett Power BI-tjänst konto. Om du inte redan har en, kan du [skapa ett kostnads fritt utvärderings konto för Power BI-tjänst](https://app.powerbi.com/). Om du inte har använt Power BI tidigare kan det vara bra att gå igenom [Kom igång med Power BI](/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Konfigurera en kontinuerlig data export till Azure Event Hubs
-Du måste först konfigurera en kontinuerlig data export från din Azure IoT Central-app-mall till Azure Event Hub i din prenumeration. Det kan du göra genom att följa stegen i den här Azure IoT Central själv studie kursen för [att exportera till Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data). Du behöver bara exportera för telemetri för den här självstudien.
+Du måste först konfigurera en kontinuerlig data export från din Azure IoT Central-app-mall till Azure Event Hub i din prenumeration. Det kan du göra genom att följa stegen i den här Azure IoT Central själv studie kursen för [att exportera till Event Hubs](../core/howto-export-data.md). Du behöver bara exportera för telemetri för den här självstudien.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Skapa en Power BI strömmande data uppsättning
 
@@ -72,10 +72,10 @@ Du måste först konfigurera en kontinuerlig data export från din Azure IoT Cen
     >[!div class="mx-imgBorder"] 
     >![Ange data mängds värden](media/enter-dataset-values.png)
 
-Om du vill veta mer om strömmande data uppsättningar i Power BI kan du läsa det här dokumentet för [strömning i real tid i Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
+Om du vill veta mer om strömmande data uppsättningar i Power BI kan du läsa det här dokumentet för [strömning i real tid i Power BI](/power-bi/service-real-time-streaming).
 
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Anslut din Logic app till Azure Event Hubs
-Om du vill ansluta din Logic app till Azure Event Hubs kan du följa instruktionerna som beskrivs i det här dokumentet för att [skicka händelser med Azure Event Hubs och Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Här följer några föreslagna parametrar:
+Om du vill ansluta din Logic app till Azure Event Hubs kan du följa instruktionerna som beskrivs i det här dokumentet för att [skicka händelser med Azure Event Hubs och Azure Logic Apps](../../connectors/connectors-create-api-azure-event-hubs.md#add-event-hubs-action). Här följer några föreslagna parametrar:
 
 |Parameter|Värde|
 |---|---|
@@ -91,7 +91,7 @@ I slutet av det här steget bör din Logic Apps designer se ut så här:
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Strömma data till Power BI från din Logic app
 Nästa steg är att parsa de data som kommer från Händelsehubben för att strömma dem till de Power BI data uppsättningar som du har skapat tidigare.
 
-1. Innan du kan göra detta måste du förstå den JSON-nyttolast som skickas från din enhet till Händelsehubben. Du kan göra detta genom att titta på det här [exempel schemat](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) och ändra det så att det matchar ditt schema eller använder [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) för att granska meddelandena. Om du använder de kontinuerliga programmen för patient övervakning ser dina meddelanden ut så här:
+1. Innan du kan göra detta måste du förstå den JSON-nyttolast som skickas från din enhet till Händelsehubben. Du kan göra detta genom att titta på det här [exempel schemat](../core/howto-export-data.md#telemetry-format) och ändra det så att det matchar ditt schema eller använder [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) för att granska meddelandena. Om du använder de kontinuerliga programmen för patient övervakning ser dina meddelanden ut så här:
 
 **Smart viktigare patch-telemetri**
 

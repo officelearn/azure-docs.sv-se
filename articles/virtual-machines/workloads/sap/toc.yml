@@ -245,6 +245,12 @@
       href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: Närhetsplaceringsgrupper i Azure för optimal svarstid för nätverk med SAP-program
       href: sap-proximity-placement-scenarios.md
+- name: SAP BusinessObjects Business Intelligence-plattform i Azure
+  items:
+    - name: Planerings- och implementeringsguide för SAP BusinessObjects BI-plattform i Azure
+      href: businessobjects-deployment-guide.md
+    - name: Distributionsguide för SAP BusinessObjects BI-plattform för Linux i Azure
+      href: businessobjects-deployment-guide-linux.md
 - name: Integrera Azure AD med SAP-program
   items:
     - name: Etablera användare från SAP SuccessFactors till Active Directory

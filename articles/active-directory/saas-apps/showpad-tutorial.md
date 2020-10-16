@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 613f42905c88da7669881dfcae7ae038341b2434
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eeeb421104a09fe164c8bc93e47d7cf254a802e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548655"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Självstudie: Azure Active Directory integrering med Showpad
 
@@ -30,7 +30,7 @@ Genom att integrera Showpad med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Showpad behöver du följande objekt:
 
@@ -129,15 +129,15 @@ Utför följande steg för att konfigurera enkel inloggning med Showpad i Azure 
 
 1. Klicka på menyn längst upp i **Inställningar**.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/showpad-tutorial/tutorial_showpad_001.png)
+    ![Skärm bild som visar inställningar som valts från menyn Inställningar.](./media/showpad-tutorial/tutorial_showpad_001.png)
 
 1. Navigera till **enkel inloggning** och klicka på **Aktivera**.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/showpad-tutorial/tutorial_showpad_002.png)
+    ![Skärm bild som visar enskilda Sign-On markerade med alternativet Aktivera.](./media/showpad-tutorial/tutorial_showpad_002.png)
 
 1. Utför följande steg i dialog rutan **Lägg till en SAML 2,0-tjänst** :
 
-    ![Konfigurera enkel inloggning på appsidan](./media/showpad-tutorial/tutorial_showpad_003.png) 
+    ![Skärm bild som visar dialog rutan Lägg till en SAML 2,0-tjänst där du kan ange de värden som beskrivs.](./media/showpad-tutorial/tutorial_showpad_003.png) 
 
     a. I text rutan **namn** skriver du namnet på ID-providern (till exempel: företagets namn).
 

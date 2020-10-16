@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0cdc9e242c2254cafaf0af75bcb8f8879cf3eb58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7f1f1f004fb8c9c4d67f409072ce061c6047569
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287836"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127019"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse-länk (för hands version) för Azure Cosmos DB funktioner som stöds
 
@@ -33,11 +33,11 @@ Du kan ansluta till en Azure Cosmos DB-behållare utan att aktivera Synapse-län
 
 | Kategori              | Beskrivning |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL utan Server](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
-| **Stöd för körning** |Azure Synapse runtime som stöds för att få åtkomst till Azure Cosmos DB| ✓ | [Kontakta oss](mailto:cosmosdbsynapselink@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB) |
+| **Stöd för körning** |Azure Synapse runtime som stöds för att få åtkomst till Azure Cosmos DB| ✓ | ✓ |
 | **Stöd för Azure Cosmos DB-API** | Azure Cosmos DB API-typ som stöds | SQL/MongoDB | SQL/MongoDB |
 | **Jobbobjektet**  |Objekt som en tabell som kan skapas, peka direkt på Azure Cosmos DB behållare| Dataframe, Visa, tabell | Visa |
 | **Läs**    | Typ av Azure Cosmos DB behållare som kan läsas | OLTP/HTAP | HTAP  |
-| **Skriva**   | Kan Azure Synapse-körningsmiljön användas för att skriva data till en Azure Cosmos DB behållare | Ja | Inga |
+| **Skriva**   | Kan Azure Synapse-körningsmiljön användas för att skriva data till en Azure Cosmos DB behållare | Ja | Nej |
 
 * Om du skriver data till en Azure Cosmos DB behållare från Spark sker den här processen genom transaktions arkivet för Azure Cosmos DB. Den påverkar transaktions prestandan för Azure Cosmos DB genom att förbruka enheter för programbegäran.
 * SQL-pool-integrering via externa tabeller stöds inte för närvarande.

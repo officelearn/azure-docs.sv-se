@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 9/22/2020
 ms.author: amgowda
 ms.service: container-service
-ms.openlocfilehash: 528b843e24e1d63e4822c253b3636ef490e8fe8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35518a90ff3db2b951e0310970afd6d78dd25807
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997809"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122211"
 ---
 # <a name="confidential-containers"></a>Konfidentiella behållare
 
@@ -67,7 +67,7 @@ Scone-distributioner på konfidentiella databeräknings noder med AKS stöds hel
 
 ### <a name="anjuna"></a>Anjuna
 
-[Anjuna](https://www.anjuna.io/) tillhandahåller SGX-plattforms program vara som gör att du kan köra oförändrade behållare på AKS. Läs mer om **kommande** funktioner och användar flödet [här](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
+[Anjuna](https://www.anjuna.io/) tillhandahåller SGX-plattforms program vara som gör att du kan köra oförändrade behållare på AKS. Läs mer om funktionerna och kolla in exempel programmen [här](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp).
 
 Kom igång med ett exempel Redis Cache och python-anpassat program [här](https://www.anjuna.io/microsoft-azure-confidential-computing-aks-lp)
 

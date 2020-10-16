@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 42b23876761afa213b07f07b3a61e125dcf0824b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046816"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131691"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Vanliga frågor och svar om mått rådgivare
 
@@ -31,7 +31,7 @@ Det finns för närvarande ingen kostnad för att använda din instans under fö
 
 :::image type="content" source="media/pricing.png" alt-text="Meddelande när det redan finns en F0-resurs":::
 
-Under en offentlig för hands version får endast en instans av Metrics Advisor skapas under en prenumeration i en region.
+Under en offentlig för hands version kan endast en instans av Metrics Advisor skapas per region under en prenumeration.
 
 Om du redan har en instans som skapats i samma region med samma prenumeration kan du prova med en annan region eller en annan prenumeration för att skapa en ny instans. Du kan också ta bort en befintlig instans om du vill skapa en ny.
 
@@ -108,6 +108,40 @@ Om det inte finns några tröskelvärden kan du använda "Smart identifiering" s
 
 Om dina data normalt är instabila och varierar mycket, och du vill bli aviserad om det blir för stabilt eller till och med en plan, kan "ändra tröskel" konfigureras för att identifiera sådana data punkter när ändringen är för liten.
 Mer information finns i [konfigurationer för avvikelse identifiering](how-tos/configure-metrics.md#anomaly-detection-methods) .
+
+## <a name="advanced-concepts"></a>Avancerade koncept
+
+### <a name="how-does-metric-advisor-build-an-incident-tree-for-multi-dimensional-metrics"></a>Hur skapar Metric Advisor ett incident träd för flerdimensionella mått?
+
+Mått kan delas upp i flera tids serier per dimension. Till exempel `Response latency` övervakas måttet för alla tjänster som ägs av teamet. `Service`Kategorin kan användas som en dimension för att utöka måttet, så vi ska `Response latency` dela med `Service1` , `Service2` och så vidare. Varje tjänst kan distribueras på olika datorer i flera data Center, så måttet kan delas av `Machine` och `Data center` .
+
+|Tjänst| Data Center| Dator  | 
+|----|------|----------------   |
+| S1 |  DC1 |   M |
+| S1 |  DC1 |   = |
+| S1 |  DC2 |   M3 |
+| S1 |  DC2 |   M4 |
+| S2 |  DC1 |   M |
+| S2 |  DC1 |   = |
+| S2 |  DC2 |   M5 |
+| S2 |  DC2 |   M6 |
+| ...|      |      |
+
+Från och med summan `Response latency` kan vi öka detalj nivån i måttet av `Service` `Data center` och `Machine` . Det kan dock vara mer meningsfullt för tjänste ägare att använda sökvägen `Service`  ->  `Data center`  ->  `Machine` , eller kanske är det mer begripligt för infrastruktur tekniker att använda sökvägen `Data Center`  ->  `Machine`  ->  `Service` . Det beror helt på de enskilda användarnas affärs behov. 
+
+I Metric Advisor kan användarna ange vilken sökväg de vill öka detalj nivån eller sammanslagningen från en nod i den hierarkiska topologin. Mer exakt är den hierarkiska topologin ett riktat acykliska diagram i stället för en träd struktur. Det finns en fullständig hierarkisk topologi som består av alla möjliga dimensions kombinationer, som detta: 
+
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="Meddelande när det redan finns en F0-resurs" lightbox="media/dimension-combinations-view.png":::
+
+I teorin, om dimensionen `Service` har `Ls` distinkta värden, `Data center` har dimensionen `Ldc` distinkta värden och dimensionen `Machine` har `Lm` distinkta värden, så det kan finnas `(Ls + 1) * (Ldc + 1) * (Lm + 1)` Dimensions kombinationer i den hierarkiska topologin. 
+
+Men vanligt vis är inte alla dimensions kombinationer giltiga, vilket kan minska komplexiteten avsevärt. För närvarande om användarna sammanställer själva måttet begränsar vi inte antalet dimensioner. Om du behöver använda sammanslagnings funktionen som tillhandahålls av Metrics Advisor bör antalet dimensioner vara större än 6. Vi begränsar dock antalet tids serier som utökats med dimensioner för ett mått till mindre än 10 000.
+
+**Incident träd** verktyget på sidan diagnostik visar bara noder där en avvikelse har upptäckts, i stället för hela topologin. Detta är att hjälpa dig att fokusera på det aktuella problemet. Det kan också hända att alla avvikelser inte visas i måttet. i stället visas de vanligaste avvikelserna baserat på bidrag. På så sätt kan vi snabbt ta reda på konsekvenserna, omfattningen och spridnings vägen för onormala data. Vilket avsevärt minskar antalet avvikelser som vi behöver fokusera på och hjälper användarna att förstå och hitta sina viktiga problem. 
+ 
+Till exempel när en avvikelse inträffar på påverkar avvikelsen `Service = S2 | Data Center = DC2 | Machine = M5` av avvikelsen den överordnade noden `Service= S2` som också har identifierat avvikelsen, men avvikelsen påverkar inte hela data centret på `DC2` och alla tjänster på `M5` . Incident trädet skulle skapas som i skärm bilden nedan, den översta avvikelsen samlas in `Service = S2` och rotor saken kan analyseras i två sökvägar som båda leder till `Service = S2 | Data Center = DC2 | Machine = M5` .
+
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 märkta hörn med två distinkta sökvägar sammankopplade med en gemensam nod märkta S2. Den främsta avvikelsen samlas in på tjänsten = S2, och rotor saken kan analyseras av de två Sök vägarna som båda leder till service = S2 | Data Center = DC2 | Machine = M5" lightbox="media/root-cause-paths.png":::
 
 ## <a name="next-steps"></a>Efterföljande moment
 - [Översikt över Metrics Advisor](overview.md)

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2018
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6faf9fb3d15709d3897db9a77bf14ebf238e8fbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c942d52bbcdad711115d81a78395979c507784b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116374"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131759"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera ändring av lösen ord med anpassade principer i Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Slutför stegen i [Kom igång med anpassade principer i Active Directory B2C](cu
         <ClaimType Id="oldPassword">
           <DisplayName>Old Password</DisplayName>
           <DataType>string</DataType>
-          <UserHelpText>Enter password</UserHelpText>
+          <UserHelpText>Enter your old password</UserHelpText>
           <UserInputType>Password</UserInputType>
         </ClaimType>
       </ClaimsSchema>
@@ -179,7 +179,7 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 
 1. Öppna den princip som du har ändrat. Till exempel *B2C_1A_profile_edit_password_change*.
 2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token ska **svars-URL:** en visas `https://jwt.ms` .
-3. Klicka på **Kör nu**. Logga in med acouunt som du skapade tidigare. Du bör nu ha möjlighet att ändra lösen ordet.
+3. Klicka på **Kör nu**. Logga in med det konto som du skapade tidigare. Du bör nu ha möjlighet att ändra lösen ordet.
 
 ## <a name="next-steps"></a>Nästa steg
 

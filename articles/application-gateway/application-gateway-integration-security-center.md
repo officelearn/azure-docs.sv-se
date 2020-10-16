@@ -9,12 +9,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76277190"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131215"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Översikt över integrering mellan Application Gateway och Azure Security Center
 
@@ -44,7 +44,7 @@ Om du inte har ett befintligt Application Gateway eller om du vill skapa en ny, 
 
 Om du har en befintlig Application Gateway kan du välja den under **Använd befintlig lösning**
 
-![Sida för att lägga till en brand vägg för webbaserade program][4]
+![Skärm bild av sidan Lägg till en brand vägg för webbaserade program. Under Använd befintlig lösning visas en Application Gateway.][4]
 
 Om du lägger till ett webb program till en Programgateway via Security Center läggs inte resursen till i en medlem i en Server grupp. Detta måste göras i Application Gateway-resursen direkt.
 
@@ -62,7 +62,7 @@ Klicka på **Länka app** för att öppna **länk program**, här får du altern
 
 Security Center spårar program som har lagts till i en Application Gateway som en skyddad resurs.  Den övervakar resursens hälso tillstånd och säkerställer att den skyddas av en Programgateway. Nästa steg är att lägga till den privata IP-adressen, den offentliga IP-adressen eller NIC-adressen för den virtuella datorn i backend-poolen för Application Gateway. Tills detta görs ytterligare en rekommendation om att **slutföra program skydd** visas tills resursen har lagts till.
 
-![Sida för att lägga till en brand vägg för webbaserade program][5]
+![Skärm bild av sidan Slutför program skydd, med ett program synligt. Text förklarar vilka steg du bör vidta för att skydda programmet.][5]
 
 ## <a name="security-alerts"></a>Säkerhets aviseringar
 

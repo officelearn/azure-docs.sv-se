@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: overview
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 6fa70eba5875c32d41fa1cfc8daf9b1cdf8f19df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 915f8675ffda0d70347905d11c7d93975b9d4526
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83599993"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132745"
 ---
 # <a name="quotas-in-azure-static-web-apps-preview"></a>Kvoter i för hands versionen av Azure statisk Web Apps
 
@@ -24,14 +24,14 @@ Följande kvoter finns för för hands versionen av Azure static Web Apps.
 | Funktion                     | Kostnads fri plan        |
 |-----------------------------|------------------|
 | Inkluderad bandbredd          | 100 GB per månad |
-| Överanvändning av bandbredd           | Ej tillgänglig      |
+| Överanvändning av bandbredd           | Inte tillgänglig      |
 | Appar per Azure-prenumeration | 10               |
-| App-storlek                    | 100 MB           |
+| App-storlek                    | 250 MB           |
 | Förproduktionsmiljöer | 1                |
 | Anpassade domäner              | 1                |
 | Auktorisering<br><br>Med anpassade roller och regler för routning | Högst 25 slutanvändare som har bjudits in och tilldelats roller |
 | Azure Functions             | Tillgänglig        |
-| SLA                         | Ingen             |
+| SLA                         | Inga             |
 
 ## <a name="github-storage"></a>GitHub-lagring
 

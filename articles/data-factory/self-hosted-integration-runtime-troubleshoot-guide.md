@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/16/2020
 ms.author: abnarain
-ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0957b74bf13acfcc80e38cccaec389fbbd19fa0
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069483"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131334"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Felsöka integration runtime med egen värd
 
@@ -615,6 +615,37 @@ Nedan visas ett exempel på hur ett bra scenario skulle se ut.
 
     ![Arbets flöde för TCP 4 hand skakning](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### <a name="receiving-email-to-update-the-network-configuration-to-allow-communication-with-new-ip-addresses"></a>Ta emot e-post för att uppdatera nätverks konfigurationen för att tillåta kommunikation med nya IP-adresser
+
+#### <a name="symptoms"></a>Symtom
+
+Du kan få e-postaviseringar via e-post, som rekommenderar att du uppdaterar nätverks konfigurationen för att tillåta kommunikation med nya IP-adresser för Azure Data Factory med 8 november 2020:
+
+   ![E-postavisering](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### <a name="resolution"></a>Lösning
+
+Det här meddelandet gäller **utgående kommunikation** från din **integration runtime** som körs **lokalt** eller i ett **virtuellt privat nätverk i Azure** till ADF-tjänsten. Om du till exempel har en lokal IR-eller Azure-SQL Server Integration Services (SSIS) IR i Azure VNET, som behöver åtkomst till ADF-tjänsten, måste du granska om du behöver lägga till det nya IP-intervallet i reglerna för **nätverks säkerhets gruppen (NSG)** . Om regeln för utgående NSG använder service tag påverkas ingen påverkan.
+
+#### <a name="more-details"></a>Mer information
+
+De nya IP-intervallen **har bara påverkan på utgående kommunikations** regler från din **lokala brand vägg** eller **Azure Virtual Private Network** till ADF-tjänsten (se [brand Väggs konfiguration och Tillåt List inställningar för IP-adress](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) för referens), för scenarier där du har en lokal IR-eller SSIS IR i ett lokalt nätverk eller Azure Virtual Network, som måste kommunicera med ADF-tjänsten.
+
+För befintliga användare som använder **Azure VPN**:
+
+1. Kontrol lera eventuella utgående NSG-regler i ditt privata nätverk där SSIS eller Azure SSIS har kon figurer ATS. Om det inte finns några utgående begränsningar påverkar de inte.
+1. Om du har regler för utgående trafik kontrollerar du om du använder service tag eller inte. Om du använder service tag-koden behöver du inte ändra eller lägga till något som nya IP-adressintervall är under befintligt service tag. 
+  
+    ![Mål kontroll](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+
+1. Om du använder IP-adresser direkt i din regel inställning kontrollerar du om du lägger till alla IP-intervall i [service Tags-länken för hämtning av IP-intervall](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). Vi har redan lagt till de nya IP-intervallen i den här filen. För nya användare: du behöver bara följa upp relevant IR-konfiguration eller SSIS IR-konfiguration i vårt dokument för att konfigurera NSG-regler.
+
+För befintliga användare som har SSIS IR eller egen värd-IR **på plats**:
+
+- Verifiera med din nätverks infrastrukturs grupp och se om de behöver inkludera de nya IP-adressintervall i kommunikationen för utgående regler.
+- För brand Väggs regler baserade på FQDN-namn krävs inga uppdateringar när du använder inställningarna som beskrivs i [brand Väggs konfigurationen och inställningen Tillåt i list rutan för IP-adress](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
+- Vissa brand väggar stöder service märken om du använder den uppdaterade Azure Service tag-konfigurationsfilen behöver inga andra ändringar göras.
 
 ## <a name="self-hosted-ir-sharing"></a>Delning av lokalt installerad integrationskörning (IR)
 

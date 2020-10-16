@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fd23cab844d40f75aa0034096be1bca897d54ff6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108362"
+ms.locfileid: "92131555"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrera Azure Digitals dubbla med Azure SignalR-tjänsten
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du integrerar Azure Digitals dubbla me
 
 Lösningen som beskrivs i den här artikeln gör att du kan push-överföra digitala dubbla telemetridata till anslutna klienter, till exempel en enskild webb sida eller ett mobilt program. Det innebär att klienterna uppdateras med real tids mått och status från IoT-enheter, utan att behöva avsöka servern eller skicka nya HTTP-begäranden för uppdateringar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Här är de krav du måste utföra innan du fortsätter:
 
@@ -39,8 +39,8 @@ Du kommer att ansluta Azure SignalR-tjänsten till Azure Digitals dubbla steg ge
 ## <a name="download-the-sample-applications"></a>Ladda ned exempel programmen
 
 Ladda först ned de exempel appar som krävs. Du behöver båda följande:
-* [**Azure Digitals dubbla exempel**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): det här exemplet innehåller en *AdtSampleApp* med två Azure Functions för att flytta data runt en Azure Digital-instansen (du kan lära dig mer om det här scenariot i [*Självstudier: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)). Det innehåller också ett *DeviceSimulator* exempel program som simulerar en IoT-enhet och genererar ett nytt temperatur värde varje sekund. 
-    - Navigera till exempel länken och tryck på *hämtnings zip* -knappen för att ladda ned en kopia av exemplet till din dator, som _**Azure_Digital_Twins_samples.zip**_. Packa upp mappen.
+* [**Azure Digitals dubblare-exempel**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): det här exemplet innehåller en *AdtSampleApp* med två Azure Functions för att flytta data runt en Azure Digital-instansen (du kan lära dig mer om det här scenariot i [*Självstudier: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md)). Det innehåller också ett *DeviceSimulator* exempel program som simulerar en IoT-enhet och genererar ett nytt temperatur värde varje sekund. 
+    - Navigera till exempel länken och tryck på *hämtnings zip* -knappen för att ladda ned en kopia av exemplet till din dator, som _**Azure_Digital_Twins_end_to_end_samples.zip**_. Packa upp mappen.
 * [**Exempel på integrations-**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/)webbapp: det här är ett exempel på att en webbapp används för att använda Azure Digitals informations data från en Azure SignalR-tjänst.
     -  Navigera till exempel länken och tryck på *hämtnings zip* -knappen för att ladda ned en kopia av exemplet till din dator, som _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Packa upp mappen.
 
@@ -63,7 +63,7 @@ Gå först till webbläsaren där Azure Portal öppnas och utför följande steg
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-Starta sedan Visual Studio (eller en annan valfri kod redigerare) och öppna kod lösningen i mappen *Azure_Digital_Twins_samples > ADTSampleApp* . Utför sedan följande steg för att skapa funktionerna:
+Starta sedan Visual Studio (eller en annan valfri kod redigerare) och öppna kod lösningen i mappen *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp* . Utför sedan följande steg för att skapa funktionerna:
 
 1. Skapa en ny C# Sharp-klass med namnet **SignalRFunctions.cs** i *SampleFunctionsApp* -projektet.
 
@@ -129,7 +129,7 @@ Starta sedan Visual Studio (eller en annan valfri kod redigerare) och öppna kod
     }
     ```
 
-1. I Visual Studios fönstret *Package Manager-konsol* eller något kommando fönster på datorn i mappen *Azure_Digital_Twins_samples \adtsampleapp\samplefunctionsapp* kör du följande kommando för att installera NuGet- `SignalRService` paketet till projektet:
+1. I Visual Studios fönstret *Package Manager-konsol* eller något kommando fönster på datorn i mappen *Azure_Digital_Twins_end_to_end_samples \adtsampleapp\samplefunctionsapp* kör du följande kommando för att installera NuGet- `SignalRService` paketet till projektet:
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
@@ -145,7 +145,7 @@ Publicera sedan din funktion till Azure med hjälp av stegen som beskrivs i arti
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
 
-1. Slutligen lägger du till **anslutnings strängen** för Azure SignalR från tidigare till funktionens appinställningar med hjälp av följande Azure CLI-kommando. Kommandot kan köras i [Azure Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](/cli/azure/install-azure-cli?view=azure-cli-latest):
+1. Slutligen lägger du till **anslutnings strängen** för Azure SignalR från tidigare till funktionens appinställningar med hjälp av följande Azure CLI-kommando. Kommandot kan köras i [Azure Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
     ```azurecli
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -184,7 +184,7 @@ I det här avsnittet visas resultatet av åtgärden. Först ska du starta den **
 
 Under den heltäckande själv studie kursen [konfigurerade du enhets simulatorn](tutorial-end-to-end.md#configure-and-run-the-simulation) för att skicka data via en IoT Hub och till din Azure Digital-instansen.
 
-Nu behöver du bara starta Simulator projektet, som finns i *Azure_Digital_Twins_samples > DeviceSimulator > DeviceSimulator. SLN*. Om du använder Visual Studio kan du öppna projektet och sedan köra det med den här knappen i verktygsfältet:
+Nu behöver du bara starta Simulator projektet, som finns i *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator. SLN*. Om du använder Visual Studio kan du öppna projektet och sedan köra det med den här knappen i verktygsfältet:
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="En vy över Azure-tjänster i ett scenario från slut punkt till slut punkt. Visar data som flödar från en enhet till IoT Hub, via en Azure-funktion (pil B) till en digital Azure-instans (del A), sedan ut genom Event Grid till en annan Azure-funktion för bearbetning (pil C). Avsnitt D visar data som flödar från samma Event Grid i pil C ut till en Azure-funktion med etiketten broadcast. &quot;sändning&quot; kommunicerar med en annan Azure-funktion med etiketten &quot;förhandla&quot;, och både sändnings-och Negotiate-kommunikation med dator enheter.":::
 
@@ -232,7 +232,7 @@ Då öppnas ett webbläsarfönster som kör exempel appen, som visar en visuell 
 
 Om du inte längre behöver resurserna som skapats i den här artikeln följer du stegen nedan för att ta bort dem. 
 
-Med hjälp av Azure Cloud Shell eller lokalt Azure CLI kan du ta bort alla Azure-resurser i en resurs grupp med kommandot [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) . Borttagning av resurs gruppen tas också bort...
+Med hjälp av Azure Cloud Shell eller lokalt Azure CLI kan du ta bort alla Azure-resurser i en resurs grupp med kommandot [AZ Group Delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) . Borttagning av resurs gruppen tas också bort...
 * Azure Digitals dubbla instansen (från slut punkt till slut punkt)
 * IoT-hubben och nav enhets registreringen (från slut punkt till slut punkt)
 * Event Grid-ämnet och associerade prenumerationer
@@ -252,7 +252,7 @@ Om du tar bort din Azure Digital-instansen kan du också ta bort den Azure AD Ap
 az ad app delete --id <your-application-ID>
 ```
 
-Slutligen tar du bort de exempel mappar för Project som du laddade ned till din lokala dator (*Azure_Digital_Twins_samples.zip* och *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
+Slutligen tar du bort de exempel mappar för Project som du laddade ned till din lokala dator (*Azure_Digital_Twins_end_to_end_samples.zip* och *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).
 
 ## <a name="next-steps"></a>Nästa steg
 

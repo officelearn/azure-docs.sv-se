@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047428"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132524"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -28,11 +28,11 @@ Den här versionen av den här artikeln slutför de här stegen genom att köra 
 
 ## <a name="prerequisites-download-the-script"></a>Krav: Hämta skriptet
 
-Exempel skriptet skrivs i PowerShell. Den är en del av [**Azures digitala dubbla exempel**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), som du kan ladda ned till datorn genom att gå till den exempel länken och välja hämtnings knappen för att *Ladda ned ZIP* under rubriken.
+Exempel skriptet skrivs i PowerShell. Den är en del av de [**digitala Azure-samlingarna från slut punkt till slut punkt**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), som du kan ladda ned till din dator genom att gå till den exempel länken och välja *hämtnings zip* -knappen under rubriken.
 
-Detta kommer att ladda ned exempelprojektet till datorn som _**Azure_Digital_Twins_samples.zip**_. Navigera till mappen på din dator och packa upp den för att extrahera filerna.
+Detta kommer att ladda ned exempelprojektet till datorn som _**Azure_Digital_Twins_end_to_end_samples.zip**_. Navigera till mappen på din dator och packa upp den för att extrahera filerna.
 
-I den zippade mappen finns distributions skriptet på _Azure_Digital_Twins_samples > skript > **deploy.ps1** _.
+I den zippade mappen finns distributions skriptet på _Azure_Digital_Twins_end_to_end_samples > skript > **deploy.ps1** _.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -57,7 +57,7 @@ Här följer stegen för att köra distributions skriptet i Cloud Shell.
 
 1. Välj ikonen &quot;Ladda upp/ladda ned filer":::
 
-    Navigera till _**deploy.ps1**_ -filen på din dator (i _Azure_Digital_Twins_samples > skript > **deploy.ps1** _) och tryck på "öppna". Detta kommer att överföra filen till Cloud Shell så att du kan köra den i fönstret Cloud Shell.
+    Navigera till _**deploy.ps1**_ -filen på din dator (i _Azure_Digital_Twins_end_to_end_samples > skript > **deploy.ps1** _) och tryck på "öppna". Detta kommer att överföra filen till Cloud Shell så att du kan köra den i fönstret Cloud Shell.
 
 4. Kör skriptet genom `./deploy.ps1` att skicka kommandot i Cloud Shells fönstret. (Kom ihåg att klistra in i Cloud Shell du kan använda **CTRL + SHIFT + V** på Windows och Linux eller **cmd + Shift + v** på MacOS. Du kan också använda snabb menyn.)
 

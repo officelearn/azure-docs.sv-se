@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d4ed76e849385c4edecb7bd97d58087c8e5b4b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90023881"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132796"
 ---
 # <a name="azure-monitor-logs-for-azure-firewall"></a>Azure Monitor loggar för Azure Firewall
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 I följande logg exempel visas de data som ingår i en loggpost.
 
-![loggpost en](media/log-analytics-samples/log1.png)
+:::image type="content" source="media/log-analytics-samples/log1.png" alt-text="Skärm bild av en loggpost. Flera värden visas, till exempel en tidstämpel, ett protokoll, ett port nummer, en åtgärd, en regel samling och en regel." border="false":::
 
-![logg post två ](media/log-analytics-samples/log2.png)
+:::image type="content" source="media/log-analytics-samples/log2.png" alt-text="Skärm bild av en loggpost. Flera värden visas, till exempel en tidstämpel, ett protokoll, ett port nummer, en åtgärd, en regel samling och en regel." border="false":::
 
-![loggpost tre](media/log-analytics-samples/log3.png)
+:::image type="content" source="media/log-analytics-samples/log3.png" alt-text="Skärm bild av en loggpost. Flera värden visas, till exempel en tidstämpel, ett protokoll, ett port nummer, en åtgärd, en regel samling och en regel." border="false":::
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om övervakning och diagnostik i Azure-brandväggen finns i [Självstudier: övervaka Azure Firewall-loggar och-mått](tutorial-diagnostics.md).

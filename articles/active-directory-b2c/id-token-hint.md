@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eca75ac4fefcf7164c247c4da4b58ccf7c03334c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 708ec35524f25314ca568944b738ba2cdf60d55c
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90564906"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132082"
 ---
 # <a name="define-an-id-token-hint-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för ID-token i en Azure Active Directory B2C anpassad princip
 
@@ -87,13 +87,13 @@ Följande metadata är relevanta när du använder symmetrisk nyckel.
 | utfärdare | Ja | Identifierar Security Token Service (token Issuer). Värdet måste vara identiskt med `iss` anspråket i JWT-token-anspråket. | 
 | IdTokenAudience | Ja | Identifierar den avsedda mottagaren för token. Måste vara identiskt `aud` med anspråket med JWT-token-anspråket. | 
 
-Följande metadata är relevanta när du använder en symmetrisk nyckel. 
+Följande metadata är relevanta när du använder en asymmetrisk nyckel. 
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | METADATATJÄNST| Ja | En URL som pekar på ett konfigurations dokument för token, som även kallas en OpenID-känd konfigurations slut punkt.   |
-| utfärdare | Inga | Identifierar Security Token Service (token Issuer). Det här värdet kan användas för att skriva över värdet som kon figurer ATS i metadata och måste vara identiskt med `iss` anspråket i JWT-token-anspråket. |  
-| IdTokenAudience | Inga | Identifierar den avsedda mottagaren för token. Det här värdet kan användas för att skriva över värdet som kon figurer ATS i metadata och måste vara identiskt med `aud` anspråket i JWT-token-anspråket. |  
+| utfärdare | Nej | Identifierar Security Token Service (token Issuer). Det här värdet kan användas för att skriva över värdet som kon figurer ATS i metadata och måste vara identiskt med `iss` anspråket i JWT-token-anspråket. |  
+| IdTokenAudience | Nej | Identifierar den avsedda mottagaren för token. Måste vara identiskt `aud` med anspråket med JWT-token-anspråket. |  
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -219,7 +219,7 @@ Följande tekniska profil verifierar token och extraherar anspråken. Ändra URI
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <!-- <Item Key="IdTokenAudience">your_optional_audience_override</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074268"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132490"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -438,7 +438,7 @@ Använd i stället funktionen [IF ()](../../../azure-resource-manager/templates/
 
 Med den reviderade princip regeln `if()` kontrollerar **namnet på namnet** innan det försöker hämta ett `substring()` värde med färre än tre tecken. Om **namnet** är för kort returneras värdet "inte börjar med ABC" i stället och jämförs med **ABC**. En resurs med ett kort namn som inte börjar med **ABC** kan fortfarande inte utföra princip regeln, men inte längre orsaka ett fel under utvärderingen.
 
-### <a name="count"></a>Count
+### <a name="count"></a>Antal
 
 Villkor som räknar hur många medlemmar i en matris i resurs nytto lasten uppfyller ett villkors uttryck kan skapas med hjälp av **Count** -uttryck. Vanliga scenarier kontrollerar om "minst en av", ",", "alla" eller "ingen av" mat ris medlemmarna uppfyller villkoret. **Count** utvärderar varje [ \[ \* \] alias](#understanding-the--alias) mat ris medlem för ett villkors uttryck och summerar de _sanna_ resultaten, som sedan jämförs med uttrycks operatorn. **Count** -uttryck kan läggas till upp till tre gånger i en enda **policyRule** -definition.
 
@@ -589,8 +589,8 @@ Följande funktion är tillgänglig för användning i en princip regel, men ski
 Följande funktioner är endast tillgängliga i princip regler:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **datetime**: [required] sträng-sträng i formatet Universal ISO 8601 datetime `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
-  - **numberOfDaysToAdd**: [required] heltal-antal dagar att lägga till.
+  - **datetime**: [required] sträng sträng i Universal ISO 8601 datetime-formatet ' ÅÅÅÅ-MM-ddTHH: mm: SS. FFFFFFFZ'
+  - **numberOfDaysToAdd**: [required] heltal-antal dagar som ska läggas till
 - `field(fieldName)`
   - **FieldName**: [required] sträng-namnet på det [fält](#fields) som ska hämtas
   - Returnerar värdet för det fältet från den resurs som utvärderas av IF-villkoret.

@@ -10,27 +10,27 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a51e9a628f67269357d42bd1d3af10c1d86f301a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739790"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131181"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault-loggning
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-När du har skapat ett eller flera nyckel valv vill du förmodligen övervaka hur och när nyckel valven nås, och av vem. Du kan göra detta genom att aktivera loggning för Azure Key Vault, som sparar information i ett Azure Storage-konto som du anger. En ny behållare med namnet **Insights-logs-auditevent** skapas automatiskt för det angivna lagrings kontot. Du kan använda samma lagrings konto för att samla in loggar för flera nyckel valv.
+När du har skapat ett eller flera nyckel valv vill du förmodligen övervaka hur och när nyckel valven nås, och av vem. Du kan göra detta genom att aktivera loggning för Azure Key Vault, som sparar information i ett Azure Storage-konto som du anger. Steg för steg-anvisningar om hur du konfigurerar detta finns i [så här aktiverar du Key Vault loggning](howto-logging.md).
 
 Du kan komma åt loggnings informationen 10 minuter (högst) efter nyckel valvs åtgärden. Oftast är informationen dock tillgänglig snabbare än så.  Det är upp till dig att hantera loggarna i ditt lagringskonto:
 
 * Använd standardåtkomstmetoder i Azure för att skydda loggarna genom att begränsa vem som kan komma åt dem.
 * Ta bort loggar som du inte vill behålla i ditt lagringskonto.
 
-Översiktlig information om Key Vault finns i [Vad är Azure Key Vault?](overview.md)). Information om var Key Vault finns på [sidan med priser](https://azure.microsoft.com/pricing/details/key-vault/). Information om hur du använder [Azure Monitor för Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+Översiktlig information om Key Vault finns i [Vad är Azure Key Vault?](overview.md). Information om var Key Vault finns på [sidan med priser](https://azure.microsoft.com/pricing/details/key-vault/). Information om hur du använder [Azure Monitor för Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## <a name="interpret-your-key-vault-logs"></a>Tolka Key Vault-loggarna
+
+När du aktiverar loggning skapas en ny behållare med namnet **Insights-logs-auditevent** automatiskt för det angivna lagrings kontot. Du kan använda samma lagrings konto för att samla in loggar för flera nyckel valv.
 
 Enskilda blobbar lagras som text, formaterad som en JSON-blobb. Nu ska vi titta på en exempel logg post. 
 
@@ -122,16 +122,15 @@ I följande tabell visas **operationName** -värdena och motsvarande REST API-ko
 | **CertificateNearExpiryEventGridNotification** |Certifikat nära utgångs händelse publicerad |
 | **CertificateExpiredEventGridNotification** |Utgånget certifikat-händelse publicerat |
 
-## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Använda Azure Monitor loggar
+## <a name="use-azure-monitor-logs"></a>Använda Azure Monitor-loggar
 
 Du kan använda Key Vault-lösningen i Azure Monitor loggar för att granska Key Vault `AuditEvent` loggar. I Azure Monitor loggar använder du logg frågor för att analysera data och få den information du behöver. 
 
 Mer information, inklusive hur du konfigurerar detta finns i [Azure Key Vault i Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
-## <a name="next-steps"></a><a id="next"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
-En själv studie kurs som använder Azure Key Vault i ett .NET-webb program finns i [använda Azure Key Vault från ett webb program](tutorial-net-create-vault-azure-web-app.md).
-
-Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](developers-guide.md).
-
-En lista över Azure PowerShell 1,0-cmdletar för Azure Key Vault finns i [Azure Key Vault-cmdletar](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
+- [Så här aktiverar du Key Vault loggning](howto-logging.md)
+- En själv studie kurs som använder Azure Key Vault i ett .NET-webb program finns i [använda Azure Key Vault från ett webb program](tutorial-net-create-vault-azure-web-app.md).
+- Programmeringsreferenser finns i [utvecklarguiden för Azure Key Vault](developers-guide.md).
+- En lista över Azure PowerShell 1,0-cmdletar för Azure Key Vault finns i [Azure Key Vault-cmdletar](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).

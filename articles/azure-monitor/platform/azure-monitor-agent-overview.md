@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: cc49bec71f6c591ca3036592b0949e3fc7cef48e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 466851ce04a047f3edabcf33b45dba9cab0db20e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263784"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132711"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Översikt över Azure Monitor Agent (för hands version)
 Azure Monitor agenten (AMA) samlar in övervaknings data från gäst operativ systemet på virtuella datorer och levererar det till Azure Monitor. Den här artikeln innehåller en översikt över Azure Monitor Agent, inklusive hur du installerar den och hur du konfigurerar data insamling.
@@ -84,7 +84,7 @@ Azure Monitor Agent skickar data till Azure Monitor mått eller en Log Analytics
 
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
-Se [operativ system som stöds](agents-overview.md#supported-operating-systems) för en lista över Windows-och Linux-operativsystem som för närvarande stöds av den Log Analytics agenten.
+Se [operativ system som stöds](agents-overview.md#supported-operating-systems) för en lista över Windows-och Linux-operativsystem som för närvarande stöds av den Azure Monitor agenten.
 
 
 

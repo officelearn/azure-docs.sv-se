@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 848894518077ca41d3166570bf0dc39914f1c439
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048516"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131164"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
 
@@ -31,7 +31,7 @@ Det exempel diagram som du kommer att arbeta med representerar en byggnad med tv
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att slutföra den här snabb starten. Om du inte redan har en, kan du **[skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** nu.
 
@@ -39,7 +39,7 @@ Du behöver också **Node.js** på din dator. Du kan hämta den senaste versione
 
 Slutligen måste du också ladda ned två exempel som ska användas under snabb starten:
 * Exempel programmet för **ADT Explorer** . Det här exemplet innehåller den huvud-app som du använder i snabb starten för att läsa in och utforska ett Azure Digital-scenario. Om du vill hämta appen navigerar du hit: [Azure Digitals-ADT (Azure Digitals flätas)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden på din dator. Då hämtas en. ZIP-mapp på din dator som _**Azure_Digital_Twins__ADT__explorer.zip**_. Zippa upp mappen och extrahera filerna.
-* **Exempel scenariot för Azure Digitals sammanflätade**. Detta inkluderar ett fördefinierat Azure Digital-diagram som du kommer att läsa in i ADT Explorer för att arbeta med. För att få scenariot, navigera här: [Azure Digitals dubbla exempel](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden på din dator. Då hämtas en. ZIP-mapp på din dator som _**Azure_Digital_Twins_samples.zip**_. Zippa upp mappen och extrahera filerna.
+* **Exempel scenariot för Azure Digitals sammanflätade**. Detta inkluderar ett fördefinierat Azure Digital-diagram som du kommer att läsa in i ADT Explorer för att arbeta med. För att få scenariot navigerar du här: [Azure Digitals dubblare-exempel från slut punkt till slut punkt](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Tryck på *hämtnings zip* -knappen för att ladda ned en *. ZIP* -fil för den här exempel koden på din dator. Då hämtas en. ZIP-mapp på din dator som _**Azure_Digital_Twins_end_to_end_samples.zip**_. Zippa upp mappen och extrahera filerna.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Konfigurera Azure Digital-och ADT Explorer
 
@@ -118,7 +118,7 @@ Om du ser en *behörighet som begärs* i popup-fönstret från Microsoft, bevilj
 
 Därefter ska du importera exempel scenariot och grafen till ADT Explorer.
 
-Exempel scenariot finns i den hämtade och zippade  _**Azure_Digital_Twins_samples**_ -mappen, så du bör navigera till mappen nu.
+Exempel scenariot finns i den hämtade och zippade  _**Azure_Digital_Twins_end_to_end_samples**_ -mappen, så du bör navigera till mappen nu.
 
 ### <a name="models"></a>Modeller
 
@@ -141,7 +141,7 @@ I rutan *modell* visas trycker du på ikonen *Ladda upp en modell* .
 
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
-1. I rutan fil väljare som visas navigerar du till mappen *Azure_Digital_Twins_samples/adtsampleapp/sampleclientapp/Models* i den hämtade lagrings platsen.
+1. I rutan fil väljare som visas navigerar du till mappen *Azure_Digital_Twins_end_to_end_samples/adtsampleapp/sampleclientapp/Models* i den hämtade lagrings platsen.
 2. Välj *Room.jspå* och *Floor.jspå*och tryck på OK. (Du kan ladda upp de andra modellerna om du vill, men de används inte i den här snabb starten.)
 3. Följ dialog rutan för att be dig att logga in på ditt Azure-konto.
 
@@ -179,7 +179,7 @@ Tryck på ikonen *Importera diagram* i rutan *diagram visning* .
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-I rutan fil väljare navigerar du till mappen *Azure_Digital_Twins_samples/adtsampleapp/sampleclientapp* och väljer kalkyl blads filen _**buildingScenario.xlsx**_ . Den här filen innehåller en beskrivning av exempel diagrammet. Tryck på OK.
+I rutan fil väljare navigerar du till mappen *Azure_Digital_Twins_end_to_end_samples/adtsampleapp/sampleclientapp* och väljer kalkyl blads filen _**buildingScenario.xlsx**_ . Den här filen innehåller en beskrivning av exempel diagrammet. Tryck på OK.
 
 Efter några sekunder öppnar ADT Explorer en *importerad* vy som visar en för hands version av grafen som ska läsas in.
 
@@ -321,7 +321,7 @@ Om du planerar att fortsätta med självstudierna för Azure Digitals dubbla, ka
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Slutligen tar du bort de exempel mappar för Project som du laddade ned till din lokala dator (_**Azure_Digital_Twins__ADT__explorer**_ och _**Azure_Digital_Twins_samples**_). Du kanske måste ta bort både zippade och zippade versioner.
+Slutligen tar du bort de exempel mappar för Project som du laddade ned till din lokala dator (_**Azure_Digital_Twins__ADT__explorer**_ och _**Azure_Digital_Twins_end_to_end_samples**_). Du kanske måste ta bort både zippade och zippade versioner.
 
 ## <a name="next-steps"></a>Nästa steg 
 

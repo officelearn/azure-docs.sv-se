@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 483d261a8cc107d01cfb7a405eac43667d7efcc6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82983082"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131844"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Felsöka brand vägg för webbaserade program (WAF) för Azure Application Gateway
 
@@ -174,7 +174,7 @@ Med hjälp av [Fiddler](https://www.telerik.com/fiddler)kan du kontrol lera ensk
 
 I det här exemplet kan du se att fältet där strängen *1 = 1* har angetts kallas **Text1**.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-1.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-1.png" alt-text="Skärm bild av Telerik-Fiddler för webb fel sökning. På fliken RAW är 1 = 1 synlig efter namnet Text1." border="false":::
 
 Det här är ett fält som du kan undanta. Mer information om undantags listor finns i [begäran om storleks gränser och undantags listor för WebApplication-brandvägg](application-gateway-waf-configuration.md#waf-exclusion-lists). Du kan undanta utvärderingen i det här fallet genom att konfigurera följande undantag:
 
@@ -299,7 +299,7 @@ Den andra (regel 942130) är den intressanta en. Du kan se information om att de
 
 Fiddler är ett användbart verktyg en gång till för att hitta rubrik namn för begäran. I följande skärm bild kan du se huvudena för GET-begäran, som innehåller *innehålls typ*, *användar agent*och så vidare.
 
-![Fiddler](../media/web-application-firewall-troubleshoot/fiddler-2.png)
+:::image type="content" source="../media/web-application-firewall-troubleshoot/fiddler-2.png" alt-text="Skärm bild av Telerik-Fiddler för webb fel sökning. På fliken RAW visas information om begär ande rubrik som anslutning, innehålls typ och användar agent." border="false":::
 
 Ett annat sätt att Visa begäran och svarshuvuden är att titta närmare på utvecklarverktyg i Chrome. Du kan trycka på F12 eller högerklicka – > **inspektera**  ->  **utvecklarverktyg**och välj fliken **nätverk** . Läs in en webb sida och klicka på den begäran som du vill granska.
 

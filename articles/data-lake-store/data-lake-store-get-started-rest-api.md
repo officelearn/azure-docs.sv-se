@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fc3f3fb0b6bb67239d6c1952d3e128076ce45aaf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13467a51b2a06dbc0ca0ec5eadd139fde8b82ad0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85857195"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103500"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Konto hanterings åtgärder på Azure Data Lake Storage Gen1 med REST API
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Du kan använda två sätt för att autentisera med Azure Active Directory.
 
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Skapa ett Data Lake Storage Gen1-konto
-Den här åtgärden är baserad på det REST API-anrop som definierats [här](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
+Den här åtgärden är baserad på det REST API-anrop som definierats [här](/rest/api/datalakestore/accounts/create).
 
 Använd följande cURL-kommando. Ersätt **\<yourstoragegen1name>** med ditt data Lake Storage gen1 namn.
 
@@ -57,7 +57,7 @@ I kommandot ovan ersätter du \<`REDACTED`\> med den autentiseringstoken som hä
 ```
 
 ## <a name="delete-a-data-lake-storage-gen1-account"></a>Ta bort ett Data Lake Storage Gen1 konto
-Den här åtgärden är baserad på det REST API-anrop som definierats [här](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
+Den här åtgärden är baserad på det REST API-anrop som definierats [här](/rest/api/datalakestore/accounts/delete).
 
 Använd följande spiral kommando för att ta bort ett Data Lake Storage Gen1-konto. Ersätt **\<yourstoragegen1name>** med namnet på data Lake Storage Gen1s kontot.
 
@@ -77,6 +77,5 @@ HTTP/1.1 200 OK
 * [Fil Systems åtgärder på data Lake Storage gen1 att använda REST API](data-lake-store-data-operations-rest-api.md).
 
 ## <a name="see-also"></a>Se även
-* [Azure Data Lake Storage Gen1 REST API referens](https://docs.microsoft.com/rest/api/datalakestore/)
+* [Azure Data Lake Storage Gen1 REST API referens](/rest/api/datalakestore/)
 * [Stor data program med öppen källkod som är kompatibla med Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
-

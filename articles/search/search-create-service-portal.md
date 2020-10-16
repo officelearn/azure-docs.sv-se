@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/05/2020
-ms.openlocfilehash: 3ccc5ab07416f65270a7bd720f1e0884027b1fe7
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/14/2020
+ms.openlocfilehash: 1b3804029a4174698ed1e4e4f8d75fbed4fba981
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057730"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102820"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Snabbstart: Skapa en Azure Cognitive Search-tjänst i portalen
 
@@ -102,9 +102,9 @@ Azure Kognitiv sökning är tillgängligt i de flesta regioner. Du hittar en lis
 
 Om du använder flera Azure-tjänster väljer du en region som också är värd för dina data eller program tjänster. Detta minimerar eller avvärderar bandbredds avgifter för utgående data (det kostar inget att debitera utgående data när tjänsterna är i samma region).
 
-## <a name="choose-a-pricing-tier-sku"></a>Välj en pris nivå (SKU)
+## <a name="choose-a-pricing-tier"></a>Välj en pris nivå
 
-[Azure kognitiv sökning erbjuds för närvarande på flera pris nivåer](https://azure.microsoft.com/pricing/details/search/): kostnads fri, Basic eller standard. Nivåerna har olika [kapacitet och begränsningar](search-limits-quotas-capacity.md). Mer information finns i [Välj en prisnivå nivå eller SKU](search-sku-tier.md).
+Azure Kognitiv sökning erbjuds för närvarande på [flera pris nivåer](https://azure.microsoft.com/pricing/details/search/): kostnads fri, Basic, standard eller Storage optimerad. Nivåerna har olika [kapacitet och begränsningar](search-limits-quotas-capacity.md). Se [Välj en pris nivå](search-sku-tier.md) för vägledning.
 
 Basic och standard är de vanligaste alternativen för produktions arbets belastningar, men de flesta kunder börjar med den kostnads fria tjänsten. Viktiga skillnader mellan nivåer är partitionens storlek och hastighet samt begränsningar för antalet objekt som du kan skapa.
 

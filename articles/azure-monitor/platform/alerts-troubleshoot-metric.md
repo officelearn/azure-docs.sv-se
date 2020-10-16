@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715325"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102161"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
 
@@ -77,14 +77,14 @@ Mer information om att samla in data från gäst operativ systemet på en virtue
 > Om du har konfigurerat gäst mått som ska skickas till en Log Analytics arbets yta visas måtten under arbets ytan Log Analytics arbets yta och kommer att börja visa **data när** du har skapat en varnings regel som övervakar dem. Det gör du genom att följa stegen för att [konfigurera en måttavisering för loggar](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
 > [!NOTE] 
-> Övervakning av ett gäst mått för flera virtuella datorer med en enda varnings regel stöds för närvarande inte av mått aviseringar. Du kan åstadkomma detta med en [logg aviserings regel](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). Det gör du genom att se till att gäst måtten samlas in på en Log Analytics arbets yta och skapa en logg aviserings regel på arbets ytan.
+> Övervakning av ett gäst mått för flera virtuella datorer med en enda varnings regel stöds för närvarande inte av mått aviseringar. Du kan åstadkomma detta med en [logg aviserings regel](./alerts-unified-log.md). Det gör du genom att se till att gäst måtten samlas in på en Log Analytics arbets yta och skapa en logg aviserings regel på arbets ytan.
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Det går inte att hitta det mått som ska aviseras
 
-Om du vill Avisera om ett speciellt mått men inte kan se det när du skapar en varnings regel kontrollerar du följande:
-- Om du inte kan se mått för resursen [kontrollerar du om resurs typen stöds för mått varningar](./alerts-metric-near-real-time.md).
-- Om du kan se vissa mått för resursen, men inte kan hitta ett visst mått, [kontrollerar du om måttet är tillgängligt](./metrics-supported.md), och i så fall, se mått beskrivningen för att kontrol lera om den endast är tillgänglig i vissa versioner eller utgåvor av resursen.
-- Om måttet inte är tillgängligt för resursen kan det vara tillgängligt i resurs loggarna och kan övervakas med hjälp av logg aviseringar. Mer information om hur du [samlar in och analyserar resurs loggar från en Azure-resurs](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)finns här.
+Om du vill skapa aviseringar om ett visst mått men inte kan se det när du skapar en aviseringsregel kontrollerar du följande:
+- Om du inte kan se mått för resursen [kontrollerar du om resurstypen har stöd för måttaviseringar](./alerts-metric-near-real-time.md).
+- Om du kan se vissa mått för resursen, men inte ett specifikt mått, [kontrollerar du om måttet är tillgängligt](./metrics-supported.md). I så fall kontrollerar du måttbeskrivningen för att se om måttet bara är tillgängligt i vissa versioner eller utgåvor av resursen.
+- Om måttet inte är tillgängligt för resursen kan det vara tillgängligt i resursloggarna och kan då övervakas med hjälp av loggaviseringar. Här kan du läsa mer om att [samla in och analysera resursloggar från en Azure-resurs](../learn/tutorial-resource-logs.md).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Det går inte att hitta mått dimensionen som ska aviseras
 

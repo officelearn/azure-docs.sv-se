@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 01c0b6f280b8179760c6ecc55fd7feca3ddf2080
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90039128"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104248"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Standard kolumner i Azure Monitor loggar
-Data i Azure Monitor loggar [lagras som en uppsättning poster i antingen en Log Analytics arbets yta eller ett Application Insights program](../log-query/logs-structure.md), var och en med en viss datatyp som har en unik uppsättning kolumner. Många data typer kommer att ha standard kolumner som är gemensamma för flera typer. Den här artikeln beskriver de här kolumnerna och innehåller exempel på hur du kan använda dem i frågor.
+Data i Azure Monitor loggar [lagras som en uppsättning poster i antingen en Log Analytics arbets yta eller ett Application Insights program](./data-platform-logs.md), var och en med en viss datatyp som har en unik uppsättning kolumner. Många data typer kommer att ha standard kolumner som är gemensamma för flera typer. Den här artikeln beskriver de här kolumnerna och innehåller exempel på hur du kan använda dem i frågor.
 
 Arbets ytans program i Application Insights lagra sina data i en Log Analytics arbets yta och använda samma standard kolumner som andra tabeller i arbets ytan. Klassiska program lagrar sina data separat och har olika standard kolumner enligt vad som anges i den här artikeln.
 
@@ -212,4 +212,3 @@ union withsource = tt *
 - Läs mer om hur [Azure Monitor loggdata lagras](../log-query/log-query-overview.md).
 - Få en lektion om att [skriva logg frågor](../log-query/get-started-queries.md).
 - Få en lektion om att [koppla tabeller i logg frågor](../log-query/joins.md).
-

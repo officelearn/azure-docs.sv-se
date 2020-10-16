@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842588"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102939"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Tjänster med hög tillgänglighet som stöds av Azure HDInsight
 
@@ -62,7 +62,7 @@ Microsoft tillhandahåller support för de fyra Apache-tjänsterna i följande t
 | Apache Livy | Aktiva huvudnoden | Spark | Möjliggör enkel interaktion med ett Spark-kluster över ett REST-gränssnitt |
 
 >[!Note]
-> HDInsight Enterprise Security Package-kluster (ESP) tillhandahåller för närvarande endast Ambari-servern med hög tillgänglighet.
+> HDInsight Enterprise Security Package-kluster (ESP) tillhandahåller för närvarande endast Ambari-servern med hög tillgänglighet. Program tids linje server, jobb historik Server och livy körs bara på headnode0 och de redundansväxlas inte till headnode1 när Ambari failsover. Programmets tids linje databas finns också på headnode0 och inte på Ambari SQL Server.
 
 ### <a name="architecture"></a>Arkitektur
 

@@ -1,23 +1,23 @@
 ---
-title: Välj en pris nivå eller SKU
+title: Välj en pris nivå
 titleSuffix: Azure Cognitive Search
-description: 'Azure Kognitiv sökning kan tillhandahållas i följande SKU: er: kostnads fri, Basic och standard, och standard finns i olika datorkonfigurationer och kapacitets nivåer.'
+description: 'Azure Kognitiv sökning kan tillhandahållas i dessa nivåer: kostnads fri, Basic och standard, och standard är tillgängligt i olika datorkonfigurationer och kapacitets nivåer.'
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 0acd0d1d463280cddc8c1f4bb389a056d474ea38
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948093"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101281"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
-När du skapar en Azure Kognitiv sökning-tjänst [skapas en resurs](search-create-service-portal.md) på en pris nivå (eller SKU) som har åtgärd ATS för livs längden för tjänsten. Nivåerna är kostnads fria, Basic, standard och Storage-optimerade. Standard-och lagrings optimering är tillgänglig med flera konfigurationer och kapaciteter.
+När du skapar en Azure Kognitiv sökning-tjänst [skapas en resurs](search-create-service-portal.md) på en pris nivå som är fast för tjänstens livs längd. Nivåerna är kostnads fria, Basic, standard och Storage-optimerade. Standard-och lagrings optimering är tillgänglig med flera konfigurationer och kapaciteter.
 
 De flesta kunder börjar med den kostnads fria nivån så att de kan utvärdera tjänsten. Efter utvärdering är det vanligt att skapa en andra tjänst på en av de högre nivåerna för utveckling och produktions distributioner.
 
@@ -27,15 +27,15 @@ I följande tabell beskrivs nivå-relaterade funktions begränsningar.
 
 | Funktion | Begränsningar |
 |---------|-------------|
-| [indexerare](search-indexer-overview.md) | Indexerare är inte tillgängliga på S3 HD. |
+| [indexerare](search-indexer-overview.md) | Indexerare är inte tillgängliga på S3 HD.  |
 | [AI-berikning](search-security-manage-encryption-keys.md) | Körs på den kostnads fria nivån men rekommenderas inte. |
 | [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) | Inte tillgängligt på den kostnads fria nivån. |
 | [Åtkomst till IP-brandvägg](service-configure-firewall.md) | Inte tillgängligt på den kostnads fria nivån. |
-| [Integrering med privat Azure-länk](service-create-private-endpoint.md) | Inte tillgängligt på den kostnads fria nivån. |
+| [Privat slut punkt (integrering med Azures privata länk)](service-create-private-endpoint.md) | För inkommande anslutningar till en search-tjänst är inte tillgänglig på den kostnads fria nivån. För utgående anslutningar från indexerare till andra Azure-resurser är de inte tillgängliga på kostnads fria eller S3 HD. För indexerare som använder färdighetsuppsättningar, inte tillgängligt på kostnads fri, grundläggande, S1 eller S3 HD.|
 
 De flesta funktioner är tillgängliga på alla nivåer, inklusive kostnads fria, men resurs intensiva funktioner kanske inte fungerar bra om du inte ger den tillräckligt med kapacitet. [AI-anrikning](cognitive-search-concept-intro.md) har till exempel långvariga färdigheter som tar slut på en kostnads fri tjänst, om inte data uppsättningen är liten.
 
-## <a name="tiers-skus"></a>Nivåer (SKU: er)
+## <a name="tiers"></a>Nivåer
 
 Nivåerna särskiljs av:
 
@@ -158,7 +158,7 @@ Om du vill fastställa storleken på ett index måste du [bygga ett](search-what
 För full texts ökning är den primära data strukturen en [inverterad index](https://en.wikipedia.org/wiki/Inverted_index) struktur som har andra egenskaper än källdata. För ett inverterat index bestäms storlek och komplexitet av innehåll, inte nödvändigt vis av mängden data som du matar in i det. En stor data källa med hög redundans kan resultera i ett mindre index än en mindre data mängd som innehåller mycket varierande innehåll. Det går sällan att härleda index storleken baserat på storleken på den ursprungliga data uppsättningen.
 
 > [!NOTE] 
-> Även om det går att uppskatta framtida behov för index och lagring kan det vara värt att göra. Om en nivås kapacitet blir för låg måste du etablera en ny tjänst på en högre nivå och sedan [läsa in indexen](search-howto-reindex.md)på nytt. Det finns ingen uppgradering på plats av en tjänst från en SKU till en annan.
+> Även om det går att uppskatta framtida behov för index och lagring kan det vara värt att göra. Om en nivås kapacitet blir för låg måste du etablera en ny tjänst på en högre nivå och sedan [läsa in indexen](search-howto-reindex.md)på nytt. Det finns ingen uppgradering på plats av en tjänst från en nivå till en annan.
 >
 
 ### <a name="estimate-with-the-free-tier"></a>Uppskatta med den kostnads fria nivån

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: ae8bc3ce5822b8d49db0fdc6e611badd75b0d27b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38fac23b3fdc5820a7a407a4a7d89d0064cf8e93
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273321"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101791"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce-Sandbox för automatisk användar etablering
 
@@ -73,15 +73,15 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 1. Öppna en ny flik och logga in på samma Salesforce Sandbox-administratörskonto för att få en säkerhetstoken för Salesforce. Klicka på ditt namn i det övre högra hörnet på sidan och klicka sedan på **Inställningar**.
 
-     ![Aktivera automatisk användar etablering](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Aktivera automatisk användar etablering")
+     ![Skärm bild som visar länken Inställningar valda.](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Aktivera automatisk användar etablering")
 
 1. I det vänstra navigerings fönstret klickar du på **Mina personliga uppgifter** för att expandera det relaterade avsnittet och klicka sedan på **Återställ min säkerhetstoken**.
   
-    ![Aktivera automatisk användar etablering](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Aktivera automatisk användar etablering")
+    ![Skärm bild som visar Återställ min säkerhetstoken som valts från min personliga information.](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Aktivera automatisk användar etablering")
 
 1. Klicka på knappen **Återställ säkerhetstoken** på sidan **Återställ** säkerhetstoken.
 
-    ![Aktivera automatisk användar etablering](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Aktivera automatisk användar etablering")
+    ![Skärm bild som visar sidan rest Security token med förklarings text och alternativet att återställa säkerhetstoken](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Aktivera automatisk användar etablering")
 
 1. Kontrol lera e-postinkorgen som är associerad med det här administratörs kontot. Sök efter ett e-postmeddelande från Salesforce-Sandbox.com som innehåller den nya säkerhetstoken.
 

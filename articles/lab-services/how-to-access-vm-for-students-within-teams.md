@@ -3,12 +3,12 @@ title: Åtkomst till en virtuell dator (elev visning) i Azure Lab från team
 description: Lär dig hur du kommer åt en virtuell dator (elev visning) i Azure Lab från Teams.
 ms.topic: article
 ms.date: 10/07/2020
-ms.openlocfilehash: 346f4bcd75356b0466b1eea46e1da74aa2c63784
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: c786a8b3fcee57cefb551a61087d4b49ee5e93c0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043453"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102416"
 ---
 # <a name="access-a-vm-student-view-in-azure-lab-from-teams"></a>Åtkomst till en virtuell dator (elev visning) i Azure Lab från team
 
@@ -16,7 +16,7 @@ När ett labb skapas i team kan användarna visa och komma åt alla virtuella da
 
 ## <a name="view-labs"></a>Visa labb
 
-Om labbet ännu inte har publicerats eller om en synkronisering ännu ska utlösas när de har lagts till i teamet, visas liknande meddelanden för eleverna. Om du vill att labbet ska publiceras eller om en synkronisering ännu inte ska utlösas när de har lagts till i teamet, visas liknande meddelanden för grupp medlemmarna.
+Om labbet ännu inte har publicerats eller om en synkronisering ännu ska utlösas när de har lagts till i teamet, visas liknande meddelande funktioner för grupp medlemmarna.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/lab.png" alt-text="Azure Lab Services Lab":::

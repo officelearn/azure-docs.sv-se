@@ -1,34 +1,34 @@
 ---
-title: Tillåt åtkomst till lagring via betrott tjänst undantag
+title: Indexerings åtkomst till Azure Storage med ett betrott tjänst undantag
 titleSuffix: Azure Cognitive Search
-description: Anvisningar som beskriver hur du konfigurerar ett betrott tjänst undantag för att komma åt data från lagrings konton på ett säkert sätt.
+description: Aktivera data åtkomst av en indexerare i Azure Kognitiv sökning till data som lagrats säkert i Azure Storage.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 4fbffaa7bc68bb32bd07b657f4b769e5af4302bf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: e139c15ef6de00376a4e1a88000d263c3486994b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950032"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101383"
 ---
-# <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Åtkomst till data i lagrings konton på ett säkert sätt via ett betrott tjänst undantag
+# <a name="indexer-access-to-azure-storage-using-the-trusted-service-exception-azure-cognitive-search"></a>Indexerings åtkomst till Azure Storage med hjälp av Trusted service Exception (Azure Kognitiv sökning)
 
-Indexerare som har åtkomst till data i lagrings konton kan använda funktionen för [betrott tjänst undantag](../storage/common/storage-network-security.md#exceptions) för säker åtkomst till data. Den här mekanismen ger kunder som inte kan bevilja [indexerare åtkomst via IP-brandvägg-regler](search-indexer-howto-access-ip-restricted.md) ett enkelt, säkert och kostnads fritt alternativ för åtkomst till data i lagrings konton.
+Indexerare i en Azure Kognitiv sökning-tjänst som har åtkomst till data i Azure Storage-konton kan använda funktionen för [betrott tjänst undantag](../storage/common/storage-network-security.md#exceptions) för säker åtkomst till data. Den här mekanismen ger kunder som inte kan bevilja [indexerings åtkomst med IP-brandvägg-regler](search-indexer-howto-access-ip-restricted.md) ett enkelt, säkert och kostnads fritt alternativ för åtkomst till data i lagrings konton.
 
 > [!NOTE]
 > Stöd för åtkomst till data i lagrings konton via ett betrott tjänst undantag är begränsat till Azure Blob Storage och Azure Data Lake Gen2-lagring. Azure Table Storage stöds inte.
 
-## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Steg 1: konfigurera anslutningen till lagrings kontot via identitet
+## <a name="step-1-configure-a-connection-using-a-managed-identity"></a>Steg 1: Konfigurera en anslutning med en hanterad identitet
 
-Följ informationen som beskrivs i [hanterad identitets åtkomst guide](search-howto-managed-identities-storage.md) för att konfigurera indexerare för åtkomst till lagrings konton via Sök tjänstens hanterade identitet.
+Följ anvisningarna i [skapa en anslutning till ett Azure Storage konto med en hanterad identitet](search-howto-managed-identities-storage.md). När du är klar har du registrerat din Sök tjänst med Azure Active Directory som en betrodd tjänst, och du har beviljat behörigheter i Azure Storage som ger Sök identiteten behörighet att komma åt data eller information.
 
 ## <a name="step-2-allow-trusted-microsoft-services-to-access-the-storage-account"></a>Steg 2: Tillåt att betrodda Microsoft-tjänster får åtkomst till lagrings kontot
 
-I Azure Portal går du till fliken "brand väggar och virtuella nätverk" i lagrings kontot. Kontrol lera att alternativet "Tillåt betrodda Microsoft-tjänster för att komma åt det här lagrings kontot" är markerat. Det här alternativet tillåter endast den angivna search service-instansen med lämplig rollbaserad åtkomst till lagrings kontot (stark autentisering) för att komma åt data i lagrings kontot, även om det skyddas av IP-brandväggs regler.
+I Azure Portal går du till fliken **brand väggar och virtuella nätverk** i lagrings kontot. Kontrol lera att alternativet **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** är markerat. Det här alternativet tillåter endast den angivna search service-instansen med lämplig rollbaserad åtkomst till lagrings kontot (stark autentisering) för att komma åt data i lagrings kontot, även om det skyddas av IP-brandväggs regler.
 
 ![Undantag för betrodda tjänster](media\search-indexer-howto-secure-access\exception.png "Undantag för betrodda tjänster")
 

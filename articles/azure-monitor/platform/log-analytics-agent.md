@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 9f0a7b6f68c5a3adeb320fd18bec2f195a833dbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015bd48060f47023877d8c48601770228b1500fe
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310007"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104350"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics agent samlar in telemetri från virtuella Windows-och Linux-datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](/system-center/scom/) och skickar insamlade data till din Log Analytics-arbetsyta i Azure Monitor. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml)och [Azure Automation](../../automation/automation-intro.md). Den här artikeln innehåller en detaljerad översikt över agent-, system-och nätverks krav och distributions metoder.
@@ -51,7 +51,7 @@ I följande tabell visas de typer av data som du kan konfigurera en Log Analytic
 Log Analytics agent skickar data till en Log Analytics arbets yta i Azure Monitor. Windows-agenten kan vara multihomed för att skicka data till flera arbets ytor och System Center Operations Manager hanterings grupper. Linux-agenten kan bara skicka till ett enda mål, antingen en arbets yta eller en hanterings grupp.
 
 ## <a name="other-services"></a>Övriga tjänster
-Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor. Andra tjänster som Azure Security Center och Azure Sentinel är beroende av agenten och dess anslutna Log Analytics arbets yta. Agenten stöder också Azure Automation som värd för Hybrid Runbook Worker-rollen och andra tjänster som [ändringsspårning](../../automation/change-tracking.md), [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md)och [Azure Security Center](../../security-center/security-center-intro.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+Agenten för Linux och Windows är inte bara för att ansluta till Azure Monitor. Andra tjänster som Azure Security Center och Azure Sentinel är beroende av agenten och dess anslutna Log Analytics arbets yta. Agenten stöder också Azure Automation som värd för Hybrid Runbook Worker-rollen och andra tjänster som [ändringsspårning](../../automation/change-tracking.md), [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md)och [Azure Security Center](../../security-center/security-center-introduction.md). Mer information om Hybrid Runbook Worker-rollen finns i [Azure Automation hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="workspace-and-management-group-limitations"></a>Begränsningar för arbets yta och hanterings grupp
 
@@ -148,4 +148,3 @@ Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
 * Granska [data källorna](agent-data-sources.md) för att förstå de data källor som är tillgängliga för att samla in data från Windows-eller Linux-systemet. 
 * Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 
 * Lär dig mer om att [övervaka lösningar](../insights/solutions.md) som lägger till funktioner i Azure Monitor och även samla in data i arbets ytan Log Analytics.
-

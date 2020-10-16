@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: f87c3665f558b3185e95b0ad0aa18a883439a221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006525"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103347"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
 
@@ -23,11 +23,11 @@ Den här artikeln innehåller anvisningar för att skydda utgående trafik från
 
 HDInsight-kluster distribueras vanligt vis i ett virtuellt nätverk. Klustret har beroenden för tjänster utanför det virtuella nätverket.
 
-Det finns flera beroenden som kräver inkommande trafik. Inkommande hanterings trafik kan inte skickas via en brand Väggs enhet. Käll adresserna för den här trafiken är kända och publiceras [här](hdinsight-management-ip-addresses.md). Du kan också skapa regler för nätverks säkerhets grupper (NSG) med den här informationen för att skydda inkommande trafik till klustren.
+Inkommande hanterings trafik kan inte skickas via en brand vägg. Du kan använda NSG service-taggar för inkommande trafik som dokumenteras [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags). 
 
-De utgående trafik beroendena för HDInsight är nästan helt definierade med FQDN. Som inte har statiska IP-adresser bakom dem. Bristen på statiska adresser innebär att nätverks säkerhets grupper (NSG: er) inte kan låsa utgående trafik från ett kluster. Adresserna ändras ofta så att det inte går att skapa regler baserat på den aktuella namn matchningen och Använd.
+De utgående trafik beroendena för HDInsight är nästan helt definierade med FQDN. Som inte har statiska IP-adresser bakom dem. Bristen på statiska adresser innebär att nätverks säkerhets grupper (NSG: er) inte kan låsa utgående trafik från ett kluster. IP-adresserna är ofta tillräckligt många det går inte att ställa in regler som baseras på den aktuella namn matchningen och användningen.
 
-Säkra utgående adresser med en brand vägg som kan styra utgående trafik baserat på domän namn. Azure-brandväggen begränsar utgående trafik baserat på FQDN för mål-eller FQDN- [taggarna](../firewall/fqdn-tags.md).
+Säkra utgående adresser med en brand vägg som kan styra utgående trafik baserat på FQDN. Azure-brandväggen begränsar utgående trafik baserat på FQDN för mål-eller FQDN- [taggarna](../firewall/fqdn-tags.md).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Konfigurera Azure-brandvägg med HDInsight
 
@@ -69,17 +69,17 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
 
     **Avsnittet FQDN-Taggar**
 
-    | Namn | Käll adress | FQDN-tagg | Obs! |
+    | Namn | Käll adress | FQDN-tagg | Kommentarer |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate och HDInsight | Krävs för HDI-tjänster |
 
     **Avsnittet mål-FQDN**
 
-    | Namn | Käll adresser | Protokoll: port | Mål-FQDN | Obs! |
+    | Namn | Käll adresser | Protokoll: port | Mål-FQDN | Kommentarer |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
-    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. net | Ersätt `storage_account_name` med det faktiska lagrings konto namnet. Om klustret backas upp av WASB lägger du till en regel för WASB. Om du bara vill använda HTTPS-anslutningar kontrollerar du att ["säker överföring krävs"](../storage/common/storage-require-secure-transfer.md) är aktiverat på lagrings kontot. |
+    | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. net | Ersätt `storage_account_name` med det faktiska lagrings konto namnet. Om du bara vill använda HTTPS-anslutningar kontrollerar du att ["säker överföring krävs"](../storage/common/storage-require-secure-transfer.md) är aktiverat på lagrings kontot. Om du använder privat slut punkt för att komma åt lagrings konton behövs inte det här steget och lagrings trafiken vidarebefordras inte till brand väggen.|
 
    ![Rubrik: Ange information om program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -101,21 +101,12 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
     |Prioritet|200|
     |Åtgärd|Tillåt|
 
-    **Avsnittet IP-adresser**
-
-    | Namn | Protokoll | Käll adresser | Mål adresser | Målportar | Obs! |
-    | --- | --- | --- | --- | --- | --- |
-    | Rule_1 | UDP | * | * | 123 | Tids tjänst |
-    | Rule_2 | Alla | * | DC_IP_Address_1 DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
-    | Rule_3 | TCP | * | IP-adress för ditt Data Lake Storage konto | * | Om du använder Azure Data Lake Storage kan du lägga till en nätverks regel i avsnittet IP-adresser för att åtgärda ett SNI-problem med ADLS Gen1 och Gen2. Det här alternativet dirigerar trafiken till brand väggen. Detta kan resultera i högre kostnader för stora data belastningar, men trafiken loggas och granskas i brand Väggs loggar. Identifiera IP-adressen för ditt Data Lake Storage-konto. Du kan använda ett PowerShell `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` -kommando för att matcha FQDN till en IP-adress.|
-    | Rule_4 | TCP | * | * | 12000 | Valfritt Om du använder Log Analytics skapar du en nätverks regel i avsnittet IP-adresser för att aktivera kommunikation med arbets ytan Log Analytics. |
-
     **Avsnittet service Tags**
 
-    | Namn | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Obs! |
+    | Namn | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Kommentarer |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverks regel i avsnittet service märken för SQL som gör att du kan logga och granska SQL-trafik. Om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. |
-    | Rule_8 | TCP | * | Azure Monitor | * | valfritt Kunder som planerar att använda funktionen för automatisk skalning bör lägga till den här regeln. |
+    | Rule_5 | TCP | * | SQL | 1433 | Om du använder standard-SQL-servrarna som tillhandahålls av HDInsight konfigurerar du en nätverks regel i avsnittet service Tags för SQL som gör att du kan logga och granska SQL-trafik. Om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. Om du använder anpassad SQL Server för Ambari, Oozie, ranger och Hive metastroes behöver du bara tillåta trafiken till dina egna anpassade SQL-servrar.|
+    | Rule_6 | TCP | * | Azure Monitor | * | valfritt Kunder som planerar att använda funktionen för automatisk skalning bör lägga till den här regeln. |
     
    ![Rubrik: Ange program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
@@ -125,9 +116,7 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
 
 Skapa en routningstabell med följande poster:
 
-* Alla IP-adresser från [hälso-och hanterings tjänster: alla regioner](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) med en nästa hopp typ av **Internet**.
-
-* Två IP-adresser för den region där klustret skapas från [hälso-och hanterings tjänster: vissa regioner](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions) med nästa hopp typ av **Internet**.
+* Alla IP-adresser från [hälso-och hanterings tjänster](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) med nästa hopp typ av **Internet**. Den bör innehålla 4 IP-adresser för de allmänna regionerna samt två IP-adresser för din speciella region. Den här regeln behövs bara om ResourceProviderConnection är inställt på *inkommande*. Om ResourceProviderConnection är inställt på *utgående* behövs inte dessa IP-adresser i UDR. 
 
 * En virtuell enhets väg för IP-adressen 0.0.0.0/0 med nästa hopp som din Azure Firewall-privata IP-adress.
 

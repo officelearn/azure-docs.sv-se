@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2018
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 084284037b02ce02d1e46a61a69d6e60cc89a36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51a66d74750afa6c46dba7fa442477e85effb2d6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387736"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102059"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användar åtkomst i Azure Active Directory B2C
 
@@ -114,7 +114,7 @@ Följande bild visar det rekommenderade användar flödet:
 
 ![Flödes diagram diagram som visar det rekommenderade användar flödet för godkännande](./media/manage-user-access/user-flow.png)
 
-Följande är ett exempel på en DateTime-baserad användnings villkor i ett anspråk:
+Följande är ett exempel på en datum-baserade användnings villkor i ett anspråk. Om `extension_termsOfUseConsentDateTime` anspråket är äldre än `2025-01-15T00:00:00` , tvinga ett nytt godkännande genom att kontrol lera det `termsOfUseConsentRequired` booleska anspråket och visa en egen kontrollerad skärm. 
 
 ```xml
 <ClaimsTransformations>
@@ -128,7 +128,7 @@ Följande är ett exempel på en DateTime-baserad användnings villkor i ett ans
       <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
     </InputClaims>
     <InputParameters>
-      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" />
+      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2025-01-15T00:00:00" />
     </InputParameters>
     <OutputClaims>
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
@@ -137,7 +137,7 @@ Följande är ett exempel på en DateTime-baserad användnings villkor i ett ans
 </ClaimsTransformations>
 ```
 
-Följande är ett exempel på en versions beroende användnings villkor i ett anspråk:
+Följande är ett exempel på en versions beroende användnings villkor i ett anspråk. Om `extension_termsOfUseConsentVersion` anspråket inte är lika med `V1` , tvinga ett nytt godkännande genom att kontrol lera det `termsOfUseConsentRequired` booleska anspråket och visa en egen kontrollerad skärm.
 
 ```xml
 <ClaimsTransformations>

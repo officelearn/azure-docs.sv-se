@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0cc2c04208c4800a883848896a0f1659e8bf72e9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d0f8fa313687b3bd45bd95f1c9ea864567821775
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097260"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102365"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med SQL Server utan i Azure Synapse Link (för hands version)
 
@@ -266,8 +266,10 @@ Lista över möjliga fel och fel söknings åtgärder visas i följande tabell:
 | --- | --- |
 | Syntaxfel:<br/> -Felaktig syntax nära OpenRowSet<br/> - `...` är inte ett känt alternativ för OpenRowSet-providern.<br/> -Felaktig syntax nära `...` | Möjliga rotor orsaker<br/> – Använder inte ' CosmosDB ' som första parameter,<br/> – Använder sträng litteral i stället för identifierare i den tredje parametern,<br/> -Ange inte tredje parameter (container namn) |
 | Ett fel uppstod i CosmosDB-anslutningssträngen | -Konto, databas, nyckel har inte angetts <br/> -Det finns ett alternativ i anslutnings strängen som inte känns igen.<br/> -Semikolon `;` placeras i slutet av anslutnings strängen |
-| Det gick inte att matcha CosmosDB-sökvägen med felet "felaktigt konto/databas namn" | Det angivna konto namnet eller databas namnet kan inte hittas. |
-| Det gick inte att lösa CosmosDB-sökvägen, fel meddelandets hemliga värde är null eller tomt | Konto nyckeln är inte giltig eller saknas. |
+| Det gick inte att matcha CosmosDB-sökvägen med felet "felaktigt konto namn" eller "felaktigt databas namn" | Det angivna konto namnet, databas namnet eller behållaren kan inte hittas, eller så har ingen analytisk lagring Aktiver ATS o den angivna samlingen|
+| Det gick inte att matcha CosmosDB Sök väg med felet "felaktigt hemligt värde" eller "hemlighet är null eller tomt" | Konto nyckeln är inte giltig eller saknas. |
+| Kolumn `column name` av typen `type name` är inte kompatibel med den externa data typen `type name` | Den angivna kolumn typen i `WITH` satsen matchar inte typen i Cosmos DB containern. Försök att ändra kolumn typen enligt beskrivningen i avsnittet [Azure Cosmos dB till SQL-typ mappningar](#azure-cosmos-db-to-sql-type-mappings) eller användnings `VARCHAR` typ. |
+| Kolumnen innehåller `NULL` värden i alla celler. | Eventuellt felaktigt kolumn namn eller Sök vägs uttryck i `WITH` satsen. Kolumn namn (eller Sök vägs uttryck efter kolumn typen) i `WITH` satsen måste matcha ett egenskaps namn i Cosmos DB samlingen. Jämförelse är **SKIFT läges känslig**  (till exempel `productCode` och `ProductCode` är olika egenskaper). |
 
 Du kan rapportera förslag och problem på [feedback-sidan för Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 

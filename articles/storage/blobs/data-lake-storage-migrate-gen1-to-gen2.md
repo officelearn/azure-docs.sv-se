@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: bc6d4a60c3db6b2537a0f300562db1df5e249b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0b85164042ef8ba0dda5f83dbfe49f585a11f7c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716136"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102650"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrera Azure Data Lake Storage från gen1 till Gen2
 
@@ -122,7 +122,7 @@ Låt oss ta en närmare titt på varje mönster.
  
 ### <a name="lift-and-shift-pattern"></a>Mönster för hiss och Skift
 
-Detta är det enklaste mönstret.
+Detta är det enklaste mönstret. 
 
 1. Stoppa alla skrivningar till gen1.
 
@@ -131,6 +131,8 @@ Detta är det enklaste mönstret.
 3. Punkt inmatnings åtgärder och arbets belastningar till Gen2.
 
 4. Inaktivera gen1.
+
+Kolla in vår exempel kod för mönstret lyft och Shift i exemplet på [lyft och Shift-migreringen](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![mönster för hiss och Skift](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -153,6 +155,9 @@ Detta är det enklaste mönstret.
 
 4. Inaktivera gen1.
 
+Kolla in vår exempel kod för det stegvisa kopierings mönstret i vårt exempel på en [migrering av stegvis kopiering](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
+
+
 > [!div class="mx-imgBorder"]
 > ![Mönster för stegvis kopiering](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
 
@@ -174,6 +179,8 @@ Detta är det enklaste mönstret.
 
 4. Stoppa alla skrivningar till gen1 och inaktivera gen1.
 
+Kolla in vår exempel kod för det dubbla pipeline-mönstret i vårt [dubbla pipeline-exempel för migrering](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
+
 > [!div class="mx-imgBorder"]
 > ![Mönster för dubbel pipeline](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
 
@@ -192,6 +199,8 @@ Detta är det enklaste mönstret.
 3. Stoppa alla skrivningar till gen1 när alla flyttningar är slutförda och inaktivera dubbelriktad replikering.
 
 4. Inaktivera gen1.
+
+Kolla in vår exempel kod för det dubbelriktade Sync-mönstret i vårt [dubbelriktade exempel på migrering](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Dubbelriktat mönster](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

@@ -1,5 +1,5 @@
 ---
-title: Lägg till API-kopplingar i användar flöden
+title: Lägg till API-kopplingar till användar flöden (förhands granskning)
 description: Konfigurera en API-anslutning som ska användas i ett användar flöde.
 services: active-directory-b2c
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 824b8f386e6bf822444450305e603e6068a34c5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854366"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102280"
 ---
-# <a name="add-an-api-connector-to-a-sign-up-user-flow"></a>Lägga till en API-anslutning till ett användar flöde för registrering
+# <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Lägga till en API-anslutning till ett användar flöde för registrering (för hands version)
 
 Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du först API-anslutningen och aktiverar den sedan i ett användar flöde.
 
@@ -238,8 +238,8 @@ Content-type: application/json
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | Sträng            | Ja      | API-versionen.                                                                                                                                                                                                                                                                |
 | åtgärd                                             | Sträng            | Ja      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Inga       | Värden kan lagras i katalogen om de har valts som ett **anspråk att ta emot** i API-anslutningens konfiguration **och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Inga       | Det returnerade anspråket behöver inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
+| \<builtInUserAttribute>                            | \<attribute-type> | Nej       | Returnerade värden kan skriva över värden som samlas in från en användare. De kan också returneras i token om de väljs som ett **program anspråk**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nej       | Anspråket behöver inte innehålla något `_<extensions-app-id>_` . Returnerade värden kan skriva över värden som samlas in från en användare. De kan också returneras i token om de väljs som ett **program anspråk**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Exempel på ett blockerande svar
 
@@ -267,6 +267,8 @@ Content-type: application/json
 
 ### <a name="example-of-a-validation-error-response"></a>Exempel på ett verifierings fel svar
 
+
+
 ```http
 HTTP/1.1 400 Bad Request
 Content-type: application/json
@@ -285,6 +287,8 @@ Content-type: application/json
 | åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
 | status      | Integer | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
 | userMessage | Sträng  | Ja      | Meddelande som ska visas för användaren.                                            |
+
+*Obs:* HTTP-statuskoden måste vara "400" Förutom värdet "status" i bröd texten i svaret.
 
 **Slut användar upplevelse med ett verifierings fel svar**
 

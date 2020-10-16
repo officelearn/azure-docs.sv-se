@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300110"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104146"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till loggdata och arbetsytor i Azure Monitor
 
@@ -106,7 +106,7 @@ Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkoms
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
-|Action |Azure-behörigheter krävs |Obs! |
+|Åtgärd |Azure-behörigheter krävs |Kommentarer |
 |-------|-------------------------|------|
 | Lägga till och ta bort övervaknings lösningar | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Behörigheterna måste beviljas på resursgrupp- eller prenumerationsnivå. |
 | Ändra prisnivån | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -137,9 +137,9 @@ Rollen Log Analytics läsare innehåller följande Azure-åtgärder:
 | Typ    | Behörighet | Beskrivning |
 | ------- | ---------- | ----------- |
 | Åtgärd | `*/read`   | Möjlighet att visa alla Azure-resurser och resurs konfiguration. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure Diagnostics för resurser <br> Alla egenskaper och inställningar för alla resurser. <br> För arbets ytor ger den fullständig obegränsad behörighet att läsa inställningarna för arbets ytan och köra frågor på data. Se fler detaljerade alternativ ovan. |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
-| Action | `Microsoft.Support/*` | Kan öppna supportärenden |
+| Åtgärd | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
+| Åtgärd | `Microsoft.OperationalInsights/workspaces/search/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
+| Åtgärd | `Microsoft.Support/*` | Kan öppna supportärenden |
 |Ingen åtgärd | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Förhindrar läsning av arbets ytans nyckel som krävs för att använda API: et för data insamling och för att installera agenter. Detta förhindrar användaren från att lägga till nya resurser i arbets ytan |
 
 Medlemmar av *Log Analytics Contributor*-rollen kan:
@@ -243,7 +243,7 @@ Se [definiera åtkomst kontroll per tabell](#table-level-rbac) nedan om du vill 
 
 Med **RBAC-tabellnivå** kan du definiera mer detaljerad kontroll för data i en Log Analytics arbets yta förutom de andra behörigheterna. Med den här kontrollen kan du definiera vissa data typer som endast är tillgängliga för en speciell uppsättning användare.
 
-Du implementerar en tabell åtkomst kontroll med [Azures anpassade roller](../../role-based-access-control/custom-roles.md) för att bevilja åtkomst till vissa [tabeller](../log-query/logs-structure.md) i arbets ytan. Dessa roller tillämpas på arbets ytor med antingen arbets ytans kontext eller resurs kontextens [åtkomst kontroll lägen](design-logs-deployment.md#access-control-mode) oavsett användarens [åtkomst läge](design-logs-deployment.md#access-mode).
+Du implementerar en tabell åtkomst kontroll med [Azures anpassade roller](../../role-based-access-control/custom-roles.md) för att bevilja åtkomst till vissa [tabeller](./data-platform-logs.md) i arbets ytan. Dessa roller tillämpas på arbets ytor med antingen arbets ytans kontext eller resurs kontextens [åtkomst kontroll lägen](design-logs-deployment.md#access-control-mode) oavsett användarens [åtkomst läge](design-logs-deployment.md#access-mode).
 
 Skapa en [anpassad roll](../../role-based-access-control/custom-roles.md) med följande åtgärder för att definiera åtkomst till tabell åtkomst kontroll.
 

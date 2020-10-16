@@ -4,16 +4,16 @@ description: Hantera aviserings instanser i Azure
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1910b3b474012365e8117f584379b2b29f8ce3de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82905cba5f391365ada13f4e5df5ad139f4c121e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77667626"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102878"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>Hantera aviserings instanser med enhetliga aviseringar
 
-Med den [enhetliga aviserings upplevelsen](https://aka.ms/azure-alerts-overview) i Azure Monitor kan du se alla olika typer av aviseringar i Azure. Detta omfattar flera prenumerationer i ett enda fönster. Den här artikeln visar hur du kan visa dina aviserings instanser och hur du hittar vissa aviserings instanser för fel sökning.
+Med den [enhetliga aviserings upplevelsen](./alerts-overview.md) i Azure Monitor kan du se alla olika typer av aviseringar i Azure. Detta omfattar flera prenumerationer i ett enda fönster. Den här artikeln visar hur du kan visa dina aviserings instanser och hur du hittar vissa aviserings instanser för fel sökning.
 
 > [!NOTE]
 > Du kan endast få åtkomst till aviseringar som genererats under de senaste 30 dagarna.
@@ -54,5 +54,4 @@ Förutom de filter som är tillgängliga på föregående sida kan du också fil
 
 Om du väljer en varnings instans öppnas sidan **aviserings information** , så att du kan se mer information om den aktuella aviserings instansen.   
 
-![Skärm bild av sidan med aviserings information](media/alerts-managing-alert-instances/alert-details.jpg)  
-
+![Skärm bild av sidan med aviserings information](media/alerts-managing-alert-instances/alert-details.jpg)

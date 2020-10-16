@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: ba51c96e3195f75a0ccf49baded67737f4665615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 485b14f85d68290c5447c885b9bc4974318f7952
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077746"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103738"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Kom igång med Azure Data Lake Storage Gen1 med Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "89077746"
 
 Lär dig hur du använder Azure PowerShell för att skapa ett Azure Data Lake Storage Gen1 konto och utföra grundläggande åtgärder som att skapa mappar, ladda upp och hämta filer, ta bort ditt konto, osv. Mer information om Data Lake Storage Gen1 finns i [Översikt över data Lake Storage gen1](data-lake-store-overview.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -36,7 +36,7 @@ Lär dig hur du använder Azure PowerShell för att skapa ett Azure Data Lake St
 
 ## <a name="authentication"></a>Autentisering
 
-Den här artikeln använder en enklare metod för autentisering med Data Lake Storage Gen1 där du uppmanas att ange dina autentiseringsuppgifter för Azure-kontot. Åtkomst nivån för Data Lake Storage Gen1 konto och fil system styrs sedan av åtkomst nivån för den inloggade användaren. Det finns dock andra metoder att autentisera med Data Lake Storage Gen1, som är autentisering med slutanvändare eller tjänst-till-tjänst-autentisering. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
+Den här artikeln använder en enklare metod för autentisering med Data Lake Storage Gen1 där du uppmanas att ange dina autentiseringsuppgifter för Azure-kontot. Åtkomst nivån för Data Lake Storage Gen1 konto och fil system styrs sedan av åtkomst nivån för den inloggade användaren. Det finns dock andra metoder att autentisera med Data Lake Storage Gen1, som är autentisering med slutanvändare eller tjänst-till-tjänst-autentisering. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Skapa ett Data Lake Storage Gen1-konto
 

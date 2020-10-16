@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 0fa836ea31793d9177ad6e838ddea1516bf51733
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e319cf9dfc01546607e20572c5bf4930fd974c75
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191395"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104044"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Åtkomst Azure Data Lake Storage Gen1 från virtuella datorer i ett Azure VNET
 Azure Data Lake Storage Gen1 är en PaaS-tjänst som körs på offentliga Internet-IP-adresser. Alla servrar som kan ansluta till det offentliga Internet kan vanligt vis ansluta till Azure Data Lake Storage Gen1 slut punkter. Som standard har alla virtuella datorer som finns i Azure virtuella nätverk åtkomst till Internet och kan därför komma åt Azure Data Lake Storage Gen1. Det är dock möjligt att konfigurera virtuella datorer i ett virtuellt nätverk till att inte ha åtkomst till Internet. För sådana virtuella datorer är även åtkomst till Azure Data Lake Storage Gen1 begränsad. Det går att blockera offentlig Internet åtkomst för virtuella datorer i Azure virtuella nätverk med någon av följande metoder:
@@ -46,7 +46,7 @@ Aliases:  mydatastore.azuredatalakestore.net
 
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-nsg"></a>Aktivera anslutning från virtuella datorer som är begränsade med NSG
-När en NSG-regel används för att blockera åtkomst till Internet, kan du skapa en annan NSG som ger åtkomst till Data Lake Storage Gen1 IP-adress. Mer information om NSG-regler finns i [Översikt över nätverks säkerhets grupper](../virtual-network/security-overview.md). Instruktioner för hur du skapar NSG: er finns i [så här skapar du en nätverks säkerhets grupp](../virtual-network/tutorial-filter-network-traffic.md).
+När en NSG-regel används för att blockera åtkomst till Internet, kan du skapa en annan NSG som ger åtkomst till Data Lake Storage Gen1 IP-adress. Mer information om NSG-regler finns i [Översikt över nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md). Instruktioner för hur du skapar NSG: er finns i [så här skapar du en nätverks säkerhets grupp](../virtual-network/tutorial-filter-network-traffic.md).
 
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-udr-or-expressroute"></a>Aktivera anslutning från virtuella datorer som är begränsade med UDR eller ExpressRoute
 När vägar, antingen UDR eller BGP-utbytta vägar, används för att blockera åtkomst till Internet, måste en särskild väg konfigureras så att virtuella datorer i dessa undernät kan komma åt Data Lake Storage Gen1 slut punkter. Mer information finns i [Översikt över användardefinierade vägar](../virtual-network/virtual-networks-udr-overview.md). Instruktioner om hur du skapar UDR finns i [skapa UDR i Resource Manager](../virtual-network/tutorial-create-route-table-powershell.md).
@@ -57,4 +57,3 @@ När en ExpressRoute-krets konfigureras kan de lokala servrarna komma åt Data L
 ## <a name="see-also"></a>Se även
 * [Översikt över Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Skydda data som lagras i Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
-

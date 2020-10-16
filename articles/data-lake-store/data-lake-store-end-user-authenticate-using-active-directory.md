@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: 0dd5d1da41c5fcc596e4c70f797e75c30997ce0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5272f7d580a3f8a68afda9150a1e95c1807eba6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578554"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103789"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Azure Data Lake Storage Gen1 använder Azure Active Directory för autentisering
 
 Båda dessa alternativ resulterar i att ditt program tillhandahålls med en OAuth 2,0-token som kopplas till varje begäran som görs till Data Lake Storage Gen1 eller Azure Data Lake Analytics.
 
-Den här artikeln handlar om hur du skapar ett **internt Azure AD-program för**slutanvändare-autentisering. Instruktioner för Azure AD-programkonfiguration för tjänst-till-tjänst-autentisering finns i [tjänst-till-tjänst-autentisering med data Lake Storage gen1 som använder Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
+Den här artikeln handlar om hur du skapar ett **internt Azure AD-program för**slutanvändare-autentisering. Instruktioner för Azure AD-programkonfiguration för tjänst-till-tjänst-autentisering finns i [tjänst-till-tjänst-autentisering med data Lake Storage gen1 som använder Azure Active Directory](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).

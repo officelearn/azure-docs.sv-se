@@ -3,12 +3,12 @@ title: Bästa praxis
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849497"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102786"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -63,7 +63,7 @@ När du skapar en Azure Batch-pool med den virtuella dator konfigurationen anger
 
 ### <a name="third-party-images"></a>Avbildningar från tredje part
 
-Pooler kan skapas med avbildningar från tredje part som publicerats på Azure Marketplace. Med batch-konton för användar prenumerations läge kan du se felet "tilldelningen misslyckades på grund av kontroll av marknads plats inköp" när du skapar en pool med vissa avbildningar från tredje part. För att lösa det här felet accepterar du villkoren som anges av avbildningens utgivare. Du kan göra det med hjälp av [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) eller [Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms).
+Pooler kan skapas med avbildningar från tredje part som publicerats på Azure Marketplace. Med batch-konton för användar prenumerations läge kan du se felet "tilldelningen misslyckades på grund av kontroll av marknads plats inköp" när du skapar en pool med vissa avbildningar från tredje part. För att lösa det här felet accepterar du villkoren som anges av avbildningens utgivare. Du kan göra det med hjälp av [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) eller [Azure CLI](/cli/azure/vm/image/terms).
 
 ### <a name="azure-region-dependency"></a>Azure-region beroende
 
@@ -173,7 +173,7 @@ När du har överfört mallen till den nya regionen måste du återskapa certifi
 
 Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutning
 
 Läs följande vägledning när du överväger anslutningen i dina batch-lösningar.
 

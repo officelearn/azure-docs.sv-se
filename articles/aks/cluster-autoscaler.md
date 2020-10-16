@@ -4,12 +4,12 @@ description: Lär dig hur du använder kluster autoskalning för att automatiskt
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7368745d3b6bf9731f987d6f4fc36b81d354fed8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88257510"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103874"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala ett kluster automatiskt för att uppfylla programbehov i Azure Kubernetes Service (AKS)
 
@@ -135,18 +135,8 @@ Du kan också konfigurera mer detaljerad information om klustrets autoskalning g
 
 > [!IMPORTANT]
 > Klustrets profil för autoskalning påverkar alla resurspooler som använder klustrets autoskalning. Det går inte att ange en autoskalning-profil per Node-pool.
-
-### <a name="install-aks-preview-cli-extension"></a>Installera CLI-tillägget aks-preview
-
-Om du vill ställa in profil för automatisk skalnings profil för klustret behöver du *AKS-Preview CLI-* tillägg version 0.4.30 eller högre. Installera *AKS-Preview* Azure CLI-tillägget med kommandot [AZ Extension Add][az-extension-add] och Sök efter eventuella tillgängliga uppdateringar med kommandot [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+>
+> Klustrets profil för autoskalning kräver version *2.11.1* eller senare av Azure CLI. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Ställ in klustrets profil för autoskalning i ett befintligt AKS-kluster
 

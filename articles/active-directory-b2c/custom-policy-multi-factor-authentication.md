@@ -7,46 +7,40 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 69096e5f650a131c5af7ec4da60b7cbca225a56f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e328caa80a0e63f68f2563bc91a6405341ad064e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116608"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102076"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Aktivera Multi-Factor Authentication i Azure Active Directory B2C
 
 Azure Active Directory B2C (Azure AD B2C) integreras direkt med [Azure-Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) så att du kan lägga till ett andra säkerhets lager till inloggnings-och inloggnings upplevelser i dina program. Du aktiverar Multi-Factor Authentication utan att skriva en enda rad kod. Om du redan har skapat inloggnings-och inloggnings användar flöden kan du fortfarande aktivera Multi-Factor Authentication.
 
-Den här funktionen hjälper program att hantera scenarier som följande:
+Den här funktionen hjälper program att hantera scenarier som:
 
 - Du behöver inte Multi-Factor Authentication för att komma åt ett program, men du behöver det för att få åtkomst till ett annat. Kunden kan till exempel Logga in på ett program för automatisk försäkring med ett socialt eller lokalt konto, men måste kontrol lera telefonnumret innan du får åtkomst till programmet Home Insurance som är registrerat i samma katalog.
 - Du behöver inte Multi-Factor Authentication för att få åtkomst till ett program i allmänhet, men du behöver det för att få åtkomst till de känsliga delarna i det. Kunden kan till exempel Logga in på ett bank program med ett socialt eller lokalt konto och kontrol lera kontots saldo, men det måste kontrol lera telefonnumret innan du försöker utföra en överföring.
 
 ## <a name="set-multi-factor-authentication"></a>Ange Multi-Factor Authentication
 
-När du skapar ett användar flöde har du möjlighet att aktivera Multi-Factor Authentication.
-
-![Ange Multi-Factor Authentication](./media/custom-policy-multi-factor-authentication/add-policy.png)
-
-Ange **multifaktorautentisering** till **aktive rad**.
+1. Logga in på [Azure-portalen](https://portal.azure.com)
+1. Använd filtret för **katalog + prenumeration** på den översta menyn för att välja den katalog som innehåller Azure AD B2C klient.
+1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
+1. Välj **användar flöden**.
+1. Välj det användar flöde som du vill aktivera MFA för. Till exempel *B2C_1_signinsignup*.
+1. Välj **Egenskaper**.
+1. I avsnittet **multifaktorautentisering** väljer du önskad **MFA-metod**och under **MFA tvång** väljer du **Always on**, eller ** [villkorlig](conditional-access-user-flow.md) (rekommenderas)**. För villkorligt, skapa en [princip för villkorlig åtkomst](conditional-access-identity-protection-setup.md) och ange de appar som du vill att principen ska tillämpas på. 
+1. Välj Spara MFA har nu Aktiver ATS för det här användar flödet.
 
 Du kan använda **Kör användar flöde** för att verifiera upplevelsen. Bekräfta följande scenario:
 
 Ett kund konto skapas i din klient organisation innan Multi-Factor Authentication-steget inträffar. Under steget uppmanas kunden att ange ett telefonnummer och kontrol lera det. Om verifieringen lyckas är telefonnumret kopplat till kontot för senare användning. Även om kunden avbryter eller släpper ut, kan kunden uppmanas att verifiera ett telefonnummer igen vid nästa inloggning med Multi-Factor Authentication aktiverat.
 
-## <a name="add-multi-factor-authentication"></a>Lägg till Multi-Factor Authentication
-
-Det är möjligt att aktivera Multi-Factor Authentication på ett användar flöde som du skapade tidigare.
-
-Så här aktiverar du Multi-Factor Authentication:
-
-1. Öppna användar flödet och välj sedan **Egenskaper**.
-2. Bredvid **multifaktorautentisering**väljer du **aktive rad**.
-3. Klicka på **Spara** längst upp på sidan.
 
 

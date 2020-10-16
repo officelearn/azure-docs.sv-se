@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f67d1bb1e4502d918cd7af6d98ce5ed5f76c969
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273831"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Självstudie: Azure Active Directory integrering med RStudio Connect
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera enkel inloggning med RStudio Connect 
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg och Ersätt `<example.com>` med RStudio Connect-serverns adress och port:
 
-    ![Information om enkel inloggning för RStudio Connect-domän och URL](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<example.com>/__login__/saml`
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera enkel inloggning med RStudio Connect 
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för RStudio Connect-domän och URL](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<example.com>/`
 

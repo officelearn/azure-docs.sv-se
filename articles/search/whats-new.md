@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0df3c6b1851767616111308ad0bacce227ba1a83
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 135e0ccfd9b4681932a9a69df0372aa400933124
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948909"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102582"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -27,7 +27,7 @@ Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sed
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |------------------------------|----------|-------------|---------------|
 | [Hanterad tjänst identitet](search-howto-managed-identities-data-sources.md) | Indexerare, säkerhet | Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sedan RBAC-behörigheter för att bevilja åtkomst till Azure-datakällor. Den här metoden eliminerar behovet av autentiseringsuppgifter för anslutnings strängen. <br><br>Ett annat sätt att använda en hanterad tjänst identitet är via ett [betrott undantag](search-indexer-howto-access-trusted-service-exception.md) om IP-regler inte är ett alternativ. | Allmänt tillgänglig. Använd den här funktionen när du använder portalen eller [skapa data källa (rest)](/rest/api/searchservice/create-data-source) med API-version = 2020-06-30. |
-| [Utgående begär Anden med en privat länk](search-indexer-howto-access-private.md) | Indexerare, säkerhet | Skapa en delad privat länk resurs som indexerare kan använda för att få åtkomst till Azure-resurser som skyddas av en privat Azure-länk. Mer information om alla sätt som du kan använda för att skydda indexerings anslutningar finns i [skydda indexerare-resurser med hjälp av funktioner i Azure nätverks säkerhet](search-indexer-securing-resources.md). | Allmänt tillgänglig. Använd den här funktionen när du använder portalen eller den [delade privata länk resursen](/rest/api/searchmanagement/sharedprivatelinkresources) med API-version = 2020-08-01. |
+| [Utgående begär Anden med en privat länk](search-indexer-howto-access-private.md) | Indexerare, säkerhet | Skapa en delad privat länk resurs som indexerare kan använda för att få åtkomst till Azure-resurser som skyddas av en privat Azure-länk. Mer information om alla sätt som du kan använda för att skydda indexerings anslutningar finns i [indexerare åtkomst till innehåll som skyddas av Azure Network Security-funktioner](search-indexer-securing-resources.md). | Allmänt tillgänglig. Använd den här funktionen när du använder portalen eller den [delade privata länk resursen](/rest/api/searchmanagement/sharedprivatelinkresources) med API-version = 2020-08-01. |
 | [Hanterings REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | Ny stabil REST API ger stöd för att skapa delade privata länk resurser. | Allmänt tillgänglig. |
 | [Hanterings REST API (2020-08-01-för hands version)](/rest/api/searchmanagement/management-api-versions) | REST | Lägger till delad privat länk resurs för Azure Functions och Azure SQL för MySQL-databaser. | Offentlig för hands version. |
 | [Hantering .NET SDK 4,0](/dotnet/api/overview/azure/search/management) | .NET SDK | Azure SDK-uppdatering för hanterings-SDK, riktad REST API version 2020-08-01. | Allmänt tillgänglig. |

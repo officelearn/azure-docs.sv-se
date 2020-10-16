@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 92fd681d05b8e5bd7cf07ecd735acd87698935ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de98e25cf5703a43282e551a0eda20d7767c6ce8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985797"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103636"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Kom igång med Azure Data Lake Storage Gen1 med Azure CLI
 
@@ -26,7 +26,7 @@ ms.locfileid: "85985797"
 
 Lär dig hur du använder Azure CLI för att skapa ett Azure Data Lake Storage Gen1-konto och utföra grundläggande åtgärder, till exempel skapa mappar, ladda upp och hämta filer, ta bort ditt konto, osv. Mer information om Data Lake Storage Gen1 finns i [Översikt över data Lake Storage gen1](data-lake-store-overview.md).
 
-Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Mer information finns i [Översikt över Azure CLI](https://docs.microsoft.com/cli/azure). Du kan också titta på [Azure Data Lake Storage GEN1 CLI-referensen](https://docs.microsoft.com/cli/azure/dls) för en fullständig lista över kommandon och syntax.
+Azure CLI är Azures kommandoradsmiljö för att hantera Azure-resurser. Den kan användas i Mac OS, Linux och Windows. Mer information finns i [Översikt över Azure CLI](/cli/azure). Du kan också titta på [Azure Data Lake Storage GEN1 CLI-referensen](/cli/azure/dls) för en fullständig lista över kommandon och syntax.
 
 
 ## <a name="prerequisites"></a>Krav
@@ -34,11 +34,11 @@ Innan du påbörjar den här artikeln måste du ha:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure CLI** – mer information finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) .
+* **Azure CLI** – mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli) .
 
 ## <a name="authentication"></a>Autentisering
 
-Den här artikeln använder en enklare metod för autentisering med Data Lake Storage Gen1 där du loggar in som slutanvändarens användare. Åtkomst nivån till Data Lake Storage Gen1 kontot och fil systemet styrs sedan av åtkomst nivån för den inloggade användaren. Det finns dock andra metoder att autentisera med Data Lake Storage Gen1, som är **autentisering** med slutanvändare eller **tjänst-till-tjänst-autentisering**. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](data-lake-store-authenticate-using-active-directory.md).
+Den här artikeln använder en enklare metod för autentisering med Data Lake Storage Gen1 där du loggar in som slutanvändarens användare. Åtkomst nivån till Data Lake Storage Gen1 kontot och fil systemet styrs sedan av åtkomst nivån för den inloggade användaren. Det finns dock andra metoder att autentisera med Data Lake Storage Gen1, som är **autentisering** med slutanvändare eller **tjänst-till-tjänst-autentisering**. Instruktioner och mer information om hur du autentiserar finns i [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md) eller [Tjänst-till-tjänst-autentisering](./data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Logga in till din Azure-prenumeration

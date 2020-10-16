@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: db47849575c097cf56824b623dddbb6e0835d1b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5c641ce9b224aecc3d199427bf27b804f7dd2dd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543626"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102093"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>Självstudie: integrera RunMyProcess med Azure Active Directory
 
@@ -96,11 +96,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Klicka på **konto** i den vänstra navigerings panelen och välj **konfiguration**.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+    ![Skärm bild som visar konfigurationen som valts från kontot.](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
 1. Gå till avsnittet **autentiseringsmetod** och utför stegen nedan:
 
-    ![Konfigurera enkel inloggning på appsidan](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
+    ![Skärm bild som visar fliken autentiseringsmetod där du kan ange de värden som beskrivs.](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
     a. Som **metod**väljer du **SSO med Samlv2**.
 

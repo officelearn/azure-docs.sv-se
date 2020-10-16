@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057747"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102501"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
@@ -174,10 +174,7 @@ Om du i stället vill göra ändringar i en modell, t. ex. uppdatering `displayN
 
 #### <a name="model-versioning"></a>Versionshantering för modell
 
-Om du vill skapa en ny version av en befintlig modell börjar du med DTDL för den ursprungliga modellen. Uppdatera de fält som du vill ändra.
-
->[!NOTE]
->Under för hands versionen tillåter en modell version bara att du kan lägga till nya fält, inte ta bort befintliga. Om du vill ta bort fält ska du bara [skapa en helt ny modell](#create-models).
+Om du vill skapa en ny version av en befintlig modell börjar du med DTDL för den ursprungliga modellen. Uppdatera, Lägg till eller ta bort de fält som du vill ändra.
 
 Markera sedan detta som en nyare version av modellen genom att uppdatera `id` fältet i modellen. Det sista avsnittet i modell-ID: t, efter `;` , representerar modell numret. Om du vill visa att det nu är en mer uppdaterad version av den här modellen ökar du talet i slutet av `id` värdet till ett tal som är större än det aktuella versions numret.
 

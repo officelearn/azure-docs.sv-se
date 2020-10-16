@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04dd0ec7c6d3166e2170001d6ff341d203c0d6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256764"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103160"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Program typer för Microsoft Identity Platform
 
@@ -46,7 +46,7 @@ Många moderna appar har en fristående app från en sida som främst är skrive
 
 Flödes diagrammet nedan visar OAuth 2,0-auktoriseringskod (med information kring PKCE utelämnad), där appen tar emot en kod från Microsoft Identity Platform `authorize` -slutpunkten och löser in den för token och uppdaterar token med webb förfrågningar över olika webbplatser. Uppdateringstoken upphör att gälla var 24: e timme och appen måste begära en annan kod. Förutom åtkomst-token `id_token` begär en som representerar den inloggade användaren till klient programmet vanligt vis även genom samma flöde och/eller en separat OpenID Connect-begäran (visas inte här).
 
-![Kod flöde för SPA-appar](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram som visar OAuth 2-auktoriseringskod mellan en app med en enda sida och slut punkten för säkerhetstoken." border="false":::
 
 Om du vill se hur det här scenariot fungerar går du till [självstudien: Logga in användare och anropa Microsoft Graph-API: t från ett Java Script spa med auth Code Flow](tutorial-v2-javascript-auth-code.md).
 

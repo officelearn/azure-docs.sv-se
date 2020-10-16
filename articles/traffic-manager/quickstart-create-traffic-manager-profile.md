@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: skapa en profil för HA med program – Azure Portal – Azure Traffic Manager'
-description: I den här snabbstartsartikeln beskrivs hur du skapar en Traffic Manager-profil för att bygga en webbapp med hög tillgänglighet.
+description: Den här snabb starten beskriver hur du skapar en Traffic Manager-profil för att skapa ett webb program med hög tillgänglighet med hjälp av Azure Portal.
 services: traffic-manager
 author: duongau
 manager: twooley
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 10/15/2020
 ms.author: duau
-ms.openlocfilehash: 7a347d5cd72fcf955dae0aa8319632fdb43d3bf7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 45489d3500a4a744f2aeb34dc21122d180797133
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89400270"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101336"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Snabb start: skapa en Traffic Manager profil med hjälp av Azure Portal
 
@@ -27,41 +27,42 @@ I den här snabbstarten läser du om två instanser av en webbapp. Var och en av
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) nu.
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
-
-Logga in på [Azure Portal](https://portal.azure.com).
-
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten behöver du två instanser av en webbapp som distribuerats i två olika Azure-regioner (*USA, östra* och *Europa, västra*). Var och en av dessa kommer att fungera som primär- och redundansslutpunkter för Traffic Manager.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **webb**  >  **webbapp**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**. Sök efter **webbapp** och välj **skapa**.
 
 1. I **skapa en webbapp**skriver eller väljer du följande värden på fliken **grundläggande** :
 
-   - **Prenumeration**  >  **Resurs grupp**: Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
-   - **Instans information**  >  **Namn**: Skriv *myWebAppEastUS*.
-   - **Instans information**  >  **Publicera**: Välj **kod**.
-   - **Instans information**  >  **Körnings stack**: Välj **ASP.net v 4.7**
-   - **Instans information**  >  **Operativ system**: Välj **Windows**.
-   - **Instans information**  >  **Region**: Välj **USA, östra**.
-   - **App Service plan**  >  **Windows-plan (USA, östra)**: Välj **Skapa ny** och skriv sedan **myAppServicePlanEastUS**
-   - **App Service plan**  >  **SKU och storlek**: Välj **standard S1**.
+    | Inställning                 | Värde |
+    | ---                     | --- |
+    | Prenumeration            | Välj din prenumeration. |    
+    | Resursgrupp          | Välj **Skapa nytt** och ange *myResourceGroupTM1* i text rutan.|
+    | Namn                    | Ange ett unikt **namn** för din webbapp. I det här exemplet används *myWebAppEastUS*. |
+    | Publicera                 | Välj **Kod**. |
+    | Körnings stack           | Välj **ASP.net v 4.7**. |
+    | Operativsystem        | Välj **Windows**. |
+    | Region                  | Välj **USA, östra**. |
+    | Windows-plan            | Välj **Skapa nytt** och ange *myAppServicePlanEastUS* i text rutan. |
+    | SKU och storlek            | Välj **standard S1 100 totalt ACU, 1,75 GB minne**. |
    
-3. Välj fliken **övervakning** eller Välj **Nästa: övervakning**.  Under **övervakning**, ange **Application Insights**  >  **Aktivera Application Insights** till **Nej**.
+1. Välj fliken **övervakning** eller Välj **Nästa: övervakning**.  Under **övervakning**, ange **Application Insights**  >  **Aktivera Application Insights** till **Nej**.
 
-4. Välj **Granska och skapa**
+1. Välj **Granska och skapa**.
 
-5. Granska inställningarna och klicka sedan på **skapa**.  När webbappen har distribuerats skapar den en standardwebbplats.
+1. Granska inställningarna och välj sedan **Skapa**.  När webbappen har distribuerats skapar den en standardwebbplats.
 
-6. Följ stegen för att skapa en andra webbapp med namnet *myWebAppWestEurope*, med **resurs grupp** namnet *MyResourceGroupTM2*, en **region** i *Västeuropa*, ett **App Service plan** namn för **myAppServicePlanWestEurope**och alla andra inställningar på samma sätt som *myWebAppEastUS*.
+1. Följ steg 1-6 för att skapa en andra webbapp med namnet *myWebAppWestEurope*. **Resurs gruppens** namn är *MyResourceGroupTM2*, med **regionen** *Västeuropa*och **App Service plan** namn för **myAppServicePlanWestEurope**. Alla andra inställningar är samma som *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
 Skapa en Traffic Manager-profil som dirigerar användartrafik baserat på slutpunktsprioritet.
 
-1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profilen**.
-2. I **Skapa Traffic Manager-profil** anger eller väljer du de här inställningarna:
+1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**. Sök sedan efter **Traffic Manager profil** och välj **skapa**.
+1. I **Skapa Traffic Manager-profil** anger eller väljer du de här inställningarna:
 
     | Inställning | Värde |
     | --------| ----- |
@@ -71,16 +72,19 @@ Skapa en Traffic Manager-profil som dirigerar användartrafik baserat på slutpu
     | Resursgrupp | Välj *myResourceGroupTM1*.|
     | Plats |Den här inställningen refererar till platsen för resursgruppen. Den har ingen effekt på den Traffic Manager-profil som ska distribueras globalt.|
 
-3. Välj **Skapa**.
+1. Välj **Skapa**.
 
 ## <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
 
 Lägg till webbplatsen i *USA, östra* som primär slutpunkt för att dirigera all användartrafik. Lägg till webbplatsen i *Europa, västra* som en redundansslutpunkt. När den primära slutpunkten inte är tillgänglig dirigeras trafiken automatiskt till redundansslutpunkten.
 
 1. I portalens sökfält anger du det Traffic Manager-profilnamn som du skapade i föregående avsnitt.
-2. Välj profilen bland sökresultatet.
-3. I **Traffic Manager-profil** går du till avsnittet **Inställningar** och väljer **Slutpunkter** följt av **Lägg till**.
-4. Ange eller välj de här inställningarna:
+1. Välj profilen bland sökresultatet.
+1. I **Traffic Manager-profil** går du till avsnittet **Inställningar** och väljer **Slutpunkter** följt av **Lägg till**.
+
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-endpoint-menu.png" alt-text="Slut punkts inställningar i Traffic Managers profil":::
+
+1. Ange eller välj de här inställningarna:
 
     | Inställning | Värde |
     | ------- | ------|
@@ -90,10 +94,10 @@ Lägg till webbplatsen i *USA, östra* som primär slutpunkt för att dirigera a
     | Målresurs | Välj **Välj en app service**  >  **östra USA**. |
     | Prioritet | Välj **1**. All trafik skickas till den här slutpunkten när den är felfri. |
 
-    ![Skärmbild av det ställe där du lägger till en slutpunkt i Traffic Manager-profilen.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
-
-5. Välj **OK**.
-6. För att skapa en redundansslutpunkt för din andra Azure-region upprepar du steg 3 och 4 med de här inställningarna:
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png" alt-text="Slut punkts inställningar i Traffic Managers profil":::
+    
+1. Välj **OK**.
+1. För att skapa en redundansslutpunkt för din andra Azure-region upprepar du steg 3 och 4 med de här inställningarna:
 
     | Inställning | Värde |
     | ------- | ------|
@@ -103,7 +107,7 @@ Lägg till webbplatsen i *USA, östra* som primär slutpunkt för att dirigera a
     | Målresurs | Välj **Välj en app service**  >  **Västeuropa**. |
     | Prioritet | Välj **2**. All trafik skickas till den här redundansslutpunkten om den primära slutpunkten är skadad. |
 
-7. Välj **OK**.
+1. Välj **OK**.
 
 När du är klar med att lägga till de två slutpunkterna visas de i **Traffic Manager-profilen**. Observera att deras övervakningsstatus är **Online** nu.
 
@@ -114,10 +118,10 @@ I det här avsnittet kontrollerar domännamnet för Traffic Manager-profilen. Du
 ### <a name="check-the-dns-name"></a>Kontrollera DNS-namnet
 
 1. I portalens sökfält söker du efter det **Traffic Manager-profil**namn som du skapade i föregående avsnitt.
-2. Välj Traffic Manager-profilen. **Översikten** visas.
-3. **Traffic Manager-profilen** visar DNS-namnet på din nyligen skapade Traffic Manager-profil.
+1. Välj Traffic Manager-profilen. **Översikten** visas.
+1. **Traffic Manager-profilen** visar DNS-namnet på din nyligen skapade Traffic Manager-profil.
   
-   ![Skärmbild av platsen för ditt Traffic Manager DNS-namn](./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png)
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-dns-name.png" alt-text="Slut punkts inställningar i Traffic Managers profil":::
 
 ### <a name="view-traffic-manager-in-action"></a>Se hur Traffic Manager fungerar i praktiken
 
@@ -126,14 +130,14 @@ I det här avsnittet kontrollerar domännamnet för Traffic Manager-profilen. Du
     > [!NOTE]
     > I det här snabbstartsscenariot dirigeras alla begäranden till den primära slutpunkten. Den är inställd på **Prioritet 1**.
 
-    ![Skärmbild av webbplatsen för att bekräfta tillgängligheten för Traffic Manager-profil](./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png)
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-test.png" alt-text="Slut punkts inställningar i Traffic Managers profil":::
 
-2. För att se hur Traffic Manager-redundans fungerar i praktiken inaktiverar du din primära plats:
+1. För att se hur Traffic Manager-redundans fungerar i praktiken inaktiverar du din primära plats:
     1. På Traffic Manager-profilsidan går du till avsnittet **Översikt** och väljer **myPrimaryEndpoint**.
-    2. I *myPrimaryEndpoint* väljer du **Inaktiverad** > **Spara**.
-    3. Stäng **myPrimaryEndpoint**. Lägg märke till att statusen är **Inaktiverad** nu.
-3. Kopiera DNS-namnet för din Traffic Manager-profil från det föregående steget för att visa webbplatsen i en ny webbläsarsession.
-4. Kontrollera att webbappen fortfarande är tillgänglig.
+    1. I *myPrimaryEndpoint* väljer du **Inaktiverad** > **Spara**.
+    1. Stäng **myPrimaryEndpoint**. Lägg märke till att statusen är **Inaktiverad** nu.
+1. Kopiera DNS-namnet för din Traffic Manager-profil från det föregående steget för att visa webbplatsen i en ny webbläsarsession.
+1. Kontrollera att webbappen fortfarande är tillgänglig.
 
 Den primära slutpunkten är inte tillgänglig, så du dirigerades till redundansslutpunkten.
 

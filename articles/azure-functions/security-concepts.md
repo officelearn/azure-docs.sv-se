@@ -3,12 +3,12 @@ title: Skydda Azure Functions
 description: Lär dig mer om hur du gör funktions koden igång i Azure säkrare från vanliga attacker.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 470ee517b929b7327df76963e21c88db21d363da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761421"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102314"
 ---
 # <a name="securing-azure-functions"></a>Skydda Azure Functions
 
@@ -24,7 +24,7 @@ I det här avsnittet får du hjälp med att konfigurera och köra din Function-a
 
 ### <a name="security-center"></a>Security Center
 
-Security Center integreras med din Function-app i portalen. Det ger kostnads fri en snabb utvärdering av potentiella konfigurations problem som rör säkerhets risker. Funktions appar som körs i en dedikerad plan kan också använda real tids säkerhetsfunktioner i Security Center, för en ytterligare kostnad. Mer information finns i [skydda dina Azure App Service-webbappar och API: er](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction). 
+Security Center integreras med din Function-app i portalen. Det ger kostnads fri en snabb utvärdering av potentiella konfigurations problem som rör säkerhets risker. Funktions appar som körs i en dedikerad plan kan också använda real tids säkerhetsfunktioner i Security Center, för en ytterligare kostnad. Mer information finns i [skydda dina Azure App Service-webbappar och API: er](../security-center/defender-for-app-service-introduction.md). 
 
 ### <a name="log-and-monitor"></a>Logga och övervaka
 
@@ -58,7 +58,7 @@ System nycklarnas omfattning bestäms av tillägget, men det gäller vanligt vis
 
 I följande tabell jämförs användningen av olika typer av åtkomst nycklar:
 
-| Action                                        | Omfång                    | Giltiga nycklar         |
+| Åtgärd                                        | Omfång                    | Giltiga nycklar         |
 |-----------------------------------------------|--------------------------|--------------------|
 | Köra en funktion                            | Speciell funktion        | Funktion           |
 | Köra en funktion                            | Alla funktioner             | Funktion eller värd   |

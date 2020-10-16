@@ -9,18 +9,19 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: fc12978e59ecc3ebcc58d4070fa057f9a53fda58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d2185509631bf03717e418e485cfcaad1e21c63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275293"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102701"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Konfigurera en Indexer-anslutning till en Cosmos DB-databas med hjälp av en hanterad identitet
 
 Den här sidan beskriver hur du konfigurerar en Indexer-anslutning till en Azure Cosmos DB-databas med hjälp av en hanterad identitet i stället för att ange autentiseringsuppgifter i anslutnings strängen för data käll objekt.
 
 Innan du lär dig mer om den här funktionen rekommenderar vi att du har en förståelse för vad en indexerare är och hur du konfigurerar en indexerare för din data källa. Mer information finns på följande länkar:
+
 * [Översikt över indexeraren](search-indexer-overview.md)
 * [Azure Cosmos DB-indexeraren](search-howto-index-cosmosdb.md)
 
@@ -79,7 +80,7 @@ api-key: [Search service admin key]
 
 Bröd texten i begäran innehåller definitionen av data källan, som ska innehålla följande fält:
 
-| Field   | Beskrivning |
+| Fält   | Beskrivning |
 |---------|-------------|
 | **Namn** | Krävs. Välj ett namn som ska representera ditt data käll objekt. |
 |**bastyp**| Krävs. Måste vara `cosmosdb` . |
@@ -143,9 +144,8 @@ Om du upptäcker att du inte kan indexera data från Cosmos DB bör du tänka p�
 
 1. Om du nyligen har roterat dina Cosmos DB konto nycklar måste du vänta upp till 15 minuter för att anslutnings strängen för den hanterade identiteten ska fungera.
 
-1. Kontrol lera om det Cosmos DB kontot har åtkomst begränsad till Välj nätverk. Om det gör det, se [indexerare åtkomst till data källor med hjälp av funktioner i Azure nätverks säkerhet](search-indexer-securing-resources.md).
+1. Kontrol lera om det Cosmos DB kontot har åtkomst begränsad till Välj nätverk. Om det gör det, se [indexerare åtkomst till innehåll som skyddas av Azure Network Security-funktioner](search-indexer-securing-resources.md).
 
-## <a name="see-also"></a>Se även
+## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Cosmos DB indexerare:
 * [Azure Cosmos DB-indexeraren](search-howto-index-cosmosdb.md)

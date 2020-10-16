@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffd00ace0445b1b8cc13881834d7759aa217c4c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5b2364328fc4e0103b969f94a4c877a388edb7c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020974"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103619"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Konto hanterings åtgärder på Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig hur du utför konto hanterings åtgärder 
 
 Instruktioner för hur du utför data hanterings åtgärder på Data Lake Storage Gen1 med .NET SDK finns i avsnittet [om fil Systems åtgärder på data Lake Storage gen1 med .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Visual Studio 2013 eller senare**. Anvisningarna nedan använder Visual Studio 2019.
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -144,7 +144,7 @@ _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## <a name="see-also"></a>Se även
 * [Fil Systems åtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-data-operations-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Data Lake Storage Gen1 .NET SDK-referens](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)

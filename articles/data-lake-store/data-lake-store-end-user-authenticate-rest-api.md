@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 84e85e6e817972b8ec0bee0e8b441b3585d2d9dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462cd06c9da3b1f0a57c293d52c59181372b709b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85984859"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103755"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med hjälp av REST API
 > [!div class="op_single_selector"]
@@ -82,11 +82,10 @@ I det här scenariot uppmanar programmet användaren att logga in och alla åtg�
          -F refresh_token=<REFRESH-TOKEN>
     ```
 
-Mer information om interaktiv användarautentisering finns i [Flöde beviljat med auktoriseringskod](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+Mer information om interaktiv användarautentisering finns i [Flöde beviljat med auktoriseringskod](/previous-versions/azure/dn645542(v=azure.100)).
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du använder tjänst-till-tjänst-autentisering för att autentisera med Azure Data Lake Storage Gen1 med hjälp av REST API. Nu kan du titta på följande artiklar som talar om hur du använder REST API för att arbeta med Azure Data Lake Storage Gen1.
 
 * [Konto hanterings åtgärder på Data Lake Storage Gen1 med REST API](data-lake-store-get-started-rest-api.md)
 * [Data åtgärder på Data Lake Storage Gen1 med REST API](data-lake-store-data-operations-rest-api.md)
-

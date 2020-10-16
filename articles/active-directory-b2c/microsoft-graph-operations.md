@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d898d3825fa40cbfd13337067c24cf14f9a544
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78184256"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102025"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Microsoft Graph åtgärder som är tillgängliga för Azure AD B2C
 
@@ -33,6 +33,15 @@ Varje länk i följande avsnitt riktar sig mot motsvarande sida i Microsoft Grap
 - [Ta bort en användare](https://docs.microsoft.com/graph/api/user-delete)
 
 Mer information om hur du hanterar Azure AD B2C användar konton med Microsoft Graph-API finns i [hantera Azure AD B2C användar konton med Microsoft Graph](manage-user-accounts-graph-api.md).
+
+## <a name="user-phone-number-management"></a>Hantering av användar telefonnummer
+
+- [Lägg till](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
+- [Ta](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
+- [Uppdatera](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
+- [Ta bort](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+
+Mer information om hur du hanterar användares inloggnings telefonnummer med Microsoft Graph-API finns i [B2C-autentiseringsmetoder](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## <a name="identity-providers-user-flow"></a>Identitets leverantörer (användar flöde)
 
@@ -98,7 +107,7 @@ Resursen på den översta nivån för princip nycklar i Microsoft Graph API är 
 
 - [Egenskaper för List tillägg](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
 
-Azure AD B2C tillhandahåller en katalog som kan innehålla 100 anpassade attribut per användare. För användar flöden hanteras de här tilläggs egenskaperna [med hjälp av Azure Portal](custom-policy-custom-attributes.md). För anpassade principer skapar Azure AD B2C egenskapen åt dig första gången principen skriver ett värde för egenskapen Extension.
+Azure AD B2C tillhandahåller en katalog som kan innehålla 100 anpassade attribut per användare. För användar flöden hanteras de här tilläggs egenskaperna [med hjälp av Azure Portal](custom-policy-custom-attributes.md). För anpassade principer skapar Azure AD B2C egenskapen åt dig, första gången principen skriver ett värde för egenskapen Extension.
 
 ## <a name="audit-logs"></a>Granskningsloggar
 

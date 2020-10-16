@@ -4,12 +4,12 @@ description: Lär dig mer om schemat för JSON som publiceras i en webhook-URL n
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: 018bf7ac9c24669df798e9ba05c667dcb72d94a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ebaf7f0cc52ac131573226dfff5516581745c67
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321844"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104282"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhookar för Azure aktivitets logg aviseringar
 Som en del av definitionen av en åtgärds grupp kan du konfigurera webhook-slutpunkter för att ta emot aviseringar om aktivitets logg aviseringar. Med Webhooks kan du dirigera dessa meddelanden till andra system för efter bearbetning eller anpassade åtgärder. Den här artikeln visar vad nytto lasten för HTTP-inlägget till en webhook ser ut.
@@ -19,7 +19,7 @@ Mer information om aktivitets logg aviseringar finns i så här [skapar du Azure
 Information om åtgärds grupper finns i så här [skapar du åtgärds grupper](./action-groups.md).
 
 > [!NOTE]
-> Du kan också använda det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs), vilket ger fördelarna med att ha en enda utöknings bar och enhetlig aviserings nytto Last i alla aviserings tjänster i Azure Monitor, för dina webhook-integrationer. [Lär dig mer om vanliga aviserings schema definitioner.](https://aka.ms/commonAlertSchemaDefinitions)
+> Du kan också använda det [vanliga aviserings schemat](./alerts-common-schema.md), vilket ger fördelarna med att ha en enda utöknings bar och enhetlig aviserings nytto Last i alla aviserings tjänster i Azure Monitor, för dina webhook-integrationer. [Lär dig mer om vanliga aviserings schema definitioner.](./alerts-common-schema-definitions.md)
 
 
 ## <a name="authenticate-the-webhook"></a>Autentisera webhooken
@@ -292,4 +292,3 @@ En detaljerad schema information om alla andra aktivitets logg aviseringar finns
 * [Använd en Logic app för att skicka ett SMS via Twilio från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Det här exemplet är för mått varningar, men det kan ändras för att fungera med en aktivitets logg avisering.
 * [Använd en Logic app för att skicka ett slack-meddelande från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Det här exemplet är för mått varningar, men det kan ändras för att fungera med en aktivitets logg avisering.
 * [Använd en Logic app för att skicka ett meddelande till en Azure-kö från en Azure-avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app). Det här exemplet är för mått varningar, men det kan ändras för att fungera med en aktivitets logg avisering.
-

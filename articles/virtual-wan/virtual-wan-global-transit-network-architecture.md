@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 63a9c3a6c23d78411c04250359dac3c3aacde2ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212702"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102331"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring av nätverks arkitektur och virtuellt WAN
 
@@ -43,7 +43,7 @@ Azure Virtual WAN möjliggör en global överförings nätverks arkitektur genom
 
 **Bild 2: globalt överförings nätverk och virtuellt WAN**
 
-I Azure Virtual WAN-arkitekturen är virtuella WAN-hubbar etablerade i Azure-regioner, som du kan välja att ansluta dina grenar, virtuella nätverk och fjärran vändare till. De fysiska gren platserna är anslutna till hubben med Premium-ExpressRoute eller plats-till-plats-VPN, virtuella nätverk är anslutna till hubben via VNet-anslutningar och fjärran vändare kan ansluta direkt till hubben med hjälp av användarens VPN (punkt-till-plats-VPN). Virtual WAN stöder även VNet-anslutning över flera regioner där ett VNet i en region kan anslutas till en virtuell WAN-hubb i en annan region.
+I Azure Virtual WAN-arkitekturen är virtuella WAN-hubbar etablerade i Azure-regioner, som du kan välja att ansluta dina grenar, virtuella nätverk och fjärran vändare till. De fysiska gren platserna är anslutna till hubben från Premium-eller standard-ExpressRoute eller plats-till-plats-VPN, virtuella nätverk är anslutna till hubben via VNet-anslutningar och fjärran vändare kan ansluta direkt till hubben med hjälp av användarens VPN (punkt-till-plats-VPN). Virtual WAN stöder även VNet-anslutning över flera regioner där ett VNet i en region kan anslutas till en virtuell WAN-hubb i en annan region.
 
 Du kan upprätta ett virtuellt WAN-nätverk genom att skapa en enda virtuell WAN-hubb i den region som har det största antalet ekrar (grenar, virtuella nätverk, användare) och sedan ansluta de ekrar som finns i andra regioner till hubben. Det här är ett användbart alternativ när ett företags avtryck huvudsakligen finns i en region med några få fjärrekers.  
   
@@ -87,7 +87,7 @@ Branch-till-VNet är den primära sökvägen som stöds av Azure Virtual WAN. Me
 
 ### <a name="expressroute-global-reach-and-virtual-wan"></a>ExpressRoute Global Reach och virtuellt WAN
 
-ExpressRoute är ett privat och flexibelt sätt att ansluta dina lokala nätverk till Microsoft Cloud. Virtuellt WAN stöder Express Route-anslutningar. Anslutning av en förgrenings plats till ett virtuellt WAN med Express Route kräver 1) krets för att vara på en Global Reach aktive rad plats.
+ExpressRoute är ett privat och flexibelt sätt att ansluta dina lokala nätverk till Microsoft Cloud. Virtuellt WAN stöder Express Route-anslutningar. Anslutning av en lokal plats till ett virtuellt WAN med Express Route kräver 1) krets för Premium eller standard krets 2) för att vara på en Global Reach aktive rad plats.
 
 ExpressRoute Global Reach är en tilläggs funktion för ExpressRoute. Med Global Reach kan du länka ExpressRoute-kretsar tillsammans för att skapa ett privat nätverk mellan dina lokala nätverk. Grenar som är anslutna till Azure Virtual WAN med ExpressRoute kräver att ExpressRoute-Global Reach kommunicerar med varandra.
 

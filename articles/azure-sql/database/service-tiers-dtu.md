@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848865"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103007"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i en DTU-baserad inköpsmodell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,9 +40,9 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 |**SLA för drift tid**|99,99 %|99,99 %|99,99 %|
 |**Högsta kvarhållning av säkerhets kopior**|7 dagar|35 dagar|35 dagar|
 |**Processor**|Låg|Låg, medel, hög|Medel, hög|
-|**IOPS (ungefärlig)**\* |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|**IOPS (ungefärlig)**\* |1-4 IOPS per DTU| 1-4 IOPS per DTU | 25 IOPS per DTU|
 |**I/o-latens (ungefärligt)**|5 ms (läsning), 10 ms (Skriv)|5 ms (läsning), 10 ms (Skriv)|2 ms (Läs/skriv)|
-|**Columnstore-indexering** |E.t.|S3 och högre|Stöds|
+|**Columnstore-indexering** |Saknas|S3 och högre|Stöds|
 |**Minnesintern OLTP**|Saknas|Saknas|Stöds|
 
 \* Alla Läs-och skriv-IOPS mot datafiler, inklusive Background IO (Checkpoint och Lazy Writer)

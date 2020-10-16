@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22511717b6a86f9e0cf53986152c4d6bab68780
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273304"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101774"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Salesforce för automatisk användar etablering
 
@@ -77,15 +77,15 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 6. Om du vill hämta din Salesforce-säkerhetstoken öppnar du en ny flik och loggar in på samma Salesforce-administratörskonto. Klicka på ditt namn i det övre högra hörnet på sidan och klicka sedan på **Inställningar**.
 
-    ![Aktivera automatisk användar etablering](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Aktivera automatisk användar etablering")
+    ![Skärm bild som visar länken Inställningar valda.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Aktivera automatisk användar etablering")
 
 7. I det vänstra navigerings fönstret klickar du på **Mina personliga uppgifter** för att expandera det relaterade avsnittet och klicka sedan på **Återställ min säkerhetstoken**.
   
-    ![Aktivera automatisk användar etablering](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Aktivera automatisk användar etablering")
+    ![Skärm bild som visar Återställ min säkerhetstoken som valts från min personliga information.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Aktivera automatisk användar etablering")
 
 8. På sidan **Återställ** säkerhetstoken klickar du på knappen **Återställ säkerhetstoken** .
 
-    ![Aktivera automatisk användar etablering](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Aktivera automatisk användar etablering")
+    ![Skärm bild som visar sidan rest Security token med förklarings text och alternativet att återställa säkerhetstoken](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Aktivera automatisk användar etablering")
 
 9. Kontrol lera e-postinkorgen som är associerad med det här administratörs kontot. Sök efter ett e-postmeddelande från Salesforce.com som innehåller den nya säkerhetstoken.
 

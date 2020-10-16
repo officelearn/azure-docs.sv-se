@@ -1,32 +1,37 @@
 ---
-title: Indexerare som använder säkra resurser via privata slut punkter
+title: Indexerare anslutningar via en privat slut punkt
 titleSuffix: Azure Cognitive Search
-description: Guide som beskriver hur du konfigurerar privata slut punkter för indexerare för att kommunicera med säkra resurser
+description: Konfigurera indexerare-anslutningar för att komma åt innehåll från andra Azure-resurser som skyddas via en privat slut punkt.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: 9ffd7d2513e87f818001d7ccf96212a4dbef7ac2
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: ef8b3865b0914c0d06ff69d20396f1ff368642bc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950150"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102735"
 ---
-# <a name="accessing-secure-resources-via-private-endpoints"></a>Åtkomst till säkra resurser via privata slut punkter
+# <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Indexerare anslutningar via en privat slut punkt (Azure Kognitiv sökning)
 
-Azure-resurser (till exempel lagrings konton som används som data källor) kan konfigureras så att de bara kan nås från en speciell lista över virtuella nätverk. De kan också konfigureras för att inte tillåta åtkomst till "offentligt nätverk".
-Kunder kan begära Azure Kognitiv sökning att skapa en (utgående) [privat slut punkts anslutning](../private-link/private-endpoint-overview.md) för att säkert komma åt data från sådana data källor via indexerare.
+Många Azure-resurser (t. ex. Azure Storage-konton) kan konfigureras för att godkänna anslutningar från en speciell lista över virtuella nätverk och neka externa anslutningar som härstammar från ett offentligt nätverk. Om du använder en indexerare för att indexera data i Azure Kognitiv sökning och data källan finns i ett privat nätverk, kan du skapa en (utgående) [privat slut punkts anslutning](../private-link/private-endpoint-overview.md) för att komma åt data.
+
+Om du vill använda den här anslutnings metoden för indexerare, finns det två krav:
+
++ Azure-resursen som tillhandahåller innehåll eller kod måste registreras tidigare med [tjänsten Azure Private Link](https://azure.microsoft.com/services/private-link/).
+
++ Azure Kognitiv sökning-tjänsten måste vara Basic eller högre (inte tillgänglig på den kostnads fria nivån). För indexerare som har en färdigheter måste Sök tjänsten dessutom vara S2 eller högre. Mer information finns i [tjänst begränsningar](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ## <a name="shared-private-link-resources-management-apis"></a>Delade privat länk resurser hanterings-API: er
 
-Privata slut punkter som skapas av Azure Kognitiv sökning vid kund förfrågan, för att komma åt "säkra" resurser kallas *delade privata länk resurser*. Kunden är "delning"-åtkomst till en resurs (till exempel ett lagrings konto) som har Aktiver ATS till [tjänsten Azure Private Link](https://azure.microsoft.com/services/private-link/).
+Privata slut punkter för skyddade resurser som skapas via Azure Kognitiv sökning API: er kallas *delade privata länk resurser* eftersom du är "delning"-åtkomst till en resurs (till exempel ett lagrings konto) som har varit aktive ras i [Azure Private Link-tjänsten](https://azure.microsoft.com/services/private-link/).
 
-Azure Kognitiv sökning erbjuder via Sök hanterings-API: et, möjligheten att [skapa eller uppdatera delade privata länk resurser](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate). Du kommer att använda det här API: et tillsammans med andra delade administrations-API: er för *privat länk* för att konfigurera åtkomst till en säker resurs från en Azure kognitiv sökning-indexerare.
+Med hjälp av hanterings REST API tillhandahåller Azure Kognitiv sökning en [CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) -åtgärd som du kan använda för att konfigurera åtkomst från en Azure kognitiv sökning-indexerare.
 
-Anslutningar för privata slut punkter till vissa resurser kan bara skapas via för hands versionen av API för Sök hantering ( `2020-08-01-Preview` ), som anges med taggen "Preview" i tabellen nedan. Resurser utan "för hands version"-taggen kan skapas via både för hands versions-API: et och GA API ( `2020-08-01` )
+Anslutningar för privata slut punkter till vissa resurser kan bara skapas med för hands versionen av API för Sök hantering ( `2020-08-01-Preview` eller senare), som anges med taggen "Preview" i tabellen nedan. Resurser utan "för hands version"-taggen kan skapas antingen med hjälp av antingen för hands versionen eller i allmänhet tillgänglig API-version ( `2020-08-01` eller senare).
 
 Här följer en lista över de Azure-resurser som utgående privata slut punkter kan skapas från Azure Kognitiv sökning. `groupId` som anges i tabellen nedan måste användas exakt (Skift läges känsligt) i API: et för att skapa en delad privat länk resurs.
 
@@ -40,23 +45,23 @@ Här följer en lista över de Azure-resurser som utgående privata slut punkter
 | Azure Key Vault | `vault` |
 | Azure Functions (för hands version) | `sites` |
 
-Listan över Azure-resurser för vilka utgående anslutningar för privata slut punkter stöds kan också frågas via den [lista över API: er som stöds](/rest/api/searchmanagement/privatelinkresources/listsupported).
+Listan över Azure-resurser som utgående privata slut punkts anslutningar stöds för kan även frågas med hjälp av den [lista över API som stöds](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-I den här hand boken används en blandning av [ARMClient](https://github.com/projectkudu/ARMClient) och [Postman](https://www.postman.com/) för att demonstrera REST API samtal.
+I den här artikeln används en blandning av [ARMClient](https://github.com/projectkudu/ARMClient) och [Postman](https://www.postman.com/) för att demonstrera REST API samtal.
 
 > [!NOTE]
-> I den här guiden antar vi att namnet på Sök tjänsten är __contoso-search__ som finns i resurs gruppen __contoso__ för en prenumeration med prenumerations-ID __00000000-0000-0000-0000-000000000000__. Resurs-ID för den här Sök tjänsten kommer att `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
+> I den här artikeln förutsätter vi att namnet på Sök tjänsten är __contoso-search__ som finns i resurs gruppen __contoso__ för en prenumeration med prenumerations-ID __00000000-0000-0000-0000-000000000000__. Resurs-ID för den här Sök tjänsten kommer att `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
 
-I resten av hand boken visas hur tjänsten __contoso-search__ kan konfigureras så att dess indexerare kan komma åt data från det säkra lagrings kontot `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage`
+I resten av exemplen visas hur tjänsten __contoso-search__ kan konfigureras så att dess indexerare kan komma åt data från det säkra lagrings kontot `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contoso-storage`
 
 ## <a name="securing-your-storage-account"></a>Skydda ditt lagrings konto
 
-Konfigurera lagrings kontot så att [endast åtkomst från vissa undernät tillåts](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Om du markerar det här alternativet och lämnar inställningen tom via Azure Portal, innebär det att ingen trafik från något virtuellt nätverk tillåts.
+Konfigurera lagrings kontot så att [endast åtkomst från vissa undernät tillåts](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Om du markerar det här alternativet i Azure Portal och lämnar inställningen tom, innebär det att ingen trafik från något virtuellt nätverk tillåts.
 
    ![Virtual Network åtkomst](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png "Virtual Network åtkomst")
 
 > [!NOTE]
-> Den [betrodda Microsoft Service-metoden](../storage/common/storage-network-security.md#trusted-microsoft-services) kan användas för att kringgå virtuella nätverk eller IP-begränsningar för ett sådant lagrings konto och kan göra det möjligt för Sök tjänsten att komma åt data i lagrings kontot enligt beskrivningen i [Guide](search-indexer-howto-access-trusted-service-exception.md). Men när du använder den här metoden kommunikation mellan Azure Kognitiv sökning och lagrings kontot sker via den offentliga IP-adressen för lagrings kontot, över det säkra Microsoft stamnät nätverket.
+> Den [betrodda Microsoft Service-metoden](../storage/common/storage-network-security.md#trusted-microsoft-services) kan användas för att kringgå virtuella nätverk eller IP-begränsningar för ett sådant lagrings konto och kan göra det möjligt för Sök tjänsten att komma åt data i lagrings kontot, enligt beskrivningen i [indexerare åtkomst till Azure Storage med hjälp av ett betrott tjänst undantag ](search-indexer-howto-access-trusted-service-exception.md). Men när du använder den här metoden kommunikation mellan Azure Kognitiv sökning och lagrings kontot sker via den offentliga IP-adressen för lagrings kontot, över det säkra Microsoft stamnät nätverket.
 
 ## <a name="step-1-create-a-shared-private-link-resource-to-the-storage-account"></a>Steg 1: skapa en delad privat länk resurs till lagrings kontot
 
@@ -117,7 +122,7 @@ När den privata slut punkts anslutnings förfrågan har godkänts innebär det 
 
 ## <a name="step-2b-query-the-status-of-the-shared-private-link-resource"></a>Steg 2b: fråga efter status för den delade privata länk resursen
 
- Kontrol lera att den delade privata länk resursen har uppdaterats efter godkännande genom att hämta dess status via [Get-API: et](/rest/api/searchmanagement/sharedprivatelinkresources/get).
+ Kontrol lera att den delade privata länk resursen har uppdaterats efter godkännande genom att hämta dess status med hjälp av [Get-API: et](/rest/api/searchmanagement/sharedprivatelinkresources/get).
 
 `armclient GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search/sharedPrivateLinkResources/blob-pe?api-version=2020-08-01`
 
@@ -143,15 +148,15 @@ Om `properties.provisioningState` resursen är `Succeeded` och `properties.statu
 > [!NOTE]
 > Det här steget kan utföras även innan den privata slut punkts anslutningen godkänns. Tills den privata slut punkts anslutningen har godkänts, kommer alla indexerare som försöker kommunicera med en säker resurs (till exempel lagrings kontot) att bli i ett tillfälligt haveri tillstånd. Det går inte att skapa nya indexerare. Så snart anslutningen till den privata slut punkten har godkänts kommer indexerare att kunna komma åt det privata lagrings kontot.
 
-1. [Skapa en data källa](/rest/api/searchservice/create-data-source) som pekar på det säkra lagrings kontot och en lämplig behållare i lagrings kontot. Nedan visas den här begäran som utförs via Postman.
+1. [Skapa en data källa](/rest/api/searchservice/create-data-source) som pekar på det säkra lagrings kontot och en lämplig behållare i lagrings kontot. Följande visar denna begäran i Postman.
 ![Skapa datakälla](media\search-indexer-howto-secure-access\create-ds.png "Skapa data Källa")
 
-2. [Skapa ett index](/rest/api/searchservice/create-index) på samma sätt och eventuellt [skapa en färdigheter](/rest/api/searchservice/create-skillset) med hjälp av REST API.
+1. [Skapa ett index](/rest/api/searchservice/create-index) på samma sätt och eventuellt [skapa en färdigheter](/rest/api/searchservice/create-skillset) med hjälp av REST API.
 
-3. [Skapa en indexerare](/rest/api/searchservice/create-indexer) som pekar på data källan, indexet och färdigheter som skapats ovan. Tvinga också indexeraren att köras i den privata körnings miljön genom att ange konfigurations egenskapen indexerare `executionEnvironment` till `"Private"` .
+1. [Skapa en indexerare](/rest/api/searchservice/create-indexer) som pekar på data källan, indexet och färdigheter som skapats ovan. Tvinga också indexeraren att köras i den privata körnings miljön genom att ange konfigurations egenskapen indexerare `executionEnvironment` till `"Private"` .
 ![Skapa indexerare](media\search-indexer-howto-secure-access\create-idr.png "Skapa indexerare")
 
-Indexeraren bör skapas och du bör göra förlopps indexering av innehåll från lagrings kontot över den privata slut punkts anslutningen. Status för indexeraren kan övervakas via [indexerings status-API: et](/rest/api/searchservice/get-indexer-status).
+Indexeraren bör skapas och du bör göra förlopps indexering av innehåll från lagrings kontot över den privata slut punkts anslutningen. Status för indexeraren kan övervakas med hjälp av API: [t för indexerings status](/rest/api/searchservice/get-indexer-status).
 
 > [!NOTE]
 > Om du redan har befintliga indexerare kan du bara uppdatera dem via parkera- [API: et](/rest/api/searchservice/create-indexer) för att ställa in på `executionEnvironment` `"Private"` .

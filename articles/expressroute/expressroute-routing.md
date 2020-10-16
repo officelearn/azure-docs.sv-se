@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ddc15e9da3eaa3609b039f2f92e424b9d9449c1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569619"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106322"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -258,6 +258,7 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | Exchange Online |12076:5110 |
 | sharepoint online |12076:5120 |
 | Skype för företag – Online |12076:5130 |
+| Azure Active Directory |12076:5160 |
 | Andra Office 365 Online-tjänster |12076:5200 |
 
 ## <a name="next-steps"></a>Nästa steg

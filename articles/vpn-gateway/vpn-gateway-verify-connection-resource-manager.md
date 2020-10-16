@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/15/2020
 ms.author: cherylmc
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 98b7923728616473186eeeeb2a2f03bfece9fae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70417ce862294e1041951d722bbbc09de4adeef6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398553"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107121"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Verifiera en VPN Gateway anslutning
 
@@ -42,7 +42,7 @@ Om du vill verifiera en VPN gateway-anslutning för distributions modellen i Res
 
 ## <a name="powershell-classic"></a>PowerShell (klassisk)
 
-Om du vill verifiera din VPN gateway-anslutning för den klassiska distributions modellen med PowerShell, installerar du de senaste versionerna av Azure PowerShell-cmdletarna. Se till att ladda ned och installera [Service Management-](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) modulen. Använd Add-AzureAccount för att logga in på den klassiska distributions modellen.
+Om du vill verifiera din VPN gateway-anslutning för den klassiska distributions modellen med PowerShell, installerar du de senaste versionerna av Azure PowerShell-cmdletarna. Se till att ladda ned och installera [Service Management-](/powershell/azure/servicemanagement/install-azure-ps?#azure-service-management-cmdlets) modulen. Använd Add-AzureAccount för att logga in på den klassiska distributions modellen.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 

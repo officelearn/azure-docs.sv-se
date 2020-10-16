@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394099"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107529"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azures säkerhets bas linje för Azure Functions
 
@@ -90,7 +90,7 @@ Dessutom kan du konfigurera en frontend-Gateway, till exempel Azure Web Applicat
 
 - [Så här distribuerar du Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Förstå Azure Security Center integrerad Hot information](../security-center/threat-protection.md)
+- [Förstå Azure Security Center integrerad Hot information](../security-center/azure-defender.md)
 
 - [Förstå Azure Security Center anpassad nätverks härdning](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -545,7 +545,7 @@ Du kan också använda privata slut punkter för att utföra nätverks isolering
 
 - [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -649,7 +649,7 @@ Följ dessutom rekommendationer från Azure Security Center för att skydda dina
 
 - [Så här lägger du till kontinuerlig säkerhets validering till din CI/CD-pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -727,7 +727,7 @@ Använd dessutom Azure policy för att ange begränsningar för den typ av resur
 
 - [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -1087,7 +1087,7 @@ Om du använder Kundhanterade nycklar kontrollerar du att Soft-Delete i Key Vaul
 
 - [Azure Storage-kryptering i vila](../storage/common/storage-service-encryption.md)
 
-- [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: Ja
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 11a6df348ae623ccf75e61bc1abbb5e28c832237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 943aba9c25df6cd279dc651cfad343a6509c069b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548981"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Självstudie: Azure Active Directory integrering med Questetra BPM Suite
 
@@ -128,11 +128,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med Qu
 
 2. Klicka på **Systeminställningar**på menyn högst upp. 
    
-    ![Azure AD Single Sign-On][10]
+    ![Skärm bild som visar systeminställningar som valts från företags webbplatsen för Questetra BPM Suite.][10]
 
 3. Öppna sidan **SingleSignOnSAML** genom att klicka på **SSO (SAML)**. 
    
-    ![Azure AD Single Sign-On][11]
+    ![Skärm bild som visar S S O (SAML) vald.][11]
 
 4. På din företags webbplats för **QUESTETRA BPM Suite** går du till avsnittet **SP information** och utför följande steg:
 

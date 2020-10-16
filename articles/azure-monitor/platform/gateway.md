@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc4d1b852b0a498de0834731b2b1cd1225b9748b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87305218"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107784"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
 
@@ -141,7 +141,7 @@ Följ dessa steg om du vill installera en gateway med installations guiden.
    ![Skärm bild av konfigurationen för Gateway-proxyn](./media/gateway/gateway-wizard02.png)
 
 1. Om du inte har Microsoft Update aktive rad visas sidan Microsoft Update och du kan välja att aktivera den. Gör ett val och välj sedan **Nästa**. Annars fortsätter du till nästa steg.
-1. På sidan **målmapp** lämnar du standardmappen C:\Program Files\OMS gateway eller anger den plats där du vill installera gatewayen. Välj **Nästa**.
+1. På sidan **målmapp** lämnar du standardmappen C:\Program Files\OMS gateway eller anger den plats där du vill installera gatewayen. Välj sedan **Nästa**.
 1. På sidan **klar att installera** väljer du **Installera**. Välj **Ja**om User Account Control begär behörighet att installera.
 1. När installationen är klar väljer du **Slutför**. Verifiera att tjänsten körs genom att öppna snapin-modulen Services. msc och kontrol lera att OMS- **gatewayen** visas i listan över tjänster och att dess status är **igång**.
 
@@ -153,7 +153,7 @@ Den hämtade filen för gatewayen är ett Windows Installer-paket som stöder ty
  
 I följande tabell beskrivs de parametrar som stöds av installations programmet.
 
-|Parametrar| Obs!|
+|Parametrar| Kommentarer|
 |----------|------| 
 |Port | TCP-portnummer för gateway att lyssna på |
 |PROGRAMPROXYFILEN | IP-adress för proxyserver |
@@ -206,7 +206,7 @@ Information om hur du utformar och distribuerar ett kluster för Utjämning av n
 Information om hur du utformar och distribuerar en Azure Load Balancer finns i [Vad är Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Om du vill distribuera en grundläggande belastningsutjämnare följer du stegen som beskrivs i den här [snabb](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) starten, med undantag för de steg som beskrivs i avsnittet **skapa backend-servrar**.   
 
 > [!NOTE]
-> Om du konfigurerar Azure Load Balancer med hjälp av **Basic SKU**, krävs det att virtuella Azure-datorer tillhör en tillgänglighets uppsättning. Mer information om tillgänglighets uppsättningar finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure](../../virtual-machines/windows/manage-availability.md). Om du vill lägga till befintliga virtuella datorer i en tillgänglighets uppsättning läser du [ange Azure Resource Manager tillgänglighets uppsättning för virtuella](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)datorer.
+> Om du konfigurerar Azure Load Balancer med hjälp av **Basic SKU**, krävs det att virtuella Azure-datorer tillhör en tillgänglighets uppsättning. Mer information om tillgänglighets uppsättningar finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure](../../virtual-machines/manage-availability.md). Om du vill lägga till befintliga virtuella datorer i en tillgänglighets uppsättning läser du [ange Azure Resource Manager tillgänglighets uppsättning för virtuella](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)datorer.
 > 
 
 När belastningsutjämnaren har skapats måste en backend-pool skapas, som distribuerar trafik till en eller flera gateway-servrar. Följ stegen som beskrivs i artikeln snabb starts artikel [Skapa resurser för belastningsutjämnaren](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
@@ -329,7 +329,7 @@ Ett fel i steg 3 innebär att modulen inte har importer ATS. Felet kan inträffa
 
 | **Cmdlet** | **Parametrar** | **Beskrivning** | **Exempel** |
 | --- | --- | --- | --- |  
-| `Get-OMSGatewayConfig` |Tangent |Hämtar konfigurationen för tjänsten |`Get-OMSGatewayConfig` |  
+| `Get-OMSGatewayConfig` |Nyckel |Hämtar konfigurationen för tjänsten |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Nyckel (obligatoriskt) <br> Värde |Ändrar konfigurationen för tjänsten |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Hämtar adressen för relä-proxyn (uppströms) |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> Lösen ord (säker sträng) |Anger adressen (och autentiseringsuppgiften) för relä-proxyn (uppströms) |1. Ange en relä-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ange en Relay proxy som inte behöver autentisering: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Rensa proxyinställningar för relä:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
@@ -389,4 +389,3 @@ Om du vill ha hjälp väljer du frågetecknet i det övre högra hörnet i porta
 ## <a name="next-steps"></a>Nästa steg
 
 [Lägg till data källor](./agent-data-sources.md) för att samla in data från anslutna källor och lagra data i Log Analytics-arbetsytan.
-

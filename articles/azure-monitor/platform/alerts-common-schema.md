@@ -4,12 +4,12 @@ description: Förstå det vanliga aviserings schemat, varför du bör använda d
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539490"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108838"
 ---
 # <a name="common-alert-schema"></a>Vanligt aviseringsschema
 
@@ -31,7 +31,7 @@ Det innebär att du kan ha färre integrationer, vilket gör att du kan hantera 
 
 Det vanliga aviserings schemat kommer huvudsakligen att manifesta sig själva i aviserings aviseringarna. De förbättringar som du ser visas nedan:
 
-| Action | Förbättringar |
+| Åtgärd | Förbättringar |
 |:---|:---|
 | SMS | En konsekvent SMS-mall för alla aviserings typer. |
 | E-post | En konsekvent och detaljerad e-postmall som gör det enkelt att snabbt diagnostisera problem. Inbäddade djup länkar till aviserings instansen på portalen och den berörda resursen garanterar att du snabbt kan gå vidare till reparations processen. |
@@ -39,7 +39,7 @@ Det vanliga aviserings schemat kommer huvudsakligen att manifesta sig själva i 
 
 Det nya schemat kommer också att aktivera en rikare aviserings användning i både Azure Portal och Azure-mobilapp i omedelbar framtid. 
 
-[Lär dig mer om schema definitionerna för Webhooks/Logic Apps/Azure Functions/Automation-runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
+[Lär dig mer om schema definitionerna för Webhooks/Logic Apps/Azure Functions/Automation-runbooks.](./alerts-common-schema-definitions.md)
 
 > [!NOTE]
 > Följande åtgärder stöder inte det gemensamma aviserings schemat: ITSM-anslutningsprogram.
@@ -120,5 +120,5 @@ Exempel: följande begär ande text till [skapa-eller uppdaterings](/rest/api/mo
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vanliga aviserings schema definitioner för Webhooks/Logic Apps/Azure Functions/Automation-runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Lär dig hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar.](./alerts-common-schema-integrations.md) 
+- [Vanliga aviserings schema definitioner för Webhooks/Logic Apps/Azure Functions/Automation-runbooks.](./alerts-common-schema-definitions.md)
+- [Lär dig hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar.](./alerts-common-schema-integrations.md)

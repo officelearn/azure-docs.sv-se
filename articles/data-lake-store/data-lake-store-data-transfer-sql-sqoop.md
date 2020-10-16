@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: c61862ccc7bac839627e9e7a9fbff9859155c6a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bb787138267fd8a9fab4dea233c1c828b457d67
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323085"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109195"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Kopiera data mellan Data Lake Storage Gen1 och Azure SQL Database med Sqoop
 
@@ -24,14 +24,14 @@ Big data program är ett naturligt val för bearbetning av ostrukturerade och de
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html) är ett verktyg som utformats för att överföra data mellan Relations databaser och en stor data lagrings plats, till exempel data Lake Storage gen1. Du kan använda den för att importera data från ett relationellt databas hanterings system (RDBMS) som Azure SQL Database till Data Lake Storage Gen1. Du kan sedan omvandla och analysera data med hjälp av Big data-arbetsbelastningar och sedan exportera data tillbaka till en RDBMS. I den här artikeln använder du en databas i Azure SQL Database som Relations databas för att importera/exportera från.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du ha följande:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Azure Data Lake Storage gen1 konto**. Instruktioner för hur du skapar kontot finns i [Kom igång med Azure Data Lake Storage gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage gen1-konto. Se [skapa ett HDInsight-kluster med data Lake Storage gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Den här artikeln förutsätter att du har ett HDInsight Linux-kluster med Data Lake Storage Gen1 åtkomst.
-* **Azure SQL Database**. Instruktioner för hur du skapar en databas i Azure SQL Database finns i [skapa en databas i Azure SQL Database](../sql-database/sql-database-get-started.md)
+* **Azure SQL Database**. Instruktioner för hur du skapar en databas i Azure SQL Database finns i [skapa en databas i Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
 
 ## <a name="create-sample-tables-in-the-database"></a>Skapa exempel tabeller i databasen
 
@@ -156,7 +156,7 @@ Det finns redan Sqoop-paket tillgängliga för det An-HDInsight klustret. Om du 
 
 ## <a name="performance-considerations-while-using-sqoop"></a>Prestanda överväganden vid användning av Sqoop
 
-Information om prestanda justering av Sqoop-jobbet för att kopiera data till Data Lake Storage Gen1 finns i [blogg inlägget Sqoop Performance](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
+Information om prestanda justering av Sqoop-jobbet för att kopiera data till Data Lake Storage Gen1 finns i [blogg inlägget Sqoop Performance](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 ## <a name="next-steps"></a>Nästa steg
 

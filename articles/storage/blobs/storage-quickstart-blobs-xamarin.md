@@ -3,17 +3,17 @@ title: 'Snabb start: Azure Blob Storage-bibliotek V12-Xamarin'
 description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage klient bibliotek version 12 med Xamarin för att skapa en behållare och en BLOB i blob-lagring (objekt). Härnäst får du lära dig hur du laddar ned blobben till din mobila enhet och hur du visar alla blobar i en behållare.
 author: codemillmatt
 ms.author: masoucou
-ms.date: 05/08/2020
+ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 60381d68dc2c1bae5afb2655558e8a35b65c965d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093964"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109025"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Snabb start: klient biblioteket Azure Blob Storage V12 med Xamarin
 
@@ -36,7 +36,7 @@ Referens länkar:
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: 863620ce6f0af33b05ef290ae95ccdc99a53a54d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1446808b77e5eea78a9912db4c7a8e2dd783f33a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77523044"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104384"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR Service-bindningar för Azure Functions
 
 I den här uppsättningen artiklar förklaras hur du autentiserar och skickar meddelanden i real tid till klienter som är anslutna till [Azure SignalR-tjänsten](https://azure.microsoft.com/services/signalr-service/) med hjälp av SignalR tjänst bindningar i Azure Functions. Azure Functions stöder indata- och utdatabindningar för SignalR Service.
 
-| Action | Typ |
+| Åtgärd | Typ |
 |---------|---------|
 | Returnera URL för tjänst slut punkt och åtkomsttoken | [Binda in](./functions-bindings-signalr-service-input.md) |
 | Skicka signal tjänst meddelanden |[Utgående bindning](./functions-bindings-signalr-service-output.md) |
@@ -36,7 +36,7 @@ Om du arbetar med utlösaren och bindningarna måste du referera till rätt pake
 [NuGet-paket]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService
 [core tools]: ./functions-run-local.md
 [paket för tillägg]: ./functions-bindings-register.md#extension-bundles
-[Uppdatera dina tillägg]: ./install-update-binding-extensions-manual.md
+[Uppdatera dina tillägg]: ./functions-bindings-register.md
 [Tillägg för Azure-verktyg]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 Mer information om hur du konfigurerar och använder SignalR-tjänsten och Azure Functions tillsammans finns i [Azure Functions utveckling och konfiguration med Azure SignalR-tjänsten](../azure-signalr/signalr-concept-serverless-development-config.md).
@@ -56,4 +56,4 @@ Om du vill använda Signalerare för signalering i Java-funktioner måste du lä
 ## <a name="next-steps"></a>Nästa steg
 
 - [Returnera URL: en för tjänstens slut punkt och åtkomsttoken (ingående bindning)](./functions-bindings-signalr-service-input.md)
-- [Skicka signal tjänst meddelanden (utgående bindning)](./functions-bindings-signalr-service-output.md) 
+- [Skicka signal tjänst meddelanden (utgående bindning)](./functions-bindings-signalr-service-output.md)

@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 094449ddcbfc2baf41657d00de030ef3c1cddbb5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88929505"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108498"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -39,7 +39,7 @@ Det finns tre versioner av Azure Functions Core Tools. Vilken version du använd
 
 Du kan bara installera en version av Core-verktyg på en specifik dator. Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Azure Functions Core Tools är för närvarande beroende av Azure CLI för autentisering med ditt Azure-konto. Det innebär att du måste [Installera Azure CLI lokalt](/cli/azure/install-azure-cli) för att kunna [Publicera till Azure](#publish) från Azure Functions Core tools. 
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java använder en maven-archetype för att skapa de lokala Functions-projektet, tillsammans med din första HTTP-utlöst funktion. Använd följande kommando för att skapa ett Java-projekt: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Ett exempel på hur du använder maven-archetype finns i snabb starten av [kommando raden](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+> Java använder en maven-archetype för att skapa de lokala Functions-projektet, tillsammans med din första HTTP-utlöst funktion. Använd följande kommando för att skapa ett Java-projekt: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Ett exempel på hur du använder maven-archetype finns i snabb starten av [kommando raden](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
 
 När du anger ett projekt namn skapas och initieras en ny mapp med det namnet. Annars initieras den aktuella mappen.  
 När du kör kommandot måste du välja en körning för projektet i version 3. x/2. x. 
@@ -597,7 +597,7 @@ Om du vill skicka en fel-eller funktions förfrågan [öppnar du ett GitHub-prob
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[Azure Portal]: https://portal.azure.com 
+[Azure-portalen]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
 [AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage

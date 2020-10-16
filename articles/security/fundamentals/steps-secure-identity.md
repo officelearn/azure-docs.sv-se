@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399813"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107818"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
-Om du läser det här dokumentet är du medveten om betydelsen av säkerhet. Du bär förmodligen redan ansvaret för att skydda din organisation. Om du behöver övertyga andra om vikten av säkerhet kan du skicka dem för att läsa den senaste [Microsoft Security Intelligence-rapporten](https://go.microsoft.com/fwlink/p/?linkid=2073747).
+Om du läser det här dokumentet är du medveten om betydelsen av säkerhet. Du bär förmodligen redan ansvaret för att skydda din organisation. Om du behöver övertyga andra om vikten av säkerhet kan du skicka dem för att läsa den senaste [Microsoft Security Intelligence-rapporten](https://www.microsoft.com/security/business/security-intelligence-report).
 
 Med det här dokumentet får du en säkrare position med funktionerna i Azure Active Directory genom att använda en check lista för fem steg för att Inokulera din organisation mot cyberhot-attacker.
 

@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071167"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108481"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -143,7 +143,7 @@ Följande vanliga parametrar stöds också:
 * `PipelineVariable`
 * `OutVariable` 
 
-Mer information finns i [om CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+Mer information finns i [om CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
 #### <a name="push-outputbinding-example-http-responses"></a>Push-OutputBinding exempel: HTTP-svar
 
@@ -560,7 +560,7 @@ Det finns några samtidighets modeller som du kan utforska beroende på typen av
 
 Du ställer in de här miljövariablerna i [app-inställningarna](functions-app-settings.md) för din Function-app.
 
-Beroende på ditt användnings fall kan Durable Functions avsevärt förbättra skalbarheten. Läs mer i [Durable Functions program mönster](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+Beroende på ditt användnings fall kan Durable Functions avsevärt förbättra skalbarheten. Läs mer i [Durable Functions program mönster](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > Du kan få ett meddelande om att "förfrågningar har placerats i kö på grund av inga tillgängliga körnings utrymmen"-varningar, Observera att detta inte är ett fel. Meddelandet talar om för dig att förfrågningarna placeras i kö och att de hanteras när föregående begär Anden har slutförts.

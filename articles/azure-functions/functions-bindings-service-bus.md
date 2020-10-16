@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b32f16d170df9963960862bc82aef1a4baf13896
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530377"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104452"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus bindningar för Azure Functions
 
 Azure Functions integreras med [Azure Service Bus](https://azure.microsoft.com/services/service-bus) via [utlösare och bindningar](./functions-triggers-bindings.md). Genom att integrera med Service Bus kan du bygga funktioner som reagerar på och skickar kö-eller ämnes meddelanden.
 
-| Action | Typ |
+| Åtgärd | Typ |
 |---------|---------|
 | Köra en funktion när en Service Bus kö eller ett ämnes meddelande skapas | [Utlösare](./functions-bindings-service-bus-trigger.md) |
 | Skicka Azure Service Bus meddelanden |[Utgående bindning](./functions-bindings-service-bus-output.md) |
@@ -41,7 +41,7 @@ Om du arbetar med utlösaren och bindningarna måste du referera till rätt pake
 [NuGet-paket]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/
 [core tools]: ./functions-run-local.md
 [paket för tillägg]: ./functions-bindings-register.md#extension-bundles
-[Uppdatera dina tillägg]: ./install-update-binding-extensions-manual.md
+[Uppdatera dina tillägg]: ./functions-bindings-register.md
 [Tillägg för Azure-verktyg]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

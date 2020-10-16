@@ -4,12 +4,12 @@ description: Hur du väljer bland tillgängliga VM-storlekar för datornoderna i
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271315"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107512"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
 
@@ -24,15 +24,15 @@ Det finns några undantag och begränsningar för att välja en VM-storlek:
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Pooler i konfiguration av virtuell dator
 
-Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storlekar ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). I följande tabell finns mer information om storlekar och begränsningar som stöds.
+Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storlekar ([Linux](../virtual-machines/sizes.md), [Windows](../virtual-machines/sizes.md)). I följande tabell finns mer information om storlekar och begränsningar som stöds.
 
 | VM-serie  | Storlekar som stöds |
 |------------|---------|
 | Basic A | Alla storlekar *utom* Basic_A0 (a0) |
 | A | Alla storlekar *utom* Standard_A0 |
 | AV2 | Alla storlekar |
-| B | Inget |
-| DC | Inget |
+| B | Inga |
+| DC | Inga |
 | Dv2, DSv2 | Alla storlekar |
 | Dv3, Dsv3 | Alla storlekar |
 | Dav4<sup>1</sup> | Alla storlekar |
@@ -61,7 +61,7 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | NV | Alla storlekar |
 | NVv3<sup>1</sup> | Alla storlekar |
 | NVv4 | Ingen – ännu inte tillgänglig |
-| SAP HANA | Inget |
+| SAP HANA | Inga |
 
 <sup>1</sup> dessa VM-serier kan allokeras i batch-pooler i konfigurationen av den virtuella datorn, men du måste skapa ett nytt batch-konto och begära en bestämd [kvot ökning](batch-quota-limit.md#increase-a-quota). Den här begränsningen tas bort när vCPU-kvoten per VM-serien har fullt stöd för batch-konton.
 

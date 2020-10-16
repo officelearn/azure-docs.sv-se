@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: a5c06d0beeb76193c2b8ddba9413878dbf428819
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071786"
+ms.locfileid: "92116654"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina avbildningar. Delade avbildnings gallerier ger:
 
@@ -56,10 +56,11 @@ Det finns tre parametrar för varje avbildnings definition som används i kombin
 
 Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
-Bild definitionerna måste definiera följande parametrar som avgör vilka typer av avbildnings versioner de kan innehålla:
--   Operativ system tillstånd – du kan ange operativ systemets tillstånd till [generaliserad eller specialiserad](#generalized-and-specialized-images).
-- Operativ system – kan vara antingen Windows eller Linux.
+Följande parametrar avgör vilka typer av bild versioner som de kan innehålla:
 
+- Operativ system tillstånd – du kan ange operativ systemets tillstånd till [generaliserad eller specialiserad](#generalized-and-specialized-images). Det här fältet är obligatoriskt.
+- Operativ system – kan vara antingen Windows eller Linux. Det här fältet är obligatoriskt.
+-   Hyper-V-generering – ange om avbildningen skapades från en virtuell Hyper-V-hårddisk på generation 1 eller [generation 2](../articles/virtual-machines/generation-2.md) . Standardvärdet är generation 1.
 
 
 Följande är andra parametrar som kan ställas in på din avbildnings definition så att du enkelt kan spåra dina resurser:
@@ -71,7 +72,6 @@ Följande är andra parametrar som kan ställas in på din avbildnings definitio
 - Tagg – du kan lägga till taggar när du skapar din avbildnings definition. Mer information om taggar finns i [använda taggar för att organisera resurser](../articles/azure-resource-manager/management/tag-resources.md)
 - Lägsta och högsta vCPU och minnes rekommendationer – om avbildningen har vCPU och minnes rekommendationer kan du koppla informationen till din avbildnings definition.
 - Otillåtna disk typer – du kan ange information om lagrings behoven för den virtuella datorn. Om bilden till exempel inte är lämplig för standard diskar för hård diskar lägger du till dem i listan Tillåt inte.
--   Hyper-V-generering – ange om avbildningen skapades från en virtuell Hyper-V-hårddisk på generation 1 eller [generation 2](../articles/virtual-machines/generation-2.md) . Standardvärdet är generation 1.
 - Information om inköps plan för Marketplace-avbildningar – `-PurchasePlanPublisher` , `-PurchasePlanName` och `-PurchasePlanProduct` . Mer information om inköps Plans information finns i [hitta avbildningar på Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) och [leverera information om inköps plan för Azure Marketplace när du skapar avbildningar](../articles/virtual-machines/marketplace-images.md).
 
 
@@ -147,7 +147,7 @@ När galleriet för delad avbildning, bild definition och avbildnings version ä
 | Delat med användare     | Delat bildgalleri | Bilddefinition | Avbildningsversion |
 |----------------------|----------------------|--------------|----------------------|
 | Delat bildgalleri | Ja                  | Ja          | Ja                  |
-| Bilddefinition     | Inga                   | Ja          | Ja                  |
+| Bilddefinition     | Nej                   | Ja          | Ja                  |
 
 Vi rekommenderar att du delar på Galleri nivå för bästa möjliga upplevelse. Vi rekommenderar inte att du delar enskilda avbildnings versioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 

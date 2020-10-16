@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om Azure AD-programproxy | Microsoft Docs
+title: Vanliga frågor och svar om Azure Active Directory-programproxy
 description: Läs vanliga frågor och svar om hur du använder Azure-AD-programproxy för att publicera interna, lokala program till fjärran vändare.
 services: active-directory
 author: kenwith
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589171"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104571"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -84,7 +84,6 @@ Application Proxy kräver Windows Server 2012 R2 eller senare. Det finns för n�
     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
     ```
 
-
 ## <a name="application-configuration"></a>Tillämpningskonfiguration
 
 ### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>Jag får ett fel meddelande om ett ogiltigt certifikat eller möjligt fel lösen ord
@@ -124,6 +123,12 @@ Mer information finns i dokumentet [förstå Kerberos-begränsad delegering med 
 ### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>Fungerar NTLM-autentisering med Azure AD-programproxy?
 
 NTLM-autentisering kan inte användas som förautentisering eller enkel inloggnings metod. NTLM-autentisering kan endast användas när den kan förhandlas direkt mellan klienten och det publicerade webb programmet. Om du använder NTLM-autentisering visas vanligt vis en inloggnings uppvarning i webbläsaren.
+
+### <a name="can-i-use-the-logon-identity-on-premises-user-principal-name-or-on-premises-sam-account-name-in-a-b2b-iwa-single-sign-on-scenario"></a>Kan jag använda inloggnings identiteten "lokal User Principal Name" eller "lokalt SAM-kontonamn" i ett enkel inloggnings scenario i B2B-IWA?
+
+Nej, det fungerar inte, eftersom en gäst användare i Azure AD inte har attributet som krävs av någon av de inloggnings identiteter som anges ovan.
+
+I det här fallet är det en återgång till "User Principal Name". Mer information om B2B-scenariot får du genom [att läsa bevilja B2B-användare i Azure AD åtkomst till dina lokala program](../external-identities/hybrid-cloud-to-on-premises.md).
 
 ## <a name="pass-through-authentication"></a>Direktautentisering
 
@@ -198,5 +203,5 @@ Det här scenariot stöds inte direkt. Alternativen för det här scenariot är:
 1. Publicera både HTTP-och HTTPS-URL: er som separata program med jokertecken, men ge var och en av dem en annan anpassad domän. Den här konfigurationen kommer att fungera eftersom de har olika externa URL: er.
 
 2. Publicera HTTPS-URL: en via ett program med jokertecken. Publicera HTTP-programmen separat med dessa PowerShell-cmdletar för programproxy:
-   - [Application Proxy-programhantering](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Application Proxy Connector-hantering](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Application Proxy-programhantering](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Application Proxy Connector-hantering](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

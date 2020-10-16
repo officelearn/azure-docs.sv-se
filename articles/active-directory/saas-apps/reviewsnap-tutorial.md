@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 354aeca01cb2d5244c68e1691642e4d2b41869dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 559053bba48d559032993d8047931d1fab0d8e33
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534548"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Självstudie: Azure Active Directory integrering med ReviewSnap
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med ReviewSnap i Azu
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för ReviewSnap-domän och URL: er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. Skriv en URL i text rutan **identifierare** : `https://app.reviewsnap.com`
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med ReviewSnap i Azu
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för ReviewSnap-domän och URL: er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     Skriv en URL i text rutan **inloggnings-URL** :  `https://app.reviewsnap.com/login`
 

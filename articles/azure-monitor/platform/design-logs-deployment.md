@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534207"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107886"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Utforma en distribution med Azure Monitor-loggar
 
@@ -91,7 +91,7 @@ Användare har två alternativ för att komma åt data:
     > - Service Fabric
     > - Application Insights
     >
-    > Du kan testa om loggarna är korrekt kopplade till sin resurs genom att köra en fråga och granska de poster som du är intresse rad av. Om rätt resurs-ID är i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) är data tillgängliga för resursbaserade frågor.
+    > Du kan testa om loggarna är korrekt kopplade till sin resurs genom att köra en fråga och granska de poster som du är intresse rad av. Om rätt resurs-ID är i egenskapen [_ResourceId](./log-standard-columns.md#_resourceid) är data tillgängliga för resursbaserade frågor.
 
 Azure Monitor anger automatiskt rätt läge beroende på vilken kontext du utför loggs ökningen från. Omfattningen visas alltid i det övre vänstra avsnittet av Log Analytics.
 
@@ -164,4 +164,3 @@ När du planerar migreringen till den här modellen bör du tänka på följande
 ## <a name="next-steps"></a>Nästa steg
 
 Om du vill implementera säkerhets behörigheter och kontroller som rekommenderas i den här guiden granskar du [Hantera åtkomst till loggar](manage-access.md).
-

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1dc1198ab9c546ef1defa1891777c4c8081171e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 115ff1b59ecbe3f4fdb089c2bd61da955fba3984
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85957187"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104554"
 ---
 # <a name="azure-event-grid-bindings-for-azure-functions"></a>Azure Event Grid bindningar för Azure Functions
 
@@ -23,7 +23,7 @@ Händelse *hanterare* tar emot och bearbetar händelser. Azure Functions är en 
 
 Om du vill kan du använda en HTTP-utlösare för att hantera Event Grid händelser. Se [ta emot händelser till en HTTP-slutpunkt](../event-grid/receive-events.md). För närvarande kan du inte använda en Event Grid-utlösare för en Azure Functions-app när händelsen levereras i [CloudEvents-schemat](../event-grid/cloudevents-schema.md#azure-functions). Använd i stället en HTTP-utlösare.
 
-| Action | Typ |
+| Åtgärd | Typ |
 |---------|---------|
 | Köra en funktion när en Event Grid händelse skickas | [Utlösare](./functions-bindings-event-grid-trigger.md) |
 | Skickar en Event Grid-händelse |[Utgående bindning](./functions-bindings-event-grid-output.md) |
@@ -45,7 +45,7 @@ Om du arbetar med utlösaren och bindningarna måste du referera till rätt pake
 [core tools]: ./functions-run-local.md
 [paket för tillägg]: ./functions-bindings-register.md#extension-bundles
 [NuGet-paket]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid
-[Uppdatera dina tillägg]: ./install-update-binding-extensions-manual.md
+[Uppdatera dina tillägg]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5dd703851054b058d96440a3a994b9d10eecfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372671"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108464"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skala och var värd i Azure Functions
 
@@ -26,7 +26,7 @@ Både förbruknings-och Premium planer lägger automatiskt till beräknings kraf
 
 Premium-prenumerationen innehåller ytterligare funktioner, till exempel Premium Compute-instanser, möjligheten att hålla instanserna varmt under obestämd tid och VNet-anslutning.
 
-Med App Service plan kan du dra nytta av dedikerad infrastruktur som du hanterar. Din Function-app skalar inte baserat på händelser, vilket innebär att aldrig skalas in till noll. (Kräver att [Always on](#always-on) är aktiverat.)
+Med App Service plan kan du dra nytta av dedikerad infrastruktur som du hanterar. Din Function-app skalar inte baserat på händelser, vilket innebär att den aldrig skalas in till noll. (Kräver att [Always on](#always-on) är aktiverat.)
 
 En detaljerad jämförelse mellan de olika värd planerna (inklusive Kubernetes-baserad värd) finns i [jämförelse avsnittet värd planer](#hosting-plans-comparison).
 
@@ -168,7 +168,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 
 Det finns många aspekter av en Function-app som påverkar hur väl den kommer att skalas, inklusive värd konfiguration, körnings miljö och resurs effektivitet.  Mer information finns i [avsnittet om skalbarhet i artikeln om prestanda överväganden](functions-best-practices.md#scalability-best-practices). Du bör också vara medveten om hur anslutningar fungerar när din Function-app skalar. Mer information finns i [hantera anslutningar i Azure Functions](manage-connections.md).
 
-Mer information om skalning i python och Node.js finns i [Azure Functions python Developer Guide-skalning och samtidighet](functions-reference-python.md#scaling-and-concurrency) och [Azure Functions Node.js utvecklare-guide – skalning och samtidighet](functions-reference-node.md#scaling-and-concurrency).
+Mer information om skalning i python och Node.js finns i [Azure Functions python Developer Guide-skalning och samtidighet](functions-reference-python.md#scaling-and-performance) och [Azure Functions Node.js utvecklare-guide – skalning och samtidighet](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Faktureringsmodell
 

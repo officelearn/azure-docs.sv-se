@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d2953710c559deb094761410e6d46401e103d8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab63e54589f68516b0106a1c96edced38539d252
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553299"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108549"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med PureCloud av gener
 
@@ -118,7 +118,7 @@ Följ dessa steg om du vill aktivera Azure AD SSO i Azure Portal:
 
 1. Dessutom förväntar sig PureCloud av Generning att fler attribut skickas tillbaka i SAML-svaret, vilket visas i följande tabell. De här attributen är också i förväg ifyllda, men du kan granska dem efter behov.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ---------------| --------------- |
     | E-post | user.userprincipalname |
     | OrganizationName | `Your organization name` |
@@ -167,11 +167,11 @@ I det här avsnittet ska du konfigurera B. Simon för att använda enkel inloggn
 
 1. Välj **admin** överst och gå sedan till **enkel inloggning** under **integreringar**.
 
-    ![Konfigurera enkel inloggning](./media/purecloud-by-genesys-tutorial/configure01.png)
+    ![Skärm bild som visar PureCloud admin-fönstret där du kan välja enkel inloggning.](./media/purecloud-by-genesys-tutorial/configure01.png)
 
 1. Växla till fliken **ADFS/Azure AD (Premium)** och följ sedan dessa steg:
 
-    ![Konfigurera enkel inloggning](./media/purecloud-by-genesys-tutorial/configure02.png)
+    ![Skärm bild visar sidan integrationer där du kan ange de värden som beskrivs.](./media/purecloud-by-genesys-tutorial/configure02.png)
 
     a. Välj **Bläddra** för att ladda upp det bas-64-kodade certifikatet som du laddade ned från Azure Portal till **ADFS-certifikatet**.
 
@@ -181,7 +181,7 @@ I det här avsnittet ska du konfigurera B. Simon för att använda enkel inloggn
 
     d. För den **förlitande partens ID** -värde går du till Azure Portal och väljer fliken **Egenskaper** på sidan **PureCloud av genered** application integration och kopierar **program-ID-** värdet. Klistra in den i rutan **identifierare för förlitande part** .
 
-    ![Konfigurera enkel inloggning](./media/purecloud-by-genesys-tutorial/configure06.png)
+    ![Skärm bild som visar fönstret Egenskaper där du kan hitta programmets I/a-värde.](./media/purecloud-by-genesys-tutorial/configure06.png)
 
     e. Välj **Spara**.
 
@@ -195,15 +195,15 @@ Om du vill att Azure AD-användare ska kunna logga in på PureCloud av gener, m�
 
 1. Välj **admin** högst upp och gå till **personer** under **personer & behörigheter**.
 
-    ![Konfigurera enkel inloggning](./media/purecloud-by-genesys-tutorial/configure03.png)
+    ![Skärm bild som visar PureCloud admin-fönstret där du kan välja personer.](./media/purecloud-by-genesys-tutorial/configure03.png)
 
 1. På sidan **personer** väljer du **Lägg till person**.
 
-    ![Konfigurera enkel inloggning](./media/purecloud-by-genesys-tutorial/configure04.png)
+    ![Skärm bild som visar sidan personer där du kan lägga till en person.](./media/purecloud-by-genesys-tutorial/configure04.png)
 
 1. I dialog rutan **Lägg till personer i organisationen** följer du dessa steg:
 
-    ![Konfigurera enkel inloggning](./media/purecloud-by-genesys-tutorial/configure05.png)
+    ![Skärm bild som visar sidan där du kan ange de värden som beskrivs.](./media/purecloud-by-genesys-tutorial/configure05.png)
 
     a. I rutan **fullständigt namn** anger du namnet på en användare. Till exempel: **B. Simon**.
 

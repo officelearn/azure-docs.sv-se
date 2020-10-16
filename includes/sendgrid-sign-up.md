@@ -4,12 +4,12 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 4eb1a6f351cdf129611949049f762fe51cac4b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91377383"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116671"
 ---
 Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. Med de här 25 000 kostnads fria e-postmeddelandena får du till gång till avancerad rapportering och analys och [alla API: er][all APIs] (webb, SMTP, evenemang, analys och annat). Information om ytterligare tjänster från SendGrid finns på sidan om [SendGrid-lösningar][SendGrid Solutions].
 
@@ -69,7 +69,7 @@ Azure-kunder kan låsa upp 25 000 kostnadsfria e-postmeddelanden varje månad. M
 ### <a name="to-find-your-sendgrid-credentials"></a>Så här hittar du dina inloggningsuppgifter för SendGrid API
 1. Om du klickar på nyckelikonen så visas ditt **användarnamn**.
 
-    ! Skärm bild av ContosoSendGrid-konto sidan med nyckel ikonen markerad.] [nyckel]
+    ![Skärm bild av ContosoSendGrid-konto sidan med nyckel ikonen markerad.][key]
 2. Lösenordet är det du valde vid installationen. Om du vill ändra det så kan du välja **Ändra lösenord** eller **Återställ lösenord**.
 
 Om du vill hantera inställningarna för e-postleverans så klickar du på knappen **Hantera**. Detta kommer att omdirigeras till SendGrid-instrumentpanelen.
@@ -90,7 +90,7 @@ Mer information om hur du skickar e-post via SendGrid finns i [Översikt över e
 [api-keys]: ./media/sendgrid-sign-up/api-keys.png
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
-[knapp]: ./media/sendgrid-sign-up/key.png
+[key]: ./media/sendgrid-sign-up/key.png
 
 <!--Links-->
 

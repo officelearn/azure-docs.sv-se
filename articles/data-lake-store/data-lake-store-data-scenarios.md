@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 058862f2b274ef4e956c82fbcc44dec92a270d32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe911ac8985f9997125eb5149348b50a7fa83222
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441059"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109263"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen1 för Big data-krav
 
@@ -48,9 +48,9 @@ Detta representerar data som kan genereras av olika källor, till exempel progra
 
 Följande är verktyg som du kan använda:
 
-* [Azure Stream Analytics](../stream-analytics/stream-analytics-data-lake-output.md) -händelser som matas in i Event Hubs kan skrivas till Azure Data Lake Storage gen1 med hjälp av en Azure Data Lake Storage gen1 utdata.
+* [Azure Stream Analytics](../stream-analytics/stream-analytics-define-outputs.md) -händelser som matas in i Event Hubs kan skrivas till Azure Data Lake Storage gen1 med hjälp av en Azure Data Lake Storage gen1 utdata.
 * [Azure HDInsight Storm](../hdinsight/storm/apache-storm-write-data-lake-store.md) – du kan skriva data direkt till data Lake Storage gen1 från Storm-klustret.
-* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) – du kan ta emot händelser från Event Hubs och sedan skriva den till data Lake Storage gen1 med hjälp av [data Lake Storage gen1 .NET SDK](data-lake-store-get-started-net-sdk.md).
+* [EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) – du kan ta emot händelser från Event Hubs och sedan skriva den till data Lake Storage gen1 med hjälp av [data Lake Storage gen1 .NET SDK](data-lake-store-get-started-net-sdk.md).
 
 ### <a name="relational-data"></a>Relationsdata
 Du kan också källdata från Relations databaser. Under en viss tids period samlar Relations databaser in enorma data mängder som kan tillhandahålla viktiga insikter om de bearbetas via en stor datapipeline. Du kan använda följande verktyg för att flytta sådana data till Data Lake Storage Gen1.
@@ -131,4 +131,4 @@ Du kan använda en blandning av tjänster för att skapa visuella representation
 ![Visualisera data i Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualisera data i Data Lake Storage Gen1")
 
 * Du kan börja med [att använda Azure Data Factory för att flytta data från data Lake Storage gen1 till Azure Synapse Analytics (tidigare SQL Data Warehouse)](../data-factory/copy-activity-overview.md)
-* Därefter kan du [integrera Power BI med Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) för att skapa visuell representation av data.
+* Därefter kan du [integrera Power BI med Azure Synapse Analytics](/power-bi/connect-data/service-azure-sql-data-warehouse-with-direct-connect) för att skapa visuell representation av data.

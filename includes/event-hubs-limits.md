@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: event-hubs
 author: spelluru
 ms.service: event-hubs
@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 31031462d9904e3554c19f47bc82f87746443693
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371769"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116777"
 ---
 Följande tabeller innehåller kvoter och begränsningar som är begränsade till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om Event Hubs priser finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="common-limits-for-all-tiers"></a>Vanliga gränser för alla nivåer
 Följande begränsningar är gemensamma för alla nivåer. 
 
-| Gräns |  Obs! | Värde |
+| Gräns |  Kommentarer | Värde |
 | --- |  --- | --- |
 | Antal Event Hubs namn rymder per prenumeration |- |100 |
 | Antal Event Hub per namnrymd | Efterföljande begär Anden om att skapa en ny händelsehubben avvisas. |10 |
@@ -36,7 +36,7 @@ Följande begränsningar är gemensamma för alla nivåer.
 ### <a name="basic-and-standard-tiers"></a>Basic-och standard-nivåer
 I följande tabell visas de gränser som kan vara olika för nivåerna Basic och standard. 
 
-| Gräns | Obs! | Basic | Standard |
+| Gräns | Kommentarer | Basic | Standard |
 | --- |  --- | -- | --- |
 | Maximal storlek för Event Hubs händelse| &nbsp; | 256 kB | 1 MB |
 | Antal konsument grupper per Event-hubb | &nbsp; |1 |20 |
@@ -47,7 +47,7 @@ I följande tabell visas de gränser som kan vara olika för nivåerna Basic och
 ### <a name="dedicated-tier"></a>Dedikerad nivå
 Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
 
-| Funktion | Begränsningar |
+| Funktion | Gränser |
 | --- | ---|
 | Bandbredd |  20 CUs |
 | Namnrymder | 50 per CU |
@@ -71,7 +71,7 @@ Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst
 | Storlek i byte per schema | 1 MB |   
 | Antal egenskaper per schema grupp | 1024 |
 | Storlek i byte per grupp egenskaps nyckel | 256 | 
-| Storlek i byte per grupp egenskaps nyckel | 1024 | 
+| Storlek i byte per grupp egenskaps värde | 1024 | 
 
 
 #### <a name="limits-that-are-different-for-standard-and-dedicated-tiers"></a>Begränsningar som skiljer sig mellan **standard** -och **dedikerade** nivåer 

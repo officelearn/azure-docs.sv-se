@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 5344354c05547d6d2a5e2762c70a97cc4222c464
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4995f813bbfe7ef368f83085cdd61ab97fa330e8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552364"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108532"
 ---
 # <a name="tutorial-integrate-qlik-sense-enterprise-with-azure-active-directory"></a>Självstudie: integrera Qlik Sense Enterprise med Azure Active Directory
 
@@ -136,7 +136,7 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
     > [!NOTE]
     > Innan du laddar upp IdP-metadata till Qlik Sense-servern måste filen redigeras med informationsborttagning så att funktionen mellan Azure AD och Qlik Sense-servern fungerar korrekt.
 
-    ![QlikSense][qs24]
+    ![Skärm bild som visar ett Visual Studio Code-fönster med federationsmetadata X M L-filen.][qs24]
 
     a. Öppna den FederationMetaData.xml-fil som du har laddat ned från Azure-portalen i ett redigeringsprogram.
 
@@ -150,19 +150,19 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
 3. I QMC klickar du på menykommandot **Virtual Proxies** (Virtuella proxyservrar).
 
-    ![QlikSense][qs6]
+    ![Skärm bild som visar de virtuella proxyservrar som valts från konfigurera systemet.][qs6]
 
 4. Längst ned på skärmen klickar du på knappen **Skapa ny**.
 
-    ![QlikSense][qs7]
+    ![Skärm bild som visar alternativet Skapa nytt.][qs7]
 
 5. Redigeringsskärmen för virtuell proxy visas.  På skärmens högra sida finns en meny där du kan göra konfigurationsalternativ synliga.
 
-    ![QlikSense][qs9]
+    ![Skärm bild som visar identifiering som valts från egenskaper.][qs9]
 
 6. Med menyalternativet Identification (Identifiering) markerat anger du den identifierande informationen för konfigurationen av virtuell Azure-proxy.
 
-    ![QlikSense][qs8]  
+    ![Skärm bild som visar avsnittet Redigera identifiering av virtuell proxy där du kan ange de värden som beskrivs.][qs8]  
 
     a. Fältet **Beskrivning** är ett eget namn för konfigurationen av virtuell proxy.  Ange ett värde för en beskrivning.
 
@@ -174,7 +174,7 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
 7. Klicka på menyalternativet Autentisering så att det visas.  Skärmen Autentisering visas.
 
-    ![QlikSense][qs10]
+    ![Skärm bild som visar avsnittet Redigera virtuell proxy-autentisering där du kan ange de värden som beskrivs.][qs10]
 
     a. Listrutan **Anonymous access mode** (Läge för anonym åtkomst) avgör huruvida anonyma användare kan komma åt Qlik Sense genom den virtuella proxyn.  Standardalternativet är No anonymous user (Ingen anonym användare).
 
@@ -196,55 +196,55 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
 8. Klicka på menyalternativet **LOAD BALANCING** (Belastningsutjämning) så att det visas.  Skärmen för belastningsutjämning visas.
 
-    ![QlikSense][qs11]
+    ![Skärm bild som visar redigerings skärmen för virtuella proxyservrar för BELASTNINGs utjämning där du kan välja Lägg till ny server-nod.][qs11]
 
 9. Klicka på knappen **Add new server node** (Lägg till ny servernod), välj motornod eller noder som Qlik Sense skickar sessioner till i belastningsutjämningssyfte och klicka på knappen **Lägg till**.
 
-    ![QlikSense][qs12]
+    ![Skärm bild som visar dialog knappen Lägg till serverklusternoder som ska läsas in, där du kan lägga till servrar.][qs12]
 
 10. Klicka på menyalternativet Avancerat så att det visas. Skärmen Avancerat visas.
 
-    ![QlikSense][qs13]
+    ![Skärm bild som visar Avancerat skärm för att redigera virtuell proxyserver.][qs13]
 
     Listan över tillåtna värdnamn identifierar värdnamn som godkänns vid anslutning till Qlik Sense-servern.  **Ange det värdnamn som användare anger när de ansluter till Qlik Sense-servern.** Värdnamnet är samma värde som SAML-värd-URI utan https://.
 
 11. Klicka på knappen **Använd**.
 
-    ![QlikSense][qs14]
+    ![Skärm bild som visar knappen tillämpa.][qs14]
 
 12. Klicka på OK för att acceptera det varningsmeddelande där det står att proxyservrar som länkas till den virtuella proxyn kommer att startas om.
 
-    ![QlikSense][qs15]
+    ![Skärm bild som visar bekräftelse meddelandet tillämpa ändringar på den virtuella proxyn.][qs15]
 
 13. Menyn för associerade objekt visas till höger på skärmen.  Klicka på menyalternativ **Proxyservrar**.
 
-    ![QlikSense][qs16]
+    ![Skärm bild som visar de proxyservrar som valts från associerade objekt.][qs16]
 
 14. Proxy-skärmen visas.  Klicka på knappen **Länka** längst ned för att länka en proxy till den virtuella proxyn.
 
-    ![QlikSense][qs17]
+    ![Skärm bild som visar knappen länk.][qs17]
 
 15. Välj den proxynod som kommer att stödja den här virtuella proxyanslutningen och klicka på knappen **Länka**.  När du har länkat visas proxyn under associerade proxyservrar.
 
-    ![QlikSense][qs18]
+    ![Skärm bild som visar Välj proxy Services.][qs18]
   
-    ![QlikSense][qs19]
+    ![Skärm bild som visar associerade proxyservrar i dialog rutan associerade objekt för virtuella proxy.][qs19]
 
 16. Efter cirka fem till tio sekunder visas meddelandet Refresh QMC (Uppdatera QMC).  Klicka på knappen **Refresh QMC** (Uppdatera QMC).
 
-    ![QlikSense][qs20]
+    ![Skärm bild som visar meddelandet sessionen har avslut ATS.][qs20]
 
 17. När QMC uppdateras klickar du på menykommandot **Virtual proxies** (Virtuella proxyservrar). Den nya posten för virtuell SAML-proxy visas i tabellen på skärmen.  Klicka en gång på posten för virtuell proxy.
 
-    ![QlikSense][qs51]
+    ![Skärm bild som visar virtuella proxyservrar med en enda post.][qs51]
 
 18. Längst ned på skärmen aktiveras knappen Download SP metadata (Ladda ned SP-metadata).  Klicka på knappen **Download SP metadata** (Ladda ned SP-metadata) för att spara metadata till en fil.
 
-    ![QlikSense][qs52]
+    ![Skärm bild som visar knappen Hämta S-metadata.][qs52]
 
 19. Öppna sp-metadata-filen.  Notera posten **entityID** och posten **AssertionConsumerService**.  De här värdena är likvärdiga med **identifieraren**, **inloggnings-URL** och **svars-URL** i Azure AD-programkonfigurationen. Klistra in dessa värden i avsnittet **Qlik Sense Enterprise Domain and URLs** (domäner och URL:er för Qlik Sense Enterprise) i Azure AD-programkonfigurationen. Om de inte matchar bör du ersätta dem i guiden för konfiguration av Azure AD-app.
 
-    ![QlikSense][qs53]
+    ![Skärm bild som visar en text redigerare med en EntityDescriptor med entityID och AssertionConsumerService som har anropats.][qs53]
 
 ### <a name="create-qlik-sense-enterprise-test-user"></a>Skapa Qlik Sense Enterprise-testanvändare
 

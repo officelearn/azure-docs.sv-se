@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du migrerar virtuella GCP-datorer 
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: cd3bf225c6de0401aaa625cf3bb037b3beb58a35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5bee73c6bbad9eef91e867b55ffde453a4012914
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716621"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108583"
 ---
 # <a name="discover-assess-and-migrate-google-cloud-platform-gcp-vms-to-azure"></a>Identifiera, utvärdera och migrera Google Cloud Platform virtuella datorer (GCP) till Azure
 
@@ -29,7 +29,7 @@ I den här självstudien får du lära dig hur man:
 > * Kör en testmigrering för att se till att allt fungerar som förväntat.
 > * Kör en fullständig migrering till Azure.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 ## <a name="discover-and-assess"></a>Identifiera och utvärdera
 
@@ -72,7 +72,7 @@ Granska de [Windows](prepare-for-migration.md#windows-machines) -och [Linux](pre
 
 Förbered Azure för migrering med Azure Migrate: Migreringsverktyg för Server.
 
-**Uppgift** | **Information**
+**Uppgift** | **Detaljer**
 --- | ---
 **Skapa ett Azure Migrate-projekt** | Ditt Azure-konto måste ha Contributes eller ägar behörigheter för att skapa ett projekt.
 **Verifiera behörigheter för ditt Azure-konto** | Ditt Azure-konto måste ha behörighet att skapa en virtuell dator och skriva till en Azure-hanterad disk.
@@ -400,7 +400,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
 **Svar:** Du kan behöva göra dessa ändringar innan du migrerar dina virtuella EC2-datorer till Azure:
 
 - Om du använder Cloud-Init för VM-etableringen kanske du vill inaktivera Cloud-Init på den virtuella datorn innan du replikerar det till Azure. Etablerings stegen som utförs av Cloud-Init på den virtuella datorn kanske GCP Specific och kommer inte att vara giltiga efter migreringen till Azure.  
-- Läs avsnittet [krav](#prerequisites) för att avgöra om det finns några ändringar som krävs för det operativ system som du är
+- Läs avsnittet [krav](#prerequisites) för att avgöra om det finns några ändringar som krävs för operativ systemet innan du migrerar dem till Azure.
 - Vi rekommenderar alltid att du kör en testmigrering före den slutliga migreringen.  
 
 ## <a name="next-steps"></a>Nästa steg

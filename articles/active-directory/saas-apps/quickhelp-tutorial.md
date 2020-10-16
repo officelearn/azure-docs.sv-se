@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 10803a16a2ceb84e084070d899b50360446710fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55ab6b339d6cb71bf46340e458bcc93cd73e2ba9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548944"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Självstudie: Azure Active Directory integrering med QuickHelp
 
@@ -130,17 +130,17 @@ Utför följande steg för att konfigurera enkel inloggning med QuickHelp i Azur
 
 2. På menyn längst upp klickar du på **Admin**.
    
-    ![Konfigurera enkel inloggning][21]
+    ![Skärm bild som visar meny alternativet administratör för kreativitet.][21]
 
 3. I **QuickHelp-administratörs** menyn klickar du på **Inställningar**.
    
-    ![Konfigurera enkel inloggning][22]
+    ![Skärm bilden visar inställningar som valts från QuickHelp-administratörs menyn.][22]
 
 4. Klicka på **autentiseringsinställningar**.
 
 5. Utför följande steg på sidan **autentiseringsinställningar**
    
-    ![Konfigurera enkel inloggning][23]
+    ![Skärm bild som visar sidan autentiseringsinställningar där du kan ange de värden som beskrivs.][23]
    
     a. Som **SSO-typ**väljer du **WSFederation**.
    

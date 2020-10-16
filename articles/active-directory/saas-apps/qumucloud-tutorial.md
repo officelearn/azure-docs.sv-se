@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 37005176452ba75f6b79af7ab1bf9faab5402f51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c75e2f635c14556cfd08ab73a66d8ebc30aeb8e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548947"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Självstudie: Azure Active Directory integrering med Qumu Cloud
 
@@ -101,7 +101,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Qum
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för Qumu-moln domäner och URL: er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://<subdomain>.qumucloud.com/saml/SSO`
 
@@ -109,7 +109,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Qum
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för Qumu-moln domäner och URL: er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<subdomain>.qumucloud.com`
 
@@ -118,11 +118,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Qum
 
 6. Qumu Cloud Application förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
-    ![image](common/edit-attribute.png)
+    ![Skärm bild som visar användarattribut med redigerings ikonen vald.](common/edit-attribute.png)
 
 7. Utöver ovan förväntar sig Qumu Cloud Application att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ---------------| --------------- |    
     | urn:oid:2.5.4.42 | user.givenname |
     | urn:oid:2.5.4.4 | user.surname |
@@ -131,9 +131,9 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Qum
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![Skärm bild som visar användar anspråk med alternativet att lägga till ett nytt anspråk.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![Skärm bild som visar dialog rutan hantera användar anspråk där du kan ange de värden som beskrivs.](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 

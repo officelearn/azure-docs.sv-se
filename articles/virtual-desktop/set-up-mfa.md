@@ -3,15 +3,15 @@ title: Konfigurera Azure-Multi-Factor Authentication för Windows Virtual Deskto
 description: Konfigurera Azure-Multi-Factor Authentication för ökad säkerhet i Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e67e3d391ba69bacb82a9154f577942a017e5795
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089929"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108991"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för Windows Virtual Desktop
 
@@ -24,7 +24,7 @@ När du först loggar in frågar klienten efter ditt användar namn, lösen ord 
 
 Även om det är praktiskt att komma ihåg autentiseringsuppgifterna, kan det också göra distributioner i företags scenarier eller personliga enheter mindre säkra. För att skydda dina användare måste du kontrol lera att klienten fortfarande ber om autentiseringsuppgifter för Azure Multi-Factor Authentication (MFA). I den här artikeln visas hur du konfigurerar principen för villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det här behöver du för att komma igång:
 
@@ -64,6 +64,8 @@ Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor 
 
    >[!IMPORTANT]
    > Välj inte appen som heter Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Den här appen används bara för att hämta användar flödet och får inte ha MFA.
+   > 
+   > Om du använder Windows Virtual Desktop (klassisk), och om principen för villkorlig åtkomst blockerar all åtkomst och bara undantar Windows-ID: n för virtuella Skriv bords program, kan du åtgärda detta genom att lägga till app-ID-9cdead84-a844-4324-93f2-b2e6bb768d07 till principen. Om du inte lägger till det här app-ID: t blockeras feed-identifiering av klassiska Windows-resurser.
 
 10. Gå till **villkor**  >  -**klient program**och välj sedan var du vill tillämpa principen på:
     

@@ -3,12 +3,12 @@ title: Hantera Azure Arc-aktiverade servrar-agenten
 description: I den här artikeln beskrivs de olika hanterings aktiviteter som du vanligt vis utför under livs cykeln för Azure Arc-aktiverade servrar som är anslutna till dator agenten.
 ms.date: 09/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5161bd097809f1feb6f84b07e07c63d06d0a9c94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af020d0ca586b950b444f2a3149ad207b5696050
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255000"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108940"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna dator agenten
 
@@ -163,7 +163,7 @@ Du kan utföra en **anslutning**, koppla **från**och **återansluta** manuellt 
 >[!NOTE]
 >Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
 
-### <a name="connect"></a>Ansluta
+### <a name="connect"></a>Anslut
 
 Den här parametern anger en resurs i Azure Resource Manager som representerar datorn som skapas i Azure. Resursen är i den angivna prenumerations-och resurs gruppen och data om datorn lagras i den Azure-region som anges av `--location` inställningen. Standard resurs namnet är datorns värdnamn om inget anges.
 
@@ -344,4 +344,4 @@ sudo azcmagent_proxy remove
 
 * Lär dig hur du hanterar din dator med hjälp av [Azure policy](../../governance/policy/overview.md), till exempel för [gäst konfiguration](../../governance/policy/concepts/guest-configuration.md)av virtuella datorer, verifiera att datorn rapporterar till den förväntade Log Analytics arbets ytan, aktivera övervakning med [Azure monitor med virtuella datorer](../../azure-monitor/insights/vminsights-enable-policy.md)och mycket mer.
 
-* Läs mer om den [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill samla in operativ system och data för övervakning av arbets belastning, hantera dem med hjälp av Automation-runbooks eller funktioner som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
+* Läs mer om den [Log Analytics agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill samla in operativ system och data för övervakning av arbets belastning, hantera dem med hjälp av Automation-runbooks eller funktioner som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-introduction.md).

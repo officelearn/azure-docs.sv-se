@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6732857e278285071c9d36c629920ad9e67368f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef8a93ebdc5eb389608ef3340b9707bfd040a295
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528573"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105727"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Självstudie: Azure Active Directory integrering med RFPIO
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med RFPIO i Azure AD
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för RFPIO-domän och URL: er](common/idp-identifier.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen där du kan ange en identifierare.](common/idp-identifier.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://www.rfpio.com`
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med RFPIO i Azure AD
 
     c. I text rutan för **relä tillstånd** anger du ett sträng värde. Kontakta [RFPIO support team](https://www.rfpio.com/contact/) för att få det här värdet.
 
-    ![Information om enkel inloggning för RFPIO-domän och URL: er](common/idp-preintegrated-relay.png)
+    ![Skärm bild som visar ytterligare U R ls.](common/idp-preintegrated-relay.png)
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -138,23 +138,23 @@ Utför följande steg för att konfigurera enkel inloggning med RFPIO i Azure AD
 
 1. Klicka på list rutan längst ned till vänster hörn.
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app1.png)
+    ![Skärm bild som visar nedåtpilen längst ned i fönstret.](./media/rfpio-tutorial/app1.png)
 
 1. Klicka på **organisations inställningarna**. 
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app2.png)
+    ![Skärm bild som visar valda organisations inställningar.](./media/rfpio-tutorial/app2.png)
 
 1. Klicka på **funktionerna & integration**.
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app4.png)
+    ![Skärm bild som visar funktioner och integrering som valts från inställningar.](./media/rfpio-tutorial/app4.png)
 
 1. I **SAML SSO-konfigurationen** klickar du på **Redigera**.
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app3.png)
+    ![Skärm bild som visar SAML S S O-konfiguration med knappen Redigera som heter ut.](./media/rfpio-tutorial/app3.png)
 
 1. I det här avsnittet utför du följande åtgärder:
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app5.png)
+    ![CScreenshot visar SAML S S O-konfiguration med SAML aktiverat.](./media/rfpio-tutorial/app5.png)
     
     a. Kopiera innehållet i XML för **hämtade metadata** och klistra in det i fältet **identitets konfiguration** .
 
@@ -223,23 +223,23 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 1. Klicka på list rutan längst ned till vänster hörn.
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app1.png)
+    ![Skärm bild som visar nedåtpilen längst ned i fönstret.](./media/rfpio-tutorial/app1.png)
 
 1. Klicka på **organisations inställningarna**. 
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app2.png)
+    ![Skärm bild som visar valda organisations inställningar.](./media/rfpio-tutorial/app2.png)
 
 1. Klicka på **grupp medlemmar**.
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app6.png)
+    ![Skärm bild som visar grupp medlemmar som valts från inställningar.](./media/rfpio-tutorial/app6.png)
 
 1. Klicka på **Lägg till medlemmar**.
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app7.png)
+    ![Skärm bild som visar knappen Lägg till medlemmar.](./media/rfpio-tutorial/app7.png)
 
 1. I avsnittet **Lägg till nya medlemmar** . Utför följande åtgärder:
 
-    ![Konfigurera enkel inloggning](./media/rfpio-tutorial/app8.png)
+    ![Skärm bild som visar Lägg till nya medlemmar där du kan ange de värden som beskrivs.](./media/rfpio-tutorial/app8.png)
 
     a. Ange **e-postadress** i fältet **Ange ett e-postmeddelande per rad** .
 

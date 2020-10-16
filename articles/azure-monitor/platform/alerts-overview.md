@@ -4,12 +4,12 @@ description: Översikt över aviseringar i Azure. Aviseringar, klassiska aviseri
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: f58175d105e1dd36d58fbe4d8b68109810797b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e71f048a0a96323552b426663a235ed66fa2ef87
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317148"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108804"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -84,7 +84,7 @@ Följande aviserings tillstånd stöds.
 
 *Aviserings tillståndet* är annorlunda och oberoende av *övervaknings villkoret*. Aviserings tillstånd anges av användaren. Övervaknings villkoret anges av systemet. När en varning utlöses är övervaknings villkoret för aviseringen inställt på *"utlöst"*, och när det underliggande villkoret som orsakade aviseringen rensas, anges övervaknings villkoret till *"löst"*. 
 
-Aviserings statusen har inte ändrats förrän användaren ändrar det. Lär dig [hur du ändrar status för dina aviseringar och smarta grupper](https://aka.ms/managing-alert-smart-group-states).
+Aviserings statusen har inte ändrats förrän användaren ändrar det. Lär dig [hur du ändrar status för dina aviseringar och smarta grupper](./alerts-managing-alert-states.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 
 ## <a name="alerts-experience"></a>Aviserings upplevelse 
 Sidan standard varningar innehåller en sammanfattning av de aviseringar som skapas inom ett visst tidsintervall. Den visar den totala aviseringen för varje allvarlighets grad, med kolumner som anger det totala antalet aviseringar i varje tillstånd för varje allvarlighets grad. Välj någon av allvarlighets graderna för att öppna sidan [alla aviseringar](#all-alerts-page) som filtrerats efter allvarlighets grad.
@@ -181,7 +181,7 @@ Användningen och hanteringen av varnings instanser kräver att användaren har 
 
 Du kanske vill fråga program mässigt efter aviseringar som har genererats mot din prenumeration. Frågor kan vara att skapa anpassade vyer utanför Azure Portal eller analysera aviseringar för att identifiera mönster och trender.
 
-Du kan fråga efter aviseringar som har genererats med dina prenumerationer antingen med hjälp av [Aviseringshantering REST API](https://aka.ms/alert-management-api) eller med hjälp av [Azure Resource Graph](../../governance/resource-graph/overview.md) och [REST API för resurser](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
+Du kan fråga efter aviseringar som har genererats med dina prenumerationer antingen med hjälp av [Aviseringshantering REST API](/rest/api/monitor/alertsmanagement/alerts) eller med hjälp av [Azure Resource Graph](../../governance/resource-graph/overview.md) och [REST API för resurser](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources).
 
 Med resurs diagram REST API för resurser kan du fråga efter aviserings instanser i stor skala. Resurs diagram rekommenderas när du måste hantera aviseringar som genererats över flera prenumerationer. 
 
@@ -200,16 +200,16 @@ Du kan också se resultatet av den här resurs diagram frågan i portalen med Az
 
 Du kan fråga aviseringarna om de [viktigaste](alerts-common-schema-definitions.md#essentials) fälten.
 
-Använd [Aviseringshantering REST API](https://aka.ms/alert-management-api) för att få mer information om vissa aviseringar, inklusive deras [aviserings kontext](alerts-common-schema-definitions.md#alert-context) fält.
+Använd [Aviseringshantering REST API](/rest/api/monitor/alertsmanagement/alerts) för att få mer information om vissa aviseringar, inklusive deras [aviserings kontext](alerts-common-schema-definitions.md#alert-context) fält.
 
 ## <a name="smart-groups"></a>Smarta grupper
 
-Smarta grupper är agg regeringar för aviseringar baserade på Machine Learning-algoritmer som kan hjälpa till att minska aviserings bruset och hjälp vid fel sökning. [Lär dig mer om smarta grupper](https://aka.ms/smart-groups) och [hur du hanterar dina smarta grupper](https://aka.ms/managing-smart-groups).
+Smarta grupper är agg regeringar för aviseringar baserade på Machine Learning-algoritmer som kan hjälpa till att minska aviserings bruset och hjälp vid fel sökning. [Lär dig mer om smarta grupper](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json) och [hur du hanterar dina smarta grupper](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs mer om smarta grupper](https://aka.ms/smart-groups)
+- [Läs mer om smarta grupper](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [Lär dig mer om åtgärds grupper](./action-groups.md)
-- [Hantera dina varnings instanser i Azure](https://aka.ms/managing-alert-instances)
-- [Hantera smarta grupper](https://aka.ms/managing-smart-groups)
+- [Hantera dina varnings instanser i Azure](./alerts-managing-alert-instances.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
+- [Hantera smarta grupper](./alerts-managing-smart-groups.md?toc=%252fazure%252fazure-monitor%252ftoc.json)
 - [Läs mer om priser för Azure-aviseringar](https://azure.microsoft.com/pricing/details/monitor/)

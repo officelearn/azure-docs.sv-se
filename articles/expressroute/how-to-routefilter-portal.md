@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/08/2020
+ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 5d5f46c4f078038b91881000cf8a6b67000683e2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d142028d197f9e279b5f1e05757946dc40d2c153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078637"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109144"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-using-the-azure-portal"></a>Självstudie: Konfigurera väg filter för Microsoft-peering med hjälp av Azure Portal
 
@@ -51,7 +51,7 @@ Om du vill bifoga väg filter med Microsoft 365 tjänster måste du ha behörigh
 > Microsoft-peering av ExpressRoute-kretsar som har kon figurer ATS före den 1 augusti 2017 kommer att ha alla tjänste prefix som annonseras via Microsoft-peering, även om det inte finns några väg filter definierade. Microsoft-peering av ExpressRoute-kretsar som är konfigurerade på eller efter den 1 augusti 2017 har inga prefix som annonseras förrän ett flödes filter är kopplat till kretsen.
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Granska [nödvändiga komponenter](expressroute-prerequisites.md) och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 
@@ -126,7 +126,7 @@ Om du vill koppla bort en krets från flödes filtret högerklickar du på krets
 :::image type="content" source="./media/how-to-routefilter-portal/detach-route-filter.png" alt-text="Skärm bild som visar väg filter Sidan":::
 
 
-## <a name="clean-up-resources"></a><a name="delete"></a>Rensa resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan ta bort ett flödes filter genom att klicka på knappen **ta bort** . Se till att flödes filtret inte är kopplat till några kretsar innan du gör det.
 

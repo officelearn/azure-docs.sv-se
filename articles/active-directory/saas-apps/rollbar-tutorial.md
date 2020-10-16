@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 253621fe257a0b1a1b3bdaa2578fd7df10b03f73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f3eae2a21c902b49b8e76fcb45e45577231e8b9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88528642"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Självstudie: Azure Active Directory integrering med Rollbar
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med Rollbar i Azure 
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för Rollbar-domän och URL: er](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. Skriv webb adressen i text rutan **identifierare** : `https://saml.rollbar.com`
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med Rollbar i Azure 
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för Rollbar-domän och URL: er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://rollbar.com/<accountname>/saml/login/azure/`
 
@@ -134,15 +134,15 @@ Utför följande steg för att konfigurera enkel inloggning med Rollbar i Azure 
 
 1. Klicka på **profil inställningarna** i det högra övre hörnet och klicka sedan på **konto namns inställningar**.
 
-    ![Konfiguration](./media/rollbar-tutorial/general.png)
+    ![Skärm bild som visar de konto namns inställningar som valts från profil inställningarna.](./media/rollbar-tutorial/general.png)
 
 1. Klicka på **identitets leverantör** under säkerhet.
 
-    ![Konfiguration](./media/rollbar-tutorial/configure1.png)
+    ![Skärm bild som visar den identitetsprovider som valts under säkerhet.](./media/rollbar-tutorial/configure1.png)
 
 1. I avsnittet **SAML Identity Provider** utför du följande steg:
 
-    ![Konfiguration](./media/rollbar-tutorial/configure2.png)
+    ![Skärm bild visar SAML Identity-providern där du kan ange de värden som beskrivs.](./media/rollbar-tutorial/configure2.png)
 
     a. Välj **Azure** från List rutan **SAML Identity Provider** .
 
@@ -152,7 +152,7 @@ Utför följande steg för att konfigurera enkel inloggning med Rollbar i Azure 
 
 1. När du har klickat på knappen Spara ser skärmen ut så här:
 
-    ![Konfiguration](./media/rollbar-tutorial/configure3.png)
+    ![Skärm bild som visar resultatet på sidan SAML-identitetsprovider.](./media/rollbar-tutorial/configure3.png)
 
     > [!NOTE]
     > För att kunna utföra följande steg måste du först lägga till dig som en användare i Rollbar-appen i Azure.
@@ -233,11 +233,11 @@ Om du vill att Azure AD-användare ska kunna logga in på Rollbar måste de till
 
 1. Klicka på **Bjud in team medlemmar**.
 
-    ![Bjud in personer](./media/rollbar-tutorial/user2.png)
+    ![Skärm bild som visar alternativet Bjud in team medlemmar valt.](./media/rollbar-tutorial/user2.png)
 
 1. I text rutan anger du namnet på den användare som **brittasimon \@ contoso.com** och klickar på **Lägg till/Bjud in**.
 
-    ![Bjud in personer](./media/rollbar-tutorial/user3.png)
+    ![Skärm bild som visar Lägg till/Bjud in medlemmar med en adress som angetts.](./media/rollbar-tutorial/user3.png)
 
 1. Användaren får en inbjudan och när den har accepterat de skapas i systemet.
 

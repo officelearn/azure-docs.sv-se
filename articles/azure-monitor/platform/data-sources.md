@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: 8ef498a51f25a6b084a0d048661f3d18a5881644
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48336b65ec564f834ef8a1e8f4911c89b1a37f31
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802079"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107954"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Källor för övervaknings data för Azure Monitor
 Azure Monitor baseras på en [gemensam övervaknings data plattform](data-platform.md) som innehåller [loggar](data-platform-logs.md) och [mått](data-platform-metrics.md). Genom att samla in data till den här plattformen kan data från flera resurser analyseras tillsammans med en gemensam uppsättning verktyg i Azure Monitor. Övervaknings data kan också skickas till andra platser för att stödja vissa scenarier och vissa resurser kan skriva till andra platser innan de kan samlas in i loggar eller mått.
@@ -20,7 +20,7 @@ I den här artikeln beskrivs de olika källorna till övervaknings data som saml
 
 ## <a name="application-tiers"></a>Programnivåer
 
-Källor för övervaknings data från Azure-program kan ordnas i nivåer, de högsta nivåerna är själva programmet och de lägre nivåerna är komponenter i Azure-plattformen. Metoden för att komma åt data från varje nivå varierar. Program nivåerna sammanfattas i tabellen nedan och källorna till övervaknings data på varje nivå visas i följande avsnitt. Se [övervaka data platser i Azure](data-locations.md) för en beskrivning av varje data plats och hur du kan komma åt data.
+Källor för övervaknings data från Azure-program kan ordnas i nivåer, de högsta nivåerna är själva programmet och de lägre nivåerna är komponenter i Azure-plattformen. Metoden för att komma åt data från varje nivå varierar. Program nivåerna sammanfattas i tabellen nedan och källorna till övervaknings data på varje nivå visas i följande avsnitt. Se [övervaka data platser i Azure](../monitor-reference.md) för en beskrivning av varje data plats och hur du kan komma åt data.
 
 
 ![Övervaknings nivåer](../media/overview/overview.png)
@@ -208,4 +208,4 @@ Andra tjänster i Azure skriver data till Azure Monitor data plattform. På så 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om de [typer av övervaknings data som samlas in av Azure Monitor](data-platform.md) och hur du visar och analyserar dessa data.
-- Ange [olika platser där Azure-resurser lagrar data](data-locations.md) och hur du kan komma åt dem. 
+- Ange [olika platser där Azure-resurser lagrar data](../monitor-reference.md) och hur du kan komma åt dem.

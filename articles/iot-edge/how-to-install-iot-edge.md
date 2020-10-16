@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: kgremban
-ms.openlocfilehash: 3a02459f5b92aa7d708c29c737ed9428ed14215a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7ab62b04f8bea76c7efb587665f87ccaf123da24
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045694"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109008"
 ---
 # <a name="install-or-uninstall-the-azure-iot-edge-runtime"></a>Installera eller avinstallera Azure IoT Edge runtime
 
@@ -83,6 +83,12 @@ IoT Edge med Linux-behållare kan köras på alla versioner av Windows som uppfy
 Azure IoT Edge förlitar sig på en [OCI-kompatibel](https://www.opencontainers.org/) container motor. Kontrol lera att enheten har stöd för behållare.
 
 Om du installerar IoT Edge på en virtuell dator aktiverar du kapslad virtualisering och allokerar minst 2 GB minne. För Hyper-V kan virtuella datorer i generation 2 ha kapslad virtualisering aktiverat som standard. För VMware finns det en växling för att aktivera funktionen på den virtuella datorn.
+
+Om du installerar IoT Edge på en IoT Core-enhet använder du följande kommando i en [fjärran sluten PowerShell-session](/windows/iot-core/connect-your-device/powershell) för att kontrol lera om Windows-behållare stöds på din enhet:
+
+```powershell
+Get-Service vmcompute
+```
 
 ---
 
@@ -160,6 +166,9 @@ Om den version som du vill installera inte finns med i listan följer du stegen 
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
+>[!TIP]
+>För IoT core-enheter rekommenderar vi att du kör installations kommandona med en fjärran sluten PowerShell-session. Mer information finns i [använda PowerShell för Windows IoT](/windows/iot-core/connect-your-device/powershell).
+
 1. Kör PowerShell som administratör.
 
    Använd en AMD64-session av PowerShell, inte PowerShell (x86). Om du är osäker på vilken typ av session du använder kör du följande kommando:
@@ -186,7 +195,7 @@ Om den version som du vill installera inte finns med i listan följer du stegen 
    Deploy-IoTEdge -ContainerOs Linux
    ```
 
-3. I det här läget kan utdata bli ombedd att starta om. Om så är fallet startar du om enheten nu.
+3. I det här läget kan IoT core-enheter startas om automatiskt. Windows 10-eller Windows Server-enheter kan bli ombedd att starta om. Om så är fallet startar du om enheten nu.
 
 När du installerar IoT Edge på en enhet kan du använda ytterligare parametrar för att ändra processen, inklusive:
 
@@ -321,6 +330,8 @@ Om du vill ta bort IoT Edge installationen från Windows-enheten använder du ko
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-IoTEdge
 ```
+
+`Uninstall-IoTEdge`Kommandot fungerar inte på Windows IoT Core. Om du vill ta bort IoT Edge måste du distribuera om din Windows IoT Core-avbildning.
 
 Om du vill ha mer information om avinstallations alternativ använder du kommandot `Get-Help Uninstall-IoTEdge -full` .
 

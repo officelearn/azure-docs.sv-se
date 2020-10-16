@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0c3d3a050c0b929a3f1042b42006c289ddeb9acb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: fd23cab844d40f75aa0034096be1bca897d54ff6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048125"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108362"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrera Azure Digitals dubbla med Azure SignalR-tjänsten
 
@@ -195,7 +195,7 @@ Du behöver inte göra något annat i den här konsolen, men lämna det samtidig
 ### <a name="configure-the-sample-client-web-app"></a>Konfigurera en exempel klients webbapp
 
 Sedan konfigurerar du **webb programmet för signal integrering** med följande steg:
-1. Öppna den zippade _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ mappen som du laddade ned i avsnittet [*krav*](#prerequisites) , genom att använda Visual Studio eller valfri kod redigerare.
+1. Öppna den zippade _**Azure_Digital_Twins_SignalR_integration_web_app_sample**_ mappen som du laddade ned i avsnittet [*Ladda ned exempel program*](#download-the-sample-applications) , genom att använda Visual Studio eller valfri valfri kod redigerare.
 
 1. Öppna filen *src/App.js* och ersätt webb adressen i `HubConnectionBuilder` med http-slutpunktens URL för den **förhandlande** funktionen som du sparade tidigare:
 

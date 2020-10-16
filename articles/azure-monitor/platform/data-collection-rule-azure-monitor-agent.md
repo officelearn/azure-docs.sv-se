@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: aa3225378f921792d1e8ba0442f2c555d095fb9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd29bfafe2d37b6a34031e6962cc27bfff0006c1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90968398"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108022"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Konfigurera data insamling för Azure Monitor agenten (för hands version)
 Data insamlings regler (DCR) definiera data som kommer till Azure Monitor och ange var de ska skickas. Den här artikeln beskriver hur du skapar en data insamlings regel för att samla in data från virtuella datorer med hjälp av Azure Monitor agenten.
@@ -64,8 +64,8 @@ Klicka på **Lägg till data källa** och **granska sedan + skapa** för att gra
 ## <a name="createusingrestapi"></a>Skapa med REST-API
 Följ stegen nedan för att skapa en DCR-och Association med hjälp av REST API. 
 1.Skapa DCR-filen manuellt med JSON-formatet som visas i [exempel-DCR](data-collection-rule-overview.md#sample-data-collection-rule).
-2.Skapa regeln med hjälp av [REST API](https://docs.microsoft.com/rest/api/monitor/datacollectionrules/create#examples).
-3.Skapa en koppling för varje virtuell dator till data insamlings regeln med hjälp av [REST API](https://docs.microsoft.com/rest/api/monitor/datacollectionruleassociations/create#examples).
+2.Skapa regeln med hjälp av [REST API](/rest/api/monitor/datacollectionrules/create#examples).
+3.Skapa en koppling för varje virtuell dator till data insamlings regeln med hjälp av [REST API](/rest/api/monitor/datacollectionruleassociations/create#examples).
 
 ## <a name="next-steps"></a>Nästa steg
 

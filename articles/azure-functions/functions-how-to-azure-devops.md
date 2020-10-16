@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: d503d71cf44446f93fab3d292d4c26d9b7b0941d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9312094d1d86ea25ebd573e5d14b6d5bd0619cfc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88210212"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108243"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Kontinuerlig leverans med hjälp av Azure-DevOps
 
@@ -256,7 +256,7 @@ Använd kommandot för att skapa en pipeline för bygge i Azure `az functionapp 
 
     - Du måste vara projekt administratör i Azure DevOps.
 
-    - Du måste ha behörighet att skapa en GitHub-PAT (personal Access token) som har tillräcklig behörighet. Mer information finns i [krav för GITHUB Pat-behörighet.](https://aka.ms/azure-devops-source-repos)
+    - Du måste ha behörighet att skapa en GitHub-PAT (personal Access token) som har tillräcklig behörighet. Mer information finns i [krav för GITHUB Pat-behörighet.](/azure/devops/pipelines/repos/github#repository-permissions-for-personal-access-token-pat-authentication)
 
     - Du måste ha behörighet att bekräfta till huvud grenen i din GitHub-lagringsplats så att du kan spara den automatiskt genererade YAML-filen.
 

@@ -1,37 +1,32 @@
 ---
-title: Problem med att installera agent anslutnings programmet för programproxy | Microsoft Docs
-description: Så här felsöker du problem som du kan stöta på när du installerar Application Proxy agent-anslutningen
+title: Problem med att installera anslutningsappen för programproxyagenten
+description: Så här felsöker du problem som du kan stöta på när du installerar Application Proxy-agentens koppling för Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 602ca070bcaefd20585681e409ab85e9d455160a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7babe23426cafe01cadc7a5557f91896aa9bbae4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764697"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108209"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problem med att installera anslutningsappen för programproxyagenten
 
-Microsoft AAD Application Proxy Connector är en intern domän komponent som använder utgående anslutningar för att upprätta anslutningen från moln tillgänglig slut punkt till den interna domänen.
+Microsoft Azure Active Directory Application Proxy Connector är en intern domän komponent som använder utgående anslutningar för att upprätta anslutningen från molnets tillgängliga slut punkt till den interna domänen.
 
 ## <a name="general-problem-areas-with-connector-installation"></a>Allmänna problemområden med anslutnings installation
 
 När installationen av en anslutning Miss lyckas är rotor saken vanligt vis något av följande områden:
 
-1.  **Anslutning** – för att slutföra installationen måste den nya anslutningen registrera och upprätta framtida förtroende egenskaper. Detta görs genom att ansluta till moln tjänsten AAD Application Proxy.
+1.  **Anslutning** – för att slutföra installationen måste den nya anslutningen registrera och upprätta framtida förtroende egenskaper. Detta görs genom att ansluta till Azure Active Directory-programproxy moln tjänsten.
 
 2.  **Förtroende etablering** – den nya anslutningen skapar ett självsignerat certifikat och registrerar sig för moln tjänsten.
 
@@ -42,7 +37,7 @@ När installationen av en anslutning Miss lyckas är rotor saken vanligt vis nå
 
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Kontrol lera anslutningen till tjänsten Cloud Application Proxy och sidan Microsoft-inloggning
 
-**Mål:** Kontrol lera att anslutnings datorn kan ansluta till registrerings slut punkten för AAD-programproxyn och sidan Microsoft-inloggning.
+**Mål:** Kontrol lera att anslutnings datorn kan ansluta till registrerings slut punkten för programproxyn och sidan Microsoft-inloggning.
 
 1.  På kopplings servern kör du ett port test genom att använda [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) eller något annat port test verktyg för att kontrol lera att portarna 443 och 80 är öppna.
 
@@ -67,7 +62,7 @@ När installationen av en anslutning Miss lyckas är rotor saken vanligt vis nå
 
 **Så här verifierar du klient certifikatet:**
 
-Verifiera tumavtrycket för det aktuella klient certifikatet. Du hittar certifikat arkivet i%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+Verifiera tumavtrycket för det aktuella klient certifikatet. Du hittar certifikat arkivet i `%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml` .
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -79,23 +74,17 @@ Verifiera tumavtrycket för det aktuella klient certifikatet. Du hittar certifik
 </ConnectorTrustSettingsFile>
 ```
 
-Här följer de möjliga **IsInUserStore** -värdena och betydelser:
+De möjliga **IsInUserStore** -värdena är **True** och **false**. Värdet **True** betyder att det automatiskt förnyade certifikatet lagras i den personliga behållaren i användar certifikat arkivet för nätverks tjänsten. Värdet **false** betyder att klient certifikatet skapades under installationen eller registreringen som initierades av Register-AppProxyConnector kommandot och lagras i den personliga behållaren i certifikat arkivet på den lokala datorn.
 
-- **false** -klient certifikatet skapades under installationen eller registreringen initierades av Register-AppProxyConnector kommandot. Den lagras i den personliga behållaren i certifikat arkivet på den lokala datorn. 
-
-Följ stegen för att verifiera certifikatet:
-
-1. Kör **certlm. msc**
-2. Expandera den personliga behållaren i hanterings konsolen och klicka på certifikat
-3. Leta upp certifikatet som utfärdats av **connectorregistrationca.msappproxy.net**
-
-- **Sant** – det automatiskt förnyade certifikatet lagras i den personliga behållaren i användar certifikat arkivet för nätverks tjänsten. 
-
-Följ stegen för att verifiera certifikatet:
-
+Om värdet är **Sant**följer du dessa steg för att verifiera certifikatet:
 1. Ladda ned [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
 2. Extrahera [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) från paketet och kör **PsExec-i-u "NT authority\network service" cmd.exe** från en upphöjd kommando tolk.
 3. Kör **certmgr. msc** i den nyligen visade kommando tolken
+4. Expandera den personliga behållaren i hanterings konsolen och klicka på certifikat
+5. Leta upp certifikatet som utfärdats av **connectorregistrationca.msappproxy.net**
+
+Om värdet är **false**följer du dessa steg för att verifiera certifikatet:
+1. Kör **certlm. msc**
 2. Expandera den personliga behållaren i hanterings konsolen och klicka på certifikat
 3. Leta upp certifikatet som utfärdats av **connectorregistrationca.msappproxy.net**
 

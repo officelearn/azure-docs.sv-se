@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94abc54c63b7d2a9998cffe7cf1396f81a26a5a1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87384862"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107988"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
 Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att skicka logg data till Azure Monitor från en REST API-klient.  Här beskrivs hur du formaterar data som samlats in av ditt skript eller program, inkluderar dem i en begäran och har den begäran som auktoriserats av Azure Monitor.  Exempel finns för PowerShell, C# och python.
@@ -54,7 +54,7 @@ Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran s
 | Auktorisering |Signaturen för auktorisering. Senare i artikeln kan du läsa om hur du skapar ett HMAC-SHA256-huvud. |
 | Log-Type |Ange post typen för de data som skickas. Får bara innehålla bokstäver, siffror och under streck (_) och får inte överstiga 100 tecken. |
 | x-MS-date |Datumet då begäran bearbetades i RFC 1123-format. |
-| x-MS-AzureResourceId | Resurs-ID för den Azure-resurs som data ska associeras med. Detta fyller i egenskapen [_ResourceId](log-standard-properties.md#_resourceid) och gör att data kan tas med i [resurs kontext](design-logs-deployment.md#access-mode) frågor. Om det här fältet inte anges tas data inte med i resurs kontext frågor. |
+| x-MS-AzureResourceId | Resurs-ID för den Azure-resurs som data ska associeras med. Detta fyller i egenskapen [_ResourceId](./log-standard-columns.md#_resourceid) och gör att data kan tas med i [resurs kontext](design-logs-deployment.md#access-mode) frågor. Om det här fältet inte anges tas data inte med i resurs kontext frågor. |
 | tidsgenererat-fält | Namnet på ett fält i data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält används dess innehåll för **TimeGenerated**. Om det här fältet inte anges är standardvärdet för **TimeGenerated** den tidpunkt då meddelandet matas in. Innehållet i meddelande fältet ska följa ISO 8601-formatet ÅÅÅÅ-MM-DDThh: mm: ssZ. |
 
 ## <a name="authorization"></a>Auktorisering

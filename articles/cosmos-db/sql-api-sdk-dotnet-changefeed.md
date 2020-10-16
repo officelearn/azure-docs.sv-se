@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB .NET Change feed processor-API, viktig information om SDK
-description: Lär dig allt om Change feeds processor-API och SDK, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version av .NET Change feed processor SDK.
+title: Viktig information om SDK:n och API:et för Azure Cosmos DB .NET-ändringsflödesprocessorn
+description: Lär dig allt om SDK:n och API:et för ändringsflödesprocessorn, inklusive tillbakadragningsdatum och ändringar som görs mellan olika versioner av SDK:n för .NET-ändringsflödesprocessorn.
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,212 +9,212 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.openlocfilehash: e4c2969db560ff20cae2ed7b9ffbe0cea206c7a1
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611579"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change feed processor SDK: Hämta och viktig information
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK för .NET-ändringsflödesprocessorn: Ladda ned och se viktig information
 
 > [!div class="op_single_selector"]
 >
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
-> * [Våren data v2](sql-api-sdk-java-spring-v2.md)
-> * [Våren data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring-data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring-data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
-> * FLESTA (/rest/api
-> * [REST Resource Provider] (/rest/api
+> * [REST](/rest/api
+> * [REST Resource Provider](/rest/api
 > * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Masskörningsbibliotek – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Masskörningsbibliotek – Java](sql-api-sdk-bulk-executor-java.md)
 
 |   |   |
 |---|---|
-|**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**API-dokumentation**|[Ändra dokumentation om API-referens för feeds-bibliotek](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet&preserve-view=true)|
-|**Komma igång**|[Kom igång med Change feeds-processorn .NET SDK](change-feed.md)|
+|**SDK-nedladdning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**API-dokumentation**|[API-referensdokumentation om bibliotek för ändringsflödesprocessorn](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet&preserve-view=true)|
+|**Komma igång**|[Kom igång med SDK för .NET-ändringsflödesprocessorn](change-feed.md)|
 |**Aktuellt ramverk som stöds**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
-> Om du använder ändra flödes processor kan du se den senaste versionen 3. x av [.NET SDK](change-feed-processor.md), som har en inbyggd ändrings-feed i SDK: n. 
+> Om du använder ändringsflödesprocessorn rekommenderar vi version 3.x av [.NET SDK](change-feed-processor.md), vars SDK har inbyggt ändringsflöde. 
 
-## <a name="release-notes"></a>Viktig information
+## <a name="release-notes"></a>Versionsanmärkningar
 
 ### <a name="v2-builds"></a>v2-versioner
 
 ### <a name="232"></a><a id="2.3.2"></a>2.3.2
-* Har lagt till kompatibilitet för lease Store med [v3 SDK som aktiverar vägar för snabb migrering. Ett program kan migrera till v3 SDK och migrera tillbaka till biblioteket Change feed processor utan att förlora något tillstånd.
+* Kompatibilitet för lagringsplatser för lån har lagts till i v3 SDK så att migreringsvägar med frekvent åtkomst kan användas. Ett program kan migrera till v3 SDK och migrera tillbaka till biblioteket för ändringsflödesprocessorn utan tillståndsförlust.
 
 ### <a name="231"></a><a id="2.3.1"></a>2.3.1
-* Korrigerade ett ärende när `FeedProcessing.ChangeFeedObserverCloseReason.Unknown` stängnings orsaken skickades till `FeedProcessing.IChangeFeedObserver.CloseAsync` om det inte gick att hitta partitionen eller om mål repliken inte är uppdaterad med Read-sessionen. I dessa fall `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone` `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` används nu och stängnings orsaker.
-* Lade till en ny stängnings orsak `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` som skickas för att stänga den ändrings visare som visas när mål repliken inte är uppdaterad med Read-sessionen.
+* Ett problem har åtgärdats som gjorde att en `FeedProcessing.ChangeFeedObserverCloseReason.Unknown`-stängningsorsak skickades till `FeedProcessing.IChangeFeedObserver.CloseAsync` om partitionen inte hittades eller om målrepliken inte var uppdaterad mot lässessionen. Nu används `FeedProcessing.ChangeFeedObserverCloseReason.ResourceGone`- och `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable`-stängningsorsaker i dessa fall.
+* Den nya stängningsorsaken `FeedProcessing.ChangeFeedObserverCloseReason.ReadSessionNotAvailable` har lagts till, som skickas för att stänga ändringsflödesövervakaren när målrepliken inte är uppdaterad mot lässessionen.
 
 ### <a name="230"></a><a id="2.3.0"></a>2.3.0
-* Lade till en ny metod `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` och motsvarande offentligt gränssnitt `ICheckpointPartitionProcessorFactory` . Detta gör att en implementering av `IPartitionProcessor` gränssnittet kan använda inbyggd mekanism för kontroll punkter. Den nya fabriken liknar den befintliga `IPartitionProcessorFactory` , förutom att dess `Create` metod även använder- `ILeaseCheckpointer` parametern.
-* Endast en av de två metoderna, `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` eller `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` , kan användas för samma `ChangeFeedProcessorBuilder` instans.
+* En ny metod (`ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`) och associerat offentligt gränssnitt (`ICheckpointPartitionProcessorFactory`) har lagts till. Detta gör att en implementering av `IPartitionProcessor`-gränssnittet kan använda en inbyggd kontrollpunktsmekanism. Den nya fabriken liknar den befintliga `IPartitionProcessorFactory`, förutom att dess `Create`-metod även stöder `ILeaseCheckpointer`-parametern.
+* Endast en av de två metoderna, antingen `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` eller `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`, kan användas för samma `ChangeFeedProcessorBuilder`-instans.
 
 ### <a name="228"></a><a id="2.2.8"></a>2.2.8
-* Förbättringar av stabilitet och diagnos:
-  * Stöd har lagts till för att identifiera läsning av ändrings flöden med lång tid. När det tar längre tid än värdet som anges av `ChangeFeedProcessorOptions.ChangeFeedTimeout` egenskapen vidtas följande steg:
-    * Åtgärden för att läsa ändrings flödet på den problematiska partitionen avbryts.
-    * Change feed processor-instansen tappar ägarskap för det problematiska lånet. Det borttagna lånet hämtas under nästa steg för att erhålla lånet som utförs av samma eller olika processor instanser för förändrings flödet. På så sätt börjar läsning av ändrings flöde över.
-    * Ett problem rapporteras till hälso övervakaren. Standard övervakaren för hälso skickar alla rapporterade problem till spårnings loggen.
-  * En ny offentlig egenskap har lagts till: `ChangeFeedProcessorOptions.ChangeFeedTimeout` . Standardvärdet för den här egenskapen är 10 minuter.
-  * Ett nytt offentligt Enum-värde har lagts till: `Monitoring.MonitoredOperation.ReadChangeFeed` . När värdet för `HealthMonitoringRecord.Operation` är inställt på `Monitoring.MonitoredOperation.ReadChangeFeed` , anger det att hälso problemet är relaterat till att läsa ändrings flöde.
+* Stabilitets- och diagnosförbättringar:
+  * Stöd har lagts till för att upptäcka tidskrävande läsningar av ändringsflöden. Följande steg utförs om läsningen tar längre tid än värdet som anges i egenskapen `ChangeFeedProcessorOptions.ChangeFeedTimeout`:
+    * Läsningen av ändringsflödet på den partition som orsakar problem avbryts.
+    * Instansen av ändringsflödesprocessorn blir av med ägarskapet av det lån som orsakar problem. Det avlägsnade lånet plockas upp igen under nästa steg då ett lån ska göras, antingen av samma eller av en annan instans av ändringsflödesprocessorn. Det gör att läsningen av ändringsflödet börjar om.
+    * Ett problem rapporteras till hälsoövervakaren. Standardhälsoövervakaren skickar alla rapporterade problem till spårningsloggen.
+  * En ny offentlig egenskap har lagts till: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. Standardvärdet för den här egenskapen är 10 minuter.
+  * Ett nytt offentligt enum-värde har lagts till: `Monitoring.MonitoredOperation.ReadChangeFeed`. Om värdet för `HealthMonitoringRecord.Operation` är `Monitoring.MonitoredOperation.ReadChangeFeed` betyder det att hälsoproblemet har att göra med läsningen av ändringsflödet.
 
 ### <a name="227"></a><a id="2.2.7"></a>2.2.7
-* Förbättrad strategi för belastnings utjämning för scenariot när du hämtar alla lån tar längre tid än lånets förfallo intervall, till exempel på grund av nätverks problem:
-  * I den här scenariot för belastnings utjämning som används för att betrakta lån som utgångna kan det orsaka att stjäla lån från aktiva ägare. Detta kan utlösa onödig ombalansering av många lån.
-  * Det här problemet åtgärdas i den här versionen genom att undvika återförsök vid en konflikt vid förvärv av utgånget lån som ägaren inte har ändrat och uppskjutande av lån till nästa belastnings Utjämnings iteration.
+* Förbättrad belastningsutjämningsstrategi i scenariot då det tar längre tid att hämta alla lån än förfallotiden för lån, till exempel på grund av nätverksproblem:
+  * I det här scenariot betraktade belastningsutjämningsalgoritmen felaktigt lån som förfallna, vilket gjorde att lån stals från aktiva ägare. Detta ledde till onödig ombalansering av många lån.
+  * Det här problemet har åtgärdats i den här versionen. Nu undviks återförsök vid en konflikt när förfallna lån hämtas som ägaren inte har ändrat och hämtningen av förfallna lån skjuts upp till nästa belastningsutjämningsiteration.
 
 ### <a name="226"></a><a id="2.2.6"></a>2.2.6
-* Förbättrad hantering av observatörs undantag.
-* Utförlig information om fel i Övervakare:
-  * När en observatör stängs på grund av ett undantag som har utlösts av observatörens ProcessChangesAsync, kommer CloseAsync nu att få orsaks parametern inställd på ChangeFeedObserverCloseReason. ObserverError.
-  * Spårning för identifiering av fel i användar kod har lagts till i en övervakare.
+* Förbättrad hantering av övervakarundantag.
+* Utförlig information om övervakarfel:
+  * När en övervakare stängs på grund av ett undantag av övervakarens ProcessChangesAsync, tar CloseAsync nu emot orsaksparametern ChangeFeedObserverCloseReason.ObserverError.
+  * Spårning har lagts till för att identifiera fel i användarkoden i en övervakare.
 
 ### <a name="225"></a><a id="2.2.5"></a>2.2.5
-* Stöd har lagts till för hantering av delning i samlingar som använder data flöde för delad databas.
-  * I den här versionen åtgärdas ett problem som kan uppstå under delning i samlingar med hjälp av delat databas data flöde när dela resultat i ombalansering av partition med endast ett underordnat nyckel intervall har skapats, i stället för två. När detta inträffar kan byte av flödes processor fastna för att ta bort lånet för det gamla partitionsnamnet och inte skapa nya lån. Problemet har korrigerats i den här versionen.
+* Stöd har lagts till för att hantera delningar i samlingar som använder delat databasflöde.
+  * Ett problem har åtgärdats i den här versionen som kan uppstå på grund av en delning i samlingar som använder delat databasflöde när delningen resulterar i en ombalansering av partitioner där endast ett, i stället för två, nyckelintervall för underordnade partitioner skapas. När detta händer kan ändringsflödesprocessorn fastna i borttagningen av lånet för den gamla partitionens nyckelintervall, i stället för att skapa nya lån. Problemet har åtgärdats i den här versionen.
 
 ### <a name="224"></a><a id="2.2.4"></a>2.2.4
-* Den nya egenskapen ChangeFeedProcessorOptions. StartContinuation har lagts till för att stödja start av ändrings flöde från begär ande token för begäran Detta används endast när en Lease-samling är tom eller om ett lån inte har angetts för ContinuationToken. För lån i en Lease-samling som har ContinuationToken angetts används ContinuationToken och ChangeFeedProcessorOptions. StartContinuation ignoreras.
+* En ny egenskap, ChangeFeedProcessorOptions.StartContinuation, har lagts till som gör det möjligt att starta ändringsflödet från en begäran om fortsättningstoken. Egenskapen används bara om lånesamlingen är tom eller om ett lån inte har någon angiven fortsättningstoken. För lån i lånesamlingen med en angiven ContinuationToken används ContinuationToken och ChangeFeedProcessorOptions.StartContinuation ignoreras.
 
-### <a name="223"></a><a id="2.2.3"></a>punkt
-* Stöd har lagts till för att använda anpassade Arkiv för att bevara fortsättnings-token per partition.
-  * Till exempel kan ett anpassat leasing lager Azure Cosmos DB en lånad samling partitionerad på ett anpassat sätt.
-  * Anpassade hyres lager kan använda nya utöknings punkter ChangeFeedProcessorBuilder. WithLeaseStoreManager (ILeaseStoreManager) och ILeaseStoreManager offentliga gränssnitt.
-  * Omstrukturering av ILeaseManager-gränssnittet i flera roll gränssnitt.
-* Mindre brytande ändring: borttagen utöknings punkt ChangeFeedProcessorBuilder. WithLeaseManager (ILeaseManager), Använd ChangeFeedProcessorBuilder. WithLeaseStoreManager (ILeaseStoreManager) i stället.
+### <a name="223"></a><a id="2.2.3"></a>2.2.3
+* Stöd har lagts till för anpassade lagringsplatser så att fortsättningstoken kan bevaras per partition.
+  * Till exempel kan en Azure Cosmos DB-lånesamling partitioneras på valfritt sätt med en anpassad lagringsplats.
+  * Anpassade lagringsplatser för lån kan använda den nya utökningspunkten ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) och det nya offentliga gränssnittet ILeaseStoreManager.
+  * ILeaseManager-gränssnittet har omstrukturerats till gränssnitt med flera roller.
+* Mindre icke-bakåtkompatibel ändring: utökningspunkten ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager) har tagits bort. Använd ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) i stället.
 
 ### <a name="222"></a><a id="2.2.2"></a>2.2.2
-* I den här versionen åtgärdas ett problem som uppstår under bearbetning av en delad i övervakad samling och en partitionerad låne samling. När ett lån bearbetas för delad partition får inte det lån som motsvarar den partitionen tas bort. Problemet har korrigerats i den här versionen.
+* I den här versionen har ett problem åtgärdats som inträffar när en delning bearbetas i en övervakad samling och en partitionerad lånesamling används. När ett lån bearbetas för en delad partition får inte lånet som är kopplat till den partitionen tas bort. Problemet har åtgärdats i den här versionen.
 
 ### <a name="221"></a><a id="2.2.1"></a>2.2.1
-* Fast uppskattnings beräkning för konton med flera Skriv regioner och nytt format för sessionstoken.
+* Fast beräkning för konton med flera skrivregioner och nytt format för sessionstoken.
 
 ### <a name="220"></a><a id="2.2.0"></a>2.2.0
-* Stöd har lagts till för partitionerade låne samlingar. Partitionsnyckel måste definieras som/ID.
-* Mindre avbrytande ändring: metoderna i IChangeFeedDocumentClient-gränssnittet och ChangeFeedDocumentClient-klassen ändrades till att omfatta RequestOptions-och CancellationToken-parametrar. IChangeFeedDocumentClient är en avancerad utöknings punkt som gör att du kan tillhandahålla anpassad implementering av dokument klienten som ska användas med Change feed-processor, till exempel dekorera DocumentClient och avlyssna alla anrop till den för att utföra extra spårning, fel hantering osv. Med den här uppdateringen måste den kod som implementerar IChangeFeedDocumentClient ändras för att inkludera nya parametrar i implementeringen.
-* Förbättringar av mindre diagnostik.
+* Stöd har lagts till för partitionerade lånesamlingar. Partitionsnyckeln måste definieras som /id.
+* Mindre icke-bakåtkompatibel ändring: RequestOptions- och CancellationToken-parametrar har lagts till i metoderna för IChangeFeedDocumentClient-gränssnittet och ChangeFeedDocumentClient-klassen. IChangeFeedDocumentClient är en avancerad utökningspunkt som ger stöd för anpassade implementeringar av dokumentklienten som kan användas med ändringsflödesprocessorn. Du kan till exempel anpassa DocumentClient och fånga upp alla anrop till den om du vill utöka spårningen, arbeta med felhantering osv. Med den här uppdateringen måste koden som implementerar IChangeFeedDocumentClient ändras så att nya parametrar finns med i implementeringen.
+* Mindre diagnostikförbättringar.
 
 ### <a name="210"></a><a id="2.1.0"></a>2.1.0
-* Nytt API, aktivitet &lt; IReadOnlyList &lt; RemainingPartitionWork &gt; &gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync () har lagts till. Detta kan användas för att få uppskattat arbete för varje partition.
-* Stöder Microsoft.Azure.DocumentDB SDK 2,0. Kräver Microsoft.Azure.DocumentDB 2,0 eller senare.
+* Ett nytt API har lagts till: Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Det kan användas för att uppskatta arbetet för varje partition.
+* Stöder Microsoft.Azure.DocumentDB SDK 2.0. Kräver Microsoft.Azure.DocumentDB 2.0 eller senare.
 
 ### <a name="206"></a><a id="2.0.6"></a>2.0.6
-* Lade till egenskapen ChangeFeedEventHost. HostName offentlig för kompatibilitet med v1.
+* Den offentliga egenskapen ChangeFeedEventHost.HostName har lagts till för kompatibilitet med v1.
 
 ### <a name="205"></a><a id="2.0.5"></a>2.0.5
-* Åtgärdat ett tävlings tillstånd som inträffar när partitionen delas. Tävlings tillståndet kan leda till att lånet tas emot och att det omedelbart förlorar det när partitionen delas och orsakar konkurrens. Problemet med konkurrens villkoret är löst i den här versionen.
+* Ett konkurrenstillstånd som inträffar i samband med partitionsdelningar har åtgärdats. Konkurrenstillståndet kan göra att lån som erhålls genast går förlorade vid partitionsdelningen vilket ger upphov till konkurrens. Problemet med konkurrenstillståndet har åtgärdats i den här versionen.
 
 ### <a name="204"></a><a id="2.0.4"></a>2.0.4
 * GA SDK
 
-### <a name="203-prerelease"></a><a id="2.0.3-prerelease"></a>2.0.3-för hands version
+### <a name="203-prerelease"></a><a id="2.0.3-prerelease"></a>2.0.3 (förhandsversion)
 * Åtgärdat följande problem:
-  * När partitions delning sker kan det finnas dubbel bearbetning av dokument som har ändrats före delningen.
-  * GetEstimatedRemainingWork-API: n returnerade 0 när det inte fanns några lån i låne samlingen.
+  * När en partitionsdelning görs kan det förekomma dubbel bearbetning av dokument som ändrats före delningen.
+  * GetEstimatedRemainingWork-API:et returnerade 0 när det inte fanns några lån i lånesamlingen.
 
-* Följande undantag görs offentliga. Tillägg som implementerar IPartitionProcessor kan utlösa dessa undantag.
-  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. LeaseLostException. 
-  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionException. 
-  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionNotFoundException.
-  * Microsoft.Azure.Documents. ChangeFeedProcessor. Exceptions. PartitionSplitException. 
+* Följande undantag görs offentliga. Tillägg som implementerar IPartitionProcessor kan returnera dessa undantag.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
-### <a name="202-prerelease"></a><a id="2.0.2-prerelease"></a>2.0.2-för hands version
+### <a name="202-prerelease"></a><a id="2.0.2-prerelease"></a>2.0.2 (förhandsversion)
 * Mindre API-ändringar:
-  * Tog bort ChangeFeedProcessorOptions. IsAutoCheckpointEnabled som marker ATS som föråldrad.
+  * ChangeFeedProcessorOptions.IsAutoCheckpointEnabled har tagits bort och markerats som föråldrad.
 
-### <a name="201-prerelease"></a><a id="2.0.1-prerelease"></a>2.0.1-för hands version
-* Stabilitets förbättringar:
-  * Bättre hantering av initiering av leasing lager. När leasing lagret är tomt kan bara en instans av processor initiera den, de andra väntar.
-  * Mer stabil/effektiv låne förnyelse/-lansering. Att förnya och släppa ett lån för en partition är oberoende av att förnya andra. I v1 som utfördes sekventiellt för alla partitioner.
-* Ny v2-API:
-  * Builder-mönster för flexibel konstruktion av processorn: klassen ChangeFeedProcessorBuilder.
-    * Kan ta en valfri kombination av parametrar.
-    * Kan ta DocumentClient-instans för övervakning och/eller Lease-samling (inte tillgängligt i v1).
-  * IChangeFeedObserver. ProcessChangesAsync tar nu CancellationToken.
-  * IRemainingWorkEstimator – den återstående arbets uppskattningen kan användas separat från processorn.
-  * Nya utöknings punkter:
-    * IPartitionLoadBalancingStrategy – för anpassad belastnings utjämning av partitioner mellan instanser av processorn.
-    * ILease, ILeaseManager – för anpassad hantering av lån.
-    * IPartitionProcessor – för anpassade bearbetnings ändringar på en partition.
-* Logging – använder [LibLog](https://github.com/damianh/LibLog) -bibliotek.
-* 100% bakåtkompatibel med v1-API.
+### <a name="201-prerelease"></a><a id="2.0.1-prerelease"></a>2.0.1 (förhandsversion)
+* Stabilitetsförbättringar:
+  * Bättre initiering av lånelagringsplatsen. När lånelagringsplatsen är tom kan endast en instans av processorn initiera den. De andra väntar.
+  * Mer stabil/effektiv förnyelse/frisläppning av lån. Förnyelsen och frisläppningen av ett lån på en partition görs oberoende av förnyelsen på andra. I v1 gjordes detta i följd för alla partitioner.
+* Nytt v2-API:
+  * Verktygsmönster för flexibel konstruktion av processorn: klassen ChangeFeedProcessorBuilder.
+    * Stöder valfri kombination av parametrar.
+    * Kan använda DocumentClient-instansen för övervakning och/eller lånesamling (inte tillgängligt i v1).
+  * IChangeFeedObserver.ProcessChangesAsync stöder nu CancellationToken.
+  * IRemainingWorkEstimator – den återstående arbetsberäkningen kan användas separat från processorn.
+  * Nya utökningspunkter:
+    * IPartitionLoadBalancingStrategy – för anpassad belastningsutjämning av partitioner mellan instanser av processorn.
+    * ILease, ILeaseManager – för anpassad lånehantering.
+    * IPartitionProcessor – för anpassade bearbetningsändringar på en partition.
+* Loggning – använder [LibLog](https://github.com/damianh/LibLog)-biblioteket.
+* 100 % bakåtkompatibel med v1-API:et.
 * Ny kodbas.
-* Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versioner 1.21.1 och senare.
+* Kompatibel med version 1.21.1 och senare av [SQL .NET SDK](sql-api-sdk-dotnet.md).
 
 ### <a name="v1-builds"></a>v1-versioner
 
 ### <a name="133"></a><a id="1.3.3"></a>1.3.3
 * Ytterligare loggning har lagts till.
-* En DocumentClient-läcka har åtgärd ATS vid anrop av väntande arbets uppskattning flera gånger.
+* En DocumentClient-läcka har åtgärdats som inträffade när beräkningen av väntande arbete anropades flera gånger.
 
 ### <a name="132"></a><a id="1.3.2"></a>1.3.2
-* Korrigeringar i den väntande arbets beräkningen.
+* Korrigeringar har gjorts i beräkningen av väntande arbete.
 
 ### <a name="131"></a><a id="1.3.1"></a>1.3.1
-* Stabilitets förbättringar.
-  * Korrigering för hantering av avbrutna uppgifts problem som kan leda till stoppade observatörer på vissa partitioner.
-* Stöd för manuell kontroll punkt.
-* Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versionerna 1,21 och senare.
+* Stabilitetsförbättringar.
+  * Ett problem med hanteringen av avbrutna uppgifter har åtgärdats som gjorde att övervakare stoppades på vissa partitioner.
+* Stöd för manuell hantering av kontrollpunkter.
+* Kompatibel med version 1.21 och senare av [SQL .NET SDK](sql-api-sdk-dotnet.md).
 
 ### <a name="120"></a><a id="1.2.0"></a>1.2.0
-* Lägger till stöd för .NET standard 2,0. Paketet stöder nu `netstandard2.0` och `net451` Ramverks-monikers.
-* Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versioner 1.17.0 och senare.
-* Kompatibel med [SQL .net Core SDK](sql-api-sdk-dotnet-core.md) -versioner 1.5.1 och senare.
+* Stöd för .NET Standard 2.0 har lagts till. Nu stöder paketet moniker för `netstandard2.0`- och `net451`-ramverk.
+* Kompatibel med version 1.17.0 och senare av [SQL .NET SDK](sql-api-sdk-dotnet.md).
+* Kompatibel med version 1.5.1 och senare av [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md).
 
 ### <a name="111"></a><a id="1.1.1"></a>1.1.1
-* Åtgärdar ett problem med beräkningen av beräkningen av återstående arbete när ändrings flödet var tomt eller inget arbete väntades.
-* Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versioner 1.13.2 och senare.
+* Ett problem med beräkningen av återstående arbete har åtgärdats som inträffade när ändringsflödet var tomt eller när det inte fanns något väntande arbete.
+* Kompatibel med version 1.13.2 och senare av [SQL .NET SDK](sql-api-sdk-dotnet.md).
 
 ### <a name="110"></a><a id="1.1.0"></a>1.1.0
-* Har lagt till en metod för att få en uppskattning av återstående arbete som bearbetas i ändrings flödet.
-* Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versioner 1.13.2 och senare.
+* En metod har lagts till för att hämta en beräkning av återstående arbete som ska bearbetas i ändringsflödet.
+* Kompatibel med version 1.13.2 och senare av [SQL .NET SDK](sql-api-sdk-dotnet.md).
 
 ### <a name="100"></a><a id="1.0.0"></a>1.0.0
 * GA SDK
-* Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versioner 1.14.1 och nedan.
+* Kompatibel med version 1.14.1 och lägre av [SQL .NET SDK](sql-api-sdk-dotnet.md).
 
-## <a name="release--retirement-dates"></a>Frisläpp & indragnings datum
+## <a name="release--retirement-dates"></a>Utgivnings- och tillbakadragningsdatum
 
-Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds. Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, så vi rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
+Microsoft meddelar kunder minst **12 månader** innan en SDK-version dras tillbaka för att säkerställa en smidig övergång till en nyare version eller en version som stöds. Nya funktioner, verktyg och optimeringar läggs endast till i den aktuella SDK-versionen. Därför rekommenderar vi att du alltid uppgraderar till den senaste SDK-versionen så snart som möjligt.
 
 > [!WARNING]
-> Efter 31 augusti 2022 kommer Azure Cosmos DB inte längre att göra fel korrigeringar, lägga till nya funktioner och ge stöd till version 1. x av Azure Cosmos DB .NET eller .NET Core SDK för SQL API. Om du föredrar att inte uppgradera fortsätter de begär Anden som skickas från version 1. x av SDK att hanteras av Azure Cosmos DBs tjänsten.
+> Efter den 31 augusti 2022 kommer Azure Cosmos DB inte att erbjuda buggkorrigeringar, nya funktioner eller stöd för version 1.x av Azure Cosmos DB .NET eller .NET Core SDK för SQL API. Om du föredrar att inte uppgradera kommer begäranden från version 1.x av SDK:n att fortsätta att hanteras av tjänsten Azure Cosmos DB.
 
 <br/>
 
-| Version | Lanserings datum | Förfallodatum |
+| Version | Utgivningsdatum | Förfallodatum |
 | --- | --- | --- |
-| [2.3.2](#2.3.2) |11 augusti 2020 |--- |
-| [2.3.1](#2.3.1) |30 juli 2020 |--- |
-| [2.3.0](#2.3.0) |2 april 2020 |--- |
-| [2.2.8](#2.2.8) |28 oktober 2019 |--- |
-| [2.2.7](#2.2.7) |14 maj, 2019 |--- |
-| [2.2.6](#2.2.6) |29 januari 2019 |--- |
-| [2.2.5](#2.2.5) |13 december 2018 |--- |
-| [2.2.4](#2.2.4) |29 november 2018 |--- |
-| [punkt](#2.2.3) |19 november 2018 |--- |
+| [2.3.2](#2.3.2) |Den 11 augusti 2020 |--- |
+| [2.3.1](#2.3.1) |Den 30 juli 2020 |--- |
+| [2.3.0](#2.3.0) |Den 2 april 2020 |--- |
+| [2.2.8](#2.2.8) |Den 28 oktober 2019 |--- |
+| [2.2.7](#2.2.7) |Den 14 maj 2019 |--- |
+| [2.2.6](#2.2.6) |Den 29 januari 2019 |--- |
+| [2.2.5](#2.2.5) |Den 13 december 2018 |--- |
+| [2.2.4](#2.2.4) |Den 29 november 2018 |--- |
+| [2.2.3](#2.2.3) |Den 19 november 2018 |--- |
 | [2.2.2](#2.2.2) |31 oktober 2018 |--- |
-| [2.2.1](#2.2.1) |24 oktober 2018 |--- |
-| [1.3.3](#1.3.3) |08 maj, 2018 |--- |
-| [1.3.2](#1.3.2) |18 april 2018 |--- |
+| [2.2.1](#2.2.1) |Den 24 oktober 2018 |--- |
+| [1.3.3](#1.3.3) |Den 8 maj 2018 |--- |
+| [1.3.2](#1.3.2) |Den 18 april 2018 |--- |
 | [1.3.1](#1.3.1) |13 mars 2018 |--- |
 | [1.2.0](#1.2.0) |31 oktober 2017 |--- |
-| [1.1.1](#1.1.1) |29 augusti 2017 |--- |
-| [1.1.0](#1.1.0) |13 augusti 2017 |--- |
-| [1.0.0](#1.0.0) |Den 07 juli 2017 |--- |
+| [1.1.1](#1.1.1) |Den 29 augusti 2017 |--- |
+| [1.1.0](#1.1.0) |Den 13 augusti 2017 |--- |
+| [1.0.0](#1.0.0) |Den 7 juli 2017 |--- |
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
@@ -222,4 +222,4 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 
 ## <a name="see-also"></a>Se även
 
-Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
+Mer information om Cosmos DB finns på sidan om tjänsten [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

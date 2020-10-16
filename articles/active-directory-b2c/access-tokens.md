@@ -1,5 +1,5 @@
 ---
-title: Begär en åtkomsttoken – Azure Active Directory B2C | Microsoft Docs
+title: Begära en åtkomsttoken – Azure Active Directory B2C | Microsoft Docs
 description: Lär dig hur du begär en åtkomsttoken från Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
@@ -12,33 +12,33 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87115537"
 ---
-# <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Begär en åtkomsttoken i Azure Active Directory B2C
+# <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Begära en åtkomsttoken i Azure Active Directory B2C
 
-En *åtkomsttoken* innehåller anspråk som du kan använda i Azure Active Directory B2C (Azure AD B2C) för att identifiera de beviljade behörigheterna för dina API: er. När du anropar en resurs Server måste en åtkomsttoken finnas i HTTP-begäran. En åtkomsttoken betecknas som **access_token** i svaren från Azure AD B2C.
+En *åtkomsttoken* innehåller anspråk som du kan använda i Azure Active Directory B2C (Azure AD B2C) för att identifiera de behörigheter som dina API:er har beviljats. När du anropar en resursserver måste HTTP-begäran innehålla en åtkomsttoken. En åtkomsttoken visas som **access_token** i svaren från Azure AD B2C.
 
-Den här artikeln visar hur du begär en åtkomsttoken för ett webb program och webb-API. Mer information om tokens i Azure AD B2C finns i [Översikt över tokens i Azure Active Directory B2C](tokens-overview.md).
+Den här artikeln beskriver hur du begär en åtkomsttoken för en webbapp och ett webb-API. Mer information om token i Azure AD B2C finns i [översikten över token i Azure Active Directory B2C](tokens-overview.md).
 
 > [!NOTE]
-> **Webb-API-kedjor (på-plats-av) stöds inte av Azure AD B2C.** – Många arkitekturer innehåller ett webb-API som måste anropa ett annat underordnat webb-API, som båda skyddas av Azure AD B2C. Det här scenariot är vanligt i klienter som har en server del för webb-API, som i sin tur anropar en annan tjänst. Det här länkade webb-API-scenariot kan stödjas med hjälp av OAuth 2,0 JWT Bearer Credential Grant, på annat sätt kallas för flöde på uppdrag. Det finns dock för närvarande inte implementerat flöde på uppdrag i Azure AD B2C.
+> **Länkade webb-API:er (On-Behalf-Of) stöds inte i Azure AD B2C.** Många arkitekturer har ett webb-API som måste anropa ett annat underordnat webb-API, som båda skyddas av Azure AD B2C. Det här scenariot är vanligt med klienter som har ett webb-API på serversidan, som i sin tur anropar en annan tjänst. Det här scenariot med länkade webb-API:er kan användas genom en tilldelning av OAuth 2.0 JWT-ägarautentiseringsuppgifter, även kallat On-Behalf-Of-flöde. Detta flöde är emellertid inte implementerat i Azure AD B2C.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- [Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
-- Om du inte redan har gjort det [lägger du till ett webb-API-program till din Azure Active Directory B2C-klient](add-web-api-application.md).
+- [Skapa ett användarflöde](tutorial-create-user-flows.md) så att användare kan registrera sig och logga in i ditt program.
+- Om du inte redan har gjort det [lägger du till ett webb-API-program i din Azure Active Directory B2C-klientorganisation](add-web-api-application.md).
 
 ## <a name="scopes"></a>Omfattningar
 
-Med hjälp av omfång kan du hantera behörigheter för skyddade resurser. När en åtkomsttoken begärs måste klient programmet ange önskade behörigheter i **scope** -parametern för begäran. Om du till exempel vill ange **omfattning svärdet** för `read` för API: t som har **app-ID-URI: n** `https://contoso.onmicrosoft.com/api` , blir omfattningen `https://contoso.onmicrosoft.com/api/read` .
+Med hjälp av omfång kan du hantera behörigheter för skyddade resurser. När en åtkomsttoken begärs måste klientprogrammet ange önskade behörigheter i **scope**-parametern för begäran. Om du till exempel vill ange **omfångsvärdet** `read` för API:et med ett **app-ID med URI:n** `https://contoso.onmicrosoft.com/api`, är omfånget `https://contoso.onmicrosoft.com/api/read`.
 
-Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Till exempel kan användare av webb-API:et ha både läs- och skrivbehörighet, eller så har användare av webb-API:et kanske bara läsbehörighet. Om du vill förvärva flera behörigheter i samma förfrågan kan du lägga till flera poster i den enda **omfattnings** parametern för begäran, avgränsade med blank steg.
+Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Till exempel kan användare av webb-API:et ha både läs- och skrivbehörighet, eller så har användare av webb-API:et kanske bara läsbehörighet. Om du vill hämta flera behörigheter i samma begäran kan du lägga till flera poster i samma **scope**-parameter i begäran, avgränsade med blanksteg.
 
-I följande exempel visas omfattningarna som avkodats i en URL:
+I följande exempel visas omfång som är avkodade i en URL:
 
 ```
 scope=https://contoso.onmicrosoft.com/api/read openid offline_access
@@ -50,23 +50,23 @@ I följande exempel visas omfång som är kodade i en URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Om du begär fler omfattningar än vad som beviljas för ditt klient program, lyckas anropet om minst en behörighet beviljas. **SCP** -anspråket i den resulterande åtkomsttoken fylls med endast de behörigheter som har beviljats. OpenID Connect standard anger flera särskilda omfångs värden. Följande omfång representerar behörigheten att komma åt användarens profil:
+Om du begär fler omfång än vad ditt klientprogram beviljas, lyckas anropet om minst en behörighet beviljas. **SCP**-anspråket i den resulterande åtkomsttoken innehåller endast de behörigheter som beviljades. OpenID Connect-standarden anger flera särskilda omfångsvärden. Följande omfång representerar behörigheten för att komma åt användarens profil:
 
-- **OpenID** -begär en ID-token.
-- **offline_access** -begär en uppdateringstoken med hjälp av [auth Code](authorization-code-flow.md)flows.
+- **openid** – Begär en ID-token.
+- **offline_access** – Begär en uppdateringstoken via [auktoriseringskodflöden](authorization-code-flow.md).
 
-Om parametern **response_type** i en `/authorize` begäran inkluderar `token` måste **omfattnings** parametern innehålla minst en annan resurs omfattning än `openid` och `offline_access` som ska beviljas. Annars `/authorize` Miss lyckas begäran.
+Om parametern **response_type** i en `/authorize`-begäran innehåller `token`, måste **scope**-parametern innehålla minst ett annat resursomfång än `openid` och `offline_access` som kommer att beviljas. Annars misslyckas `/authorize`-begäran.
 
-## <a name="request-a-token"></a>Begär en token
+## <a name="request-a-token"></a>Begära en token
 
-Om du vill begära en åtkomsttoken behöver du en auktoriseringskod. Nedan visas ett exempel på en begäran till `/authorize` slut punkten för en auktoriseringskod. Anpassade domäner stöds inte för användning med åtkomsttoken. Använd din tenant-name.onmicrosoft.com-domän i fråge-URL: en.
+Du behöver en auktoriseringskod för att begära en åtkomsttoken. Exemplet nedan visar en begäran om en auktoriseringskod till `/authorize`-slutpunkten. Anpassade domäner kan inte användas med åtkomsttoken. Använd din tenant-name.onmicrosoft.com-domän i URL:en för begäran.
 
-I följande exempel ersätter du följande värden:
+I följande exempel ersätter du dessa värden:
 
-- `<tenant-name>`– Namnet på din Azure AD B2C klient.
-- `<policy-name>`– Namnet på din anpassade princip eller ditt användar flöde.
-- `<application-ID>`– Program identifieraren för det webb program som du har registrerat för att stödja användar flödet.
-- `<redirect-uri>`– Den **omdirigerings-URI** som du angav när du registrerade klient programmet.
+- `<tenant-name>` – Namnet på din Azure AD B2C-klient.
+- `<policy-name>` – Namnet på din anpassade princip eller ditt anpassade användarflöde.
+- `<application-ID>` – Programidentifieraren för webbappen som du registrerade för att stödja användarflödet.
+- `<redirect-uri>` – **Omdirigerings-URI:n** som du angav när du registrerade klientprogrammet.
 
 ```http
 GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
@@ -77,13 +77,13 @@ client_id=<application-ID>
 &response_type=code
 ```
 
-Svaret med auktoriseringskod bör likna följande exempel:
+Svaret med auktoriseringskoden bör likna följande exempel:
 
 ```
 https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-När du har tagit emot auktoriseringskod kan du använda den för att begära en åtkomsttoken:
+När du har tagit emot auktoriseringskoden kan du använda den för att begära en åtkomsttoken:
 
 ```http
 POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
@@ -98,7 +98,7 @@ grant_type=authorization_code
 &client_secret=2hMG2-_:y12n10vwH...
 ```
 
-Du bör se något som liknar följande svar:
+Nu bör du se utdata som liknar följande svar:
 
 ```json
 {
@@ -112,7 +112,7 @@ Du bör se något som liknar följande svar:
 }
 ```
 
-När https://jwt.ms du använder för att kontrol lera den åtkomsttoken som returnerades, bör du se något som liknar följande exempel:
+När du använder https://jwt.ms för att undersöka den åtkomsttoken som returnerades, bör du se något som liknar följande exempel:
 
 ```json
 {
@@ -138,4 +138,4 @@ När https://jwt.ms du använder för att kontrol lera den åtkomsttoken som ret
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [konfigurerar tokens i Azure AD B2C](configure-tokens.md)
+- Lär dig mer om hur du [konfigurerar token i Azure AD B2C](configure-tokens.md)

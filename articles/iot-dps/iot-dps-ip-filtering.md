@@ -1,6 +1,6 @@
 ---
-title: Filter för Azure IoT DPS IP-anslutning | Microsoft Docs
-description: Hur du använder IP-filtrering för att blockera anslutningar från vissa IP-adresser till Azure IoT DPS-instansen. Du kan blockera anslutningar från enskilda eller intervall med IP-adresser.
+title: IP-anslutningsfilter för Azure IoT DPS | Microsoft Docs
+description: Lär dig hur du använder IP-filtrering för att blockera anslutningar från specifika IP-adresser till din Azure IoT DPS-instans. Du kan blockera anslutningar från enskilda IP-adresser eller IP-adressintervall.
 author: wesmc7777
 ms.author: wesmc
 ms.service: iot-dps
@@ -8,79 +8,79 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511950"
 ---
-# <a name="use-azure-iot-dps-ip-connection-filters"></a>Använd Azure IoT DPS IP-anslutningssträngar filter
+# <a name="use-azure-iot-dps-ip-connection-filters"></a>Använda IP-anslutningsfilter för Azure IoT DPS
 
-Säkerhet är en viktig aspekt av alla IoT-lösningar. Ibland måste du uttryckligen ange de IP-adresser som enheter kan ansluta till som en del av din säkerhets konfiguration. Med funktionen *IP-filter* för en Azure-IoT Hub Device PROVISIONING service (DPS) kan du konfigurera regler för att avvisa eller acceptera trafik från vissa IPv4-adresser.
+Säkerheten är en viktig aspekt i alla IoT-lösningar. Ibland måste du uttryckligen ange de IP-adresser som enheter kan ansluta till som en del av din säkerhetskonfiguration. Med *IP-filterfunktionen* för Azure IoT Hub Device Provisioning Service (DPS) kan du konfigurera regler för att avvisa eller acceptera trafik från specifika IPv4-adresser.
 
 ## <a name="when-to-use"></a>När du ska använda detta
 
-Det finns två specifika användnings fall där det är praktiskt att blockera anslutningar till en DPS-slutpunkt från vissa IP-adresser:
+Det finns två specifika scenarier då det kan vara bra att blockera anslutningar till en DPS-slutpunkt från särskilda IP-adresser:
 
-* DPS bör endast ta emot trafik från ett visst intervall med IP-adresser och förkasta allt annat. Du använder till exempel din DPS med [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) för att skapa privata anslutningar mellan en DPS och dina enheter.
+* DPS bör endast ta emot trafik från ett visst intervall med IP-adresser och avvisa allt annat. Till exempel använder du DPS med [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) för att skapa privata anslutningar mellan en DPS och dina enheter.
 
-* Du måste avvisa trafik från IP-adresser som har identifierats som misstänkt av DPS-administratören.
+* Du måste avvisa trafik från IP-adresser som har identifierats som misstänkta av DPS-administratören.
 
-## <a name="how-filter-rules-are-applied"></a>Hur filter regler tillämpas
+## <a name="how-filter-rules-are-applied"></a>Så här tillämpas filterregler
 
-IP-filter regler tillämpas på nivån för DPS-instansen. Därför gäller IP-filter reglerna för alla anslutningar från enheter och backend-appar med valfritt protokoll som stöds.
+IP-filterregler tillämpas på DPS-instansnivån. Det betyder att IP-filterreglerna tillämpas på alla anslutningar från enheter och backend-appar som använder ett protokoll som stöds.
 
-Alla anslutnings försök från en IP-adress som matchar en IP-regel som avvisar i din DPS får en otillåten 401 status kod och beskrivning. Svars meddelandet nämner inte IP-regeln.
+Alla anslutningsförsök från en IP-adress som matchar en IP-regel som avvisar trafik på din DPS-instans får en 401-statuskod och tillhörande beskrivning (behörighet saknas). IP-regeln nämns inte i svarsmeddelandet.
 
 ## <a name="default-setting"></a>Standardinställning
 
-Som standard är **IP-filter** rutnätet i portalen för DPS tomt. Den här standardinställningen innebär att DPS accepterar anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0.
+Som standard är **IP-filtertabellen** på portalen för DPS tom. Med den här standardinställningen accepterar DPS anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0.
 
-![Standardinställningar för IP-filter för IoT DPS](./media/iot-dps-ip-filtering/ip-filter-default.png)
+![Förvalda IP-filterinställningar för IoT DPS](./media/iot-dps-ip-filtering/ip-filter-default.png)
 
-## <a name="add-or-edit-an-ip-filter-rule"></a>Lägga till eller redigera en regel för IP-filter
+## <a name="add-or-edit-an-ip-filter-rule"></a>Lägga till eller redigera en IP-filterregel
 
-Om du vill lägga till en regel för IP-filter väljer du **+ Lägg till IP-filterlista**.
+Du lägger till en IP-filterregel genom att välja **+ Lägg till IP-filterregel**.
 
-![Lägga till en filter regel för IP-filter i IoT DPS](./media/iot-dps-ip-filtering/ip-filter-add-rule.png)
+![Lägga till en IP-filterregel till en IoT DPS](./media/iot-dps-ip-filtering/ip-filter-add-rule.png)
 
-När du har valt **Lägg till IP-filterlista**fyller du i fälten.
+Fyll i fälten när du har valt **Lägg till IP-filterregel**.
 
-![När du har valt Lägg till en filter regel för IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
+![När du har valt Lägg till IP-filterregel](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Ange ett **namn** för IP-filterlistan. Detta måste vara en unik, SKIFT läges okänslig, alfanumerisk sträng på upp till 128 tecken. Endast ASCII 7-bitars alfanumeriska tecken plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` godkänns.
+* Ange ett **namn** för IP-filterregeln. Namnet måste vara en unik, skiftlägeskänslig, alfanumerisk sträng på upp till 128 tecken. Du kan endast använda 7-bitars alfanumeriska ASCII-tecken samt `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
-* Ange en enskild IPv4-adress eller ett block med IP-adresser i CIDR-format. I CIDR-notation 192.168.100.0/22 representerar till exempel IPv4-adresserna 1024 från 192.168.100.0 till 192.168.103.255.
+* Ange en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation representerar exempelvis 192.168.100.0/22 de 1 024 IPv4-adresserna från 192.168.100.0 till 192.168.103.255.
 
-* Välj **Tillåt** eller **blockera** som **åtgärd** för IP-filterlistan.
+* Välj **Tillåt** eller **Blockera** som **åtgärd** för IP-filterregeln.
 
-När du har fyllt i fälten väljer du **Spara** för att spara regeln. En avisering visas som meddelar dig att uppdateringen pågår.
+När du har fyllt i fälten sparar du regeln genom att välja **Spara**. Ett meddelande visas som anger att uppdateringen pågår.
 
-![Meddelande om att spara en regel för IP-filter](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
+![Meddelande när en IP-filterregel sparas](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-Alternativet **Lägg till** är inaktiverat när du når Max gränsen på 10 IP-filter.
+Alternativet **Lägg till** inaktiveras när du når den högsta gränsen på tio IP-filterregler.
 
-Om du vill redigera en befintlig regel väljer du de data som du vill ändra, gör ändringen och väljer **Spara** för att spara din redigering.
+Om du vill redigera en befintlig regel väljer du de data som du vill ändra, gör ändringen och sparar sedan ändringen genom att välja **Spara**.
 
 > [!NOTE]
-> Om IP-adresser avvisas kan andra Azure-tjänster inte interagera med DPS-instansen.
+> Om du avvisar IP-adresser kan detta förhindra att andra Azure-tjänster interagerar med DPS-instansen.
 
-## <a name="delete-an-ip-filter-rule"></a>Ta bort en regel för IP-filter
+## <a name="delete-an-ip-filter-rule"></a>Ta bort en IP-filterregel
 
-Om du vill ta bort en IP-filterlista väljer du pappers korgs ikonen på raden och väljer sedan **Spara**. Regeln tas bort och ändringen sparas.
+Om du vill ta bort en IP-filterregel väljer du papperskorgsikonen på den aktuella raden och väljer sedan **Spara**. Regeln tas bort och ändringen sparas.
 
-![Ta bort en IoT DPS IP filter-regel](./media/iot-dps-ip-filtering/ip-filter-delete-rule.png)
+![Ta bort en IP-filterregel för IoT DPS](./media/iot-dps-ip-filtering/ip-filter-delete-rule.png)
 
 
-## <a name="update-ip-filter-rules-in-code"></a>Uppdatera IP filter regler i kod
+## <a name="update-ip-filter-rules-in-code"></a>Uppdatera IP-filterregler i kod
 
-Du kan hämta och ändra ditt DPS IP-filter med hjälp av Azure Resource providers REST-slutpunkt. Se `properties.ipFilterRules` i [createorupdate-metoden](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+Du kan hämta och ändra ett IP-filter för DPS med hjälp av Azure-resursproviderns REST-slutpunkt. Mer information finns i `properties.ipFilterRules` i [createorupdate-metoden](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
 
-Att uppdatera regler för DPS-IP-filter stöds för närvarande inte med Azure CLI eller Azure PowerShell, men du kan göra det med Azure Resource Manager mallar. Se [Azure Resource Manager mallar](../azure-resource-manager/templates/overview.md) för att få hjälp med att använda Resource Manager-mallar. Mall exemplen nedan visar hur du skapar, redigerar och tar bort DPS IP-filter regler.
+Det går för närvarande inte att uppdatera IP-filterregler för DPS med Azure CLI eller Azure PowerShell. Det kan däremot göras med Azure Resource Manager-mallar. Hjälp med att använda Resource Manager-mallar finns i avsnittet om [Azure Resource Manager-mallar](../azure-resource-manager/templates/overview.md). Mallexemplen nedan visar hur du skapar, redigerar och tar bort IP-filterregler för DPS.
 
-### <a name="add-an-ip-filter-rule"></a>Lägg till en filter regel för IP
+### <a name="add-an-ip-filter-rule"></a>Lägga till en IP-filterregel
 
-I följande mall skapas en ny filter regel med namnet "AllowAll" som godkänner all trafik.
+I följande mallexempel skapas en ny IP-filterregel med namnet ”AllowAll” som accepterar all trafik.
 
 ```json
 {
@@ -131,18 +131,18 @@ I följande mall skapas en ny filter regel med namnet "AllowAll" som godkänner 
 }
 ```
 
-Uppdatera attributen för IP-filterlistan i mallen baserat på dina krav.
+Uppdatera mallens attribut för IP-filterregler baserat på dina krav.
 
 | Attribut                | Beskrivning |
 | ------------------------ | ----------- |
-| **Namn**           | Ange ett namn för IP-filterlistan. Detta måste vara en unik, SKIFT läges okänslig, alfanumerisk sträng på upp till 128 tecken. Endast ASCII 7-bitars alfanumeriska tecken plus {"-", ":", "/", ",", " \' +", "%", "#", "*", "?", '! ', ' (', ') ', ', ' = ', ' @ ', '; ', ' ' '} har accepterats. |
-| **Åtgärd**               | Godkända värden **accepteras**   eller **nekas**   som åtgärd för IP-filterlistan. |
-| **ipMask**               | Ange en enskild IPv4-adress eller ett block med IP-adresser i CIDR-format. I CIDR-notation 192.168.100.0/22 representerar till exempel IPv4-adresserna 1024 från 192.168.100.0 till 192.168.103.255. |
+| **FilterName**           | Ange ett namn för IP-filterregeln. Namnet måste vara en unik, skiftlägeskänslig, alfanumerisk sträng på upp till 128 tecken. Du kan endast använda 7-bitars alfanumeriska ASCII-tecken samt {'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}. |
+| **Åtgärd**               | Värden som stöds är **Acceptera** eller **Avvisa** som åtgärden för IP-filterregeln. |
+| **ipMask**               | Ange en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation representerar exempelvis 192.168.100.0/22 de 1 024 IPv4-adresserna från 192.168.100.0 till 192.168.103.255. |
 
 
-### <a name="update-an-ip-filter-rule"></a>Uppdatera en filter regel för IP
+### <a name="update-an-ip-filter-rule"></a>Uppdatera en IP-filterregel
 
-I följande mall-exempel uppdateras IP-filterlistan med namnet "AllowAll", som visas tidigare, för att avvisa all trafik.
+I följande mallexempel uppdateras IP-filterregeln med namnet ”AllowAll”, som du såg tidigare, så att all trafik avvisas.
 
 ```json
 { 
@@ -193,9 +193,9 @@ I följande mall-exempel uppdateras IP-filterlistan med namnet "AllowAll", som v
 }
 ```
 
-### <a name="delete-an-ip-filter-rule"></a>Ta bort en regel för IP-filter
+### <a name="delete-an-ip-filter-rule"></a>Ta bort en IP-filterregel
 
-I följande mall-exempel raderas alla IP-filterlistor för DPS-instansen.
+I följande mallexempel tas alla IP-filterregler bort för DPS-instansen.
 
 ```json
 { 
@@ -241,22 +241,22 @@ I följande mall-exempel raderas alla IP-filterlistor för DPS-instansen.
 
 
 
-## <a name="ip-filter-rule-evaluation"></a>Regel utvärdering av IP-filter
+## <a name="ip-filter-rule-evaluation"></a>Utvärdering av IP-filterregler
 
-IP-filter regler tillämpas i ordning och den första regeln som matchar IP-adressen bestämmer åtgärden acceptera eller avvisa.
+IP-filterregler tillämpas i ordning och den första regel som matchar IP-adressen avgör huruvida trafiken accepteras eller avvisas.
 
-Om du till exempel vill ta emot adresser i intervallet 192.168.100.0/22 och avvisa allt annat ska den första regeln i rutnätet acceptera adress intervallet 192.168.100.0/22. Nästa regel ska avvisa alla adresser med intervallet 0.0.0.0/0.
+Om du till exempel vill acceptera adresser i intervallet 192.168.100.0/22 och avvisa allt annat, bör den första regeln i tabellen acceptera adressintervallet 192.168.100.0/22. Nästa regel bör avvisa alla adresser genom att använda intervallet 0.0.0.0/0.
 
-Du kan ändra ordningen på dina IP filter-regler i rutnätet genom att klicka på de tre lodräta punkterna i början av en rad och använda dra och släpp.
+Om du vill ändra ordning på dina IP-filterregler i tabellen klickar du på de tre lodräta punkterna i början av en rad och drar och släpper.
 
-Klicka på **Spara**om du vill spara din nya regel ordning för IP-filter.
+Sedan sparar du IP-filterreglernas nya ordning genom att klicka på **Spara**.
 
-![Ändra ordningen på dina DPS IP filter-regler](./media/iot-dps-ip-filtering/ip-filter-rule-order.png)
+![Ändra ordning på IP-filterregler för DPS](./media/iot-dps-ip-filtering/ip-filter-rule-order.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om att hantera DPS finns i:
+Mer information om hur du hanterar DPS finns i:
 
 * [Förstå IP-adresser för IoT DPS](iot-dps-understand-ip-address.md)
 * [Konfigurera DPS med hjälp av Azure CLI](how-to-manage-dps-with-cli.md)
-* [Kontrol lera åtkomsten till DPS](how-to-control-access.md)
+* [Kontrollera åtkomsten till DPS](how-to-control-access.md)

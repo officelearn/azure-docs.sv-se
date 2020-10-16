@@ -5,33 +5,33 @@ ms.topic: include
 ms.date: 8/12/2020
 ms.author: sngun
 ms.openlocfilehash: 42d1e0f056457ba54e0102a4d23f42a81ebea08d
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90068751"
 ---
-**Hur kommer jag att meddelas om SDK: n som tas ur bruk?**
+**Hur meddelas jag om tillbakadragningen av SDK?**
 
-Microsoft tillhandahåller ett meddelande om 12 månader innan supporten för att dra tillbaka SDK för att under lätta en smidig över gång till en SDK som stöds. Vi meddelar dig genom olika kommunikations kanaler: Azure Portal, Azure-uppdateringar och direkt kommunikation till tilldelade tjänst administratörer.
+För att säkerställa en smidig övergång till en SDK-version som stöds meddelar Microsoft kunder 12 månader innan stödet för den äldre SDK:n upphör. Vi meddelar dig via flera kommunikationskanaler: på Azure-portalen, genom Azure-uppdateringar och via direktkommunikation till tjänstadministratörer.
 
-**Kan jag skapa program med hjälp av en to-pensionerd Azure Cosmos DB SDK under 12-månaders perioden?** 
+**Kan jag skapa program med en SDK för Azure Cosmos DB som kommer att dras tillbaka inom 12 månader?** 
 
-Ja, du kommer att kunna skapa, distribuera och ändra program genom att använda den för att bli tillbakadragen Azure Cosmos DB SDK under meddelande perioden på 12 månader. Vi rekommenderar att du migrerar till en senare version av Azure Cosmos DB SDK under 12-månaders meddelande perioden, efter vad som är tillämpligt. 
+Ja. Du kan skapa, distribuera och ändra program med Azure Cosmos DB-SDK:n som kommer att dras tillbaka under 12-månadsperioden. Vi rekommenderar att du migrerar till en senare version av SDK:n för Azure Cosmos DB under 12-månadsperioden. 
 
-**Vad händer med program som använder Azure Cosmos DB SDK som inte stöds efter indragnings datumet?** 
+**Vad händer med program som använder den Azure Cosmos DB-SDK som inte längre stöds efter tillbakadragningsdatumet?** 
 
-Efter indragnings datumet kommer Azure Cosmos DB inte längre att göra fel korrigeringar, lägga till nya funktioner eller ge stöd till de indragna SDK-versionerna. Om du föredrar att inte uppgradera fortsätter de begär Anden som skickas från de tillbakadragna versionerna av SDK: n att betjänas av tjänsten Azure Cosmos DB. 
+Efter tillbakadragningsdatumet kommer Azure Cosmos DB inte att erbjuda buggkorrigeringar, nya funktioner eller stöd för de SDK-versioner som har dragits tillbaka. Om du föredrar att inte uppgradera kommer begäranden från de inaktuella versionerna av SDK:n att fortsätta att hanteras av tjänsten Azure Cosmos DB. 
 
-**Vilka SDK-versioner kommer att ha de senaste funktionerna och uppdateringarna?**
+**Vilka SDK-versioner har de senaste funktionerna och uppdateringarna?**
 
-Nya funktioner och uppdateringar läggs bara till den senaste lägre versionen av den senaste, viktigaste SDK-versionen. Vi rekommenderar att du alltid använder den senaste versionen för att dra nytta av nya funktioner, prestanda förbättringar och fel korrigeringar. Om du använder en gammal, icke-tillbakadragen version av SDK, kommer dina begär anden till Azure Cosmos DB fortfarande att fungera, men du kommer inte att ha till gång till några nya funktioner.  
+Nya funktioner och uppdateringar läggs bara till i den senaste delversionen av den senaste större SDK-versionen som stöds. Vi rekommenderar att du alltid använder den senaste versionen för att dra nytta av nya funktioner, prestandaförbättringar och felkorrigeringar. Om du använder en gammal, icke-tillbakadragen version av SDK:n, kommer dina begäranden till Azure Cosmos DB fortfarande att fungera, men du kommer inte att ha tillgång till nya funktioner.  
 
-**Vad ska jag göra om jag inte kan uppdatera mitt program före ett sista datum?**
+**Vad gör jag om jag inte har möjlighet att uppdatera mitt program före det sista datumet?**
 
-Vi rekommenderar att du uppgraderar till den senaste SDK: n så tidigt som möjligt. När ett SDK har taggats för pensionering har du 12 månader på dig att uppdatera ditt program. Om du inte kan uppdatera efter indragnings datumet fortsätter förfrågningar som skickas från de indragna versionerna av SDK: n att betjänas av Azure Cosmos DB, så att dina program som körs fortsätter att fungera. Men Azure Cosmos DB kommer inte längre att göra fel korrigeringar, lägga till nya funktioner eller ge stöd till de indragna SDK-versionerna. 
+Vi rekommenderar att du uppgraderar till den senaste SDK:n så tidigt som möjligt. När en SDK-version har flaggats för tillbakadragning har du 12 månader på dig att uppdatera ditt program. Om du inte har möjlighet att uppdatera före tillbakadragningsdatumet kommer begäranden som skickas från de tillbakadragna versionerna av SDK:n att fortsätta att betjänas av Azure Cosmos DB, och dina aktiva program kommer att fortsätta att fungera. Men Azure Cosmos DB kommer inte längre att erbjuda felkorrigeringar, nya funktioner eller stöd för de tillbakadragna SDK-versionerna. 
 
-Om du har en Support plan och behöver teknisk support [kontaktar du oss](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) genom att skicka in ett support ärende.
+Om du har en supportplan och behöver teknisk support [kontaktar du oss](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) genom att skicka in en supportbegäran.
     
 
 

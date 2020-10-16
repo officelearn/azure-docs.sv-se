@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445057"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124766"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Skapa och använda aktiv geo-replikering – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -132,7 +132,7 @@ Som standard är den sekundära lagringen för säkerhets kopieringen densamma s
 > Transaktions logg frekvensen på den primära kan begränsas av orsaker som inte är relaterade till lägre beräknings storlek på en sekundär. Den här typen av begränsning kan inträffa även om den sekundära har samma eller högre beräknings storlek än den primära. Mer information, inklusive vänte typer för olika typer av logg frekvenss begränsning, finns i [transaktions logg frekvens styrning](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande endast tillgängligt i den allmänt tillgängliga för hands versionen i Sydostasien Azure-region. Om käll databasen skapas med lokalt redundant eller zon-redundant redundans i för hands versionen, kommer det inte att finnas stöd för att skapa en sekundär databas i en annan Azure-region. 
+> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande endast tillgängligt i Sydostasien Azure-region. När käll databasen skapas med lokalt redundant eller zon-redundant lagring redundans, stöds inte att skapa en sekundär databas i en annan Azure-region. 
 
 Mer information om SQL Database beräknings storlekarna finns i [SQL Database Service nivåer](purchasing-models.md).
 

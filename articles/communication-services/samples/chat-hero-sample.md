@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962997"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124593"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Kom igång med hjälte-exemplet för grupp Chat
 
@@ -30,7 +30,7 @@ Hjälte exemplet Azure Communication Services **Group Chat** visar hur kommunika
 I den här snabb starten ska vi lära dig hur exemplet fungerar innan vi kör exemplet på den lokala datorn. Vi distribuerar sedan exemplet till Azure med dina egna Azure Communication Services-resurser.
 
 > [!IMPORTANT]
-> [Hämta exemplet från GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+> [Hämta exemplet från GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>Översikt
 
@@ -107,7 +107,7 @@ Om du vill rensa och ta bort en kommunikations tjänst prenumeration kan du ta b
 ## <a name="next-steps"></a>Nästa steg
 
 >[!div class="nextstepaction"] 
->[Hämta exemplet från GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
+>[Hämta exemplet från GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 Mer information finns i följande artiklar:
 

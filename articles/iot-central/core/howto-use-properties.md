@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 1cc4f40374fce83589d2dc10a0422b91f5178c0b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999765"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123791"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Använd egenskaper i en Azure IoT Central-lösning
 
@@ -35,7 +35,7 @@ I följande tabell visas konfigurations inställningarna för en egenskaps funkt
 | Fält           | Beskrivning                                                                                                                                                                                                                        |
 |-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Visningsnamn    | Visnings namnet för egenskap svärdet som används på instrument paneler och formulär.                                                                                                                                                              |
-| Name            | Egenskapens namn. Azure IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt.                                                 |
+| Namn            | Egenskapens namn. Azure IoT Central genererar ett värde för det här fältet från visnings namnet, men du kan välja ett eget värde om det behövs. Det här fältet måste vara alfanumeriskt.                                                 |
 | Funktions typ | Immaterialrätt.                                                                                                                                                                                                                          |
 | Semantiktyp   | Den semantiska typen för egenskapen, till exempel temperatur, tillstånd eller händelse. Valet av semantisk typ avgör vilka av följande fält som är tillgängliga.                                                                       |
 | Schema          | Egenskaps data typen, t. ex. Double, String eller Vector. De tillgängliga alternativen bestäms av semantisk typ. Schemat är inte tillgängligt för semantiska typer av händelse och tillstånd.                                               |
@@ -152,7 +152,7 @@ Följande kod visar definitionen av en objekt egenskaps typ. Det här objektet h
 
 Som standard är egenskaperna skrivskyddade. Skrivskyddade egenskaper innebär att enhets rapportens egenskaps värde uppdateras till ditt Azure IoT Central-program. Ditt Azure IoT Central-program kan inte ange värdet för en skrivskyddad egenskap.
 
-Azure IoT Central använder enheten för att synkronisera egenskaps värden mellan enheten och Azure IoT Central-programmet. Enhetens egenskaps värden använder enhetens dubbla rapporterade egenskaper. Mer information finns i [enhets uppflätade](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Azure IoT Central använder enheten för att synkronisera egenskaps värden mellan enheten och Azure IoT Central-programmet. Enhetens egenskaps värden använder enhetens dubbla rapporterade egenskaper. Mer information finns i [enhets uppflätade](../../iot-hub/tutorial-device-twins.md).
 
 Följande kodfragment från en enhets kapacitets modell visar definitionen av en skrivskyddad egenskaps typ:
 
@@ -250,7 +250,7 @@ Svars meddelandet ska innehålla `ac` fälten och `av` . Fältet `ad` är valfri
 | `'ac': 5xx` | Fel | Ett oväntat fel uppstod i enheten vid bearbetning av den begärda ändringen. |
 
 
-Mer information om enheter finns i [Konfigurera dina enheter från en backend-tjänst](https://docs.microsoft.com/azure/iot-hub/tutorial-device-twins).
+Mer information om enheter finns i [Konfigurera dina enheter från en backend-tjänst](../../iot-hub/tutorial-device-twins.md).
 
 När operatorn ställer in en skrivbar egenskap i Azure IoT Central-programmet använder programmet en enhet med dubbla önskade egenskaper för att skicka värdet till enheten. Enheten svarar sedan med en enhets dubbla rapporterad egenskap. När Azure IoT Central tar emot det rapporterade egenskap svärdet uppdaterar det egenskaps läget med statusen **accepterad**.
 

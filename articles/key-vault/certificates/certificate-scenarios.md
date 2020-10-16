@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d99d211ec48a507b205c4cef21618054c11aec9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224867"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124229"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
 I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
@@ -37,7 +37,7 @@ Certifikat består av tre relaterade resurser som är länkade tillsammans som e
 
 **Steg 1** – certifikat utfärdare (ca)  
 -   Som IT-administratör, PKI-administratör eller någon som hanterar konton med certifikat utfärdare, för ett specifikt företag (t. ex. Contoso) är ett krav för att använda Key Vault certifikat.  
-    Följande ca: er är de aktuella partner leverantörer som har Key Vault:  
+    Följande ca: er är de aktuella partner leverantörer som har Key Vault. Lär dig mer [här](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers)   
     -   DigiCert-Key Vault erbjuder OV TLS/SSL-certifikat med DigiCert.  
     -   GlobalSign-Key Vault erbjuder OV TLS/SSL-certifikat med GlobalSign.  
 

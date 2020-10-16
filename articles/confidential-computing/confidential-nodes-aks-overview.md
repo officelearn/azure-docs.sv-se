@@ -7,21 +7,20 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a009cd7763b4a4dc0c502d4c47a20d6fdffe61d7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940777"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125449"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Konfidentiella data behandlings noder i Azure Kubernetes service (offentlig för hands version)
 
-Med [Azures konfidentiella data behandling](overview.md) kan du skydda känsliga data medan de används. De underliggande infrastrukturerna skyddar dessa data från andra program, administratörer och moln leverantörer. 
+Med [Azures konfidentiella data behandling](overview.md) kan du skydda känsliga data medan de används. De underliggande infrastrukturerna skyddar dessa data från andra program, administratörer och moln leverantörer med en maskin varu skydds miljö för betrodda körnings behållare.
 
 ## <a name="overview"></a>Översikt
 
-Azure Kubernetes service (AKS) har stöd för att lägga till [DCsv2 konfidentiella data behandlings noder](confidential-computing-enclaves.md) på Intel SGX. Dessa noder kör känsliga arbets belastningar i en maskinvarubaserad betrodd körnings miljö (TEE) genom att tillåta kod på användar nivå för att allokera privata regioner av minnet. Dessa privata minnes regioner kallas enclaves. Enclaves har utformats för att skydda kod och data från processer som körs med högre privilegier. Modellen för SGX-körning tar bort mellanliggande lager i gäst operativ system och hypervisor. På så sätt kan du köra behållar program direkt ovanpå processorn, samtidigt som det särskilda minnes blocket hålls krypterat. 
-
+Azure Kubernetes service (AKS) har stöd för att lägga till [DCsv2 konfidentiella data behandlings noder](confidential-computing-enclaves.md) som drivs av Intel SGX. Dessa noder kör kan köra känsliga arbets belastningar i en maskinvarubaserad betrodd körnings miljö (TEE) genom att tillåta kod på användar nivå för att allokera privata regioner i minnet. Dessa privata minnes regioner kallas enclaves. Enclaves har utformats för att skydda kod och data från processer som körs med högre privilegier. Modellen för SGX-körning tar bort mellanliggande lager i gäst operativ system, värd-OS och hypervisor. Den *maskinvarubaserade modellen för isolerad körning per behållare* gör det möjligt för program att köras direkt med processorn, samtidigt som det särskilda minnes blocket hålls krypterat. Konfidentiella beräknings noder bidrar till den övergripande säkerhets position för behållar program på AKS och ett utmärkt tillägg till behållar strategin. 
 
 ![Översikt över SGX-nod](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
@@ -36,7 +35,7 @@ Azure Kubernetes service (AKS) har stöd för att lägga till [DCsv2 konfidentie
 - Slut på proc attesterings hjälp via AKS daemonset
 - Linux-behållare stöder genom Ubuntu 18,04 gen 2 VM Worker-noder
 
-## <a name="aks-provided-daemon-sets"></a>AKS angivna daemon-uppsättningar
+## <a name="aks-provided-daemon-sets-addon"></a>AKS angivna daemon-uppsättningar (tillägg)
 
 #### <a name="sgx-device-plugin"></a>Plugin-program för SGX-enhet <a id="sgx-plugin"></a>
 
@@ -56,7 +55,7 @@ Enklaven-program som utför fjärrattestering måste generera en offert. OFFERTe
 
 AKS stöder program som är programmerade att köras på konfidentiella noder och använder **särskild instruktions uppsättning som** görs tillgänglig via SDK: er och ramverk. Den här program modellen ger mest kontroll över dina program med en lägsta TCB (Trusted Computing Base). [Läs mer](enclave-aware-containers.md) om enklaven-medvetna behållare.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Distribuera AKS-kluster med konfidentiella databeräknings noder](./confidential-nodes-aks-get-started.md)
 

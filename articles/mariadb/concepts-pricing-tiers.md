@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8ac47937650d766a159c53f7390a8f1e355a28c2
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5001864bd80917aef6d8631fe2b5097b22afbe03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074812"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125790"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB pris nivåer
 
@@ -71,7 +71,7 @@ Vi ökar lagrings gränserna i våra Generell användning-och Minnesoptimerade n
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
 
 > [!IMPORTANT]
-> Stor lagring är för närvarande en offentlig för hands version i följande regioner: USA, östra USA, östra USA 2, centrala USA, västra USA, norra centrala USA, södra centrala USA, norra Europa, Västeuropa, Storbritannien, södra, Storbritannien, västra, Sydostasien, Asien, östra, Östra Japan, västra Japan, Korea, centrala, södra Australien, östra Australien, västra USA 2, västra centrala USA, Östra Kanada och centrala Kanada.
+> Stor lagring är för närvarande en offentlig för hands version i följande regioner: östra USA, östra USA 2, södra Brasilien, centrala USA, västra USA, norra centrala USA, södra centrala USA, norra Europa, Västeuropa, Storbritannien, södra, Storbritannien, västra, Sydostasien, Asien, östra, Östra Japan, västra Japan, centrala Korea, södra Australien, sydöstra Australien, västra USA 2, västra centrala USA, Östra Kanada och Kanada, centrala.
 >
 > Alla andra regioner stöder upp till 4 TB lagring och upp till 6000 IOPS.
 >

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: fbfd384787d35317a4e45c4f91cf8a3ad4ba5a61
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3e8cef04e0711492b6e76d4c865695ac75e21422
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000016"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125687"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du data persistence för en Premium Azure-cache för Redis
 I den här artikeln får du lära dig hur du konfigurerar persistence i en Premium Azure-cache för Redis-instansen via Azure Portal. Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. 
@@ -63,7 +63,7 @@ Persistence skriver Redis-data till ett Azure Storage-konto som du äger och han
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Säkerhets kopierings frekvens** | List rutan och välj ett intervall för säkerhets kopieringar, alternativ omfattar **15 minuter**, **30 minuter**, **60 minuter**, **6 timmar**, **12 timmar**och **24 timmar**. | Intervallet börjar räkna upp när den tidigare säkerhets kopieringen har slutförts och när en ny säkerhets kopia har initierats. | 
-   | **Lagringskonto** | List rutan och välj ditt lagrings konto. | Du måste välja ett lagrings konto i samma region som cachen och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde.  | 
+   | **Lagringskonto** | List rutan och välj ditt lagrings konto. | Du måste välja ett lagrings konto i samma region och prenumeration som cachen, och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde.  | 
    | **Lagrings nyckel** | List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** . | 
 
     Den första säkerhets kopieringen initieras när intervallet för säkerhets kopierings frekvensen förflutit.
@@ -72,9 +72,9 @@ Persistence skriver Redis-data till ett Azure Storage-konto som du äger och han
    
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Första lagrings konto** | List rutan och välj ditt lagrings konto. | Det här lagrings kontot måste finnas i samma region som cachen och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde. | 
+   | **Första lagrings konto** | List rutan och välj ditt lagrings konto. | Det här lagrings kontot måste finnas i samma region och prenumeration som cachen, och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde. | 
    | **Första lagrings nyckel** | List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** . | 
-   | **Andra lagrings konto** | Valfritt List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Du kan också konfigurera ett ytterligare lagrings konto. Om ett andra lagrings konto har kon figurer ATS skrivs skrivningar till replik-cachen till det andra lagrings kontot. | 
+   | **Andra lagrings konto** | Valfritt List rutan och välj ditt sekundära lagrings konto. | Du kan också konfigurera ett ytterligare lagrings konto. Om ett andra lagrings konto har kon figurer ATS skrivs skrivningar till replik-cachen till det andra lagrings kontot. | 
    | **Sekundär lagrings nyckel** | Valfritt List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** . | 
 
     När AOF persistence har Aktiver ATS, sparas Skriv åtgärder till cacheminnet på det angivna lagrings kontot (eller kontona om du har konfigurerat ett andra lagrings konto). I händelse av ett oåterkalleligt haveri som tar ner både den primära cachen och repliken, används den lagrade AOF-loggen för att återskapa cacheminnet.

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 7134fc5d591fffdfb9aea13767e597dddc92b038
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434953"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123757"
 ---
 # <a name="managed-identity-for-data-factory"></a>Hanterad identitet för Data Factory
 
@@ -57,7 +57,7 @@ Om du hittar din data fabrik inte har en hanterad identitet som är kopplad till
 
 ### <a name="generate-managed-identity-using-powershell"></a>Generera hanterad identitet med PowerShell
 
-Anropa **set-AzDataFactoryV2** kommandot igen, visas "Identity"-fält som nyligen genereras:
+Anropa **set-AzDataFactoryV2** kommandot visas "Identity"-fält som nyligen genereras:
 
 ```powershell
 PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>

@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f559587e1abca7642edfc6278018d760b55e774
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86206217"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123570"
 ---
 # <a name="what-is-azure-data-box"></a>Vad är Azure Data Box?
 
@@ -144,7 +144,7 @@ Data Box-enhet kan överföra data baserat på den region där tjänsten distrib
 
 - **Tjänst tillgänglighet** – när du använder data Box-enhet för import-eller export order kan du få information om regions tillgänglighet genom att gå till [Azure-produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Export funktionen på Data Box-enhet är för närvarande en för hands version. 
 
-    För import order kan Data Box-enhet också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome). 
+    För import order kan Data Box-enhet också distribueras i Azure Government molnet. Mer information finns i [Vad är Azure Government?](../azure-government/documentation-government-welcome.md). 
 
 - **Mål lagrings konton** – de lagrings konton som lagrar data är tillgängliga i alla Azure-regioner där tjänsten är tillgänglig.
 
@@ -154,7 +154,3 @@ Data Box-enhet kan överföra data baserat på den region där tjänsten distrib
 - Titta på [systemkraven för Data Box](data-box-system-requirements.md).
 - Förstå [Data Box-begränsningarna](data-box-limits.md).
 - Distribuera snabbt [Azure Data Box](data-box-quickstart-portal.md) i Azure-portalen.
-
-
-
-

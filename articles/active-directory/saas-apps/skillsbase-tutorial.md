@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c8135f39517a5983f700c35f08a5c0749113450
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e93827278fb501bc6d857d3cb39f9e0ba24d5d0a
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552251"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Självstudie: Azure Active Directory integrering med kunskaps bas
 
@@ -30,7 +30,7 @@ Att integrera kunskaps bas med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med kunskaps bas behöver du följande objekt:
 
@@ -134,11 +134,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med kun
 
 3. På sidan **autentisering** väljer du Single Sign-On som **SAML 2**.
 
-    ![Enskild](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
+    ![Skärm bild som visar sidan autentisering med SAML 2 vald för enkel inloggning.](./media/skillsbase-tutorial/tutorial_skillsbase_single.png)
 
 4. Utför följande steg på sidan **autentisering** :
 
-    ![Enskild](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
+    ![Skärm bild som visar sidan autentisering där du kan ange de värden som beskrivs.](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
     a. Klicka på knappen **Uppdatera IDP metadata** bredvid **status** alternativ och klistra in innehållet i metadata-XML som du laddade ned från Azure Portal i den angivna text rutan.
 

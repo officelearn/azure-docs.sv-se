@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 4bbc25f98f494660fc4997af1c3a248172ef08d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c2f6f386f4a8ea062980c0efc97d0cfb4f37f4f2
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873480"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124902"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Självstudie: ändra och bygga Live Video Analytics Gateway-moduler
 
@@ -28,8 +28,8 @@ För att slutföra stegen i den här självstudien behöver du:
 * [Node.js](https://nodejs.org/en/download/) v10 eller senare
 * [Visual Studio Code](https://code.visualstudio.com/Download) med [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin) -tillägget installerat
 * [Docker](https://www.docker.com/products/docker-desktop) -motor
-* En [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) som är värd för dina versioner av modulerna.
-* Ett [Azure Media Services](https://docs.microsoft.com/azure/media-services/) konto. Om du har slutfört de tidigare självstudierna kan du återanvända den som du skapade tidigare.
+* En [Azure Container Registry](../../container-registry/index.yml) som är värd för dina versioner av modulerna.
+* Ett [Azure Media Services](../../media-services/index.yml) konto. Om du har slutfört de tidigare självstudierna kan du återanvända den som du skapade tidigare.
 
 ## <a name="clone-the-repository"></a>Klona lagringsplatsen
 

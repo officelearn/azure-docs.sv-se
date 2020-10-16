@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: cb2654c2854692d120cf6dea7fa8fb901e14688e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb0e56c5eeebb4f3a869feacb996d690ea7dde86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203522"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124177"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box Disk gränser
 
@@ -35,9 +35,9 @@ I det här avsnittet beskrivs gränserna för Azure Storage tjänst och de namng
 
 Den senaste informationen om begränsningar för Azure Storage-tjänsten och metod tips för namngivning av resurser, behållare och filer finns på:
 
-- [Namnge och referera till behållare](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Namnge och referera till resurser](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Blockera blobbar och Page BLOB-konventioner](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Namnge och referera till behållare](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
+- [Namnge och referera till resurser](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Blockera blobbar och Page BLOB-konventioner](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
 > Om det finns några filer eller kataloger som överskrider Azure Storage-tjänstens gränser eller inte uppfyller Azure Files/BLOB-namngivnings konventionerna, matas dessa filer eller kataloger inte in i Azure Storage via Data Box-enhet-tjänsten.
@@ -64,7 +64,7 @@ Här följer gränserna för storleken på de data som kan kopieras till ett lag
 
 | Typ av data             | Standardgräns          |
 |--------------------------|------------------------|
-| blockera BLOB, Page BLOB    | Aktuell information om dessa begränsningar finns i [skalnings mål för Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/scalability-targets#scale-targets-for-blob-storage), [Azure standard Storage Scale-mål](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account#scale-targets-for-standard-storage-accounts)och [Azure Files skala mål](https://docs.microsoft.com/azure/storage/files/storage-files-scale-targets#file-share-and-file-scale-targets). <br /><br /> Gränserna innehåller data från alla källor, inklusive Data Box Disk.|
+| blockera BLOB, Page BLOB    | Aktuell information om dessa begränsningar finns i [skalnings mål för Azure Blob Storage](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Azure standard Storage Scale-mål](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)och [Azure Files skala mål](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets). <br /><br /> Gränserna innehåller data från alla källor, inklusive Data Box Disk.|
 
 
 ## <a name="azure-object-size-limits"></a>Storleks gränser för Azure-objekt

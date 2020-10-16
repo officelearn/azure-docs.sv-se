@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: a68793d893d8eb8de681eb438de39afc212370c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80c4d8a70454c007ac45f588e59c03ef45f10933
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84608731"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125072"
 ---
 # <a name="use-azure-data-box-or-azure-data-box-heavy-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Använd Azure Data Box eller Azure Data Box Heavy för att skicka data till rätt Azure Storage BLOB-nivå
 
@@ -29,11 +29,11 @@ Azure Storage gör det möjligt för tre olika nivåer att lagra data på det me
 
 Låg frekvent lagrings nivå är för data som inte används ofta och som måste lagras i minst 30 dagar. Lagrings kostnaden för kall nivå är lägre än den för frekvent lagrings nivå men data åtkomst avgifterna är höga jämfört med frekvent nivå.
 
-Azure Archive-nivån är offline och erbjuder de lägsta lagrings kostnaderna, men även de högsta åtkomst kostnaderna. Den här nivån är avsedd för data som finns kvar i Arkiv lagring under minst 180 dagar. Mer information om var och en av dessa nivåer och pris sättnings modellen finns i [jämförelse av lagrings nivåerna](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
+Azure Archive-nivån är offline och erbjuder de lägsta lagrings kostnaderna, men även de högsta åtkomst kostnaderna. Den här nivån är avsedd för data som finns kvar i Arkiv lagring under minst 180 dagar. Mer information om var och en av dessa nivåer och pris sättnings modellen finns i [jämförelse av lagrings nivåerna](../storage/blobs/storage-blob-storage-tiers.md).
 
 Data från Data Box-enhet eller Data Box Heavy överförs till en lagrings nivå som är kopplad till lagrings kontot. När du skapar ett lagrings konto kan du ange åtkomst nivån som hett eller kall. Beroende på åtkomst mönstret för din arbets belastning och kostnad kan du flytta dessa data från standard nivån till en annan lagrings nivå.
 
-Du kan bara Skikta objekt lagrings data i Blob Storage-eller Generell användning v2-konton (GPv2). GPv1-konton (General Purpose v1) har inte stöd för flera lagringsnivåer. Om du vill välja rätt lagrings nivå för dina data granskar du de överväganden som beskrivs i [Azure Blob Storage: Premium,](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)frekvent, låg frekvent och Arkiv lag rings nivå.
+Du kan bara Skikta objekt lagrings data i Blob Storage-eller Generell användning v2-konton (GPv2). GPv1-konton (General Purpose v1) har inte stöd för flera lagringsnivåer. Om du vill välja rätt lagrings nivå för dina data granskar du de överväganden som beskrivs i [Azure Blob Storage: Premium,](../storage/blobs/storage-blob-storage-tiers.md)frekvent, låg frekvent och Arkiv lag rings nivå.
 
 ## <a name="set-a-default-blob-tier"></a>Ange en standard-BLOB-nivå
 
@@ -41,13 +41,13 @@ Standard-BLOB-nivån anges när lagrings kontot skapas i Azure Portal. När du h
 
 Det går inte att ange nivåerna om du försöker skapa ett nytt konto när du beställer en Data Box-enhet eller Data Box Heavy. När kontot har skapats kan du ändra kontot i portalen för att ställa in standard åtkomst nivån.
 
-Du kan också skapa ett lagrings konto först med det angivna attributet för åtkomst nivå. När du skapar Data Box-enhet-eller Data Box Heavys ordningen väljer du det befintliga lagrings kontot. Mer information om hur du ställer in standard-BLOB-nivån när du skapar ett lagrings konto finns i [skapa ett lagrings konto i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal).
+Du kan också skapa ett lagrings konto först med det angivna attributet för åtkomst nivå. När du skapar Data Box-enhet-eller Data Box Heavys ordningen väljer du det befintliga lagrings kontot. Mer information om hur du ställer in standard-BLOB-nivån när du skapar ett lagrings konto finns i [skapa ett lagrings konto i Azure Portal](../storage/common/storage-account-create.md?tabs=portal).
 
 ## <a name="move-data-to-a-non-default-tier"></a>Flytta data till en annan nivå än standard nivån
 
 När data från Data Box-enhet enhet har laddats upp till standard nivån kanske du vill flytta data till en annan nivå än standard nivån. Det finns två sätt att flytta dessa data till en annan nivå än standard nivån.
 
-- **Azure Blob Storage livs cykel hantering** – du kan använda en principbaserad metod för att automatiskt nivå data eller förfalla i slutet av livs cykeln. Mer information finns i [Hantera Azure Blob Storage-livscykeln](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts).
+- **Azure Blob Storage livs cykel hantering** – du kan använda en principbaserad metod för att automatiskt nivå data eller förfalla i slutet av livs cykeln. Mer information finns i [Hantera Azure Blob Storage-livscykeln](../storage/blobs/storage-lifecycle-management-concepts.md).
 - **Skript** – du kan använda en skript metod via Azure PowerShell för att aktivera skiktning på BLOB-nivå. Du kan anropa `SetBlobTier` åtgärden för att ange nivån på blobben.
 
 ## <a name="use-azure-powershell-to-set-the-blob-tier"></a>Använd Azure PowerShell för att ställa in BLOB-nivån
@@ -116,5 +116,4 @@ Följande steg beskriver hur du kan ställa in BLOB-nivån att arkivera med ett 
 
 ## <a name="next-steps"></a>Nästa steg
 
--  Lär dig hur du åtgärdar [vanliga data skikts scenarier med policy regler för livs cykeln](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts#examples)
-
+-  Lär dig hur du åtgärdar [vanliga data skikts scenarier med policy regler för livs cykeln](../storage/blobs/storage-lifecycle-management-concepts.md#examples)

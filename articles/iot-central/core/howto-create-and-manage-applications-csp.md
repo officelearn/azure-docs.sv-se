@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: how-to
 manager: philmea
-ms.openlocfilehash: e000e2979436605b9274792ad3dde8eb1fa80976
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43c201150ab0b2d5d350aa228a4ade5e2faf3461
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653357"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123121"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Skapa och hantera ett Azure IoT Central-program från CSP-portalen
 
@@ -63,7 +63,7 @@ Eftersom Azure IoT Central har sammanhang som du har för att hantera kunden som
 
 En Azure Active Directory klient organisation innehåller användar identiteter, autentiseringsuppgifter och annan organisatorisk information. Flera Azure-prenumerationer kan associeras med en enda Azure Active Directory-klient.
 
-Läs mer i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
+Läs mer i [Azure Active Directory](../../active-directory/index.yml).
 
 ## <a name="azure-subscription"></a>Azure-prenumeration
 
@@ -71,7 +71,7 @@ Med en Azure-prenumeration kan du skapa instanser av Azure-tjänster. Azure IoT 
 
 Om du inte har någon Azure-prenumeration kan du skapa en i Microsoft Partner Center. När du har skapat Azure-prenumerationen kan du gå tillbaka till sidan **Skapa program**. Din nya prenumeration visas i listrutan **Azure-prenumeration**.
 
-Mer information finns i [Azure-prenumerationer](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing).
+Mer information finns i [Azure-prenumerationer](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing).
 
 ## <a name="location"></a>Plats
 

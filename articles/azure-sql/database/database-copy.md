@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443785"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124403"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en databas i Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database tillhandahåller flera metoder för att skapa en kopia av en 
 En databas kopia är en transaktions konsekvent ögonblicks bild av käll databasen vid en tidpunkt efter att kopierings förfrågan har initierats. Du kan välja samma server eller en annan server för kopieringen. Du kan också välja att behålla säkerhets kopians redundans, tjänst nivå och beräknings storlek för käll databasen, eller använda en annan redundans för lagring och/eller beräknings storlek i samma eller en annan tjänst nivå. När kopieringen är klar blir den en fullständigt fungerande, oberoende databas. Inloggningar, användare och behörigheter i den kopierade databasen hanteras oberoende av käll databasen. Kopian skapas med hjälp av tekniken för geo-replikering. När replikseeding är klar avslutas geo-replikeringslänken automatiskt. Alla krav för användning av geo-replikering gäller för databaskopieringsåtgärden. Mer information finns i [Översikt över aktiv geo-replikering](active-geo-replication-overview.md) .
 
 > [!NOTE]
-> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande endast tillgängligt i den allmänt tillgängliga för hands versionen i Sydostasien Azure-region. I för hands versionen stöds inte databas kopiering till en server i en annan Azure-region om käll databasen har skapats med lokalt redundant eller zon-redundant lagring för säkerhets kopiering. 
+> Azure SQL Database konfigurerbar redundans för säkerhets kopiering är för närvarande endast tillgängligt i Sydostasien Azure-region. I för hands versionen stöds inte databas kopiering till en server i en annan Azure-region om käll databasen har skapats med lokalt redundant eller zon-redundant lagring för säkerhets kopiering. 
 
 ## <a name="logins-in-the-database-copy"></a>Inloggningar i databas kopian
 

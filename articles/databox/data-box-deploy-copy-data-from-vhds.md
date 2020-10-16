@@ -9,18 +9,18 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 9af4de51e94a1be118211e2bb4404926656fedf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28232981d007e7be04d520ec46739408d03d90b4
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739875"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124021"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Självstudie: Använd Data Box-enhet för att importera data som Managed disks i Azure
 
 I den här självstudien beskrivs hur du använder Azure Data Box för att migrera lokala virtuella hård diskar till hanterade diskar i Azure. Virtuella hård diskar från lokala virtuella datorer kopieras till Data Box-enhet som Page blobbar och överförs till Azure som hanterade diskar. Dessa hanterade diskar kan sedan anslutas till virtuella Azure-datorer.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -38,7 +38,7 @@ Innan du börjar ska du kontrollera att:
 4. Du har granskat:
 
     - [Hanterade disk storlekar som stöds i storleks gränser för Azure-objekt](data-box-limits.md#azure-object-size-limits).
-    - [Introduktion till Azure Managed disks](/azure/virtual-machines/windows/managed-disks-overview). 
+    - [Introduktion till Azure Managed disks](../virtual-machines/managed-disks-overview.md). 
 
 5. Du har bevarat en kopia av käll informationen tills du har bekräftat att Data Box-enhet överfört data till Azure Storage.
 
@@ -76,7 +76,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
     > [!NOTE]
     > Autentiseringsuppgifterna för alla resurser för hanterade diskar är identiska.
 
-    ![Hämta autentiseringsuppgifter för resurs](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Hämta resursautentiseringsuppgifter](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
 2. I dialog rutan åtkomst resurs och kopiera data kopierar du **användar namnet** och **lösen ordet** för resursen. Klicka på **OK**.
     
@@ -102,7 +102,7 @@ Om du använder en Windows Server-värddator följer du stegen nedan för att an
 
 4. Tryck på Windows + R. I fönstret **Kör** anger du `\\<device IP address>\<ShareName>`. Öppna Utforskaren genom att klicka på **OK**.
     
-    ![Ansluta till resursen via Utforskaren](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
+    ![Ansluta till resurs via Utforskaren](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     Nu bör du se följande förskapade mappar i varje resurs.
     
@@ -183,4 +183,3 @@ Gå vidare till nästa självstudie och lär dig hur du skickar tillbaka din Dat
 
 > [!div class="nextstepaction"]
 > [Skicka din Azure Data Box till Microsoft](./data-box-deploy-picked-up.md)
-

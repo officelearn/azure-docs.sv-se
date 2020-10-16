@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: b48aab918b477f5c689a50ca476b0b1336642f0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471864"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123535"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Vanliga frågor och svar om Azure Network Watcher
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -tjänsten innehåller en uppsättning verktyg för att övervaka, diagnostisera, Visa mått och aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. I den här artikeln besvaras vanliga frågor om tjänsten.
@@ -81,6 +81,14 @@ Network Watcher behöver bara aktive ras en gång för att en prenumeration på 
 ### <a name="how-can-i-manage-the-network-watcher-resource"></a>Hur kan jag hantera Network Watchers resursen? 
 Network Watcher resursen representerar backend-tjänsten för Network Watcher och hanteras helt av Azure. Kunderna behöver inte hantera den. Åtgärder som flytta stöds inte på resursen. [Det går dock att ta bort resursen](https://docs.microsoft.com/azure/network-watcher/network-watcher-create#delete-a-network-watcher-in-the-portal). 
 
+## <a name="service-availability-and-redundancy"></a>Tjänst tillgänglighet och redundans 
+
+### <a name="is-the-network-watcher-service-zone-resilient"></a>Är Network Watcher service Zone elastisk? 
+Ja. Tjänsten Network Watcher är zon-flexibel som standard. 
+
+### <a name="how-do-i-configure-the-network-watcher-service-to-be-zone-resilient"></a>Hur gör jag för att konfigurerar du att Network Watchers tjänsten ska vara zoner-elastisk? 
+Ingen kund konfiguration krävs för att aktivera zon återhämtning. Zon-återhämtning för Network Watcher resurser är tillgängligt som standard och hanteras av själva tjänsten. 
+
 ## <a name="nsg-flow-logs"></a>NSG flödes loggar
 
 ### <a name="what-does-nsg-flow-logs-do"></a>Vad gör NSG Flow-loggarna?
@@ -106,5 +114,5 @@ NSG flödes loggar är kompatibla med tjänst slut punkter utan att kräva någo
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Vad är skillnaden mellan flödes loggar version 1 & 2?
 Flödes loggar version 2 introducerar konceptet *flödes tillstånd* & lagrar information om byte och paket som överförs. [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
  - Gå till vår [översikts sida för dokumentation](https://docs.microsoft.com/azure/network-watcher/) för några självstudier för att komma igång med Network Watcher.

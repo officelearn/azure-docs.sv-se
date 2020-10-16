@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: aac5e35f3d0c42e97069ecb38fedaadcdc7794dc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9f5e1ba52390191409d8da4bc4c41faaa859a4a8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001850"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125619"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central – arkitektur för smart avläsning av program vara
 
@@ -28,7 +28,7 @@ Den här arkitekturen består av följande komponenter. Vissa lösningar kanske 
 
 ## <a name="smart-meters-and-connectivity"></a>Smarta mätare och anslutningar 
 
-En smart mätare är en av de viktigaste enheterna bland alla energi till gångar. Den registrerar och kommunicerar energi förbruknings data till verktyg för övervakning och andra användnings fall, till exempel fakturerings-och svars tid för begäran. Baserat på mätar typen kan den ansluta till IoT Central antingen med hjälp av gatewayer eller andra mellanliggande enheter eller system, t. ex. enheter och huvud system. Skapa IoT Central enhets brygga för att ansluta enheter, som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+En smart mätare är en av de viktigaste enheterna bland alla energi till gångar. Den registrerar och kommunicerar energi förbruknings data till verktyg för övervakning och andra användnings fall, till exempel fakturerings-och svars tid för begäran. Baserat på mätar typen kan den ansluta till IoT Central antingen med hjälp av gatewayer eller andra mellanliggande enheter eller system, t. ex. enheter och huvud system. Skapa IoT Central enhets brygga för att ansluta enheter, som inte kan anslutas direkt. IoT Central Device Bridge är en lösning med öppen källkod och du hittar den fullständiga informationen [här](../core/howto-build-iotc-device-bridge.md). 
 
 
 ## <a name="iot-central-platform"></a>IoT Central plattform
@@ -42,4 +42,4 @@ IoT Centrals plattformen innehåller två alternativ för utöknings barhet: kon
 ## <a name="next-steps"></a>Nästa steg
 
 * Nu när du har lärt dig om arkitekturen skapar du en [app för smart avläsning utan kostnad](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
-* Mer information om IoT Central finns i [IoT Central översikt](https://docs.microsoft.com/azure/iot-central/)
+* Mer information om IoT Central finns i [IoT Central översikt](../index.yml)

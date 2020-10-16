@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b3db919056f24ad8b46c9925c044453e671d99f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e664055893bbdef0f7090811b8a160a1b8a4a1fd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84219165"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124056"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Självstudie: Använd tjänsten data kopiering för att kopiera data till Azure Data Box (för hands version)
 
@@ -25,7 +25,7 @@ Använd datakopieringstjänsten:
 - I NAS miljöer där mellanliggande värdar kanske inte är tillgängliga.
 - Med små filer som kräver veckor för inmatning och uppladdning av data. Datakopieringstjänsten förbättrar avsevärt tiden för inmatning och uppladdning för små filer.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -62,7 +62,7 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
 
 3. I dialogrutan **Konfigurera och starta** fyller du i följande fält:
     
-    |Field                          |Värde    |
+    |Fält                          |Värde    |
     |-------------------------------|---------|
     |**Jobbnamn**                       |Ett unikt namn med färre än 230 tecken för jobbet. Dessa tecken är inte tillåtna i jobb namnet:,,,,,, \<, \> \| \? \* \\ \: \/ och \\\.         |
     |**Källplats**                |Ange SMB-sökvägen till datakällan i formatet: `\\<ServerIPAddress>\<ShareName>` eller `\\<ServerName>\<ShareName>`.        |
@@ -71,7 +71,7 @@ För att kopiera data med hjälp av datakopieringstjänsten behöver du skapa et
     |**Mållagringskonto**    |Välj mållagringskonto för uppladdning av data från listan.         |
     |**Måltyp**       |Välj mål lagrings typ i listan: **Block-Blob**, **Page BLOB**eller **Azure Files**.        |
     |**Målcontainer/-resurs**    |Ange namnet på den container eller resurs som du vill ladda upp data till i ditt mållagringskonto. Namnet kan vara ett resursnamn eller ett containernamn. Använd till exempel `myshare` eller `mycontainer`. Du kan även ange namnet i formatet `sharename\directory_name` eller `containername\virtual_directory_name`.        |
-    |**Matchningsmönster för filkopiering**    | Du kan ange matchningsmönstret för filnamn på följande två sätt:<ul><li>**Använd jokertecken:** Endast `*` och `?` stöds i jokertecken. Till exempel matchar uttrycket `*.vhd` alla filer som har filnamnstillägget `.vhd`. På ett liknande sätt matchar `*.dl?` alla filer med antingen filnamnstillägget `.dl` eller som börjar med `.dl`, till exempel `.dll`. Och `*foo` matchar alla filer vars namn slutar med `foo`.<br>Du kan ange uttrycket med jokertecken direkt i fältet. Som standard behandlas det värde som du anger i fältet som ett uttryck med jokertecken.</li><li>**Använd reguljära uttryck:** POSIX-baserade reguljära uttryck stöds. Till exempel matchar det reguljära uttrycket `.*\.vhd` alla filer som har filnamnstillägget `.vhd`. För reguljära uttryck anger du `<pattern>` direkt som `regex(<pattern>)`. Mer information om reguljära uttryck finns i [snabbreferensen för reguljära uttryck](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Matchningsmönster för filkopiering**    | Du kan ange matchningsmönstret för filnamn på följande två sätt:<ul><li>**Använd jokertecken:** Endast `*` och `?` stöds i jokertecken. Till exempel matchar uttrycket `*.vhd` alla filer som har filnamnstillägget `.vhd`. På ett liknande sätt matchar `*.dl?` alla filer med antingen filnamnstillägget `.dl` eller som börjar med `.dl`, till exempel `.dll`. Och `*foo` matchar alla filer vars namn slutar med `foo`.<br>Du kan ange uttrycket med jokertecken direkt i fältet. Som standard behandlas det värde som du anger i fältet som ett uttryck med jokertecken.</li><li>**Använd reguljära uttryck:** POSIX-baserade reguljära uttryck stöds. Till exempel matchar det reguljära uttrycket `.*\.vhd` alla filer som har filnamnstillägget `.vhd`. För reguljära uttryck anger du `<pattern>` direkt som `regex(<pattern>)`. Mer information om reguljära uttryck finns i [snabbreferensen för reguljära uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Filoptimering**              |När den här funktionen är aktiverad packas filer som är mindre än 1 MB under inmatning. Paketeringen gör datakopieringen snabbare för små filer. Den sparar även betydande tid när antalet filer långt överstiger antalet kataloger.        |
  
 4. Välj **Starta**. Indata valideras, och om validering lyckas startas jobbet. Det kan ta några minuter för jobbet att startas.

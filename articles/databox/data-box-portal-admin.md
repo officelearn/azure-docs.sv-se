@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 8b36eee38275d18e6977c056192176f6fd54a917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611664"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123723"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Använd Azure Portal för att administrera Azure Data Box och Azure Data Box Heavy
 
@@ -221,9 +221,9 @@ Här är status för en import ordning.
 |Hämtat     |Din returleverans har hämtats och genomsökts av transportören.         |
 |Mottaget     | Enheten tas emot och genomsöks vid Azure-datacentret. <br> När leveransen kontrolleras startar enhetsöverföringen.      |
 |Datakopiering     | Data kopieras. Spåra kopieringsprocessen för din order i Azure-portalen. <br> Vänta tills datakopieringen är klar. |
-|Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
-|Slutfört med fel| Datakopieringen slutfördes men fel inträffade under kopieringen. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Se [exempel på kopierings loggar när överföringen är klar med fel](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Slutfört med varningar| Data kopieringen slutfördes men dina data ändrades. Data innehöll icke-kritiska BLOB-eller fil namns fel som korrigerades genom att ändra fil-eller BLOB-namn. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Anteckna ändringarna i dina data. Se [exempel på kopierings loggar när överföringen är klar med varningar](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
+|Slutförd       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
+|Slutfört med fel| Datakopieringen slutfördes men fel inträffade under kopieringen. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Se [exempel på kopierings loggar när överföringen är klar med fel](./data-box-logs.md#upload-completed-with-errors).   |
+|Slutfört med varningar| Data kopieringen slutfördes men dina data ändrades. Data innehöll icke-kritiska BLOB-eller fil namns fel som korrigerades genom att ändra fil-eller BLOB-namn. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Anteckna ändringarna i dina data. Se [exempel på kopierings loggar när överföringen är klar med varningar](./data-box-logs.md#upload-completed-with-warnings).   |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen annullerade du beställningen eller så påträffades ett fel som gjorde att tjänsten avbröt ordern. Om ordern inte kan uppfyllas inom 90 dagar annulleras den också och du får ett meddelande.     |
 |Rensa | Data på enhetsdiskarna raderas. Enhetsrensningen anses slutförd när beställningshistoriken är tillgänglig för nedladdning i Azure-portalen.|
 
@@ -238,14 +238,14 @@ Här är status för en export ordning.
 |Bearbetad     | Orderbearbetningen har slutförts. Enligt din beställning förbereds enheten för data kopiering i data centret. Enhets resurser skapas.         |
 |Data kopiering pågår     | Data kopieringen från de angivna Azure Storage-kontona till enheten pågår. Spåra kopieringsprocessen för din order i Azure-portalen. <br> Vänta tills datakopieringen är klar. |
 |Kopiering slutförd     | Data kopieringen från de angivna Azure Storage-kontona till enheten har slutförts. En utförlig loggfil (om alternativet har Aktiver ATS i ordningen) och en kopierings logg skapas i ditt lagrings konto. Utförlig logg innehåller information om alla filer (namn, sökväg, beräknings kontroll summa) som kopieras till enheten. Kopierings loggen innehåller en sammanfattning av kopierings processen, inklusive en lista över filer som inte kunde kopieras på grund av eventuella fel.<br> Lagrings kontots data finns kvar. |
-|Kopieringen slutfördes med fel| Datakopieringen slutfördes men fel inträffade under kopieringen. <br> Granska kopierings loggarna i Azure Storage kontot med hjälp av sökvägen som anges i Azure Portal. Se [exempel på kopierings loggar när hämtningen är klar med fel](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
-|Kopieringen slutfördes med varningar| Data kopieringen från Azure Storage kontot slutfördes, men data innehöll icke-kritiska fel. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Anteckna de icke-kritiska felen. Se [exempel på kopierings loggar när hämtningen är klar med varningar](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
-|Kopieringen misslyckades med fel| Det gick inte att kopiera data från Azure Storage konto och ordningen avslutas. Ingen enhet skickas.<br> Granska kopierings loggarna i Azure Storage kontot med hjälp av sökvägen som anges i Azure Portal. Se [exempel på kopierings loggar när hämtningen misslyckades med fel](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Kopieringen slutfördes med fel| Datakopieringen slutfördes men fel inträffade under kopieringen. <br> Granska kopierings loggarna i Azure Storage kontot med hjälp av sökvägen som anges i Azure Portal. Se [exempel på kopierings loggar när hämtningen är klar med fel](./data-box-logs.md#upload-completed-with-errors).   |
+|Kopieringen slutfördes med varningar| Data kopieringen från Azure Storage kontot slutfördes, men data innehöll icke-kritiska fel. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Anteckna de icke-kritiska felen. Se [exempel på kopierings loggar när hämtningen är klar med varningar](./data-box-logs.md#upload-completed-with-warnings).   |
+|Kopieringen misslyckades med fel| Det gick inte att kopiera data från Azure Storage konto och ordningen avslutas. Ingen enhet skickas.<br> Granska kopierings loggarna i Azure Storage kontot med hjälp av sökvägen som anges i Azure Portal. Se [exempel på kopierings loggar när hämtningen misslyckades med fel](./data-box-logs.md#upload-completed-with-errors).   |
 |Skickat     |Beställningen har skickats. Använd det spårnings-ID som visas i din order i portalen för att spåra leveransen.        |
 |Levererade     |Försändelsen har levererats till den adress som angetts i ordern.        |
 |Hämtat     |Din returleverans har hämtats och genomsökts av transportören.         |
 |Mottaget     | Enheten tas emot och genomsöks vid Azure-datacentret. <br> Leveransen har inspekterats.      |
-|Slutfört           |Ordern har slutförts.     |
+|Slutförd           |Ordern har slutförts.     |
 |Rensa | Data på enhetsdiskarna raderas. Enhetsrensningen anses slutförd när beställningshistoriken är tillgänglig för nedladdning i Azure-portalen.|
 
 > [!NOTE]

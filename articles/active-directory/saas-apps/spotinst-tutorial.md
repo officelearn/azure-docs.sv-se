@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4028cb8d4f206a0e62dda1cb130cc55e71831c78
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587968"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123138"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Spotinst
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Spotinst med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -89,7 +89,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Spotinst-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | -----| --------------- |
     | E-post | user.mail |
     | FirstName | user.givenname |
@@ -139,7 +139,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Klicka på **ikonen användare** längst upp till höger på skärmen och klicka på **Inställningar**.
 
-    ![Spotinst-inställningar](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+    ![Skärm bild som visar inställningar som valts från användar ikonen.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
 3. Klicka på fliken **säkerhet** överst och välj sedan **identitets leverantörer** och utför följande steg:
 
@@ -161,15 +161,15 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
    b. Klicka på **ikonen användare** längst upp till höger på skärmen och klicka på **Inställningar**.
 
-    ![Spotinst-inställningar](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+    ![Skärm bild som visar inställningar som valts från användar ikonen.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
     c. Klicka på **användare** och välj **Lägg till användare**.
 
-    ![Spotinst-inställningar](./media/spotinst-tutorial/adduser1.png)
+    ![Skärm bild som visar Lägg till användare som valts från användare.](./media/spotinst-tutorial/adduser1.png)
 
     d. I avsnittet Lägg till användare utför du följande steg:
 
-    ![Spotinst-inställningar](./media/spotinst-tutorial/adduser2.png)
+    ![Skärm bild som visar avsnittet Lägg till användare där du kan ange de värden som beskrivs.](./media/spotinst-tutorial/adduser2.png)
 
     * I text rutan **fullständigt namn** anger du det fullständiga namnet på användaren som **BrittaSimon**.
 

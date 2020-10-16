@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: troubleshooting
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb70946fda4fad7a42fd885a2515cb0d82698eca
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053461"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124687"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Felsöka problem som rör Azure Data Box och Azure Data Box Heavy
 
@@ -56,7 +56,7 @@ Detta är fel som rör behållare och resurs namn.
     - Exempel på giltiga namn: `my-folder-1` , `my-really-extra-long-folder-111`
     - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,, `myfolder!`
 
-    Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Mer information finns i namngivnings konventionerna i Azure för [behållar namn](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 
 ### <a name="error_container_or_share_name_alpha_numeric_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
@@ -75,7 +75,7 @@ Detta är fel som rör behållare och resurs namn.
     - Exempel på giltiga namn: `my-folder-1` , `my-really-extra-long-folder-111`
     - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,, `myfolder!`
 
-    Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Mer information finns i namngivnings konventionerna i Azure för [behållar namn](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 ### <a name="error_container_or_share_name_improper_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
 
@@ -93,7 +93,7 @@ Detta är fel som rör behållare och resurs namn.
     - Exempel på giltiga namn: `my-folder-1` , `my-really-extra-long-folder-111`
     - Exempel på namn som inte är giltiga `my-folder_1` : `my` , `--myfolder` , `myfolder--` ,, `myfolder!`
 
-    Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Mer information finns i namngivnings konventionerna i Azure för [behållar namn](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
     
 ### <a name="error_file_or_directory_name_illegal"></a>ERROR_FILE_OR_DIRECTORY_NAME_ILLEGAL
 
@@ -104,7 +104,7 @@ Detta är fel som rör behållare och resurs namn.
 - På sidan Anslut och kopiera i det lokala webb gränssnittet laddar du ned och granskar felfilerna för att identifiera mappnamnen med problem. 
 - Byt namn på katalogen eller behållare för att säkerställa att de är kompatibla med namngivnings konventionerna i Azure.
 
-Mer information finns i namngivnings konventionerna för [kataloger](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   och [behållare](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)i Azure.
+Mer information finns i namngivnings konventionerna för [kataloger](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names)   och [behållare](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)i Azure.
 
 ## <a name="container-or-share-size-limit-errors"></a>Gräns fel för behållare eller resurs storlek
 
@@ -190,7 +190,7 @@ Alla icke-kritiska fel som är relaterade till namn på blobbar, filer eller beh
 På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
 Ta bort eller Byt namn på filerna om du vill ta bort tecken som inte stöds.
 
-Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namn](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 ### <a name="error_blob_or_file_name_character_illegal"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL
 
@@ -201,7 +201,7 @@ Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](
 På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
 Ta bort eller Byt namn på filerna om du vill ta bort tecken som inte stöds.
 
-Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namn](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
 ### <a name="error_blob_or_file_name_ending"></a>ERROR_BLOB_OR_FILE_NAME_ENDING
@@ -213,7 +213,7 @@ Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](
 På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
 Ta bort eller Byt namn på filerna om du vill ta bort tecken som inte stöds.
 
-Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namn](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
 ### <a name="error_blob_or_file_name_segment_count"></a>ERROR_BLOB_OR_FILE_NAME_SEGMENT_COUNT
@@ -223,7 +223,7 @@ Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](
 **Rekommenderad lösning:** Blobbar eller filer som du har kopierat överskrider det maximala antalet Sök vägs segment. Ett Sök vägs segment är strängen mellan efterföljande avgränsnings tecken, till exempel snedstreck/.
 
 - På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
-- Kontrol lera att [BLOB-namnen](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namnen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) följer namngivnings konventionerna i Azure.
+- Kontrol lera att [BLOB-namnen](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namnen](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) följer namngivnings konventionerna i Azure.
 
 ### <a name="error_blob_or_file_name_aggregate_length"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
 
@@ -244,7 +244,7 @@ Mer information finns i namngivnings konventionerna för Azure för BLOB-namn oc
 **Rekommenderad lösning:** Ett av Sök vägs segmenten i blobben eller fil namnet överskrider det högsta antalet tecken. Ett Sök vägs segment är strängen mellan efterföljande avgränsnings tecken, till exempel snedstreck/.
 
 - På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
-- Kontrol lera att [BLOB-namnen](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namnen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) följer namngivnings konventionerna i Azure.
+- Kontrol lera att [BLOB-namnen](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namnen](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) följer namngivnings konventionerna i Azure.
 
 
 ### <a name="error_container_or_share_name_disallowed_for_type"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE

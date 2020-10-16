@@ -3,12 +3,12 @@ title: Kom igång med live video analys på IoT Edge – Azure
 description: Den här snabb starten visar hur du kommer igång med live video analys på IoT Edge. Lär dig hur du identifierar rörelser i en video ström i real tid.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 4975223255cb92c85c3117dbd44a64916054b590
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 2d426952e92951185c43b68266196a6764f4f601
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825931"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125021"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Snabb start: kom igång – direktsända video analyser på IoT Edge
 
@@ -18,6 +18,10 @@ När du har slutfört installations stegen kan du köra en simulerad real tids v
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Real video analys baserat på rörelse identifiering":::
+
+Du kan visa följande video med detaljerade anvisningar om hur du kommer igång med real tids video analys på IoT Edge:
+
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -62,7 +66,7 @@ az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device 
 Det här kommandot distribuerar följande moduler till gräns enheten, som är den virtuella Linux-datorn i det här fallet.
 
 * Video analys i real tid för IoT Edge (Modulnamn `lvaEdge` )
-* RTSP-Simulator (Real Time Streaming Protocol) (Modulnamn `rtspsim` )
+* RTSP-Simulator (Real-Time Streaming Protocol) (modulens namn `rtspsim` )
 
 RTSP Simulator-modulen simulerar en real tids video ström med hjälp av en videofil som kopierades till din Edge-enhet när du körde [installations skriptet för Live Video Analytics-resurser](https://github.com/Azure/live-video-analytics/tree/master/edge/setup). 
 

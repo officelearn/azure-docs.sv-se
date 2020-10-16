@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 517344e0bae0a48dbee04da33d28c8777d7c142d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91440256"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124970"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Skapa lösningar för detaljhandeln med Azure IoT Central
 
@@ -185,4 +185,4 @@ För att komma igång med att skapa en detalj handels lösning:
 * [Distribuera och gå igenom en mall för hantering av Smart inventerings program](./tutorial-iot-central-smart-inventory-management.md).
 * [Distribuera och gå igenom programmallen för Micro-uppfyllelse Center](./tutorial-micro-fulfillment-center.md).
 * [Distribuera och gå igenom program mal len video analys](./tutorial-video-analytics-deploy.md).
-* Läs mer om IoT Central i [översikten över IoT Central](../preview/overview-iot-central.md).
+* Läs mer om IoT Central i [översikten över IoT Central](../core/overview-iot-central.md).

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3110e02c2c4cb8b254e80a55997577db95ba1be0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075662"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125260"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Felsöka problem med åtkomst principer för Azure Key Vault
 
@@ -51,7 +51,7 @@ Programmet behöver också minst en roll för identitets-och åtkomst hantering 
 
 ### <a name="how-can-i-redeploy-key-vault-with-arm-template-without-deleting-existing-access-policies"></a>Hur kan jag distribuera om Key Vault med ARM-mall utan att ta bort befintliga åtkomst principer?
 
-För närvarande Key Vault omdistribution tar bort alla åtkomst principer i Key Vault och ersätter dem med åtkomst principen i ARM-mallen. Det finns inget stegvist alternativ för Key Vault åtkomst principer. Om du vill bevara åtkomst principerna i Key Vault behöver du läsa befintliga åtkomst principer i Key Vault och fylla ARM-mallen med dessa principer för att undvika eventuella åtkomst avbrott.
+För närvarande Key Vault omdistribution tar bort alla åtkomst principer i Key Vault och ersätter dem med åtkomst principen i ARM-mallen. Det finns inget stegvist alternativ för Key Vault åtkomst principer. Om du vill bevara åtkomst principer i Key Vault måste du läsa befintliga åtkomst principer i Key Vault och fylla i ARM-mallen med dessa principer för att undvika eventuella åtkomst avbrott.
 
 Ett annat alternativ som kan hjälpa till med det här scenariot är att använda RBAC-roller som ett alternativ till att komma åt principer. Med RBAC kan du distribuera nyckel valvet igen utan att ange principen igen. Du kan läsa mer om den här lösningen [här](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
 

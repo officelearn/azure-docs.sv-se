@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 241c404eff1242c52520f94d5d955db7e260148c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3a3582891ab3d3e4bfb53cbba0c0b2826cba56b
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537913"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123362"
 ---
 # <a name="azure-database-for-postgresql-infrastructure-double-encryption"></a>Azure Database for PostgreSQL infrastruktur Double Encryption
 
@@ -20,7 +20,7 @@ Azure Database for PostgreSQL använder lagrings [kryptering av data i vila](con
 Infrastrukturens dubbla kryptering lägger till ett andra lager av kryptering med hjälp av tjänstens hanterade nycklar. Den använder FIPS 140-2-verifierade kryptografiska modulen, men med en annan krypteringsalgoritm. Detta ger ytterligare ett skydds lager för dina data i vila. Den nyckel som används i infrastrukturens dubbla kryptering hanteras också av tjänsten Azure Database for PostgreSQL. Infrastruktur Double Encryption är inte aktiverat som standard eftersom det ytterligare lagret av kryptering kan påverka prestandan.
 
 > [!NOTE]
-> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for PostgreSQL stöder pris nivåerna "Generell användning" och "Minnesoptimerade".
+> Den här funktionen stöds bara för pris nivåer för "Generell användning" och "Minnesoptimerade" i Azure Database for PostgreSQL.
 
 Kryptering av infrastruktur lager har fördelen att implementeras på det lager som ligger närmast lagrings enheten eller nätverks kabeln. Azure Database for PostgreSQL implementerar två krypterings lager med hjälp av tjänstens hanterade nycklar. Även om det fortfarande är tekniskt i tjänst lagret, är det mycket nära maskin vara som lagrar data i vila. Du kan även aktivera data kryptering i vila med hjälp av [kundhanterad nyckel](concepts-data-encryption-postgresql.md) för den etablerade postgresql-servern.  
 

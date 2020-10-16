@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: f996bb2d5126ef038ca872aee1f1893979a5229b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081006"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123345"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualisera och analysera dina Azure IoT Central-data på en Power BI-instrumentpanel
 
@@ -27,11 +27,11 @@ Använd Power BI lösning för Azure IoT Central v3 för att skapa en kraftfull 
 - Filtrera ned till data som skickats av vissa enheter
 - Visa de senaste telemetridata i en tabell
 
-Den här lösningen konfigurerar en pipeline som läser data från ditt [kontinuerliga data export](howto-export-data-blob-storage.md) Azure Blob Storage-konto. Pipelinen använder Azure Functions, Azure Data Factory och Azure SQL Database för att bearbeta och transformera data. Du kan visualisera och analysera data i en Power BI rapport som du hämtar som en PBIX-fil. Alla resurser skapas i din Azure-prenumeration så att du kan anpassa varje komponent så att den passar dina behov.
+Den här lösningen konfigurerar en pipeline som läser data från ditt [kontinuerliga data export](./howto-export-data.md) Azure Blob Storage-konto. Pipelinen använder Azure Functions, Azure Data Factory och Azure SQL Database för att bearbeta och transformera data. Du kan visualisera och analysera data i en Power BI rapport som du hämtar som en PBIX-fil. Alla resurser skapas i din Azure-prenumeration så att du kan anpassa varje komponent så att den passar dina behov.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+För att slutföra stegen i den här instruktions guiden behöver du en aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Konfigurationen av lösningen kräver följande resurser:
 
@@ -43,7 +43,7 @@ Konfigurationen av lösningen kräver följande resurser:
 - Power BI Pro (om du vill dela instrument panelen med andra).
 
 > [!NOTE]
-> Om du använder en version 2 IoT Central program, se [visualisera och analysera dina Azure IoT Central-data i en Power BI-instrumentpanel](https://docs.microsoft.com/previous-versions/azure/iot-central/core/howto-connect-powerbi) på dokumentations webbplatsen för tidigare versioner.
+> Om du använder en version 2 IoT Central program, se [visualisera och analysera dina Azure IoT Central-data i en Power BI-instrumentpanel](/previous-versions/azure/iot-central/core/howto-connect-powerbi) på dokumentations webbplatsen för tidigare versioner.
 
 ## <a name="install"></a>Installera
 

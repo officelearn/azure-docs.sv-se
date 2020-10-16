@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: 3809fa9e1ce17a5a0c3cf333ac20ef543db4b5a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2477bab244b8864fa9c82b52d5577d42fa47a7e0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588811"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124159"
 ---
 # <a name="renew-your-azure-key-vault-certificates"></a>Förnya dina Azure Key Vault certifikat
 
@@ -25,12 +25,20 @@ Genom att använda kortsiktiga certifikat eller genom att öka frekvensen för c
 
 Den här artikeln beskriver hur du förnyar Azure Key Vault certifikat.
 
-## <a name="get-notified-about-certificate-expirations"></a>Få meddelanden om förfallo datum för certifikat
-Om du vill bli meddelad när dina certifikat håller på att gå ut, gör du följande:
+## <a name="get-notified-about-certificate-expiration"></a>Få meddelanden om förfallo datum för certifikat
+Om du vill bli informerad om certifikatets livs längd måste du lägga till certifikat kontakt. Certifikat kontakter innehåller kontakt information för att skicka meddelanden som utlöses av händelser för certifikat livs längd. Kontakt information delas av alla certifikat i nyckel valvet. Ett meddelande skickas till alla angivna kontakter för en händelse för ett certifikat i nyckel valvet.
 
-Lägg först till en certifikat kontakt i nyckel valvet med PowerShell-cmdleten [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
+### <a name="steps-to-set-certificate-notifications"></a>Steg för att ange certifikat meddelanden:
+Lägg först till en certifikat kontakt i ditt nyckel valv. Du kan lägga till med Azure Portal eller PowerShell-cmdlet [`Add-AzureKeyVaultCertificateContact`](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0) .
 
 Sedan konfigurerar du när du vill få information om förfallo datum för certifikatet. Information om hur du konfigurerar livs cykel attribut för certifikatet finns i [Konfigurera autorotation av certifikat i Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+
+Om ett certifikats princip ställs in på automatisk förnyelse skickas ett meddelande vid följande händelser.
+
+- Innan certifikat förnyas
+- Efter förnyelse av certifikat, anger om certifikatet har förnyats eller om det uppstod ett fel, vilket kräver manuell förnyelse av certifikatet.  
+
+  När en certifikat princip som anges ska förnyas manuellt (endast e-post) skickas ett meddelande när det är dags att förnya certifikatet.  
 
 I Key Vault finns det tre kategorier certifikat:
 -   Certifikat som har skapats med en integrerad certifikat utfärdare (CA), till exempel DigiCert eller GlobalSign

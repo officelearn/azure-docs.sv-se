@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: b388b8efb7d993baa243975dbf499576246f3185
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 01f10d3ba83d23478a7113cf4935181ee34959e3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001072"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125294"
 ---
 # <a name="enclave-aware-containers"></a>Enklaven-medvetna behållare
 
@@ -51,14 +51,19 @@ Med den här lösningen kan du överföra befintlig ML-tränad modell och köra 
 
 Kom igång med ML modell hiss och växla till ONNX runtime [här](https://aka.ms/confidentialinference)
 
-## <a name="container-samples-implementations"></a>Implementeringar av container exempel
+### <a name="edgeless-rt"></a>Gräns RT
 
-[Azure-exempel för enklaven-medvetna behållare på AKS](https://github.com/Azure-Samples/enclave-aware-container-samples)
+Gränslös RT är ett projekt med öppen källkod som bygger på Open enklaven SDK. Den lägger till stöd för go och ytterligare C++-funktioner. Kom igång med ett enkelt konfidentiellt Go-program med hjälp av din välkända VS Code-miljö [här](https://github.com/edgelesssys/edgelessrt). För Gränsbaserade program på AKS följer du anvisningarna [här](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)
+
+
+## <a name="container-based-sample-implementations"></a>Implementeringar av containerbaserade exempel
+
+[Azure-exempel för enklaven-medvetna behållare på AKS](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure-attestering](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
-[Confidential Containers]: /confidential-computing/containercompute/confidential-containers
+[Virtuell DC-dator](/confidential-computing/virtual-machine-solutions) 
+ [Konfidentiella behållare](/confidential-computing/containercompute/confidential-containers)

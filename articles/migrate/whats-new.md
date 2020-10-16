@@ -4,12 +4,12 @@ description: Lär dig mer om nyheter och nya uppdateringar i tjänsten Azure Mig
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 0552402661397a2a8aa09f989189cc08b46e638e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a36e73496b07df18c61b07df9d90992c0ab399ce
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667086"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92124664"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Vad är nytt i Azure Migrate
 
@@ -17,7 +17,7 @@ ms.locfileid: "91667086"
 
 ## <a name="update-september-2020"></a>Uppdatering (september 2020)
 - Migrering av servrar till Tillgänglighetszoner stöds nu.
-- Migrering av UEFI-baserade virtuella datorer och fysiska servrar till Azure generation 2-VM: ar stöds nu
+- Migrering av UEFI-baserade virtuella datorer och fysiska servrar till Azure generation 2-VM: ar stöds nu. I den här versionen Azure Migrate: Migreringsverktyg för server kommer inte att utföra konverteringen från generation 2 VM till den virtuella datorn för generation 1 under migreringen.
 - Det finns en ny instrument panel för Azure Migrate Power BI utvärdering som hjälper dig att jämföra kostnader över olika utvärderings inställningar. Instrument panelen innehåller ett PowerShell-verktyg som automatiskt skapar de utvärderingar som ansluter till Power BI instrument panelen. [Läs mer.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
 - Beroende analys (utan agent) kan nu köras samtidigt på en 1000-VM.
 - Beroende analys (utan agent) kan nu aktive ras eller inaktive ras i skala med hjälp av PowerShell-skript. [Läs mer.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)

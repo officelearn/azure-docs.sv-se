@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24ec674c35a4e218c105febf6471ae8427f3c1c3
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531034"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125738"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Azure Database for MySQL infrastruktur Double Encryption
 
@@ -20,7 +20,7 @@ Azure Database for MySQL använder lagrings [kryptering av data i vila](concepts
 Infrastrukturens dubbla kryptering lägger till ett andra lager av kryptering med hjälp av tjänstens hanterade nycklar. Den använder FIPS 140-2-verifierade kryptografiska modulen, men med en annan krypteringsalgoritm. Detta ger ytterligare ett skydds lager för dina data i vila. Den nyckel som används i infrastrukturens dubbla kryptering hanteras också av tjänsten Azure Database for MySQL. Infrastruktur Double Encryption är inte aktiverat som standard eftersom det ytterligare lagret av kryptering kan påverka prestandan.
 
 > [!NOTE]
-> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MySQL stöder pris nivåerna "Generell användning" och "Minnesoptimerade".
+> Den här funktionen stöds bara för pris nivåer för "Generell användning" och "Minnesoptimerade" i Azure Database for PostgreSQL.
 
 Kryptering av infrastruktur lager har fördelen att implementeras på det lager som ligger närmast lagrings enheten eller nätverks kabeln. Azure Database for MySQL implementerar två krypterings lager med hjälp av tjänstens hanterade nycklar. Även om det fortfarande är tekniskt i tjänst lagret, är det mycket nära maskin vara som lagrar data i vila. Du kan även aktivera data kryptering i vila med hjälp av [kund Managed Key](concepts-data-encryption-mysql.md) för den etablerade MySQL-servern. 
 

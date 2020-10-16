@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80934dca73d7f8a205c62a49c418828cab1820e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408866"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123740"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Övervakning av nätverks anslutning med anslutnings övervakare (för hands version)
 
@@ -143,9 +143,7 @@ Anslutnings övervakare har följande skalnings gränser:
 * Högsta antal anslutnings övervakare per prenumeration per region: 100
 * Högsta antal test grupper per anslutnings Övervakare: 20
 * Högsta antal källor och mål per anslutnings Övervakare: 100
-* Högsta antal testkonfigurationer per anslutnings Övervakare: 
-    * 20 via ARMClient
-    * 2 via Azure Portal
+* Högsta antal testkonfigurationer per anslutnings Övervakare: 20
 
 ## <a name="analyze-monitoring-data-and-set-alerts"></a>Analysera övervaknings data och ange aviseringar
 
@@ -348,7 +346,7 @@ Följande problem kan identifieras för nätverk vars källor är virtuella Azur
 * BGP är inte aktiverat på Gateway-anslutningen.
 * DIP-avsökningen är nere i belastningsutjämnaren.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
     
    * Lär dig [hur du skapar anslutnings övervakaren (för hands version) med Azure Portal](connection-monitor-preview-create-using-portal.md)  
    * Lär dig [hur du skapar anslutnings övervakaren (för hands version) med ARMClient](connection-monitor-preview-create-using-arm-client.md)  

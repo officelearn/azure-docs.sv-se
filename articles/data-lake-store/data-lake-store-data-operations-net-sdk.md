@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 1044af94df43e61ae8c0032041bc80a356331f1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6d5fafa8d956c296124c5a20f8a087160961da
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022470"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109246"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Fil Systems åtgärder på Data Lake Storage Gen1 med hjälp av .NET SDK
 
@@ -28,7 +28,7 @@ I den här artikeln får du lära dig hur du utför fil Systems åtgärder på D
 
 Instruktioner för hur du utför konto hanterings åtgärder på Data Lake Storage Gen1 med hjälp av .NET SDK finns i [konto hanterings åtgärder på data Lake Storage gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Visual Studio 2013 eller senare**. Anvisningarna i den här artikeln använder Visual Studio 2019.
 
@@ -202,7 +202,7 @@ Här följer några exempel som visar hur du använder SDK för Data Lake Storag
 ## <a name="see-also"></a>Se även
 
 * [Konto hanterings åtgärder på Data Lake Storage Gen1 med .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Data Lake Storage Gen1 .NET SDK-referens](/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Nästa steg
 

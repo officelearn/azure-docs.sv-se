@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 9b6180f2480d8a92dc0ebdd2cad474a9eef3cbe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf68963515e1208868efb40c2d3fc56c9ab4e0df
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328861"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107767"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ansluta Azure till ITSM-verktyg med säker export
 
@@ -51,7 +51,7 @@ Säker export stöder BMC-Helix. Några av fördelarna med integrationen är:
 
 * **Bättre autentisering**: Azure AD ger mer säker autentisering utan tids gränser som vanligt vis uppstår i ITSMC.
 * **Aviseringar som löses i ITSM-verktyget**: mått varningar implementerar "utlöst" och "löst" tillstånd. När villkoret är uppfyllt är aviserings tillståndet "utlöst". När villkoret inte uppfylls längre är aviserings tillståndet "löst". I ITSMC kan aviseringar inte lösas automatiskt. Med säker export flödar det lösta tillstånd till ITSM-verktyget och uppdateras automatiskt.
-* **[Vanligt aviserings schema](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)**: i ITSMC varierar schemat för aviserings nytto lasten baserat på aviserings typen. I säker export finns det ett gemensamt schema för alla aviserings typer. Det här gemensamma schemat innehåller CI för alla aviserings typer. Alla aviserings typer kan binda sitt CI med CMDB.
+* **[Vanligt aviserings schema](./alerts-common-schema.md)**: i ITSMC varierar schemat för aviserings nytto lasten baserat på aviserings typen. I säker export finns det ett gemensamt schema för alla aviserings typer. Det här gemensamma schemat innehåller CI för alla aviserings typer. Alla aviserings typer kan binda sitt CI med CMDB.
 
 Börja använda ITSM-anslutningsprogram-verktyget med följande steg:
 
@@ -63,7 +63,7 @@ Börja använda ITSM-anslutningsprogram-verktyget med följande steg:
 
 Följ de här stegen för att registrera programmet med Azure AD:
 
-1. Följ stegen i [Registrera ett program med Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+1. Följ stegen i [Registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md).
 1. I Azure AD väljer du **exponera program**.
 1. Välj **set** för **program-ID-URI**.
 
@@ -75,7 +75,7 @@ Följ de här stegen för att registrera programmet med Azure AD:
 När programmet har registrerats med Azure AD kan du skapa arbets objekt i ITSM-verktyget baserat på Azure-aviseringar med hjälp av åtgärden säker webhook i åtgärds grupper.
 
 Åtgärds grupper ger ett modulärt och återanvändbart sätt att utlösa åtgärder för Azure-aviseringar. Du kan använda åtgärds grupper med mått aviseringar, aktivitets logg aviseringar och Azure Log Analytics-aviseringar i Azure Portal.
-Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups).
+Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper i Azure Portal](./action-groups.md).
 
 Använd följande procedur i BMC Helix-miljön:
 
@@ -89,7 +89,7 @@ Om du vill lägga till en webhook till en åtgärd, följer du dessa anvisningar
 
 1. Sök efter och välj **övervaka**i [Azure Portal](https://portal.azure.com/). I **övervaknings** fönstret samlas alla övervaknings inställningar och data i en vy.
 1. Välj **aviseringar**  >  **Hantera åtgärder**.
-1. Välj [Lägg till åtgärds grupp](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups#create-an-action-group-by-using-the-azure-portal)och fyll i fälten.
+1. Välj [Lägg till åtgärds grupp](./action-groups.md#create-an-action-group-by-using-the-azure-portal)och fyll i fälten.
 1. Ange ett namn i rutan **Åtgärds grupp namn** och ange ett namn i rutan **kort namn** . Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
 1. Välj **säker webhook**.
 1. Välj följande information:
@@ -107,7 +107,7 @@ Om du vill lägga till en webhook till en åtgärd, följer du dessa anvisningar
 
 Följande avsnitt innehåller information om hur du ansluter din BMC Helix-produkt och säker export i Azure.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Se till att du uppfyller följande krav:
 
@@ -140,4 +140,4 @@ Se till att du uppfyller följande krav:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa ITSM arbets objekt från Azure-aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)
+* [Skapa ITSM arbets objekt från Azure-aviseringar](./itsmc-overview.md)

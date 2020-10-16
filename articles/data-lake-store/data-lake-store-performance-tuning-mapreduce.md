@@ -6,22 +6,22 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 03c35d0af97cf24d1683d0ff21f10a0371391616
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2653e0b557f7c5c04184628b3266e8f2909130f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190217"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108294"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Vägledning för prestanda justering för MapReduce på HDInsight och Azure Data Lake Storage Gen1
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Azure Data Lake Storage gen1 konto**. Instruktioner för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage gen1-konto. Se [skapa ett HDInsight-kluster med data Lake Storage gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Se till att aktivera fjärr skrivbord för klustret.
-* **Använda MapReduce på HDInsight**. Mer information finns i [använda MapReduce i Hadoop på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Granska rikt linjer för prestanda justering för data Lake Storage gen1**. Allmänna prestanda koncept finns i [vägledning för data Lake Storage gen1 prestanda justering](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Använda MapReduce på HDInsight**. Mer information finns i [använda MapReduce i Hadoop på HDInsight](../hdinsight/hadoop/hdinsight-use-mapreduce.md)
+* **Granska rikt linjer för prestanda justering för data Lake Storage gen1**. Allmänna prestanda koncept finns i [vägledning för data Lake Storage gen1 prestanda justering](./data-lake-store-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametrar
 

@@ -13,12 +13,12 @@ ms.date: 05/19/2020
 ms.author: hirsin
 ms.reviewer: kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: cc93f4062851f01dd127c108ca60bc240a1940e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 064c9a00e1cd7c139f3f42a053dcf8a5db13f161
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87311763"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104588"
 ---
 # <a name="handle-itp-in-safari-and-other-browsers-where-third-party-cookies-are-blocked"></a>Hantera ITP i Safari och andra webbläsare där cookies från tredje part blockeras
 
@@ -49,7 +49,7 @@ SPAs har två ytterligare begränsningar:
 * [Omdirigerings-URI: n måste `spa` markeras som typ](v2-oauth2-auth-code-flow.md#redirect-uri-setup-required-for-single-page-apps) Aktivera CORS på inloggnings slut punkter.
 * Uppdateringstoken som utfärdats genom auktoriseringskod för `spa` omdirigering av URI: er har en varaktighet på 24 timmar i stället för en livs längd på 90 dagar.
 
-![Kod flöde för SPA-appar](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram som visar OAuth 2-auktoriseringskod mellan en app med en enda sida och slut punkten för säkerhetstoken." border="false":::
 
 ## <a name="performance-and-ux-implications"></a>Prestanda-och UX-konsekvenser
 

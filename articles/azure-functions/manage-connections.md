@@ -4,12 +4,12 @@ description: Lär dig att undvika prestanda problem i Azure Functions genom att 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 7ce933511532fdb1bfb5189e5a900e87f3d83fa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a305c692c63f278c4edc4240f7adf9de22b22c56
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213973"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106101"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Hantera anslutningar i Azure Functions
 
@@ -103,7 +103,25 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
+Om du arbetar med Functions v3. x behöver du en refernce för att Microsoft.Azure.DocumentDB. Core. Lägg till en referens i koden:
 
+```cs
+#r "Microsoft.Azure.DocumentDB.Core"
+```
+Skapa också en fil med namnet "function. proj" för utlösaren och Lägg till följande innehåll:
+
+```cs
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.12.0" />
+    </ItemGroup>
+</Project>
+
+```
 ### <a name="cosmosclient-code-example-javascript"></a>CosmosClient Code-exempel (Java Script)
 [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) ansluter till en Azure Cosmos DB-instans. Azure Cosmos DB-dokumentationen rekommenderar att du [använder en singleton-Azure Cosmos DB-klient för programmets livs längd](../cosmos-db/performance-tips.md#sdk-usage). I följande exempel visas ett mönster för att göra det i en funktion:
 

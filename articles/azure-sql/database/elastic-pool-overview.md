@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 7be0b5f2688198da8926f2039f60bf9ba592e2f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b76af2c6c949f2591cee880a1991c6f240806a2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330799"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107903"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Elastiska pooler hjälper dig att hantera och skala flera databaser i Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ Följande bild visar ett exempel på en databas med mycket inaktiv tid, men äve
 
    ![en enkel databas som är lämplig för en pool](./media/elastic-pool-overview/one-database.png)
 
-Under femminutersperioden som visas har DB1 toppar med 90 DTU:er, men en genomsnittlig användning på mindre än 5 DTU:er. En S3-beräknings storlek krävs för att köra den här arbets belastningen i en enda databas, men det lämnar de flesta av de resurser som inte används under perioder med låg aktivitet.
+Diagrammet illustrerar DTU-användning över en tids period på 1 timme från 12:00 till 1:00 där varje data punkt har 1 minut kornig het. Vid 12:10 DB1s toppar upp till 90 DTU: er, men den totala genomsnittliga användningen är mindre än fem DTU: er. En S3-beräknings storlek krävs för att köra den här arbets belastningen i en enda databas, men det lämnar de flesta av de resurser som inte används under perioder med låg aktivitet.
 
 En pool gör att dessa oanvända DTU:er kan delas av flera databaser och minskar således de DTU:er som krävs och den sammanlagda kostnaden.
 

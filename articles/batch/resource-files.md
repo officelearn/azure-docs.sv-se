@@ -3,12 +3,12 @@ title: Skapa och använda resursfiler
 description: Lär dig hur du skapar batch-resursfiler från olika ingångs källor. Den här artikeln beskriver några vanliga metoder för hur du skapar och placerar dem på en virtuell dator.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 22c0220d08660402bef3fd4aaf0add6adc12a295
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a5e9780b4fa0abfec5b736e04d385f14716873
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230950"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109297"
 ---
 # <a name="creating-and-using-resource-files"></a>Skapa och använda resursfiler
 
@@ -61,7 +61,7 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-Ett alternativ till att skapa en SAS-URL är att aktivera Anonym, offentlig Läs behörighet till en behållare och dess blobbar i Azure Blob Storage. Genom att göra det kan du bevilja skrivskyddad åtkomst till dessa resurser utan att dela din konto nyckel och utan att kräva en SAS. Offentlig Läs behörighet används vanligt vis för scenarier där du vill att vissa blobbar alltid ska vara tillgängliga för anonym Läs åtkomst. Om det här scenariot passar din lösning kan du läsa artikeln [anonym åtkomst till blobbar](../storage/blobs/storage-manage-access-to-resources.md) för att lära dig mer om att hantera åtkomst till dina BLOB-data.
+Ett alternativ till att skapa en SAS-URL är att aktivera Anonym, offentlig Läs behörighet till en behållare och dess blobbar i Azure Blob Storage. Genom att göra det kan du bevilja skrivskyddad åtkomst till dessa resurser utan att dela din konto nyckel och utan att kräva en SAS. Offentlig Läs behörighet används vanligt vis för scenarier där du vill att vissa blobbar alltid ska vara tillgängliga för anonym Läs åtkomst. Om det här scenariot passar din lösning kan du läsa artikeln [anonym åtkomst till blobbar](../storage/blobs/anonymous-read-access-configure.md) för att lära dig mer om att hantera åtkomst till dina BLOB-data.
 
 ### <a name="storage-container-name"></a>Namn på lagrings behållare
 

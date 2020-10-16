@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 54ccaebd84c6af308ddcfa956add7f84b6e55832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba789b6a40dd23309bb94289b187209893908e3
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321061"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116823"
 ---
 Behållaren tillhandahåller WebSocket-baserade frågor för slut punkts-API: er som nås via [tal-SDK: n](../index.yml). Som standard använder tal-SDK online Speech Services. Om du vill använda behållaren måste du ändra initierings metoden.
 
@@ -29,7 +29,7 @@ Se exemplen nedan.
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-till det här anropet med hjälp av behållar [värden](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet):
+Använda det här anropet med behållar [värden](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.fromhost?view=azure-dotnet):
 
 ```csharp
 var config = SpeechConfig.FromHost(
@@ -43,6 +43,13 @@ var config = SpeechConfig.FromHost(
 ```python
 speech_config = speechsdk.SpeechConfig(
     subscription=speech_key, region=service_region)
+```
+
+Använda det här anropet med behållarens [slut punkt](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python):
+
+```python
+speech_config = speechsdk.SpeechConfig(
+    endpoint="ws://localhost:5000/speech/recognition/conversation/cognitiveservices/v1"
 ```
 
 ---

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0d8960ddd8f617c59d6ac025fafe413256bc5b94
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016101"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107614"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
 
@@ -29,22 +29,6 @@ För Azure Analysis Services hämtar installationen med gatewayen första gånge
 - **Skapa en gateway-resurs i Azure** – i det här steget skapar du en gateway-resurs i Azure.
 
 - **Anslut Gateway-resursen till-servrar** – när du har en gateway-resurs kan du börja ansluta servrar till den. Du kan ansluta flera servrar och andra resurser förutsatt att de finns i samma region.
-
-
-
-## <a name="how-it-works"></a>Så här fungerar det
-Den gateway som du installerar på en dator i din organisation körs som en Windows-tjänst, **lokal datagateway**. Den här lokala tjänsten registreras för gatewaymolntjänsten via Azure Service Bus. Sedan skapar du en lokal datagateway-resurs för en Azure-prenumeration. Dina Azure Analysis Services-servrar ansluts sedan till din Azure gateway-resurs. När modeller på servern måste ansluta till dina lokala data källor för frågor eller bearbetning, passerar en fråga och ett data flöde Gateway-resursen, Azure Service Bus, lokal datagateway-tjänst och data källor. 
-
-![Så här fungerar det](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
-
-Frågor och dataflöde:
-
-1. En fråga skapas av molntjänsten med de krypterade autentiseringsuppgifterna för den lokala datakällan. Därefter skickas den till en kö för gatewaybehandling.
-2. Gateway-molntjänsten analyserar frågan och skickar en begäran till [Azure Service Bus](https://azure.microsoft.com/documentation/services/service-bus/).
-3. Den lokala datagatewayen avsöker Azure Service Bus för väntande frågor.
-4. Gatewayen hämtar frågan, dekrypterar autentiseringsuppgifterna och ansluter till datakällorna med autentiseringsuppgifterna.
-5. Gatewayen skickar frågan till datakällan för körning.
-6. Resultaten skickas från datakällan tillbaka till gatewayen och sedan till molntjänsten och din server.
 
 ## <a name="installing"></a>Installerar
 
@@ -76,16 +60,6 @@ Följande är fullständigt kvalificerade domän namn som används av gatewayen.
 | *.msftncsi.com |443 |Används för att testa Internetanslutningen om denna gateway inte kan nås av Power BI-tjänsten. |
 | *.microsoftonline-p.com |443 |Används för autentisering beroende på konfiguration. |
 | dc.services.visualstudio.com    |443 |Används av AppInsights för att samla in telemetri. |
-
-### <a name="forcing-https-communication-with-azure-service-bus"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
-
-Du kan tvinga gatewayen att kommunicera med Azure Service Bus genom att använda HTTPS i stället för direkt TCP. Det kan dock försämra prestanda avsevärt. Du kan ändra *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* -filen genom att ändra värdet från `AutoDetect` till `Https` . Den här filen finns vanligt vis i *C:\Program Files\On-premises data Gateway*.
-
-```
-<setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
-    <value>Https</value>
-</setting>
-```
 
 ## <a name="next-steps"></a>Nästa steg 
 

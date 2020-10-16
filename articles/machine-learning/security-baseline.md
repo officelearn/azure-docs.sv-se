@@ -3,16 +3,17 @@ title: Azures säkerhets bas linje för Azure Machine Learning
 description: Azure Machine Learning säkerhets bas linje ger procedur vägledning och resurser för att implementera de säkerhets rekommendationer som anges i Azures säkerhets benchmark.
 author: msmbaldwin
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d29bef20bef6de576b9b531952c48173819a5fa1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 831e72610690753a62c04b51e277110653e0d2c9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461027"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107682"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azures säkerhets bas linje för Azure Machine Learning
 

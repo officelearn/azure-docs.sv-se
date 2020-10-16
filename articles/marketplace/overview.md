@@ -3,16 +3,16 @@ title: Vad är Microsofts kommersiella marknads plats?
 description: En översikt över fördelarna och alternativen för Microsoft-partner som visar lösningar på Microsofts kommersiella marknads plats.
 author: mingshen-ms
 ms.author: mingshen
-ms.reviewer: dannyevers
+ms.reviewer: dsindona
 ms.service: marketplace
 ms.topic: overview
-ms.date: 10/01/2020
-ms.openlocfilehash: 91ae1ce8cb61a0bbc4907c21f0e5e6b869cedb85
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/15/2020
+ms.openlocfilehash: 0b0f290a5f560fa8f6db109422c8790ecef9698e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91654321"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107053"
 ---
 # <a name="what-is-the-microsoft-commercial-marketplace"></a>Vad är Microsofts kommersiella marknads plats?
 
@@ -20,27 +20,47 @@ Microsofts kommersiella marknads plats är en katalog med lösningar från våra
 
 Den kommersiella marknads platsen finns i fler än 100 länder och regioner och vi hanterar skatte betalningar i många av dem. Om du säljer till etablerade Microsoft-kunder har de extra fördelen att inkludera köp av marknads platser i sina befintliga Microsoft-inköps avtal för att få en konsol IDE rad faktura från Microsoft.
 
-## <a name="commercial-marketplace-online-stores"></a>Onlinebutiker för kommersiella platser
+## <a name="commercial-marketplace-online-stores"></a>Onlinebutiker på den kommersiella marknadsplatsen
 
 Microsofts kommersiella marknads plats har två onlinebutiker: [Microsoft AppSource](https://appsource.microsoft.com/) och [Azure Marketplace](https://azuremarketplace.microsoft.com/). Microsoft AppSource innehåller affärs lösningar och Azure Marketplace innehåller IT-lösningar. Kommersiella Marketplace-program och-tjänster kan också finnas i Microsoft-produkter som Microsoft 365, Dynamics 365, Microsoft Power Platform och Azure. Våra onlinebutiker och produkt upplevelser drar miljon tals potentiella kunder varje månad. Varje onlinebutik erbjuder olika scenarier för att se till att din lösning eller tjänst är tillgänglig för rätt kunder.
 
 När du skapar ett erbjudande för en kommersiell Marketplace i Partner Center, kan det finnas i en eller båda onlinebutiker baserat på erbjudande typen, kategorierna och andra alternativ som du väljer. I sällsynta fall att erbjudandet är relevant för användare av båda onlinebutiker, kan det visas i båda. Mer information finns i [Välj en onlinebutik](determine-your-listing-type.md#selecting-an-online-store) och [en köp guide till Microsoft AppSource och Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
-**Microsoft AppSource** är för affärs lösningar, till exempel SaaS-program (program vara som en tjänst) och även appar som sträcker sig direkt till Dynamics 365, Microsoft 365 och Microsoft Power Platform. AppSource Consulting Services är erbjudanden för professionella tjänster som hjälper kunder att komma igång med eller påskynda användningen av Dynamics 365 och Power BI.
+### <a name="microsoft-appsource"></a>Microsoft AppSource
+
+[Microsoft AppSource](https://appsource.microsoft.com/) är för affärs lösningar, till exempel SaaS-program (program vara som en tjänst) och även appar som sträcker sig direkt till Dynamics 365, Microsoft 365 och Microsoft Power Platform. AppSource Consulting Services är erbjudanden för professionella tjänster som hjälper kunder att komma igång med eller påskynda användningen av Dynamics 365 och Power BI.
 
 Här är ett exempel på en lista med erbjudande sidor i AppSource:
 
 :::image type="content" source="media/overview/example-appsource.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource.":::
 
-**Azure Marketplace** är för lösningar som bygger på eller skapats för Azure och som är avsedda för IT-proffs och utvecklare. Här ingår listor för konsult tjänster och hanterade tjänster. Konsult tjänster för Azure Marketplace är professionella tjänst erbjudanden som hjälper kunder att komma igång med eller påskynda användningen av Azure.
+####  <a name="appsource-in-product-experience"></a>AppSource produkt upplevelse
+
+Kunder kan också få åtkomst till dina AppSource-erbjudanden via Microsoft 365, Dynamics 365, Power Platform och Azure. I följande exempel visas hur du kommer åt AppSource-tillägg från menyn Power BI **Arkiv** .
+
+:::image type="content" source="media/overview/power-bi.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
+
+Det här alternativet öppnar ett fönster där kunden kan söka efter Power BI-tillägg efter namn eller kategori. 
+
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
+
+### <a name="azure-marketplace"></a>Azure Marketplace
+
+[Azure Marketplace](https://azuremarketplace.microsoft.com/) är för lösningar som bygger på eller skapats för Azure och som är avsedda för IT-proffs och utvecklare. Här ingår listor för konsult tjänster och hanterade tjänster. Konsult tjänster för Azure Marketplace är professionella tjänst erbjudanden som hjälper kunder att komma igång med eller påskynda användningen av Azure.
 
 Här är ett exempel på en listsida för erbjudande på Azure Marketplace:
 
 :::image type="content" source="media/overview/example-marketplace.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
 
-Eftersom Azure Marketplace bygger på Azure kan kunderna komma åt lösningar via alternativet för att **skapa en resurs** i [Azure Portal](https://portal.azure.com/).
+#### <a name="azure-marketplace-in-the-azure-portal"></a>Azure Marketplace i Azure Portal
+
+Azure-kunder kan upptäcka och Distribuera Azure Marketplace-lösningar via alternativet **skapa en resurs** i [Azure Portal](https://portal.azure.com/).
 
 :::image type="content" source="media/overview/create-resource.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
+
+Med det här alternativet öppnas Azure Marketplace i Azure Portal där de kan söka efter lösningar efter namn eller kategori.
+
+:::image type="content" source="media/overview/search-portal.png" alt-text="Visar en lista med erbjudande sidor i Microsoft AppSource."::: 
 
 ## <a name="benefits-of-selling-with-microsoft"></a>Fördelar med att sälja med Microsoft
 

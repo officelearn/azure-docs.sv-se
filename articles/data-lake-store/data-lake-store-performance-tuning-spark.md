@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 7012808e4ebcd936f30aba767731e7888d92161f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 799a2d20513f331890bec0882fec852c462c5840
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85856912"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108277"
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestanda justerings vägledning för Spark på HDInsight och Azure Data Lake Storage Gen1
 
@@ -22,8 +22,8 @@ När du justerar prestanda för Spark måste du fundera över antalet appar som 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett Azure Data Lake Storage gen1 konto**. Instruktioner för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage gen1-konto. Se [skapa ett HDInsight-kluster med data Lake Storage gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Se till att aktivera fjärr skrivbord för klustret.
-* **Kör Spark-kluster på data Lake Storage gen1**. Mer information finns i [använda HDInsight Spark-kluster för att analysera data i data Lake Storage gen1](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Rikt linjer för prestanda justering på data Lake Storage gen1**. Allmänna prestanda koncept finns i [vägledning för data Lake Storage gen1 prestanda justering](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
+* **Kör Spark-kluster på data Lake Storage gen1**. Mer information finns i [använda HDInsight Spark-kluster för att analysera data i data Lake Storage gen1](../hdinsight/spark/apache-spark-use-with-data-lake-store.md)
+* **Rikt linjer för prestanda justering på data Lake Storage gen1**. Allmänna prestanda koncept finns i [vägledning för data Lake Storage gen1 prestanda justering](./data-lake-store-performance-tuning-guidance.md) 
 
 ## <a name="parameters"></a>Parametrar
 

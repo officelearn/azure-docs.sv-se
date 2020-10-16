@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5c13b8c34d29be9a62717215271c10a48e9ac6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 312a496a5acda05a6b04a0bb47abb101f4ffcc8e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076903"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107597"
 ---
 # <a name="api-management-policies"></a>API Management-principer
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](api-management-howto-policies.md).
@@ -79,7 +79,7 @@ Det här avsnittet innehåller en referens för följande API Managements princi
     -   [TRANSFORMERA XML med hjälp av en XSLT](api-management-transformation-policies.md#XSLTransform) – använder en XSL-omvandling till XML i begäran eller svars texten.
 - [Dapr-integrerings principer](api-management-dapr-policies.md)
     - [Skicka begäran till en tjänst](api-management-dapr-policies.md#invoke) – använder Dapr runtime för att hitta och tillförlitligt kommunicera med en Dapr-mikrotjänst.
-    -  [Skicka meddelande till pub/sub-avsnittet](api-management-dapr-policies.md#pubsub) – använder Dapr runtime för att publicera ett meddelande till ett publicerings-/prenumerations ämne. publicera-prenumerera-MESSAGING/Readme. MD) om du vill veta mer om publicera/prenumerera-meddelanden i Dapr.
+    -  [Skicka meddelande till pub/sub-avsnittet](api-management-dapr-policies.md#pubsub) – använder Dapr runtime för att publicera ett meddelande till ett publicerings-/prenumerations ämne.
     -  [Utlös utmatnings bindning](api-management-dapr-policies.md#bind) – använder Dapr runtime för att anropa ett externt system via utgående bindning.
 
 ## <a name="next-steps"></a>Nästa steg

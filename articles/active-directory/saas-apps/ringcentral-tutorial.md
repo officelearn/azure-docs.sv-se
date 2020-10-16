@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 6bdbb68e8d8748bc8851720588f8748d788e0cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8539f3f2a5882f12f131c95b0c17efd3acba3cf
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542589"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105183"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Självstudie: integrera RingCentral med Azure Active Directory
 
@@ -151,19 +151,19 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
 1. Klicka på **verktyg**längst upp.
 
-    ![image](./media/ringcentral-tutorial/ringcentral1.png)
+    ![Skärm bild som visar verktyg som valts från RingCentral företags webbplats.](./media/ringcentral-tutorial/ringcentral1.png)
 
 1. Navigera till **enkel inloggning**.
 
-    ![image](./media/ringcentral-tutorial/ringcentral2.png)
+    ![Skärm bild som visar enstaka Sign-On som valts från Verktyg-menyn.](./media/ringcentral-tutorial/ringcentral2.png)
 
 1. På sidan **enkel inloggning** under **SSO-konfiguration** går du till **steg 1** och klickar på **Redigera** och utför följande steg:
 
-    ![image](./media/ringcentral-tutorial/ringcentral3.png)
+    ![Skärm bild som visar sidan S O-konfiguration där du kan välja Redigera.](./media/ringcentral-tutorial/ringcentral3.png)
 
 1. Utför följande steg på sidan **Konfigurera enkel inloggning** :
 
-    ![image](./media/ringcentral-tutorial/ringcentral4.png)
+    ![Skärm bild som visar sidan Konfigurera en enskild Sign-On där du kan ladda upp I D P-metadata.](./media/ringcentral-tutorial/ringcentral4.png)
 
     a. Klicka på **Bläddra** för att ladda upp metadatafilen som du har laddat ned från Azure Portal.
 
@@ -175,11 +175,11 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
     e. Från **steg 2** klickar du på **Ladda ned** för att ladda ned **metadata-filen för tjänste leverantören** och laddar upp den i avsnittet **grundläggande SAML-konfiguration** för att automatiskt fylla i **identifieraren** och **svara på URL** -värden i Azure Portal.
 
-    ![image](./media/ringcentral-tutorial/ringcentral6.png) 
+    ![Skärm bild som visar sidan S O-konfiguration där du kan välja Hämta.](./media/ringcentral-tutorial/ringcentral6.png) 
 
     f. På samma sida navigerar du till avsnittet **Aktivera SSO** och utför följande steg:
 
-    ![image](./media/ringcentral-tutorial/ringcentral5.png)
+    ![Skärm bild som visar avsnittet Aktivera S S O där du kan slutföra konfigurationen.](./media/ringcentral-tutorial/ringcentral5.png)
 
     * Välj **Aktivera SSO-tjänst**.
 

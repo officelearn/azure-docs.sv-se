@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 75c0542764e94ae57379fa225b4e064a58da3af1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f071a66fef632afe9e54fecfa253e4604679baa2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553401"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105591"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>Självstudie: Azure Active Directory integrering med RightScale
 
@@ -99,11 +99,11 @@ Utför följande steg för att konfigurera enkel inloggning med RightScale i Azu
 
 4. I avsnittet **Grundläggande SAML-konfiguration** behöver användaren inte utföra några steg eftersom appen redan är förintegrerad med Azure.
 
-    ![Information om enkel inloggning för RightScale-domän och URL: er](common/preintegrated.png)
+    ![Skärm bild som visar sidan grundläggande SAML-konfiguration.](common/preintegrated.png)
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för RightScale-domän och URL: er](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I rutan **Inloggnings-URL** anger du följande URL: `https://login.rightscale.com/`
 
@@ -127,32 +127,31 @@ Utför följande steg för att konfigurera enkel inloggning med RightScale i Azu
 
 2. I menyn högst upp klickar du på fliken **Inställningar** och väljer **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_001.png)
+    ![Skärm bild som visar enstaka Sign-On som valts från inställningar.](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
 3. Klicka på knappen **nytt** för att lägga till **dina SAML Identity providers**.
 
-    ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_002.png)
+    ![Skärm bild som visar de nya knappar som är markerade för att lägga till en SAML Identity-Provider.](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
 4. I text rutan med **visnings namn**skriver du in företagets namn.
 
-    ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_003.png)
+    ![Skärm bild som visar var du anger ett visnings namn.](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
 5. Välj **Tillåt RightScale-initierad SSO med ett identifierings tips** och ange **domän namnet** i text rutan nedan.
 
-    ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_004.png)
+    ![Skärm bild som visar var du kan ange en inloggnings metod.](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
 6. Klistra in värdet för **inloggnings-URL: en** som du har kopierat från Azure Portal till **SAML SSO-slutpunkten** i RightScale.
 
-    ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_006.png)
+    ![Skärm bild som visar var du kan ange en SAML-S O-slutpunkt.](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
 7. Klistra in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal till **SAML-EntityID** i RightScale.
 
-    ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_008.png)
+    ![Skärm bild som visar var du kan ange en SAML-enhet I D.](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
 8. Klicka på knappen **webbläsare** för att ladda upp det certifikat som du laddade ned från Azure Portal.
 
-
-    ![Konfigurera enkel inloggning](./media/rightscale-tutorial/tutorial_rightscale_009.png)
+    ![Skärm bild som visar var du kan ange ditt SAML-signeringscertifikat.](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
 9. Klicka på **Spara**.
 

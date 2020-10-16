@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d99d11f6cffa42aa706a863c3061583eab3f98f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4e23a9d5334af5ebdaab2ef15a5c39f232095
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552267"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108600"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>Självstudie: Azure Active Directory integrering med Quantum Workplace
 
@@ -99,11 +99,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Qua
 
 4. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat och de nödvändiga URL: erna är redan ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
 
-    ![Information om enkel inloggning med Quantum-arbetsplatsens domän och URL](common/preintegrated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen.](common/preintegrated.png)
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning med Quantum-arbetsplatsens domän och URL](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     Skriv en URL i text rutan **inloggnings-URL** :  `https://auth.quantumworkplace.com/Account/Login`
 

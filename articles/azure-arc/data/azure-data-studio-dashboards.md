@@ -9,24 +9,24 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: aa13baf7c6fc6d3bb66b97e533da29e4a1a6e73c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: a96be6d4da3d292b2e9881652aad28f318ccee8a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876251"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107580"
 ---
 # <a name="azure-data-studio-dashboards"></a>Azure Data Studio instrument paneler
 
-[Azure Data Studio](https://aka.ms/azuredatastudio) ger en upplevelse som liknar Azure Portal för att visa information om dina Azure Arc-resurser.  Dessa vyer kallas **instrument paneler** och har en layout och alternativ som liknar vad du kan se om en viss resurs i Azure Portal, men ger dig flexibiliteten att se den informationen lokalt i din miljö, om du inte har någon tillgänglig anslutning till Azure.
+[Azure Data Studio](/sql/azure-data-studio/what-is) ger en upplevelse som liknar Azure Portal för att visa information om dina Azure Arc-resurser.  Dessa vyer kallas **instrument paneler** och har en layout och alternativ som liknar vad du kan se om en viss resurs i Azure Portal, men ger dig flexibiliteten att se den informationen lokalt i din miljö, om du inte har någon tillgänglig anslutning till Azure.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="connecting-to-a-data-controller"></a>Ansluta till en datakontrollant
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
-- Ladda ned [Azure Data Studio](https://aka.ms/getazuredatastudio)
+- Ladda ned [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - Azure Arc-tillägget har installerats
 
 ### <a name="determine-the-data-controller-server-api-endpoint-url"></a>Ta reda på URL: en för data Controller serverns API-slutpunkt
@@ -62,7 +62,7 @@ https://52.154.152.24:30080
 
 Anteckna din IP-adress eftersom du kommer att använda den i nästa steg.
 
-### <a name="connect"></a>Ansluta
+### <a name="connect"></a>Anslut
 
 1. Öppna Azure Data Studio
 

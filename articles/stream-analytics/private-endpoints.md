@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: baf80e3d543bee455dd8dfa5bc09bc5bf43c3453
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3ad0da1f910556c172c519faf953d4075647955
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947878"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109059"
 ---
 # <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Skapa och ta bort privata slut punkter i ett Azure Stream Analytics kluster
 
 Du kan ansluta Azure Stream Analytics-jobb som körs i ett kluster för att mata in och mata ut resurser som finns bakom en brandvägg eller ett virtuellt Azure-nätverk (VNet). Först skapar du en privat slutpunkt för en resurs, till exempel Azure Event Hubs eller Azure SQL Database, i Stream Analytics-klustret. Godkänn sedan anslutningen till den privata slutpunkten från dina indata eller utdata.
 
-När du godkänner anslutningen har alla jobb som körs i ditt Stream Analytics-kluster åtkomst till resursen via den privata slutpunkten. Den här artikeln beskriver hur du skapar och tar bort privata slutpunkter i ett Stream Analytics-kluster.
+När du har godkänt anslutningen kan alla jobb som körs i ditt Stream Analytics-kluster komma åt resursen via den privata slut punkten. Den här artikeln beskriver hur du skapar och tar bort privata slutpunkter i ett Stream Analytics-kluster.
 
 ## <a name="create-private-endpoint-in-stream-analytics-cluster"></a>Skapa privat slut punkt i Stream Analytics kluster
 

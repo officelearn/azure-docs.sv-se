@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 132711b4a3fc584261cd577b4b8f1d4fb13da09d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eeafe41888163c27f583529bed1998f067e107f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819393"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107631"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Bevilja B2B-användare i Azure AD åtkomst till dina lokala program
 
@@ -43,7 +43,7 @@ För att ge B2B-användare åtkomst till lokala program som skyddas med integrer
 - **Auktorisering via ett B2B-användar objekt i den lokala katalogen**. Programmet måste kunna utföra kontroller för användar åtkomst och ge åtkomst till rätt resurser. IWA och KCD kräver ett användar objekt i den lokala Windows Server-Active Directory för att slutföra den här auktoriseringen. Som beskrivs i [hur enkel inloggning med KCD fungerar](../manage-apps/application-proxy-configure-single-sign-on-with-kcd.md#how-single-sign-on-with-kcd-works)måste programproxyn ha det här användarobjektet för att personifiera användaren och hämta en Kerberos-token till appen. 
 
    > [!NOTE]
-   > När du konfigurerar Azure-AD-programproxy bör du se till att den **delegerade inloggnings identiteten** är inställd på **användarens huvud namn** (standard) för enkel inloggning med IWA.
+   > När du konfigurerar Azure-AD-programproxy bör du se till att den **delegerade inloggnings identiteten** är inställd på **användarens huvud namn** (standard) i konfigurationen för enkel inloggning för integrerad Windows-autentisering (IWA).
 
    För B2B-användar scenariot finns det två metoder som du kan använda för att skapa gäst användar objekt som krävs för auktorisering i den lokala katalogen:
 

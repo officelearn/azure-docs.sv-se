@@ -8,12 +8,12 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a1c679ca5a7ff08a4d2490f94548b34e4db49f4d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 56696f138fbf58993e990e263d2fa8e490672bb6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966193"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106305"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Skapa och etablera en simulerad IoT Edge enhet med en virtuell TPM i Windows
 
@@ -31,7 +31,7 @@ Den här artikeln visar hur du testar automatisk etablering på en simulerad IoT
 > [!TIP]
 > I den här artikeln beskrivs hur du testar automatisk etablering genom att använda TPM-attestering på virtuella enheter, men det är mycket som gäller när du använder den fysiska TPM-maskinvaran.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Windows-utvecklings dator. Den här artikeln använder Windows 10.
 * En aktiv IoT Hub.
@@ -73,7 +73,7 @@ Simulerad enhet och enskilda registrerings guider:
 
 När du har skapat den enskilda registreringen sparar du värdet för **registrerings-ID: t**. Du använder det här värdet när du konfigurerar IoT Edge Runtime.
 
-## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge runtime
+## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
 IoT Edge-körningen distribueras på alla IoT Edge-enheter. Komponenterna körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod i kanten. Installera IoT Edge runtime på enheten som kör den simulerade TPM: en.
 
@@ -97,7 +97,7 @@ När körningen har installerats på enheten konfigurerar du enheten med den inf
    Deploy-IoTEdge
    ```
 
-1. I det här läget kan utdata bli ombedd att starta om. Om så är fallet startar du om enheten nu. När enheten är klar kör du PowerShell som administratör igen.
+1. I det här läget kan IoT core-enheter startas om automatiskt. Windows 10-eller Windows Server-enheter kan bli ombedd att starta om. Om så är fallet startar du om enheten nu. När enheten är klar kör du PowerShell som administratör igen.
 
 1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot är standardvärdet för manuell etablering med Windows-behållare. Använd `-Dps` flaggan för att använda enhets etablerings tjänsten i stället för manuell etablering.
 

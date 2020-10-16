@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 09/09/2020
-ms.openlocfilehash: 667ca4701ed8e781a2270b42802bab31e6e9c8ee
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 532d96163e2ec66730dc3fdf87f10904fd584224
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096240"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108005"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Kundhanterad nyckel i Azure Monitor 
 
@@ -304,7 +304,7 @@ Frågespråket som används i Log Analytics är lättfattliga programspecifika o
 > [!NOTE]
 > Log Analytics frågor kan sparas i olika butiker beroende på vilket scenario som används. Frågorna förblir krypterade med Microsoft Key (MMK) i följande scenarier, oavsett CMK-konfiguration: arbets böcker i Azure Monitor, Azure-instrumentpaneler, Azure Logic app, Azure Notebooks och Automation-runbooks.
 
-När du tar med din egen lagring (BYOS) och länkar den till din arbets yta överförs frågor till ditt lagrings konto via tjänsten för *sparade sökningar* och *logg aviseringar* . Det innebär att du styr lagrings kontot och [principen för kryptering vid vila](../../storage/common/encryption-customer-managed-keys.md) antingen med samma nyckel som du använder för att kryptera data i Log Analytics kluster eller en annan nyckel. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot. 
+När du tar med din egen lagring (BYOS) och länkar den till din arbets yta överförs frågor till ditt lagrings konto via tjänsten för *sparade sökningar* och *logg aviseringar* . Det innebär att du styr lagrings kontot och [principen för kryptering vid vila](../../storage/common/customer-managed-keys-overview.md) antingen med samma nyckel som du använder för att kryptera data i Log Analytics kluster eller en annan nyckel. Du kommer dock att vara ansvarig för kostnaderna som är kopplade till det lagrings kontot. 
 
 **Att tänka på innan du ställer in CMK för frågor**
 * Du måste ha Skriv behörighet till både din arbets yta och ditt lagrings konto
@@ -374,7 +374,7 @@ Med lås får du kontrollen att godkänna eller avvisa Microsoft Engineer-begär
 
 I Azure Monitor har du den här kontrollen på data i arbets ytor som är länkade till ditt Log Analytics-dedikerade kluster. Den säkra kontrollen gäller för data som lagras i ett Log Analytics dedikerat kluster där den hålls isolerad i klustrets lagrings konton under den skyddade din säkra prenumeration.  
 
-Läs mer om [Customer lockbox för Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+Läs mer om [Customer lockbox för Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
 
 ## <a name="cmk-management"></a>Hantering av CMK
 

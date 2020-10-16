@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 56a68fca42bcab7642a5ebad953b59269a4d88a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2403e3a4bfe7824659a9c34c407e55e6c56e6046
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89180651"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107733"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
@@ -516,7 +516,7 @@ Linux-appar bör också innehålla en `linuxFxVersion` egenskap under `siteConfi
 }
 ```
 
-Om du [distribuerar en anpassad behållar avbildning](./functions-create-function-linux-custom-image.md)måste du ange den med `linuxFxVersion` och inkludera konfiguration som gör att avbildningen kan hämtas, som i [Web App for containers](../app-service/containers/index.yml). Ställ även in `WEBSITES_ENABLE_APP_SERVICE_STORAGE` på `false` , eftersom ditt appdata finns i själva behållaren:
+Om du [distribuerar en anpassad behållar avbildning](./functions-create-function-linux-custom-image.md)måste du ange den med `linuxFxVersion` och inkludera konfiguration som gör att avbildningen kan hämtas, som i [Web App for containers](../app-service/index.yml). Ställ även in `WEBSITES_ENABLE_APP_SERVICE_STORAGE` på `false` , eftersom ditt appdata finns i själva behållaren:
 
 ```json
 {
@@ -649,7 +649,7 @@ Du kan använda något av följande sätt för att distribuera mallen:
 
 * [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 * [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
-* [Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+* [Azure-portalen](../azure-resource-manager/templates/deploy-portal.md)
 * [REST-API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Distribuera till Azure (knapp)

@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: a53390dee8eb504f92e66bb3573814bd411be0b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91c3d59a5a37457d67fdfbc646334fccb331df5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358976"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104809"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Hantera tillstånd för aviseringar och smarta grupper
 
-Aviseringar i Azure Monitor har nu ett [aviserings tillstånd och ett övervaknings villkor](https://aka.ms/azure-alerts-overview) och kan, på samma sätt, smarta grupper ha ett [smart grupp tillstånd](https://aka.ms/smart-groups). Ändringar av statusen samlas nu in i historik som är associerade med respektive avisering eller smart grupp. Den här artikeln vägleder dig genom processen att ändra tillstånd, för både en avisering och en smart grupp.
+Aviseringar i Azure Monitor har nu ett [aviserings tillstånd och ett övervaknings villkor](./alerts-overview.md) och kan, på samma sätt, smarta grupper ha ett [smart grupp tillstånd](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json). Ändringar av statusen samlas nu in i historik som är associerade med respektive avisering eller smart grupp. Den här artikeln vägleder dig genom processen att ändra tillstånd, för både en avisering och en smart grupp.
 
 ## <a name="change-the-state-of-an-alert"></a>Ändra status för en avisering
 
@@ -46,4 +46,3 @@ Aviseringar i Azure Monitor har nu ett [aviserings tillstånd och ett övervakni
 
 1. När detta görs registreras status ändringen i historiken för respektive smart grupp. Detta kan visas genom att öppna respektive informations sida och kontrol lera historik avsnittet.     
 ![Skärm bild som visar ändrings historiken för den smarta gruppen.](./media/alerts-managing-alert-states/state-sg-history.jpg)
-

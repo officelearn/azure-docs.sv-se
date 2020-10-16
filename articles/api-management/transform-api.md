@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 04fcfa4712ec0b558140e942997060234b33f53e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979bdaa1e0dac4f45a321abda2a208f46983f9cd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627773"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108141"
 ---
 # <a name="tutorial-transform-and-protect-your-api"></a>Självstudie: transformera och skydda ditt API
 
@@ -20,7 +20,7 @@ I självstudien visas hur du transformerar ditt API så att det inte visar infor
 
 Den här kursen visar också hur enkelt det är att lägga till skydd för Server dels-API: et genom att konfigurera en hastighets gräns med Azure API Management. Du kanske vill begränsa antalet API-anrop så att API: t inte används av utvecklare. Mer information finns i [API Management principer](api-management-policies.md).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -60,7 +60,7 @@ Det ursprungliga svaret bör se ut ungefär så här:
 
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Principer i portalen":::
 
-Som du kan se innehåller svaret **x-ASPNET-versionen**och **x-Powered-by-** huvudena.
+Som du kan se innehåller svaret **x-ASPNET-versionen** och **x-Powered-by-** huvudena.
 
 ### <a name="set-the-transformation-policy"></a>Ange en transformationsprincip
 
@@ -70,7 +70,7 @@ Som du kan se innehåller svaret **x-ASPNET-versionen**och **x-Powered-by-** huv
    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Principer i portalen" border="false":::
 
 1. Placera markören inuti det ** &lt; utgående &gt; ** elementet och välj **Visa kodfragment** i det övre högra hörnet.
-1. I det högra fönstret under **omvandlings principer**väljer du * * ange http-huvud * * två gånger (om du vill infoga två princip kod avsnitt).
+1. I det högra fönstret under **omvandlings principer**väljer du **Ange HTTP-huvud** två gånger (för att infoga två princip kod avsnitt).
 
    :::image type="content" source="media/transform-api/transform-api.png" alt-text="Principer i portalen":::
 
@@ -115,7 +115,7 @@ I det här avsnittet visas hur du lägger till skydd för ditt serverdels-API ge
 
 1.  Välj **demo konferens API**  >  **alla drifts**  >  **design**.
 1.  I avsnittet **inkommande bearbetning** väljer du ikonen kod redigerare ( **</>** ).
-1.  Placera markören inuti det ** &lt; inkommande &gt; ** elementet.
+1.  Placera markören inuti det ** &lt; inkommande &gt; ** elementet och välj **Visa kodfragment** i det övre högra hörnet.
 
     :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Principer i portalen" border="false":::
 

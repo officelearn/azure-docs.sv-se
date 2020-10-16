@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 534e78018d19ff496dc4d2b3b54a3d0b3c46cf0f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ab76b4aafd73173077d5b2b9f29e6e2da24c1710
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093760"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104401"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -67,7 +67,7 @@ Under **instans information**:
 
     c. **Information**: baserat på vald meddelande typ anger du en e-postadress, telefonnummer osv.
     
-    d. **Vanligt aviserings schema**: du kan välja att aktivera det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
+    d. **Vanligt aviserings schema**: du kan välja att aktivera det [vanliga aviserings schemat](./alerts-common-schema.md), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
 
     ![Fliken meddelanden](./media/action-groups/action-group-2-notifications.png)
     
@@ -83,7 +83,7 @@ Under **instans information**:
 
     c. **Information**: baserat på åtgärds typ anger du en webhook-URI, Azure app, ITSM-anslutning eller Automation-Runbook. För ITSM-åtgärd anger du även **arbets objekt** och andra fält som ditt ITSM-verktyg kräver.
     
-    d. **Vanligt aviserings schema**: du kan välja att aktivera det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
+    d. **Vanligt aviserings schema**: du kan välja att aktivera det [vanliga aviserings schemat](./alerts-common-schema.md), vilket ger fördelen att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor.
     
     ![Fliken åtgärder](./media/action-groups/action-group-3-actions.png)
 
@@ -321,4 +321,3 @@ Genom att använda **service tag** för ActionGroup kan du minimera komplexitete
 * Läs mer om [hastighets begränsning](./alerts-rate-limiting.md) av aviseringar.
 * Få en [Översikt över aktivitets logg aviseringar](./alerts-overview.md)och lär dig hur du tar emot aviseringar.  
 * Lär dig hur du [konfigurerar aviseringar när ett meddelande om tjänst hälsa har publicerats](../../service-health/alerts-activity-log-service-notifications-portal.md).
-

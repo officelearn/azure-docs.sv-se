@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 440eb1f39284f8d99a8d6b9067b018c4a54fcd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d683ef92c4e8d11e9defbed5454e5849211bf8f7
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083029"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104758"
 ---
 # <a name="customize-an-http-endpoint-in-azure-functions"></a>Anpassa en HTTP-slutpunkt i Azure Functions
 
@@ -37,7 +37,7 @@ Som standard är din HTTP-utlösare konfigurerad att godkänna alla HTTP-metoder
 
 1. Använd inställningarna för HTTP-utlösare som anges i följande tabell.
 
-    | Field | Exempelvärde | Beskrivning |
+    | Fält | Exempelvärde | Beskrivning |
     |---|---|---|
     | Flödesmall | /hello | Avgör vilket flöde som används för att anropa den här funktionen |
     | Auktoriseringsnivå | Anonym | Valfritt: Gör din funktion tillgänglig utan API-nyckel |
@@ -75,7 +75,7 @@ I nästa avsnitt kommer du att få fram ditt API via en proxyserver. Med Azure F
 En proxy kan peka på en HTTP-resurs, till exempel:
 - Azure Functions 
 - API-appar i [Azure App Service](../app-service/overview.md)
-- Docker-container i [App Service i Linux](../app-service/containers/app-service-linux-intro.md)
+- Docker-container i [App Service i Linux](../app-service/overview.md#app-service-on-linux)
 - Övriga värdbaserade API:er
 
 Läs mer om proxyservrar i [Arbeta med Azure Functions Proxies].
@@ -105,9 +105,9 @@ Upprepa stegen för att [Skapa en funktionsapp](./functions-create-first-azure-f
 
 1. På sidan **ny proxy** använder du inställningarna i följande tabell och väljer sedan **skapa**.
 
-    | Field | Exempelvärde | Beskrivning |
+    | Fält | Exempelvärde | Beskrivning |
     |---|---|---|
-    | Name | HelloProxy | Ett eget namn som endast används för hantering |
+    | Namn | HelloProxy | Ett eget namn som endast används för hantering |
     | Flödesmall | /api/remotehello | Avgör vilket flöde som används för att anropa den här proxyn |
     | Webbadress för serverdel | https://%HELLO_HOST%/api/hello | Anger den slutpunkt som begäran ska nå via proxy |
 

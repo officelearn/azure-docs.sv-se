@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7b732537d5b0ba517c5d638381c07f229c500081
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047054"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107801"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Snabb start: distribuera din första IoT Edge-modul till en virtuell Windows-enhet
 
@@ -78,9 +78,9 @@ IoT Edge-enhet:
 >
 > Den här snabb starten använder en virtuell Windows Desktop-dator för enkelhetens skull. Information om vilka Windows-operativsystem som är allmänt tillgängliga för produktions scenarier finns i [Azure IoT Edge system som stöds](support.md).
 >
-> Om du vill konfigurera en egen Windows-enhet för IoT Edge följer du stegen i [installera Azure IoT Edge runtime](how-to-install-iot-edge.md).
+> Om du vill konfigurera en egen Windows-enhet för IoT Edge, inklusive enheter som kör IoT Core, följer du stegen i [installera Azure IoT Edge runtime](how-to-install-iot-edge.md).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 Starta snabbstarten genom att skapa en IoT-hubb med Azure CLI.
 

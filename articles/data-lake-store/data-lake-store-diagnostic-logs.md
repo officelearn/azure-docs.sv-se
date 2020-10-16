@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: cd1b03c8cecf84e75bac32be0570c2f4f3db9b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4476e20772c0736f35c074b200ea9fd47a0ae81c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575545"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109178"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Åtkomst till diagnostikloggar för Azure Data Lake Storage Gen1
 Lär dig att aktivera diagnostikloggning för ditt Azure Data Lake Storage Gen1-konto och hur du visar de loggar som samlats in för ditt konto.
 
 Organisationer kan aktivera diagnostikloggning för sitt Azure Data Lake Storage Gen1 konto för att samla in gransknings spårningar för data åtkomst som innehåller information, till exempel en lista över användare som har åtkomst till data, hur ofta data lagras, hur mycket data som lagras i kontot osv. När den är aktive rad loggas diagnostiken och/eller förfrågningarna på bästa möjliga villkor. Både förfrågningar och diagnostikloggar skapas endast om det finns begär Anden som görs mot tjänst slut punkten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure Data Lake Storage gen1 konto**. Följ anvisningarna i [Kom igång med Azure Data Lake Storage gen1 med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 
@@ -46,7 +46,7 @@ Organisationer kan aktivera diagnostikloggning för sitt Azure Data Lake Storage
         
         * Välj alternativet att **strömma till en Event Hub** för att strömma loggdata till en Azure Event Hub. Förmodligen kommer du att använda det här alternativet om du har en efterföljande bearbetnings pipeline för att analysera inkommande loggar i real tid. Om du väljer det här alternativet måste du ange information om den Azure Event Hub som du vill använda.
 
-        * Välj alternativet att **Skicka till Log Analytics** för att analysera de genererade loggdata med hjälp av tjänsten Azure Monitor. Om du väljer det här alternativet måste du ange information om arbets ytan Log Analytics som du använder för att utföra logg analys. Se [Visa eller analysera data som samlats in med Azure Monitor loggar Sök](../azure-monitor/learn/tutorial-viewdata.md) för information om hur du använder Azure Monitor loggar.
+        * Välj alternativet att **Skicka till Log Analytics** för att analysera de genererade loggdata med hjälp av tjänsten Azure Monitor. Om du väljer det här alternativet måste du ange information om arbets ytan Log Analytics som du använder för att utföra logg analys. Se [Visa eller analysera data som samlats in med Azure Monitor loggar Sök](../azure-monitor/log-query/get-started-portal.md) för information om hur du använder Azure Monitor loggar.
      
    * Ange om du vill hämta gransknings loggar eller begär ande loggar eller båda.
    * Ange hur många dagar data ska behållas. Kvarhållning är bara tillgängligt om du använder Azure Storage-kontot för att arkivera loggdata.
@@ -182,7 +182,7 @@ Här är en exempel post i den JSON-formaterade gransknings loggen. Varje Blob h
 | StreamName |Sträng |Den sökväg som åtgärden utfördes på |
 
 ## <a name="samples-to-process-the-log-data"></a>Exempel för bearbetning av loggdata
-När du skickar loggar från Azure Data Lake Storage Gen1 till Azure Monitor loggar (se [Visa eller analysera data som samlats in med Azure Monitor loggar](../azure-monitor/learn/tutorial-viewdata.md) för att läsa mer om hur du använder Azure Monitor loggar) returnerar följande fråga en tabell som innehåller en lista över användarens visnings namn, tidpunkten för händelserna och antalet händelser för tiden för händelsen tillsammans med ett visuellt diagram. Det kan enkelt ändras för att Visa användar-GUID eller andra attribut:
+När du skickar loggar från Azure Data Lake Storage Gen1 till Azure Monitor loggar (se [Visa eller analysera data som samlats in med Azure Monitor loggar](../azure-monitor/log-query/get-started-portal.md) för att läsa mer om hur du använder Azure Monitor loggar) returnerar följande fråga en tabell som innehåller en lista över användarens visnings namn, tidpunkten för händelserna och antalet händelser för tiden för händelsen tillsammans med ett visuellt diagram. Det kan enkelt ändras för att Visa användar-GUID eller andra attribut:
 
 ```
 search *
@@ -196,4 +196,3 @@ Azure Data Lake Storage Gen1 innehåller ett exempel på hur du bearbetar och an
 ## <a name="see-also"></a>Se även
 * [Översikt över Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)
-

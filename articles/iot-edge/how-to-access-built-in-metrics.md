@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df904e183d3f77751d86d0cefab5423d753f146b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b6f4e50cac2f809172c2525ea9136a63e6bd9066
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979904"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107019"
 ---
 # <a name="access-built-in-metrics"></a>Komma åt inbyggda mått
 
 IoT Edge körnings komponenter, IoT Edge Hub och IoT Edge agent, skapar inbyggda mått i [formatet Prometheus](https://prometheus.io/docs/instrumenting/exposition_formats/). Få åtkomst till dessa mått via fjärr anslutning för att övervaka och förstå hälsan hos en IoT Edge enhet.
 
-Från och med versions 1.0.10 visas måtten automatiskt som standard på **port 9600** i **EdgeHub** -och **edgeAgent** -modulerna ( `http://edgeHub:9600/metrics` och `http://edgeAgent:9600/metics` ). De är inte port mappade till värden som standard.
+Från och med versions 1.0.10 visas måtten automatiskt som standard på **port 9600** i **EdgeHub** -och **edgeAgent** -modulerna ( `http://edgeHub:9600/metrics` och `http://edgeAgent:9600/metrics` ). De är inte port mappade till värden som standard.
 
 Få åtkomst till mått från värden genom att exponera och mappa måtten portarna från modulen `createOptions` . Exemplet nedan mappar standard mått porten till port 9601 på värden:
 

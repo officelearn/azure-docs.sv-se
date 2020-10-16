@@ -4,12 +4,12 @@ description: Lär dig att bearbeta dina parallella beräknings arbets belastning
 ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 6cd8a13d67c1ce169e6c9300f7ee017fd3a59d96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cbf7dcb5b0f6f43b4fc5d69127e817dceea650e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146342"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108073"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux Compute-noder i batch-pooler
 
@@ -25,7 +25,7 @@ När du skapar en pool med datornoder i batch har du två alternativ för att v�
 
 En **Cloud Services-konfiguration** tillhandahåller *endast*Windows-beräkningsnoder. Tillgängliga Compute Node-storlekar visas i [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md)och tillgängliga operativ system visas i [matrisen för Azure gäst operativ system och SDK-kompatibilitet](../cloud-services/cloud-services-guestos-update-matrix.md). När du skapar en pool som innehåller Azure Cloud Services noder, anger du nodens storlek och OS-familjen, som beskrivs i de tidigare nämnda artiklarna. För pooler med Windows Compute-noder används Cloud Services vanligt vis.
 
-**Konfigurationen av den virtuella datorn** innehåller både Linux-och Windows-avbildningar för Compute-noder. Tillgängliga Compute Node-storlekar visas i [storlekar för virtuella datorer i Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) och [storlekar för virtuella datorer i Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). När du skapar en pool som innehåller noder för konfiguration av virtuell dator måste du ange storleken på noderna, avbildnings referensen för den virtuella datorn och den batch Node agent-SKU som ska installeras på noderna.
+**Konfigurationen av den virtuella datorn** innehåller både Linux-och Windows-avbildningar för Compute-noder. Tillgängliga Compute Node-storlekar visas i [storlekar för virtuella datorer i Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) (Linux) och [storlekar för virtuella datorer i Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Windows). När du skapar en pool som innehåller noder för konfiguration av virtuell dator måste du ange storleken på noderna, avbildnings referensen för den virtuella datorn och den batch Node agent-SKU som ska installeras på noderna.
 
 ### <a name="virtual-machine-image-reference"></a>Referens för avbildning av virtuell dator
 

@@ -6,16 +6,16 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: a99196cfad7abad38408c847a8a0b64ffe95fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f251e6ba2d94c0fcede3387ac12461951de40f1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85508800"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108753"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer
 
-[Azure Data Lake Storage gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) är en tjänst för att lagra stora mängder ostrukturerade data, till exempel text eller binära data. Du kan komma åt data var du än är via HTTP eller HTTPS. Data Lake Storage Gen1 i Azure Storage Explorer kan du komma åt och hantera Data Lake Storage Gen1 data och resurser, tillsammans med andra Azure-entiteter som blobbar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe.
+[Azure Data Lake Storage gen1](./data-lake-store-overview.md) är en tjänst för att lagra stora mängder ostrukturerade data, till exempel text eller binära data. Du kan komma åt data var du än är via HTTP eller HTTPS. Data Lake Storage Gen1 i Azure Storage Explorer kan du komma åt och hantera Data Lake Storage Gen1 data och resurser, tillsammans med andra Azure-entiteter som blobbar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe.
 
 En annan fördel är att du inte behöver ha prenumerations behörighet för att hantera Data Lake Storage Gen1 data. I Storage Explorer kan du koppla Data Lake Storage Gen1 sökvägen till den **lokala och anslutna** noden så länge någon beviljar behörigheten.
 
@@ -24,7 +24,7 @@ En annan fördel är att du inte behöver ha prenumerations behörighet för att
 Du behöver följande för att slutföra stegen i den här artikeln:
 
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial).
-* Ett Data Lake Storage Gen1 konto. Instruktioner för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+* Ett Data Lake Storage Gen1 konto. Instruktioner för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage gen1](./data-lake-store-get-started-portal.md).
 
 ## <a name="install-storage-explorer"></a>Installera Storage Explorer
 
@@ -195,7 +195,7 @@ Om du har en URL kan du ange den i adressfältet i Utforskaren eller i en webbl�
 ## <a name="next-steps"></a>Nästa steg
 
 * Visa [viktig information och videor för den senaste Storage Explorer-versionen](https://www.storageexplorer.com).
-* Lär dig hur du [hanterar Azure Cosmos db i Azure Storage Explorer](https://docs.microsoft.com/azure/cosmos-db/storage-explorer).
-* [Kom igång med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-* [Kom igång med Azure Data Lake Storage gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+* Lär dig hur du [hanterar Azure Cosmos db i Azure Storage Explorer](../cosmos-db/storage-explorer.md).
+* [Kom igång med Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+* [Kom igång med Azure Data Lake Storage gen1](./data-lake-store-overview.md).
 * Titta på en [YouTube-video om hur du använder Azure Cosmos DB i Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).

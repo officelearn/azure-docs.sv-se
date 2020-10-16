@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d1862e2e0dd9b1e566c6ee5d01a09213a0be4f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6083dbcc270c0e9dde1da45ed01369d03146237
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88134487"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108974"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Felsöka fjärr skrivbords klienten
 
@@ -83,6 +83,20 @@ Följ dessa instruktioner om webb klienten ska uppmanas att ange autentiseringsu
 3. Rensa webbläsarens cookies. Mer information finns i [så här tar du bort cookie-filer i Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Rensa webbläsarens cache. Mer information finns i [Rensa webbläsarens cacheminne för webbläsaren](https://binged.it/2RKyfdU).
 5. Öppna webbläsaren i privat läge.
+
+## <a name="windows-client-blocks-windows-virtual-desktop-classic-feed"></a>Windows-klienten blockerar Windows Virtual Desktop-feed (klassisk)
+
+Om Windows-klientcachen inte visar Windows Virtual Desktop (klassiska) appar, följer du dessa anvisningar:
+
+1. Kontrol lera om principen för villkorlig åtkomst innehåller de app-ID: n som är associerade med Windows Virtual Desktop (klassisk).
+2. Kontrol lera om principen för villkorlig åtkomst blockerar all åtkomst förutom program-ID: n för Windows Virtual Desktop (klassisk). I så fall måste du lägga till appens ID- **9cdead84-a844-4324-93f2-b2e6bb768d07** till principen så att klienten kan identifiera feeds.
+
+Om du inte hittar app-ID-9cdead84-a844-4324-93f2-b2e6bb768d07 i listan, måste du registrera Windows Resource Provider för virtuella skriv bord. Så här registrerar du resurs leverantören:
+
+1. Logga in på Azure Portal.
+2. Gå till **prenumeration**och välj din prenumeration.
+3. I menyn på vänster sida av sidan väljer du **resurs leverantör**.
+4. Leta upp och markera **Microsoft. DesktopVirtualization**och välj sedan **registrera igen**.
 
 ## <a name="next-steps"></a>Nästa steg
 

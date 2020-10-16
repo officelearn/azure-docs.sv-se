@@ -11,18 +11,18 @@ ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 08996d7343ccab4c5d6e688b580a8e6e1ca5bceb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1c7587a4434a84c6934179393baa5ae684f9b1fd
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376453"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92116687"
 ---
 [Avancerad läsare](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra Läs förståelse för nya läsare, språkutbildningar och personer med inlärnings skillnader som Dyslexia. Du kan använda avancerad läsare i dina program för att isolera text för att förbättra fokus, Visa bilder för vanliga ord, markera delar av tal, läsa den markerade texten, översätta ord och fraser i real tid och mycket mer.
 
 I den här snabb starten skapar du en webbapp från grunden och integrerar avancerad läsare med klient biblioteket för avancerad läsare. Ett fullständigt fungerande exempel på den här snabb starten finns [på GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/quickstart-csharp).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/cognitive-services)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
@@ -53,7 +53,7 @@ Högerklicka på projektet i _Solution Explorer_ och välj **hantera användar h
 }
 ```
 
-### <a name="install-active-directory"></a>Installera Active Directory
+### <a name="install-active-directory-nuget-package"></a>Installera Active Directory NuGet-paket
 
 I följande kod används objekt från **Microsoft. IdentityModel. clients. ActiveDirectory** NuGet-paketet så du måste lägga till en referens till det paketet i projektet.
 

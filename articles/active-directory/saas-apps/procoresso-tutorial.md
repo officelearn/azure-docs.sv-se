@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: e0a8e6786dbce1015d587cf8015e3624c97a5817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea69f1e634c66bff98462d41f3eeef19f8e15eb0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553622"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Självstudie: Azure Active Directory integrering med ProCore SSO
 
@@ -121,11 +121,11 @@ Utför följande steg för att konfigurera enkel inloggning med ProCore SSO för
 
 2. Klicka på **administratör** i list rutan för verktygs lådan för att öppna sidan SSO-inställningar.
 
-    ![Konfigurera enkel inloggning](./media/procoresso-tutorial/procore_tool_admin.png)
+    ![Skärm bild som visar ProCore-företags platsen med vald katalog.](./media/procoresso-tutorial/procore_tool_admin.png)
 
 3. Klistra in värdena i rutorna enligt beskrivningen nedan –
 
-    ![Konfigurera enkel inloggning](./media/procoresso-tutorial/procore_setting_admin.png)  
+    ![Skärm bild som visar dialog rutan Lägg till en person.](./media/procoresso-tutorial/procore_setting_admin.png) 
 
     a. I text rutan **URL för enkel inloggnings utfärdare** klistrar du in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal.
 
@@ -195,11 +195,11 @@ Följ stegen nedan om du vill skapa en ProCore test-användare på en central en
 
 2. Öppna sidan företags katalog genom att klicka på **katalog** i list rutan för verktygs lådan.
 
-    ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_sso_directory.png)
+    ![Skärm bild som visar ProCore-företags platsen med katalogen som valts från verktygs lådan.](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. Klicka på alternativet **Lägg till en person** för att öppna formuläret och ange följande alternativ –
 
-    ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_user_add.png)
+    ![Skärm bild som visar Boylan-konstruktion där du kan ange användar information.](./media/procoresso-tutorial/Procore_user_add.png)
 
     a. I text rutan **förnamn** skriver du användarens förnamn som **Britta**.
 
@@ -213,11 +213,11 @@ Följ stegen nedan om du vill skapa en ProCore test-användare på en central en
 
 4. Kontrol lera och uppdatera informationen för den nyligen tillagda kontakten.
 
-    ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_user_check.png)
+    ![Skärm bild som visar en redigerings sida där du kan verifiera användar inställningarna.](./media/procoresso-tutorial/Procore_user_check.png)
 
 5. Klicka på **Spara och skicka inbjudan** (om en inbjudan via e-post krävs) eller **Spara** (Spara direkt) för att slutföra användar registreringen.
     
-    ![Konfigurera enkel inloggning](./media/procoresso-tutorial/Procore_user_save.png)
+    ![Skärm bild som visar de aktuella projekt inställningarna där du kan spara och skicka inbjudan.](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

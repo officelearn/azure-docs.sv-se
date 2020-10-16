@@ -5,16 +5,16 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 2d3da9273651b23a80b0f5e2874581a744caf533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a1851b71ac017349ff131811d946ec2c077440b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330884"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105999"
 ---
 # <a name="common-alert-schema-definitions"></a>Vanliga aviseringsschemadefinitioner
 
-I den här artikeln beskrivs [vanliga aviserings schema definitioner](https://aka.ms/commonAlertSchemaDocs) för Azure Monitor, inklusive de för Webhooks, Azure Logic Apps, Azure Functions och Azure Automation runbooks. 
+I den här artikeln beskrivs [vanliga aviserings schema definitioner](./alerts-common-schema.md) för Azure Monitor, inklusive de för Webhooks, Azure Logic Apps, Azure Functions och Azure Automation runbooks. 
 
 En varnings instans beskriver den resurs som påverkades och orsaken till aviseringen. Dessa instanser beskrivs i det gemensamma schemat i följande avsnitt:
 * **Essentials**: en uppsättning standardiserade fält, gemensamma för alla aviserings typer, som beskriver vilken resurs som aviseringen finns på, tillsammans med ytterligare vanliga aviserings-metadata (till exempel allvarlighets grad eller beskrivning). 
@@ -71,7 +71,7 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 
 ## <a name="essentials"></a>Essentials
 
-| Field | Beskrivning|
+| Fält | Beskrivning|
 |:---|:---|
 | alertId | GUID: n identifierar aviserings instansen unikt. |
 | alertRule | Namnet på den aviserings regel som genererade aviserings instansen. |
@@ -541,5 +541,5 @@ En varnings instans beskriver den resurs som påverkades och orsaken till aviser
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om det [vanliga aviserings schemat](https://aka.ms/commonAlertSchemaDocs).
-- Lär dig [hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar](./alerts-common-schema-integrations.md). 
+- Läs mer om det [vanliga aviserings schemat](./alerts-common-schema.md).
+- Lär dig [hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar](./alerts-common-schema-integrations.md).

@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: ec0e62297e6eee995fc571589d450176c81f8aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e10afa9293bbebbb68a6fc3eae4bc3f75813ad0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192823"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106832"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Säkerhet i Azure Data Lake Storage Gen1
 
@@ -31,7 +31,7 @@ Autentisering är den process genom vilken en användares identitet verifieras n
 Varje Azure-prenumeration kan associeras med en instans av Azure Active Directory. Endast användare och tjänst identiteter som har definierats i Azure Active Directorys tjänsten kan komma åt ditt Data Lake Storage Gen1-konto genom att använda Azure Portal, kommando rads verktyg eller via klient program som din organisation skapar med hjälp av Data Lake Storage Gen1 SDK. Viktiga fördelar med att använda Azure Active Directory som en centraliserad mekanism för åtkomst kontroll är:
 
 * Förenklad identitets livs cykel hantering. Identiteten för en användare eller en tjänst (en huvud tjänst identitet) kan snabbt skapas och återkallas genom att du helt enkelt tar bort eller inaktiverar kontot i katalogen.
-* Multi-Factor Authentication. [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) tillhandahåller ett extra säkerhets lager för användar inloggningar och transaktioner.
+* Multi-Factor Authentication. [Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) tillhandahåller ett extra säkerhets lager för användar inloggningar och transaktioner.
 * Autentisering från vilken klient som helst via ett öppet standard protokoll, till exempel OAuth eller OpenID.
 * Federation med Enterprise Directory-tjänster och moln identitets leverantörer.
 
@@ -52,7 +52,7 @@ Observera att även om roller tilldelas för konto hantering, påverkar vissa ro
 
 | Roller | Hanterings rättigheter | Åtkomst behörigheter för data | Förklaring |
 | --- | --- | --- | --- |
-| Ingen roll har tilldelats |Inget |Styrs av ACL |Användaren kan inte använda Azure Portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan bara använda kommando rads verktyg. |
+| Ingen roll har tilldelats |Inga |Styrs av ACL |Användaren kan inte använda Azure Portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan bara använda kommando rads verktyg. |
 | Ägare |Alla |Alla |Ägar rollen är en superanvändare. Den här rollen kan hantera allt och har fullständig åtkomst till data. |
 | Läsare |Skrivskyddad |Styrs av ACL |Rollen läsare kan visa allt om konto hantering, till exempel vilken användare som är tilldelad till vilken roll. Rollen läsare kan inte göra några ändringar. |
 | Deltagare |Alla utom Lägg till och ta bort roller |Styrs av ACL |Deltagar rollen kan hantera vissa aspekter av ett konto, till exempel distributioner och skapande och hantering av aviseringar. Deltagar rollen kan inte lägga till eller ta bort roller. |

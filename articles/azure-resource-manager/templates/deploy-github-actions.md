@@ -2,90 +2,94 @@
 title: Distribuera Resource Manager-mallar med GitHub-åtgärder
 description: Beskriver hur du distribuerar Azure Resource Manager-mallar med hjälp av GitHub-åtgärder.
 ms.topic: conceptual
-ms.date: 07/02/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: cea099088005fa91e1b3e9a793105df4796a66ee
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.date: 10/13/2020
+ms.custom: github-actions-azure,subject-armqs
+ms.openlocfilehash: b5852a65b4ed3c7cc73352fed37eeff035f8563c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018584"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106798"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuera Azure Resource Manager-mallar med GitHub-åtgärder
 
-Med [GitHub-åtgärder](https://help.github.com/en/actions) kan du skapa anpassade arbets flöden för program varu utveckling, direkt i din GitHub-lagringsplats där Azure Resource Manager (arm)-mallarna lagras. Ett [arbets flöde](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) definieras av en yaml-fil. Arbets flöden har ett eller flera jobb med varje jobb som innehåller en uppsättning steg som utför enskilda uppgifter. Steg kan köra kommandon eller använda en åtgärd. Du kan skapa egna åtgärder eller använda åtgärder som delas av [GitHub-communityn](https://github.com/marketplace?type=actions) och anpassa dem efter behov. Den här artikeln visar hur du använder [Azure CLI-åtgärder](https://github.com/marketplace/actions/azure-cli-action) för att distribuera Resource Manager-mallar.
+[GitHub-åtgärder](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) är en uppsättning funktioner i GitHub för att automatisera dina arbets flöden för program utveckling på samma plats som du lagrar kod och samarbetar om pull-begäranden och-problem.
 
-Azure CLI-åtgärden har två beroende åtgärder:
+Använd [åtgärden distribuera Azure Resource Manager mall](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) för att automatisera distributionen av en Resource Manager-mall till Azure. 
 
-- **[Checka ut: ta](https://github.com/marketplace/actions/checkout)** en titt på lagrings platsen så att arbets flödet kan komma åt en viss Resource Manager-mall.
-- **[Azure-inloggning](https://github.com/marketplace/actions/azure-login)**: Logga in med dina Azure-autentiseringsuppgifter
+## <a name="prerequisites"></a>Krav
 
-Ett grundläggande arbets flöde för att distribuera en Resource Manager-mall kan ha tre steg:
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Ett GitHub-konto. Om du inte har någon kan du registrera dig [kostnads fritt](https://github.com/join).  
+    - En GitHub-lagringsplats där du kan lagra dina Resource Manager-mallar och dina arbetsflödes-filer. Information om hur du skapar [en ny databas finns i skapa en ny lagrings plats](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
 
-1. Kolla ut en mallfil.
-2. Logga in i Azure.
-3. Distribuera en Resource Manager-mall
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="workflow-file-overview"></a>Översikt över arbets flödes fil
 
-Du behöver en GitHub-lagringsplats för att lagra dina Resource Manager-mallar och dina arbetsflödes-filer. Information om hur du skapar [en ny databas finns i skapa en ny lagrings plats](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository).
+Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
 
-## <a name="configure-deployment-credentials"></a>Konfigurera autentiseringsuppgifter för distribution
+Filen har två avsnitt:
 
-Azure login-åtgärden använder ett huvud namn för tjänsten för att autentisera mot Azure. Huvud kontot för ett CI/CD-arbetsflöde behöver vanligt vis den inbyggda deltagar rättigheten för att kunna distribuera Azure-resurser.
+|Section  |Aktiviteter  |
+|---------|---------|
+|**Autentisering** | 1. definiera ett huvud namn för tjänsten. <br /> 2. skapa en GitHub-hemlighet. |
+|**Distribuera** | 1. distribuera Resource Manager-mallen. |
 
-Följande Azure CLI-skript visar hur du skapar ett tjänst huvud namn för Azure med deltagar behörighet för en Azure-resurs grupp. Den här resurs gruppen är den plats där arbets flödet distribuerar de resurser som definierats i din Resource Manager-mall.
+## <a name="generate-deployment-credentials"></a>Generera autentiseringsuppgifter för distribution
 
-```azurecli
-$projectName="[EnterAProjectName]"
-$location="centralus"
-$resourceGroupName="${projectName}rg"
-$appName="http://${projectName}"
-$scope=$(az group create --name $resourceGroupName --location $location --query 'id')
-az ad sp create-for-rbac --name $appName --role Contributor --scopes $scope --sdk-auth
+
+Du kan skapa ett [huvud namn för tjänsten](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) i [Azure CLI](/cli/azure/). Kör det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
+
+Ersätt plats hållaren `myApp` med namnet på ditt program. 
+
+```azurecli-interactive
+   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-Anpassa värdet för **$projectName** och **$location** i skriptet. Resurs gruppens namn är projekt namnet med **RG** tillagt. Du måste ange resurs gruppens namn i ditt arbets flöde.
+I exemplet ovan ersätter du plats hållarna med ditt prenumerations-ID och resurs gruppens namn. Utdata är ett JSON-objekt med roll tilldelningens autentiseringsuppgifter som ger åtkomst till din App Service-app på liknande sätt som nedan. Kopiera det här JSON-objektet för senare.
 
-Skriptet skriver ut ett JSON-objekt liknande detta:
-
-```json
-{
-   "clientId": "<GUID>",
-   "clientSecret": "<GUID>",
-   "subscriptionId": "<GUID>",
-   "tenantId": "<GUID>",
-   (...)
-}
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
 ```
 
-Kopiera JSON-utdata och lagra den som en GitHub-hemlighet i din GitHub-lagringsplats. Se [förutsättningen](#prerequisites) om du inte har en lagrings plats ännu.
+> [!IMPORTANT]
+> Det är alltid en bra idé att bevilja minimal åtkomst. Omfånget i föregående exempel är begränsat till resurs gruppen.
 
-1. Från din GitHub-lagringsplats väljer du fliken **Inställningar** .
-1. Välj **hemligheter** på den vänstra menyn.
-1. Ange följande värden:
 
-    - **Namn**: AZURE_CREDENTIALS
-    - **Värde**: (klistra in JSON-utdata)
-1. Välj **Lägg till hemlighet**.
 
-Du måste ange det hemliga namnet i arbets flödet.
+## <a name="configure-the-github-secrets"></a>Konfigurera GitHub hemligheter
+
+Du måste skapa hemligheter för dina Azure-autentiseringsuppgifter, resurs grupper och prenumerationer. 
+
+1. I [GitHub](https://github.com/)bläddrar du till din lagrings plats.
+
+1. Välj **inställningar > hemligheter > ny hemlighet**.
+
+1. Klistra in hela JSON-utdata från Azure CLI-kommandot i fältet hemligt värde. Ge hemligheten namnet `AZURE_CREDENTIALS` .
+
+1. Skapa en annan hemlighet med namnet `AZURE_RG` . Lägg till namnet på din resurs grupp i fältet hemligt värde. 
+
+1. Skapa ytterligare en hemlighet med namnet `AZURE_SUBSCRIPTION` . Lägg till ditt prenumerations-ID i fältet hemligt värde. 
 
 ## <a name="add-resource-manager-template"></a>Lägg till Resource Manager-mall
 
-Lägg till en Resource Manager-mall i GitHub-lagringsplatsen. Om du inte har någon kan du använda följande mall. Mallen skapar ett lagrings konto.
+Lägg till en Resource Manager-mall i GitHub-lagringsplatsen. Med den här mallen skapas ett lagrings konto.
 
 ```url
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Du kan lagra filen var som helst på lagrings platsen. Arbets flödes exemplet i nästa avsnitt förutsätter att mallfilen heter **azuredeploy.jspå**, och den lagras i en mapp med namnet **mallar** i lagrings platsens rot.
+Du kan lagra filen var som helst på lagrings platsen. Arbets flödes exemplet i nästa avsnitt förutsätter att mallfilen heter **azuredeploy.jspå**och lagras i roten på din lagrings plats.
 
 ## <a name="create-workflow"></a>Skapa arbets flöde
 
 Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten på din lagrings plats. Arbets flödets fil namns tillägg kan vara antingen **. yml** eller **. yaml**.
-
-Du kan antingen skapa en arbets flödes fil och sedan skicka/överföra filen till lagrings platsen eller använda följande procedur:
 
 1. Från din GitHub-lagringsplats väljer du **åtgärder** på den översta menyn.
 1. Välj **nytt arbets flöde**.
@@ -94,51 +98,38 @@ Du kan antingen skapa en arbets flödes fil och sedan skicka/överföra filen ti
 1. Ersätt innehållet i YML-filen med följande:
 
     ```yml
-    name: Deploy ARM Template
-
-    on:
-      push:
-        branches:
-          - master
-        paths:
-          - ".github/workflows/deployStorageAccount.yml"
-          - "templates/azuredeploy.json"
-
+    on: [push]
+    name: Azure ARM
     jobs:
-      deploy-storage-account-template:
+      build-and-deploy:
         runs-on: ubuntu-latest
         steps:
-          - name: Checkout source code
-            uses: actions/checkout@master
 
-          - name: Login to Azure
-            uses: azure/login@v1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
+          # Checkout code
+        - uses: actions/checkout@master
 
-
-          - name: Deploy ARM Template
-            uses: azure/CLI@v1
-            with:
-              inlineScript: |
-                az deployment group create --resource-group myResourceGroup --template-file ./templates/azuredeploy.json
+          # Log into Azure
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+     
+          # Deploy ARM template
+        - uses: azure/arm-deploy@v1
+        - name: Run ARM deploy
+          with:
+            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+            resourceGroupName: ${{ secrets.AZURE_RG }}
+            template: ./azuredeploy.json
+            parameters: storageAccountType=Standard_LRS
+        
+          # output containerName variable from template
+        - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
 
-    Arbets flödes filen har tre delar:
+    Det första avsnittet i arbets flödes filen innehåller:
 
     - **namn**: namnet på arbets flödet.
     - **på**: namnet på de GitHub-händelser som utlöser arbets flödet. Arbets flödet utlöses när det finns en push-händelse på huvud grenen, vilket ändrar minst en av de angivna två filerna. De två filerna är arbets flödes filen och mallfilen.
-
-        > [!IMPORTANT]
-        > Kontrol lera att de två filerna och deras sökvägar stämmer överens.
-    - **jobb**: en arbets flödes körning består av ett eller flera jobb. Det finns bara ett jobb med namnet **Deploy-Storage-Account-Template**.  Det här jobbet har tre steg:
-
-        - **Käll kod för utcheckning**.
-        - **Logga in på Azure**.
-
-            > [!IMPORTANT]
-            > Kontrol lera att det hemliga namnet matchar det du sparade i lagrings platsen. Se [Konfigurera autentiseringsuppgifter för distribution](#configure-deployment-credentials).
-        - **Distribuera arm-mall**. Ersätt värdet för **resourceGroupName**.  Om du använde Azure CLI-skriptet i [Konfigurera autentiseringsuppgifter för distribution](#configure-deployment-credentials), är det genererade resurs grupps namnet projekt namnet med **RG** tillagt. Verifiera värdet för **templateLocation**.
 
 1. Välj **Starta genomförande**.
 1. Välj **genomför direkt på huvud grenen**.
@@ -148,11 +139,15 @@ Eftersom arbets flödet har kon figurer ATS för att utlösas av antingen arbets
 
 ## <a name="check-workflow-status"></a>Kontrol lera arbets flödes status
 
-1. Välj fliken **åtgärder** . Du får se ett **skapa deployStorageAccount. yml** -arbetsflöde i listan. Det tar 1-2 minuter att köra arbets flödet.
+1. Välj fliken **åtgärder** . Ett arbets flöde för att **skapa deployStorageAccount. yml** visas. Det tar 1-2 minuter att köra arbets flödet.
 1. Välj arbets flödet för att öppna det.
-1. Välj **distribuera-Storage-Account-Template** (jobbnamn) på den vänstra menyn. Jobb namnet har definierats i arbets flödet.
-1. Välj **distribuera arm-mall** (steg namn) för att expandera den. Du kan se REST API svaret.
+1. Verifiera distributionen genom att välja **Kör arm Deploy** på menyn.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När din resurs grupp och lagrings plats inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resurs gruppen och GitHub-lagringsplatsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i [Självstudier: skapa och distribuera din första arm-mall](template-tutorial-create-first-template.md).
+> [!div class="nextstepaction"]
+> [Skapa din första ARM-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)

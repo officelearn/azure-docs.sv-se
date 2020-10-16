@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: devx-track-python
-ms.openlocfilehash: 5cbf75ef2d9f0c1a65179e6a423b59f9763ce72b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca455a802b180163579f67104a61f455dd54f94
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872250"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109229"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Fil Systems åtgärder på Azure Data Lake Storage Gen1 med python
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "87872250"
 
 I den här artikeln får du lära dig hur du använder python SDK för att utföra fil Systems åtgärder på Azure Data Lake Storage Gen1. Instruktioner för hur du utför konto hanterings åtgärder på Data Lake Storage Gen1 med python finns i [konto hanterings åtgärder på data Lake Storage gen1 med python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 
@@ -40,7 +40,7 @@ Om du vill arbeta med Data Lake Storage Gen1 med python måste du installera tre
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
 * `azure-mgmt-datalake-store`Modulen, som innehåller Azure Data Lake Storage gen1 konto hanterings åtgärder. Mer information om den här modulen finns i [referens för Azure-MGMT-datalake-Store-modulen](/python/api/azure-mgmt-datalake-store/).
-* `azure-datalake-store`Modulen, som innehåller Azure Data Lake Storage gen1 fil Systems åtgärder. Mer information om den här modulen finns i [referens för Azure-datalake-Store-File-System-module](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
+* `azure-datalake-store`Modulen, som innehåller Azure Data Lake Storage gen1 fil Systems åtgärder. Mer information om den här modulen finns i [referens för Azure-datalake-Store-File-System-module](/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Installera modulerna med hjälp av följande kommandon.
 
@@ -137,5 +137,5 @@ adlsFileSystemClient.rm('/mysampledirectory', recursive=True)
 
 ## <a name="see-also"></a>Se även
 
-* [Referens för Azure Data Lake Storage Gen1 python (fil system)](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
+* [Referens för Azure Data Lake Storage Gen1 python (fil system)](/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Stor data program med öppen källkod som är kompatibla med Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

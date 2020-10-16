@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 170f20cbd3405ea6af8aef5650e4dd7ebeaeef7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ac3c0809c08719d77457c59ef311ad43ef99cd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458220"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108345"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämföra Azure Data Lake Storage Gen1 och Azure Blob Storage
 
@@ -26,11 +26,11 @@ I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake 
 | Viktiga begrepp |Data Lake Storage Gen1-kontot innehåller mappar, vilket i sin tur innehåller data som lagras som filer |Lagrings kontot har behållare, vilket i sin tur har data i form av blobbar |
 | Struktur |Hierarkiskt fil system |Objekt Arkiv med platt namn område |
 | API |REST API över HTTPS |REST API över HTTP/HTTPS |
-| API för Server Sidan |[WebHDFS-kompatibel REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| API för Server Sidan |[WebHDFS-kompatibel REST API](/rest/api/datalakestore/) |[Azure Blob Storage REST API](/rest/api/storageservices/Blob-Service-REST-API) |
 | Hadoop-filsystem-klient |Ja |Ja |
-| Data åtgärder-autentisering |Baserat på [Azure Active Directory identiteter](../active-directory/develop/authentication-scenarios.md) |Baserat på delade hemligheter – [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md) och [signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Data åtgärder-autentisering |Baserat på [Azure Active Directory identiteter](../active-directory/develop/authentication-vs-authorization.md) |Baserat på delade hemligheter – [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md) och [signaturer för delad åtkomst](../storage/common/storage-sas-overview.md). |
 | Data åtgärder – autentiseringsprotokoll |[OpenID Connect](https://openid.net/connect/). Anrop måste innehålla en giltig JWT-(JSON Web-token) som utfärdas av Azure Active Directory.|Hash-baserad Message Authentication Code (HMAC). Anrop måste innehålla en Base64-kodad SHA-256-hash över en del av HTTP-begäran. |
-| Data åtgärder-auktorisering |POSIX Access Control listor (ACL: er).  ACL: er baserade på Azure Active Directory identiteter kan ställas in på fil-och mappnivå. |För auktorisering på konto nivå – Använd [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md)<br>För konto-, container-eller BLOB-auktorisering – Använd [signatur nycklar för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Data åtgärder-auktorisering |POSIX Access Control listor (ACL: er).  ACL: er baserade på Azure Active Directory identiteter kan ställas in på fil-och mappnivå. |För auktorisering på konto nivå – Använd [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md)<br>För konto-, container-eller BLOB-auktorisering – Använd [signatur nycklar för delad åtkomst](../storage/common/storage-sas-overview.md) |
 | Data åtgärder – granskning |Få. Mer information finns [här](data-lake-store-diagnostic-logs.md) . |Tillgänglig |
 | Vilande data kryptering |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv</li></ul></ul> |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv (för hands version)</li></ul><li>Kryptering av klientsidan</li></ul> |
 | Hanterings åtgärder (till exempel konto skapa) |[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för konto hantering |[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för konto hantering |

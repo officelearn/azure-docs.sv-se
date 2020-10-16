@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: ced838d05ef9d8ca9f6c724d88fabdad010ed727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87bfe1109640f158b92f54b945d314ac65a93ddc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403559"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107920"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Inmatningstid för loggdata i Azure Monitor
 Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om hur lång tid det tar för loggdata att bli tillgängliga när de har samlats in. I den här artikeln beskrivs de olika faktorer som påverkar den här svars tiden.
@@ -57,7 +57,7 @@ Vissa lösningar samlar inte in data från en agent och kan använda en samlings
 Se dokumentationen för varje lösning för att fastställa dess samlings frekvens.
 
 ### <a name="pipeline-process-time"></a>Pipeline-process tid
-När logg poster matas in i Azure Monitor pipelinen (som identifieras i egenskapen [_TimeReceived](log-standard-properties.md#_timereceived) ), skrivs de till temporär lagring för att säkerställa klient isoleringen och se till att data inte förloras. Den här processen lägger normalt till 5-15 sekunder. Vissa hanterings lösningar implementerar tyngre algoritmer för att samla in data och härleda insikter när data strömmas i. Exempel: övervakning av nätverks prestanda sammanställer inkommande data över 3 minuters intervall, vilket effektivt lägger till en fördröjning på 3 minuter. En annan process som lägger till latens är den process som hanterar anpassade loggar. I vissa fall kan den här processen lägga till några minuters svars tid på loggar som samlas in från filer av agenten.
+När logg poster matas in i Azure Monitor pipelinen (som identifieras i egenskapen [_TimeReceived](./log-standard-columns.md#_timereceived) ), skrivs de till temporär lagring för att säkerställa klient isoleringen och se till att data inte förloras. Den här processen lägger normalt till 5-15 sekunder. Vissa hanterings lösningar implementerar tyngre algoritmer för att samla in data och härleda insikter när data strömmas i. Exempel: övervakning av nätverks prestanda sammanställer inkommande data över 3 minuters intervall, vilket effektivt lägger till en fördröjning på 3 minuter. En annan process som lägger till latens är den process som hanterar anpassade loggar. I vissa fall kan den här processen lägga till några minuters svars tid på loggar som samlas in från filer av agenten.
 
 ### <a name="new-custom-data-types-provisioning"></a>Ny anpassad data typs etablering
 När en ny typ av anpassade data skapas från en [anpassad logg](data-sources-custom-logs.md) eller [data insamlings-API: et](data-collector-api.md)skapar systemet en dedikerad lagrings behållare. Detta är ett engångsjobb som bara inträffar vid den första förekomsten av den här datatypen.
@@ -77,8 +77,8 @@ Hämtnings tiden kan variera beroende på olika resurser under olika omständigh
 
 | Steg | Egenskap eller funktion | Kommentarer |
 |:---|:---|:---|
-| Post skapad vid data Källa | [TimeGenerated](log-standard-properties.md#timegenerated-and-timestamp) <br>Om data källan inte anger det här värdet, kommer den att ställas in på samma tid som _TimeReceived. |
-| Posten togs emot av Azure Monitor-inmatnings slut punkt | [_TimeReceived](log-standard-properties.md#_timereceived) | |
+| Post skapad vid data Källa | [TimeGenerated](./log-standard-columns.md#timegenerated-and-timestamp) <br>Om data källan inte anger det här värdet, kommer den att ställas in på samma tid som _TimeReceived. |
+| Posten togs emot av Azure Monitor-inmatnings slut punkt | [_TimeReceived](./log-standard-columns.md#_timereceived) | |
 | Post lagrad i arbets ytan och tillgänglig för frågor | [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>Fördröjningar vid inmatnings fördröjning
@@ -143,4 +143,3 @@ Heartbeat
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) för Azure Monitor.
-

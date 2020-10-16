@@ -7,18 +7,18 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 4bb40cc1f5d1ae2563ddd802cd8b7de11427503b
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: bdc236c3ba4c70ba44e61457e2bade7df65f3153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893228"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108056"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Distribuera till App Service med GitHub-åtgärder
 
 Kom igång med [GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions) för att automatisera arbets flödet och distribuera till [Azure App Service](overview.md) från GitHub. 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ett GitHub-konto. Om du inte har någon kan du registrera dig [kostnads fritt](https://github.com/join).  
@@ -30,8 +30,6 @@ Kom igång med [GitHub-åtgärder](https://help.github.com/en/articles/about-git
     - Python: [skapa en python-app i Azure App Service](quickstart-python.md)
 
 ## <a name="workflow-file-overview"></a>Översikt över arbets flödes fil
-
-Azure App Service-arbetsflödes filer har tre delar:
 
 Ett arbets flöde definieras av en YAML-fil (. yml) i `/.github/workflows/` sökvägen i lagrings platsen. Den här definitionen innehåller de olika stegen och parametrarna som utgör arbets flödet.
 

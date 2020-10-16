@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760314"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108158"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Ladda upp fakturerings data till Azure och visa dem i Azure Portal
 
@@ -30,7 +30,7 @@ I framtiden finns det två lägen där du kan köra dina Azure Arc-aktiverade da
 - **Indirekt ansluten** – det finns ingen direkt anslutning till Azure. Data skickas endast till Azure via en export-/överförings process. Alla Azure Arc Data Services-distributioner fungerar i det här läget idag i för hands versionen.
 - **Direkt ansluten** – i det här läget är det ett beroende på den Azure Arc-aktiverade Kubernetes-tjänsten för att tillhandahålla en direkt anslutning mellan Azure och det Kubernetes-kluster som Azure Arc-aktiverade data tjänster körs på. Detta möjliggör fler funktioner och du kan också använda Azure Portal och Azure CLI för att hantera dina Azure Arc-aktiverade data tjänster precis som du hanterar dina data tjänster i Azure PaaS.  Detta anslutnings läge är inte tillgängligt ännu i förhands granskning, men kommer snart.
 
-Du kan läsa mer om skillnaden mellan [anslutnings lägena](https://docs.microsoft.com/azure/azure-arc/data/connectivity).
+Du kan läsa mer om skillnaden mellan [anslutnings lägena](./connectivity.md).
 
 I läget för indirekt anslutning exporteras fakturerings data regelbundet från data styrenheten för Azure-bågen till en säker fil och överförs sedan till Azure och bearbetas.  I det kommande anslutna läget skickas fakturerings data automatiskt till Azure ungefär 1/timme för att ge en nästan real tids vy över kostnaderna för dina tjänster. Processen för att exportera och ladda upp data i det indirekt anslutna läget kan också automatiseras med hjälp av skript eller så kan vi skapa en tjänst som gör det åt dig.
 

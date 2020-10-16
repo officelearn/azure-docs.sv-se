@@ -6,24 +6,24 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: d10b1811257e14238cb04a79ff184cee57aab471
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b1bbe7f632d8101dbff02a31092f06c7b644ece
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88189950"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108328"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Vägledning för prestanda justering för Hive i HDInsight och Azure Data Lake Storage Gen1
 
 Standardinställningarna har ställts in för att ge bästa prestanda i många olika användnings fall.  För I/O-intensiva frågor kan Hive justeras för att få bättre prestanda med Azure Data Lake Storage Gen1.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Ett data Lake Storage gen1 konto**. Instruktioner för hur du skapar ett finns i [Kom igång med Azure Data Lake Storage gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage gen1-konto. Se [skapa ett HDInsight-kluster med data Lake Storage gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Se till att aktivera fjärr skrivbord för klustret.
-* **Kör Hive i HDInsight**.  Information om hur du kör Hive-jobb i HDInsight finns i [använda Hive i HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Rikt linjer för prestanda justering på data Lake Storage gen1**.  Allmänna prestanda koncept finns i [vägledning för data Lake Storage gen1 prestanda justering](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Kör Hive i HDInsight**.  Information om hur du kör Hive-jobb i HDInsight finns i [använda Hive i HDInsight](../hdinsight/hadoop/hdinsight-use-hive.md)
+* **Rikt linjer för prestanda justering på data Lake Storage gen1**.  Allmänna prestanda koncept finns i [vägledning för data Lake Storage gen1 prestanda justering](./data-lake-store-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametrar
 
@@ -49,7 +49,7 @@ Här är de viktigaste inställningarna för att justera för förbättrade Data
 
 **Ange hive.exec. dereducerare. bytes. per. reduce** – standardvärdet fungerar bra när data är okomprimerade.  För data som är komprimerade bör du minska storleken på minskningen.  
 
-**Ange Hive. Tez. container. size** – i varje nod anges minnet av garn. nodemanager. Resource. Memory-MB och bör anges korrekt i HDI-kluster som standard.  Mer information om hur du ställer in rätt minne i garn finns i det här [inlägget](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Ange Hive. Tez. container. size** – i varje nod anges minnet av garn. nodemanager. Resource. Memory-MB och bör anges korrekt i HDI-kluster som standard.  Mer information om hur du ställer in rätt minne i garn finns i det här [inlägget](../hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom.md).
 
 I/O-intensiva arbets belastningar kan dra nytta av mer parallellitet genom att minska storleken på Tez-behållare. Detta ger användaren fler behållare vilket ökar samtidigheten.  Vissa Hive-frågor kräver dock en stor mängd minne (t. ex. MapJoin).  Om det inte finns tillräckligt med minne på den här aktiviteten får du ett slut på minnes undantag under körningen.  Om du får slut på minnes undantag bör du öka minnet.   
 
@@ -80,6 +80,6 @@ Om du vill kontrol lera om du får en begränsning måste du aktivera fel sökni
 ## <a name="further-information-on-hive-tuning"></a>Mer information om Hive-justering
 
 Här följer några Bloggar som kan hjälpa dig att justera dina Hive-frågor:
-* [Optimera Hive-frågor för Hadoop i HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Koda Hive-mallfilen i Azure HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
+* [Optimera Hive-frågor för Hadoop i HDInsight](../hdinsight/hdinsight-hadoop-optimize-hive-query.md)
+* [Koda Hive-mallfilen i Azure HDInsight](/archive/blogs/bigdatasupport/encoding-the-hive-query-file-in-azure-hdinsight)
 * [Tala om optimering av Hive i HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

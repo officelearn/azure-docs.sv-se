@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 2a0471055e4648944aa07d10fef67f5e7235a76b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7283ad4c4c61ecc293a55ffc4cb9626bb28d630
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856932"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108736"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Skapa ett HDInsight-kluster med Azure Data Lake Storage Gen1 med Azure Resource Manager-mall
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Här är några viktiga överväganden när du använder HDInsight med Data Lake
 
 I den här artikeln etablerar vi ett Hadoop-kluster med Data Lake Storage Gen1 som ytterligare lagrings utrymme. Instruktioner för hur du skapar ett Hadoop-kluster med Data Lake Storage Gen1 som standard lagring finns i [skapa ett HDInsight-kluster med data Lake Storage gen1 med hjälp av Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -84,7 +84,7 @@ När du har konfigurerat ett HDInsight-kluster kan du köra test jobb på klustr
 
 I det här avsnittet ska du använda SSH i ett HDInsight Linux-kluster och köra exempel registrerings frågan. Om du använder en Windows-klient rekommenderar vi att du använder **SparaTillFil**, som kan laddas ned från [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) .
 
-Mer information om hur du använder SparaTillFil finns i [använda SSH med Linux-baserat Hadoop på HDInsight från Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Mer information om hur du använder SparaTillFil finns i [använda SSH med Linux-baserat Hadoop på HDInsight från Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. När du är ansluten startar du Hive CLI med hjälp av följande kommando:
 
@@ -120,7 +120,7 @@ När du har konfigurerat HDInsight-klustret så att det använder Data Lake Stor
 
 I det här avsnittet ska du använda SSH i ett HDInsight Linux-kluster och köra HDFS-kommandona. Om du använder en Windows-klient rekommenderar vi att du använder **SparaTillFil**, som kan laddas ned från [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) .
 
-Mer information om hur du använder SparaTillFil finns i [använda SSH med Linux-baserat Hadoop på HDInsight från Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
+Mer information om hur du använder SparaTillFil finns i [använda SSH med Linux-baserat Hadoop på HDInsight från Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 När du är ansluten använder du följande HDFS filesystem-kommando för att visa en lista över filerna i lagrings kontot med Data Lake Storage Gen1.
 

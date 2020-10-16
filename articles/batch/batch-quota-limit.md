@@ -4,12 +4,12 @@ description: Lär dig mer om standard Azure Batch kvoter, gränser och begränsn
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c13df8b537d701400a22cd2871e7f8362f02455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca08d43f07633b58cf6f7067c1a8fcd58350678
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84417284"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107546"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -125,7 +125,7 @@ När du har skickat in ditt support ärende kontaktar Azure-supporten. Kvot beg�
 
 Batch-pooler i den virtuella dator konfigurationen som distribueras i ett virtuellt Azure-nätverk allokerar automatiskt ytterligare Azure nätverks resurser. Följande resurser behövs för varje 50-pool i ett virtuellt nätverk:
 
-- En [nätverks säkerhets grupp](../virtual-network/security-overview.md#network-security-groups)
+- En [nätverks säkerhets grupp](../virtual-network/network-security-groups-overview.md#network-security-groups)
 - En [offentlig IP-adress](../virtual-network/public-ip-addresses.md)
 - En [belastningsutjämnare](../load-balancer/load-balancer-overview.md)
 

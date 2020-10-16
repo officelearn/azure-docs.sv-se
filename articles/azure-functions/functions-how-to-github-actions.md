@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 3f35a8130c834112961f4542883704c2b8dbd08f
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 2809fce890e1a7bcc47163c8a5d4c0210d6aa9d4
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999243"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106135"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -44,7 +44,7 @@ Så här hämtar du publicerings profilen för din Function-app:
 
 ## <a name="create-a-service-principal-deprecated"></a>Skapa ett huvud namn för tjänsten (inaktuellt)
 =======
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Ett GitHub-konto. Om du inte har någon kan du registrera dig [kostnads fritt](https://github.com/join).  
@@ -912,4 +912,4 @@ jobs:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om Azure och GitHub-integrering](https://docs.microsoft.com/azure/developer/github/)
+> [Läs mer om Azure och GitHub-integrering](/azure/developer/github/)

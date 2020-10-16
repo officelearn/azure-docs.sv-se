@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: a2c2e7358c32453daf53c40a9322df4fe30642d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 991201429bdc09a03ddc46c5beb9d0f4d6744ed5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548910"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Självstudie: Azure Active Directory integrering med Rackspace SSO
 
@@ -101,11 +101,11 @@ Utför följande steg för att konfigurera enkel inloggning med Rackspace SSO i 
 
     a. Klicka på **Ladda upp metadatafil**.
 
-    ![image](common/upload-metadata.png)
+    ![Skärm bild som visar en grundläggande SAML-konfiguration med fil länken Ladda upp metadata.](common/upload-metadata.png)
 
     b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![Skärm bild som visar en dialog ruta där du kan välja och ladda upp en fil.](common/browse-upload-metadata.png)
 
     c. När metadatafilen har laddats upp hämtas de nödvändiga URL: erna automatiskt.
 

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 693a1ae8a8c84479448c2475db12d5bf1b25dbd5
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91803508"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107495"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -83,7 +83,7 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
 | Åtkomsttokenbegäran | Ja |
 | ttl | Ja |
 | writetime | Ja |
-| långa | Inga |
+| långa | Nej |
 
 \* API för Cassandra stöder token som en projektion/väljare och tillåter bara token (PK) till vänster i en WHERE-sats. Stöds till exempel `WHERE token(pk) > 1024` , men `WHERE token(pk) > token(100)` stöds inte.
 
@@ -131,48 +131,49 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 |---------|---------|
 | TILLÅT FILTRERING | Ja |
 | ÄNDRA TECKEN AVSTÅND | Ej tillämpligt (PaaS-tjänst, replikering hanteras internt)|
-| ÄNDRA MATERIALISERAD VY | Inga |
-| ÄNDRA ROLL | Inga |
+| ÄNDRA MATERIALISERAD VY | Nej |
+| ÄNDRA ROLL | Nej |
 | ALTER TABLE | Ja |
-| ÄNDRA TYP | Inga |
-| ÄNDRA ANVÄNDARE | Inga |
+| ÄNDRA TYP | Nej |
+| ÄNDRA ANVÄNDARE | Nej |
 | BATCHUPPGIFTEN | Ja (endast inloggad batch)|
 | KOMPAKT LAGRING | Ej tillämpligt (PaaS-tjänst) |
-| SKAPA MÄNGD | Inga | 
-| SKAPA ETT ANPASSAT INDEX (SASI) | Inga |
+| SKAPA MÄNGD | Nej | 
+| SKAPA ETT ANPASSAT INDEX (SASI) | Nej |
 | CREATE INDEX | Ja (utan att [Ange index namn](cassandra-secondary-index.md)och index på kluster nycklar eller en fullständig frusen samling stöds inte) |
-| SKAPA FUNKTION | Inga |
+| CREATE FUNCTION | Nej |
 | SKAPA ett tecken utrymme (replikeringsinställningar ignoreras) | Ja |
-| SKAPA MATERIALISERAD VY | Inga |
+| SKAPA MATERIALISERAD VY | Nej |
 | CREATE TABLE | Ja |
-| SKAPA UTLÖSARE | Inga |
+| SKAPA UTLÖSARE | Nej |
 | SKAPA TYP | Ja |
-| SKAPA ROLL | Inga |
-| Skapa användare (inaktuellt i ursprunglig Apache-Cassandra) | Inga |
+| SKAPA ROLL | Nej |
+| Skapa användare (inaktuellt i ursprunglig Apache-Cassandra) | Nej |
 | DELETE | Ja |
 | TA bort (Lightweight-transaktioner med IF-villkor)| Ja |
-| SLÄPP AGG REGERING | Inga |
-| SLÄPP FUNKTION | Inga |
+| DISTINKTA | Nej |
+| SLÄPP AGG REGERING | Nej |
+| DROP FUNCTION | Nej |
 | DROP INDEX | Ja |
 | SLÄPP BLANK STEG | Ja |
-| TA BORT MATERIALISERAD VY | Inga |
-| TA BORT ROLL | Inga |
-| TA BORT TABELL | Ja |
-| SLÄPP UTLÖSARE | Inga | 
+| TA BORT MATERIALISERAD VY | Nej |
+| TA BORT ROLL | Nej |
+| DROP TABLE | Ja |
+| SLÄPP UTLÖSARE | Nej | 
 | SLÄPP TYP | Ja |
-| SLÄPP användare (inaktuellt i native Apache Cassandra) | Inga |
-| ÖMSESIDIGT | Inga |
+| SLÄPP användare (inaktuellt i native Apache Cassandra) | Nej |
+| GRANT | Nej |
 | INSERT | Ja |
 | Infoga (Lightweight-transaktioner med IF-villkor)| Ja |
-| LIST BEHÖRIGHETER | Inga |
-| LIST ROLLER | Inga |
-| LISTA användare (föråldrade i ursprunglig Apache-Cassandra) | Inga |
-| KVARHÅLL | Inga |
-| VÄLJ | Ja |
-| Välj (Lightweight-transaktioner med IF-villkor)| Inga |
+| LIST BEHÖRIGHETER | Nej |
+| LIST ROLLER | Nej |
+| LISTA användare (föråldrade i ursprunglig Apache-Cassandra) | Nej |
+| REVOKE | Nej |
+| SELECT | Ja |
+| Välj (Lightweight-transaktioner med IF-villkor)| Nej |
 | UPDATE | Ja |
-| Uppdatera (Lightweight-transaktioner med IF-villkor)| Inga |
-| TRUNCATE | Inga |
+| Uppdatera (Lightweight-transaktioner med IF-villkor)| Nej |
+| TRUNCATE | Nej |
 | USE | Ja |
 
 ## <a name="json-support"></a>JSON-stöd
@@ -180,8 +181,8 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 |---------|---------|
 | VÄLJ JSON | Ja |
 | INFOGA JSON | Ja |
-| fromJson() | Inga |
-| toJson() | Inga |
+| fromJson() | Nej |
+| toJson() | Nej |
 
 
 ## <a name="cassandra-api-limits"></a>Begränsningar i API:et för Cassandra

@@ -5,18 +5,18 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: eead2d6ae2860bf06f1b878c1bb1692d74c06df6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e56d1add36d4296526348d12d7c0b6eb03108f27
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87055971"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104367"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Azure Blob Storage-bindningar för Azure Functions översikt
 
 Azure Functions integreras med [Azure Storage](../storage/index.yml) via [utlösare och bindningar](./functions-triggers-bindings.md). Genom att integrera med Blob Storage kan du skapa funktioner som reagerar på ändringar i BLOB-data samt läsa och skriva värden.
 
-| Action | Typ |
+| Åtgärd | Typ |
 |---------|---------|
 | Kör en funktion som data ändringar i Blob Storage | [Utlösare](./functions-bindings-storage-blob-trigger.md) |
 | Läsa Blob Storage-data i en funktion | [Binda in](./functions-bindings-storage-blob-input.md) |
@@ -37,7 +37,7 @@ Om du arbetar med utlösaren och bindningarna måste du referera till rätt pake
 [core tools]: ./functions-run-local.md
 [paket för tillägg]: ./functions-bindings-register.md#extension-bundles
 [NuGet-paket]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Uppdatera dina tillägg]: ./install-update-binding-extensions-manual.md
+[Uppdatera dina tillägg]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

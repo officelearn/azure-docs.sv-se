@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446171"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108855"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Skapa mått varningar för loggar i Azure Monitor
 
@@ -62,7 +62,7 @@ Innan Mät värdet för loggar som samlats in på Log Analytics data fungerar m�
 
  Mått aviseringar kan skapas och hanteras med hjälp av Azure Portal, Resource Manager-mallar, REST API, PowerShell och Azure CLI. Eftersom mått aviseringar för loggar är en variant av mått aviseringar – när förutsättningarna är klara kan du skapa mått avisering för loggar för den angivna Log Analytics arbets ytan. Alla egenskaper och funktioner för [mått aviseringar](./alerts-metric-near-real-time.md) gäller även för mått aviseringar för loggar. inklusive nytto Last schema, tillämpliga kvot gränser och fakturerat pris.
 
-Steg-för-steg-information och exempel – se [skapa och hantera mått aviseringar](https://aka.ms/createmetricalert). Mer specifikt för mått aviseringar för loggar – Följ anvisningarna för att hantera mått varningar och se till att följande:
+Steg-för-steg-information och exempel – se [skapa och hantera mått aviseringar](./alerts-metric.md). Mer specifikt för mått aviseringar för loggar – Följ anvisningarna för att hantera mått varningar och se till att följande:
 
 - Mål för mått avisering är giltig *Log Analytics arbets yta*
 - Den signal som valts för mått avisering för den valda *Log Analytics arbets ytan* är av typen **mått**
@@ -690,4 +690,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - Lär dig mer om [mått aviseringarna](alerts-metric.md).
 - Lär dig mer om [logg aviseringar i Azure](./alerts-unified-log.md).
 - Lär dig mer om [aviseringar i Azure](alerts-overview.md).
-

@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497190"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109161"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Kryptering av data i Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Data under överföring (även kallade data i rörelse) krypteras också alltid 
 
 Kryptering för Data Lake Storage Gen1 ställs in när kontot skapas och är alltid aktiverat som standard. Du kan antingen hantera nycklarna själv eller låta Data Lake Storage Gen1 hantera dem åt dig (detta är standardinställningen).
 
-Mer information finns i [Komma igång](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Mer information finns i [Komma igång](./data-lake-store-get-started-portal.md).
 
 ## <a name="how-encryption-works-in-data-lake-storage-gen1"></a>Så här fungerar kryptering i Data Lake Storage Gen1
 
@@ -56,7 +56,7 @@ Här är en kort jämförelse av funktionerna som tillhandahålls i de två läg
 | -------- | -------------------- | --------------------- |
 |Hur lagras data?|Data krypteras alltid innan de lagras.|Data krypteras alltid innan de lagras.|
 |Var lagras huvudkrypteringsnyckeln?|Key Vault|Key Vault|
-|Finns det krypteringsnycklar som lagras i klartext utanför Key Vault? |Inga|Inga|
+|Finns det krypteringsnycklar som lagras i klartext utanför Key Vault? |Nej|Nej|
 |Kan huvudkrypteringsnyckeln hämtas från Key Vault?|Nej. När den har lagrats i Key Vault kan den endast användas för kryptering och dekryptering.|Nej. När den har lagrats i Key Vault kan den endast användas för kryptering och dekryptering.|
 |Vem äger Key Vault-instansen och huvudkrypteringsnyckeln?|Tjänsten Data Lake Storage Gen1|Du äger nyckelvalvsinstansen som ingår i din Azure-prenumeration. Huvudkrypteringsnyckeln i Key Vault kan hanteras av programvara eller maskinvara.|
 |Kan du återkalla åtkomsten till huvud krypterings nyckeln för den Data Lake Storage Gen1 tjänsten?|Nej|Ja. Du kan hantera åtkomst kontrol listor i Key Vault och ta bort åtkomst kontroll poster för tjänst identiteten för tjänsten Data Lake Storage Gen1.|
@@ -74,11 +74,11 @@ Det är viktigt att komma ihåg följande när du väljer läge för huvudkrypte
 
 Det finns tre typer av nycklar som används i utformningen av datakryptering. I följande tabell visas en sammanfattning:
 
-| Tangent                   | Förkortning | Kopplad till | Lagringsplats                             | Typ       | Obs!                                                                                                   |
+| Nyckel                   | Förkortning | Kopplad till | Lagringsplats                             | Typ       | Kommentarer                                                                                                   |
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Huvudkrypteringsnyckel | MEK          | Ett Data Lake Storage Gen1 konto | Key Vault                              | Asymmetrisk | Den kan hanteras av Data Lake Storage Gen1 eller dig.                                                              |
 | Datakrypteringsnyckel   | DEK          | Ett Data Lake Storage Gen1 konto | Beständig lagring som hanteras av den Data Lake Storage Gen1 tjänsten | Symmetrisk  | DEK krypteras av MEK. Den krypterade DEK lagras på permanenta medier. |
-| Blockkrypteringsnyckel  | BEK          | Ett datablock | Inget                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
+| Blockkrypteringsnyckel  | BEK          | Ett datablock | Inga                                         | Symmetrisk  | BEK härleds från DEK och datablocket.                                                      |
 
 Följande diagram illustrerar dessa begrepp:
 
@@ -105,7 +105,7 @@ Följande diagram illustrerar dessa begrepp:
 
 ## <a name="key-rotation"></a>Nyckelrotation
 
-När du använder kundhanterade nycklar kan du rotera huvudkrypteringsnyckeln. Information om hur du konfigurerar ett Data Lake Storage Gen1 konto med Kundhanterade nycklar finns i [komma igång](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+När du använder kundhanterade nycklar kan du rotera huvudkrypteringsnyckeln. Information om hur du konfigurerar ett Data Lake Storage Gen1 konto med Kundhanterade nycklar finns i [komma igång](./data-lake-store-get-started-portal.md).
 
 ### <a name="prerequisites"></a>Krav
 
@@ -135,4 +135,4 @@ Observera att om du använder standard alternativen för kryptering krypteras di
 Den här åtgärden tar normalt mindre än två minuter och ingen stilleståndstid förväntas på grund av nyckelrotationen. När åtgärden har slutförts används den nya versionen av nyckeln.
 
 > [!IMPORTANT]
-> När nyckelrotationen har slutförts används inte längre den äldre nyckelversionen aktivt till att kryptera data.  I sällsynta fall när ett oväntat fel inträffar och även redundanta kopior av dina data påverkas, kan dock data återställas från en säkerhetskopia som fortfarande använder den gamla nyckeln. Om du vill se till att dina data är tillgängliga i dessa sällsynta fall, behåller du en kopia av den tidigare versionen av krypteringsnyckeln. Se [rikt linjerna för haveri beredskap för data i data Lake Storage gen1](data-lake-store-disaster-recovery-guidance.md) för bästa praxis för haveri beredskaps planeringen. 
+> När nyckelrotationen har slutförts används inte längre den äldre nyckelversionen aktivt till att kryptera data.  I sällsynta fall när ett oväntat fel inträffar och även redundanta kopior av dina data påverkas, kan dock data återställas från en säkerhetskopia som fortfarande använder den gamla nyckeln. Om du vill se till att dina data är tillgängliga i dessa sällsynta fall, behåller du en kopia av den tidigare versionen av krypteringsnyckeln. Se [rikt linjerna för haveri beredskap för data i data Lake Storage gen1](data-lake-store-disaster-recovery-guidance.md) för bästa praxis för haveri beredskaps planeringen.

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdc367e3db298b60dc9a15453d58a738c13274a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317352"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108311"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Skapa en Azure-Arc-aktiverad PostgreSQL Hyperskala-servergrupp
 
@@ -130,7 +130,7 @@ Exempel:
 ]
 ```
 
-Du kan använda PostgreSQL-instansens slut punkt för att ansluta till PostgreSQL-Server gruppen från ditt favorit verktyg:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [Pgcli](https://www.pgcli.com/) psql, pgAdmin osv.
+Du kan använda PostgreSQL-instansens slut punkt för att ansluta till PostgreSQL-Server gruppen från ditt favorit verktyg:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [Pgcli](https://www.pgcli.com/) psql, pgAdmin osv.
 
 Följ instruktionerna nedan om du använder en virtuell Azure-dator för att testa:
 

@@ -1,6 +1,6 @@
 ---
-title: Arbeta med befintliga lokala proxyservrar och Azure AD | Microsoft Docs
-description: Beskriver hur du arbetar med befintliga lokala proxyservrar.
+title: Arbeta med befintliga lokala proxyservrar och Azure Active Directory
+description: Beskriver hur du arbetar med befintliga lokala proxyservrar med Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -11,13 +11,12 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2311b905aeeaacb6c445f441d5268d06a150de64
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88077517"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107648"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -117,12 +116,12 @@ Tillåt åtkomst till följande webbadresser:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Anslutnings tjänsten använder dessa URL: er för att verifiera certifikat |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.net <br> *. msauthimages.net<br>*. msecnd.net <br> *. msftauth.net<br>*. msftauthimages.net <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 
-Om din brand vägg eller proxy låter dig konfigurera listor över tillåtna DNS-listor kan du tillåta anslutningar till \* . msappproxy.net och \* . ServiceBus.Windows.net. Om inte, måste du tillåta åtkomst till [Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). IP-adressintervallen uppdateras varje vecka.
+Om din brand vägg eller proxy låter dig konfigurera listor över tillåtna DNS-listor kan du tillåta anslutningar till \* . msappproxy.net och \* . ServiceBus.Windows.net.
 
 Om du inte kan tillåta anslutning av FQDN och behöver ange IP-adressintervall i stället, använder du följande alternativ:
 
 * Tillåt anslutningen utgående åtkomst till alla destinationer.
-* Tillåt anslutningen utgående åtkomst till alla [Azure datacenter IP-intervall](https://www.microsoft.com//download/details.aspx?id=41653). Utmaningen med att använda listan över IP-intervall för Azure-datacenter är att den uppdateras varje vecka. Du måste placera en process för att se till att dina åtkomst regler uppdateras i enlighet med detta. Om du bara använder en delmängd av IP-adresserna kan konfigurationen brytas.
+* Tillåt anslutningen utgående åtkomst till alla Azure datacenter IP-intervall. Utmaningen med att använda listan över IP-intervall för Azure-datacenter är att den uppdateras varje vecka. Du måste placera en process för att se till att dina åtkomst regler uppdateras i enlighet med detta. Om du bara använder en delmängd av IP-adresserna kan konfigurationen brytas. Hämta de senaste IP-intervallen för Azure Data Center genom att gå till [https://download.microsoft.com](https://download.microsoft.com) och söka efter "Azure IP-intervall och service märken". Se till att välja det relevanta molnet. Till exempel kan de offentliga molnets IP-intervall hittas med "Azure IP-intervall och service märken – offentligt moln". Du hittar det amerikanska goverment-molnet genom att söka efter "Azure IP-intervall och service-Taggar – US goverment Cloud".
 
 #### <a name="proxy-authentication"></a>Proxyautentisering
 

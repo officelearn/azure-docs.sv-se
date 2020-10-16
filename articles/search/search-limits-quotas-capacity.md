@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.openlocfilehash: 6c422b9a70f679279d1310444aafb1f9131ff944
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: f3763857af1df8f34f38b36835a667c6610e1909
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949858"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107835"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänstbegränsningar i Azure Cognitive Search
 
@@ -101,10 +101,9 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 > [!NOTE]
 > Som det anges i [index gränserna](#index-limits)kommer indexerarna också att genomdriva den övre gränsen på 3000 element i alla komplexa samlingar per dokument som börjar med den senaste ga API-versionen som stöder komplexa typer ( `2019-05-06` ) och senare. Det innebär att om du har skapat din indexerare med en tidigare API-version kommer du inte att omfattas av den här gränsen. För att bevara maximal kompatibilitet kommer en indexerare som har skapats med en tidigare API-version och sedan uppdaterats med en API `2019-05-06` -version eller senare fortfarande att **undantas** från gränserna. Kunderna bör vara medvetna om den negativa effekten av att ha mycket stora komplexa samlingar (som tidigare nämnts) och vi rekommenderar starkt att du skapar alla nya indexerare med den senaste GA API-versionen.
 
-### <a name="shared-private-link-resource-limits"></a>Resurs gränser för delade privata länkar
+## <a name="shared-private-link-resource-limits"></a>Resurs gränser för delade privata länkar
 
-> [!NOTE]
-> Indexerare kan komma åt resurser på ett säkert sätt över privata slut punkter som hanteras via den [delade privata länk resurs-API: et](/rest/api/searchmanagement/sharedprivatelinkresources) enligt beskrivningen i [den här instruktions guiden](search-indexer-howto-access-private.md)
+Indexerare kan komma åt andra Azure-resurser [via privata slut punkter](search-indexer-howto-access-private.md) som hanteras via det [delade privata länk resurs-API: et](/rest/api/searchmanagement/sharedprivatelinkresources). I det här avsnittet beskrivs de gränser som är kopplade till den här funktionen.
 
 | Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -113,7 +112,7 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 | Maximalt antal privata slut punkter | Saknas | 10 eller 30 | 100 | 400 | 400 | Saknas | 20 | 20 |
 | Maximalt antal distinkta resurs typer<sup>2</sup> | Saknas | 4 | 7 | 15 | 15 | Saknas | 4 | 4 |
 
-<sup>1</sup> AI-anrikning och bild analys är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft, och därför kan de lägre Sök tjänst nivåerna som de kan köra i den privata miljön påverka prestanda och stabilitet för Sök tjänsten.
+<sup>1</sup> AI-anrikning och bild analys är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft. Av den anledningen är privata anslutningar inaktiverade på lägre nivåer för att undvika en negativ inverkan på själva Sök tjänstens prestanda och stabilitet.
 
 <sup>2</sup> antalet distinkta resurs typer beräknas som antalet unika `groupId` värden som används i alla delade privata länk resurser för en viss Sök tjänst, oavsett resursens status.
 

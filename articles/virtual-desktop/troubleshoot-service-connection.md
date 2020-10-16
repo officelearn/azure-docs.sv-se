@@ -3,15 +3,15 @@ title: Felsöka tjänst anslutning Windows Virtual Desktop – Azure
 description: Lösa problem när du konfigurerar tjänst anslutningar i en Windows-klient för virtuella skriv bord.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089912"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108957"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Anslutningar till virtuella Windows-datorer
 
@@ -45,6 +45,13 @@ En användare kan starta fjärr skrivbords klienter och kan autentisera, men anv
 Det här felet visas vanligt vis när en användare har flyttat prenumerationen från en Azure AD-klient till en annan. Därför förlorar tjänsten spårning av användar tilldelningar eftersom de fortfarande är knutna till den gamla Azure AD-klienten.
 
 För att lösa detta behöver du bara tilldela om användarna till sina app-grupper.
+
+Detta kan också inträffa om en CSP-Provider skapade prenumerationen och sedan överförts till kunden. För att lösa detta omregistrerar du resurs leverantören.
+
+1. Logga in på Azure Portal.
+2. Gå till **prenumeration**och välj din prenumeration.
+3. I menyn på vänster sida av sidan väljer du **resurs leverantör**.
+4. Leta upp och markera **Microsoft. DesktopVirtualization**och välj sedan **registrera igen**.
 
 ## <a name="next-steps"></a>Nästa steg
 

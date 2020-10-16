@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7d8f51b12c16afbb8a0cf71e99b9b357719db4be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74ff6983b08b6f19a94384be7c4361d4266d6a20
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319052"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108770"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Snabb start: Bygg en att göra-app med Xamarin med Azure Cosmos DB SQL API-konto
 
@@ -36,7 +36,7 @@ Den här snabbstarten visar hur du skapar ett SQL API-konto i Azure Cosmos DB, e
 
 :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png" alt-text="Att göra-app i Xamarin som körs på iOS":::
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du utvecklar på Windows och inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar arbetsbelastningarna **Azure-utveckling** och **Mobil utveckling med .NET** under installationen av Visual Studio.
 
@@ -68,7 +68,7 @@ Nu ska vi klona SQL API-appen i Xamarin från GitHub, granska koden, hämta API-
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Öppna ett git-terminalfönster, t.ex. git bash, och använd kommandot `cd` för att ändra till den nya mappen där du vill installera exempelappen.
@@ -83,7 +83,7 @@ Nu ska vi klona SQL API-appen i Xamarin från GitHub, granska koden, hämta API-
     git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-4. Öppna sedan filen ToDoItems.sln från mappen samples/xamarin/ToDoItems i Visual Studio.
+4. Öppna **C:\git-samples\azure-Cosmos-DB-SQL-Xamarin-Getting-started\src\ToDoItems.SLN** i Visual Studio 
 
 ## <a name="obtain-your-api-keys"></a>Hämta dina API-nycklar
 
@@ -93,15 +93,21 @@ Gå tillbaka till Azure Portal för att hämta API-nyckelinformationen och kopie
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Att göra-app i Xamarin som körs på iOS":::
 
-2. I antingen Visual Studio 2019 eller Visual Studio för Mac öppnar du filen APIKeys.cs i mappen Azure-Cosmos-DB-SQL-Xamarin-Getting-Started/src/ToDoItems. Core/helpers.
+2. Öppna **ToDoItems. Core/helpers/APIKeys. cs**i Visual Studio.
 
-3. Kopiera ditt URI-värde från portalen (med kopieringsknappen) och ange det som värde för variabeln `CosmosEndpointUrl` i APIKeys.cs.
+3. Kopiera **URI** -värdet i Azure-portalen med kopierings knappen och gör det till värdet för `CosmosEndpointUrl` variabeln i APIKeys.cs.
 
-    `public static readonly string CosmosEndpointUrl = "";`
+    ```csharp
+    //#error Enter the URL of your Azure Cosmos DB endpoint here
+            public static readonly string CosmosEndpointUrl = "[URI Copied from Azure Portal]";
+    ```
 
-4. Kopiera sedan värdet för PRIMÄRNYCKEL från portalen och gör det till värdet för `Cosmos Auth Key` i APIKeys.cs.
+4. I Azure-portalen, med kopierings knappen, kopierar du värdet för **primär nyckel** och gör det till värdet för `Cosmos Auth Key` i APIKeys.cs.
 
-    `public static readonly string CosmosAuthKey = "";`
+    ```csharp
+    //#error Enter the read/write authentication key of your Azure Cosmos DB endpoint here
+            public static readonly string CosmosAuthKey = "[PRIMARY KEY copied from Azure Portal";
+    ```
 
 [!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
@@ -113,15 +119,18 @@ Den här lösningen visar hur du skapar en att göra-app med SQL API i Azure Cos
 
 Koden i ToDoItems-lösningen innehåller:
 
-* ToDoItems.Core: Detta är ett standardprojekt i .NET med ett Xamarin.Forms-projekt och delad programlogikkod som hanterar att göra-objekt i Azure Cosmos DB.
-* ToDoItems.Android: Projektet innehåller Android-appen.
-* ToDoItems.iOS: Projektet innehåller iOS-appen.
+* **ToDoItems. Core**
+   * Detta är ett standardprojekt i .NET med ett Xamarin.Forms-projekt och delad programlogikkod som hanterar att göra-objekt i Azure Cosmos DB.
+* **ToDoItems. Android**
+  * Projektet innehåller Android-appen.
+* **ToDoItems. iOS**
+  * Projektet innehåller iOS-appen.
 
 Nu ska vi ta en snabb titt på hur appen kommunicerar med Azure Cosmos DB.
 
 * NuGet-paketet [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) måste läggas till i alla projekt.
-* - `ToDoItem` Klassen i mappen mappen/Samples/Xamarin/ToDoItems/ToDoItems. Core/Models modellerar dokumenten i behållaren **objekt** som har skapats ovan. Observera att egenskapsnamnet är skiftlägeskänsligt.
-* `CosmosDBService`-klassen i mappen azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services kapslar in kommunikationen till Azure Cosmos DB.
+* - `ToDoItem` Klassen i **ToDoItems. Core/Models-** mappen modellerar dokumenten i behållaren **objekt** som har skapats ovan. Observera att egenskapsnamnet är skiftlägeskänsligt.
+* `CosmosDBService`-Klassen i mappen **ToDoItems. Core/Services** kapslar in kommunikationen till Azure Cosmos dB.
 * I `CosmosDBService`-klassen finns det en variabel av typen `DocumentClient`. `DocumentClient`Används för att konfigurera och köra begär Anden mot Azure Cosmos DB kontot och instansieras:
 
     ```csharp

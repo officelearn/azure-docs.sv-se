@@ -4,18 +4,18 @@ description: Lär dig hur du använder Azure Arc-aktiverade servrar för att han
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
 ms.date: 10/07/2020
 ms.topic: overview
-ms.openlocfilehash: 881445b19baef4e025cf3bd32dc3b55b2d170ec3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: c8d74bcaa7eb0b4adbb5aaf66626b9bfc349d639
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91818743"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108906"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>Vad är Azure Arc-aktiverade servrar?
 
 Med Azure Arc-aktiverade servrar kan du hantera dina Windows-och Linux-datorer utanför Azure, i företagets nätverk eller annan moln leverantör, på samma sätt som du hanterar virtuella datorer i Azure. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar. Tjänste leverantörer som hanterar en kunds lokala infrastruktur kan hantera sina hybrid datorer, precis som de gör i dag med interna Azure-resurser, i flera kund miljöer med [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) med Azure Arc.
 
-För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Azure måste den Azure-anslutna dator agenten installeras på varje dator som du planerar att ansluta till Azure. Den här agenten levererar inga andra funktioner och ersätter inte Azure [Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
+För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Azure måste den Azure-anslutna dator agenten installeras på varje dator som du planerar att ansluta till Azure. Den här agenten levererar inga andra funktioner och ersätter inte Azure [Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-introduction.md).
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
@@ -31,7 +31,7 @@ När du ansluter datorn till Azure Arc-aktiverade servrar kan du utföra följan
 
 - Använd [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md) i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-servrar. Distribuera först [hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) -rollen och följ sedan stegen för att [Aktivera uppdateringshantering](../../automation/update-management/update-mgmt-enable-portal.md) på din icke-Azure Windows-eller Linux-dator.
 
-- Ta med dina icke-Azure-servrar för hot identifiering och proaktiv övervakning för potentiella säkerhetshot med hjälp av [Azure Security Center](../../security-center/security-center-intro.md).
+- Ta med dina icke-Azure-servrar för hot identifiering och proaktiv övervakning för potentiella säkerhetshot med hjälp av [Azure Security Center](../../security-center/security-center-introduction.md).
 
 Loggdata som samlas in och lagras i en Log Analytics-arbetsyta från hybrid datorn innehåller nu egenskaper som är speciella för datorn, till exempel ett resurs-ID. Detta kan användas för att ge stöd åt [resurs Sammanhangs](../../azure-monitor/platform/design-logs-deployment.md#access-mode) logg åtkomst.
 

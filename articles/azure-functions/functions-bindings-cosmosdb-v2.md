@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2017
 ms.author: cshoe
-ms.openlocfilehash: 2c6efd14bd974de1b01b1725b9810f153df74bf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dde3b95c7997a7f742a9d48a964f4275169f6e9c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85482181"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106934"
 ---
 # <a name="azure-cosmos-db-trigger-and-bindings-for-azure-functions-2x-and-higher-overview"></a>Azure Cosmos DB utlösare och bindningar för Azure Functions 2. x och högre översikt
 
@@ -20,7 +20,7 @@ ms.locfileid: "85482181"
 
 I den här uppsättningen artiklar förklaras hur du arbetar med [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) -bindningar i Azure Functions 2. x och högre. Azure Functions stöd för utlösare, indata och utgående bindningar för Azure Cosmos DB.
 
-| Action | Typ |
+| Åtgärd | Typ |
 |---------|---------|
 | Köra en funktion när ett Azure Cosmos DB-dokument skapas eller ändras | [Utlösare](./functions-bindings-cosmosdb-v2-trigger.md) |
 | Läsa ett Azure Cosmos DB dokument | [Binda in](./functions-bindings-cosmosdb-v2-input.md) |
@@ -50,7 +50,7 @@ Om du arbetar med utlösaren och bindningarna måste du referera till rätt pake
 [NuGet-paket]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB
 [core tools]: ./functions-run-local.md
 [paket för tillägg]: ./functions-bindings-register.md#extension-bundles
-[Uppdatera dina tillägg]: ./install-update-binding-extensions-manual.md
+[Uppdatera dina tillägg]: ./functions-bindings-register.md
 [Tillägg för Azure-verktyg]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Functions 1.x

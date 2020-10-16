@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 86c2c7383f3850b0c51831f94e673c3941894a08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e415cbec3b2e8c834ee02630d7f849ccf3e1e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548906"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Självstudie: Azure Active Directory integration med identifiera
 
@@ -139,15 +139,15 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med ide
 
 2. Klicka på **meny**i det övre högra hörnet. Gå till **företags administratör**.
    
-    ![Konfigurera enkel inloggning på appsidan](./media/recognize-tutorial/tutorial_recognize_000.png)
+    ![Skärm bild som visar företags administratör som valts på menyn Inställningar.](./media/recognize-tutorial/tutorial_recognize_000.png)
 
 3. I det vänstra navigeringsfönstret klickar du på **Inställningar**.
    
-    ![Konfigurera enkel inloggning på appsidan](./media/recognize-tutorial/tutorial_recognize_001.png)
+    ![Skärm bilden visar inställningar som valts från navigerings sidan.](./media/recognize-tutorial/tutorial_recognize_001.png)
 
 4. Utför följande steg i avsnittet **SSO-inställningar** .
    
-    ![Konfigurera enkel inloggning på appsidan](./media/recognize-tutorial/tutorial_recognize_002.png)
+    ![Skärm bild som visar S S O-inställningar där du kan ange de värden som beskrivs.](./media/recognize-tutorial/tutorial_recognize_002.png)
     
     a. Som **Aktivera SSO**väljer du **på**.
 
@@ -163,11 +163,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med ide
 
 5. Under avsnittet **SSO-inställningar** kopierar du webb adressen under **providerns metadata-URL**.
    
-    ![Konfigurera enkel inloggning på appsidan](./media/recognize-tutorial/tutorial_recognize_003.png)
+    ![Skärm bild som visar anteckningar där du kan kopiera metadata för tjänste leverantören.](./media/recognize-tutorial/tutorial_recognize_003.png)
 
 6. Öppna **URL-länken för metadata** under en tom webbläsare för att ladda ned Metadatadokumentet. Kopiera sedan EntityDescriptor-värdet (entityID) från filen och klistra in den i text rutan **identifierare** i den **grundläggande SAML-konfigurationen** på Azure Portal.
     
-    ![Konfigurera enkel inloggning på appsidan](./media/recognize-tutorial/tutorial_recognize_004.png)
+    ![Skärm bild som visar en text ruta med vanlig text X M L där du kan hämta entiteten I D.](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 6e34e0ef9035882a32ff46222686db4a948d7997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77a6ec54495b394c597f6d6b4ddb5f5fe3285550
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85957468"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107478"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch åter givnings funktioner
 
@@ -75,7 +75,7 @@ Arnold 2017-kommando rad|kick.exe|ARNOLD_2017_EXEC|
 
 Precis som med andra arbets belastningar varierar kraven på program systemet och prestanda kraven varierar för jobb och projekt.  En stor mängd olika VM-familjer är tillgängliga i Azure beroende på dina krav – lägsta kostnad, bästa pris/prestanda, bästa prestanda och så vidare.
 Vissa åter givnings program, till exempel Arnold, är CPU-baserade. andra som V-Ray-och blends-cykler kan använda processorer och/eller GPU: er.
-En beskrivning av tillgängliga VM-familjer och VM-storlekar [finns i VM-typer och storlekar](../virtual-machines/windows/sizes.md).
+En beskrivning av tillgängliga VM-familjer och VM-storlekar [finns i VM-typer och storlekar](../virtual-machines/sizes.md).
 
 ### <a name="low-priority-vms"></a>Lågprioriterade virtuella datorer
 

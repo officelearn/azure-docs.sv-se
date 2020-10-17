@@ -6,13 +6,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
-ms.date: 10/02/2020
-ms.openlocfilehash: 620fe1e693a177123e166220ab94bbd74c4826ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761540"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151370"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Felsöka vanliga problem i Azure Data Share 
 
@@ -61,12 +61,20 @@ Om det här är första gången du delar eller tar emot data från Azure Data St
 SQL-baserad delning kräver ytterligare behörigheter. Se [Dela från SQL-källor](how-to-share-from-sql.md) för detaljerad lista över krav.
 
 ## <a name="snapshot-failed"></a>Ögonblicks bild misslyckades
-Det gick inte att ta ögonblicks bilder på grund av olika orsaker. Du hittar ett detaljerat fel meddelande genom att klicka på Start tiden för ögonblicks bilden och sedan på status för varje data uppsättning. Följande är orsaken till varför det inte går att ögonblicks bilder:
+Det gick inte att ta ögonblicks bilder på grund av olika orsaker. Du hittar ett detaljerat fel meddelande genom att klicka på Start tiden för ögonblicks bilden och sedan på status för varje data uppsättning. Följande är vanliga orsaker till att ögonblicks bilder Miss lyckas:
 
 * Data resursen har inte behörighet att läsa från käll data lagret eller skriva till mål data lagret. Se [roller och krav](concepts-roles-permissions.md) för detaljerade behörighets krav. Om det här är första gången du tar en ögonblicks bild kan det ta några minuter för data resurs resursen att beviljas åtkomst till Azure Data Store. Vänta några minuter och försök igen.
 * Data delnings anslutningen till käll-eller mål data lagret blockeras av brand väggen.
 * Den delade data mängden eller käll-eller mål data lagret har tagits bort.
-* För SQL-delning stöds inte data typerna av ögonblicks bild processen eller mål data lagret. Mer information finns i [Dela från SQL-källor](how-to-share-from-sql.md#supported-data-types) .
+
+För SQL-källor är följande ytterligare orsaker till fel i ögonblicks bilder. 
+
+* Käll-eller mål-SQL-skriptet för att bevilja behörighet för data resurs körs inte eller körs med SQL-autentisering i stället för Azure Active Directory autentisering.  
+* Käll-eller mål-SQL data lagret har pausats.
+* SQL-datatyper stöds inte av ögonblicks bild processen eller mål data lagret. Mer information finns i [Dela från SQL-källor](how-to-share-from-sql.md#supported-data-types) .
+* Käll-eller mål-SQL data lagret har låsts av andra processer. Azure Data Share tillämpar inte lås på käll-och mål-SQL data lager. Befintliga lås på käll-och mål-SQL data lagret leder dock till att ögonblicks bilder Miss lyckas.
+* Mål-SQL-tabellen refereras till av en sekundär nyckel begränsning. Om det finns en mål tabell med samma namn i ögonblicks bilden, tas tabellen bort och en ny tabell skapas i Azure Data Share. Om en sekundär nyckel begränsning refereras till mål-SQL-tabellen går det inte att släppa tabellen.
+* Mål-CSV-filen genereras, men det går inte att läsa data i Excel. Detta kan inträffa när käll-SQL-tabellen innehåller data med tecken som inte är engelska. I Excel, Välj fliken Hämta data och välj CSV-filen, Välj fil ursprung som 65001: Unicode (UTF-8) och Läs in data.
 
 ## <a name="next-steps"></a>Nästa steg
 

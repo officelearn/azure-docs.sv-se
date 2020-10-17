@@ -5,15 +5,15 @@ ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
 ms.topic: article
 ms.date: 10/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 11798db483f0ba370f73340489c17f38c87ede41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949e408544e25cb55622cf2a1b1d2dddb92350a6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080206"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150153"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Operativ system funktioner på Azure App Service
-I den här artikeln beskrivs vanliga funktioner för bas linje operativ system som är tillgängliga för alla Windows-appar som körs på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen omfattar fil-, nätverks-och register åtkomst samt diagnostikloggar och händelser. 
+I den här artikeln beskrivs vanliga funktioner för bas linje operativ system som är tillgängliga för alla Windows-appar som körs på [Azure App Service](./overview.md). Den här funktionen omfattar fil-, nätverks-och register åtkomst samt diagnostikloggar och händelser. 
 
 > [!NOTE] 
 > [Linux-appar](overview.md#app-service-on-linux) i App Service köras i sina egna behållare. Ingen åtkomst till värd operativ systemet tillåts, du har rot åtkomst till behållaren. På samma sätt har du administrativ åtkomst till behållaren, men ingen åtkomst till värd operativ systemet för [appar som körs i Windows-behållare](quickstart-custom-container.md?pivots=container-windows). 
@@ -126,4 +126,3 @@ App Service ger inte fjärr skrivbords åtkomst till de virtuella dator instanse
 ## <a name="more-information"></a>Mer information
 
 [Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) – den mest aktuella informationen om körnings miljön för App Service. Den här sidan underhålls direkt av App Service Development-teamet.
-

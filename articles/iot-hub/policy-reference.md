@@ -7,16 +7,16 @@ author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bcb7a8e040a8e32a8513e5e0e73d6c124e04563a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66b74fd8fe326666d3c34b59acba383fd4205e17
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816276"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151328"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-iot-hub"></a>Azure Policy inbyggda definitioner för Azure IoT Hub
 
-IoT Hub exempel kod som visar hur du implementerar vanliga IoT-scenarier finns i [IoT Hub snabb starter](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-cli). Det finns snabb starter för flera programmeringsspråk, inklusive C, Node.js och python.
+IoT Hub exempel kod som visar hur du implementerar vanliga IoT-scenarier finns i [IoT Hub snabb starter](./quickstart-send-telemetry-cli.md). Det finns snabb starter för flera programmeringsspråk, inklusive C, Node.js och python.
 
 Den här sidan är ett index över [Azure policy](../governance/policy/overview.md) inbyggda princip definitioner för Azure IoT Hub. Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../governance/policy/samples/built-in-policies.md).
 

@@ -5,15 +5,15 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 50b3cae00110a64e4d95171822bf1d2a282d2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 653110b953b6947254d5063a9e389505d45ea4cb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715404"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149020"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S-distribution](deploy-ftp.md). Autentiseringsuppgifterna är inte desamma som dina autentiseringsuppgifter för Azure-prenumerationen.
+[Azure App Service](./overview.md) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S-distribution](deploy-ftp.md). Autentiseringsuppgifterna är inte desamma som dina autentiseringsuppgifter för Azure-prenumerationen.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
@@ -96,11 +96,11 @@ Kör följande CLI-kommando om du vill inaktivera åtkomst till grundläggande a
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
-Om du vill bekräfta att autentiseringsuppgifterna för publicerings profilen är blockerade på WebDeploy kan du försöka [publicera en webbapp med Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Om du vill bekräfta att autentiseringsuppgifterna för publicerings profilen är blockerade på WebDeploy kan du försöka [publicera en webbapp med Visual Studio 2019](/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 ### <a name="disable-access-to-the-api"></a>Inaktivera åtkomst till API: et
 
-API: et i föregående avsnitt är en säkerhetsbaserad Azure-rollbaserad åtkomst kontroll (Azure RBAC), vilket innebär att du kan [skapa en anpassad roll](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) och tilldela priveldged användare till rollen så att de inte kan aktivera grundläggande autentisering på några platser. [Följ dessa instruktioner](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role)för att konfigurera den anpassade rollen.
+API: et i föregående avsnitt är en säkerhetsbaserad Azure-rollbaserad åtkomst kontroll (Azure RBAC), vilket innebär att du kan [skapa en anpassad roll](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role) och tilldela priveldged användare till rollen så att de inte kan aktivera grundläggande autentisering på några platser. [Följ dessa instruktioner](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role)för att konfigurera den anpassade rollen.
 
 Du kan också använda [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) för att granska alla lyckade autentiseringsbegäranden och använda [Azure policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) för att genomdriva den här konfigurationen för alla platser i din prenumeration.
 

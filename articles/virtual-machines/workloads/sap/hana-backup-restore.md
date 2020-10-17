@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2019
+ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79ef279423c524f0d409815e7ae163aa699f5428
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c2b606059f92cafc44e383c2aced0d6bed467c2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87082213"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149825"
 ---
 # <a name="backup-and-restore-on-sap-hana-on-azure"></a>Säkerhets kopiering och återställning på SAP HANA på Azure
 
@@ -399,6 +399,540 @@ Om du vill återställa från en ögonblicks bilds säkerhets kopia, se [manuell
 
 ### <a name="recover-to-another-point-in-time"></a>Återställ till en annan tidpunkt
 Information om hur du återställer till en viss tidpunkt finns i "återställa databasen till följande tidpunkt" i [guiden för manuell återställning för SAP HANA i Azure från en lagrings ögonblicks bild](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
+
+
+
+
+
+## <a name="snapcenter-integration-in-sap-hana-large-instances"></a>SnapCenter-integrering i SAP HANA stora instanser
+
+I det här avsnittet beskrivs hur kunder kan använda NetApp SnapCenter-programvara för att ta ögonblicks bilder, säkerhets kopiering och återställning SAP HANA databaser som finns på Microsoft Azure HANA stora instanser (HLI). 
+
+SnapCenter erbjuder lösningar för scenarier som säkerhets kopiering/återställning, haveri beredskap (DR) med asynkron lagrings replikering, systemreplikering och system kloning. Kunder kan nu använda SnapCenter för säkerhets kopierings-och återställnings åtgärder integrerat med SAP HANA – stora instanser på Azure.
+
+Ytterligare referenser finns i NetApp TR-4614 och TR-4646 på SnapCenter.
+
+- [SAP HANA säkerhets kopiering/återställning med SnapCenter (TR-4614)](https://www.netapp.com/us/media/tr-4614.pdf)
+- [SAP HANA haveri beredskap med Storage Replication (TR-4646)](https://www.netapp.com/us/media/tr-4646.pdf)
+- [SAP HANA HSR med SnapCenter (TR-4719)](https://www.netapp.com/us/media/tr-4719.pdf)
+- [SAP-kloning från SnapCenter (TR-4667)](https://www.netapp.com/us/media/tr-4667.pdf)
+
+### <a name="system-requirements-and-prerequisites"></a>System krav och nödvändiga komponenter
+
+För att köra SnapCenter på Azure HLI omfattar system kraven:
+* SnapCenter server på Azure Windows 2016 eller senare med 4-vCPU, 16 GB RAM och minst 650 GB hanterad Premium SSD-lagring.
+* SAP HANA – stora instanser systemet med 1,5 TB – 24 – TB RAM. Vi rekommenderar att du använder två SAP HANA stora instans system för kloning av åtgärder och tester.
+
+Stegen för att integrera SnapCenter i SAP HANA: 
+
+1. Generera en begäran om support ärende för att kommunicera den användardefinierade offentliga nyckeln till Microsoft Ops-teamet. Detta krävs för att ställa in SnapCenter-användaren för åtkomst till lagrings systemet.
+1. Skapa en virtuell dator i ditt VNET som har åtkomst till HLI; den här virtuella datorn används för SnapCenter. 
+1. Hämta och installera SnapCenter. 
+1. Säkerhets kopierings-och återställnings åtgärder. 
+
+### <a name="create-a-support-ticket-for-user-role-storage-setup"></a>Skapa ett support ärende för konfigurering av användar Rolls lagring
+
+1. Öppna Azure Portal och gå till sidan **prenumerationer** . På sidan prenumerationer väljer du din SAP HANA prenumeration, som beskrivs i rött nedan.
+
+   :::image type="content" source="./media/snapcenter/create-support-case-for-user-role-storage-setup.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. På sidan SAP HANA prenumeration väljer du undersidan **resurs grupper** .
+
+   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
+
+1. Välj en lämplig resurs grupp i en region.
+
+   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
+
+1. Välj en SKU-post som motsvarar SAP HANA i Azure Storage.
+
+   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
+
+1. Öppna en **ny begäran om support ärende** , som beskrivs i rött.
+
+   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. På fliken **grundläggande** anger du följande information för biljetten:
+
+   * **Typ av problem:** Produkt
+   * **Prenumeration:** Din prenumeration
+   * **Tjänst:** SAP HANA stor instans
+   * **Resurs:** Din resurs grupp
+   * **Sammanfattning:** Ange den offentliga nyckeln som skapats av användaren
+   * **Problem typ:** Konfiguration och installation
+   * **Problem under typ:** Konfigurera SnapCenter för HLI
+
+
+1. I **beskrivningen** av support ärendet på fliken **information** anger du: 
+   
+   * Konfigurera SnapCenter för HLI
+   * Din offentliga nyckel för SnapCenter-användare (SnapCenter. pem) – se den offentliga nyckeln skapa exempel nedan
+
+     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="./media/snapcenter/new-support-request-details.png":::
+
+1. Välj **Granska + skapa** för att granska ditt support ärende. 
+
+1. Generera ett certifikat för SnapCenter-användarnamnet på den stora instansen HANA eller Linux-servern.
+
+   SnapCenter kräver ett användar namn och lösen ord för att få åtkomst till den virtuella lagrings datorn (SVM) och för att skapa ögonblicks bilder av HANA-databasen. Microsoft använder den offentliga nyckeln för att ge dig (kunden) möjlighet att ange lösen ordet för att komma åt lagrings systemet.
+
+   ```bash
+   openssl req -x509 -nodes -days 1095 -newkey rsa:2048 -keyout snapcenter.key -out snapcenter.pem -subj "/C=US/ST=WA/L=BEL/O=NetApp/CN=snapcenter"
+   Generating a 2048 bit RSA private key
+   ................................................................................................................................................+++++
+   ...............................+++++
+   writing new private key to 'snapcenter.key'
+   -----
+
+   sollabsjct31:~ # ls -l cl25*
+   -rw-r--r-- 1 root root 1704 Jul 22 09:59 snapcenter.key
+   -rw-r--r-- 1 root root 1253 Jul 22 09:59 snapcenter.pem
+
+   ```
+
+1. Bifoga snapcenter. pem-filen till support ärendet och välj sedan **skapa**
+
+   När certifikatet för den offentliga nyckeln har skickats konfigurerar Microsoft SnapCenter-användarnamnet för din klient tillsammans med SVM IP-adress.   
+
+1. När du har tagit emot IP-SVM anger du ett lösen ord för att få åtkomst till SVM som du styr.
+
+   Följande är ett exempel på REST-ANROPet (dokumentation) från HANA stor instans eller virtuell dator i ett virtuellt nätverk, som har åtkomst till en stor instans miljö i HANA och som används för att ange lösen ordet.
+
+   ```bash
+   curl --cert snapcenter.pem --key snapcenter.key -X POST -k "https://10.0.40.11/api/security/authentication/password" -d '{"name":"snapcenter","password":"test1234"}'
+   ```
+
+   Se till att ingen proxy-variabel är aktiv i HANA DB-systemet.
+
+   ```bash
+   sollabsjct31:/tmp # unset http_proxy
+   sollabsjct31:/tmp # unset https_proxy
+   ```
+
+### <a name="download-and-install-snapcenter"></a>Hämta och installera SnapCenter
+Nu när användar namnet har kon figurer ATS för SnapCenter-åtkomst till lagrings systemet använder du SnapCenter-användarnamnet för att konfigurera SnapCenter när den har installerats. 
+
+Innan du installerar SnapCenter granskar du [SAP HANA säkerhets kopiering/återställning med SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf) för att definiera din strategi för säkerhets kopiering. 
+
+1. Logga in på [NetApp](https://mysupport.netapp.com) för att [Ladda ned](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmysupport.netapp.com%2Fsite%2Fproducts%2Fall%2Fdetails%2Fsnapcenter%2Fdownloads-tab&data=02%7C01%7Cmadhukan%40microsoft.com%7Ca53f5e2f245a4e36933008d816efbb54%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637284566603265503&sdata=TOANWNYoAr1q5z1opu70%2FUDPHjluvovqR9AKplYpcpk%3D&reserved=0) den senaste versionen av SnapCenter.
+
+1. Installera SnapCenter på den virtuella Windows Azure-datorn.
+
+   Installations programmet kontrollerar kraven för den virtuella datorn. 
+
+   >[!IMPORTANT]
+   >Var noga med storleken på den virtuella datorn, särskilt i större miljöer.
+
+1. Konfigurera användarautentiseringsuppgifter för SnapCenter. Som standard fyller den Windows-användarautentiseringsuppgifter som används för att installera programmet. 
+
+   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="Skapa support ärende för installation av användar lagring"::: 
+
+1. När du startar-sessionen sparar du säkerhets undantaget och det grafiska användar gränssnittet startar.
+
+1. Logga in på SnapCenter på den virtuella datorn ( https://snapcenter-vm:8146) med Windows-autentiseringsuppgifter för att konfigurera miljön.
+
+
+### <a name="set-up-the-storage-system"></a>Konfigurera lagrings systemet
+
+1. I SnapCenter väljer du **Storage System**och väljer sedan **+ ny**. 
+
+   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
+
+   Standardvärdet är en SVM per klient. Om en kund har flera klienter eller HLIs i flera regioner, är rekommendationen att konfigurera alla SVMs i SnapCenter
+
+1. I Lägg till lagrings system anger du informationen för det lagrings system som du vill lägga till, SnapCenter användar namn och lösen ord och väljer sedan **Skicka**.
+
+   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+   >[!NOTE]
+   >Standardvärdet är en SVM per klient.  Om det finns flera klienter, är rekommendationen att konfigurera alla SVMs här i SnapCenter. 
+
+1. I SnapCenter väljer du **värdar** och välj **+ Lägg** till för att konfigurera Hana-plugin-programmet och Hana DB-värdarna.  Den senaste versionen av SnapCenter identifierar HANA-databasen automatiskt på värden.
+
+   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="media/snapcenter/managed-hosts-new-host.png":::
+
+1. Ange informationen för den nya värden:
+   1. Välj operativ system för värd typen.
+   1. Ange SnapCenter VM-värdnamn.
+   1. Ange de autentiseringsuppgifter som du vill använda.
+   1. Välj alternativ för **Microsoft Windows** och **SAP HANA** och välj sedan **Skicka**.
+
+   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+   >[!IMPORTANT]
+   >Innan du kan installera den första noden tillåter SnapCenter att en icke-root-användare installerar plugin-program på databasen.  Information om hur du aktiverar en icke-root-användare finns i [lägga till en icke-rot användare och konfigurera sudo-privilegier](https://library.netapp.com/ecmdocs/ECMLP2590889/html/GUID-A3EEB5FC-242B-4C2C-B407-510E48A8F131.html).
+
+1. Granska värd informationen och välj **Skicka** för att installera plugin-programmet på SnapCenter-servern.
+
+1. När plugin-programmet har installerats väljer du **värdar** i SnapCenter och väljer sedan **+ Lägg** till för att lägga till en Hana-nod.
+
+   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="media/snapcenter/add-hana-node.png":::
+
+1. Ange informationen för HANA-noden:
+   1. Välj operativ system för värd typen.
+   1. Ange HANA DB-värdnamn eller IP-adress.
+   1. Välj **+** om du vill lägga till de autentiseringsuppgifter som kon figurer ATS i värd operativ systemet Hana DB och välj sedan **OK**.
+   1. Välj **SAP HANA** och välj sedan **Skicka**.
+
+   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Bekräfta finger avtrycket och välj **Bekräfta och skicka**.
+
+   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. På noden Hana, under system-databasen, väljer du **säkerhets**  >  **användare**  >  **SNAPCENTER** för att skapa SNAPCENTER-användaren.
+
+   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+
+
+### <a name="auto-discovery"></a>Automatisk identifiering
+SnapCenter 4,3 aktiverar funktionen för automatisk identifiering som standard.  Automatisk identifiering stöds inte för HANA-instanser med HSR (HANA System Replication) konfigurerat. Du måste manuellt lägga till instansen till SnapCenter-servern.
+
+
+### <a name="hana-setup-manual"></a>HANA-installation (manuell)
+Om du har konfigurerat HSR måste du konfigurera systemet manuellt.  
+
+1. I SnapCenter väljer du **resurser** och **San Hana** (längst upp) och väljer sedan **+ Lägg till SAP HANA databas** (till höger).
+
+   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="media/snapcenter/manual-hana-setup.png":::
+
+1. Ange resursinformation för den HANA-administratör som kon figurer ATS på Linux-värden eller på värden där plugin-programmen är installerade. Säkerhets kopian kommer att hanteras från plugin-programmet på Linux-systemet.
+
+   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Välj den data volym som du vill ta ögonblicks bilder för, Välj **Spara** och välj sedan **Slutför**.
+
+   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+### <a name="create-a-snapshot-policy"></a>Skapa en ögonblicks bild princip
+
+Innan du använder SnapCenter för att säkerhetskopiera SAP HANA databas resurser måste du skapa en säkerhets kopierings princip för den resurs eller resurs grupp som du vill säkerhetskopiera. Under processen med att skapa en ögonblicks bilds princip får du möjlighet att konfigurera för-och efter-kommandon och särskilda SSL-nycklar. Information om hur du skapar en ögonblicks bilds princip finns i [skapa säkerhets kopierings principer för SAP HANA-databaser](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html).
+
+1. I SnapCenter väljer du **resurser** och väljer sedan en databas.
+
+   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Följ arbets flödet i konfigurations guiden för att konfigurera Schemaläggaren för ögonblicks bilder.
+
+   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
+
+1. Ange alternativ för att konfigurera för-kommandon och särskilda SSL-nycklar.  I det här exemplet använder vi inga särskilda inställningar.
+
+   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
+
+1. Välj **Lägg till** för att skapa en ögonblicks bild princip som också kan användas för andra Hana-databaser. 
+
+   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Ange princip namn och en beskrivning.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+
+1. Välj typ av säkerhets kopiering och frekvens.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Konfigurera **inställningarna för kvarhållning av säkerhets kopior på begäran**.  I vårt exempel ställer vi in kvarhållning till tre ögonblicks bilds kopior som ska behållas.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Konfigurera **inställningarna för kvarhållning av varje timme**. 
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Om en SnapMirror-installation har kon figurer ATS väljer du **Uppdatera SnapMirror när du har skapat en lokal ögonblicks bild kopia**.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Klicka på **Slutför** om du vill granska sammanfattningen av den nya säkerhets kopierings principen. 
+1. Välj **Lägg till**under **Konfigurera schema**.
+
+   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Välj **start datum**, **upphör ande** datum och frekvens.
+
+   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Ange e-postinformation för meddelanden.
+
+   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1.  Klicka på **Slutför** för att skapa säkerhets kopierings principen.
+
+### <a name="disable-ems-message-to-netapp-autosupport"></a>Inaktivera EMS-meddelande för NetApp-stöd
+Som standard aktive ras EMS-datainsamling och körs var sjunde dag efter installations datumet.  Du kan inaktivera data insamling med PowerShell-cmdleten `Disable-SmDataCollectionEms` .
+
+1. Upprätta en session med SnapCenter i PowerShell.
+
+   ```powershell
+   Open-SmConnection
+   ```
+
+1. Logga in med dina autentiseringsuppgifter.
+1. Inaktivera insamling av EMS-meddelanden.
+
+   ```powershell
+   Disable-SmCollectionEms
+   ```
+
+### <a name="restore-database-after-crash"></a>Återställ databasen efter krasch
+Du kan använda SnapCenter för att återställa databasen.  I det här avsnittet ska vi gå igenom de övergripande stegen, men mer information finns i [SAP HANA säkerhets kopiering/återställning med SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
+
+
+1. Stoppa databasen och ta bort alla databasfiler.
+
+   ```
+   su - h31adm
+   > sapcontrol -nr 00 -function StopSystem
+   StopSystem
+   OK
+   > sapcontrol -nr 00 -function GetProcessList
+   OK
+   name, description, dispstatus, textstatus, starttime, elapsedtime, pid
+   hdbdaemon, HDB Daemon, GRAY, Stopped, , , 35902
+ 
+   ```
+
+1. Demontera databas volymen.
+
+   ```bash
+   unmount /hana/data/H31/mnt00001
+   ```
+
+
+1. Återställ databasfilerna via SnapCenter.  Välj databasen och välj sedan **Återställ**.  
+
+   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
+
+1. Välj återställnings typ.  I vårt exempel återställer vi hela resursen. 
+
+   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+   >[!NOTE]
+   >Med en standard konfiguration behöver du inte ange kommandon för att göra en lokal återställning från ögonblicks bilden på disken. 
+
+   >[!TIP]
+   >Om du vill återställa ett visst LUN inuti volymen väljer du **filnivå**.
+
+1. Följ arbets flödet med hjälp av konfigurations guiden.
+   
+   SnapCenter återställer data till den ursprungliga platsen så att du kan starta återställnings processen i HANA. Eftersom SnapCenter inte kan ändra säkerhets kopierings katalogen (databasen är nere) visas dessutom en varning.
+
+   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Starta återställnings processen i HANA eftersom alla databasfiler återställs. I Hana Studio, under **system**, högerklickar du på system databasen och väljer **säkerhets kopiering och återställning**  >  **Återställ system databas**.
+
+   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Välj en återställnings typ.
+
+   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Välj platsen för säkerhets kopierings katalogen.
+
+   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+1. Välj en säkerhets kopia för att återställa SAP HANA databasen.
+
+   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="Skapa support ärende för installation av användar lagring":::
+
+   När databasen har återställts visas ett meddelande med en **återställning till tid** och **återställs till loggens befattnings** stämpling.
+
+1. Under **system**högerklickar du på system databasen och väljer **säkerhets kopiering och återställning**  >  **Återställ klient databas**.
+1. Följ arbets flödet i guiden för att slutföra återställningen av klient databasen. 
+
+Mer information om hur du återställer en databas finns i [SAP HANA säkerhets kopiering/återställning med SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
+
+
+### <a name="non-database-backups"></a>Säkerhets kopieringar som inte är databaser
+Du kan återställa volymer som inte är data, till exempel en nätverks fil resurs (/Hana/Shared) eller en säkerhets kopia av operativ systemet.  Mer information om hur du återställer en icke-datavolym finns i [SAP HANA säkerhets kopiering/återställning med SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
+
+### <a name="sap-hana-system-cloning"></a>SAP HANA system kloning
+
+Innan du kan klona måste du ha samma HANA-version installerad som käll databasen. SID och ID kan vara olika. 
+
+:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="Skapa support ärende för installation av användar lagring" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
+
+1. Skapa ett HANA-databas användar Arkiv för H34-databasen från/usr/sap/H34/HDB40.
+
+   ```
+   hdbuserstore set H34KEY sollabsjct34:34013 system manager
+   ```
+ 
+1. Inaktivera brand väggen.
+
+   ```bash
+   systemctl disable SuSEfirewall2
+   systemctl stop  SuSEfirewall2
+   ```
+
+1. Installera Java SDK.
+
+   ```bash
+   zypper in java-1_8_0-openjdk
+   ```
+
+1. I SnapCenter lägger du till mål värden som klonen ska monteras på. Mer information finns i [lägga till värdar och installera plugin-paket på fjärranslutna värdar](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html).
+   1. Ange informationen för de kör som-autentiseringsuppgifter som du vill lägga till. 
+   1. Välj värd operativ system och ange värd informationen.
+   1. Under **plugin-program att installera**väljer du version, anger installations Sök väg och väljer **SAP HANA**.
+   1. Välj **Verifiera** för att köra kontrollerna före installationen.
+
+1. Stoppa HANA och demontera den gamla data volymen.  Du kommer att montera klonen från SnapCenter.  
+
+   ```bash
+   sapcontrol -nr 40 -function StopSystem
+   umount /hana/data/H34/mnt00001
+
+   ```
+ 1. Skapa konfigurations-och gränssnitts skriptets filer för målet.
+ 
+    ```bash
+    mkdir /NetApp
+    chmod 777 /NetApp
+    cd NetApp
+    chmod 777 sc-system-refresh-H34.cfg
+    chmod 777 sc-system-refresh.sh
+
+    ```
+
+    >[!TIP]
+    >Du kan kopiera skripten från [SAP-kloning från SnapCenter](https://www.netapp.com/us/media/tr-4667.pdf).
+
+1. Ändra konfigurations filen. 
+
+   ```bash
+   vi sc-system-refresh-H34.cfg
+   ```
+
+   * HANA_ARCHITECTURE = "MDC_single_tenant"
+   * NYCKEL = "H34KEY"
+   * TIME_OUT_START = 18
+   * TIME_OUT_STOP = 18
+   * INSTANCENO = "40"
+   * STORAGE = "10.250.101.33"
+
+1. Ändra skal skript filen.
+
+   ```bash
+   vi sc-system-refresh.sh
+   ```  
+
+   * VERBOSE = nej
+   * MY_NAME = " `basename $0` "
+   * BASE_SCRIPT_DIR = " `dirname $0` "
+   * MOUNT_OPTIONS = "RW, vers = 4, hård, tidsstämpel = 600, rsize = 1048576, wsize = 1048576, intr, noatime, NOLOCK"
+
+1. Starta kloningen från en säkerhets kopierings process. Välj värden för att skapa klonen. 
+
+   >[!NOTE]
+   >Mer information finns i [klona från en säkerhets kopia](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html).
+
+1. Under **skript**, anger du följande:
+
+   * **Mount-kommando:** /NetApp/SC-system-Refresh.sh Mount H34% hana_data_h31_mnt00001_t250_vol_Clone
+   * **Post-klonings kommando:** /NetApp/SC-system-Refresh.sh Recover H34
+
+1. Inaktivera (lås) den automatiska monteringen i/etc/fstab eftersom data volymen för den förinstallerade databasen inte är nödvändig. 
+
+   ```bash
+   vi /etc/fstab
+   ```
+
+### <a name="delete-a-clone"></a>Ta bort en klon
+
+Du kan ta bort en klon om den inte längre behövs. Mer information finns i [ta bort kloner](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html).
+
+Kommandona som används för att köra innan klon borttagning är:
+* **För klon borttagning:** /NetApp/SC-system-Refresh.sh Stäng H34
+* **Demontera:** /NetApp/SC-system-Refresh.sh umount H34
+
+De här kommandona tillåter SnapCenter att showdown databasen, demontera volymen och ta bort posten fstab.  Därefter tas FlexClone bort. 
+
+### <a name="cloning-database-logfile"></a>Kloning av databas logg filen
+
+```   
+20190502025323###sollabsjct34###sc-system-refresh.sh: Adding entry in /etc/fstab.
+20190502025323###sollabsjct34###sc-system-refresh.sh: 10.250.101.31:/Sc21186309-ee57-41a3-8584-8210297f791d /hana/data/H34/mnt00001 nfs rw,vers=4,hard,timeo=600,rsize=1048576,wsize=1048576,intr,noatime,lock 0 0
+20190502025323###sollabsjct34###sc-system-refresh.sh: Mounting data volume.
+20190502025323###sollabsjct34###sc-system-refresh.sh: mount /hana/data/H34/mnt00001
+20190502025323###sollabsjct34###sc-system-refresh.sh: Data volume mounted successfully.
+20190502025323###sollabsjct34###sc-system-refresh.sh: chown -R h34adm:sapsys /hana/data/H34/mnt00001
+20190502025333###sollabsjct34###sc-system-refresh.sh: Recover system database.
+20190502025333###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/HDB40/exe/Python/bin/python /usr/sap/H34/HDB40/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG"
+[140278542735104, 0.005] >> starting recoverSys (at Thu May  2 02:53:33 2019)
+[140278542735104, 0.005] args: ()
+[140278542735104, 0.005] keys: {'command': 'RECOVER DATA USING SNAPSHOT CLEAR LOG'}
+recoverSys started: ============2019-05-02 02:53:33 ============
+testing master: sollabsjct34
+sollabsjct34 is master
+shutdown database, timeout is 120
+stop system
+stop system: sollabsjct34
+stopping system: 2019-05-02 02:53:33
+stopped system: 2019-05-02 02:53:33
+creating file recoverInstance.sql
+restart database
+restart master nameserver: 2019-05-02 02:53:38
+start system: sollabsjct34
+2019-05-02T02:53:59-07:00  P010976      16a77f6c8a2 INFO    RECOVERY state of service: nameserver, sollabsjct34:34001, volume: 1, RecoveryPrepared
+recoverSys finished successfully: 2019-05-02 02:54:00
+[140278542735104, 26.490] 0
+[140278542735104, 26.490] << ending recoverSys, rc = 0 (RC_TEST_OK), after 26.485 secs
+20190502025400###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is started ....
+20190502025400###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025410###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025420###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025430###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025440###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025451###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502025451###sollabsjct34###sc-system-refresh.sh: SAP HANA database is started.
+20190502025451###sollabsjct34###sc-system-refresh.sh: Recover tenant database H34.
+20190502025451###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/SYS/exe/hdb/hdbsql -U H34KEY RECOVER DATA FOR H34 USING SNAPSHOT CLEAR LOG
+0 rows affected (overall time 69.584135 sec; server time 69.582835 sec)
+20190502025600###sollabsjct34###sc-system-refresh.sh: Checking availability of Indexserver for tenant H34.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Recovery of tenant database H34 succesfully finished.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Status: GREEN
+Deleting the DB Clone – Logfile
+20190502030312###sollabsjct34###sc-system-refresh.sh: Stopping HANA database.
+20190502030312###sollabsjct34###sc-system-refresh.sh: sapcontrol -nr 40 -function StopSystem HDB
+
+02.05.2019 03:03:12
+StopSystem
+OK
+20190502030312###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is stopped ....
+20190502030312###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030322###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030332###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030342###sollabsjct34###sc-system-refresh.sh: Status:  GRAY
+20190502030342###sollabsjct34###sc-system-refresh.sh: SAP HANA database is stopped.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Unmounting data volume.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Junction path: Sc21186309-ee57-41a3-8584-8210297f791d
+20190502030347###sollabsjct34###sc-system-refresh.sh: umount /hana/data/H34/mnt00001
+20190502030347###sollabsjct34###sc-system-refresh.sh: Deleting /etc/fstab entry.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Data volume unmounted successfully.
+
+```
+
+### <a name="uninstall-snapcenter-plug-ins-package-for-linux"></a>Avinstallera SnapCenter-plugin-paket för Linux
+
+Du kan avinstallera Linux-plugin-paketet från kommando raden. Eftersom den automatiska distributionen förväntar sig ett nytt system är det enkelt att avinstallera plugin-programmet.  
+
+>[!NOTE]
+>Du kan behöva avinstallera en äldre version av plugin-programmet manuellt. 
+
+Avinstallera plugin-programmen.
+
+```bash
+cd /opt/NetApp/snapcenter/spl/installation/plugins
+./uninstall
+```
+
+Nu kan du installera det senaste HANA-plugin-programmet på den nya noden genom att välja **Skicka** i SnapCenter. 
+
+
 
 
 ## <a name="next-steps"></a>Nästa steg

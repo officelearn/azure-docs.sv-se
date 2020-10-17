@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 9f1b8435f7d51ad586484ddb7e9bbabf9d067926
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f490038e6257829e63b1b28591d17eee76e17eb4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996753"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139366"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -27,38 +27,19 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
 ### <a name="azure-machine-learning-sdk-for-python-v1160"></a>Azure Machine Learning SDK för python v-1.16.0
 + **Fel korrigeringar och förbättringar**
   + **Azure-CLI-ml**
-    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Dessa valfria gränser kan definieras via 1. Inställning `cpu_cores_limit` och `memory_gb_limit` parametrar i `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` metod 2 och. Inställning `--cpu-cores-limit` och `--memory-gb-limit` flaggor i tillämpliga CLI-anrop 3. Inställningen `cpuLimit` och `memoryInGBLimit` i avsnittet `containerResourceRequirements` om distributions konfiguration. JSON/. yml-filer mer information om Kubernetes-resurser och gränser finns på https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
-  + **azureml-contrib-tolka**
-    + korrigera paket beskrivningar som orsakar överförings fel till pypi för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolkning och AzureML-tensorboard
-  + **azureml-contrib-K8s**
-    + Stöd har lagts till för att bifoga ArcKubernetes-beräkning
-  + **azureml-contrib-Mir**
-    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Dessa valfria gränser kan definieras via 1. Inställning `cpu_cores_limit` och `memory_gb_limit` parametrar i `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` metod 2 och. Inställning `--cpu-cores-limit` och `--memory-gb-limit` flaggor i tillämpliga CLI-anrop 3. Inställningen `cpuLimit` och `memoryInGBLimit` i avsnittet `containerResourceRequirements` om distributions konfiguration. JSON/. yml-filer mer information om Kubernetes-resurser och gränser finns på https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
-  + **azureml-contrib-Server**
-    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Dessa valfria gränser kan definieras via 1. Inställning `cpu_cores_limit` och `memory_gb_limit` parametrar i `AKSEndpoint.deploy_configuration()` `AKSWebservice.deploy_configuration()` metod 2 och. Inställning `--cpu-cores-limit` och `--memory-gb-limit` flaggor i tillämpliga CLI-anrop 3. Inställningen `cpuLimit` och `memoryInGBLimit` i avsnittet `containerResourceRequirements` om distributions konfiguration. JSON/. yml-filer mer information om Kubernetes-resurser och gränser finns på https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Dessa valfria gränser kan användas genom att ställa in `--cpu-cores-limit` och `--memory-gb-limit` flagga i tillämpliga CLI-anrop
   + **azureml-core**
     + Fästa huvud versioner av direkta beroenden för azureml-Core
-    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Mer information om Kubernetes-resurser och begränsningar finns på https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + AKSWebservice och AKSEndpoints har nu stöd för processor-och minnes resurs gränser på pod-nivå. Mer information om [Kubernetes-resurser och begränsningar](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
     + Uppdaterade run.log_table för att tillåta att enskilda rader loggas.
-    + Statisk metod har lagts `Run.get(workspace, run_id)` till för att hämta en körning med hjälp av en arbets yta-tillagd instans metod `Workspace.get_run(run_id)` för att hämta en körning inom arbets ytan
+    + Statisk metod har lagts `Run.get(workspace, run_id)` till för att hämta en körning med en arbets yta 
+    + Instans metod har lagts `Workspace.get_run(run_id)` till för att hämta en körning inom arbets ytan
     + Introduktion av kommando egenskap i kör konfiguration som gör att användarna kan skicka kommandon i stället för skript & argument.
-  + **azureml-nu-Native**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
-  + **azureml – förklara-modell**
-    + korrigera paket beskrivningar som orsakar överförings fel till pypi för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolkning och AzureML-tensorboard
   + **azureml-interpret**
     + fast förklaring klient is_raw flagga beteende i azureml-tolka
-    + korrigera paket beskrivningar som orsakar överförings fel till pypi för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolkning och AzureML-tensorboard
-  + **azureml-pipeline-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
   + **azureml – SDK**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
-  + **azureml-tensorboard**
-    + korrigera paket beskrivningar som orsakar överförings fel till pypi för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolkning och AzureML-tensorboard
-  + **azureml-träna**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
+    + `azureml-sdk` officiellt stöd för python 3,8.
   + **azureml-train-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officiellt stöd för python 3,8.
     + Lägger till TensorFlow 2,3-granskad miljö
     + Introduktion av kommando egenskap i kör konfiguration som gör att användarna kan skicka kommandon i stället för skript & argument.
   + **azureml-widgets**
@@ -73,7 +54,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     + LIME-förklaring har flyttats från azureml-contrib-tolka till tolka-community-paket och bild förklaring borttagen från azureml-contrib-tolka paket
     + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
     + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
-  + **azureml-contrib-notebook**
+  + **azureml-contrib-Notebook**
     + Fäst nbcovert-beroendet till < 6 så att Papermill 1. x fortfarande fungerar.
   + **azureml-core**
     + Parametrar har lagts till i konstruktorn TensorflowConfiguration och MpiConfiguration för att möjliggöra en mer effektiv initiering av klassens attribut utan att användaren måste ange varje enskilt attribut. En PyTorchConfiguration-klass har lagts till för att konfigurera distribuerade PyTorch-jobb i ScriptRunConfig.
@@ -95,7 +76,7 @@ Se [listan över kända problem](resource-known-issues.md) för att lära dig om
     +  Fast pipeline-problem med `OutputFileDatasetConfig` var systemet kan sluta svara när `register_on_complete` anropas med `name` parametern angivet till ett redan befintligt data uppsättnings namn.
   + **azureml-pipeline-steps**
     + Tog bort inaktuella antecknings böcker för databricks.
-  + **azureml-tensorboard**
+  + **azureml – tensorboard**
     + åtgärda pypi-paketets beskrivningar för azureml-tolka, azureml-förklara-Model, azureml-contrib-tolka och AzureML-tensorboard
   + **azureml-train-automl-runtime**
     + instrument panelen för visualiseringar har tagits bort från azureml-contrib-tolka paket, förklarings klient som flyttats till azureml-tolka paket och föråldras i azureml-contrib-tolka paket och antecknings böcker som är uppdaterade för att återspegla
@@ -908,7 +889,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
   + **azureml-pipeline-steps**
     + Har flyttat `AutoMLStep` till `azureml-pipeline-steps` paketet. Föråldrade `AutoMLStep` i `azureml-train-automl-runtime` .
     + Exempel på dokumentation som lagts till för data uppsättning som PythonScriptStep-indata
-  + **azureml-tensorboard**
+  + **azureml – tensorboard**
     + uppdaterade azureml-tensorboard för att stödja tensorflow 2,0
     + Visa rätt port nummer när du använder en anpassad Tensorboard-port på en beräknings instans
   + **azureml-train-automl-client**
@@ -988,7 +969,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + Har flyttat `AutoMLStep` i `azureml-pipeline-steps` paketet. Föråldrade `AutoMLStep` i `azureml-train-automl-runtime` .
   + **azureml-contrib-pipeline-steps**
     + Valfri parameter side_inputs lagts till i ParallelRunStep. Den här parametern kan användas för att montera en mapp på behållaren. Typer som stöds för närvarande är DataReference och PipelineData.
-  + **azureml-tensorboard**
+  + **azureml – tensorboard**
     + uppdaterade azureml-tensorboard för att stödja tensorflow 2,0
   + **azureml-train-automl-client**
     + fast FeaturizationConfig åsidosätter problem som filtrerar anpassad funktionalisering-konfiguration.
@@ -1148,7 +1129,7 @@ Få åtkomst till följande webbaserade redigerings verktyg från Studio:
     + När du anropar `to_pandas_dataframe` en etikettad data uppsättning med alternativet Hämta kan du nu ange om du vill skriva över befintliga filer eller inte.
     + När du anropar `keep_columns` eller `drop_columns` som resulterar i en tids serie, etikett eller bild kolumn som släpps, tas även motsvarande funktioner bort för data uppsättningen.
     + Åtgärdade ett problem med pytorch-inläsaren för objekt identifiering.
-  + **azureml-contrib-tolka**
+  + **azureml-contrib-interpret**
     + Widgeten förklarings instrument panel togs bort från azureml-contrib-tolka, ändrade paket för att referera till den nya i interpret_community
     + Uppdaterad version av tolka-community till 0.2.0
   + **azureml-core**

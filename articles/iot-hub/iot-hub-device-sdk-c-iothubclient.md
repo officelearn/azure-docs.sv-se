@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: 91527b5f2159a336e8339c6a128e8d61965292a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f33521dd9110d7ba6ee84650345b38c8c6a4950b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81732607"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149141"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>Azure IoT-enhetens SDK för C – mer om IoTHubClient
 
@@ -28,7 +28,7 @@ Artikeln avslutas genom att omfatta ett par olika ämnen, inklusive mer informat
 
 Vi använder **IoTHubClient** SDK-exemplen för att förklara dessa ämnen. Om du vill följa med i **iothub \_ \_ -klient exemplet \_ http-** och iothub-klient exempel program som ingår i Azure IoT-enhetens SDK för C. allt som beskrivs i följande avsnitt visas i exemplen. ** \_ \_ \_ **
 
-Du hittar [**Azure IoT-enhetens SDK för c**](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen och visar information om API: et i [C API-referensen](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+Du hittar [**Azure IoT-enhetens SDK för c**](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen och visar information om API: et i [C API-referensen](/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-lower-level-apis"></a>API: er på lägre nivå
 
@@ -157,7 +157,7 @@ Map_AddOrUpdate(propMap, "SequenceNumber", propText);
 
 Vi börjar med att anropa **IoTHubMessage- \_ Egenskaper** och skickar det till meddelandet. Vad vi får tillbaka är en **referens \_ till karta** som gör att vi kan börja lägga till egenskaper. Den senare åstadkommer du genom att anropa **Map- \_ AddOrUpdate**, som tar en referens till ett kart \_ handtag, egenskaps namnet och egenskap svärdet. Med detta API kan vi lägga till så många egenskaper som vi vill.
 
-När händelsen läses från **Event Hubs**kan mottagaren räkna upp egenskaperna och hämta motsvarande värden. I .NET kan du till exempel åstadkomma detta genom att öppna [egenskaps samlingen på EventData-objektet](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventdata.properties.aspx).
+När händelsen läses från **Event Hubs**kan mottagaren räkna upp egenskaperna och hämta motsvarande värden. I .NET kan du till exempel åstadkomma detta genom att öppna [egenskaps samlingen på EventData-objektet](/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
 I föregående exempel kopplar vi egenskaper till en händelse som vi skickar till IoT Hub. Egenskaper kan också bifogas till meddelanden som tas emot från IoT Hub. Om vi vill hämta egenskaper från ett meddelande kan vi använda kod som följande i funktionen motringning av meddelande:
 
@@ -277,4 +277,4 @@ Den här artikeln beskriver i detalj hur **IoTHubClient** -biblioteket fungerar 
 
 Mer information om hur du utvecklar för IoT Hub finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-För att ytterligare utforska funktionerna i IoT Hub, se [distribuera AI till gräns enheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+För att ytterligare utforska funktionerna i IoT Hub, se [distribuera AI till gräns enheter med Azure IoT Edge](../iot-edge/quickstart-linux.md).

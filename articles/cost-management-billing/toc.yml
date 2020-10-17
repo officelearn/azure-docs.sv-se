@@ -313,7 +313,7 @@
             - name: SAP HANA – stora instanser
               href: reservations/prepay-hana-large-instances-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
             - name: SQL Database
-              href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+              href: ../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252ftoc.json
             - name: Azure Synapse Analytics
               href: reservations/prepay-sql-data-warehouse-charges.md?toc=/azure/cost-management-billing/toc.json
             - name: Virtuella datorer
@@ -365,9 +365,9 @@
 - name: Referens
   items:
     - name: REST API för Azure Cost Management
-      href: 'https://docs.microsoft.com/rest/api/cost-management'
+      href: /rest/api/cost-management
     - name: REST API för Azure Consumption
-      href: 'https://docs.microsoft.com/rest/api/consumption'
+      href: /rest/api/consumption
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.consumption/budgets
     - name: Exempel på REST-API för Cost Management
@@ -377,19 +377,19 @@
     - name: Översikt över API för Azure-fakturering
       href: manage/usage-rate-card-overview.md
     - name: REST API för Azure-fakturering
-      href: 'https://docs.microsoft.com/rest/api/billing'
+      href: /rest/api/billing
     - name: Översikt över API för Azure Consumption
       href: manage/consumption-api-overview.md
     - name: REST API för Azure Consumption
-      href: 'https://docs.microsoft.com/rest/api/consumption'
+      href: /rest/api/consumption
     - name: REST API för RateCard
-      href: 'https://msdn.microsoft.com/library/azure/mt219005.aspx'
+      href: /previous-versions/azure/reference/mt219005(v=azure.100)
     - name: REST API för användning
-      href: 'https://msdn.microsoft.com/library/azure/mt219003.aspx'
+      href: /previous-versions/azure/reference/mt219003(v=azure.100)
     - name: Översikt över Enterprise Reporting
       href: manage/enterprise-api.md
     - name: REST API för Enterprise Reporting
-      href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
+      href: /rest/api/billing/enterprise/billing-enterprise-api-balance-summary
     - name: Reservationer
       items:
         - name: REST-API för reservationer
@@ -493,4 +493,4 @@
         - name: Vanliga frågor och svar om Cloudyn
           href: cloudyn/cost-mgt-faq.md
         - name: Kontakta Cloudyns support
-          href: 'https://docs.microsoft.com/azure/cost-management-billing/costs/open-support-request'
+          href: ./costs/open-support-request.md

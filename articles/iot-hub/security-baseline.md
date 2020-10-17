@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49496dbf1355ceee7619d93bcb0676892b7a212d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906925"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150563"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Azures säkerhets bas linje för Azure IoT Hub
 
@@ -33,9 +33,9 @@ Rekommendera att begränsa anslutningen till dina Azure-resurser (inklusive Azur
 Behåll öppna maskin varu portar i dina enheter så att de inte är minimala för att undvika oönskad åtkomst. Dessutom kan du bygga mekanismer för att förhindra eller identifiera fysisk manipulering av enheten.
 
 - [Stöd för virtuella IoT-nätverk](virtual-network-support.md)
-- [metod tips för stor nätverk](https://docs.microsoft.com/azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc#networking)
+- [metod tips för stor nätverk](../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc#networking)
 - [Översikt över Azure privat länk](../private-link/private-link-overview.md)
-- [Azure nätverks säkerhets grupp](../virtual-network/security-overview.md)
+- [Azure nätverks säkerhets grupp](../virtual-network/network-security-groups-overview.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -75,7 +75,7 @@ Azure DDoS Protection Basic är redan aktiverat och tillgängligt utan ytterliga
 
 - [Hantera Azure DDoS Protection Basic](../virtual-network/ddos-protection-overview.md)
 
-- [Skydd mot hot i Azure Security Center](../security-center/threat-protection.md)
+- [Skydd mot hot i Azure Security Center](../security-center/azure-defender.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -138,7 +138,7 @@ Distribuera den brand Väggs lösning som du väljer för var och en av organisa
 
 **Vägledning**: Använd taggar för nätverks resurser som är associerade med din Azure IoT Hub-distribution för att logiskt organisera dem i en taxonomi.
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -148,7 +148,7 @@ Distribuera den brand Väggs lösning som du väljer för var och en av organisa
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till Azure IoT Hub. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker.
 
-- [Visa och hämta Azure aktivitets logg händelser](/azure/azure-monitor/platform/activity-log-view)
+- [Visa och hämta Azure aktivitets logg händelser](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Så här skapar du aviseringar i Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -274,9 +274,9 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 **Vägledning**: Azure rollbaserad åtkomst kontroll (Azure RBAC) gör att du kan hantera åtkomst till Azure IoT Hub via roll tilldelningar. Du kan tilldela dessa roller till användare, grupper tjänstens huvud namn och hanterade identiteter. Det finns fördefinierade inbyggda roller för vissa resurser och dessa roller kan inventeras eller frågas via verktyg som Azure CLI, eller Azure PowerShell eller Azure Portal. 
 
-- [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center övervakning**: Ja
 
@@ -296,7 +296,7 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 Du kan också aktivera just-in-Time-åtkomst till administrativa konton genom att använda Azure AD Privileged Identity Management och Azure Resource Manager.
 
-- [Läs mer om Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Läs mer om Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center övervakning**: Ja
 
@@ -340,7 +340,7 @@ Du kan också aktivera just-in-Time-åtkomst till administrativa konton genom at
 
 **Vägledning**: Använd Azure Active Directory säkerhets rapporter och övervakning för att identifiera när misstänkt eller osäker aktivitet inträffar i miljön. Använd Azure Security Center för att övervaka identitets-och åtkomst aktiviteter.
 
-- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](../active-directory/identity-protection/overview-identity-protection.md)
 - [Övervaka användarnas identitets-och åtkomst aktiviteter i Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center övervakning**: Ja
@@ -376,9 +376,9 @@ För enhets-och tjänst åtkomst använder IoT Hub säkerhetstoken och SAS-token
 
 Använd Azure AD Privileged Identity Management (PIM) för att skapa loggar och varningar när misstänkt eller osäker aktivitet inträffar i miljön.
 
-- [Förstå Azure AD repor ting](/azure/active-directory/reports-monitoring/)
+- [Förstå Azure AD repor ting](../active-directory/reports-monitoring/index.yml)
 - [Använda Azure AD-identitets-och åtkomst granskningar](../active-directory/governance/access-reviews-overview.md)
-- [Distribuera Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Distribuera Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -392,7 +392,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 Användare Azure Monitor diagnostikloggar för att övervaka otillåtna anslutnings försök i anslutnings kategorin.
 
-- [Så här integrerar du Azure-aktivitets loggar med Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Så här integrerar du Azure-aktivitets loggar med Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Konfigurera diagnostikloggar för IoT Hub](iot-hub-monitor-resource-health.md)
 
@@ -404,7 +404,7 @@ Användare Azure Monitor diagnostikloggar för att övervaka otillåtna anslutni
 
 **Vägledning**: Använd Azure AD Identity Protection funktioner för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Du kan också mata in data i Azure Sentinel för ytterligare undersökning.
   
-- [ Visa Azure AD-riskfyllda inloggningar](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [ Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md)
   
 - [ Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
   
@@ -430,7 +430,7 @@ Användare Azure Monitor diagnostikloggar för att övervaka otillåtna anslutni
 
 **Vägledning**: Använd taggar för att spåra Azure-resurser som lagrar eller bearbetar känslig information.
  
-- [ Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -440,9 +440,9 @@ Användare Azure Monitor diagnostikloggar för att övervaka otillåtna anslutni
 
 **Vägledning**: implementera isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via Azure RBAC.
   
-- [ Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
-- [ Så här skapar du hanterings grupper](/azure/governance/management-groups/create)
-- [ Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
+- [ Så här skapar du hanterings grupper](../governance/management-groups/create-management-group-portal.md)
+- [ Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -593,7 +593,7 @@ Azure IoT Hub tillhandahåller kryptering av data i vila och under överföring 
 
 **Vägledning**: Använd taggar för Azure-resurser (inte alla resurser som stöder taggar, men de flesta) för att logiskt organisera dem i en taxonomi.
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -603,11 +603,11 @@ Azure IoT Hub tillhandahåller kryptering av data i vila och under överföring 
 
 **Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer om det behövs för att organisera och spåra till gångar. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
   
-- [ Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
+- [ Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
   
-- [ Så här skapar du hanterings grupper](/azure/governance/management-groups/create)
+- [ Så här skapar du hanterings grupper](../governance/management-groups/create-management-group-portal.md)
   
-- [ Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -725,7 +725,7 @@ Azure Resource Manager kan exportera mallen i JavaScript Object Notation (JSON),
 
 Du kan också använda rekommendationerna från Azure Security Center som en säker konfigurations bas linje för dina Azure-resurser.
 
-- [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Självstudie: skapa och hantera principer för att genomdriva efterlevnad](../governance/policy/tutorials/create-and-manage.md)
 
@@ -769,8 +769,8 @@ Du kan också använda rekommendationerna från Azure Security Center som en sä
 
 **Vägledning**: om du använder anpassade Azure policys definitioner för Azure IoT Hub eller relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
-- [Dokumentation om Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -830,8 +830,8 @@ Använd hanterade identiteter tillsammans med Azure Key Vault för att förenkla
 - [IoT Hub säkerhetstoken](../iot-fundamentals/iot-security-deployment.md#iot-hub-security-tokens)
 - [Använda hanterade identiteter för IoT Hub](virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
-- [Så här skapar du ett nyckel valv](/azure/key-vault/quick-create-portal)
-- [Så här ger Key Vault autentisering med en hanterad identitet](/azure/key-vault/managed-identity)
+- [Så här skapar du ett nyckel valv](../key-vault/secrets/quick-create-portal.md)
+- [Så här ger Key Vault autentisering med en hanterad identitet](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -940,7 +940,7 @@ Utför regelbundet data återställning av innehåll i säkerhets kopian. Se til
  
  
 - [Förstå Azure RBAC](../role-based-access-control/overview.md)
-- [Mjuk borttagning för Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Mjuk borttagning för Azure Blob Storage](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -973,7 +973,7 @@ Utför regelbundet data återställning av innehåll i säkerhets kopian. Se til
   
 - [ Säkerhets aviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
   
-- [ Använd taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [ Använd taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1039,5 +1039,5 @@ Utför regelbundet data återställning av innehåll i säkerhets kopian. Se til
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)

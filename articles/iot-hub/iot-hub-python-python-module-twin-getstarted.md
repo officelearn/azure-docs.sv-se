@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: menchi
 ms.custom: devx-track-python
-ms.openlocfilehash: 6ed0290abe91453058589b032fb5ed2dd71fe98a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 665281adc892e6b3655c0b1d0533cb3148e62940
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872573"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139394"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-python"></a>Kom igång med IoT Hub-modulens identitet och modul, dubbla (python)
 
@@ -38,7 +38,7 @@ I slutet av den här självstudien har du tre python-appar:
 
 [!INCLUDE [iot-hub-include-python-v2-installation-notes](../../includes/iot-hub-include-python-v2-installation-notes.md)]
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -270,4 +270,4 @@ För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, 
 
 * [Connecting your device](iot-hub-node-node-device-management-get-started.md) (Komma igång med enhetshantering)
 
-* [Komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Komma igång med IoT Edge](../iot-edge/quickstart-linux.md)

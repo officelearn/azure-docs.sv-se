@@ -3,12 +3,12 @@ title: Nätverks isolering i Azure DevTest Labs
 description: Lär dig om nätverks isolering i Azure DevTest Labs.
 ms.topic: article
 ms.date: 08/25/2020
-ms.openlocfilehash: fbd2725cd3677e03cadbe0ae1f060b141f5d212b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aafa6bf94c7963d69bfb67a28a520b811c4fbacf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88875967"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149151"
 ---
 # <a name="network-isolation-in-devtest-labs"></a>Nätverks isolering i DevTest Labs
 
@@ -57,7 +57,7 @@ Läs även följande artiklar:
  
    > [!div class="mx-imgBorder"]
    > ![Contoso-test](./media/network-isolation/contoso-test.png)
-1. På lagrings kontot går du till brand väggar och virtuella nätverk och kontrollerar att kryss rutan Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot är markerad. Eftersom [DevTest Labs är en betrodd Microsoft-tjänst](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)gör det här alternativet att labbet fungerar normalt i ett isolerat nätverk. 
+1. På lagrings kontot går du till brand väggar och virtuella nätverk och kontrollerar att kryss rutan Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot är markerad. Eftersom [DevTest Labs är en betrodd Microsoft-tjänst](../storage/common/storage-network-security.md#trusted-microsoft-services)gör det här alternativet att labbet fungerar normalt i ett isolerat nätverk. 
 
    > [!div class="mx-imgBorder"]
    > ![Contoso Lab-brandväggar](./media/network-isolation/contoso-lab-firewalls-vnets.png)
@@ -74,7 +74,7 @@ Med det här alternativet tillåter Azure Storage inkommande anslutningar från 
 
 Du kan också välja att automatisera de här stegen för att konfigurera den här inställningen för flera labb. 
 
-[Läs mer om hur du hanterar standard åtkomst regler för nätverk för Azure Storage med PowerShell och CLI](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=/azure/virtual-network/toc.json#powershell)
+[Läs mer om hur du hanterar standard åtkomst regler för nätverk för Azure Storage med PowerShell och CLI](../storage/common/storage-network-security.md?toc=%252fazure%252fvirtual-network%252ftoc.json#powershell)
 
 ## <a name="things-to-remember-while-using-a-lab-in-a-network-isolated-mode"></a>Saker att komma ihåg när du använder ett labb i ett isolerat nätverk
 
@@ -82,7 +82,7 @@ Du kan också välja att automatisera de här stegen för att konfigurera den h�
 
 I ett isolerat nätverk, för åtgärder som att ladda upp en virtuell hård disk till Labbets lagrings konto för att skapa anpassade avbildningar, behöver Lab-ägare uttryckligen aktivera åtkomst till lagrings kontot från en tillåten slut punkt. Du kan göra detta genom att skapa en virtuell dator och på ett säkert sätt komma åt Labbets lagrings konto från den virtuella datorn. 
 
-[Lär dig mer om att komma åt ett lagrings konto privat från en virtuell dator](../private-link/create-private-endpoint-storage-portal.md)
+[Lär dig mer om att komma åt ett lagrings konto privat från en virtuell dator](../private-link/tutorial-private-endpoint-storage-portal.md)
 
 ### <a name="exporting-usage-data-from-the-lab"></a>Exportera användnings data från labbet 
 

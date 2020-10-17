@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: overview
 ms.date: 04/17/2019
 ms.author: twooley
-ms.openlocfilehash: 2ca6ceb326a1fd6f7aaf5a9871d043377e60de83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52c00359fb4e759d9517dee958e31c00feb2b33e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85508562"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149242"
 ---
 # <a name="what-is-azure-data-lake-storage-gen1"></a>Vad är Azure Data Lake Storage Gen1?
 
@@ -60,7 +60,7 @@ Data Lake Storage Gen1 använder Azure Active Directory (Azure AD) för autentis
 
 | Funktion | Beskrivning |
 | --- | --- |
-| Autentisering |Data Lake Storage Gen1 integreras med Azure AD för identitets-och åtkomst hantering för alla data som lagras i Data Lake Storage Gen1. På grund av integreringen Data Lake Storage Gen1 fördelarna med alla Azure AD-funktioner, till exempel Multi-Factor Authentication, villkorlig åtkomst, rollbaserad åtkomst kontroll, övervakning av program användning, säkerhetsövervakning och avisering och så vidare. Data Lake Storage Gen1 stöder OAuth 2,0-protokollet för autentisering i REST-gränssnittet. Se [data Lake Storage gen1 autentisering](data-lakes-store-authentication-using-azure-active-directory.md).|
+| Autentisering |Data Lake Storage Gen1 integreras med Azure AD för identitets-och åtkomst hantering för alla data som lagras i Data Lake Storage Gen1. På grund av integreringen Data Lake Storage Gen1 fördelarna med alla Azure AD-funktioner, till exempel Multi-Factor Authentication, villkorlig åtkomst, Azure rollbaserad åtkomst kontroll, övervakning av program användning, säkerhetsövervakning och avisering och så vidare. Data Lake Storage Gen1 stöder OAuth 2,0-protokollet för autentisering i REST-gränssnittet. Se [data Lake Storage gen1 autentisering](data-lakes-store-authentication-using-azure-active-directory.md).|
 | Åtkomstkontroll |Data Lake Storage Gen1 ger åtkomst kontroll genom att stödja POSIX-stil-behörigheter som exponeras av WebHDFS-protokollet. Du kan aktivera ACL: er på rotmappen, i undermappar och på enskilda filer. Mer information om hur ACL: er fungerar i samband med Data Lake Storage Gen1 finns i [åtkomst kontroll i data Lake Storage gen1](data-lake-store-access-control.md). |
 | Kryptering |Data Lake Storage Gen1 innehåller även kryptering för data som lagras i kontot. Du anger krypterings inställningarna när du skapar ett Data Lake Storage Gen1-konto. Du kan välja att kryptera dina data eller välja ingen kryptering. Mer information finns i [kryptering i data Lake Storage gen1](data-lake-store-encryption.md). Instruktioner för hur du tillhandahåller en krypterings-relaterad konfiguration finns i [Kom igång med data Lake Storage gen1 med hjälp av Azure Portal](data-lake-store-get-started-portal.md). |
 

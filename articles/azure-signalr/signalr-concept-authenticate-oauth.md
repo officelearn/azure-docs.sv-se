@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d7b94da2f922e7dba8c165dcf9d1e906855f6dfb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 731e4306575a8bd5f63dd47ca213a0e52a21487b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294282"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151233"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
 
@@ -32,7 +32,7 @@ Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub
 
 ![OAuth finns i Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Registrera en ny OAuth-app med ditt GitHub-konto
@@ -48,7 +48,7 @@ För att kunna slutföra den här självstudien behöver du följande:
 * Ett konto som skapades på [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell konfigurerat](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [Azure Cloud Shell konfigurerat](../cloud-shell/quickstart.md)
 * Ladda ned eller klona GitHub-lagringsplatsen [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Skapa en OAuth-app
@@ -388,7 +388,7 @@ I det här avsnittet aktiverar du riktig autentisering genom att lägga till att
 
 ## <a name="deploy-the-app-to-azure"></a>distribuera appen till Azure
 
-I det här avsnittet ska du använda Azures kommando rads gränssnitt (CLI) från Azure Cloud Shell för att skapa en ny webbapp i [Azure App Service](https://docs.microsoft.com/azure/app-service/) som är värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
+I det här avsnittet ska du använda Azures kommando rads gränssnitt (CLI) från Azure Cloud Shell för att skapa en ny webbapp i [Azure App Service](../app-service/index.yml) som är värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
 
 I stegen i det här avsnittet används tillägget *signalr* för Azure CLI. Utför följande kommando för att installera *signalr*-tillägget för Azure CLI:
 

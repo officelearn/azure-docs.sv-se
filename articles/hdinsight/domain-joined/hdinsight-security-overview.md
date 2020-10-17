@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea61ca42c345fe9df0436a193fb2adcb00ce6195
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89292987"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150810"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -82,16 +82,18 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 |  | Se till att [kryptering i överförings](./encryption-in-transit.md) funktionen är aktive rad för att använda TLS och IPSec för kommunikation mellan kluster. | Kund |
 |  | Konfigurera [Kundhanterade nycklar](../../storage/common/storage-encryption-keys-portal.md) för Azure Storage kryptering | Kund |
 |  | Kontrol lera åtkomsten till dina data med Azure-support med hjälp av [kundsäkerhet](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Kund |
-| Program-och mellanprogram säkerhet | Integrera med AAD-DS och [Konfigurera autentisering](apache-domain-joined-configure-using-azure-adds.md) | Kund |
+| Program-och mellanprogram säkerhet | Integrera med AAD-DS och [Konfigurera ESP](apache-domain-joined-configure-using-azure-adds.md) eller Använd [Hib för OAuth-autentisering](identity-broker.md)| Kund |
 |  | Konfigurera [Auktoriseringsprinciper för Apache Ranger](apache-domain-joined-run-hive.md) | Kund |
 |  | Använda [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Kund |
 | Operativ systemets säkerhet | Skapa kluster med den senaste säkra bas avbildningen | Kund |
 |  | Se till att [OS-uppdatering](../hdinsight-os-patching.md) sker med jämna mellanrum | Kund |
+|  | Säkerställ [CMK disk kryptering för virtuella datorer](../disk-encryption.md) | Kund |
 | Nätverkssäkerhet | Konfigurera ett [virtuellt nätverk](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../control-network-traffic.md) | Kund |
+|  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../control-network-traffic.md) eller [privat länk](../hdinsight-private-link.md) | Kund |
 |  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg | Kund |
-| Virtualiserad infrastruktur | E.t. | HDInsight (Cloud Provider) |
-| Säkerhet för fysisk infrastruktur | E.t. | HDInsight (Cloud Provider) |
+|  | Konfigurera [IPSec-kryptering i överföring](encryption-in-transit.md) mellan klusternoder | Kund |
+| Virtualiserad infrastruktur | Saknas | HDInsight (Cloud Provider) |
+| Säkerhet för fysisk infrastruktur | Saknas | HDInsight (Cloud Provider) |
 
 ## <a name="next-steps"></a>Nästa steg
 

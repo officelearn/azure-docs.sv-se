@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3acac0c85aa6f3e3725dcf54a646f8ac16250e24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24f1332e940929cff6aeb6a0d5d3c43e28d36f22
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324054"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149180"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
@@ -38,7 +38,7 @@ I den här artikeln beskrivs arkitekturen i Azure IoT-enhetens SDK för C. Den v
 
 ## <a name="sdk-architecture"></a>SDK-arkitektur
 
-Du hittar [**Azure IoT-enhetens SDK för c**](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen och visar information om API: et i [C API-referensen](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+Du hittar [**Azure IoT-enhetens SDK för c**](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen och visar information om API: et i [C API-referensen](/azure/iot-hub/iot-c-sdk-ref/).
 
 Du hittar den senaste versionen av biblioteken i **huvud** grenen för lagrings platsen:
 
@@ -579,7 +579,7 @@ serializer_deinit();
 
 Var och en av dessa tre funktioner justeras med de tre initierings funktioner som beskrivs ovan. Genom att anropa dessa API: er ser du till att du kostnads fritt tidigare allokerade resurser
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 I den här artikeln beskrivs grunderna för att använda biblioteken i **Azure IoT-enhetens SDK för C**. Du får tillräckligt med information för att förstå vad som ingår i SDK, dess arkitektur och hur du kommer igång med Windows-exemplen. Nästa artikel fortsätter beskrivningen av SDK genom [att förklara mer om IoTHubClient-biblioteket](iot-hub-device-sdk-c-iothubclient.md).
 
@@ -587,4 +587,4 @@ Mer information om hur du utvecklar för IoT Hub finns i [Azure IoT SDK](iot-hub
 
 För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/quickstart-linux.md)

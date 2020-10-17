@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: c54853717f7e0b234df013e5aee575682d0d3d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75429159"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151656"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Så här klonar du en Azure IoT-hubb till en annan region
 
@@ -385,7 +385,7 @@ Portalen verifierar nu mallen och distribuerar den klonade hubben. Om du har kon
 
 Nu när du har skapat och kört måste du kopiera alla enheter från den ursprungliga hubben till klonen. 
 
-Det finns flera sätt att göra detta på. Du har antingen använt [DPS (Device Provisioning service)](/azure/iot-dps/about-iot-dps)för att etablera enheterna, eller så har du inte gjort det. Om du har gjort det är det inte svårt. Om du inte gjorde det kan det vara mycket komplicerat. 
+Det finns flera sätt att göra detta på. Du har antingen använt [DPS (Device Provisioning service)](../iot-dps/about-iot-dps.md)för att etablera enheterna, eller så har du inte gjort det. Om du har gjort det är det inte svårt. Om du inte gjorde det kan det vara mycket komplicerat. 
 
 Om du inte använde DPS för att etablera dina enheter kan du hoppa över nästa avsnitt och börja med [att använda importera/exportera för att flytta enheterna till den nya hubben](#using-import-export-to-move-the-devices-to-the-new-hub).
 
@@ -601,4 +601,4 @@ Mer information om IoT Hub och utveckling för hubben finns i följande artiklar
 
 * [Översikt över IoT Hub enhets hantering](iot-hub-device-management-overview.md)
 
-* Om du vill distribuera exempel programmet går du till [.net Core program distribution](https://docs.microsoft.com/dotnet/core/deploying/index).
+* Om du vill distribuera exempel programmet går du till [.net Core program distribution](/dotnet/core/deploying/index).

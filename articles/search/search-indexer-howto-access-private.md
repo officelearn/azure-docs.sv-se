@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: ef8b3865b0914c0d06ff69d20396f1ff368642bc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102735"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150416"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Indexerare anslutningar via en privat slut punkt (Azure Kognitiv sökning)
 
@@ -33,7 +33,7 @@ Med hjälp av hanterings REST API tillhandahåller Azure Kognitiv sökning en [C
 
 Anslutningar för privata slut punkter till vissa resurser kan bara skapas med för hands versionen av API för Sök hantering ( `2020-08-01-Preview` eller senare), som anges med taggen "Preview" i tabellen nedan. Resurser utan "för hands version"-taggen kan skapas antingen med hjälp av antingen för hands versionen eller i allmänhet tillgänglig API-version ( `2020-08-01` eller senare).
 
-Här följer en lista över de Azure-resurser som utgående privata slut punkter kan skapas från Azure Kognitiv sökning. `groupId` som anges i tabellen nedan måste användas exakt (Skift läges känsligt) i API: et för att skapa en delad privat länk resurs.
+Här följer en lista över de Azure-resurser som utgående privata slut punkter kan skapas från Azure Kognitiv sökning. `groupId`Värdena som anges i tabellen nedan måste användas exakt som skrivna (Skift läges känsliga) i API: et för att skapa en delad privat länk resurs.
 
 | Azure-resurs | Grupp-ID |
 | --- | --- |
@@ -47,7 +47,7 @@ Här följer en lista över de Azure-resurser som utgående privata slut punkter
 
 Listan över Azure-resurser som utgående privata slut punkts anslutningar stöds för kan även frågas med hjälp av den [lista över API som stöds](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-I den här artikeln används en blandning av [ARMClient](https://github.com/projectkudu/ARMClient) och [Postman](https://www.postman.com/) för att demonstrera REST API samtal.
+I resten av den här artikeln används en blandning av [ARMClient](https://github.com/projectkudu/ARMClient) och [Postman](https://www.postman.com/) för att demonstrera REST API samtal.
 
 > [!NOTE]
 > I den här artikeln förutsätter vi att namnet på Sök tjänsten är __contoso-search__ som finns i resurs gruppen __contoso__ för en prenumeration med prenumerations-ID __00000000-0000-0000-0000-000000000000__. Resurs-ID för den här Sök tjänsten kommer att `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`

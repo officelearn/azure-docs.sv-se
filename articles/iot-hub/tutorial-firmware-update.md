@@ -14,18 +14,18 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: 304ded466aeb734388c13b87331eb4813e850e56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1410b9e8287b34c8b40e841ff513de784e1730a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842826"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150554"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Självstudie: Implementera en uppdateringsprocess för enhetens inbyggda programvara
 
 Du kan behöva uppdatera den inbyggda programvaran på enheter som är anslutna till din IoT Hub. Du kanske vill lägga till nya funktioner i den inbyggda programvaran eller tillämpa säkerhetskorrigeringar. I många IoT-scenarier är det inte möjligt att fysiskt besöka och uppdatera den inbyggda programvaran manuellt för dina enheter. I den här självstudien får du lära dig att starta och övervaka processen för uppdatering av inbyggd programvara via fjärranslutning med ett serverdelsprogram anslutet till din hubb.
 
-Om du vill skapa och övervaka uppdateringsprocessen för den inbyggda programvaran, skapar serverdelsprogrammet i den här självstudien en _konfiguration_ i din IoT Hub. Den [automatiska enhetshanteringen](iot-hub-auto-device-config.md) i IoT Hub använder den här konfigurationen för att uppdatera en uppsättning _önskade egenskaper för enhetstvillingar_ på alla kylaggregat. De önskade egenskaperna anger informationen om uppdateringen av den inbyggda programvara som krävs. När kylaggregaten kör uppdateringsprocessen för den inbyggda programvaran rapporterar de status till serverdelsprogrammet med hjälp av _rapporterade egenskaper för enhetstvillingar_. Serverdelsprogrammet kan använda konfigurationen för att övervaka de rapporterade egenskaperna från enheten och spåra uppdateringsprocessen för den inbyggda programvaran så att den kan slutföras:
+Om du vill skapa och övervaka uppdateringsprocessen för den inbyggda programvaran, skapar serverdelsprogrammet i den här självstudien en _konfiguration_ i din IoT Hub. Den [automatiska enhetshanteringen](./iot-hub-automatic-device-management.md) i IoT Hub använder den här konfigurationen för att uppdatera en uppsättning _önskade egenskaper för enhetstvillingar_ på alla kylaggregat. De önskade egenskaperna anger informationen om uppdateringen av den inbyggda programvara som krävs. När kylaggregaten kör uppdateringsprocessen för den inbyggda programvaran rapporterar de status till serverdelsprogrammet med hjälp av _rapporterade egenskaper för enhetstvillingar_. Serverdelsprogrammet kan använda konfigurationen för att övervaka de rapporterade egenskaperna från enheten och spåra uppdateringsprocessen för den inbyggda programvaran så att den kan slutföras:
 
 ![Uppdateringsprocessen för den inbyggda programvaran](media/tutorial-firmware-update/Process.png)
 
@@ -39,9 +39,9 @@ I den här självstudien slutför du följande uppgifter:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 De två exempelprogram som du kör i den här snabbstarten skrivs med Node.js. Du behöver Node.js v10. x. x eller senare på din utvecklings dator.
 

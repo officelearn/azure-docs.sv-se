@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3201870d2d738a867f89166904d668b5596cbcdf
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420888"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149071"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Lägg till ett TLS-/SSL-certifikat i Azure App Service
 
@@ -29,7 +29,7 @@ I följande tabell visas de alternativ som du har för att lägga till certifika
 | Ladda upp ett privat certifikat | Om du redan har ett privat certifikat från en tredje part kan du ladda upp det. Se [krav för privata certifikat](#private-certificate-requirements). |
 | Ladda upp ett offentligt certifikat | Offentliga certifikat används inte för att skydda anpassade domäner, men du kan läsa in dem i koden om du behöver dem för att få åtkomst till fjär resurser. |
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här instruktions guiden:
 
@@ -114,9 +114,9 @@ Starta en App Service certifikat ordning på <a href="https://portal.azure.com/#
 
 Använd följande tabell som hjälp för att konfigurera certifikatet. Klicka på **Skapa** när du är klar.
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |-|-|
-| Name | Ett eget namn på ditt App Service certifikat. |
+| Namn | Ett eget namn på ditt App Service certifikat. |
 | Värddator namn för blott-domän | Ange rot domänen här. Det utfärdade certifikatet skyddar *både* rot domänen och under `www` domänen. I det utfärdade certifikatet innehåller fältet eget namn rot domänen och fältet Alternativt namn på certifikat mottagare innehåller `www` domänen. Om du bara vill skydda en under domän anger du det fullständigt kvalificerade domän namnet för under domänen här (till exempel `mysubdomain.contoso.com` ).|
 | Prenumeration | Den prenumeration som ska innehålla certifikatet. |
 | Resursgrupp | Den resurs grupp som ska innehålla certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
@@ -139,14 +139,14 @@ Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#
 
 På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för att skapa ett nytt valv eller välja ett befintligt valv. Om du väljer att skapa ett nytt valv använder du följande tabell som hjälp för att konfigurera valvet och klicka på Skapa. Skapa den nya Key Vault inuti samma prenumeration och resurs grupp som din App Service-app.
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |-|-|
-| Name | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
+| Namn | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
 | Resursgrupp | Som en rekommendation väljer du samma resurs grupp som ditt App Service certifikat. |
-| Location | Välj samma plats som App Service-appen. |
+| Plats | Välj samma plats som App Service-appen. |
 | Prisnivå | Mer information finns [Azure Key Vault pris information](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Åtkomstprinciper| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [tilldela en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-portal). |
-| Virtual Network åtkomst | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](/azure/key-vault/general/network-security) |
+| Åtkomstprinciper| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [tilldela en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-portal.md). |
+| Virtual Network åtkomst | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/general/network-security.md) |
 
 När du har valt valvet stänger du sidan **Key Vault-lagringsplats** . **Steg 1: Store** -alternativet ska visa en grön bock markering för lyckad. Låt sidan vara öppen för nästa steg.
 
@@ -189,7 +189,7 @@ När åtgärden har slutförts visas certifikatet i listan med certifikat för *
 Om du använder Azure Key Vault för att hantera dina certifikat kan du importera ett PKCS12-certifikat från Key Vault till App Service så länge det [uppfyller kraven](#private-certificate-requirements).
 
 ### <a name="authorize-app-service-to-read-from-the-vault"></a>Auktorisera App Service att läsa från valvet
-Som standard har App Service Resource Provider inte åtkomst till Key Vault. Om du vill använda en Key Vault för en certifikat distribution måste du [ge resurs leverantören Läs behörighet till nyckel valvet](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault). 
+Som standard har App Service Resource Provider inte åtkomst till Key Vault. Om du vill använda en Key Vault för en certifikat distribution måste du [ge resurs leverantören Läs behörighet till nyckel valvet](../key-vault/general/assign-access-policy-cli.md). 
 
 `abfa0a7c-a6b6-4736-8310-5855508787cd`  är resurs leverantörens tjänst huvud namn för App Service och det är detsamma för alla Azure-prenumerationer. För Azure Government moln miljö använder `6a02c803-dafd-4136-b4c3-5a6f318b4714` du i stället som resurs leverantörens tjänst huvud namn.
 
@@ -203,7 +203,7 @@ Välj **TLS/SSL-inställningar**  >  **privat nyckel certifikat (. pfx)**  >  **
 
 Använd följande tabell för att få hjälp att välja certifikatet.
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |-|-|
 | Prenumeration | Den prenumeration som Key Vault tillhör. |
 | Key Vault | Valvet med det certifikat som du vill importera. |

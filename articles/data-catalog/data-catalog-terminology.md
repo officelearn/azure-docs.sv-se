@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: d6c813dec3922334f7462b1226ea22371fd5f43b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e636a039302d2ea61c7135bff1fceb4763f25df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68736281"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151458"
 ---
 # <a name="azure-data-catalog-terminology"></a>Azure Data Catalog terminologi
 
@@ -39,7 +39,7 @@ Strukturella metadata är de metadata som extraheras från en data källa som be
 
 ## <a name="descriptive-metadata"></a>Beskrivande metadata
 
-Beskrivande metadata är metadata som beskriver syftet med eller avsikten med en data till gång. Vanligt vis beskrivande metadata läggs till av katalog användare som använder Azure Data Catalog Portal, men den kan också extraheras från data källan under registreringen. Azure Data Catalog registrerings verktyget extraherar till exempel beskrivningar från egenskapen Description i SQL Server Analysis Services och SQL Server Reporting Services och från [ms_description utökade egenskapen](https://technet.microsoft.com/library/ms190243.aspx) i SQL Server-databaser, om dessa egenskaper har fyllts med värden.
+Beskrivande metadata är metadata som beskriver syftet med eller avsikten med en data till gång. Vanligt vis beskrivande metadata läggs till av katalog användare som använder Azure Data Catalog Portal, men den kan också extraheras från data källan under registreringen. Azure Data Catalog registrerings verktyget extraherar till exempel beskrivningar från egenskapen Description i SQL Server Analysis Services och SQL Server Reporting Services och från [ms_description utökade egenskapen](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)) i SQL Server-databaser, om dessa egenskaper har fyllts med värden.
 
 ## <a name="request-access"></a>Begär åtkomst
 
@@ -86,4 +86,4 @@ Registreringen innebär att data till gångens metadata extraheras från en data
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Snabb start: skapa en Azure Data Catalog](data-catalog-get-started.md) 
+[Snabb start: skapa en Azure Data Catalog](data-catalog-get-started.md)

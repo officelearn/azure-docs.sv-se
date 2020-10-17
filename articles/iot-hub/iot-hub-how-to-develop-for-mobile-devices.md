@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: robinsh
-ms.openlocfilehash: 945b02003a443c04e692fdc06ca5714de362d074
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63fade17d10189cbe8e775b2a859902f1c2bb004
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883086"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151645"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Utveckla för mobila enheter med Azure IoT SDK: er
 
-Saker i Sakernas Internet kan referera till en mängd olika enheter med varierande kapacitet: sensorer, mikrokontrollanter, smarta enheter, industriella gatewayer och till och med mobila enheter.  En mobil enhet kan vara en IoT-enhet där den skickar enhets-till-moln-telemetri och hanteras av molnet.  Det kan också vara enheten som kör ett Server dels tjänst program som hanterar andra IoT-enheter.  I båda fallen kan [Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) : er användas för att utveckla program som fungerar för mobila enheter.  
+Saker i Sakernas Internet kan referera till en mängd olika enheter med varierande kapacitet: sensorer, mikrokontrollanter, smarta enheter, industriella gatewayer och till och med mobila enheter.  En mobil enhet kan vara en IoT-enhet där den skickar enhets-till-moln-telemetri och hanteras av molnet.  Det kan också vara enheten som kör ett Server dels tjänst program som hanterar andra IoT-enheter.  I båda fallen kan [Azure IoT Hub SDK](./iot-hub-devguide-sdks.md) : er användas för att utveckla program som fungerar för mobila enheter.  
 
 ## <a name="develop-for-native-ios-platform"></a>Utveckla för ursprunglig iOS-plattform
 
@@ -52,5 +52,5 @@ Dessa dokument går igenom hur du utvecklar ett enhets program eller tjänst pro
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [IoT Hub REST API referens](https://docs.microsoft.com/rest/api/iothub/)
+* [IoT Hub REST API referens](/rest/api/iothub/)
 * [Käll kod för Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)

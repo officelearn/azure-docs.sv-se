@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 98d94e9544e75f762d4532101a92d14106d6a575
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b56824e386709bd330339f1f6acfd2812e040de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88931802"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150928"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudie: identifiera Azure-tjänstens logo typer i kamera bilder
 
@@ -29,9 +29,9 @@ De här självstudierna visar hur du:
 > - Anslut appen till Azure-tjänsten Visuellt innehåll och Custom Vision.
 > - Skapa ett konto för Azure-tjänstens huvudnamn för att distribuera Azure-tjänster från appen.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/cognitive-services/) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/)
 - Xamarin-arbetsbelastningen för Visual Studio (se [Installera Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
@@ -104,7 +104,7 @@ Nu öppnar du filen *Source\VisualProvision\AppSettings.cs* och fyller i variabl
 
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Appen kräver ett Azure-konto för tjänstens huvudnamn för att distribuera tjänster till din Azure-prenumeration. Med tjänstens huvudnamn kan du delegera specifika behörigheter för en app med rollbaserad åtkomstkontroll. Mer information finns i [guiden för tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+Appen kräver ett Azure-konto för tjänstens huvudnamn för att distribuera tjänster till din Azure-prenumeration. Med ett huvud namn för tjänsten kan du delegera särskilda behörigheter till en app med hjälp av rollbaserad åtkomst kontroll i Azure. Mer information finns i [guiden för tjänstens huvudnamn](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
 
 Du kan skapa ett huvudnamn för tjänsten med hjälp av Azure Cloud Shell eller Azure CLI såsom det visas här. Börja med att logga in och välja den prenumeration som du vill använda.
 

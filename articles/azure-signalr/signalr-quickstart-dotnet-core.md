@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: b5fc15815c9843c55bf31efe31e12e2de02d3be3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b5a2064e2fd80b895b0e801090c66d7119cf69dd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874024"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151006"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Snabb start: skapa ett chattrum med hjälp av signal tjänsten
 
-Azure SignalR Service är en Azure-tjänst som hjälper utvecklare att enkelt skapa webbappar med realtidsfunktioner. Den här tjänsten grundades ursprungligen på [SignalR för ASP.NET Core 2,1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), men har nu stöd för senare versioner.
+Azure SignalR Service är en Azure-tjänst som hjälper utvecklare att enkelt skapa webbappar med realtidsfunktioner. Den här tjänsten grundades ursprungligen på [SignalR för ASP.NET Core 2,1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), men har nu stöd för senare versioner.
 
 Den här artikeln visar hur du kommer igång med Azure SignalR Service. I den här snabb starten skapar du ett chatt-program med hjälp av en ASP.NET Core MVC-webbapp. Den här appen skapar en anslutning till din Azure SignalR Service-resurs för att aktivera uppdateringar av innehåll i realtid. Du ska vara värd för webb programmet lokalt och ansluta till flera webb läsar klienter. Varje klient kommer att kunna skicka innehållsuppdateringar till alla andra klienter. 
 
@@ -42,7 +42,7 @@ Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub
 
 ## <a name="create-an-aspnet-core-web-app"></a>Skapa en ASP.NET Core-webbapp
 
-I det här avsnittet använder du [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.com/dotnet/core/tools/) för att skapa ett ASP.net Core MVC-webbprogram. Fördelen med att använda .NET Core CLI i Visual Studio är att den är tillgänglig på Windows-, macOS-och Linux-plattformarna. 
+I det här avsnittet använder du [.net Core kommando rads gränssnitt (CLI)](/dotnet/core/tools/) för att skapa ett ASP.net Core MVC-webbprogram. Fördelen med att använda .NET Core CLI i Visual Studio är att den är tillgänglig på Windows-, macOS-och Linux-plattformarna. 
 
 1. Skapa en mapp för ditt projekt. I den här snabb starten används mappen *E:\Testing\chattest* .
 
@@ -56,7 +56,7 @@ I det här avsnittet använder du [.net Core kommando rads gränssnitt (CLI)](ht
 
 ## <a name="add-secret-manager-to-the-project"></a>Lägg till Secret Manager i projektet
 
-I det här avsnittet ska du lägga till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga data för utvecklings arbete utanför projekt trädet. Den här metoden hjälper till att förhindra att program hemligheter delas av misstag i käll koden.
+I det här avsnittet ska du lägga till [verktyget Secret Manager](/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga data för utvecklings arbete utanför projekt trädet. Den här metoden hjälper till att förhindra att program hemligheter delas av misstag i käll koden.
 
 1. Öppna *.csproj*-filen. Lägg till ett `DotNetCliToolReference`-element att inkludera *Microsoft.Extensions.SecretManager.Tools*. Lägg också till ett- `UserSecretsId` element som det visas i följande kod för den *chattaste. CSPROJ*och spara filen.
 
@@ -107,12 +107,13 @@ I det här avsnittet ska du lägga till [verktyget Secret Manager](https://docs.
     Den här hemligheten nås med Konfigurations-API: et. Ett kolon (:) fungerar i konfigurations namnet med Konfigurations-API: et på alla plattformar som stöds. Se [konfiguration efter miljö](/dotnet/core/extensions/configuration-providers#environment-variable-configuration-provider).
 
 
-4. Öppna *Startup.cs* och uppdatera `ConfigureServices`-metoden för att använda Azure SignalR Service genom att anropa metoden `AddSignalR()`:
+4. Öppna *startup.cs* och uppdatera `ConfigureServices` metoden för att använda Azure SignalR service genom att anropa `AddSignalR()` `AddAzureSignalR()` metoderna och:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddAzureSignalR();
+        services.AddSignalR()
+                .AddAzureSignalR();
     }
     ```
 
@@ -325,7 +326,7 @@ Om anslutningen lyckas skickas anslutningen till `bindConnectionMessage` som lä
 
 ## <a name="add-a-development-runtime-profile"></a>Lägg till en körningsprofil för utveckling
 
-I det här avsnittet ska du lägga till en utvecklings körnings miljö för ASP.NET Core. Mer information finns i [arbeta med flera miljöer i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
+I det här avsnittet ska du lägga till en utvecklings körnings miljö för ASP.NET Core. Mer information finns i [arbeta med flera miljöer i ASP.net Core](/aspnet/core/fundamentals/environments).
 
 1. Skapa en mapp med namnet *Egenskaper* i ditt projekt.
 

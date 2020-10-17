@@ -4,16 +4,16 @@ description: Så här autentiserar du underordnade enheter eller löv enheter ti
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f2dd7cac8370c261f24f5587e801bd621fbdb0f0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046731"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151384"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autentisera en underordnad enhet på Azure IoT Hub
 
@@ -21,15 +21,15 @@ I ett scenario med transparent Gateway behöver underordnade enheter (ibland kal
 
 Det finns tre allmänna steg för att konfigurera en lyckad transparent Gateway-anslutning. Den här artikeln beskriver det andra steget:
 
-1. Konfigurera gateway-enheten som en server så att underordnade enheter kan ansluta till den på ett säkert sätt. Konfigurera gatewayen för att ta emot meddelanden från underordnade enheter och dirigera dem till rätt plats. Mer information finns i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
+1. Konfigurera gateway-enheten som en server så att underordnade enheter kan ansluta till den på ett säkert sätt. Konfigurera gatewayen för att ta emot meddelanden från underordnade enheter och dirigera dem till rätt plats. De här stegen finns i [Konfigurera en IoT Edge enhet att fungera som en transparent Gateway](how-to-create-transparent-gateway.md).
 2. **Skapa en enhets identitet för den underordnade enheten så att den kan autentiseras med IoT Hub. Konfigurera den underordnade enheten för att skicka meddelanden via gateway-enheten.**
-3. Anslut den underordnade enheten till gateway-enheten och börja skicka meddelanden. Mer information finns i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
+3. Anslut den underordnade enheten till gateway-enheten och börja skicka meddelanden. De här stegen finns i [ansluta en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
 
 Underordnade enheter kan autentiseras med IoT Hub med hjälp av någon av tre metoder: symmetriska nycklar (kallas ibland för delade åtkomst nycklar), X. 509 självsignerade certifikat eller certifikat från X. 509 certifikat utfärdare (CA) signerade certifikat. Stegen för autentisering liknar de steg som används för att konfigurera en icke-IoT-Edge-enhet med IoT Hub, med små skillnader för att deklarera Gateway-relationen.
 
-Stegen i den här artikeln visar manuell enhets etablering. Automatisk etablering av underordnade enheter med Azure-IoT Hub Device Provisioning Service (DPS) stöds inte.
+Automatisk etablering av underordnade enheter med Azure-IoT Hub Device Provisioning Service (DPS) stöds inte.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
 
@@ -42,10 +42,16 @@ Den här artikeln hänvisar till *Gateway-värdnamnet* på flera punkter. Gatewa
 Välj hur du vill att den underordnade enheten ska autentiseras med IoT Hub:
 
 * [Symmetrisk nyckel autentisering](#symmetric-key-authentication): IoT Hub skapar en nyckel som du lägger på den underordnade enheten. När enheten autentiseras kontrollerar IoT Hub att de två nycklarna matchar. Du behöver inte skapa ytterligare certifikat för att använda symmetrisk nyckel autentisering.
+
+  Den här metoden går snabbare att komma igång om du testar gatewayer i ett utvecklings-eller test scenario.
+
 * [X. 509-självsignerad autentisering](#x509-self-signed-authentication): ibland kallas tumavtryck-autentisering, eftersom du delar tumavtrycket från enhetens X. 509-certifikat med IoT Hub.
+
+  Certifikatautentisering rekommenderas för enheter i produktions scenarier.
+
 * [X. 509 ca-signerad autentisering](#x509-ca-signed-authentication): Ladda upp rot certifikat utfärdarens certifikat till IoT Hub. När enheter presenterar sitt X. 509-certifikat för autentisering, kontrollerar IoT Hub att det tillhör en förtroende kedja signerade av samma rot certifikat för certifikat utfärdare.
 
-När du har registrerat din enhet med någon av dessa tre metoder fortsätter du till nästa avsnitt för att [Hämta och ändra anslutnings strängen](#retrieve-and-modify-connection-string) för din underordnade enhet.
+  Certifikatautentisering rekommenderas för enheter i produktions scenarier.
 
 ### <a name="symmetric-key-authentication"></a>Autentisering med symmetrisk nyckel
 
@@ -59,17 +65,15 @@ Ange följande information när du skapar den nya enhets identiteten:
 
 * Välj **symmetrisk nyckel** som autentiseringstyp.
 
-* Välj **Ange en överordnad enhet** och välj den IoT Edge gateway-enhet som den här underordnade enheten ska ansluta till. Det här steget aktiverar [offline-funktioner](offline-capabilities.md) för din underordnade enhet. Du kan alltid ändra överordnad senare.
+* Välj **Ange en överordnad enhet** och välj den IoT Edge gateway-enhet som den här underordnade enheten ska ansluta till. Du kan alltid ändra överordnad senare.
 
    ![Skapa enhets-ID med symmetrisk nyckel-auth i portalen](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
 
-Du kan också använda [IoT-tillägget för Azure CLI för](https://github.com/Azure/azure-iot-cli-extension) att slutföra samma åtgärd. I följande exempel skapas en ny IoT-enhet med autentisering med symmetrisk nyckel och tilldelar en överordnad enhet:
+Du kan också använda [IoT-tillägget för Azure CLI för](https://github.com/Azure/azure-iot-cli-extension) att slutföra samma åtgärd. I följande exempel används [AZ IoT Hub Device-Identity-](/cli/azure/ext/azure-iot/iot/hub/device-identity) kommandot för att skapa en ny IoT-enhet med symmetrisk nyckel autentisering och tilldela en överordnad enhet:
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
-
-Mer information om Azure CLI-kommandon för att skapa och överordnad och underordnad hantering av enheter finns i referens innehållet för [AZ IoT Hub Device-Identity-](/cli/azure/ext/azure-iot/iot/hub/device-identity) kommandon.
 
 [Hämta och ändra sedan anslutnings strängen](#retrieve-and-modify-connection-string) så att enheten kan ansluta via sin Gateway.
 
@@ -104,7 +108,7 @@ För X. 509-självsignerad autentisering, som ibland kallas tumavtryck, måste d
    * Ange **enhets-ID: t** som matchar ämnes namnet för enhets certifikaten.
    * Välj **X. 509 själv signerad** som autentiseringstyp.
    * Klistra in de hexadecimala strängarna som du kopierade från enhetens primära och sekundära certifikat.
-   * Välj **Ange en överordnad enhet** och välj den IoT Edge gateway-enhet som den här underordnade enheten ska ansluta till. En överordnad enhet krävs för X. 509-autentisering av en underordnad enhet.
+   * Välj **Ange en överordnad enhet** och välj den IoT Edge gateway-enhet som den här underordnade enheten ska ansluta till. Du kan alltid ändra överordnad senare.
 
    ![Skapa enhets-ID med X. 509 självsignerad autentisering i portalen](./media/how-to-authenticate-downstream-device/x509-self-signed-portal.png)
 
@@ -120,13 +124,11 @@ För X. 509-självsignerad autentisering, som ibland kallas tumavtryck, måste d
    * Java: [SendEventX509. java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509. py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-Du kan också använda [IoT-tillägget för Azure CLI för](https://github.com/Azure/azure-iot-cli-extension) att slutföra samma enhets skapande åtgärd. I följande exempel skapas en ny IoT-enhet med en självsignerad X. 509-autentisering och tilldelar en överordnad enhet:
+Du kan också använda [IoT-tillägget för Azure CLI för](https://github.com/Azure/azure-iot-cli-extension) att slutföra samma enhets skapande åtgärd. I följande exempel används [AZ IoT Hub Device-Identity-](/cli/azure/ext/azure-iot/iot/hub/device-identity) kommandot för att skapa en ny IoT-enhet med en självsignerad X. 509-autentisering och tilldelar en överordnad enhet:
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
-
-Mer information om Azure CLI-kommandon för skapande av enheter, rapportgenerering och över-och underordnade hantering finns i referens innehållet för [AZ IoT Hub Device-Identity-](/cli/azure/ext/azure-iot/iot/hub/device-identity) kommandon.
 
 [Hämta och ändra sedan anslutnings strängen](#retrieve-and-modify-connection-string) så att enheten kan ansluta via sin Gateway.
 
@@ -150,7 +152,7 @@ Det här avsnittet baseras på instruktionerna som beskrivs i IoT Hub artikel ko
 
    1. Lägg till en ny enhet. Ange ett gement namn för **enhets-ID**och välj autentiseringstypen **X. 509 ca signerad**.
 
-   2. Ange en överordnad enhet. För underordnade enheter väljer du **Ange en överordnad enhet** och väljer den IoT Edge gateway-enhet som ska anslutas till IoT Hub.
+   2. Ange en överordnad enhet. Välj **Ange en överordnad enhet** och välj den IoT Edge gateway-enhet som ska ansluta till IoT Hub.
 
 4. Skapa en certifikat kedja för din underordnade enhet. Använd samma rot certifikat för certifikat utfärdare som du laddade upp till IoT Hub för att skapa den här kedjan. Använd samma små enhets-ID som du gav din enhets identitet i portalen.
 
@@ -166,13 +168,11 @@ Det här avsnittet baseras på instruktionerna som beskrivs i IoT Hub artikel ko
    * Java: [SendEventX509. java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
    * Python: [send_message_x509. py](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-device/samples/async-hub-scenarios/send_message_x509.py)
 
-Du kan också använda [IoT-tillägget för Azure CLI för](https://github.com/Azure/azure-iot-cli-extension) att slutföra samma enhets skapande åtgärd. I följande exempel skapas en ny IoT-enhet med X. 509 CA-signerad autentisering och tilldelar en överordnad enhet:
+Du kan också använda [IoT-tillägget för Azure CLI för](https://github.com/Azure/azure-iot-cli-extension) att slutföra samma enhets skapande åtgärd. I följande exempel används [AZ IoT Hub Device-Identity-](/cli/azure/ext/azure-iot/iot/hub/device-identity) kommandot för att skapa en ny IoT-enhet med X. 509 ca-signerad autentisering och tilldelar en överordnad enhet:
 
 ```cli
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
-
-Mer information finns i referens innehållet för Azure CLI för [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) commands.
 
 [Hämta och ändra sedan anslutnings strängen](#retrieve-and-modify-connection-string) så att enheten kan ansluta via sin Gateway.
 
@@ -213,4 +213,4 @@ Du använder den här ändrade anslutnings strängen i nästa artikel i den tran
 
 Nu har du en IoT Edge enhet som registrerats med IoT Hub och som kon figurer ATS som en transparent Gateway. Du har också en underordnad enhet registrerad i IoT Hub och pekar på dess gateway-enhet.
 
-Stegen i den här artikeln konfigurerar din underordnade enhet för att autentisera till IoT Hub. Därefter måste du konfigurera en underordnad enhet för att lita på gateway-enheten och ansluta till den på ett säkert sätt. Fortsätt till nästa artikel i den transparenta Gateway-serien, [Anslut en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).
+Därefter måste du konfigurera en underordnad enhet för att lita på gateway-enheten och ansluta till den på ett säkert sätt. Fortsätt till nästa artikel i den transparenta Gateway-serien, [Anslut en underordnad enhet till en Azure IoT Edge Gateway](how-to-connect-downstream-device.md).

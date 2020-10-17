@@ -4,7 +4,7 @@ description: Konfigurera underordnade eller löv enheter för att ansluta till A
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/02/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 4faec8f79d856b86052745ad530e17b9b25634e8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 979ed3d21986ad43d805446a520a59333a6798ed
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045847"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149334"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ansluta en underordnad enhet till en Azure IoT Edge-gateway
 
@@ -25,11 +25,11 @@ Den här artikeln innehåller instruktioner för att upprätta en betrodd anslut
 
 Det finns tre allmänna steg för att konfigurera en lyckad transparent Gateway-anslutning. Den här artikeln beskriver det tredje steget:
 
-1. Konfigurera gateway-enheten som en server så att underordnade enheter kan ansluta till den på ett säkert sätt. Konfigurera gatewayen för att ta emot meddelanden från underordnade enheter och dirigera dem till rätt plats. Mer information finns i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent Gateway](how-to-create-transparent-gateway.md).
-2. Skapa en enhets identitet för den underordnade enheten så att den kan autentiseras med IoT Hub. Konfigurera den underordnade enheten för att skicka meddelanden via gateway-enheten. Mer information finns i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
+1. Konfigurera gateway-enheten som en server så att underordnade enheter kan ansluta till den på ett säkert sätt. Konfigurera gatewayen för att ta emot meddelanden från underordnade enheter och dirigera dem till rätt plats. De här stegen finns i [Konfigurera en IoT Edge enhet att fungera som en transparent Gateway](how-to-create-transparent-gateway.md).
+2. Skapa en enhets identitet för den underordnade enheten så att den kan autentiseras med IoT Hub. Konfigurera den underordnade enheten för att skicka meddelanden via gateway-enheten. De här stegen finns i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
 3. **Anslut den underordnade enheten till gateway-enheten och börja skicka meddelanden.**
 
-I den här artikeln beskrivs vanliga problem med underordnade enhets anslutningar och rikt linjer för att konfigurera dina efterföljande enheter genom att:
+Den här artikeln beskriver grundläggande begrepp för underordnade enhets anslutningar och vägleder dig när du konfigurerar dina efterföljande enheter genom att:
 
 * Förklarar TLS (Transport Layer Security) och grundläggande certifikat.
 * Förklarar hur TLS-bibliotek fungerar i olika operativ system och hur varje operativ system hanterar certifikat.
@@ -37,7 +37,7 @@ I den här artikeln beskrivs vanliga problem med underordnade enhets anslutninga
 
 I den här artikeln hänvisar termerna *Gateway* och *IoT Edge gateway* till en IoT Edge enhet som kon figurer ATS som en transparent Gateway.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ha rot certifikat utfärdarens certifikat fil som användes för att generera enhetens CA-certifikat i [Konfigurera en IoT Edge-enhet så att den fungerar som en transparent gateway som](how-to-create-transparent-gateway.md) är tillgänglig på din underordnade enhet. Den underordnade enheten använder det här certifikatet för att verifiera identiteten för gateway-enheten. Om du använde demonstrations certifikaten kallas rot certifikat UTFÄRDARens certifikat **Azure-IoT-test-Only. root. ca. cert. pem**.
 * Ha den ändrade anslutnings strängen som pekar på gateway-enheten, enligt beskrivningen i [autentisera en underordnad enhet till Azure IoT Hub](how-to-authenticate-downstream-device.md).
@@ -67,7 +67,7 @@ När en klient ansluter till en server presenterar servern en kedja av certifika
 
 När en enhet ansluter till Azure IoT Hub är enheten klienten och moln tjänsten IoT Hub är servern. IoT Hub moln tjänsten backas upp av ett rot certifikat för certifikat utfärdare som kallas **Baltimore CyberTrust-rot**, som är offentligt tillgänglig och används ofta. Eftersom det IoT Hub CA-certifikatet redan är installerat på de flesta enheter, använder många TLS-implementeringar (OpenSSL, Schannel, LibreSSL) automatiskt det vid verifiering av Server certifikat. En enhet som ansluter till IoT Hub kan dock ha problem som försöker ansluta till en IoT Edge Gateway.
 
-När en enhet ansluter till en IoT Edge Gateway, är den underordnade enheten klienten och gateway-enheten är servern. Azure IoT Edge tillåter operatörer (eller användare) att bygga Gateway-certifikat kedjor, men de ser de passar. Operatören kan välja att använda ett offentligt CA-certifikat, t. ex. Baltimore, eller använda ett självsignerat certifikat från rot certifikat utfärdaren (eller internt). Offentliga CA-certifikat har ofta en kostnad som är kopplad till dem, så de används vanligt vis i produktions scenarier. Självsignerade CA-certifikat rekommenderas för utveckling och testning. De artiklar om transparent Gateway-installation som anges i introduktionen Använd självsignerade rot certifikat utfärdare.
+När en enhet ansluter till en IoT Edge Gateway, är den underordnade enheten klienten och gateway-enheten är servern. Azure IoT Edge låter dig bygga Gateway-certifikat kedjor som de ser bäst. Du kan välja att använda ett offentligt CA-certifikat, t. ex. Baltimore, eller använda ett självsignerat certifikat för rot certifikat utfärdare (eller internt). Offentliga CA-certifikat har ofta en kostnad som är kopplad till dem, så de används vanligt vis i produktions scenarier. Självsignerade CA-certifikat rekommenderas för utveckling och testning. Om du använder demonstrations certifikaten är det självsignerade certifikat från rot certifikat utfärdaren.
 
 När du använder ett självsignerat certifikat för rot certifikat utfärdare för en IoT Edge Gateway måste det installeras på eller anges till alla underordnade enheter som försöker ansluta till gatewayen.
 
@@ -80,6 +80,8 @@ Mer information om IoT Edge certifikat och vissa konsekvenser för produktion fi
 För att verifiera gateway-enhetens certifikat behöver den underordnade enheten en egen kopia av rot certifikat utfärdarens certifikat. Om du använde skripten som tillhandahölls i IoT Edge git-lagringsplatsen för att skapa test certifikat, kallas rot certifikat utfärdarens certifikat **Azure-IoT-test-Only. root. ca. cert. pem**. Om du inte redan har en del av de andra stegen för att förbereda enheten i den andra enheten flyttar du den här certifikat filen till valfri katalog på den underordnade enheten. Du kan använda en tjänst som [Azure Key Vault](../key-vault/index.yml) eller en funktion som [säker kopierings protokoll](https://www.ssh.com/ssh/scp/) för att flytta certifikat filen.
 
 ## <a name="install-certificates-in-the-os"></a>Installera certifikat i operativ systemet
+
+När rot certifikat utfärdarens certifikat finns på den underordnade enheten måste du kontrol lera att de program som ansluter till gatewayen har åtkomst till certifikatet.
 
 Om du installerar rot certifikat utfärdarens certifikat i operativ systemets certifikat Arkiv, kan de flesta program använda rot certifikat utfärdarens certifikat. Det finns vissa undantag, t. ex. NodeJS-program som inte använder sig av operativ systemets certifikat Arkiv, men som i stället använder Node Runtime: s interna certifikat arkiv. Om du inte kan installera certifikatet på operativ Systems nivå kan du gå vidare till [använda certifikat med Azure IoT SDK](#use-certificates-with-azure-iot-sdks): er.
 
@@ -192,7 +194,7 @@ Det här avsnittet introducerar ett exempel program för att ansluta en Azure Io
 
 ## <a name="test-the-gateway-connection"></a>Testa Gateway-anslutningen
 
-Använd det här exempel kommandot för att testa att den underordnade enheten kan ansluta till gateway-enheten:
+Använd det här exempel kommandot på den underordnade enheten för att testa att den kan ansluta till gateway-enheten:
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts

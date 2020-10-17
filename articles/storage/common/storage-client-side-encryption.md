@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2cf137eae9e026f4854034efe1565dc8f7f0b35d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 4e8623ecb351fa99a437de70a9b74a70fb6228cd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091669"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151152"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side kryptering och Azure Key Vault för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -53,7 +53,7 @@ Dekryptering via kuvert tekniken fungerar på följande sätt:
 Lagrings klient biblioteket använder [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) för att kryptera användar data. Särskilt [CBC-läge (cipher block Chaining)](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) med AES. Varje tjänst fungerar något annorlunda, så vi diskuterar var och en av dem här.
 
 ### <a name="blobs"></a>Blobar
-Klient biblioteket har för närvarande endast stöd för kryptering av hela blobbar. Mer specifikt stöds kryptering när användarna använder **UploadFrom** -metoderna eller **openwrite** -metoden. För hämtnings bara filer stöds både fullständig och intervall hämtning.
+Klient biblioteket har för närvarande endast stöd för kryptering av hela blobbar. För hämtnings bara filer stöds både fullständig och intervall hämtning.
 
 Under krypteringen genererar klient biblioteket en slumpmässig initierings vektor (IV) av 16 byte, tillsammans med en slumpmässig innehålls krypterings nyckel (CEK) på 32 byte och utför kuvert kryptering av BLOB-data med hjälp av den här informationen. Den omslutna CEK och vissa ytterligare krypterings-metadata lagras sedan som BLOB-metadata tillsammans med den krypterade blobben i tjänsten.
 
@@ -62,9 +62,9 @@ Under krypteringen genererar klient biblioteket en slumpmässig initierings vekt
 > 
 > 
 
-Genom att hämta en krypterad BLOB måste du hämta innehållet i hela blobben med hjälp av **DownloadTo** / **BlobReadStream** -bekvämlighets metoder. Den omslutna CEK är unwrap och används tillsammans med IV (lagras som BLOB-metadata i det här fallet) för att returnera dekrypterade data till användarna.
+När du laddar ned en hel BLOB är den omslutna CEK inte omsluten och används tillsammans med IV (lagras som BLOB-metadata i det här fallet) för att returnera dekrypterade data till användarna.
 
-Genom att ladda ned ett godtyckligt intervall (**DownloadRange** -metoder) i den krypterade blobben måste du justera intervallet som anges av användarna för att få en liten mängd ytterligare data som kan användas för att dekryptera det begärda intervallet.
+Genom att ladda ned ett godtyckligt intervall i den krypterade blobben måste du justera intervallet som anges av användarna för att få en liten del ytterligare data som kan användas för att dekryptera det begärda intervallet.
 
 Alla BLOB-typer (block blobbar, Page blobbar och bifogade blobbar) kan krypteras/dekrypteras med det här schemat.
 
@@ -77,9 +77,14 @@ Under krypteringen genererar klient biblioteket ett slumpmässigt IV av 16 byte 
 <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 ```
 
-Under dekrypteringen extraheras den omslutna nyckeln från kösystemet och packas upp. IV extraheras också från meddelandet i kön och används tillsammans med den icke-omslutna nyckeln för att dekryptera köns meddelande data. Observera att krypterings-metadata är små (under 500 byte), så om det sker mot 64 KB-gränsen för ett Queue meddelande bör påverkan vara hanterbar.
+Under dekrypteringen extraheras den omslutna nyckeln från kösystemet och packas upp. IV extraheras också från meddelandet i kön och används tillsammans med den icke-omslutna nyckeln för att dekryptera köns meddelande data. Observera att krypterings-metadata är små (under 500 byte), så om det sker mot 64 KB-gränsen för ett Queue meddelande bör påverkan vara hanterbar. Observera att det krypterade meddelandet kommer att vara Base64-kodat, vilket visas i ovanstående kodfragment, vilket även kommer att expandera storleken på meddelandet som skickas.
 
 ### <a name="tables"></a>Tabeller
+> [!NOTE]
+> Table service stöds i Azure Storage klient biblioteket till version 9. x.
+> 
+> 
+
 Klient biblioteket stöder kryptering av enhets egenskaper för åtgärderna Infoga och ersätt.
 
 > [!NOTE]
@@ -111,22 +116,34 @@ I batch-åtgärder används samma KEK över alla rader i den batch-åtgärden ef
 ## <a name="azure-key-vault"></a>Azure Key Vault
 Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som används av molnprogram och molntjänster. Genom att använda Azure Key Vault kan användare kryptera nycklar och hemligheter (till exempel autentiseringsnyckel, lagrings konto nycklar, data krypterings nycklar). PFX-filer och lösen ord) med hjälp av nycklar som skyddas av HSM: er (Hardware Security modules). Mer information finns i [Vad är en Azure Key Vault?](../../key-vault/general/overview.md).
 
-Lagrings klient biblioteket använder Key Vault kärn bibliotek för att tillhandahålla ett gemensamt ramverk för hantering av nycklar i Azure. Användarna får också den ytterligare fördelen med att använda biblioteket för Key Vault tillägg. Tilläggs biblioteket innehåller användbara funktioner runt enkla och sömlösa och sömlösa, lokala och molnbaserade och moln nyckel leverantörer samt med agg regering och cachelagring.
+Lagrings klient biblioteket använder Key Vault gränssnitt i kärn biblioteket för att tillhandahålla ett gemensamt ramverk för hantering av nycklar i Azure. Användarna kan utnyttja Key Vault-bibliotek för alla ytterligare fördelar som de erbjuder, till exempel användbara funktioner för enkla och sömlösa och sömlösa, lokala och molnbaserade och moln nyckel leverantörer samt hjälp med agg regering och cachelagring.
 
 ### <a name="interface-and-dependencies"></a>Gränssnitt och beroenden
+
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+
+Det finns två nödvändiga paket för Key Vault-integrering:
+
+* Azure. Core innehåller `IKeyEncryptionKey` och- `IKeyEncryptionKeyResolver` gränssnitten. Lagrings klient biblioteket för .NET definierar redan det som ett beroende.
+* Azure. Security. nyckel valv. nycklar (v4. x) innehåller Key Vault REST-klienten, samt kryptografiska klienter som används med kryptering på klient sidan.
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
+
 Det finns tre Key Vaults paket:
 
 * Microsoft. Azure. nyckel valv. Core innehåller IKey och IKeyResolver. Det är ett litet paket utan beroenden. Lagrings klient biblioteket för .NET definierar det som ett beroende.
-* Microsoft. Azure. nyckel valvet innehåller Key Vault REST-klienten.
-* Microsoft. Azure. nyckel valv. tillägg innehåller tilläggs kod som innehåller implementeringar av krypteringsalgoritmer och en RSAKey och en SymmetricKey. Det beror på namn områdena Core och Key Vault och ger funktioner för att definiera en agg regerings lösare (när användare vill använda flera nyckel leverantörer) och en nyckel lösare för cachelagring. Även om lagrings klient biblioteket inte är direkt beroende av det här paketet, om användarna vill använda Azure Key Vault för att lagra sina nycklar eller använda Key Vault tillägg för att använda de lokala och molnbaserade kryptografiproviders, behöver de paketet.
+* Microsoft. Azure. Vault (v3. x) innehåller Key Vault REST-klienten.
+* Microsoft. Azure. nyckel valv. tillägg (v3. x) innehåller tilläggs kod som innehåller implementeringar av krypteringsalgoritmer och en RSAKey och en SymmetricKey. Det beror på namn områdena Core och Key Vault och ger funktioner för att definiera en agg regerings lösare (när användare vill använda flera nyckel leverantörer) och en nyckel lösare för cachelagring. Även om lagrings klient biblioteket inte är direkt beroende av det här paketet, om användarna vill använda Azure Key Vault för att lagra sina nycklar eller använda Key Vault tillägg för att använda de lokala och molnbaserade kryptografiproviders, behöver de paketet.
+
+Mer information om Key Vault användning i V11 finns i [V11-krypterings kod exemplen](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
+
+---
 
 Key Vault är utformad för huvud nycklar med högt värde och begränsnings gränser per Key Vault har utformats med detta i åtanke. När du utför kryptering på klient sidan med Key Vault, är den föredragna modellen att använda symmetriska huvud nycklar som lagras som hemligheter i Key Vault och cachelagras lokalt. Användarna måste göra följande:
 
 1. Skapa en hemlighet offline och ladda upp den till Key Vault.
 2. Använd hemlighetens bas-ID som en parameter för att matcha den aktuella versionen av hemligheten för kryptering och cachelagra den här informationen lokalt. Använda CachingKeyResolver för cachelagring; användare förväntas inte implementera sin egen cachelagring Logic.
 3. Använd Caching-matcharen som indatatyp när du skapar krypterings principen.
-
-Mer information om hur du Key Vault användning finns i [krypterings kod exemplen](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
 
 ## <a name="best-practices"></a>Bästa praxis
 Krypterings stödet är bara tillgängligt i lagrings klient biblioteket för .NET. Windows Phone och Windows Runtime stöder för närvarande inte kryptering.
@@ -138,45 +155,175 @@ Krypterings stödet är bara tillgängligt i lagrings klient biblioteket för .N
 > * För tabeller finns det liknande villkor. Var noga med att inte uppdatera krypterade egenskaper utan att uppdatera metadata för kryptering.
 > * Om du ställer in metadata på den krypterade blobben kan du skriva över de krypterings-relaterade metadata som krävs för dekryptering, eftersom inställning av metadata inte är additiv. Detta gäller även för ögonblicks bilder. Undvik att ange metadata när du skapar en ögonblicks bild av en krypterad blob. Om metadata måste anges måste du anropa **FetchAttributes** -metoden först för att hämta aktuella krypterings-metadata och undvika samtidiga skrivningar medan metadata anges.
 > * Aktivera egenskapen **RequireEncryption** i standard alternativ för begäran för användare som endast ska arbeta med krypterade data. Se nedan för mer information.
-> 
-> 
+>
+>
 
 ## <a name="client-api--interface"></a>Klient-API/gränssnitt
-När du skapar ett EncryptionPolicy-objekt kan användare bara tillhandahålla en nyckel (implementera IKey), bara en lösare (implementera IKeyResolver) eller båda. IKey är den grundläggande nyckel typen som identifieras med hjälp av en nyckel identifierare och som ger logiken för att figursättas/avfigurning. IKeyResolver används för att matcha en nyckel under avkrypterings processen. Den definierar en ResolveKey-metod som returnerar en IKey som har fått en nyckel identifierare. Detta ger användarna möjlighet att välja mellan flera nycklar som hanteras på flera platser.
+Användare kan bara tillhandahålla en nyckel, bara en lösare eller båda. Nycklar identifieras med hjälp av en nyckel identifierare och innehåller logiken för att figursätta/figursätta. Matchare används för att matcha en nyckel under avkrypterings processen. Den definierar en lösnings metod som returnerar en nyckel med en nyckel identifierare. Detta ger användarna möjlighet att välja mellan flera nycklar som hanteras på flera platser.
 
 * För kryptering används nyckeln alltid och frånvaron av en nyckel leder till ett fel.
 * För dekryptering:
+  * Om nyckeln har angetts och dess identifierare matchar den nödvändiga nyckel identifieraren används nyckeln för dekryptering. Annars görs ett försök med matcharen. Om det inte finns någon lösare för det här försöket genereras ett fel.
   * Nyckel lösa ren anropas om den anges för att hämta nyckeln. Om matcharen har angetts men inte har någon mappning för nyckel identifieraren genereras ett fel.
-  * Om ingen lösare anges men en nyckel anges, används nyckeln om dess identifierare matchar den nödvändiga nyckel identifieraren. Om identifieraren inte matchar genereras ett fel.
 
-Kod exemplen i den här artikeln visar hur du ställer in en krypterings princip och arbetar med krypterade data, men inte visar hur du arbetar med Azure Key Vault. [Krypterings exemplen](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) på GitHub demonstrerar ett mer detaljerat end-to-end-scenario för blobbar, köer och tabeller, tillsammans med Key Vault-integrering.
-
-### <a name="requireencryption-mode"></a>RequireEncryption-läge
+### <a name="requireencryption-mode-v11-only"></a>RequireEncryption-läge (endast V11)
 Användare kan välja att aktivera ett läge med en åtgärd där alla överföringar och nedladdningar måste krypteras. I det här läget kommer försök att överföra data utan en krypterings princip eller ladda ned data som inte är krypterade på tjänsten att Miss lyckas på klienten. Egenskapen **RequireEncryption** för objektet alternativ för begäran styr det här beteendet. Om ditt program ska kryptera alla objekt som lagras i Azure Storage, kan du ange egenskapen **RequireEncryption** för standardbegärans alternativen för tjänstens klient objekt. Ange till exempel **CloudBlobClient. DefaultRequestOptions. RequireEncryption** till **True** för att kräva kryptering för alla BLOB-åtgärder som utförs via det klient objektet.
 
 
 ### <a name="blob-service-encryption"></a>Blob Service kryptering
+
+
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+Skapa ett **ClientSideEncryptionOptions** -objekt och ange det för att skapa klienter med **SpecializedBlobClientOptions**. Du kan inte ange krypterings alternativ för per-API-basis. Allt annat kommer att hanteras av klient biblioteket internt.
+
+```csharp
+// Your key and key resolver instances, either through KeyVault SDK or an external implementation
+IKeyEncryptionKey key;
+IKeyEncryptionKeyResolver keyResolver;
+
+// Create the encryption options to be used for upload and download.
+ClientSideEncryptionOptions encryptionOptions = new ClientSideEncryptionOptions(ClientSideEncryptionVersion.V1_0)
+{
+   KeyEncryptionKey = key,
+   KeyResolver = keyResolver,
+   // string the storage client will use when calling IKeyEncryptionKey.WrapKey()
+   KeyWrapAlgorithm = "some algorithm name"
+};
+
+// Set the encryption options on the client options
+BlobClientOptions options = new SpecializedBlobClientOptions() { ClientSideEncryption = encryptionOptions };
+
+// Get your blob client with client-side encryption enabled.
+// Client-side encryption options are passed from service to container clients, and container to blob clients.
+// Attempting to construct a BlockBlobClient, PageBlobClient, or AppendBlobClient from a BlobContainerClient
+// with client-side encryption options present will throw, as this functionality is only supported with BlobClient.
+BlobClient blob = new BlobServiceClient(connectionString, options).GetBlobContainerClient("myContainer").GetBlobClient("myBlob");
+
+// Upload the encrypted contents to the blob.
+blob.Upload(stream);
+
+// Download and decrypt the encrypted contents from the blob.
+MemoryStream outputStream = new MemoryStream();
+blob.DownloadTo(outputStream);
+```
+
+En **BlobServiceClient** är inte nödvändig för att använda krypterings alternativ. De kan också skickas till **BlobContainerClient** / **BlobClient** -konstruktörer som accepterar **BlobClientOptions** -objekt.
+
+Om ett önskat **BlobClient** -objekt redan finns men utan krypterings alternativ på klient sidan, finns det en tilläggs metod för att skapa en kopia av objektet med den angivna **ClientSideEncryptionOptions**. Med den här tilläggs metoden undviker du behovet av att skapa ett nytt **BlobClient** -objekt från grunden.
+
+```csharp
+using Azure.Storage.Blobs.Specialized;
+
+// Your existing BlobClient instance and encryption options
+BlobClient plaintextBlob;
+ClientSideEncryptionOptions encryptionOptions;
+
+// Get a copy of plaintextBlob that uses client-side encryption
+BlobClient clientSideEncryptionBlob = plaintextBlob.WithClientSideEncryptionOptions(encryptionOptions);
+```
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 Skapa ett **BlobEncryptionPolicy** -objekt och ange det i alternativ för begäran (per API eller på klient nivå med hjälp av **DefaultRequestOptions**). Allt annat kommer att hanteras av klient biblioteket internt.
 
 ```csharp
 // Create the IKey used for encryption.
- RsaKey key = new RsaKey("private:key1" /* key identifier */);
+RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
- // Create the encryption policy to be used for upload and download.
- BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
+// Create the encryption policy to be used for upload and download.
+BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
 
- // Set the encryption policy on the request options.
- BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
+// Set the encryption policy on the request options.
+BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
- // Upload the encrypted contents to the blob.
- blob.UploadFromStream(stream, size, null, options, null);
+// Upload the encrypted contents to the blob.
+blob.UploadFromStream(stream, size, null, options, null);
 
- // Download and decrypt the encrypted contents from the blob.
- MemoryStream outputStream = new MemoryStream();
- blob.DownloadToStream(outputStream, null, options, null);
+// Download and decrypt the encrypted contents from the blob.
+MemoryStream outputStream = new MemoryStream();
+blob.DownloadToStream(outputStream, null, options, null);
 ```
 
+---
+
 ### <a name="queue-service-encryption"></a>Kötjänst kryptering
+# <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
+Skapa ett **ClientSideEncryptionOptions** -objekt och ange det för att skapa klienter med **SpecializedQueueClientOptions**. Du kan inte ange krypterings alternativ för per-API-basis. Allt annat kommer att hanteras av klient biblioteket internt.
+
+```csharp
+// Your key and key resolver instances, either through KeyVault SDK or an external implementation
+IKeyEncryptionKey key;
+IKeyEncryptionKeyResolver keyResolver;
+
+// Create the encryption options to be used for upload and download.
+ClientSideEncryptionOptions encryptionOptions = new ClientSideEncryptionOptions(ClientSideEncryptionVersion.V1_0)
+{
+   KeyEncryptionKey = key,
+   KeyResolver = keyResolver,
+   // string the storage client will use when calling IKeyEncryptionKey.WrapKey()
+   KeyWrapAlgorithm = "some algorithm name"
+};
+
+// Set the encryption options on the client options
+QueueClientOptions options = new SpecializedQueueClientOptions() { ClientSideEncryption = encryptionOptions };
+
+// Get your queue client with client-side encryption enabled.
+// Client-side encryption options are passed from service to queue clients.
+QueueClient queue = new QueueServiceClient(connectionString, options).GetQueueClient("myQueue");
+
+// Send an encrypted queue message.
+queue.SendMessage("Hello, World!");
+
+// Download queue messages, decrypting ones that are detected to be encrypted
+QueueMessage[] queue.ReceiveMessages(); 
+```
+
+En **QueueServiceClient** är inte nödvändig för att använda krypterings alternativ. De kan också skickas till **QueueClient** -konstruktörer som accepterar **QueueClientOptions** -objekt.
+
+Om ett önskat **QueueClient** -objekt redan finns men utan krypterings alternativ på klient sidan, finns det en tilläggs metod för att skapa en kopia av objektet med den angivna **ClientSideEncryptionOptions**. Med den här tilläggs metoden undviker du behovet av att skapa ett nytt **QueueClient** -objekt från grunden.
+
+```csharp
+using Azure.Storage.Queues.Specialized;
+
+// Your existing QueueClient instance and encryption options
+QueueClient plaintextQueue;
+ClientSideEncryptionOptions encryptionOptions;
+
+// Get a copy of plaintextQueue that uses client-side encryption
+QueueClient clientSideEncryptionQueue = plaintextQueue.WithClientSideEncryptionOptions(encryptionOptions);
+```
+
+Vissa användare kan ha köer där inte alla mottagna meddelanden kan dekrypteras och nyckeln eller matcharen måste utlösa. Den sista raden i exemplet ovan kommer att utlösa i det här fallet och ingen av de mottagna meddelandena är tillgänglig. I dessa scenarier kan underklassens **QueueClientSideEncryptionOptions** användas för att tillhandahålla krypterings alternativ till klienter. Den exponerar en Event- **DecryptionFailed** som utlöses när ett Queue-meddelande inte kan dekrypteras, så länge som minst ett anrop har lagts till i händelsen. Enskilda misslyckade meddelanden kan hanteras på det här sättet och de kommer att filtreras bort från den slutliga **QueueMessage []** som returneras av **ReceiveMessages**.
+
+```csharp
+// Create your encryption options using the sub-class.
+QueueClientSideEncryptionOptions encryptionOptions = new QueueClientSideEncryptionOptions(ClientSideEncryptionVersion.V1_0)
+{
+   KeyEncryptionKey = key,
+   KeyResolver = keyResolver,
+   // string the storage client will use when calling IKeyEncryptionKey.WrapKey()
+   KeyWrapAlgorithm = "some algorithm name"
+};
+
+// Add a handler to the DecryptionFailed event.
+encryptionOptions.DecryptionFailed += (source, args) => {
+   QueueMessage failedMessage = (QueueMessage)source;
+   Exception exceptionThrown = args.Exception;
+   // do something
+};
+
+// Use these options with your client objects.
+QueueClient queue = new QueueClient(connectionString, queueName, new SpecializedQueueClientOptions()
+{
+   ClientSideEncryption = encryptionOptions
+});
+
+// Retrieve 5 messages from the queue.
+// Assume 5 messages come back and one throws during decryption.
+QueueMessage[] messages = queue.ReceiveMessages(maxMessages: 5).Value;
+Debug.Assert(messages.Length == 4)
+```
+
+# <a name="net-v11"></a>[.NET-v11](#tab/dotnet11)
 Skapa ett **QueueEncryptionPolicy** -objekt och ange det i alternativ för begäran (per API eller på klient nivå med hjälp av **DefaultRequestOptions**). Allt annat kommer att hanteras av klient biblioteket internt.
 
 ```csharp
@@ -194,7 +341,9 @@ Skapa ett **QueueEncryptionPolicy** -objekt och ange det i alternativ för begä
  CloudQueueMessage retrMessage = queue.GetMessage(null, options, null);
 ```
 
-### <a name="table-service-encryption"></a>Table service kryptering
+---
+
+### <a name="table-service-encryption-v11-only"></a>Table service kryptering (endast V11)
 Förutom att skapa en krypterings princip och ställa in den på begär ande alternativ måste du antingen ange en **EncryptionResolver** i **TableRequestOptions**eller ange attributet [EncryptProperty] för entiteten.
 
 #### <a name="using-the-resolver"></a>Använda matcharen

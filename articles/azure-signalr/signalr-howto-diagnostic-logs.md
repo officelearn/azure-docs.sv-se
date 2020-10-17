@@ -6,22 +6,22 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 55482457058d01162116494b637661db40010a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0c1a91df30ee6a88f055dc47cfdef339e2ee2b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85132018"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151058"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Resurs loggar för Azure SignalR service
 
 I den här självstudien beskrivs vad resurs loggar för Azure SignalR-tjänsten är, hur du konfigurerar dem och hur du felsöker dem. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill aktivera resurs loggar måste du lagra dina loggdata någonstans. I den här självstudien används Azure Storage och Log Analytics.
 
-* [Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md) – behåller resurs loggar för princip granskning, statisk analys eller säkerhets kopiering.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) – ett flexibelt loggs öknings-och analys verktyg som möjliggör analys av obehandlade loggar som genereras av en Azure-resurs.
+* [Azure Storage](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) – behåller resurs loggar för princip granskning, statisk analys eller säkerhets kopiering.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) – ett flexibelt loggs öknings-och analys verktyg som möjliggör analys av obehandlade loggar som genereras av en Azure-resurs.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Konfigurera resurs loggar för en Azure SignalR-tjänst
 
@@ -68,7 +68,7 @@ Arkiv loggens JSON-strängar innehåller element som anges i följande tabeller:
 
 **Format**
 
-Name | Beskrivning
+Namn | Beskrivning
 ------- | -------
 time | Händelse tid för logg
 nivå | Logga händelse nivå
@@ -81,7 +81,7 @@ properties | Detaljerade egenskaper relaterade till den här logg händelsen. Me
 
 **Egenskaps tabell**
 
-Name | Beskrivning
+Namn | Beskrivning
 ------- | -------
 typ | Typ av logg händelse. För närvarande ger vi information om anslutningen till Azure SignalR-tjänsten. Endast `ConnectivityLogs` typen är tillgänglig
 samling | Samling av logg händelsen. Tillåtna värden är: `Connection` `Authorization` och `Throttling`
@@ -128,12 +128,12 @@ Följ dessa steg om du vill visa resurs loggar:
 
 Arkivera logg kolumner innehåller element som anges i följande tabell:
 
-Name | Beskrivning
+Namn | Beskrivning
 ------- | ------- 
 TimeGenerated | Händelse tid för logg
 Samling | Samling av logg händelsen. Tillåtna värden är: `Connection` `Authorization` och `Throttling`
 OperationName | Åtgärds namn för händelsen
-Location | Plats för Azure SignalR-tjänsten
+Plats | Plats för Azure SignalR-tjänsten
 Nivå | Logga händelse nivå
 CallerIpAddress | IP-adress för servern/klienten
 Meddelande | Detaljerat meddelande om logg händelse

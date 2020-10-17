@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 7f3f5177e084693c45bed1088a4e1d091be100ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f83ec4d09389d91c2dd427c9840885c0b829eafb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84688916"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150316"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx Interna fel
 
@@ -37,4 +37,4 @@ Det kan finnas ett antal orsaker till ett 500xxx-felsvar. I samtliga fall är pr
 
 ## <a name="solution"></a>Lösning
 
-Om du vill undvika 500xxx-fel skickar du ett nytt försök från enheten. Kontrol lera att du använder den senaste versionen av [Azure IoT SDK](./iot-hub-devguide-sdks.md): er för att [automatiskt hantera återförsök](./iot-hub-reliability-features-in-sdks.md#connection-and-retry). Bästa praxis vid hantering av tillfälliga fel och återförsök finns i [hantering av tillfälliga fel](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults).  Om problemet kvarstår kontrollerar du [Resource Health](./iot-hub-monitor-resource-health.md#use-azure-resource-health) och Azure- [status](https://status.azure.com/) för att se om IoT Hub har ett känt problem. Du kan också använda [funktionen manuell redundans](./tutorial-manual-failover.md). Om det inte finns några kända problem och problemet kvarstår kan du [kontakta supporten](https://azure.microsoft.com/support/options/) för ytterligare undersökning.
+Om du vill undvika 500xxx-fel skickar du ett nytt försök från enheten. Kontrol lera att du använder den senaste versionen av [Azure IoT SDK](./iot-hub-devguide-sdks.md): er för att [automatiskt hantera återförsök](./iot-hub-reliability-features-in-sdks.md#connection-and-retry). Bästa praxis vid hantering av tillfälliga fel och återförsök finns i [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).  Om problemet kvarstår kontrollerar du [Resource Health](./iot-hub-monitor-resource-health.md#use-azure-resource-health) och Azure- [status](https://status.azure.com/) för att se om IoT Hub har ett känt problem. Du kan också använda [funktionen manuell redundans](./tutorial-manual-failover.md). Om det inte finns några kända problem och problemet kvarstår kan du [kontakta supporten](https://azure.microsoft.com/support/options/) för ytterligare undersökning.

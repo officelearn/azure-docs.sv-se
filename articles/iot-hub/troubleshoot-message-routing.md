@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: asrastog
-ms.openlocfilehash: 871a4c7d99fc44cf9868f19e41560e6e7a2e22f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84be56ae372f8a902b12c06f9ce93c1f7210dc5b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793326"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150588"
 ---
 # <a name="troubleshooting-message-routing"></a>Felsöka meddelanderoutning
 
@@ -42,7 +42,7 @@ Alla [IoT Hub mått](iot-hub-devguide-endpoints.md) som är relaterade till rout
 Observera **vägarna** [till diagnostikloggar](iot-hub-monitor-resource-health.md#routes) för att få mer information om Routning och slut punkts [åtgärder](#operation-names) eller identifiera fel och relevant [Felkod](#common-error-codes) för att förstå problemet ytterligare. Till exempel anger **RouteEvaluationError** i loggen att vägen inte kunde utvärderas på grund av ett problem med meddelande formatet. Använd tipsen för de olika [Åtgärds namnen](#operation-names) för att undvika problemet. När en händelse loggas som ett fel innehåller loggen även mer information om varför utvärderingen misslyckades. Om åtgärds namnet till exempel är **EndpointUnhealthy**, visar [fel koderna](#common-error-codes) 403004 slut punkten har slut på utrymme.
 
 #### <a name="the-health-of-the-endpoint"></a>Slut punktens tillstånd
-Använd REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att hämta slut punktens [hälso status](iot-hub-devguide-endpoints.md#custom-endpoints) . *Hämta slut punktens hälso* -API innehåller också information om senaste gången ett meddelande skickades till slut punkten, det [senaste kända felet](#last-known-errors-for-iot-hub-routing-endpoints), senast kända fel tid och senaste gången ett sändnings försök gjordes för den här slut punkten. Använd den eventuella minskning som har angetts för det [senaste kända felet](#last-known-errors-for-iot-hub-routing-endpoints).
+Använd REST API [Hämta slut punkts hälsa](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att hämta slut punktens [hälso status](iot-hub-devguide-endpoints.md#custom-endpoints) . *Hämta slut punktens hälso* -API innehåller också information om senaste gången ett meddelande skickades till slut punkten, det [senaste kända felet](#last-known-errors-for-iot-hub-routing-endpoints), senast kända fel tid och senaste gången ett sändnings försök gjordes för den här slut punkten. Använd den eventuella minskning som har angetts för det [senaste kända felet](#last-known-errors-for-iot-hub-routing-endpoints).
 
 ### <a name="i-suddenly-stopped-getting-messages-at-the-built-in-endpoint"></a>Jag slutade plötsligt hämta meddelanden vid den inbyggda slut punkten
 
@@ -52,9 +52,9 @@ Du kan felsöka det här problemet genom att analysera följande.
 När en väg har skapats slutar data flöda till den inbyggda slut punkten, om inte en väg skapas till den slut punkten. För att säkerställa att meddelanden fortsätter att flöda till den inbyggda slut punkten om en ny väg läggs till, konfigurerar du en väg till *händelse* slut punkten. 
 
 #### <a name="was-the-fallback-route-disabled"></a>Är återställnings vägen inaktive rad?
-Reserv vägen skickar alla meddelanden som inte uppfyller frågevillkor på någon av de befintliga vägarna till de [inbyggda Event Hubs](iot-hub-devguide-messages-read-builtin.md) (meddelanden/händelser) som är kompatibla med [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). Om meddelanderoutning är aktiverat kan du aktivera reserv väg funktionen. Om det inte finns några vägar till den inbyggda slut punkten och en återställnings väg är aktive rad skickas endast meddelanden som inte matchar några frågevillkor i vägar till den inbyggda slut punkten. Om alla befintliga vägar tas bort måste återställnings vägen vara aktive rad för att ta emot alla data vid den inbyggda slut punkten.
+Reserv vägen skickar alla meddelanden som inte uppfyller frågevillkor på någon av de befintliga vägarna till de [inbyggda Event Hubs](iot-hub-devguide-messages-read-builtin.md) (meddelanden/händelser) som är kompatibla med [Event Hubs](../event-hubs/index.yml). Om meddelanderoutning är aktiverat kan du aktivera reserv väg funktionen. Om det inte finns några vägar till den inbyggda slut punkten och en återställnings väg är aktive rad skickas endast meddelanden som inte matchar några frågevillkor i vägar till den inbyggda slut punkten. Om alla befintliga vägar tas bort måste återställnings vägen vara aktive rad för att ta emot alla data vid den inbyggda slut punkten.
 
-Du kan aktivera/inaktivera återställnings vägen på bladet Azure Portal->meddelande cirkulation. Du kan också använda Azure Resource Manager för [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) om du vill använda en anpassad slut punkt för återställnings väg.
+Du kan aktivera/inaktivera återställnings vägen på bladet Azure Portal->meddelande cirkulation. Du kan också använda Azure Resource Manager för [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) om du vill använda en anpassad slut punkt för återställnings väg.
 
 ## <a name="last-known-errors-for-iot-hub-routing-endpoints"></a>Senaste kända fel för IoT Hub routnings slut punkter
 

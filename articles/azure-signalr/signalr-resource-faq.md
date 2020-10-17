@@ -7,18 +7,18 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 5d6b46e288007bc0bbac53a97b1bdd5e727b8ac8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 910de9efbd132fb98a0c4bd596867800f65f5ad5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91405130"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150952"
 ---
 # <a name="azure-signalr-service-faq"></a>Vanliga frågor och svar Azure SignalR Service
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>Är Azure SignalR Service redo för användning i produktion?
 
-Ja, både supporten för [ASP.net Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) och [ASP.net-signalerare](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) är allmänt tillgängliga.
+Ja, både supporten för [ASP.net Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) och [ASP.net-signalerare](/aspnet/signalr/overview/getting-started/introduction-to-signalr) är allmänt tillgängliga.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>När det finns flera programservrar, skickas klientmeddelanden till alla servrar eller bara en av dem?
 
@@ -48,7 +48,7 @@ Nej.
 
 Azure SignalR Service tillhandahåller alla tre transporter som ASP.NET Core SignalR stöder som standard. Det går inte att konfigurera. Azure SignalR service hanterar anslutningar och transporter för alla klient anslutningar.
 
-Du kan konfigurera transporter på klient sidan som dokumenterade i [ASP.net Core signaler-konfiguration](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1).
+Du kan konfigurera transporter på klient sidan som dokumenterade i [ASP.net Core signaler-konfiguration](/aspnet/core/signalr/configuration#configure-allowed-transports-1).
 
 ## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-shown-in-the-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Vad är syftet med mått som antal meddelanden eller antal anslutningar som visas i Azure Portal? Vilken typ av agg regerings typ ska jag välja?
 

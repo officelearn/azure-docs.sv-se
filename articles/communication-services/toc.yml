@@ -80,6 +80,10 @@
       href: concepts/event-handling.md
     - name: Meddelanden
       href: concepts/notifications.md
+    - name: Loggning och diagnostik
+      href: concepts/logging-and-diagnostics.md
+    - name: Mått
+      href: concepts/metrics.md
 - name: Exempel
   items:
     - name: Exempel på gruppsamtal

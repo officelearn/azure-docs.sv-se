@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
-ms.openlocfilehash: 3f243a1a8d4f4b3ee4688ac3942debee5282a9a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761931"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150376"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Dela och ta emot data från Azure SQL Database och Azure Synapse Analytics
 
@@ -244,13 +244,13 @@ När du delar data från SQL-källa används följande mappning från SQL Server
 | binary |Byte [] |
 | bit |Boolesk |
 | char |Sträng, char [] |
-| date |DateTime |
+| datum |DateTime |
 | Datumtid |DateTime |
 | datetime2 |DateTime |
 | DateTimeOffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM-attribut (varbinary (max)) |Byte [] |
-| Float |Double |
+| Flyttal |Double |
 | image |Byte [] |
 | int |Int32 |
 | money |Decimal |
@@ -277,7 +277,23 @@ När du delar data från SQL-källa används följande mappning från SQL Server
 > 1. För data typer som mappar till typen decimal, stöder ögonblicks bilder precisionen upp till 28. Om du har data som kräver precision som är större än 28, bör du överväga att konvertera till en sträng. 
 > 1.  Om du delar data från Azure SQL Database till Azure Synapse Analytics stöds inte alla typer av data. Mer information finns [i tabell data typer i SYNAPSE SQL-pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) . 
 
+## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL-Always Encrypted eller dynamisk data maskning
+För närvarande stöder inte Azure Data Share Azure SQL-databaser med Always Encrypted konfigurerade. 
+
+För käll-SQL-tabeller med dynamisk datamaskering visas data maskerade på mottagar sidan.
+
+## <a name="sql-snapshot-performance"></a>Prestanda för SQL-ögonblicksbild
+SQL-ögonblicksbildens prestanda påverkas av ett antal faktorer. Vi rekommenderar alltid att du utför dina egna prestanda testningar. Nedan visas några exempel faktorer som påverkar prestanda.
+
+* Maskin varu konfiguration (t. ex. virtuella kärnor, minne, DWU) för käll-och mål-SQL data lager. 
+* Samtidig åtkomst till käll-och mål data lager. Om du delar flera tabeller och vyer från samma SQL-datalager, eller tar emot flera tabeller och vyer i samma SQL data lager, påverkas prestandan.   
+* Plats för käll-och mål data lager. 
+
+## <a name="troubleshoot-sql-snapshot-failure"></a>Felsöka fel vid SQL-ögonblicksbild
+Den vanligaste orsaken till ögonblicks bild felet är att data resursen inte har behörighet till käll-eller mål data lagret. Du måste köra det angivna SQL-skriptet när du ansluter till SQL-databasen med hjälp Azure Active Directory autentisering för att kunna bevilja data resurs behörighet till käll-eller mål-SQL data lagret. Fel sökning av ytterligare fel vid SQL-ögonblicksbild finns i [Felsöka ögonblicks bilds fel](data-share-troubleshoot.md#snapshot-failed).
 
 ## <a name="next-steps"></a>Nästa steg
-Du har lärt dig hur du delar och tar emot data från lagrings kontot med Azure Data Share-tjänsten. Om du vill veta mer om delning från andra data källor fortsätter du till [data lager som stöds](supported-data-stores.md).
+Du har lärt dig hur du delar och tar emot data från SQL-källor med Azure Data Share-tjänsten. Om du vill veta mer om delning från andra data källor fortsätter du till [data lager som stöds](supported-data-stores.md).
+
+
 

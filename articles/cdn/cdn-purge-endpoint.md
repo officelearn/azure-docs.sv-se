@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: cc09c35ba5499c6e911ebd7dd23482ef30f931da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192546"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148991"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Rensa en Azure CDN-slutpunkt
 ## <a name="overview"></a>Översikt
@@ -69,7 +69,7 @@ Den här självstudien vägleder dig genom att rensa till gångar från alla Edg
     ![Knappen Rensa](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Rensnings förfrågningar tar cirka 10 minuter att bearbeta med **Azure CDN från Microsoft**, ungefär 2 minuter med **Azure CDN från Verizon** (standard och Premium) och cirka 10 sekunder med **Azure CDN från Akamai**.  Azure CDN har en gräns på 50 samtidiga rensnings begär Anden vid en specifik tidpunkt på profil nivån. 
+> Rensnings förfrågningar tar cirka 10 minuter att bearbeta med **Azure CDN från Microsoft**, ungefär 2 minuter med **Azure CDN från Verizon** (standard och Premium) och cirka 10 sekunder med **Azure CDN från Akamai**.  Azure CDN har en gräns på 100 samtidiga rensnings begär Anden vid en specifik tidpunkt på profil nivån. 
 > 
 > 
 

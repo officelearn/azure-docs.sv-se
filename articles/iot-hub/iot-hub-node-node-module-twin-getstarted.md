@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.custom: amqp, devx-track-js
-ms.openlocfilehash: c3862cae096adc2284469750cefd5538493cf653
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3f45a9d62a9d131583c133440ac8a311a468d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302867"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151418"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Kom igång med IoT Hub modulens identitet och modul (Node.js)
 
@@ -39,7 +39,7 @@ I slutet av den här självstudien har du två Node.js-appar:
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -217,4 +217,4 @@ För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, 
 
 * [Connecting your device](iot-hub-node-node-device-management-get-started.md) (Komma igång med enhetshantering)
 
-* [Komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Komma igång med IoT Edge](../iot-edge/quickstart-linux.md)

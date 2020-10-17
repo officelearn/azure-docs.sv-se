@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 81c6cd6ffe200f0fbc9df20f4fa7e2e147db86af
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126675"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151180"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -128,6 +128,26 @@ När du har valt att du vill redundansväxla till en replik,
     
 När ditt program har bearbetat läsningar och skrivningar har du slutfört redundansväxlingen. Hur lång tid det tar för program upplevelser att vara beroende av när du upptäcker ett problem och Slutför steg 1 och 2 ovan.
 
+## <a name="global-transaction-identifier-gtid"></a>Global transaktions identifierare (GTID)
+
+Global Transaction Identifier (GTID) är en unik identifierare som skapats med varje allokerad transaktion på en käll Server och som är inaktive rad som standard i Azure Database for MySQL. GTID stöds endast i versionerna 5,7 och 8,0 och endast på servrar som stöder lagring upp till 16 TB. Mer information om GTID och hur det används i replikering finns i MySQL- [replikering med GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) -dokumentationen.
+
+MySQL stöder två typer av transaktioner: GTID-transaktioner (identifieras med GTID) och anonyma transaktioner (har inte en GTID tilldelad)
+
+Följande Server parametrar är tillgängliga för att konfigurera GTID: 
+
+|**Server parameter**|**Beskrivning**|**Standardvärde**|**Värden**|
+|--|--|--|--|
+|`gtid_mode`|Anger om GTIDs används för att identifiera transaktioner. Ändringar mellan lägen kan bara göras ett steg i taget i stigande ordning (t. ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: Både nya och replikerade transaktioner måste vara anonyma <br> `OFF_PERMISSIVE`: Nya transaktioner är anonyma. Replikerade transaktioner kan antingen vara anonyma eller GTID transaktioner. <br> `ON_PERMISSIVE`: Nya transaktioner är GTID transaktioner. Replikerade transaktioner kan antingen vara anonyma eller GTID transaktioner. <br> `ON`: Både nya och replikerade transaktioner måste vara GTID transaktioner.|
+|`enforce_gtid_consistency`|Tillämpar GTID konsekvens genom att tillåta körning av enbart de instruktioner som kan loggas på ett transaktions säkert sätt. Värdet måste anges till innan du `ON` aktiverar GTID-replikering. |`OFF`|`OFF`: Alla transaktioner får bryta mot GTID konsekvens.  <br> `ON`: Ingen transaktion får bryta mot GTID konsekvens. <br> `WARN`: Alla transaktioner får bryta mot GTID konsekvens, men en varning genereras. | 
+
+> [!NOTE]
+> När GTID har Aktiver ATS kan du inte inaktivera den. Om du behöver stänga av GTID kontaktar du supporten. 
+
+Om du vill aktivera GTID och konfigurera konsekvens beteendet, uppdaterar du `gtid_mode` parametrarna och för `enforce_gtid_consistency` servern med hjälp av [Azure Portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md)eller [PowerShell](howto-configure-server-parameters-using-powershell.md).
+
+Om GTID har Aktiver ATS på en käll Server ( `gtid_mode` = på) kommer nyligen skapade repliker också ha GTID aktiverat och använda GTID-replikering. Om du vill upprätthålla konsekvent replikering kan du inte uppdatera `gtid_mode` på käll-eller replik servrar.
+
 ## <a name="considerations-and-limitations"></a>Överväganden och begränsningar
 
 ### <a name="pricing-tiers"></a>Prisnivåer
@@ -178,9 +198,18 @@ Följande Server parametrar är låsta på både käll-och replik servern:
 
 Om du vill uppdatera en av parametrarna ovan på käll servern, måste du ta bort replik servrar, uppdatera parametervärdet i huvud servern och återskapa repliker.
 
+### <a name="gtid"></a>GTID
+
+GTID stöds på:
+- MySQL-versioner 5,7 och 8,0 
+- Servrar som stöder lagring upp till 16 TB. Se artikeln om [pris nivå](concepts-pricing-tiers.md#storage) för en fullständig lista över regioner som stöder 16 TB-lagring. 
+
+GTID är inaktive rad som standard. När GTID har Aktiver ATS kan du inte inaktivera den. Om du behöver stänga av GTID kontaktar du supporten. 
+
+Om GTID har Aktiver ATS på en käll server kommer nya repliker också ha GTID aktiverat och använda GTID-replikering. Om du vill upprätthålla konsekvent replikering kan du inte uppdatera `gtid_mode` på käll-eller replik servrar.
+
 ### <a name="other"></a>Övrigt
 
-- Globala transaktions-ID: n (GTID) stöds inte.
 - Det finns inte stöd för att skapa en replik av en replik.
 - InMemory-tabeller kan orsaka att repliker blir osynkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) .
 - Se till att käll Server tabellerna har primär nycklar. Brist på primär nycklar kan leda till replikeringsfördröjning mellan källan och replikerna.

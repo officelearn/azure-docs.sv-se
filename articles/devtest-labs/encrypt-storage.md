@@ -3,12 +3,12 @@ title: Kryptera ett Azure Storage-konto som används av ett labb i Azure DevTest
 description: Lär dig hur du konfigurerar kryptering av en Azure-lagring som används av ett labb i Azure DevTest Labs
 ms.topic: how-to
 ms.date: 07/29/2020
-ms.openlocfilehash: 3c1d1531084deeabbe9a8d261e93554a2c691eb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dcede89fb23c532742e41121688bcb51a5a73833
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87433597"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149318"
 ---
 # <a name="encrypt-azure-storage-used-by-a-lab-in-azure-devtest-labs"></a>Kryptera Azure Storage som används av ett labb i Azure DevTest Labs
 Alla labb som skapats i Azure DevTest Labs skapas med ett associerat Azure Storage-konto. Lagrings kontot används i följande syfte: 
@@ -36,13 +36,13 @@ Alla labb som skapats i Azure DevTest Labs skapas med ett associerat Azure Stora
 ## <a name="encrypt-the-lab-storage-account"></a>Kryptera ditt labb lagrings konto
 Azure Storage krypterar dina data automatiskt när de sparas i molnet. Azure Storage kryptering skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Mer information finns i [Azure Storage kryptering för vilande data](../storage/common/storage-service-encryption.md).
 
-Data i labb lagrings kontot krypteras med en **Microsoft-hanterad nyckel**. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av dina data, eller så kan du hantera kryptering med dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar för labbets lagrings konto kan du ange en **kundhanterad nyckel** med Azure Key Vault som ska användas för att kryptera/dekryptera data i Blob Storage och i Azure Files. Mer information om Kundhanterade nycklar finns i [använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering](../storage/common/encryption-customer-managed-keys.md).
+Data i labb lagrings kontot krypteras med en **Microsoft-hanterad nyckel**. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av dina data, eller så kan du hantera kryptering med dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar för labbets lagrings konto kan du ange en **kundhanterad nyckel** med Azure Key Vault som ska användas för att kryptera/dekryptera data i Blob Storage och i Azure Files. Mer information om Kundhanterade nycklar finns i [använda Kundhanterade nycklar med Azure Key Vault för att hantera Azure Storage kryptering](../storage/common/customer-managed-keys-overview.md).
 
 Information om hur du konfigurerar Kundhanterade nycklar för Azure Storage kryptering finns i följande artiklar: 
 
-- [Azure Portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Azure CLI](../storage/common/storage-encryption-keys-cli.md)
+- [Azure Portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure CLI](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 
 ## <a name="manage-the-azure-blob-storage-life-cycle"></a>Hantera Azure Blob Storage-livs cykeln
@@ -101,8 +101,6 @@ Följande regel används till exempel för att ange en utgångs regel för 90 da
 ## <a name="next-steps"></a>Nästa steg
 Information om hur du konfigurerar Kundhanterade nycklar för Azure Storage kryptering finns i följande artiklar: 
 
-- [Azure Portal](../storage/common/storage-encryption-keys-portal.md)
-- [Azure PowerShell](../storage/common/storage-encryption-keys-powershell.md)
-- [Azure CLI](../storage/common/storage-encryption-keys-cli.md)
-
-
+- [Azure Portal](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure PowerShell](../storage/common/customer-managed-keys-configure-key-vault.md)
+- [Azure CLI](../storage/common/customer-managed-keys-configure-key-vault.md)

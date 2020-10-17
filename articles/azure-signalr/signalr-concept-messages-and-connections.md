@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: zhshang
-ms.openlocfilehash: 5483e10e817ce8a0a7e7c82d817b7bdbbdd9176b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d71462bd30dbd4b377353c792a3c579e02949680
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87853457"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151090"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Meddelanden och anslutningar i Azure SignalR Service
 
@@ -62,7 +62,7 @@ Meddelandet som skickas till tjänsten är ett inkommande meddelande. Meddelande
 
 ## <a name="related-resources"></a>Relaterade resurser
 
-- [Sammansättningstyper i Azure Monitor](/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr )
+- [Sammansättningstyper i Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr )
 - [ASP.NET Core SignalR-konfiguration](/aspnet/core/signalr/configuration)
 - [JSON](https://www.json.org/)
 - [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 6c562f7a5d9c7c02c737898821eef5ee5271eea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613908"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149092"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub stöd för virtuella nätverk med privat länk och hanterad identitet
 
@@ -224,7 +224,7 @@ Nu är din anpassade Service Bus-slutpunkt konfigurerad att använda navets till
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Utgående anslutning till lagrings konton för fil uppladdning
 
-Med IoT Hub fil överförings funktionen kan enheter Ladda upp filer till ett kundägda lagrings konto. För att tillåta fil uppladdning att fungera måste både enheter och IoT Hub ha anslutning till lagrings kontot. Om brand Väggs begränsningar finns på lagrings kontot, måste enheterna använda något av de lagrings konto funktioner som stöds (inklusive [privata slut punkter](../private-link/create-private-endpoint-storage-portal.md), [tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md)eller [konfiguration av direkt brand vägg](../storage/common/storage-network-security.md)) för att få anslutning. Om brand Väggs begränsningarna finns på lagrings kontot måste IoT Hub konfigureras för åtkomst till lagrings resursen via det betrodda Microsoft Services-undantaget. För det här ändamålet måste IoT Hub ha en hanterad identitet. När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att komma åt ditt lagrings konto.
+Med IoT Hub fil överförings funktionen kan enheter Ladda upp filer till ett kundägda lagrings konto. För att tillåta fil uppladdning att fungera måste både enheter och IoT Hub ha anslutning till lagrings kontot. Om brand Väggs begränsningar finns på lagrings kontot, måste enheterna använda något av de lagrings konto funktioner som stöds (inklusive [privata slut punkter](../private-link/tutorial-private-endpoint-storage-portal.md), [tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md)eller [konfiguration av direkt brand vägg](../storage/common/storage-network-security.md)) för att få anslutning. Om brand Väggs begränsningarna finns på lagrings kontot måste IoT Hub konfigureras för åtkomst till lagrings resursen via det betrodda Microsoft Services-undantaget. För det här ändamålet måste IoT Hub ha en hanterad identitet. När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att komma åt ditt lagrings konto.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -252,7 +252,7 @@ Den här funktionen kräver anslutning från IoT Hub till lagrings kontot. För 
 
 3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
 
-Nu kan du använda Azure IoT REST-API: erna för att [skapa import export jobb](https://docs.microsoft.com/rest/api/iothub/service/jobs/getimportexportjobs) för information om hur du använder Mass import/export-funktionen. Du måste ange `storageAuthenticationType="identityBased"` i din begär ande text och använda `inputBlobContainerUri="https://..."` och `outputBlobContainerUri="https://..."` som URL: er för indata och utdata för ditt lagrings konto.
+Nu kan du använda Azure IoT REST-API: erna för att [skapa import export jobb](/rest/api/iothub/service/jobs/getimportexportjobs) för information om hur du använder Mass import/export-funktionen. Du måste ange `storageAuthenticationType="identityBased"` i din begär ande text och använda `inputBlobContainerUri="https://..."` och `outputBlobContainerUri="https://..."` som URL: er för indata och utdata för ditt lagrings konto.
 
 Azure IoT Hub SDK: er har även stöd för den här funktionen i tjänst klientens register hanterare. Följande kodfragment visar hur du startar ett import jobb eller ett export jobb i med C# SDK.
 
@@ -295,4 +295,4 @@ Använd länkarna nedan för att lära dig mer om IoT Hub funktioner:
 
 * [Meddelanderoutning](./iot-hub-devguide-messages-d2c.md)
 * [Fil uppladdning](./iot-hub-devguide-file-upload.md)
-* [Import/export av Mass enhet](./iot-hub-bulk-identity-mgmt.md) 
+* [Import/export av Mass enhet](./iot-hub-bulk-identity-mgmt.md)

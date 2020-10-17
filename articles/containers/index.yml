@@ -6,12 +6,12 @@ metadata:
   title: Dokumentation om Microsoft Azure-containertjänster | Microsoft Docs
   description: Lär dig hur du använder Azure-containertjänster för att hantera och utveckla molnbaserade containerprogram.
   ms.topic: hub-page
-  ms.openlocfilehash: a7b1480061a1482e5a7980fd89d9d28d89561d31
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d62fbbd19c56e64f254037574c69ce6c949239ef
+  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88080855"
+  ms.lasthandoff: 10/17/2020
+  ms.locfileid: "92151280"
 highlightedContent:
   items:
   - itemType: whats-new
@@ -44,10 +44,10 @@ conceptualContent:
     - url: /visualstudio/containers/overview-local-process-kubernetes
       itemType: concept
       text: Så fungerar lokal process med Kubernetes
-    - url: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+    - url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
       itemType: how-to-guide
       text: Använda lokal process med Kubernetes med Visual Studio Code
-    - url: ../dev-spaces/how-to/local-process-kubernetes-visual-studio.md
+    - url: /visualstudio/containers/bridge-to-kubernetes
       itemType: how-to-guide
       text: Använda lokal process med Kubernetes med Visual Studio
   - title: Skapa molnappar för webb och mobil
@@ -64,10 +64,10 @@ conceptualContent:
     - url: ../app-service/quickstart-custom-container.md
       itemType: get-started
       text: Köra en anpassad Windows-container
-    - url: ../app-service/containers/quickstart-docker.md
+    - url: ../app-service/quickstart-custom-container.md?pivots=platform-linux%253fpivots%253dplatform-linux
       itemType: quickstart
       text: Köra en anpassad Linux-container
-    - url: ../app-service/containers/quickstart-multi-container.md
+    - url: ../app-service/quickstart-multi-container.md
       itemType: quickstart
       text: Skapa en Linux-app för flera containrar
     footerLink:
@@ -144,7 +144,7 @@ conceptualContent:
       itemType: tutorial
       text: Skapa ett Azure Red Hat OpenShift-kluster
     footerLink:
-      url: /azure/openshift/
+      url: ../openshift/index.yml
       text: Mer information
   - title: Serverlös programutveckling
     links:

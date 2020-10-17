@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327229"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151586"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
@@ -31,7 +31,7 @@ LUIS tillåter tre typer av Azure-resurser och en icke-Azure-resurs:
 |--|--|--|--|
 |Skapar resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. [Skapa en Luis Authoring-resurs](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) om du tänker redigera Luis Apps programtically eller från Luis-portalen. Du måste först [migrera ditt Luis-konto](luis-migration-authoring.md#what-is-migration) för att kunna länka dina Azure authroring-resurser till ditt program. Du kan kontrol lera behörigheter till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors). <br><br> Det finns en nivå avialable för LUIS Authoring-resursen:<br> * **Kostnads fri F0 Authoring-resurs** som ger dig 1 miljon kostnads fria redigerings transaktioner och 1000 kostnads fria utvärderings slut punkt förfrågningar varje månad. |`LUIS.Authoring`|`Cognitive Services`|
 |Förutsägelse resurs| När du har publicerat ditt LUIS-program använder du förutsägelse resurs/nyckel för att fråga förutsägelse slut punkts begär Anden. Skapa en LUIS förutsägelse resurs innan klient programmet begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av redigeringen eller start resursen. <br><br> Det finns två nivåer avialble för förutsägelse resursen:<br> * **Kostnads fri F0 förutsägelse resurs** som ger dig 10 000 kostnads fri förutsägelse slut punkt begär Anden varje månad<br> * **Standard S0 förutsägelse resurs** som är den betalda nivån. [Läs mer om pris information](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Start/utvärderings resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. Detta skapas av standardvärde om du väljer alternativet Start resurs när du först registrerar TP-LUIS. Start nyckeln kommer dock att bli föråldrad och alla LUIS-användare kommer att behöva [migrera sina konton](luis-migration-authoring.md#what-is-migration) och länka sina Luis-program till en redigerings resurs. Den här resursen ger dig inte behörighet för rollbaserad åtkomst kontroll som till redigerings resursen. <br><br> Precis som för att skapa resurser ger start resursen 1 miljon utan att skapa transaktioner och 1000 kostnads fria test slut punkts begär Anden.|-|Inte en Azure-resurs|
+|Start/utvärderings resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. Detta skapas av standardvärde om du väljer alternativet Start resurs när du först registrerar TP-LUIS. Start nyckeln kommer dock att bli föråldrad och alla LUIS-användare kommer att behöva [migrera sina konton](luis-migration-authoring.md#what-is-migration) och länka sina Luis-program till en redigerings resurs. Den här resursen ger dig inte behörighet för rollbaserad åtkomst kontroll i Azure som redigerings resurs. <br><br> Precis som för att skapa resurser ger start resursen 1 miljon utan att skapa transaktioner och 1000 kostnads fria test slut punkts begär Anden.|-|Inte en Azure-resurs|
 |[Resurs nyckel för multi-service för kognitiva tjänster](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Slut punkts begär Anden för förfrågan som delas med LUIS och andra Cognitive Services som stöds.|`CognitiveServices`|`Cognitive Services`|
 
 
@@ -109,7 +109,7 @@ För närvarande finns det inte någon katalog med offentliga appar.
 
 Ägaren och alla deltagare har åtkomst för att redigera appen.
 
-|Redigerings åtkomst inkluderar|Obs!|
+|Redigerings åtkomst inkluderar|Kommentarer|
 |--|--|
 |Lägga till eller ta bort slut punkts nycklar||
 |Exporterar version||

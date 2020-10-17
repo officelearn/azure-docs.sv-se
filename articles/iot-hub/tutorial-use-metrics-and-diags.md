@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: b24d9e1cbbcf875d7b4bde3981b28d8999ba8d47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b070d6600f18b87ec16f1f9894d577f4c0a6c51c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019138"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149184"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Självstudie: Konfigurera och Använd mått och diagnostikloggar med IoT Hub
 
@@ -40,7 +40,7 @@ I den här självstudien utför du följande åtgärder:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 - Installera [Visual Studio](https://www.visualstudio.com/). 
 
@@ -190,7 +190,7 @@ Konfigurera nu vissa mått att hålla utkik efter när meddelanden skickas till 
 
 Gå till hubben i portalen. Klicka på **Resursgrupper**, välj *ContosoResources* och sedan IoT Hub *ContosoTestHub*. 
 
-IoT Hub har inte migrerats till den [mått i Azure Monitor](/azure/azure-monitor/platform/data-collection#metrics) ännu. Du behöver använda [klassiska aviseringar](/azure/azure-monitor/platform/alerts-classic.overview).
+IoT Hub har inte migrerats till den [mått i Azure Monitor](../azure-monitor/platform/data-platform.md#metrics) ännu. Du behöver använda [klassiska aviseringar](../azure-monitor/platform/alerts-classic.overview.md).
 
 1. Under **Övervakning** klickar du på **Aviseringar** som visar huvudskärmen för aviseringen. 
 
@@ -369,7 +369,7 @@ Klicka på **Ladda ned** för att hämta och öppna den. Du kan se loggar för e
 
 Om du vill ta bort alla resurser du skapade för den här självstudien tar du bort hela resursgruppen. Detta tar även bort alla resurser som ingår i gruppen. I det här fallet tar du bort IoT-hubben, lagringskontot och själva resursgruppen. Om du har fäst mått på instrumentpanelen måste du ta bort dem manuellt genom att klicka på de tre punkterna i det övre högra hörnet på varje och välja **Ta bort**.
 
-Om du vill ta bort resursgruppen använder du kommandot [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Om du vill ta bort resursgruppen använder du kommandot [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

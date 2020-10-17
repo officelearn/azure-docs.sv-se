@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02bfb7da51f243de8320d0230259577e337231fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574151"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149271"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Skydda data som lagras i Azure Data Lake Storage Gen1
-Att skydda data i Azure Data Lake Storage Gen1 är en metod i tre steg.  Både rollbaserad åtkomst kontroll (RBAC) och åtkomst kontrol listor (ACL: er) måste anges för att aktivera åtkomst till data för användare och säkerhets grupper fullständigt.
+Att skydda data i Azure Data Lake Storage Gen1 är en metod i tre steg.  Både Azure rollbaserad åtkomst kontroll (Azure RBAC) och åtkomst kontrol listor (ACL) måste anges för att ge åtkomst till data för användare och säkerhets grupper.
 
 1. Börja med att skapa säkerhets grupper i Azure Active Directory (Azure AD). Dessa säkerhets grupper används för att implementera Azure-rollbaserad åtkomst kontroll (Azure RBAC) i Azure Portal. Mer information finns i [Azure RBAC](../role-based-access-control/role-assignments-portal.md).
 2. Tilldela Azure AD-säkerhetsgrupper till Data Lake Storage Gen1-kontot. Detta styr åtkomsten till Data Lake Storage Gen1 kontot från portalen och hanterings åtgärderna från portalen eller API: erna.
@@ -68,7 +68,7 @@ När du tilldelar användare eller säkerhets grupper till Data Lake Storage Gen
     För data åtgärder definierar enskilda fil Systems behörigheter vad användarna kan göra. En användare som har en läsar roll kan därför bara se administrativa inställningar som är associerade med kontot, men kan läsa och skriva data baserat på de behörigheter som tilldelats av fil systemet. Data Lake Storage Gen1 behörigheter för fil systemet beskrivs i [tilldela säkerhets grupp som ACL: er till fil systemet Azure Data Lake Storage gen1](#filepermissions).
 
     > [!IMPORTANT]
-    > Endast **ägar** rollen aktiverar fil system åtkomst automatiskt. **Deltagare**, **läsare**och alla andra roller kräver ACL: er för att ge alla åtkomst nivåer till mappar och filer.  **Ägar** rollen tillhandahåller fil-och mappbehörigheter för superanvändare som inte kan åsidosättas via ACL: er. Mer information om hur RBAC-principer mappar till data åtkomst finns i [RBAC för konto hantering](data-lake-store-security-overview.md#rbac-for-account-management).
+    > Endast **ägar** rollen aktiverar fil system åtkomst automatiskt. **Deltagare**, **läsare**och alla andra roller kräver ACL: er för att ge alla åtkomst nivåer till mappar och filer.  **Ägar** rollen tillhandahåller fil-och mappbehörigheter för superanvändare som inte kan åsidosättas via ACL: er. Mer information om hur Azure RBAC-principer mappar till data åtkomst finns i [Azure RBAC för konto hantering](data-lake-store-security-overview.md#azure-rbac-for-account-management).
 
 4. Om du vill lägga till en grupp/användare som inte visas på bladet **Lägg till behörigheter** , kan du bjuda in dem genom att skriva deras e-postadress i rutan **Markera** text och sedan välja dem i listan.
    

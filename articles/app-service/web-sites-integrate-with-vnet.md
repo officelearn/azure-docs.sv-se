@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/05/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f2e17e99208d076d05132638b5161a284b73986f
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 764e0262c8a26511c55740aa1797b5ec9b59cc8e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018635"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150151"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera en app med ett virtuellt Azure-nätverk
 
-Den här artikeln beskriver funktionen Azure App Service VNet-integrering och hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Med [Azure Virtual Network][VNETOverview] (virtuella nätverk) kan du placera många av dina Azure-resurser i ett nätverk som inte är Internet-dirigerbart. Funktionen för VNet-integrering gör att dina appar kan komma åt resurser i eller via ett VNet. VNet-integrering gör att dina appar inte kan nås privat.
+Den här artikeln beskriver funktionen Azure App Service VNet-integrering och hur du konfigurerar den med appar i [Azure App Service](./overview.md). Med [Azure Virtual Network][VNETOverview] (virtuella nätverk) kan du placera många av dina Azure-resurser i ett nätverk som inte är Internet-dirigerbart. Funktionen för VNet-integrering gör att dina appar kan komma åt resurser i eller via ett VNet. VNet-integrering gör att dina appar inte kan nås privat.
 
 Azure App Service har två varianter på funktionen för VNet-integrering:
 

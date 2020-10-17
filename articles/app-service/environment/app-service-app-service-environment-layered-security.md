@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: e9a776aad966bb74e22f6d7fb8d66530e4b4db92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab26ad08947a4a9929ae0d41b669160b3d159224
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255204"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150221"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implementera en lager säkerhets arkitektur med App Service miljöer
 Eftersom App Service miljöer tillhandahåller en isolerad körnings miljö som distribuerats till ett virtuellt nätverk, kan utvecklare skapa en lager säkerhets arkitektur som ger olika nivåer av nätverks åtkomst för varje fysisk program nivå.
@@ -115,7 +115,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 När NSG tillämpas på under nätet, tillåts bara de tre överordnade App Service-miljöerna och de App Service-miljön som innehåller API-backend: n kan anropas i "apiase"-miljön.
 
 ## <a name="additional-links-and-information"></a>Ytterligare länkar och information
-Information om [nätverks säkerhets grupper](../../virtual-network/security-overview.md).
+Information om [nätverks säkerhets grupper](../../virtual-network/network-security-groups-overview.md).
 
 Förstå [utgående IP-adresser][NetworkArchitecture] och App Service miljöer.
 

@@ -4,12 +4,12 @@ description: Så här konfigurerar du Azure blockchain service Transaction Nodes
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530394"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150878"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Konfigurera noder i Azure blockchain service Transactions
 
@@ -38,7 +38,7 @@ Så här lägger du till en Transaction-nod:
     | Inställning | Beskrivning |
     |---------|-------------|
     | Namn | Nodnamn för transaktion. Namnet används för att skapa DNS-adressen för Transaction Node-slutpunkten. Exempelvis `newnode-myblockchainmember.blockchain.azure.com`. Det går inte att ändra nodnamn när det har skapats. |
-    | lösenordsinställning | Ange ett starkt lösen ord. Använd lösen ordet för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
+    | Lösenord | Ange ett starkt lösen ord. Använd lösen ordet för att komma åt Transaction Node-slutpunkten med grundläggande autentisering.
 
 1. Välj **Skapa**.
 
@@ -67,7 +67,7 @@ Så här beviljar du Azure AD Access Control till din slut punkt:
 
     ![Lägg till IAM-rollen](./media/configure-transaction-nodes/add-role.png)
 
-    | Inställning | Action |
+    | Inställning | Åtgärd |
     |---------|-------------|
     | Roll | Välj **ägare**, **deltagare**eller **läsare**.
     | Tilldela åtkomst till | Välj **Azure AD-användare, grupp eller tjänstens huvud namn**.
@@ -75,7 +75,7 @@ Så här beviljar du Azure AD Access Control till din slut punkt:
 
 1. Välj **Spara** för att lägga till roll tilldelningen.
 
-Mer information om Azure AD Access Control finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md)
+Mer information om Azure AD Access Control finns i [lägga till eller ta bort Azure roll tilldelningar med hjälp av Azure Portal](../../role-based-access-control/role-assignments-portal.md)
 
 Mer information om hur du ansluter med Azure AD-autentisering finns i [ansluta till din nod med AAD-autentisering](configure-aad.md).
 

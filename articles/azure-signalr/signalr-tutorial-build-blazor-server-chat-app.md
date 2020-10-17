@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: 1a75c083015d1f10a3ed3dba15480430747756eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1c13c5d4bea8bfdb0f70e67ce8f264a1929b8a2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90525024"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150888"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Självstudie: bygga en app för att chatta med en blixt Server
 
@@ -24,7 +24,7 @@ I den här självstudien får du lära dig hur du skapar och ändrar en app med 
 > * Snabb distribution till Azure App Service i Visual Studio.
 > * Migrera den lokala signalen till Azure SignalR-tjänsten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * Installera [.net Core 3,0 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.0) (version >= 3.0.100)
 * Installera [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) (version >= 16,3)
 > Visual Studio 2019 Preview-versionen fungerar också, som släpps med den senaste installations mal len för den senaste versionen av installations programmet för den nyare .net Core-versionen.
@@ -361,7 +361,7 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
 
 ## <a name="publish-to-azure"></a>Publicera till Azure
 
-   Hittills arbetar appen blixt i den lokala signalen och när du distribuerar till Azure App Service, rekommenderar vi att du använder [Azure SignalR-tjänsten](https://docs.microsoft.com/aspnet/core/signalr/scale?view=aspnetcore-3.1#azure-signalr-service) , vilket gör att du kan skala upp en blixt Server-App till ett stort antal samtidiga signalers anslutningar. Dessutom kan signal tjänstens globala räckvidd och data Center med hög prestanda avsevärt hjälpa till att minska svars tiden på grund av geografi.
+   Hittills arbetar appen blixt i den lokala signalen och när du distribuerar till Azure App Service, rekommenderar vi att du använder [Azure SignalR-tjänsten](/aspnet/core/signalr/scale?view=aspnetcore-3.1#azure-signalr-service) , vilket gör att du kan skala upp en blixt Server-App till ett stort antal samtidiga signalers anslutningar. Dessutom kan signal tjänstens globala räckvidd och data Center med hög prestanda avsevärt hjälpa till att minska svars tiden på grund av geografi.
 
 > [!IMPORTANT]
 > I den här program varan för en blixt Server, underhålls GRÄNSSNITTs tillstånd på Server sidan, vilket innebär att serverns fästis krävs i det här fallet. Om det finns en enda app-server är serverns fästis säkerställd av design. Men om det finns flera App-servrar, finns det en risk för att klient förhandlingen och anslutningen kan gå till olika servrar och leda till användar gränssnitts fel i den snabba appen. Så du måste aktivera serverns fästis som nedan i `appsettings.json` :
@@ -385,7 +385,7 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
 
    Tjänst beroendet gör saker nedan för att aktivera appen automatiskt till Azure SignalR-tjänsten när den körs på Azure.
 
-   * Uppdatera [`HostingStartupAssembly`](https://docs.microsoft.com/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) för att använda Azure SignalR-tjänsten.
+   * Uppdatera [`HostingStartupAssembly`](/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) för att använda Azure SignalR-tjänsten.
    * Lägg till Azure SignalR service-NuGet paket referens.
    * Uppdatera profil egenskaper för att spara beroende inställningarna.
    * Att konfigurera hemligheter lagras beror på ditt val.
@@ -423,10 +423,10 @@ Från Visual Studio 2019 version 16.2.0 är Azure Signaling-tjänsten att public
    }
    ```
 
-1. Konfigurera Azure SignalR service `ConnectionString` antingen i `appsetting.json` eller med verktyget [Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=visual-studio#secret-manager)
+1. Konfigurera Azure SignalR service `ConnectionString` antingen i `appsetting.json` eller med verktyget [Secret Manager](/aspnet/core/security/app-secrets?tabs=visual-studio&view=aspnetcore-3.1#secret-manager)
 
 > [!NOTE]
-> Steg 2 kan ersättas med hjälp av [`HostingStartupAssembly`](https://docs.microsoft.com/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) till SignalR SDK.
+> Steg 2 kan ersättas med hjälp av [`HostingStartupAssembly`](/aspnet/core/fundamentals/host/platform-specific-configuration?view=aspnetcore-3.1) till SignalR SDK.
 > 
 > 1. Lägg till konfiguration för att aktivera Azure SignalR service i `appsetting.json`
 >    ```js
@@ -470,4 +470,4 @@ Läs mer om hög tillgänglighet.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [ASP.NET Core blixt](https://docs.microsoft.com/aspnet/core/blazor)
+* [ASP.NET Core blixt](/aspnet/core/blazor)

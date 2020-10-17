@@ -8,20 +8,20 @@ ms.reviewer: zhshang
 ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: 105b40da2a612d2a2e9958eff52bfb786c500bc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 77c8887ac19c6ce4c7d83734bdd2b44d9213914d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876081"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151111"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Reagera på händelser i Azure SignalR Service
 
 Azure SignalR service Events gör att program kan reagera på klient anslutningar anslutna eller frånkopplade med moderna serverbaserade arkitekturer. Det gör det utan att det behövs komplicerade kod eller dyra och ineffektiva avsöknings tjänster.  I stället flyttas händelser via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till prenumeranter som [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)eller till och med din egen anpassade http-lyssnare. Med Azure SignalR betalar du bara för det du använder.
 
-Azure SignalR service-händelser skickas på ett tillförlitligt sätt till tjänsten Event Grid som tillhandahåller pålitliga leverans tjänster till dina program genom omfattande principer för återförsök och leverans av obeställbara meddelanden. Läs mer i [Event Grid meddelande leverans och försök igen](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
+Azure SignalR service-händelser skickas på ett tillförlitligt sätt till tjänsten Event Grid som tillhandahåller pålitliga leverans tjänster till dina program genom omfattande principer för återförsök och leverans av obeställbara meddelanden. Läs mer i [Event Grid meddelande leverans och försök igen](../event-grid/delivery-and-retry.md).
 
-![Event Grid modell](https://docs.microsoft.com/azure/event-grid/media/overview/functional-model.png)
+![Event Grid modell](/azure/event-grid/media/overview/functional-model.png)
 
 ## <a name="serverless-state"></a>Tillstånd utan Server
 Azure SignalR service-händelser är bara aktiva när klient anslutningar är i ett Server löst tillstånd. Om en klient inte dirigerar till en NAV Server går den utan server tillstånd. Klassiskt läge fungerar bara när hubben som klient anslutningar ansluter till inte har en NAV-Server. Server lös läge rekommenderas som bästa praxis. Mer information om tjänst läge finns i [så här väljer du tjänst läge](https://github.com/Azure/azure-signalr/blob/dev/docs/faq.md#what-is-the-meaning-of-service-mode-defaultserverlessclassic-how-can-i-choose).

@@ -8,19 +8,19 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 814167425fcd39e90edccd952e1a3e4fbd570988
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 370be4501a113403a9b1db14571f5a021ac15517
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818027"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149098"
 ---
 # <a name="managed-hsm-role-management"></a>Hantering av Managed HSM-roller
 
 > [!NOTE]
 > Key Vault stöder två typer av resurser: valv och hanterade HSM: er. Den här artikeln är en **hanterad HSM**. Om du vill lära dig hur du hanterar ett valv går du [till hantera Key Vault med hjälp av Azure CLI](../general/manage-with-cli2.md).
 
-En översikt över hanterad HSM finns i [Vad är hanterad HSM?](overview.md). Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+En översikt över hanterad HSM finns i [Vad är hanterad HSM?](overview.md). Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Den här artikeln visar hur du hanterar roller för ett hanterat HSM-dataplan. Information om hanterad HSM-åtkomst kontroll modell finns i [hanterad HSM Access Control](access-control.md).
 
@@ -28,7 +28,7 @@ Om du vill tillåta ett säkerhets objekt (till exempel en användare, ett huvud
 
 En lista över alla inbyggda roller för hanterad HSM och de åtgärder som de tillåter finns i [hanterade HSM-inbyggda roller](built-in-roles.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda Azure CLI-kommandona i den här artikeln måste du ha följande objekt:
 
@@ -70,7 +70,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 Används `az keyvault role assignment list` för att lista roll tilldelningar.
 
-Alla roll tilldelningar i omfång/(standard när ingen--omfattning har angetts) för alla användare (standard när--tilldelas)
+Alla roll tilldelningar i omfånget/(standard när inget--scope har angetts) för alla användare (standard när ingen tilldelas)
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM

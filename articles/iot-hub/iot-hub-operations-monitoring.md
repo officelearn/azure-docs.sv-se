@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 9d9824be536ca657d9213a47898ad19b0c39d8b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022028"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92139336"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub Operations Monitoring (inaktuell)
 
@@ -191,7 +191,7 @@ Kategorin meddelande cirkulation spårar fel som inträffar under utvärderingen
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Anslut till övervaknings slut punkten
 
-Övervaknings slut punkten på din IoT Hub är en Event Hub-kompatibel slut punkt. Du kan använda valfri mekanism som fungerar med Event Hubs för att läsa övervaknings meddelanden från den här slut punkten. Följande exempel skapar en grundläggande läsare som inte lämpar sig för en hög data flödes distribution. Mer information om hur du bearbetar meddelanden från Event Hubs finns i självstudiekursen [Komma igång med Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+Övervaknings slut punkten på din IoT Hub är en Event Hub-kompatibel slut punkt. Du kan använda valfri mekanism som fungerar med Event Hubs för att läsa övervaknings meddelanden från den här slut punkten. Följande exempel skapar en grundläggande läsare som inte lämpar sig för en hög data flödes distribution. Mer information om hur du bearbetar meddelanden från Event Hubs finns i självstudiekursen [Komma igång med Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 Om du vill ansluta till övervaknings slut punkten behöver du en anslutnings sträng och slut punkts namnet. Följande steg visar hur du hittar de värden som krävs i portalen:
 
@@ -271,4 +271,4 @@ För att ytterligare utforska funktionerna i IoT Hub, se:
 
 * [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
 
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/quickstart-linux.md)

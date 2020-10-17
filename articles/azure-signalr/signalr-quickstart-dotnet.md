@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: zhshang
-ms.openlocfilehash: 8c7d7f84e02cdd2cd4f53bc9eb42c78f936146ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: da91a5a7c077eb14d12a711b8b308d7045c88f4a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408377"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150990"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Snabb start: skapa ett chattrum med ASP.NET och SignalR-tjänsten
 
-Azure SignalR service baseras på [SignalR för ASP.NET Core 2,1](https://docs.microsoft.com/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), som **inte** är 100% kompatibel med ASP.net-signalerare. Azure SignalR service har återimplementerat ASP.NET SignalR data Protocol baserat på de senaste ASP.NET Core teknikerna. När du använder Azure SignalR-tjänsten för ASP.NET-signaler, stöds inte längre vissa ASP.NET-signaler-funktioner, till exempel kan inte Azure-signaler spela upp meddelanden igen när klienten återansluter. Dessutom stöds inte alltid-och JSONP för alltid-ramar. Vissa kod ändringar och rätt version av beroende bibliotek krävs för att göra ASP.NET SignalR-program fungera med SignalR-tjänsten.
+Azure SignalR service baseras på [SignalR för ASP.NET Core 2,1](/aspnet/core/signalr/introduction?preserve-view=true&view=aspnetcore-2.1), som **inte** är 100% kompatibel med ASP.net-signalerare. Azure SignalR service har återimplementerat ASP.NET SignalR data Protocol baserat på de senaste ASP.NET Core teknikerna. När du använder Azure SignalR-tjänsten för ASP.NET-signaler, stöds inte längre vissa ASP.NET-signaler-funktioner, till exempel kan inte Azure-signaler spela upp meddelanden igen när klienten återansluter. Dessutom stöds inte alltid-och JSONP för alltid-ramar. Vissa kod ändringar och rätt version av beroende bibliotek krävs för att göra ASP.NET SignalR-program fungera med SignalR-tjänsten.
 
-Se [versions skillnaders dokumentet](https://docs.microsoft.com/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1) för en fullständig lista över funktions jämförelser mellan ASP.net-signalerare och ASP.net Core signalerare.
+Se [versions skillnaders dokumentet](/aspnet/core/signalr/version-differences?preserve-view=true&view=aspnetcore-3.1) för en fullständig lista över funktions jämförelser mellan ASP.net-signalerare och ASP.net Core signalerare.
 
 I den här snabb starten får du lära dig hur du kommer igång med ASP.NET och Azure SignalR-tjänsten för ett liknande [chattrum-program](./signalr-quickstart-dotnet-core.md).
 

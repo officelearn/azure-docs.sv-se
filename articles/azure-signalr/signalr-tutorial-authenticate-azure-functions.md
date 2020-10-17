@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6df47d3fd62083a5d0940a1d6da50ac5d7d955f4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327626"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150910"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Självstudier: Azure SignalR Service-autentisering med Azure Functions
 
@@ -26,7 +26,7 @@ En stegvis självstudiekurs som beskriver hur du skapar ett chattrum med autenti
 * [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/?WT.mc_id=serverlesschatlab-tutorial-antchu) – Skicka nya meddelanden till anslutna chattklienter
 * [Azure Storage](https://azure.microsoft.com/services/storage/?WT.mc_id=serverlesschatlab-tutorial-antchu) – Lagra den statiska webbplatsen för chattklientens användargränssnitt
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 Följande programvara krävs för den här självstudien.
 
@@ -58,11 +58,11 @@ Du kan skapa och testa Azure Functions-appen lokalt. Appen använder en SignalR 
 
 1. Ange följande information.
 
-    | Name | Värde |
+    | Namn | Värde |
     |---|---|
     | Resursnamn | Ett unikt namn för SignalR Service-instansen |
     | Resursgrupp | Skapa en ny resurs grupp med ett unikt namn |
-    | Location | Välj en plats nära dig |
+    | Plats | Välj en plats nära dig |
     | Prisnivå | Kostnadsfri |
 
 1. Klicka på **Skapa**.
@@ -327,12 +327,12 @@ Ett Azure Storage konto krävs av en Function-app som körs i Azure. Du kommer o
 
 1. Ange följande information.
 
-    | Name | Värde |
+    | Namn | Värde |
     |---|---|
     | Prenumeration | Välj den prenumeration som innehåller SignalR tjänst instansen |
     | Resursgrupp | Välj samma resurs grupp |
     | Resursnamn | Ett unikt namn för lagrings kontot |
-    | Location | Välj samma plats som dina andra resurser |
+    | Plats | Välj samma plats som dina andra resurser |
     | Prestanda | Standard |
     | Typ av konto | StorageV2 (generell användning v2) |
     | Replikering | Lokalt redundant lagring (LRS) |
@@ -356,13 +356,13 @@ Ett Azure Storage konto krävs av en Function-app som körs i Azure. Du kommer o
 
 ### <a name="configure-function-app-for-authentication"></a>Konfigurera funktionsappen för autentisering
 
-Hittills fungerar chattappen anonymt. Du ska använda [App Service-autentisering](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) i Azure för att autentisera användaren. Användar-ID:t eller användarnamnet för den autentiserade användaren kan skickas till *SignalRConnectionInfo*-bindningen för att generera anslutningsinformation som autentiseras som användaren.
+Hittills fungerar chattappen anonymt. Du ska använda [App Service-autentisering](../app-service/overview-authentication-authorization.md) i Azure för att autentisera användaren. Användar-ID:t eller användarnamnet för den autentiserade användaren kan skickas till *SignalRConnectionInfo*-bindningen för att generera anslutningsinformation som autentiseras som användaren.
 
 När ett meddelande skickas kan appen bestämma om det ska skickas till alla anslutna klienter, eller endast till de klienter som har autentiserats för en viss användare.
 
 1. I VS Code öppnar du **Negotiate/function.jspå**.
 
-1. Infoga ett [bindningsuttryck](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) i egenskapen *userId* för *SignalRConnectionInfo*-bindningen: `{headers.x-ms-client-principal-name}`. Detta anger värdet till användarnamnet för den autentiserade användaren. Attributet bör nu se ut så här.
+1. Infoga ett [bindningsuttryck](../azure-functions/functions-triggers-bindings.md) i egenskapen *userId* för *SignalRConnectionInfo*-bindningen: `{headers.x-ms-client-principal-name}`. Detta anger värdet till användarnamnet för den autentiserade användaren. Attributet bör nu se ut så här.
 
     ```json
     {
@@ -431,11 +431,11 @@ App Service-autentisering har stöd för autentisering med Azure Active Director
 
 1. Slutför konfigurationen genom att följa anvisningarna i dokumentationen för din valda inloggningsprovider.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
-    - [Microsoft-konto](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
-    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
+    - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+    - [Facebook](../app-service/configure-authentication-provider-facebook.md)
+    - [Twitter](../app-service/configure-authentication-provider-twitter.md)
+    - [Microsoft-konto](../app-service/configure-authentication-provider-microsoft.md)
+    - [Google](../app-service/configure-authentication-provider-google.md)
 
 ### <a name="update-the-web-app"></a>Uppdatera webbappen
 
@@ -461,7 +461,7 @@ Webbprogrammet ska hanteras av funktionen för statiska webbplatser i Azure Blob
 
 1. Ange följande värden:
 
-    | Name | Värde |
+    | Namn | Värde |
     |---|---|
     | Prenumeration | Välj din prenumeration |
     | Lagringskonto | Välj det lagrings konto som du skapade tidigare |
@@ -517,4 +517,3 @@ I den här självstudien har du lärt dig hur du använder Azure Functions med A
 > [Bygg appar i real tid med Azure Functions](signalr-concept-azure-functions.md)
 
 [Har du problem? Berätta för oss.](https://aka.ms/asrs/qsauth)
-

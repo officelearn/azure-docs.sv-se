@@ -4,12 +4,12 @@ description: Förstå tjänster och händelse schema som stöds för Azures resu
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 17b4b161e76f018d8f669ee7e9b5dd578bb3e035
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9d3dafdf62bda2d07eb7f9d7c357f61ec913d44
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278404"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144006"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Gemensamt och tjänstspecifikt schema för Azure-resurs loggar
 
@@ -64,7 +64,7 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | Azure-datautforskaren | [Azure Datautforskaren-loggar](/azure/data-explorer/using-diagnostic-logs) |
 | Azure Database for MySQL | [Azure Database for MySQL diagnostikloggar](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL loggar](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure Databricks | [Diagnostisk loggning i Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Azure Databricks | [Diagnostisk loggning i Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
 | Azure Digital Twins | [Konfigurera Azure Digitals dubblare-diagnostik](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Event Hubs |[Azure Event Hubs-loggar](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schemat är inte tillgängligt. |
@@ -73,7 +73,7 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 | IoT Hub | [IoT Hub åtgärder](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault loggning](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes-loggning](../../aks/view-master-logs.md#log-event-schema) |
-| Lastbalanserare |[Log Analytics för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Log Analytics för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Anpassat Logic Apps B2B-spårningsschema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDOS-skydd | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
@@ -89,11 +89,10 @@ Schemat för resurs loggar varierar beroende på resurs-och logg kategori. I den
 
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * [Se resurs loggs kategorierna som du kan samla in](resource-logs-categories.md)
 * [Läs mer om resurs loggar](./platform-logs-overview.md)
 * [Strömma resurs resurs loggar till **Event Hubs**](./resource-logs.md#send-to-azure-event-hubs)
 * [Ändra diagnostikinställningar för resurs loggen med hjälp av Azure Monitor REST API](/rest/api/monitor/diagnosticsettings)
 * [Analysera loggar från Azure Storage med Log Analytics](./resource-logs.md#send-to-log-analytics-workspace)
-

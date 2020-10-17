@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: 049a7348b803d12b66974bb9a9b50c12059171a2
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931129"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143734"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor arbets böcker data källor
 
@@ -109,6 +109,6 @@ För att undvika att anrop till obetrodda värdar när du använder mallar, mås
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
+* [Kom igång](./workbooks-overview.md#visualizations) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
 * [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.
 * [Tips för Log Analytics optimering av frågor](../log-query/query-optimization.md)

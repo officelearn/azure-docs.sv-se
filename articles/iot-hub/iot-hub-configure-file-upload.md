@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
-ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d374ff372e0bc3fb183d9210f663987e4804114
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60735053"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142533"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Konfigurera IoT Hub-filuppladdningar med Azure-portalen
 
@@ -52,5 +52,5 @@ Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 För att ytterligare utforska funktionerna i IoT Hub, se:
 
 * [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/quickstart-linux.md)
 * [Skydda din IoT-lösning från grunden](../iot-fundamentals/iot-security-ground-up.md)

@@ -9,22 +9,22 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9660aa3923964392f1789570d26dd825e0fef350
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71827902"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143191"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Aktivera diagnostisk loggning för Azure Cognitive Services
 
 Den här guiden innehåller stegvisa instruktioner för att aktivera diagnostisk loggning för en Azure-tjänst. Dessa loggar ger omfattande, frekventa data om driften av en resurs som används för problem identifiering och fel sökning. Innan du fortsätter måste du ha ett Azure-konto med en prenumeration på minst en kognitiv tjänst, till exempel [webbsökning i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview), [tal tjänster](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)eller [Luis](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill aktivera diagnostikloggning måste du lagra dina loggdata någonstans. I den här självstudien används Azure Storage och Log Analytics.
 
-* [Azure Storage](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) – behåller diagnostikloggar för princip granskning, statisk analys eller säkerhets kopiering. Lagrings kontot måste inte finnas i samma prenumeration som resursen som skapar loggar så länge den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
+* [Azure Storage](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) – behåller diagnostikloggar för princip granskning, statisk analys eller säkerhets kopiering. Lagrings kontot behöver inte finnas i samma prenumeration som resursen som skapar loggar så länge som den användare som konfigurerar inställningen har lämplig Azure RBAC-åtkomst till båda prenumerationerna.
 * [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) – ett flexibelt loggs öknings-och analys verktyg som möjliggör analys av obehandlade loggar som genereras av en Azure-resurs.
 
 > [!NOTE]

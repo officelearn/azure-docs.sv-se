@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5b9170e0fcf4bba8b928522cdc881f34968d771f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89003872"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142817"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Massimportera och massexportera IoT Hub-enhetsidentiteter
 
@@ -27,7 +27,7 @@ Import-och export åtgärder sker i samband med *jobb* som gör att du kan köra
 
 Klassen **RegistryManager** innehåller metoderna **ExportDevicesAsync** och **ImportDevicesAsync** som använder **jobb** ramverket. Med dessa metoder kan du exportera, importera och synkronisera hela identitet registret för IoT Hub.
 
-I det här avsnittet beskrivs hur du använder **RegistryManager** -klassen och- **jobb** systemet för att utföra Mass import och export av enheter till och från en IoT Hubs identitets register. Du kan också använda Azure-IoT Hub Device Provisioning Service för att möjliggöra Zero Touch-etablering, just-in-Time-etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i dokumentationen för [etablerings tjänsten](/azure/iot-dps).
+I det här avsnittet beskrivs hur du använder **RegistryManager** -klassen och- **jobb** systemet för att utföra Mass import och export av enheter till och från en IoT Hubs identitets register. Du kan också använda Azure-IoT Hub Device Provisioning Service för att möjliggöra Zero Touch-etablering, just-in-Time-etablering till en eller flera IoT-hubbar utan mänsklig inblandning. Mer information finns i dokumentationen för [etablerings tjänsten](../iot-dps/index.yml).
 
 ## <a name="what-are-jobs"></a>Vad är jobb?
 
@@ -399,7 +399,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Hämta SAS-URI för behållare
 
-I följande kod exempel visas hur du skapar en [SAS-URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md) med Läs-, skriv-och borttagnings behörighet för en BLOB-behållare:
+I följande kod exempel visas hur du skapar en [SAS-URI](../storage/common/storage-sas-overview.md) med Läs-, skriv-och borttagnings behörighet för en BLOB-behållare:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -438,8 +438,8 @@ Om du vill veta mer om hur du hanterar Azure IoT Hub kan du läsa följande arti
 För att ytterligare utforska funktionerna i IoT Hub, se:
 
 * [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Om du vill utforska med hjälp av IoT Hub Device Provisioning Service för att aktivera Zero-Touch, just-in-Time-etablering, se: 
 
-* [Azure IoT Hub Device Provisioning-tjänst](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning-tjänst](../iot-dps/index.yml)

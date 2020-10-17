@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 9c0b5dd72cf82649e7f659d23606d23aea62ac82
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 92ac1887aca8f30c551419ef9149073d79f333a5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932557"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143840"
 ---
 # <a name="access-control"></a>Åtkomstkontroll
 
@@ -38,4 +38,4 @@ Lägg till `microsoft.insights/workbooks/write` för att spara delade arbets bö
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
+* [Kom igång](./workbooks-overview.md#visualizations) lär dig mer om arbets böcker många avancerade visualiserings alternativ.

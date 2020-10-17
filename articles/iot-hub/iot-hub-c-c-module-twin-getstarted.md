@@ -11,12 +11,12 @@ ms.author: menchi
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3cd4277603b96dd1aa07682dd01a6d0e9c61bd82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cc874b4df7052c76fa58388bc982b8ffe3acc23
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81733460"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142922"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-c"></a>Kom igång med IoT Hub modulens identitet och modul (C)
 
@@ -34,13 +34,13 @@ I slutet av den här självstudien har du två C-appar:
 > [!NOTE]
 > Information om Azure IoT SDK: er som du kan använda för att skapa båda programmen som ska köras på enheter och din lösnings Server del finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
 
 * Senaste [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -391,4 +391,4 @@ int main(void)
 För att fortsätta komma igång med IoT-hubb och utforska andra IoT-scenarier, se:
 
 * [Connecting your device](iot-hub-node-node-device-management-get-started.md) (Komma igång med enhetshantering)
-* [Komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Komma igång med IoT Edge](../iot-edge/quickstart-linux.md)

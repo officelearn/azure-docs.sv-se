@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2411d9257b1083cb2bcbfcad289813a6c062dff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081397"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143586"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Använda JSONPath för att transformera JSON-data i arbets böcker
 
@@ -22,7 +22,7 @@ Arbets böcker kan fråga efter data från många källor. Vissa slut punkter, t
 
 JSONPath är ett frågespråk för JSON som liknar XPath för XML. Som XPath tillåter JSONPath extrahering och filtrering av data från JSON-strukturen.
 
-Genom att använda JSONPath-transformering kan arbets boks författare konvertera JSON till en tabell struktur. Tabellen kan sedan användas för att rita [visualiseringar av arbets böcker](workbooks-visualizations.md).
+Genom att använda JSONPath-transformering kan arbets boks författare konvertera JSON till en tabell struktur. Tabellen kan sedan användas för att rita [visualiseringar av arbets böcker](./workbooks-overview.md#visualizations).
 
 ## <a name="using-jsonpath"></a>Använda JSONPath
 

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
-ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f1ab0440120cb9a96e6c05a4fc1987ead29188
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514907"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143257"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Tjänst läge i Azure SignalR-tjänsten
 
@@ -51,11 +51,11 @@ Det finns även ingen server anslutning i det här läget (om du försöker anv�
 > [!NOTE]
 > Både REST API-och WebSocket-sätt stöds i SignalR service [Management SDK](https://github.com/Azure/azure-signalr/blob/dev/docs/management-sdk-guide.md). Om du använder ett annat språk än .NET kan du också anropa REST-API: erna manuellt enligt den här [specifikationen](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md).
 >
-> Om du använder Azure Functions kan du använda [signal tjänst bindningar för Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service) (kallas ibland funktions bindning) för att skicka meddelanden som en utgående bindning.
+> Om du använder Azure Functions kan du använda [signal tjänst bindningar för Azure Functions](../azure-functions/functions-bindings-signalr-service.md) (kallas ibland funktions bindning) för att skicka meddelanden som en utgående bindning.
 
 Det är också möjligt att Server programmet tar emot meddelanden och anslutnings händelser från klienter. Tjänsten levererar meddelanden och anslutnings händelser till förkonfigurerade slut punkter (kallas överordnade) med Webhooks. Jämfört med standard läget finns det ingen garanti för varaktighet och HTTP-begäranden kan vara mindre effektiva än WebSocket-anslutningar.
 
-Mer information om hur du konfigurerar uppströms finns i det här [dokumentet](https://docs.microsoft.com/azure/azure-signalr/concept-upstream).
+Mer information om hur du konfigurerar uppströms finns i det här [dokumentet](./concept-upstream.md).
 
 Nedan visas ett diagram som illustrerar hur Server fritt läge fungerar:
 

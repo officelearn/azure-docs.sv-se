@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/06/2019
-ms.openlocfilehash: 2e96ac5052221475d9aec11d4ed96e8f9c308d70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 024fa2f86890c6e8e791b5cf66a4e67328f62f63
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710115"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143894"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Felsöka Log Analytics-tillägget för virtuella datorer i Azure Monitor
 Den här artikeln innehåller fel söknings fel som kan uppstå i Log Analytics VM-tillägget för virtuella Windows-och Linux-datorer som körs på Microsoft Azure och ger förslag på möjliga lösningar för att lösa dem.
@@ -52,7 +52,7 @@ Om *Log Analytics agent för* VM-tillägget för Linux inte installeras eller ra
 
 1. Om tilläggets status är *okänd* kontrollerar du om Azure VM-agenten är installerad och fungerar korrekt genom att granska logg filen för VM-agenten `/var/log/waagent.log`
    * Om loggen inte finns installeras inte VM-agenten.
-   * [Installera Azure VM-agenten på virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#installation)
+   * [Installera Azure VM-agenten på virtuella Linux-datorer](../../virtual-machines/extensions/agent-linux.md#installation)
 2. Om du har andra statusar som inte är felfria kontrollerar du Log Analytics agent för Linux VM-tillägg loggfiler i `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` och `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. Om tilläggets status är felfri, men data inte överförs, granska Log Analytics agent för Linux-loggfiler i `/var/opt/microsoft/omsagent/log/omsagent.log`
 
@@ -60,5 +60,4 @@ Mer information finns i [Felsöka Linux-tillägg](../../virtual-machines/extensi
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare fel söknings anvisningar som rör Log Analytics-agenten för Linux som finns på datorer utanför Azure finns i [Felsöka Azure Log Analytics Linux-agenten](agent-linux-troubleshoot.md).  
-
+Ytterligare fel söknings anvisningar som rör Log Analytics-agenten för Linux som finns på datorer utanför Azure finns i [Felsöka Azure Log Analytics Linux-agenten](agent-linux-troubleshoot.md).

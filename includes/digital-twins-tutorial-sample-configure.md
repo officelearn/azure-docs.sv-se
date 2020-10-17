@@ -5,18 +5,18 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 4ac748c606d8ec3c8ba754c34d9c9e7512344a83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b44e15e4592de5e874ee50ebd390940e8ab16a22
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292748"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92157780"
 ---
 ## <a name="configure-the-sample-project"></a>Konfigurera exempelprojektet
 
 Konfigurera sedan ett exempel klient program som ska interagera med din Azure Digital-instansen.
 
-Navigera till den dator som du laddade ned tidigare från [*Azure Digitals-exempel*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (och zippa upp den om du inte redan har gjort det).
+Navigera på datorn till filen som du laddade ned tidigare från [*Azure Digitals dubbla delar från slut punkt till slut punkt*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (och zippa upp den om du inte redan har gjort det).
 
 När du är i mappen navigerar du till _AdtSampleApp_. Öppna _**AdtE2ESample. SLN**_ i Visual Studio 2019. 
 

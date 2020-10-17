@@ -6,19 +6,19 @@ ms.author: aul
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 19fd1d064a3f106d7b770481d1e456c51cf1e166
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3179daec361aa287b79c5e9a468908d0ccdd2982
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87759435"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143956"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Azure Monitor Visa designer till arbets böcker över gångs guide
 [View Designer](view-designer.md) är en funktion i Azure Monitor som gör att du kan skapa anpassade vyer som hjälper dig att visualisera data i arbets ytan Log Analytics, med diagram, listor och tids linjer. De har överförts till arbets böcker för att tillhandahålla en flexibel arbets yta för data analys och skapandet av omfattande visuella rapporter i Azure Portal. Den här artikeln hjälper dig att göra över gången från Visa designer till arbets böcker. 
 
 
 ## <a name="workbooks-overview"></a>Översikt över arbets böcker
-[Arbets böcker](../insights/vminsights-workbooks.md) kombinerar text, [logg frågor](../log-query/query-language.md), mått och parametrar till omfattande interaktiva rapporter. Grupp medlemmar med samma åtkomst till Azure-resurser kan också redigera arbets böcker.
+[Arbets böcker](../insights/vminsights-workbooks.md) kombinerar text, [logg frågor](/azure/data-explorer/kusto/query/), mått och parametrar till omfattande interaktiva rapporter. Grupp medlemmar med samma åtkomst till Azure-resurser kan också redigera arbets böcker.
 
 Arbets böcker är användbara för scenarier som:
 

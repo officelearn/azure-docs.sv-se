@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 471b775abfebec646ab3950803622271c0bd559b
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 37f2219313a0d4c533d587a765dd22d527a5910f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932302"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143437"
 ---
 # <a name="workbook-time-parameters"></a>Tids parametrar för arbets bok
 
@@ -78,5 +78,5 @@ requests
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
+* [Kom igång](./workbooks-overview.md#visualizations) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
 * [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.

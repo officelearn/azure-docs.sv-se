@@ -7,12 +7,12 @@ ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 67f0d9eb1fdac603ee82d568644e8ad8550d1c80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a39c2b06ca8a0f852891acb60ba199fc2c6db5c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024786"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142659"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Metod tips för enhets konfiguration i en IoT-lösning
 
@@ -20,17 +20,17 @@ Automatisk enhets hantering i Azure IoT Hub automatiserar många repetitiva och 
 
 * **IoT-maskin varu tillverkare/Integrator:** Tillverkare av IoT-maskinvara, integrerar maskin vara från olika tillverkare eller leverantörer som tillhandahåller maskin vara för en IoT-distribution som tillverkas eller integreras av andra leverantörer. Ingår i utveckling och integrering av inbyggd program vara, inbäddade operativ system och inbäddad program vara.
 
-* **IoT Solution Developer:** Utvecklingen av en IoT-lösning utförs vanligt vis av en lösnings utvecklare. Den här utvecklaren kan vara en del av ett internt team eller en System Integrator som är specialiserad i denna aktivitet. IoT Solution Developer kan utveckla olika komponenter i IoT-lösningen från grunden, integrera olika komponenter med standard eller öppen källkod eller anpassa en [IoT Solution Accelerator](/azure/iot-accelerators/).
+* **IoT Solution Developer:** Utvecklingen av en IoT-lösning utförs vanligt vis av en lösnings utvecklare. Den här utvecklaren kan vara en del av ett internt team eller en System Integrator som är specialiserad i denna aktivitet. IoT Solution Developer kan utveckla olika komponenter i IoT-lösningen från grunden, integrera olika komponenter med standard eller öppen källkod eller anpassa en [IoT Solution Accelerator](../iot-accelerators/index.yml).
 
 * **IoT-lösnings operator:** När IoT-lösningen har distribuerats kräver den långsiktiga åtgärder, övervakning, uppgraderingar och underhåll. Dessa uppgifter kan utföras av ett internt team som består av informations teknik specialister, maskin varu åtgärder och underhålls team och domän specialister som övervakar rätt beteende för den övergripande IoT-infrastrukturen.
 
 ## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Förstå automatisk enhets hantering för att konfigurera IoT-enheter i stor skala
 
-Automatisk enhets hantering omfattar de många fördelarna med [enheten](iot-hub-devguide-device-twins.md) , tillsammans med [modulernas dubblare](iot-hub-devguide-module-twins.md) , för att synkronisera önskade och rapporterade tillstånd mellan molnet och enheterna. [Automatisk enhets konfiguration](iot-hub-auto-device-config.md) uppdaterar automatiskt stora uppsättningar av dubbla och sammanfattande förlopp och efterlevnad. Följande avancerade steg beskriver hur automatisk enhets hantering utvecklas och används:
+Automatisk enhets hantering omfattar de många fördelarna med [enheten](iot-hub-devguide-device-twins.md) , tillsammans med [modulernas dubblare](iot-hub-devguide-module-twins.md) , för att synkronisera önskade och rapporterade tillstånd mellan molnet och enheterna. [Automatisk enhets konfiguration](./iot-hub-automatic-device-management.md) uppdaterar automatiskt stora uppsättningar av dubbla och sammanfattande förlopp och efterlevnad. Följande avancerade steg beskriver hur automatisk enhets hantering utvecklas och används:
 
 * **IoT Hardware Manufacturer/Integrator** implementerar enhets hanterings funktioner i ett inbäddat program med hjälp av [enheten](iot-hub-devguide-device-twins.md). Dessa funktioner kan omfatta uppdateringar av inbyggd program vara, program varu installation och uppdatering samt inställningar för hantering av inställningar.
 
-* **IoT Solution Developer** implementerar hanterings lagret för enhets hanterings åtgärder med hjälp av [enhets](iot-hub-devguide-device-twins.md) -och [Automatisk enhets konfiguration](iot-hub-auto-device-config.md). Lösningen bör innehålla definiera ett operatörs gränssnitt för att utföra enhets hanterings aktiviteter.
+* **IoT Solution Developer** implementerar hanterings lagret för enhets hanterings åtgärder med hjälp av [enhets](iot-hub-devguide-device-twins.md) -och [Automatisk enhets konfiguration](./iot-hub-automatic-device-management.md). Lösningen bör innehålla definiera ett operatörs gränssnitt för att utföra enhets hanterings aktiviteter.
 
 * **IoT-lösningens operator** använder IoT-lösningen för att utföra enhets hanterings uppgifter, särskilt för att gruppera enheter, initiera konfigurations ändringar som uppdateringar av inbyggd program vara, övervaka förloppet och felsöka problem som uppstår.
 
@@ -64,7 +64,7 @@ Följande är metod tips för IoT Solution-utvecklare som bygger system baserade
 
 * **Organisera enheter med enhets dubbla Taggar:** Lösningen ska tillåta operatören att definiera kvalitets ringar eller andra uppsättningar av enheter baserat på olika distributions strategier, till exempel Kanarie. Enhets organisation kan implementeras i din lösning med hjälp av enhetens dubbla Taggar och [frågor](iot-hub-devguide-query-language.md). Enhets organisation är nödvändig för att göra det möjligt att återställa konfigurationen på ett säkert och korrekt sätt.
 
-* **Implementera [Automatisk enhets konfiguration](iot-hub-auto-device-config.md):** Automatisk enhets konfiguration distribuerar och övervakar konfigurations ändringar till stora uppsättningar IoT-enheter via enhets dubbla.
+* **Implementera [Automatisk enhets konfiguration](./iot-hub-automatic-device-management.md):** Automatisk enhets konfiguration distribuerar och övervakar konfigurations ändringar till stora uppsättningar IoT-enheter via enhets dubbla.
 
    Automatisk enhets konfiguration mål uppsättningar av enheten är dubbla via **mål villkoret,** som är en fråga på enheten med dubbla taggar eller rapporterade egenskaper. **Mål innehållet** är en uppsättning av önskade egenskaper som anges inom den riktade enheten. Mål innehållet ska justeras med enhetens dubbla struktur som definieras av IoT Hardware Manufacturer/Integrator. **Måtten** är frågor på enhetens dubbla rapporterade egenskaper och bör också anpassas efter enhetens dubbla struktur som definieras av IoT Hardware Manufacturer/Integrator.
 
@@ -78,7 +78,7 @@ Följande är metod tips för IoT Solution-operatörer som använder en IoT-lös
 
 * **Organisera enheter för hantering:** IoT-lösningen bör definiera eller tillåta att kvalitets ringar eller andra enhets uppsättningar skapas baserat på olika distributions strategier, till exempel Kanarie. Enhets uppsättningarna används för att distribuera konfigurations ändringar och utföra andra hanterings åtgärder för enhets hantering.
 
-* **Utför konfigurations ändringar med hjälp av en**  fördelad sammanslagning:  En stegvis distribution är en övergripande process där en operatör distribuerar ändringar till en större uppsättning IoT-enheter. Målet är att göra ändringar gradvis för att minska risken för att minska storleken på stora förändringar.Operatören bör använda lösningens gränssnitt för att skapa en [Automatisk enhets konfiguration](iot-hub-auto-device-config.md) och mål villkoret bör rikta en första uppsättning enheter (till exempel en Kanarie grupp). Operatören bör sedan validera konfigurations ändringen i den första uppsättningen enheter.
+* **Utför konfigurations ändringar med hjälp av en**  fördelad sammanslagning:  En stegvis distribution är en övergripande process där en operatör distribuerar ändringar till en större uppsättning IoT-enheter. Målet är att göra ändringar gradvis för att minska risken för att minska storleken på stora förändringar.Operatören bör använda lösningens gränssnitt för att skapa en [Automatisk enhets konfiguration](./iot-hub-automatic-device-management.md) och mål villkoret bör rikta en första uppsättning enheter (till exempel en Kanarie grupp). Operatören bör sedan validera konfigurations ändringen i den första uppsättningen enheter.
 
    När verifieringen är klar uppdaterar operatören automatisk enhets konfiguration för att inkludera en större uppsättning enheter. Operatören bör också ställa in prioriteten för konfigurationen så att den är högre än andra konfigurationer som för närvarande är riktade till dessa enheter. Distributionen kan övervakas med hjälp av de mått som rapporteras av den automatiska enhets konfigurationen.
 
@@ -88,6 +88,6 @@ Följande är metod tips för IoT Solution-operatörer som använder en IoT-lös
 
 * Lär dig mer om hur du implementerar enheten i en [förståelse och använder enheten i IoT Hub](iot-hub-devguide-device-twins.md).
 
-* Gå igenom stegen för att skapa, uppdatera eller ta bort en automatisk enhets konfiguration i [Konfigurera och övervaka IoT-enheter i stor skala](iot-hub-auto-device-config.md).
+* Gå igenom stegen för att skapa, uppdatera eller ta bort en automatisk enhets konfiguration i [Konfigurera och övervaka IoT-enheter i stor skala](./iot-hub-automatic-device-management.md).
 
 * Implementera uppdaterings mönster för inbyggd program vara med enhets-och automatiska enhets konfiguration i [Självstudier: implementera en uppdaterings process för enhetens inbyggda program](tutorial-firmware-update.md).

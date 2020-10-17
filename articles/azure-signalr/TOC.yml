@@ -105,7 +105,7 @@
     - name: REST-API
       href: 'https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md'
     - name: ASP.NET Core SignalR
-      href: 'https://docs.microsoft.com/aspnet/core/signalr'
+      href: /aspnet/core/signalr
     - name: Azure SignalR Service-protokoll
       href: 'https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md'
     - name: Inbyggda Azure Policy-program
@@ -114,7 +114,7 @@
 - name: Resurser
   items:
     - name: Lösningar
-      href: 'https://docs.microsoft.com/azure/architecture/'
+      href: /azure/architecture/
     - name: Kundberättelser
       href: 'https://customers.microsoft.com/en-us/search?sq=signalr'
     - name: Översikt över SignalR
@@ -126,7 +126,7 @@
     - name: Vanliga frågor och svar
       href: signalr-resource-faq.md
     - name: Nivågränser för SignalR Service-prenumerationer
-      href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: Videoklipp

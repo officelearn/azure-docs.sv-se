@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 0869de4ccfe89cc3919ec2d2d80aa3e18749039a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92dd191c8bfe590f6dab392ff679e5d7712ae6c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87921100"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143855"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Azure Monitor loggar för tjänst leverantörer
 
@@ -35,7 +35,7 @@ I den här arkitekturen distribueras en arbets yta i kundens klient organisation
 
 Det finns två sätt som administratörer kan använda för att få åtkomst till en Log Analytics-arbetsyta i en kund klient organisation:
 
-- En kund kan lägga till enskilda användare från tjänst leverantören som [Azure Active Directory gäst användare (B2B)](../../active-directory/b2b/what-is-b2b.md). Administratörer för tjänst leverantörer måste logga in på varje kunds katalog i Azure Portal för att kunna komma åt dessa arbets ytor. Detta kräver också att kunderna hanterar enskild åtkomst för varje tjänst leverantörs administratör.
+- En kund kan lägga till enskilda användare från tjänst leverantören som [Azure Active Directory gäst användare (B2B)](../../active-directory/external-identities/what-is-b2b.md). Administratörer för tjänst leverantörer måste logga in på varje kunds katalog i Azure Portal för att kunna komma åt dessa arbets ytor. Detta kräver också att kunderna hanterar enskild åtkomst för varje tjänst leverantörs administratör.
 - För bättre skalbarhet och flexibilitet kan tjänst leverantörer använda [Azures delegerade resurs hanterings](../../lighthouse/concepts/azure-delegated-resource-management.md) funktion i [Azure Lighthouse](../../lighthouse/overview.md) för att få åtkomst till kundens klient. Med den här metoden inkluderas tjänst leverantörs administratörer i en Azure AD-användargrupp i tjänst leverantörens klient organisation och gruppen beviljas åtkomst under onboarding-processen för varje kund. Administratörerna kan sedan komma åt varje kunds arbets ytor från sin egen tjänst leverantörs klient, i stället för att behöva logga in på varje kunds klient organisation individuellt. Genom att komma åt dina kunders Log Analytics arbets ytans resurser på det här sättet minskar du det arbete som krävs på kund sidan och kan göra det enklare att samla in och analysera data över flera kunder som hanteras av samma tjänst leverantör via verktyg som [Azure Monitor arbets böcker](./workbooks-overview.md). Mer information finns i [övervaka kund resurser i stor skala](../../lighthouse/how-to/monitor-at-scale.md).
 
 Fördelarna med den distribuerade arkitekturen är:
@@ -81,7 +81,7 @@ Det finns två alternativ för att implementera loggar på en central plats:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Automatisera skapandet och konfigurationen av arbets ytor med [Resource Manager-mallar](template-workspace-configuration.md)
+* Automatisera skapandet och konfigurationen av arbets ytor med [Resource Manager-mallar](../samples/resource-manager-workspace.md)
 
 * Automatisera skapandet av arbets ytor med [PowerShell](./powershell-workspace-configuration.md)
 

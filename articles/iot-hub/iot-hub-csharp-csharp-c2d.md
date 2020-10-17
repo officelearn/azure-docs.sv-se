@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: ff6153abb3e930e3268ed7768e4ab44c9b5824cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8df9884c0104792240d85d9ebd4235ef2a18741
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449561"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142363"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från molnet till din enhet med IoT Hub (.NET)
 
@@ -228,6 +228,6 @@ I det här avsnittet ändrar du **SendCloudToDevice** -appen för att begära fe
 
 I den här instruktionen har du lärt dig hur du skickar och tar emot meddelanden från molnet till enheten.
 
-Exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub finns i [Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/).
+Exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub finns i [Azure IoT Remote Monitoring Solution Accelerator](/azure/iot-suite/).
 
 Mer information om hur du utvecklar lösningar med IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).

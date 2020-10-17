@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9423069b917c37e77b70a4466e489918cd330c4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87800508"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143922"
 ---
 # <a name="azure-resource-logs"></a>Azure-resursloggar
 Azures resurs loggar är [plattforms loggar](platform-logs-overview.md) som ger inblick i åtgärder som utförts i en Azure-resurs. Innehållet i resurs loggar varierar beroende på Azure-tjänsten och resurs typen. Resurs loggar samlas inte in som standard. Du måste skapa en diagnostisk inställning för varje Azure-resurs för att skicka resurs loggarna till en Log Analytics arbets yta som ska användas med [Azure Monitor loggar](data-platform-logs.md), Azure Event Hubs som ska vidarebefordras utanför Azure, eller för att Azure Storage arkivering.
@@ -27,7 +27,7 @@ Se [skapa diagnostikinställningar för att skicka plattforms loggar och mått t
 - Använd logg frågor för att utföra komplexa analyser och få djupgående insikter om loggdata.
 - Använd logg aviseringar med komplex aviserings logik.
 
-[Skapa en diagnostisk inställning](diagnostic-settings.md) för att skicka resurs loggar till en Log Analytics-arbetsyta. Dessa data lagras i tabeller enligt beskrivningen i [strukturen i Azure Monitor loggar](../log-query/logs-structure.md). Tabellerna som används av resurs loggar beror på vilken typ av samling resursen använder:
+[Skapa en diagnostisk inställning](diagnostic-settings.md) för att skicka resurs loggar till en Log Analytics-arbetsyta. Dessa data lagras i tabeller enligt beskrivningen i [strukturen i Azure Monitor loggar](./data-platform-logs.md). Tabellerna som används av resurs loggar beror på vilken typ av samling resursen använder:
 
 - Azure Diagnostics – alla data som skrivs är till _AzureDiagnostics_ -tabellen.
 - Resurs specifika data skrivs till en enskild tabell för varje resurs kategori.

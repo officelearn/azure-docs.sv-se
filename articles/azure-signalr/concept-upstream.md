@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d51f5e8d2fac1e2b180a608c840d0a322e76271
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89514245"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143238"
 ---
 # <a name="upstream-settings"></a>Överordnade inställningar
 
@@ -88,7 +88,7 @@ När du väljer `ManagedIdentity` måste du aktivera en hanterad identitet i Azu
 
 ## <a name="create-upstream-settings-via-resource-manager-template"></a>Skapa överordnade inställningar via Resource Manager-mall
 
-Ange egenskapen i egenskapen för att skapa överordnade inställningar med hjälp av en [Azure Resource Manager mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) `upstream` `properties` . Följande fragment visar hur du ställer in `upstream` egenskapen för att skapa och uppdatera överordnade inställningar.
+Ange egenskapen i egenskapen för att skapa överordnade inställningar med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/templates/overview.md) `upstream` `properties` . Följande fragment visar hur du ställer in `upstream` egenskapen för att skapa och uppdatera överordnade inställningar.
 
 ```JSON
 {

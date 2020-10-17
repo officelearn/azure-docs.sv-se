@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 48a3972d7b7db3f0c68866f23d6deca0bbce2e35
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377008"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157830"
 ---
 I den här snabb starten får du lära dig hur du startar ett samtal med Azure Communication Services som anropar klient bibliotek för iOS.
 
@@ -197,7 +197,7 @@ Du kan skapa och köra din app på iOS-simulatorn genom att välja **produkt**  
 Du kan göra ett utgående VOIP-anrop genom att ange ett användar-ID i fältet text och sedan trycka på knappen **starta samtal** . `8:echo123`Genom att anropa ansluter du med en eko robot är det bra för att komma igång och kontrol lera att ljud enheterna fungerar. 
 
 > [!NOTE]
-> Första gången du gör ett samtal uppmanas du att få åtkomst till mikrofonen. I ett produktions program bör du använda API- `AVAudioSession` [kontrollen för att kontrol lera behörighetens status och på](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) ett smidigt sätt uppdatera programmets beteende när behörighet inte beviljas.
+> Första gången du gör ett samtal uppmanas du att få åtkomst till mikrofonen. I ett produktions program bör du använda `AVAudioSession` API: et för att [kontrol lera behörighets status](https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/requesting_access_to_protected_resources) och på ett smidigt sätt uppdatera programmets beteende när behörighet inte beviljas.
 
 ## <a name="sample-code"></a>Exempelkod
 

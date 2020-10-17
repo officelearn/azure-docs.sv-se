@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0391afe5562238f488fde7e50d914c46a5c32944
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018509"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142461"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Schema-och sändnings jobb (.NET)
 
@@ -58,7 +58,7 @@ I slutet av den här självstudien har du två .NET-konsol program (C#):
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -261,7 +261,7 @@ I det här avsnittet skapar du en .NET-konsol app (med C#) som använder jobb f�
     ```
 
     > [!NOTE]
-    > Mer information om frågesyntax finns i [IoT Hub frågespråk](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
+    > Mer information om frågesyntax finns i [IoT Hub frågespråk](./iot-hub-devguide-query-language.md).
     >
 
 1. Slutligen lägger du till följande rader till **Main**-metoden:
@@ -311,4 +311,4 @@ I den här självstudien använde du ett jobb för att schemalägga en direkt me
 
 * Om du vill fortsätta att komma igång med IoT Hub-och enhets hanterings mönster, t. ex. fjärran sluten av den inbyggda Air-uppdateringen, kan du läsa mer [i självstudier](tutorial-firmware-update.md)
 
-* Information om hur du distribuerar AI till Edge-enheter med Azure IoT Edge finns i [komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* Information om hur du distribuerar AI till Edge-enheter med Azure IoT Edge finns i [komma igång med IoT Edge](../iot-edge/quickstart-linux.md).

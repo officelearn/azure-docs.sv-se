@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84430673"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147883"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Skapa democertifikat för att testa funktioner på IoT Edge-enheter
 
@@ -32,11 +32,11 @@ Följ de här stegen för att skapa demonstrations certifikat för att testa IoT
 1. [Konfigurera skript](#set-up-scripts) för att skapa certifikat på enheten.
 2. [Skapa rot certifikat utfärdarens certifikat](#create-root-ca-certificate) som du använder för att signera alla andra certifikat för ditt scenario.
 3. Generera de certifikat du behöver för scenariot du vill testa:
-   * [Skapa IoT Edge enhets identitets certifikat](#create-iot-edge-device-identity-certificates) för att testa automatisk etablering med IoT Hub Device Provisioning service.
-   * [Skapa IoT Edge enhets certifikat](#create-iot-edge-device-ca-certificates) för certifikat för att testa produktions scenarier eller Gateway-scenarier.
-   * [Skapa certifikat för underordnad enhet](#create-downstream-device-certificates) för att testa att autentisera underordnade enheter IoT Hub i ett Gateway-scenario.
+   * [Skapa IoT Edge enhets identitets certifikat](#create-iot-edge-device-identity-certificates) för automatisk etablering med IoT Hub Device Provisioning service.
+   * [Skapa IoT Edge enhets certifikat utfärdare](#create-iot-edge-device-ca-certificates) för IoT Edge enheter i Gateway-scenarier.
+   * [Skapa certifikat för underordnad enhet](#create-downstream-device-certificates) för autentisering av underordnade enheter i ett Gateway-scenario.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En utvecklings dator med git installerat.
 
@@ -53,7 +53,7 @@ Om du vill skapa demo certifikat på en Windows-enhet måste du installera OpenS
 #### <a name="install-openssl"></a>Installera OpenSSL
 
 Installera OpenSSL för Windows på den dator som du använder för att generera certifikaten.
-Om du redan har OpenSSL installerat på din Windows-enhet kan du hoppa över det här steget, men se till att openssl.exe är tillgängligt i miljövariabeln PATH.
+Om du redan har OpenSSL installerat på din Windows-enhet ser du till att openssl.exe är tillgänglig i miljövariabeln PATH.
 
 Det finns flera sätt att installera OpenSSL, inklusive följande alternativ:
 
@@ -183,7 +183,7 @@ Innan du fortsätter med stegen i det här avsnittet följer du stegen i avsnitt
 
 ## <a name="create-iot-edge-device-identity-certificates"></a>Skapa IoT Edge enhets identitets certifikat
 
-Enhets identitets certifikat används för att etablera IoT Edge enheter via [Azure-IoT Hub Device Provisioning service (DPS)](../iot-dps/index.yml).
+Enhets identitets certifikat används för att etablera IoT Edge enheter via Azure-IoT Hub Device Provisioning Service (DPS).
 
 Enhets identitets certifikat finns i **etablerings** avsnittet i filen config. yaml på den IoT Edge enheten.
 
@@ -247,8 +247,6 @@ Innan du fortsätter med stegen i det här avsnittet följer du stegen i avsnitt
    * `<WRKDIR>\private\iot-edge-device-<CA cert name>.key.pem`
 
 Namnet som skickas till kommandot **New-CACertsEdgeDevice** får inte vara detsamma som hostname-parametern i config. yaml, eller enhetens ID i IoT Hub.
-Skriptet hjälper dig att undvika eventuella problem genom att lägga till en ". ca"-sträng till certifikat namnet för att förhindra att namn krockar om en användare konfigurerar IoT Edge att använda samma namn på båda platserna.
-Det är dock en bra idé att undvika att använda samma namn.
 
 ### <a name="linux"></a>Linux
 
@@ -266,8 +264,6 @@ Det är dock en bra idé att undvika att använda samma namn.
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
 Namnet som skickas till **create_edge_device_certificate** -kommandot får inte vara samma som hostname-parametern i config. yaml eller enhetens ID i IoT Hub.
-Skriptet hjälper dig att undvika eventuella problem genom att lägga till en ". ca"-sträng till certifikat namnet för att förhindra att namn krockar om en användare konfigurerar IoT Edge att använda samma namn på båda platserna.
-Det är dock en bra idé att undvika att använda samma namn.
 
 ## <a name="create-downstream-device-certificates"></a>Skapa certifikat för underordnad enhet
 

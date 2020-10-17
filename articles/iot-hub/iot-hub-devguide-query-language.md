@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbdc1c079f7ef2a06ece553e9fec542cbc05ea54
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031185"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147664"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för enhet och modultvillingar, jobb och meddelanderedigering
 
@@ -234,7 +234,7 @@ Objektet fråga visar flera **Nästa** värden, beroende på vilket avserialiser
 ### <a name="limitations"></a>Begränsningar
 
 > [!IMPORTANT]
-> Frågeresultaten kan ha några minuters fördröjning i förhållande till de senaste värdena i enheten är dubbla. Om en fråga om en enskild enhet är uppflätad med ID, använder du funktionen [Hämta dubbla REST API](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Detta API returnerar alltid de senaste värdena och har högre begränsnings gränser. Du kan utfärda REST API direkt eller använda motsvarande funktioner i en av [Azure IoT Hub service SDK: erna](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> Frågeresultaten kan ha några minuters fördröjning i förhållande till de senaste värdena i enheten är dubbla. Om en fråga om en enskild enhet är uppflätad med ID, använder du funktionen [Hämta dubbla REST API](/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Detta API returnerar alltid de senaste värdena och har högre begränsnings gränser. Du kan utfärda REST API direkt eller använda motsvarande funktioner i en av [Azure IoT Hub service SDK: erna](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 För närvarande stöds jämförelser bara mellan primitiva typer (inga objekt), till exempel `... WHERE properties.desired.config = properties.reported.config` endast om dessa egenskaper har primitiva värden.
 
@@ -454,7 +454,7 @@ Följande operatorer stöds:
 | Logisk |AND, OR, NOT (och, eller, inte) |
 | Jämförelse |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 
 Vid frågor om dubbla och jobb är den enda funktioner som stöds:
 

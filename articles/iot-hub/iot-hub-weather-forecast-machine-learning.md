@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 09/16/2020
 ms.author: robinsh
-ms.openlocfilehash: 8ba68e56d2475b1ff2fb3e63f291f76063ca62e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53f78702aeb5404bd353274ddb29b9356229fae
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777164"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145773"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning-studio-classic"></a>Väder prognoser med sensor data från din IoT Hub i Azure Machine Learning Studio (klassisk)
 
@@ -46,7 +46,7 @@ Du får lära dig hur du använder Azure Machine Learning Studio (klassisk) för
   - En Azure IoT-hubb under din prenumeration.
   - Ett klient program som skickar meddelanden till Azure IoT Hub.
 - Ett [Azure Machine Learning Studio (klassiskt)](https://studio.azureml.net/) konto.
-- Ett [Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts)är ett **Allmänt-Purpose v2-** konto, men alla Azure Storage-konton som stöder Azure Blob Storage fungerar också.
+- Ett [Azure Storage konto](../storage/common/storage-account-overview.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json#types-of-storage-accounts)är ett **Allmänt-Purpose v2-** konto, men alla Azure Storage-konton som stöder Azure Blob Storage fungerar också.
 
 > [!Note]
 > Den här artikeln använder Azure Stream Analytics och flera andra betalda tjänster. Extra kostnader uppkommer i Azure Stream Analytics när data måste överföras i Azure-regioner. Av den anledningen är det bra att se till att din resurs grupp, IoT Hub och Azure Storage-konto – samt den Machine Learning Studio (klassiska) arbets ytan och Azure Stream Analytics jobb läggs till senare i den här självstudien – alla finns i samma Azure-region. Du kan kontrol lera regional support för Azure Machine Learning Studio (klassisk) och andra Azure-tjänster på [sidan för Azure produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-studio&regions=all).

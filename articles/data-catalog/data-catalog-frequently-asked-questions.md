@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f893f8e2ec03681697f15cd85685d4c99b13de6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397308"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151958"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Data Catalog
 Den här artikeln innehåller svar på vanliga frågor som rör tjänsten Azure Data Catalog.
@@ -87,7 +87,7 @@ De angivna egenskaperna skiljer sig från data källan till data källan, men i 
 >
 
 > [!NOTE]
-> För data källor som SQL Server Analysis Services som har en första klass **beskrivnings** egenskap, extraherar verktyget för registrering Data Catalog av data källor det egenskap svärdet. För den *lokala* SQL Server Relations databaser som saknar en första klass **beskrivnings** egenskap extraherar verktyget Data Catalog data källans registrerings verktyg värdet från den **ms_description** utökade egenskapen för objekt och kolumner. Den här egenskapen stöds inte för SQL Azure. Mer information finns i [använda utökade egenskaper på databas objekt](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
+> För data källor som SQL Server Analysis Services som har en första klass **beskrivnings** egenskap, extraherar verktyget för registrering Data Catalog av data källor det egenskap svärdet. För den *lokala* SQL Server Relations databaser som saknar en första klass **beskrivnings** egenskap extraherar verktyget Data Catalog data källans registrerings verktyg värdet från den **ms_description** utökade egenskapen för objekt och kolumner. Den här egenskapen stöds inte för SQL Azure. Mer information finns i [använda utökade egenskaper på databas objekt](/previous-versions/sql/sql-server-2008-r2/ms190243(v=sql.105)).
 >
 >
 
@@ -122,7 +122,7 @@ Data Catalog är en moln tjänst som kan arbeta med både molnbaserade och lokal
 ## <a name="can-i-extract-more-or-richer-metadata-from-the-data-sources-i-register"></a>Kan jag extrahera fler eller fler rikare metadata från de data källor jag registrerar?
 Vi arbetar aktivt för att utöka funktionerna i Data Catalog. Om du vill att ytterligare metadata ska extraheras från data källan under registreringen, rekommenderar vi att de (eller rösta på den, om det redan har föreslagits) i [Data Catalog i Azure feedback-forumet](https://feedback.azure.com/forums/906052-data-catalog). 
 
-Om du vill inkludera kolumn/schema-metadata, för hands vyer eller data profiler för data källor där dessa metadata inte extraheras av data källans registrerings verktyg kan du använda Data Catalog API för att lägga till dessa metadata. Mer information finns i [Azure Data Catalog REST API](https://docs.microsoft.com/rest/api/datacatalog/).
+Om du vill inkludera kolumn/schema-metadata, för hands vyer eller data profiler för data källor där dessa metadata inte extraheras av data källans registrerings verktyg kan du använda Data Catalog API för att lägga till dessa metadata. Mer information finns i [Azure Data Catalog REST API](/rest/api/datacatalog/).
 
 ## <a name="how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>Hur gör jag för att begränsa synligheten för registrerade data till gångar så att endast vissa personer kan upptäcka dem?
 Välj data till gångarna i Data Catalog och klicka sedan på knappen **bli ägare** . Ägare av data till gångar i Data Catalog kan ändra Synlighets inställningarna så att alla användare kan identifiera de ägda till gångarna eller begränsa synligheten för vissa användare. Mer information finns i [Hantera data till gångar i Azure Data Catalog](data-catalog-how-to-manage.md).

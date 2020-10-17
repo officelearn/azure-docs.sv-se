@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: 69372e4c212e2ce81bcd4c91d460aa191a1d3476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6daed4f5f1871d76da707edec00010cd27dfa8db
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087872"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92142329"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Skapa en IoT-hubb med Azure CLI
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du skapar en IoT Hub med Azure CLI.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här instruktionen behöver du en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+För att slutföra den här instruktionen behöver du en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -30,7 +30,7 @@ För att slutföra den här instruktionen behöver du en Azure-prenumeration. Om
 
 Om du kör Azure CLI lokalt i stället för att använda Cloud Shell måste du logga in på ditt Azure-konto.
 
-I kommandotolken kör du [inloggningskommandot](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
+I kommandotolken kör du [inloggningskommandot](/cli/azure/get-started-with-azure-cli):
 
    ```azurecli
    az login
@@ -42,7 +42,7 @@ Följ instruktionerna för att autentisera med hjälp av koden och logga in på 
 
 Använd Azure CLI för att skapa en resurs grupp och Lägg sedan till en IoT-hubb.
 
-1. När du skapar en IoT-hubb måste du skapa den i en resurs grupp. Använd en befintlig resursgrupp eller kör följande [kommando för att skapa en resursgrupp](https://docs.microsoft.com/cli/azure/resource):
+1. När du skapar en IoT-hubb måste du skapa den i en resurs grupp. Använd en befintlig resursgrupp eller kör följande [kommando för att skapa en resursgrupp](/cli/azure/resource):
     
    ```azurecli-interactive
    az group create --name {your resource group name} --location westus
@@ -56,7 +56,7 @@ Använd Azure CLI för att skapa en resurs grupp och Lägg sedan till en IoT-hub
    > ```
    >
 
-2. Kör följande [kommando för att skapa en IoT-hubb](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) i resurs gruppen med ett globalt unikt namn för din IoT Hub:
+2. Kör följande [kommando för att skapa en IoT-hubb](/cli/azure/iot/hub#az-iot-hub-create) i resurs gruppen med ett globalt unikt namn för din IoT Hub:
     
    ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
@@ -70,16 +70,16 @@ Föregående kommando skapar en IoT-hubb i pris nivån S1 som du faktureras för
 
 ## <a name="remove-an-iot-hub"></a>Ta bort ett IoT Hub
 
-Du kan använda Azure CLI för att [ta bort en enskild resurs](https://docs.microsoft.com/cli/azure/resource), till exempel en IoT-hubb eller ta bort en resurs grupp och alla dess resurser, inklusive IoT-hubbar.
+Du kan använda Azure CLI för att [ta bort en enskild resurs](/cli/azure/resource), till exempel en IoT-hubb eller ta bort en resurs grupp och alla dess resurser, inklusive IoT-hubbar.
 
-Om du vill [ta bort en IoT-hubb](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete)kör du följande kommando:
+Om du vill [ta bort en IoT-hubb](/cli/azure/iot/hub#az-iot-hub-delete)kör du följande kommando:
 
 ```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
-Om du vill [ta bort en resurs grupp](https://docs.microsoft.com/cli/azure/group#az-group-delete) och alla dess resurser kör du följande kommando:
+Om du vill [ta bort en resurs grupp](/cli/azure/group#az-group-delete) och alla dess resurser kör du följande kommando:
 
 ```azurecli-interactive
 az group delete --name {your resource group name}

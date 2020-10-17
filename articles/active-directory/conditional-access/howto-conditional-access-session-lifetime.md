@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 817a13080cedc1d737b43bae14a07a7d4a0bd416
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265943"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145272"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera autentiseringsessionshantering med villkorsstyrd åtkomst
 
@@ -134,9 +134,8 @@ Använd What-If-verktyget för att simulera en inloggning från användaren till
 
 ## <a name="policy-deployment"></a>Distribution av princip
 
-För att se till att principen fungerar som förväntat, är den rekommenderade rekommenderade metoden att testa den innan den distribueras till produktion. Vi rekommenderar att du använder en test klient för att kontrol lera om den nya principen fungerar som den ska. Mer information finns i [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md).
+För att se till att principen fungerar som förväntat, är den rekommenderade rekommenderade metoden att testa den innan den distribueras till produktion. Vi rekommenderar att du använder en test klient för att kontrol lera om den nya principen fungerar som den ska. Mer information finns i artikeln [Planera en distribution av villkorlig åtkomst](plan-conditional-access.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill veta hur du konfigurerar en princip för villkorlig åtkomst kan du läsa artikeln [KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](../authentication/tutorial-enable-azure-mfa.md).
-* Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa artikeln [metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md).
+* Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa artikeln [Planera en distribution av villkorlig åtkomst](plan-conditional-access.md).

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: dcabe4b1520c66b8d5bfa398dc1248972587cd32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cacef205b614170df210e03ddf3978a64a90ea22
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90942149"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151924"
 ---
 # <a name="delete-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Ta bort en Azure-båge som är aktive rad PostgreSQL skalnings Server grupp
 
@@ -57,7 +57,7 @@ Kör följande kommando för att visa en lista över PVC: er:
 kubectl get pvc [-n <namespace name>]
 ```
 
-Den returnerar listan över PVSs, särskilt PVC: er för den server grupp som du har tagit bort. Exempel:
+Den returnerar listan över PVC: er, särskilt PVC: er för den server grupp som du har tagit bort. Exempel:
 ```console
 kubectl get pvc
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE

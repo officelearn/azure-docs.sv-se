@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 219c0b90bceb2a123d2e4af21ac7fa1edea58d54
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c4497805e64ef303c9d7340c48a49027b3a26bef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070018"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144680"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -217,7 +217,7 @@ Mer information finns i [http/2 i IIS](https://blogs.iis.net/davidso/http2).
 ## <a name="permissions"></a>Behörigheter
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Hur kan jag implementera rollbaserad åtkomst för Cloud Services?
-Cloud Services stöder inte RBAC-modellen (rollbaserad åtkomst kontroll) eftersom den inte är en Azure Resource Manager baserad tjänst.
+Cloud Services stöder inte Azure RBAC-modellen (rollbaserad åtkomst kontroll) i Azure, eftersom den inte är en Azure Resource Manager baserad tjänst.
 
 Se [förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 

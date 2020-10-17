@@ -4,12 +4,12 @@ description: Batch stöder Azure AD för autentisering från batch-tjänsten. L�
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 19042b4bb0998d104792d7511ab2972299b4f58d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d84086e3fa59c1e04df5b2717738da44f5c14b2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533520"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144847"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -103,7 +103,7 @@ Avsnittet **API-behörigheter** visar nu att Azure AD-programmet har åtkomst ti
 Om du vill autentisera ett program som körs obevakat använder du ett huvud namn för tjänsten. När du har registrerat ditt program följer du dessa steg i Azure Portal för att konfigurera ett huvud namn för tjänsten:
 
 1. Begär en hemlighet för ditt program.
-1. Tilldela rollbaserad åtkomst kontroll (RBAC) till ditt program.
+1. Tilldela Azure-rollbaserad åtkomst kontroll (Azure RBAC) till ditt program.
 
 ### <a name="request-a-secret-for-your-application"></a>Begär en hemlighet för ditt program
 
@@ -119,15 +119,15 @@ Följ dessa steg i Azure-portalen:
 
     ![Skapa en hemlig nyckel](./media/batch-aad-auth/secret-key.png)
 
-### <a name="assign-rbac-to-your-application"></a>Tilldela RBAC till ditt program
+### <a name="assign-azure-rbac-to-your-application"></a>Tilldela Azure RBAC till ditt program
 
-Om du vill autentisera med ett huvud namn för tjänsten måste du tilldela RBAC till ditt program. Följ de här stegen:
+Om du vill autentisera med ett huvud namn för tjänsten måste du tilldela Azure RBAC till ditt program. Följ de här stegen:
 
 1. I Azure Portal navigerar du till det batch-konto som används av ditt program.
 1. I avsnittet **Inställningar** i batch-kontot väljer du **Access Control (IAM)**.
 1. Välj fliken **roll tilldelningar** .
 1. Välj **Lägg till rolltilldelning**.
-1. I list rutan **roll** väljer du rollen *deltagare* eller *läsare* för ditt program. Mer information om dessa roller finns i [Kom igång med Role-Based Access Control i Azure Portal](../role-based-access-control/overview.md).
+1. I list rutan **roll** väljer du rollen *deltagare* eller *läsare* för ditt program. Mer information om de här rollerna finns i [komma igång med Azure rollbaserad åtkomst kontroll i Azure Portal](../role-based-access-control/overview.md).
 1. Ange namnet på ditt program i fältet **Välj** . Välj ditt program i listan och välj sedan **Spara**.
 
 Ditt program bör nu visas i inställningarna för åtkomst kontroll med en Azure-roll tilldelad.
@@ -138,7 +138,7 @@ Ditt program bör nu visas i inställningarna för åtkomst kontroll med en Azur
 
 En anpassad roll ger detaljerad behörighet till en användare för att skicka jobb, uppgifter med mera. Detta ger möjlighet att förhindra att användare utför åtgärder som påverkar kostnader, till exempel skapa pooler eller ändra noder.
 
-Du kan använda en anpassad roll för att bevilja behörighet till en Azure AD-användare, en grupp eller ett tjänst huvud namn för följande RBAC-åtgärder:
+Du kan använda en anpassad roll för att bevilja behörighet till en Azure AD-användare, en grupp eller ett tjänst huvud namn för följande Azure RBAC-åtgärder:
 
 - Microsoft.BatCH/batchAccounts/pool/Write
 - Microsoft.BatCH/batchAccounts/pooler/ta bort

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: d4f77cec793e13ff943c173d88948eb5b5de0957
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3649ac786c07459695a1e6ca6ad52620e23d59f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356255"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148792"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Dörr övervakare – använda Azure Functions och SendGrid, skicka e-post när en dörr öppnas           
 
@@ -197,4 +197,4 @@ Om det uppstår problem kan du läsa [vanliga frågor och svar om IoT-DevKit](ht
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du ansluter en DevKit-enhet till din lösnings Accelerator för Azure IoT-fjärrövervakning och använde tjänsten SendGrid för att skicka ett e-postmeddelande. Här är det föreslagna nästa steg:[Översikt över Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/)
+Du har lärt dig hur du ansluter en DevKit-enhet till din lösnings Accelerator för Azure IoT-fjärrövervakning och använde tjänsten SendGrid för att skicka ett e-postmeddelande. Här är det föreslagna nästa steg:[Översikt över Azure IoT Remote Monitoring Solution Accelerator](/azure/iot-suite/)

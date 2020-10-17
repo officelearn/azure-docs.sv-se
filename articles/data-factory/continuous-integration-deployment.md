@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 6b091406b15db036007ba6a11049ee63ffe99cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1836e6fc1c29e74bceba62bbeb40ce9cc5831895
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616915"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147437"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -656,7 +656,7 @@ Om du använder git-integrering med din data fabrik och har en CI/CD-pipeline so
     - Data Factory-entiteter är beroende av varandra. Utlösare är exempelvis beroende av pipeliner och pipeliner beror på data uppsättningar och andra pipeliner. Selektiv publicering av en del av resurser kan leda till oväntade beteenden och fel.
     - Vid sällsynta tillfällen när du behöver selektiv publicering bör du överväga att använda en snabb korrigering. Mer information finns i [snabb korrigerings produktions miljö](#hotfix-production-environment).
 
-- Azure Data Factorys teamet rekommenderar inte att du tilldelar RBAC-kontroller till enskilda entiteter (pipelines, data uppsättningar osv.) i en data fabrik. Om en utvecklare till exempel har åtkomst till en pipeline eller en data uppsättning, ska de kunna komma åt alla pipeliner eller data uppsättningar i data fabriken. Om du tycker att du behöver implementera många RBAC-roller i en data fabrik tittar du på att distribuera en andra data fabrik.
+- Azure Data Factorys teamet rekommenderar inte att du tilldelar Azure RBAC-kontroller till enskilda entiteter (pipelines, data uppsättningar osv.) i en data fabrik. Om en utvecklare till exempel har åtkomst till en pipeline eller en data uppsättning, ska de kunna komma åt alla pipeliner eller data uppsättningar i data fabriken. Om du tycker att du behöver implementera många Azure-roller i en data fabrik tittar du på att distribuera en andra data fabrik.
 
 -   Du kan inte publicera från privata grenar.
 
@@ -675,7 +675,7 @@ När du kör ett skript efter distribution måste du ange en variant av följand
 
 `-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
 
-![Azure PowerShell aktivitet](media/continuous-integration-deployment/continuous-integration-image11.png)
+![Azure PowerShell-uppgift](media/continuous-integration-deployment/continuous-integration-image11.png)
 
 Här är det skript som kan användas för för-och-distribution. IT-konton för borttagna resurser och resurs referenser.
 

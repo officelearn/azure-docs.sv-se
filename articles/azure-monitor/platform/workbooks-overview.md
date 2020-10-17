@@ -6,12 +6,12 @@ services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dd553f0a41f82991c467ab256a87beabbff25ee
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932404"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92143624"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor arbets böcker
 
@@ -97,7 +97,7 @@ Om vi väljer knappen Redigera omedelbart under rutnätet med begär ande data k
 
 ![Skärm bild av underliggande Kusto-fråga](./media/workbooks-overview/kusto.png)
 
-Om du klickar på de andra **redigerings** knapparna till höger visas ett antal kärn komponenter som utgör arbets böcker som markdown [text rutor](workbooks-visualizations.md#text), gränssnitts element för [parameter val](workbooks-parameters.md) och andra [typer av diagram/visualiseringar](workbooks-visualizations.md). 
+Om du klickar på de andra **redigerings** knapparna till höger visas ett antal kärn komponenter som utgör arbets böcker som markdown [text rutor](workbooks-text-visualizations.md), gränssnitts element för [parameter val](workbooks-parameters.md) och andra [typer av diagram/visualiseringar](#visualizations). 
 
 Utforska de färdiga mallarna i redigerings läge och ändra dem efter dina behov och spara din egen anpassade arbets bok är ett utmärkt sätt att börja med att lära dig om vad som är möjligt med Azure Monitor arbets böcker.
 
@@ -129,5 +129,5 @@ När du börjar skapa egna mallar för arbets böcker kanske du vill dela den me
 
 ## <a name="next-step"></a>Nästa steg
 
-* [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
+* [Kom igång](#visualizations) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
 * [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.

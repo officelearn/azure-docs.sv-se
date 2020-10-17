@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: cde9d8614883168c3fbb3ab8219cdbef6087c9d0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aaf803d463e03f2de7814fed4b20a0b4312fa1ef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87428972"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148840"
 ---
 # <a name="what-is-azure-iot-hub"></a>Vad är Azure IoT Hub?
 
@@ -40,7 +40,7 @@ IoT Hub ger dig en säker kommunikationskanal genom vilken dina enheter kan skic
 
 * Du har fullständig kontroll över enhetsåtkomst och kan kontrollera anslutningar på enhetsnivå.
 
-* [IoT Hub-enhetsetableringstjänsten](https://docs.microsoft.com/azure/iot-dps/) tillhandahåller automatiskt enheter till rätt IoT Hub när enheten först startas.
+* [IoT Hub-enhetsetableringstjänsten](../iot-dps/index.yml) tillhandahåller automatiskt enheter till rätt IoT Hub när enheten först startas.
 
 * Flera autentiseringstyper stöder flera olika enhetsfunktioner:
 
@@ -64,13 +64,13 @@ Den inbyggda funktionen för meddelandedirigering ger dig flexibla möjligheter 
 
 Du kan integrera IoT Hub med andra Azure-tjänster att skapa kompletta slutpunkt-till-slutpunkt-lösningar. Du kan t.ex. använda:
 
-* [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) för att få din verksamhet att snabbt reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt.
+* [Azure Event Grid](../event-grid/index.yml) för att få din verksamhet att snabbt reagera på kritiska händelser på ett tillförlitligt, skalbart och säkert sätt.
 
-* [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) för att automatisera verksamhetsprocesser.
+* [Azure Logic Apps](../logic-apps/index.yml) för att automatisera verksamhetsprocesser.
 
 * [Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md) för att lägga till maskininlärning och AI-modeller i din lösning.
 
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) för att göra analytiska beräkningar i realtid för dataströmmar från dina enheter.
+* [Azure Stream Analytics](../stream-analytics/index.yml) för att göra analytiska beräkningar i realtid för dataströmmar från dina enheter.
 
 ## <a name="configure-and-control-your-devices"></a>Konfigurera och kontrollera dina enheter
 
@@ -88,7 +88,7 @@ Det finns ett [servicenivåavtal för IoT Hub](https://azure.microsoft.com/suppo
 
 ## <a name="connect-your-devices"></a>Anslut dina enheter
 
-Använd [Azure IoT-enhet SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks)-biblioteken för att bygga program som körs på dina enheter och interagerar med IoT Hub. Plattformar som stöds omfattar flera Linux-distributioner, Windows och realtidsoperativsystem. Språk som stöds:
+Använd [Azure IoT-enhet SDK](./iot-hub-devguide-sdks.md)-biblioteken för att bygga program som körs på dina enheter och interagerar med IoT Hub. Plattformar som stöds omfattar flera Linux-distributioner, Windows och realtidsoperativsystem. Språk som stöds:
 
 * C
 * C#
@@ -108,7 +108,7 @@ Om lösningen inte kan använda enhetsbiblioteken kan enheterna använda MQTT v3
 
 Om din lösning inte kan använda något av de protokoll som stöds kan du utöka IoT Hub till att stödja anpassade protokoll:
 
-* Använd [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) för att skapa en fältgateway om du vill utföra protokollöversättningar.
+* Använd [Azure IoT Edge](../iot-edge/index.yml) för att skapa en fältgateway om du vill utföra protokollöversättningar.
 
 * Anpassa [Azure IoT-protokollgatewayen](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) så att den kan utföra protokollöversättning i molnet.
 

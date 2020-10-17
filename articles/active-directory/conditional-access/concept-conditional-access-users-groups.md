@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87552908"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145417"
 ---
 # <a name="conditional-access-users-and-groups"></a>Villkorlig åtkomst: användare och grupper
 
-En princip för villkorlig åtkomst måste innehålla en användar tilldelning som en av signalerna i besluts processen. Användare kan tas med eller undantas från principer för villkorlig åtkomst. 
+En princip för villkorlig åtkomst måste innehålla en användar tilldelning som en av signalerna i besluts processen. Användare kan tas med eller undantas från principer för villkorlig åtkomst. Azure Active Directory utvärderar alla principer och säkerställer att alla krav uppfylls innan åtkomst beviljas till användaren.
 
 ![Användare som en signal i besluten som fattas av villkorlig åtkomst](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -30,7 +30,7 @@ Den här listan över användare inkluderar vanligt vis alla användare som en o
 
 Följande alternativ är tillgängliga för att ta med när du skapar en princip för villkorlig åtkomst.
 
-- Inget
+- Inga
    - Inga användare har valts
 - Alla användare
    - Alla användare som finns i katalogen, inklusive B2B-gäster.
@@ -73,6 +73,8 @@ För att förhindra att en administratör låser sig själva från sin katalog n
 Som standard tillhandahåller principen ett alternativ för att undanta den aktuella användaren från principen, men denna standard kan åsidosättas av administratören som visas i följande bild. 
 
 ![Varning, Lås inte ut!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[Vad ska jag göra om du är utelåst från Azure Portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## <a name="next-steps"></a>Nästa steg
 

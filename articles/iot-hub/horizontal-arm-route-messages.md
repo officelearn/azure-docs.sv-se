@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 4112e8aae485e229beb16d21e90280750e1465e1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7c53d720aef029d79d95cacd558c3bf9d35b4af6
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89462674"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148912"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Snabb start: Distribuera ett Azure-IoT Hub och ett lagrings konto med en ARM-mall
 
@@ -46,7 +46,7 @@ Det här avsnittet innehåller stegen för att distribuera mallen, skapa en virt
 
     [![Distribuera till Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
-1. Ladda ned och zippa upp [IoT C#-exempel](https://docs.microsoft.com/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
+1. Ladda ned och zippa upp [IoT C#-exempel](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
 1. Öppna ett kommando fönster och gå till mappen där du zippade IoT C#-exempel. Hitta mappen med filen arm-Read-Write. CSPROJ. Du skapar miljövariablerna i det här kommando fönstret. Logga in på [Azure Portal] ( https://portal.azure.com ] för att hämta nycklarna. Välj **resurs grupper** och välj sedan den resurs grupp som används för den här snabb starten.
 
@@ -134,4 +134,4 @@ Om du vill ta bort de resurser som lagts till under den här snabb starten logga
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och distribuera din första ARM-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Självstudie: skapa och distribuera din första ARM-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

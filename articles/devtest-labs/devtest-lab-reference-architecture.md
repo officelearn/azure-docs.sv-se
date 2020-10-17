@@ -4,12 +4,12 @@ description: Den här artikeln innehåller rikt linjer för referens arkitektur 
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e0791fb6c4de3da8108ffbd296c681f993c6b6cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367758"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144557"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Azure DevTest Labs referens arkitektur för företag
 Den här artikeln innehåller en referens arkitektur som hjälper dig att distribuera en lösning som baseras på Azure DevTest Labs i ett företag. Den innehåller följande:
@@ -30,7 +30,7 @@ Dessa är viktiga element i referens arkitekturen:
     - Du har lokala data som inte kan flyttas till molnet.
     - Du föredrar att ansluta Labbets virtuella datorer till den lokala domänen.
     - Du vill tvinga all nätverks trafik in och ut ur moln miljön via en lokal brand vägg för säkerhet/efterlevnad.
-- **Nätverks säkerhets grupper**: ett vanligt sätt att begränsa trafiken till moln miljön (eller inom moln miljön) baserat på käll-och mål-IP-adresser är att använda en [nätverks säkerhets grupp](../virtual-network/security-overview.md). Till exempel vill du bara tillåta trafik som kommer från företags nätverket till labb nätverk.
+- **Nätverks säkerhets grupper**: ett vanligt sätt att begränsa trafiken till moln miljön (eller inom moln miljön) baserat på käll-och mål-IP-adresser är att använda en [nätverks säkerhets grupp](../virtual-network/network-security-groups-overview.md). Till exempel vill du bara tillåta trafik som kommer från företags nätverket till labb nätverk.
 - **Fjärrskrivbordsgateway**: företag blockerar vanligt vis utgående fjärr skrivbords anslutningar i företags brand väggen. Det finns flera alternativ för att aktivera anslutning till den molnbaserade miljön i DevTest Labs, inklusive:
   - Använd en [Fjärrskrivbordsgateway](/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)och Tillåt den statiska IP-adressen för gateway-belastningsutjämnaren.
   - [Dirigera all inkommande RDP-trafik](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) via ExpressRoute/plats-till-plats-VPN-anslutningen. Den här funktionen är ett vanligt övervägande när företag planerar en DevTest Labs-distribution.

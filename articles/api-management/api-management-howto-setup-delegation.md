@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76b82d3c008ede99e69f3a19a56911fbfecd5642
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87461008"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148765"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Så här delegerar du användar registrering och produkt prenumeration
 
@@ -61,21 +61,19 @@ Nu måste du skapa **Delegerings slut punkten**. Det måste utföra ett antal å
    * Beräkna en HMAC-SHA512 hash av en sträng baserat på parametrarna **ReturnUrl** och **salt** fråga ([exempel kod anges nedan]):
      
      > HMAC (**salt** + ' \n ' + **ReturnUrl**)
-     > 
-     > 
+
    * Jämför det ovan beräknade hashvärdet med värdet för **sig** -Frågeparametern. Om de två hasharna matchar går du vidare till nästa steg, annars nekar du begäran.
 3. Kontrol lera att du får en begäran om att logga in/registrera: **åtgärdens** frågeparameter anges till "**signin**".
 4. Presentera användaren användar gränssnitt för att logga in eller registrera dig
 5. Om användaren är inloggad måste du skapa ett motsvarande konto för dem i API Management. [Skapa en användare] med API Management REST API. När du gör det, se till att du anger användar-ID: t till samma värde som i ditt användar arkiv eller till ett ID som du kan hålla reda på.
 6. När användaren har autentiserats:
    
-   * [begär en token för enkel inloggning (SSO)] via API Management REST API
+   * [Begär en delad] åtkomsttoken via API Management REST API
    * Lägg till en returnUrl-frågeparameter till URL: en för SSO som du har fått från API-anropet ovan:
      
-     > till exempel `https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
-     > 
-     > 
-   * omdirigera användaren till den ovan producerade URL: en
+     > till exempel `https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     
+   * Omdirigera användaren till den ovan producerade URL: en
 
 Förutom **inloggnings** åtgärden kan du också utföra konto hantering genom att följa de föregående stegen och använda någon av följande åtgärder:
 
@@ -186,7 +184,7 @@ Mer information om delegering finns i följande videoklipp:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[begär en token för enkel inloggning (SSO)]: /rest/api/apimanagement/2019-12-01/user/generatessourl
+[Begär en token för delad åtkomst]: /rest/api/apimanagement/2019-12-01/user/getsharedaccesstoken
 [skapa en användare]: /rest/api/apimanagement/2019-12-01/user/createorupdate
 [anropar REST API för prenumerationer]: /rest/api/apimanagement/2019-12-01/subscription/createorupdate
 [Next steps]: #next-steps

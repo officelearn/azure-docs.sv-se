@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 06/24/2020
+ms.date: 10/16/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f7d56ecc7fc6bd850fced33c2c1cf20902bb2df4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 280e5012f7c41a906b5b2e266840ea3c0cc315ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361887"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151684"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Visa en lista med Azures roll tilldelningar med hjälp av Azure Portal
 
@@ -140,14 +140,9 @@ Om du får nära det högsta antalet och du försöker lägga till fler roll til
 
 ![Åtkomst kontroll – Lägg till Roll tilldelnings varning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
-## <a name="download-role-assignments-preview"></a>Hämta roll tilldelningar (för hands version)
+## <a name="download-role-assignments"></a>Hämta roll tilldelningar
 
 Du kan hämta roll tilldelningar i ett omfång i CSV-eller JSON-format. Detta kan vara användbart om du behöver granska listan i ett kalkyl blad eller göra en inventering när du migrerar en prenumeration.
-
-> [!IMPORTANT]
-> Hämta roll tilldelningar är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 När du hämtar roll tilldelningar bör du tänka på följande kriterier:
 
@@ -163,7 +158,7 @@ Följ dessa steg om du vill hämta roll tilldelningar i ett omfång.
 
 1. Klicka på **Åtkomstkontroll (IAM)** .
 
-1. Klicka på **Hämta roll tilldelningar (för hands version)** för att öppna fönstret Hämta roll tilldelningar.
+1. Klicka på **Hämta roll tilldelningar** för att öppna fönstret Hämta roll tilldelningar.
 
     ![Åtkomst kontroll – Hämta roll tilldelningar](./media/role-assignments-list-portal/download-role-assignments.png)
 

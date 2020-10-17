@@ -7,13 +7,13 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mbaldwin
-ms.date: 08/31/2020
-ms.openlocfilehash: a73294e41f27a15d70ab95b3aa7b100cab5320b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: 8c56a37ebcc799b0170785666212eb4e3b00a5f0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89237389"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144973"
 ---
 # <a name="quickstart-create-an-azure-attestation-provider-with-an-arm-template"></a>Snabb start: skapa en Azure attesterings-Provider med en ARM-mall
 
@@ -25,56 +25,18 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
+## <a name="prerequisites"></a>Krav
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="review-the-template"></a>Granska mallen
 
 Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-attestation-provider-create).
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "name": {
-      "type": "string"
-    },
-    "location": {
-      "type": "string"
-    },
-    "tags": {
-      "type": "Object"
-    },
-    "policySigningCertificates": {
-      "type": "string"
-    }
-  },
-  "variables": {
-    "PolicySigningCertificates": {
-      "PolicySigningCertificates": {
-        "keys": [
-          {
-            "kty": "RSA",
-            "use": "sig",
-            "x5c": [ "[parameters('policySigningCertificates')]" ]
-          }
-        ]
-      }
-    }
-  },
-  "resources": [
-    {
-      "apiVersion": "2018-09-01-preview",
-      "name": "[parameters('name')]",
-      "location": "[parameters('location')]",
-      "type": "Microsoft.Attestation/attestationProviders",
-      "tags": "[parameters('tags')]",
-      "Properties": "[if(empty(parameters('policySigningCertificates')), json('{}'), variables('PolicySigningCertificates'))]"
-    }
-  ]
-}
-```
+:::code language="json" source="~/quickstart-templates/101-attestation-provider-create/azuredeploy.json":::
 
 Azure-resurser som definierats i mallen:
+
 - Microsoft. attestering/attestationProviders
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
@@ -83,15 +45,15 @@ Azure-resurser som definierats i mallen:
 
     [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-attestation-provider-create%2Fazuredeploy.json)
 
-2. Välj eller ange följande värden.
+1. Välj eller ange följande värden.
 
     Om den inte har angetts använder du standardvärdet för att skapa en attesterings leverantör.
 
-    * **namn**: Välj ett namn för din Azure attesterings leverantör.
-    * **plats**: Välj en plats. Välj till exempel **USA, centrala**.
-    * **taggar**: Välj en plats. Välj till exempel **USA, centrala**.
+    - **Leverantörs namn för attestering**: Välj ett namn för din Azure attesterings-Provider.
+    - **Plats**: Välj en plats. Välj till exempel **USA, centrala**.
+    - **Taggar**: Välj en plats. Välj till exempel **USA, centrala**.
 
-3. Välj **Köp**. När du har distribuerat attesterings resursen får du ett meddelande:
+1. Välj **Köp**. När du har distribuerat attesterings resursen får du ett meddelande.
 
 Azure-portalen används för att distribuera mallen. Förutom Azure Portal kan du också använda Azure PowerShell, Azure CLI och REST API. Mer information om andra distributions metoder finns i [distribuera mallar](../azure-resource-manager/templates/deploy-powershell.md).
 

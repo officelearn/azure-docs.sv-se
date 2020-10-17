@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9b6141e6009cb868d63429836f8c8f050c792ee5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094083"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152298"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Hanterade identiteter för Azure SignalR service
 
@@ -62,20 +62,20 @@ Azure SignalR service är en fullständigt hanterad tjänst, så du kan inte anv
     - Tom
     - Program (klient) ID för tjänstens huvud namn
     - Program-ID-URI för tjänstens huvud namn
-    - [Resurs-ID för en Azure-tjänst](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
+    - [Resurs-ID för en Azure-tjänst](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
     > Om du validerar en åtkomsttoken själv i tjänsten kan du välja något av resurs formaten. Se bara till att **resurs** svärdet i **autentiseringsinställningarna** och verifieringen är konsekventa. Om du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC) för ett data plan måste du använda resursen som tjänst leverantören begär.
 
 ### <a name="validate-access-tokens"></a>Verifiera åtkomsttoken
 
-Token i `Authorization` rubriken är en åtkomsttoken för [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/access-tokens#validating-tokens).
+Token i `Authorization` rubriken är en åtkomsttoken för [Microsoft Identity Platform](../active-directory/develop/access-tokens.md#validating-tokens).
 
 För att verifiera åtkomsttoken bör din app också verifiera mål gruppen och signerings-token. Dessa måste verifieras mot värdena i OpenID identifierings dokument. Se till exempel [klientens oberoende version av dokumentet](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-Den Azure Active Directory (Azure AD) mellanprogram har inbyggda funktioner för att verifiera åtkomsttoken. Du kan bläddra igenom våra [exempel](https://docs.microsoft.com/azure/active-directory/develop/sample-v2-code) för att hitta ett på valfritt språk.
+Den Azure Active Directory (Azure AD) mellanprogram har inbyggda funktioner för att verifiera åtkomsttoken. Du kan bläddra igenom våra [exempel](../active-directory/develop/sample-v2-code.md) för att hitta ett på valfritt språk.
 
-Vi tillhandahåller bibliotek och kod exempel som visar hur du hanterar verifiering av token. Det finns också flera partner bibliotek med öppen källkod som är tillgängliga för JSON Web Token (JWT)-verifiering. Det finns minst ett alternativ för nästan alla plattformar och språk. Mer information om Azure AD-autentiseringspaket och kod exempel finns i [Microsoft Identity Platform Authentication libraries](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
+Vi tillhandahåller bibliotek och kod exempel som visar hur du hanterar verifiering av token. Det finns också flera partner bibliotek med öppen källkod som är tillgängliga för JSON Web Token (JWT)-verifiering. Det finns minst ett alternativ för nästan alla plattformar och språk. Mer information om Azure AD-autentiseringspaket och kod exempel finns i [Microsoft Identity Platform Authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

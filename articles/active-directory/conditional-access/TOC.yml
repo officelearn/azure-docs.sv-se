@@ -92,8 +92,6 @@
       href: terms-of-use.md
     - name: Inloggningsfrekvens och kontroll av webbläsarpersistens
       href: howto-conditional-access-session-lifetime.md
-    - name: Bästa praxis
-      href: best-practices.md
     - name: Felsökning
       items:
         - name: Felsöka inloggningsproblem

@@ -3,12 +3,12 @@ title: Azures säkerhets bas linje för Azure DevTest Labs
 description: Azures säkerhets bas linje för Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398331"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151876"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azures säkerhets bas linje för Azure DevTest Labs
 
@@ -264,7 +264,7 @@ Du kan effektivisera processen genom att skapa diagnostikinställningar för Azu
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 **Vägledning:** Använd taggar för att spåra Azure-resurser som lagrar eller bearbetar känslig information.
 
-- [Skapa och använda Taggar](../azure-resource-manager/resource-group-using-tags.md)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
 
@@ -273,10 +273,10 @@ Du kan effektivisera processen genom att skapa diagnostikinställningar för Azu
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
 **Vägledning:** Implementera separata prenumerationer eller hanterings grupper för utveckling, testning och produktion. Azure DevTest Labs instanser ska avgränsas av det virtuella nätverket/under nätet och taggas korrekt. 
 
-- [Så här skapar du ytterligare Azure-prenumerationer](../billing/billing-create-subscription.md)
-- [Så här skapar du hanterings grupper](../governance/management-groups/create.md)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
+- [Så här skapar du hanterings grupper](../governance/management-groups/create-management-group-portal.md)
 - [Så här konfigurerar du ett virtuellt nätverk för DevTest Labs](devtest-lab-configure-vnet.md)
-- [Skapa och använda Taggar](../azure-resource-manager/resource-group-using-tags.md)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 - [Skapa och använda taggar för DevTest Labs](devtest-lab-add-tag.md)
 
 **Azure Security Center övervakning:** Inte tillgänglig för närvarande
@@ -380,7 +380,7 @@ Microsoft utför sårbarhets hantering på de underliggande resurser som har st�
 **Vägledning:** Använd Azure Uppdateringshantering för att se till att de senaste säkerhets uppdateringarna är installerade på dina virtuella Windows-och Linux-datorer inom DevTest Labs. För virtuella Windows-datorer kontrollerar du att Windows Update har Aktiver ATS och kon figurer ATS för automatisk uppdatering. Den här inställningen är för närvarande inte tillgänglig för konfigurering genom DevTest Labs, men labb administratören/prenumerations administratören kan konfigurera den här inställningen på de underliggande virtuella datorerna i prenumerationen. 
 
 - [Så här konfigurerar du Uppdateringshantering för virtuella datorer i Azure](../automation/update-management/update-mgmt-overview.md)
-- [Förstå Azures säkerhets principer som övervakas av Security Center](../security-center/security-center-policy-definitions.md)
+- [Förstå Azures säkerhets principer som övervakas av Security Center](../security-center/policy-reference.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
 
@@ -444,7 +444,7 @@ Som prenumerations administratör kan du också använda Azure Uppdateringshante
 **Vägledning:** Använd taggning, hanterings grupper och separata prenumerationer och separata labb om det behövs för att organisera och spåra labb-och labbbaserade resurser. Stäm av inventering med jämna mellanrum och se till att obehöriga resurser tas bort från prenumerationen snabbt.
 
 - [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
-- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 - [Så här skapar du ett labb med DevTest Labs](devtest-lab-create-lab.md)
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 - [Så här konfigurerar du taggar för ett labb](devtest-lab-add-tag.md)
@@ -517,7 +517,7 @@ Förutom att använda Ändringsspårning för övervakning av program vara kan a
 
 Se följande artiklar: 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
-- [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/not-allowed-resource-types.md)
+- [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning:** Ja
 
@@ -559,7 +559,7 @@ Se följande artiklar:
 - [Konfigurera virtuellt nätverk för DevTest Labs](devtest-lab-configure-vnet.md)
 - [Översikt över Azure Firewall](../firewall/overview.md)
 - [Översikt över brand väggen för webb program](../web-application-firewall/overview.md)
-- [Översikt över Network-säkerhet](../virtual-network/security-overview.md)
+- [Översikt över Network-säkerhet](../virtual-network/network-security-groups-overview.md)
 - [Översikt över Azure Virtual Network]()
 - [Ordna resurser med hanteringsgrupper i Azure](../governance/management-groups/overview.md)
 - [Beslutsguide för prenumerationer](/azure/cloud-adoption-framework/decision-guides/subscriptions/)
@@ -617,7 +617,7 @@ Du kan också använda rekommendationer från Azure Security Center som en säke
 
 Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-datorer som publicerats av Microsoft.
 
-- [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](../security-center/deploy-vulnerability-assessment-vm.md)
 - [Översikt över Azure Automation tillstånds konfiguration](../automation/automation-dsc-overview.md)
 - [Exempelskript för att överföra en virtuell hårddisk till Azure och skapa en ny virtuell dator](../virtual-machines/scripts/virtual-machines-windows-powershell-upload-generalized-script.md)
 - [Så här skapar du en avbildnings fabrik i DevTest Labs](image-factory-create.md)
@@ -629,8 +629,8 @@ Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-da
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7,5: Spara konfigurationen av Azure-resurser på ett säkert sätt
 **Vägledning:** Använd Azure-DevOps för att lagra och hantera din kod på ett säkert sätt, till exempel anpassade Azure-principer, Azure Resource Manager mallar och önskade tillstånds konfigurations skript. För att få åtkomst till de resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps.
 
-- [Azure databaser git-självstudie](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow)
-- [Om behörigheter och grupper](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions?view=azure-devops&tabs=preview-page)
+- [Azure databaser git-självstudie](/azure/devops/repos/git/gitworkflow)
+- [Om behörigheter och grupper](/azure/devops/organizations/security/about-permissions?tabs=preview-page&view=azure-devops)
 - [Integrering mellan Azure DevTest Labs-och Azure DevOps-arbetsflöde](devtest-lab-dev-ops.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
@@ -681,7 +681,7 @@ Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-da
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7,10: implementera automatisk konfigurations övervakning för operativ system
 **Vägledning:** Använd Azure Security Center för att utföra bas linje genomsökningar för OS-och Docker-inställningar för behållare.
 
-- [Förstå rekommendationer för Azure Security Center-container](../security-center/security-center-container-recommendations.md)
+- [Förstå rekommendationer för Azure Security Center-container](../security-center/container-security.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
 
@@ -692,7 +692,7 @@ Dessutom hanteras och underhålls avbildningar av virtuella Azure Marketplace-da
 
 - [Konfigurera hanterad identitet för att distribuera Azure Resource Manager miljöer i DevTest Labs](use-managed-identities-environments.md)
 - [Konfigurera hanterad identitet för att distribuera virtuella datorer i DevTest Labs](enable-managed-identities-lab-vms.md)
-- [Så här skapar du ett nyckel valv](../key-vault/quick-create-portal.md)
+- [Så här skapar du ett nyckel valv](../key-vault/secrets/quick-create-portal.md)
 - [Så här autentiserar du till Key Vault](../key-vault/general/authentication.md)
 - [Så här tilldelar du en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-portal.md)
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 4081fe8ba97ba2dd27680cf5f0fa60abd59e44a9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5df36cdb3c02fd4c813625c4869c21581f009b02
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072279"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152223"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Plattforms stöd för Azure IoT Device SDK: er
 
@@ -74,7 +74,7 @@ Endast python-version 3.5.3 eller senare har stöd för asynkrona API: er, vi re
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop-och Server-SKU: er   | .NET Core 2,1, .NET Framework 4.5.1 eller .NET Framework 4,7 |
 
-.NET SDK kan också användas med Windows IoT Core med [Azure Device agent](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) eller [en anpassad NTService som kan använda RPC för att kommunicera med UWP-program](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
+.NET SDK kan också användas med Windows IoT Core med [Azure Device agent](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) eller [en anpassad NTService som kan använda RPC för att kommunicera med UWP-program](/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
 
 ### <a name="nodejs-sdk"></a>Node.js SDK
 
@@ -124,7 +124,7 @@ Om du inte kan använda någon av IoT Hub enhets-SDK: er kan du ansluta direkt t
 
 ## <a name="support-and-other-resources"></a>Support och andra resurser
 
-Om du får problem när du använder SDK: er för Azure IoT-enheter finns det flera sätt att söka efter stöd sammanfattande nedan. Fullständig information om alla support alternativ finns i [Azure IoT-support och hjälp alternativ](https://aka.ms/iothelp). 
+Om du får problem när du använder SDK: er för Azure IoT-enheter finns det flera sätt att söka efter stöd sammanfattande nedan. Fullständig information om alla support alternativ finns i [Azure IoT-support och hjälp alternativ](../iot-fundamentals/iot-support-help.md). 
 
 **Rapporterings buggar** – buggar i enhets-SDK: erna kan rapporteras på sidan problem i relevant GitHub-projekt. Du kan snabbt göra sitt sätt från projektet i till produkt uppdateringar.
 
@@ -138,7 +138,7 @@ Om du får problem när du använder SDK: er för Azure IoT-enheter finns det fl
 
 * [Problem med Azure IoT Hub python SDK](https://github.com/Azure/azure-iot-sdk-python/issues)
 
-**Tekniska frågor** – du kan ställa tekniska frågor om både [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-iot-sdk.html) och [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) med hjälp av taggen *Azure-IoT-SDK*.
+**Tekniska frågor** – du kan ställa tekniska frågor om både [Microsoft Q&A](/answers/topics/azure-iot-sdk.html) och [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-sdk) med hjälp av taggen *Azure-IoT-SDK*.
 
 **Microsofts kund support team** – användare som har ett [support](https://azure.microsoft.com/support/plans/) avtal kan engagera Microsofts kund support team genom att skapa en ny supportbegäran direkt från [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

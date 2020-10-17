@@ -4,12 +4,12 @@ description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: 92d5e60f549855b39185564f7f6d2902b765cf76
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bee25d9b8985f1627a5cfc05bfb336b83be60f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055519"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144754"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -79,7 +79,7 @@ Det finns två alternativ för att autentisera mot Batch-kontot:
     
     När du loggar in på Azure interaktivt enligt beskrivningen i föregående avsnitt cachelagras dina autentiseringsuppgifter så att Azure CLI kan logga in dig på Batch-kontot med samma autentiseringsuppgifter. Om du loggar in på Azure med hjälp av ett huvudnamn för tjänsten används också dessa autentiseringsuppgifter till att logga in på ditt Batch-konto.
 
-    En fördel med Azure AD är att den innehåller rollbaserad åtkomstkontroll (RBAC). Med RBAC beror en användares behörighet på den tilldelade rollen snarare än om de har nycklar för kontot. I stället för att hantera konto nycklar kan du hantera Azure-roller och låta Azure AD hantera åtkomst och autentisering.  
+    En fördel med Azure AD är att den har rollbaserad åtkomst kontroll i Azure (Azure RBAC). Med Azure RBAC är en användares åtkomst beroende av den tilldelade rollen, i stället för huruvida de har konto nycklar. I stället för att hantera konto nycklar kan du hantera Azure-roller och låta Azure AD hantera åtkomst och autentisering.  
 
      Du loggar in på Batch-kontot med hjälp av Azure AD med kommandot [az batch account login](/cli/azure/batch/account#az-batch-account-login): 
 

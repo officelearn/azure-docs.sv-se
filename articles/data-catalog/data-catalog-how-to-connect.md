@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 53a861761f819c2127228e7ef688f04d91744d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c8c545f01eb0df53ce9677b7db6f931b4d21af9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081261"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151901"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Så här ansluter du till datakällor
 ## <a name="introduction"></a>Introduktion
@@ -40,7 +40,7 @@ När du använder "öppna i..." meny för data källor i Azure Data Catalog-port
 | Power Query |.xlsx |Excel 2016 eller Excel 2010 eller Excel 2013 med Power Query för Excel-tillägget installerat |
 | Power BI Desktop |. pbix |Power BI Desktop juli 2016 eller senare |
 | SQL Server Data Tools |vsweb:// |Visual Studio 2013 uppdatering 4 eller senare med SQL Server verktyg installerat |
-| Rapporthanteraren |http:// |Se [webb läsar krav för SQL Server Reporting Services](https://technet.microsoft.com/library/ms156511.aspx) |
+| Rapporthanteraren |http:// |Se [webb läsar krav för SQL Server Reporting Services](/sql/reporting-services/browser-support-for-reporting-services-and-power-view) |
 
 ## <a name="your-data-your-tools"></a>Dina data, dina verktyg
 Vilka alternativ som är tillgängliga på menyn beror på vilken typ av data till gång som är markerat. Naturligtvis är inte alla möjliga verktyg inkluderade i "öppna i..." -menyn, men det är fortfarande enkelt att ansluta till data källan med hjälp av ett klient verktyg. När en data till gång väljs i **Azure Data Catalog** Portal visas den fullständiga platsen i rutan Egenskaper.

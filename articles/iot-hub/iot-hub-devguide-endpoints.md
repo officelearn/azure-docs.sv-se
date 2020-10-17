@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: System Architecture'
-ms.openlocfilehash: 9ae21b2a6d470b959f5e869e8a9edda9c56bec73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a58e141c6232db08b125b265e3d4ad74c784ba24
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90019571"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152190"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub slut punkter
 
@@ -95,7 +95,7 @@ Begränsningarna för antalet slut punkter som du kan lägga till finns i [kvote
 
 I en IoT-lösning är en *fält-Gateway* placerad mellan dina enheter och dina IoT Hub slut punkter. Den finns vanligt vis nära dina enheter. Enheterna kommunicerar direkt med fält-gatewayen med hjälp av ett protokoll som stöds av enheterna. Fält-gatewayen ansluter till en IoT Hub-slutpunkt med ett protokoll som stöds av IoT Hub. En fält-Gateway kan vara en dedikerad maskin varu enhet eller en dator med låg strömförbrukning som kör anpassad Gateway-programvara.
 
-Du kan använda [Azure IoT Edge](/azure/iot-edge/) för att implementera en fält-Gateway. IoT Edge erbjuder funktioner som multiplexering av kommunikation från flera enheter till samma IoT Hub anslutning.
+Du kan använda [Azure IoT Edge](../iot-edge/index.yml) för att implementera en fält-Gateway. IoT Edge erbjuder funktioner som multiplexering av kommunikation från flera enheter till samma IoT Hub anslutning.
 
 ## <a name="next-steps"></a>Nästa steg
 

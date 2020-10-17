@@ -7,20 +7,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: robinsh
-ms.openlocfilehash: a06583e9aab4b082517d47c1022f7bec5184b9bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d824c94a2c5751013b78c69ed5abd048c50856b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78673387"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151728"
 ---
 # <a name="develop-for-android-things-platform-using-azure-iot-sdks"></a>Utveckla för Android-saker-plattform med Azure IoT-SDK: er
 
-[Azure IoT Hub SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) : er tillhandahåller första nivå stöd för populära plattformar som Windows, Linux, OSX, MBED och mobila plattformar som Android och iOS.  Som en del av vårt åtagande att möjliggöra större valmöjligheter och flexibilitet i IoT-distributioner, stöder Java SDK även [Android-objekts](https://developer.android.com/things/) plattform.  Utvecklare kan utnyttja fördelarna med Android-sakernas operativ system på enhets sidan, medan [Azure IoT Hub](about-iot-hub.md) som den centrala meddelande hubben som skalas till miljon tals anslutna enheter samtidigt.
+[Azure IoT Hub SDK](./iot-hub-devguide-sdks.md) : er tillhandahåller första nivå stöd för populära plattformar som Windows, Linux, OSX, MBED och mobila plattformar som Android och iOS.  Som en del av vårt åtagande att möjliggöra större valmöjligheter och flexibilitet i IoT-distributioner, stöder Java SDK även [Android-objekts](https://developer.android.com/things/) plattform.  Utvecklare kan utnyttja fördelarna med Android-sakernas operativ system på enhets sidan, medan [Azure IoT Hub](about-iot-hub.md) som den centrala meddelande hubben som skalas till miljon tals anslutna enheter samtidigt.
 
 I den här självstudien beskrivs stegen för att bygga ett program på enhets sidan på Android-saker med Azure IoT Java SDK.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Android-enhet som stöder maskin vara med Android-objekt som körs.  Du kan följa [dokumentationen för Android-saker](https://developer.android.com/things/get-started/kits#flash-at) om hur du kan Flash Android saker OS.  Se till att din Android-enhet är ansluten till Internet med viktig kring utrustning, till exempel tangent bord, bildskärm och mus.  I den här självstudien används Raspberry Pi 3.
 
@@ -30,7 +30,7 @@ I den här självstudien beskrivs stegen för att bygga ett program på enhets s
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

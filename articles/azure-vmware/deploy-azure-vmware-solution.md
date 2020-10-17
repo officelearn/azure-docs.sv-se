@@ -4,12 +4,12 @@ description: Lär dig hur du använder den information som samlas in i planering
 ms.topic: tutorial
 ms.author: tredavis
 ms.date: 10/02/2020
-ms.openlocfilehash: c20bf0f4a8c182d5ade1caec0dd66100c4613204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776433"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152027"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Distribuera och konfigurera Azure VMware-lösning
 
@@ -82,7 +82,7 @@ Följ självstudien [skapa ett NSX-t-nätverk i Azure VMware Solution](tutorial-
 
 Gå tillbaka till steget [Verifiera nätverks vägar som annonser](#verify-network-routes-advertised) ATS. Du ser en eller flera vägar i listan som representerar de nätverks segment som du skapade i föregående steg.  
 
-För virtuella datorer tilldelar du segmenten som du skapade i steget [Verifiera annonserat NSX-T-segment](#verify-advertised-nsx-t-segment) .  
+För virtuella datorer tilldelar du segmenten som du skapade i steget [skapa ett nätverks segment i Azure VMware-lösningen](#create-a-network-segment-on-azure-vmware-solution) .  
 
 Eftersom DNS krävs, identifiera vilken DNS-server som du vill använda.  
 

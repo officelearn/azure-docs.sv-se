@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 68ff753a0c6e21fac512792670a24bede8980e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86f9f227c0ea92b7b52a3037759426cc87f6d937
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816427"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152051"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Konfigurera en App Service-app i Azure Portal
 
@@ -292,7 +292,7 @@ Se [Konfigurera en anpassad Linux-behållare för Azure App Service](configure-c
 [Azure Portal]: https://portal.azure.com/
 [Konfigurera ett anpassat domän namn i Azure App Service]: ./app-service-web-tutorial-custom-domain.md
 [Konfigurera mellanlagringsmiljöer i Azure App Service]: ./deploy-staging-slots.md
-[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitor web endpoint status]: ./web-sites-monitor.md
 [Grundläggande övervakning i Azure App Service]: ./web-sites-monitor.md
 [pipeline-läge]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Skala en app i Azure App Service]: ./manage-scale-up.md

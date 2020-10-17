@@ -4,12 +4,12 @@ description: Distribuera en Linux-baserad webbapp till två olika Azure-regioner
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcbce3c60aa0b4613b1dd1840c335c800193e549
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a203bfc9b1317bc258e4a93ae4ac03ecbdc7a15
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328697"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148421"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>Självstudie: Distribuera en webbapp från ett geo-replikerat Azure Container Registry
 
@@ -27,7 +27,7 @@ I nästa artikel i serien uppdaterar du programmet och push-överför sedan den 
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Automatisk distribution till Web Apps för Containers
 
-Azure Container Registry ger stöd för distribution av program i behållare direkt till [Web Apps för behållare](../app-service/containers/index.yml). I den här självstudiekursen använder du Azure Portal för att distribuera den containeravbildning som du skapade i den föregående kursen till två webbappsplaner i olika Azure-regioner.
+Azure Container Registry ger stöd för distribution av program i behållare direkt till [Web Apps för behållare](../app-service/index.yml). I den här självstudiekursen använder du Azure Portal för att distribuera den containeravbildning som du skapade i den föregående kursen till två webbappsplaner i olika Azure-regioner.
 
 När du distribuerar en webbapp från en behållaravbildning i registret, och har ett geo-replikerat register i samma region, så skapar Azure Container Registry en [webhook](container-registry-webhook.md) för avbildningsdistribution för dig. När du push-överför en ny avbildning till containerlagringsplatsen så hämtar webhooken ändringen och distribuerar automatiskt den nya containeravbildningen till din webbapp.
 
@@ -45,7 +45,7 @@ Om ”Distribuera till webbapp” är inaktiverat kan det bero på att du inte h
 
 Ange följande värden för varje inställning under **Web App for Containers**, som visas när du har valt ”Distribuera till webbapp”:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-westus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |
@@ -78,7 +78,7 @@ När Docker-avbildningen har distribuerats från din geo-replikerade container, 
 
 Distribuera en andra webbapp till regionen *USA, östra* med den procedur som beskrivs i föregående avsnitt. Ange följande värden under **Web App for Containers**:
 
-| Inställningen | Värde |
+| Inställning | Värde |
 |---|---|
 | **Webbplatsnamn** | Ett globalt unikt namn för webbappen. I det här exemplet använder vi formatet `<acrName>-eastus` för att lätt kunna identifiera det register och den region som webbappen distribueras från. |
 | **Resursgrupp** | **Använd befintlig** > `myResourceGroup` |

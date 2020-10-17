@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: System Architecture'
-ms.openlocfilehash: 63497553f7cec2edf3c77ba8690dda2b15d104be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ff8ebeaf7c4a219bc403c81dfea62f4657a1fd8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324734"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148345"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Översikt över enhetshantering med IoT Hub
 
@@ -78,7 +78,7 @@ I var och en av dessa fem faser finns det flera enhetsoperatorskrav som måste u
   
     *Mer läsning*:
     * [Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
-    * [Konfigurera och övervaka IoT-enheter i stor skala](iot-hub-auto-device-config.md)
+    * [Konfigurera och övervaka IoT-enheter i stor skala](./iot-hub-automatic-device-management.md)
     * [Metod tips för enhets konfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
 
 * **Övervaka**: Övervaka enhetssamlingens allmänna funktion samt statusen för pågående åtgärder så att operatörerna blir medvetna om problem som kräver åtgärder.  Använd enhetstvillingen för att tillåta att enheterna rapporterar driftsförhållanden och status för uppdateringsåtgärder i realtid. Skapa kraftfulla instrumentpanelsrapporter som lyfter fram de mest omedelbara problemen genom att använda enhetstvillingsfrågor.
@@ -86,7 +86,7 @@ I var och en av dessa fem faser finns det flera enhetsoperatorskrav som måste u
     *Mer läsning*: 
     * [Använda enhetens dubbla egenskaper](tutorial-device-twins.md)
     * [IoT Hub frågespråk för enhets dubbla, jobb och meddelanderoutning](iot-hub-devguide-query-language.md)
-    * [Konfigurera och övervaka IoT-enheter i stor skala](iot-hub-auto-device-config.md)
+    * [Konfigurera och övervaka IoT-enheter i stor skala](./iot-hub-automatic-device-management.md)
     * [Metod tips för enhets konfiguration i en IoT-lösning](iot-hub-configuration-best-practices.md)
 
 * **Dra tillbaka**: Ersätt eller inaktivera enheter efter ett haveri, uppgraderings cykel eller i slutet av tjänstens livs längd.  Använd enhetstvillingen för att underhålla enhetsinformation om den fysiska enheten håller på att ersättas eller arkiveras om den har återkallats. Använd IoT Hub-identitetsregistret för att säkert återkalla enhetsidentiteter och autentiseringsuppgifter.
@@ -119,7 +119,7 @@ IoT Hub använder följande uppsättning enhetshanteringsmönster. [Självstudie
   
     ![Bild över mönster för uppdatering av rapporteringsprocess och status](./media/iot-hub-device-management-overview/report-progress-pattern.png)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Du kan använda de funktioner, mönster och kodbibliotek som ingår i IoT Hub-enhetshanteringen för att skapa IoT-program som uppfyller företagets IoT-operatörskrav i varje enhets livscykelfas.
 

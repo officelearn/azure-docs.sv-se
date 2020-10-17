@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3248085a0719628bcf7fe42253156d9652b86cd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89393436"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148630"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Azures säkerhets bas linje för Container Instances
 
@@ -73,7 +73,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](../security/
 
 * [Så här distribuerar du Azure-brandvägg](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Förstå Azure Security Center integrerad Hot information](../security-center/threat-protection.md)
+* [Förstå Azure Security Center integrerad Hot information](../security-center/azure-defender.md)
 
 * [Förstå Azure Security Center anpassad nätverks härdning](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -143,7 +143,7 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 * [Förstå och använda service märken](../virtual-network/service-tags-overview.md) 
 
-* [Förstå och använda program säkerhets grupper](../virtual-network/security-overview.md#application-security-groups)
+* [Förstå och använda program säkerhets grupper](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 * [Distribuera i ett virtuellt nätverk – Azure Container Instances](./container-instances-vnet.md)
 
@@ -159,7 +159,7 @@ Du kan också använda program säkerhets grupper för att förenkla komplex sä
 
 * [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy exempel för nätverk](/azure/governance/policy/samples/#network)
+* [Azure Policy exempel för nätverk](../governance/policy/samples/built-in-policies.md#network)
 
 * [Så här skapar du en Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -498,7 +498,7 @@ Tagg-och versions behållar avbildningar för att hjälpa till att spåra bilder
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du hanterings grupper](../governance/management-groups/create.md)
+* [Så här skapar du hanterings grupper](../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -613,7 +613,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 * [Säkerhets överväganden för Azure Container Instances](./container-instances-image-security.md)
 
-* [Azure Container Registry integration med Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration med Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -652,7 +652,7 @@ Använd en anpassad eller tredje parts lösning för att korrigera behållar avb
 
 * [Säkerhets överväganden för Azure Container Instances](./container-instances-image-security.md)
 
-* [Azure Container Registry integration med Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration med Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -664,7 +664,7 @@ Använd en anpassad eller tredje parts lösning för att korrigera behållar avb
 
 * [Säkerhets överväganden för Azure Container Instances](./container-instances-image-security.md)
 
-* [Azure Container Registry integration med Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration med Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -707,7 +707,7 @@ Använd en anpassad eller tredje parts lösning för att korrigera behållar avb
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -755,7 +755,7 @@ Implementera lösningar för att skanna behållar avbildningar i ett privat regi
 * [Så här utför du anpassade frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 * [Säkerhets överväganden för Azure Container Instances](./container-instances-image-security.md)
-* [Azure Container Registry integration med Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration med Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 
 
@@ -789,7 +789,7 @@ Implementera lösningar för att skanna behållar avbildningar i ett privat regi
 
 * [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -825,7 +825,7 @@ Hantera och granska åtkomst till Azure Container Instances resurser genom att a
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du hanterings grupper](../governance/management-groups/create.md)
+* [Så här skapar du hanterings grupper](../governance/management-groups/create-management-group-portal.md)
 
 * [Distribuera i ett virtuellt nätverk – Azure Container Instances](./container-instances-vnet.md)
 
@@ -900,7 +900,7 @@ Använd en anpassad eller tredje parts lösning för att korrigera behållar avb
 
 * [Säkerhets rekommendationer för övervakning och genomsökning av behållare för Azure Container Instances](./container-instances-image-security.md)
 
-* [Azure Container Registry integration med Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration med Security Center](../security-center/defender-for-container-registries-introduction.md)
 * [Om bas avbildnings uppdateringar för Azure Container Registry uppgifter](../container-registry/container-registry-tasks-base-images.md)
 
 
@@ -1105,7 +1105,7 @@ Du kan också säkerhetskopiera behållar avbildningar genom att importera från
 
 **Vägledning**: du kan aktivera Soft-Delete i Azure Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
-* [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 

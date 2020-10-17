@@ -5,26 +5,45 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a79b046170a5a3f3574895490aa649fd02da082
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5361460f7816dd4a3b2b53deecd9d360f98ad1d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016135"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145366"
 ---
 # <a name="building-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
 Som det beskrivs i artikeln [Vad är villkorlig åtkomst](overview.md)är en princip för villkorlig åtkomst en if-then-instruktion, **tilldelnings** -och **åtkomst kontroller**. En princip för villkorlig åtkomst ger signaler till varandra för att fatta beslut och tillämpa organisations principer.
 
-Hur skapar en organisation dessa principer? Vad krävs?
+Hur skapar en organisation dessa principer? Vad krävs? Hur tillämpas de?
 
 ![Villkorlig åtkomst (signaler + beslut + tvång = principer)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
+
+Flera principer för villkorlig åtkomst kan användas för enskilda användare när som helst. I det här fallet måste alla principer som gäller vara uppfyllda. Om en princip till exempel kräver Multi-Factor Authentication (MFA) och en annan kräver en kompatibel enhet måste du slutföra MFA och använda en kompatibel enhet. Alla tilldelningar är logiskt **ANDed**. Om du har konfigurerat fler än en tilldelning måste alla tilldelningar uppfyllas för att utlösa en princip.
+
+Alla principer tillämpas i två faser:
+
+- Fas 1: samla in sessionsinformation 
+   - Samla in sessionsinformation, som nätverks plats och enhets identitet som krävs för att utvärdera principer. 
+   - Fas 1 av princip utvärderingen sker för aktiverade principer och principer i [endast rapport läge](concept-conditional-access-report-only.md).
+- Fas 2: tvång 
+   - Använd sessionsinformation som samlats in i fas 1 för att identifiera eventuella krav som inte har uppfyllts. 
+   - Om det finns en princip som har kon figurer ATS för att blockera åtkomst, med blockera beviljande kontroll, kommer tvång att stoppas här och användaren kommer att blockeras. 
+   - Användaren uppmanas att slutföra ytterligare krav för beviljande kontroll som inte uppfylldes under fas 1 i följande ordning, tills principen är nöjd:  
+      - Multifaktorautentisering 
+      - Godkänd klient App/app-skydds princip 
+      - Hanterad enhet (kompatibel eller hybrid Azure AD-anslutning) 
+      - Villkor för användning 
+      - Anpassade kontroller  
+   - När alla beviljande kontroller har uppfyllts tillämpar du sessionsbaserade (appen tvingas, Microsoft Cloud App Security och token livs längd) 
+   - Fas 2 av princip utvärderingen sker för alla aktiverade principer. 
 
 ## <a name="assignments"></a>Tilldelningar
 
@@ -115,7 +134,7 @@ Administratörer kan välja att kräva en av de tidigare kontrollerna eller alla
 En princip för villkorlig åtkomst måste innehålla minst följande för att kunna tillämpas:
 
 - **Namnet** på principen.
-- **Tilldelningar**
+- **Kopplingar**
    - **Användare och/eller grupper** som principen ska tillämpas på.
    - **Molnappar eller åtgärder** för att tillämpa principen på.
 - **Åtkomstkontroller**

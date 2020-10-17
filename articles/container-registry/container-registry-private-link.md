@@ -3,12 +3,12 @@ title: Konfigurera privat länk
 description: Konfigurera en privat slut punkt i ett behållar register och aktivera åtkomst över en privat länk i ett lokalt virtuellt nätverk. Åtkomst till privata länkar är en funktion i Premium service-nivån.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: 793003edea853922f78b36f0dc1a6e35205cdadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bea4b2a6bedeac9dd0ff36631ba46adf4be4f8f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743649"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148470"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Anslut privat till ett Azure Container Registry med hjälp av Azure Private Link
 
@@ -375,7 +375,7 @@ az acr private-endpoint-connection list \
   --registry-name $REGISTRY_NAME 
 ```
 
-När du konfigurerar en privat slut punkts anslutning med hjälp av stegen i den här artikeln, accepterar registret automatiskt anslutningar från klienter och tjänster som har RBAC-behörighet för registret. Du kan ställa in slut punkten för att kräva manuellt godkännande av anslutningar. Information om hur du godkänner och avvisar anslutningar för privata slut punkter finns i [hantera en privat slut punkts anslutning](../private-link/manage-private-endpoint.md).
+När du konfigurerar en privat slut punkts anslutning med hjälp av stegen i den här artikeln, accepterar registret automatiskt anslutningar från klienter och tjänster som har Azure RBAC-behörighet för registret. Du kan ställa in slut punkten för att kräva manuellt godkännande av anslutningar. Information om hur du godkänner och avvisar anslutningar för privata slut punkter finns i [hantera en privat slut punkts anslutning](../private-link/manage-private-endpoint.md).
 
 ## <a name="add-zone-records-for-replicas"></a>Lägg till zon poster för repliker
 

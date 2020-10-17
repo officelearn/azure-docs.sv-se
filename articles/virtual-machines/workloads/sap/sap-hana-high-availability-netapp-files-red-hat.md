@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
-ms.openlocfilehash: ce24bf541c5a71c50bb34f5e42aa3452f01b871c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8800adae73de2672dd89678a6346fe6b0df755ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978177"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144187"
 ---
 # <a name="high-availability-of-sap-hana-scale-up-with-azure-netapp-files-on-red-hat-enterprise-linux"></a>Hög tillgänglighet för SAP HANA skala upp med Azure NetApp Files på Red Hat Enterprise Linux
 
@@ -227,6 +227,13 @@ Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg
 5.  Skapa virtuell dator 1 (**hanadb1**). 
 6.  Skapa virtuell dator 2 (**hanadb2**).  
 7.  När du skapar en virtuell dator kommer vi inte att lägga till någon disk eftersom alla våra monterings punkter kommer att finnas på NFS-resurser från Azure NetApp Files. 
+
+> [!IMPORTANT]
+> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.    
+
+> [!NOTE] 
+> När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+
 8.  Följ dessa konfigurations steg om du använder standard Load Balancer:
     1.  Börja med att skapa en IP-pool på klient sidan:
         1.  Öppna belastningsutjämnaren, Välj **klient delens IP-pool**och välj **Lägg till**.
@@ -255,8 +262,6 @@ Först måste du skapa Azure NetApp Files volymerna. Utför sedan följande steg
         1.  Se till att **Aktivera flytande IP**.
         1.  Välj **OK**.
 
-> [!NOTE] 
-> När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 9. Om ditt scenario till exempel använder Basic Load Balancer, följer du dessa konfigurations steg:
     1.  Konfigurera belastningsutjämnaren. Börja med att skapa en IP-pool på klient sidan:

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: d3fd553e6903951de64c301df94ea9f2fc3eb471
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 68e47fe3cc674542a807ecbabd37cc6b624d5c03
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132099"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145590"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Förstå hur etablering integreras med Azure Monitor loggar
 
@@ -26,7 +26,7 @@ Etableringen integreras med Azure Monitor loggar och Log Analytics. Med Azure-ö
 
 Du bör redan vara bekant med Azure-övervakning och Log Analytics. Om inte, hoppa över för att lära dig mer om dem och gå sedan tillbaka till Lär dig mer om program etablerings loggar. Läs mer om Azure-övervakning i [Azure Monitor översikt](../../azure-monitor/overview.md). Mer information om Azure Monitor loggar och Log Analytics finns i [Översikt över logg frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-När du har konfigurerat på Azure-övervakning kan du aktivera loggar för program etablering. Alternativet finns på sidan **diagnostikinställningar** .
+När du har konfigurerat Azure-övervakning kan du aktivera loggar för program etablering. Alternativet finns på sidan **diagnostikinställningar** .
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Åtkomst till diagnostikinställningar" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 

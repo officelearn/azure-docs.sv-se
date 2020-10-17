@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/01/2018
 ms.author: allensu
-ms.openlocfilehash: 6258baf37d00d35da3b7c95519caabdfcaa34b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed5768e89482d32bb140e9ba7064de2d20809892
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192641"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148713"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimering av stor fil hämtning med Azure CDN
 
@@ -44,10 +44,10 @@ När segmentet har nått CDN-gränsen cachelagras det och betjänas direkt för 
 
 Mer information om byte Range-begäran finns i [RFC 7233](https://tools.ietf.org/html/rfc7233).
 
-CDN cachelagrar alla segment när de tas emot. Hela filen behöver inte cachelagras i CDN-cachen. Efterföljande begär Anden för fil-eller byte-intervallen hanteras från CDN-cachen. Om inte alla segment cachelagras i CDN används för hämtning för att begära segment från ursprunget. Den här optimeringen är beroende av möjligheten för ursprungs servern att stödja byte intervall begär Anden. om ursprungs servern inte stöder byte intervall begär Anden är den här optimeringen inte effektiv. 
+CDN cachelagrar alla segment när de tas emot. Hela filen behöver inte cachelagras i CDN-cachen. Efterföljande begär Anden för fil-eller byte-intervallen hanteras från CDN-cachen. Om inte alla segment cachelagras i CDN används för hämtning för att begära segment från ursprunget. Den här optimeringen är beroende av möjligheten för ursprungs servern att stödja byte intervall begär Anden. om ursprungs servern inte stöder byte intervall begär Anden, kommer begär Anden att hämta data som är större än 8 MB att Miss Miss läge. 
 
 ### <a name="conditions-for-large-file-optimization"></a>Villkor för optimering av stora filer
-Funktioner för stor fil optimering för **Azure CDN Standard från Microsoft** är aktiverade som standard när du använder den allmänna optimerings typen för webb leverans. Det finns inga begränsningar för maximal fil storlek.
+Det finns inga begränsningar för maximal fil storlek.
 
 
 ## <a name="optimize-for-delivery-of-large-files-with-azure-cdn-from-verizon"></a>Optimera för leverans av stora filer med Azure CDN från Verizon
@@ -110,7 +110,7 @@ Optimering av stora filer använder olika standardvärden för cachelagring – 
 | Caching  | Allmän webb | Optimering av stora filer 
 --- | --- | --- 
 Cachelagring: positiv <br> HTTP 200, 203, 300, <br> 301, 302 och 410 | 7 dagar |1 dag  
-Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Inget | 1 sekund 
+Cachelagring: negativ <br> HTTP 204, 305, 404, <br> och 405 | Inga | 1 sekund 
 
 ### <a name="deal-with-origin-failure"></a>Hantera ursprungs problem
 

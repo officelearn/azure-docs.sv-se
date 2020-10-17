@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f65a43cf5730f56b43d79388a0e73ea93e3225b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801995"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145512"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Villkorlig åtkomst: molnappar eller åtgärder
 
@@ -122,7 +122,6 @@ Förutom Microsoft-appar kan administratörer lägga till alla registrerade Azur
 
 > [!NOTE]
 > Eftersom principen för villkorlig åtkomst anger kraven för åtkomst till en tjänst kan du inte använda den för ett klient program (offentligt/inbyggt). Andra ord som principen inte ställs in direkt på ett klient program (offentligt/inbyggt), men tillämpas när en klient anropar en tjänst. Till exempel gäller en princip uppsättning i SharePoint-tjänsten för klienter som anropar SharePoint. En princip som angetts för Exchange gäller försöket att komma åt e-postmeddelandet med Outlook-klienten. Det är anledningen till varför klient (offentliga/egna) program inte är tillgängliga för val i apparna för molnappar och alternativet för villkorlig åtkomst inte är tillgänglig i program inställningarna för klientens (offentliga/egna) program som är registrerade i din klient organisation. 
-
 
 ## <a name="user-actions"></a>Användaråtgärder
 

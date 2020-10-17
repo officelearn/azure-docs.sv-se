@@ -4,12 +4,12 @@ description: Rekommendationer för att skydda bilder och hemligheter för Azure 
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: f49f115e10326887cf4d23406437467256b7df2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898bdf77bf4b6636e78f5d735fc8650da4fde2b8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922242"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148668"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Säkerhets överväganden för Azure Container Instances
 
@@ -34,7 +34,7 @@ En offentligt tillgänglig behållar avbildning garanterar inte säkerheten. Beh
 
 Dra nytta av lösningar för att skanna behållar avbildningar i ett privat register och identifiera potentiella sårbarheter. Det är viktigt att förstå djupet vid hot identifiering som de olika lösningarna ger.
 
-Azure Container Registry kan till exempel [integreras med Azure Security Center](../security-center/azure-container-registry-integration.md) för att automatiskt söka igenom alla Linux-avbildningar som skickas till ett register. Azure Security Center s integrerade Qualys-skanner identifierar avbildnings sårbarheter, klassificerar dem och ger vägledning om åtgärder.
+Azure Container Registry kan till exempel [integreras med Azure Security Center](../security-center/defender-for-container-registries-introduction.md) för att automatiskt söka igenom alla Linux-avbildningar som skickas till ett register. Azure Security Center s integrerade Qualys-skanner identifierar avbildnings sårbarheter, klassificerar dem och ger vägledning om åtgärder.
 
 Säkerhets övervakning och lösningar för avbildnings genomsökning, till exempel [twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) och [turkos säkerhet](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) , är också tillgängliga via Azure Marketplace.  
 
@@ -138,7 +138,7 @@ Precis som med en IT-miljö bör du konsekvent övervaka aktivitet och användar
 
 Upprätthålla en korrekt gransknings historik för administrativ åtkomst till ditt container eko system, inklusive ditt Kubernetes-kluster, behållar register och behållar avbildningar. Dessa loggar kan vara nödvändiga för gransknings syfte och kommer att vara användbara som kriminal tekniska-bevis efter eventuella säkerhets incidenter. Azure-lösningar är:
 
-* [Integrering av Azure Kubernetes-tjänsten med Azure Security Center](../security-center/azure-kubernetes-service-integration.md) för att övervaka säkerhets konfigurationen för kluster miljön och skapa säkerhets rekommendationer
+* [Integrering av Azure Kubernetes-tjänsten med Azure Security Center](../security-center/defender-for-kubernetes-introduction.md) för att övervaka säkerhets konfigurationen för kluster miljön och skapa säkerhets rekommendationer
 * [Azure Container Monitor-lösning](../azure-monitor/insights/containers.md)
 * Resurs loggar för [Azure Container instances](container-instances-log-analytics.md) och [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 

@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 6722b88947fda8f1a09e540d69c4a8bec74143df
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91842673"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151803"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 
@@ -64,7 +64,7 @@ Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya
 - [Standard kolumner i Azure Monitor logg poster](platform/log-standard-columns.md) – uppdateringar som innehåller arbets ytans baserade program.
 - [Azure Monitor tjänst gränser](service-limits.md) – uppdaterade gränser för begränsning av användar frågor.
 - [Använda Kundhanterade lagrings konton i Azure Monitor Log Analytics](platform/private-storage.md) artikel.
-- [Visa och analysera data i Azure Log Analytics](log-query/logs-structure.md) – uppdateringar för att inkludera arbets ytans baserade program.
+- [Visa och analysera data i Azure Log Analytics](./platform/data-platform-logs.md) – uppdateringar för att inkludera arbets ytans baserade program.
 
 
 ### <a name="platform-logs"></a>Plattformsloggar
@@ -194,11 +194,11 @@ Nya och uppdaterade artiklar från omstrukturering av Azure Monitor for VMs inne
 - [Anslut Linux-datorer till Azure Monitor](platform/agent-linux.md)
 - [Aktivera Azure Monitor för en hybrid miljö](insights/vminsights-enable-hybrid.md)
 - [Aktivera Azure Monitor för en virtuell dator eller skalnings uppsättning för virtuell dator i Azure Portal](insights/vminsights-enable-portal.md)
-- [Aktivera Azure Monitor for VMs med Azure Policy](insights/vminsights-enable-at-scale-policy.md)
+- [Aktivera Azure Monitor for VMs med Azure Policy](./insights/vminsights-enable-policy.md)
 - [Aktivera Azure Monitor for VMs översikt](insights/vminsights-enable-overview.md)
 - [Aktivera Azure Monitor for VMs med PowerShell](insights/vminsights-enable-powershell.md)
 - [Aktivera Azure Monitor for VMs med Resource Manager-mallar](insights/vminsights-enable-resource-manager.md)
-- [Aktivera Azure Monitor for VMs med PowerShell eller mallar](insights/vminsights-enable-at-scale-powershell.md)
+- [Aktivera Azure Monitor for VMs med PowerShell eller mallar](./insights/vminsights-enable-powershell.md)
 
 
 ### <a name="visualizations"></a>Visualiseringar
@@ -292,7 +292,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 
 - [Azure Monitor FAQ](faq.md) – tillagt avsnitt för mått.
 - [Azure Monitor kundhanterad nyckel](platform/customer-managed-keys.md) – flera ändringar som är i förberedelse för allmän tillgänglighet.
-- [Inbyggda princip definitioner för Azure Monitor](samples/policy-samples.md) nya artikeln.
+- [Inbyggda princip definitioner för Azure Monitor](./samples/policy-reference.md) nya artikeln.
 - [Kundägda lagrings konton för logg](platform/private-storage.md) inmatning – ny artikel.
 - [Hantera användning och kostnader för Azure Monitor loggar](platform/manage-cost-storage.md) – proportionell fakturering har lagts till i kluster.
 - [Använd Azures privata länk för att på ett säkert sätt ansluta nätverk till Azure Monitor](platform/private-link-security.md) nya artikeln.
@@ -330,8 +330,8 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [app ()-uttryck i Azure Monitor logg frågor](log-query/app-expression.md)
 - [Logg frågans omfång i Azure Monitor Log Analytics](log-query/scope.md)
 - [Fråga över resurser med Azure Monitor](log-query/cross-workspace-query.md)
-- [Standard egenskaper i Azure Monitor logg poster](platform/log-standard-properties.md)
-- [Struktur för Azure Monitor loggar](log-query/logs-structure.md)
+- [Standard egenskaper i Azure Monitor logg poster](./platform/log-standard-columns.md)
+- [Struktur för Azure Monitor loggar](./platform/data-platform-logs.md)
 
 
 
@@ -353,7 +353,7 @@ Nya och uppdaterade artiklar från omstrukturera och konsolidering av plattforms
 - [Skapa en Log Analytics arbets yta med Azure CLI](learn/quick-create-workspace-cli.md) – fel söknings avsnittet.
 - [Ta bort och Återställ Azure Log Analytics-arbetsytan](platform/delete-workspace.md) – uppdaterad information om hur du återställer en borttagen arbets yta.
 - [Funktioner i Azure Monitor logg frågor](log-query/functions.md) -borttagna kommentarer om funktioner som inte innehåller andra funktioner.
-- [Struktur för Azure Monitor loggar](log-query/logs-structure.md) – för tydliga egenskaps beskrivningar för Application Insights tabell.
+- [Struktur för Azure Monitor loggar](./platform/data-platform-logs.md) – för tydliga egenskaps beskrivningar för Application Insights tabell.
 - [Använd Azure Monitor loggar med avsnittet begränsningar för Azure Logic Apps och Energis par som](platform/logicapp-flow-connector.md) har lagts till automatiskt.
 - [Använd PowerShell för att skapa och konfigurera en Log Analytics arbets yta](platform/powershell-workspace-configuration.md) som har lagts till fel söknings avsnittet.
 
@@ -578,7 +578,7 @@ Flera nya artiklar för konverterings guiden för Visa designer till arbets böc
 #### <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
 
 - [Konfigurera Azure Monitor för behållare agent data insamling](insights/container-insights-agent-config.md) -ytterligare information för att uppgradera agenten i Azure Red Hat OpenShift och ytterligare information för att särskilja metoderna för att uppgradera agenten.
-- [Skapa prestanda varningar för Azure Monitor för behållare](insights/container-insights-alerts.md) – ändrad information och uppdaterade steg för att skapa en avisering om prestanda data som lagras i arbets ytan med hjälp av arbets ytans kontext aviseringar.
+- [Skapa prestanda varningar för Azure Monitor för behållare](./insights/container-insights-log-alerts.md) – ändrad information och uppdaterade steg för att skapa en avisering om prestanda data som lagras i arbets ytan med hjälp av arbets ytans kontext aviseringar.
 - [Kubernetes övervakning med Azure Monitor för behållare](insights/container-insights-analyze.md) – uppdaterad både översikts artikeln och analys artikeln om stöd för Windows Kubernetes-kluster.
 - [Konfigurera Azure Red Hat OpenShift-kluster med Azure Monitor för behållare](insights/container-insights-azure-redhat-setup.md) – ytterligare information för att uppgradera agenten i Azure Red Hat OpenShift och ytterligare information som särskiljer metoderna för att uppgradera agenten.
 - [Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare](insights/container-insights-hybrid-setup.md) – uppdaterat för att avspegla ytterligare stöd för säker port: 10250 med Kubelet cAdvisor.
@@ -598,7 +598,7 @@ Flera nya artiklar för konverterings guiden för Visa designer till arbets böc
 
 - [Hantera Log Analytics arbets ytor i Azure Monitor](platform/manage-access.md) – uppdateringar av inte åtgärder.
 - [Hantera användning och kostnader för Azure Monitor loggar](platform/manage-cost-storage.md) – du har lagt till klargöranden vid beräkning av data volym i avsnittet prissättnings modell.
-- [Använd Azure Resource Manager mallar för att skapa och konfigurera en mall för Log Analytics-arbetsytan](platform/template-workspace-configuration.md) – uppdaterad med nya pris nivåer.
+- [Använd Azure Resource Manager mallar för att skapa och konfigurera en mall för Log Analytics-arbetsytan](./samples/resource-manager-workspace.md) – uppdaterad med nya pris nivåer.
 
 ### <a name="platform-logs"></a>Plattformsloggar
 
@@ -668,9 +668,9 @@ Flera artiklar har uppdaterats som en del av omstrukturering av innehåll för p
 - [Azure Monitor tjänst gränser](service-limits.md)
 - [Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta](./platform/activity-log.md)
 - [Samla in Azure aktivitets logg med diagnostikinställningar (för hands version) – Azure Monitor](./platform/activity-log.md)
-- [Samla in Azures aktivitets loggar i en Log Analytics arbets yta över Azure-klienter](platform/activity-log-collect-tenants.md)
+- [Samla in Azures aktivitets loggar i en Log Analytics arbets yta över Azure-klienter](./platform/activity-log.md)
 - [Samla in Azures resurs loggar i Log Analytics arbets yta](./platform/resource-logs.md#send-to-log-analytics-workspace)
-- [Skapa diagnostisk inställning i Azure med Resource Manager-mall](platform/diagnostic-settings-template.md)
+- [Skapa diagnostisk inställning i Azure med Resource Manager-mall](./samples/resource-manager-diagnostic-settings.md)
 - [Skapa en diagnostisk inställning för insamling av loggar och mått i Azure](platform/diagnostic-settings.md)
 - [Exportera Azure aktivitets loggen](./platform/activity-log.md#legacy-collection-methods)
 - [Översikt över Azure-plattformsloggar](platform/platform-logs-overview.md)

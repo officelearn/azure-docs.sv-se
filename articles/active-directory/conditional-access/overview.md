@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 10/12/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4, azuread-video-2020
-ms.openlocfilehash: b0dec57a67053c3791e68fb40e28d83d5b97777b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d46dfba9d9dedea57b6be872a6853bc522a0bc8c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962164"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145241"
 ---
 # <a name="what-is-conditional-access"></a>Vad är villkorsstyrd åtkomst?
 
@@ -84,13 +84,6 @@ Många organisationer har [vanliga åtkomst frågor som principer för villkorli
 - Blockera eller bevilja åtkomst från vissa platser
 - Blockera riskfyllda inloggnings beteenden
 - Kräva organisations hanterade enheter för vissa program
-
-## <a name="customer-case-studies"></a>Kundfallstudier
-
-Upptäck hur andra organisationer använder villkorlig åtkomst för Azure AD för att definiera och implementera beslut om automatisk åtkomst kontroll. Följande artiklar visar hur dessa kunder behöver uppfyllas.
-
-* [Wipro driver mobil produktivitet med Microsofts moln säkerhets verktyg för att förbättra kund engagemang.](https://customers.microsoft.com/story/wipro-professional-services-enterprise-mobility-security) Principer för villkorlig åtkomst i Azure AD har aktiverat företaget för att dela dokument, resurser och program med betrodda utanför entiteter---som kan använda sina egna autentiseringsuppgifter---samtidigt som de behåller kontrollen över sina egna företags data.
-* [Aramex Delivery Limited-global logistik och transport företag skapar ett moln anslutet kontor med identitets-och åtkomst hanterings lösning](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en). Att säkerställa säker åtkomst var särskilt svårt med Aramex fjär anställda. Företaget använder nu villkorlig åtkomst för att ge dessa anställda till gång till sina SaaS-program utanför nätverket. Regeln för villkorlig åtkomst avgör om du vill genomdriva Multi-Factor Authentication, vilket ger endast rätt personer rätt åtkomst.
 
 ## <a name="license-requirements"></a>Licenskrav
 

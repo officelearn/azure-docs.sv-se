@@ -11,12 +11,12 @@ ms.author: wesmc
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: 0d3afc8d24b95f170bd22b3dc2cf29e7f97e77c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5147d6d7f1bd1fcd43835f6a66196c7642ad4ff
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839562"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151952"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit-AZ3166 till Azure IoT Hub
 
@@ -33,7 +33,7 @@ Du kan använda [MXChip IoT-DevKit](https://microsoft.github.io/azure-iot-develo
 
 Har du inte någon DevKit än? Prova [DevKit-simulatorn](https://azure-samples.github.io/iot-devkit-web-simulator/) eller [Köp en DevKit](https://aka.ms/iot-devkit-purchase).
 
-Du hittar käll koden för alla DevKit-självstudier från [galleriet kod exempel](https://docs.microsoft.com/samples/browse/?term=mxchip).
+Du hittar käll koden för alla DevKit-självstudier från [galleriet kod exempel](/samples/browse/?term=mxchip).
 
 ## <a name="what-you-need"></a>Detta behöver du
 
@@ -66,7 +66,7 @@ Följ dessa steg om du vill ansluta DevKit till datorn:
 
 Snabb starten använder förkompilerad DevKit-programvara för att skicka telemetri till IoT Hub. Innan du kör det skapar du en IoT-hubb och registrerar en enhet med hubben.
 
-### <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+### <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -267,7 +267,7 @@ I stället för att tillhandahålla Azure-IoT Hub och-enhet från Azure Portal k
 
     ![Markera under](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. Välj eller skapa en ny [resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology).
+1. Välj eller skapa en ny [resurs grupp](../azure-resource-manager/management/overview.md#terminology).
 
     ![Välj resursgrupp](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 

@@ -3,12 +3,12 @@ title: Azure DevTest Labs vanliga frågor och svar | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289368"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144590"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -145,7 +145,7 @@ Separata resurs grupps scenario:
 -   DevTest Labs skapar en resurs grupp för delade IP-datorer som tillhör samma storlek.
 
 Gemensamt resurs grupps scenario:
--   Alla virtuella datorer är i den gemensamma resurs grupp som du anger. Läs mer [om allokering av resurs grupper för labbet](https://aka.ms/RGControl).
+-   Alla virtuella datorer är i den gemensamma resurs grupp som du anger. Läs mer [om allokering av resurs grupper för labbet](./resource-group-control.md).
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>Hur gör jag för att underhålla en namngivnings konvention i min DevTest Labs-miljö?
 Du kanske vill utöka de nuvarande konventionerna för företags namn till Azure-åtgärder och göra dem konsekventa i DevTest Labs-miljön. När du distribuerar DevTest Labs rekommenderar vi att du har vissa start principer. Du distribuerar dessa principer av ett centralt skript och JSON-mallar för att genomdriva konsekvens. Namngivnings principer kan implementeras via Azure-principer som tillämpas på prenumerations nivån. JSON-exempel för Azure Policy finns i [Azure policy exempel](../governance/policy/samples/index.md).
@@ -200,7 +200,7 @@ Så här kopierar du befintliga virtuella datorer till DevTest Labs:
 Ja, du kan koppla flera diskar till dina virtuella datorer.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Stöds generation 2-avbildningar av DevTest Labs?
-Ja. Tjänsten DevTest Labs stöder [generation 2-avbildningar](../virtual-machines/windows/generation-2.md). Men om både gen 1-och generation 2-versioner är tillgängliga för en avbildning, visar DevTest Labs bara generation 1-versionen av avbildningen när du skapar en virtuell dator. Du ser avbildningen om det bara finns en version av den tillgängliga generation 2. 
+Ja. Tjänsten DevTest Labs stöder [generation 2-avbildningar](../virtual-machines/generation-2.md). Men om både gen 1-och generation 2-versioner är tillgängliga för en avbildning, visar DevTest Labs bara generation 1-versionen av avbildningen när du skapar en virtuell dator. Du ser avbildningen om det bara finns en version av den tillgängliga generation 2. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Behöver jag köpa en MSDN-prenumeration om jag vill använda en Windows OS-avbildning för min testning?
 Gör något av följande om du vill använda Windows Client OS-avbildningar (Windows 7 eller en senare version) för utveckling eller testning i Azure:

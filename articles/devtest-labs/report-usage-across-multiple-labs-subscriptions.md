@@ -3,16 +3,16 @@ title: Azure DevTest Labs användning över flera labb och prenumerationer
 description: Lär dig hur du rapporterar Azure DevTest Labs användning över flera labb och prenumerationer.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 1d2663113e929145308f5a5712b968f3551668c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9640dc3fd74095a737f382994201dc5610af921a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287285"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152198"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Rapportera Azure DevTest Labs användning över flera labb och prenumerationer
 
-De flesta stora organisationer vill spåra resursanvändningen så att de blir mer effektiva med dessa resurser genom att visualisera trender och avviker i användningen. Baserat på resursanvändning kan labb ägare och chefer anpassa labben för att [förbättra resursanvändningen och kostnaderna](../cost-management-billing/manage/getting-started.md). I Azure DevTest Labs kan du hämta resursanvändning per labb och på så sätt få djupare historik i användnings mönstren. Dessa användnings mönster kan hjälpa dig att hitta ändringar för att förbättra effektiviteten. De flesta företag vill ha både individuell labb användning och övergripande användning för [flera labb och prenumerationer](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
+De flesta stora organisationer vill spåra resursanvändningen så att de blir mer effektiva med dessa resurser genom att visualisera trender och avviker i användningen. Baserat på resursanvändning kan labb ägare och chefer anpassa labben för att [förbättra resursanvändningen och kostnaderna](../cost-management-billing/cost-management-billing-overview.md). I Azure DevTest Labs kan du hämta resursanvändning per labb och på så sätt få djupare historik i användnings mönstren. Dessa användnings mönster kan hjälpa dig att hitta ändringar för att förbättra effektiviteten. De flesta företag vill ha både individuell labb användning och övergripande användning för [flera labb och prenumerationer](/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
 Den här artikeln beskriver hur du hanterar resursanvändnings information över flera labb och prenumerationer.
 
@@ -73,7 +73,7 @@ Använd ett data visualiserings verktyg som du väljer för att ansluta till lå
 
 Du kan använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) för att skapa, länka och hantera dina resurser inom ett enda plats gränssnitt. Om du behöver mer kontroll kan du skapa en enskild resurs i en enda resurs grupp och hanterad oberoende av den Data Factory tjänsten.  
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 När systemet har kon figurer ATS och data flyttas till långsiktig lagring, är nästa steg att följa de frågor som data behöver för att besvara. Exempel: 
 

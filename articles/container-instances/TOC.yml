@@ -43,7 +43,7 @@
 - name: Exempel
   items:
     - name: Kodexempel
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance'
+      href: /samples/browse/?products=azure&terms=container%2binstance
     - name: Mallar för Resurshanteraren
       href: container-instances-samples-rm.md
 - name: Begrepp

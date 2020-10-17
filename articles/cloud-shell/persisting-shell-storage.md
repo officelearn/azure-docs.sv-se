@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1846c126e81ca5851cfbb1d782e5315ae10a82a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89470144"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152273"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Bevara filer i Azure Cloud Shell
 Cloud Shell använder Azure File Storage för att spara filer mellan sessioner. Vid inledande start blir Cloud Shell att du kan associera en ny eller befintlig fil resurs för att spara filer mellan sessioner.
@@ -55,7 +55,7 @@ När installations programmet för lagring visas väljer du **Visa avancerade in
 ![Resurs grupps inställningen](media/persisting-shell-storage/advanced-storage.png)
 
 ## <a name="securing-storage-access"></a>Skydda lagrings åtkomst
-För säkerhet bör varje användare etablera sitt eget lagrings konto.  För rollbaserad åtkomst kontroll (RBAC) måste användare ha deltagar åtkomst eller högre på lagrings konto nivå.
+För säkerhet bör varje användare etablera sitt eget lagrings konto.  För rollbaserad åtkomst kontroll i Azure (Azure RBAC) måste användarna ha deltagar åtkomst eller högre på lagrings konto nivå.
 
 Cloud Shell använder en Azure-filresurs i ett lagrings konto i en angiven prenumeration. På grund av ärvda behörigheter kommer användare med tillräcklig åtkomst behörighet till prenumerationen att kunna komma åt alla lagrings konton och fil resurser som ingår i prenumerationen.
 

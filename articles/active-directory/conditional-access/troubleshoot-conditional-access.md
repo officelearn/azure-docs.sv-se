@@ -5,22 +5,39 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6778b556795f4e079100f1a7bcbb8b9465e9e315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12f722977329bd5d79d4d0e410a29c730faf00c5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88032976"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145097"
 ---
 # <a name="troubleshooting-sign-in-problems-with-conditional-access"></a>Felsöka inloggningsproblem med villkorsstyrd åtkomst
 
 Informationen i den här artikeln kan användas för att felsöka oväntade inloggnings resultat relaterade till villkorlig åtkomst med fel meddelanden och inloggnings loggen för Azure AD.
+
+## <a name="select-all-consequences"></a>Välj alla konsekvenser
+
+Med ramverket för villkorlig åtkomst får du en bra flexibel konfiguration. Men stor flexibilitet innebär också att du noga bör granska varje konfigurations princip innan du släpper den för att undvika oönskade resultat. I det här sammanhanget bör du ägna särskild uppmärksamhet på tilldelningar som påverkar kompletta uppsättningar, till exempel **alla användare/grupper/molnappar**.
+
+Organisationer bör undvika följande konfigurationer:
+
+**Alla molnappar för alla användare:**
+
+- **Blockera åtkomst** – den här konfigurationen blockerar hela organisationen.
+- **Kräv att enheten markeras som kompatibel** – för användare som inte har registrerat sina enheter ännu, blockerar den här principen all åtkomst, inklusive åtkomst till Intune-portalen. Om du är en administratör utan en registrerad enhet, blockerar den här principen dig från att komma tillbaka till Azure Portal för att ändra principen.
+- **Kräv hybrid Azure AD** -domänansluten enhet – den här princip Blocks åtkomsten har också möjlighet att blockera åtkomst för alla användare i din organisation om de inte har en hybrid Azure AD-ansluten enhet.
+- **Kräv app Protection-princip** – den här princip block åtkomsten har också möjlighet att blockera åtkomst för alla användare i din organisation om du inte har en Intune-princip. Om du är en administratör utan ett klient program som har en princip för Intune-App-skydd blockerar den här principen dig från att komma tillbaka till portaler, till exempel Intune och Azure.
+
+**För alla användare, alla molnappar, alla enhets plattformar:**
+
+- **Blockera åtkomst** – den här konfigurationen blockerar hela organisationen.
 
 ## <a name="conditional-access-sign-in-interrupt"></a>Inloggnings avbrott för villkorlig åtkomst
 
@@ -82,8 +99,14 @@ När du skickar in incidenten ska du ange begäran-ID och tid och datum från in
 | 53003 | BlockedByConditionalAccess |
 | 53004 | ProofUpBlockedDueToRisk |
 
+## <a name="what-to-do-if-you-are-locked-out-of-the-azure-portal"></a>Vad ska jag göra om du är utelåst från Azure Portal?
+
+Om du är utelåst från Azure Portal på grund av en felaktig inställning i en princip för villkorlig åtkomst:
+
+- Det finns andra administratörer i din organisation som inte har blockerats än. En administratör med åtkomst till Azure Portal kan inaktivera den princip som påverkar din inloggning. 
+- Om ingen av administratörerna i din organisation kan uppdatera principen skickar du en supportbegäran. Microsoft support kan granska och bekräfta uppdateringen av principer för villkorlig åtkomst som förhindrar åtkomst.
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen](../reports-monitoring/concept-sign-ins.md)
 - [Felsöka villkorlig åtkomst med hjälp av What If-verktyget](troubleshoot-conditional-access-what-if.md)
-- Metod tips för [villkorlig åtkomst i Azure Active Directory](best-practices.md)

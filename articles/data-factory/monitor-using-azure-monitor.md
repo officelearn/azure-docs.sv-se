@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 6f0e688f3d483536e0d82186dd8e498cdadf97da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6862fa6c9dfa3e8ba26d6f07dc1d9096cf16f092
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563559"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151903"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Övervaka och varna Data Factory med Azure Monitor
 
@@ -40,7 +40,7 @@ Data Factory lagrar pipelinen – kör data endast i 45 dagar. Använd Azure Mon
   * Du vill skriva komplexa frågor på en omfattande uppsättning mått som publiceras av Data Factory som ska övervakas. Du kan skapa anpassade aviseringar för dessa frågor via övervakaren.
   * Du vill övervaka över data fabriker. Du kan dirigera data från flera data fabriker till en arbets yta för en övervakare.
 
-Du kan också använda ett lagrings konto eller ett namn område för händelse hubb som inte finns i prenumerationen på den resurs som avger loggar. Den användare som konfigurerar inställningen måste ha rätt rollbaserad åtkomst kontroll (RBAC) till båda prenumerationerna.
+Du kan också använda ett lagrings konto eller ett namn område för händelse hubb som inte finns i prenumerationen på den resurs som avger loggar. Den användare som konfigurerar inställningen måste ha rätt åtkomst kontroll för Azure-rollbaserad åtkomst kontroll till båda prenumerationerna.
 
 ## <a name="configure-diagnostic-settings-and-workspace"></a>Konfigurera diagnostikinställningar och arbets yta
 
@@ -455,7 +455,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**operationName**| Sträng | Namnet på aktiviteten med dess status. Om aktiviteten är start pulsslaget är egenskap svärdet `MyActivity -` . Om aktiviteten är slut pulsslaget är egenskap svärdet `MyActivity - Succeeded` . | `MyActivity - Succeeded` |
 |**pipelineName**| Sträng | Namnet på pipelinen. | `MyPipeline` |
 |**activityName**| Sträng | Aktivitetens namn. | `MyActivity` |
-|**start**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
+|**har**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
 |**ändamål**| Sträng | Slut tiden för aktiviteten körs i TimeSpan UTC-format. Om Diagnostic-loggen visar att en aktivitet har startat men ännu inte har avslut ATS, är egenskap svärdet `1601-01-01T00:00:00Z` . | `2017-06-26T20:55:29.5007959Z` |
 
 #### <a name="pipeline-run-log-attributes"></a>Pipeline-kör logg-attribut
@@ -499,7 +499,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**nivå**| Sträng | Nivån för diagnostikloggar. Ange egenskapens värde till `Informational` . | `Informational` |
 |**operationName**| Sträng | Namnet på pipelinen tillsammans med dess status. När pipeline-körningen är färdig är egenskap svärdet `Pipeline - Succeeded` . | `MyPipeline - Succeeded`. |
 |**pipelineName**| Sträng | Namnet på pipelinen. | `MyPipeline` |
-|**start**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`. |
+|**har**| Sträng | Start tiden för aktiviteten körs i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`. |
 |**ändamål**| Sträng | Slut tiden för aktiviteten körs i TimeSpan UTC-format. Om Diagnostic-loggen visar att en aktivitet har startat men ännu inte har avslut ATS, är egenskap svärdet `1601-01-01T00:00:00Z` .  | `2017-06-26T20:55:29.5007959Z` |
 |**statusfältet**| Sträng | Slut status för pipeline-körningen. Möjliga egenskaps värden är `Succeeded` och `Failed` . | `Succeeded`|
 
@@ -544,7 +544,7 @@ Mer information finns i [diagnostikinställningar](https://docs.microsoft.com/re
 |**triggerName**| Sträng | Namnet på utlösaren. | `MyTrigger` |
 |**triggerType**| Sträng | Typ av utlösare. Möjliga egenskaps värden är `Manual Trigger` och `Schedule Trigger` . | `ScheduleTrigger` |
 |**triggerEvent**| Sträng | Händelse av utlösaren. | `ScheduleTime - 2017-07-06T01:50:25Z` |
-|**start**| Sträng | Start tiden för utlösaren utlöses i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
+|**har**| Sträng | Start tiden för utlösaren utlöses i TimeSpan UTC-format. | `2017-06-26T20:55:29.5007959Z`|
 |**statusfältet**| Sträng | Slutgiltig status visar om utlösaren har utlösts. Möjliga egenskaps värden är `Succeeded` och `Failed` . | `Succeeded`|
 
 #### <a name="ssis-integration-runtime-log-attributes"></a>SSIS för integration runtime

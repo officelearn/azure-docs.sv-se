@@ -3,12 +3,12 @@ title: Alternativ för autentisering av registret
 description: Autentiseringsalternativ för ett privat Azure Container Registry, inklusive att logga in med en Azure Active Directory identitet, med hjälp av tjänstens huvud namn och med valfria administratörs behörighet.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 1747dfa0664778283d0cea06940ea95982c269a2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5315c11e0f1e2c859384e3783ae4be5d709adb42
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048023"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148563"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Autentisera med ett Azure Container Registry
 
@@ -20,7 +20,7 @@ Rekommenderade sätt är att autentisera till ett register direkt via [enskild i
 
 I följande tabell visas tillgängliga autentiseringsmetoder och typiska scenarier. Mer information finns i länkat innehåll.
 
-| Metod                               | Så här autentiserar du                                           | Scenarier                                                            | Rollbaserad åtkomstkontroll (RBAC)                             | Begränsningar                                |
+| Metod                               | Så här autentiserar du                                           | Scenarier                                                            | Azure RBAC (rollbaserad åtkomstkontroll)                             | Begränsningar                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Individuell AD-identitet](#individual-login-with-azure-ad)                | `az acr login` i Azure CLI                             | Interaktiva push/pull från utvecklare, testare                                    | Ja                              | AD-token måste förnyas var 3: e timme     |
 | [AD-tjänstens huvud namn](#service-principal)                  | `docker login`<br/><br/>`az acr login` i Azure CLI<br/><br/> Inloggnings inställningar för registret i API: er eller verktyg<br/><br/> [Kubernetes pull-hemlighet](container-registry-auth-kubernetes.md)                                           | Obevakad push från CI/CD-pipeline<br/><br/> Obevakad hämtning till Azure eller externa tjänster  | Ja                              | SP lösen ordets standard utgångs datum är 1 år       |                                                           

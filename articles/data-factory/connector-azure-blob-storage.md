@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 38f3aaeddbdedb073d83a64a508eb9f4578f1c97
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7aef08f4ba1948c32fe83a2d0064a21459c003b4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948448"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148953"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Kopiera och transformera data i Azure Blob Storage med hjälp av Azure Data Factory
 
@@ -223,7 +223,7 @@ Följ dessa steg om du vill använda autentisering av tjänstens huvud namn:
     - Program nyckel
     - Klientorganisations-ID
 
-2. Bevilja tjänstens huvud namn rätt behörighet i Azure Blob Storage. Mer information om rollerna finns i [Hantera åtkomst rättigheter för att Azure Storage data med RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Bevilja tjänstens huvud namn rätt behörighet i Azure Blob Storage. Mer information om rollerna finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **Som källa**, beviljar du minst rollen **Storage BLOB data Reader** i **åtkomst kontroll (IAM)**.
     - **Som mottagare**, i **åtkomst kontroll (IAM)**, beviljar du minst rollen **Storage BLOB data Contributor** .
@@ -280,7 +280,7 @@ Allmän information om Azure Storage autentisering finns i [autentisera åtkomst
 
 1. [Hämta data Factory hanterad identitets information](data-factory-service-identity.md#retrieve-managed-identity) genom att kopiera värdet för det hanterade ID-objekt-ID: t som genererats tillsammans med din fabrik.
 
-2. Bevilja behörigheten hanterad identitet i Azure Blob Storage. Mer information om rollerna finns i [Hantera åtkomst rättigheter för att Azure Storage data med RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Bevilja behörigheten hanterad identitet i Azure Blob Storage. Mer information om rollerna finns i [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **Som källa**, beviljar du minst rollen **Storage BLOB data Reader** i **åtkomst kontroll (IAM)**.
     - **Som mottagare**, i **åtkomst kontroll (IAM)**, beviljar du minst rollen **Storage BLOB data Contributor** .

@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 4c95e345255b28ba43e474087cdb80fcab493394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3191552421091bc0a2c4e6855c0271c142af1882
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91356425"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152366"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Köra en anpassad behållare i Azure
 
@@ -31,7 +31,7 @@ För att slutföra den här kursen behöver du:
 
 - <a href="https://hub.docker.com/" target="_blank">Registrera dig för ett Docker Hub-konto</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installera Docker för Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
+- <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Växla Docker för att köra Windows-containrar</a>.
 - <a href="https://www.visualstudio.com/downloads/" target="_blank">Installera Visual Studio 2019</a> med arbets belastningarna **ASP.net och webb utveckling** och **Azure Development** . Om du redan har installerat Visual Studio 2019:
 
     - Installera de senaste uppdateringarna i Visual Studio genom att välja **Hjälp**  >  **sökning efter uppdateringar**.
@@ -87,7 +87,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 ## <a name="create-a-windows-container-app"></a>Skapa en Windows-containerapp
 
-1. Logga in på [Azure Portal]( https://portal.azure.com).
+1. Logga in på [Azure-portalen]( https://portal.azure.com).
 
 1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 

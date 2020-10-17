@@ -4,12 +4,12 @@ description: Förstå hur Azure Container instances samverkar med behållar diri
 ms.topic: article
 ms.date: 04/15/2019
 ms.custom: mvc
-ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7faeecfcc3a1d006cc923b48339a1242a0b9e9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74533666"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148591"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances-och behållar dirigering
 
@@ -54,7 +54,7 @@ I stället för att skala ut antalet virtuella datorer i klustret, och sedan dis
 
 Om du snabbt vill skala program arbets belastningar i ett [Azure Kubernetes service](../aks/intro-kubernetes.md) -kluster (AKS) kan du använda *virtuella noder* som skapats dynamiskt i Azure Container instances. Virtuella noder möjliggör nätverkskommunikation mellan poddar som körs i ACI och AKS-klustret. 
 
-Virtuella noder har för närvarande stöd för Linux container instances. Kom igång med virtuella noder med hjälp av [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) eller [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545).
+Virtuella noder har för närvarande stöd för Linux container instances. Kom igång med virtuella noder med hjälp av [Azure CLI](../aks/virtual-nodes-cli.md) eller [Azure Portal](../aks/virtual-nodes-portal.md).
 
 Virtuella noder använder den [virtuella Kubelet][aci-connector-k8s] med öppen källkod för att efterlikna Kubernetes- [Kubelet][kubelet-doc] genom att registrera sig som en nod med obegränsad kapacitet. Den virtuella Kubelet skickar skapandet av [poddar][pod-doc] som behållar grupper i Azure Container instances.
 

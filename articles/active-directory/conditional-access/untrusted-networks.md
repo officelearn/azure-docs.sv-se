@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 11/21/2019
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b2f9a6e13fdc39ab18a2056fab15982aa9fb0e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88948172"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144992"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Gör så här: Kräv MFA för åtkomst från ej betrodda nätverk med villkorlig åtkomst   
 
@@ -26,10 +26,7 @@ Den här artikeln innehåller den information du behöver för att konfigurera e
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du är bekant med: 
-
-- [Grundläggande begrepp](overview.md) för villkorlig åtkomst i Azure AD 
-- [Metod tips](best-practices.md) för att konfigurera principer för villkorlig åtkomst i Azure Portal
+Den här artikeln förutsätter att du är bekant med de [grundläggande begreppen](overview.md) för villkorlig åtkomst. 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -65,7 +62,7 @@ I stället för att försöka definiera vilka platser som inte är betrodda kan 
 
 ## <a name="policy-deployment"></a>Distribution av princip
 
-Med den metod som beskrivs i den här artikeln kan du nu konfigurera en princip för villkorlig åtkomst för ej betrodda platser. För att se till att principen fungerar som förväntat, är den rekommenderade rekommenderade metoden att testa den innan den distribueras till produktion. Vi rekommenderar att du använder en test klient för att kontrol lera om den nya principen fungerar som den ska. Mer information finns i [så här distribuerar du en ny princip](best-practices.md#how-should-you-deploy-a-new-policy). 
+Med den metod som beskrivs i den här artikeln kan du nu konfigurera en princip för villkorlig åtkomst för ej betrodda platser. För att se till att principen fungerar som förväntat, är den rekommenderade rekommenderade metoden att testa den innan den distribueras till produktion. Vi rekommenderar att du använder en test klient för att kontrol lera om den nya principen fungerar som den ska.
 
 ## <a name="next-steps"></a>Nästa steg
 

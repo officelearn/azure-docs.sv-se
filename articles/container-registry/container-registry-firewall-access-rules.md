@@ -3,12 +3,12 @@ title: Åtkomst regler för brand vägg
 description: Konfigurera regler för åtkomst till ett Azure Container Registry från bakom en brand vägg genom att tillåta åtkomst till ("vit listning") REST API-och data slut punkts domän namn eller tjänstspecifika IP-adressintervall.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 679dbcaf30653b855d35825f94e93f87ac68c322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ecd5f802176cdc6881294f5dedefd3dd467244
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246987"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148513"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg
 
@@ -113,7 +113,7 @@ Sök efter den angivna regionen, till exempel **Storage. AustraliaCentral**.
 
 ## <a name="allow-access-by-service-tag"></a>Tillåt åtkomst per service tag-tagg
 
-I ett virtuellt Azure-nätverk använder du nätverks säkerhets regler för att filtrera trafik från en resurs, till exempel en virtuell dator i ett behållar register. För att förenkla skapandet av reglerna för Azure-nätverk använder du **AzureContainerRegistry** [service tag](../virtual-network/security-overview.md#service-tags). En service-tagg representerar en grupp IP-adressprefix för att få åtkomst till en Azure-tjänst globalt eller per Azure-region. Taggen uppdateras automatiskt när adresserna ändras. 
+I ett virtuellt Azure-nätverk använder du nätverks säkerhets regler för att filtrera trafik från en resurs, till exempel en virtuell dator i ett behållar register. För att förenkla skapandet av reglerna för Azure-nätverk använder du **AzureContainerRegistry** [service tag](../virtual-network/network-security-groups-overview.md#service-tags). En service-tagg representerar en grupp IP-adressprefix för att få åtkomst till en Azure-tjänst globalt eller per Azure-region. Taggen uppdateras automatiskt när adresserna ändras. 
 
 Du kan till exempel skapa en regel för utgående nätverks säkerhets grupp med mål- **AzureContainerRegistry** för att tillåta trafik till ett Azure Container Registry. Om du bara vill tillåta åtkomst till tjänst tag gen i en angiven region anger du regionen i följande format: **AzureContainerRegistry**. [*regions namn*].
 
@@ -183,7 +183,7 @@ Om du behöver åtkomst till Microsoft Container Registry (MCR) bakom en brand v
 
 * Lär dig mer om [Azures metod tips för nätverks säkerhet](../security/fundamentals/network-best-practices.md)
 
-* Lär dig mer om [säkerhets grupper](../virtual-network/security-overview.md) i ett virtuellt Azure-nätverk
+* Lär dig mer om [säkerhets grupper](../virtual-network/network-security-groups-overview.md) i ett virtuellt Azure-nätverk
 
 * Läs mer om hur du konfigurerar en [privat länk](container-registry-private-link.md) för ett behållar register
 

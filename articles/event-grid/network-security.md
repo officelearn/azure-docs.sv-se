@@ -5,12 +5,12 @@ author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84336051fc3d653fbe73f650f2fc2badb2ec58da
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326464"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148942"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Nätverks säkerhet för Azure Event Grid resurser
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Event Grid: 
@@ -23,11 +23,11 @@ I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med
 ## <a name="service-tags"></a>Tjänsttaggar
 En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras, vilket minimerar komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler. Mer information om service märken finns i [Översikt över tjänst Taggar](../virtual-network/service-tags-overview.md).
 
-Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules)   eller [Azure-brandväggen](../firewall/service-tags.md). Använd tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (till exempel **AzureEventGrid**) i lämpligt *käll*   -eller *mål*   fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst.
+Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md#security-rules)   eller [Azure-brandväggen](../firewall/service-tags.md). Använd tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (till exempel **AzureEventGrid**) i lämpligt *käll*   -eller *mål*   fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst.
 
 | Tjänsttagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Azure Event Grid. | Båda | Inga | Inga |
+| AzureEventGrid | Azure Event Grid. | Båda | Nej | Nej |
 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
@@ -84,9 +84,9 @@ I följande tabell beskrivs olika tillstånd för den privata slut punkts anslut
 | Anslutnings status   |  Publiceringen lyckades (Ja/Nej) |
 | ------------------ | -------------------------------|
 | Godkända           | Ja                            |
-| Avslagen           | Inga                             |
-| Väntar            | Inga                             |
-| Frånkopplad       | Inga                             |
+| Avslagen           | Nej                             |
+| Väntar            | Nej                             |
+| Frånkopplad       | Nej                             |
 
 För att publiceringen ska lyckas bör anslutnings statusen för den privata slut punkten **godkännas**. Om en anslutning avvisas kan den inte godkännas med hjälp av Azure Portal. Den enda möjligheten är att ta bort anslutningen och skapa en ny i stället.
 

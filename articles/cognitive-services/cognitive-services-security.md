@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 9b90d886923f4bbdab3715130bde15ecb5921636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326821"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152292"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services-säkerhet
 
@@ -33,7 +33,7 @@ För .NET-användare bör du överväga <a href="https://docs.microsoft.com/dotn
 
 ## <a name="authentication"></a>Autentisering
 
-När du diskuterar autentisering finns det flera vanliga felbegrepp. Autentisering och auktorisering är ofta förvirrande för varandra. Identitet är också en viktig komponent i säkerheten. En identitet är en samling information om ett <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">huvud konto <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Identitets leverantörer (IdP) tillhandahåller identiteter för Authentication Services. Autentisering handlar om att verifiera en användares identitet. Auktorisering är specifikationen av åtkomst rättigheter och behörigheter för resurser för en specifik identitet. Flera av de Cognitive Services erbjudandena innehåller rollbaserad åtkomst kontroll (RBAC). RBAC kan användas för att förenkla vissa av ceremonin som arbetar med att hantera huvud konton manuellt. Mer information finns i [rollbaserad åtkomst kontroll för Azure-resurser](../role-based-access-control/overview.md).
+När du diskuterar autentisering finns det flera vanliga felbegrepp. Autentisering och auktorisering är ofta förvirrande för varandra. Identitet är också en viktig komponent i säkerheten. En identitet är en samling information om ett <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">huvud konto <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Identitets leverantörer (IdP) tillhandahåller identiteter för Authentication Services. Autentisering handlar om att verifiera en användares identitet. Auktorisering är specifikationen av åtkomst rättigheter och behörigheter för resurser för en specifik identitet. Flera av de Cognitive Services erbjudandena, inklusive Azure rollbaserad åtkomst kontroll (Azure RBAC). Azure RBAC kan användas för att förenkla vissa av ceremonin som arbetar med att hantera huvud konton manuellt. Mer information finns i [Azure-rollbaserad åtkomst kontroll för Azure-resurser](../role-based-access-control/overview.md).
 
 Mer information om autentisering med prenumerations nycklar, åtkomsttoken och Azure Active Directory (AAD) finns i <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autentisera begär anden till Azure Cognitive Services <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 

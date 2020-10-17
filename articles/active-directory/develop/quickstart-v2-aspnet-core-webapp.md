@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bf80a15131a8808359d21d5a9655ef04db236178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 80b0c357bbad79a31d8b7153248b73c1231629c8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613500"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145037"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabb start: lägga till inloggning med Microsoft i ett ASP.NET Core-webbprogram
 
@@ -45,7 +45,7 @@ I den här snabb starten använder du ett kod exempel för att lära dig hur en 
 > #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
-> 1. Logga in på [Azure Portal](https://portal.azure.com).
+> 1. Logga in på [Azure-portalen](https://portal.azure.com).
 > 1. Om du har åtkomst till flera klienter använder du filtret för **katalog + prenumeration** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: i den översta menyn för att välja den klient som du vill registrera ett program i.
 > 1. Sök efter och välj **Azure Active Directory**.
 > 1. Under **Hantera**väljer du **Appregistreringar**och sedan **ny registrering**.
@@ -154,17 +154,22 @@ Raden som innehåller `.AddMicrosoftIdentityWebApp` lägger till Microsoft Ident
 | `Instance`             | STS-slutpunkt (Security Token Service) för användaren att autentisera. Det här värdet är vanligt vis `https://login.microsoftonline.com/` som anger det offentliga Azure-molnet. |
 | `TenantId`             | Namnet på din klient organisation eller dess klient-ID (ett GUID) eller *vanligt* för att logga in användare med arbets-eller skol konton eller personliga Microsoft-konton.                             |
 
-`Configure()`Metoden innehåller två viktiga metoder `app.UseCookiePolicy()` `app.UseAuthentication()` som aktiverar de namngivna funktionerna.
+`Configure()`Metoden innehåller två viktiga metoder `app.UseAuthentication()` `app.UseAuthorization()` som aktiverar de namngivna funktionerna. I `Configure()` -metoden måste du också registrera Microsofts identitets Webbs vägar med minst ett anrop till `endpoints.MapControllerRoute()` eller ett anrop till `endpoints.MapControllers()` .
 
 ```csharp
-// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
 {
-    // more code
-    app.UseAuthentication();
-    app.UseAuthorization();
-    // more code
-}
+
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapRazorPages();
+});
+
+// endpoints.MapControllers(); // REQUIRED if MapControllerRoute() isn't called.
 ```
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Skydda en kontrollant eller en kontrollants metod

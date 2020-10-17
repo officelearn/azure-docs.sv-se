@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88654114"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146150"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Snabb start: dela data med Azure Data Resource och Resource Manager-mallar
 
@@ -60,7 +60,7 @@ Den här mallen skapas i inlärnings syfte. I praktiken har du vanligt vis vissa
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Det beror på att distributionen försöker skapa data uppsättningen innan RBAC-tilldelningen har slutförts. Trots fel meddelandet lyckades distributionen.  Du kan fortfarande gå igenom [granskade distribuerade resurser](#review-deployed-resources).
+Det beror på att distributionen försöker skapa data uppsättningen innan Azure Role-tilldelningen har slutförts. Trots fel meddelandet lyckades distributionen.  Du kan fortfarande gå igenom [granskade distribuerade resurser](#review-deployed-resources).
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -81,7 +81,7 @@ Det beror på att distributionen försöker skapa data uppsättningen innan RBAC
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Öppna det data resurs konto som du har skapat.
 1. Välj **skicka resurser**på den vänstra menyn.  Du ser det lagrings konto som anges i listan.
 1. Välj lagrings konto.  Under **Detaljer**visas synkroniseringsinställningarna som du konfigurerade i mallen.

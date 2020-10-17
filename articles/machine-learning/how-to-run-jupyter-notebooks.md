@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d17fb9bee77aae9945c12d45a5ffff316f9d639
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460041"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144244"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
 
@@ -32,7 +32,7 @@ Se hur du kan:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 * En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-notebooks"></a><a name="create"></a> Skapa antecknings böcker
@@ -145,7 +145,7 @@ Välj **kontroll punkter** i Notebook-menyn för att skapa en namngiven kontroll
 
 ### <a name="useful-keyboard-shortcuts"></a>Användbara kortkommandon
 
-|Tangentbord  |Action  |
+|Tangentbord  |Åtgärd  |
 |---------|---------|
 |SKIFT + RETUR     |  Köra en cell       |
 |CTRL + blank steg | Aktivera IntelliSense |
@@ -185,14 +185,14 @@ I verktygsfältet Notebook kan du ändra den miljö som antecknings boken körs 
 
 Dessa åtgärder ändrar inte antecknings läget eller värdena för några variabler i antecknings boken:
 
-|Action  |Resultat  |
+|Åtgärd  |Resultat  |
 |---------|---------| --------|
 |Stoppa kärnan     |  Stoppar eventuell cell som körs. Om du kör en cell startas kerneln om automatiskt. |
 |Navigera till en annan arbets yta-sektion     |     Celler som körs stoppas. |
 
 Dessa åtgärder återställer antecknings bokens tillstånd och återställer alla variabler i antecknings boken.
 
-|Action  |Resultat  |
+|Åtgärd  |Resultat  |
 |---------|---------| --------|
 | Ändra kernel | Notebook använder ny kernel |
 | Ändra beräkning    |     Antecknings boken använder automatiskt den nya beräkningen. |
@@ -221,6 +221,9 @@ Antecknings boken hittar automatiskt alla Jupyter-kernels som är installerade p
     conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> För paket hantering i en bärbar dator kan du använda **% pip** eller **% Conda** Magic Functions för att automatiskt installera paket i den **för närvarande pågående kärnan** i stället för **! pip** eller **! Conda** som refererar till alla paket (inklusive paket utanför den aktuella kernel som körs)
 
 Alla [tillgängliga Jupyter-kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) kan installeras.
 

@@ -1,30 +1,29 @@
 ---
-title: Jämför produktfunktioner i Azure Content Delivery Network (CDN) | Microsoft Docs
+title: Jämför produkt funktioner i Azure Content Delivery Network (CDN)
 description: Läs mer om de funktioner som varje Azure Content Delivery Network-produkt (CDN) stöder.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: mdgattuso
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 0e57ae691bf4b07b8161bc343929510d6be041a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8d8b01e8c5f4ea3054e639ecc9dd8b14bbf048b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81260521"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148735"
 ---
-# <a name="compare-azure-cdn-product-features"></a>Jämföra Azure CDN-produktfunktioner
+# <a name="what-are-the-comparisons-between-azure-cdn-product-features"></a>Vilka är jämförelserna mellan Azure CDN produkt funktioner?
 
-Azure Content Delivery Network (CDN) innehåller fyra produkter: **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon**. Information om hur du migrerar en **Azure CDN Standard från Verizon**-profil till **Azure CDN Premium från Verizon** finns i [Migrera en Azure CDN-profil från Standard Verizon till Premium Verizon](cdn-migrate.md). Observera att det finns en uppgraderings väg från standard Verizon till Premium Verizon, men det finns ingen konverterings funktion mellan andra produkter för tillfället.
+Azure Content Delivery Network (CDN) innehåller av fyra produkter: 
+
+* **Azure CDN Standard från Microsoft**
+* **Azure CDN Standard från Akamai**
+* **Azure CDN Standard från Verizon**
+* **Azure CDN Premium från Verizon**. 
 
 I följande tabell jämförs de funktioner som är tillgängliga med respektive produkt.
 
@@ -75,8 +74,16 @@ I följande tabell jämförs de funktioner som är tillgängliga med respektive 
 | [Komprimering av MIME-typer](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Endast standard |Konfigurerbar |Konfigurerbar  |Konfigurerbar  |
 | Komprimerings kodning  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
 
+## <a name="migration"></a>Migrering
 
+Information om hur du migrerar en **Azure CDN Standard från Verizon**-profil till **Azure CDN Premium från Verizon** finns i [Migrera en Azure CDN-profil från Standard Verizon till Premium Verizon](cdn-migrate.md). 
 
+> [!NOTE]
+> Det finns en uppgraderings väg från standard Verizon till Premium Verizon, men det finns ingen konverterings funktion mellan andra produkter för tillfället.
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om [Azure CDN](cdn-overview.md).
 
 
 

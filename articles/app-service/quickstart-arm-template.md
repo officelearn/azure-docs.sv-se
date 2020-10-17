@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 10/16/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: aad41ed1fb270acb38ec599484e137fbe5a6dceb
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 173c6ff8bb4bcee7ecc40f9f277fae0e4cb8dd13
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131351"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152352"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Snabb start: skapa App Service app med en ARM-mall
 
-Kom igång med [Azure App Service](overview.md) genom att distribuera en app till molnet med hjälp av en Azure Resource Manager-mall (arm-mall) och [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell. Eftersom du använder en kostnads fri App Service nivå debiteras du inga kostnader för att slutföra den här snabb starten.
+Kom igång med [Azure App Service](overview.md) genom att distribuera en app till molnet med hjälp av en Azure Resource Manager-mall (arm-mall) och [Azure CLI](/cli/azure/get-started-with-azure-cli) i Cloud Shell. Eftersom du använder en kostnads fri App Service nivå debiteras du inga kostnader för att slutföra den här snabb starten.
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -38,7 +38,7 @@ Använd följande knapp för att distribuera i **Windows**:
 ## <a name="review-the-template"></a>Granska mallen
 
 ::: zone pivot="platform-windows"
-Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Den distribuerar en App Service plan och en App Service-app i Windows. Den är kompatibel med .NET Core, .NET Framework, PHP, Node.js och statiska HTML-appar. För Java, se [skapa Java-app](app-service-web-get-started-java.md).
+Mallen som används i den här snabbstarten kommer från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). Den distribuerar en App Service plan och en App Service-app i Windows. Den är kompatibel med .NET Core, .NET Framework, PHP, Node.js och statiska HTML-appar. För Java, se [skapa Java-app](./quickstart-java.md).
 
 :::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
@@ -51,8 +51,8 @@ Den här mallen innehåller flera parametrar som är fördefinierade för din be
 
 | Parametrar | Typ    | Standardvärde                | Beskrivning |
 |------------|---------|------------------------------|-------------|
-| webAppName | sträng  | "webApp- **[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)** " | Appnamn |
-| location   | sträng  | "[[resourceGroup (). location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | App-region |
+| webAppName | sträng  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Appnamn |
+| location   | sträng  | "[[resourceGroup (). location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App-region |
 | sku        | sträng  | F1                         | Instans storlek (F1 = kostnads fri nivå) |
 | language   | sträng  | Studio                       | Programmerings språks tack (.net, php, Node, HTML) |
 | Projektet | boolean | Falskt                        | True = distribuera "Hello World"-appen |
@@ -72,8 +72,8 @@ Den här mallen innehåller flera parametrar som är fördefinierade för din be
 
 | Parametrar | Typ    | Standardvärde                | Beskrivning |
 |------------|---------|------------------------------|-------------|
-| webAppName | sträng  | "webApp- **[`<uniqueString>`](/azure/azure-resource-manager/templates/template-functions-string#uniquestring)** " | Appnamn |
-| location   | sträng  | "[[resourceGroup (). location](/azure/azure-resource-manager/templates/template-functions-resource#resourcegroup)]" | App-region |
+| webAppName | sträng  | "webApp- **[`<uniqueString>`](../azure-resource-manager/templates/template-functions-string.md#uniquestring)** " | Appnamn |
+| location   | sträng  | "[[resourceGroup (). location](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup)]" | App-region |
 | sku        | sträng  | F1                         | Instans storlek (F1 = kostnads fri nivå) |
 | linuxFxVersion   | sträng  | "DOTNETCORE&#124;3,0        | "&#124; version av programmerings språks stack" |
 | Repo    | sträng  | " "                          | Extern git-lagrings platsen (valfritt) |
@@ -145,7 +145,7 @@ Bläddra till `http://<app_name>.azurewebsites.net/` och kontrol lera att den ha
 > [PHP med MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Ansluta till Azure SQL Database med Java](/azure/sql-database/sql-database-connect-query-java?toc=%2Fazure%2Fjava%2Ftoc.json)
+> [Ansluta till Azure SQL Database med Java](../azure-sql/database/connect-query-java.md?toc=%252fazure%252fjava%252ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Mappa anpassad domän](app-service-web-tutorial-custom-domain.md)

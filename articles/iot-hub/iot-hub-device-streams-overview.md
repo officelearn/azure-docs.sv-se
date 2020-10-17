@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 4a13d1ff030a63d3ccf33297f215909f5920e16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327692"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152159"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub enhets strömmar (förhands granskning)
 
@@ -103,7 +103,7 @@ Utdata är ett JSON-objekt för alla slut punkter som din Hubbs enhet och tjäns
 ```
 
 > [!NOTE]
-> Se till att du har installerat Azure CLI-version 2.0.57 eller senare. Du kan ladda ned den senaste versionen från sidan [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Se till att du har installerat Azure CLI-version 2.0.57 eller senare. Du kan ladda ned den senaste versionen från sidan [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) .
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Tillåt utgående anslutning till enhetens strömnings slut punkter
@@ -119,7 +119,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Se till att du har installerat Azure CLI-version 2.0.57 eller senare. Du kan ladda ned den senaste versionen från sidan [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Se till att du har installerat Azure CLI-version 2.0.57 eller senare. Du kan ladda ned den senaste versionen från sidan [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) .
 >
 
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Felsöka via aktivitets loggar för enhets strömmar
@@ -156,7 +156,7 @@ Två sidor av varje ström (på enhets-och tjänst sidan) använder IoT Hub SDK 
 
 ## <a name="iot-hub-device-stream-samples"></a>Exempel på IoT Hub enhets data ström
 
-Det finns två [snabb starts exempel](/azure/iot-hub) som är tillgängliga på sidan IoT Hub. Dessa demonstrerar användningen av enhets strömmar efter program.
+Det finns två [snabb starts exempel](./index.yml) som är tillgängliga på sidan IoT Hub. Dessa demonstrerar användningen av enhets strömmar efter program.
 
 * *ECHO* -exemplet demonstrerar användning av enhets strömmar (genom att anropa SDK-API: et direkt).
 
@@ -194,7 +194,7 @@ Installations programmet använder två *lokala proxy* -program som visas i bild
 
 4. Den tjänst-lokala proxyn lyssnar på en utsedd port som väntar på nya SSH-anslutningar från användaren (port 2222 som används i exemplet, men den kan konfigureras till en annan tillgänglig port). Användaren pekar SSH-klienten till den lokala proxyservern på localhost.
 
-### <a name="notes"></a>Obs!
+### <a name="notes"></a>Kommentarer
 
 * Ovanstående steg slutför en slutpunkt-till-slutpunkt-tunnel mellan SSH-klienten (till höger) i SSH-daemonen (till vänster). En del av den här anslutningen från slut punkt till slut punkt omfattar att skicka trafik via en enhets ström till IoT Hub.
 

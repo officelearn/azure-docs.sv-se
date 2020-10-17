@@ -4,12 +4,12 @@ description: Lär dig hur du felsöker vanliga problem när du distribuerar, kö
 ms.topic: article
 ms.date: 06/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 46d3ad6afb1761ca9503676ad2176482b7e4530e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b31f29cdc9cd15ebf3ba88769095bfd0ef2628d2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86260740"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148617"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsöka vanliga problem med Azure Container Instances
 
@@ -25,7 +25,7 @@ När du definierar din behållar specifikation kräver vissa parametrar att namn
 | Omfång | Längd | Skiftläge | Giltiga tecken | Föreslaget mönster | Exempel |
 | --- | --- | --- | --- | --- | --- |
 | Behållar namn<sup>1</sup> | 1–63 |Gemener | Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>-<role>-container<number>` |`web-batch-container1` |
-| Container portar | Mellan 1 och 65535 |Heltal |Heltal mellan 1 och 65535 |`<port-number>` |`443` |
+| Container portar | Mellan 1 och 65535 |Integer |Heltal mellan 1 och 65535 |`<port-number>` |`443` |
 | DNS-namnetikett | 5-63 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>` |`frontend-site1` |
 | Miljövariabel | 1–63 |Skiftlägesokänsligt |Alfanumeriskt och under streck (_) var som helst förutom det första eller sista tecknet |`<name>` |`MY_VARIABLE` |
 | Volym namn | 5-63 |Gemener |Alfanumeriskt och bindestreck var som helst utom det första eller sista. Får inte innehålla två bindestreck i följd. |`<name>` |`batch-output-volume` |
@@ -198,7 +198,7 @@ Vid första skapandet kan Windows-behållare ha ingen inkommande eller utgående
 
 ### <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>Det går inte att ansluta till en underliggande Docker-API eller köra privilegierade behållare
 
-Azure Container Instances visar inte direkt åtkomst till den underliggande infrastrukturen som är värd för behållar grupper. Detta inkluderar åtkomst till Docker-API som körs på behållarens värd och kör privilegierade behållare. Om du behöver Docker-interaktion, kontrollerar du [dokumentationen om rest-referensen](https://aka.ms/aci/rest) för att se vad ACI-API: et stöder. Om något saknas kan du skicka en begäran i [ACI feedback-forumet](https://aka.ms/aci/feedback).
+Azure Container Instances visar inte direkt åtkomst till den underliggande infrastrukturen som är värd för behållar grupper. Detta inkluderar åtkomst till Docker-API som körs på behållarens värd och kör privilegierade behållare. Om du behöver Docker-interaktion, kontrollerar du [dokumentationen om rest-referensen](/rest/api/container-instances/) för att se vad ACI-API: et stöder. Om något saknas kan du skicka en begäran i [ACI feedback-forumet](https://aka.ms/aci/feedback).
 
 ### <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Det går inte att komma åt containergruppens IP-adress på grund av felmatchade portar
 

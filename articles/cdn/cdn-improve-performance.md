@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358295"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148744"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Förbättra prestanda genom att komprimera filer i Azure CDN
 Fil komprimering är en enkel och effektiv metod för att förbättra fil överförings hastigheten och öka sid inläsnings prestandan genom att minska fil storleken innan den skickas från servern. Fil komprimering kan minska bandbredds kostnaderna och ge användarna ett mer svars upplevelser.
@@ -113,6 +113,8 @@ Om begäran stöder fler än en komprimerings typ prioriteras brotli-komprimerin
 
 När en begäran för en till gång anger gzip-komprimering och begäran resulterar i ett cache-missar, Azure CDN utföra gzip-komprimering av till gången direkt på POP-servern. Efteråt hanteras den komprimerade filen från cachen.
 
+Om ursprunget använder Chunked Transfer Encoding (common Table EXPRESSIONS) för att skicka komprimerade data till CDN-POP, stöds inte svars storlekar som är större än 8 MB. 
+
 ### <a name="azure-cdn-from-verizon-profiles"></a>Azure CDN från Verizon-profiler
 
 För **Azure CDN Standard från Verizon** och **Azure CDN Premium från Verizon** -profiler komprimeras endast kvalificerade filer. För att vara kvalificerad för komprimering måste en fil:
@@ -149,7 +151,7 @@ I följande tabeller beskrivs Azure CDN komprimerings beteende för varje scenar
 | Okomprimerade |Inte cachelagrad |Okomprimerade | |
 
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>Komprimering är aktiverat och filen är tillgänglig för komprimering
-| Klientens begärda format (via Accept-Encoding huvud) | Cachelagrat fil format | CDN-svar på klienten | Obs! |
+| Klientens begärda format (via Accept-Encoding huvud) | Cachelagrat fil format | CDN-svar på klienten | Kommentarer |
 | --- | --- | --- | --- |
 | Komprimerade |Komprimerade |Komprimerade |CDN-omkodningar mellan format som stöds. |
 | Komprimerade |Okomprimerade |Komprimerade |CDN utför en komprimering. |

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fc0ad45f575f9190f15b61acdf476c716b7f1638
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a073df78adbf0104d81a96eb92ea427f60e53b01
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90942144"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151837"
 ---
 # <a name="use-azure-data-studio-to-manage-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Använd Azure Data Studio för att hantera Azure Arc-aktiverade PostgreSQL-Server gruppen
 
@@ -61,9 +61,8 @@ Vyn instrument panel för PostgreSQL:
 
 Det innehåller flera instrument paneler som visas på vänster sida i fönstret:
 
-- **Översikt:** Visar sammanfattnings information om din instans, t. ex. namn, Azure-prenumerations-ID, konfiguration, version av databas motorn, slut punkter för Grafana och Kibana...
+- **Översikt:** Visar sammanfattnings information om din instans, t. ex. namn, PostgreSQL admin-användarnamn, Azure-prenumerations-ID, konfiguration, version av databas motorn, slut punkter för Grafana och Kibana...
 - **Anslutnings strängar:** Visar olika anslutnings strängar som du kan behöva ansluta till PostgreSQL-instansen som psql, Node.js, PHP, Ruby...
-- **Egenskaper:** Visar olika egenskaper som PostgreSQL Admin User Name, motsvarande resurs grupp för skugg resursen...
 - **Diagnostisera och lösa problem:** Är landnings sidan där du hittar olika resurser som hjälper dig att felsöka din instans när vi utökar fel söknings antecknings böckerna
 - **Ny supportbegäran:** Är landnings sidan från vilken du kommer att kunna begära hjälp från våra Support tjänster som startar allmänt för hands versions meddelande.
 

@@ -3,12 +3,12 @@ title: Felsöka inloggning till registret
 description: Symptom, orsaker och lösningar på vanliga problem vid inloggning i ett Azure Container Registry
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253362"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148435"
 ---
 # <a name="troubleshoot-registry-login"></a>Felsöka inloggning av registret
 
@@ -95,7 +95,7 @@ Relaterade länkar:
 
 ### <a name="confirm-credentials-are-authorized-to-access-registry"></a>Bekräfta autentiseringsuppgifter har behörighet att komma åt registret
 
-Bekräfta de register behörigheter som är associerade med autentiseringsuppgifterna, till exempel RBAC- `AcrPull` rollen för att hämta avbildningar från registret eller `AcrPush` rollen för att push-överföra avbildningar. 
+Bekräfta de register behörigheter som är associerade med autentiseringsuppgifterna, till exempel Azure- `AcrPull` rollen för att hämta avbildningar från registret eller `AcrPush` rollen för att push-överföra avbildningar. 
 
 Åtkomst till ett register i portalen eller register hanteringen med hjälp av Azure CLI kräver minst `Reader` rollen att utföra Azure Resource Manager åtgärder.
 
@@ -103,7 +103,7 @@ Du eller en register ägare måste ha tillräcklig behörighet i prenumerationen
 
 Relaterade länkar:
 
-* [RBAC-roller och behörigheter – Azure Container Registry](container-registry-roles.md)
+* [Azure-roller och-behörigheter – Azure Container Registry](container-registry-roles.md)
 * [Logga in med lagringsplats-token](container-registry-repository-scoped-permissions.md)
 * [Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen](../role-based-access-control/role-assignments-portal.md)
 * [Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](../active-directory/develop/howto-create-service-principal-portal.md)
@@ -142,7 +142,5 @@ Om du inte löser problemet här kan du läsa följande alternativ.
   * [Felsöka nätverks problem med registret](container-registry-troubleshoot-access.md)
   * [Felsöka registerprestanda](container-registry-troubleshoot-performance.md)
 * Alternativ för [Community-support](https://azure.microsoft.com/support/community/)
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [Öppna en support ärende](https://azure.microsoft.com/support/create-ticket/) baserad på information som du anger, en snabb diagnostik kan köras för autentiseringsfel i registret
-
-

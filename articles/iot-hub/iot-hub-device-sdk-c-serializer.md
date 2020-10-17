@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: robinsh
 ms.custom: amqp
-ms.openlocfilehash: d4916d651638f0d1dbb4f10e0e0732f5c330d300
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f52d1d1c5f264550076688d5e25e110de230eff4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81767024"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152228"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IoT-enhetens SDK för C – mer om serialiserare
 
@@ -28,7 +28,7 @@ Slutligen kommer artikeln att gå vidare till vissa avsnitt som beskrivs i före
 
 Allt som beskrivs i den här artikeln baseras på SDK-exemplen för **serialiseraren** . Om du vill följa med, se simplesample- ** \_ AMQP** och **simplesample \_ http-** program som ingår i Azure IoT-enhetens SDK för C.
 
-Du hittar [**Azure IoT-enhetens SDK för c**](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen och visar information om API: et i [C API-referensen](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
+Du hittar [**Azure IoT-enhetens SDK för c**](https://github.com/Azure/azure-iot-sdk-c) GitHub-lagringsplatsen och visar information om API: et i [C API-referensen](/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-modeling-language"></a>Modell språket
 
@@ -670,4 +670,4 @@ Detta avslutar även serien i tre delar om hur du utvecklar program med **Azure 
 
 Mer information om hur du utvecklar för IoT Hub finns i [Azure IoT SDK](iot-hub-devguide-sdks.md): er.
 
-För att ytterligare utforska funktionerna i IoT Hub, se [distribuera AI till gräns enheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+För att ytterligare utforska funktionerna i IoT Hub, se [distribuera AI till gräns enheter med Azure IoT Edge](../iot-edge/quickstart-linux.md).

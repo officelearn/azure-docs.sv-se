@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c665e30ed9b284f7c93cf8588b710c9f22457a0a
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021440"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151668"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap för IoT Hub
 
-Som ett första steg mot att implementera en elastisk IoT-lösning måste arkitekter, utvecklare och företags ägare definiera drift tiden för de lösningar som de skapar. Dessa mål kan definieras främst baserat på specifika affärs mål för varje scenario. I det här sammanhanget beskriver artikeln [Azure-affärskontinuitet teknisk vägledning](https://docs.microsoft.com/azure/architecture/resiliency/) ett allmänt ramverk som hjälper dig att tänka på verksamhets kontinuitet och haveri beredskap. [Haveri beredskap och hög tillgänglighet för Azure](https://docs.microsoft.com/azure/architecture/reliability/disaster-recovery) -programpapper ger arkitektur vägledning om strategier för Azure-program för att uppnå hög tillgänglighet (ha) och haveri beredskap (Dr).
+Som ett första steg mot att implementera en elastisk IoT-lösning måste arkitekter, utvecklare och företags ägare definiera drift tiden för de lösningar som de skapar. Dessa mål kan definieras främst baserat på specifika affärs mål för varje scenario. I det här sammanhanget beskriver artikeln [Azure-affärskontinuitet teknisk vägledning](/azure/architecture/resiliency/) ett allmänt ramverk som hjälper dig att tänka på verksamhets kontinuitet och haveri beredskap. [Haveri beredskap och hög tillgänglighet för Azure](/azure/architecture/reliability/disaster-recovery) -programpapper ger arkitektur vägledning om strategier för Azure-program för att uppnå hög tillgänglighet (ha) och haveri beredskap (Dr).
 
 Den här artikeln beskriver de HA och DR-funktioner som erbjuds specifikt av IoT Hubs tjänsten. De breda områden som beskrivs i den här artikeln är:
 
@@ -64,7 +64,7 @@ När redundansväxlingen för IoT Hub har slutförts förväntas alla åtgärder
 >
 > - Om du använder Azure Functions eller Azure Stream Analytics för att ansluta den inbyggda slut punkten för händelser kan du behöva utföra en **omstart**. Detta beror på att under redundansväxlingen tidigare förskjutningar inte längre är giltiga.
 >
-> - Vid routning till lagring rekommenderar vi att du listar blobbar eller filer och sedan går över dem, så att alla blobbar eller filer läses utan att du behöver göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en Microsoft-initierad redundans eller manuell redundans. Du kan använda [list-BLOB-API: et](https://docs.microsoft.com/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar eller [lista ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) för listan med filer. Mer information finns i [Azure Storage som en Dirigerings slut punkt](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
+> - Vid routning till lagring rekommenderar vi att du listar blobbar eller filer och sedan går över dem, så att alla blobbar eller filer läses utan att du behöver göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en Microsoft-initierad redundans eller manuell redundans. Du kan använda [list-BLOB-API: et](/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar eller [lista ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) för listan med filer. Mer information finns i [Azure Storage som en Dirigerings slut punkt](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft-initierad redundans
 
@@ -134,9 +134,9 @@ Här är en sammanfattning av de HA/DR-alternativ som visas i den här artikeln 
 
 | HA/DR-alternativ | RTO | RPO | Krävs manuell åtgärd? | Implementerings komplexitet | Ytterligare kostnads påverkan|
 | --- | --- | --- | --- | --- | --- |
-| Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|Inga|Inget|Inget|
-| Manuell redundans |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Inget|
-| Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|Inga|Hög|> 1x kostnaden för 1 IoT Hub|
+| Microsoft-initierad redundans |2-26 timmar|Referera till tabellen återställnings punkt ovan|Nej|Inga|Inga|
+| Manuell redundans |10 min – 2 timmar|Referera till tabellen återställnings punkt ovan|Ja|Mycket låg. Du behöver bara utlösa den här åtgärden från portalen.|Inga|
+| Flera regioner HA |< 1 min|Beror på replikeringsfrekvens för din anpassade HA-lösning|Nej|Hög|> 1x kostnaden för 1 IoT Hub|
 
 ## <a name="next-steps"></a>Nästa steg
 

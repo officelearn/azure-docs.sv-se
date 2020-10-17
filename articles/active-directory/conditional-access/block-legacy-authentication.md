@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca9f4e290c5dad45e5bf87439ebcd1c88a7c540f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602011"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145539"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Gör så här: blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -37,10 +37,7 @@ Om din miljö är redo att blockera äldre autentisering för att förbättra di
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här artikeln förutsätter att du är bekant med: 
-
-- [Grundläggande begrepp](overview.md) för villkorlig åtkomst i Azure AD 
-- [Metod tips](best-practices.md) för att konfigurera principer för villkorlig åtkomst i Azure Portal
+Den här artikeln förutsätter att du är bekant med de [grundläggande begreppen](overview.md) för villkorlig åtkomst i Azure AD.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 

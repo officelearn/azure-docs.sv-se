@@ -3,12 +3,12 @@ title: Konfigurera ett labb att använda Fjärrskrivbordsgateway i Azure DevTest
 description: Lär dig hur du konfigurerar ett labb i Azure DevTest Labs med en Fjärrskrivbordsgateway för att säkerställa säker åtkomst till de virtuella labb datorerna utan att behöva exponera RDP-porten.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b48a0709deb21ca0f8a27d1cf953c7d8d4ba2cc8
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288071"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144701"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurera ditt labb i Azure DevTest Labs att använda en Fjärrskrivbordsgateway
 I Azure DevTest Labs kan du konfigurera en Fjärrskrivbordsgateway för ditt labb för att säkerställa säker åtkomst till de virtuella datorerna i labbet (VM) utan att behöva exponera RDP-porten. Labbet är en central plats där dina labb användare kan visa och ansluta till alla virtuella datorer som de har åtkomst till. Knappen **Anslut** på sidan **virtuell dator** skapar en datorspecifik RDP-fil som du kan öppna för att ansluta till datorn. Du kan anpassa och säkra RDP-anslutningen ytterligare genom att ansluta ditt labb till en Fjärrskrivbordsgateway. 
@@ -79,7 +79,7 @@ Konfigurera labbet att använda token-autentisering med hjälp av följande steg
 1. **Spara** Något.
 
     > [!NOTE] 
-    > Genom att klicka på **Spara**godkänner du [licens villkoren](https://www.microsoft.com/licensing/product-licensing/products)för fjärrskrivbordsgateway. Mer information om fjärr-Gateway finns i [Välkommen till Fjärrskrivbordstjänster](https://aka.ms/rds) och [distribuera din fjärr skrivbords miljö](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+    > Genom att klicka på **Spara**godkänner du [licens villkoren](https://www.microsoft.com/licensing/product-licensing/products)för fjärrskrivbordsgateway. Mer information om fjärr-Gateway finns i [Välkommen till Fjärrskrivbordstjänster](/windows-server/remote/remote-desktop-services/Welcome-to-rds) och [distribuera din fjärr skrivbords miljö](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 
 Om du vill konfigurera labbet via Automation, se [Set-DevTestLabGateway.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Set-DevTestLabGateway.ps1) för ett PowerShell-skript för att ange **Gateway-värdnamn** och inställningar för gateway- **token** . [Azure DevTest Labs GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab) innehåller också en Azure Resource Manager-mall som skapar eller uppdaterar ett labb med **Gateway-värdnamn** och inställningar för gateway- **token** .
@@ -94,7 +94,7 @@ Här är ett exempel på en NSG som endast tillåter trafik som först går igen
 ## <a name="sample-to-create-a-remote-desktop-gateway"></a>Exempel för att skapa en gateway för fjärr skrivbord
 
 > [!NOTE] 
-> Genom att använda exempel mallarna godkänner du [licens villkoren](https://www.microsoft.com/licensing/product-licensing/products)för fjärrskrivbordsgateway. Mer information om fjärr-Gateway finns i [Välkommen till Fjärrskrivbordstjänster](https://aka.ms/rds) och [distribuera din fjärr skrivbords miljö](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
+> Genom att använda exempel mallarna godkänner du [licens villkoren](https://www.microsoft.com/licensing/product-licensing/products)för fjärrskrivbordsgateway. Mer information om fjärr-Gateway finns i [Välkommen till Fjärrskrivbordstjänster](/windows-server/remote/remote-desktop-services/Welcome-to-rds) och [distribuera din fjärr skrivbords miljö](/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure).
 
 [Azure DevTest Labs GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab) innehåller några exempel som hjälper dig att konfigurera de resurser som behövs för att använda token-autentisering och fjärr skrivbords-Gateway med DevTest Labs. Dessa exempel innehåller Azure Resource Manager mallar för gateway-datorer, Lab-inställningar och Function-appar.
 

@@ -8,12 +8,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
-ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80369883b84ca30cae475235d41addcfba7e52e1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84300206"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152334"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Använd privata slut punkter för Azure SignalR service
 
@@ -82,8 +82,8 @@ Det rekommenderade DNS-zonnamn för privata slut punkter för Azure SignalR serv
 
 Mer information om hur du konfigurerar en egen DNS-server för att stödja privata slut punkter finns i följande artiklar:
 
-- [Namnmatchning för resurser i virtuella nätverk i Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS-konfiguration för privata slut punkter](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Namnmatchning för resurser i virtuella nätverk i Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS-konfiguration för privata slut punkter](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
@@ -198,7 +198,7 @@ Den här begränsningen är ett resultat av DNS-ändringar som gjorts när Azure
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regler för nätverkssäkerhetsgrupper för undernät med privata slutpunkter
 
-För närvarande kan du inte konfigurera regler för [nätverks säkerhets grupper](../virtual-network/security-overview.md) (NSG) och användardefinierade vägar för privata slut punkter. NSG-regler som tillämpas på det undernät som är värd för den privata slut punkten tillämpas på den privata slut punkten. En begränsad lösning för det här problemet är att implementera åtkomst regler för privata slut punkter på käll under näten, även om den här metoden kan kräva en högre hanterings kostnad.
+För närvarande kan du inte konfigurera regler för [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md) (NSG) och användardefinierade vägar för privata slut punkter. NSG-regler som tillämpas på det undernät som är värd för den privata slut punkten tillämpas på den privata slut punkten. En begränsad lösning för det här problemet är att implementera åtkomst regler för privata slut punkter på käll under näten, även om den här metoden kan kräva en högre hanterings kostnad.
 
 ## <a name="next-steps"></a>Nästa steg
 

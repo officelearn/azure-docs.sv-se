@@ -3,12 +3,12 @@ title: Felsöka nätverks problem med registret
 description: Symptom, orsaker och lösningar på vanliga problem vid åtkomst till ett Azure Container Registry i ett virtuellt nätverk eller bakom en brand vägg
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: f84b11418344bfeaf790377c1d8644fbc7d7d636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f2cf2d72e6641d4871b7acccdbd7cc37c653f74
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743377"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148452"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Felsöka nätverks problem med registret
 
@@ -103,7 +103,7 @@ Relaterade länkar:
 
 ### <a name="configure-service-access"></a>Konfigurera tjänst åtkomst
 
-Azure Security Center kan för närvarande inte utföra [avbildnings sårbarhets sökning](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) i ett register som begränsar åtkomsten till privata slut punkter, valda undernät eller IP-adresser. Resurser av följande tjänster kan inte heller komma åt ett behållar register med nätverks begränsningar:
+Azure Security Center kan för närvarande inte utföra [avbildnings sårbarhets sökning](../security-center/defender-for-container-registries-introduction.md?bc=%252fazure%252fcontainer-registry%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fcontainer-registry%252ftoc.json) i ett register som begränsar åtkomsten till privata slut punkter, valda undernät eller IP-adresser. Resurser av följande tjänster kan inte heller komma åt ett behållar register med nätverks begränsningar:
 
 * Azure DevOps Services 
 * Azure Container Instances
@@ -113,7 +113,7 @@ Om åtkomst eller integrering av dessa Azure-tjänster med ditt behållar regist
 
 Relaterade länkar:
 
-* [Azure Container Registry avbildnings genomsökning av Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry avbildnings genomsökning av Security Center](../security-center/defender-for-container-registries-introduction.md)
 * Ge [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
 * [Konfigurera regler för offentliga IP-nätverk](container-registry-access-selected-networks.md)
 * [Anslut privat till ett Azure Container Registry med hjälp av Azure Private Link](container-registry-private-link.md)
@@ -138,7 +138,5 @@ Om du inte löser problemet här kan du läsa följande alternativ.
   * [Felsöka inloggning av registret](container-registry-troubleshoot-login.md) 
   * [Felsöka registerprestanda](container-registry-troubleshoot-performance.md)
 * Alternativ för [Community-support](https://azure.microsoft.com/support/community/)
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [Öppna en supportbegäran](https://azure.microsoft.com/support/create-ticket/)
-
-

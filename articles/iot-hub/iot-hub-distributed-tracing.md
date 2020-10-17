@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99a58cdbed10703c64b980af8571bce2d2638e72
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462045"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92152155"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -93,7 +93,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
 
 ### <a name="clone-the-source-code-and-initialize"></a>Klona käll koden och initiera
 
-1. Installera [arbets belastningen "Skriv bords utveckling med C++"](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019) för Visual Studio 2019. Visual Studio 2017 och 2015 stöds också.
+1. Installera [arbets belastningen "Skriv bords utveckling med C++"](/cpp/build/vscpp-step-0-installation?view=vs-2019) för Visual Studio 2019. Visual Studio 2017 och 2015 stöds också.
 
 1. Installera [cmake](https://cmake.org/). Kontrol lera att det finns i `PATH` genom att skriva `cmake -version` från en kommando tolk.
 
@@ -115,7 +115,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
     cmake ..
     ```
 
-    Om `cmake` du inte hittar din C++-kompilator kan du få build-fel när du kör kommandot ovan. Om det händer ska du försöka köra det här kommandot i [kommandotolken i Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    Om `cmake` du inte hittar din C++-kompilator kan du få build-fel när du kör kommandot ovan. Om det händer ska du försöka köra det här kommandot i [kommandotolken i Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     När bygget är klart ser de sista utdataraderna ut ungefär som följande utdata:
 
@@ -234,7 +234,7 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
 ### <a name="bulk-update-for-multiple-devices"></a>Mass uppdatering för flera enheter
 
-Om du vill uppdatera den distribuerade spårnings samplings konfigurationen för flera enheter använder du [Automatisk enhets konfiguration](iot-hub-auto-device-config.md). Se till att du följer det här dubbla schemat:
+Om du vill uppdatera den distribuerade spårnings samplings konfigurationen för flera enheter använder du [Automatisk enhets konfiguration](./iot-hub-automatic-device-management.md). Se till att du följer det här dubbla schemat:
 
 ```json
 {
@@ -260,7 +260,7 @@ Om du vill se alla spår som loggats av en IoT Hub frågar du logg lagret som du
 
 ### <a name="query-using-log-analytics"></a>Fråga med Log Analytics
 
-Om du har konfigurerat [Log Analytics med diagnostikloggar](../azure-monitor/platform/resource-logs-collect-storage.md)kan du söka efter loggar i `DistributedTracing` kategorin. Den här frågan visar till exempel alla spår som loggats:
+Om du har konfigurerat [Log Analytics med diagnostikloggar](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)kan du söka efter loggar i `DistributedTracing` kategorin. Den här frågan visar till exempel alla spår som loggats:
 
 ```Kusto
 // All distributed traces 
@@ -282,7 +282,7 @@ Information om de olika typerna av loggar finns i [Azure IoT Hub diagnostiklogga
 
 ### <a name="application-map"></a>Programkarta
 
-För att visualisera flödet av IoT-meddelanden ställer du in exempel appen för program kartan. Exempel appen skickar de distribuerade spårnings loggarna till [program kartan](../application-insights/app-insights-app-map.md) med hjälp av en Azure-funktion och en Event Hub.
+För att visualisera flödet av IoT-meddelanden ställer du in exempel appen för program kartan. Exempel appen skickar de distribuerade spårnings loggarna till [program kartan](../azure-monitor/app/app-map.md) med hjälp av en Azure-funktion och en Event Hub.
 
 > [!div class="button"]
 > <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Hämta exemplet på GitHub</a>
@@ -295,11 +295,11 @@ Den här bilden nedan visar distribuerad spårning i app-kartor med tre Dirigeri
 
 ### <a name="context"></a>Kontext
 
-Många IoT-lösningar, inklusive vår egen [referens arkitektur](https://aka.ms/iotrefarchitecture) (endast engelska), följer i allmänhet en variant av [mikrotjänstens arkitektur](https://docs.microsoft.com/azure/architecture/microservices/). När en IoT-lösning växer mer komplex får du ett dussin tals eller fler mikrotjänster. Dessa mikrotjänster kanske inte kommer från Azure. Att ta reda på var IoT-meddelanden släpps eller saktas ned kan bli utmanande. Du har till exempel en IoT-lösning som använder 5 olika Azure-tjänster och 1500 aktiva enheter. Varje enhet skickar 10 enhet-till-moln-meddelanden per sekund (totalt 15 000 meddelanden per sekund), men du märker att din webbapp bara ser 10 000 meddelanden/sekund. Var är problemet? Hur hittar du orsaken?
+Många IoT-lösningar, inklusive vår egen [referens arkitektur](https://aka.ms/iotrefarchitecture) (endast engelska), följer i allmänhet en variant av [mikrotjänstens arkitektur](/azure/architecture/microservices/). När en IoT-lösning växer mer komplex får du ett dussin tals eller fler mikrotjänster. Dessa mikrotjänster kanske inte kommer från Azure. Att ta reda på var IoT-meddelanden släpps eller saktas ned kan bli utmanande. Du har till exempel en IoT-lösning som använder 5 olika Azure-tjänster och 1500 aktiva enheter. Varje enhet skickar 10 enhet-till-moln-meddelanden per sekund (totalt 15 000 meddelanden per sekund), men du märker att din webbapp bara ser 10 000 meddelanden/sekund. Var är problemet? Hur hittar du orsaken?
 
 ### <a name="distributed-tracing-pattern-in-microservice-architecture"></a>Distribuerat spårnings mönster i arkitektur för mikrotjänster
 
-För att rekonstruera flödet av ett IoT-meddelande mellan olika tjänster bör varje tjänst sprida ett *korrelations-ID* som unikt identifierar meddelandet. När du har samlat in ett centraliserat system kan du se meddelande flödet med korrelations-ID. Den här metoden kallas för [distribuerat spårnings mönster](https://docs.microsoft.com/azure/architecture/microservices/logging-monitoring#distributed-tracing).
+För att rekonstruera flödet av ett IoT-meddelande mellan olika tjänster bör varje tjänst sprida ett *korrelations-ID* som unikt identifierar meddelandet. När du har samlat in ett centraliserat system kan du se meddelande flödet med korrelations-ID. Den här metoden kallas för [distribuerat spårnings mönster](/azure/architecture/microservices/logging-monitoring#distributed-tracing).
 
 För att ge stöd till ett större införande för distribuerad spårning bidrar Microsoft till [W3C: standard förslag för distribuerad spårning](https://w3c.github.io/trace-context/).
 
@@ -328,5 +328,5 @@ När den har Aktiver ATS följer stöd för distribuerad spårning för IoT Hub 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information om det allmänna mönstret för spårning i mikrotjänster finns i mönster för [mikrotjänst arkitektur: distribuerad spårning](https://microservices.io/patterns/observability/distributed-tracing.html).
-- Information om hur du konfigurerar konfiguration för att tillämpa distribuerade spårnings inställningar på ett stort antal enheter finns i [Konfigurera och övervaka IoT-enheter i stor skala](iot-hub-auto-device-config.md).
+- Information om hur du konfigurerar konfiguration för att tillämpa distribuerade spårnings inställningar på ett stort antal enheter finns i [Konfigurera och övervaka IoT-enheter i stor skala](./iot-hub-automatic-device-management.md).
 - Mer information om Azure Monitor finns i [Vad är Azure Monitor?](../azure-monitor/overview.md).

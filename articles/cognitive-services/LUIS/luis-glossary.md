@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7dac3767ca5c9e2429f4691a458f88ad1af707
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309497"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151983"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ord lista för språk förståelse för vanliga ord listor och koncept
 Ord listan Language Understanding (LUIS) förklarar termer som du kan stöta på när du arbetar med LUIS-tjänsten.
@@ -96,7 +96,7 @@ En klassificerare är en modell för förbrukad dator som förutsäger vilken ka
 
 ## <a name="collaborator"></a>Medarbetare
 
-En medarbetare är konceptuellt samma sak som en [deltagare](#contributor). En medarbetare beviljas åtkomst när en ägare lägger till medarbetares e-postadress till en app som inte styrs av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Om du fortfarande använder medarbetare, bör du migrera ditt LUIS-konto och använda LUIS Authoring-resurser för att hantera deltagare med RBAC.
+En medarbetare är konceptuellt samma sak som en [deltagare](#contributor). En medarbetare beviljas åtkomst när en ägare lägger till medarbetares e-postadress till en app som inte styrs av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Om du fortfarande använder medarbetare, bör du migrera ditt LUIS-konto och använda LUIS Authoring-resurser för att hantera deltagare med Azure RBAC.
 
 ## <a name="contributor"></a>Deltagare
 

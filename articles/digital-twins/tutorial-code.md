@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 830052237580101d9141bbf812c050430c6269f2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057492"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92144575"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
@@ -320,13 +320,20 @@ Observera att det inte uppstår något fel när de dubblarna skapas den andra g�
 
 Sedan kan du skapa **relationer** mellan de dubbla som du har skapat, för att ansluta dem till ett **dubbel diagram**. [Dubbla grafer](concepts-twins-graph.md) används för att representera hela miljön.
 
-Du behöver namn området för att kunna skapa relationer `Azure.DigitalTwins.Core.Serialization` . Du har lagt till detta i projektet tidigare med den här `using` instruktionen:
+För att hjälpa till med att skapa relationer använder det här kod exemplet `Azure.DigitalTwins.Core.Serialization` namn området. Du har lagt till detta i projektet tidigare med den här `using` instruktionen:
 
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` krävs inte för att arbeta med digitala dubbla och relationer. Det är en valfri namnrymd som kan hjälpa till att hämta data till rätt format. Några alternativ för att använda den är:
+>* Sammanfoga strängar för att skapa ett JSON-objekt
+>* Använda en JSON-parser som `System.Text.Json` för att skapa ett JSON-objekt dynamiskt
+>* Utforma anpassade typer i C#, instansiera dem och serialisera dem till strängar
+
 Lägg till en ny statisk metod till `Program` -klassen under `Main` metoden:
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -348,7 +355,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Lägg sedan till följande kod i slutet av- `Main` metoden för att anropa `CreateRelationship` koden:
+Lägg sedan till följande kod i slutet av `Main` -metoden för att anropa- `CreateRelationship` metoden och använda koden som du nyss skrev:
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");

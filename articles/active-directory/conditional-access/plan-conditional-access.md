@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/16/2020
 ms.author: baselden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992869"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145288"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planera en distribution av villkorsstyrd åtkomst
 
@@ -291,11 +291,7 @@ Med Azure Active Directory kan du skapa [namngivna platser](location-condition.m
 
 ### <a name="plan-your-policy-deployment"></a>Planera princip distributionen
 
-När nya principer är klara för din miljö, se till att du granskar varje princip innan du släpper den för att undvika oönskade resultat. Se följande dokumentation för att förstå viktig information om hur principer tillämpas och hur du undviker problem
-
-* [Det här bör du veta](best-practices.md)
-
-* [Vad du bör undvika](best-practices.md)
+När nya principer är klara för din miljö, se till att du granskar varje princip innan du släpper den för att undvika oönskade resultat.
 
 ## <a name="common-policies"></a>Vanliga principer
 
@@ -380,7 +376,7 @@ Vissa organisationer har test klienter för detta ändamål. Det kan dock vara s
 
 Test planen är viktig för att få en jämförelse mellan de förväntade resultaten och de faktiska resultaten. Du bör alltid ha en förväntad händelse innan du testar något. I följande tabell visas exempel test fall. Justera scenarier och förväntade resultat baserat på hur dina CA-principer är konfigurerade.
 
-| Policy| Scenario| Förväntat resultat |
+| Princip| Scenario| Förväntat resultat |
 | - | - | - |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen på en betrodd plats/ett arbete| Användaren uppmanas inte att MFA |
 | [Kräv MFA när det inte är på arbetet](untrusted-networks.md)| Auktoriserad användare loggar in på appen men inte på en betrodd plats/arbete| Användaren uppmanas att MFA och kan logga in |
@@ -462,10 +458,6 @@ Plats villkoret för en CA-princip gör att du kan använda inställningar för 
 ### <a name="terms-of-use"></a>Villkor för användning
 
 Innan du får åtkomst till vissa molnappar i din miljö kan du få tillåtelse från användarna genom att acceptera din Användningsvillkor (ToU). Följ den här [snabb starten för att skapa](require-tou.md)användnings villkoren.
-
-### <a name="classic-policies"></a>Klassiska principer
-
-I [Azure Portal](https://portal.azure.com/)kan du hitta dina ca-principer under Azure Active Directory > säkerhet > villkorlig åtkomst. Din organisation kan också ha äldre CA-principer som inte skapats med hjälp av den här sidan. Dessa principer kallas klassiska principer. Vi rekommenderar att du [migrerar de klassiska principerna i Azure Portal](best-practices.md).
 
 ## <a name="troubleshoot-conditional-access"></a>Felsöka villkorlig åtkomst
 

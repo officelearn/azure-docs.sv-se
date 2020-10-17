@@ -5,28 +5,28 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 967fdae49f904f6c1cb450b637a8dbc5c481b135
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3d6e21b45bccbdaeeee350bac79be680783eb24
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776892"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147520"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Samar beta med andra författare och redigerare
 
-Samar beta med andra författare och redigerare som använder rollbaserad åtkomst kontroll (RBAC) som placeras på din QnA Maker-resurs.
+Samar beta med andra författare och redigerare som använder rollbaserad åtkomst kontroll i Azure (Azure RBAC) som placeras på din QnA Maker-resurs.
 
 ## <a name="access-is-provided-on-the-qna-maker-resource"></a>Åtkomst finns på QnA Maker resursen
 
 Alla behörigheter styrs av de behörigheter som har placerats på QnA Maker resursen. Behörigheterna anpassas till Läs-, Skriv-, publicerings-och fullständig åtkomst.
 
-Den här RBAC-funktionen innehåller:
-* Azure Active Directory (AAD) är 100% bakåtkompatibel med nyckelbaserad autentisering för ägare och deltagare. Kunder kan använda antingen nyckelbaserad autentisering eller RBAC-baserad autentisering i sina begär Anden.
+Den här Azure RBAC-funktionen innehåller:
+* Azure Active Directory (AAD) är 100% bakåtkompatibel med nyckelbaserad autentisering för ägare och deltagare. Kunder kan använda antingen nyckelbaserad autentisering eller Azure RBAC-baserad autentisering i sina begär Anden.
 * Lägg snabbt till författare och redigerare i alla kunskaps banker i resursen eftersom kontrollen finns på resurs nivå, inte på kunskaps bas nivån.
 
 ## <a name="access-is-provided-by-a-defined-role"></a>Åtkomst tillhandahålls av en definierad roll
 
-[!INCLUDE [RBAC permissions table](../includes/role-based-access-control.md)]
+[!INCLUDE [Azure RBAC permissions table](../includes/role-based-access-control.md)]
 
 ## <a name="authentication-flow"></a>Autentiseringsflöde
 

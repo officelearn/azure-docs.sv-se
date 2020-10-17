@@ -4,15 +4,15 @@ titleSuffix: Azure Digital Twins
 description: Förstå hur du dirigerar händelser i Azure Digitals dubbla och till andra Azure-tjänster.
 author: baanders
 ms.author: baanders
-ms.date: 3/12/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044300"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145986"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -91,6 +91,20 @@ await client.CreateEventRoute("routeName", er);
 > Alla SDK-funktioner ingår i synkrona och asynkrona versioner.
 
 Vägar kan också skapas med hjälp av [Azure Digitals flätade CLI](how-to-use-cli.md).
+
+## <a name="dead-letter-events"></a>Händelser för obeställbara meddelanden
+När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**. Digitala Azure-dubblare kommer att döda en händelse när **något av följande** villkor uppfylls. 
+
+- Händelsen har inte levererats inom Time-to-Live-perioden
+- Antalet försök att leverera händelsen har överskridit gränsen
+
+Om något av villkoren är uppfyllt tas händelsen bort eller tas bort från kön.  Som standard aktiverar varje slut punkt **inte** obeställbara meddelanden. Om du vill aktivera det måste du ange ett lagrings konto som ska innehålla ej levererade händelser när slut punkten skapas. Du kan hämta händelser från det här lagrings kontot för att lösa leveranser.
+
+Innan du anger platsen för obeställbara meddelanden måste du ha ett lagrings konto med en behållare. Du anger URL: en för den här behållaren när du skapar slut punkten. Obeställbara meddelanden anges som en behållar-URL med en SAS-token. Denna token behöver bara `write` behörighet för mål behållaren i lagrings kontot. Den fullständigt utformade URL: en kommer att ha formatet: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+Mer information om SAS-token finns i: [ *bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+Information om hur du konfigurerar en obeställbara meddelanden finns i så här gör du för att [*Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Typer av händelse meddelanden
 

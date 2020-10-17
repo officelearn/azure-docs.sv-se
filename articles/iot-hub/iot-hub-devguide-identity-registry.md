@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 2f811c504f8871b06805d5578ed2d70c651be25d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 709ebacc66382d75b79cd41edf88cad962dfd7c2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029842"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147713"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Förstå identitets registret i din IoT-hubb
 
@@ -84,7 +84,7 @@ Använd asynkrona åtgärder på [slut punkten för IoT Hub Resource Provider](i
 
 Mer information om import-och export-API: er finns i [IoT Hub Resource Provider REST-API: er](/rest/api/iothub/iothubresource). Mer information om hur du kör import-och export jobb finns i [Mass hantering av IoT Hub enhets identiteter](iot-hub-bulk-identity-mgmt.md).
 
-Enhets identiteter kan också exporteras och importeras från en IoT Hub via tjänst-API: et via [REST API](/rest/api/iothub/service/jobs/createimportexportjob) eller någon av IoT Hub [tjänst-SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-service-sdks): er.
+Enhets identiteter kan också exporteras och importeras från en IoT Hub via tjänst-API: et via [REST API](/rest/api/iothub/service/jobs/createimportexportjob) eller någon av IoT Hub [tjänst-SDK](./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks): er.
 
 ## <a name="device-provisioning"></a>Enhets etablering
 

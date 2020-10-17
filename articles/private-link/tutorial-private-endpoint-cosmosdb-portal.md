@@ -1,24 +1,24 @@
 ---
 title: 'Självstudie: ansluta till ett Azure Cosmos-konto med en privat Azure-slutpunkt'
 titleSuffix: Azure Private Link
-description: Kom igång med en privat Azure-slutpunkt för att ansluta till ett Azure Cosmos-konto privat.
+description: Kom igång med den här självstudien med Azures privata slut punkt för att ansluta till ett Azure Cosmos-konto privat.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 8b38c72efff5b76392d23837696c340e3cfb58de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd534fff5bfc56dbc4040db016563b06bef6d047
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844280"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145687"
 ---
 # <a name="tutorial-connect-to-an-azure-cosmos-account-using-an-azure-private-endpoint"></a>Självstudie: ansluta till ett Azure Cosmos-konto med en privat Azure-slutpunkt
 
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, till exempel virtuella datorer, att kommunicera med privata länk resurser privat.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett virtuellt nätverk och en skydds-värd.
@@ -26,7 +26,11 @@ I den här guiden får du lära dig att:
 > * Skapa ett Cosmos DB-konto med en privat slut punkt.
 > * Testa anslutningen till Cosmos DB privata slut punkten för kontot.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* En Azure-prenumeration
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -46,7 +50,7 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
     |------------------|-----------------------------------------------------------------|
     | **Projekt information**  |                                                                 |
     | Prenumeration     | Välj din Azure-prenumeration                                  |
-    | Resursgrupp   | Välj **myResourceGroup** |
+    | Resource Group   | Välj **myResourceGroup** |
     | **Instansinformation** |                                                                 |
     | Name             | Ange **myVNet**                                    |
     | Region           | Välj **USA, östra** |
@@ -55,7 +59,7 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
 
 4. På fliken **IP-adresser** anger du den här informationen:
 
-    | Inställningen            | Värde                      |
+    | Inställning            | Värde                      |
     |--------------------|----------------------------|
     | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
@@ -63,7 +67,7 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
 
 6. I **Redigera undernät**anger du den här informationen:
 
-    | Inställningen            | Värde                      |
+    | Inställning            | Värde                      |
     |--------------------|----------------------------|
     | Namn på undernät | Ange **undernät** |
     | Adressintervall för undernätet | Ange **10.1.0.0/24** |
@@ -74,7 +78,7 @@ Skydds-värden kommer att användas för att ansluta säkert till den virtuella 
 
 9. Under **BastionHost**väljer du **Aktivera**. Ange den här informationen:
 
-    | Inställningen            | Värde                      |
+    | Inställning            | Värde                      |
     |--------------------|----------------------------|
     | Skydds namn | Ange **myBastionHost** |
     | AzureBastionSubnet-adressutrymme | Ange **10.1.1.0/24** |
@@ -93,11 +97,11 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
    
 2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
 
-    | Inställningen | Värde                                          |
+    | Inställning | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
-    | Resursgrupp | Välj **myResourceGroup** |
+    | Resource Group | Välj **myResourceGroup** |
     | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM** |
     | Region | Välj **USA, östra** |
@@ -107,14 +111,14 @@ I det här avsnittet ska du skapa en virtuell dator som ska användas för att t
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
     | Användarnamn | Ange ett användar namn |
-    | lösenordsinställning | Ange ett lösen ord |
+    | Lösenord | Ange ett lösen ord |
     | Bekräfta lösenordet | Ange lösenordet igen |
 
 3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
   
 4. På fliken nätverk väljer eller anger du:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     |-|-|
     | **Nätverksgränssnitt** |  |
     | Virtuellt nätverk | **myVNet** |
@@ -135,7 +139,7 @@ I det här avsnittet ska du skapa ett Cosmos DB-konto och konfigurera den privat
 
 2. På fliken **grundläggande** i **skapa Cosmos DB konto** anger eller väljer du följande information:
 
-    | Inställningen | Värde                                          |
+    | Inställning | Värde                                          |
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration. |
@@ -143,7 +147,7 @@ I det här avsnittet ska du skapa ett Cosmos DB-konto och konfigurera den privat
     | **Instansinformation** |  |
     | Kontonamn | Ange **mycosmosdb**. Om namnet inte är tillgängligt anger du ett unikt namn. |
     | API | Välj **Core (SQL)**. |
-    | Location | Välj **USA, östra**. |
+    | Plats | Välj **USA, östra**. |
     | Kapacitets läge | Lämna det **tillhandahållna standard data flödet**. |
     | Tillämpa rabatt för kostnadsfri nivå | Lämna standardvärdet **Använd inte**. |
     | Geo-redundans | Låt standardvärdet vara **disable**. |
@@ -153,7 +157,7 @@ I det här avsnittet ska du skapa ett Cosmos DB-konto och konfigurera den privat
 
 4. På fliken **nätverk** anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | **Nätverksanslutningar** | |
     | Anslutningsmetod | Välj **privat slut punkt**. |
@@ -165,12 +169,12 @@ I det här avsnittet ska du skapa ett Cosmos DB-konto och konfigurera den privat
 
 6. I **skapa privat slut punkt** anger eller väljer du följande information:
 
-    | Inställningen | Värde                                          |
+    | Inställning | Värde                                          |
     |-----------------------|----------------------------------|
     | Prenumeration | Välj din Azure-prenumeration |
-    | Resursgrupp | Välj **myResourceGroup** |
-    | Location | Välj **USA, östra** |
-    | Name | Ange **myPrivateEndpoint** |
+    | Resource Group | Välj **myResourceGroup** |
+    | Plats | Välj **USA, östra** |
+    | Namn | Ange **myPrivateEndpoint** |
     | Mål under resurs | Lämna standard **kärnan (SQL)** |
     | **Nätverk** |  |
     | Virtuellt nätverk | Välj **myVNet** |
@@ -195,7 +199,7 @@ I det här avsnittet ska du skapa ett Cosmos DB-konto och konfigurera den privat
 
 4. I **Lägg till behållare**anger eller väljer du följande information:
 
-    | Inställningen | Värde |
+    | Inställning | Värde |
     | ------- | ----- |
     | Databas-id | Låt standardvärdet **Skapa nytt**vara kvar. </br> Ange **mydatabaseid** i text rutan. |
     | Data flöde (400-100 000 RU/s) | Lämna standardvärdet **manuell**. </br> Ange **400** i text rutan. |
@@ -250,7 +254,7 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
 11. I fönstret **Anslut till Azure Storage** väljer du **Avbryt**.
 
-12. I Storage Explorer högerklickar du på **Cosmos DB konton** och väljer **Anslut till Cosmos DB**.
+12. I Storage Explorer väljer du den högra mus knappen på **Cosmos DB konton** och väljer **Anslut till Cosmos DB**.
 
 13. Låt standardvärdet för **SQL** vara kvar under **Välj API**.
 

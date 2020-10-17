@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: a42157223c0c9a0b326c400388ea2b564e42f7f2
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: c46adf9e9f5c1b2e74c1098ebf137c4556bfc58d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088949"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147567"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analysera data med dedikerade SQL-pooler
 
@@ -24,6 +24,7 @@ Azure Synapse Analytics ger dig möjlighet att analysera data med en särskild S
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Läs in NYC taxi-data till SQLDB1
 
 1. I Synapse Studio navigerar du till **utveckla** hubben och skapar sedan ett nytt SQL-skript
+1. Välj poolen "SQLDB1" (pool som skapades i [steg 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) i den här själv studie kursen) i avsnittet "Anslut till" i skriptet.
 1. Ange följande kod:
     ```
     CREATE TABLE [dbo].[Trip]

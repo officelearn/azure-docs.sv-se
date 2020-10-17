@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 6/08/2020
 ms.author: robinsh
-ms.openlocfilehash: ed429d2f584da20439b0cb0eedcf4742b9ae4599
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d10d0202e9e4c813cffe6373acfb5200ebb3266
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84634511"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146772"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualisera real tids sensor data från Azure IoT Hub med Power BI
 
@@ -140,9 +140,9 @@ I Stream Analytics jobb väljer du **Översikt**och sedan **Starta**  >  **nu** 
 
 ## <a name="create-and-publish-a-power-bi-report-to-visualize-the-data"></a>Skapa och publicera en Power BI rapport för att visualisera data
 
-Följande steg visar hur du skapar och publicerar en rapport med hjälp av Power BI-tjänst. Du kan följa dessa steg, med vissa ändringar, om du vill använda det nya utseendet i Power BI. För att förstå skillnaderna och hur du navigerar i "nytt utseende", se [det nya utseendet på Power BI-tjänst](https://docs.microsoft.com/power-bi/consumer/service-new-look).
+Följande steg visar hur du skapar och publicerar en rapport med hjälp av Power BI-tjänst. Du kan följa dessa steg, med vissa ändringar, om du vill använda det nya utseendet i Power BI. För att förstå skillnaderna och hur du navigerar i "nytt utseende", se [det nya utseendet på Power BI-tjänst](/power-bi/consumer/service-new-look).
 
-1. Se till att exempel programmet körs på enheten. Om inte, kan du läsa självstudierna under [Konfigurera enheten](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-kit-node-get-started).
+1. Se till att exempel programmet körs på enheten. Om inte, kan du läsa självstudierna under [Konfigurera enheten](./iot-hub-raspberry-pi-kit-node-get-started.md).
 
 2. Logga in på ditt [Power BI](https://powerbi.microsoft.com/en-us/)-konto.
 

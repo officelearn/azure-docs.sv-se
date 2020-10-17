@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494493"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147951"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy export order
 
@@ -25,7 +25,7 @@ I följande tabell visas en översikt över de Data Box-enhet stegen för att ex
 
 | Data Box-enhet export order fas       | Verktyg för att spåra och granska                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Skapa order               | [Konfigurera åtkomst kontroll på ordern via RBAC](#set-up-access-control-on-the-order) <br> [Aktivera utförlig logg i ordern](#enable-verbose-log-in-the-order)                                                    |
+| Skapa order               | [Konfigurera åtkomst kontroll på ordern via Azure RBAC](#set-up-access-control-on-the-order) <br> [Aktivera utförlig logg i ordern](#enable-verbose-log-in-the-order)                                                    |
 | Bearbetad beställning            | [Spåra beställningen](#track-the-order) genom <ul><li> Azure Portal </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
 | Konfigurera enhet              | Autentiseringsuppgifter [för åtkomst till](#query-activity-logs-during-setup) inloggnings uppgifter för enhet              |
 | Data kopiering från enhet        | [Granska kopierings loggar](#copy-log) <br> [Granska utförliga loggar](#verbose-log) innan du kopierar data            |
@@ -46,7 +46,7 @@ Om du vill begränsa åtkomsten till en order kan du:
 - Tilldela en roll på en order nivå. Användaren har bara de behörigheter som definieras av rollerna för att interagera med just den aktuella Data Box-enhet ordningen och inget annat.
 - Tilldela en roll på resurs grupps nivå, användaren har åtkomst till alla Data Box-enhet beställningar inom en resurs grupp.
 
-Mer information om föreslagen RBAC-användning finns i [metod tips för Azure RBAC](../role-based-access-control/best-practices.md).
+Mer information om föreslagen Azure RBAC-användning finns i [metod tips för Azure RBAC](../role-based-access-control/best-practices.md).
 
 ## <a name="enable-verbose-log-in-the-order"></a>Aktivera utförlig logg i ordern
 
@@ -124,12 +124,12 @@ Här är ett exempel på utdata när *kopierings loggen* innehåller fel och vis
 
 Du har följande alternativ för att exportera dessa filer: 
 
-- Du kan överföra filerna som inte kunde kopieras över nätverket. 
-- Om din data storlek är större än den användbara enhets kapaciteten, sker en partiell kopia och alla filer som inte kopierades visas i den här loggen. Du kan använda den här loggen som en XML-indata för att skapa en ny Data Box-enhets ordning och sedan kopiera över dessa filer.
+- Du kan överföra de filer som inte kunde kopieras över nätverket. 
+- Om datastorleken var större än den användbara enhetskapaciteten sker en partiell kopiering, och alla filer som inte kopierades visas i den här loggen. Du kan använda den här loggen som indata-XML för att skapa en ny Data Box-order och sedan kopiera över dessa filer.
 
 ### <a name="verbose-log"></a>Utförlig logg
 
-*Utförlig logg* innehåller en lista över alla filer som har exporter ats från Azure Storage-kontot. Loggen innehåller också fil storlek och beräkning av kontroll summa.
+Den *utförliga loggen* innehåller en lista över alla filer som exporterades från Azure Storage-kontot. Loggen innehåller även filstorlek och beräkning av kontrollsumma.
 
 Utförlig loggen innehåller informationen i följande format:
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 2720f9acfa308294b30f9203ba80e3f9b426e1e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81680711"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146644"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Övervakning och aviseringar för IoT-fjärrhantering med Azure Logic Apps du ansluter din IoT Hub och post lådan
 
@@ -22,7 +22,7 @@ ms.locfileid: "81680711"
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) kan hjälpa dig att dirigera arbets flöden över lokala tjänster och moln tjänster, ett eller flera företag och mellan olika protokoll. En Logic app börjar med en utlösare som sedan följs av en eller flera åtgärder som kan sekvenseras med hjälp av inbyggda kontroller, till exempel villkor och iteratorer. Den här flexibiliteten gör Logic Apps en idealisk IoT-lösning för IoT Monitoring-scenarier. Till exempel kan mottagning av telemetridata från en enhet på en IoT Hub slut punkt initiera Logic app-arbetsflöden till lagret data i en Azure Storage-BLOB, skicka e-postaviseringar till en varning om data avvikelser, schemalägga en tekniker besök om en enhet rapporterar ett fel och så vidare.
+[Azure Logic Apps](../logic-apps/index.yml) kan hjälpa dig att dirigera arbets flöden över lokala tjänster och moln tjänster, ett eller flera företag och mellan olika protokoll. En Logic app börjar med en utlösare som sedan följs av en eller flera åtgärder som kan sekvenseras med hjälp av inbyggda kontroller, till exempel villkor och iteratorer. Den här flexibiliteten gör Logic Apps en idealisk IoT-lösning för IoT Monitoring-scenarier. Till exempel kan mottagning av telemetridata från en enhet på en IoT Hub slut punkt initiera Logic app-arbetsflöden till lagret data i en Azure Storage-BLOB, skicka e-postaviseringar till en varning om data avvikelser, schemalägga en tekniker besök om en enhet rapporterar ett fel och så vidare.
 
 ## <a name="what-you-learn"></a>Detta får du får lära dig
 
@@ -104,7 +104,7 @@ Skapa ett namnområde och en kö för Service Bus. Senare i det här avsnittet s
 
 ## <a name="add-a-custom-endpoint-and-routing-rule-to-your-iot-hub"></a>Lägg till en anpassad slut punkt och routningsregler i IoT Hub
 
-Lägg till en anpassad slut punkt för Service Bus kön i IoT-hubben och skapa en regel för att dirigera meddelanden som innehåller en temperatur avisering till den slut punkten, där de hämtas av din Logic app. Routningstjänsten använder en cirkulations fråga, `temperatureAlert = "true"` för att vidarebefordra meddelanden baserat på värdet för `temperatureAlert` egenskapen program som anges av den klient kod som körs på enheten. Mer information finns i [meddelande cirkulations fråga baserat på meddelande egenskaper](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
+Lägg till en anpassad slut punkt för Service Bus kön i IoT-hubben och skapa en regel för att dirigera meddelanden som innehåller en temperatur avisering till den slut punkten, där de hämtas av din Logic app. Routningstjänsten använder en cirkulations fråga, `temperatureAlert = "true"` för att vidarebefordra meddelanden baserat på värdet för `temperatureAlert` egenskapen program som anges av den klient kod som körs på enheten. Mer information finns i [meddelande cirkulations fråga baserat på meddelande egenskaper](./iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties).
 
 ### <a name="add-a-custom-endpoint"></a>Lägg till en anpassad slut punkt
 

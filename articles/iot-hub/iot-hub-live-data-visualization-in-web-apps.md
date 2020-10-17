@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 6a8f39ae5d73bade2c86a7e15efe75956c2aed24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6452d1c5c9792e8d021838635686e8621629ff2
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327573"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146678"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera real tids sensor data från din Azure IoT Hub i ett webb program
 
@@ -60,7 +60,7 @@ az extension add --name azure-iot
 
 ## <a name="add-a-consumer-group-to-your-iot-hub"></a>Lägga till en konsument grupp i IoT Hub
 
-[Konsument grupper](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#event-consumers) tillhandahåller oberoende vyer i händelse strömmen som gör det möjligt för appar och Azure-tjänster att oberoende använda data från samma Event Hub-slutpunkt. I det här avsnittet lägger du till en konsument grupp i IoT Hub: s inbyggda slut punkt som webbappen kommer att använda för att läsa data från.
+[Konsument grupper](../event-hubs/event-hubs-features.md#event-consumers) tillhandahåller oberoende vyer i händelse strömmen som gör det möjligt för appar och Azure-tjänster att oberoende använda data från samma Event Hub-slutpunkt. I det här avsnittet lägger du till en konsument grupp i IoT Hub: s inbyggda slut punkt som webbappen kommer att använda för att läsa data från.
 
 Kör följande kommando för att lägga till en konsument grupp till den inbyggda slut punkten för din IoT Hub:
 
@@ -156,11 +156,11 @@ Du bör också se utdata i-konsolen som visar de meddelanden som din webbapp ski
 
 ## <a name="host-the-web-app-in-app-service"></a>Vara värd för webbappen i App Service
 
-[Web Apps funktionen i Azure App Service](https://docs.microsoft.com/azure/app-service/overview) tillhandahåller en PaaS (Platform as a Service) för att vara värd för webb program. Webb program som finns i Azure App Service kan dra nytta av kraftfulla Azure-funktioner som ytterligare säkerhet, belastnings utjämning och skalbarhet samt Azure-och partner DevOps-lösningar som kontinuerlig distribution, paket hantering och så vidare. Azure App Service stöder webb program som utvecklats på många populära språk och distribueras i Windows-eller Linux-infrastruktur.
+[Web Apps funktionen i Azure App Service](../app-service/overview.md) tillhandahåller en PaaS (Platform as a Service) för att vara värd för webb program. Webb program som finns i Azure App Service kan dra nytta av kraftfulla Azure-funktioner som ytterligare säkerhet, belastnings utjämning och skalbarhet samt Azure-och partner DevOps-lösningar som kontinuerlig distribution, paket hantering och så vidare. Azure App Service stöder webb program som utvecklats på många populära språk och distribueras i Windows-eller Linux-infrastruktur.
 
-I det här avsnittet etablerar du en webbapp i App Service och distribuerar din kod till den med hjälp av Azure CLI-kommandon. Du hittar information om de kommandon som används i [AZ webapp](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest) -dokumentationen. Innan du börjar ska du kontrol lera att du har slutfört stegen för att [lägga till en resurs grupp i IoT-hubben](#add-a-consumer-group-to-your-iot-hub), [Hämta en tjänst anslutnings sträng för IoT Hub](#get-a-service-connection-string-for-your-iot-hub)och [Hämta webbappen från GitHub](#download-the-web-app-from-github).
+I det här avsnittet etablerar du en webbapp i App Service och distribuerar din kod till den med hjälp av Azure CLI-kommandon. Du hittar information om de kommandon som används i [AZ webapp](/cli/azure/webapp?view=azure-cli-latest) -dokumentationen. Innan du börjar ska du kontrol lera att du har slutfört stegen för att [lägga till en resurs grupp i IoT-hubben](#add-a-consumer-group-to-your-iot-hub), [Hämta en tjänst anslutnings sträng för IoT Hub](#get-a-service-connection-string-for-your-iot-hub)och [Hämta webbappen från GitHub](#download-the-web-app-from-github).
 
-1. En [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) definierar en uppsättning beräknings resurser för en app som är värd för App Service som ska köras. I den här självstudien använder vi den utvecklings-/kostnads fria nivån som värd för webbappen. Med den kostnads fria nivån körs din webbapp på delade Windows-resurser med andra App Service appar, inklusive appar från andra kunder. Azure erbjuder också App Service planer för att distribuera webbappar på Linux Compute-resurser. Du kan hoppa över det här steget om du redan har ett App Service plan som du vill använda.
+1. En [App Service plan](../app-service/overview-hosting-plans.md) definierar en uppsättning beräknings resurser för en app som är värd för App Service som ska köras. I den här självstudien använder vi den utvecklings-/kostnads fria nivån som värd för webbappen. Med den kostnads fria nivån körs din webbapp på delade Windows-resurser med andra App Service appar, inklusive appar från andra kunder. Azure erbjuder också App Service planer för att distribuera webbappar på Linux Compute-resurser. Du kan hoppa över det här steget om du redan har ett App Service plan som du vill använda.
 
    Om du vill skapa en App Service plan med den kostnads fria nivån av Windows kör du följande kommando. Använd samma resurs grupp som din IoT Hub. Namnet på din tjänst plan får innehålla versaler, gemener, siffror och bindestreck.
 
@@ -187,7 +187,7 @@ I det här avsnittet etablerar du en webbapp i App Service och distribuerar din 
    az webapp update -n <your web app name> -g <your resource group name> --https-only true
    ```
 
-5. Om du vill distribuera koden till App Service använder du autentiseringsuppgifterna för [distribution på användar nivå](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials). Autentiseringsuppgifterna för distribution av användar nivå skiljer sig från dina Azure-autentiseringsuppgifter och används för lokala git-och FTP-distributioner till en webbapp. När de har angetts är de giltiga för alla dina App Service-appar i alla prenumerationer i ditt Azure-konto. Om du tidigare har angett autentiseringsuppgifter för distribution på användar nivå kan du använda dem.
+5. Om du vill distribuera koden till App Service använder du autentiseringsuppgifterna för [distribution på användar nivå](../app-service/deploy-configure-credentials.md). Autentiseringsuppgifterna för distribution av användar nivå skiljer sig från dina Azure-autentiseringsuppgifter och används för lokala git-och FTP-distributioner till en webbapp. När de har angetts är de giltiga för alla dina App Service-appar i alla prenumerationer i ditt Azure-konto. Om du tidigare har angett autentiseringsuppgifter för distribution på användar nivå kan du använda dem.
 
    Om du inte tidigare har angett autentiseringsuppgifter för distribution på användar nivå eller om du inte kan komma ihåg ditt lösen ord kör du följande kommando. Ditt distributions användar namn måste vara unikt i Azure och det får inte innehålla symbolen @ för lokal git-push. När du uppmanas att ange och bekräfta ditt nya lösen ord. Lösen ordet måste innehålla minst åtta tecken, med två av följande tre element: bokstäver, siffror och symboler.
 

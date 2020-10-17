@@ -4,12 +4,12 @@ description: I den här artikeln beskrivs hur du använder Azure Communication S
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: mikben
-ms.openlocfilehash: fb37dfe9927c02711f4ab1b01cd89247059b27f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84146a0513d02484f8f84560e04a977fb3ef373
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347577"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145827"
 ---
 # <a name="azure-communication-services-as-an-event-grid-source"></a>Azure Communication Services som en Event Grid källa
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller egenskaper och schema för Azure Communication Ser
 
 ### <a name="available-event-types"></a>Tillgängliga händelse typer
 
-Event Grid använder [händelse prenumerationer](https://docs.microsoft.com/azure/event-grid/concepts#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. 
+Event Grid använder [händelse prenumerationer](./concepts.md#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. 
 
 Azure Communication Services avger följande händelse typer:
 
@@ -45,7 +45,7 @@ Azure Communication Services avger följande händelse typer:
 
 ## <a name="event-subjects"></a>Händelse ämnen
 
-`subject`Fältet för alla kommunikations tjänst händelser identifierar användaren, telefonnumret eller entiteten som händelsen riktar sig mot. Vanliga prefix används för att tillåta enkel [Event Grid filtrering](https://docs.microsoft.com/azure/event-grid/event-filtering).
+`subject`Fältet för alla kommunikations tjänst händelser identifierar användaren, telefonnumret eller entiteten som händelsen riktar sig mot. Vanliga prefix används för att tillåta enkel [Event Grid filtrering](./event-filtering.md).
 
 | Subject-prefix                              | Communication Service-entitet |
 | ------------------------------------------- | ---------------------------- |
@@ -345,6 +345,6 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje hä
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [Vad är event Grid?](https://docs.microsoft.com/azure/event-grid/overview)
-* En introduktion till Azure Event Grid koncept finns [i begrepp i Event Grid?](https://docs.microsoft.com/azure/event-grid/concepts)
-* En introduktion till Azure Event Grid SystemTopics finns i avsnittet [system i Azure Event Grid?](https://docs.microsoft.com/azure/event-grid/system-topics)
+* En introduktion till Azure Event Grid finns i [Vad är event Grid?](./overview.md)
+* En introduktion till Azure Event Grid koncept finns [i begrepp i Event Grid?](./concepts.md)
+* En introduktion till Azure Event Grid SystemTopics finns i avsnittet [system i Azure Event Grid?](./system-topics.md)

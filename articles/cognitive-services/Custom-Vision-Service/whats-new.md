@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 019a9264beddafbd4585810967551e064592e94d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4fbfbd1d578eb77d50d91413efb9f9fbf28e115f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90602531"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146307"
 ---
 # <a name="whats-new-in-custom-vision"></a>Vad är nytt i Custom Vision
 
@@ -23,9 +23,9 @@ Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig information, 
 
 ## <a name="july-2020"></a>Juli 2020
 
-### <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+### <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
 
-* Custom Vision stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC), ett auktoriserings system för att hantera individuell åtkomst till Azure-resurser. Information om hur du hanterar åtkomst till dina Custom Vision-projekt finns i [rollbaserad åtkomst kontroll](./role-based-access-control.md).
+* Custom Vision stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC), ett auktoriserings system för att hantera individuell åtkomst till Azure-resurser. Information om hur du hanterar åtkomst till dina Custom Vision-projekt finns i [rollbaserad åtkomst kontroll i Azure](./role-based-access-control.md).
 
 ### <a name="subset-training"></a>Del uppsättning utbildning
 

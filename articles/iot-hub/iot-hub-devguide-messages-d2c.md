@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: 256ede9471f3e889dcce9415a6728414b5ab5f75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b762b77788c3df05fbd0db349457abadcbe39b51
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766950"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147704"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter
 
@@ -59,7 +59,7 @@ IoT Hub stöder skrivning av data till Azure Storage i [Apache Avro](https://avr
 
 Kodnings formatet kan bara anges när Blob Storage-slutpunkten har kon figurer ATS. den kan inte redige ras för en befintlig slut punkt. Om du vill byta kodnings format för en befintlig slut punkt måste du ta bort och återskapa den anpassade slut punkten med det format som du vill använda. En praktisk strategi kan vara att skapa en ny anpassad slut punkt med önskat kodnings format och lägga till en parallell väg till den slut punkten. På så sätt kan du verifiera dina data innan du tar bort den befintliga slut punkten.
 
-Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)eller [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). Följande bild visar hur du väljer kodnings formatet i Azure Portal.
+Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)eller [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). Följande bild visar hur du väljer kodnings formatet i Azure Portal.
 
 ![Slut punkts kodning för Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -71,7 +71,7 @@ IoT Hub batchar meddelanden och skriver data till lagring när batchen når en v
 
 Du kan använda valfri fil namns konvention, men du måste använda alla listade tokens. IoT Hub skrivs till en tom BLOB om det inte finns några data att skriva.
 
-Vi rekommenderar att du visar blobbar eller filer och sedan söker efter dem, för att se till att alla blobbar eller filer läses utan att göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en [Microsoft-initierad redundansväxling](iot-hub-ha-dr.md#microsoft-initiated-failover) eller IoT Hub [manuell redundans](iot-hub-ha-dr.md#manual-failover). Du kan använda [list-BLOB-API: et](https://docs.microsoft.com/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar eller [lista ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) för listan med filer. Se följande exempel som vägledning.
+Vi rekommenderar att du visar blobbar eller filer och sedan söker efter dem, för att se till att alla blobbar eller filer läses utan att göra några antaganden om partitionen. Partitions intervallet kan eventuellt ändras under en [Microsoft-initierad redundansväxling](iot-hub-ha-dr.md#microsoft-initiated-failover) eller IoT Hub [manuell redundans](iot-hub-ha-dr.md#manual-failover). Du kan använda [list-BLOB-API: et](/rest/api/storageservices/list-blobs) för att räkna upp listan över blobbar eller [lista ADLS Gen2 API](/rest/api/storageservices/datalakestoragegen2/path/list) för listan med filer. Se följande exempel som vägledning.
 
 ```csharp
 public void ListBlobsInContainer(string containerName, string iothub)
@@ -115,12 +115,12 @@ Använd följande självstudier om du vill lära dig mer om att läsa meddelande
 
 * Läser från [Service Bus köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
 
-* Läsa från [Service Bus ämnen](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+* Läsa från [Service Bus ämnen](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 
 ## <a name="fallback-route"></a>Reserv väg
 
-Reserv vägen skickar alla meddelanden som inte uppfyller frågevillkor på någon av de befintliga vägarna till de inbyggda Event Hubs (**meddelanden/händelser**) som är kompatibla med [Event Hubs](/azure/event-hubs/). Om meddelanderoutning är aktiverat kan du aktivera reserv väg funktionen. När en väg har skapats slutar data flöda till den inbyggda slut punkten, om inte en väg skapas till den slut punkten. Om det inte finns några vägar till den inbyggda slut punkten och en återställnings väg är aktive rad skickas endast meddelanden som inte matchar några frågevillkor i vägar till den inbyggda slut punkten. Om alla befintliga vägar tas bort måste återställnings vägen vara aktive rad för att ta emot alla data vid den inbyggda slut punkten.
+Reserv vägen skickar alla meddelanden som inte uppfyller frågevillkor på någon av de befintliga vägarna till de inbyggda Event Hubs (**meddelanden/händelser**) som är kompatibla med [Event Hubs](../event-hubs/index.yml). Om meddelanderoutning är aktiverat kan du aktivera reserv väg funktionen. När en väg har skapats slutar data flöda till den inbyggda slut punkten, om inte en väg skapas till den slut punkten. Om det inte finns några vägar till den inbyggda slut punkten och en återställnings väg är aktive rad skickas endast meddelanden som inte matchar några frågevillkor i vägar till den inbyggda slut punkten. Om alla befintliga vägar tas bort måste återställnings vägen vara aktive rad för att ta emot alla data vid den inbyggda slut punkten.
 
 Du kan aktivera/inaktivera återställnings vägen på bladet Azure Portal->meddelande cirkulation. Du kan också använda Azure Resource Manager för [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) om du vill använda en anpassad slut punkt för återställnings väg.
 
@@ -148,7 +148,7 @@ I de flesta fall är den genomsnittliga ökningen i svars tiden mindre än 500 m
 
 ## <a name="monitoring-and-troubleshooting"></a>Övervaka och felsöka
 
-IoT Hub tillhandahåller flera mått som rör Routning och slut punkter för att ge dig en översikt över hälsan för ditt nav och meddelanden som skickas. [IoT Hub mått](iot-hub-metrics.md) visar en lista över alla mått som är aktiverade som standard för din IoT Hub. Med hjälp av **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](../iot-hub/iot-hub-monitor-resource-health.md)kan du spåra fel som uppstår under utvärderingen av en cirkulations fråga och slut punkts hälsa som uppfattas av IoT Hub. Du kan använda REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få [hälso status](iot-hub-devguide-endpoints.md#custom-endpoints) för slut punkterna. 
+IoT Hub tillhandahåller flera mått som rör Routning och slut punkter för att ge dig en översikt över hälsan för ditt nav och meddelanden som skickas. [IoT Hub mått](iot-hub-metrics.md) visar en lista över alla mått som är aktiverade som standard för din IoT Hub. Med hjälp av **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](../iot-hub/iot-hub-monitor-resource-health.md)kan du spåra fel som uppstår under utvärderingen av en cirkulations fråga och slut punkts hälsa som uppfattas av IoT Hub. Du kan använda REST API [Hämta slut punkts hälsa](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få [hälso status](iot-hub-devguide-endpoints.md#custom-endpoints) för slut punkterna. 
 
 Använd [fel söknings guiden för routning](troubleshoot-message-routing.md) för mer information och stöd för fel sökning av routning.
 

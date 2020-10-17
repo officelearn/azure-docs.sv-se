@@ -39,7 +39,7 @@
       href: use-prediction-api.md
     - name: Använda Smart Labeler
       href: suggested-tags.md
-    - name: Rollbaserad åtkomstkontroll
+    - name: Rollbaserad Azure-åtkomstkontroll
       href: role-based-access-control.md
     - name: Exportera modeller
       items:

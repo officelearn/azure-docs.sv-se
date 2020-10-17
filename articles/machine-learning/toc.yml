@@ -152,13 +152,31 @@
       href: concept-onnx.md
     - name: ML-pipelines
       href: concept-ml-pipelines.md
-    - name: Företagsberedskap och säkerhet
+    - name: Säkerhet
       items:
         - name: Översikt över Enterprise Security
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Säkerhetsbaslinje
           href: security-baseline.md
+    - name: Ansvarsfull ML
+      items:
+        - name: Översikt över ansvarsfull ML
+          displayName: 'responsible,ml'
+          href: concept-responsible-ml.md
+        - name: Modelltolkning
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Rättvis maskininlärning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Differentiell sekretess
+          displayName: 'differential,privacy'
+          href: concept-differential-privacy.md
+- name: Anvisningar
+  items:
+    - name: Säkerhet
+      items:
         - name: Identitets- och åtkomsthantering
           items:
             - name: Konfigurera autentisering
@@ -212,22 +230,6 @@
         - name: Granska och hantera efterlevnad
           href: how-to-integrate-azure-policy.md
           displayName: policy
-    - name: Ansvarsfull ML
-      items:
-        - name: Översikt över ansvarsfull ML
-          displayName: 'responsible,ml'
-          href: concept-responsible-ml.md
-        - name: Modelltolkning
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Rättvis maskininlärning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Differentiell sekretess
-          displayName: 'differential,privacy'
-          href: concept-differential-privacy.md
-- name: Anvisningar
-  items:
     - name: Skapa och hantera arbetsytor
       items:
         - name: Använda Azure-portalen

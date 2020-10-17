@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: c51b99ed04357cdebaabbde2b2bd0400adcfef30
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: d0ee9680a6b1b7c3e145137c73dda84d1a755b06
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92134187"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147919"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Skydda och isolera Azure HDInsight-kluster med privat länk (förhands granskning)
 
@@ -56,7 +56,7 @@ Privat länk, som är inaktive rad som standard, kräver omfattande nätverks ku
 
 När `privateLink` är inställt på *Enable*skapas interna [standardload Balancer](../load-balancer/load-balancer-overview.md) (SLB) och en Azure Private Link-tjänst tillhandahålls för varje SLB. Med den privata länk tjänsten kan du komma åt HDInsight-klustret från privata slut punkter.
 
-Standard belastnings utjämning ger inte automatiskt den offentliga utgående NAT som grundläggande belastnings utjämning. Du måste ange en egen NAT-lösning, till exempel [Virtual Network NAT](../virtual-network/nat-overview.md) eller en [brand vägg](./hdinsight-restrict-outbound-traffic.md), för utgående beroenden. Ditt HDInsight-kluster behöver fortfarande åtkomst till dess utgående beroenden. Om dessa utgående beroenden inte är tillåtna kan skapandet av klustret Miss lyckas.
+Standard belastnings utjämning ger inte automatiskt den [offentliga utgående NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) som grundläggande belastnings utjämning. Du måste ange en egen NAT-lösning, till exempel [Virtual Network NAT](../virtual-network/nat-overview.md) eller en [brand vägg](./hdinsight-restrict-outbound-traffic.md), för utgående beroenden. Ditt HDInsight-kluster behöver fortfarande åtkomst till dess utgående beroenden. Om dessa utgående beroenden inte är tillåtna kan skapandet av klustret Miss lyckas.
 
 ### <a name="prepare-your-environment"></a>Förbered din miljö
 

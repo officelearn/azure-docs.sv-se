@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt
-ms.openlocfilehash: 307ab47c1f7498f71e61108a616d35ef1d4f61c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: daf4fb2ab9650c3a68b8862fd391817d5ff626b0
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81729998"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147768"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Skicka meddelanden från moln till enhet från en IoT-hubb
 
@@ -76,7 +76,7 @@ När du skickar ett meddelande från molnet till enheten kan tjänsten begära l
 
 | Bekräftelse egenskaps värde | Beteende |
 | ------------ | -------- |
-| ingen     | IoT Hub genererar inget feedback-meddelande (standard beteende). |
+| inget     | IoT Hub genererar inget feedback-meddelande (standard beteende). |
 | positivt | Om meddelandet från molnet till enheten når statusen *slutfört* , genererar IoT Hub ett feedback-meddelande. |
 | negativt | Om meddelandet från molnet till enheten når status för *obeställbara meddelanden* genererar IoT Hub ett feedback-meddelande. |
 | fullständig     | IoT Hub genererar ett feedback-meddelande i båda fallen. |
@@ -97,7 +97,7 @@ Texten är en JSON-serialiserad matris med poster, var och en med följande egen
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | En tidsstämpel som visar när resultatet av meddelandet har inträffat (till exempel när hubben fick feedback-meddelandet eller att det ursprungliga meddelandet upphör att gälla) |
 | OriginalMessageId  | *Messageid* för det meddelande från molnet till enheten som den här feedback-informationen avser |
-| StatusCode         | En obligatorisk sträng som används i feedback-meddelanden som genereras av IoT Hub: <br/> *Resultatet* <br/> *Upphört* <br/> *DeliveryCountExceeded* <br/> *Avslagen* <br/> *Rensas* |
+| StatusCode         | En obligatorisk sträng som används i feedback-meddelanden som genereras av IoT Hub: <br/> *Klart* <br/> *Upphört* <br/> *DeliveryCountExceeded* <br/> *Avslagen* <br/> *Rensas* |
 | Beskrivning        | Sträng värden för *StatusCode* |
 | DeviceId           | *DeviceID* för mål enheten för det meddelande från molnet till enheten som den här återkopplingen avser |
 | DeviceGenerationId | *DeviceGenerationId* för mål enheten för det moln-till-enhet-meddelande som den här återkopplingen avser |
@@ -147,7 +147,7 @@ Du kan ställa in konfigurations alternativen på något av följande sätt:
 
     ![Ange konfigurations alternativ för meddelanden från molnet till enheten i portalen](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Azure CLI**: Använd [uppdaterings kommandot för AZ IoT Hub](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
+* **Azure CLI**: Använd [uppdaterings kommandot för AZ IoT Hub](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) :
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \

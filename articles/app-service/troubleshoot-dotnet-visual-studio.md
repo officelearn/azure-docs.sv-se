@@ -6,16 +6,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 72df946ed35dfdfd2811089a51ab9403d2e0567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 346b1f83a9c18e35b009e88ae82d6984274fd4e4
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983002"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147748"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsöka en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
-Den här självstudien visar hur du använder Visual Studio-verktyg för att felsöka en app i [App Service](https://go.microsoft.com/fwlink/?LinkId=529714), genom att köra i [fel söknings läge](/visualstudio/debugger/) via fjärr anslutning eller genom att visa program loggar och webb server loggar.
+Den här självstudien visar hur du använder Visual Studio-verktyg för att felsöka en app i [App Service](./overview.md), genom att köra i [fel söknings läge](/visualstudio/debugger/) via fjärr anslutning eller genom att visa program loggar och webb server loggar.
 
 Du får lära dig detta:
 
@@ -49,7 +49,7 @@ Visual Studio ger åtkomst till en delmängd av program hanterings funktionerna 
    >
    >
 
-    Mer information om hur du ansluter till Azure-resurser från Visual Studio finns i [Hantera konton, prenumerationer och administrativa roller](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert).
+    Mer information om hur du ansluter till Azure-resurser från Visual Studio finns i [Hantera konton, prenumerationer och administrativa roller](../role-based-access-control/role-assignments-portal.md).
 2. I **Server Explorer**expanderar du **Azure** och expanderar **App Service**.
 3. Expandera resurs gruppen som innehåller den app som du skapade i [skapa en ASP.net-app i Azure App Service](quickstart-dotnet-framework.md)och högerklicka sedan på noden app och klicka på **Visa inställningar**.
 
@@ -125,7 +125,7 @@ Det här avsnittet visar hur du felsöker fel sökning med det projekt som du sk
     }
     ```
 
-1. [Ange en Bryt punkt](https://docs.microsoft.com/visualstudio/debugger/) för `ViewBag.Message` raden.
+1. [Ange en Bryt punkt](/visualstudio/debugger/) för `ViewBag.Message` raden.
 
 1. I **Solution Explorer**högerklickar du på projektet och klickar på **publicera**.
 
@@ -176,7 +176,7 @@ Fjärrfelsökning fungerar bara med kontinuerliga WebJobs. Schemalagda webbjobb 
 
 2. Öppna *functions.cs*i ContosoAdsWebJob-projektet.
 
-3. [Ange en Bryt punkt](https://docs.microsoft.com/visualstudio/debugger/) för den första instruktionen i `GnerateThumbnail` metoden.
+3. [Ange en Bryt punkt](/visualstudio/debugger/) för den första instruktionen i `GnerateThumbnail` metoden.
 
     ![Ange Bryt punkt](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -241,7 +241,7 @@ Om din funktion [skrev loggar](https://github.com/Azure/azure-webjobs-sdk/wiki)k
       <httpRuntime targetFramework="4.5" />
     </system.web>
     ```
-* Om du upptäcker att fel söknings programmet inte stegar i den kod som du vill felsöka kan du behöva ändra Just My Codes inställningen.  Mer information finns i [Ange om du vill felsöka endast användar kod med just My Code i Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
+* Om du upptäcker att fel söknings programmet inte stegar i den kod som du vill felsöka kan du behöva ändra Just My Codes inställningen.  Mer information finns i [Ange om du vill felsöka endast användar kod med just My Code i Visual Studio](/visualstudio/debugger/just-my-code).
 * En timer startar på servern när du aktiverar funktionen för fjärrfelsökning, och efter 48 timmar inaktive ras funktionen automatiskt. Denna gräns på 48 timmar görs av säkerhets-och prestanda skäl. Du kan enkelt aktivera funktionen igen så många gånger som du vill. Vi rekommenderar att du lämnar den inaktive rad när du inte aktivt felsöker.
 * Du kan manuellt koppla fel söknings programmet till en process, inte bara app-processen (w3wp.exe). Mer information om hur du använder fel söknings läge i Visual Studio finns i [fel sökning i Visual Studio](/visualstudio/debugger/debugging-in-visual-studio).
 
@@ -330,7 +330,7 @@ Information om hur du skapar program loggar i WebJobs finns i [så här fungerar
     ```
 
 Med `WebPageTraceListener` kan du Visa spårningsutdata genom att bläddra till `/trace.axd` .
-1. Lägg till ett <a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">spårnings element</a> under `<system.web>` i Web.config-filen, till exempel följande exempel:
+1. Lägg till ett <a href="/previous-versions/dotnet/netframework-4.0/6915t83k(v=vs.100)">spårnings element</a> under `<system.web>` i Web.config-filen, till exempel följande exempel:
 
     ``` xml
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -481,7 +481,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
     This setting specifies which Azure datacenter will host your storage account. For this tutorial your choice won't make a noticeable difference, but for a production web app you want your web server and your storage account to be in the same region to minimize latency and data egress charges. The web app (which you'll create later) should run in a region as close as possible to the browsers accessing your web app in order to minimize latency.
 3. Set the **Replication** drop-down list to **Locally redundant**.
    
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover to that location in case of a major disaster in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 4. Click **Create**.
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    
@@ -600,7 +600,7 @@ Mer information om fel sökning av appar i Azure App Service finns i följande r
 Om du behöver hjälp med en detaljerad fel söknings fråga startar du en tråd i något av följande Forum:
 
 * [Azure-forumet på ASP.NET-webbplatsen](https://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET).
-* [Azure-forumet på Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+* [Azure-forumet på Microsoft Q&A](/answers/topics/azure-webapps.html).
 * [StackOverflow.com](https://www.stackoverflow.com).
 
 ### <a name="debugging-in-visual-studio"></a>Fel sökning i Visual Studio

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: ed2a5b4688965f790567018bc11051b77c494e7a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4a4058cc6317e863fa20406449e64aa877810a54
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977739"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147481"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Språk stöd för API för textanalys v3 
 
@@ -25,7 +25,7 @@ ms.locfileid: "91977739"
 
 #### <a name="sentiment-analysis"></a>[Attitydanalys](#tab/sentiment-analysis)
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Anteckningar |
+| Språk              | Språkkod | v2-stöd | v3-stöd | Startar v3-modell version: |              Kommentarer |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
 | Chinese-Simplified    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` även godkänd |
 | Chinese-Traditional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
@@ -50,7 +50,7 @@ ms.locfileid: "91977739"
 
 ### <a name="opinion-mining-v31-preview-only"></a>Utåsikts utvinning (v 3.1 – endast för hands version)
 
-| Språk              | Språkkod | Från och med v3 modell version: |              Anteckningar |
+| Språk              | Språkkod | Från och med v3 modell version: |              Kommentarer |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Engelska               |     `en`      |              2020-04-01              |                    |
 
@@ -61,7 +61,7 @@ ms.locfileid: "91977739"
 > * NER v3 stöder för närvarande bara engelska och spanska språk. Om du anropar NER v3 med ett annat språk returneras v 2.1-API: et, förutsatt att språket stöds i version 2,1.
 > * v 2.1 returnerar bara den fullständiga uppsättningen tillgängliga entiteter för de engelska, kinesiska, enkla, franska, tyska och spanska språken.  Entiteterna "person", "plats" och "organisation" returneras för de andra språk som stöds.
 
-| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Anteckningar        |
+| Språk               | Språkkod | v 2.1-stöd | v3-stöd | Från och med v3 modell version: |       Kommentarer        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Arabiska                |     `ar`      |     ✓      |            |                                 |                    |
 | Tjeckiska                 |     `cs`      |     ✓      |            |                                 |                    |
@@ -87,12 +87,12 @@ ms.locfileid: "91977739"
 | Svenska               |     `sv`      |     ✓      |            |                                 |                    |
 | Turkiska               |     `tr`      |     ✓      |            |                                 |                    |
 
-#### <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extrahering av nyckel fraser](#tab/key-phrase-extraction)
 
 > [!NOTE]
 > Modell versioner av Extrahering av diskussionsämne före 2020-07-01 har en gräns på 64 tecken. Den här gränsen finns inte i senare modell versioner.
 
-| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Anteckningar        |
+| Språk              | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: |       Kommentarer        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Nederländska                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Engelska               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -112,20 +112,115 @@ ms.locfileid: "91977739"
 
 #### <a name="entity-linking"></a>[Länkning av entitet](#tab/entity-linking)
 
-| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Anteckningar |
+| Språk | Språkkod | v2-stöd | v3-stöd | Tillgängligt från och med v3-modell version: | Kommentarer |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | Engelska  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Spanska  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
 
 #### <a name="language-detection"></a>[Språkidentifiering](#tab/language-detection)
 
-API för textanalys kan identifiera en mängd olika språk, varianter, dialekter och vissa regionala/kulturella språk.  Språkidentifiering returnerar "skript" för ett språk. För frasen "Jag har en hund" kommer den att returneras  `en` i stället för  `en-US` . Det enda särskilda fallet är kinesiska, där språk identifierings funktionen kommer att returnera `zh_CHS` eller `zh_CHT` om den kan fastställa ett skript som har fått den angivna texten. I situationer där det inte går att identifiera ett särskilt skript för ett kinesiskt dokument kommer det bara att returnera `zh` .
-
-Vi publicerar inte den exakta listan över språk för den här funktionen, men den kan identifiera en mängd olika språk, varianter, dialekter och vissa regionala/kulturella språk. 
+API för textanalys kan identifiera en mängd olika språk, varianter, dialekter och vissa regionala/kulturella språk och returnera identifierade språk med namn och kod. Textanalys Språkidentifiering språk kods parametrarna uppfyller [BCP-47-](https://tools.ietf.org/html/bcp47) standarden med de flesta av dem som överensstämmer med [ISO-639-1-](https://www.iso.org/iso-639-language-codes.html) identifierare. 
 
 Om du har innehåll som uttrycks på ett mindre vanligt språk kan du prova Språkidentifiering för att se om det returnerar en kod. Svaret för språk som inte kan identifieras är `unknown` .
 
+| Språk | Språkkod |  v3-stöd | Tillgängligt från och med v3-modell version: |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|
+|Afrikaans|`af`|✓|    |
+|Albanska|`sq`|✓|    |
+|Arabiska|`ar`|✓|    |
+|Armeniska|`hy`|✓|    |
+|Baskiska|`eu`|✓|    |
+|Vitryska|`be`|✓|    |
+|Bengali|`bn`|✓|    |
+|Bosniska|`bs`|✓|2020-09-01|
+|Bulgariska|`bg`|✓|    |
+|Burmesiska|`my`|✓|    |
+|Katalanska, valencianska|`ca`|✓|    |
+|Centrala kambodjanska|`km`|✓|    |
+|Kinesiska|`zh`|✓|    |
+|Kinesiska, förenklad|`zh_chs`|✓|    |
+|Kinesiska, traditionell|`zh_cht`|✓|    |
+|Kroatiska|`hr`|✓|    |
+|Tjeckiska|`cs`|✓|    |
+|Danska|`da`|✓|    |
+|Dari|`prs`|✓|2020-09-01|
+|Divehi, Dhivehi, Maldivian|`dv`|✓|    |
+|Holländska, flamländska|`nl`|✓|    |
+|Engelska|`en`|✓|    |
+|Esperanto|`eo`|✓|    |
+|Estniska|`et`|✓|    |
+|Fijian|`fj`|✓|2020-09-01|
+|Finska|`fi`|✓|    |
+|Franska|`fr`|✓|    |
+|Galiciska|`gl`|✓|    |
+|Georgiska|`ka`|✓|    |
+|Tyska|`de`|✓|    |
+|Grekiska|`el`|✓|    |
+|Gujarati|`gu`|✓|    |
+|Haitian, Haitian Creole|`ht`|✓|    |
+|Hebreiska|`he`|✓|    |
+|Hindi|`hi`|✓|    |
+|Hmong Daw|`mww`|✓|2020-09-01|
+|Ungerska|`hu`|✓|    |
+|Isländska|`is`|✓|    |
+|Indonesiska|`id`|✓|    |
+|Inuktitut|`iu`|✓|    |
+|Iriska|`ga`|✓|    |
+|Italienska|`it`|✓|    |
+|Japanska|`ja`|✓|    |
+|Kannada|`kn`|✓|    |
+|Kazakiska|`kk`|✓|2020-09-01|
+|Koreanska|`ko`|✓|    |
+|Kurdisk|`ku`|✓|    |
+|Laos|`lo`|✓|    |
+|Latin|`la`|✓|    |
+|Lettiska|`lv`|✓|    |
+|Litauiska|`lt`|✓|    |
+|Makedonska|`mk`|✓|    |
+|Madagaskisk|`mg`|✓|2020-09-01|
+|Malajiska|`ms`|✓|    |
+|Malayalam|`ml`|✓|    |
+|Maltesiska|`mt`|✓|    |
+|Maori|`mi`|✓|2020-09-01|
+|Marathi|`mr`|✓|2020-09-01|
+|Norska|`no`|✓|    |
+|Norska (nynorsk)|`nn`|✓|    |
+|Odia|`or`|✓|    |
+|Afghanska, Pushto|`ps`|✓|    |
+|Persiska|`fa`|✓|    |
+|Polska|`pl`|✓|    |
+|Portugisiska|`pt`|✓|    |
+|Punjabi, Panjabi|`pa`|✓|    |
+|Queretaro Otomi|`otq`|✓|2020-09-01|
+|Rumänska, Moldavien, moldaviska|`ro`|✓|    |
+|Ryska|`ru`|✓|    |
+|Samoan|`sm`|✓|2020-09-01|
+|Serbiska|`sr`|✓|    |
+|Sinhala, Sinhalese|`si`|✓|    |
+|Slovakiska|`sk`|✓|    |
+|Slovenska|`sl`|✓|    |
+|Somaliska|`so`|✓|    |
+|Spanska, kastiliansk|`es`|✓|    |
+|Swahili|`sw`|✓|    |
+|Svenska|`sv`|✓|    |
+|Tagalog|`tl`|✓|    |
+|Tahitian|`ty`|✓|2020-09-01|
+|Tamilska|`ta`|✓|    |
+|Telugu|`te`|✓|    |
+|Thailändska|`th`|✓|    |
+|Tonganska|`to`|✓|2020-09-01|
+|Turkiska|`tr`|✓|    |
+|Ukrainska|`uk`|✓|    |
+|Urdu|`ur`|✓|    |
+|Uzbekiska|`uz`|✓|    |
+|Vietnamesiska|`vi`|✓|    |
+|Walesiska|`cy`|✓|    |
+|Jiddish|`yi`|✓|    |
+|Yucatec Maya|`yua`|✓|    |
+
+
 ---
+
 
 ## <a name="see-also"></a>Se även
 

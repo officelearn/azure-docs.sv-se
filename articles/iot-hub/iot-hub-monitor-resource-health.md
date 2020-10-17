@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fec74938adea4058041766a5c28c5a5200aa189e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89438414"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146549"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Övervaka hälsotillståndet för Azure IoT Hub och diagnostisera problem snabbt
 
@@ -36,7 +36,7 @@ IoT Hub tillhandahåller också egna mått som du kan använda för att förstå
 
 Azure Monitor innehåller diagnostikinformation för Azure-resurser, vilket innebär att du kan övervaka åtgärder som sker i din IoT-hubb.
 
-Om du vill veta mer om vilka mått och händelser som Azure Monitor bevaka, se [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md) och [tjänster som stöds, scheman och kategorier för Azure Diagnostic-loggar](../azure-monitor/platform/diagnostic-logs-schema.md).
+Om du vill veta mer om vilka mått och händelser som Azure Monitor bevaka, se [mått som stöds med Azure Monitor](../azure-monitor/platform/metrics-supported.md) och [tjänster som stöds, scheman och kategorier för Azure Diagnostic-loggar](../azure-monitor/platform/resource-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -122,7 +122,7 @@ Kategorin enhets identitets åtgärder spårar fel som inträffar när du förs�
 
 #### <a name="routes"></a>Vägar
 
-Kategorin [meddelande cirkulation](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) spårar fel som inträffar under utvärderingen av meddelande vägar och slut punkts hälsa som uppfattas av IoT Hub. Den här kategorin omfattar händelser som:
+Kategorin [meddelande cirkulation](./iot-hub-devguide-messages-d2c.md) spårar fel som inträffar under utvärderingen av meddelande vägar och slut punkts hälsa som uppfattas av IoT Hub. Den här kategorin omfattar händelser som:
 
 * En regel utvärderas till "odefinierad",
 * IoT Hub markerar en slut punkt som död eller

@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: twooley
-ms.openlocfilehash: 0e10afa9293bbebbb68a6fc3eae4bc3f75813ad0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 240018381a3139a6378141d78514e43ae469de5d
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106832"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146319"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Säkerhet i Azure Data Lake Storage Gen1
 
@@ -42,7 +42,7 @@ När Azure Active Directory autentiserat en användare så att användaren kan k
 * [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) för konto hantering
 * POSIX ACL för åtkomst till data i Store
 
-### <a name="rbac-for-account-management"></a>RBAC för konto hantering
+### <a name="azure-rbac-for-account-management"></a>Azure RBAC för konto hantering
 
 Fyra grundläggande roller definieras för Data Lake Storage Gen1 som standard. Rollerna tillåter olika åtgärder på ett Data Lake Storage Gen1 konto via Azure Portal, PowerShell-cmdletar och REST-API: er. Rollen ägare och deltagare kan utföra olika administrations funktioner på kontot. Du kan tilldela rollen läsare rollen till användare som bara visar konto hanterings data.
 

@@ -3,12 +3,12 @@ title: Azure Function som händelse hanterare för Azure Event Grid händelser
 description: Beskriver hur du kan använda Azure Functions som händelse hanterare för Event Grid händelser.
 ms.topic: conceptual
 ms.date: 09/18/2020
-ms.openlocfilehash: cd500eed180096388eede96f768f08b896ca6456
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9e04fd3e04dab7a50940c2a4a799a56d447fbb6e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873735"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145756"
 ---
 # <a name="azure-function-as-an-event-handler-for-event-grid-events"></a>Azure Function som händelse hanterare för Event Grid händelser
 
@@ -72,13 +72,13 @@ Du kan uppdatera de här värdena för en befintlig prenumeration på fliken **f
 :::image type="content" source="./media/custom-event-to-function/features-batch-settings.png" alt-text="Aktivera batchbearbetning vid tidpunkten för att skapa en prenumeration":::
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
-Du kan ange **maxEventsPerBatch** och **preferredBatchSizeInKilobytes** i en Azure Resource Manager-mall. Mer information finns i [referens för Microsoft. EventGrid eventSubscriptions Template](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/eventsubscriptions).
+Du kan ange **maxEventsPerBatch** och **preferredBatchSizeInKilobytes** i en Azure Resource Manager-mall. Mer information finns i [referens för Microsoft. EventGrid eventSubscriptions Template](/azure/templates/microsoft.eventgrid/eventsubscriptions).
 
 ### <a name="azure-cli"></a>Azure CLI
-Du kan använda [AZ eventgrid Event-Subscription Create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) eller [AZ eventgrid Event-Subscription Update-](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) kommando för att konfigurera batch-relaterade inställningar med följande parametrar: `--max-events-per-batch` eller `--preferred-batch-size-in-kilobytes` .
+Du kan använda [AZ eventgrid Event-Subscription Create](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create&preserve-view=true) eller [AZ eventgrid Event-Subscription Update-](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update&preserve-view=true) kommando för att konfigurera batch-relaterade inställningar med följande parametrar: `--max-events-per-batch` eller `--preferred-batch-size-in-kilobytes` .
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Du kan använda cmdleten [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) eller [Update-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/update-azeventgridsubscription) för att konfigurera batch-relaterade inställningar med följande parametrar: `-MaxEventsPerBatch` eller `-PreferredBatchSizeInKiloBytes` .
+Du kan använda cmdleten [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) eller [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) för att konfigurera batch-relaterade inställningar med följande parametrar: `-MaxEventsPerBatch` eller `-PreferredBatchSizeInKiloBytes` .
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över händelse hanterare som stöds finns i artikeln [händelse hanterare](event-handlers.md) . 
+En lista över händelse hanterare som stöds finns i artikeln [händelse hanterare](event-handlers.md) .

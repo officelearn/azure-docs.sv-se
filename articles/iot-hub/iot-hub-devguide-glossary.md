@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b7a81357cc6ee2608d2acd3051dcac3e5d0e07e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7765e077638c85c0cefe394a10cc22fe2b0b757
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87023474"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147774"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ord lista för IoT Hub villkor
 
@@ -28,19 +28,19 @@ Den här artikeln innehåller några av de vanliga termer som används i IoT Hub
 
 ## <a name="automatic-device-management"></a>Automatisk enhetshantering
 
-Automatisk enhets hantering i Azure IoT Hub automatiserar många av de repetitiva och komplexa uppgifterna i hanteringen av stora enhets flottor över hela livs cykeln. Med automatisk enhets hantering kan du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och låta IoT Hub uppdatera enheter när de kommer till omfånget.  Består av [Automatisk enhets konfiguration](iot-hub-auto-device-config.md) och [IoT Edge automatiska distributioner](../iot-edge/how-to-deploy-at-scale.md).
+Automatisk enhets hantering i Azure IoT Hub automatiserar många av de repetitiva och komplexa uppgifterna i hanteringen av stora enhets flottor över hela livs cykeln. Med automatisk enhets hantering kan du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och låta IoT Hub uppdatera enheter när de kommer till omfånget.  Består av [Automatisk enhets konfiguration](./iot-hub-automatic-device-management.md) och [IoT Edge automatiska distributioner](../iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="automatic-device-configuration"></a>Automatisk enhets konfiguration
 
-Server delen av lösningen kan använda [automatiska enhets konfigurationer](iot-hub-auto-device-config.md) för att tilldela önskade egenskaper till en uppsättning [enheter, dubbla](#device-twin) och rapportera status med hjälp av system mått och anpassade mått. 
+Server delen av lösningen kan använda [automatiska enhets konfigurationer](./iot-hub-automatic-device-management.md) för att tilldela önskade egenskaper till en uppsättning [enheter, dubbla](#device-twin) och rapportera status med hjälp av system mått och anpassade mått. 
 
 ## <a name="azure-classic-cli"></a>Klassisk Azure CLI
 
-Det [klassiska CLI](../cli-install-nodejs.md) -gränssnittet i Azure är ett plattforms oberoende kommando verktyg med öppen källkod för att skapa och hantera resurser i Microsoft Azure. Den här versionen av CLI bör endast användas för klassiska distributioner.
+Det [klassiska CLI](/cli/azure/install-classic-cli) -gränssnittet i Azure är ett plattforms oberoende kommando verktyg med öppen källkod för att skapa och hantera resurser i Microsoft Azure. Den här versionen av CLI bör endast användas för klassiska distributioner.
 
 ## <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) är ett kommando verktyg med öppen källkod med öppen källkod för att skapa och hantera resurser i Microsoft Azure.
+[Azure CLI](/cli/azure/install-az-cli2) är ett kommando verktyg med öppen källkod med öppen källkod för att skapa och hantera resurser i Microsoft Azure.
 
 ## <a name="azure-iot-device-sdks"></a>SDK: er för Azure IoT-enheter
 
@@ -72,7 +72,7 @@ Med [Azure Resource Manager](../azure-resource-manager/management/overview.md) k
 
 ## <a name="azure-service-bus"></a>Azure Service Bus
 
-[Service Bus](../service-bus/index.md) tillhandahåller moln aktive rad kommunikation med företags meddelande tjänster och vidarebefordrad kommunikation som hjälper dig att ansluta lokala lösningar med molnet. Vissa IoT Hub själv studie kurser använder Service Bus [köer](../service-bus-messaging/service-bus-messaging-overview.md).
+[Service Bus](../service-bus-messaging/index.yml) tillhandahåller moln aktive rad kommunikation med företags meddelande tjänster och vidarebefordrad kommunikation som hjälper dig att ansluta lokala lösningar med molnet. Vissa IoT Hub själv studie kurser använder Service Bus [köer](../service-bus-messaging/service-bus-messaging-overview.md).
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -96,7 +96,7 @@ Avser meddelanden som skickas från en IoT-hubb till en ansluten enhet. Dessa me
 
 ## <a name="configuration"></a>Konfiguration
 
-I samband med [Automatisk enhets konfiguration](iot-hub-auto-device-config.md)definierar en konfiguration i IoT Hub den önskade konfigurationen för en uppsättning enheter är tillsammans med en uppsättning mått för att rapportera status och förlopp.
+I samband med [Automatisk enhets konfiguration](./iot-hub-automatic-device-management.md)definierar en konfiguration i IoT Hub den önskade konfigurationen för en uppsättning enheter är tillsammans med en uppsättning mått för att rapportera status och förlopp.
 
 ## <a name="connection-string"></a>Anslutningssträng
 
@@ -164,7 +164,7 @@ Enhets hantering omfattar hela livs cykeln som är kopplad till hanteringen av e
 
 ## <a name="device-rest-api"></a>Enhets REST API
 
-Du kan använda [enhets REST API](https://docs.microsoft.com/rest/api/iothub/device) från en enhet för att skicka meddelanden från enheten till molnet till en IoT-hubb och ta emot meddelanden från [molnet till enheten](#cloud-to-device) från en IoT-hubb. Normalt bör du använda en av de högre [enhets-SDK: erna](#azure-iot-device-sdks) som visas i självstudierna för IoT Hub.
+Du kan använda [enhets REST API](/rest/api/iothub/device) från en enhet för att skicka meddelanden från enheten till molnet till en IoT-hubb och ta emot meddelanden från [molnet till enheten](#cloud-to-device) från en IoT-hubb. Normalt bör du använda en av de högre [enhets-SDK: erna](#azure-iot-device-sdks) som visas i självstudierna för IoT Hub.
 
 ## <a name="device-provisioning"></a>Enhets etablering
 
@@ -184,7 +184,7 @@ En IoT-hubb visar flera [slut punkter](iot-hub-devguide-endpoints.md) som gör d
 
 ## <a name="event-hubs-service"></a>Event Hubs tjänst
 
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) är en mycket skalbar data ingress-tjänst som kan mata in miljon tals händelser per sekund. Med tjänsten kan du bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. En jämförelse med IoT Hub-tjänsten finns i [jämförelse av azure IoT Hub och Azure-Event Hubs](iot-hub-compare-event-hubs.md).
+[Event Hubs](../event-hubs/event-hubs-about.md) är en mycket skalbar data ingress-tjänst som kan mata in miljon tals händelser per sekund. Med tjänsten kan du bearbeta och analysera de enorma mängder data som produceras av dina anslutna enheter och program. En jämförelse med IoT Hub-tjänsten finns i [jämförelse av azure IoT Hub och Azure-Event Hubs](iot-hub-compare-event-hubs.md).
 
 ## <a name="event-hub-compatible-endpoint"></a>Event Hub – kompatibel slut punkt
 
@@ -226,7 +226,7 @@ Det [IoT Hub frågespråket](iot-hub-devguide-query-language.md) är ett SQL-lik
 
 ## <a name="iot-hub-resource-rest-api"></a>IoT Hub resurs REST API
 
-Du kan använda [IoT Hub resurs REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) för att hantera IoT-hubbar i din [Azure-prenumeration](#subscription) som utför åtgärder som att skapa, uppdatera och ta bort hubbar.
+Du kan använda [IoT Hub resurs REST API](/rest/api/iothub/iothubresource) för att hantera IoT-hubbar i din [Azure-prenumeration](#subscription) som utför åtgärder som att skapa, uppdatera och ta bort hubbar.
 
 ## <a name="iot-solution-accelerators"></a>IoT-lösningsacceleratorer
 
@@ -304,7 +304,7 @@ SASL PLAIN är ett protokoll som används av AMQP-protokollet för att överför
 
 ## <a name="service-rest-api"></a>Tjänsten REST API
 
-Du kan använda [tjänst REST API](https://docs.microsoft.com/rest/api/iothub/service/configuration) från lösningens Server del för att hantera dina enheter. Med API: et kan du hämta och uppdatera [enhetens dubbla](#device-twin) egenskaper, anropa [direkta metoder](#direct-method)och schemalägga [jobb](#job). Normalt bör du använda en av de högre [service SDK: erna](#azure-iot-service-sdks) som visas i självstudierna för IoT Hub.
+Du kan använda [tjänst REST API](/rest/api/iothub/service/configuration) från lösningens Server del för att hantera dina enheter. Med API: et kan du hämta och uppdatera [enhetens dubbla](#device-twin) egenskaper, anropa [direkta metoder](#direct-method)och schemalägga [jobb](#job). Normalt bör du använda en av de högre [service SDK: erna](#azure-iot-service-sdks) som visas i självstudierna för IoT Hub.
 
 ## <a name="shared-access-signature"></a>Signatur för delad åtkomst
 

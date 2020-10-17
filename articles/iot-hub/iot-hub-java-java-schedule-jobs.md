@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.custom: mqtt, devx-track-java
-ms.openlocfilehash: c1cac67d79363ce25fb55d73cc3d8c42ea901fb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36092e0bb7d0249837d2eaa7898e9231ecb5f5a9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325091"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146990"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Schema-och sändnings jobb (Java)
 
@@ -54,7 +54,7 @@ I slutet av den här självstudien har du en app för Java-konsolen och en Java-
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
+* [Java se Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -62,7 +62,7 @@ I slutet av den här självstudien har du en app för Java-konsolen och en Java-
 
 * Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

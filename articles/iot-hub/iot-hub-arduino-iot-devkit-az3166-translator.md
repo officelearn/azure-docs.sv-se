@@ -9,12 +9,12 @@ ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: liydu
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 412a3e78006d263858ff0e28af52cf11bf44c7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be26c6fe03dac9b9ff9dbff4a2bdce391ec0837e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004348"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147858"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Använda IoT DevKit-AZ3166 med Azure Functions och Cognitive Services för att göra en språk översättare
 
@@ -26,7 +26,7 @@ I den här artikeln får du lära dig att göra IoT-DevKit som en språk övers�
 
 Utför stegen i den här självstudien genom att först utföra följande uppgifter:
 
-* Förbered din DevKit genom att följa stegen i [ansluta IoT DevKit-AZ3166 till Azure IoT Hub i molnet](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Förbered din DevKit genom att följa stegen i [ansluta IoT DevKit-AZ3166 till Azure IoT Hub i molnet](./iot-hub-arduino-iot-devkit-az3166-get-started.md).
 
 ## <a name="create-azure-cognitive-service"></a>Skapa Azure-tjänsten för inlärning
 
@@ -152,4 +152,4 @@ Du har lärt dig hur du använder IoT-DevKit som en översättare genom att anv�
 Gå vidare till de andra självstudierna för att lära dig:
 
 > [!div class="nextstepaction"]
-> [Ansluta IoT DevKit AZ3166 till Azure IoT Remote Monitor Solution Accelerator](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring)
+> [Ansluta IoT DevKit AZ3166 till Azure IoT Remote Monitor Solution Accelerator](./iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md)

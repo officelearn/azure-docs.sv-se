@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90b7b6aebfce1c37bef76d371d829048d755e39e
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356204"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147268"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Begär enhetsanslutningshändelser från Azure IoT Hub med hjälp av Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Sekvensnumret är en sträng representation av ett hexadecimalt tal. Du kan anv�
 
 * En samling i databasen. Se [lägga till en samling](../cosmos-db/create-sql-api-java.md#add-a-container) för en genom gång. När du skapar samlingen använder du `/id` för partitionsnyckel.
 
-* En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](iot-hub-csharp-csharp-getstarted.md).
+* En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](./quickstart-send-telemetry-dotnet.md).
 
 ## <a name="create-a-stored-procedure"></a>Skapa en lagrad procedur
 
@@ -335,7 +335,7 @@ Du kan se resultatet av den utförda lagrade proceduren i Cosmos DB dokumentet. 
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-I stället för att använda [Azure Portal](https://portal.azure.com)kan du utföra IoT Hub stegen med Azure CLI. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
+I stället för att använda [Azure Portal](https://portal.azure.com)kan du utföra IoT Hub stegen med Azure CLI. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -361,7 +361,7 @@ Om du inte vill förlora det arbete du gjort i logikappen inaktiverar du den i s
 
 7. Välj **Ta bort**.
 
-Om du vill ta bort ett Azure Cosmos DB konto från Azure Portal högerklickar du på konto namnet och klickar på **ta bort konto**. Se detaljerade instruktioner för att [ta bort ett Azure Cosmos DB-konto](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+Om du vill ta bort ett Azure Cosmos DB konto från Azure Portal högerklickar du på konto namnet och klickar på **ta bort konto**. Se detaljerade instruktioner för att [ta bort ett Azure Cosmos DB-konto](../cosmos-db/how-to-manage-database-account.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

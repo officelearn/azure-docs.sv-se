@@ -22,6 +22,13 @@
       href: data-lake-store-get-started-powershell.md
     - name: Använda Azure CLI
       href: data-lake-store-get-started-cli-2.0.md
+- name: Begrepp
+  items:
+    - name: Säkerhet
+      items:
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: Gör så här för att
   items:
     - name: Läs in och flytta data

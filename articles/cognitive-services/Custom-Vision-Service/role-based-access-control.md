@@ -1,7 +1,7 @@
 ---
-title: Rollbaserad åtkomst kontroll-Custom Vision
+title: Rollbaserad åtkomst kontroll i Azure – Custom Vision
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln visas hur du konfigurerar rollbaserad åtkomst kontroll för dina Custom Vision-projekt.
+description: I den här artikeln visas hur du konfigurerar rollbaserad åtkomst kontroll i Azure för dina Custom Vision-projekt.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 4eea87d7b5ef543551b789ddc6b045358fa98631
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826933"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146375"
 ---
-# <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+# <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
 
-Custom Vision stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC), ett auktoriserings system för att hantera individuell åtkomst till Azure-resurser. Med RBAC tilldelar du olika team medlemmar olika nivåer av behörigheter för dina Custom Vision-projekt. Mer information om RBAC finns i [Azure RBAC-dokumentationen](https://docs.microsoft.com/azure/role-based-access-control/).
+Custom Vision stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC), ett auktoriserings system för att hantera individuell åtkomst till Azure-resurser. Med Azure RBAC tilldelar du olika grupp medlemmar olika behörighets nivåer för dina Custom Vision-projekt. Mer information om Azure RBAC finns i [Azure RBAC-dokumentationen](https://docs.microsoft.com/azure/role-based-access-control/).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Lägg till roll tilldelning i Custom Vision resurs
 
@@ -27,7 +27,7 @@ Azure RBAC kan tilldelas till en Custom Vision-resurs. Om du vill bevilja åtkom
 1. I [Azure Portal](https://ms.portal.azure.com/)väljer du **alla tjänster**. 
 1. Välj sedan **Cognitive Services**och navigera till din speciella Custom vision utbildnings resurs.
    > [!NOTE]
-   > Du kan också konfigurera RBAC för hela resurs grupper, prenumerationer eller hanterings grupper. Det gör du genom att välja önskad omfattnings nivå och sedan navigera till önskat objekt (till exempel välja **resurs grupper** och sedan klicka igenom till önskad resurs grupp).
+   > Du kan också konfigurera Azure RBAC för hela resurs grupper, prenumerationer eller hanterings grupper. Det gör du genom att välja önskad omfattnings nivå och sedan navigera till önskat objekt (till exempel välja **resurs grupper** och sedan klicka igenom till önskad resurs grupp).
 1. Välj **åtkomst kontroll (IAM)** i det vänstra navigerings fönstret.
 1. Välj fliken **roll tilldelningar** för att Visa roll tilldelningarna för det här omfånget.
 1. Välj **Lägg till**  ->  **Lägg till roll tilldelning**.

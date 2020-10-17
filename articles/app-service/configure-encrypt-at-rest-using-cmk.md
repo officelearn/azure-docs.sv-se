@@ -3,12 +3,12 @@ title: Kryptera program källan i vila
 description: Lär dig hur du krypterar dina program data i Azure Storage och distribuerar dem som en paketfil.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 62bb1e51bada155b98fe46740662b86b753d44fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5524b749b1e15342dd0133920d7190e33ced18ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90978490"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146040"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Kryptering i vila med Kundhanterade nycklar
 
@@ -22,7 +22,7 @@ Att kryptera webbappens program data på rest kräver ett Azure Storage-konto oc
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
-Skapa först [ett Azure Storage-konto](../storage/common/storage-account-create.md) och [kryptera det med Kundhanterade nycklar](../storage/common/encryption-customer-managed-keys.md). När lagrings kontot har skapats använder du [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp paketfiler.
+Skapa först [ett Azure Storage-konto](../storage/common/storage-account-create.md) och [kryptera det med Kundhanterade nycklar](../storage/common/customer-managed-keys-overview.md). När lagrings kontot har skapats använder du [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) för att ladda upp paketfiler.
 
 Använd sedan Storage Explorer för att [skapa en SAS](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#generate-a-sas-in-storage-explorer). 
 

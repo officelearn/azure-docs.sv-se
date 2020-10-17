@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8aebb5b6f6a3ac53bc49fd1d2f75de88667865fb
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61244352"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147648"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Använda meddelande vägar och anpassade slut punkter för meddelanden från enhet till moln
 
@@ -46,7 +46,7 @@ Mer information om att läsa från anpassade slut punkter finns i:
 
 * Läser från [Azure Storage behållare](../storage/blobs/storage-blobs-introduction.md).
 
-* Läser från [Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md).
+* Läser från [Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 * Läser från [Service Bus köer](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 

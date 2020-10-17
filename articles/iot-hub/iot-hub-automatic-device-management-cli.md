@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 60d0ef30a1c7d948a9e837a8bc37c76ace415545
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21d8f513ea0f749f0318b9bc5926a746f840505b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82024973"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147825"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatisk hantering av IoT-enheter och -moduler med Azure CLI
 
@@ -36,7 +36,7 @@ Automatiska konfigurationer körs för första gången strax efter att konfigura
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-using-cli.md) i din Azure-prenumeration. 
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
+* [Azure CLI](/cli/azure/install-azure-cli) i din miljö. Som minst måste din Azure CLI-version vara 2.0.70 eller högre. Validera med `az –-version`. Den här versionen har stöd för az-tilläggskommandon och introducerar kommandoramverket Knack. 
 
 * [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-cli).
 
@@ -235,8 +235,8 @@ I den här artikeln har du lärt dig hur du konfigurerar och övervakar IoT-enhe
 För att ytterligare utforska funktionerna i IoT Hub, se:
 
 * [Guide för IoT Hub utvecklare](iot-hub-devguide.md)
-* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Distribuera AI till gränsenheter med Azure IoT Edge](../iot-edge/quickstart-linux.md)
 
 Om du vill utforska med hjälp av IoT Hub Device Provisioning Service för att aktivera Zero-Touch, just-in-Time-etablering, se: 
 
-* [Azure IoT Hub Device Provisioning-tjänst](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning-tjänst](../iot-dps/index.yml)

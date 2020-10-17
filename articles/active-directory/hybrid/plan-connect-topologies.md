@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658515"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146355"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 I den här artikeln beskrivs olika lokala och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect Sync som lösning för nyckel integrering. Den här artikeln innehåller konfigurationer som stöds och som inte stöds.
@@ -31,14 +31,14 @@ Här är förklaringarna för bilder i artikeln:
 
 | Beskrivning | Symbol |
 | --- | --- |
-| Lokal Active Directory skog |![Lokal Active Directory skog](./media/plan-connect-topologies/LegendAD1.png) |
-| Lokal Active Directory med filtrerad import |![Active Directory med filtrerad import](./media/plan-connect-topologies/LegendAD2.png) |
-| Azure AD Connect Sync-Server |![Azure AD Connect Sync-Server](./media/plan-connect-topologies/LegendSync1.png) |
-| Azure AD Connect Sync-Server "mellanlagrings läge" |![Azure AD Connect Sync-Server "mellanlagrings läge"](./media/plan-connect-topologies/LegendSync2.png) |
-| GALSync med Forefront Identity Manager (FIM) 2010 eller Microsoft Identity Manager (MIM) 2016 |![GALSync med FIM 2010 eller MIM 2016](./media/plan-connect-topologies/LegendSync3.png) |
-| Azure AD Connect Sync-Server, detaljerad |![Azure AD Connect Sync-Server, detaljerad](./media/plan-connect-topologies/LegendSync4.png) |
-| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/LegendAAD.png) |
-| Scenario som inte stöds |![Scenario som inte stöds](./media/plan-connect-topologies/LegendUnsupported.png) |
+| Lokal Active Directory skog |![Lokal Active Directory skog](./media/plan-connect-topologies/legendad1.png) |
+| Lokal Active Directory med filtrerad import |![Active Directory med filtrerad import](./media/plan-connect-topologies/legendad2.png) |
+| Azure AD Connect Sync-Server |![Azure AD Connect Sync-Server](./media/plan-connect-topologies/legendsync1.png) |
+| Azure AD Connect Sync-Server "mellanlagrings läge" |![Azure AD Connect Sync-Server "mellanlagrings läge"](./media/plan-connect-topologies/legendsync2.png) |
+| GALSync med Forefront Identity Manager (FIM) 2010 eller Microsoft Identity Manager (MIM) 2016 |![GALSync med FIM 2010 eller MIM 2016](./media/plan-connect-topologies/legendsync3.png) |
+| Azure AD Connect Sync-Server, detaljerad |![Azure AD Connect Sync-Server, detaljerad](./media/plan-connect-topologies/legendsync4.png) |
+| Azure AD |![Azure Active Directory](./media/plan-connect-topologies/legendaad.png) |
+| Scenario som inte stöds |![Scenario som inte stöds](./media/plan-connect-topologies/legendunsupported.png) |
 
 
 > [!IMPORTANT]
@@ -46,17 +46,17 @@ Här är förklaringarna för bilder i artikeln:
 
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>En enda skog, en enda Azure AD-klient
-![Topologi för en enskild skog och en enskild klient](./media/plan-connect-topologies/SingleForestSingleDirectory.png)
+![Topologi för en enskild skog och en enskild klient](./media/plan-connect-topologies/singleforestsingledirectory.png)
 
 Den vanligaste topologin är en enda lokal skog med en eller flera domäner, och en enda Azure AD-klient. För Azure AD-autentisering används hash-synkronisering av lösen ord. Snabb installationen av Azure AD Connect stöder bara den här topologin.
 
 ### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>En skog, flera Sync-servrar till en Azure AD-klient
-![Stöds inte, filtrerad topologi för en enskild skog](./media/plan-connect-topologies/SingleForestFilteredUnsupported.png)
+![Stöds inte, filtrerad topologi för en enskild skog](./media/plan-connect-topologies/singleforestfilteredunsupported.png)
 
 Det finns inte stöd för att ha flera Azure AD Connect Sync-servrar anslutna till samma Azure AD-klient, förutom en [Server för mellanlagring](#staging-server). Det stöds inte även om servrarna är konfigurerade för synkronisering med en ömsesidigt exklusiv uppsättning objekt. Du kanske har övervägt den här topologin om du inte kan komma åt alla domäner i skogen från en enskild server, eller om du vill distribuera belastningen mellan flera servrar.
 
 ## <a name="multiple-forests-single-azure-ad-tenant"></a>Flera skogar, en enda Azure AD-klient
-![Topologi för flera skogar och en enda klient](./media/plan-connect-topologies/MultiForestSingleDirectory.png)
+![Topologi för flera skogar och en enda klient](./media/plan-connect-topologies/multiforestsingledirectory.png)
 
 Många organisationer har miljöer med flera lokala Active Directory skogar. Det finns olika anledningar till att ha mer än en lokal Active Directory skog. Vanliga exempel är modeller med konto resurs skogar och resultatet av en sammanslagning eller ett förvärv.
 
@@ -81,16 +81,16 @@ Om din miljö inte matchar dessa antaganden inträffar följande saker:
 Du hittar mer information i [förstå standard konfigurationen](concept-azure-ad-connect-sync-default-configuration.md).
 
 ### <a name="multiple-forests-multiple-sync-servers-to-one-azure-ad-tenant"></a>Flera skogar, flera synkroniserade servrar till en Azure AD-klient
-![Topologi som inte stöds för flera skogar och flera Sync-servrar](./media/plan-connect-topologies/MultiForestMultiSyncUnsupported.png)
+![Topologi som inte stöds för flera skogar och flera Sync-servrar](./media/plan-connect-topologies/multiforestmultisyncunsupported.png)
 
 Det finns inte stöd för att ha mer än en Azure AD Connect Sync-server som är ansluten till en enda Azure AD-klient. Undantaget är användningen av en [fristående server](#staging-server).
 
 Den här topologin skiljer sig från den som finns nedan i att **flera Sync-servrar** som är anslutna till en enda Azure AD-klient stöds inte.
 
 ### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>Flera skogar, en enda Sync-Server, användare representeras i endast en katalog
-![Alternativ för att endast representera användare en gång i alla kataloger](./media/plan-connect-topologies/MultiForestUsersOnce.png)
+![Alternativ för att endast representera användare en gång i alla kataloger](./media/plan-connect-topologies/multiforestusersonce.png)
 
-![Beskriver flera skogar och separata topologier](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
+![Beskriver flera skogar och separata topologier](./media/plan-connect-topologies/multiforestseparatetopologies.png)
 
 I den här miljön behandlas alla lokala skogar som separata entiteter. Ingen användare finns i någon annan skog. Varje skog har sin egen Exchange-organisation och det finns ingen GALSync mellan skogarna. Den här topologin kan vara en situation efter en sammanslagning/förvärv eller i en organisation där varje affär senhet fungerar oberoende av varandra. Dessa skogar finns i samma organisation i Azure AD och visas med en enhetlig GAL. I föregående bild representeras varje objekt i varje skog en gång i metaversum och sammanställs i mål Azure AD-klienten.
 
@@ -98,9 +98,9 @@ I den här miljön behandlas alla lokala skogar som separata entiteter. Ingen an
 Vanliga för alla dessa scenarier är att distributions-och säkerhets grupper kan innehålla en blandning av användare, kontakter och främmande säkerhets objekt (FSPs). FSPs används i Active Directory Domain Services (AD DS) för att representera medlemmar från andra skogar i en säkerhets grupp. Alla FSPs matchas mot det faktiska objektet i Azure AD.
 
 ### <a name="multiple-forests-full-mesh-with-optional-galsync"></a>Flera skogar: komplett nät med valfri GALSync
-![Alternativ för att använda e-postattributet för matchning när användar identiteter finns i flera kataloger](./media/plan-connect-topologies/MultiForestUsersMail.png)
+![Alternativ för att använda e-postattributet för matchning när användar identiteter finns i flera kataloger](./media/plan-connect-topologies/multiforestusersmail.png)
 
-![Fullständig nättopologi för flera skogar](./media/plan-connect-topologies/MultiForestFullMesh.png)
+![Fullständig nättopologi för flera skogar](./media/plan-connect-topologies/multiforestfullmesh.png)
 
 Med en fullständig nättopologi kan användare och resurser finnas i vilken skog som helst. Vanligt vis finns det dubbelriktade förtroenden mellan skogarna.
 
@@ -109,9 +109,9 @@ Om Exchange finns i fler än en skog kan det finnas (valfritt) en lokal GALSync-
 I det här scenariot kopplas identitets objekt till via e-postattributet. En användare som har en post låda i en skog är kopplad till kontakterna i de andra skogarna.
 
 ### <a name="multiple-forests-account-resource-forest"></a>Flera skogar: konto-resurs skog
-![Alternativ för att använda attributen ObjectSID och msExchMasterAccountSID för matchning när identiteter finns i flera kataloger](./media/plan-connect-topologies/MultiForestUsersObjectSID.png)
+![Alternativ för att använda attributen ObjectSID och msExchMasterAccountSID för matchning när identiteter finns i flera kataloger](./media/plan-connect-topologies/multiforestusersobjectsid.png)
 
-![Konto – resurs skogens topologi för flera skogar](./media/plan-connect-topologies/MultiForestAccountResource.png)
+![Konto – resurs skogens topologi för flera skogar](./media/plan-connect-topologies/multiforestaccountresource.png)
 
 Du har en eller flera *konto* skogar med aktiva användar konton i en skogs topologi för konto resurser. Du har också en eller flera *resurs* skogar med inaktiverade konton.
 
@@ -128,7 +128,7 @@ Vissa Microsoft 365 arbets belastningar har vissa begränsningar för topologier
 Om du är en större organisation bör du överväga att använda funktionen [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) . Det gör att du kan definiera i vilken data Center region som användarens resurser finns.
 
 ## <a name="staging-server"></a>Mellanlagrings Server
-![Mellanlagrings server i en topologi](./media/plan-connect-topologies/MultiForestStaging.png)
+![Mellanlagrings server i en topologi](./media/plan-connect-topologies/multiforeststaging.png)
 
 Azure AD Connect stöder installation av en andra server i *mellanlagrings läge*. En server i det här läget läser data från alla anslutna kataloger men skriver inte något till anslutna kataloger. Den använder normal synkronisering och har därför en uppdaterad kopia av identitets data.
 
@@ -144,12 +144,12 @@ Det är möjligt att ha fler än en uppsamlings server om du vill ha flera säke
 Vi rekommenderar att du har en enda klient i Azure AD för en organisation.
 Innan du planerar att använda flera Azure AD-klienter kan du läsa artikeln [administrativ enhets hantering i Azure AD](../users-groups-roles/directory-administrative-units.md). Den täcker vanliga scenarier där du kan använda en enda klient.
 
-![Topologi för flera skogar och flera klienter](./media/plan-connect-topologies/MultiForestMultiDirectory.png)
+![Topologi för flera skogar och flera klienter](./media/plan-connect-topologies/multiforestmultidirectory.png)
 
 Det finns en 1:1-relation mellan en Azure AD Connect Sync-Server och en Azure AD-klient. För varje Azure AD-klient behöver du en Azure AD Connect synkronisering av Server installationen. Azure AD-klient instanserna är isolerade efter design. Det innebär att användare i en klient organisation inte kan se användare i den andra klienten. Om du vill ha denna separation är detta en konfiguration som stöds. Annars bör du använda en enda Azure AD-klient modell.
 
 ### <a name="each-object-only-once-in-an-azure-ad-tenant"></a>Varje objekt bara en gång i en Azure AD-klient
-![Filtrerad topologi för en enskild skog](./media/plan-connect-topologies/SingleForestFiltered.png)
+![Filtrerad topologi för en enskild skog](./media/plan-connect-topologies/singleforestfiltered.png)
 
 I den här topologin är en Azure AD Connect Sync-Server ansluten till varje Azure AD-klient. Azure AD Connect Sync-servrar måste konfigureras för filtrering så att varje har en ömsesidigt exklusiv uppsättning objekt att arbeta med. Du kan till exempel begränsa varje server till en viss domän eller organisationsenhet.
 
@@ -161,17 +161,20 @@ En DNS-domän kan bara registreras i en enda Azure AD-klient. UPN för användar
 
 Den här topologin har följande begränsningar för andra scenarier som stöds:
 
-* Endast en av Azure AD-klienterna kan aktivera en Exchange hybrid med den lokala Active Directory-instansen.
+* Högst 5 Azure Active Directory klienter kan ha Exchange hybrid med den lokala Active Directory-instansen. Det här scenariot beskrivs i [uppdaterings guiden för hybrid konfiguration i September 2020](https://techcommunity.microsoft.com/t5/exchange-team-blog/september-2020-hybrid-configuration-wizard-update/ba-p/1687698).
+* Guiden Exchange Server som kör hybrid konfiguration måste vara antingen 2016 CU18 eller 2019 CU7 eller senare.
+* Varje Azure AD Connect instans ska köras på en domänansluten dator.
+* Azure AD Connect måste konfigureras med alternativet domän/OU-filtrering för att filtrera användare från din lokala katalog. Om du använder det här alternativet ser du till att användarna bara visas i en enda Exchange-klient online.
 * Windows 10-enheter kan bara associeras med en Azure AD-klient.
 * Alternativet enkel inloggning (SSO) för lösen ords-hash-synkronisering och direktautentisering kan bara användas med en Azure AD-klient.
 
-Kravet för en ömsesidigt exklusiv uppsättning objekt gäller också för tillbakaskrivning. Vissa tillbakaskrivning-funktioner stöds inte med den här topologin eftersom de förutsätter en enda lokal konfiguration. Dessa funktioner omfattar bland annat:
+Kravet för en ömsesidigt exklusiv uppsättning objekt gäller också för tillbakaskrivning. Vissa tillbakaskrivning-funktioner stöds inte med den här topologin eftersom de förutsätter en enda lokal konfiguration. Här är några av funktionerna:
 
 * Tillbakaskrivning av grupp med standard konfiguration.
 * Tillbakaskrivning av enhet.
 
 ### <a name="each-object-multiple-times-in-an-azure-ad-tenant"></a>Varje objekt flera gånger i en Azure AD-klient
-![Topologi som inte stöds för en enskild skog och flera klienter](./media/plan-connect-topologies/SingleForestMultiDirectoryUnsupported.png) ![Topologi som inte stöds för en enskild skog och flera kopplingar](./media/plan-connect-topologies/SingleForestMultiConnectorsUnsupported.png)
+![Topologi som inte stöds för en enskild skog och flera klienter](./media/plan-connect-topologies/singleforestmultidirectoryunsupported.png) ![Topologi som inte stöds för en enskild skog och flera kopplingar](./media/plan-connect-topologies/singleforestmulticonnectorsunsupported.png)
 
 Dessa uppgifter stöds inte:
 
@@ -180,7 +183,7 @@ Dessa uppgifter stöds inte:
 * Ändra Azure AD Connect Sync för att ansluta till flera Azure AD-klienter.
 
 ### <a name="galsync-by-using-writeback"></a>GALSync med hjälp av tillbakaskrivning
-![Topologi som inte stöds för flera skogar och flera kataloger med GALSync fokusering på Azure AD](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![Topologi som inte stöds för flera skogar och flera kataloger, med GALSync fokusering på lokala Active Directory](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
+![Topologi som inte stöds för flera skogar och flera kataloger med GALSync fokusering på Azure AD](./media/plan-connect-topologies/multiforestmultidirectorygalsync1unsupported.png) ![Topologi som inte stöds för flera skogar och flera kataloger, med GALSync fokusering på lokala Active Directory](./media/plan-connect-topologies/multiforestmultidirectorygalsync2unsupported.png)
 
 Azure AD-klienter isoleras genom design. Dessa uppgifter stöds inte:
 
@@ -188,7 +191,7 @@ Azure AD-klienter isoleras genom design. Dessa uppgifter stöds inte:
 * Exportera användare som kontakter till en annan lokal Active Directory instans genom att använda Azure AD Connect synkronisering.
 
 ### <a name="galsync-with-on-premises-sync-server"></a>GALSync med lokal Sync-Server
-![GALSync i en topologi för flera skogar och flera kataloger](./media/plan-connect-topologies/MultiForestMultiDirectoryGALSync.png)
+![GALSync i en topologi för flera skogar och flera kataloger](./media/plan-connect-topologies/multiforestmultidirectorygalsync.png)
 
 Du kan använda FIM 2010 eller MIM 2016 lokalt för att synkronisera användare (via GALSync) mellan två Exchange-organisationer. Användare i en organisation visas som externa användare/kontakter i den andra organisationen. De olika lokala Active Directory instanserna kan sedan synkroniseras med sina egna Azure AD-klienter.
 

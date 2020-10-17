@@ -10,12 +10,12 @@ ms.date: 02/14/2019
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 5b86803b763039846e2101b9caf0232aafa4fa24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b21b161a03be7a37fe1d3e872e10d4de437670db
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327471"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145867"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Anslut Raspberry Pi till Azure IoT Hub (C)
 
@@ -81,7 +81,7 @@ Följande objekt är valfria:
 > Dessa objekt är valfria eftersom kod exemplet stöder simulerade sensor data.
 >
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -154,7 +154,7 @@ För sensor stift använder du följande kablar:
 | SDI (PIN-23F)            | SPI0 MOSI (PIN 19)     | Grön kabel   |
 | CS (PIN-24F)             | SPI0 CS (PIN 24)       | Blå kabel    |
 
-Klicka om du vill visa [Raspberry Pi 2 & 3 PIN-mappningar](https://developer.microsoft.com/windows/iot/docs/pinmappingsrpi) för din referens.
+Klicka om du vill visa [Raspberry Pi 2 & 3 PIN-mappningar](/windows/iot-core/learn-about-hardware/pinmappings/pinmappingsrpi) för din referens.
 
 När du har anslutit BME280 till din Raspberry Pi bör det vara likadant som under bilden.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: e0466aa3497edf5f271c01944438c033bba152f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e25b9d6cbe8446fb2f10150f17f7e2b0ccf85d3c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327675"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147622"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Skicka meddelanden från enheten till molnet och från moln till enhet med IoT Hub
 
@@ -23,7 +23,7 @@ IoT Hub möjliggör dubbelriktad kommunikation med dina enheter. Använd IoT Hub
 
 ## <a name="sending-device-to-cloud-messages-to-iot-hub"></a>Skicka "enhet till molnet"-meddelanden till IoT Hub
 
-IoT Hub har en inbyggd tjänst slut punkt som kan användas av backend-tjänster för att läsa telemetri-meddelanden från dina enheter. Den här slut punkten är kompatibel med [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) och du kan använda standard-IoT Hub SDK: er för att [läsa från den här inbyggda slut punkten](iot-hub-devguide-messages-read-builtin.md).
+IoT Hub har en inbyggd tjänst slut punkt som kan användas av backend-tjänster för att läsa telemetri-meddelanden från dina enheter. Den här slut punkten är kompatibel med [Event Hubs](../event-hubs/index.yml) och du kan använda standard-IoT Hub SDK: er för att [läsa från den här inbyggda slut punkten](iot-hub-devguide-messages-read-builtin.md).
 
 IoT Hub stöder också [anpassade slut punkter](iot-hub-devguide-endpoints.md#custom-endpoints) som kan definieras av användare för att skicka data och händelser för enhets telemetri till Azure-tjänster med hjälp av [meddelanderoutning](iot-hub-devguide-messages-d2c.md).
 
@@ -39,9 +39,9 @@ Kärn egenskaper för IoT Hub meddelande funktioner är tillförlitlighet och h�
 
 Använd enhets-till-moln-meddelanden för att skicka telemetri och aviseringar för Time Series från din enhets app och meddelanden från molnet till enheten för enkelriktade aviseringar till din enhets app.
 
-* Information om hur du kan välja mellan meddelanden från enhet till moln, rapporterade egenskaper eller fil uppladdning finns i [rikt linjer för kommunikation mellan enheter och moln](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance) .
+* Information om hur du kan välja mellan meddelanden från enhet till moln, rapporterade egenskaper eller fil uppladdning finns i [rikt linjer för kommunikation mellan enheter och moln](./iot-hub-devguide-d2c-guidance.md) .
 
-* Mer information om hur du kan välja mellan meddelanden från molnet till enheten, önskade egenskaper eller direkta metoder finns i [kommunikation mellan moln-till-enhet](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) .
+* Mer information om hur du kan välja mellan meddelanden från molnet till enheten, önskade egenskaper eller direkta metoder finns i [kommunikation mellan moln-till-enhet](./iot-hub-devguide-c2d-guidance.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 

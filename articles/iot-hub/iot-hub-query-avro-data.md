@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: f77a5b634b035b7cc1142645d355fe6c3756226b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1eed12593168975b1dfda6e51b07b256cbd0c246
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004076"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92145812"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Fråga Avro data med hjälp av Azure Data Lake Analytics
 
@@ -171,7 +171,7 @@ I det här avsnittet frågar du Avro-data och exporterar dem till en CSV-fil i A
 
 I den här självstudien har du lärt dig hur du frågar Avro data för att effektivt dirigera meddelanden från Azure IoT Hub till Azure-tjänster.
 
-Exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub finns i [dokumentationen för Azure IoT Solution acceleratorer](/azure/iot-accelerators).
+Exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub finns i [dokumentationen för Azure IoT Solution acceleratorer](../iot-accelerators/index.yml).
 
 Mer information om hur du utvecklar lösningar med IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).
 

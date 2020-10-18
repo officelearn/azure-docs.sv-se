@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76a29af80891142fcf7f56f93f5c7acc5c58ab04
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89293650"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165153"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Design assistents upplevelser för Windows 10
 
@@ -70,7 +70,7 @@ Assistenter bör skapa en lyssnande upplevelse för att ge kritisk feedback så 
 När assistent appen har fokus är kund avsikten tydlig att interagera med appen, så alla röst aktiverings upplevelser bör hanteras av huvudappens vy. Den här vyn kan ändra storlek på kunden. I resten av det här dokumentet används det konkreta exemplet på en ekonomi tjänst assistent som heter Contoso för att hjälpa till att förklara interaktions gränssnittet. I det här och efterföljande diagram, vad kunden säger visas i tecknade tal bubblor till vänster med assistent svar i tecknade bubblor till höger.
 
 **Vyn app. Initialt tillstånd när röst aktivering börjar:** 
- ![ skärm bild av röst assistenten i Windows före aktivering](media/voice-assistants/windows_voice_assistant/initial_state.png)
+ ![ skärm bild som visar appen contoso ekonomi assistenten öppen till standard arbets ytan. En tecknings prat bubbla till höger står "contoso".](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
 **Vyn app. Efter lyckad röst aktivering börjar lyssnings upplevelsen:** ![ skärm bild av röst assistenten i Windows när röst assistenten lyssnar](media/voice-assistants/windows_voice_assistant/listening.png)
 
@@ -108,9 +108,9 @@ Assistenten måste implementera den inlösta vägledningen i det här avsnittet 
 - Om appen används &quot; &quot; kan det fortsätta att vara kvar över låset. &quot;används för att &quot; Ange indata eller utdata. Till exempel när en musik eller video strömmas, kan appen fortsätta att vara över låset. &quot;Följ &quot; de här stegen i och andra dialog steg för multiaktivering är tillåtna för att hålla appen över låset.
 - **Implementerings information om hur du stänger programmet** finns [i hand boken för låsnings implementering](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
-![Skärm bild av röst assistenten i Windows före aktivering](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
+![Skärm bild som visar den ovan säkra vyn i appen contoso ekonomi assistent.](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
-![Skärm bild av röst assistenten i Windows före aktivering](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
+![Skärm bild av ett skriv bord som visar Windows Lås skärmen.](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>Sekretess &amp; säkerhets aspekter över lås
 

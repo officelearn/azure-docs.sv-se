@@ -1,5 +1,5 @@
 ---
-title: Självstudie – konfigurera prioriterad trafik routning med Azure Traffic Manager
+title: 'Självstudie: Konfigurera prioriterad trafik routning med Azure Traffic Manager'
 description: I den här självstudien beskrivs hur du konfigurerar routningsmetoden för prioritets trafik i Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -9,52 +9,104 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 10/16/2020
 ms.author: duau
-ms.openlocfilehash: 404338c3e36216833d39c3551ae2dee0be304d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1be507f3676a5531855e3a8deb6801b1a5cb8e74
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401018"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166804"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Självstudie: Konfigurera prioritet för trafik cirkulation i Traffic Manager
 
-Oberoende av webbplats läget innehåller Azure Websites redan funktioner för redundans för webbplatser i ett Data Center (kallas även region). Traffic Manager tillhandahåller redundans för webbplatser i olika data Center.
+I den här självstudien beskrivs hur du använder Azure Traffic Manager för att dirigera användar trafik till vissa slut punkter med hjälp av metoden för prioritets dirigering. I den här routningsmetod definierar du ordningen för varje slut punkt som hamnar i Traffic Manager profil konfiguration. Trafik från användare dirigeras till slut punkten i den ordning de visas. Den här metoden för routning är användbar när du vill konfigurera för redundansväxling av tjänster. Den primära slut punkten får ett prioritets nummer på 1 och kommer att betjäna alla inkommande begär Anden. Medan slut punkter med lägre prioritet fungerar som säkerhets kopieringar.
 
-Ett vanligt mönster för redundansväxling av tjänster är att skicka trafik till en primär tjänst och tillhandahålla en uppsättning identiska säkerhets kopierings tjänster för redundans. Följande steg beskriver hur du konfigurerar prioriterad redundans med Azure Cloud Services och Websites:
+I de här självstudierna får du lära dig att
+
+> [!div class="checklist"]
+> - Skapa en Traffic Manager profil med prioriterad routning.
+> - Lägg till slut punkter.
+> - Konfigurera prioritet för slut punkter.
+> - Använd Traffic Manager profilen.
+> - Ta bort Traffic Managers profil.
+
+## <a name="prerequisites"></a>Krav
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="to-configure-the-priority-traffic-routing-method"></a>Så här konfigurerar du metoden för prioritets väg för trafik
+1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) från en webbläsare. Om du inte redan har ett konto kan du [registrera dig för en kostnadsfri utvärderingsmånad](https://azure.microsoft.com/free/). 
-2. I portalens sökfält söker du efter **Traffic Manager profiler** och klickar sedan på det profil namn som du vill konfigurera routningsmetod för.
-3. På bladet **Traffic Manager profil** kontrollerar du att både de moln tjänster och webbplatser som du vill inkludera i konfigurationen finns.
-4. I avsnittet **Inställningar** klickar du på **konfiguration**och slutför i **konfigurations** bladet på följande sätt:
-    1. För **Inställningar för trafikroutnings metod**kontrollerar du att metoden för trafikroutning är **prioritet**. Om så inte är fallet klickar du på **prioritet** i list rutan.
-    2. Ange **Inställningar för slut punkts övervakaren** identisk för alla slut punkter i den här profilen enligt följande:
-        1. Välj lämpligt **protokoll**och ange **port** numret. 
-        2. För **sökväg** anger du ett snedstreck */* . Om du vill övervaka slut punkter måste du ange en sökväg och ett fil namn. Ett snedstreck "/" är en giltig post för den relativa sökvägen och innebär att filen finns i rot katalogen (standard).
-        3. Klicka på **Spara**längst upp på sidan.
-5. I avsnittet **Inställningar** klickar du på **slut punkter**.
-6. På bladet **slut punkter** granskar du prioritets ordningen för dina slut punkter. När du väljer metoden **prioriterad** trafikroutning är ordningen för de valda slut punkterna. Kontrol lera prioritetsordningen för slut punkter.  Den primära slut punkten är överst. Dubbel kontroll av den ordning som den visas. alla begär Anden dirigeras till den första slut punkten och om Traffic Manager identifierar att den inte är felfri växlar trafiken automatiskt över till nästa slut punkt. 
-7. Om du vill ändra prioritets ordning för slut punkten klickar du på slut punkten och på bladet **slut punkt** som visas klickar du på **Redigera** och ändrar **prioritet** svärdet efter behov. 
-8. Klicka på **Spara** för att spara ändringar av slut punkts inställningarna.
-9. När du har slutfört konfigurations ändringarna klickar du på **Spara** längst ned på sidan.
-10. Testa ändringarna i konfigurationen på följande sätt:
-    1.  Sök efter namnet på Traffic Manager profilen i portalens sökfält och klicka på Traffic Manager profilen i resultaten som visas.
-    2.  I bladet **Traffic Manager** profil klickar du på **Översikt**.
-    3.  Bladet **Traffic Manager profil** visar DNS-namnet för din nyligen skapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) för att dirigeras till den högra slut punkten som fastställs av typen av routning. I det här fallet dirigeras alla begär anden till den första slut punkten och om Traffic Manager identifierar att den inte är felfri växlar trafiken automatiskt över till nästa slut punkt.
-11. När din Traffic Manager-profil fungerar redigerar du DNS-posten på den auktoritativa DNS-servern för att peka ditt företags domän namn till Traffic Manager domän namnet.
+1. Välj **+ skapa en resurs** på den vänstra sidan. Sök efter **Traffic Manager profil** och välj **skapa**.
 
-![Konfigurera Traffic routing-metoden med hjälp av Traffic Manager][1]
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/create-traffic-manager-priority-profile.png" alt-text="Skapa en profil för Traffic Manager prioritet":::
+
+1. Definiera följande inställningar på sidan *skapa Traffic Manager profil* :
+
+    | Inställning         | Värde                                              |
+    | ---             | ---                                                |
+    | Namn            | Ange ett namn för din profil. Det här namnet måste vara unikt inom trafficmanager.net-zonen. För att få åtkomst till din Traffic Manager-profil använder du DNS-namnet `<profilename>.trafficmanager.net` . |    
+    | Routningsmetod  | Välj **Prioritet**. |
+    | Prenumeration    | Välj din prenumeration. |
+    | Resursgrupp   | Använd en befintlig resurs grupp eller skapa en ny resurs grupp för att placera profilen under. Om du väljer att skapa en ny resurs grupp använder du List rutan *resurs grupps plats* för att ange platsen för resurs gruppen. Den här inställningen refererar till platsen för resurs gruppen och har ingen inverkan på den Traffic Manager profil som distribueras globalt. |
+
+1. Välj **skapa** för att distribuera din Traffic Manager-profil.
+
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/create-traffic-manager-profile-priority.png" alt-text="Skapa en profil för Traffic Manager prioritet":::
+
+## <a name="add-endpoints"></a>Lägg till slut punkter
+
+1. Välj Traffic Manager profilen i listan.
+
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-list.png" alt-text="Skapa en profil för Traffic Manager prioritet":::
+
+1. Välj **slut punkter** under *Inställningar* och välj **+ Lägg** till för att lägga till en ny slut punkt.
+
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-add-endpoints.png" alt-text="Skapa en profil för Traffic Manager prioritet":::
+
+1. Välj eller ange följande inställningar: 
+
+    | Inställning                | Värde                                              |
+    | ---                    | ---                                                |
+    | Typ                   | Välj typ av slut punkt. |    
+    | Namn                   | Ange ett namn för att identifiera slut punkten. |
+    | Målresurstyp   | Välj resurs typ för målet. |
+    | Målresurs        | Välj resursen i listan. |
+    | Prioritet               | Ange ett prioritets nummer för den här slut punkten. 1 är den högsta prioriteten. |
+
+
+1. Välj **Lägg till** för att lägga till slut punkten. Upprepa steg 2 och 3 för att lägga till ytterligare slut punkter. Kom ihåg att ange rätt prioritets nummer.
+
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/add-endpoint.png" alt-text="Skapa en profil för Traffic Manager prioritet":::
+
+1. På sidan **slut punkter** granskar du prioritets ordningen för dina slut punkter. När du väljer metoden **prioriterad** trafikroutning är ordningen för de valda slut punkterna. Kontrol lera prioritetsordningen för slut punkter.  Den primära slut punkten är överst. Dubbel kontroll över den ordning som den visas. Alla begär Anden dirigeras till den första slut punkten och om Traffic Manager identifierar att den inte är felfri växlar trafiken automatiskt över till nästa slut punkt. 
+
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/endpoints-list.png" alt-text="Skapa en profil för Traffic Manager prioritet":::
+
+1. Om du vill ändra slut punktens prioritets ordning väljer du slut punkten, ändrar prioritet svärdet och väljer **Spara** för att spara slut punkts inställningarna.
+
+## <a name="use-the-traffic-manager-profile"></a>Använd Traffic Manager profilen
+
+1.  I portalens sökfält söker du efter namnet på **Traffic Manager profilen** som du skapade i föregående avsnitt och väljer i Traffic Manager-profilen i resultaten som visas.
+
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/search-traffic-manager-profile.png" alt-text="Skapa en profil för Traffic Manager prioritet":::
+
+1.  På sidan Översikt över **Traffic Manager profil** visas DNS-namnet för din nyligen skapade Traffic Manager-profil. Detta kan användas av alla klienter (till exempel genom att navigera till den med hjälp av en webbläsare) för att dirigeras till den högra slut punkten som fastställs av typen av routning. I det här fallet dirigeras alla begär anden till den första slut punkten och om Traffic Manager identifierar att den inte är felfri växlar trafiken automatiskt över till nästa slut punkt.
+
+    :::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-profile-dns-name.png" alt-text="Skapa en profil för Traffic Manager prioritet":::
+
+1. När din Traffic Manager-profil fungerar redigerar du DNS-posten på den auktoritativa DNS-servern för att peka ditt företags domän namn till Traffic Manager domän namnet.
+
+## <a name="clean-up-resource"></a>Rensa resurs
+
+Om du inte längre behöver Traffic Manager profilen letar du reda på profilen och väljer **ta bort profil**.
+
+:::image type="content" source="./media/traffic-manager-priority-routing-method/traffic-manager-delete-priority-profile.png" alt-text="Skapa en profil för Traffic Manager prioritet":::
 
 ## <a name="next-steps"></a>Nästa steg
 
+Mer information om metoden för prioritets dirigering finns i:
 
-- Lär dig mer om [routningsmetoden för viktad trafik](traffic-manager-configure-weighted-routing-method.md).
-- Lär dig mer om [routningsmetod för prestanda](traffic-manager-configure-performance-routing-method.md).
-- Lär dig mer om den [geografiska routningsmetoden](traffic-manager-configure-geographic-routing-method.md).
-- Lär dig hur du [testar Traffic Manager inställningar](traffic-manager-testing-settings.md).
-
-<!--Image references-->
-[1]: ./media/traffic-manager-priority-routing-method/traffic-manager-priority-routing-method.png
+> [!div class="nextstepaction"]
+> [Metod för prioritets cirkulation](traffic-manager-routing-methods.md#priority-traffic-routing-method)

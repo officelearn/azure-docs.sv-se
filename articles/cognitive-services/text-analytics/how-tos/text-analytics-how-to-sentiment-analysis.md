@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930296"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166938"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Så här: identifiera sentiment med hjälp av API för textanalys
 
@@ -36,7 +36,7 @@ Attitydanalys stöder en mängd olika språk, med mer i för hands version. Mer 
 | Linux-baserad [Docker-behållare](text-analytics-how-to-install-containers.md) | X  |  |
 | Åsikts utvinning                            |                       | X                                 |
 
-### <a name="sentiment-scoring-and-labeling"></a>Sentiment-poängsättning och märkning
+## <a name="sentiment-scoring-and-labeling"></a>Sentiment-poängsättning och märkning
 
 Attitydanalys i v3 tillämpar sentiment-etiketter på text, som returneras på en mening och dokument nivå, med en förtroende poäng för var och en. 
 
@@ -51,7 +51,7 @@ Etiketterna är *positiva*, *negativa*och *neutrala*. På dokument nivå kan du 
 
 Förtroendet sträcker sig från 1 till 0. Resultat närmare 1 anger en högre exakthet i etikettens klassificering, medan lägre poäng visar lägre exakthet. För varje dokument eller varje mening är de förväntade poängen som är kopplade till etiketterna (positiva, negativa och neutrala) upp till 1.
 
-### <a name="opinion-mining"></a>Åsikts utvinning
+## <a name="opinion-mining"></a>Åsikts utvinning
 
 Åsikts utvinning är en funktion i Attitydanalys, från och med version 3,1 – för hands version. 1. Den här funktionen är även känd som Aspect-baserad Attitydanalys i naturlig språk bearbetning (NLP) och ger mer detaljerad information om de åsikter som rör aspekter (till exempel attributen för produkter eller tjänster) i text.
 

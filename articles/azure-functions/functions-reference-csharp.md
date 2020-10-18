@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 12/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 4d5388f850f47323f6ad79f9f91e617e506546bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48614640660da6d85face5ea416d267fa9f59515
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205446"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164847"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referens för Azure Functions C#-skript (. CSX)
 
@@ -249,7 +249,17 @@ public static void Run(string myBlob, ILogger log)
 ```
 
 > [!NOTE]
-> Information om ett nyare loggnings ramverk som du kan använda i stället för finns i `TraceWriter` [skriva loggar i C#-funktioner](functions-monitoring.md#write-logs-in-c-functions) i den **övervaka Azure Functions** artikeln.
+> Information om ett nyare loggnings ramverk som du kan använda i stället för finns i `TraceWriter` [ILogger](functions-dotnet-class-library.md#ilogger) -dokumentationen i .NET-klass bibliotekets utvecklings guide.
+
+### <a name="custom-metrics-logging"></a>Anpassad mått loggning
+
+Du kan använda `LogMetric` tilläggs metoden i om du `ILogger` vill skapa anpassade mått i Application Insights. Här är ett exempel på metod anrop:
+
+```csharp
+logger.LogMetric("TestMetric", 1234);
+```
+
+Den här koden är ett alternativ till att anropa `TrackMetric` med hjälp av Application Insights-API för .net.
 
 ## <a name="async"></a>Async
 

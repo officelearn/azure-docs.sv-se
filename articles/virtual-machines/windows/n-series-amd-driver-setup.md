@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: ebae7359c7bd593cb2b63bbd69919330c6aa24f9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6885c28d993b8ddab5fe158ad7b1480259cb8fb0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150751"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92163793"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows
 
@@ -48,11 +48,12 @@ Grundläggande specifikationer, lagrings kapacitet och disk information finns i 
 
 Du kan kontrol lera driv rutins installationen i Enhetshanteraren. I följande exempel visas lyckad konfiguration av kortet Radeon Instinct MI25 på en virtuell Azure-NVv4.
 <br />
-![Status för GPU-enhet](./media/n-series-amd-driver-setup/device-manager.png)
+
+![Skärm bild som visar lyckad konfiguration av Instinct MI25-kortet på en virtuell Azure-NVv4.](./media/n-series-amd-driver-setup/device-manager.png)
 
 Du kan använda dxdiag för att kontrol lera GPU-bildskärms egenskaper inklusive video-RAM. I följande exempel visas en 1/2-partition av kortet Radeon Instinct MI25 på en virtuell Azure-NVv4.
 <br />
-![GPU-egenskaper](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
+![Skärm bild som visar en 1/2-partition av kortet Radeon Instinct MI25 på en virtuell Azure-NVv4.](./media/n-series-amd-driver-setup/dxdiag-output-new.png)
 
 Om du kör Windows 10 version 1903 eller senare kommer dxdiag inte att visa någon information på fliken "Visa". Använd alternativet "Spara all information" längst ned och utdatafilen visar information om AMD MI25 GPU.
 

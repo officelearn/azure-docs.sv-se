@@ -13,12 +13,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 03/23/2020
-ms.openlocfilehash: 7be78a0c05942aebb9e3154a79035d71f87becd3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca458bebf75f8e77774236166704794b817b7c3f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334923"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167142"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Auktorisera databas åtkomst till SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -42,7 +42,7 @@ När en användare försöker ansluta till en databas, anger de ett användar ko
 - [SQL-autentisering](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   Med den här autentiseringsmetoden skickar användaren ett användar konto namn och kopplat lösen ord för att upprätta en anslutning. Det här lösen ordet lagras i huvud databasen för användar konton som är länkade till en inloggning eller lagras i databasen som innehåller de användar konton som *inte är* länkade till någon inloggning.
-- [Azure Active Directory autentisering](authentication-aad-overview.md)
+- [Azure Active Directory-autentisering](authentication-aad-overview.md)
 
   Med den här autentiseringsmetoden skickar användaren ett användar konto namn och begär att tjänsten använder den autentiseringsinformation som lagrats i Azure Active Directory (Azure AD).
 
@@ -65,7 +65,7 @@ Om du vill identifiera administratörs konton för en databas öppnar du Azure P
 
 ![SQL-serveradministratörer](./media/logins-create-manage/sql-admins.png)
 
-![SQL-serveradministratörer](./media/logins-create-manage/sql-admins2.png)
+![Skärm bild som markerar meny alternativet egenskaper.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
 > Inloggnings namnet för administratören kan inte ändras efter att det har skapats. Om du vill återställa lösen ordet för Server administratören går du till [Azure Portal](https://portal.azure.com), klickar på **SQL-servrar**, väljer servern i listan och klickar sedan på **Återställ lösen ord**. Om du vill återställa lösen ordet för SQL-hanterad instans går du till Azure Portal, klickar på instansen och sedan på **Återställ lösen ord**. Du kan också använda PowerShell eller Azure CLI.

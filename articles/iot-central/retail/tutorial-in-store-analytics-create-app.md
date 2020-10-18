@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 50dd6038a8642f13cea7840fff723a5cf12ce2dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a15ccd6d67b4819ba5dd6233a2a001015037c404
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81000254"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165680"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Självstudie: skapa ett in-Store Analytics-program i Azure IoT Central
 
@@ -34,7 +34,7 @@ Du utvecklar en lösning för utcheckning och villkors övervakning i tre delar:
 * Anpassa instrument panelen för att aktivera operatörer för att övervaka och hantera enheter
 * Konfigurera data export så att butiks hanterare kan köra analyser och visualisera insikter
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Använd Azure IoT Central **in-Store Analytics-** betalningsmall för att skapa ett Retail Store-program
 > * Anpassa program inställningarna
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 > * Ansluta enheter till ditt program
 > * Lägg till regler och åtgärder för att övervaka villkor
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här själv studie serien behöver du:
 * En Azure-prenumeration rekommenderas. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
@@ -148,7 +148,7 @@ Så här lägger du till en RuuviTag enhets mal len i programmet:
 
 1. Välj **Nästa: Anpassa**.
 
-    ![Mall för Azure IoT Central RuuviTag sensor enhet](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
+    ![Skärm bild som visar knappen Nästa: anpassa.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template.png)
 
 1. Välj **Skapa**. Programmet lägger till enhets mal len RuuviTag.
 
@@ -191,7 +191,7 @@ För `humidity` telemetri-typen gör du följande ändringar:
 
 1. Välj **Spara** för att spara ändringarna.
 
-    ![Anpassning av mall för Azure IoT Central RuuviTag-enhet](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
+    ![Skärm bild som visar sidan Anpassa och markerar knappen Spara.](./media/tutorial-in-store-analytics-create-app/ruuvitag-device-template-customize.png)
 
 Så här lägger du till en moln egenskap till en enhets mall i ditt program:
 

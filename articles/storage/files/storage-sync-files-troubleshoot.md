@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018602"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164235"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -358,7 +358,7 @@ Tabellen nedan innehåller alla Unicode-tecken Azure File Sync ännu inte har st
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | – 2147023673 | 
 | **Felsträng** | ERROR_CANCELLED |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Sync-sessioner kan Miss lyckas av olika orsaker, inklusive servern som startas om eller uppdateras, VSS-ögonblicksbilder osv. Även om felet ser ut som kräver uppföljning, är det säkert att ignorera det här felet om det inte behålls under en period på flera timmar.
 
@@ -380,7 +380,7 @@ Sync-sessioner kan Miss lyckas av olika orsaker, inklusive servern som startas o
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | – 2134376372 |
 | **Felsträng** | ECS_E_USER_REQUEST_THROTTLED |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Ingen åtgärd krävs. servern kommer att försöka igen. Om felet kvarstår i flera timmar kan du skapa en supportförfrågan.
 
@@ -391,7 +391,7 @@ Ingen åtgärd krävs. servern kommer att försöka igen. Om felet kvarstår i f
 | **HRESULT** | 0x80c83075 |
 | **HRESULT (decimal)** | – 2134364043 |
 | **Felsträng** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Ingen åtgärd krävs. När en fil-eller fil resurs (moln slut punkt) återställs med hjälp av Azure Backup blockeras synkronisering tills ändrings identifieringen är klar på Azure-filresursen. Den här identifieringen körs direkt när återställningen är färdig och hur lång tid det tar beror på antalet filer i filresursen.
 
@@ -402,7 +402,7 @@ Ingen åtgärd krävs. När en fil-eller fil resurs (moln slut punkt) återstäl
 | **HRESULT** | 0x80041295 |
 | **HRESULT (decimal)** | – 2147216747 |
 | **Felsträng** | SYNC_E_METADATA_INVALID_OPERATION |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Det här felet uppstår vanligtvis när ett säkerhetskopieringsprogram skapar en VSS-ögonblicksbild och Sync-databasen tas bort från minnet. Om felet kvarstår i flera timmar kan du skapa en supportförfrågan.
 
@@ -571,7 +571,7 @@ Felet uppstår när det inte går att nå Azure-filresursen på grund av en bran
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | – 2134375911 |
 | **Felsträng** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Felet brukar lösas av sig självt och inträffa om det finns:
 
@@ -707,7 +707,7 @@ Det här felet beror på att volymen är full. Felet uppstår vanligtvis när fi
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | – 2134364145 |
 | **Felsträng** | ECS_E_REPLICA_NOT_READY |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Felet beror på att moln slut punkten skapades med innehåll som redan finns på Azure-filresursen. Azure File Sync måste genomsöka Azure-filresursen för allt innehåll innan Server slut punkten kan fortsätta med den första synkroniseringen.
 
@@ -734,7 +734,7 @@ Felet beror på att moln slut punkten skapades med innehåll som redan finns på
 | **Felsträng** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Reparation krävs** | Ja |
 
-Om det finns många fel vid synkronisering av filer kan det hända att Sync-sessioner Miss lyckas. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
+Det går inte att synkronisera sessioner med ett av dessa fel när det finns många filer som inte kan synkroniseras med per objekt-fel. Utför stegen som beskrivs i [Hur gör jag för att se om det finns specifika filer eller mappar som inte synkroniseras?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) avsnittet för att lösa felen per objekt. Öppna ett support ärende om du ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED sync-fel.
 
 > [!NOTE]
 > Azure File Sync skapar en tillfällig VSS-ögonblicksbild en gång om dagen på servern för att synkronisera filer som har öppna referenser.
@@ -768,7 +768,7 @@ Det här felet beror på att den version av filterdrivrutinen för molnnivåinde
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | – 2134376373 |
 | **Felsträng** | ECS_E_SERVICE_UNAVAILABLE |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Felet beror på att tjänsten Azure File Sync-tjänsten inte är tillgänglig. Det här felet löses automatiskt när Azure File Sync-tjänsten är tillgänglig igen.
 
@@ -779,7 +779,7 @@ Felet beror på att tjänsten Azure File Sync-tjänsten inte är tillgänglig. D
 | **HRESULT** | 0x80131500 |
 | **HRESULT (decimal)** | – 2146233088 |
 | **Felsträng** | COR_E_EXCEPTION |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Felet beror på att synkroniseringen misslyckades på grund av ett undantag. Om felet kvarstår i flera timmar kan du skapa en support förfrågan.
 
@@ -801,7 +801,7 @@ Felet beror på att lagringskontot har redundansväxlat till en annan region. Az
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | – 2134375922 |
 | **Felsträng** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Det här felet uppstår på grund av ett internt problem med Sync-databasen. Det här felet löses automatiskt när Sync försöker igen. Om felet fortsätter under en längre tid kan du skapa en supportbegäran så kontaktar vi dig för att hjälpa dig att lösa problemet.
 
@@ -885,7 +885,7 @@ Felet beror på att Azure File Sync inte stöder HTTP-omdirigering (3xx status k
 | **HRESULT** | 0x80c83085 |
 | **HRESULT (decimal)** | – 2134364027 |
 | **Felsträng** | ECS_E_DATA_INGESTION_WAIT_TIMEOUT |
-| **Reparation krävs** | Inga |
+| **Reparation krävs** | Nej |
 
 Felet uppstår när en data inmatnings åtgärd överskrider tids gränsen. Det här felet kan ignoreras om synkroniseringen gör förlopp (AppliedItemCount är större än 0). Se [Hur gör jag för att övervaka förloppet för en aktuell Sync-session?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 

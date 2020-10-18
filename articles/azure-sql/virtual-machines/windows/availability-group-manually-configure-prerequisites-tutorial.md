@@ -14,18 +14,20 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 812fb35f404092453ad35b2f70c4a5b1697fbfe0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea9c8b91237f4590d1999c99fbb356d78994390d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075713"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166904"
 ---
-# <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Krav för att skapa Always on-tillgänglighetsgrupper på SQL Server på Azure Virtual Machines
+# <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Självstudie: förutsättningar för att skapa tillgänglighets grupper på SQL Server på Azure Virtual Machines
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 I den här självstudien visas hur du slutför kraven för att skapa en [SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines (VM)](availability-group-manually-configure-tutorial.md). När du har slutfört kraven har du en domänkontrollant, två SQL Server virtuella datorer och en vittnes server i en enda resurs grupp.
+
+Även om den här artikeln konfigurerar tillgänglighets grupps miljön manuellt, är det också möjligt att göra detta med hjälp av [Azure Portal](availability-group-azure-portal-configure.md), [POWERSHELL, Azure CLI](availability-group-az-commandline-configure.md)eller [Azures snabb starts mallar](availability-group-quickstart-template-configure.md) . 
 
 **Tids uppskattning**: det kan ta några timmar att slutföra kraven. Mycket av den här gången har du ägnat åt att skapa virtuella datorer.
 
@@ -60,7 +62,7 @@ Du behöver ett Azure-konto. Du kan [öppna ett kostnads fritt Azure-konto](http
 8. Välj en plats. Platsen är den Azure-region där du vill skapa tillgänglighets gruppen. I den här artikeln skapas alla resurser på en Azure-plats.
 9. Kontrol lera att **Fäst på instrument panelen** är markerat. Med den här valfria inställningen placeras en genväg för resurs gruppen på Azure Portal instrument panelen.
 
-   ![Resursgrupp](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
+   ![Genväg till resurs grupp för Azure Portal](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
 
 10. Välj **skapa** för att skapa resurs gruppen.
 
@@ -118,13 +120,13 @@ Det nya virtuella nätverket har ett undernät, med namnet **admin**. Domän kon
 
     Anteckna det undernät som du redan har skapat.
 
-   ![Konfigurera det virtuella nätverket](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
+   ![Observera det undernät som du redan har skapat](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
 
 5. Om du vill skapa ett andra undernät väljer du **+ undernät**.
 6. I **Lägg till undernät**konfigurerar du under nätet genom att skriva **sqlsubnet** under **namn**. Azure anger automatiskt ett giltigt **adress intervall**. Kontrol lera att det här adress intervallet innehåller minst 10 adresser. I en produktions miljö kan du behöva fler adresser.
 7. Välj **OK**.
 
-    ![Konfigurera det virtuella nätverket](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
+    ![Konfigurera undernät](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
 Följande tabell sammanfattar inställningarna för nätverks konfiguration:
 
@@ -242,7 +244,7 @@ I följande steg konfigurerar du den **AD-primära DC-** datorn som en domänkon
 12. I kolumnen **åtgärd** i dialog rutan **all information om Server aktivitet** väljer **du befordra den här servern till en**domänkontrollant.
 13. I **konfigurations guiden för Active Directory Domain Services**använder du följande värden:
 
-    | **Sida** | Inställningen |
+    | **Sida** | Inställning |
     | --- | --- |
     | **Distributionskonfiguration** |**Lägg till en ny skog**<br/> **Rot domän namn** = Corp.contoso.com |
     | **Alternativ för domänkontrollant** |**DSRM-lösenord** = contoso! 0000<br/>**Bekräfta lösen ord** = contoso! 0000 |

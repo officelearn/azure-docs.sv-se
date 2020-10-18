@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5e457742d8a940ff3a1602cc3dcf1b1d77126ac3
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 06a0209c2bbd0982054d33c199685d016f405b0c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076682"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165493"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-in-the-portal"></a>Så här konfigurerar du automatisk skalning för en moln tjänst i portalen
 
@@ -21,7 +21,7 @@ Villkor kan anges för en arbets roll för en moln tjänst som utlöser en skaln
 > [!NOTE]
 > Den här artikeln fokuserar på webb-och arbets roller i moln tjänster. När du skapar en virtuell dator (klassisk) direkt är den värdbaserad i en moln tjänst. Du kan skala en virtuell standard dator genom att associera den med en [tillgänglighets uppsättning](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) och aktivera eller inaktivera dem manuellt.
 
-## <a name="considerations"></a>Att tänka på
+## <a name="considerations"></a>Överväganden
 Du bör fundera över följande information innan du konfigurerar skalning för programmet:
 
 * Skalning påverkas av kärn användning.
@@ -53,7 +53,7 @@ Du kan konfigurera skalnings inställningar för en roll med antingen två läge
 
 Ställ in alternativet **skala enligt** för **schema-och prestanda regler**.
 
-![Skalnings inställningar för moln tjänster med profil och regel](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![Skärm bild som visar alternativet schema och prestanda regler.](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. En befintlig profil.
 2. Lägg till en regel för den överordnade profilen.

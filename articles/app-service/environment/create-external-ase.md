@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4922d8855173ab2539c3960aacf54c89aaf1b7b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: aa65508c4f8df2c11bab74cd34f3311b21c63d9c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148250"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164609"
 ---
 # <a name="create-an-external-app-service-environment"></a>Skapa en extern App Service-miljö
 
@@ -61,7 +61,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du **skapa en resurs**  >  **webb och mobilt**  >  **-webbapp**.
 
-    ![Skapa webb program][1]
+    ![Skärm bild av Azure Portal som visar Webb och mobilt valt på Azure Marketplace och skärmen för att skapa en ny webbapp öppen till höger.][1]
 
 2. Välj din prenumeration. Appen och ASE skapas i samma prenumerationer.
 
@@ -71,7 +71,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
 5. Välj App Service plan och välj sedan **Skapa ny**. Linux-webbappar och Windows-webbappar kan inte vara i samma App Service plan, men kan vara i samma App Service-miljön. 
 
-    ![Ny App Service plan][2]
+    ![Skärm bild av Azure Portal som visar fönstret webbapp, fönstret App Service-plan och fönstret ny App Service plan öppnas.][2]
 
 6. I list rutan **plats** väljer du den region där du vill skapa ASE. Om du väljer en befintlig ASE skapas inte en ny ASE. App Service plan skapas i den ASE som du har valt. 
 
@@ -99,7 +99,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
 1. [Azure portal](https://portal.azure.com/) **Skapa en resurs**  >  **webb och mobilt**  >  **Web App for containers** i Azure Portal. 
 
-    ![Skapa webb program][7]
+    ![Skärm bild av Azure Portal som visar Webb och mobilt valdes på Azure Marketplace och fönstret Web App for Containers öppnas till höger.][7]
 
 1. Välj din prenumeration. Appen och ASE skapas i samma prenumerationer.
 
@@ -107,7 +107,7 @@ Så här skapar du en ASE när du skapar en App Service plan:
 
 1. Välj App Service plan och välj sedan **Skapa ny**. Linux-webbappar och Windows-webbappar kan inte vara i samma App Service plan, men kan vara i samma App Service-miljön. 
 
-    ![Ny App Service plan][8]
+    ![Skärm bild av Azure Portal som visar fönstret Web App for Containers, fönstret App Service-plan och fönstret ny App Service plan öppen.][8]
 
 1. I list rutan **plats** väljer du den region där du vill skapa ASE. Om du väljer en befintlig ASE skapas inte en ny ASE. App Service plan skapas i den ASE som du har valt. 
 

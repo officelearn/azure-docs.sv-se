@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 094449ddcbfc2baf41657d00de030ef3c1cddbb5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 17daef18d87c4b5c906694ab1394694b32b6b130
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108498"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164879"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -39,7 +39,7 @@ Det finns tre versioner av Azure Functions Core Tools. Vilken version du använd
 
 Du kan bara installera en version av Core-verktyg på en specifik dator. Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Azure Functions Core Tools är för närvarande beroende av Azure CLI för autentisering med ditt Azure-konto. Det innebär att du måste [Installera Azure CLI lokalt](/cli/azure/install-azure-cli) för att kunna [Publicera till Azure](#publish) från Azure Functions Core tools. 
 
@@ -574,15 +574,11 @@ Det rekommenderade sättet att övervaka körningen av dina funktioner är genom
 
 ### <a name="application-insights-integration"></a>Application Insights-integrering
 
-Application Insights integration ska vara aktive rad när du skapar din Function-app i Azure. Om din funktions app inte är ansluten till en Application Insights instans, är det enkelt att integrera i Azure Portal. 
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+Application Insights integration ska vara aktive rad när du skapar din Function-app i Azure. Om din funktions app inte är ansluten till en Application Insights instans, är det enkelt att integrera i Azure Portal. Mer information finns i [aktivera Application Insights-integrering](configure-monitoring.md#enable-application-insights-integration).
 
 ### <a name="enable-streaming-logs"></a>Aktivera strömnings loggar
 
 Du kan visa en ström med loggfiler som genereras av dina funktioner i en kommando rad session på den lokala datorn. 
-
-#### <a name="native-streaming-logs"></a>Interna strömmande loggar
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 

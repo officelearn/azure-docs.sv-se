@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: d234a121ee8f36389c79228d69a11d9fe999eb5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a966579e1acc02f1479c41520dcbbc58d420647c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444770"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164524"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Konfigurera Always Encrypted med hjälp av Windows certifikat Arkiv
 
@@ -97,7 +97,7 @@ SSMS innehåller en guide för att enkelt konfigurera Always Encrypted genom att
 1. Expandera **Databases**  >  **klinik**-  >  **tabeller**för databaser.
 2. Högerklicka på tabellen **patienter** och välj **kryptera kolumner** för att öppna guiden Always Encrypted:
 
-    ![Kryptera kolumner](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
+    ![Skärm bild som visar Colunns för kryptering... meny alternativ i tabellen patienter.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
 Guiden Always Encrypted innehåller följande avsnitt: **kolumn val**, **huvud nyckel konfiguration** (CMK), **verifiering**och **Sammanfattning**.
 
@@ -149,7 +149,7 @@ Nu när Always Encrypted har kon figurer ATS kan du skapa ett program som utför
 1. Öppna Visual Studio och skapa ett nytt C#-konsol program. Kontrol lera att ditt projekt är inställt på **.NET Framework 4,6** eller senare.
 2. Ge projektet namnet **AlwaysEncryptedConsoleApp** och klicka på **OK**.
 
-![Nytt konsol program](./media/always-encrypted-certificate-store-configure/console-app.png)
+![Skärm bild som visar det nyligen namngivna AlwaysEncryptedConsoleApp-projektet.](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Ändra anslutnings strängen för att aktivera Always Encrypted
 
@@ -510,7 +510,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 Du kan se att de krypterade kolumnerna inte innehåller några oformaterade data.
 
-   ![Nytt konsol program](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
+   ![Skärm bild som visar krypterade data i de krypterade kolumnerna.](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 Om du vill använda SSMS för att komma åt data i klartext kan du lägga till **kolumn krypterings inställningen = aktive rad** parameter till anslutningen.
 
@@ -518,7 +518,7 @@ Om du vill använda SSMS för att komma åt data i klartext kan du lägga till *
 2. Klicka på **Anslut**  >  **databas motor** för att öppna fönstret **Anslut till Server** och klicka sedan på **alternativ**.
 3. Klicka på **ytterligare anslutnings parametrar** och ange **kolumn krypterings inställning = aktive rad**.
 
-    ![Nytt konsol program](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
+    ![Skärm bild som visar fliken Ytterligare anslutnings parametrar med inställningen för kolumn kryptering som har Aktiver ATS i rutan.](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Kör följande fråga i **klinik** -databasen.
 
     ```tsql

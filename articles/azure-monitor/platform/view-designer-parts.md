@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 1e674bf157d55c9b5f7cf49e8df5e17acb99ee3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539405"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166598"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Referens guide för att Visa designer visualiserings delar i Azure Monitor
 Med hjälp av View Designer i Azure Monitor kan du skapa en mängd olika anpassade vyer i Azure Portal som kan hjälpa dig att visualisera data i din Log Analytics-arbetsyta. Den här artikeln är en referens guide för inställningarna för de visualiserings delar som är tillgängliga i dina anpassade vyer.
@@ -44,9 +44,9 @@ I nästa avsnitt beskrivs panel typerna och deras egenskaper i detalj.
 ## <a name="list-of-queries-part"></a>Lista över frågor-del
 I listan med frågor-delen visas en lista över logg frågor. Du kan välja varje fråga för att visa resultatet. Vyn innehåller en enda fråga som standard, och du kan välja **+ fråga** om du vill lägga till fler frågor.
 
-![Lista över frågor-vy](media/view-designer-parts/view-list-queries.png)
+![Skärm bild av en lista över frågor visualiserings del i Azure Monitor View Designer.](media/view-designer-parts/view-list-queries.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Rubrik |Den text som visas överst i vyn. |
@@ -60,9 +60,9 @@ I listan med frågor-delen visas en lista över logg frågor. Du kan välja varj
 ## <a name="number-and-list-part"></a>Tal-och list del
 Rubriken visar ett enda tal som visar antalet poster från en logg fråga. I listan visas de tio främsta resultaten från en fråga, med en graf som visar det relativa värdet för en numerisk kolumn eller dess förändring över tid.
 
-![Lista över frågor-vy](media/view-designer-parts/view-number-list.png)
+![Skärm bild av antalet och lista visualiserings delar i Azure Monitor View Designer.](media/view-designer-parts/view-number-list.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i vyn. |
@@ -91,7 +91,7 @@ Rubriken innehåller två siffror som visar antalet poster från separata logg f
 
 ![Två tal & List visning](media/view-designer-parts/view-two-numbers-list.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i vyn. |
@@ -122,7 +122,7 @@ Rubriken visar ett enstaka tal som sammanfattar en värde kolumn i en logg fråg
 
 ![Ring-och list visning](media/view-designer-parts/view-donut-list.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
@@ -163,7 +163,7 @@ Rubriken visar resultatet av två logg frågor med tiden som stapeldiagram, med 
 
 ![Två tids linjer och listvy](media/view-designer-parts/view-two-timelines-list.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
@@ -195,7 +195,7 @@ Rubriken visar statisk text och en valfri länk. I listan visas ett eller flera 
 
 ![Vyn information](media/view-designer-parts/view-information.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
@@ -216,7 +216,7 @@ I rubriken visas ett linje diagram med flera serier från en logg fråga med tid
 
 ![Linje diagram, bildtext och listvy](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
@@ -256,7 +256,7 @@ I huvudet visas ett linje diagram med flera serier från en logg fråga över ti
 
 ![Linje diagram och listvy](media/view-designer-parts/view-line-chart-callout-list.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
@@ -292,7 +292,7 @@ Linje diagrammets stack visar tre separata linje diagram med flera serier från 
 
 ![Stack med linje diagram](media/view-designer-parts/view-stack-line-charts.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | **Allmänt** | |
 | Grupp rubrik |Den text som visas överst i panelen. |
@@ -322,7 +322,7 @@ Genom att klicka – navigera definieras vilken åtgärd som ska vidtas när du 
 
 I följande tabell beskrivs inställningarna för klick-navigering.
 
-| Inställningen           | Beskrivning |
+| Inställning           | Beskrivning |
 |:--|:--|
 | Loggs ökning (Auto) | Logg fråga som ska köras när du väljer ett rubrik objekt.  Det här är samma logg fråga som objektet baseras på.
 | Loggsökning        | Logg fråga som ska köras när du väljer ett objekt i en lista.  Skriv frågan i rutan **navigerings fråga** .   Använd *{markerat objekt}* för att inkludera syntaxen för det objekt som användaren har valt.  Om frågan till exempel har en kolumn med namnet *dator* och navigerings frågan är *{markerat objekt}*, körs en fråga som *Computer = "Min Dator"* när du väljer en dator. Om navigerings frågan är *typ = händelse {markerat objekt}*, körs frågetyp *= Event dator = "Min Dator"* . |
@@ -335,7 +335,7 @@ Ett miniatyr diagram är ett litet linje diagram som illustrerar värdet för en
 
 I följande tabell beskrivs inställningarna för miniatyr diagram:
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | Aktivera miniatyr diagram |Välj den här länken om du vill visa ett miniatyr diagram i stället för ett vågrätt fält. |
 | Åtgärd |Om miniatyr diagram är aktiverade, är det här åtgärden som ska utföras på varje egenskap i listan för att beräkna värdena för miniatyr diagrammet.<ul><li>Senaste exempel: det sista värdet för serien under tidsintervallet.</li><li>Max: det maximala värdet för serien under tidsintervallet.</li><li>Min: det lägsta värdet för serien under tidsintervallet.</li><li>Sum: summan av värdena för serien under tidsintervallet.</li><li>Sammanfattning: använder samma `measure` kommando som frågan i rubriken.</li></ul> |
@@ -349,7 +349,7 @@ Varje tröskel uppsättning har ett tröskelvärde med värdet **default**. Dett
 
 I följande tabell beskrivs inställningarna för tröskelvärden:
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
 | Aktivera tröskelvärden |Välj den här länken om du vill visa en färg ikon till vänster om varje värde. Ikonen anger värdets hälsa relativt till angivna tröskelvärden. |
 | Namn |Namnet på tröskelvärdet. |

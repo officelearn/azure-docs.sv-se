@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, sensor, visnings program, visualisering, djup, RGB, färg, IMU, ljud, mikrofon, punkt moln
-ms.openlocfilehash: 57cf7df831e97da4143a7f196b69a3a10609a017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f411de5854d516586dc64701cca729c692ce40e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277485"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166113"
 ---
 # <a name="azure-kinect-viewer"></a>Azure Kinect Viewer
 
@@ -36,7 +36,7 @@ Visnings programmet kan köras i två lägen: med real tids data från sensorn e
 
 Starta programmet genom att köra `k4aviewer.exe` .
 
-![Kontrollerar den inbyggda enhetens version med visnings programmet](./media/how-to-guides/open-viewer.png)
+![Skärm bild som visar det startade visnings programmet.](./media/how-to-guides/open-viewer.png)
 
 ### <a name="use-the-viewer-with-live-data"></a>Använd visnings programmet med real tids data
 

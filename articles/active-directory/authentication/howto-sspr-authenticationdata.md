@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cba2517f536c9044ad15c628c793529f93b988ce
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ed2366884f53eafe89800e7ae60a6a560dc292b4
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966499"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165015"
 ---
 # <a name="pre-populate-user-authentication-contact-information-for-azure-active-directory-self-service-password-reset-sspr"></a>Förkonfigurera kontakt information för användarautentisering för Azure Active Directory lösen ords återställning via självbetjäning (SSPR)
 
@@ -48,16 +48,14 @@ När en användare har verifierat mobiltelefon numret fylls *telefon* fältet un
 
 ## <a name="authentication-contact-info"></a>Information om autentisering av kontakt
 
-På sidan **autentiseringsmetoder** för en Azure AD-användare i Azure Portal kan en global administratör manuellt ange autentiseringens kontakt information, som du ser i följande exempel skärm bild:
+På sidan **autentiseringsmetoder** för en Azure AD-användare i Azure Portal kan en global administratör manuellt ange kontakt information för autentisering. Du kan granska befintliga metoder under avsnittet *användbara autentiseringsmetoder* eller **+ Lägg till autentiseringsmetoder**, som du ser i följande exempel skärm bild:
 
-![Kontakt information för autentisering på en användare i Azure AD][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Hantera autentiseringsmetoder från Azure Portal":::
 
 Följande överväganden gäller för den här autentiseringens kontakt information:
 
 * Om *telefon* fältet är ifyllt och *mobil telefonen* är aktiverat i SSPR-principen, ser användaren det numret på registrerings sidan för lösen ords återställning och under arbets flödet för lösen ords återställning.
-* Det *alternativa telefon* fältet används inte för lösen ords återställning.
 * Om *e-* postfältet är ifyllt och *e-postmeddelandet* är aktiverat i SSPR-principen ser användaren den e-postadressen på registrerings sidan för lösen ords återställning och under arbets flödet för lösen ords återställning.
-* Om det *alternativa e-* postfältet är ifyllt och *e-postmeddelandet* är aktiverat i SSPR-principen visas inte e-postmeddelandet på registrerings sidan för lösen ords återställning, men de visas under arbets flödet för lösen ords återställning.
 
 ## <a name="security-questions-and-answers"></a>Säkerhets frågor och svar
 
@@ -169,5 +167,3 @@ När du har angett autentiserings kontakt information i förväg för användare
 
 > [!div class="nextstepaction"]
 > [Aktivera återställning av lösen ord för självbetjäning i Azure AD](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Globala administratörer kan ändra kontakt information för en användares autentisering"

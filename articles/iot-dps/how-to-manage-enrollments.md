@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 8bd896573dbd0b24df11c0d66009098de19654ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbcacd7f2094f9b0b9dcea3fea4d804fd96923e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74974946"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165323"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Hantera enhets registreringar med Azure Portal
 
@@ -24,7 +24,7 @@ En *enhets registrering* skapar en post för en enskild enhet eller en grupp av 
 
 Det finns två sätt att registrera enheter med etablerings tjänsten:
 
-* En **registrerings grupp** är en post för en grupp av enheter som delar en gemensam mekanism för attestering av X. 509-certifikat, signerade av samma signerings certifikat, som kan vara [rot certifikatet](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) eller det [mellanliggande certifikatet](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)som används för att producera enhets certifikatet på den fysiska enheten. Vi rekommenderar att du använder en registrerings grupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som alla kommer till samma klient. Observera att du bara kan registrera enheter som använder mekanismen för 509-attestering för X. som *registrerings grupper*. 
+* En **registrerings grupp** är en post för en grupp av enheter som delar en gemensam mekanism för attestering av X. 509-certifikat, signerade av samma signerings certifikat, som kan vara [rot certifikatet](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) eller det [mellanliggande certifikatet](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate)som används för att producera enhets certifikatet på den fysiska enheten. Vi rekommenderar att du använder en registrerings grupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som alla kommer till samma klient. 
 
     Du kan skapa en registrerings grupp i portalen för en grupp av enheter med hjälp av följande steg:
 

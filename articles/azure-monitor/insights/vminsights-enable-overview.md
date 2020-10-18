@@ -6,12 +6,13 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/27/2020
-ms.openlocfilehash: 4041b824d099edbefcc45c68163257ca69ddf7de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.custom: references_regions
+ms.openlocfilehash: b903fda9a64233b4906941167ca7fd5819a0316b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995690"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164490"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Aktivera Azure Monitor for VMs översikt
 
@@ -37,30 +38,42 @@ Innan du börjar ska du se till att du förstår informationen i följande avsni
 >[!NOTE]
 >Följande information som beskrivs i det här avsnittet gäller även för den [tjänstkarta lösningen](service-map.md).  
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
 
 Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 
-- USA, västra centrala
-- USA, västra
-- USA, västra 2
-- USA, södra centrala
-- East US
-- USA, östra 2
-- Central US
-- USA, norra centrala
-- US Gov AZ
-- US Gov va
-- Kanada, centrala
-- Storbritannien, södra
-- Norra Europa
-- Europa, västra
-- Asien, östra
-- Sydostasien
-- Indien, centrala
-- Japan, östra
-- Australien, östra
-- Australien, sydöstra
+- Afrika
+  - Sydafrika, norra
+- Asien och stillahavsområdet
+  - Asien, östra
+  - Sydostasien
+- Australien
+  - Australien, östra
+  - Australien, sydöstra
+- Azure Government
+  - US Gov AZ
+  - US Gov va
+- Kanada
+  - Kanada, centrala
+- Europa
+  - Norra Europa
+  - Europa, västra
+- Indien
+  - Indien, centrala
+- Japan
+  - Japan, östra
+- Storbritannien
+  - Storbritannien, södra
+- USA
+  - Central US
+  - East US
+  - USA, östra 2
+  - USA, norra centrala
+  - USA, södra centrala
+  - USA, västra centrala
+  - USA, västra
+  - USA, västra 2
+
 
 >[!NOTE]
 >Du kan övervaka virtuella Azure-datorer i vilken region som helst. De virtuella datorerna är inte begränsade till de regioner som stöds av Log Analytics arbets ytan.
@@ -98,7 +111,7 @@ Azure Monitor for VMs är tillgängligt för Azure Arc-aktiverade servrar i regi
 |:--|:--|:--|
 | Windows-agenter | Ja | Tillsammans med [Log Analytics agent för Windows](../platform/log-analytics-agent.md), behöver Windows-agenter beroende agenten. Mer information finns i [operativ system som stöds](../platform/agents-overview.md#supported-operating-systems). |
 | Linux-agenter | Ja | Tillsammans med [Log Analytics-agenten för Linux](../platform/log-analytics-agent.md)behöver Linux-agenterna beroende agenten. Mer information finns i [operativ system som stöds](#supported-operating-systems). |
-| System Center Operations Manager-hanteringsgrupp | Inga | |
+| System Center Operations Manager-hanteringsgrupp | Nej | |
 
 ## <a name="agents"></a>Agenter
 Azure Monitor for VMs kräver att följande två agenter installeras på varje virtuell dator eller skalnings uppsättning för virtuella datorer som ska övervakas. Att installera dessa agenter och ansluta dem till arbets ytan är det enda kravet att publicera resursen.

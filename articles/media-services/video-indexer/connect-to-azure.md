@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005935"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164813"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
 
@@ -47,7 +47,7 @@ Om du flyttar från en *utvärdering* till *betald* video Indexer konto kan du v
 
     Du använder den här medlemmen när du ansluter ditt Video Indexer-konto till Azure.
 
-    Den här användaren bör vara medlem i din Azure-prenumeration med antingen en **ägar** roll eller både rollen **deltagare** och **administratör för användar åtkomst** . En användare kan läggas till två gånger, med två roller. En gång med deltagare och en gång med administratör för användar åtkomst.
+    Den här användaren bör vara medlem i din Azure-prenumeration med antingen en **ägar** roll eller både rollen **deltagare** och **administratör för användar åtkomst** . En användare kan läggas till två gånger, med två roller. En gång med deltagare och en gång med administratör för användar åtkomst. Mer information finns i [Visa en användares åtkomst till Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
     ![åtkomst kontroll](./media/create-account/access-control-iam.png)
 
@@ -144,7 +144,7 @@ I dialog rutan **anslut video Indexer till en Azure-prenumeration** på din [vid
 
 Ange följande information i dialog rutan:
 
-|Inställningen|Beskrivning|
+|Inställning|Beskrivning|
 |---|---|
 |Video Indexer konto region|Namnet på Video Indexer konto region. För bättre prestanda och lägre kostnader rekommenderar vi starkt att du anger namnet på den region där Azure Media Services resursen och Azure Storage kontot finns. |
 |Azure AD-klientorganisation|Namnet på Azure AD-klienten, till exempel "contoso.onmicrosoft.com". Klient informationen kan hämtas från Azure Portal. Placera markören över namnet på den inloggade användaren i det övre högra hörnet. Hitta namnet till höger om **domänen**.|

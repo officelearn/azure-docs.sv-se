@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298719"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164422"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Skapa en FCI med en Premium-filresurs (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 - Ett konto som har behörighet att skapa objekt både på virtuella Azure-datorer och i Active Directory.
 - [Två eller fler för beredda virtuella Windows Azure-datorer](failover-cluster-instance-prepare-vm.md) i en [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) eller olika [tillgänglighets zoner](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
 - En [Premium-filresurs](../../../storage/files/storage-how-to-create-premium-fileshare.md) som ska användas som den klustrade enheten, baserat på lagrings kvoten för din databas för dina datafiler.
-- Den senaste versionen av [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- Den senaste versionen av [PowerShell](/powershell/azure/install-az-ps). 
 
 ## <a name="mount-premium-file-share"></a>Montera Premium-filresurs
 
@@ -194,7 +194,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurera anslutning 
 
-Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 och Windows Server 2016 (eller senare), kan du förhandsgranska funktionen för [distribuerade nätverks namn](hadr-distributed-network-name-dnn-configure.md) i stället. 
+Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 CU2 (eller senare) och Windows Server 2016 (eller senare), kan du använda funktionen [distribuerat nätverks namn](failover-cluster-instance-distributed-network-name-dnn-configure.md) i stället. 
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -204,7 +204,8 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det konfigurerar du anslutningen till din FCI med ett [virtuellt nätverks namn och en Azure Load Balancer eller ett](hadr-vnn-azure-load-balancer-configure.md) [distribuerat nätverks namn (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Om du inte redan har gjort det konfigurerar du anslutningen till din FCI med ett [virtuellt nätverks namn och en Azure Load Balancer eller ett](failover-cluster-instance-vnn-azure-load-balancer-configure.md) [distribuerat nätverks namn (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Om Premium-filresurser inte är lämplig FCI lagrings lösning, kan du överväga att skapa din FCI med hjälp av [Azure delade diskar](failover-cluster-instance-azure-shared-disks-manually-configure.md) eller [Lagringsdirigering](failover-cluster-instance-storage-spaces-direct-manually-configure.md) i stället. 
 

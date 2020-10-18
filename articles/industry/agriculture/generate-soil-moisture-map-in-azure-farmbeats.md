@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a2115e9c1601c86cce8857c10baf12b91cc2b997
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2887e7c5fd875942c3d19391267ddbb9b73ccfec
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75482574"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165561"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>Generera jord fukt termisk karta
 
@@ -54,7 +54,7 @@ När du har länkat ditt sensor konto till Azure FarmBeats måste du tilldela jo
 2.  Välj **grupp**för att  >  **lägga till enheter**.
 3.  Fönstret **Lägg till enheter** visas. Välj en enhet som är länkad till jord fuktens sensorer för din server grupp.
 
-    ![Taktslag i projekt grupp](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
+    ![Skärm bild som visar skärmen Lägg till enheter.](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Välj **Lägg till enheter**.     
 
@@ -70,7 +70,7 @@ Det här steget är att skapa ett jobb eller en tids krävande åtgärd som komm
 6.  Ange det mått som du vill använda för kartan i **måttet** **Välj jord fuktighets** sensor.
     Om du vill hitta sensor måttet i **sensorer**väljer du en jord fuktighets sensor. I **sensor egenskaper**använder du **måttets namn** värde.
 
-    ![Taktslag i projekt grupp](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
+    ![Skärm bild som visar jord fukt skärmen.](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.  Välj **generera kartor**.

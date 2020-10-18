@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: rimansdo
-ms.openlocfilehash: 937f220980d602b755b6329da4d93df0e4b372ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 564af59c473d5c3f55bef059905500496adf060c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86224068"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165918"
 ---
 # <a name="azure-web-application-firewall-and-azure-policy"></a>Brand vägg för Azure-webbprogram och Azure Policy
 
@@ -44,7 +44,7 @@ Det finns flera inbyggda Azure-principer för att hantera WAF-resurser. En uppde
 3.  På sidan tilldelningar väljer du ikonen **tilldela princip** överst.
 
 [!div class="mx-imgBorder"]
-![Brand vägg för Azure-webbprogram](../media/waf-azure-policy/assign-policy.png)
+![Skärm bild som visar fliken grundläggande på sidan tilldela princip.](../media/waf-azure-policy/assign-policy.png)
 
 4.  Uppdatera följande fält på fliken för att tilldela princip sidor:
     1.  **Omfång**: Välj vilka Azure-prenumerationer och resurs grupper som ska påverkas av Azure policy.
@@ -52,7 +52,7 @@ Det finns flera inbyggda Azure-principer för att hantera WAF-resurser. En uppde
     3.  **Princip definition**: Välj Azure policy som ska användas för omfånget med undantag. Skriv "brand vägg för webbaserade program" i Sök fältet för att välja relevant brand vägg för webbaserade program Azure Policy.
 
 [!div class="mx-imgBorder"]
-![Brand vägg för Azure-webbprogram](../media/waf-azure-policy/policy-listing.png)
+![Skärm bild som visar tillgängliga princip definitioner.](../media/waf-azure-policy/policy-listing.png)
 
 
 5.  Välj fliken **parametrar** och uppdatera princip parametrarna. För att ytterligare klargöra vad parametern gör, Hovra över informations ikonen bredvid parameter namnet för ytterligare klargörande.

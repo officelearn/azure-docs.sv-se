@@ -13,22 +13,23 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4020f47184e141a69586fc958f641547d7bde94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8634efa1e8e5ab8a3b962b711ec8dfcdac4e6ced
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482808"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164576"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-azure-portal---preview"></a>Konfigurera en tillgänglighets grupp för SQL Server på virtuell Azure-dator (Azure Portal för hands version)
+# <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Använd Azure Portal för att konfigurera en tillgänglighets grupp (för hands version) för SQL Server på virtuell Azure-dator 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Den här artikeln beskriver hur du använder [Azure Portal](https://portal.azure.com) för att konfigurera en tillgänglighets grupp för SQL Server på virtuella Azure-datorer. 
 
 Använd Azure Portal för att skapa ett nytt kluster eller publicera ett befintligt kluster och skapa sedan tillgänglighets gruppen, lyssnaren och den interna belastningsutjämnaren. 
 
-   > [!NOTE]
-   > Den här funktionen är för närvarande en för hands version och distribueras så om din önskade region inte är tillgänglig, kom tillbaka snart. 
+Den här funktionen finns för närvarande som en förhandsversion. 
+
+Den här artikeln använder Azure Portal för att konfigurera tillgänglighets grupps miljön, men det går också att göra detta med hjälp av [PowerShell eller Azure CLI](availability-group-az-commandline-configure.md), [Azure snabb starts-mallar](availability-group-quickstart-template-configure.md)eller [manuellt](availability-group-manually-configure-tutorial.md) . 
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -163,7 +164,7 @@ Följ dessa steg om du vill lägga till fler SQL Server virtuella datorer i klus
 
 1. Expandera **autentiseringsuppgifter för Windows Server-redundanskluster** och ange i de konton som används för SQL Server tjänst, kluster operatör och start konton för kluster. 
 1. Välj de SQL Server virtuella datorer som du vill lägga till i klustret. 
-1. Välj **Använd**. 
+1. Välj **Tillämpa**. 
 
 Du kan kontrol lera statusen för din distribution i **aktivitets loggen** som är tillgänglig från klock ikonen i det övre navigerings fältet. 
 
@@ -177,7 +178,7 @@ Du kan **lägga till fler repliker** i tillgänglighets gruppen, **Konfigurera l
 
 ## <a name="remove-cluster"></a>Ta bort kluster
 
-Ta bort alla SQL Server virtuella datorer från klustret för att förstöra det och ta sedan bort de klusterdelade metadata från providern för SQL VM-resurs. Du kan göra detta med hjälp av den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) eller PowerShell. 
+Ta bort alla SQL Server virtuella datorer från klustret för att förstöra det och ta sedan bort de klusterdelade metadata från providern för SQL VM-resurs. Du kan göra detta med hjälp av den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli) eller PowerShell. 
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 

@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: bcacd6c2e1353c71d8e4e25c95ee2b563e7b3fba
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b81d3f74c20f42620ceeae08bec5d484909377a7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150416"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167482"
 ---
 # <a name="indexer-connections-through-a-private-endpoint-azure-cognitive-search"></a>Indexerare anslutningar via en privat slut punkt (Azure Kognitiv sökning)
 
@@ -23,7 +23,7 @@ Om du vill använda den här anslutnings metoden för indexerare, finns det två
 
 + Azure-resursen som tillhandahåller innehåll eller kod måste registreras tidigare med [tjänsten Azure Private Link](https://azure.microsoft.com/services/private-link/).
 
-+ Azure Kognitiv sökning-tjänsten måste vara Basic eller högre (inte tillgänglig på den kostnads fria nivån). För indexerare som har en färdigheter måste Sök tjänsten dessutom vara S2 eller högre. Mer information finns i [tjänst begränsningar](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
++ Azure Kognitiv sökning-tjänsten måste vara Basic eller högre (inte tillgänglig på den kostnads fria nivån). Dessutom måste nivån vara standard 2 (S2) eller högre om indexeraren har en färdigheter. Mer information finns i [tjänst begränsningar](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ## <a name="shared-private-link-resources-management-apis"></a>Delade privat länk resurser hanterings-API: er
 

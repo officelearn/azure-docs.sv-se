@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a8bfa91ac9b70c0ff4f461bd9e10899d1170b24d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272535"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165268"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -51,8 +51,8 @@ SQL Server på virtuella Azure-datorer erbjuder olika alternativ som en lösning
 |**Lägsta version av operativsystemet**| Alla |Windows Server 2012|Windows Server 2016|
 |**Lägsta SQL Server-version**|Alla|SQL Server 2012|SQL Server 2016|
 |**Tillgänglighet för VM som stöds** |Tillgänglighets uppsättningar med närhets placerings grupper |Tillgänglighets uppsättningar och tillgänglighets zoner|Tillgänglighetsuppsättningar |
-|**Stöder FileStream**|Ja|Inga|Ja |
-|**Azure Blob-cache**|Inga|Inga|Ja|
+|**Stöder FileStream**|Ja|Nej|Ja |
+|**Azure Blob-cache**|Nej|Nej|Ja|
 
 Resten av det här avsnittet visar fördelarna och begränsningarna för varje lagrings alternativ som är tillgängligt för SQL Server på virtuella Azure-datorer. 
 
@@ -138,9 +138,9 @@ NetApp Private Storage (NPS) visar till exempel ett iSCSI-mål via ExpressRoute 
 
 För delade lösningar för lagring och datareplikering från Microsoft-partners kontaktar du leverantören för eventuella problem som rör åtkomst till data vid redundans.
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutning
 
-Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines använda ett [distribuerat nätverks namn (DNN)](hadr-distributed-network-name-dnn-configure.md) eller ett [virtuellt nätverks namn (VNN) med Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) för att dirigera trafik till SQL Server-instansen, oavsett vilken nod som för närvarande äger de klustrade resurserna. Det finns ytterligare överväganden när du använder vissa funktioner och DNN med en SQL Server-FCI. Mer information finns i [DNN-interoperabilitet med SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) . 
+Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines använda ett [distribuerat nätverks namn (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) eller ett [virtuellt nätverks namn (VNN) med Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) för att dirigera trafik till SQL Server-instansen, oavsett vilken nod som för närvarande äger de klustrade resurserna. Det finns ytterligare överväganden när du använder vissa funktioner och DNN med en SQL Server-FCI. Mer information finns i [DNN-interoperabilitet med SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) . 
 
 Mer information om kluster anslutnings alternativ finns i [dirigera hadr-anslutningar till SQL Server på virtuella Azure-datorer](hadr-cluster-best-practices.md#connectivity). 
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: f43f7894c46a75894eb648f02ec378f3a8b2633d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd9b85f22866c529b66fa6df07bd524516726086
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628058"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165340"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
@@ -46,9 +46,9 @@ I den här tabellen listas godkända data typer, när varje datatyp ska använda
 
 | Datatyp | Används för testning | Rekommenderad kvantitet | Används för utbildning | Rekommenderad kvantitet |
 |-----------|-----------------|----------|-------------------|----------|
-| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Inga | E.t. |
+| [Ljud](#audio-data-for-testing) | Ja<br>Används för visuell granskning | 5 + ljudfiler | Nej | Saknas |
 | [Ljud + medmärkta avskrifter](#audio--human-labeled-transcript-data-for-testingtraining) | Ja<br>Används för att utvärdera noggrannhet | 0,5 – 5 timmars ljud | Ja | 1 – 1000 timmars ljud |
-| [Relaterad text](#related-text-data-for-training) | Inga | Ej tillämpligt | Ja | 1-200 MB relaterad text |
+| [Relaterad text](#related-text-data-for-training) | Nej | Ej tillämpligt | Ja | 1-200 MB relaterad text |
 
 Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip-fil. Varje data uppsättning får bara innehålla en enda datatyp.
 
@@ -59,7 +59,7 @@ Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip
 
 Om du vill överföra dina data går du till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span> Portal </a>. Från portalen klickar du på **överför data** för att starta guiden och skapa din första data uppsättning. Du uppmanas att välja en tal data typ för din data uppsättning innan du tillåter att du överför dina data.
 
-![Välj ljud från tal portalen](./media/custom-speech/custom-speech-select-audio.png)
+![Skärm bild som visar ljud överförings alternativet från tal portalen.](./media/custom-speech/custom-speech-select-audio.png)
 
 Varje data uppsättning som du överför måste uppfylla kraven för den datatyp som du väljer. Dina data måste vara korrekt formaterade innan de överförs. Korrekt formaterade data säkerställer att de bearbetas korrekt av tjänsten Custom Speech. Kraven visas i följande avsnitt.
 

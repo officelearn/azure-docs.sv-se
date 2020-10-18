@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2653742b788ab24fc295ebc156090d1db5f85268
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1af2e741b2ab8a6a0aa6257272798961f5962c43
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978500"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167346"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS
 
@@ -200,6 +200,9 @@ Värd namnen och IP-adresserna för det presenterade scenariot är:
 ## <a name="create-azure-internal-load-balancer"></a><a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Skapa intern Azure-belastningsutjämnare
 
 SAP ASCS, SAP SCS och den nya SAP-ERS2 använder du virtuella värdnamn och virtuella IP-adresser. I Azure krävs en [belastningsutjämnare](../../../load-balancer/load-balancer-overview.md) för att använda en virtuell IP-adress. Vi rekommenderar starkt att du använder [standard Load Balancer](../../../load-balancer/quickstart-load-balancer-standard-public-portal.md). 
+
+> [!IMPORTANT]
+> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.    
 
 
 I följande lista visas konfigurationen av belastningsutjämnaren (A) SCS/ERS. Konfigurationen för både SAP ASCS och ERS2 i utförs i samma Azure Load Balancer.  

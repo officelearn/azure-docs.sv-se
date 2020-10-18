@@ -11,12 +11,12 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: e4598cb1d54fbbeb09e3bc5f58f0cce949b3c848
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 404fc887cf40ee5d88b2824e8d2324d103226973
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073809"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164371"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -64,7 +64,7 @@ Appen lagrar annonser i en SQL-databas och använder Entity Framework Code First
 
 När en användare laddar upp en bild, lagrar klientdelen som körs i en webbroll bilden i en [Azure-blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), och den lagrar annonsinformationen i databasen med en URL som pekar på blobben. Samtidigt skriver den ett meddelande till en Azure-kö. En serverdelsprocess som körs i en arbetsroll söker regelbundet i kön efter nya meddelanden. När ett nytt meddelande dyker upp, skapar arbetsrollen en miniatyrbild för den bilden och uppdaterar miniatyrbildens URL-databasfält för den annonsen. I följande diagram visas hur programmets olika delar fungerar tillsammans.
 
-![Contoso Ads-arkitektur](./media/cloud-services-dotnet-get-started/apparchitecture.png)
+![Diagram som visar hur delar av programmet interagerar.](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
@@ -217,7 +217,7 @@ Du kommer att använda en [Web.config-transformering](https://www.asp.net/mvc/tu
 6. Markera och kopiera anslutningssträngen (utan omgivande citattecken) och använd den i följande steg för att konfigurera arbetsrollsprojektet.
 7. I **Solution Explorer** går du till **Roles** (Roller) i molntjänstprojektet och högerklickar på **ContosoAdsWorker** och klickar sedan på **Properties** (Egenskaper).
 
-    ![Rollegenskaper](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
+    ![Skärm bild som markerar meny alternativet egenskaper.](./media/cloud-services-dotnet-get-started/rolepropertiesworker.png)
 8. Klicka på fliken **Settings** (Inställningar).
 9. Ändra **Service Configuration** (Tjänstkonfiguration) till **Cloud** (Moln).
 10. Markera fältet **Value** (Värde) för inställningen `ContosoAdsDbConnectionString`, och klistra sedan in anslutningssträngen som du kopierade i kursens förra avsnitt.
@@ -378,7 +378,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 2. Spara ändringarna.
 3. Högerklicka på ContosoAdsWeb under **Roles** (Roller) i ContosoAdsCloudService-projektet, och klicka sedan på **Properties** (Egenskaper).
 
-    ![Rollegenskaper](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Skärm bild som visar meny alternativet egenskaper under roller.](./media/cloud-services-dotnet-get-started/roleproperties.png)
 4. Klicka på fliken **Settings** (Inställningar) i egenskapsfönstret för **ContosoAdsWeb [roll]**, och klicka sedan på **Add Setting** (Lägg till inställning).
 
     Lämna **Service Configuration** (Tjänstkonfiguration) inställd på **All Configurations** (Alla konfigurationer).

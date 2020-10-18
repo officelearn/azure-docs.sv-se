@@ -4,12 +4,12 @@ description: Lär dig hur du aktiverar övervakning av ett Azure Kubernetes serv
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b5f1a4880bba099b00a4f3af87649f3eaa9cb884
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994512"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165408"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Aktivera övervakning av AKS-kluster (Azure Kubernetes service) redan distribuerat
 
@@ -132,12 +132,10 @@ Gör så här för att aktivera övervakning direkt från ett av dina AKS-kluste
 2. Börja skriva **behållare**i listan över resurser.  List filtren baserat på dina inaktuella inaktuella.
 
 3. Välj **Kubernetes-tjänster**.
+    
+4. Välj en tjänst i listan över Kubernetes-tjänster.
 
-    ![Kubernetes Services-länken](./media/container-insights-onboard/portal-search-containers-01.png)
-
-4. Välj en behållare i listan över behållare.
-
-5. På sidan behållar översikt väljer du **övervaka behållare**.
+5. På sidan Översikt över Kubernetes-tjänsten väljer du **övervakning-Insights**.
 
 6. På sidan **onboarding to Azure Monitor for containers** , om du har en befintlig Log Analytics arbets yta i samma prenumeration som klustret, väljer du den i list rutan.
     I listan förväljs standard arbets ytan och platsen som AKS-behållaren distribueras till i prenumerationen.

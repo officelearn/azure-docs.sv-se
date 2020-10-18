@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: a50a171536d7f81de42da415960398d31ec64827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2fb2180acfe8fed5701ae4320ea0d1424ed9e0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326787"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166292"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för en SQL-databas med hjälp av Azure Logic Apps
 
@@ -67,6 +67,9 @@ Fortsätt nu med följande steg:
 
 ### <a name="connect-to-azure-sql-database-or-managed-instance"></a>Anslut till Azure SQL Database eller hanterad instans
 
+För att få åtkomst till en Azure SQL-hanterad instans utan att använda den lokala datagatewayen eller integrerings tjänst miljön måste du [Konfigurera den offentliga slut punkten på den hanterade Azure SQL-instansen](../azure-sql/managed-instance/public-endpoint-configure.md). Den offentliga slut punkten använder port 3342, så se till att du anger det här port numret när du skapar anslutningen från din Logic app.
+
+
 Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL-åtgärd](#add-sql-action), och du inte redan har skapat en anslutning till databasen, uppmanas du att slutföra de här stegen:
 
 1. För **Autentiseringstyp**väljer du den autentisering som krävs och är aktive rad på databasen i Azure SQL Database eller Azure SQL-hanterad instans:
@@ -89,7 +92,7 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
    |----------|----------|-------------|
    | **Servernamn** | Yes | Adressen till din SQL-Server, till exempel `Fabrikam-Azure-SQL.database.windows.net` |
    | **Databasnamn** | Ja | Namnet på din SQL-databas, till exempel `Fabrikam-Azure-SQL-DB` |
-   | **Tabellnamn** | Ja | Den tabell som du vill använda, till exempel `SalesLT.Customer` |
+   | **Tabell namn** | Ja | Den tabell som du vill använda, till exempel `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -248,6 +251,18 @@ När du anropar en lagrad procedur med hjälp av SQL Server Connector är den re
 
 1. Om du vill referera till egenskaperna för JSON-innehåll klickar du i redigerings rutorna där du vill referera till egenskaperna så att listan med dynamiskt innehåll visas. I listan, under rubriken [**parsa JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) , väljer du de datatoken som du vill använda för de egenskaper för JSON-innehåll som du vill ha.
 
+## <a name="troubleshoot-problems"></a>Felsöka problem
+
+Det är mycket vanligt att drabbas av anslutnings problem. Följande är ett exempel på ett fel meddelande:
+
+> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+>
+> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+>
+> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
+Följ [lösa anslutnings fel för att SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) för att felsöka problemet.
+
 ## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 
 Teknisk information om den här anslutningens utlösare, åtgärder och gränser finns på [kopplingens referens sida](/connectors/sql/), som genereras från Swagger-beskrivningen.
@@ -255,4 +270,3 @@ Teknisk information om den här anslutningens utlösare, åtgärder och gränser
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om andra [anslutningar för Azure Logic Apps](../connectors/apis-list.md)
-

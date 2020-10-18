@@ -5,12 +5,12 @@ services: container-service
 ms.topic: overview
 ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: f4c1e96a0603caa8e026f1968299fa24b8755a42
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee709868cd7e78afbcc480913c4e4c8fd2acf832
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88003209"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167193"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -63,6 +63,12 @@ Mer information om livscykelversioner finns i [Kubernetes-versioner som stöds i
 AKS stöder skapandet av GPU-aktiverade nodpooler. Azure tillhandahåller för närvarande enskilda eller flera GPU-aktiverade virtuella datorer. GPU-aktiverade virtuella datorer är utformade för beräkningsintensiva, grafikintensiva och visualiseringar av arbetsbelastningar.
 
 Mer information finns i [Använda GPU-kort på AKS][aks-gpu].
+
+### <a name="confidential-computing-nodes-public-preview"></a>Data behandlings noder (offentlig för hands version)
+
+AKS har stöd för att skapa virtuella datorer med Intel SGX-baserade konfidentiella data behandling (DCSv2 VM). Med konfidentiella data behandlings noder kan behållare köras i en maskin varu baserad betrodd och isolerad körnings miljö (enclaves). Isolering mellan behållare kombinerat med kod integritet genom attestering kan hjälpa dig med din säkerhets strategi för djupgående säkerhets behållare. Understödjande data behandlings noder stöder både konfidentiella behållare (befintliga Docker-appar) och enklaven-medvetna behållare.
+
+Mer information finns i avsnittet [konfidentiella data behandlings noder på AKS][conf-com-node]
 
 ### <a name="storage-volume-support"></a>Stöd för lagringsvolym
 
@@ -143,3 +149,4 @@ Läs mer om att distribuera och hantera AKS med snabbstarten om Azure CLI.
 [kubernetes-rbac]: concepts-identity.md#kubernetes-role-based-access-control-rbac
 [concepts-identity]: concepts-identity.md
 [concepts-storage]: concepts-storage.md
+[conf-com-node]: ../confidential-computing/confidential-nodes-aks-overview.md

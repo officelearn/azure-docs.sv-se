@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: tagore
-ms.openlocfilehash: b42c693943c41176936ac796f4586463e9af917c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 66938975784f1de2abdc0ac22e62aaca82279f86
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076699"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164172"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Skapa och distribuera en moln tjänst
 I Azure Portal kan du skapa och distribuera en moln tjänst på två sätt: *snabb registrering* och *anpassad skapande*.
@@ -56,7 +56,7 @@ Om du vill skapa en moln tjänst med distributioner av webb roller eller arbets 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Klicka på **skapa en resurs > Compute**och bläddra sedan ned till och klicka på **moln tjänst**.
 
-    ![Publicera din moln tjänst](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
+    ![Skärm bild som visar moln tjänst alternativet under skapa en resurs > beräkning.](media/cloud-services-how-to-create-deploy-portal/create-cloud-service.png)
 3. I fönstret ny **moln tjänst** anger du ett värde för **DNS-namnet**.
 4. Skapa en ny **resurs grupp** eller Välj en befintlig.
 5. Välj en **plats**.
@@ -74,7 +74,7 @@ Om distributions paketet har [kon figurer ATS för att använda certifikat](clou
 2. Klicka på **bifoga certifikat**och sedan på **OK** i fönstret **Lägg till certifikat** .
 3. Klicka på **skapa** i fönstret **moln tjänst** . När distributionen har nått statusen **klar** kan du fortsätta till nästa steg.
 
-    ![Publicera din moln tjänst](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
+    ![Skärm bild som visar processen för att ladda upp ett certifikat.](media/cloud-services-how-to-create-deploy-portal/attach-cert.png)
 
 ## <a name="verify-your-deployment-completed-successfully"></a>Verifiera att distributionen har slutförts
 1. Klicka på moln tjänst instansen.

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca6b39852668e1b545ce576ac0d04a208e2058e8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965428"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165525"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Autentiseringsmetoder i Azure Active Directory telefon alternativ
 
@@ -36,7 +36,7 @@ För Azure Multi-Factor Authentication eller SSPR kan användarna välja att ta 
 
 Om användarna inte vill att deras mobiltelefon nummer ska synas i katalogen, men vill använda det för lösen ords återställning, behöver inte administratörerna fylla i telefonnumret i katalogen. I stället ska användarna fylla i sina attribut för **autentisering** via den kombinerade registreringen av säkerhets information på [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo) . Administratörer kan se den här informationen i användarens profil, men den publiceras inte någon annan stans.
 
-![Skärm bild av Azure Portal som visar autentiseringsmetoder med ett telefonnummer som är ifyllt](media/concept-authentication-methods/user-authentication-methods.png)
+:::image type="content" source="media/concept-authentication-methods/user-authentication-methods.png" alt-text="Skärm bild av Azure Portal som visar autentiseringsmetoder med ett telefonnummer som är ifyllt":::
 
 Microsoft garanterar inte konsekvent SMS eller Voice-baserad Azure Multi-Factor Authentication Prompt-leverans med samma nummer. Vi kan när som helst lägga till eller ta bort korta koder när vi gör väg justeringar för att förbättra SMS-leveranser. Microsoft stöder inte korta koder för länder/regioner utöver USA och Kanada.
 

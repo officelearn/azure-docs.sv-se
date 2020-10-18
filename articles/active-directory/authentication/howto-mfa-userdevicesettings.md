@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/20/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7705792e58a50371a11d0b733b36ffa325681045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968641"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166528"
 ---
 # <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Hantera användar inställningar för Azure Multi-Factor Authentication
 
@@ -36,8 +36,8 @@ Om du har tilldelats rollen som *administratör för autentisering* kan du kräv
       > Användarens aktuella registrerade autentiseringsmetoder tas inte bort när en administratör kräver omregistrering för MFA. När en användare har registrerats för MFA rekommenderar vi att de granskar sin säkerhets information och tar bort alla tidigare registrerade autentiseringsmetoder som inte längre kan användas.
    
    - **Återkalla MFA-sessioner** rensar användarens sparade MFA-sessioner och kräver att de utför MFA nästa gång den krävs av principen på enheten.
-
-   ![Hantera autentiseringsmetoder från Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png)
+   
+    :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Hantera autentiseringsmetoder från Azure Portal":::
 
 ## <a name="delete-users-existing-app-passwords"></a>Ta bort användare befintliga applösenord
 

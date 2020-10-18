@@ -1,33 +1,34 @@
 ---
 title: Konfigurera Azure Service Fabric Linux-kluster i Windows
-description: Den här artikeln beskriver hur du konfigurerar Service Fabric Linux-kluster som körs på Windows Development-datorer. Detta är särskilt användbart för plattforms oberoende utveckling.
+description: Den här artikeln beskriver hur du konfigurerar Service Fabric Linux-kluster som körs på Windows Development-datorer. Den här metoden är användbar för plattforms oberoende utveckling.
 ms.topic: conceptual
-ms.date: 11/20/2017
-ms.openlocfilehash: 83d494d777a4a1e1586707c8848056ca8fe9780a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: e25c6adf5e5f5101025aa883ef2ff9750c113a76
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537080"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164116"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Konfigurera ett Linux Service Fabric-kluster på Windows Developer-datorn
 
-Det här dokumentet beskriver hur du konfigurerar en lokal Linux-Service Fabric på Windows Development-datorer. Det är praktiskt att konfigurera ett lokalt Linux-kluster för att snabbt testa program som är riktade mot Linux-kluster, men som utvecklas på en Windows-dator.
+Det här dokumentet beskriver hur du konfigurerar ett lokalt Linux Service Fabric-kluster på en Windows-utvecklings dator. Det är praktiskt att konfigurera ett lokalt Linux-kluster för att snabbt testa program som är riktade mot Linux-kluster, men som utvecklas på en Windows-dator.
 
 ## <a name="prerequisites"></a>Förutsättningar
-Linux-baserade Service Fabric kluster körs inte internt i Windows. För att köra ett lokalt Service Fabric-kluster tillhandahålls en förkonfigurerad Docker-behållar avbildning. Innan du börjar behöver du:
+Linux-baserade Service Fabric kluster kan inte köras i Windows, men för att aktivera flera plattformar har vi angett en kluster Docker-behållare för Linux Service Fabric som kan distribueras via Docker för Windows.
+
+Innan du börjar behöver du:
 
 * Minst 4 GB RAM-minne
-* Senaste versionen av [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker måste köras i Linux-läge
+* Senaste versionen av [Docker för Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows)
+* Docker måste köras i Linux containers-läge
 
 >[!TIP]
-> * Du kan följa stegen i den officiella Docker- [dokumentationen](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions) för att installera Docker på Windows. 
-> * När installationen är färdig verifierar du om den har installerats korrekt genom att följa anvisningarna [här](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine)
-
+> Följ anvisningarna i [Docker-dokumentationen](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions)om du vill installera Docker på din Windows-dator. [Verifiera installationen](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine) när du är färdig.
+>
 
 ## <a name="create-a-local-container-and-setup-service-fabric"></a>Skapa en lokal container och konfigurera Service Fabric
-Om du vill konfigurera en lokal Docker-behållare och ha ett Service Fabric-kluster som körs på den utför du följande steg i PowerShell:
+Kör följande steg för att konfigurera en lokal Docker-behållare och ha ett Service Fabric kluster som kör:
 
 
 1. Uppdatera konfigurationen av Docker-daemon på värden enligt följande och starta om Docker-daemon: 
@@ -38,33 +39,47 @@ Om du vill konfigurera en lokal Docker-behållare och ha ett Service Fabric-klus
       "fixed-cidr-v6": "2001:db8:1::/64"
     }
     ```
-    Det tillrådliga sättet att uppdatera är att gå till Docker-ikonen > inställningar > daemon > Avancerat och uppdatera den där. Starta sedan om Docker daemon för att ändringarna ska börja gälla. 
+    Vi rekommenderar att du uppdaterar genom att gå till: 
 
-2. Skapa din Service Fabric Image genom att skapa en fil med namnet `Dockerfile` i en ny katalog:
+    * Docker-ikonen > inställningar > Docker-motorn
+    * Lägg till de nya fälten ovan
+    * Använd & starta om – starta om Docker daemon för att ändringarna ska börja gälla.
 
-    ```Dockerfile
-    FROM mcr.microsoft.com/service-fabric/onebox:latest
-    WORKDIR /home/ClusterDeployer
-    RUN ./setup.sh
-    #Generate the local
-    RUN locale-gen en_US.UTF-8
-    #Set environment variables
-    ENV LANG=en_US.UTF-8
-    ENV LANGUAGE=en_US:en
-    ENV LC_ALL=en_US.UTF-8
-    EXPOSE 19080 19000 80 443
-    #Start SSH before running the cluster
-    CMD /etc/init.d/ssh start && ./run.sh
+2. Starta klustret via PowerShell.<br/>
+    <b>Ubuntu 18,04 LTS:</b>
+    ```powershell
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
+    <b>Ubuntu 16,04 LTS:</b>
+    ```powershell
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    ```
+
+    >[!TIP]
+    > Som standard hämtas avbildningen med den senaste Service Fabric-versionen. Läs mer om vissa revideringar på sidan [Docker-hubb](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+
+
+
+3. Valfritt: Bygg din utökade Service Fabric-avbildning.
+
+    I en ny katalog skapar du en fil `Dockerfile` som heter för att skapa en anpassad avbildning:
+
     >[!NOTE]
-    >Du kan anpassa den här filen genom att lägga till fler program eller beroenden i din container.
+    >Du kan anpassa avbildningen ovan med en Dockerfile för att lägga till ytterligare program eller beroenden i din behållare.
     >Om du t.ex. lägger till `RUN apt-get install nodejs -y` tillåter du stöd för `nodejs`-program som körbara gästfiler.
+    ```Dockerfile
+    FROM mcr.microsoft.com/service-fabric/onebox:u18
+    RUN apt-get install nodejs -y
+    EXPOSE 19080 19000 80 443
+    WORKDIR /home/ClusterDeployer
+    CMD ["./ClusterDeployer.sh"]
+    ```
     
     >[!TIP]
-    > Som standard hämtas avbildningen med den senaste Service Fabric-versionen. Specifika revisioner finns på sidan [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/)
+    > Som standard hämtas avbildningen med den senaste Service Fabric-versionen. Läs mer om vissa revideringar på sidan [Docker-hubb](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 
-3. Om du vill skapa din återanvändbara avbildning från `Dockerfile`, så öppna en terminal och `cd` som direkt håller din `Dockerfile` och kör:
+    Om du vill skapa en åter användnings bild från `Dockerfile` öppnar du en Terminal och `cd` till den direkt innehavaren och `Dockerfile` kör sedan:
 
     ```powershell 
     docker build -t mysfcluster .
@@ -73,10 +88,10 @@ Om du vill konfigurera en lokal Docker-behållare och ha ett Service Fabric-klus
     >[!NOTE]
     >Den här åtgärden kan ta lite tid, men det behöver bara göras en gång.
 
-4. Nu kan du snabbt starta en lokal kopia av Service Fabric, närhelst du så behöver, genom att köra:
+    Nu kan du snabbt starta en lokal kopia av Service Fabric när du behöver den genom att köra:
 
     ```powershell 
-    docker run --name sftestcluster -d -v //var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -84,21 +99,22 @@ Om du vill konfigurera en lokal Docker-behållare och ha ett Service Fabric-klus
     >
     >Om programmet lyssnar på vissa portar måste du ange portarna med hjälp av ytterligare `-p`-taggar. Om programmet till exempel lyssnar på port 8080 lägger du till följande `-p`-tagg:
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
+    >`docker run -itd -p 19000:19000 -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:u18`
     >
 
-5. Det tar en liten stund för klustret att starta. Du kan se loggar med följande kommando eller gå till instrumentpanelen och visa klusterhälsotillståndet `http://localhost:19080`:
+
+4. Det tar en liten stund för klustret att starta. Du kan se loggar med följande kommando eller gå till instrumentpanelen och visa klusterhälsotillståndet `http://localhost:19080`:
 
     ```powershell 
     docker logs sftestcluster
     ```
 
-6. När steg 5 har slutförts kan du gå till ``http://localhost:19080`` från Windows och du kan se Service Fabric Explorer. Nu kan du ansluta till det här klustret med valfria verktyg från Windows Developer-datorn och distribuera program som är riktade till Linux Service Fabric-kluster. 
+5. När klustret har distribuerats enligt vad som observerats i steg 4 kan du gå till ``http://localhost:19080`` från din Windows-dator för att hitta Service Fabric Explorer instrument panelen. I det här läget kan du ansluta till det här klustret med hjälp av verktyg från Windows Developer-datorn och distribuera program som är riktade till Linux Service Fabric-kluster. 
 
     > [!NOTE]
     > Eclipse-pluginprogrammet stöds för närvarande inte av Windows. 
 
-7. När du är färdig stoppar du och rensar behållaren med det här kommandot:
+6. När du är klar, stoppa och rensa behållaren med det här kommandot:
 
     ```powershell 
     docker rm -f sftestcluster
@@ -108,11 +124,14 @@ Om du vill konfigurera en lokal Docker-behållare och ha ett Service Fabric-klus
  
  Följande begränsningar är kända begränsningar i lokala kluster som körs i en container för Mac: 
  
- * DNS-tjänsten körs inte och stöds inte [Problem 132](https://github.com/Microsoft/service-fabric/issues/132)
+ * DNS-tjänsten körs inte och stöds för närvarande inte i behållaren. [Problem #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * Att köra containerbaserade appar kräver att du kör SF på en Linux-värd. Kapslade behållar program stöds inte för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
+* [Skapa och distribuera ditt första Service Fabric-program med Java i Linux med hjälp av Yeoman](service-fabric-create-your-first-linux-application-with-java.md)
 * Kom igång med [Sol förmörkelse](./service-fabric-get-started-eclipse.md)
 * Kolla ut andra [Java-exempel](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)
 
 
 <!-- Image references -->

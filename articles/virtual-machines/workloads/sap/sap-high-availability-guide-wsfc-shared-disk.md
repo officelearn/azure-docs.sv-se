@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c580e44cc827de46c7464ba5f316e6c515de2940
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b3dc49e3e2d8492882507918a59edb0b9da41fcf
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977994"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167261"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-cluster-shared-disk-in-azure"></a>Klustra en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk i Azure
 
@@ -49,6 +49,9 @@ Azure Cloud Platform erbjuder inte alternativet att konfigurera virtuella IP-adr
 Tjänsten Azure Load Balancer tillhandahåller en *intern belastningsutjämnare* för Azure. Med den interna belastningsutjämnaren når klienterna klustret via klustrets virtuella IP-adress. 
 
 Distribuera den interna belastningsutjämnaren i resurs gruppen som innehåller klusternoderna. Konfigurera sedan alla nödvändiga regler för port vidarebefordran med hjälp av avsöknings portarna för den interna belastningsutjämnaren. Klienter kan ansluta via det virtuella värd namnet. DNS-servern matchar klustrets IP-adress och den interna belastningsutjämnaren hanterar port vidarebefordran till klustrets aktiva nod.
+
+> [!IMPORTANT]
+> Flytande IP stöds inte på en sekundär NIC-IP-konfiguration i belastnings Utjämnings scenarier. Mer information finns i [begränsningar för Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). Om du behöver ytterligare IP-adress för den virtuella datorn distribuerar du ett andra nätverkskort.  
 
 ![Bild 1: konfiguration av Windows-redundanskluster i Azure utan en delad disk][sap-ha-guide-figure-1001]
 

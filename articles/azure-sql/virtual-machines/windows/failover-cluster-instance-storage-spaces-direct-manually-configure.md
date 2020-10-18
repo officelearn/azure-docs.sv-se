@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3cc579615a69b659bc1a4736984f0b3dcd6edb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272539"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165272"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Skapa en FCI med Lagringsdirigering (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -57,7 +57,7 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 - En Azure-prenumeration. Kom igång [kostnads fritt](https://azure.microsoft.com/free/). 
 - [Två eller fler för beredda virtuella Windows Azure-datorer](failover-cluster-instance-prepare-vm.md) i en [tillgänglighets uppsättning](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 - Ett konto som har behörighet att skapa objekt både på virtuella Azure-datorer och i Active Directory.
-- Den senaste versionen av [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- Den senaste versionen av [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-the-windows-cluster-feature"></a>Lägg till funktionen Windows-kluster
@@ -164,7 +164,7 @@ Diskarna för Lagringsdirigering måste vara tomma. De får inte innehålla part
 
 1. [Skapa en volym](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   Lagringsdirigering skapar automatiskt en lagringspool när du aktiverar den. Nu är du redo att skapa en volym. PowerShell-cmdleten `New-Volume` automatiserar skapande processen för volymer. Den här processen inkluderar formatering, tillägg av volymen i klustret och skapande av en CSV-fil. I det här exemplet skapas en 800-gigabyte (GB) CSV:
+   Lagringsdirigering skapar automatiskt en lagringspool när du aktiverar den. Nu är du redo att skapa en volym. PowerShell-cmdleten `New-Volume` automatiserar skapande processen för volymer. Den här processen inkluderar formatering, tillägg av volymen i klustret och skapande av en CSV-fil. I det här exemplet skapas en 800 gigabyte (GB) CSV:
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -233,7 +233,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurera anslutning 
 
-Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 och Windows Server 2016 (eller senare), kan du förhandsgranska funktionen för [distribuerade nätverks namn](hadr-distributed-network-name-dnn-configure.md) i stället. 
+Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 CU2 (eller senare) och Windows Server 2016 (eller senare), kan du använda funktionen [distribuerat nätverks namn](failover-cluster-instance-distributed-network-name-dnn-configure.md) i stället. 
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -243,7 +243,7 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det konfigurerar du anslutningen till din FCI med ett [virtuellt nätverks namn och en Azure Load Balancer eller ett](hadr-vnn-azure-load-balancer-configure.md) [distribuerat nätverks namn (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Om du inte redan har gjort det konfigurerar du anslutningen till din FCI med ett [virtuellt nätverks namn och en Azure Load Balancer eller ett](failover-cluster-instance-vnn-azure-load-balancer-configure.md) [distribuerat nätverks namn (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 Om Lagringsdirigering inte är lämplig lagrings lösning för FCI, kan du överväga att skapa FCI med hjälp av [Azure delade diskar](failover-cluster-instance-azure-shared-disks-manually-configure.md) eller [Premium-filresurser](failover-cluster-instance-premium-file-share-manually-configure.md) i stället. 
 

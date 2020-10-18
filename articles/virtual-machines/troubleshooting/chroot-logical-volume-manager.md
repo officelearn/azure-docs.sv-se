@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390443874ea63a8661ef8baea627015fcf679719
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361474"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167924"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Felsöka en virtuell Linux-dator när det inte finns någon åtkomst till Azures serie konsol och disklayouten använder LVM (Logical Volume Manager)
 
@@ -71,7 +71,7 @@ Kör kommandot **lsblk** för att se LVMs för den berörda virtuella datorn
 
 `lsblk`
 
-![Kör lsblk](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
+![Skärm bild som visar utdata från kommandot lsblk.](./media/chroot-logical-volume-manager/lsblk-output-mounted.png)
 
 
 Kontrol lera om LVMs från den berörda virtuella datorn visas.
@@ -198,11 +198,11 @@ Avsluta **chroot** -miljön och montera den nödvändiga **LV**
 
 Alla LVs ska vara synliga som monterade partitioner
 
-![Avancerat](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
+![Skärm bild som visar LVs som visas som monterade partitioner.](./media/chroot-logical-volume-manager/chroot-all-mounts.png)
 
 Fråga den installerade **kerneln**
 
-![Avancerat](./media/chroot-logical-volume-manager/rpm-kernel.png)
+![Skärm bild som visar hur du frågar den installerade kärnan.](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
 Om det behövs tar du bort eller uppgraderar **kerneln** 
  ![ Advanced](./media/chroot-logical-volume-manager/rpm-remove-kernel.png)

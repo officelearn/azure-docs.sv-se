@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 423fdcdf48d90b4c428497f22cb6924900de8931
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f22473d4a865e2925ecbfe74d68811c12f7c26d7
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107529"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168094"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Azures säkerhets bas linje för Azure Functions
 
@@ -315,7 +315,7 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 - [Så här aktiverar du diagnostikinställningar för Azure Functions](./functions-monitor-log-analytics.md)
 
-- [Så här aktiverar du Application Insights för Azure Functions](./functions-monitoring.md#enable-application-insights-integration)
+- [Så här aktiverar du Application Insights för Azure Functions](./configure-monitoring.md#enable-application-insights-integration)
 
 - [Så här skapar du aviseringar i Azure](../azure-monitor/learn/tutorial-response.md)
 
@@ -369,7 +369,7 @@ Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel e
 
 **Vägledning**: kontroll Plans åtkomst till Azure Functions styrs via Azure Active Directory (AD). Azure AD har inte begreppet standard lösen ord.
 
-Åtkomst till data planet kan styras via flera olika sätt, inklusive auktoriseringsregler, nätverks begränsningar och verifiering av en AAD-identitet. Auktoriseringsregler används av klienterna som ansluter till din Azure Functions HTTP-slutpunkter och kan återskapas när som helst. Nycklarna genereras för nya HTTP-slutpunkter som standard.
+Åtkomst till data planet kan styras via flera olika sätt, inklusive auktoriseringsregler, nätverks begränsningar och verifiering av en Azure AD-identitet. Auktoriseringsregler används av klienterna som ansluter till din Azure Functions HTTP-slutpunkter och kan återskapas när som helst. Nycklarna genereras för nya HTTP-slutpunkter som standard.
 
 Det finns flera distributions metoder för att Function-appar, varav vissa kan använda en uppsättning genererade autentiseringsuppgifter. Granska de distributions metoder som ska användas för ditt program.
 
@@ -463,7 +463,7 @@ Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseri
 
 - [Så här konfigurerar du din Azure Functions-app att använda Azure AD-inloggning](../app-service/configure-authentication-provider-aad.md)
 
-- [Så här skapar och konfigurerar du en AAD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [Så här skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center övervakning**: Ja
 

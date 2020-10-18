@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2020
-ms.openlocfilehash: 8023f3d7730a617ec502c8f181bad1fc27627694
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: b25cac502a4e9a0cc5582134cb9601b75672ffd1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269173"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168515"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -316,14 +316,14 @@ Tillsammans med signaturen för delad åtkomst (SAS) kanske du vill begränsa vi
 
 1. Under **åtkomst kontroll konfiguration**  >  **tillåtna inkommande IP-adresser**väljer du **vissa IP-intervall**.
 
-1. Under **IP-intervall för utlösare**anger du de IP-adressintervall som utlösaren accepterar.
+1. När rutan **IP-intervall för utlösare** visas anger du de IP-adressintervall som utlösaren accepterar. Ett giltigt IP-intervall använder följande format: *x. x. x. x/x* eller *x. x. x* . x-x. x
 
-   Ett giltigt IP-intervall använder följande format: *x. x. x. x/x* eller *x. x. x* . x-x. x
+   Om du till exempel vill göra din Logi Kap par-anropande enbart som en kapslad Logic-app via HTTP-åtgärden, använder du alternativet för **enskilda IP-intervall** (inte det **enda andra Logic Apps** alternativet) och anger den överordnade Logic-appens [utgående IP-adresser](../logic-apps/logic-apps-limits-and-config.md#outbound).
 
-Om du vill att din Logic app endast ska utlösa som en kapslad Logic-app väljer du **endast andra Logic Apps**i listan **tillåtna inkommande IP-adresser** . Med det här alternativet skrivs en tom matris till din Logic app-resurs. På så sätt kan endast anrop från Logic Appss tjänsten (överordnade Logic Apps) utlösa den kapslade Logic-appen.
+   Om du vill göra din Logi Kap par-anropande endast som en kapslad Logic-app via den inbyggda [Azure Logic Apps åtgärden](../logic-apps/logic-apps-http-endpoint.md), väljer du i stället alternativet **endast andra Logic Apps** . Det här alternativet skriver en tom matris till din Logic app-resurs och kräver att endast anrop från andra "överordnade" Logic Apps kan utlösa den kapslade Logic-appen genom den inbyggda **Azure Logic Apps** åtgärden.
 
-> [!NOTE]
-> Oavsett IP-adress kan du fortfarande köra en Logic-app som har en begäran-baserad utlösare med hjälp av [Logic Apps REST API: arbets flödes utlösare-kör](/rest/api/logic/workflowtriggers/run) begäran eller med hjälp av API Management. Det här scenariot kräver dock fortfarande [autentisering](../active-directory/develop/authentication-vs-authorization.md) mot Azure-REST API. Alla händelser visas i gransknings loggen i Azure. Se till att du anger principer för åtkomst kontroll i enlighet med detta.
+   > [!NOTE]
+   > Oavsett vilka IP-adresser som du anger kan du fortfarande köra en Logic-app som har en begäran-baserad utlösare med hjälp av [Logic Apps REST API: arbets flödes utlösare-kör](/rest/api/logic/workflowtriggers/run) begäran eller med hjälp av API Management. Det här scenariot kräver dock fortfarande [autentisering](../active-directory/develop/authentication-vs-authorization.md) mot Azure-REST API. Alla händelser visas i gransknings loggen i Azure. Se till att du anger principer för åtkomst kontroll i enlighet med detta.
 
 <a name="restrict-inbound-ip-template"></a>
 
@@ -896,7 +896,7 @@ Om alternativet [klient certifikat](../active-directory/authentication/active-di
 |---------------------|-----------------|----------|-------|-------------|
 | **Autentisering** | `type` | Ja | **Klient certifikat** <br>eller <br>`ClientCertificate` | Autentiseringstypen som ska användas. Du kan hantera certifikat med [Azure API Management](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Obs**: anpassade anslutningar stöder inte certifikatbaserad autentisering för både inkommande och utgående samtal. |
 | **-** | `pfx` | Ja | <*kodad-PFX-fil-innehåll*> | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) <p><p>Om du vill konvertera PFX-filen till Base64-kodat format kan du använda PowerShell genom att följa dessa steg: <p>1. Spara certifikat innehållet i en variabel: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. konvertera certifikat innehållet med hjälp av `ToBase64String()` funktionen och spara innehållet i en textfil: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
-| **Lösenord** | `password`| Inga | <*Password-för-PFX-fil*> | Lösen ordet för att komma åt PFX-filen |
+| **Lösenord** | `password`| Nej | <*Password-för-PFX-fil*> | Lösen ordet för att komma åt PFX-filen |
 |||||
 
 När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds definition anger autentiseringen `type` som `ClientCertificate` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
@@ -934,12 +934,12 @@ I begär ande utlösare kan du använda [Azure Active Directory öppna autentise
 | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autentisering** | `type` | Ja | **Active Directory OAuth** <br>eller <br>`ActiveDirectoryOAuth` | Autentiseringstypen som ska användas. Logic Apps följer för närvarande [OAuth 2,0-protokollet](../active-directory/develop/v2-overview.md). |
-| **Myndighet** | `authority` | Inga | <*URL-för-Authority-token-Issuer*> | URL: en för den myndighet som tillhandahåller åtkomst-token. Som standard är det här värdet `https://login.windows.net` . |
-| **Klient** | `tenant` | Ja | <*klient organisations-ID*> | Klient-ID för Azure AD-klienten |
+| **Myndighet** | `authority` | Nej | <*URL-för-Authority-token-Issuer*> | URL: en för den myndighet som tillhandahåller åtkomst-token. Som standard är det här värdet `https://login.windows.net` . |
+| **Klientorganisation** | `tenant` | Ja | <*klient organisations-ID*> | Klient-ID för Azure AD-klienten |
 | **Målgrupp** | `audience` | Ja | <*resurs-till-auktorisera*> | Den resurs som du vill använda för auktorisering, till exempel `https://management.core.windows.net/` |
 | **Klient-ID** | `clientId` | Ja | <*klient-ID*> | Klient-ID för appen som begär auktorisering |
 | **Autentiseringstyp** | `credentialType` | Ja | Certifikat <br>eller <br>Hemlighet | Autentiseringstypen som klienten använder för att begära auktorisering. Den här egenskapen och värdet visas inte i din Logic Apps underliggande definition, men avgör vilka egenskaper som visas för den valda autentiseringstypen. |
-| **Hemlighet** | `secret` | Ja, men endast för autentiseringstypen "hemlig" | <*klient hemlighet*> | Klient hemligheten för att begära auktorisering |
+| **Icke** | `secret` | Ja, men endast för autentiseringstypen "hemlig" | <*klient hemlighet*> | Klient hemligheten för att begära auktorisering |
 | **-** | `pfx` | Ja, men endast för Credential-typen "certifikat" | <*kodad-PFX-fil-innehåll*> | Det Base64-kodade innehållet från en PFX-fil (personal information Exchange) |
 | **Lösenord** | `password` | Ja, men endast för Credential-typen "certifikat" | <*Password-för-PFX-fil*> | Lösen ordet för att komma åt PFX-filen |
 |||||

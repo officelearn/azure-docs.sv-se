@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: 0fdfa6265b81140fa6536082fe7ad4c5fa687fc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207159"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168196"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Felsök vanliga frågor eller problem med ingångs kontroll
 
@@ -85,15 +85,15 @@ Efter en lyckad distribution av appen över ditt AKS-kluster kommer att ha en ny
 Hämta listan över poddar med [Cloud Shell](https://shell.azure.com/): `kubectl get pods -o wide` .
 Vi förväntar oss att en POD med namnet "test-Agic-app-pod" ska skapas. Den kommer att ha en IP-adress. Adressen måste ligga inom det virtuella nätverket för Application Gateway, som används med AKS.
 
-![poddar](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
+![Skärm bild av bash-fönstret i Azure Cloud Shell visar en lista över poddar som innehåller test-Agic-app-Pod i listan.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 Hämta listan över tjänster: `kubectl get services -o wide` . Vi förväntar oss att se en tjänst med namnet "test-Agic-App-Service".
 
-![poddar](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
+![Skärm bild av bash-fönstret i Azure Cloud Shell visar en lista över tjänster som innehåller test-Agic-app-Pod i listan.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 Hämta listan över ingress: `kubectl get ingress` . Vi förväntar oss att en ingress-resurs med namnet "test-Agic-app-ingress" ska skapas. Resursen har ett värdnamn ' test.agic.contoso.com '.
 
-![poddar](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
+![Skärm bild av bash-fönstret i Azure Cloud Shell visar en lista över ingångar som innehåller test-Agic-app-ingress i listan.](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 En av poddar kommer att vara AGIC. `kubectl get pods` visar en lista över poddar som kommer att börja med "ingress-Azure". Hämta alla loggar för den Pod med `kubectl logs <name-of-ingress-controller-pod>` för att kontrol lera att vi har haft en lyckad distribution. Vid en lyckad distribution lades följande rader till i loggen:
 ```
@@ -120,7 +120,7 @@ Slutligen kan vi använda kommandot inifrån `cURL` [Cloud Shell](https://shell.
 1. Används `kubectl get ingress` för att hämta den offentliga IP-adressen för Application Gateway
 2. Använda `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![poddar](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
+![Skärm bild av bash-fönstret i Azure Cloud Shell visar att ett spiral kommando har upprättat en HTTP-anslutning till test appen.](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 Resultatet av `HTTP/1.1 200 OK` indikerar att systemet Application Gateway + AKS + AGIC fungerar som förväntat.
 

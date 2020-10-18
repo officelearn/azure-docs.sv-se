@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a85c129dd11e587a0714e92c850315101df103f0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015932"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166190"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Vad är nytt i API:et för textanalys?
 
@@ -25,6 +25,7 @@ API för textanalys uppdateras regelbundet. Den här artikeln innehåller inform
 
 * Stöd för hindi för Attitydanalys v3. x, från och med modell version `2020-04-01` . 
 * Modell `2020-09-01` -version för v3/languages-slutpunkten som lägger till förbättrade språk identifierings-och precisions förbättringar.
+* v3-tillgänglighet i Central Indien och Förenade Arabemiraten Nord.
 
 ## <a name="september-2020"></a>September 2020
 
@@ -224,5 +225,5 @@ Det stöder engelska ( `en` ), japanska ( `ja` ), kinesiska (förenklad) `zh-Han
 * [Exempel på användarscenarier](text-analytics-user-scenarios.md)
 * [Sentiment-analys](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Språk identifiering](how-tos/text-analytics-how-to-language-detection.md)
-* [Igenkänning av enhet](how-tos/text-analytics-how-to-entity-linking.md)
+* [Enhets igenkänning](how-tos/text-analytics-how-to-entity-linking.md)
 * [Extrahering av nyckel fraser](how-tos/text-analytics-how-to-keyword-extraction.md)

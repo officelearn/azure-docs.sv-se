@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c66d3d6fd3ee0bcba01db61183f40cd3ccf3f39d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc2eb7ecb7f0587c065aac1cfb57cfae10b732ac
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797946"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168298"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Felsöka Azure FarmBeats
 
@@ -174,7 +174,7 @@ När du tar bort en enhet kan du stöta på något av följande vanliga fel scen
 
 Om du redan har beviljats åtkomst och använt det här felet kan du försöka igen genom att uppdatera sidan. Om felet kvarstår kan du kontakta oss med fel meddelandet/loggarna.
 
-![Project-FarmBeats](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
+![Skärm bild som visar ett auktoriseringsfel.](./media/troubleshoot-azure-farmbeats/accelerator-troubleshooting-1.png)
 
 ### <a name="accelerator-issues"></a>Accelerator problem  
 
@@ -293,7 +293,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 6. I det vänstra fönstret väljer du **BLOB-behållare**och väljer sedan **jobb loggar** för Azure Data Factory loggar eller **appinsights-loggar** för App Service loggar.
 7. Välj **Hämta** och hämta loggarna till en lokal mapp på datorn.
 
-    ![Project-FarmBeats](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
+    ![Skärm bild som visar hämtade loggfiler.](./media/troubleshoot-azure-farmbeats/collecting-logs-manually-1.png)
 
 ### <a name="collect-azure-data-factory-job-logs-or-app-service-logs-for-accelerator"></a>Samla in Azure Data Factory jobb loggar eller App Service loggar för Accelerator
 
@@ -327,26 +327,26 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 > [!NOTE]
 > Om du vill visa taggarna för tjänsterna i resurs gruppen klickar du på "Redigera kolumner" och lägger till "Taggar" i vyn resurs grupp
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Project-FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-1.png" alt-text="Skärm bild som visar taggen SKU: Datahub.":::
 
 3. På sidan Översikt i data fabriken klickar du på **författare och övervakare**. En ny flik öppnas i webbläsaren. Klicka på **övervakaren**
 
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Project-FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-2.png" alt-text="Skärm bild som visar taggen SKU: Datahub.":::
 
 4. Du ser en lista över pipeline-körningar som ingår i körningen av väder jobb. Klicka på det jobb som du vill samla in loggar för
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Project-FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-3.png" alt-text="Skärm bild som visar taggen SKU: Datahub.":::
 
 5. På sidan Översikt över pipelinen visas en lista över aktivitets körningar. Anteckna körnings-ID: na för de aktiviteter som du vill samla in loggar för
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Project-FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-4.png" alt-text="Skärm bild som visar taggen SKU: Datahub.":::
 
 6. Gå tillbaka till resurs gruppen FarmBeats i Azure Portal och klicka på lagrings kontot med namnet **datahublogs-xxxx**
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Project-FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-5.png" alt-text="Skärm bild som visar taggen SKU: Datahub.":::
 
 7. Klicka på **behållare**  ->  **adfjobs**. I rutan Sök anger du det jobb körnings-ID som du antecknade i steg 5 ovan.
  
-:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Project-FarmBeats":::
+:::image type="content" source="./media/troubleshoot-Azure-farmbeats/weather-log-6.png" alt-text="Skärm bild som visar taggen SKU: Datahub.":::
 
 8. Sök resultatet innehåller mappen som innehåller de loggar som hör till jobbet. Hämta loggarna och skicka den till farmbeatssupport@microsoft.com för att få hjälp med att felsöka problemet.

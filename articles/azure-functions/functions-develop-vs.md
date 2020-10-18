@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av 
 ms.custom: vs-azure, devx-track-csharp
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 0ee5d270db2149be0cfbf6bf06f87a5d0133c6ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5164d0757de5011c112a9506979da19d9585790
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88612817"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167805"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure Functions med hjälp av Visual Studio  
 
@@ -229,11 +229,9 @@ Du kan också hantera program inställningar på något av följande sätt:
 
 ## <a name="monitoring-functions"></a>Övervaknings funktioner
 
-Det rekommenderade sättet att övervaka körningen av dina funktioner är genom att integrera din Function-app med Azure Application insikter. När du skapar en Function-app i Azure Portal görs denna integrering som standard. Men när du skapar en Function-app under Visual Studio-publiceringen är integreringen i din Function-app i Azure inte färdig.
+Det rekommenderade sättet att övervaka körningen av dina funktioner är genom att integrera din Function-app med Azure Application insikter. När du skapar en Function-app i Azure Portal görs denna integrering som standard. Men när du skapar en Function-app under Visual Studio-publiceringen är integreringen i din Function-app i Azure inte färdig. Information om hur du ansluter Application Insights till din Function-app finns i [aktivera Application Insights-integrering](configure-monitoring.md#enable-application-insights-integration).
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
+Mer information om övervakning med hjälp av Application Insights finns i [övervaka Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar Azure Functions med C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 23b0961c369c21f50d9a873678a1c910385e6a91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206212"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167754"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referens för Azure Functions C#-utvecklare
 
@@ -164,18 +164,7 @@ Den genererade *function.jsi* filen innehåller en `configurationSource` egenska
 
 Samma paket används för både version 1. x och 2. x i functions-körningen. Mål ramverket är det som skiljer ett 1. x-projekt från ett 2. x-projekt. Här följer de relevanta delarna av *. CSPROJ* -filer som visar olika mål ramverk och samma `Sdk` paket:
 
-**Functions 1.x**
-
-```xml
-<PropertyGroup>
-  <TargetFramework>net461</TargetFramework>
-</PropertyGroup>
-<ItemGroup>
-  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
-</ItemGroup>
-```
-
-**Functions 2.x**
+# <a name="v2x"></a>[v2. x +](#tab/v2)
 
 ```xml
 <PropertyGroup>
@@ -186,6 +175,19 @@ Samma paket används för både version 1. x och 2. x i functions-körningen. M�
   <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
 </ItemGroup>
 ```
+
+# <a name="v1x"></a>[v1. x](#tab/v1)
+
+```xml
+<PropertyGroup>
+  <TargetFramework>net461</TargetFramework>
+</PropertyGroup>
+<ItemGroup>
+  <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.8" />
+</ItemGroup>
+```
+---
+
 
 Bland `Sdk` paket beroenden är utlösare och bindningar. Ett 1. x-projekt refererar till 1. x-utlösare och bindningar eftersom dessa utlösare och bindningar är riktade mot .NET Framework, medan 2. x utlöser och binder till målets .NET Core.
 
@@ -259,25 +261,6 @@ public static class ICollectorExample
 }
 ```
 
-## <a name="logging"></a>Loggning
-
-Om du vill logga utdata till dina strömmande loggar i C# inkluderar du ett argument av typen [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). Vi rekommenderar att du namnger den `log` , som i följande exempel:  
-
-```csharp
-public static class SimpleExample
-{
-    [FunctionName("QueueTrigger")]
-    public static void Run(
-        [QueueTrigger("myqueue-items")] string myQueueItem, 
-        ILogger log)
-    {
-        log.LogInformation($"C# function processed: {myQueueItem}");
-    }
-} 
-```
-
-Undvik att använda `Console.Write` i Azure Functions. Mer information finns i [skriva loggar i C#-funktioner](functions-monitoring.md#write-logs-in-c-functions) i **övervakaren Azure Functions** artikel.
-
 ## <a name="async"></a>Async
 
 Om du vill göra en funktion [asynkron](/dotnet/csharp/programming-guide/concepts/async/)använder du `async` nyckelordet och returnerar ett `Task` objekt.
@@ -327,6 +310,237 @@ public static class CancellationTokenExample
     }
 }
 ```
+
+## <a name="logging"></a>Loggning
+
+I funktions koden kan du skriva utdata till loggar som visas som spår i Application Insights. Det rekommenderade sättet att skriva till loggarna är att inkludera en parameter av typen [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), som vanligt vis kallas `log` . Version 1. x av Functions runtime `TraceWriter` som används, vilket även skriver till Application Insights, men som inte stöder strukturerad loggning. Använder inte `Console.Write` för att skriva loggar eftersom dessa data inte har registrerats av Application Insights. 
+
+### <a name="ilogger"></a>ILogger
+
+I funktions definitionen inkluderar du en [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) -parameter som stöder [strukturerad loggning](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+
+Med ett `ILogger` objekt anropar du `Log<level>` [tilläggs metoder på ILogger](/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) för att skapa loggar. Följande kod skriver `Information` loggar med kategori `Function.<YOUR_FUNCTION_NAME>.User.` :
+
+```cs
+public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
+{
+    logger.LogInformation("Request for item with key={itemKey}.", id);
+```
+
+### <a name="structured-logging"></a>Strukturerad loggning
+
+Ordningen på plats hållare, inte deras namn, avgör vilka parametrar som används i logg meddelandet. Anta att du har följande kod:
+
+```csharp
+string partitionKey = "partitionKey";
+string rowKey = "rowKey";
+logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionKey, rowKey);
+```
+
+Om du behåller samma meddelande sträng och ändrar ordningen på parametrarna, skulle den resulterande meddelande texten ha värdena på fel platser.
+
+Plats hållare hanteras på det här sättet så att du kan göra strukturerad loggning. Application Insights lagrar parameter namn-värde-par och meddelande strängen. Resultatet är att meddelande argumenten blir fält som du kan fråga på.
+
+Om ditt loggnings metod anrop ser ut som i föregående exempel, kan du fråga fältet `customDimensions.prop__rowKey` . `prop__`Prefixet läggs till för att se till att det inte finns några kollisioner mellan fält som runtime lägger till och fält som funktions koden lägger till.
+
+Du kan också fråga på den ursprungliga meddelande strängen genom att referera till fältet `customDimensions.prop__{OriginalFormat}` .  
+
+Här är ett exempel på en JSON-representation av `customDimensions` data:
+
+```json
+{
+  "customDimensions": {
+    "prop__{OriginalFormat}":"C# Queue trigger function processed: {message}",
+    "Category":"Function",
+    "LogLevel":"Information",
+    "prop__message":"c9519cbf-b1e6-4b9b-bf24-cb7d10b1bb89"
+  }
+}
+```
+
+## <a name="log-custom-telemetry-in-c-functions"></a>Logga anpassad telemetri i C#-funktioner
+
+Det finns en Functions-speciell version av Application Insights SDK som du kan använda för att skicka anpassade telemetridata från dina funktioner till Application Insights: [Microsoft. Azure. WebJobs. logging. ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Använd följande kommando från kommando tolken för att installera det här paketet:
+
+# <a name="command"></a>[Kommando](#tab/cmd)
+
+```cmd
+dotnet add package Microsoft.Azure.WebJobs.Logging.ApplicationInsights --version <VERSION>
+```
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VERSION>
+```
+
+---
+
+I det här kommandot ersätter `<VERSION>` du med en version av det här paketet som stöder den installerade versionen av [Microsoft. Azure. WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/). 
+
+I följande C#-exempel används [API för anpassad telemetri](../azure-monitor/app/api-custom-events-metrics.md). Exemplet är för ett .NET-klass bibliotek, men Application Insights koden är samma för C#-skript.
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+Version 2. x och senare versioner av körningen använder nyare funktioner i Application Insights för att automatiskt korrelera telemetri med den aktuella åtgärden. Du behöver inte ange Operations `Id` -, `ParentId` -eller- `Name` fälten manuellt.
+
+```cs
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+using System.Linq;
+
+namespace functionapp0915
+{
+    public class HttpTrigger2
+    {
+        private readonly TelemetryClient telemetryClient;
+
+        /// Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
+        public HttpTrigger2(TelemetryConfiguration telemetryConfiguration)
+        {
+            this.telemetryClient = new TelemetryClient(telemetryConfiguration);
+        }
+
+        [FunctionName("HttpTrigger2")]
+        public Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
+            HttpRequest req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // Parse query parameter
+            string name = req.Query
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Write an event to the customEvents table.
+            var evt = new EventTelemetry("Function called");
+            evt.Context.User.Id = name;
+            this.telemetryClient.TrackEvent(evt);
+
+            // Generate a custom metric, in this case let's use ContentLength.
+            this.telemetryClient.GetMetric("contentLength").TrackValue(req.ContentLength);
+
+            // Log a custom dependency in the dependencies table.
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            dependency.Context.User.Id = name;
+            this.telemetryClient.TrackDependency(dependency);
+
+            return Task.FromResult<IActionResult>(new OkResult());
+        }
+    }
+}
+```
+
+I det här exemplet samlas anpassade mått data samman av värden innan de skickas till customMetrics-tabellen. Mer information finns i [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) -dokumentationen i Application Insights. 
+
+När du kör lokalt måste du lägga till `APPINSIGHTS_INSTRUMENTATIONKEY` inställningen med Application Insights-nyckeln till [local.settings.jspå](functions-run-local.md#local-settings-file) filen.
+
+
+# <a name="v1x"></a>[v1. x](#tab/v1)
+
+```cs
+using System;
+using System.Net;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Azure.WebJobs;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
+using System.Linq;
+
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        private static string key = TelemetryConfiguration.Active.InstrumentationKey = 
+            System.Environment.GetEnvironmentVariable(
+                "APPINSIGHTS_INSTRUMENTATIONKEY", EnvironmentVariableTarget.Process);
+
+        private static TelemetryClient telemetryClient = 
+            new TelemetryClient() { InstrumentationKey = key };
+
+        [FunctionName("HttpTrigger2")]
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]
+            HttpRequestMessage req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // Parse query parameter
+            string name = req.GetQueryNameValuePairs()
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Get request body
+            dynamic data = await req.Content.ReadAsAsync<object>();
+
+            // Set name to query string or body data
+            name = name ?? data?.name;
+         
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            UpdateTelemetryContext(evt.Context, context, name);
+            telemetryClient.TrackEvent(evt);
+            
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            UpdateTelemetryContext(metric.Context, context, name);
+            telemetryClient.TrackMetric(metric);
+            
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+                {
+                    Name = "GET api/planets/1/",
+                    Target = "swapi.co",
+                    Data = "https://swapi.co/api/planets/1/",
+                    Timestamp = start,
+                    Duration = DateTime.UtcNow - start,
+                    Success = true
+                };
+            UpdateTelemetryContext(dependency.Context, context, name);
+            telemetryClient.TrackDependency(dependency);
+        }
+        
+        // Correlate all telemetry with the current Function invocation
+        private static void UpdateTelemetryContext(TelemetryContext context, ExecutionContext functionContext, string userName)
+        {
+            context.Operation.Id = functionContext.InvocationId.ToString();
+            context.Operation.ParentId = functionContext.InvocationId.ToString();
+            context.Operation.Name = functionContext.FunctionName;
+            context.User.Id = userName;
+        }
+    }    
+}
+```
+---
+
+Anropa inte `TrackRequest` eller `StartOperation<RequestTelemetry>` eftersom du ser dubbla begär Anden för ett funktions anrop.  Functions-körningen spårar automatiskt begär Anden.
+
+Ange inte `telemetryClient.Context.Operation.Id` . Den här globala inställningen orsakar felaktig korrelation när många funktioner körs samtidigt. Skapa i stället en ny telemetri-instans ( `DependencyTelemetry` , `EventTelemetry` ) och ändra dess `Context` egenskap. Skicka sedan telemetri-instansen till motsvarande `Track` metod på `TelemetryClient` ( `TrackDependency()` , `TrackEvent()` , `TrackMetric()` ). Den här metoden säkerställer att Telemetrin har rätt korrelations information för det aktuella funktions anropet.
+
 
 ## <a name="environment-variables"></a>Miljövariabler
 

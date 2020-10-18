@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 10/05/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rateller
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 849057ab1ccde2e0771f0c1cd52ea399ffe4cea7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cdc0dea825cb32275a2ada3a49d7d622180aa468
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964697"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166647"
 ---
 # <a name="configure-and-enable-users-for-sms-based-authentication-using-azure-active-directory-preview"></a>Konfigurera och aktivera användare för SMS-baserad autentisering med hjälp av Azure Active Directory (för hands version)
 
@@ -96,13 +96,17 @@ När ett telefonnummer anges för SMS-signera, är det också tillgängligt för
 1. Sök efter och välj **Azure Active Directory**.
 1. I navigerings menyn till vänster i fönstret Azure Active Directory väljer **du användare**.
 1. Välj den användare som du har aktiverat för SMS-baserad autentisering i föregående avsnitt, till exempel *contoso-användare*, och välj **autentiseringsmetoder**.
-1. Ange användarens telefonnummer, inklusive lands koden, t. ex. *+ 1 xxxxxxxxx*. Azure Portal verifierar att telefonnumret har rätt format.
+1. Välj **+ Lägg till autentiseringsmetod**och välj sedan **telefonnummer**i den nedrullningsbara menyn *Välj metod* .
 
-    ![Ange ett telefonnummer för en användare i Azure Portal som ska användas med SMS-baserad autentisering](./media/howto-authentication-sms-signin/set-user-phone-number.png)
+    Ange användarens telefonnummer, inklusive lands koden, t. ex. *+ 1 xxxxxxxxx*. Azure Portal verifierar att telefonnumret har rätt format.
+
+    Gå sedan till List rutan *telefon typ* och välj *mobil*, *alternativ mobil*eller *annan* efter behov.
+
+    :::image type="content" source="media/howto-authentication-sms-signin/set-user-phone-number.png" alt-text="Ange ett telefonnummer för en användare i Azure Portal som ska användas med SMS-baserad autentisering":::
 
     Telefonnumret måste vara unikt i din klient organisation. Om du försöker använda samma telefonnummer för flera användare visas ett fel meddelande.
 
-1. Om du vill använda telefonnumret på ett användar konto väljer du **Spara**.
+1. Om du vill använda telefonnumret på ett användar konto väljer du **Lägg till**.
 
 När registreringen är klar visas en bock för att SMS- *inloggningen ska vara aktive rad*.
 

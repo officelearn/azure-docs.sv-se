@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: azfuncdf
-ms.openlocfilehash: f91cdaa81e18105eb39af442ab6152bfd2888ba9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4714b9330c4a9d9cd390a58f814e3cdb4b591038
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319715"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168149"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnostik i Durable Functions i Azure
 
@@ -99,7 +99,7 @@ Om du vill aktivera sändning av utförliga Dirigerings händelser `LogReplayEve
 ```
 
 > [!NOTE]
-> Som standard samplas Application Insights telemetri av Azure Functions runtime för att undvika sändning av data för ofta. Detta kan göra att spårnings informationen går förlorad när många livs cykel händelser inträffar under en kort tids period. I [artikeln Azure Functions övervakning](../functions-monitoring.md#configure-sampling) förklaras hur du konfigurerar det här beteendet.
+> Som standard samplas Application Insights telemetri av Azure Functions runtime för att undvika sändning av data för ofta. Detta kan göra att spårnings informationen går förlorad när många livs cykel händelser inträffar under en kort tids period. I [artikeln Azure Functions övervakning](../configure-monitoring.md#configure-sampling) förklaras hur du konfigurerar det här beteendet.
 
 ### <a name="single-instance-query"></a>Fråga för enskild instans
 

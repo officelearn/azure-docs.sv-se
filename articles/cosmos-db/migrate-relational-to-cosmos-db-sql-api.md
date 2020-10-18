@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 860b78df8df0d3c6946785a94e40141689278cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaff5adf358c31d99df7a51305c4e3554c3259c1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86023150"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166258"
 ---
 # <a name="migrate-one-to-few-relational-data-into-azure-cosmos-db-sql-api-account"></a>Migrera ett-till-lite-relationellt data till Azure Cosmos DB SQL API-konto
 
@@ -25,7 +25,7 @@ En vanlig omvandling avnormaliserar data genom att bädda in relaterade under ob
 Anta att vi har följande två tabeller i vår SQL-databas, beställningar och OrderDetails.
 
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/orders.png" alt-text="Beställnings information" border="false" :::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/orders.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen." border="false" :::
 
 Vi vill kombinera den här en-till-lite-relation till ett JSON-dokument under migreringen. Vi kan göra detta genom att skapa en T-SQL-fråga med hjälp av "för JSON" som nedan:
 
@@ -48,7 +48,7 @@ FROM Orders o;
 
 Resultatet av den här frågan skulle se ut så här: 
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png" alt-text="Beställnings information" lightbox="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen." lightbox="./media/migrate-relational-to-cosmos-sql-api/for-json-query-result.png":::
 
 Vi rekommenderar att du vill använda en enda Azure Data Factory (ADF) kopierings aktivitet för att fråga SQL-data som källa och skriva utdata direkt till Azure Cosmos DB mottagare som korrekta JSON-objekt. För närvarande går det inte att utföra den nödvändiga JSON-omvandlingen i en kopierings aktivitet. Om vi försöker kopiera resultatet av ovanstående fråga till en Azure Cosmos DB SQL API-behållare visas fältet OrderDetails som en sträng egenskap för vårt dokument, i stället för den förväntade JSON-matrisen.
 
@@ -90,27 +90,27 @@ SELECT [value] FROM OPENJSON(
 )
 ```
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf1.png" alt-text="Beställnings information" inget citat tecken ".
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf1.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen." inget citat tecken ".
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf2.png" alt-text="Beställnings information":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf2.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen.":::
 
 ### <a name="copy-activity-2-blobjsontocosmos"></a>Kopierings aktivitet #2: BlobJsonToCosmos
 
 Sedan ändrar vi vår ADF-pipeline genom att lägga till den andra kopierings aktiviteten som söker i Azure Blob Storage för text filen som skapades av den första aktiviteten. Den bearbetar den som "JSON"-källa för att infoga Cosmos DB Sink som ett dokument per JSON-rad som finns i text filen.
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf3.png" alt-text="Beställnings information":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf3.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen.":::
 
 Du kan också lägga till en "ta bort"-aktivitet till pipelinen så att den tar bort alla tidigare filer som finns kvar i mappen/Orders/före varje körning. Vår ADF-pipeline ser nu ut ungefär så här:
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf4.png" alt-text="Beställnings information":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf4.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen.":::
 
 När vi har utlöst pipelinen ovan ser vi en fil som skapats i vår mellanliggande Azure Blob Storage-plats som innehåller ett JSON-objekt per rad:
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf5.png" alt-text="Beställnings information":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf5.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen.":::
 
 Vi ser även order dokument med korrekt inbäddad OrderDetails som infogats i vår Cosmos DB-samling:
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf6.png" alt-text="Beställnings information":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf6.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen.":::
 
 
 ## <a name="azure-databricks"></a>Azure Databricks
@@ -123,7 +123,7 @@ Vi kan också använda spark i [Azure Databricks](https://azure.microsoft.com/se
 
 Först skapar vi och kopplar den nödvändiga [SQL-anslutningen](https://docs.databricks.com/data/data-sources/sql-databases-azure.html) och [Azure Cosmos DB anslutnings](https://docs.databricks.com/data/data-sources/azure/cosmosdb-connector.html) bibliotek till vårt Azure Databricks-kluster. Starta om klustret för att kontrol lera att bibliotek har lästs in.
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks1.png" alt-text="Beställnings information":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks1.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen.":::
 
 Nu presenterar vi två exempel för Scala och python. 
 
@@ -146,7 +146,7 @@ val orders = sqlContext.read.sqlDB(configSql)
 display(orders)
 ```
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks2.png" alt-text="Beställnings information":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks2.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen.":::
 
 Nu ansluter vi till vår Cosmos DB databas och samling:
 
@@ -203,7 +203,7 @@ display(ordersWithSchema)
 CosmosDBSpark.save(ordersWithSchema, configCosmos)
 ```
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks3.png" alt-text="Beställnings information":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks3.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen.":::
 
 
 ### <a name="python"></a>Python
@@ -333,7 +333,7 @@ pool.map(writeOrder, orderids)
 ```
 I båda metoderna bör vi i slutet få en korrekt Sparad inbäddad OrderDetails i varje order dokument i Cosmos DB samling:
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="Beställnings information":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/databricks4.png" alt-text="Skärm bild som visar tabellerna order och OrderDetails i SQL-databasen.":::
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [data modellering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/modeling-data)

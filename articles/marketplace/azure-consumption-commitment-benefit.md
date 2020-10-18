@@ -4,15 +4,15 @@ description: En uppsättning Microsoft-erbjudanden för kommersiella marknads pl
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
+author: emuench
 ms.author: mingshen
-ms.date: 07/21/2020
-ms.openlocfilehash: 8a8b64bc0ed2702066a1ba280f1b40aabbcdb11b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: e5f1a70182d4b31a1bcd0a811be32bdfc55129d9
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87100003"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168464"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Azure-förbrukningsåtagandeförmån
 
@@ -27,3 +27,33 @@ Du kan dra nytta av den här fördelen genom att bara köpa ett kvalificerande e
 
 > [!IMPORTANT]
 > Undantag kan gälla för CtC-avtal signerade före denna Marketplace-förmån. Kontakta Microsoft-konto Executive om du har frågor om berättigande.
+
+## <a name="determine-if-your-organization-has-an-azure-consumption-commitment-maccctc"></a>Ta reda på om din organisation har ett åtagande för Azure-konsumtion (MACC/CtC)
+
+Om du är osäker på om din organisation har ett kvalificerings avtal loggar du in på Marketplace-upplevelsen inom [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) under en klient som är kopplad till din organisation. Om du ser alternativet för det **kvalificerade Azure-förmånerna** i pris filtret har du ett kvalificerat Azure-konsumtions åtagande. Genom att kvalificera Azure Marketplace-köp kan du bidra till din organisations åtagande om Azure-konsumtion om det köps direkt via Azure Marketplace.
+
+[![Meny alternativet kvalificerat Azure-förmån.](media/azure-benefit/azure-benefit-eligible.png)](media/azure-benefit/azure-benefit-eligible.png#lightbox)
+
+## <a name="determine-which-offers-are-eligible-for-azure-consumption-commitments-maccctc"></a>Ta reda på vilka erbjudanden som är berättigade till Azures förbruknings åtaganden (MACC/CtC)
+
+1. Logga in på Marketplace-upplevelsen inom [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) under en klient som är kopplad till din organisation.
+2. Använd ett **berättigat** filter för Azure-förmån (avbildning ovan) för att identifiera erbjudanden som är berättigade att bidra till din organisations engagemang i Azure.
+
+   > [!NOTE]
+   > Om du inte har det här filtret har din organisation inget kvalificerat åtagande. Kontakta din Microsoft-konto Executive om du anser att detta är felaktigt.
+ 
+3. Erbjudanden blir märkta med Azure- **förmånen** för att ytterligare ange att de program-och IP-kostnader som är kopplade till det här erbjudandet bidrar till din organisations engagemang i Azure-konsumtionen på alla Azure-tjänster som faktureras till din organisation.
+
+    :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Azure Benefits-berättigade Badge.&quot;:::
+
+   > [!NOTE]
+   > Microsoft Azure tjänster som debiteras din organisation via en distribution av Azure Marketplace bidrar till att bidra till din organisations engagemang. Den extra fördelen med erbjudanden för &quot;Azure-förmån" är att program vara/IP-kostnader som skickas via tredje parts leverantör kommer också att bidra till 100% av din Azure Marketplace-faktura.
+
+4. Köp/skapa erbjudandet direkt via Azure Marketplace. Microsoft kommer att bidra 100% av kvalificerings erbjudanden till din organisations åtagande för Azure-förbrukning vid varje faktura period, inklusive program vara/IP-kostnader.
+
+> [!IMPORTANT]
+> Erbjudanden måste köpas direkt via Azure Marketplace med en registrering som är relaterad till din organisations åtagande för Azure-förbrukning för köpet för att bidra till ditt åtagande. Erbjudanden som köpts via Cloud Solution Provider (CSP), alla andra åter försäljar kanaler eller utanför Marketplace bidrar inte till ditt åtagande.
+
+## <a name="next-steps"></a>Nästa steg
+
+- Om du vill veta mer om hur din organisation kan utnyttja Azure Marketplace, fyller du i vår Microsoft Learn modul: [förenkla moln inköp och styrning med Azure Marketplace](https://aka.ms/cm.marketplaceprocurement).

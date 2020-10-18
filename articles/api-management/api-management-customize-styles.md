@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430737"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168213"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Anpassa stilen på utvecklings portalens sidor
 
@@ -31,13 +31,13 @@ Det finns tre vanligaste sätt att anpassa Developer-portalen i Azure API Manage
 
 I den här artikeln får du lära dig hur du anpassar formatet för element på sidor i den äldre **Developer** -portalen och ser dina ändringar.
 
-![anpassa stil](./media/modify-developer-portal-style/developer_portal.png)
+![Skärm bild som visar var du ändrar inställningarna i den äldre Developer-portalen.](./media/modify-developer-portal-style/developer_portal.png)
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Slutför följande snabb start: [skapa en Azure API Management-instans](get-started-create-service-instance.md).
@@ -49,7 +49,7 @@ I den här artikeln får du lära dig hur du anpassar formatet för element på 
 2. Klicka på knappen **Developer portal (bakåtkompatibelt)** överst i **översikts** fönstret.
 3. Upptill på den vänstra sidan av skärmen visas en ikon med två penslar. Hovra över ikonen för att öppna menyn för anpassning av portalen.
 
-    ![anpassa stil](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+    ![Skärm bild som visar ikonen med två målar penslar.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
 4. Välj **Stilar** från menyn för att öppna fönstret för anpassning av stilar.
 
     Alla element som du kan anpassa med **stilar** visas på sidan

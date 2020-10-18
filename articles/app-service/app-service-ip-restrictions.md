@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962969"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168230"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Begränsningar för Azure App Service åtkomst
 
@@ -36,7 +36,7 @@ Om du vill lägga till en regel för åtkomst begränsning i appen använder du 
 
 I användar gränssnittet för åtkomst begränsningar kan du granska listan över regler för åtkomst begränsning som definierats för din app.
 
-![lista åtkomst begränsningar](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Skärm bild av skärmen åtkomst begränsningar i Azure Portal visar listan över regler för åtkomst begränsning som definierats för den valda appen.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 I listan visas alla aktuella begränsningar som finns i din app. Om du har en VNet-begränsning i appen visar tabellen om tjänstens slut punkter är aktiverade för Microsoft. Web. När det inte finns några definierade begränsningar för appen kommer appen att vara tillgänglig från valfri plats.  
 
@@ -68,11 +68,11 @@ Med tjänst slut punkter kan du konfigurera din app med programgatewayer eller a
 
 Du kan klicka på en rad om du vill redigera en befintlig regel för begränsning av åtkomst. Redigeringarna träder i kraft direkt, inklusive ändringar i prioritets ordning.
 
-![Redigera en regel för begränsning av åtkomst](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Skärm bild av dialog rutan Redigera IP-begränsning i Azure Portal visar fälten för en befintlig regel för åtkomst begränsning.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 När du redigerar en regel kan du inte ändra typen mellan en IP-serveradress och en Virtual Network regel. 
 
-![Redigera en regel för begränsning av åtkomst](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Skärm bild av dialog rutan Redigera IP-begränsning i Azure Portal visar inställningarna för en Virtual Network regel.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 Om du vill ta bort en regel klickar du på **...** i regeln och klickar sedan på **ta bort**.
 
@@ -90,7 +90,7 @@ För scenariot där användare uttryckligen vill blockera en enskild IP-adress e
 
 Förutom att kunna kontrol lera åtkomsten till din app kan du också begränsa åtkomsten till den SCM-webbplats som används av din app. SCM-platsen är webb distributions slut punkten och även kudu-konsolen. Du kan separat tilldela åtkomst begränsningar till SCM-webbplatsen från appen eller använda samma uppsättning för både appen och SCM-platsen. När du markerar kryss rutan för att ha samma begränsningar som appen är allt tomt. Om du avmarkerar kryss rutan tillämpas de tidigare inställningarna på SCM-platsen. 
 
-![lista åtkomst begränsningar](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Skärm bild av skärmen åtkomst begränsningar i Azure Portal visar att inga åtkomst begränsningar har angetts för SCM-platsen eller appen.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Program mässig modifiering av regler för åtkomst begränsning ##
 

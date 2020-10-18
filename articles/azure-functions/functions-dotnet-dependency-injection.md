@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.date: 08/15/2020
 ms.author: glenga
 ms.reviewer: jehollan
-ms.openlocfilehash: f535a27e3afadaf8eefc41c5f1a8ab6c02d24c04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee2e7dc577e000878884655c0ed5f4bcb1aabab5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715939"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167703"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Använda beroendeinmatning i .NET Azure Functions
 
@@ -131,8 +131,8 @@ Om du behöver en egen Logging-Provider registrerar du en anpassad typ som en in
 Application Insights läggs till av Azure Functions automatiskt.
 
 > [!WARNING]
-> - Lägg inte till i `AddApplicationInsightsTelemetry()` samlingen tjänster när den registrerar tjänster som står i konflikt med tjänster som tillhandahålls av miljön.
-> - Registrera inte din egen `TelemetryConfiguration` eller `TelemetryClient` om du använder de inbyggda Application Insights funktionerna. Om du behöver konfigurera en egen `TelemetryClient` instans skapar du en via den inmatade `TelemetryConfiguration` som visas i [övervaka Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+> - Lägg inte `AddApplicationInsightsTelemetry()` till i samlingen tjänster, som registrerar tjänster som står i konflikt med tjänster som tillhandahålls av miljön.
+> - Registrera inte din egen `TelemetryConfiguration` eller `TelemetryClient` om du använder de inbyggda Application Insights funktionerna. Om du behöver konfigurera en egen `TelemetryClient` instans skapar du en via den inmatade `TelemetryConfiguration` som du ser i [Logga anpassad telemetri i C#-funktioner](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
 ### <a name="iloggert-and-iloggerfactory"></a>ILogger <T> och ILoggerFactory
 
@@ -287,7 +287,7 @@ namespace MyNamespace
 }
 ```
 
-Lägg till konfigurations leverantörer i `ConfigurationBuilder` egenskapen för `IFunctionsConfigurationBuilder` . Mer information om hur du använder konfigurations leverantörer finns [i konfiguration i ASP.net Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+Lägg till konfigurations leverantörer i `ConfigurationBuilder` egenskapen för `IFunctionsConfigurationBuilder` . Mer information om hur du använder konfigurations leverantörer finns [i konfiguration i ASP.net Core](/aspnet/core/fundamentals/configuration/#configuration-providers).
 
 En `FunctionsHostBuilderContext` hämtas från `IFunctionsConfigurationBuilder.GetContext()` . Använd den här kontexten för att hämta det aktuella miljö namnet och lös platsen för konfigurationsfiler i mappen Function app.
 

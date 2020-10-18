@@ -3,12 +3,12 @@ title: Självstudie – distribuera och konfigurera VMware HCX
 description: Lär dig hur du distribuerar och konfigurerar VMware HCX-lösningen för ditt privata moln i Azure VMware-lösningen.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 69df9b6337674233e1f257cc509115d5f58d2e7f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a52b2d06e65de0d056653f12065e36d83d6d8e0c
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152054"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167771"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuera och konfigurera VMware HCX
 
@@ -268,7 +268,7 @@ En översikt över slut punkt till slut punkt av det här steget finns i [Azure 
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="Gå till den lokala vCenter och välj en OVF-mall för att distribuera till din lokala vCenter." lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
-En översikt över slut punkt till slut punkt av det här steget finns i [Azure VMware-lösningen – VMware HCX Create Compute Profile](https://www.youtube.com/embed/qASXi5xrFzM) video.
+En översikt över slut punkt till slut punkt av det här steget finns i [Azure VMware-lösningen – VMware HCX skapa en beräknings profil](https://www.youtube.com/embed/qASXi5xrFzM) video.
 
 
 
@@ -296,7 +296,9 @@ Nu är det dags att konfigurera service nät mellan lokala och Azure VMware-SDDC
 
 1. Granska tjänster som ska aktive ras och välj sedan **Fortsätt**.  
 
-1. I **Avancerad konfiguration – Åsidosätt överordnad överordnad nätverks profil** Välj **Fortsätt**.  Nätverks profiler för överordnad länk ansluter till nätverket via vilket fjärrplatsens sammanlänknings utrustning kan nås.  
+1. I **Avancerad konfiguration – Åsidosätt överordnad överordnad nätverks profil** Välj **Fortsätt**.  
+
+   Nätverks profiler för överordnad länk ansluter till nätverket via vilket fjärrplatsens sammanlänknings utrustning kan nås.  
   
 1. I **Avancerad konfiguration – nätverks tilläggets utrustning skala ut**, granska och välj **Fortsätt**. 
 

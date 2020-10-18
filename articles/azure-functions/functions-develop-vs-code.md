@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 1614ac0711c6a83d7e303b5a4b6ebbdf23ba2e03
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c851f5284b87f224932b027fd10ce720327639c2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104078"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167907"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med hjälp av Visual Studio Code
 
@@ -39,7 +39,7 @@ Den här artikeln innehåller information om hur du använder Azure Functions-ti
 > [!IMPORTANT]
 > Blanda inte lokal utveckling och Portal utveckling för en enda Function-app. När du publicerar från ett lokalt projekt till en Function-app skriver distributions processen över alla funktioner som du har utvecklat i portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du installerar och kör tillägget [Azure Functions extension][Azure Functions för Visual Studio Code]måste du uppfylla följande krav:
 
@@ -384,15 +384,13 @@ Mer information finns i [strömmande loggar](functions-monitoring.md#streaming-l
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 
 > [!NOTE]
-> Strömmande loggar har bara stöd för en enda instans av Functions-värden. När funktionen skalas till flera instanser visas inte data från andra instanser i logg strömmen. [Live Metrics Stream](../azure-monitor/app/live-stream.md) i Application Insights har stöd för flera instanser. Även i nära real tid baseras strömnings analysen på [exempel data](functions-monitoring.md#configure-sampling).
+> Strömmande loggar har bara stöd för en enda instans av Functions-värden. När funktionen skalas till flera instanser visas inte data från andra instanser i logg strömmen. [Live Metrics Stream](../azure-monitor/app/live-stream.md) i Application Insights har stöd för flera instanser. Även i nära real tid baseras strömnings analysen på [exempel data](configure-monitoring.md#configure-sampling).
 
 ### <a name="application-insights"></a>Application Insights
 
-Vi rekommenderar att du övervakar körningen av dina funktioner genom att integrera din Function-app med Application Insights. När du skapar en Function-app i Azure Portal, sker denna integrering som standard. När du skapar en Function-app under Visual Studio-publicering måste du integrera Application Insights dig själv.
+Vi rekommenderar att du övervakar körningen av dina funktioner genom att integrera din Function-app med Application Insights. När du skapar en Function-app i Azure Portal, sker denna integrering som standard. När du skapar en Function-app under Visual Studio-publicering måste du integrera Application Insights dig själv. Mer information finns i [aktivera Application Insights-integrering](configure-monitoring.md#enable-application-insights-integration).
 
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
+Mer information om övervakning med hjälp av Application Insights finns i [övervaka Azure Functions](functions-monitoring.md).
 
 ## <a name="c-script-projects"></a>C \# skript projekt
 

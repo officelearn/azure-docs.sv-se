@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 8/18/2020
 ms.topic: article
-ms.openlocfilehash: f3106553def982eb90ccc90822206e75a11ce354
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 402ce1e9e92ab87689abe9c18a503a479d7421f9
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89294602"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164558"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Azure Functions anpassade hanterare (förhands granskning)
 
@@ -566,7 +566,7 @@ Funktions värden utvärderar extra logg meddelanden inklusive information som r
 
 Lokalt skrivs loggar ut till-konsolen.
 
-I Azure, [fråga Application Insights spårningar](functions-monitoring.md#query-telemetry-data) för att Visa logg meddelanden. Om din app genererar en hög mängd loggar, skickas bara en del av logg meddelanden till Application Insights. [Inaktivera sampling](functions-monitoring.md#configure-sampling) för att se till att alla meddelanden loggas.
+I Azure, [fråga Application Insights spårningar](analyze-telemetry-data.md#query-telemetry-data) för att Visa logg meddelanden. Om din app genererar en hög mängd loggar, skickas bara en del av logg meddelanden till Application Insights. [Inaktivera sampling](configure-monitoring.md#configure-sampling) för att se till att alla meddelanden loggas.
 
 ### <a name="test-custom-handler-in-isolation"></a>Testa anpassad hanterare i isolering
 

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: 51310b1569982e0b71f39dede0d4d7dbefd1a3c9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 49840c2591bc1a991920b00aec020d4f652c9a50
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975543"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168400"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
@@ -166,7 +166,7 @@ API | Standard data format | Andra format
 /instance | json | text
 /scheduledevents | json | inget
 
-Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Till exempel:
+Om du vill komma åt ett svar som inte är standardformat anger du det begärda formatet som en frågesträngparametern i begäran. Exempel:
 
 ```powershell
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -732,7 +732,7 @@ Add-Type -AssemblyName System.Security
 $signedCms = New-Object -TypeName System.Security.Cryptography.Pkcs.SignedCms
 $signedCms.Decode($signature);
 $content = [System.Text.Encoding]::UTF8.GetString($signedCms.ContentInfo.Content)
-Write-Host "Attested data: " $conten
+Write-Host "Attested data: " $content
 $json = $content | ConvertFrom-Json
 # Do additional validation here
 ```
@@ -839,7 +839,7 @@ Visual Basic  | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
 
 ## <a name="error-and-debugging"></a>Fel och fel sökning
 
-Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Till exempel:
+Om det inte går att hitta ett data element eller en felaktig begäran, returnerar Instance Metadata Service vanliga HTTP-fel. Exempel:
 
 HTTP-statuskod | Orsak
 -----------------|-------

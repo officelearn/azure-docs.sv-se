@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
-ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ddd1aa9865cb4061212ce77b31efc82ad339283
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61450583"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92165578"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Självstudie: Skapa en anpassad simulerad enhet
 
@@ -28,9 +28,9 @@ I den här kursen får du:
 > * Klona en enhetsmodell
 > * Ta bort en enhetsmodell
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att följa den här självstudien behöver du en distribuerad instans av enhetssimulering i din Azure-prenumeration.
 
@@ -60,7 +60,7 @@ I den här självstudien skapar du ett simulerat kylskåp som skickar data för 
 
 Fyll i formuläret med följande information:
 
-| Inställningen             | Värde                                                |
+| Inställning             | Värde                                                |
 | ------------------- | ---------------------------------------------------- |
 | Enhetsmodellnamn   | Kylskåp                                         |
 | Modellbeskrivning   | Ett kylskåp med temperatur- och luftfuktighetssensorer |
@@ -88,7 +88,7 @@ Genom att klona en enhetsmodell kan du skapa en kopia av en befintlig enhetsmode
 
 Om du vill klona en enhetsmodell markerar du kryssrutan intill modellen och klickar sedan på **Klona** i åtgärdsfältet:
 
-![Ta bort enhetsmodell](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
+![Skärm bild som markerar den markerade modellen och klonings knappen.](media/iot-accelerators-device-simulation-create-custom-device/clonedevice.png)
 
 ## <a name="delete-a-device-model"></a>Ta bort en enhetsmodell
 

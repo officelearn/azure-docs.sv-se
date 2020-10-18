@@ -3,12 +3,12 @@ title: host.jssom referens för Azure Functions 1. x
 description: Referens dokumentation för Azure Functions host.jspå filen med v1-körningsmiljön.
 ms.topic: conceptual
 ms.date: 10/19/2018
-ms.openlocfilehash: 36d028d09c94ae28e77404297bd576f5e20404c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32848c725d5c99e3814e86447d604839502054c0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81757511"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167736"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>host.jssom referens för Azure Functions 1. x
 
@@ -136,7 +136,7 @@ Konfigurations inställningar för [Azure Cosmos DB utlösare och bindningar](fu
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och `Gateway`|
 |Protokoll|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
@@ -230,7 +230,7 @@ Om du delar ett lagrings konto över flera Function-appar, se till att varje Fun
 
 ## <a name="logger"></a>loggar
 
-Styr filtrering av loggar som skrivits av ett [ILogger-objekt](functions-monitoring.md#write-logs-in-c-functions) eller av [context. log](functions-monitoring.md#write-logs-in-javascript-functions).
+Styr filtrering av loggar som skrivits av ett [ILogger](functions-dotnet-class-library.md#ilogger) -objekt eller av [context. log](functions-reference-node.md#contextlog-method).
 
 ```json
 {
@@ -247,7 +247,7 @@ Styr filtrering av loggar som skrivits av ett [ILogger-objekt](functions-monitor
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |categoryFilter|Saknas|Anger filtrering efter kategori| 
 |defaultLevel|Information|För alla kategorier som inte anges i `categoryLevels` matrisen skickar du loggar på denna nivå och över till Application Insights.| 
@@ -340,7 +340,7 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 
 *Version 1. x*
 
-Konfigurations inställningar för loggar som du skapar med hjälp av ett `TraceWriter` objekt. Se [C#-loggning](functions-reference-csharp.md#logging) och [Node.js loggning](functions-reference-node.md#writing-trace-output-to-the-console).
+Konfigurations inställningar för loggar som du skapar med hjälp av ett `TraceWriter` objekt. Mer information finns i [C#-loggning].
 
 ```json
 {
@@ -351,7 +351,7 @@ Konfigurations inställningar för loggar som du skapar med hjälp av ett `Trace
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |consoleLevel|information|Spårnings nivån för konsol loggning. Alternativen är: `off` , `error` , `warning` , `info` och `verbose` .|
 |fileLoggingMode|debugOnly|Spårnings nivån för fil loggning. Alternativen är `never` , `always` , `debugOnly` .| 

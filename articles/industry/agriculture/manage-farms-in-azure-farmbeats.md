@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 09144c4c35ab911b60931849807123608f2c3cdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc06f7c75e27d831994b97b97f3d20bb34c3a6c5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847480"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167941"
 ---
 # <a name="manage-farms"></a>Hantera lantbruk
 
@@ -25,7 +25,7 @@ Gör så här:
 
     Här är exempel bilden:
 
-    ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
+    ![Skärm bild som visar sidan grupper.](./media/create-farms-in-azure-farmbeats/create-farm-main-page-1.png)
 
 
 2. Välj **skapa Server grupp** och ange **namn**, **grödor** och **adress**.
@@ -33,14 +33,14 @@ Gör så här:
 
 Här är två sätt att definiera en server grupps gränser:
 
-1. **Markering på kartan**: Använd kart kontroll verktyget för att rita och markera Server gruppens gränser. För att markera gränser,  ![ taktslag i projekt gruppen ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) och markera de exakta gränserna.
+1. **Markering på kartan**: Använd kart kontroll verktyget för att rita och markera Server gruppens gränser. För att markera gränserna  ![ visas skärm bilden som visar Penn ikonen för ritnings gränser på kartan ](./media/create-farms-in-azure-farmbeats/pencil-icon-1.png) och markera exakta gränser.
 
-    ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
+    ![Skärm bild som visar de ritade gränserna på en karta.](./media/create-farms-in-azure-farmbeats/create-farm-mark-on-map-1.png)
 
 2. **Klistra in geografiskt JSON-kod**: geografin är ett format för kodning av geografiska data strukturer med hjälp av JavaScript Object Notation (JSON). Det här alternativet visar en text ruta där en interjson-sträng kan anges för att markera Server gruppens gränser. Du kan också skapa en interjson-kod från GeoJSON.io.
 Fyll i informationen med hjälp av knapp beskrivningarna.
 
-    ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
+    ![Skärm bild som visar alternativet Klistra in polyjson-kod på skärmen skapa Server grupp.](./media/create-farms-in-azure-farmbeats/create-new-farm-1.png)
 
 3.  Välj **Skicka** för att skapa en Server grupp. En ny grupp skapas och visas på sidan **Server grupper** .
 
@@ -71,7 +71,7 @@ Sidan **grupper** visar en lista över skapade grupper. Använd följande steg f
 1.  Välj en Server grupp i listan om du vill ta bort Server grupps information.
 2.  Välj **ta bort Server grupp** för att ta bort Server gruppen.
 
-    ![Taktslag i projekt grupp](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
+    ![Skärm bild som visar sidan ta bort Server grupp och markerar knappen Ta bort.](./media/create-farms-in-azure-farmbeats/delete-farm-1.png)
 
     > [!NOTE]
     > När du tar bort en Server grupp tas inte enheterna och mapparna som är associerade med gruppen bort. All Server grupp information som är kopplad till enheten och kartor är inte relevant. Du kan fortsätta att visa enheter, telemetri och kartor från FarmBeats-tjänsten.

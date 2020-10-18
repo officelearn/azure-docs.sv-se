@@ -14,28 +14,29 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee249a33187c3f8776cfc8fc750590c58f74579e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360930"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168162"
 ---
-# <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Självstudie: Konfigurera en SQL Server tillgänglighets grupp på Azure Virtual Machines manuellt
-
+# <a name="tutorial-manually-configure-an-availability-group-sql-server-on-azure-vms"></a>Självstudie: Konfigurera en tillgänglighets grupp manuellt (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-I den här självstudien visas hur du skapar en SQL Server Always on-tillgänglighetsgrupper på Azure Virtual Machines. Den fullständiga självstudien skapar en tillgänglighets grupp med en databas replik på två SQL-servrar.
+Den här självstudien visar hur du skapar en tillgänglighets grupp som alltid är tillgänglig för SQL Server på Azure Virtual Machines (VM). Den fullständiga självstudien skapar en tillgänglighets grupp med en databas replik på två SQL-servrar.
 
-**Tids uppskattning**: tar cirka 30 minuter att slutföra när kraven är uppfyllda.
+Även om den här artikeln konfigurerar tillgänglighets grupps miljön manuellt, är det också möjligt att göra detta med hjälp av [Azure Portal](availability-group-azure-portal-configure.md), [POWERSHELL, Azure CLI](availability-group-az-commandline-configure.md)eller [Azures snabb starts mallar](availability-group-quickstart-template-configure.md) . 
 
-Diagrammet visar vad du skapar i självstudien.
 
-![Tillgänglighetsgrupp](./media/availability-group-manually-configure-tutorial/00-EndstateSampleNoELB.png)
+**Tids uppskattning**: tar cirka 30 minuter att slutföra när [kraven](availability-group-manually-configure-prerequisites-tutorial.md) är uppfyllda.
 
-## <a name="prerequisites"></a>Krav
+
+## <a name="prerequisites"></a>Förutsättningar
 
 Självstudien förutsätter att du har en grundläggande förståelse för SQL Server Always on-tillgänglighetsgrupper. Om du behöver mer information, se [Översikt över Always on Availability groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+
+Innan du påbörjar själv studie kursen måste du [slutföra förutsättningarna för att skapa Always on-tillgänglighetsgrupper i Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Om dessa krav redan har slutförts kan du gå till [skapa kluster](#CreateCluster).
 
 I följande tabell visas de krav som du måste utföra innan du påbörjar den här självstudien:
 
@@ -49,11 +50,8 @@ I följande tabell visas de krav som du måste utföra innan du påbörjar den h
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Lägg till funktionen kluster för växling vid fel** | Båda SQL Server instanser kräver den här funktionen |
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Installations domän konto** | – Lokal administratör på varje SQL Server <br/> – Medlem i den fasta Server rollen SQL Server Sysadmin för varje instans av SQL Server  |
 
-
-Innan du påbörjar själv studie kursen måste du [slutföra förutsättningarna för att skapa Always on-tillgänglighetsgrupper i Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). Om dessa krav redan har slutförts kan du gå till [skapa kluster](#CreateCluster).
-
-  >[!NOTE]
-  > Många av stegen i den här själv studie kursen kan nu automatiseras med [Azure SQL CLI för virtuella datorer](availability-group-az-cli-configure.md) och [Azure snabb starts mallar](availability-group-quickstart-template-configure.md).
+>[!NOTE]
+> Många av stegen i den här själv studie kursen kan nu automatiseras med [Azure Portal](availability-group-azure-portal-configure.md), [POWERSHELL och AZ CLI](availability-group-az-cli-configure.md) och [Azure snabb starts mallar](availability-group-quickstart-template-configure.md).
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->
@@ -139,7 +137,7 @@ I det här exemplet använder Windows-klustret en fil resurs för att skapa ett 
 
 1. Högerklicka på **resurser**och välj **Ny resurs...**.
 
-   ![Ny resurs](./media/availability-group-manually-configure-tutorial/48-newshare.png)
+   ![Högerklicka på resurser och välj ny resurs](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    Använd **guiden skapa en delad mapp** för att skapa en resurs.
 
@@ -153,7 +151,7 @@ I det här exemplet använder Windows-klustret en fil resurs för att skapa ett 
 
 1. Kontrol lera att kontot som används för att skapa klustret har fullständig kontroll.
 
-   ![Ny resurs](./media/availability-group-manually-configure-tutorial/50-filesharepermissions.png)
+   ![Kontrol lera att kontot som används för att skapa klustret har fullständig kontroll](./media/availability-group-manually-configure-tutorial/50-filesharepermissions.png)
 
 1. Välj **OK**.
 
@@ -169,7 +167,7 @@ Ange sedan klustrets kvorum.
 
 1. I **Klusterhanteraren för växling vid fel**högerklickar du på klustret, pekar på **fler åtgärder**och väljer **Konfigurera inställningar för klusterkvorum...**.
 
-   ![Ny resurs](./media/availability-group-manually-configure-tutorial/52-configurequorum.png)
+   ![Välj Konfigurera inställningar för klusterkvorum](./media/availability-group-manually-configure-tutorial/52-configurequorum.png)
 
 1. Välj **Nästa**i **guiden Konfigurera klusterkvorum**.
 
@@ -191,15 +189,15 @@ Kluster kärn resurserna konfigureras med ett fil resurs vittne.
 
 ## <a name="enable-availability-groups"></a>Aktivera tillgänglighets grupper
 
-Aktivera sedan **AlwaysOn-tillgänglighetsgrupper** funktionen. Utför de här stegen på båda SQL-servrarna.
+Aktivera sedan funktionen **AlwaysOn Availability groups** . Utför de här stegen på båda SQL-servrarna.
 
 1. Starta **Konfigurationshanteraren för SQL Server**på **Start** skärmen.
 2. I webb läsar trädet väljer du **SQL Server tjänster**, högerklickar på tjänsten **SQL Server (MSSQLSERVER)** och väljer **Egenskaper**.
-3. Välj fliken **AlwaysOn-hög tillgänglighet** och välj sedan **Aktivera AlwaysOn-tillgänglighetsgrupper**, enligt följande:
+3. Välj fliken **AlwaysOn-hög tillgänglighet** och välj sedan **Aktivera AlwaysOn-tillgänglighetsgrupper**enligt följande:
 
     ![Aktivera AlwaysOn-tillgänglighetsgrupper](./media/availability-group-manually-configure-tutorial/54-enableAlwaysOn.png)
 
-4. Välj **Använd**. Välj **OK** i popup-dialogrutan.
+4. Välj **Tillämpa**. Välj **OK** i popup-dialogrutan.
 
 5. Starta om SQL Server-tjänsten.
 
@@ -208,7 +206,7 @@ Upprepa de här stegen på andra SQL Server.
 <!-----------------
 ## <a name="endpoint-firewall"></a>Open firewall for the database mirroring endpoint
 
-Each instance of SQL Server that participates in an Availability Group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the Availability Groups on that instance.
+Each instance of SQL Server that participates in an availability group requires a database mirroring endpoint. This endpoint is a TCP port for the instance of SQL Server that is used to synchronize the database replicas in the availability groups on that instance.
 
 On both SQL Servers, open the firewall for the TCP port for the database mirroring endpoint.
 
@@ -242,7 +240,7 @@ Repeat these steps on the second SQL Server.
 
 1. Högerklicka på **resurser**och välj **Ny resurs...**.
 
-   ![Ny resurs](./media/availability-group-manually-configure-tutorial/48-newshare.png)
+   ![Välj ny resurs](./media/availability-group-manually-configure-tutorial/48-newshare.png)
 
    Använd **guiden skapa en delad mapp** för att skapa en resurs.
 
@@ -256,7 +254,7 @@ Repeat these steps on the second SQL Server.
 
 1. Kontrol lera att SQL Server-och SQL Server Agent tjänst kontona för båda servrarna har fullständig kontroll.
 
-   ![Ny resurs](./media/availability-group-manually-configure-tutorial/68-backupsharepermission.png)
+   ![Kontrol lera att SQL Server-och SQL Server Agent tjänst kontona för båda servrarna har fullständig kontroll.](./media/availability-group-manually-configure-tutorial/68-backupsharepermission.png)
 
 1. Välj **OK**.
 
@@ -317,7 +315,7 @@ Du är nu redo att konfigurera en tillgänglighets grupp med hjälp av följande
    >Fullständig synkronisering tar en fullständig säkerhets kopia av databasen på den första instansen av SQL Server och återställer den till den andra instansen. För stora databaser rekommenderas inte fullständig synkronisering eftersom det kan ta lång tid. Du kan minska den här tiden genom att manuellt göra en säkerhets kopia av databasen och återställa den med `NO RECOVERY` . Om databasen redan har återställts med `NO RECOVERY` den andra SQL Server innan du konfigurerar tillgänglighets gruppen väljer du **Anslut endast**. Om du vill utföra säkerhets kopieringen när du har konfigurerat tillgänglighets gruppen väljer du **hoppa över inledande datasynkronisering**.
    >
 
-   ![Guiden ny tillgänglighets grupp väljer du synkronisering av inledande data](./media/availability-group-manually-configure-tutorial/70-datasynchronization.png)
+   ![Välj hoppa över inledande datasynkronisering](./media/availability-group-manually-configure-tutorial/70-datasynchronization.png)
 
 9. På sidan **verifiering** väljer du **Nästa**. Den här sidan bör se ut ungefär som på följande bild:
 
@@ -346,7 +344,7 @@ Du är nu redo att konfigurera en tillgänglighets grupp med hjälp av följande
 
 2. I **Klusterhanteraren för växling vid fel**väljer du ditt kluster. Välj **roller**. Namnet på tillgänglighets gruppen som du använde är en roll i klustret. Den tillgänglighets gruppen har ingen IP-adress för klient anslutningar eftersom du inte har konfigurerat en lyssnare. Du kommer att konfigurera lyssnaren när du har skapat en Azure Load Balancer.
 
-   ![Tillgänglighets grupp i Klusterhanteraren för växling vid fel](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
+   ![tillgänglighets grupp i Klusterhanteraren för växling vid fel](./media/availability-group-manually-configure-tutorial/80-clustermanager.png)
 
    > [!WARNING]
    > Försök inte att redundansväxla tillgänglighets gruppen från Klusterhanteraren för växling vid fel. Alla redundansväxling bör utföras inifrån **AlwaysOn-instrumentpanelen** i SSMS. Mer information finns i [begränsningar för att använda Klusterhanteraren för växling vid fel med tillgänglighets grupper](https://msdn.microsoft.com/library/ff929171.aspx).
@@ -358,6 +356,8 @@ Nu har du en tillgänglighets grupp med repliker på två instanser av SQL Serve
 
 ## <a name="create-an-azure-load-balancer"></a>skapa en Azure Load Balancer
 
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 På Azure Virtual Machines kräver en belastnings utjämning för en SQL Server tillgänglighets grupp. Belastningsutjämnaren innehåller IP-adresserna för tillgänglighets gruppens lyssnare och Windows Server-redundansklustret. I det här avsnittet sammanfattas hur du skapar belastningsutjämnaren i Azure Portal.
 
 En belastningsutjämnare i Azure kan vara antingen en Standard Load Balancer eller en grundläggande Load Balancer. Standard Load Balancer har fler funktioner än de grundläggande Load Balancer. För en tillgänglighets grupp krävs Standard Load Balancer om du använder en tillgänglighets zon (i stället för en tillgänglighets uppsättning). Mer information om skillnaden mellan belastningsutjämnarens SKU: er finns i [load BALANCER SKU-jämförelse](../../../load-balancer/skus.md).
@@ -365,12 +365,12 @@ En belastningsutjämnare i Azure kan vara antingen en Standard Load Balancer ell
 1. I Azure Portal går du till resurs gruppen där dina SQL-servrar finns och väljer **+ Lägg till**.
 1. Sök efter **Load Balancer**. Välj belastningsutjämnaren som publicerats av Microsoft.
 
-   ![Tillgänglighets grupp i Klusterhanteraren för växling vid fel](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
+   ![Välj den belastningsutjämnare som publicerats av Microsoft](./media/availability-group-manually-configure-tutorial/82-azureloadbalancer.png)
 
 1. Välj **Skapa**.
 1. Konfigurera följande parametrar för belastningsutjämnaren.
 
-   | Inställningen | Field |
+   | Inställning | Fält |
    | --- | --- |
    | **Namn** |Använd ett text namn för belastningsutjämnaren, till exempel **sqlLB**. |
    | **Typ** |Intern |
@@ -414,7 +414,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
 
 1. Ange lyssnar hälso avsökningen enligt följande:
 
-   | Inställningen | Beskrivning | Exempel
+   | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointProbe |
    | **Protokoll** | Välj TCP | TCP |
@@ -430,7 +430,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
 
 1. Ange reglerna för belastnings utjämning för lyssnare enligt följande.
 
-   | Inställningen | Beskrivning | Exempel
+   | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointListener |
    | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du skapade belastningsutjämnaren. |
@@ -458,7 +458,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
 
 1. Ange hälso avsökningen för WSFC-klustrets kärn IP-adress enligt följande:
 
-   | Inställningen | Beskrivning | Exempel
+   | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPointProbe |
    | **Protokoll** | Välj TCP | TCP |
@@ -472,7 +472,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
 
 1. Ange belastnings Utjämnings reglerna för klustrets kärn IP-adress enligt följande.
 
-   | Inställningen | Beskrivning | Exempel
+   | Inställning | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPoint |
    | **Klientdelens IP-adress** | Välj en adress |Använd adressen som du skapade när du konfigurerade WSFC-IP-adressen. Detta skiljer sig från IP-adressen för lyssnaren |
@@ -506,7 +506,7 @@ I SQL Server Management Studio anger du lyssnar porten.
 
 1. Starta SQL Server Management Studio och Anslut till den primära repliken.
 
-1. Navigera till **AlwaysOn High Availability**tillgänglighets  >  **Availability Groups**  >  **grupps lyssnare för tillgänglighets**grupper med hög tillgänglighet för AlwaysOn.
+1. Navigera till **AlwaysOn High Availability**tillgänglighets  >  **availability groups**  >  **grupps lyssnare för tillgänglighets**grupper med hög tillgänglighet för AlwaysOn.
 
 1. Du bör nu se det lyssnar namn som du skapade i Klusterhanteraren för växling vid fel. Högerklicka på namnet på lyssnaren och välj **Egenskaper**.
 

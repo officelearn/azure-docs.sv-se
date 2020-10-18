@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ac044666b8f723e3cc26fd7a30f5dd8a8f77d90
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399541"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168043"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens behov av säkerhet.
@@ -367,7 +367,8 @@ Loggdata från resurserna i Azure, nätverket och partnerlösningarna, till exem
 
 Moln program är komplexa med många rörliga delar. Övervakning tillhandahåller data för att säkerställa att programmet hålls igång i felfritt tillstånd. Det hjälper dig också att Stave av potentiella problem eller att felsöka tidigare.
 
-![Azure Monitor ](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png) Dessutom kan du använda övervaknings data för att få djupgående insikter om ditt program. Den kunskapen kan hjälpa dig att förbättra programmets prestanda eller hanterbarhet, eller automatisera åtgärder som annars skulle kräva manuell åtgärd.
+![Diagram som visar hur du kan använda övervaknings data för att få djupgående insikter om ditt program.](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png)
+Dessutom kan du använda övervaknings data för att få djupgående insikter om ditt program. Den kunskapen kan hjälpa dig att förbättra programmets prestanda eller hanterbarhet, eller automatisera åtgärder som annars skulle kräva manuell åtgärd.
 
 Det är viktigt att granska nätverks säkerheten för att identifiera nätverks sårbarheter och säkerställa efterlevnaden av din IT-säkerhet och reglerande styrnings modell. Med vyn säkerhets grupp kan du hämta den konfigurerade nätverks säkerhets gruppen och säkerhets reglerna, samt de effektiva säkerhets reglerna. Med listan över regler som tillämpas kan du fastställa vilka portar som är öppna och SS-nätverks sårbarhet.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 02fbe721f1bf5737ad1d10d656ea75ed1372b484
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87284888"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168485"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på virtuella datorer i N-serien som kör Linux
 
@@ -310,7 +310,7 @@ För att fråga GPU-enhetens tillstånd, SSH till den virtuella datorn och köra
 
 Om driv rutinen är installerad visas utdata som liknar följande. Observera att **GPU-util** visar 0% om du för närvarande kör en GPU-arbetsbelastning på den virtuella datorn. Driv rutins versionen och GPU-informationen kan skilja sig från de som visas.
 
-![Status för NVIDIA-enhet](./media/n-series-driver-setup/smi-nv.png)
+![Skärm bild som visar utdata när GPU-enhetens tillstånd har frågats.](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### <a name="x11-server"></a>Begäran om x11-Server

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8942e9180e87552ec64e0e848751f492778c9993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86131656"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167822"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Fel sökning: det gick inte att ta bort ett virtuellt nätverk i Azure
 
@@ -48,7 +48,7 @@ För klassiska virtuella nätverk går du till **översikts** sidan för det kla
 
 För virtuella nätverk går du till sidan **Översikt** i det virtuella nätverket. Kontrol lera **anslutna enheter** för den virtuella Nätverksgatewayen.
 
-![Kontrol lera den anslutna enheten](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Skärm bild av listan över anslutna enheter för ett virtuellt nätverk i Azure Portal. Den virtuella Nätverksgatewayen är markerad i listan.](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 Innan du kan ta bort gatewayen tar du först bort alla **anslutnings** objekt i gatewayen. 
 
@@ -56,7 +56,7 @@ Innan du kan ta bort gatewayen tar du först bort alla **anslutnings** objekt i 
 
 Gå till **översikts** sidan för det virtuella nätverket. Kontrol lera de **anslutna enheterna** för Application Gateway.
 
-![Kontrol lera den anslutna enheten](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Skärm bild av listan över anslutna enheter för ett virtuellt nätverk i Azure Portal. Programgatewayen är markerad i listan.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Om det finns en Application Gateway måste du ta bort den innan du kan ta bort det virtuella nätverket.
 
@@ -64,7 +64,7 @@ Om det finns en Application Gateway måste du ta bort den innan du kan ta bort d
 
 Om tjänsten Active Directory-domän är aktive rad och ansluten till det virtuella nätverket kan du inte ta bort det här virtuella nätverket. 
 
-![Kontrol lera den anslutna enheten](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Skärm bild av Azure AD Domain Services skärmen i Azure Portal. Fältet tillgängligt i Virtual Network/undernät är markerat.](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
 Information om hur du inaktiverar tjänsten finns i [inaktivera Azure Active Directory Domain Services att använda Azure Portal](../active-directory-domain-services/delete-aadds.md).
 

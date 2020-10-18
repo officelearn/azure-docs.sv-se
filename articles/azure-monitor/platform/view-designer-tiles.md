@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: 0320be3a2cfbb96367799577a6e56bcf5da87dcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77658514"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168518"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Referens guide för att Visa designer-paneler i Azure Monitor
 Med hjälp av View Designer i Azure Monitor kan du skapa en mängd olika anpassade vyer i Azure Portal som kan hjälpa dig att visualisera data i din Log Analytics-arbetsyta. Den här artikeln är en referens guide för inställningarna för de paneler som är tillgängliga i dina anpassade vyer.
@@ -43,9 +43,9 @@ Panelen **tal** visar både antalet poster från en logg fråga och en etikett.
 
 ![Siffer panel](media/view-designer-tiles/tile-number.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
-| Name |Den text som visas överst i panelen. |
+| Namn |Den text som visas överst i panelen. |
 | Beskrivning |Texten som visas under panel namnet. |
 | **Panel** | |
 | Förklaring |Texten som visas under värdet. |
@@ -61,9 +61,9 @@ Den här panelen visar antalet poster från två olika logg frågor och en etike
 
 ![Panel med två siffror](media/view-designer-tiles/tile-two-numbers.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
-| Name |Den text som visas överst i panelen. |
+| Namn |Den text som visas överst i panelen. |
 | Beskrivning |Texten som visas under panel namnet. |
 | **Första panelen** | |
 | Förklaring |Texten som visas under värdet. |
@@ -82,9 +82,9 @@ Den här panelen visar antalet poster från två olika logg frågor och en etike
 
 ![Ring panel](media/view-designer-tiles/tile-donut.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
-| Name |Den text som visas överst i panelen. |
+| Namn |Den text som visas överst i panelen. |
 | Beskrivning |Texten som visas under panel namnet. |
 | **Ring** | |
 | Söka i data |Den fråga som körs för ringen. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. |
@@ -104,11 +104,11 @@ Den här panelen visar antalet poster från två olika logg frågor och en etike
 ## <a name="line-chart-tile"></a>Linje diagram panel
 Den här panelen är ett linje diagram som visar flera serier från en logg fråga över tid. 
 
-![Linje diagram och bild text panel](media/view-designer-tiles/tile-line-chart.png)
+![Skärm bild av en linje diagram panel i Azure Monitor View Designer.](media/view-designer-tiles/tile-line-chart.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
-| Name |Den text som visas överst i panelen. |
+| Namn |Den text som visas överst i panelen. |
 | Beskrivning |Texten som visas under panel namnet. |
 | **Linje diagram** | |
 | Söka i data |Frågan som körs för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet använder x-axeln det här tidsintervallet. Om frågan inte använder *intervall* nyckelordet använder x-axeln Tim intervall. |
@@ -125,11 +125,11 @@ Den här panelen är ett linje diagram som visar flera serier från en logg frå
 ## <a name="line-chart-and-callout-tile"></a>Linje diagram och bild text panel
 Den här panelen innehåller både ett linje diagram som visar flera serier från en logg fråga över tid och en prat bubbla med ett sammanfattande värde. 
 
-![Linje diagram och bild text panel](media/view-designer-tiles/tile-line-chart-callout.png)
+![Skärm bild av ett linje diagram och en bild text panel i Azure Monitor View Designer. med prat bubblan förstärker du linje diagrammet genom att visa ett sammanfattande värde.](media/view-designer-tiles/tile-line-chart-callout.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
-| Name |Den text som visas överst i panelen. |
+| Namn |Den text som visas överst i panelen. |
 | Beskrivning |Texten som visas under panel namnet. |
 | **Linje diagram** | |
 | Söka i data |Frågan som körs för linje diagrammet. Den första egenskapen är ett text värde och den andra egenskapen är ett numeriskt värde. Den här frågan använder vanligt vis *mått* nyckelordet för att summera resultat. Om frågan använder *intervall* nyckelordet använder x-axeln det här tidsintervallet. Om frågan inte använder *intervall* nyckelordet använder x-axeln Tim intervall. |
@@ -152,9 +152,9 @@ I panelen **två tids linjer** visas resultaten av två logg frågor med tiden s
 
 ![Panelen två tids linjer](media/view-designer-tiles/tile-two-timelines.png)
 
-| Inställningen | Beskrivning |
+| Inställning | Beskrivning |
 |:--- |:--- |
-| Name |Den text som visas överst i panelen. |
+| Namn |Den text som visas överst i panelen. |
 | Beskrivning |Texten som visas under panel namnet. |
 | Första diagrammet | |
 | Förklaring |Texten som visas under bild texten för den första serien. |

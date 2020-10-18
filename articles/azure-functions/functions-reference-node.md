@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: bd5eea6d97ca5ff20622c651b2c6ee75f9014d55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317184"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164830"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -290,49 +290,17 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 context.log(message)
 ```
 
-Gör att du kan skriva till strömnings funktions loggarna på standard spårnings nivån. På `context.log` är ytterligare loggnings metoder tillgängliga som låter dig skriva funktions loggar på andra spårnings nivåer:
+Gör att du kan skriva till strömnings funktions loggarna på standard spårnings nivån, med andra tillgängliga loggnings nivåer. Spårnings loggning beskrivs i detalj i nästa avsnitt. 
 
+## <a name="write-trace-output-to-logs"></a>Skriv spårningsutdata till loggar
 
-| Metod                 | Beskrivning                                |
-| ---------------------- | ------------------------------------------ |
-| **fel (_meddelande_)**   | Skriver till loggning på fel nivå eller lägre.   |
-| **Varna (_meddelande_)**    | Skriver till loggning på varnings nivå eller lägre. |
-| **info (_meddelande_)**    | Skriver till loggning på informations nivå eller lägre.    |
-| **utförlig (_meddelande_)** | Skriver till utförlig nivå loggning.           |
+I functions använder du `context.log` metoder för att skriva spårningsutdata till loggarna och-konsolen. När du anropar `context.log()` , skrivs ditt meddelande till loggarna på standard spårnings nivån, vilket är spårnings nivån för _information_ . Funktioner integreras med Azure Application insikter för att bättre avbilda dina funktions program loggar. Application Insights, en del av Azure Monitor, tillhandahåller funktioner för insamling, visuell åter givning och analys av både programtelemetri och spårnings resultat. Mer information finns i [övervaknings Azure Functions](functions-monitoring.md).
 
-I följande exempel skrivs en logg på varnings spårnings nivån:
+I följande exempel skrivs en logg på spårnings nivån information, inklusive anrops-ID:
 
 ```javascript
-context.log.warn("Something has happened."); 
+context.log("Something has happened. " + context.invocationId); 
 ```
-
-Du kan [Konfigurera tröskeln på spårnings nivå för loggning](#configure-the-trace-level-for-console-logging) i host.jsfilen. Mer information om hur du skriver loggar finns i [Skriv spårnings utdata](#writing-trace-output-to-the-console) nedan.
-
-Läs [övervaknings Azure Functions](functions-monitoring.md) om du vill veta mer om att visa och fråga funktions loggar.
-
-## <a name="writing-trace-output-to-the-console"></a>Skriva spårningsutdata till konsolen 
-
-I functions använder du `context.log` metoder för att skriva spårningsutdata till-konsolen. I functions v2. x, `console.log` fångas spåra utdata som använder på Funktionsapp nivå. Det innebär att utdata från `console.log` inte är kopplade till ett särskilt funktions anrop och inte visas i en speciell funktions loggar. De kan dock spridas till Application Insights. I functions v1. x kan du inte använda `console.log` för att skriva till-konsolen.
-
-När du anropar `context.log()` , skrivs ditt meddelande till-konsolen på standard spårnings nivån, vilket är spårnings nivån för _information_ . Följande kod skriver till-konsolen på informations spårnings nivån:
-
-```javascript
-context.log({hello: 'world'});  
-```
-
-Den här koden motsvarar koden ovan:
-
-```javascript
-context.log.info({hello: 'world'});  
-```
-
-Den här koden skriver till konsolen på fel nivå:
-
-```javascript
-context.log.error("An error has occurred.");  
-```
-
-Eftersom _fel_ är den högsta spårnings nivån skrivs denna spårning till utdata vid alla spårnings nivåer så länge loggning har Aktiver ATS.
 
 Alla `context.log` metoder har stöd för samma parameter format som stöds av metoden Node.js [util. format](https://nodejs.org/api/util.html#util_util_format_format). Tänk på följande kod, som skriver funktions loggar med hjälp av standard spårnings nivån:
 
@@ -348,9 +316,39 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Konfigurera spårnings nivå för konsol loggning
+> [!NOTE]  
+> Använd inte `console.log` för att skriva spårnings data. Eftersom utdata från samlas in `console.log` på Function-app-nivå, är det inte kopplat till ett särskilt funktions anrop och visas inte i en speciell funktions loggar. Dessutom stöder inte version 1. x av Functions-körningen användning `console.log` för att skriva till-konsolen.
 
-Med funktionerna 1. x kan du definiera tröskel spårnings nivå för att skriva till-konsolen, vilket gör det enkelt att styra hur spårningen skrivs till-konsolen från din funktion. Om du vill ange tröskelvärdet för alla spår som skrivs till konsolen använder du `tracing.consoleLevel` egenskapen i host.jspå filen. Den här inställningen gäller för alla funktioner i din Function-app. I följande exempel anges spårnings tröskeln för att aktivera utförlig loggning:
+### <a name="trace-levels"></a>Spårnings nivåer
+
+Utöver standard nivån är följande loggnings metoder tillgängliga som gör att du kan skriva funktions loggar på vissa spårnings nivåer.
+
+| Metod                 | Beskrivning                                |
+| ---------------------- | ------------------------------------------ |
+| **fel (_meddelande_)**   | Skriver en händelse på fel nivå till loggarna.   |
+| **Varna (_meddelande_)**    | Skriver en varnings nivå händelse till loggarna. |
+| **info (_meddelande_)**    | Skriver till loggning på informations nivå eller lägre.    |
+| **utförlig (_meddelande_)** | Skriver till utförlig nivå loggning.           |
+
+I följande exempel skrivs samma logg på varnings spårnings nivån, i stället för informations nivån:
+
+```javascript
+context.log.warn("Something has happened. " + context.invocationId); 
+```
+
+Eftersom _fel_ är den högsta spårnings nivån skrivs denna spårning till utdata vid alla spårnings nivåer så länge loggning har Aktiver ATS.
+
+### <a name="configure-the-trace-level-for-logging"></a>Konfigurera spårnings nivå för loggning
+
+Med Functions kan du definiera tröskel spårnings nivå för att skriva till loggarna eller konsolen. De angivna tröskelvärdena beror på din version av Functions-körningen.
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+Om du vill ange tröskelvärdet för spår som skrivs till loggarna använder du `logging.logLevel` egenskapen i host.jspå filen. Med det här JSON-objektet kan du definiera ett standard tröskelvärde för alla funktioner i din Function-app, och du kan definiera specifika tröskelvärden för enskilda funktioner. Mer information finns i [så här konfigurerar du övervakning för Azure Functions](configure-monitoring.md).
+
+# <a name="v1x"></a>[v1. x](#tab/v1)
+
+Om du vill ange tröskelvärdet för alla spår som skrivs till loggar och-konsolen använder du `tracing.consoleLevel` egenskapen i host.jsi filen. Den här inställningen gäller för alla funktioner i din Function-app. I följande exempel anges spårnings tröskeln för att aktivera utförlig loggning:
 
 ```json
 {
@@ -360,7 +358,65 @@ Med funktionerna 1. x kan du definiera tröskel spårnings nivå för att skriva
 }  
 ```
 
-Värdena för **consoleLevel** motsvarar namnen på `context.log` metoderna. Om du vill inaktivera all spårnings loggning till-konsolen anger du **consoleLevel** till _av_. Mer information finns i [host.jsom referens](functions-host-json-v1.md).
+Värdena för **consoleLevel** motsvarar namnen på `context.log` metoderna. Om du vill inaktivera all spårnings loggning till-konsolen anger du **consoleLevel** till _av_. Mer information finns i [host.jspå v1. x-referens](functions-host-json-v1.md).
+
+---
+
+### <a name="log-custom-telemetry"></a>Logga anpassad telemetri
+
+Som standard skriver funktionen utdata som spår till Application Insights. För mer kontroll kan du i stället använda [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) för att skicka anpassade telemetridata till din Application Insights-instans. 
+
+# <a name="v2x"></a>[v2. x +](#tab/v2)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.traceContext.traceparent};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+# <a name="v1x"></a>[v1. x](#tab/v1)
+
+```javascript
+const appInsights = require("applicationinsights");
+appInsights.setup();
+const client = appInsights.defaultClient;
+
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    // Use this with 'tagOverrides' to correlate custom telemetry to the parent function invocation.
+    var operationIdOverride = {"ai.operation.id":context.operationId};
+
+    client.trackEvent({name: "my custom event", tagOverrides:operationIdOverride, properties: {customProperty2: "custom property value"}});
+    client.trackException({exception: new Error("handled exceptions can be logged with this method"), tagOverrides:operationIdOverride});
+    client.trackMetric({name: "custom metric", value: 3, tagOverrides:operationIdOverride});
+    client.trackTrace({message: "trace message", tagOverrides:operationIdOverride});
+    client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:operationIdOverride});
+    client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:operationIdOverride});
+
+    context.done();
+};
+```
+
+---
+
+`tagOverrides`Parametern ställer in `operation_Id` till funktionens anrops-ID. Med den här inställningen kan du korrelera alla automatiskt genererade och anpassade telemetri för ett angivet funktions anrop.
 
 ## <a name="http-triggers-and-bindings"></a>HTTP-utlösare och bindningar
 

@@ -6,16 +6,16 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 333bba2b1d3cd83457196e38b827daa78199f235
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c5fc93886327c0e3261418343d900ee66cb4eb
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87033521"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168587"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights för Azure Functions stödda funktioner
 
-Azure Functions erbjuder [inbyggd integrering](../../azure-functions/functions-monitoring.md) med Application Insights, som är tillgänglig via ILogger-gränssnittet. Nedan visas en lista över funktioner som stöds för närvarande. Granska Azure Functionss guide för att [komma igång](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
+Azure Functions erbjuder [inbyggd integrering](../../azure-functions/functions-monitoring.md) med Application Insights, som är tillgänglig via ILogger-gränssnittet. Nedan visas en lista över funktioner som stöds för närvarande. Granska Azure Functionss guide för att [komma igång](../../azure-functions/configure-monitoring.md#enable-application-insights-integration).
 
 Mer information om functions runtime-versioner finns [här](../../azure-functions/functions-versions.md).
 
@@ -61,7 +61,7 @@ De anpassade filter kriterier som du anger skickas tillbaka till komponenten Liv
 
 ## <a name="sampling"></a>Samling
 
-Azure Functions aktiverar sampling som standard i konfigurationen. Mer information finns i [Konfigurera sampling](../../azure-functions/functions-monitoring.md#configure-sampling).
+Azure Functions aktiverar sampling som standard i konfigurationen. Mer information finns i [Konfigurera sampling](../../azure-functions/configure-monitoring.md#configure-sampling).
 
 Om projektet tar ett beroende på Application Insights SDK för att utföra manuell telemetri, kan det uppstå onormalt beteende om samplings konfigurationen skiljer sig från funktionerna i samplings konfigurationen. 
 

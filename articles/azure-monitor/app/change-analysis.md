@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/04/2020
-ms.openlocfilehash: 6a5df4f6a20a9f7061f56dac507a474f7bda6100
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: ed29bfc099ce401288c07db863207a1d989a5e0d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91992882"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168281"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
 
@@ -187,7 +187,9 @@ Om det är första gången du visar ändrings historik efter dess integrering me
 - **Det tar längre tid än förväntat**. Det här meddelandet innebär att registreringen tar längre tid än två minuter. Detta är ovanligt, men det innebär inte nödvändigt vis något att något har gått fel. Du kan gå till **prenumerationer | Resurs leverantör** för att kontrol lera registrerings statusen för **Microsoft. ChangeAnalysis** Resource Provider. Du kan prova att använda användar gränssnittet för att avregistrera, registrera om eller uppdatera för att se om det hjälper. Kontakta supporten om problemet kvarstår changeanalysishelp@microsoft.com .
     ![Felsök RP-registreringen tar för lång tid](./media/change-analysis/troubleshoot-registration-taking-too-long.png)
 
+![Skärm bild av verktyget diagnostisera och lösa problem för en virtuell dator med fel söknings verktyg valt.](./media/change-analysis/vm-dnsp-troubleshootingtools.png)
 
+![Skärm bild av panelen för att analysera nya ändringar av fel söknings verktyget för en virtuell dator.](./media/change-analysis/analyze-recent-changes.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

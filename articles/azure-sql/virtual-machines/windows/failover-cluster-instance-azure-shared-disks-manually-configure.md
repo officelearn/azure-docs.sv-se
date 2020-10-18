@@ -1,5 +1,5 @@
 ---
-title: Skapa en FCI med Azure delade diskar (förhands granskning)
+title: Skapa en FCI med Azure delade diskar
 description: Använd Azure delade diskar för att skapa en FCI-instans (failover Cluster instance) med SQL Server på Azure Virtual Machines.
 services: virtual-machines
 documentationCenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 6e32f183709aca8a78f8448f2d6e6b63a77f2133
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1c14dc2917185ab4a9237cf0b873b5ad609738e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272658"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168247"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Skapa en FCI med Azure Shared disks (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,7 +35,7 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 - En Azure-prenumeration. Kom igång [kostnads fritt](https://azure.microsoft.com/free/). 
 - [Två eller flera virtuella Windows Azure-datorer](failover-cluster-instance-prepare-vm.md). [Tillgänglighets uppsättningar](../../../virtual-machines/windows/tutorial-availability-sets.md) och [närhets placerings grupper](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) stöds båda. Om du använder en PPG måste alla noder finnas i samma grupp.
 - Ett konto som har behörighet att skapa objekt både på virtuella Azure-datorer och i Active Directory.
-- Den senaste versionen av [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- Den senaste versionen av [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## <a name="add-azure-shared-disk"></a>Lägg till Azure-delad disk
@@ -213,7 +213,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Konfigurera anslutning 
 
-Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 CU2 + och Windows Server 2016 (eller senare), kan du förhandsgranska funktionen för [distribuerade nätverks namn](hadr-distributed-network-name-dnn-configure.md) i stället. 
+Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurerar du anslutnings alternativet som är lämpligt för din miljö. Du kan skapa en [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) eller, om du använder SQL Server 2019 CU2 (eller senare) och Windows Server 2016 (eller senare), kan du använda funktionen [distribuerat nätverks namn](failover-cluster-instance-distributed-network-name-dnn-configure.md) i stället. 
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -221,7 +221,8 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det konfigurerar du anslutningen till din FCI med ett [virtuellt nätverks namn och en Azure Load Balancer eller ett](hadr-vnn-azure-load-balancer-configure.md) [distribuerat nätverks namn (DNN)](hadr-distributed-network-name-dnn-configure.md). 
+Om du inte redan har gjort det konfigurerar du anslutningen till din FCI med ett [virtuellt nätverks namn och en Azure Load Balancer eller ett](failover-cluster-instance-vnn-azure-load-balancer-configure.md) [distribuerat nätverks namn (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+
 
 Om Azure-delade diskar inte är lämplig FCI lagrings lösning, kan du överväga att skapa din FCI med [Premium-filresurser](failover-cluster-instance-premium-file-share-manually-configure.md) eller [Lagringsdirigering](failover-cluster-instance-storage-spaces-direct-manually-configure.md) i stället. 
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2f333cd01057ff5f6f904924880f88b0685c72f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ed5c554e6307b08c412de16d1bb92b458c5f15f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667701"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92166462"
 ---
 # <a name="get-started-with-custom-keyword"></a>Komma igång med Anpassat nyckelord
 
@@ -54,7 +54,7 @@ Innan du kan använda ett anpassat nyckelord måste du skapa ett nyckelord med h
 
 1. Portalen skapar kandidat uttal för ditt nyckelord. Lyssna på varje kandidat genom att klicka på uppspelnings knapparna och ta bort kontrollerna bredvid eventuella uttal som är felaktiga. När endast väluttal är markerat klickar du på **träna** för att börja generera nyckelords modellen. 
 
-    ![Granska ditt nyckelord](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![Skärm bild som visar var du väljer rätt pronounciations.](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. Det kan ta upp till trettio minuter innan modellen genereras. Nyckelords listan ändras från **bearbetning** till **lyckades** när modellen har slutförts. Sedan kan du hämta filen.
 

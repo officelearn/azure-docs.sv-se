@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 0c54b4e3015e255a6948202a6c3ea7a83362032f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30a5f92e0092d3e20db25b519fec46e6018dd543
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514917"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168026"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Automatiserad katastrof återställnings lösning med Azure Site Recovery för fil resurser som finns på StorSimple
 
@@ -37,7 +37,7 @@ Det här dokumentet beskriver i detalj hur du kan skapa en katastrof återställ
 ## <a name="supported-azure-site-recovery-deployment-options"></a>Azure Site Recovery distributions alternativ som stöds
 Kunder kan distribuera fil servrar som fysiska servrar eller virtuella datorer som körs på Hyper-V eller VMware och sedan skapa fil resurser från volymer hämtas out of StorSimple Storage. Azure Site Recovery kan skydda både fysiska och virtuella distributioner till antingen en sekundär plats eller till Azure. Det här dokumentet beskriver information om en DR-lösning med Azure som återställnings plats för en virtuell fil server som finns på Hyper-V och med fil resurser på StorSimple-lagring. Andra scenarier där fil serverns virtuella dator finns på en virtuell VMware-dator eller en fysisk dator kan implementeras på samma sätt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Att implementera en lösning för haveri beredskap med en klickning som använder Azure Site Recovery för fil resurser som finns på StorSimple-lagringen har följande krav:
 
    - Lokal Windows Server 2012 R2-baserad virtuell dator på Hyper-V eller VMware eller en fysisk dator
@@ -294,7 +294,7 @@ I guiden [Active Directory Dr-lösnings](../site-recovery/site-recovery-active-d
 1. I Azure Portal väljer du återställnings planer för **Recovery Services** &gt; **-valv (Site Recovery)** &gt; **recoveryplan_name** som skapats för den virtuella fil servern.
 1. På bladet återställnings plan klickar du på **mer** &gt; **planerad redundansväxling**.  
 
-   ![Återställningsplan](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
+   ![Skärm bild som visar de planerade alternativen för redundans och redundans.](./media/storsimple-disaster-recovery-using-azure-site-recovery/image9.png)
 1. På bladet **Bekräfta Planerad redundans** väljer du käll-och mål platserna och väljer mål nätverk och klickar sedan på kryss ✓ för att starta redundansväxlingen.
 1. När de virtuella replik datorerna har skapats är de i ett väntande tillstånd. Klicka på **genomför** för att genomföra redundansväxlingen.
 1. När replikeringen är klar startar de virtuella datorerna på den sekundära platsen.

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 151bc87bd5674a61b8652adfa70634318c405240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4c5000adb2339d3fd0f828781a60f75c75894b5
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839613"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168604"
 ---
 # <a name="sampling-in-application-insights"></a>Sampling i Application Insights
 
@@ -34,11 +34,11 @@ I följande tabell sammanfattas de samplings typer som är tillgängliga för va
 |-|-|-|-|
 | ASP.NET | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-applications) | Endast om ingen annan sampling gäller |
 | ASP.NET Core | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Ja](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Endast om ingen annan sampling gäller |
-| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | Inga | Endast om ingen annan sampling gäller |
-| Java | Inga | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
-| Node.JS | Inga | [Ja](./nodejs.md#sampling) | Endast om ingen annan sampling gäller
-| Python | Inga | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
-| Alla andra | Inga | Inga | [Ja](#ingestion-sampling) |
+| Azure Functions | [Ja (aktiverat som standard)](#configuring-adaptive-sampling-for-azure-functions) | Nej | Endast om ingen annan sampling gäller |
+| Java | Nej | [Ja](#configuring-fixed-rate-sampling-for-java-applications) | Endast om ingen annan sampling gäller |
+| Node.JS | Nej | [Ja](./nodejs.md#sampling) | Endast om ingen annan sampling gäller
+| Python | Nej | [Ja](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Endast om ingen annan sampling gäller |
+| Alla andra | Nej | Nej | [Ja](#ingestion-sampling) |
 
 > [!NOTE]
 > Informationen på de flesta av den här sidan gäller för de aktuella versionerna av Application Insights SDK: er. Mer information om äldre versioner av SDK: er [finns i avsnittet nedan](#older-sdk-versions).
@@ -212,7 +212,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-adaptive-sampling-for-azure-functions"></a>Konfigurera adaptiv sampling för Azure Functions
 
-Följ anvisningarna på [den här sidan](../../azure-functions/functions-monitoring.md#configure-sampling) om du vill konfigurera adaptiv sampling för appar som körs i Azure Functions.
+Följ anvisningarna på [den här sidan](../../azure-functions/configure-monitoring.md#configure-sampling) om du vill konfigurera adaptiv sampling för appar som körs i Azure Functions.
 
 ## <a name="fixed-rate-sampling"></a>Sampling med fast pris
 

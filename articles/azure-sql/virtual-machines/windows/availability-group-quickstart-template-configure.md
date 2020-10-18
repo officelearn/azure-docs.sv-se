@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 207ee67c207f028b5f4bd45d99a7ef431429debb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf5c3f7d854081c7306a038cc452b620d1af00d0
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293581"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168007"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Använd Azures snabb starts mallar för att konfigurera en tillgänglighets grupp för SQL Server på Azure VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,6 +33,8 @@ I den här artikeln beskrivs hur du använder Azures snabb starts mallar för at
    | &nbsp; | &nbsp; |
 
 Andra delar av tillgänglighets grupps konfigurationen måste utföras manuellt, till exempel skapa tillgänglighets gruppen och skapa den interna belastningsutjämnaren. Den här artikeln innehåller en sekvens med automatiserade och manuella steg.
+
+Den här artikeln använder Azures snabb starts mallar för att konfigurera tillgänglighets grupps miljön, men det är också möjligt att göra detta med hjälp av [Azure Portal](availability-group-azure-portal-configure.md), [POWERSHELL eller Azure CLI](availability-group-az-commandline-configure.md), eller [manuellt](availability-group-manually-configure-tutorial.md) . 
  
 
 ## <a name="prerequisites"></a>Förutsättningar 
@@ -102,6 +104,9 @@ Skapa tillgänglighets gruppen manuellt som vanligt, genom att använda [SQL Ser
 > Skapa *inte* en lyssnare just nu, eftersom snabb starts mal len för **101-SQL-VM-aglistener**  gör det automatiskt i steg 4. 
 
 ## <a name="create-load-balancer"></a>Skapa en lastbalanserare
+
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 Lyssnaren för Always on-tillgänglighetsgrupper kräver en intern instans av Azure Load Balancer. Den interna belastningsutjämnaren innehåller en "flytande" IP-adress för tillgänglighets gruppens lyssnare som möjliggör snabbare redundans och åter anslutning. Om SQL Server virtuella datorer i en tillgänglighets grupp ingår i samma tillgänglighets uppsättning kan du använda en grundläggande belastningsutjämnare. Annars måste du använda en standard belastningsutjämnare. 
 
 > [!IMPORTANT]

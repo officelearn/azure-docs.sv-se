@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 02373da114b6dc4663cd3ffc9a0780ac6a7a9e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e6a5d414c341f482c3fddf95a2f8bb8e55a3ca2
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75482990"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168553"
 ---
 # <a name="configure-rules-and-manage-alerts"></a>Konfigurera regler och hantera aviseringar
 
@@ -21,12 +21,12 @@ Med Azure FarmBeats kan du skapa regler baserade på affärs logiken, förutom d
 1. På Start sidan går du till **regler**.
 2. Välj **ny regel**. Fönstret ny regel visas.
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
+    ![Skärm bild som visar knappen Ny regel och avsnittet ny regel.](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-1.png)
 
 3. Ange **regel namn** och **regel Beskrivning** och välj sedan en Server grupp på list menyn **Välj grupp** .
 4. Ange gruppens namn för att välja avsnittet Server grupp och **villkor** visas i samma fönster.  
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
+    ![Skärm bild som visar avsnittet villkor.](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-condition-1.png)
 
 5. I **villkor**anger du värden för **mått**, **operator** och **värde**.
 6. Skriv mått namnet i den nedrullningsbara menyn **mått** .
@@ -34,7 +34,7 @@ Med Azure FarmBeats kan du skapa regler baserade på affärs logiken, förutom d
 8. Välj **allvarlighets grad**.
 9. I **åtgärd**, växlar du till knappen för **e-** postaktiverad växling för att aktivera e-postaviseringar.
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
+    ![Skärm bild som visar alternativet e-postaktive rad.](./media/configure-rules-and-alerts-in-azure-farmbeats/new-rule-email-1.png)
 
 10. Ange de **e-postadresser** som du vill skicka e-postaviseringen till, tillsammans med **e-** postmeddelandets ämne och **ytterligare anteckningar**.  
 11. I **regel status**växlar du till den **aktiverade** växlings knappen för att aktivera eller inaktivera regeln.
@@ -53,7 +53,7 @@ Med Azure FarmBeats kan du skapa regler baserade på affärs logiken, förutom d
  - Lista över villkor  
  - Antal enheter som påverkas av regeln
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
+    ![Skärm bild som visar sidan med regel information.](./media/configure-rules-and-alerts-in-azure-farmbeats/view-rule-1.png)
 
 ## <a name="edit-rule"></a>Redigera regel
 
@@ -63,11 +63,11 @@ Följ dessa steg om du vill redigera en regel:
    Fönstret regler visas.
 2. Välj den regel som du vill redigera.
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
+    ![Skärm bild som visar den markerade regeln.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-action-bar-1.png)
 
 3. Välj **Redigera** i åtgärds fältet, fönstret **Redigera regel** visas.
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
+    ![Skärm bild som visar skärmen Redigera regel.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-one-1.png)
 
 4. Ändra **regel namnet**och **regel beskrivningen** och välj sedan en Server grupp på list menyn **Välj grupp** .
 5. Ange server gruppens namn för att välja Server gruppen och **villkoren** visas i samma fönster.  
@@ -75,7 +75,7 @@ Följ dessa steg om du vill redigera en regel:
 7. Skriv mått namnet i den nedrullningsbara menyn **mått** .
 8. Välj **+ Lägg till villkor** för att lägga till/redigera villkor i reglerna.
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
+    ![Skärm bild som visar knappen Lägg till villkor.](./media/configure-rules-and-alerts-in-azure-farmbeats/edit-rule-two-1.png)
 
 9.  Välj **allvarlighets grad**.  
 10. I **åtgärd**, växlar du till knappen för **e-** postaktiverad växling för att aktivera e-postaviseringar.
@@ -91,11 +91,11 @@ Följ dessa steg om du vill ändra status för en regel:
 1. På sidan start väljer du **regler** på den vänstra navigerings menyn. Fönstret regler visas.
 2. Välj den regel som du vill ändra status för.
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
+    ![Skärm bild som visar knappen Ändra status.](./media/configure-rules-and-alerts-in-azure-farmbeats/change-status-rule-action-bar-1.png)
 
 3. Välj **ändra status** i åtgärds fältet. Fönstret **ändra status** visas.
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
+    ![Skärm bild som visar skärmen Ändra status.](./media/configure-rules-and-alerts-in-azure-farmbeats/rule-change-status-1.png)
 
 3. Ändra regel statusen med växlings knappen **ändra status** .
    Du kan visa antalet enheter som kommer att påverkas av regeln.
@@ -108,7 +108,7 @@ Följ dessa steg om du vill ta bort en regel:
 1. På sidan start väljer du **regler** på den vänstra navigerings menyn. Fönstret regler visas.
 2. Välj den regel som du vill ta bort.
 
-    ![Taktslag i projekt grupp](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
+    ![Skärm bild som visar knappen Ta bort.](./media/configure-rules-and-alerts-in-azure-farmbeats/delete-rule-action-bar-1.png)
 
 3. Välj **ta bort** från åtgärds fältet.
 

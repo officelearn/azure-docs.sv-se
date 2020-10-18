@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5decd3e222af11c402cbff4585532a0cf22282e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543341"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168060"
 ---
 # <a name="azure-operational-security"></a>Drift säkerhet i Azure
 ## <a name="introduction"></a>Introduktion
@@ -81,7 +81,7 @@ Huvud funktionerna i Azure Monitor loggar tillhandahålls av en uppsättning tj�
 Med den här metoden kan du konsolidera data från olika källor, så att du kan kombinera data från dina Azure-tjänster med din befintliga lokala miljö. Metoden innebär också en tydlig separation mellan insamling av data från de åtgärder som vidtas för dessa data, vilket gör att alla åtgärder är tillgängliga för alla typer av data.
 
 
-![Azure Monitor-loggar](./media/operational-security/azure-operational-security-fig2.png)
+![Diagram som visar data konsolidering från olika källor, så att du kan kombinera data från dina Azure-tjänster med din befintliga lokala miljö.](./media/operational-security/azure-operational-security-fig2.png)
 
 Tjänsten Azure Monitor hanterar dina molnbaserade data på ett säkert sätt med hjälp av följande metoder:
 -   data uppdelning
@@ -331,7 +331,7 @@ Den här artikeln beskriver
 </ul>
 </ul>
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Design-och drift säkerhet](https://www.microsoft.com/trustcenter/security/designopsecurity)
 

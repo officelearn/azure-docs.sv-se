@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1150cdb64c5fe7d1b2241cdc0ad1a6eb0a36f47f
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87079561"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168570"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Avancerade funktioner i Azure Metrics Explorer
 
@@ -77,15 +77,15 @@ Du kan använda filter för diagram som visar mått med dimensioner. Om till exe
 
 2. Välj vilken dimension (egenskap) som du vill filtrera
 
-   ![bild på mått](./media/metrics-charts/00006.png)
+   ![Skärm bild som visar de dimensioner (egenskaper) som du kan filtrera.](./media/metrics-charts/00006.png)
 
 3. Välj vilka dimensions värden som du vill ta med när diagrammet ritas (det här exemplet visar filtrering av lyckade lagrings transaktioner):
 
-   ![bild på mått](./media/metrics-charts/00007.png)
+   ![Skärm bild som visar filtreringen av lyckade lagrings transaktioner.](./media/metrics-charts/00007.png)
 
 4. När du har valt filter värden klickar du på bort från filter väljaren för att stänga den. Nu visar diagrammet hur många lagrings transaktioner som har misslyckats:
 
-   ![bild på mått](./media/metrics-charts/00008.png)
+   ![Skärm bild som visar hur många lagrings transaktioner som har misslyckats](./media/metrics-charts/00008.png)
 
 5. Du kan upprepa steg 1-4 om du vill tillämpa flera filter på samma diagram.
 
@@ -104,11 +104,11 @@ Du kan dela upp ett mått per dimension för att visualisera hur olika segment i
 
 2. Välj en dimension som du vill segmentera diagrammet på:
 
-   ![bild på mått](./media/metrics-charts/00010.png)
+   ![Skärm bild som visar den valda dimensionen på vilken du segmenterar diagrammet.](./media/metrics-charts/00010.png)
 
    Nu visar diagrammet flera rader, en för varje dimensions segment:
 
-   ![bild på mått](./media/metrics-charts/00012.png)
+   ![Skärm bild som visar flera rader, en för varje dimensions segment.](./media/metrics-charts/00012.png)
 
 3. Klicka bort från **grupp väljaren** för att stänga den.
 
@@ -125,7 +125,7 @@ Ett annat exempel är en fluktuation i det tillgängliga minnet, där värdet d�
 
 Om du vill styra y-axelns intervall använder du "..." Diagram-menyn och välj **Redigera diagram** för att få åtkomst till avancerade diagram inställningar. Ändra värdena i avsnittet intervall i Y-axeln eller Använd knappen **Auto** för att återgå till standardvärdena.
 
-![bild på mått](./media/metrics-charts/00014-manually-set-granularity.png)
+![Skärm bild som visar alternativet Redigera diagram.](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > Att låsa gränserna för y-axeln för de diagram som spårar olika antal eller summor under en tids period (och därför användnings antal, sum, minimal eller maximal agg regeringar) kräver vanligt vis att du anger en fast tids kornig het i stället för att förlita dig på de automatiska standardvärdena. Detta är nödvändigt eftersom värdena i diagram ändras när tids kornig het ändras automatiskt av användarens storleks ändrings fönster eller från en skärmupplösning till en annan. Den resulterande ändringen av tids kornig het påverkar diagrammets utseende, vilket gör att det aktuella valet av y-axelns intervall är ogiltigt.
@@ -138,7 +138,7 @@ Om du vill ändra färgen på en diagram linje klickar du på det färgade fält
 
 När diagrammets färger har kon figurer ATS kommer de att förbli på det sättet när du fäster diagrammet på en instrument panel. I följande avsnitt visas hur du fäster ett diagram.
 
-![bild på mått](./media/metrics-charts/018.png)
+![Skärm bild som visar hur du fäster ett diagram.](./media/metrics-charts/018.png)
 
 ## <a name="pin-charts-to-dashboards"></a>Fästa diagram på instrument paneler
 

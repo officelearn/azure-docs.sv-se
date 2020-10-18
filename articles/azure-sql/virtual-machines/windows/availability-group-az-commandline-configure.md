@@ -13,19 +13,21 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c591bfa911663503b3e8a9101910034c91a8251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78414e26836d1547fe195a0a7844b6a98bb0dfc8
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298787"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168264"
 ---
-# <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Konfigurera en tillgänglighets grupp för SQL Server på Azure VM (PowerShell & AZ CLI)
+# <a name="use-powershell-or-az-cli-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Använd PowerShell eller AZ CLI för att konfigurera en tillgänglighets grupp för SQL Server på Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Den här artikeln beskriver hur du använder [PowerShell](/powershell/scripting/install/installing-powershell) eller [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) för att distribuera ett Windows-redundanskluster, lägger till SQL Server virtuella datorer i klustret och skapar den interna belastningsutjämnaren och lyssnare för en tillgänglighets grupp som alltid är tillgänglig. 
+Den här artikeln beskriver hur du använder [PowerShell](/powershell/scripting/install/installing-powershell) eller [Azure CLI](/cli/azure/sql/vm) för att distribuera ett Windows-redundanskluster, lägger till SQL Server virtuella datorer i klustret och skapar den interna belastningsutjämnaren och lyssnare för en tillgänglighets grupp som alltid är tillgänglig. 
 
 Distribution av tillgänglighets gruppen görs fortfarande manuellt via SQL Server Management Studio (SSMS) eller Transact-SQL (T-SQL). 
+
+Den här artikeln använder PowerShell och AZ CLI för att konfigurera tillgänglighets grupps miljön, men det är också möjligt att göra det från [Azure Portal](availability-group-azure-portal-configure.md), med hjälp av [Azure snabb starts mallar](availability-group-quickstart-template-configure.md)eller [manuellt](availability-group-manually-configure-tutorial.md) . 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -62,7 +64,7 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 ```
 
 >[!TIP]
-> Du kan se felet `az sql: 'vm' is not in the 'az sql' command group` om du använder en inaktuell version av Azure CLI. Hämta den [senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) för att få ett tidigare fel.
+> Du kan se felet `az sql: 'vm' is not in the 'az sql' command group` om du använder en inaktuell version av Azure CLI. Hämta den [senaste versionen av Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows) för att få ett tidigare fel.
 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -82,7 +84,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ## <a name="define-cluster-metadata"></a>Definiera kluster metadata
 
-Kommando gruppen Azure CLI [AZ SQL VM Group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) hanterar metadata för WSFC-tjänsten (Windows Server failover Cluster) som är värd för tillgänglighets gruppen. I kluster metadata ingår Active Directory domän, kluster konton, lagrings konton som ska användas som moln vittne och SQL Server version. Använd [AZ SQL VM Group Create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) för att definiera metadata för WSFC, så att när den första SQL Server VM läggs till skapas klustret enligt definitionen. 
+Kommando gruppen Azure CLI [AZ SQL VM Group](https://docs.microsoft.com/cli/azure/sql/vm/group) hanterar metadata för WSFC-tjänsten (Windows Server failover Cluster) som är värd för tillgänglighets gruppen. I kluster metadata ingår Active Directory domän, kluster konton, lagrings konton som ska användas som moln vittne och SQL Server version. Använd [AZ SQL VM Group Create](https://docs.microsoft.com/cli/azure/sql/vm/group#az-sql-vm-group-create) för att definiera metadata för WSFC, så att när den första SQL Server VM läggs till skapas klustret enligt definitionen. 
 
 Följande kodfragment definierar metadata för klustret:
 
@@ -127,7 +129,7 @@ $group = New-AzSqlVMGroup -Name <name> -Location <regio>
 
 ## <a name="add-vms-to-the-cluster"></a>Lägga till virtuella datorer i klustret
 
-Om du lägger till den första SQL Server VM till klustret skapas klustret. Kommandot [AZ SQL VM Add-to-Group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) skapar klustret med det namn som tidigare angavs, installerar kluster rollen på de virtuella datorerna SQL Server och lägger till dem i klustret. Efterföljande användning av `az sql vm add-to-group` kommandot lägger till fler SQL Server virtuella datorer i det nya klustret. 
+Om du lägger till den första SQL Server VM till klustret skapas klustret. Kommandot [AZ SQL VM Add-to-Group](https://docs.microsoft.com/cli/azure/sql/vm#az-sql-vm-add-to-group) skapar klustret med det namn som tidigare angavs, installerar kluster rollen på de virtuella datorerna SQL Server och lägger till dem i klustret. Efterföljande användning av `az sql vm add-to-group` kommandot lägger till fler SQL Server virtuella datorer i det nya klustret. 
 
 Följande kodfragment skapar klustret och lägger till den första SQL Server VM: 
 
@@ -204,6 +206,8 @@ Skapa tillgänglighets gruppen manuellt som vanligt, genom att använda [SQL Ser
 
 ## <a name="create-internal-load-balancer"></a>Skapa intern belastningsutjämnare
 
+[!INCLUDE [sql-ag-use-dnn-listener](../../includes/sql-ag-use-dnn-listener.md)]
+
 Lyssnaren för Always on-tillgänglighetsgrupper kräver en intern instans av Azure Load Balancer. Den interna belastningsutjämnaren innehåller en "flytande" IP-adress för tillgänglighets gruppens lyssnare som möjliggör snabbare redundans och åter anslutning. Om SQL Server virtuella datorer i en tillgänglighets grupp ingår i samma tillgänglighets uppsättning kan du använda en grundläggande belastningsutjämnare. Annars måste du använda en standard belastningsutjämnare.  
 
 > [!NOTE]
@@ -240,7 +244,7 @@ New-AzLoadBalancer -name sqlILB -ResourceGroupName <resource group name> `
 
 ## <a name="create-listener"></a>Skapa lyssnare
 
-När du har skapat tillgänglighets gruppen manuellt kan du skapa en lyssnare med hjälp av [AZ SQL VM AG-Listener](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
+När du har skapat tillgänglighets gruppen manuellt kan du skapa en lyssnare med hjälp av [AZ SQL VM AG-Listener](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-create). 
 
 *Under näts resurs-ID: t* är värdet som `/subnets/<subnetname>` läggs till i resurs-ID: t för den virtuella nätverks resursen. Så här identifierar du under nätets resurs-ID:
    1. Gå till din resurs grupp i [Azure Portal](https://portal.azure.com). 
@@ -294,7 +298,7 @@ New-AzAvailabilityGroupListener -Name <listener name> -ResourceGroupName <resour
 ---
 
 ## <a name="modify-number-of-replicas"></a>Ändra antal repliker 
-Det finns ett extra lager som är komplext när du distribuerar en tillgänglighets grupp till SQL Server virtuella datorer som finns i Azure. Resurs leverantören och gruppen för virtuella datorer hanterar nu resurserna. När du lägger till eller tar bort repliker i tillgänglighets gruppen finns det ytterligare ett steg i att uppdatera lyssnar-metadata med information om SQL Server virtuella datorer. När du ändrar antalet repliker i tillgänglighets gruppen måste du också använda kommandot [AZ SQL VM Group AG-Listener Update](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) för att uppdatera lyssnaren med metadata för de virtuella datorerna i SQL Server. 
+Det finns ett extra lager som är komplext när du distribuerar en tillgänglighets grupp till SQL Server virtuella datorer som finns i Azure. Resurs leverantören och gruppen för virtuella datorer hanterar nu resurserna. När du lägger till eller tar bort repliker i tillgänglighets gruppen finns det ytterligare ett steg i att uppdatera lyssnar-metadata med information om SQL Server virtuella datorer. När du ändrar antalet repliker i tillgänglighets gruppen måste du också använda kommandot [AZ SQL VM Group AG-Listener Update](/cli/azure/sql/vm/group/ag-listener#az-sql-vm-group-ag-listener-update) för att uppdatera lyssnaren med metadata för de virtuella datorerna i SQL Server. 
 
 
 ### <a name="add-a-replica"></a>Lägg till en replik

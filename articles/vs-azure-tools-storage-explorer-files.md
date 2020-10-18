@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: fe3a8ab5b43c41b7e9f79f92de674515377fa9ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e87e3d59fec354ca3590a79accb45a74172793b
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60456859"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167890"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Använd Storage Explorer med Azure File Storage
 
 Azure File Storage är en tjänst som erbjuder filresurser i molnet med hjälp av SMB-standardprotokollet (Server Message Block). Både SMB 2.1 och SMB 3.0 stöds. Med Azure File Storage kan du snabbt och utan kostsamma omskrivningar migrera äldre program som är beroende av filresurser till Azure. Du kan använda File Storage om du vill exponera data offentligt eller lagra programdata privat. I den här artikeln lär du dig att använda Storage Explorer för att arbeta med filresurser och filer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att slutföra stegen i den här artikeln:
 
@@ -73,7 +73,7 @@ Följande steg illustrerar hur du kan visa innehållet i en filresurs i Storage 
 
 1. I huvudfönstret visas innehållet i filresursen.
     
-    ![Resursens innehåll](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Skärm bild av huvud fönstret för en fil resurs i Storage Explorer visar innehållet i resursen.](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>Ta bort en filresurs
 
@@ -191,7 +191,7 @@ Följande steg illustrerar hur du hanterar filer (och mappar) i en filresurs.
 
 1.  I huvudfönstret visas innehållet i filresursen.
 
-    ![Resursens innehåll](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Skärm bild av huvud fönstret för fil resursen myazurefileshare i Storage Explorer, som visar innehållet i resursen med den första mappen som har valts.](media/vs-azure-tools-storage-explorer-files/image17.png)
 
 1.  I huvudfönstret visas innehållet i filresursen.
 

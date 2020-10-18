@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: d2160a5cd38fcd24c3af5d32ccbbbee8ac723b2f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6ce0006c493228d99131ca564a34600800f0ab5e
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226447"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92169095"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Windows för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation. För konversations avskrift stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) . För andra tal använder du linjära MIC-matriser som tillhandahåller en mikrofon mat ris geometri.
 
@@ -44,7 +44,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 1. I fältet **arbets yta** i **sol förmörkelses IDE-start**, anger du namnet på en ny arbets ytans katalog. Välj sedan **Starta**.
 
-   ![Skärmbild av Eclipse-startfönstret](../media/speech-devices-sdk/eclipse-launcher.png)
+   ![Skärm bild som visar Start programmet för Sol förmörkelse där du anger namnet på arbets ytans katalog.](../media/speech-devices-sdk/eclipse-launcher.png)
 
 1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng välkomstskärmen om en sådan visas.
 
@@ -52,7 +52,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför**.
 
-   ![Skärmbild av guiden Nytt Java-projekt](../media/speech-devices-sdk/eclipse-new-java-project.png)
+   ![Skärm bild som visar guiden Nytt Java-projekt.](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
 1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Konfigurera**  >  **konvertera till Maven-projekt** från snabb menyn. Välj **Slutför**.
 
@@ -127,11 +127,11 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 1. Exempel programmet för tal enheter SDK startar och visar följande alternativ:
 
-   ![Exempel program och alternativ för exempel på tal enheter SDK](../media/speech-devices-sdk/java-sample-app-windows.png)
+   ![Skärm bild av ett exempel på ett exempel på ett tal som är SDK-program och alternativ](../media/speech-devices-sdk/java-sample-app-windows.png)
 
 1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **session**  >  **Start**. Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `participants.properties` i projektmappen **mål/klasser**. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Avskrifts program för demo konversation](../media/speech-devices-sdk/cts-sample-app-windows.png)
+   ![Skärm bild av ett avskrifts program för demo konversation.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## <a name="create-and-run-a-standalone-application"></a>Skapa och köra ett fristående program
 
@@ -139,11 +139,11 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 1. **Export** fönstret visas. Expandera **Java** och välj **körbara jar-fil** och välj sedan **Nästa**.
 
-   ![Skärm bild av export fönstret](../media/speech-devices-sdk/eclipse-export-windows.png)
+   ![Skärm bild som visar export fönstret där du väljer körbara JAR-fil.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. **KÖRBARA jar File export** -fönstret visas. Välj ett **export mål** för programmet och välj sedan **Slutför**.
 
-   ![Skärm bild av körbara JAR File export](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
+   ![Skärm bild som visar körbara JAR File export-fönstret där du väljer export målet.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. Lägg till `kws.table` , `participants.properties` , `unimic_runtime.dll` `pma.dll` och `Microsoft.CognitiveServices.Speech.extension.pma.dll` i målmappen som väljs ovan som de här filerna behövs av programmet.
 

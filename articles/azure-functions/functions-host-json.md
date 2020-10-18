@@ -3,12 +3,12 @@ title: host.jssom referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions host.jsi filen med v2-körningen.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 400ff6f9db421552b2b2736ea48265deefe676ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321857"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167667"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>host.json-referens för Azure Functions 2.x och senare 
 
@@ -138,7 +138,7 @@ I följande avsnitt i den här artikeln beskrivs varje toppnivå egenskap. Alla 
 
 Den här inställningen är underordnad [loggning](#logging).
 
-Styr alternativ för Application Insights, inklusive [samplings alternativ](./functions-monitoring.md#configure-sampling).
+Styr alternativ för Application Insights, inklusive [samplings alternativ](./configure-monitoring.md#configure-sampling).
 
 Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen](#sample-hostjson-file).
 
@@ -183,7 +183,7 @@ Den fullständiga JSON-strukturen finns i det tidigare [exemplet host.jsi filen]
 
 Mer information om ögonblicks bilder finns i [fel sökning av ögonblicks bilder av undantag i .net-appar](../azure-monitor/app/snapshot-debugger.md) och [Felsöka problem som aktiverar Application Insights Snapshot debugger eller visning av ögonblicks bilder](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Egenskap | Default | Beskrivning |
+|Egenskap | Standard | Beskrivning |
 | --------- | --------- | --------- | 
 | agentEndpoint | null | Slut punkten som används för att ansluta till tjänsten Application Insights Snapshot Debugger. Om värdet är null används en standard slut punkt. |
 | captureSnapshotMemoryWeight | 0,5 | Vikten som ges till den aktuella processens minnes storlek vid kontroll om det finns tillräckligt med minne för att ta en ögonblicks bild. Det förväntade värdet är ett större än 0-bråk (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -307,10 +307,10 @@ Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never` , `always` , `debugOnly` . |
-|logLevel|Saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. Med den här inställningen kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
+|logLevel|Saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x och senare följer ASP.NET Core layout för filtrering av loggnings kategorier. Med den här inställningen kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) i ASP.net Core-dokumentationen. |
 |konsol|Saknas| Loggnings inställningen för [konsolen](#console) . |
 |applicationInsights|Saknas| Inställningen [applicationInsights](#applicationinsights) . |
 
@@ -330,7 +330,7 @@ Den här inställningen är underordnad [loggning](#logging). Den styr konsol lo
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
 |isEnabled|falskt|Aktiverar eller inaktiverar konsol loggning.| 
 

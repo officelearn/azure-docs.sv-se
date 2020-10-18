@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 98ba8c54b1754d6384dfcedb86e6c4889e52cb4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26bac8115a64d78ce64bc400f98fb26cb929ba4d
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444837"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92164507"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Konfigurera Always Encrypted med Azure Key Vault 
 
@@ -149,7 +149,7 @@ SSMS innehåller en guide som hjälper dig att enkelt konfigurera Always Encrypt
 1. Expandera **Databases**  >  **klinik**-  >  **tabeller**för databaser.
 2. Högerklicka på tabellen **patienter** och välj **kryptera kolumner** för att öppna guiden Always Encrypted:
 
-    ![Kryptera kolumner](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![Skärm bild som visar krypterade kolumner... meny alternativ.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 Guiden Always Encrypted innehåller följande avsnitt: **kolumn val**, **huvud nyckel konfiguration**, **verifiering**och **Sammanfattning**.
 
@@ -574,7 +574,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 Du kan se att de krypterade kolumnerna inte innehåller några oformaterade data.
 
-   ![Nytt konsol program](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
+   ![Skärm bild som visar att de krypterade kolumnerna inte innehåller några oformaterade data.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
 Om du vill använda SSMS för att komma åt data i klartext måste du först se till att användaren har rätt behörighet till Azure Key Vault: *Get*, *unwrapKey*och *verify*. Detaljerad information finns i [skapa och lagra kolumn huvud nycklar (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
@@ -584,7 +584,7 @@ Lägg sedan till *kolumn krypterings inställningen = aktive rad* parameter unde
 2. Klicka på **Anslut**  >  **databas motor** för att öppna fönstret **Anslut till Server** och klicka på **alternativ**.
 3. Klicka på **ytterligare anslutnings parametrar** och ange **kolumn krypterings inställning = aktive rad**.
 
-    ![Nytt konsol program](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![Skärm bild som visar fliken Ytterligare korrektions parametrar.](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. Kör följande fråga i klinik-databasen.
 

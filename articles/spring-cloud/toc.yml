@@ -92,6 +92,8 @@
     - name: Diagnostisera och lösa problem på egen hand
       href: spring-cloud-howto-self-diagnose-solve.md
     - name: Övervaka
+    - name: Skapa roller och behörigheter
+      href: spring-cloud-howto-permissions.md
       items:
         - name: Distribuerad spårning och App Insights
           href: spring-cloud-tutorial-distributed-tracing.md

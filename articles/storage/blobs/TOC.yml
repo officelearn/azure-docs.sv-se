@@ -686,11 +686,10 @@
           items:
             - name: Säkerhetsrekommendationer
               href: security-recommendations.md
-            - name: Åtkomstkontroll (kataloger och filer)
+            - name: Åtkomstkontrollmodell
+              href: data-lake-storage-access-control-model.md
+            - name: Listor för åtkomstkontroll
               href: data-lake-storage-access-control.md
-            - name: Säkerhetskontroller av Azure Policy
-              displayName: 'regulatory, compliance, standards, domains'
-              href: ./security-controls-policy.md
         - name: Kompatibilitet
           items:
             - name: Åtkomst för flera protokoll

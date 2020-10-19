@@ -34,7 +34,11 @@
     - name: Begrepp
       items:
         - name: Granska krav
-          href: azure-stack-edge-gpu-system-requirements.md
+          items:
+            - name: För Azure Stack Edge
+              href: azure-stack-edge-gpu-system-requirements.md
+            - name: För Azure Stack Edge Blob Storage
+              href: azure-stack-edge-gpu-system-requirements-rest.md
         - name: Förstå begränsningar
           href: azure-stack-edge-limits.md
         - name: Säkerhetsöversikt

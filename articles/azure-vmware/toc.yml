@@ -6,10 +6,8 @@
       href: introduction.md
 - name: Snabbstart
   items:
-    - name: Fördistributionsprocess
+    - name: 0 – Planera distributionen
       href: production-ready-deployment-steps.md
-    - name: Checklista före distribution
-      href: pre-deployment-checklist.md
     - name: 1 – Distribuera Azure VMware Solution
       href: deploy-azure-vmware-solution.md
     - name: 2 – Ansluta till lokal miljö
@@ -104,3 +102,7 @@
           href: fix-deployment-provisioning-failures.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: faq.md
+- name: Referens
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/az.vmware

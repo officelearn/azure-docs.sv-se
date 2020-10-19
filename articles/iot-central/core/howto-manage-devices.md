@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.custom: contperfq2
-ms.openlocfilehash: 1782982c75e502ea8df70818a134b5b009188959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe3bedb188b563bb29ad1aa6e6e53e3039f1d51
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850106"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170339"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Hantera enheter i ditt Azure IoT Central-program
 
@@ -60,7 +60,7 @@ Så här lägger du till en enhet till ditt Azure IoT Central-program:
 
 Om du vill ansluta ett stort antal enheter till ditt program kan du Mass importera enheter från en CSV-fil. CSV-filen ska ha följande kolumner och rubriker:
 
-* **IOTC_DeviceID** – enhets-ID: t bör vara i gemener.
+* **IOTC_DeviceID** – enhets-ID: t får innehålla bokstäver, siffror och `-` tecken.
 * **IOTC_DeviceName** – den här kolumnen är valfri.
 
 För att registrera enheter i ditt program:

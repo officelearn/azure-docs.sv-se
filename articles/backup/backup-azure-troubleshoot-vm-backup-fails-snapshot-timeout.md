@@ -4,12 +4,12 @@ description: Symptom, orsaker och lösningar på Azure Backup fel som rör agent
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: e5fc26231cc5d3ad412371c2f8c187b2d0033ee4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1711652434be3d9937c8199bc1999273ef58e4d0
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182045"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170286"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -103,7 +103,6 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 
 Felet uppstår när ett av de misslyckade tilläggen placerar den virtuella datorn i etablerings läget misslyckades.<br>**Öppna Azure Portal > VM > inställningar > tillägg > tillägg status** och kontrol lera om alla tillägg är i **etablerings läget lyckades** . Mer information finns i [etablerings tillstånd](../virtual-machines/states-lifecycle.md#provisioning-states).
 
-- Om VMSnapshot-tillägget är i ett felaktigt tillstånd högerklickar du på det misslyckade tillägget och tar bort det. Utlös en säkerhets kopiering på begäran. Med den här åtgärden installeras tilläggen om och säkerhets kopierings jobbet körs.  <br>
 - Om ett annat tillägg är i ett felaktigt tillstånd kan det störa säkerhets kopieringen. Se till att de här tilläggs problemen är lösta och försök att säkerhetskopiera igen.
 - Om etablerings statusen för den virtuella datorn är i ett uppdaterings tillstånd kan det störa säkerhets kopieringen. Kontrol lera att det är felfritt och försök att säkerhetskopiera igen.
 

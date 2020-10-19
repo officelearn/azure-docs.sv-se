@@ -4,16 +4,16 @@ description: I den här snabb starten distribuerar vi ett våren Cloud-program t
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/08/2020
+ms.date: 09/18/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: fe6f72b60257a1101765dcb539cc3e0eb1d2346e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2ec79c9c1fc3b461037b2005da7198f81cbbab34
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090054"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170352"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Snabb start: Distribuera ditt första Azure våren Cloud-program
 
@@ -419,10 +419,10 @@ Följande procedur skapar och distribuerar programmet med hjälp av Azure CLI. K
     az spring-cloud app create -n hellospring -s <service instance name> -g <resource group name> --is-public
     ```
 
-1. Distribuera jar-filen för appen:
+1. Distribuera jar-filen för appen ( `target\hellospring-0.0.1-SNAPSHOT.jar` i Windows):
 
     ```azurecli
-    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path target\hellospring-0.0.1-SNAPSHOT.jar
+    az spring-cloud app deploy -n hellospring -s <service instance name> -g <resource group name> --jar-path <jar file path>
     ```
     
 1. Det tar några minuter att slutföra distributionen av programmet. För att bekräfta att den har distribuerats går du till bladet **appar** i Azure Portal. Du bör se status för programmet.

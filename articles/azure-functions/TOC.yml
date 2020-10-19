@@ -141,6 +141,9 @@
           displayName: 'secure, ssl'
         - name: Säkerhetsbaslinje
           href: security-baseline.md
+    - name: Övervakning
+      href: functions-monitoring.md
+      displayName: 'App Insights, Application Insights, logs, logging'
     - name: Diagnostik
       href: functions-diagnostics.md
     - name: Kostnader för förbrukningsplan
@@ -282,11 +285,18 @@
           href: functions-geo-disaster-recovery.md
     - name: Övervaka
       items:
-        - name: Övervaka funktioner
-          href: functions-monitoring.md
+        - name: Konfigurera övervakning
+          href: configure-monitoring.md
           displayName: 'App Insights, Application Insights, logs, logging'
-        - name: Analysloggar
+        - name: Analysera telemetridata
+          href: analyze-telemetry-data.md
+          displayName: 'App Insights, Application Insights, Kusto'
+        - name: Direktuppspelningsloggar
+          href: streaming-logs.md
+          displayName: monitoring
+        - name: Diagnostikloggar
           href: functions-monitor-log-analytics.md
+          displayName: 'Azure Monitor, Kusto, Log Analytics, metrics'
     - name: Skydda
       items:
         - name: Lägga till SSL-cert

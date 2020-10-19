@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 3fc10c9601deb66c8fb6182d5943011f1ef185ce
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126849"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170059"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ansluta till Azure IoT Central
 
@@ -113,7 +113,7 @@ Om du har en säkerhets överträdelse eller om ditt primära certifikat är ins
 
 ### <a name="register-and-connect-devices"></a>Registrera och Anslut enheter
 
-Om du vill massredigera enheter med X. 509-certifikat måste du först registrera enheterna i ditt program genom att använda en CSV-fil för att [Importera enhets-ID: n och enhets namnen](howto-manage-devices.md#import-devices). Enhets-ID bör alltid vara i gemener.
+Om du vill massredigera enheter med X. 509-certifikat måste du först registrera enheterna i ditt program genom att använda en CSV-fil för att [Importera enhets-ID: n och enhets namnen](howto-manage-devices.md#import-devices). Ett enhets-ID kan innehålla bokstäver, siffror och `-` tecken.
 
 Generera löv certifikat för X. 509 för dina enheter med hjälp av rot-eller mellanliggande certifikat som du laddade upp till din X. 509-registrerings grupp. Använd **enhets-ID: t** som `CNAME` värde i löv certifikaten. Enhets koden behöver **ID-** värdet för ditt program, **enhets-ID**och motsvarande enhets certifikat.
 
@@ -149,7 +149,7 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
     :::image type="content" source="media/concepts-get-connected/group-primary-key.png" alt-text="Lägg till en skärm bild för en X. 509-registrerings grupp":::
 
-1. Använd `az iot central device compute-device-key` kommandot för att generera enhetens SAS-nycklar. Använd gruppens primära nyckel från föregående steg. Enhets-ID: n måste vara gemener:
+1. Använd `az iot central device compute-device-key` kommandot för att generera enhetens SAS-nycklar. Använd gruppens primära nyckel från föregående steg. Enhets-ID: t får innehålla bokstäver, siffror och `-` tecken:
 
     ```azurecli
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
@@ -170,7 +170,7 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
 1. [Skapa en registrerings grupp](#create-an-enrollment-group) och [Lägg sedan till och verifiera ett rot-eller mellanliggande X. 509-certifikat](#add-and-verify-a-root-or-intermediate-x509-certificate) till ditt IoT Central-program.
 
-1. Generera löv certifikat för dina enheter med hjälp av rot-eller mellanliggande certifikat som du har lagt till i ditt IoT Central-program. Använd lägre enhets-ID: n som `CNAME` i blad certifikaten.
+1. Generera löv certifikat för dina enheter med hjälp av rot-eller mellanliggande certifikat som du har lagt till i ditt IoT Central-program. Använd enhets-ID: na som `CNAME` i blad certifikaten. Ett enhets-ID kan innehålla bokstäver, siffror och `-` tecken.
 
 1. OEM: en blinkar varje enhet med ett enhets-ID, ett genererat löv-X. 509-certifikat och värdet för programmets **ID-omfång** .
 
@@ -185,7 +185,7 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Enskild registrering baserad på enhets anslutning
 
-För kunder som ansluter enheter som var och en har sina egna autentiseringsuppgifter, använder du enskilda registreringar. En enskild registrering är en post för en enskild enhet som tillåts ansluta. Enskilda registreringar kan använda antingen X. 509-löv certifikat eller SAS-token (från en fysisk eller virtuell Trusted Platform Module) som attesterings metoder. Enhets-ID: t (även kallat registrerings-ID) i en enskild registrering är alfanumeriskt, gement och får innehålla bindestreck. Mer information finns i [DPS individuell registrering](../../iot-dps/concepts-service.md#individual-enrollment).
+För kunder som ansluter enheter som var och en har sina egna autentiseringsuppgifter, använder du enskilda registreringar. En enskild registrering är en post för en enskild enhet som tillåts ansluta. Enskilda registreringar kan använda antingen X. 509-löv certifikat eller SAS-token (från en fysisk eller virtuell Trusted Platform Module) som attesterings metoder. Enhets-ID (kallas även registrerings-ID) i en enskild registrering ett enhets-ID kan innehålla bokstäver, siffror och `-` tecken. Mer information finns i [DPS individuell registrering](../../iot-dps/concepts-service.md#individual-enrollment).
 
 > [!NOTE]
 > När du skapar en enskild registrering för en enhet har den företräde framför standard alternativen för grupp registrering i IoT Central programmet.

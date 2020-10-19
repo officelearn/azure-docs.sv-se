@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 4b12c71390a6b03de2f6f6a4bd79707cbc357dfe
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6d4d9fd901337b9c05c7d7d7f271974273e9fe37
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92169047"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170072"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Självstudie: Anslut till en webbapp med en privat Azure-slutpunkt
 
@@ -206,7 +206,7 @@ I det här avsnittet ska du använda den virtuella datorn som du skapade i före
 
 7. Öppna Windows PowerShell på servern när du har anslutit.
 
-8. Ange `nslookup <webapp-name>.azurewebsites.net`. Ersätt **\<webapp-name>** med namnet på det lagrings konto som du skapade i föregående steg.  Du får ett meddelande som liknar det som visas nedan:
+8. Ange `nslookup <webapp-name>.azurewebsites.net`. Ersätt **\<webapp-name>** med namnet på den webbapp som du skapade i föregående steg.  Du får ett meddelande som liknar det som visas nedan:
 
     ```powershell
     Server:  UnKnown

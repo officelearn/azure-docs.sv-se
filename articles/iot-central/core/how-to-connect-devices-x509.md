@@ -7,12 +7,12 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9a93602327b5c5294d6c17c1804c04c6603dcf37
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 9ebf07a5125995e66297d89643845b54aad246b8
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999882"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170301"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Så här ansluter du enheter med X. 509-certifikat med hjälp av Node.js Device SDK för IoT Central program
 
@@ -50,12 +50,15 @@ I det här avsnittet använder du ett X. 509-certifikat för att ansluta en enhe
     npm install
     ```
 
-1. Skapa ett rot certifikat och Härled sedan ett enhets certifikat genom att köra skriptet. Se till att endast använda gemener alfanumeriska tecken och bindestreck för certifikat namn:
+1. Skapa ett rot certifikat och Härled sedan ett enhets certifikat genom att köra skriptet:
 
     ```cmd/sh
     node create_test_cert.js root mytestrootcert
     node create_test_cert.js device mytestdevice mytestrootcert
     ```
+
+    > [!TIP]
+    > Ett enhets-ID kan innehålla bokstäver, siffror och `-` tecken.
 
 Dessa kommandon producerar tre filer för roten och enhets certifikatet
 

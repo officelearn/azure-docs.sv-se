@@ -1,4 +1,4 @@
-- name: Dokumentation om Azure Private Link
+- name: Dokumentation om Private Link
   href: index.yml
 - name: Översikt
   items:
@@ -24,6 +24,7 @@
     - name: Skapa en Private Link-tjänst – ARM-mall
       displayName: Resource Manager
       href: create-private-link-service-template.md
+  expanded: true
 - name: Självstudier
   items:
     - name: Ansluta till ett lagringskonto
@@ -42,7 +43,7 @@
       items:
         - name: Säkerhetsbaslinje
           href: security-baseline.md
-- name: Gör så här för att
+- name: Så här gör du
   items:
     - name: Ansluta privat till en webbapp
       href: create-private-endpoint-webapp-portal.md

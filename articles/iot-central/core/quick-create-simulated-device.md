@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
+ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87001967"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92170325"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Snabb start: lägga till en simulerad enhet till ditt IoT Central program
 
@@ -70,8 +70,8 @@ En enhets mall kan innehålla moln egenskaper. Moln egenskaper finns bara i IoT 
 
     | Visningsnamn      | Semantisk typ | Schema |
     | ----------------- | ------------- | ------ |
-    | Senaste servicedatum | Ingen          | Date   |
-    | Kundnamn     | Ingen          | Sträng |
+    | Senaste servicedatum | Inga          | Date   |
+    | Kundnamn     | Inga          | Sträng |
 
 1. Välj **Spara** för att spara ändringarna:
 
@@ -128,7 +128,7 @@ Om du vill lägga till en simulerad enhet i programmet använder du **MXChip IoT
 
 1. Om du vill lägga till en ny enhet som en operatör väljer du **enheter** i den vänstra rutan. Fliken **enheter** visar **alla enheter** och enhets mal len **MXChip IoT DevKit** . Välj **MXChip IoT DevKit**.
 
-1. Välj om du vill lägga till en simulerad DevKit-enhet **+** . Använd det föreslagna **enhets-ID: t** eller ange ditt eget **enhets-ID**. Du kan också ange ett namn på den nya enheten. Kontrol lera att den **simulerade** växlingen är **på** och välj sedan **skapa**.
+1. Välj om du vill lägga till en simulerad DevKit-enhet **+** . Använd det föreslagna **enhets-ID: t** eller ange ditt eget. Ett enhets-ID kan innehålla bokstäver, siffror och `-` tecken. Du kan också ange ett namn på den nya enheten. Kontrol lera att den **simulerade** växlingen är **på** och välj sedan **skapa**.
 
     ![Simulerad enhet](./media/quick-create-simulated-device/simulated-device.png)
 

@@ -127,12 +127,6 @@
         - name: Arc-aktiverade servrar
           tocHref: /azure/azure-arc/servers/
           topicHref: /azure/azure-arc/servers/
-    - name: ASC för IoT
-      tocHref: /azure/asc-for-iot/
-      topicHref: /azure/asc-for-iot/
-    - name: Attestering
-      tocHref: /azure/attestation/
-      topicHref: /azure/attestation/
     - name: Automation
       tocHref: /azure/automation/
       topicHref: /azure/automation/
@@ -554,25 +548,6 @@
     - name: Jenkins
       tocHref: /azure/jenkins/
       topicHref: /azure/jenkins/
-    - name: Key Vault
-      tocHref: /azure/key-vault/
-      topicHref: /azure/key-vault
-      items:
-        - name: Allmänt
-          tocHref: /azure/key-vault/general/
-          topicHref: /azure/key-vault/general/
-        - name: Certifikat
-          tocHref: /azure/key-vault/certificates/
-          topicHref: /azure/key-vault/certificates/
-        - name: Nycklar
-          tocHref: /azure/key-vault/keys/
-          topicHref: /azure/key-vault/keys/
-        - name: Hemligheter
-          tocHref: /azure/key-vault/secrets/
-          topicHref: /azure/key-vault/secrets/
-        - name: Managed HSM
-          tocHref: /azure/key-vault/managed-hsm/
-          topicHref: /azure/key-vault/managed-hsm/
     - name: Azure Kinect DK
       tocHref: /azure/kinect-dk/
       topicHref: /azure/kinect-dk/
@@ -771,12 +746,37 @@
         - name: Benchmark-värden
           tocHref: /azure/security/benchmarks/
           topicHref: /azure/security/benchmarks/
-    - name: Security Center
-      tocHref: /azure/security-center/
-      topicHref: /azure/security-center/
-    - name: Azure Sentinel
-      tocHref: /azure/sentinel/
-      topicHref: /azure/sentinel/
+        - name: Key Vault
+          tocHref: /azure/key-vault/
+          topicHref: /azure/key-vault
+          items:
+            - name: Allmänt
+              tocHref: /azure/key-vault/general/
+              topicHref: /azure/key-vault/general/
+            - name: Certifikat
+              tocHref: /azure/key-vault/certificates/
+              topicHref: /azure/key-vault/certificates/
+            - name: Nycklar
+              tocHref: /azure/key-vault/keys/
+              topicHref: /azure/key-vault/keys/
+            - name: Hemligheter
+              tocHref: /azure/key-vault/secrets/
+              topicHref: /azure/key-vault/secrets/
+            - name: Managed HSM
+              tocHref: /azure/key-vault/managed-hsm/
+              topicHref: /azure/key-vault/managed-hsm/
+        - name: Security Center
+          tocHref: /azure/security-center/
+          topicHref: /azure/security-center/
+        - name: Azure Sentinel
+          tocHref: /azure/sentinel/
+          topicHref: /azure/sentinel/
+        - name: Defender för IoT
+          tocHref: /azure/defender-for-iot/
+          topicHref: /azure/defender-for-iot/
+        - name: Attestering
+          tocHref: /azure/attestation/
+          topicHref: /azure/attestation/
     - name: Service Fabric
       tocHref: /azure/service-fabric/
       topicHref: /azure/service-fabric/

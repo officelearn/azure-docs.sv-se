@@ -37,6 +37,8 @@
       href: create-certificate.md
     - name: Skapa en certifikatsigneringsförfrågan
       href: create-certificate-signing-request.md
+    - name: Åtkomstkontroll för certifikat
+      href: certificate-access-control.md
 - name: Anvisningar
   items:
     - name: Integrera Key Vault med DigiCert CA

@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 7ae7e20c32836d595d6e0fb4162a895407beeb5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02ea65748928fda7142ce17532999e1a069f6eb0
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828045"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169427"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Granskning för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -94,6 +94,17 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
   
    ![lagrings alternativ](./media/auditing-overview/auditing-select-destination.png)
 
+### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Granskning av Microsoft Support åtgärder (för hands version)
+
+Granskning av Microsoft Support åtgärder (för hands version) för Azure SQL Server gör att du kan granska Microsofts support tekniker för att få åtkomst till servern under en support förfrågan. Användningen av den här funktionen, tillsammans med din granskning, möjliggör mer insyn i personalen och möjliggör avvikelse identifiering, trend visualisering och data förlust skydd.
+
+Om du vill aktivera granskning av Microsoft Support åtgärder (för hands version) går du till **granskning** under säkerhets rubriken i **Azure SQL Server** -fönstret och växlar **granskning av Microsofts support åtgärder (för hands version)** till **på**.
+
+  > [!IMPORTANT]
+  > Granskning av Microsofts support åtgärder (för hands version) stöder inte lagrings kontots destination. Om du vill aktivera funktionen måste en Log Analytics arbets yta eller ett mål för Event Hub konfigureras.
+
+![Skärm bild av Microsoft Support åtgärder](./media/auditing-overview/support-operations.png)
+
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Granska till lagrings mål
 
 Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto väljer du **lagring** och öppna **lagrings information**. Välj det Azure Storage-konto där loggar ska sparas och välj sedan kvarhållningsperioden. Klicka sedan på **OK**. Loggar som är äldre än kvarhållningsperioden tas bort.
@@ -111,7 +122,7 @@ Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto vä
 - Du kan skriva gransknings loggar till ett Azure Storage konto bakom ett VNet eller en brand vägg. Mer information finns i [Skriv granskning till ett lagrings konto bakom VNet och brand vägg](audit-write-storage-account-behind-vnet-firewall.md).
 - När du har konfigurerat dina gransknings inställningar kan du aktivera den nya funktionen för hot identifiering och konfigurera e-postmeddelanden för att få säkerhets aviseringar. När du använder hot identifiering får du proaktiva aviseringar om avvikande databas aktiviteter som kan innebära potentiella säkerhetshot. Mer information finns i [komma igång med hot identifiering](threat-detection-overview.md).
 - Mer information om logg formatet, hierarkin för lagringsmappen och namngivnings konventioner finns i [referensen för logg format för BLOB-granskning](https://go.microsoft.com/fwlink/?linkid=829599).
-- När du använder AAD-autentisering, kommer misslyckade inloggnings poster *inte* visas i SQL-gransknings loggen. Om du vill visa gransknings poster för misslyckad inloggning måste du gå till [Azure Active Directory Portal](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)som loggar information om dessa händelser.
+- När du använder Azure AD-autentisering visas *inte* poster för misslyckade inloggningar i SQL-gransknings loggen. Om du vill visa gransknings poster för misslyckad inloggning måste du gå till [Azure Active Directory Portal](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)som loggar information om dessa händelser.
 - Granskning på [skrivskyddade repliker](read-scale-out.md) aktive ras automatiskt. Mer information om hierarkin för lagrings-mappar, namngivnings konventioner och logg format finns i [SQL Database Gransknings logg format](audit-log-format.md).
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Granska till Log Analytics destination

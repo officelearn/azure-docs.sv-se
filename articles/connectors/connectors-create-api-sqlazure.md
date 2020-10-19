@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
 tags: connectors
-ms.openlocfilehash: 3a2fb2180acfe8fed5701ae4320ea0d1424ed9e0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 534b9fedc6649d3174ea65caf51b28004de7bda2
+ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166292"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92169395"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för en SQL-databas med hjälp av Azure Logic Apps
 
@@ -253,15 +253,13 @@ När du anropar en lagrad procedur med hjälp av SQL Server Connector är den re
 
 ## <a name="troubleshoot-problems"></a>Felsöka problem
 
-Det är mycket vanligt att drabbas av anslutnings problem. Följande är ett exempel på ett fel meddelande:
+Problem med anslutningen kan vanligt vis inträffa, så för att felsöka och lösa dessa typer av problem kan du gå igenom [lösa anslutnings fel till SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Här följer några exempel:
 
-> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
->
-> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
->
-> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 
-Följ [lösa anslutnings fel för att SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) för att felsöka problemet.
+* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+
+* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8157517c0df942c40d93853c8d18ae31e9909d21
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fd48ff8dd0f4fa44206f6636f869d4ea3f959ae5
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132524"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174177"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -59,10 +59,10 @@ Här följer stegen för att köra distributions skriptet i Cloud Shell.
 
     Navigera till _**deploy.ps1**_ -filen på din dator (i _Azure_Digital_Twins_end_to_end_samples > skript > **deploy.ps1** _) och tryck på "öppna". Detta kommer att överföra filen till Cloud Shell så att du kan köra den i fönstret Cloud Shell.
 
-4. Kör skriptet genom `./deploy.ps1` att skicka kommandot i Cloud Shells fönstret. (Kom ihåg att klistra in i Cloud Shell du kan använda **CTRL + SHIFT + V** på Windows och Linux eller **cmd + Shift + v** på MacOS. Du kan också använda snabb menyn.)
+4. Kör skriptet genom `./deploy.ps1` att skicka kommandot i Cloud Shell-fönstret med växeln som innehåller registrerings konfiguration för appar. Du kan kopiera kommandot nedan (kom ihåg att klistra in i Cloud Shell, du kan använda **CTRL + SHIFT + v** på Windows och Linux eller **cmd + Shift + v** på MacOS. Du kan också använda snabb menyn.
 
     ```azurecli
-    ./deploy.ps1
+    ./deploy.ps1 -RegisterAadApp
     ```
 
     När skriptet körs genom de automatiserade konfigurations stegen uppmanas du att skicka in följande värden:

@@ -3,12 +3,12 @@ title: Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med
 description: En artikel som beskriver hur du använder Azure Policy för att automatiskt aktivera säkerhets kopiering för alla virtuella datorer som skapats inom ett angivet omfång
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: de4923000bc842203535e03727fd532c67a8f517
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78fe0ccdbf6f1cc3498d14530d7492a86e8bf730
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88826080"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174074"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Aktivera automatisk säkerhetskopiering av skapande av virtuell dator med Azure Policy
 
@@ -27,6 +27,8 @@ Idag tillhandahåller Azure Backup en inbyggd princip (med Azure Policy) som kan
 * Hanterings gruppens omfång stöds inte för tillfället.
 
 * Den inbyggda principen är för närvarande inte tillgänglig i nationella moln.
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="using-the-built-in-policy"></a>Använda den inbyggda principen
 
@@ -54,6 +56,6 @@ Följ stegen nedan om du vill tilldela principen till det begärda omfånget:
 >
 > Vi rekommenderar att den här principen inte tilldelas till fler än 200 virtuella datorer i taget. Om principen är tilldelad till fler än 200 virtuella datorer kan det leda till att säkerhets kopieringen utlöses några timmar senare än vad som anges i schemat.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Läs mer om Azure Policy](../governance/policy/overview.md)

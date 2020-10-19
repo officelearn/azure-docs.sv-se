@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig mer om säkerhets kopiering och åt
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: ce7e53bc740882a819e8a21e3ac95ab47d3b876a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21e4ead8b3302ceef4cc53c126b9eab5784544b4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271383"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174103"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Selektiv säkerhets kopiering och återställning av diskar för virtuella Azure-datorer
 
@@ -240,6 +240,8 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "
 ```
 
 ## <a name="using-the-azure-portal"></a>Använda Azure Portal
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 Med hjälp av Azure Portal kan du Visa de inkluderade och exkluderade diskarna i informations fönstret för säkerhets kopiering av virtuella datorer och informations fönstret för säkerhets kopierings jobbet.  När du väljer återställnings punkt att återställa från under återställning kan du Visa de säkerhetskopierade diskarna i återställnings punkten.
 

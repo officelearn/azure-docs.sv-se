@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048465"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172257"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -170,7 +170,7 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 | `fr-CH` <sup>Nytt</sup> | Franska (Schweiz) | Kvinna | `fr-CH-ArianeNeural` | Allmänt |
 | `fr-FR` | Franska (Frankrike) | Kvinna | `fr-FR-DeniseNeural` | Allmänt |
 | `fr-FR` <sup>Nytt</sup> | Franska (Frankrike) | Man | `fr-FR-HenriNeural` | Allmänt |
-| `he-IL` <sup>Nytt</sup> | Hebreisk (Isareal) | Kvinna | `he-IL-HilaNeural` | Allmänt |
+| `he-IL` <sup>Nytt</sup> | Hebreiska (Israel) | Kvinna | `he-IL-HilaNeural` | Allmänt |
 | `hi-IN` | Hindi (Indien) | Kvinna | `hi-IN-SwaraNeural` | Allmänt |
 | `hr-HR` <sup>Nytt</sup> | Kroatiska (Kroatien) | Kvinna | `hr-HR-GabrijelaNeural` | Allmänt |
 | `hu-HU` <sup>Nytt</sup> | Ungerska (Ungern) | Kvinna | `hu-HU-NoemiNeural` | Allmänt |

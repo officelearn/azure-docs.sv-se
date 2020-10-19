@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services (MARS) Agent – vanliga frågor och sv
 description: Behandlar vanliga frågor om säkerhets kopiering av filer och mappar med Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e3a5b6d07982c3261b457d4999025c44489c0a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fb9e3993d6f56833e43a4d451c0865b7fd732d3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89182521"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172518"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Vanliga frågor och svar – Microsoft Azure Recovery Services (MARS) Agent
 
@@ -32,7 +32,7 @@ Autentiseringsuppgifterna för valvet upphör att gälla efter 10 dagar. Om file
 
 ### <a name="what-characters-are-allowed-for-the-passphrase"></a>Vilka tecken är tillåtna för lösen frasen?
 
-Lösen frasen ska använda tecken från ASCII-teckenuppsättningen, med [ASCII-värden som är mindre än eller lika med 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
+Lösen frasen ska använda tecken från ASCII-teckenuppsättningen, med [ASCII-värden som är mindre än eller lika med 127](/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### <a name="from-what-drives-can-i-back-up-files-and-folders"></a>Från vilka enheter kan jag säkerhetskopiera filer och mappar?
 

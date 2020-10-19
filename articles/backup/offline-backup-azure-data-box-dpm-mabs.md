@@ -3,12 +3,12 @@ title: Säkerhets kopiering offline med Azure Data Box för DPM och MABS
 description: Du kan använda Azure Data Box för att dirigera inledande säkerhets kopierings data offline från DPM och MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80b3977a9fb886b90c3d48d54f4cda1abfd77df9
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271502"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172218"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline med Azure Data Box för DPM och MABS (för hands version)
 
@@ -18,7 +18,7 @@ ms.locfileid: "91271502"
 
 Den här artikeln förklarar hur du kan använda Azure Data Box för att dirigera inledande säkerhets kopierings data offline från DPM och MABS till ett Azure Recovery Services-valv.
 
-Du kan använda [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) för att dirigera dina stora inledande DPM/Mabs-säkerhetskopieringar offline (utan att använda nätverket) till ett Recovery Services-valv. Den här processen sparar tid och nätverks bandbredd som annars skulle konsumeras för att flytta stora mängder säkerhetskopierade data online över ett nätverk med hög latens. Den här funktionen finns för närvarande som en förhandsversion.
+Du kan använda [Azure Data Box](../databox/data-box-overview.md) för att dirigera dina stora inledande DPM/Mabs-säkerhetskopieringar offline (utan att använda nätverket) till ett Recovery Services-valv. Den här processen sparar tid och nätverks bandbredd som annars skulle konsumeras för att flytta stora mängder säkerhetskopierade data online över ett nätverk med hög latens. Den här funktionen finns för närvarande som en förhandsversion.
 
 Offline-säkerhetskopiering som baseras på Azure Data Box ger två distinkta fördelar jämfört med [offline-säkerhetskopiering baserat på Azure import/export-tjänsten](backup-azure-backup-server-import-export.md):
 
@@ -39,8 +39,8 @@ Följande Data Box-enhet SKU: er stöds:
 
 | Säkerhets kopierings data storlek (efter komprimering per MARS) \* per server | Azure Data Box SKU som stöds |
 | --- | --- |
-| \<= 7,2 TB | [Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| > 7,2 TB och <= 80 TB\*\* | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| \<= 7,2 TB | [Azure Data Box Disk](../databox/data-box-disk-overview.md) |
+| > 7,2 TB och <= 80 TB\*\* | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
 \*Vanliga komprimerings hastigheter varierar mellan 10-20% <br>
 \*\*Kontakta [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) om du förväntar dig att ha mer än 80 TB första säkerhets kopierings data för en enskild data källa.
@@ -64,7 +64,7 @@ Kontrollera följande:
 
 ### <a name="order-and-receive-the-data-box-device"></a>Beställ och ta emot den Data Box-enhet enheten
 
-Se till att de nödvändiga Data Box-enhet enheterna är i ett *levererat* tillstånd innan du utlöser säkerhets kopiering offline. Se [säkerhets kopierings data storlek och stöd för data Box-enhet SKU: er](#backup-data-size-and-supported-data-box-skus) för att beställa den lämpligaste SKU: n för ditt krav. Följ stegen i [den här artikeln](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) för att beställa och ta emot dina data Box-enhet enheter.
+Se till att de nödvändiga Data Box-enhet enheterna är i ett *levererat* tillstånd innan du utlöser säkerhets kopiering offline. Se [säkerhets kopierings data storlek och stöd för data Box-enhet SKU: er](#backup-data-size-and-supported-data-box-skus) för att beställa den lämpligaste SKU: n för ditt krav. Följ stegen i [den här artikeln](../databox/data-box-disk-deploy-ordered.md) för att beställa och ta emot dina data Box-enhet enheter.
 
 > [!IMPORTANT]
 > Välj inte *BlobStorage* för **konto typen**. DPM/MABS-servern kräver ett konto som stöder sid-blobar som inte stöds när *BlobStorage* har valts. Välj  **Storage v2 (generell användning v2)** som **konto typ** när du skapar mål lagrings kontot för ditt Azure Data Box-jobb.
@@ -77,14 +77,14 @@ När du har fått Azure Data Box enheten, beroende på vilken Azure Data Box SKU
 
 ### <a name="setup-azure-data-box-disk"></a>Installations Azure Data Box disk
 
-Om du har ordnat en eller flera Azure Data Box diskar (upp till 8 TB var och en) följer du stegen som beskrivs [här](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up) för att packa upp, ansluta och låsa upp data Box-enhet disken.
+Om du har ordnat en eller flera Azure Data Box diskar (upp till 8 TB var och en) följer du stegen som beskrivs [här](../databox/data-box-disk-deploy-set-up.md) för att packa upp, ansluta och låsa upp data Box-enhet disken.
 
 > [!NOTE]
 > Det är möjligt att DPM/MABS-servern inte har någon USB-port. I ett sådant scenario kan du ansluta Azure Data Box-disken till en annan server/klient och exponera enhetens rot som en nätverks resurs.
 
 ## <a name="setup-azure-data-box"></a>Installations Azure Data Box
 
-Om du beställde en Azure Data Box (upp till 100 TB) följer du stegen som beskrivs [här](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) för att konfigurera din data Box-enhet.
+Om du beställde en Azure Data Box (upp till 100 TB) följer du stegen som beskrivs [här](../databox/data-box-deploy-set-up.md) för att konfigurera din data Box-enhet.
 
 ### <a name="mount-your-azure-data-box-as-local-system"></a>Montera Azure Data Box som lokalt system
 
@@ -100,7 +100,7 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
    ```
 
 4. Kommando fönstret som öppnas som ett resultat av kommandot ovan är i det lokala systemets kontext. Använd det här kommando fönstret för att köra steg för att montera Azure-sidans BLOB-resurs som en nätverks enhet på Windows Server.
-5. Följ stegen [här](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box) för att ansluta din DPM/Mabs-server till den data Box-enhet enheten via NFS och kör följande kommando i kommando tolken för den lokala datorn för att montera Azure Page blobs-resursen:
+5. Följ stegen [här](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) för att ansluta din DPM/Mabs-server till den data Box-enhet enheten via NFS och kör följande kommando i kommando tolken för den lokala datorn för att montera Azure Page blobs-resursen:
 
     ```cmd
     mount -o nolock \\<DeviceIPAddres>\<StorageAccountName_PageBlob X:
@@ -110,7 +110,7 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Överför första säkerhets kopierings data till Azure Data Box enheter
 
-1. På DPM/MABS-servern följer du stegen för att [skapa en ny skydds grupp](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Om du lägger till ett onlineskydd-skydd i den befintliga skydds gruppen högerklickar du på den befintliga skydds gruppen och väljer **Lägg till onlineskydd** och börja från **steg 8**.
+1. På DPM/MABS-servern följer du stegen för att [skapa en ny skydds grupp](/system-center/dpm/create-dpm-protection-groups). Om du lägger till ett onlineskydd-skydd i den befintliga skydds gruppen högerklickar du på den befintliga skydds gruppen och väljer **Lägg till onlineskydd** och börja från **steg 8**.
 2. På sidan **Välj grupp medlemmar** anger du de datorer och källor som du vill säkerhetskopiera.
 3. På sidan **Välj data skydds metod** anger du hur du vill hantera kortsiktig och långsiktig säkerhets kopiering. Se till att du väljer **Jag vill ha onlineskydd.**
 
@@ -163,7 +163,7 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
     > ![USB-enhet](./media/offline-backup-azure-data-box-dpm-mabs/usb-drive.png)
     >
     > Om till exempel sökvägen till disken är `\\mydomain\myserver\disk1\` och *Disk1* innehåller en katalog med namnet *PageBlob*, är sökvägen som ska anges i guiden DPM/Mabs Server `\\mydomain\myserver\disk1\` .
-    > Om du [installerar en Azure Data Box 100 TB-enhet](https://docs.microsoft.com/azure/backup/offline-backup-azure-data-box#setup-azure-data-box)anger du följande som nätverks Sök väg till enheten `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` .
+    > Om du [installerar en Azure Data Box 100 TB-enhet](./offline-backup-azure-data-box.md#set-up-azure-data-box)anger du följande som nätverks Sök väg till enheten `\\<DeviceIPAddress>\<StorageAccountName>_PageBlob` .
 
 15. Välj **Nästa**. På sidan **Sammanfattning** granskar du inställningarna och väljer **Skapa grupp**.
 
@@ -193,8 +193,8 @@ Ange alternativ källa: *WIM: D: \Sources\Install.wim: 4*
 
 Följ dessa steg när säkerhets kopieringen av data till Azure Data Box Disk har slutförts.
 
-- Följ stegen i [den här artikeln](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up) för att leverera Azure Data Box-disken till Azure. Om du använde en Azure Data Box 100-TB-enhet följer du [stegen](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up) nedan för att leverera Azure Data Box till Azure.
-- [Övervaka data Box-enhet jobb](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) i Azure Portal. När Azure Data Box jobbet är *klart*flyttar DPM/Mabs-servern automatiskt data från lagrings kontot till Recovery Services-valvet vid nästa schemalagda säkerhets kopiering. Då markeras säkerhets kopierings jobbet som *jobbet slutfört* om en återställnings punkt har skapats.
+- Följ stegen i [den här artikeln](../databox/data-box-disk-deploy-picked-up.md) för att leverera Azure Data Box-disken till Azure. Om du använde en Azure Data Box 100-TB-enhet följer du [stegen](../databox/data-box-deploy-picked-up.md) nedan för att leverera Azure Data Box till Azure.
+- [Övervaka data Box-enhet jobb](../databox/data-box-disk-deploy-upload-verify.md) i Azure Portal. När Azure Data Box jobbet är *klart*flyttar DPM/Mabs-servern automatiskt data från lagrings kontot till Recovery Services-valvet vid nästa schemalagda säkerhets kopiering. Då markeras säkerhets kopierings jobbet som *jobbet slutfört* om en återställnings punkt har skapats.
 
   > [!NOTE]
   > DPM/MABS-servern utlöser säkerhets kopieringarna vid de tidpunkter som har schemalagts under skapande av skydds grupper. Dessa jobb flaggar dock *väntar på att Azure Data Box jobbet ska slutföras* tills jobbet är klart.

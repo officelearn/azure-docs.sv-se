@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057900"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173558"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -109,7 +109,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 
 Eftersom datasynkroniseringen är utlöst är inte transaktionell konsekvens garanterad. Microsoft garanterar att alla ändringar görs till och med att datasynkroniseringen inte leder till data förlust.
 
-### <a name="performance-impact"></a>Prestanda påverkan
+### <a name="performance-impact"></a>Prestandapåverkan
 
 Data Sync använder INSERT-, Update-och Delete-utlösare för att spåra ändringar. Det skapar sido tabeller i användar databasen för ändrings spårning. Dessa ändrings spårnings aktiviteter påverkar databasens arbets belastning. Utvärdera tjänst nivån och uppgradera om det behövs.
 
@@ -137,6 +137,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 - Namn på objekt (databaser, tabeller och kolumner) får inte innehålla de utskrivbara tecken perioderna (.), vänster hak paren tes ([) eller höger hak paren tes (]).
 - Azure Active Directory autentisering stöds inte.
 - Om det finns tabeller med samma namn men olika schema (till exempel dbo. kunder och försäljning. kunder) kan endast en av tabellerna läggas till i Sync.
+- Ett tabell namn får inte innehålla tecken som har ett ASCII-värde som är mindre än eller lika med.
 - Kolumner med User-Defined data typer stöds inte
 - Det finns inte stöd för att flytta servrar mellan olika prenumerationer. 
 
@@ -250,7 +251,7 @@ Behöver du uppdatera schemat för en databas i en Sync-grupp? Schema ändringar
 - [Automatisera replikeringen av schema ändringar med SQL Data Sync i Azure](../../sql-database/sql-database-update-sync-schema.md)
 - [Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp](scripts/update-sync-schema-in-sync-group.md)
 
-### <a name="monitor-and-troubleshoot"></a>Övervaka och felsöka
+### <a name="monitor-and-troubleshoot"></a>Övervaka och felsök
 
 Är SQL Data Sync att göra som det ska? Information om hur du övervakar aktiviteter och felsöker problem finns i följande artiklar:
 

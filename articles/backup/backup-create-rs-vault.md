@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du skapar och konfigurera
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7e7509f18e7511cd60099a70785b4e2c890afad
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981487"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171630"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Skapa och konfigurera ett Recovery Services valv
 
@@ -35,7 +35,7 @@ Azure Backup hanterar automatiskt lagring för valvet. Du måste ange hur lagrin
    - Vi rekommenderar att om du använder Azure som primär slut punkt för lagring av säkerhets kopior fortsätter du att använda standardvärdet **Geo-redundant** .
    - Om du inte använder Azure som primär slutpunkt för lagring av säkerhetskopior väljer du **Lokalt redundant**, vilket minskar kostnaderna för Azure-lagring.
    - Lär dig mer om [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) och [lokal](../storage/common/storage-redundancy.md#locally-redundant-storage) redundans.
-   - Om du behöver data tillgänglighet utan stillestånds tid i en region, garantera data placering, väljer du [zon-redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
+   - Om du behöver data tillgänglighet utan stillestånds tid i en region, garantera data placering, väljer du [zon-redundant lagring](../storage/common/storage-redundancy.md#zone-redundant-storage).
 
 >[!NOTE]
 >Inställningarna för lagrings replikering för valvet är inte relevanta för säkerhets kopiering av Azure-filresurs eftersom den aktuella lösningen är ögonblicks bild och det finns inga data som överförs till valvet. Ögonblicks bilder lagras i samma lagrings konto som den säkerhetskopierade fil resursen.

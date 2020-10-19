@@ -3,12 +3,12 @@ title: Data modell för Azure Backup Diagnostics-händelser
 description: Den här data modellen refererar till det resursbaserade läget för att skicka diagnostiska händelser till Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52c5c0694ed59aea20453ae7a2bd3209d76df433
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569593"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173968"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Data modell för Azure Backup Diagnostics-händelser
 
@@ -239,7 +239,7 @@ Varje post i tabellen ovan har ett associerat **Åtgärds namn**. Ett åtgärds 
 | AddonAzureBackupPolicy | Princip |  Representerar en post som innehåller all information om en säkerhets kopierings-och bevarande princip. Till exempel ID, namn, inställningar för kvarhållning osv. |
 | AddonAzureBackupPolicy | PolicyAssociation | Representerar en mappning mellan ett säkerhets kopierings objekt och den säkerhets kopierings princip som tillämpas på den. |   
 
-Ofta måste du utföra kopplingar mellan olika tabeller och olika uppsättningar med poster som ingår i samma tabell (differentierade med åtgärds namn) för att hämta alla fält som krävs för din analys. Kom igång genom att läsa [exempel frågorna](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) . 
+Ofta måste du utföra kopplingar mellan olika tabeller och olika uppsättningar med poster som ingår i samma tabell (differentierade med åtgärds namn) för att hämta alla fält som krävs för din analys. Kom igång genom att läsa [exempel frågorna](./backup-azure-monitoring-use-azuremonitor.md#sample-kusto-queries) . 
 
 ## <a name="next-steps"></a>Nästa steg
 

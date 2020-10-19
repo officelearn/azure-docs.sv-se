@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 24bdb192ddfe1759cb1d70fff9936979f5e28143
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 09066d9e51f12923772758b3aebcebd347a59380
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093369"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174134"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Azures säkerhets bas linje för säkerhets kopiering
 
@@ -436,7 +436,7 @@ Support dokumentation:
 
 - [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -612,7 +612,7 @@ Använd dessutom Azure Policy för att ange begränsningar för den typ av resur
 
 - [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 - [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -818,9 +818,9 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 - [Så här skapar du en Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Så här autentiserar du till Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+* [Så här autentiserar du till Key Vault](../key-vault/general/authentication.md)
 
-* [Så här tilldelar du en Key Vault åtkomst princip](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
+* [Så här tilldelar du en Key Vault åtkomst princip](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -868,7 +868,7 @@ Använd Azure Security Center s hot identifiering för data tjänster för att i
 
 - [Förstå Microsoft Antimalware för Azure Cloud Services och Virtual Machines](../security/fundamentals/antimalware.md)
 
-- [Förstå Azure Security Centers hot identifiering för data tjänster](../security-center/threat-protection.md)
+- [Förstå Azure Security Centers hot identifiering för data tjänster](../security-center/azure-defender.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -924,7 +924,7 @@ Säkerhetskopiera kund hanterade nycklar inom Azure Key Vault.
 
 **Vägledning**: för lokal säkerhets kopiering tillhandahålls kryptering vid vila med hjälp av den lösen fras som du anger när du säkerhetskopierar till Azure. För virtuella Azure-datorer krypteras data i vila med hjälp av kryptering för lagringstjänst (SSE). Du kan aktivera mjuk borttagning i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.
 
-- [Så här aktiverar du mjuk borttagning i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [Så här aktiverar du mjuk borttagning i Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: Ja
 

@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du konfigurerar, initiera
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ba22c51c7a6c26a232ed20aec21fc83d2c54b37
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506635"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171464"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
@@ -437,7 +437,7 @@ Om den virtuella Azure-datorn redan har säkerhetskopierats kan du ange en lista
 > [!IMPORTANT]
 > Begär ande texten ovan är alltid den sista kopian av data diskar som ska undantas eller tas med. Detta *läggs* inte till i den tidigare konfigurationen. Exempel: om du först uppdaterar skyddet som "exkludera data disk 1" och sedan upprepar med "exkludera data disk 2", *undantas endast data disk 2* i efterföljande säkerhets kopieringar och data disk 1 tas med. Detta är alltid den slutgiltiga listan som kommer att inkluderas/undantas i efterföljande säkerhets kopieringar.
 
-Hämta den information om det skyddade objektet som anges [här](https://docs.microsoft.com/rest/api/backup/protecteditems/get)om du vill hämta den aktuella listan över diskar som undantas eller tas med. Svaret innehåller en lista över LUN för datadisk och indikerar om de tas med eller undantas.
+Hämta den information om det skyddade objektet som anges [här](/rest/api/backup/protecteditems/get)om du vill hämta den aktuella listan över diskar som undantas eller tas med. Svaret innehåller en lista över LUN för datadisk och indikerar om de tas med eller undantas.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Stoppa skyddet men behåll befintliga data
 

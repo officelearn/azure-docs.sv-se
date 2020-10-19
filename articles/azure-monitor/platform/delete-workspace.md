@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ce048ea8c9a4414b1c9f049569251c39d931c9a
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448531"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174155"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -112,6 +112,9 @@ Du måste ha minst *Log Analytics deltagar* behörighet för att kunna ta bort e
 * Om du får ett fel meddelande *är namnet på arbets ytan redan används eller är i* *konflikt* när du skapar en arbets yta. det kan vara sedan:
   * Namnet på arbets ytan är inte tillgängligt och används av någon i din organisation eller av en annan kund.
   * Arbets ytan har tagits bort under de senaste 14 dagarna och dess namn är reserverat för mjuk borttagnings perioden. Om du vill åsidosätta den mjuka borttagningen och ta bort arbets ytan permanent för att skapa en ny arbets yta med samma namn, följer du dessa steg för att återställa arbets ytan först och utföra permanent borttagning:<br>
-     1. [Återställ](#recover-workspace) din arbets yta.
-     2. [Ta bort](#permanent-workspace-delete) arbets ytan permanent.
-     3. Skapa en ny arbets yta med samma arbets ytans namn.
+    1. [Återställ](#recover-workspace) din arbets yta.
+    2. [Ta bort](#permanent-workspace-delete) arbets ytan permanent.
+    3. Skapa en ny arbets yta med samma arbets ytans namn.
+* Om du ser en 204-svarskod som visar att *resursen inte hittas*kan orsaken vara i följd försök att använda åtgärden ta bort arbets yta. 204 är ett tomt svar, vilket vanligt vis innebär att resursen inte finns, så borttagningen slutfördes utan att göra något.
+  När borttagnings anropet har slutförts på Server sidan kan du återställa arbets ytan och slutföra den permanenta borttagnings åtgärden i någon av de metoder som föreslås tidigare.
+

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6978afc802bddd536c56fcb4e06a40ccc58867fe
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89418916"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172662"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definiera en teknisk profil för eng ång slö sen ord i en Azure AD B2C anpassad princip
 
@@ -73,13 +73,15 @@ Följande inställningar kan användas för att konfigurera läget för kodgener
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | Inga | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60` ; Max: `1200` ; Standard: `600` . |
+| CodeExpirationInSeconds | Inga | Tid i sekunder fram till att koden upphör att gälla. Minimum: `60` ; Max: `1200` ; Standard: `600` . Varje gång en kod anges (samma kod med `ReuseSameCode` eller en ny kod) utökas kodens förfallo datum.  |
 | CodeLength | Inga | Längden på koden. Standardvärdet är `6`. |
 | CharacterSet | Inga | Teckenuppsättningen för koden, formaterad för användning i ett reguljärt uttryck. Exempelvis `a-z0-9A-Z`. Standardvärdet är `0-9`. Tecken uppsättningen måste innehålla minst 10 olika tecken i den angivna uppsättningen. |
 | NumRetryAttempts | Inga | Antalet verifierings försök innan koden betraktas som ogiltig. Standardvärdet är `5`. |
 | NumCodeGenerationAttempts | Inga | Antalet tillåtna försök per identifierare för högsta antal kodgenerering. Standardvärdet är 10 om inget värde anges. |
 | Åtgärd | Ja | Åtgärden som ska utföras. Möjligt värde: `GenerateCode` . |
-| ReuseSameCode | Inga | Om en dubblerad kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`. |
+| ReuseSameCode | Inga | Om samma kod ska anges i stället för att generera en ny kod när den aktuella koden inte har upphört att gälla och fortfarande är giltig. Standardvärdet är `false`.  |
+
+
 
 ### <a name="example"></a>Exempel
 

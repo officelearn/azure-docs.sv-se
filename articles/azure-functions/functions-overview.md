@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0583b68df603b04d47ac6104f0cf127b3c4bedd0
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "77621010"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173716"
 ---
 # <a name="an-introduction-to-azure-functions"></a>En introduktion till Azure Functions
 
@@ -19,7 +19,7 @@ Med Azure Functions kan du köra små delar av kod (kallas "funktioner") utan at
 
 En funktion är "utlöst" av en speciell typ av händelse. [Utlösare som stöds](./functions-triggers-bindings.md) innehåller svar på ändringar i data, svarar på meddelanden, körs enligt ett schema eller till följd av en http-begäran.
 
-Även om du alltid kan koda direkt mot en myriaden av tjänster, effektiviseras integreringen med andra tjänster med hjälp av bindningar. Med bindningar får du [en deklarativ till gång till en mängd olika Azure-tjänster och tjänster från tredje part](./functions-triggers-bindings.md).
+Även om du alltid kan koda direkt mot myriaden-tjänster effektiviseras integreringen med andra tjänster med hjälp av bindningar. Med bindningar får du [en deklarativ till gång till en mängd olika Azure-tjänster och tjänster från tredje part](./functions-triggers-bindings.md).
 
 ## <a name="features"></a>Funktioner
 

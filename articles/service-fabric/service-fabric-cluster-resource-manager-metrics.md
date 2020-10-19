@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3cb22bc2cd032e51dcdb7429e2c0684c578b0870
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a7dedea2937c9cafb4216da3628aa1360ad6993
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005657"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173004"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Hantera resursförbrukning och belastning i Service Fabric med mått
 *Mått* är de resurser som dina tjänster bryr sig om och som tillhandahålls av noderna i klustret. Ett mått är vad du vill hantera för att förbättra eller övervaka prestanda för dina tjänster. Du kan till exempel titta på minnes förbrukning för att veta om tjänsten är överbelastad. En annan användning är att ta reda på om tjänsten kan flyttas någon annan stans där minnet är mindre begränsat för att få bättre prestanda.
@@ -138,12 +138,13 @@ Nu ska vi gå igenom var och en av de här inställningarna i detalj och prata o
 ## <a name="load"></a>Inläsning
 Hela punkten med att definiera mått är att representera en del belastning. *Belastningen* är hur mycket av ett visst mått som används av en viss tjänst instans eller replik på en viss nod. Belastningen kan konfigureras nästan vilken punkt som helst. Exempel:
 
-  - Inläsning kan definieras när en tjänst skapas. Detta kallas för _standard inläsning_.
-  - Mått informationen, inklusive standard belastningar, för en tjänst kan uppdateras när tjänsten har skapats. Detta kallas att _Uppdatera en tjänst_. 
-  - Belastningarna för en specifik partition kan återställas till standardvärdena för den tjänsten. Detta kallas för att _återställa partition belastningen_.
-  - Load kan rapporteras per tjänst objekt dynamiskt under körning. Detta kallas för _rapporterings belastning_. 
-  
-Alla dessa strategier kan användas i samma tjänst under dess livs längd. 
+  - Inläsning kan definieras när en tjänst skapas. Den här typen av belastnings konfiguration kallas _standard inläsning_.
+  - Mått informationen, inklusive standard belastningar, för en tjänst kan uppdateras när tjänsten har skapats. Den här mått uppdateringen görs genom att _en tjänst uppdateras_.
+  - Belastningarna för en specifik partition kan återställas till standardvärdena för den tjänsten. Den här mått uppdateringen kallas _återställning av partitionens belastning_.
+  - Belastningen kan rapporteras per tjänst objekt, dynamiskt under körning. Den här mått uppdateringen kallas för _rapporterings belastning_.
+  - Belastning för partitionens repliker eller instanser kan också uppdateras genom att rapportera inläsnings värden via ett Fabric API-anrop. Den här mått uppdateringen kallas _rapporterings belastning för en partition_.
+
+Alla dessa strategier kan användas i samma tjänst under dess livs längd.
 
 ## <a name="default-load"></a>Standard belastning
 *Standard belastning* är hur mycket av måttet varje tjänst objekt (tillstånds lös instans eller tillstånds känslig replik) för den här tjänsten förbrukar. Kluster resurs hanteraren använder det här numret för belastningen på serviceobjektet tills det får annan information, till exempel en dynamisk inläsnings rapport. För enklare tjänster är standard belastningen en statisk definition. Standard belastningen uppdateras aldrig och används för tjänstens livstid. Standard inläsningar passar bra för enkla kapacitets planerings scenarier där vissa resurser är avsedda för olika arbets belastningar och inte ändras.
@@ -175,6 +176,67 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 ```
 
 En tjänst kan rapportera om alla mått som definierats för den när den skapades. Om en tjänst rapporter läses in för ett mått som inte är konfigurerat att använda, Service Fabric ignorerar den rapporten. Om det finns andra mått som rapporter ATS vid samma tidpunkt som är giltiga, godkänns dessa rapporter. Service koden kan mäta och rapportera alla mått som den känner till och operatörer kan ange vilken mått konfiguration som ska användas utan att behöva ändra tjänst koden. 
+
+## <a name="reporting-load-for-a-partition"></a>Rapport belastning för en partition
+I föregående avsnitt beskrivs hur en rapport inläsning av tjänst repliker eller instanser. Det finns ytterligare ett alternativ för att dynamiskt rapportera inläsning med FabricClient. När du rapporterar belastning för en partition kan du rapportera om flera partitioner på en gång.
+
+Dessa rapporter kommer att användas på exakt samma sätt som inläsnings rapporter som kommer från själva replikerna eller själva instanserna. Rapporterade värden är giltiga tills nya inläsnings värden rapporteras, antingen av repliken eller instansen eller genom att ett nytt inläsnings värde för en partition rapporteras.
+
+Med det här API: et finns det flera sätt att uppdatera belastningen i klustret:
+
+  - En tillstånds känslig tjänst partition kan uppdatera den primära replik belastningen.
+  - Både tillstånds lösa och tillstånds känsliga tjänster kan uppdatera belastningen för alla dess sekundära repliker eller instanser.
+  - Både tillstånds lösa och tillstånds känsliga tjänster kan uppdatera belastningen på en enskild replik eller instans på en nod.
+
+Det är också möjligt att kombinera alla dessa uppdateringar per partition på samma tid.
+
+Det går att uppdatera belastningar för flera partitioner med ett enda API-anrop, i så fall kommer utdata att innehålla ett svar per partition. Om uppdatering av partitionen inte har tillämpats av någon anledning, hoppas uppdateringar för den partitionen över, och motsvarande felkod för en riktad partition kommer att tillhandahållas:
+
+  - PartitionNotFound-angivet partitions-ID finns inte.
+  - ReconfigurationPending-partitionen håller på att omkonfigureras.
+  - InvalidForStatelessServices-ett försök gjordes att ändra belastningen på en primär replik för en partition som tillhör en tillstånds lös tjänst.
+  - ReplicaDoesNotExist-sekundär replik eller instans finns inte på en angiven nod.
+  - InvalidOperation – kan inträffa i två fall: uppdatering av belastning för en partition som tillhör system programmet eller uppdateringen av förväntad belastning är inte aktive rad.
+
+Om några av dessa fel returneras kan du uppdatera inmatarna för en viss partition och försöka uppdatera igen för en viss partition.
+
+Kod:
+
+```csharp
+Guid partitionId = Guid.Parse("53df3d7f-5471-403b-b736-bde6ad584f42");
+string metricName0 = "CustomMetricName0";
+List<MetricLoadDescription> newPrimaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 100)
+};
+
+string nodeName0 = "NodeName0";
+List<MetricLoadDescription> newSpecificSecondaryReplicaLoads = new List<MetricLoadDescription>()
+{
+    new MetricLoadDescription(metricName0, 200)
+};
+
+OperationResult<UpdatePartitionLoadResultList> updatePartitionLoadResults =
+    await this.FabricClient.UpdatePartitionLoadAsync(
+        new UpdatePartitionLoadQueryDescription
+        {
+            PartitionMetricLoadDescriptionList = new List<PartitionMetricLoadDescription>()
+            {
+                new PartitionMetricLoadDescription(
+                    partitionId,
+                    newPrimaryReplicaLoads,
+                    new List<MetricLoadDescription>(),
+                    new List<ReplicaMetricLoadDescription>()
+                    {
+                        new ReplicaMetricLoadDescription(nodeName0, newSpecificSecondaryReplicaLoads)
+                    })
+            }
+        },
+        this.Timeout,
+        cancellationToken);
+```
+
+I det här exemplet ska du utföra en uppdatering av den senast rapporterade inläsningen för en partition _53df3d7f-5471-403b-B736-bde6ad584f42_. Primär replik belastning för en mått _CustomMetricName0_ kommer att uppdateras med värdet 100. Samtidigt kommer belastningen för samma mått för en speciell sekundär replik som finns på noden _NodeName0_att uppdateras med värdet 200.
 
 ### <a name="updating-a-services-metric-configuration"></a>Uppdatera en tjänsts mått konfiguration
 Listan över mått som är associerade med tjänsten och egenskaperna för dessa mått kan uppdateras dynamiskt när tjänsten är Live. Detta möjliggör experimentering och flexibilitet. Några exempel på när detta är användbart är:

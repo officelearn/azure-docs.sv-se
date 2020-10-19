@@ -4,12 +4,12 @@ description: Få svar på vanliga frågor om hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89316770dc137bff031e6268db5ece156edd4f25
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461231"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172375"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 
@@ -104,7 +104,7 @@ En databas som du [lägger till i en skyddad instans](backup-sql-server-database
   
 ## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Kan jag skydda databaser som har TDE (transparent datakryptering) aktiverade och kommer databasen att förbli krypterad genom hela säkerhets kopierings processen?
 
-Ja, Azure Backup har stöd för säkerhets kopiering av SQL Server databaser eller servrar med TDE aktiverat. Säkerhets kopiering stöder [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) med nycklar som hanteras av Azure eller med Kundhanterade nycklar (BYOK).  Säkerhets kopieringen utför inte någon SQL-kryptering som en del av säkerhets kopierings processen, så databasen förblir krypterad vid säkerhets kopiering.
+Ja, Azure Backup har stöd för säkerhets kopiering av SQL Server databaser eller servrar med TDE aktiverat. Säkerhets kopiering stöder [TDE](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) med nycklar som hanteras av Azure eller med Kundhanterade nycklar (BYOK).  Säkerhets kopieringen utför inte någon SQL-kryptering som en del av säkerhets kopierings processen, så databasen förblir krypterad vid säkerhets kopiering.
 
 ## <a name="next-steps"></a>Nästa steg
 

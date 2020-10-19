@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 76cc09ab5283e10e8f25af3aba4278ec6cca4838
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 550097272f90a2f7fa06af7f06810fd3fa0ed94f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91333281"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173895"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Snabb start: börja övervaka Node.js webb program med Azure Application insikter
 
@@ -29,7 +29,7 @@ Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgäng
 
 Application Insights kan samla in telemetridata från alla Internet-anslutna program, oavsett om de körs lokalt eller i molnet. Gör så här om du vill börja granska dessa data:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj **skapa ett verktyg för resurs**  >  **utvecklare**  >  **Application Insights**.
 
@@ -60,7 +60,7 @@ Application Insights kan samla in telemetridata från alla Internet-anslutna pro
    npm install applicationinsights --save
    ```
 
-3. Redigera appens första *. js* -fil och Lägg till de två raderna nedan i den översta delen av skriptet. Om du använder [ appenNode.js snabb start](../../app-service/quickstart-nodejs.md)ändrar du *index.js* filen. Ersätt `<instrumentation_key>` med programmets Instrumentation-nyckel. 
+3. Redigera appens första *. js* -fil och Lägg till de två raderna nedan i den översta delen av skriptet. Om du använder [ appenNode.js snabb start](../../app-service/quickstart-nodejs.md)ändrar du *index.js* filen. Ersätt `<instrumentation_key>` med din program insikts instrument nyckel. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

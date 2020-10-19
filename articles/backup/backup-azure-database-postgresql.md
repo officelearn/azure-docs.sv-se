@@ -4,12 +4,12 @@ description: Läs mer om Azure Database for PostgreSQL säkerhets kopiering med 
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3c326ff197f18333812438719908daced2b268bb
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093896"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173583"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Azure Database for PostgreSQL säkerhets kopiering med långsiktig kvarhållning (för hands version)
 
@@ -244,7 +244,7 @@ Det här avsnittet innehåller felsöknings information för att säkerhetskopie
 
 Ge säkerhets kopierings valvet MSI **Läs** åtkomst på den PG-server som du vill säkerhetskopiera eller återställa:
 
-För att upprätta en säker anslutning till PostgreSQL-databasen använder Azure Backup autentiserings modellen [hanterad tjänstidentitet (MSI)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) . Det innebär att säkerhets kopierings valvet endast har åtkomst till de resurser som uttryckligen har beviljats behörighet av användaren.
+För att upprätta en säker anslutning till PostgreSQL-databasen använder Azure Backup autentiserings modellen [hanterad tjänstidentitet (MSI)](../active-directory/managed-identities-azure-resources/overview.md) . Det innebär att säkerhets kopierings valvet endast har åtkomst till de resurser som uttryckligen har beviljats behörighet av användaren.
 
 En system-MSI tilldelas automatiskt till valvet vid tidpunkten för skapandet. Du måste ge valvet MSI åtkomst till de PostgreSQL-servrar som du vill säkerhetskopiera databaser från.
 
@@ -308,7 +308,7 @@ Etablera nätverks linjen genom att aktivera flaggan **Tillåt åtkomst till Azu
 
     ![Tilldela rollen Storage BLOB data Contributor](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
 
-1. Du kan också ge detaljerad behörighet till den angivna behållaren som du återställer till genom att använda kommandot [skapa roll tilldelning](https://docs.microsoft.com/cli/azure/role/assignment) i Azure CLI-AZ.
+1. Du kan också ge detaljerad behörighet till den angivna behållaren som du återställer till genom att använda kommandot [skapa roll tilldelning](/cli/azure/role/assignment) i Azure CLI-AZ.
 
     ```azurecli
     az role assignment create --assignee $VaultMSI_AppId  --role "Storage Blob Data Contributor"   --scope $id

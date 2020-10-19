@@ -7,12 +7,12 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 64da8084ec8d40e17a0005f2e70486c7d51bf640
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e846f00388ce21690729f62592c86b73cc42c3f3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627608"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173792"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installera och Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -243,7 +243,7 @@ Använd följande steg för att använda emulatorn i Linux-eller macOS-miljöer:
 1. Från den virtuella Windows-datorn startar du Azure Cosmos-emulatorn från kommando raden med hjälp av följande alternativ. Mer information om parametrarna som stöds av kommando raden finns i [kommando rads verktyget för emulatorn](emulator-command-line-parameters.md):
 
    ```bash
-   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM +4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+   Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    ```
 
 1. Slutligen måste du lösa processen för certifikat förtroende mellan program som körs på Linux-eller Mac-miljön och emulatorn. Du kan använda något av följande två alternativ för att lösa certifikatet:

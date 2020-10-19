@@ -3,12 +3,12 @@ title: Hantera och övervaka virtuella Azure-säkerhetskopieringar
 description: Lär dig att hantera och övervaka virtuella Azure-säkerhetskopieringar med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2052d80428af89862b5348943b446f1b800ab36f
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89145441"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174086"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 
@@ -24,6 +24,8 @@ I Azure Portal ger instrument panelen Recovery Services valv till gång till val
 Du kan hantera säkerhets kopior med hjälp av instrument panelen och genom att gå djupare till enskilda virtuella datorer. Öppna valvet på instrument panelen för att starta dator säkerhets kopieringar.
 
 ![Fullständig Instrumentpanels vy med skjutreglage](./media/backup-azure-manage-vms/bottom-slider.png)
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 ## <a name="view-vms-on-the-dashboard"></a>Visa virtuella datorer på instrument panelen
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 61ec96a35fac6a033fe6c8b65cff156ba63e5e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 578860883a108bba4b4bcd8cd04e8c08f484d474
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563355"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173690"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Konfigurera en anpassad domän i förhandsversionen av Azure Static Web Apps
 
@@ -29,11 +29,11 @@ När du konfigurerar domän namn används "A"-poster för att mappa rot domäner
 
 Det finns några olika typer av DNS-konfigurationer som är tillgängliga för ett program.
 
-| Om du vill                                 | Dra                                                |
-| -----------------------------------------------| --------------------------------------------------- |
-| Support `www.example.com` eller `blog.example.net`| [Mappa en CNAME-post](#map-a-cname-record)           |
-| Hjälp `example.com`                          | [Konfigurera en rot domän](#configure-a-root-domain) |
-| Peka alla under domäner till `www.example.com`      | [Mappa ett jokertecken](#map-a-wildcard-domain)            |
+| Om du vill | Dra |
+|--|--|
+| Support `www.example.com` eller `blog.example.net` | [Mappa en CNAME-post](#map-a-cname-record) |
+| Hjälp `example.com` | [Konfigurera en rot domän](#configure-a-root-domain) |
+| Peka alla under domäner till `www.example.com` | [Mappa ett jokertecken](#map-a-wildcard-domain) |
 
 ## <a name="map-a-cname-record"></a>Mappa en CNAME-post
 
@@ -46,6 +46,8 @@ En CNAME-post mappar en domän till en annan. Du kan använda en CNAME-post för
 1. På sidan _statiska Web Apps_ väljer du namnet på din app.
 
 1. Klicka på **anpassade domäner** på menyn.
+
+1. Klicka på knappen **Lägg till**
 
 1. I fönstret _anpassade domäner_ kopierar du webb adressen i fältet **värde** .
 
@@ -113,7 +115,7 @@ Ibland vill du att all trafik som skickas till en under domän ska dirigeras til
     | Typ    | CNAME                  |
     | Värd    | \*                     |
     | Värde   | www.example.com        |
-    | TTL-värde     | Lämna standard värde |
+    | TTL     | Lämna standard värde |
 
 5. Spara ändringarna med DNS-providern.
 

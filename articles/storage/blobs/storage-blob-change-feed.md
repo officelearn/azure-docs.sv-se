@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 105978daeb93a2e5646222ff10055ba20a1dc481
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89568242"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172896"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Ändra stöd för feed i Azure Blob Storage
 
@@ -139,7 +139,7 @@ Använd en Azure Resource Manager-mall för att aktivera ändra feed för ditt b
 Ändrings flödet genererar flera metadata och loggfiler. De här filerna finns i **$blobchangefeed** behållare för lagrings kontot. 
 
 > [!NOTE]
-> I den aktuella versionen visas inte **$blobchangefeed** containern i Azure Storage Explorer eller Azure Portal. Du kan för närvarande inte se $blobchangefeed-behållaren när du anropar ListContainers API, men du kan anropa ListBlobs-API: et direkt på behållaren för att se blobarna.
+> I den aktuella versionen visas $blobchangefeed containern endast i Azure Portal men inte synlig i Azure Storage Explorer. Du kan för närvarande inte se $blobchangefeed-behållaren när du anropar ListContainers API, men du kan anropa ListBlobs-API: et direkt på behållaren för att se blobarna
 
 Dina klient program kan använda ändrings flödet med hjälp av processor biblioteket för BLOB Change-bearbetning som tillhandahålls med Change feed-SDK: n. 
 

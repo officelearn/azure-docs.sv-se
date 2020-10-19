@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 0d36a09b67e110551470f3908800e77c35b1e3be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7c7caf6c01c2e7ea9aaf141a2597ef338735d3d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844015"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173598"
 ---
 # <a name="prepare-for-an-azure-stack-edge-pro-gpu-device-failure"></a>Förbered för ett Azure Stack Edge Pro GPU-enhets problem
 
@@ -66,7 +66,8 @@ Följande data skydds lösningar från tredje part kan tillhandahålla en säker
 | Tredjepartsprogram           | Referens till lösningen                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | https://www.cohesity.com/solution/cloud/azure/ <br> Kontakta Cohesity om du vill ha mer information.          |
-| Veritas                        | Kontakta Veritas om du vill ha mer information.   |
+| CommVault                      | https://www.commvault.com/azure <br> Kontakta CommVault om du vill ha mer information.          |
+| Veritas                        | http://veritas.com/azure <br> Kontakta Veritas om du vill ha mer information.   |
 
 
 ## <a name="protect-files-and-folders-on-vms"></a>Skydda filer och mappar på virtuella datorer
@@ -78,7 +79,8 @@ Azure Stack Edge fungerar med Azure Backup och andra data skydds lösningar frå
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Microsoft Azure Recovery Services MARS-agenten för Azure Backup | Windows        | [Om MARS-agent](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure integrering, lösning för säkerhets kopiering och återställning kort](https://www.cohesity.com/solution/cloud/azure) <br>Kontakta Cohesity om du vill ha mer information.                          |
-| Veritas                 | Windows, Linux | Kontakta Veritas om du vill ha mer information.                    |
+| CommVault               | Windows, Linux | https://www.commvault.com/azure <br>Kontakta CommVault om du vill ha mer information.                          |
+| Veritas                 | Windows, Linux | http://veritas.com/azure <br> Kontakta Veritas om du vill ha mer information.                    |
 
 
 

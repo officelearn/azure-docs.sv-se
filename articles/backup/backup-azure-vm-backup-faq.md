@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056726"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172841"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -24,7 +24,7 @@ När du skapar en virtuell dator kan du aktivera säkerhets kopiering för virtu
 ### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Varför tar det så lång tid att slutföra den första säkerhetskopieringen?
 
 Den första säkerhets kopieringen är alltid en fullständig säkerhets kopia och den kommer att vara beroende av storleken på data och när säkerhets kopieringen bearbetas. <br>
-För att förbättra prestanda för säkerhets kopiering, se [metod tips för säkerhets kopiering](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices); [Säkerhets kopierings överväganden](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) och [säkerhets kopierings prestanda](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+För att förbättra prestanda för säkerhets kopiering, se [metod tips för säkerhets kopiering](./backup-azure-vms-introduction.md#best-practices); [Säkerhets kopierings överväganden](./backup-azure-vms-introduction.md#backup-and-restore-considerations) och [säkerhets kopierings prestanda](./backup-azure-vms-introduction.md#backup-performance)<br>
 Trots att den totala säkerhetskopieringstiden för stegvisa säkerhetskopior är mindre än 24 timmar. Det kanske inte är fallet för den första säkerhetskopian.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Ingår säkerhets kopierings kostnaden i kostnaden för den virtuella datorn?
@@ -109,7 +109,7 @@ Azure Backup har nu stöd för säkerhets kopiering och återställning av selek
 
 ### <a name="are-managed-identities-preserved-if-a-tenant-change-occurs-during-backup"></a>Behålls hanterade identiteter om en klient förändring sker under säkerhets kopieringen?
 
-Om [klient ändringar](https://docs.microsoft.com/azure/devops/organizations/accounts/change-azure-ad-connection) sker måste du inaktivera och återaktivera [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för att säkerhets kopieringen ska fungera igen.
+Om [klient ändringar](/azure/devops/organizations/accounts/change-azure-ad-connection) sker måste du inaktivera och återaktivera [hanterade identiteter](../active-directory/managed-identities-azure-resources/overview.md) för att säkerhets kopieringen ska fungera igen.
 
 ## <a name="restore"></a>Återställ
 
@@ -207,6 +207,6 @@ Ja, det finns en gräns på 100 virtuella datorer som kan kopplas till samma sä
 
 För närvarande kan du Visa inställningar för kvarhållning på en säkerhets kopierings objekt nivå (VM) utifrån den säkerhets kopierings princip som har tilldelats den virtuella datorn.
 
-Ett sätt att visa inställningarna för kvarhållning av dina säkerhets kopior är att gå till [instrument panelen](https://docs.microsoft.com/azure/backup/backup-azure-manage-vms#view-vms-on-the-dashboard) för säkerhets kopierings objekt för den virtuella datorn i Azure Portal. Genom att välja länken till säkerhets kopierings principen kan du se Retentions tiden för alla dagliga, vecko Visa och årliga bevarande punkter som är associerade med den virtuella datorn.
+Ett sätt att visa inställningarna för kvarhållning av dina säkerhets kopior är att gå till [instrument panelen](./backup-azure-manage-vms.md#view-vms-on-the-dashboard) för säkerhets kopierings objekt för den virtuella datorn i Azure Portal. Genom att välja länken till säkerhets kopierings principen kan du se Retentions tiden för alla dagliga, vecko Visa och årliga bevarande punkter som är associerade med den virtuella datorn.
 
-Du kan också använda [Backup Explorer](https://docs.microsoft.com/azure/backup/monitor-azure-backup-with-backup-explorer) för att visa inställningarna för kvarhållning för alla virtuella datorer i samma fönster ruta. Gå till backup Explorer från ett Recovery Services valv, gå till fliken **säkerhets kopierings objekt** och välj Avancerad vy för att se detaljerad kvarhållning av information för varje virtuell dator.
+Du kan också använda [Backup Explorer](./monitor-azure-backup-with-backup-explorer.md) för att visa inställningarna för kvarhållning för alla virtuella datorer i samma fönster ruta. Gå till backup Explorer från ett Recovery Services valv, gå till fliken **säkerhets kopierings objekt** och välj Avancerad vy för att se detaljerad kvarhållning av information för varje virtuell dator.

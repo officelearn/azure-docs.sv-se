@@ -3,12 +3,12 @@ title: Översikt över säkerhets kopierings Center
 description: Den här artikeln innehåller en översikt över backup Center för Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 2857433e00a678603e30c8e5fc276020c4658f2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eab2e8f9694ca83d0e050f55bc6f6dd802a7331
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614298"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173742"
 ---
 # <a name="overview-of-backup-center"></a>Översikt över säkerhets kopierings Center
 
@@ -16,9 +16,9 @@ Backup Center ger en **enhetlig hanterings upplevelse** i Azure för företag f�
 
 Några av de viktigaste fördelarna med säkerhets kopierings Center är:
 
-* **En ruta med glas för att hantera säkerhets kopieringar** – backup Center har utformats för att fungera väl i en stor och distribuerad Azure-miljö. Du kan använda Backup Center för att effektivt hantera säkerhets kopior som sträcker sig över flera arbets belastnings typer, valv, prenumerationer, regioner och [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) -klienter.
+* **En ruta med glas för att hantera säkerhets kopieringar** – backup Center har utformats för att fungera väl i en stor och distribuerad Azure-miljö. Du kan använda Backup Center för att effektivt hantera säkerhets kopior som sträcker sig över flera arbets belastnings typer, valv, prenumerationer, regioner och [Azure Lighthouse](../lighthouse/overview.md) -klienter.
 * **Data Center-Centred Management** – säkerhets kopierings Center innehåller vyer och filter som är centrerade på de data källor som du säkerhetskopierar (till exempel virtuella datorer och databaser). På så sätt kan en resurs ägare eller en säkerhets kopierings administratör övervaka och köra säkerhets kopieringar av objekt utan att behöva fokusera på vilket valv ett objekt säkerhets kopie ras till. En viktig funktion i den här designen är möjligheten att filtrera vyer efter data källans egenskaper, t. ex. DataSource-prenumeration, resurs grupp för data källa och DataSource-taggar. Om din organisation exempelvis följer en metod för att tilldela virtuella datorer som tillhör olika avdelningar, kan du använda Backup Center för att filtrera säkerhets kopierings information baserat på taggarna för de underliggande virtuella datorerna som säkerhets kopie ras utan att behöva fokusera på taggen i valvet.
-* **Anslutna upplevelser** – backup Center tillhandahåller interna integreringar för befintliga Azure-tjänster som möjliggör hantering i stor skala. Till exempel använder backup Center den [Azure Policya](https://docs.microsoft.com/azure/governance/policy/overview) upplevelsen för att hjälpa dig att styra dina säkerhets kopior. Det utnyttjar också [Azure-arbetsböcker](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) och [Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs) som hjälper dig att visa detaljerade rapporter om säkerhets kopior. Så du behöver inte lära dig några nya principer för att använda de varierande funktionerna som finns i Backup Center.
+* **Anslutna upplevelser** – backup Center tillhandahåller interna integreringar för befintliga Azure-tjänster som möjliggör hantering i stor skala. Till exempel använder backup Center den [Azure Policya](../governance/policy/overview.md) upplevelsen för att hjälpa dig att styra dina säkerhets kopior. Det utnyttjar också [Azure-arbetsböcker](../azure-monitor/platform/workbooks-overview.md) och [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md) som hjälper dig att visa detaljerade rapporter om säkerhets kopior. Så du behöver inte lära dig några nya principer för att använda de varierande funktionerna som finns i Backup Center.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 

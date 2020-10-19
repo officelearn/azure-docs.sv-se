@@ -3,12 +3,12 @@ title: Säkerhetskopiera MABS-servern
 description: Lär dig hur du säkerhetskopierar Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: de62f0f57273ad7bd77df917d909627819165adb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 81a6ee005e15b1d7ab7b11a938b8ab14143818f4
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946881"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172120"
 ---
 # <a name="back-up-the-mabs-server"></a>Säkerhetskopiera MABS-servern
 
@@ -184,9 +184,9 @@ Om MABS-servern fortfarande fungerar och lagringspoolen är intakt (till exempel
 
 Du kan säkerhetskopiera MABS-databasen till en lokal disk med inbyggd SQL Server säkerhets kopiering, oberoende av MABS.
 
-- Hämta en [översikt](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) över SQL Server-säkerhetskopiering.
+- Hämta en [översikt](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) över SQL Server-säkerhetskopiering.
 
-- [Lär dig mer](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) om att säkerhetskopiera SQL Server till molnet.
+- [Lär dig mer](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) om att säkerhetskopiera SQL Server till molnet.
 
 ## <a name="back-up-to-a-share-protected-by-mabs"></a>Säkerhetskopiera till en resurs som skyddas av MABS
 
@@ -194,7 +194,7 @@ Det här säkerhets kopierings alternativet använder inbyggd SQL för att säke
 
 ### <a name="before-you-start"></a>Innan du börjar
 
-1. På SQL Server, gör du en mapp på en enhet med tillräckligt mycket ledigt utrymme för att lagra en enda kopia av en säkerhets kopia. Exempel: `C:\MABSBACKUP`.
+1. På SQL Server, gör du en mapp på en enhet med tillräckligt mycket ledigt utrymme för att lagra en enda kopia av en säkerhets kopia. Till exempel: `C:\MABSBACKUP`.
 
 1. Dela mappen. Dela till exempel `C:\MABSBACKUP` mappen som *DPMBackup*.
 
@@ -238,9 +238,9 @@ Det här säkerhets kopierings alternativet använder inbyggd SQL för att säke
 
 Du kan säkerhetskopiera MABS-databasen på samma sätt som andra SQL Server-databaser med SQL Server inbyggd säkerhets kopiering.
 
-- Hämta en [översikt](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) över SQL Server-säkerhetskopiering.
+- Hämta en [översikt](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) över SQL Server-säkerhetskopiering.
 
-- [Lär dig mer](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) om att säkerhetskopiera SQL Server till molnet.
+- [Lär dig mer](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service) om att säkerhetskopiera SQL Server till molnet.
 
 ### <a name="recover-the-mabs-database"></a>Återställa MABS-databasen
 

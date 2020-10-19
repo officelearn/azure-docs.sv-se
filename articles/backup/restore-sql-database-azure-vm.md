@@ -3,12 +3,12 @@ title: Återställa SQL Server-databaser på en virtuell Azure-dator
 description: Den här artikeln beskriver hur du återställer SQL Server databaser som körs på en virtuell Azure-dator och som säkerhets kopie ras med Azure Backup. Du kan också använda återställning mellan regioner för att återställa databaserna till en sekundär region.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbafd179f4b2f4e91a4bf19da41ffc14e4775e5c
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985369"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172169"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server-databaser på virtuella Azure-datorer
 
@@ -30,7 +30,7 @@ Observera följande innan du återställer en databas:
 - Du kan återställa databasen till en instans av en SQL Server i samma Azure-region.
 - Mål servern måste vara registrerad på samma valv som källan.
 - Om du vill återställa en TDE-krypterad databas till en annan SQL Server måste du först [återställa certifikatet till mål servern](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- [CDC](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) -aktiverade databaser ska återställas med alternativet [Återställ som filer](#restore-as-files) .
+- [CDC](/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) -aktiverade databaser ska återställas med alternativet [Återställ som filer](#restore-as-files) .
 - Innan du återställer Master-databasen startar du SQL Server-instansen i enanvändarläge genom att använda Start alternativet **-m AzureWorkloadBackup**.
   - Värdet för **-m** är namnet på klienten.
   - Det är bara det angivna klient namnet som kan öppna anslutningen.

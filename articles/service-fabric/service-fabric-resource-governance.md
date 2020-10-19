@@ -1,54 +1,80 @@
 ---
 title: Resursstyrning för container och tjänster
-description: Med Azure Service Fabric kan du ange resurs gränser för tjänster som körs inuti eller utanför behållare.
+description: Med Azure Service Fabric kan du ange resurs begär Anden och begränsningar för tjänster som körs som processer eller behållare.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 11ca6e29829d911717a829b3e4dee0a190856a52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 889fce77c1a3a743e9805ec482a9c87b9bf8da65
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81115146"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172870"
 ---
 # <a name="resource-governance"></a>Resursstyrning
 
-När du kör flera tjänster på samma nod eller kluster är det möjligt att en tjänst kan förbruka fler resurser, svälter andra tjänster i processen. Det här problemet kallas för problem med "störningarnas granne". Azure Service Fabric gör det möjligt för utvecklare att ange reservationer och gränser per tjänst för att garantera resurser och begränsa resursanvändning.
+När du kör flera tjänster på samma nod eller kluster är det möjligt att en tjänst kan förbruka fler resurser, svälter andra tjänster i processen. Det här problemet kallas för problem med "störningarnas granne". Med Azure Service Fabric kan utvecklaren styra det här beteendet genom att ange begär Anden och gränser per tjänst för att begränsa resursanvändningen.
 
-> Innan du fortsätter med den här artikeln rekommenderar vi att du bekanta dig med [Service Fabric program modellen](service-fabric-application-model.md) och [Service Fabric värd modell](service-fabric-hosting-model.md).
+> Innan du fortsätter med den här artikeln rekommenderar vi att du bekanta dig med [Service Fabric program modellen][application-model-link] och [Service Fabric värd modell][hosting-model-link].
 >
 
 ## <a name="resource-governance-metrics"></a>Resurs styrnings mått
 
-Resurs styrning stöds i Service Fabric i enlighet med [tjänst paketet](service-fabric-application-model.md). De resurser som är tilldelade till tjänst paketet kan delas ytterligare mellan kod paket. Resurs gränserna som anges innebär också att resurserna reserveras. Service Fabric har stöd för att ange CPU och minne per tjänst paket, med två inbyggda [mått](service-fabric-cluster-resource-manager-metrics.md):
+Resurs styrning stöds i Service Fabric i enlighet med [tjänst paketet][application-model-link]. De resurser som är tilldelade till tjänst paketet kan delas ytterligare mellan kod paket. Service Fabric stöder processor-och minnes styrning per tjänst paket, med två inbyggda [mått](service-fabric-cluster-resource-manager-metrics.md):
 
 * *Processor* (Metric name `servicefabric:/_CpuCores` ): en logisk kärna som är tillgänglig på värddatorn. Alla kärnor på alla noder viktas likadant.
 
 * *Minne* (Metric name `servicefabric:/_MemoryInMB` ): minnet uttrycks i megabyte och det mappas till det fysiska minne som är tillgängligt på datorn.
 
-För dessa två mått spårar [kluster resurs hanteraren](service-fabric-cluster-resource-manager-cluster-description.md) den totala kluster kapaciteten, belastningen på varje nod i klustret och återstående resurser i klustret. Dessa två mått motsvarar andra användare eller anpassade mått. Alla befintliga funktioner kan användas med dem:
+För dessa två mått spårar [kluster resurs hanteraren (CRM)][cluster-resource-manager-description-link] den totala kluster kapaciteten, belastningen på varje nod i klustret och återstående resurser i klustret. Dessa två mått motsvarar andra användare eller anpassade mått. Alla befintliga funktioner kan användas med dem:
 
 * Klustret kan [bal anse](service-fabric-cluster-resource-manager-balancing.md) ras enligt dessa två mått (standard beteende).
 * Klustret kan [defragmentas](service-fabric-cluster-resource-manager-defragmentation-metrics.md) enligt dessa två mått.
-* När du [beskriver ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)kan du ange en buffrad kapacitet för dessa två mått.
+* När du [beskriver ett kluster][cluster-resource-manager-description-link]kan du ange en buffrad kapacitet för dessa två mått.
 
 > [!NOTE]
 > [Rapporter för dynamisk inläsning](service-fabric-cluster-resource-manager-metrics.md) stöds inte för dessa mått. inläsningar för dessa mått definieras vid skapande tillfället.
 
 ## <a name="resource-governance-mechanism"></a>Resurs styrnings funktion
 
-Det finns för närvarande ingen reservation för resurser i Service Fabric Runtime. När en process eller behållare öppnas, anger körningen resurs gränserna till de belastningar som definierades vid skapande tillfället. Dessutom avvisar körnings miljön öppningen av nya tjänst paket som är tillgängliga när resurserna överskrids. För att bättre förstå hur processen fungerar, tar vi ett exempel på en nod med två processor kärnor (mekanismen för minnes styrning är likvärdig):
+Från och med version 7,2 stöder Service Fabric runtime specificering av begär Anden och gränser för processor-och minnes resurser.
 
-1. Först placeras en behållare på noden och begär en processor kärna. Körningen öppnar behållaren och anger processor gränsen till en kärna. Behållaren kan inte använda mer än en kärna.
+> [!NOTE]
+> Service Fabric runtime-versioner som är äldre än 7,2 stöder bara en modell där ett enda värde både är **begäran** och **gränsen** för en viss resurs (CPU eller minne). Detta beskrivs som **RequestsOnly** -specifikationen i det här dokumentet.
 
-2. Sedan placeras en replik av en tjänst på noden, och motsvarande tjänst paket anger en gräns på en processor kärna. Körningen öppnar kod paketet och anger dess processor gräns till en kärna.
+* *Begär Anden:* Värdena för processor-och minnes förfrågningar representerar de belastningar som används av [kluster resurs hanteraren (CRM)][cluster-resource-manager-description-link] för `servicefabric:/_CpuCores` `servicefabric:/_MemoryInMB` måtten och. Med andra ord anser CRM resurs förbrukningen för en tjänst som motsvarar dess begär ande värden och använder dessa värden när beslut fattas.
 
-I det här läget är summan av gränserna lika med nodens kapacitet. En process och en behållare körs med en kärna och inte stör varandra. Service Fabric placerar inte fler behållare eller repliker när de anger processor gränsen.
+* *Gränser:* Värdena för processor-och minnes gränser representerar de faktiska resurs gränserna som tillämpas när en process eller behållare aktive ras på en nod.
 
-Det finns dock två situationer där andra processer kan tävla för CPU. I sådana fall kan en process och en behållare från vårt exempel drabbas av problem med problem med störningar:
+Service Fabric tillåter **RequestsOnly, LimitsOnly** och båda **RequestsAndLimits** -specifikationerna för processor och minne.
+* När RequestsOnly-specifikation används använder Service Fabric även värdena för begäran som gränser.
+* När LimitsOnly-specifikation används, anser Service Fabric att värdena för begäran är 0.
+* När RequestsAndLimits-specifikation används måste gräns värdena vara större än eller lika med värdena för begäran.
+
+För att bättre förstå resurs styrnings mekanismen ska vi titta på ett exempel på placerings scenario med en **RequestsOnly** -specifikation för CPU-resursen (mekanismen för minnes styrning är likvärdig). Överväg en nod med två processor kärnor och två tjänst paket som ska placeras på den. Det första tjänst paketet som ska monteras består av ett enda container kods paket och anger bara en begäran om en processor kärna. Det andra tjänst paketet som ska placeras består av bara ett processbaserade kod paket och anger även en begäran om en processor kärna. Eftersom båda tjänst paketen har en RequestsOnly-specifikation, ställs deras gräns värden in på deras värden för begäran.
+
+1. Först det behållar tjänst paket som begär en processor kärna placeras på noden. Körningen aktiverar behållaren och anger processor gränsen till en kärna. Behållaren kan inte använda mer än en kärna.
+
+2. Därefter placeras det processbaserade tjänst paketet som begär en processor kärna på noden. Körningen aktiverar tjänst processen och anger processor gränsen till en kärna.
+
+I det här läget är summan av förfrågningar lika med nodens kapacitet. CRM kommer inte att placera fler behållare eller tjänst processer med CPU-begäranden på den här noden. På noden körs en process och en behållare med en kärna varje och kommer inte att tävla med varandra för CPU.
+
+Nu ska vi gå tillbaka till vårt exempel med en **RequestsAndLimits** -specifikation. Den här gången anger det behållar tjänst paketet en begäran om en processor kärna och en gräns på två processor kärnor. Det processbaserade tjänst paketet anger både en begäran och en gräns för en processor kärna.
+  1. Först det behållar tjänst paketet placeras på noden. Körningen aktiverar behållaren och anger processor gränsen till två kärnor. Behållaren kan inte använda fler än två kärnor.
+  2. Därefter placeras det processbaserade tjänst paketet på noden. Körningen aktiverar tjänst processen och anger processor gränsen till en kärna.
+
+  I det här läget är summan av CPU-begäranden för tjänst paket som placeras på noden lika med nodens CPU-kapacitet. CRM kommer inte att placera fler behållare eller tjänst processer med CPU-begäranden på den här noden. Men på noden överskrider summan av gränser (två kärnor för containern + en kärna för processen) kapaciteten hos två kärnor. Om behållaren och process burst samtidigt, finns det risk för processor resursens konkurrens. Sådan konkurrens kommer att hanterade av det underliggande operativ systemet för plattformen. I det här exemplet kan behållaren överföra upp till två processor kärnor, vilket resulterade i att processens begäran om en processor kärna inte garanteras.
+
+> [!NOTE]
+> Som vi illustrerade i föregående exempel leder inte värdena för processor och minne **till reservation av resurser på en nod**. De här värdena representerar resursanvändningen som kluster resurs hanteraren anser när du fattar beslut om placering. Limit-värden representerar faktiska resurs gränser som tillämpas när en process eller behållare aktive ras på en nod.
+
+
+Det finns några situationer där det kan finnas konkurrens för CPU. I dessa fall kan processen och behållaren från vårt exempel uppleva problemet med problem med störningar:
 
 * *Blanda reglerade och icke-styrda tjänster och behållare*: om en användare skapar en tjänst utan någon resurs styrning som har angetts, ser körnings miljön den som förbrukar inga resurser och kan placera den på noden i vårt exempel. I det här fallet förbrukar sig den här nya processen mycket processor vid kostnaden för de tjänster som redan körs på noden. Det finns två lösningar på det här problemet. Du kan antingen inte blanda reglerade och icke-styrda tjänster i samma kluster, eller använda [placerings begränsningar](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) så att dessa två typer av tjänster inte slutar på samma uppsättning noder.
 
 * *När en annan process startas på noden, utanför Service Fabric (t. ex. en OS-tjänst)*: i det här fallet följer processen utanför Service Fabric även för CPU med befintliga tjänster. Lösningen på det här problemet är att konfigurera nodens kapacitet på rätt sätt för att redovisa OS-kostnader, som du ser i nästa avsnitt.
+
+* *När begär Anden inte är lika med begränsningar*: enligt beskrivningen i RequestsAndLimits-exemplet ovan leder inte begär anden till att resurser på en nod reserveras. När en tjänst med gränser som är större än begär Anden placeras på en nod, kan den använda resurser (om de är tillgängliga) upp till dess gränser. I sådana fall kanske andra tjänster på noden inte kan använda resurser upp till sina begär ande värden.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>Kluster konfiguration för att aktivera resurs styrning
 
@@ -66,7 +92,7 @@ Här är ett exempel på hur du kan instruera Service Fabric att använda 50% av
 </Section>
 ```
 
-För de flesta kunder och scenarier är den automatiska identifieringen av nodens kapacitet för processor och minne den rekommenderade konfigurationen (automatisk identifiering är aktiverat som standard). Men om du behöver fullständig manuell konfigurering av Node-kapaciteter kan du konfigurera de här typerna per nodtyp med hjälp av mekanismen för att beskriva noderna i klustret. Här är ett exempel på hur du ställer in nodtypen med fyra kärnor och 2 GB minne:
+För de flesta kunder och scenarier är den automatiska identifieringen av nodens kapacitet för processor och minne den rekommenderade konfigurationen (automatisk identifiering är aktiverat som standard). Men om du behöver fullständig manuell konfigurering av nods kapacitet kan du konfigurera dem per nodtyp med hjälp av mekanismen för att beskriva noder i klustret. Här är ett exempel på hur du ställer in nodtypen med fyra kärnor och 2 GB minne:
 
 ```xml
     <NodeType Name="MyNodeType">
@@ -103,7 +129,7 @@ För optimala prestanda bör följande inställning också aktive ras i kluster 
 > [!IMPORTANT]
 > Från och med Service Fabric version 7,0 har vi uppdaterat regeln för hur resurs kapacitet för noder beräknas i de fall där användaren manuellt tillhandahåller värdena för resurs kapacitet. Vi tar hänsyn till följande scenario:
 >
-> * Det finns 10 CPU-kärnor totalt på noden
+> * Det finns totalt 10 CPU-kärnor på noden
 > * SF är konfigurerat för att använda 80% av det totala antalet resurser för användar tjänsterna (standardinställning), vilket lämnar en buffert på 20% för de andra tjänsterna som körs på noden (inklusive Service Fabric system tjänster)
 > * Användaren bestämmer sig för att manuellt åsidosätta resurs kapaciteten för processor kärnor, och ställer in den på 5 kärnor
 >
@@ -114,32 +140,59 @@ För optimala prestanda bör följande inställning också aktive ras i kluster 
 
 ## <a name="specify-resource-governance"></a>Ange resurs styrning
 
-Resurs styrnings gränser anges i avsnittet applikations manifest (service manifest import), som du ser i följande exempel:
+Resurs styrnings förfrågningar och-gränser anges i program manifestet (service manifest import-avsnittet). Låt oss titta på några exempel:
 
+**Exempel 1: RequestsOnly-specifikation**
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance'>
-
-  <!--
-  ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
-  In this case, Service Fabric sums the limits on code packages and uses the sum as 
-  the overall ServicePackage limit.
-  -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
     <Policies>
       <ServicePackageResourceGovernancePolicy CpuCores="1"/>
-      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="512" MemoryInMB="1000" />
-      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="256" MemoryInMB="1000" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="512" MemoryInMB="1024" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="256" MemoryInMB="1024" />
     </Policies>
   </ServiceManifestImport>
 ```
 
-I det här exemplet hämtar tjänst paketet som heter **ServicePackageA** en kärna på noderna där det placeras. Det här tjänst paketet innehåller två kod paket (**CodeA1** och **CodeA2**) och båda anger `CpuShares` parametern. Proportionen av CpuShares 512:256 delar upp kärnan i de två kod paketen.
+I det här exemplet `CpuCores` används attributet för att ange en begäran om 1 processor kärna för **ServicePackageA**. Eftersom processor gränsen ( `CpuCoresLimit` attribut) inte har angetts använder Service Fabric också det angivna begär ande värdet 1 kärna som processor gränsen för tjänst paketet.
 
-I det här exemplet hämtar CodeA1 två tredjedelar av en kärna och CodeA2 får en tredjedel av en kärna (och en återreservation av mjuk garanti av samma). Om CpuShares inte anges för kod paket, dividerar Service Fabric kärnorna jämnt mellan dem.
+**ServicePackageA** placeras bara på en nod där den återstående processor kapaciteten efter att ha dragit **summan av CPU-begäranden för alla tjänst paket som har placerats på noden** är större än eller lika med 1 kärna. På noden är tjänst paketet begränsat till en kärna. Tjänste paketet innehåller två kod paket (**CodeA1** och **CodeA2**) och båda anger `CpuShares` attributet. Förhållandet mellan CpuShares 512:256 används för att beräkna processor gränserna för de enskilda kod paketen. Därför kommer CodeA1 att begränsas till två tredjedelar av en kärna, och CodeA2 kommer att begränsas till en tredjedel av en kärna. Om CpuShares inte anges för alla kod paket kan Service Fabric dividera CPU-gränsen jämnt mellan dem.
 
-Minnes gränserna är absoluta, så båda kod paketen är begränsade till 1024 MB minne (och en reservation av mjuk garanti av samma). Kod paket (behållare eller processer) kan inte allokera mer minne än den här gränsen, och om du försöker göra detta resulterar det i ett minnes sluts undantag. För att tvingande resursbegränsning ska fungera bör minnesbegränsningar ha angetts för alla kodpaket inom ett tjänstpaket.
+Medan CpuShares som har angetts för kod paket representerar deras relativa andel av tjänst paketets övergripande processor gräns, anges minnes värden för kod paket i absoluta termer. I det här exemplet `MemoryInMB` används attributet för att ange minnes förfrågningar på 1024 MB för både CodeA1 och CodeA2. Eftersom minnes gränsen ( `MemoryInMBLimit` attribut) inte har angetts använder Service Fabric även de angivna värdena för begäran som begränsningar för kod paketen. Minnes förfrågan (och gränsen) för tjänst paketet beräknas som summan av värdena för minnes begär Ande (och gräns) för komponent kod paketen. För **ServicePackageA**beräknas dock minnes förfrågan och-gränsen som 2048 MB.
+
+**ServicePackageA** placeras bara på en nod där den återstående minnes kapaciteten efter att ha dragit **summan av minnes förfrågningar för alla tjänst paket som har placerats på noden** är större än eller lika med 2048 MB. På noden är båda kod paketen begränsade till 1024 MB minne var. Kod paket (behållare eller processer) kan inte allokera mer minne än den här gränsen och om du försöker göra det uppstår minnes brist.
+
+**Exempel 2: LimitsOnly-specifikation**
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance'>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCoresLimit="1"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="512" MemoryInMBLimit="1024" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="256" MemoryInMBLimit="1024" />
+    </Policies>
+  </ServiceManifestImport>
+```
+I det här exemplet används `CpuCoresLimit` och används `MemoryInMBLimit` attribut som endast är tillgängliga i SF version 7,2 och senare. Attributet CpuCoresLimit används för att ange en processor gräns på 1 kärna för **ServicePackageA**. Eftersom processor förfrågan ( `CpuCores` attribut) inte har angetts anses den vara 0. `MemoryInMBLimit` attributet används för att ange minnes gränser på 1024 MB för CodeA1 och CodeA2 och eftersom begär Anden ( `MemoryInMB` attribut) inte har angetts anses de vara 0. Minnes förfrågan och-gränsen för **ServicePackageA** beräknas därför som 0 respektive 2048. Eftersom både processor-och minnes begär Anden för **ServicePackageA** är 0, visar den ingen belastning för CRM för placering, för `servicefabric:/_CpuCores` `servicefabric:/_MemoryInMB` måtten och. Därför kan **ServicePackageA** placeras på valfri nod från ett resurs styrnings perspektiv **oavsett återstående kapacitet**. Till exempel 1, på noden, kommer CodeA1 att begränsas till två tredjedelar av en kärna och 1024 MB minne, och CodeA2 kommer att begränsas till en tredjedel av en kärna och 1024 MB minne.
+
+**Exempel 3: RequestsAndLimits-specifikation**
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance'>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName='ServicePackageA' ServiceManifestVersion='v1'/>
+    <Policies>
+      <ServicePackageResourceGovernancePolicy CpuCores="1" CpuCoresLimit="2"/>
+      <ResourceGovernancePolicy CodePackageRef="CodeA1" CpuShares="512" MemoryInMB="1024" MemoryInMBLimit="3072" />
+      <ResourceGovernancePolicy CodePackageRef="CodeA2" CpuShares="256" MemoryInMB="2048" MemoryInMBLimit="4096" />
+    </Policies>
+  </ServiceManifestImport>
+```
+Genom att skapa de första två exemplen visar det här exemplet både förfrågningar och gränser för processor och minne. **ServicePackageA** har processor-och minnes förfrågningar på 1 kärna och 3072 (1024 + 2048) MB. Den kan bara placeras på en nod som har minst 1 kärna (och 3072 MB) kapacitet kvar efter att du subtraherat summan av alla processor-och minnes förfrågningar för alla tjänst paket som placeras på noden från nodens totala CPU (och minnes kapacitet). På noden begränsas CodeA1 till två tredjedelar av 2 kärnor och 3072 MB minne medan CodeA2 kommer att begränsas till en tredjedel av 2 kärnor och 4096 MB minne.
 
 ### <a name="using-application-parameters"></a>Använda program parametrar
 
@@ -215,7 +268,7 @@ Förutom CPU och minne är det möjligt att ange andra resurs gränser för beh�
 
 * *MemorySwapInMB*: mängden växlings minne som en behållare kan använda.
 * *MemoryReservationInMB*: den mjuka gränsen för minnes styrning som endast tillämpas när minnes konkurrens identifieras på noden.
-* *CpuPercent*: procent andelen CPU som containern kan använda. Om processor gränser har angetts för tjänst paketet, ignoreras den här parametern i praktiken.
+* *CpuPercent*: procent andelen CPU som containern kan använda. Om CPU-begäranden eller-gränser anges för tjänst paketet, ignoreras den här parametern i praktiken.
 * *MaximumIOps*: högsta IOPS som en behållare kan använda (läsa och skriva).
 * *MaximumIOBytesps*: den maximala IO (byte per sekund) som en behållare kan använda (läsa och skriva).
 * *BlockIOWeight*: BLOCKets IO-vikt för relativa till andra behållare.
@@ -235,4 +288,9 @@ Dessa resurser kan kombineras med processor och minne. Här är ett exempel på 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om kluster resurs hanteraren [i Introduktion till Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md).
-* Om du vill veta mer om program modellen, service paket och kod paket – och hur repliker mappar till dem, kan du läsa [en app i Service Fabric](service-fabric-application-model.md).
+* Om du vill veta mer om program modellen, service paket och kod paket – och hur repliker mappar till dem, kan du läsa [en app i Service Fabric][application-model-link].
+
+<!-- Links -->
+[application-model-link]: service-fabric-application-model.md
+[hosting-model-link]: service-fabric-hosting-model.md
+[cluster-resource-manager-description-link]: service-fabric-cluster-resource-manager-cluster-description.md

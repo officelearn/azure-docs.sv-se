@@ -4,12 +4,12 @@ description: Instruktioner om hur du flyttar ett Recovery Services valv över Az
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: bd1870e803f5051e2a65a6cddbb72406421d4fc3
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056437"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171604"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -178,7 +178,7 @@ Om du behöver behålla nuvarande skyddade data i det gamla valvet och fortsätt
   - Du kommer bara att kunna återställa säkerhetskopierade data för återställnings punkter som inte har gått ut i det gamla valvet.
   - En ny inledande replik av data måste skapas i det nya valvet.
 
-- För en virtuell Azure-dator kan du [stoppa skyddet med Behåll data](backup-azure-manage-vms.md#stop-protecting-a-vm) för den virtuella datorn i det gamla valvet, flytta den virtuella datorn till en annan resurs grupp och sedan skydda den virtuella datorn i det nya valvet. Se [vägledning och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/move-limitations/virtual-machines-move-limitations) för att flytta en virtuell dator till en annan resurs grupp.
+- För en virtuell Azure-dator kan du [stoppa skyddet med Behåll data](backup-azure-manage-vms.md#stop-protecting-a-vm) för den virtuella datorn i det gamla valvet, flytta den virtuella datorn till en annan resurs grupp och sedan skydda den virtuella datorn i det nya valvet. Se [vägledning och begränsningar](../azure-resource-manager/management/move-limitations/virtual-machines-move-limitations.md) för att flytta en virtuell dator till en annan resurs grupp.
 
   En virtuell dator kan endast skyddas i ett valv i taget. Den virtuella datorn i den nya resurs gruppen kan dock skyddas på det nya valvet eftersom den betraktas som en annan virtuell dator.
 

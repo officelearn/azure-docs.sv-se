@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig att hantera återställnings åtgä
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: ad60436d82ccc8049a4509ba5bf1e244bee150ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 260c78af39c46e493ebb79c26ff1c55153a41c1d
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89506686"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174021"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -122,7 +122,7 @@ När du har valt [relevant återställnings punkt](#select-recovery-point)forts�
 ***Alla återställnings åtgärder på säkerhets kopierings objekt utförs med samma *post* -API. Endast begär ande texten ändras med återställnings scenarier.***
 
 > [!IMPORTANT]
-> All information om olika återställnings alternativ och deras beroenden anges [här](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options). Granska innan du fortsätter att utlösa de här åtgärderna.
+> All information om olika återställnings alternativ och deras beroenden anges [här](./backup-azure-arm-restore-vms.md#restore-options). Granska innan du fortsätter att utlösa de här åtgärderna.
 
 Att utlösa återställnings åtgärder är en *post* -begäran. Mer information om API: t finns i [REST API "trigger Restore"](/rest/api/backup/restores/trigger).
 
@@ -246,7 +246,7 @@ Följande begär ande text definierar egenskaper som krävs för att utlösa en 
 
 ### <a name="restore-disks-selectively"></a>Återställ diskar selektivt
 
-Om du [selektivt säkerhetskopierar diskar](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)finns listan över aktuella säkerhets kopior i [återställnings punkt sammanfattning](#select-recovery-point) och ett [detaljerat svar](https://docs.microsoft.com/rest/api/backup/recoverypoints/get). Du kan också selektivt återställa diskar och mer information finns [här](selective-disk-backup-restore.md#selective-disk-restore). Om du vill återställa en disk i listan över säkerhetskopierade diskar selektivt, letar du reda på LUN-enheten från återställnings punktens svar och lägger till egenskapen **restoreDiskLunList** i [begär ande texten ovan](#example-request) som visas nedan.
+Om du [selektivt säkerhetskopierar diskar](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup)finns listan över aktuella säkerhets kopior i [återställnings punkt sammanfattning](#select-recovery-point) och ett [detaljerat svar](/rest/api/backup/recoverypoints/get). Du kan också selektivt återställa diskar och mer information finns [här](selective-disk-backup-restore.md#selective-disk-restore). Om du vill återställa en disk i listan över säkerhetskopierade diskar selektivt, letar du reda på LUN-enheten från återställnings punktens svar och lägger till egenskapen **restoreDiskLunList** i [begär ande texten ovan](#example-request) som visas nedan.
 
 ```json
 {

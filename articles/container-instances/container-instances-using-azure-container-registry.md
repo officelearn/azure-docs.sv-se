@@ -5,12 +5,12 @@ services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: mvc
-ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5ba56271950c2d14c7fbf0b9154afb371bcbabc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89656994"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173643"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Distribuera till Azure Container Instances från Azure Container Registry
 
@@ -22,19 +22,18 @@ ms.locfileid: "89656994"
 
 **Azure CLI**: kommando rads exemplen i den här artikeln använder [Azure CLI](/cli/azure/) och är formaterade för bash-gränssnittet. Du kan [Installera Azure CLI](/cli/azure/install-azure-cli) lokalt eller använda [Azure Cloud Shell][cloud-shell-bash].
 
+## <a name="limitations"></a>Begränsningar
+
+* Du kan inte autentisera till Azure Container Registry för att hämta avbildningar under distribution av container grupper genom att använda en [hanterad identitet](container-instances-managed-identity.md) som kon figurer ATS i samma container grupp.
+* Du kan inte hämta bilder från [Azure Container Registry](../container-registry/container-registry-vnet.md) distribueras till en Azure-Virtual Network just nu.
+
 ## <a name="configure-registry-authentication"></a>Konfigurera registerautentisering
 
 I ett produktions scenario, där du ger åtkomst till "konsol löst" tjänster och program, rekommenderar vi att du konfigurerar register åtkomst med hjälp av ett [huvud namn för tjänsten](../container-registry/container-registry-auth-service-principal.md). Med ett huvud namn för tjänsten kan du ge dina behållar avbildningar [Azure rollbaserad åtkomst kontroll (Azure RBAC)](../container-registry/container-registry-roles.md) . Du kan till exempel konfigurera ett huvudnamn för tjänsten med enbart hämtningsåtkomst till ett register.
 
 Azure Container Registry ger ytterligare [autentiseringsalternativ](../container-registry/container-registry-authentication.md).
 
-> [!NOTE]
-> Du kan inte autentisera till Azure Container Registry för att hämta avbildningar under distribution av container grupper genom att använda en [hanterad identitet](container-instances-managed-identity.md) som kon figurer ATS i samma container grupp.
-
-> [!NOTE]
-> Du kan inte hämta bilder från [Azure Container Registry](../container-registry/container-registry-vnet.md) distribueras till en Azure-Virtual Network just nu.
-
-I följande avsnitt skapar du ett Azure Key Vault och ett huvud namn för tjänsten och lagrar autentiseringsuppgifterna för tjänstens huvud namn i valvet. 
+I följande avsnitt skapar du ett Azure Key Vault och ett huvud namn för tjänsten och lagrar autentiseringsuppgifterna för tjänstens huvud namn i valvet.
 
 ### <a name="create-key-vault"></a>Skapa nyckelvalv
 

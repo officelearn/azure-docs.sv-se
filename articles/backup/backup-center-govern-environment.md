@@ -3,12 +3,12 @@ title: Hantera ditt innehav av säkerhetskopior med Backup Center
 description: Lär dig hur du styr din Azure-miljö för att se till att alla resurser är kompatibla från ett säkerhets kopierings perspektiv med Backup Center.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 8a16769be827bf34e5be82409d5b8eb014cdcf1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebb4d72c3a3377072e185251bd642762f6876c03
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614353"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173807"
 ---
 # <a name="govern-your-backup-estate-using-backup-center"></a>Hantera ditt innehav av säkerhetskopior med Backup Center
 
@@ -26,15 +26,15 @@ Backup Center hjälper dig att styra din Azure-miljö och se till att alla resur
 
 ## <a name="azure-policies-for-backup"></a>Azure-principer för säkerhets kopiering
 
-Om du vill visa alla [Azure-principer](https://docs.microsoft.com/azure/governance/policy/overview) som är tillgängliga för säkerhets kopiering väljer du meny alternativet Azure- **principer för säkerhets kopiering** . Då visas alla inbyggda och anpassade [definitioner av Azure-principer för säkerhets kopiering](policy-reference.md) som är tillgängliga för tilldelning till dina prenumerationer och resurs grupper.
+Om du vill visa alla [Azure-principer](../governance/policy/overview.md) som är tillgängliga för säkerhets kopiering väljer du meny alternativet Azure- **principer för säkerhets kopiering** . Då visas alla inbyggda och anpassade [definitioner av Azure-principer för säkerhets kopiering](policy-reference.md) som är tillgängliga för tilldelning till dina prenumerationer och resurs grupper.
 
-Genom att välja någon av definitionerna kan du [tilldela principen](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) till ett definitions område.
+Genom att välja någon av definitionerna kan du [tilldela principen](../governance/policy/tutorials/create-and-manage.md#assign-a-policy) till ett definitions område.
 
 ![Välj Azure Policy definitioner](./media/backup-center-govern-environment/azure-policy-definitions.png)
 
 ## <a name="backup-compliance"></a>Kompatibilitet för säkerhets kopiering
 
-Genom att klicka på meny alternativet kompatibilitet för säkerhets kopiering kan du se [kompatibiliteten](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) för dina resurser enligt de olika inbyggda principerna som du har tilldelat din Azure-miljö. Du kan visa procent andelen resurser som är kompatibla med alla principer, samt de principer som har en eller flera icke-kompatibla resurser.
+Genom att klicka på meny alternativet kompatibilitet för säkerhets kopiering kan du se [kompatibiliteten](../governance/policy/how-to/get-compliance-data.md) för dina resurser enligt de olika inbyggda principerna som du har tilldelat din Azure-miljö. Du kan visa procent andelen resurser som är kompatibla med alla principer, samt de principer som har en eller flera icke-kompatibla resurser.
 
 ![Visa kompatibilitet för säkerhets kopiering](./media/backup-center-govern-environment/azure-policy-compliance.png)
 

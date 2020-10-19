@@ -3,12 +3,12 @@ title: Om återställnings processen för den virtuella Azure-datorn
 description: Lär dig hur tjänsten Azure Backup återställer virtuella Azure-datorer
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f9e81c4fa40e5a1d984c163ffa5f37d8092f9032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67af1ed193c289358f929953bc3caa5d04ef7e09
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985337"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92171770"
 ---
 # <a name="about-azure-vm-restore"></a>Återställning av virtuell Azure-dator
 
@@ -32,13 +32,13 @@ Den här artikeln beskriver hur [Azure Backup tjänsten](./backup-overview.md) �
 - **Tillgänglighet (typer av replikering)**: Azure Backup erbjuder två typer av replikering för att hålla lagringen/data hög tillgängliga:
   - [Lokalt redundant lagring (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replikerar dina data tre gånger (det skapas tre kopior av dina data) i en lagringsskalningsenhet i ett datacenter. Alla datakopior finns i samma region. LRS är ett billigt alternativ för att skydda dina data mot fel i den lokala maskinvaran.
   - [Geo-redundant lagring (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) är standardalternativet och det som rekommenderas vid replikering. GRS replikerar dina data till en sekundär region (hundratals mil bort från den primära platsen för datakällan). GRS kostar mer än LRS, men GRS ger en högre nivå av hållbarhet för dina data, även om det finns ett regionalt avbrott.
-  - [Zone-redundant lagring (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikerar dina data i [tillgänglighets zoner](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), vilket garanterar data placering och återhämtning i samma region. ZRS har ingen stillestånds tid. Så dina kritiska arbets belastningar som kräver [data placering](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)och får inte ha någon avbrotts tid kan säkerhets kopie ras i ZRS.
+  - [Zone-redundant lagring (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replikerar dina data i [tillgänglighets zoner](../availability-zones/az-overview.md#availability-zones), vilket garanterar data placering och återhämtning i samma region. ZRS har ingen stillestånds tid. Så dina kritiska arbets belastningar som kräver [data placering](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/)och får inte ha någon avbrotts tid kan säkerhets kopie ras i ZRS.
 
 - **Återställning mellan regioner (CRR)**: som ett av [återställnings alternativen](./backup-azure-arm-restore-vms.md#restore-options)kan du med återställningen mellan regioner (CRR) återställa virtuella Azure-datorer i en sekundär region, som är en [Azure-kopplad region](../best-practices-availability-paired-regions.md#what-are-paired-regions).
 
-## <a name="restore-scenarios"></a>Återställnings scenarier
+## <a name="restore-scenarios"></a>Återställningsscenarier
 
-![Återställnings scenarier ](./media/about-azure-vm-restore/recovery-scenarios.png)
+![Återställningsscenarier ](./media/about-azure-vm-restore/recovery-scenarios.png)
 
 | **Scenario**                                                 | **Vad är det som gör**                                             | **När du ska använda detta**                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |

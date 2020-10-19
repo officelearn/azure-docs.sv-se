@@ -4,12 +4,12 @@ description: Innehåller en översikt över support inställningar och begränsn
 ms.topic: conceptual
 ms.date: 03/05/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5126159f2f9e5761b5f6a073972935101bc03210
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b189eceb6b5a7f2e508387c0b91b238ff5fcb088
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946356"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92174063"
 ---
 # <a name="support-matrix-for-sql-server-backup-in-azure-vms"></a>Support mat ris för SQL Server säkerhets kopiering på virtuella Azure-datorer
 
@@ -17,7 +17,7 @@ Du kan använda Azure Backup för att säkerhetskopiera SQL Server databaser i v
 
 ## <a name="scenario-support"></a>Scenariostöd
 
-**Support** | **Information**
+**Support** | **Detaljer**
 --- | ---
 **Distributioner som stöds** | Virtuella SQL Marketplace Azure-datorer och virtuella icke-Marketplace-datorer (manuellt installerat SQL Server) stöds.
 **Regioner som stöds** | Sydöstra Australien (ASE), östra Australien (AE), Australien, centrala (AC), Australien, centrala 2 (AC) <br> Brasilien, södra (BRS)<br> Kanada, centrala (CNC), Kanada, östra (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> Östra USA (EUS), östra USA 2 (EUS2), västra centrala USA (WCUS), västra USA (WUS); Västra USA 2 (WUS 2) norra centrala USA (NCUS) centrala USA (CUS) södra centrala USA (SCUS) <br> Indien, centrala (INC), Indien, södra (moduler), västra Indien <br> Japan, östra (JPE), Japan, väst (JPW) <br> Korea, centrala (KRC), Korea, södra (KRS) <br> Nord Europa (NE), Västeuropa <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW) <br> US Gov, Arizona, US Gov, Virginia, US Gov, Texas, US DoD, centrala, US DoD, östra <br> Tyskland, norra Tyskland, västra centrala <br> Schweiz, norra Schweiz, västra <br> Frankrike, centrala <br> Kina, östra, Kina, östra 2, Kina, norra, Kina, norra 2
@@ -41,7 +41,7 @@ Du kan använda Azure Backup för att säkerhetskopiera SQL Server databaser i v
 * Alla säkerhets kopierings typer (fullständig/differentiell/log) och återställnings modeller (enkel/fullständig/Mass utloggning) stöds.
 * Fullständiga och kopiera endast fullständiga säkerhets kopierings typer stöds för **skrivskyddade** databaser.
 * Inbyggd SQL-komprimering stöds om användaren uttryckligen aktive ras av användaren i säkerhets kopierings principen. Azure Backup åsidosätter standardvärden på instans nivå med KOMPRIMERINGs-/NO_COMPRESSION-satsen, beroende på värdet för den här kontrollen som anges av användaren.
-* TDE-aktiverad databas säkerhets kopiering stöds. Om du vill återställa en TDE-krypterad databas till en annan SQL Server måste du först [återställa certifikatet till mål servern](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Komprimering av säkerhets kopiering för TDE-aktiverade databaser för SQL Server 2016 och nyare versioner är tillgänglig, men vid lägre överförings storlek enligt beskrivningen [här](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
+* TDE-aktiverad databas säkerhets kopiering stöds. Om du vill återställa en TDE-krypterad databas till en annan SQL Server måste du först [återställa certifikatet till mål servern](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Komprimering av säkerhets kopiering för TDE-aktiverade databaser för SQL Server 2016 och nyare versioner är tillgänglig, men vid lägre överförings storlek enligt beskrivningen [här](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
 * Säkerhets kopierings-och återställnings åtgärder för speglings databaser och ögonblicks bilder av databasen stöds inte.
 * SQL Server **-redundanskluster (FCI)** stöds inte.
 * Om du använder fler än en säkerhets kopierings lösning för att säkerhetskopiera din fristående SQL Server instans eller SQL Always on-tillgänglighetsgruppen kan det leda till säkerhets kopierings problem. Avstå från att göra det. Att säkerhetskopiera två noder i en tillgänglighets grupp individuellt med samma eller olika lösningar, kan också leda till att säkerhets kopieringen Miss lyckas.

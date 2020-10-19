@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e27c6661c34ab6d177feec11f8e9ec891987ab48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbfec218c1bf1d018157fc6d78c700991f332a13
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005759"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172800"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Placerings principer för Service Fabric-tjänster
 Placerings principer är ytterligare regler som kan användas för att styra tjänst placeringen i vissa olika, mindre vanliga scenarier. Några exempel på scenarier är:
@@ -20,6 +20,7 @@ Placerings principer är ytterligare regler som kan användas för att styra tj�
 - Din miljö omfattar flera områden av politisk eller juridisk kontroll, eller något annat fall där du har princip gränser som du måste tillämpa
 - Det finns information om kommunikations prestanda eller svars tider på grund av stora avstånd eller användning av långsammare eller mindre pålitliga nätverks länkar
 - Du måste ha vissa arbets belastningar samordnad som bästa ansträngning, antingen med andra arbets belastningar eller i närhet till kunder
+- Du behöver flera tillstånds lösa instanser av en partition på en enskild nod
 
 De flesta av dessa krav överensstämmer med klustrets fysiska layout, som visas som fel domäner i klustret. 
 
@@ -29,6 +30,7 @@ De avancerade placerings principerna som hjälper dig att lösa de här scenarie
 2. Obligatoriska domäner
 3. Önskade domäner
 4. Otillåten replik packning
+5. Tillåt flera tillstånds lösa instanser på noden
 
 De flesta av följande kontroller kan konfigureras via nodens egenskaper och placerings begränsningar, men några är mer komplicerade. För att göra det enklare är Service Fabric Cluster Resource Manager dessa ytterligare placerings principer. Placerings principer konfigureras på en per namngiven tjänst instans. De kan också uppdateras dynamiskt.
 
@@ -122,6 +124,42 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ```
 
 Är det nu möjligt att använda de här konfigurationerna för tjänster i ett kluster som inte var geografiskt utsträckta? Du kan, men det är inte en bra anledning. De obligatoriska, ogiltiga och önskade domän konfigurationerna bör undvikas om inte scenarierna kräver det. Det är ingen mening att försöka tvinga en viss arbets belastning att köras i ett enda rack eller att föredra ett visst segment i ditt lokala kluster över ett annat. Olika maskinvarukonfigurationer bör spridas mellan fel domäner och hanteras via vanliga placerings begränsningar och Node-egenskaper.
+
+## <a name="placement-of-multiple-stateless-instances-of-a-partition-on-single-node"></a>Placering av flera tillstånds lösa instanser av en partition på en enskild nod
+**AllowMultipleStatelessInstancesOnNode** placerings princip tillåter placering av flera tillstånds lösa instanser av en partition på en enda nod. Som standard kan flera instanser av en enda partition inte placeras på en nod. Även med en-1-tjänst går det inte att skala antalet instanser utöver antalet noder i klustret för en angiven tjänst. Den här placerings principen tar bort den här begränsningen och tillåter att InstanceCount anges högre än antalet noder.
+
+Om du någonsin har sett ett hälso meddelande som " `The Load Balancer has detected a Constraint Violation for this Replica:fabric:/<some service name> Secondary Partition <some partition ID> is violating the Constraint: ReplicaExclusion` ", har du nått det här villkoret eller något liknande. 
+
+Genom att ange `AllowMultipleStatelessInstancesOnNode` principen för tjänsten kan InstanceCount anges bortom antalet noder i klustret.
+
+Kod:
+
+```csharp
+ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription allowMultipleInstances = new ServicePlacementAllowMultipleStatelessInstancesOnNodePolicyDescription();
+serviceDescription.PlacementPolicies.Add(allowMultipleInstances);
+```
+
+PowerShell:
+
+```posh
+New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName -Stateless –PartitionSchemeSingleton –PlacementPolicy @(“AllowMultipleStatelessInstancesOnNode”) -InstanceCount 10 -ServicePackageActivationMode ExclusiveProcess 
+```
+
+> [!NOTE]
+> Placerings principen är för närvarande en för hands version och ligger bakom `EnableUnsupportedPreviewFeatures` kluster inställningen. Eftersom det här är en förhands gransknings funktion för tillfället förhindrar att klustret uppgraderas till/från om du anger förhands gransknings konfigurationen. Med andra ord måste du skapa ett nytt kluster för att testa funktionen.
+>
+
+> [!NOTE]
+> För närvarande stöds principen bara för tillstånds lösa tjänster med [aktiverings läget ExclusiveProcess Service Package](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicepackageactivationmode?view=azure-dotnet).
+>
+
+> [!WARNING]
+> Principen stöds inte när den används med statiska port slut punkter. Användning av både tillsammans kan leda till ett kluster som inte är felfri eftersom flera instanser på samma nod försöker binda till samma port och kan inte komma upp. 
+>
+
+> [!NOTE]
+> Att använda ett högt värde för [MinInstanceCount](https://docs.microsoft.com/dotnet/api/system.fabric.description.statelessservicedescription.mininstancecount?view=azure-dotnet) med den här placerings principen kan leda till låsta program uppgraderingar. Om du till exempel har ett kluster med fem noder och anger InstanceCount = 10, kommer du att ha två instanser på varje nod. Om du anger MinInstanceCount = 9 kan ett försök att uppgradera appen bli fastnat. med MinInstanceCount = 8 kan detta undvikas.
+>
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur du konfigurerar tjänster finns i [så här konfigurerar du tjänster](service-fabric-cluster-resource-manager-configure-services.md)

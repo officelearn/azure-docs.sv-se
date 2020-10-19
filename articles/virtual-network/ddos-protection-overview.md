@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 50b0324be8da8024dcbda140eff062f3ff712225
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087964ab64c94d5dfe223ce4e47355784003b627
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371192"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173346"
 ---
-# <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection standard översikt
+# <a name="azure-ddos-protection-standard-overview"></a>Översikt över Azure DDoS Protection Standard
 
 Distribuerade överbelastningsattacker (DDoS) är några av de största tillgänglighets- och säkerhetsproblemen för kunder som flyttar sina program till molnet. Ett DDoS-angrepp försöker att belasta ett programs resurser, vilket gör programmet otillgängligt för legitima användare. DDoS-attacker kan riktas mot valfri slutpunkt som kan nås offentligt via Internet.
 
@@ -26,7 +26,7 @@ Azure DDoS Protection, kombinerat med bästa praxis för program design, ger fö
 
 DDoS Protection standard är enkelt att aktivera och kräver inga program ändringar. Skyddsprinciperna justeras via särskilda algoritmer för trafikövervakning och maskininlärning. Principer tillämpas på offentliga IP-adresser som är kopplade till resurser som har distribuerats i virtuella nätverk, till exempel Azure Load Balancer, Azure Application Gateway och Azure Service Fabric-instanser, men det här skyddet gäller inte för App Service miljöer.Telemetri i real tid är tillgängligt via Azure Monitor vyer under ett angrepp och för historik. Omfattande attack minsknings analyser är tillgängliga via diagnostikinställningar. Program skikts skydd kan läggas till via [brand väggen för webbaserade Azure Application Gateway](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) eller genom att installera en tredjeparts brand vägg från Azure Marketplace. Skydd tillhandahålls för IPv4-och IPv6 [offentliga IP-adresser](virtual-network-public-ip-address.md)i Azure.
 
-![DDoS Protection Basic vs standard](./media/ddos-protection-overview/ddoscomparison.png)
+![DDoS Protection Basic vs standard](./media/ddos-protection-overview/ddosfeatures.png)
 
 Azure DDoS Protection lagrar inte kund information.
 
@@ -41,8 +41,6 @@ DDoS Protection standard kan minimera följande typer av attacker:
 DDoS Protection standard skyddar resurser i ett virtuellt nätverk, inklusive offentliga IP-adresser som är kopplade till virtuella datorer, belastningsutjämnare och programgatewayer. När den är kopplad till Application Gateway brand vägg för webbaserade program eller en tredjeparts brand vägg för webbaserade program som distribueras i ett virtuellt nätverk med en offentlig IP-adress, kan DDoS Protection standard tillhandahålla fullständig nivå 3-till-nivå 7-reducering.
 
 ## <a name="ddos-protection-standard-features"></a>DDoS Protection standard funktioner
-
-![DDoS-funktioner](./media/ddos-protection-overview/ddosfeatures.png)
 
 DDoS Protection standard funktionerna är:
 

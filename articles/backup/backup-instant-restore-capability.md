@@ -4,12 +4,12 @@ description: Azure Instant Restore-funktion och vanliga frågor och svar om VM b
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 69348a9902224f9f73f80d5b1900143c885d20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95de22d8493181f098e480afc4f319c44c633e42
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000387"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173918"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -60,6 +60,8 @@ De stegvisa ögonblicks bilderna lagras i den virtuella datorns lagrings konto, 
 ## <a name="configure-snapshot-retention"></a>Konfigurera kvarhållning av ögonblicks bilder
 
 ### <a name="using-azure-portal"></a>Använda Azure Portal
+
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 I Azure Portal kan du se ett fält som lagts till i fönstret **princip för säkerhets kopiering av virtuell dator** under avsnittet **omedelbar återställning** . Du kan ändra varaktigheten för ögonblicks bilder för kvarhållning från fönstret **princip för säkerhets kopiering** för alla virtuella datorer som är associerade med den aktuella säkerhets kopierings principen.
 

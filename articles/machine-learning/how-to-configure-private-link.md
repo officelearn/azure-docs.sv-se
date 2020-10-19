@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 4ba7ec73ac70723e21b6acad571d62d14edd250a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89bad470d5ead43b79e3691343b53fff796f7abc
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828121"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172790"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Konfigurera en privat Azure-länk för en Azure Machine Learning-arbetsyta
 
@@ -39,20 +39,28 @@ Det går inte att använda en Azure Machine Learning arbets yta med privat länk
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Skapa en arbets yta som använder en privat slut punkt
 
-Använd någon av följande metoder för att skapa en arbets yta med en privat slut punkt:
+Använd någon av följande metoder för att skapa en arbets yta med en privat slut punkt. Var och en av dessa metoder __kräver ett befintligt virtuellt nätverk__:
 
 > [!TIP]
-> Azure Resource Manager-mallen kan skapa ett nytt virtuellt nätverk om det behövs. Alla andra metoder kräver ett befintligt virtuellt nätverk.
-
-# <a name="resource-manager-template"></a>[Resource Manager-mall](#tab/azure-resource-manager)
-
-Azure Resource Manager-mallen på [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) ger ett enkelt sätt att skapa en arbets yta med en privat slut punkt och ett virtuellt nätverk.
-
-Information om hur du använder den här mallen, inklusive privata slut punkter, finns i [använda en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning](how-to-create-workspace-template.md).
+> Om du vill skapa en arbets yta, en privat slut punkt och ett virtuellt nätverk samtidigt, se [Använd en Azure Resource Manager-mall för att skapa en arbets yta för Azure Machine Learning](how-to-create-workspace-template.md).
 
 # <a name="python"></a>[Python](#tab/python)
 
 Azure Machine Learning python SDK tillhandahåller klassen [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) , som kan användas med [arbets ytan. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) för att skapa en arbets yta med en privat slut punkt. Den här klassen kräver ett befintligt virtuellt nätverk.
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.create(name='myworkspace',
+    subscription_id='<my-subscription-id>',
+    resource_group='myresourcegroup',
+    location='eastus2',
+    private_endpoint_config=pe,
+    private_endpoint_auto_approval=True,
+    show_output=True)
+```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -67,6 +75,78 @@ Azure Machine Learning python SDK tillhandahåller klassen [PrivateEndpointConfi
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 På fliken __nätverk__ i Azure Machine Learning Studio kan du konfigurera en privat slut punkt. Det kräver dock ett befintligt virtuellt nätverk. Mer information finns i [skapa arbets ytor i portalen](how-to-manage-workspace.md).
+
+---
+
+## <a name="add-a-private-endpoint-to-a-workspace"></a>Lägga till en privat slut punkt i en arbets yta
+
+Använd någon av följande metoder för att lägga till en privat slut punkt till en befintlig arbets yta:
+
+> [!IMPORTANT]
+>
+> Du måste ha ett befintligt virtuellt nätverk för att skapa den privata slut punkten i. Du måste också [inaktivera nätverks principer för privata slut punkter](../private-link/disable-private-endpoint-network-policy.md) innan du lägger till den privata slut punkten.
+
+> [!WARNING]
+>
+> Om du har några befintliga beräknings mål som är kopplade till den här arbets ytan och de inte ligger bakom samma virtuella nätverks Tha som den privata slut punkten skapas i, kommer de inte att fungera.
+
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+from azureml.core import Workspace
+from azureml.core import PrivateEndPointConfig
+
+pe = PrivateEndPointConfig(name='myprivateendpoint', vnet_name='myvnet', vnet_subnet_name='default')
+ws = Workspace.from_config()
+ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approval=True, show_output=True)
+```
+
+Mer information om de klasser och metoder som används i det här exemplet finns i [PrivateEndpointConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) och [Workspace.add_private_endpoint](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[Azure CLI-tillägget för Machine Learning](reference-azure-machine-learning-cli.md) ger [AZ ml-arbetsytans tillägg för privat slut punkt](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_add) .
+
+```azurecli
+az ml workspace private-endpoint add -w myworkspace  --pe-name myprivateendpoint --pe-auto-approval true --pe-vnet-name myvnet
+```
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+I arbets ytan Azure Machine Learning på portalen väljer du __privata slut punkter anslutningar__ och väljer sedan __+ privat slut punkt__. Använd fälten för att skapa en ny privat slut punkt.
+
+* När du väljer __region__väljer du samma region som det virtuella nätverket. 
+* Använd __Microsoft. MachineLearningServices/arbets ytor__när du väljer __resurs typ__. 
+* Ange __resursen__ till arbets ytans namn.
+
+Välj slutligen __skapa__ för att skapa den privata slut punkten.
+
+---
+
+## <a name="remove-a-private-endpoint"></a>Ta bort en privat slut punkt
+
+Använd någon av följande metoder för att ta bort en privat slut punkt från en arbets yta:
+
+# <a name="python"></a>[Python](#tab/python)
+
+Använd [Workspace.delete_private_endpoint_connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) för att ta bort en privat slut punkt.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+# get the connection name
+_, _, connection_name = ws.get_details()['privateEndpointConnections'][0]['id'].rpartition('/')
+ws.delete_private_endpoint_connection(private_endpoint_connection_name=connection_name)
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+[Azure CLI-tillägget för Machine Learning](reference-azure-machine-learning-cli.md) ger [AZ ml-arbetsytans borttagnings kommando för ta bort slut punkt](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace/private-endpoint?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_private_endpoint_delete) .
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Välj __anslutningar för privata slut punkter__från Azure Machine Learning arbets yta i portalen och välj sedan den slut punkt som du vill ta bort. Välj slutligen __ta bort__.
 
 ---
 

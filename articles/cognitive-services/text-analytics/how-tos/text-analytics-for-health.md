@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: dffd12f319bd2766decda5874299cd7115f0502b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91309208"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92173959"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Gör så här: använda Textanalys för hälsa (för hands version)
 
@@ -227,7 +227,11 @@ Mer information finns i NGINX-dokumentationen om [nginx SSL-avslutning](https://
 
 
 ## <a name="example-api-request"></a>Exempel på API-begäran
-Containern innehåller REST-baserade slutpunkts-API:er för frågeförutsägelse.
+Containern innehåller REST-baserade slutpunkts-API:er för frågeförutsägelse.  Vi har också tillhandahållit ett visualiserings verktyg i behållaren som är tillgängligt genom att lägga till **demonstrationen** till slut punkten för behållaren, till exempel:
+
+```bash
+http://<serverURL>:5000/demo
+```
 
 Använd exemplet nedan för att skicka en fråga till behållaren som du har distribuerat och som ersätter `serverURL` variabeln med lämpligt värde.
 

@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om Microsoft
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: d0a5c1b5800bbc626453ba8896dc706a0cd5bfd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd974181c78586f915dad6cc6ed39d9255a1456b
+ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324951"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92172585"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server och DPM – vanliga frågor och svar
 
@@ -39,7 +39,7 @@ För DPM-servrar med data källor som är skyddade i molnet (genom att använda 
 
 ### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>Finns det några rekommendationer för att konfigurera undantag för antivirus program?
 
-Ja, vi rekommenderar att du konfigurerar Antivirus uteslutning. Undantag för DPM finns i [köra antivirus program på DPM-servern](https://docs.microsoft.com/system-center/dpm/run-antivirus-server). Undantag för MABS finns i [Konfigurera antivirus program för Mabs-servern](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+Ja, vi rekommenderar att du konfigurerar Antivirus uteslutning. Undantag för DPM finns i [köra antivirus program på DPM-servern](/system-center/dpm/run-antivirus-server). Undantag för MABS finns i [Konfigurera antivirus program för Mabs-servern](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## <a name="vmware-and-hyper-v-backup"></a>VMware och Hyper-V-säkerhetskopiering
 

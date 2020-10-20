@@ -1,22 +1,20 @@
 ---
 title: Felsöka återkommande jobb i Azure Data Lake Analytics
 description: Lär dig hur du använder Azure Data Lake verktyg för Visual Studio för att felsöka ett onormalt återkommande jobb.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 05/20/2018
-ms.openlocfilehash: 86d5134e257d2dae642eceb933a78047773b25a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b95d4b0a082e8eac191d610c9516e5ce72180b4c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87129958"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219181"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Felsöka ett avvikande, återkommande jobb
 
-Den här artikeln visar hur du använder [Azure Data Lake verktyg för Visual Studio](https://aka.ms/adltoolsvs) för att felsöka problem med återkommande jobb. Lär dig mer om pipeline och återkommande jobb från [Azure Data Lake och Azure HDInsight-bloggen](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+Den här artikeln visar hur du använder [Azure Data Lake verktyg för Visual Studio](https://aka.ms/adltoolsvs) för att felsöka problem med återkommande jobb. Lär dig mer om pipeline och återkommande jobb från [Azure Data Lake och Azure HDInsight-bloggen](/archive/blogs/azuredatalake/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy).
 
 Återkommande jobb delar vanligt vis samma fråge logik och liknande indata. Anta till exempel att du har ett återkommande jobb som körs varje måndag morgon kl. 8.00 för att räkna den senaste veckans veckovis aktiva användare. Skripten för dessa jobb delar en certifikatmall som innehåller fråge logiken. Indata för dessa jobb är användnings data för den senaste veckan. Att dela samma fråge logik och liknande inblandning innebär vanligt vis att prestandan för dessa jobb är liknande och stabil. Om ett av dina återkommande jobb plötsligt fungerar onormalt, Miss lyckas eller saktar ned mycket, kan du vilja:
 

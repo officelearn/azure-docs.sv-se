@@ -6,18 +6,18 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 06/11/2020
+ms.date: 10/13/2020
 ms.author: banders
-ms.openlocfilehash: 1df60eedfb776164be7e78f2994027b8d111828b
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 054641d8136d121e611182c8d8b104aefcbc6481
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681965"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057883"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-database"></a>Så tillämpas en reservationsrabatt på Azure SQL Database
 
-När du har köpt en reserverad Azure SQL Database-kapacitet tillämpas reservationsrabatten automatiskt på SQL-databaser som matchar reservationens attribut och kvantitet. En reservation omfattar beräkningskostnaderna för din SQL Database. Du debiteras för programvara, lagring och nätverk enligt de vanliga priserna. Du kan täcka licenskostnaderna för SQL Database med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
+När du har köpt en reserverad Azure SQL Database-kapacitet tillämpas reservationsrabatten automatiskt på SQL-databaser som matchar reservationens attribut och kvantitet. En reservation tillämpas på beräkningskostnaderna för din SQL Database, inklusive den primära repliken och eventuella fakturerbara sekundära repliker. Du debiteras för programvara, lagring och nätverk enligt de vanliga priserna. Du kan täcka licenskostnaderna för SQL Database med [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 Observera att reservationsrabatter inte gäller för Azure SQL Database utan server.
 
@@ -31,7 +31,7 @@ När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en an
 
 ## <a name="discount-applied-to-running-sql-databases"></a>Rabatt som tillämpas på SQL-databaser som körs
 
- Rabatten för reserverad SQL Database-kapacitet tillämpas timvis på SQL-databaser som körs. Den reservation som du köper matchas mot den beräkningsanvändning som genereras av de SQL-databaser som körs. För SQL-databaser som inte körs timmen ut tillämpas reservationen automatiskt på andra SQL-databaser som matchar reservationsattributen. Rabatten kan gälla för SQL-databaser som körs samtidigt. Om du inte har några SQL-databaser som körs timmen ut och som matchar reservationsattributen får du inte ut allt av reservationsrabatten för den timmen.
+Rabatten för reserverad SQL Database-kapacitet tillämpas timvis på SQL-databaser som körs. Den reservation som du köper matchas mot den beräkningsanvändning som genereras av de SQL-databaser som körs. För SQL-databaser som inte körs timmen ut tillämpas reservationen automatiskt på andra SQL-databaser som matchar reservationsattributen. Rabatten kan gälla för SQL-databaser som körs samtidigt. Om du inte har några SQL-databaser som körs timmen ut och som matchar reservationsattributen får du inte ut allt av reservationsrabatten för den timmen.
 
 I följande exempel visas hur rabatten för reserverad SQL Database-kapacitet tillämpas beroende på det antal kärnor som du har köpt och när de körs.
 
@@ -42,6 +42,7 @@ För resten av dessa exempel förutsätter vi att den reserverade SQL Database-k
 - Scenario 2: Du kör två 8-kärniga SQL-databaser i en timme. Reservationsrabatten för 16 kärnor används för beräkningsanvändning för båda de 8-kärniga SQL-databaserna.
 - Scenario 3: Du kör en 16-kärnig SQL Database från kl. 13:00 till 13:30. Du kör en till 16-kärnig SQL Database från kl. 13:30 till 14:00. Båda omfattas av reservationsrabatten.
 - Scenario 4: Du kör en 16-kärnig SQL Database från kl. 13:00 till 13:45. Du kör en till 16-kärnig SQL Database från kl. 13:30 till 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
+- Scenario 5: Du kör en 4-kärnig SQL-databas i hyperskala med tre sekundära repliker, som var och en har fyra kärnor. Reservationen tillämpas på beräkningsanvändning för den primära repliken och för alla sekundära repliker.
 
 Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](understand-reserved-instance-usage-ea.md).
 

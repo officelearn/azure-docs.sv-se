@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6de96b9913b70dd1b2d423e00c58b95ccb8dcb07
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 22cef5919e597d4cd83ad80f5758a0427c52e2bb
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048159"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219742"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Lagra data på gränsen med Azure Blob Storage på IoT Edge
 
@@ -53,7 +53,7 @@ Om en oväntad process terminering (t. ex. strömavbrott) sker under en BLOB-upp
 * Ange tiden i minuter (deleteAfterMinutes) efter vilken Blobbarna ska tas bort automatiskt.
 * Välj möjligheten att behålla blobben när den laddas upp om deleteAfterMinutes-värdet upphör att gälla.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet:
 
@@ -92,7 +92,7 @@ Namnet på den här inställningen är `deviceAutoDeleteProperties` . Om du anv�
 | Egenskap | Möjliga värden | Förklaring |
 | ----- | ----- | ---- |
 | deleteOn | SANT, FALSKT | Ange som `false` standard. Om du vill aktivera funktionen väljer du det här fältet till `true` . <br><br> Miljö variabel: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Ange tiden i minuter. Dina blobar tas bort automatiskt från den lokala lagrings platsen när det här värdet upphör att gälla. <br><br> Miljö variabel: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| deleteAfterMinutes | `<minutes>` | Ange tiden i minuter. Dina blobar tas bort automatiskt från den lokala lagrings platsen när det här värdet upphör att gälla. Aktuellt maximalt antal minuter är 35791. <br><br> Miljö variabel: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | SANT, FALSKT | Som standard är den inställd på `true` och den behåller blobben medan den laddas upp till moln lagring om deleteAfterMinutes upphör att gälla. Du kan ställa in det på så att `false` det tar bort data så snart deleteAfterMinutes går ut. Obs: för att den här egenskapen ska fungera måste uploadOn anges till sant.  <br><br> **Varning!** om du använder tillägg för att lägga till blobar kommer den här inställningen att ta bort tillägg till blobar från lokal lagring när värdet upphör att gälla, och eventuella framtida tilläggs block åtgärder till dessa blobar Miss kommer. Du kanske vill kontrol lera att värdet för förfallo datum är tillräckligt stort för den förväntade frekvensen för att lägga till åtgärder som utförs av ditt program.<br><br> Miljö variabel: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Använda SMB-resurs som lokal lagring
@@ -195,7 +195,7 @@ Följande snabb starts exempel använder språk som också stöds av IoT Edge, s
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Ansluta till din lokala lagrings plats med Azure Storage Explorer
 
-Du kan använda [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att ansluta till ditt lokala lagrings konto.
+Du kan använda [Azure Storage Explorer](https://github.com/microsoft/AzureStorageExplorer/releases/tag/v1.14.2) för att ansluta till ditt lokala lagrings konto.
 
 1. Ladda ned och installera Azure Storage Explorer
 
@@ -232,7 +232,7 @@ Som inte stöds
 * Hämta BLOB service-statistik
 * Hämta konto information
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 
 Tillåtna
 

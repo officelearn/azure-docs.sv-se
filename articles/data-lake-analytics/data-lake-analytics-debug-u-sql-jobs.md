@@ -1,22 +1,20 @@
 ---
 title: Felsöka C#-kod för Azure Data Lake U-SQL-jobb
 description: I den här artikeln beskrivs hur du felsöker ett U-SQL-felaktigt hörn med Azure Data Lake verktyg för Visual Studio.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: how-to
 ms.date: 11/30/2017
-ms.openlocfilehash: ca6fe4ad35e59472e8cf8f3b8476417e01c2668f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1d57e3904087bc5cb3711b23cfe6bcf18c3455
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87131879"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218025"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Felsök användardefinierad C#-kod för misslyckade U-SQL-jobb
 
-U-SQL tillhandahåller en utöknings modell som använder C#. I U-SQL-skript är det enkelt att anropa C#-funktioner och utföra analys funktioner som SQL-liknande deklarativ språk inte stöder. Mer information om hur du utökningen av U-SQL finns i [programmerings guide för u-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL tillhandahåller en utöknings modell som använder C#. I U-SQL-skript är det enkelt att anropa C#-funktioner och utföra analys funktioner som SQL-liknande deklarativ språk inte stöder. Mer information om hur du utökningen av U-SQL finns i [programmerings guide för u-SQL](./data-lake-analytics-u-sql-programmability-guide.md#use-user-defined-functions-udf). 
 
 I praktiken kan all kod behöva fel sökning, men det är svårt att felsöka ett distribuerat jobb med anpassad kod i molnet med begränsade loggfiler. [Azure Data Lake Tools för Visual Studio](https://aka.ms/adltoolsvs) innehåller en funktion som kallas **fel söknings fel hörn**, som hjälper dig att enkelt Felsöka fel som uppstår i din anpassade kod. När U-SQL-jobbet Miss lyckas, behåller tjänsten fel tillstånd och verktyget hjälper dig att ladda ned moln fel miljön till den lokala datorn för fel sökning. Den lokala hämtningen fångar hela moln miljön, inklusive indata och användar kod.
 

@@ -3,16 +3,25 @@ title: Så här stoppar du övervakningen av ditt Azure Red Hat OpenShift v3-klu
 description: Den här artikeln beskriver hur du kan stoppa övervakningen av ditt Azure Red Hat OpenShift-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 6ed92cd4cda1f3b5d43cc605d7224236528b94bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c21b17fd9faed7b133cd8ecad767ae7bd4aa868
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815444"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216546"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Så här stoppar du övervakning av Azure Red Hat OpenShift v3-kluster 
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Så här stoppar du övervakning av Azure Red Hat OpenShift v3-kluster
 
-När du har aktiverat övervakning av ditt Azure Red Hat OpenShift version 3. x-kluster kan du stoppa övervakningen av klustret med Azure Monitor för behållare om du inte längre vill övervaka det. Den här artikeln visar hur du gör detta med hjälp av Azure Resource Manager-mallen som tillhandahölls. 
+>[!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 kommer att dras tillbaka juni 2022.
+>
+> Från och med oktober 2020 kommer du inte längre att kunna skapa nya 3,11-kluster.
+> Befintliga 3,11-kluster fortsätter att köras fram till den 2022 juni men kommer inte längre att kunna användas efter det datumet.
+>
+> Följ den här guiden för att [skapa ett Azure Red Hat OpenShift 4-kluster](../../openshift/tutorial-create-cluster.md).
+> Om du har frågor kan du [kontakta oss](mailto:aro-feedback@microsoft.com).
+
+När du har aktiverat övervakning av ditt Azure Red Hat OpenShift version 3. x-kluster kan du stoppa övervakningen av klustret med Azure Monitor för behållare om du inte längre vill övervaka det. Den här artikeln visar hur du gör detta med hjälp av Azure Resource Manager-mallen som tillhandahölls.  
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 

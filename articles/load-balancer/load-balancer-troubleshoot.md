@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85801928"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217396"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
@@ -30,6 +30,12 @@ När Load Balancer anslutningen inte är tillgänglig är de vanligaste symptome
 - Virtuella datorer bakom Load Balancer svarar inte på trafiken på den konfigurerade porten
 
 När de externa klienterna till de virtuella server dels datorerna går via belastningsutjämnaren, används IP-adressen för klienterna för kommunikationen. Kontrol lera att IP-adressen för klienterna läggs till i listan över tillåtna NSG. 
+
+## <a name="symptom-no-outbound-connectivity-from-standard-internal-load-balancers-ilb"></a>Symptom: ingen utgående anslutning från standard-interna belastningsutjämnare (ILB)
+
+**Verifiering och lösning**
+
+Standard-ILB är **säkra som standard**. Basic-ILB tillåts ansluta till Internet via en *dold* offentlig IP-adress. Detta är inte rekommenderade för produktions arbets belastningar eftersom IP-adressen varken är statisk eller låst via NSG: er som du äger. Om du nyligen har flyttat från en grundläggande ILB till en standard-ILB bör du skapa en offentlig IP-adress direkt via en [utgående](egress-only.md) konfiguration som låser IP-adressen via NSG: er. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>Symptom: virtuella datorer bakom Load Balancer svarar inte på hälso avsökningar
 För att backend-servrarna ska delta i belastnings Utjämnings uppsättningen måste de klara avsöknings kontrollen. Mer information om hälso avsökningar finns i [förstå Load Balancer avsökningar](load-balancer-custom-probe-overview.md). 

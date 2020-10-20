@@ -3,12 +3,12 @@ title: Kom igång och skapa ett Azure Lab Services labb i Teams
 description: Lär dig hur du kommer igång och skapar ett Azure Lab Services labb i team.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 4f8c0e2c5f7b75990460b0a1812d4fec3a758259
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: e17b0be223a1630402fc4f32c692d7ecfe184783
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092145"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217090"
 ---
 # <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Kom igång och skapa ett labb tjänst labb i Teams
 
@@ -24,6 +24,9 @@ Här är det vanligaste arbets flödet när du använder Azure Lab Services i te
 1. Ett [labb konto skapare lägger till andra användare](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) i **labb skaparen** -rollen. Labb kontots skapare/administratör lägger till exempel till lärare till **labb skapare** rollen så att de kan skapa labb för sina klasser.
 1. Sedan skapar läraren labbet, förkonfigurerar mallen VM och publicerar labbet för att etablera virtuella datorer till alla i teamet.
 1. När labbet har publicerats tilldelas en virtuell dator till alla i listan Grupp medlemskap vid sin första inloggning till Azure Lab Services, antingen genom att klicka på fliken som innehåller **Azure Lab Services** app i Teams (SSO) eller genom att komma åt [labb webbplatsen](https://labs.azure.com). Användare kan sedan använda den virtuella datorn för att utföra klassen och läxor.
+
+> [!IMPORTANT]
+> Azure Lab Services kan bara användas i team om labb kontona skapas i samma klient organisation som team.
 
 ## <a name="add-azure-lab-services-app-as-a-tab-to-a-team"></a>Lägg till Azure Lab Services app som en flik i ett team
 

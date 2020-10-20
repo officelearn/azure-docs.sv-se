@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 30af35075c06585b9c490495e9897c145e9974d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1a172adb54593421ef56e09c131e0ddcaee9f6e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184694"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215832"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Specifikationer för Azure FXT Edge-filer
 
@@ -28,7 +28,7 @@ I den här artikeln beskrivs maskin varu specifikationerna för maskin varu node
 
 ## <a name="drive-specifications"></a>Enhets specifikationer
 
-Systemet har tio enhets fack som är tillgängliga från fram sidan. Varje ifylld enhet är märkt till höger med kapacitets information. 
+Systemet har tio enhets fack som är tillgängliga från fram sidan. Varje ifylld enhet är märkt till höger med kapacitets information.
 
 Enhets nummer skrivs ut på utrymmet mellan enheter. I Azure FXT Edge-filer är enhet 0 den övre vänstra enheten och enhet 1 är direkt under den.
 
@@ -39,10 +39,9 @@ Enhets nummer skrivs ut på utrymmet mellan enheter. I Azure FXT Edge-filer är 
 | 0, 1             | Operativsystem     | 480 GB SATA SSD |
 | 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600:3,2 TB NVMe SSD <br> FXT 6400:1,6 TB NVMe SSD |
 
-
 ## <a name="dimensions-and-weight"></a>Dimensioner och vikt
 
-Azure FXT Edge-filer har utformats för att passa i ett standardiserat "utrustnings rack" och är en hög rack enhet hög (1U). 
+Azure FXT Edge-filer har utformats för att passa i ett standardiserat "utrustnings rack" och är en hög rack enhet hög (1U).
 
 <!-- 10x2.5 inches version -->
 
@@ -84,15 +83,15 @@ Det här avsnittet innehåller energi värderingar och mått för Azure FXT Edge
 
 <!-- matches the Dell regulatory label exactly -->
 
-### <a name="power-and-thermal-measurements"></a>Energi-och värme mått 
+### <a name="power-and-thermal-measurements"></a>Energi-och värme mått
 
-Azure FXT Edge-noderna använder varierande hastighets fläktar, så kraft beror på temperatur och belastning. Högsta antalet fläkt hastigheter kan nås vid vissa kombinationer av hög belastning och förhöjt omgivande temperaturer. 
+Azure FXT Edge-noderna använder varierande hastighets fläktar, så kraft beror på temperatur och belastning. Högsta antalet fläkt hastigheter kan nås vid vissa kombinationer av hög belastning och förhöjt omgivande temperaturer.
 
-De här diagrammen ger mått för strömförbrukning och termiska utdata för vanliga kombinationer av spännings frekvens. 
+De här diagrammen ger mått för strömförbrukning och termiska utdata för vanliga kombinationer av spännings frekvens.
 
-| FXT 6600-kraft vid rums temperatur <br />(22 ° C, 71,6 ° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| FXT 6600-kraft vid rums temperatur <br />(22 ° C, 71,6 ° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
-| Spänning (V) | 100 | 120 | 208 | 230 | 240 | 
+| Spänning (V) | 100 | 120 | 208 | 230 | 240 |
 | Frekvens (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Aktuell (A) | 5,02 | 4,16 |2,40 | 2,20 | 2,16 |
 | Synbar ström (VA) | 502 | 499 | 499 | 506 | 518|
@@ -100,9 +99,9 @@ De här diagrammen ger mått för strömförbrukning och termiska utdata för va
 | Verklig effekt (W) | 497 |494 | 489 | 496 | 508 |
 | Termisk avledning (BTU/timme) |1696 | 1686 | 1669 | 1692 | 1733 |
 
-| FXT 6600-kraft med högsta fläkt hastigheter | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| FXT 6600-kraft med högsta fläkt hastigheter | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
-| Spänning (V) | 100 |120 | 208 | 230 | 240| 
+| Spänning (V) | 100 |120 | 208 | 230 | 240|
 | Frekvens (Hz) | 60 | 60 | 60 | 50 | 50 |
 | Aktuell (A) | 5,98 | 5,01 | 2,81 | 2.55 | 2,48 |
 | Synbar ström (VA) | 598 | 601 | 584 | 587 | 595 |
@@ -110,13 +109,13 @@ De här diagrammen ger mått för strömförbrukning och termiska utdata för va
 | Verklig effekt (W) | 592 | 595 | 573 | 575 | 583 |
 | Termisk avledning (BTU/timme) | 2020 |2031 | 1954 | 1961 | 1990 |
 
-| FXT 6400-kraft vid rums temperatur <br />(22 ° C, 71,6 ° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz | 
+| FXT 6400-kraft vid rums temperatur <br />(22 ° C, 71,6 ° F) | 100 V, 60 Hz | 120 V, 60 Hz | 208 V, 60 Hz | 230 V, 50 Hz | 240 V, 50 Hz |
 |---------|---|---|---|---|---|
 | Spänning (V) | 100 | 120 | 208 | 230 | 240 |
 | Frekvens (Hz) |60 | 60 | 60 | 50 | 50 |
 | Aktuell (A) | 4,63 | 3,86 | 2.24 | 2,04 | 1,94 |
 | Synbar ström (VA) | 463 | 463 | 466 | 469 | 466 |
-| Effekt faktor | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 | 
+| Effekt faktor | 0,99 | 0,99 | 0,98 | 0,98 | 0,98 |
 | Verklig effekt (W) | 458 | 459 | 457 | 460 | 456 |
 | Termisk avledning (BTU/timme) | 1564 | 1565 | 1558 | 1569 | 1557 |
 
@@ -143,10 +142,10 @@ Det här avsnittet innehåller specifikationer för maskin varans omgivande milj
 | Maximal dagg punkt         | 29 ° C (84 °F)                       | 33 ° C (91 °F)                 |
 | Höjden                  | upp till 3048 meter (10 000 meter), beroende på vilken temperatur som anges nedan | upp till 12 000 meter (39 370 meter) |
 
-> [!NOTE] 
+> [!NOTE]
 > **Avklassificering av höjd temperatur:** Maximal temperatur minskas med 1 ° c/300 m (1 °F/547 ft) över 950 m (3 117 ft).
 
-### <a name="airflow-shock-and-vibration"></a>Luft flöde, stöt och vibration 
+### <a name="airflow-shock-and-vibration"></a>Luft flöde, stöt och vibration
 
 | Attribut         | Specifikation |
 |-------------------|---------------|
@@ -156,13 +155,13 @@ Det här avsnittet innehåller specifikationer för maskin varans omgivande milj
 | Vibrationer, drift     | 0,26 G<sub>RMS</sub> 5 Hz till 350 Hz slumpmässig         |
 | Vibrationer, ej drift | 1,88 G<sub>RMS</sub> 10 hz till 500 Hz i 15 minuter (alla sex sidor har testats)  |
 
-## <a name="safety-regulation-compliance"></a>Efterlevnad av säkerhets regler 
+## <a name="safety-regulation-compliance"></a>Efterlevnad av säkerhets regler
 
-Azure FXT Edge-filer uppfyller de angivna reglerna. 
+Azure FXT Edge-filer uppfyller de angivna reglerna.
 
-| Kategori       | Regel specifikation | 
+| Kategori       | Regel specifikation |
 |----------------|--------------------------|
-| Allmän säkerhet | EN 60950-1:2006 + a1:2010 + a2:2013 + A11:2009 + A12:2011/IEC 60950-1:2005 ed2 + a1:2009 + a2:2013 <br>EN 62311:2008 | 
+| Allmän säkerhet | EN 60950-1:2006 + a1:2010 + a2:2013 + A11:2009 + A12:2011/IEC 60950-1:2005 ed2 + a1:2009 + a2:2013 <br>EN 62311:2008 |
 | EMC            | FCC A, ICES-003  <br>EN 55032:2012/CISPR 32:2012  <br>EN 55032:2015/CISPR 32:2015  <br>EN 55024:2010 + A1:2015/CISPR 24:2010 + A1:2015  <br>EN 61000-3-2:2014/IEC 61000-3-2:2014 (klass D)   <br>EN 61000-3-3:2013/IEC 61000-3-3:2013 |
 | Energi         | Kommissionens förordning (EU) nr 617/2013  |
 | RoHS           |    EN 50581:2012   |

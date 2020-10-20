@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 1bf5966ab3e4bb62c2be302a7791cadad9761a70
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150376"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217549"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Dela och ta emot data från Azure SQL Database och Azure Synapse Analytics
 
@@ -39,7 +39,7 @@ Nedan visas en lista över förutsättningar för att dela data från SQL-källa
 * Behörighet att skriva till databaserna på SQL Server, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagarrollen.
 * Behörighet för data resursen för åtkomst till data lagret. Detta kan göras genom följande steg: 
     1. I Azure Portal går du till SQL-servern och anger dig själv som Azure Active Directorys administratör.
-    1. Anslut till Azure SQL Database/informations lagret med hjälp av [Frågeredigeraren](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) eller SQL Server Management Studio med Azure Active Directory autentisering. 
+    1. Anslut till Azure SQL Database/informations lagret med hjälp av [Frågeredigeraren](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) eller SQL Server Management Studio med Azure Active Directory autentisering. 
     1. Kör följande skript för att lägga till den hanterade identiteten för data resursen som en db_datareader. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
     
         ```sql
@@ -144,7 +144,7 @@ Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data deln
 ### <a name="prerequisites-for-target-storage-account"></a>Krav för mål lagrings konto
 Om du väljer att ta emot data i Azure Storage nedan visas en lista över krav.
 
-* Ett Azure Storage konto: om du inte redan har ett kan du skapa ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* Ett Azure Storage konto: om du inte redan har ett kan du skapa ett [Azure Storage-konto](../storage/common/storage-account-create.md). 
 * Behörighet att skriva till lagrings kontot som finns i *Microsoft. Storage/storageAccounts/Write*. Den här behörigheten finns i deltagarrollen. 
 * Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv*. Den här behörigheten finns i ägarrollen.  
 
@@ -154,7 +154,7 @@ Om du väljer att ta emot data i Azure SQL Database, är Azure Synapse Analytics
 * Behörighet att skriva till databaser på SQL-servern, som finns i *Microsoft. SQL/Servers/databaser/skriva*. Den här behörigheten finns i deltagarrollen. 
 * Behörighet för data resurs resursens hanterade identitet för att få åtkomst till Azure SQL Database-eller Azure Synapse-analys. Detta kan göras genom följande steg: 
     1. I Azure Portal går du till SQL-servern och anger dig själv som Azure Active Directorys administratör.
-    1. Anslut till Azure SQL Database/informations lagret med hjälp av [Frågeredigeraren](https://docs.microsoft.com/azure/azure-sql/database/connect-query-portal#connect-using-azure-active-directory) eller SQL Server Management Studio med Azure Active Directory autentisering. 
+    1. Anslut till Azure SQL Database/informations lagret med hjälp av [Frågeredigeraren](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) eller SQL Server Management Studio med Azure Active Directory autentisering. 
     1. Kör följande skript för att lägga till den hanterade identiteten för data resursen som db_datareader, db_datawriter db_ddladmin. Du måste ansluta med Active Directory och inte SQL Server autentisering. 
 
         ```sql
@@ -275,7 +275,7 @@ När du delar data från SQL-källa används följande mappning från SQL Server
 
 >[!NOTE]
 > 1. För data typer som mappar till typen decimal, stöder ögonblicks bilder precisionen upp till 28. Om du har data som kräver precision som är större än 28, bör du överväga att konvertera till en sträng. 
-> 1.  Om du delar data från Azure SQL Database till Azure Synapse Analytics stöds inte alla typer av data. Mer information finns [i tabell data typer i SYNAPSE SQL-pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) . 
+> 1.  Om du delar data från Azure SQL Database till Azure Synapse Analytics stöds inte alla typer av data. Mer information finns [i tabell data typer i SYNAPSE SQL-pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) . 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL-Always Encrypted eller dynamisk data maskning
 För närvarande stöder inte Azure Data Share Azure SQL-databaser med Always Encrypted konfigurerade. 
@@ -294,6 +294,3 @@ Den vanligaste orsaken till ögonblicks bild felet är att data resursen inte ha
 
 ## <a name="next-steps"></a>Nästa steg
 Du har lärt dig hur du delar och tar emot data från SQL-källor med Azure Data Share-tjänsten. Om du vill veta mer om delning från andra data källor fortsätter du till [data lager som stöds](supported-data-stores.md).
-
-
-

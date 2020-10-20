@@ -8,12 +8,12 @@ ms.date: 10/05/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: f030a9e75507063e104e0bae0ca5654bd3528bac
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6f8a7292ff21fbf287a4144abaf8e006513718e5
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772727"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017020"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
@@ -134,7 +134,7 @@ Ja. Ett länkat partner-ID kan ändras, läggas till eller tas bort.
 
 Länken mellan partner-ID:t och kontot skapas för alla kundens klientorganisationer. Länka partner-ID:t i alla kundens klientorganisationer.
 
-Men om du hanterar kundresurser via Azure Lighthouse bör du skapa länken i din klientorganisation för tjänstleverantören med hjälp av ett konto som har åtkomst till kundresurserna. Mer information finns i artikeln om att [länka ditt partner-ID för att aktivera partnerintjänad kredit för delegerade resurser](../../lighthouse/how-to/partner-earned-credit.md).
+Men om du hanterar kundresurser via Azure Lighthouse bör du skapa länken i din klientorganisation för tjänstleverantören med hjälp av ett konto som har åtkomst till kundresurserna. Mer information finns i [Länka ditt partner-ID för att se hur du påverkar delegerade resurser](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Kan andra partner eller kunder redigera eller ta bort länken till partner-ID:t?**
 
@@ -164,7 +164,7 @@ Ja, du kan länka ditt partner-ID för Azure Stack.
 
 Om du registrerar kunder i Azure-delegerad resurshantering genom att [publicera ett erbjudande om hanterade tjänster på Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) associeras ditt MPN-ID automatiskt.
 
-Om du [registrerar kunder genom att distribuera Azure Resource Manager-mallar](../../lighthouse/how-to/onboard-customer.md) måste du associera ditt MPN-ID med minst ett användarkonto som har åtkomst till var och en av dina registrerade prenumerationer. Observera att du måste göra detta i klientorganisationen för tjänstleverantören, och inte i varje kunds klientorganisation. För enkelhetens skull rekommenderar vi att du skapar ett konto för tjänstens huvudnamn i din klientorganisation, kopplar det till ditt MPN-ID och sedan ger det åtkomst till alla kunder som du registrerar med en [inbyggd Azure-roll som är kvalificerad för partnerintjänad kredit](/partner-center/azure-roles-perms-pec). Mer information finns i artikeln om att [länka ditt partner-ID för att aktivera partnerintjänad kredit för delegerade resurser](../../lighthouse/how-to/partner-earned-credit.md).
+Om du [registrerar kunder genom att distribuera Azure Resource Manager-mallar](../../lighthouse/how-to/onboard-customer.md) måste du associera ditt MPN-ID med minst ett användarkonto som har åtkomst till var och en av dina registrerade prenumerationer. Observera att du måste göra detta i klientorganisationen för tjänstleverantören, och inte i varje kunds klientorganisation. För enkelhetens skull rekommenderar vi att du skapar ett konto för tjänstens huvudnamn i din klientorganisation, kopplar det till ditt MPN-ID och sedan ger det åtkomst till alla kunder som du registrerar med en [inbyggd Azure-roll som är kvalificerad för partnerintjänad kredit](/partner-center/azure-roles-perms-pec). Mer information finns i [Länka ditt partner-ID för att se hur du påverkar delegerade resurser](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Hur förklarar jag partneradministratörslänken (PAL) för min kund?**
 

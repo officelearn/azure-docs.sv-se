@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
-ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93af3183ae9e969d14a35ce4e365d48895ef4e79
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281199"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216682"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Skriv om HTTP-sidhuvuden och URL: en med Application Gateway
 
@@ -50,7 +50,7 @@ Med funktionen för URL-omskrivning i Application Gateway kan du:
 
 Information om hur du skriver om URL: en med Application Gateway med Azure Portal finns [här](rewrite-url-portal.md).
 
-![bild](./media/rewrite-http-headers-url/url-rewrite-overview.png)
+![Diagram som beskriver processen för att skriva om en URL med Application Gateway.](./media/rewrite-http-headers-url/url-rewrite-overview.png)
 
 >[!NOTE]
 > Funktionen för URL-omskrivning är i för hands version och är endast tillgänglig för Standard_v2 och WAF_v2 SKU för Application Gateway. Det rekommenderas inte för användning i produktions miljöer. Läs mer om för hands versionerna i [användnings villkor här](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

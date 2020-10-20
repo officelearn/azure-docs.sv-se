@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Den här artikeln innehåller en översikt över Azure Arc-aktiverade Kubernetes.
 keywords: Kubernetes, båge, Azure, behållare
 ms.custom: references_regions
-ms.openlocfilehash: a4d53614a0ab6783b9adfe395fec4d79e7b62e1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601fcb096bf2bfeb1a6120015690c9aff4b6177b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858429"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216087"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Vad är Azure Arc-aktiverat Kubernetes (förhandsversion)?
 
@@ -72,7 +72,7 @@ Azure Arc-aktiverade Kubernetes stöds för närvarande i följande regioner:
 
     Nej. Alla funktioner i Azure Arc Enabled Kubernetes, t. ex. Azure Monitor, Azure Policy (Gatekeeper) är internt tillgängliga med AKS, som redan har en resurs representation i Azure.
     
-* Bör jag ansluta mitt AKS-kluster på Azure Stack HCI till Azure-bågen? Vad händer om Kubernetes-kluster som körs på Azure Stack hubb eller Azure Stack motor?
+* Bör jag ansluta mitt AKS-kluster på Azure Stack HCI till Azure-bågen? Vad händer om Kubernetes-kluster som körs på Azure Stack hubb eller Azure Stack Edge?
 
     Ja, det finns fördelar med att ansluta dessa kluster till Azure-bågen. Det ger en resurs representation för dessa Kubernetes-kluster i Azure Resource Manager. Med den här resurs representationen kan funktioner som kluster konfiguration, Azure Monitor Azure Policy (Gatekeeper) utökas till dessa Kubernetes-kluster
 

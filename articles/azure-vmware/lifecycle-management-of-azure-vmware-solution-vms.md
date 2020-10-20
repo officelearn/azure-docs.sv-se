@@ -3,12 +3,12 @@ title: Livs cykel hantering av virtuella Azure VMware-lösningar
 description: Lär dig att hantera alla aspekter av livs cykeln för dina virtuella Azure VMware-lösningar med Microsoft Azure inbyggda verktyg.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 928a632a34dd31272c7c3bf92f6dc6dda97cb6cc
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950371"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216257"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Livs cykel hantering av virtuella Azure VMware-lösningar
 
@@ -53,8 +53,8 @@ Virtuella Azure VMware-lösningar kan övervakas via MMA (kallas även för Log 
 **Azure uppdateringshantering** i Azure Automation hanterar uppdateringar av operativ system för dina Windows-och Linux-datorer i en hybrid miljö. Den övervakar efterlevnaden av korrigeringen och vidarebefordrar aviseringar om avvikelser till Azure Monitor för reparation. Azure Uppdateringshantering måste ansluta till din Log Analytics arbets yta för att kunna använda lagrade data för att bedöma status för uppdateringar på dina virtuella datorer.
 - Om du vill lägga till Log Analytics i Azure Uppdateringshantering måste du först [skapa ett Azure Automation-konto](../automation/automation-create-standalone-account.md).
 - Om du vill länka din Log Analytics arbets yta till ditt Automation-konto, se [Log Analytics arbets yta och Automation-konto](../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
-- Om du vill aktivera Azure Uppdateringshantering för dina virtuella datorer, se [aktivera uppdateringshantering från ett Automation-konto](../automation/update-management/update-mgmt-enable-automation-account.md).
-- När du har lagt till virtuella datorer i Azure Uppdateringshantering kan du [distribuera uppdateringar på virtuella datorer och granska resultaten](../automation/update-management/update-mgmt-deploy-updates.md). 
+- Om du vill aktivera Azure Uppdateringshantering för dina virtuella datorer, se [aktivera uppdateringshantering från ett Automation-konto](../automation/update-management/enable-from-automation-account.md).
+- När du har lagt till virtuella datorer i Azure Uppdateringshantering kan du [distribuera uppdateringar på virtuella datorer och granska resultaten](../automation/update-management/deploy-updates.md). 
 
 **Azure Security Center** tillhandahåller Avancerat skydd för dina hybrid arbets belastningar i molnet och lokalt. Det kommer att bedöma sårbarheten hos virtuella datorer i Azure VMware-lösningen och utlösa aviseringar efter behov. Dessa säkerhets aviseringar kan vidarebefordras till Azure Monitor för lösning.
 - Azure Security Center behöver inte distribueras. Mer information finns i en lista över [funktioner som stöds för virtuella datorer](../security-center/security-center-services.md).

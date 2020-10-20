@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d19027cfd406f81d31696c5cd2c1a235574e400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a532418ebc5cab08b06f8dde87e8126bf8e96ffe
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577857"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217175"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender för SQL-servrar på datorer 
 
@@ -118,7 +118,7 @@ Azure Defender-aviseringar är tillgängliga i Security Center sidan aviseringar
 
 1. Aviseringar är utformade för att vara fristående, med detaljerade åtgärds steg och information om undersökningar i var och en. Du kan undersöka ytterligare med hjälp av andra Azure Security Center-och Azure Sentinel-funktioner för en bredare vy:
 
-    * Aktivera SQL Server gransknings funktion för ytterligare undersökningar. Om du är en Azure Sentinel-användare kan du överföra SQL-gransknings loggarna från Windows säkerhets logg händelser till kontroll och få en omfattande gransknings upplevelse. [Läs mer om SQL Server granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15).
+    * Aktivera SQL Server gransknings funktion för ytterligare undersökningar. Om du är en Azure Sentinel-användare kan du överföra SQL-gransknings loggarna från Windows säkerhets logg händelser till kontroll och få en omfattande gransknings upplevelse. [Läs mer om SQL Server granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15&preserve-view=true).
     * Använd Security Center rekommendationer för värddatorn som anges i varje avisering för att förbättra din säkerhets position. Detta minskar risken för framtida attacker. 
 
     [Lär dig mer om att hantera och svara på aviseringar](security-center-managing-and-responding-alerts.md).
@@ -129,6 +129,6 @@ Azure Defender-aviseringar är tillgängliga i Security Center sidan aviseringar
 Information om relaterade material finns i följande artikel:
 
 - [Säkerhets aviseringar för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
-- [Konfigurera e-postaviseringar för säkerhets aviseringar](security-center-provide-security-contact-details.md)
+- [Konfigurera e-postavisering för säkerhetsmeddelanden](security-center-provide-security-contact-details.md)
 - [Läs mer om Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
 - [Azure Security Centers data säkerhets paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)

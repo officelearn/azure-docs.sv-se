@@ -12,34 +12,32 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0fd062bd0e58ecc714e4f450c93384e47e743b65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f278f0713280dde27d6c3892b4d1f1557d17ecb4
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87922021"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215951"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett webb program i Azure Active Directory B2C
 
-Innan dina [program](application-types.md) kan interagera med Azure Active Directory B2C (Azure AD B2C) måste de registreras i en klient som du hanterar. Den här självstudien visar hur du registrerar ett webb program med hjälp av Azure Portal.
+Innan dina [program](application-types.md) kan interagera med Azure Active Directory B2C (Azure AD B2C) måste de registreras i en klient som du hanterar. Den här självstudien visar hur du registrerar ett webb program med hjälp av Azure Portal. 
 
-I den här artikeln kan du se hur du:
+Ett "webb program" syftar på ett traditionellt webb program som utför merparten av program logiken på servern. De kan skapas med hjälp av ramverk som ASP.NET Core, maven (Java), kolv (python) och Express (Node.js).
 
-> [!div class="checklist"]
-> * Registrera ett webbprogram
-> * Skapa en klient hemlighet
-
-Om du använder en inbyggd app i stället (t. ex. iOS, Android, mobil & Desktop), lär du dig [hur du registrerar ett internt klient program](add-native-application.md).
-
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+> [!IMPORTANT]
+> Om du använder ett **enda webb program ("Spa")** i stället (t. ex. genom att använda vinkel, Vue eller reagera), lär du dig [hur du registrerar ett program](tutorial-register-spa.md)med en sida.
+> 
+> Om du använder en **inbyggd app** i stället (t. ex. iOS, Android, mobil & Desktop), lär du dig [hur du registrerar ett internt klient program](add-native-application.md).
 
 ## <a name="prerequisites"></a>Krav
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 Om du inte redan har skapat din egen [Azure AD B2C-klient](tutorial-create-tenant.md)skapar du en nu. Du kan använda en befintlig Azure AD B2C klient.
 
 ## <a name="register-a-web-application"></a>Registrera ett webbprogram
 
-Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (äldre)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
+Om du vill registrera ett webb program i din Azure AD B2C klient kan du använda vår nya enhetliga **Appregistreringar** upplevelse eller äldre  **program (bakåtkompatibelt)** . [Läs mer om den nya upplevelsen](https://aka.ms/b2cappregtraining)
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 
@@ -48,7 +46,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **Appregistreringar**och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *webapp1*.
-1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog eller någon identitets leverantör. För autentisering av användare med Azure AD B2C**.
+1. Under **konto typer som stöds**väljer du **konton i valfri identitets leverantör eller organisations katalog (för autentisering av användare med användar flöden)**.
 1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://jwt.ms` i text rutan URL.
 
     Omdirigerings-URI: n är den slut punkt som användaren skickas till av auktoriseringsservern (Azure AD B2C i det här fallet) när dess interaktion med användaren har slutförts och till vilken en åtkomsttoken eller auktoriseringskod skickas vid lyckad auktorisering. I ett produktions program är det vanligt vis en offentligt tillgänglig slut punkt där appen körs, t `https://contoso.com/auth-response` . ex.. För testnings ändamål som den här självstudien kan du ställa in den till `https://jwt.ms` , ett Microsoft-ägda webb program som visar det avkodade innehållet i en token (innehållet i token aldrig lämnar webbläsaren). Under utveckling av appar kan du lägga till slut punkten där ditt program lyssnar lokalt, t `https://localhost:5000` . ex.. Du kan när som helst lägga till och ändra omdirigerings-URI: er i dina registrerade program.
@@ -61,12 +59,6 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 1. Under **behörigheter**markerar du kryss rutan *bevilja administratörs medgivande till OpenID och offline_access behörighet* .
 1. Välj **Register** (Registrera).
 
-När program registreringen är klar aktiverar du det implicita tilldelnings flödet:
-
-1. På den vänstra menyn, under **Hantera**, väljer du **autentisering**.
-1. Under **implicit beviljande**väljer du kryss rutorna för **åtkomst-tokens** och **ID-token** .
-1. Välj **Spara**.
-
 #### <a name="applications-legacy"></a>[Program (bakåtkompatibelt)](#tab/applications-legacy/)
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
@@ -74,7 +66,7 @@ När program registreringen är klar aktiverar du det implicita tilldelnings fl�
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **program (bakåtkompatibelt)** och välj sedan **Lägg till**.
 1. Ange ett namn på programmet. Till exempel *webapp1*.
-1. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
+1. För **Inkludera webb program/webb-API**väljer du **Ja**.
 1. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. Du kan till exempel ange att den ska lyssna lokalt på `https://localhost:44316` . Om du inte känner till port numret än kan du ange ett värde för plats hållare och ändra det senare.
 
     För testnings ändamål som den här själv studie kursen kan du ange det `https://jwt.ms` som visar innehållet i en token för att kontrol lera. I den här självstudien anger du **svars-URL** till `https://jwt.ms` .
@@ -90,8 +82,7 @@ När program registreringen är klar aktiverar du det implicita tilldelnings fl�
 
 ## <a name="create-a-client-secret"></a>Skapa en klient hemlighet
 
-Om programmet utbyter en auktoriseringskod för en åtkomsttoken måste du skapa en program hemlighet.
-
+För ett webb program måste du skapa en program hemlighet. Den här hemligheten kommer att användas av ditt program för att byta ut en auktoriseringskod för en åtkomsttoken.
 
 #### <a name="app-registrations"></a>[Appregistreringar](#tab/app-reg-ga/)
 

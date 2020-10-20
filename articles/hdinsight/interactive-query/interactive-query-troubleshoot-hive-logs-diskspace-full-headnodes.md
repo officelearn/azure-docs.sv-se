@@ -6,13 +6,13 @@ ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
-ms.date: 03/05/2020
-ms.openlocfilehash: d843b942702d335065a5f3798572e34c71b4cd0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/05/2020
+ms.openlocfilehash: a102c9f375b37579cf6f92b08d67f762d3dfd26a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78943971"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220898"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scenario: Apache Hive loggar fyller upp disk utrymmet på Head-noderna i Azure HDInsight
 
@@ -24,6 +24,7 @@ I ett Apache Hive/LLAP-kluster tar oönskade loggar upp hela disk utrymmet på h
 
 1. SSH-åtkomsten Miss lyckas på grund av att det inte finns utrymme kvar på Head-noden.
 2. Ambari ger *http-fel: tjänsten 503 är inte tillgänglig*.
+3. HiveServer2 interaktiva kan inte startas om.
 
 `ambari-agent`Loggarna visar följande när problemet uppstår.
 ```
@@ -35,7 +36,7 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Orsak
 
-I avancerade Hive-log4j konfigurationer utelämnas parametern *log4j. appendor. rfa. MaxBackupIndex* . Det orsakar en oändlig generering av loggfiler.
+I avancerade Hive-log4j konfigurationer anges det aktuella standard borttagnings schemat för filer som är äldre än 30 dagar baserat på senaste ändrings datum.
 
 ## <a name="resolution"></a>Lösning
 
@@ -43,30 +44,28 @@ I avancerade Hive-log4j konfigurationer utelämnas parametern *log4j. appendor. 
 
 2. Gå till `Advanced hive-log4j` avsnittet i avancerade inställningar.
 
-3. Ange `log4j.appender.RFA` parametern som RollingFileAppender. 
+3. Ange `appender.RFA.strategy.action.condition.age` en parameter till en ålder som du väljer. Exempel i 14 dagar: `appender.RFA.strategy.action.condition.age = 14D`
 
-4. Ange `log4j.appender.RFA.MaxFileSize` och `log4j.appender.RFA.MaxBackupIndex` enligt följande.
+4. Om du inte ser några relaterade inställningar lägger du till följande inställningar.
+    ```
+    # automatically delete hive log
+    appender.RFA.strategy.action.type = Delete
+    appender.RFA.strategy.action.basePath = ${sys:hive.log.dir}
+    appender.RFA.strategy.action.condition.type = IfLastModified
+    appender.RFA.strategy.action.condition.age = 30D
+    appender.RFA.strategy.action.PathConditions.type = IfFileName
+    appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
+    ```
 
-```
-log4jhive.log.maxfilesize=1024MB
-log4jhive.log.maxbackupindex=10
-
-log4j.appender.RFA=org.apache.log4j.RollingFileAppender
-log4j.appender.RFA.File=${hive.log.dir}/${hive.log.file}
-log4j.appender.RFA.MaxFileSize=${log4jhive.log.maxfilesize}
-log4j.appender.RFA.MaxBackupIndex=${log4jhive.log.maxbackupindex}
-log4j.appender.RFA.layout=org.apache.log4j.PatternLayout
-log4j.appender.RFA.layout.ConversionPattern=%d{ISO8601} %-5p [%t] %c{2}: %m%n
-```
 5. Ange `hive.root.logger` `INFO,RFA` enligt följande. Standardinställningen är DEBUG, vilket gör att loggar blir mycket stora.
 
-```
-# Define some default values that can be overridden by system properties
-hive.log.threshold=ALL
-hive.root.logger=INFO,RFA
-hive.log.dir=${java.io.tmpdir}/${user.name}
-hive.log.file=hive.log
-```
+    ```
+    # Define some default values that can be overridden by system properties
+    hive.log.threshold=ALL
+    hive.root.logger=INFO,RFA
+    hive.log.dir=${java.io.tmpdir}/${user.name}
+    hive.log.file=hive.log
+    ```
 
 6. Spara konfigurationerna och starta om de nödvändiga komponenterna.
 

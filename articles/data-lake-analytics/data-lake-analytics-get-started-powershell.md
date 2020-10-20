@@ -3,16 +3,15 @@ title: Skapa & fråga Azure Data Lake Analytics-PowerShell
 description: Använd Azure PowerShell för att skapa Azure Data Lake Analytics-konton och skicka U-SQL-jobb.
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61177d1338be30ae14ccea3ff94c5e0e554aa331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93a05231bc971737a08d74ad04150e5449dfc792
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077338"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220949"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure PowerShell
 
@@ -26,12 +25,12 @@ Lär dig hur du använder Azure PowerShell för att skapa Azure Data Lake Analyt
 
 Innan du börjar den här självstudiekursen behöver du följande information:
 
-* **Ett Azure Data Lake Analytics-konto**. Se [Kom igång med Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+* **Ett Azure Data Lake Analytics-konto**. Se [Kom igång med Data Lake Analytics](./data-lake-analytics-get-started-portal.md).
 * **En arbetsstation med Azure PowerShell**. Se [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Den här kursen förutsätter att du redan är bekant med Azure PowerShell. Framför allt behöver du veta hur du loggar in på Azure. Läs [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) om du behöver hjälp.
+Den här kursen förutsätter att du redan är bekant med Azure PowerShell. Framför allt behöver du veta hur du loggar in på Azure. Läs [Kom igång med Azure PowerShell](/powershell/azure/get-started-azureps) om du behöver hjälp.
 
 Logga in med ett prenumerationsnamn:
 

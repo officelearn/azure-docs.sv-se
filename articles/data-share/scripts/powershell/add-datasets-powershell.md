@@ -1,20 +1,18 @@
 ---
-title: 'PowerShell-skript: lägga till en BLOB-datauppsättning till en Azure-Dataresurs | Microsoft Docs'
+title: 'PowerShell-skript: lägga till en BLOB-datauppsättning till en Azure-Dataresurs'
 description: Det här PowerShell-skriptet lägger till en BLOB-datauppsättning till en befintlig resurs.
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 95a10b112c9f6448c437f20ee95f808632a31d2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f2a2dded0b9c817e0700f4f93782d3b5c11ac3f
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307305"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221391"
 ---
 # <a name="use-powershell-to-create-a-data-share-in-azure"></a>Använd PowerShell för att skapa en data resurs i Azure
 
@@ -42,13 +40,13 @@ New-AzDataShareDataSet -ResourceGroupName $resourceGroupName -AccountName $dataS
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
-| [New-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset?view=azps-2.6.0) | Lägger till en data uppsättning till en data resurs. |
+| [New-AzDataShareDataSet](/powershell/module/az.datashare/new-azdatasharedataset) | Lägger till en data uppsättning till en data resurs. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/).
 
 Ytterligare exempel för Azure Data Share PowerShell-skript finns i [PowerShell-exemplen för Azure Data Share](../../samples-powershell.md).

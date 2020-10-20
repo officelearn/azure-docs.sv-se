@@ -6,29 +6,30 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 9b0154889544e0054e309cc5f43851b73b4396b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ce7ffc66e0b6164b2e4ca9725b3f26403292a4a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80754687"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220779"
 ---
 # <a name="tutorial-configure-the-clusters-network-settings"></a>Självstudie: Konfigurera klustrets nätverks inställningar
 
-Innan du använder ett nyligen skapat Azure FXT Edge-kluster bör du kontrol lera och anpassa flera nätverks inställningar för arbets flödet. 
+Innan du använder ett nyligen skapat Azure FXT Edge-kluster bör du kontrol lera och anpassa flera nätverks inställningar för arbets flödet.
 
-I den här självstudien förklaras de nätverks inställningar som du kan behöva justera för ett nytt kluster. 
+I den här självstudien förklaras de nätverks inställningar som du kan behöva justera för ett nytt kluster.
 
-Du kommer att lära dig: 
+Du kommer att lära dig:
 
 > [!div class="checklist"]
+>
 > * Vilka nätverks inställningar som kan behöva uppdateras när du har skapat ett kluster
-> * Det krävs en AD-server eller en DNS-server för att använda fall av Azure FXT Edge 
+> * Det krävs en AD-server eller en DNS-server för att använda fall av Azure FXT Edge
 > * Konfigurera resursallokering (Round-Robin DNS) för att automatiskt belastningsutjämna klient begär anden till FXT-klustret
 
 Hur lång tid det tar att slutföra de här stegen beror på hur många konfigurations ändringar som krävs i systemet:
 
-* Om du bara behöver läsa igenom självstudien och kontrol lera några inställningar bör det ta 10 till 15 minuter. 
+* Om du bara behöver läsa igenom självstudien och kontrol lera några inställningar bör det ta 10 till 15 minuter.
 * Om du behöver konfigurera resursallokering med DNS kan den aktiviteten ta en timme eller mer.
 
 ## <a name="adjust-network-settings"></a>Justera nätverks inställningar
@@ -78,20 +79,20 @@ Om du behöver ladda upp certifikat till klustret använder du sidan Inställnin
 
 Om du vill kryptera kluster hanterings kommunikationen använder du sidan **kluster**  >  **allmänna inställningar** för att välja vilket certifikat som ska användas för administrativt TLS.
 
-> [!Note] 
-> Åtkomst nycklar för moln tjänster lagras med hjälp av konfigurations sidan **Cloud credentials** . I avsnittet [Lägg till en Core](fxt-add-storage.md#add-a-core-filer) -filer ovan visas ett exempel. Mer information finns i avsnittet [Cloud credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) i guiden för kluster konfiguration. 
+> [!Note]
+> Åtkomst nycklar för moln tjänster lagras med hjälp av konfigurations sidan **Cloud credentials** . I avsnittet [Lägg till en Core](fxt-add-storage.md#add-a-core-filer) -filer ovan visas ett exempel. Mer information finns i avsnittet [Cloud credentials](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_credentials.html) i guiden för kluster konfiguration.
 
 ## <a name="configure-dns-for-load-balancing"></a>Konfigurera DNS för belastnings utjämning
 
-I det här avsnittet beskrivs grunderna i hur du konfigurerar ett RRDNS-system (Round-Robin) för att distribuera klient belastningen bland alla klienternas IP-adresser i ditt FXT Edge-kluster. 
+I det här avsnittet beskrivs grunderna i hur du konfigurerar ett RRDNS-system (Round-Robin) för att distribuera klient belastningen bland alla klienternas IP-adresser i ditt FXT Edge-kluster.
 
 ### <a name="decide-whether-or-not-to-use-dns"></a>Bestämma om DNS ska användas eller inte
 
-Belastnings utjämning rekommenderas alltid, men du behöver inte alltid använda DNS. Med vissa typer av klient arbets flöden kan det till exempel vara mer meningsfullt att använda ett skript för att tilldela kluster-IP-adresser jämnt mellan klienter när de monterar klustret. Vissa metoder beskrivs i [montera klustret](fxt-mount-clients.md). 
+Belastnings utjämning rekommenderas alltid, men du behöver inte alltid använda DNS. Med vissa typer av klient arbets flöden kan det till exempel vara mer meningsfullt att använda ett skript för att tilldela kluster-IP-adresser jämnt mellan klienter när de monterar klustret. Vissa metoder beskrivs i [montera klustret](fxt-mount-clients.md).
 
-Tänk på följande när du bestämmer om du vill använda en DNS-Server: 
+Tänk på följande när du bestämmer om du vill använda en DNS-Server:
 
-* Om systemet endast används av NFS-klienter krävs inte DNS. Det går att ange alla nätverks adresser genom att använda numeriska IP-adresser. 
+* Om systemet endast används av NFS-klienter krävs inte DNS. Det går att ange alla nätverks adresser genom att använda numeriska IP-adresser.
 
 * Om systemet har stöd för SMB-åtkomst, krävs DNS, eftersom du måste ange en DNS-domän för Active Directory-servern.
 
@@ -110,7 +111,7 @@ Ett kluster vserver visas till vänster och IP-adresser visas i mitten och till 
 
 Varje klient riktad IP-adress måste ha ett unikt namn för intern användning av klustret. (I det här diagrammet heter klientens IP-adresser VS1-client-IP-* för tydlighetens skull, men i produktion bör du förmodligen använda något mer koncis, som klient *.)
 
-Klienter monterar klustret med namnet vserver som server argument. 
+Klienter monterar klustret med namnet vserver som server argument.
 
 Ändra DNS-serverns ``named.conf`` fil för att ställa in cyklisk ordning för frågor till din vserver. Det här alternativet säkerställer att alla tillgängliga värden går igenom. Lägg till en instruktion som följande:
 
@@ -136,7 +137,7 @@ update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
 update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 ```
 
-### <a name="enable-dns-in-the-cluster"></a>Aktivera DNS i klustret 
+### <a name="enable-dns-in-the-cluster"></a>Aktivera DNS i klustret
 
 Ange den DNS-server som klustret använder på sidan Inställningar för **kluster**för  >  **administrativa nätverk** . Inställningarna på sidan är:
 
@@ -148,8 +149,8 @@ Mer information finns i [DNS-inställningar](<https://azure.github.io/Avere/lega
 
 ## <a name="next-steps"></a>Nästa steg
 
-Detta är det sista grundläggande konfigurations steget för Azure FXT Edge-klustret. 
+Detta är det sista grundläggande konfigurations steget för Azure FXT Edge-klustret.
 
 * Lär dig mer om systemets indikatorer och andra indikatorer i [övervaka maskin varu status](fxt-monitor.md).
-* Läs mer om hur klienter ska montera FXT Edge-kluster i [montera klustret](fxt-mount-clients.md). 
-* Mer information om hur du hanterar ett FXT Edge-kluster finns i [kluster konfigurations guiden](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html). 
+* Läs mer om hur klienter ska montera FXT Edge-kluster i [montera klustret](fxt-mount-clients.md).
+* Mer information om hur du hanterar ett FXT Edge-kluster finns i [kluster konfigurations guiden](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html).

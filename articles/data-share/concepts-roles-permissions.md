@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ac528d1cfb74221a7398e390cedda08df4ea4508
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: efb86dbcbe7619ff6727c5e7374835dc3fc7d731
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151396"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220507"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roller och krav för Azure Data Share 
 
@@ -63,7 +63,7 @@ Följ stegen nedan om du vill skapa en roll tilldelning för data resurs resurse
 1. Under *Välj*anger du namnet på din Azure Data Resource-resurs.
 1. Klicka på *Spara*.
 
-Mer information om roll tilldelning finns i [lägga till eller ta bort Azure Role-tilldelningar med hjälp av Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Om du delar data med hjälp av REST API: er kan du skapa roll tilldelning med hjälp av API genom [att referera till Lägg till eller ta bort roll tilldelningar i Azure med hjälp av REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). 
+Mer information om roll tilldelning finns i [lägga till eller ta bort Azure Role-tilldelningar med hjälp av Azure Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Om du delar data med hjälp av REST API: er kan du skapa roll tilldelning med hjälp av API genom [att referera till Lägg till eller ta bort roll tilldelningar i Azure med hjälp av REST API](../role-based-access-control/role-assignments-rest.md). 
 
 För SQL-baserade källor måste en SQL-användare skapas från en extern provider i SQL Database med samma namn som Azure Data Resource-resursen vid anslutning till SQL Database med Azure Active Directory autentisering. Den här användaren måste beviljas *db_datareader* -behörighet. Ett exempel skript, tillsammans med andra krav för SQL-baserad delning, finns i [resursen från Azure SQL Database-eller Synapse Analytics](how-to-share-from-sql.md) -självstudierna. 
 
@@ -83,7 +83,7 @@ Följ stegen nedan om du vill skapa en roll tilldelning för data resurs resurse
 1. Under *Välj*anger du namnet på din Azure Data Resource-resurs.
 1. Klicka på *Spara*.
 
-Mer information om roll tilldelning finns i [lägga till eller ta bort Azure Role-tilldelningar med hjälp av Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment). Om du tar emot data med hjälp av REST API: er kan du skapa roll tilldelning med API genom [att referera till Lägg till eller ta bort roll tilldelningar i Azure med hjälp av REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). 
+Mer information om roll tilldelning finns i [lägga till eller ta bort Azure Role-tilldelningar med hjälp av Azure Portal](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Om du tar emot data med hjälp av REST API: er kan du skapa roll tilldelning med API genom [att referera till Lägg till eller ta bort roll tilldelningar i Azure med hjälp av REST API](../role-based-access-control/role-assignments-rest.md). 
 
 För SQL-baserat mål måste en SQL-användare skapas från en extern provider i SQL Database med samma namn som Azure Data Resource-resursen vid anslutning till SQL Database med Azure Active Directory autentisering. Den här användaren måste beviljas *db_datareader db_datawriter db_ddladmin* behörighet. Ett exempel skript, tillsammans med andra krav för SQL-baserad delning, finns i [resursen från Azure SQL Database-eller Synapse Analytics](how-to-share-from-sql.md) -självstudierna. 
 
@@ -103,7 +103,7 @@ Följ de här stegen för att registrera Microsoft. DataShare-resurs leverantör
 1. Sök efter Microsoft. DataShare.
 1. Klicka på **Registrera**.
  
-Mer information om Resource Provider finns i [Azure Resource providers och-typer](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+Mer information om Resource Provider finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

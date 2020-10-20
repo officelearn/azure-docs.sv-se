@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 63a79df8e540e88d0f1e3f4c5b8d339ff03c877f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2db64a950569e4a96a9a87bb86a5397a17b4f2ba
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854298"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214948"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C-kodexempel
 
@@ -47,7 +47,8 @@ Följande tabeller innehåller länkar till exempel för program, inklusive iOS,
 
 | Exempel | Beskrivning |
 |--------| ----------- |
-| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | En ensidesapplikation (SPA) som anropar ett webb-API. Autentisering görs med Azure AD B2C med hjälp av MSAL.js. |
+| [MS-Identity-B2C-JavaScript-Spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | En ensidesapplikation (SPA) som anropar ett webb-API. Autentisering görs med Azure AD B2C med hjälp av MSAL.js. I det här exemplet används Authorization Code Flow med PKCE. |
+| [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | En ensidesapplikation (SPA) som anropar ett webb-API. Autentisering görs med Azure AD B2C med hjälp av MSAL.js. I de här exemplen används det implicita flödet.|
 
 ## <a name="saml-test-application"></a>SAML-testprogram
 
@@ -55,7 +56,7 @@ Följande tabeller innehåller länkar till exempel för program, inklusive iOS,
 |--------| ----------- |
 | [SAML-SP-testare](https://github.com/azure-ad-b2c/saml-sp-tester/tree/master/source-code) | SAML-testprogram för att testa Azure AD B2C som har kon figurer ATS för att fungera som SAML Identity Provider. |
 
-## <a name="api-connectors"></a>API-kopplingar
+## <a name="api-connectors"></a>API-anslutningsprogram
 
 Följande tabeller innehåller länkar till kod exempel för att använda webb-API: er i dina användar flöden med [API-kopplingar](api-connectors-overview.md).
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: e367c348364d03cec6914c99e7ff112803fc58f6
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 640b148dc22aa87592a6adcfca99c8ed35731934
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132439"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220609"
 ---
 # <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Uppdatera Network Watcher-tillägget till den senaste versionen
 
@@ -52,20 +52,22 @@ Du kan kontrol lera tilläggs versionen med hjälp av Azure Portal, Azure CLI el
 Kör följande kommando från en Azure CLI-kommandotolk:
 
 ```azurecli
-az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
+az vm get-instance-view --resource-group  "SampleRG" --name "Sample-VM"
 ```
+Leta upp **"AzureNetworkWatcherExtension"** i utdata och identifiera versions numret från fältet *"TypeHandlerVersion"* i utdata.  Observera: information om tillägget visas flera gånger i JSON-utdata. Titta under blocket "Extensions" och se det fullständiga versions numret för tillägget. 
 
-Leta upp AzureNetworkWatcher-tillägget i utdata. Identifiera versions numret i fältet "TypeHandlerVersion" i utdata.  
+Du bör se något som liknar följande: ![ Azure CLI-skärm bild](./media/network-watcher/azure-cli-screenshot.png)
 
 #### <a name="usepowershell"></a>Använd PowerShell
 
 Kör följande kommandon från en PowerShell-prompt:
 
 ```powershell
-Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName>  
+Get-AzVM -ResourceGroupName "SampleRG" -Name "Sample-VM" -Status
 ```
+Leta upp Azure Network Watcher-tillägget i utdata och identifiera versions numret från fältet *"TypeHandlerVersion"* i utdata.   
 
-Leta upp AzureNetworkWatcher-tillägget i utdata. Identifiera versions numret i fältet "TypeHandlerVersion" i utdata.
+Du bör se något som liknar följande: ![ PowerShell-skärm bild](./media/network-watcher/powershell-screenshot.png)
 
 ### <a name="update-your-extension"></a>Uppdatera tillägget
 
@@ -81,6 +83,25 @@ Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS"
 
 #Windows command
 Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"   
+```
+
+Om det inte fungerar. Ta bort och installera tillägget igen med hjälp av stegen nedan. Den senaste versionen läggs till automatiskt.
+
+Tar bort tillägget 
+
+```powershell
+#Same command for Linux and Windows
+Remove-AzVMExtension -ResourceGroupName "SampleRG" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension"
+``` 
+
+Installerar tillägget igen
+
+```powershell
+#Linux command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux" -typeHandlerVersion "1.4"
+
+#Windows command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -typeHandlerVersion "1.4"
 ```
 
 #### <a name="option-2-use-the-azure-cli"></a>Alternativ 2: Använd Azure CLI

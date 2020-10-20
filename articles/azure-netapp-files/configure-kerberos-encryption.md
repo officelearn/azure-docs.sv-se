@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 10/19/2020
 ms.author: b-juche
-ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461486"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217056"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Konfigurera NFSv 4.1 Kerberos-kryptering för Azure NetApp Files
 
@@ -75,7 +75,7 @@ Konfiguration av NFSv 4.1 Kerberos skapar två dator konton i Active Directory:
 * Ett dator konto för SMB-resurser
 * Ett dator konto för NFSv 4.1 – du kan identifiera det här kontot med hjälp av prefixet `NFS-` . 
 
-När du har skapat den första NFSv 4.1 Kerberos-volymen anger du krypterings typ eller dator konto med hjälp av följande PowerShell-kommando:
+När du har skapat den första NFSv 4.1 Kerberos-volymen anger du krypterings typ för dator kontot med hjälp av följande PowerShell-kommando:
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -96,11 +96,11 @@ Följ anvisningarna i [Konfigurera en NFS-klient för att Azure NetApp Files](co
 3. Skapa katalogen (monterings punkt) för den nya volymen.  
 
 4. Ange standard krypterings typen AES 256 för dator kontot:  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * Du behöver bara köra det här kommandot en gång för varje dator konto.
     * Du kan köra det här kommandot från en domänkontrollant eller från en dator med [rsat](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) installerat. 
-    * `$COMPUTERACCOUNT`Variabeln är det dator konto som skapades i Active Directory när du distribuerar Kerberos-volymen. Detta är det konto som har prefixet `NFS-` . 
+    * `$NFSCOMPUTERACCOUNT`Variabeln är det dator konto som skapades i Active Directory när du distribuerar Kerberos-volymen. Detta är det konto som har prefixet `NFS-` . 
     * `$ANFSERVICEACCOUNT`Variabeln är ett användar konto som inte är privilegie rad Active Directory med delegerade kontroller över den organisationsenhet där dator kontot har skapats. 
 
 5. Montera volymen på värden: 

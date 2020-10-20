@@ -4,12 +4,12 @@ description: Kod för program prestanda övervakning för Java-program som körs
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9b90f8b9336111438b4b832d557d448470959255
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f2add41457d1d82b0efd6c6804496018c85225
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537665"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215271"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Konfigurations alternativ – Java fristående agent för Azure Monitor Application Insights
 
@@ -164,9 +164,10 @@ Om du har några JMX-mått som du är intresse rad av att fånga:
 }
 ```
 
-Du kan också ange JMX mått med hjälp av miljövariabeln `APPLICATIONINSIGHTS_JMX_METRICS` .
+Numeriska och booleska JMX-mått stöds. Booleska JMX-mått mappas till `0` för falskt och `1` true.
 
-Detta miljö variabel innehåll måste vara JSON-data som matchar ovanstående struktur, t. ex. `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
+[//]: # "Obs!: dokumentera APPLICATIONINSIGHTS_JMX_METRICS här"
+[//]: # "JSON Embedded i kuvert var är rörigt och bör bara dokumenteras för kod kopplings scenario"
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometer (inklusive mått från våren Boot-motstånd)
 

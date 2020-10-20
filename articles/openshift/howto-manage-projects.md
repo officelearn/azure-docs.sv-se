@@ -8,14 +8,20 @@ ms.author: gwallace
 ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: container-service
-ms.openlocfilehash: 35474df96254b158a39b6d913171c553bf30aea4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0abc086553f5e903a71bcfd0b6322bcee56d2d8b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816447"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216937"
 ---
 # <a name="manage-projects-templates-image-streams-in-an-azure-red-hat-openshift-cluster"></a>Hantera projekt, mallar, bild strömmar i ett kluster med OpenShift i Azure Red Hat
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 kommer att dras tillbaka 30 juni 2022. Stöd för att skapa nya Azure Red Hat OpenShift 3,11-kluster fortsätter till och med 30 november 2020. Efter pensionering kommer de återstående Azure Red Hat OpenShift 3,11-klustren att stängas av för att förhindra säkerhets problem.
+> 
+> Följ den här guiden för att [skapa ett Azure Red Hat OpenShift 4-kluster](tutorial-create-cluster.md).
+> Om du har frågor kan du [kontakta oss](mailto:arofeedback@microsoft.com).
 
 I en OpenShift container-plattform används projekt för att gruppera och isolera relaterade objekt. Som administratör kan du ge utvecklare åtkomst till specifika projekt, tillåta dem att skapa sina egna projekt och ge dem administrativa rättigheter till enskilda projekt.
 

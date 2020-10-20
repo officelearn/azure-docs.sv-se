@@ -166,7 +166,7 @@
     - name: Metodtips
       items:
         - name: Bästa metoder för nätverkssäkerhet och molntjänster
-          href: ../best-practices-network-security.md
+          href: /azure/cloud-adoption-framework/reference/networking-vdc
         - name: Optimera routning
           href: expressroute-optimize-routing.md
         - name: Asymmetrisk routning
@@ -192,9 +192,9 @@
     - name: Azure CLI
       href: /cli/azure/network/express-route
     - name: REST
-      href: 'https://msdn.microsoft.com/library/azure/mt586720'
+      href: /rest/api/expressroute/
     - name: REST (klassisk)
-      href: 'https://msdn.microsoft.com/library/azure/dn606310'
+      href: /previous-versions/azure/reference/dn606310(v=azure.100)
     - name: Resource Manager-mall
       displayName: 'ARM,resource manager template'
       href: /azure/templates/microsoft.network/expressroutecircuits

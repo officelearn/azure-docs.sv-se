@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019872"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220643"
 ---
 # <a name="azure-media-services-v3-overview"></a>Översikt över Azure Media Services v3
 
@@ -64,7 +64,7 @@ Med Media Services kan du bygga en mängd olika medie arbets flöden i molnet. N
 Lär dig att koda och paketera innehåll, strömma videor på begäran, sända live och analysera dina videor med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
 
 > [!TIP]
-> Innan du börjar utveckla bör du gå igenom följande:<br/>* [Grundläggande begrepp](concepts-overview.md) (incudes viktiga begrepp som paketering, kodning och skydd)<br/>* [Utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om åtkomst till API: er, namn konventioner och så vidare)
+> Innan du börjar utveckla bör du gå igenom följande:<br/>* [Grundläggande begrepp](concepts-overview.md) (inklusive viktiga begrepp som paketering, kodning och skydd)<br/>* [Utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om åtkomst till API: er, namn konventioner och så vidare)
 
 ### <a name="sdks"></a>SDK:er
 

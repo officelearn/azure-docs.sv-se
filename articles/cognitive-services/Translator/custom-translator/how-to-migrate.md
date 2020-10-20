@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86537994"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220881"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub-arbetsytan och projekt till anpassad översättare
 
@@ -55,7 +55,7 @@ Så här migrerar du ett projekt:
 
 3. Klicka på migrera länken för lämpligt projekt.
 
-    ![Migrera från hubben](media/how-to/how-to-migrate-from-hub.png)
+    ![Skärm bild som visar knappen migrera för det valda projektet.](media/how-to/how-to-migrate-from-hub.png)
 
 4. När du trycker på länken migrera visas ett formulär där du kan:
    * Ange den arbets yta som du vill överföra till på en anpassad översättare
@@ -76,7 +76,7 @@ Så här migrerar du en arbets yta:
 
 3. På sidan inställningar klickar du på migrera data från arbets ytan till anpassad översättare.
 
-    ![Migrera från hubben](media/how-to/how-to-migrate-workspace-from-hub.png)
+    ![Skärm bild som visar alternativet migrera arbets ytans data till anpassat Translator.](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4. På nästa sida väljer du något av följande två alternativ:
 

@@ -7,12 +7,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 10/15/2020
-ms.openlocfilehash: 1b61b643ea4b195878a1d12fc1ac4bb7fef23027
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a323dec66a3077784ff85deadd4f12086648fb3a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151370"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220466"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Felsöka vanliga problem i Azure Data Share 
 
@@ -34,7 +34,7 @@ Det här kan bero på något av följande:
     1. Sök efter **Microsoft.DataShare**
     1. Klicka på **Registrera** 
 
-    Du måste ha [Azure Contributor-rollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) till Azure-prenumerationen för att slutföra de här stegen. 
+    Du måste ha [Azure Contributor-rollen](../role-based-access-control/built-in-roles.md#contributor) till Azure-prenumerationen för att slutföra de här stegen. 
 
 * **Inbjudan skickas till ditt e-postalias snarare än din e-postadress för Azure-inloggning.** Om du har registrerat Azure Data Share-tjänsten eller redan har skapat en Data Share-resurs i Azure-klienten, men ändå inte kan se inbjudan, kan det bero på att providern har angett ditt e-postalias som mottagare snarare än din e-postadress för Azure-inloggning. Kontakta din dataprovider och kontrollera att de har skickat inbjudan till din e-postadress för Azure-inloggning och inte ditt e-postalias.
 
@@ -81,4 +81,3 @@ För SQL-källor är följande ytterligare orsaker till fel i ögonblicks bilder
 Om du vill lära dig hur du börjar dela data fortsätter du till kursen [dela data](share-your-data.md) . 
 
 Om du vill lära dig hur du tar emot data fortsätter du till kursen för att [godkänna och ta emot data](subscribe-to-data-share.md) .
-

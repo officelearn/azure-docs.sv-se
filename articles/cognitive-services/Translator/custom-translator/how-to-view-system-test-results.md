@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 04e21e4bcd56506ba27730ebc1f9b0db8dc39615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88509693"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220864"
 ---
 # <a name="view-system-test-results"></a>Visa testresultat för system
 
@@ -70,12 +70,12 @@ Så här begär du en distribution:
 
 2. För en lyckad tränad modell visas knappen "distribuera", om den inte distribueras.
 
-    ![Distribuera modell](media/how-to/how-to-deploy-model.png)
+    ![Skärm bild som visar knappen distribuera för att distribuera en modell.](media/how-to/how-to-deploy-model.png)
 
 3.  Klicka på distribuera.
 4.  Välj **distribuerad** för de regioner där du vill att din modell ska distribueras och klicka sedan på Spara. Du kan välja **distribuerat** i flera regioner.
 
-    ![Distribuera modell](media/how-to/how-to-deploy-model-regions.png)
+    ![Skärm bild som visar var du kan distribuera eller avdistribuera en modell.](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Du kan visa status för din modell i kolumnen "status".
 
@@ -90,7 +90,7 @@ Så här uppdaterar du distributions inställningarna:
 
 2. För en lyckad distribuerad modell visas en **uppdaterings** knapp.
 
-    ![Distribuera modell](media/how-to/how-to-update-undeploy-model.png)
+    ![Skärm bild som visar knappen Uppdatera för att uppdatera distributions inställningar.](media/how-to/how-to-update-undeploy-model.png)
 
 3.  Välj **Uppdatera**.
 4.  Välj **distribuerad** eller ej **distribuerad** för den eller de regioner där du vill att din modell ska distribueras eller avinstalleras och klicka sedan på **Spara**.

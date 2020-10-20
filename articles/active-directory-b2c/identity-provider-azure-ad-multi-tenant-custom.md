@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 645a0d21fc25cb45914eed02e023a0076c457ffb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4343a5e185fdfe96e1e3298b0fc3fe6719f3a4a2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116302"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215849"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning för Azure Active Directory för flera innehavare med anpassade principer i Azure Active Directory B2C
 
@@ -37,7 +37,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
 1. Ange ett **namn** för ditt program. Exempelvis `Azure AD B2C App`.
-1. Välj **konton i valfri organisations katalog** för det här programmet.
+1. Välj **konton i valfri organisations katalog (alla Azure AD-kataloger – flera innehavare)** för det här programmet.
 1. För **omdirigerings-URI: n**, godkänn värdet för **webb**och ange följande URL i gemener, där `your-B2C-tenant-name` ersätts med namnet på din Azure AD B2C-klient.
 
     ```

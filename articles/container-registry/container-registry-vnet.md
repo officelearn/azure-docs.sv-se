@@ -3,12 +3,12 @@ title: Begränsa åtkomst med hjälp av en tjänst slut punkt
 description: Begränsa åtkomsten till ett Azure Container Registry med hjälp av en tjänst slut punkt i ett virtuellt Azure-nätverk. Åtkomst till tjänst slut punkten är en funktion i Premium service-nivån.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 1fc8d54d677112a9c934f9079e953a7389939bde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488683"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215509"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Begränsa åtkomsten till ett behållar register med hjälp av en tjänst slut punkt i ett virtuellt Azure-nätverk
 
@@ -49,13 +49,11 @@ Konfiguration av en slut punkt för en Registry-tjänst är tillgänglig i tjän
 
 ## <a name="configure-network-access-for-registry"></a>Konfigurera nätverks åtkomst för registret
 
-I det här avsnittet konfigurerar du behållar registret för att tillåta åtkomst från ett undernät i ett virtuellt Azure-nätverk. Likvärdiga steg som använder Azure CLI och Azure Portal tillhandahålls.
+I det här avsnittet konfigurerar du behållar registret för att tillåta åtkomst från ett undernät i ett virtuellt Azure-nätverk. Du får anvisningar med hjälp av Azure CLI.
 
-### <a name="allow-access-from-a-virtual-network---cli"></a>Tillåt åtkomst från ett virtuellt nätverk – CLI
+### <a name="add-a-service-endpoint-to-a-subnet"></a>Lägga till en tjänst slut punkt i ett undernät
 
-#### <a name="add-a-service-endpoint-to-a-subnet"></a>Lägga till en tjänst slut punkt i ett undernät
-
-När du skapar en virtuell dator skapar Azure som standard ett virtuellt nätverk i samma resurs grupp. Namnet på det virtuella nätverket baseras på namnet på den virtuella datorn. Om du till exempel namnger din virtuella dator *myDockerVM*är det virtuella standard nätverks namnet *myDockerVMVNET*, med ett undernät som heter *myDockerVMSubnet*. Kontrol lera detta i Azure Portal eller genom att använda kommandot [AZ Network VNet List][az-network-vnet-list] :
+När du skapar en virtuell dator skapar Azure som standard ett virtuellt nätverk i samma resurs grupp. Namnet på det virtuella nätverket baseras på namnet på den virtuella datorn. Om du till exempel namnger din virtuella dator *myDockerVM*är det virtuella standard nätverks namnet *myDockerVMVNET*, med ett undernät som heter *myDockerVMSubnet*. Verifiera detta genom att använda kommandot [AZ Network VNet List][az-network-vnet-list] :
 
 ```azurecli
 az network vnet list \
@@ -101,7 +99,7 @@ Utdata:
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="change-default-network-access-to-registry"></a>Ändra standard nätverks åtkomst till registret
+### <a name="change-default-network-access-to-registry"></a>Ändra standard nätverks åtkomst till registret
 
 Som standard tillåter ett Azure Container Registry anslutningar från värdar i alla nätverk. Om du vill begränsa åtkomsten till ett valt nätverk ändrar du standard åtgärden till neka åtkomst. Ersätt namnet på registret i följande [AZ ACR Update][az-acr-update] -kommando:
 
@@ -109,7 +107,7 @@ Som standard tillåter ett Azure Container Registry anslutningar från värdar i
 az acr update --name myContainerRegistry --default-action Deny
 ```
 
-#### <a name="add-network-rule-to-registry"></a>Lägg till nätverks regel i registret
+### <a name="add-network-rule-to-registry"></a>Lägg till nätverks regel i registret
 
 Använd kommandot [AZ ACR Network-Rule Add][az-acr-network-rule-add] för att lägga till en nätverks regel i registret som tillåter åtkomst från den virtuella datorns undernät. Ersätt namnet på behållar registret och resurs-ID: t för under nätet i följande kommando: 
 
@@ -143,11 +141,9 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 
 ## <a name="restore-default-registry-access"></a>Återställ standard register åtkomst
 
-Om du vill återställa registret för att tillåta åtkomst som standard, tar du bort eventuella nätverks regler som är konfigurerade. Ange sedan standard åtgärden för att tillåta åtkomst. Likvärdiga steg som använder Azure CLI och Azure Portal tillhandahålls.
+Om du vill återställa registret för att tillåta åtkomst som standard, tar du bort eventuella nätverks regler som är konfigurerade. Ange sedan standard åtgärden för att tillåta åtkomst. 
 
-### <a name="restore-default-registry-access---cli"></a>Återställ standard register åtkomst-CLI
-
-#### <a name="remove-network-rules"></a>Ta bort nätverks regler
+### <a name="remove-network-rules"></a>Ta bort nätverks regler
 
 Om du vill se en lista över nätverks regler som har kon figurer ATS för registret kör du följande kommando för [AZ ACR Network-Rule List][az-acr-network-rule-list] :
 
@@ -166,7 +162,7 @@ az acr network-rule remove \
   xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myDockerVMVNET/subnets/myDockerVMSubnet
 ```
 
-#### <a name="allow-access"></a>Tillåt åkomst
+### <a name="allow-access"></a>Tillåt åkomst
 
 Ersätt namnet på registret i följande [AZ ACR Update][az-acr-update] -kommando:
 ```azurecli
@@ -180,8 +176,6 @@ Om du har skapat alla Azure-resurser i samma resurs grupp och inte längre behö
 ```azurecli
 az group delete --name myResourceGroup
 ```
-
-Om du vill rensa dina resurser i portalen navigerar du till resurs gruppen myResourceGroup. När resurs gruppen har lästs in klickar du på **ta bort resurs** grupp för att ta bort resurs gruppen och resurserna som lagras där.
 
 ## <a name="next-steps"></a>Nästa steg
 

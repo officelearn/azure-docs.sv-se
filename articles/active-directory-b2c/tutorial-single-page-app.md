@@ -11,16 +11,16 @@ ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d89dc6973e61f0cff80b5c65a8c5b836485575
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258922"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216539"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Självstudie: aktivera autentisering i ett program med en sida med Azure AD B2C
 
-Den här självstudien visar hur du använder Azure Active Directory B2C (Azure AD B2C) för att registrera och logga in användare i ett enda webb program (SPA).
+I den här självstudien får du lära dig hur du använder Azure Active Directory B2C (Azure AD B2C) för att registrera och logga in användare i ett enda webb program (SPA) med hjälp av det implicita tilldelnings flödet för OAuth 2,0.
 
 I den här självstudien är den första i en serie i två delar:
 
@@ -34,12 +34,12 @@ I den här självstudien är den första i en serie i två delar:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här självstudien:
 
 * [Azure AD B2C klient](tutorial-create-tenant.md)
-* [Programmet är registrerat](tutorial-register-applications.md) i din klient
+* [Programmet är registrerat](tutorial-register-spa.md) i din klient (Använd alternativ för implicit flöde)
 * [Användar flöden som skapats](tutorial-create-user-flows.md) i din klient organisation
 
 Dessutom behöver du följande i din lokala utvecklings miljö:
@@ -60,7 +60,7 @@ Om du vill uppdatera ett program i din Azure AD B2C klient kan du använda vår 
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Välj **Appregistreringar**, Välj fliken **ägda program** och välj sedan *webapp1* -programmet.
 1. Under **webb**väljer du länken **Lägg till URI** , anger `http://localhost:6420` .
-1. Under **implicit beviljande**väljer du kryss rutorna **för åtkomsttoken** och **ID-token** och väljer sedan **Spara**.
+1. Under **implicit beviljande**väljer du kryss rutorna för **åtkomsttoken** och **ID-token** om de inte redan är markerade och väljer sedan **Spara**.
 1. Välj **Översikt**.
 1. Registrera **program-ID: t (klient)** för användning i ett senare steg när du uppdaterar koden i webb programmet med en sida.
 

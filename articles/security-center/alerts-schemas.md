@@ -2,7 +2,6 @@
 title: Scheman för Azure Security Center aviseringar
 description: I den här artikeln beskrivs de olika scheman som används av Azure Security Center för säkerhets aviseringar.
 services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264cab08fa967af783b758ed1030826d2a179e8a
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901342"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220677"
 ---
 # <a name="security-alerts-schemas"></a>Säkerhets aviserings scheman
 
@@ -68,7 +67,7 @@ Mer information om Azure Sentinel finns i [dokumentationen](https://docs.microso
 
 
 
-### <a name="azure-activity-log"></a>[Azure aktivitets logg](#tab/schema-activitylog)
+### <a name="azure-activity-log"></a>[Azure-aktivitetslogg](#tab/schema-activitylog)
 
 Azure Security Center granskar skapade säkerhets aviseringar som händelser i Azure aktivitets logg.
 
@@ -140,7 +139,7 @@ Du kan visa säkerhets aviserings händelser i aktivitets loggen genom att söka
 
 ### <a name="the-data-model-of-the-schema"></a>Data modellen för schemat
 
-|Field|Beskrivning|
+|Fält|Beskrivning|
 |----|----|
 |**kanal**|Konstant, "åtgärd"|
 |**correlationId**|Azure Security Center aviserings-ID|
@@ -173,7 +172,7 @@ Du kan visa säkerhets aviserings händelser i aktivitets loggen genom att söka
 
 Microsoft Graph är gatewayen till data och information i Microsoft 365. Det ger en enhetlig programmerings modell som du kan använda för att få åtkomst till den fantastiska mängden data i Microsoft 365, Windows 10 och Enterprise Mobility + Security. Använd stora mängder data i Microsoft Graph för att bygga appar för organisationer och konsumenter som interagerar med miljon tals användare.
 
-Schemat och en JSON-representation för säkerhets varningar som skickas till MS Graph finns i [Microsoft Graph-dokumentationen](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0).
+Schemat och en JSON-representation för säkerhets varningar som skickas till MS Graph finns i [Microsoft Graph-dokumentationen](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0&preserve-view=true).
 
 ---
 

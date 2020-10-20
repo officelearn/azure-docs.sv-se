@@ -2,15 +2,14 @@
 title: Använd jobb webbläsare & jobb Visa Azure Data Lake Analytics
 description: I den här artikeln beskrivs hur du använder vyn jobb webbläsare och jobb för Azure Data Lake Analytics jobb.
 ms.service: data-lake-analytics
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1e9a9df4c2ec57dfeec8cf5ddd5348228b9cc3e
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282620"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218688"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Använda jobbwebbläsaren och jobbvyn för Azure Data Lake Analytics
 Azure Data Lake Analytics tjänst arkiverar jobb som skickats i ett frågearkivet. I den här artikeln får du lära dig hur du använder jobb webbläsare och jobb visning i Azure Data Lake verktyg för Visual Studio för att hitta den historiska jobb informationen. 
@@ -163,7 +162,7 @@ Jobb information visar detaljerad information om jobbet, inklusive skript, resur
   
     Den visar information om körning av formhörn. Jobb profilen arkiverar varje form av körnings logg, till exempel total läsning/skrivning av data, körning, tillstånd osv. I den här vyn kan du få mer information om hur ett jobb körs. Mer information finns i [Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 * Information om hur du loggar diagnostikinformation finns i [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Om du vill se en mer komplex fråga, se [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * Om du vill använda körnings visning för hörn, se [Använd vyn hörn körning i data Lake verktyg för Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fb1750996f40db6d76db30cd1c3bc07186660159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44300771ce6471c97dcd582884995395daae4995
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201862"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215492"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Logga in på en enda sida med det implicita flödet för OAuth 2,0 i Azure Active Directory B2C
 
@@ -26,7 +26,9 @@ Många moderna program har en app-klient med en enda sida som skrivits främst i
 - Många auktoriseringsregler och identitets leverantörer har inte stöd för frågor för resurs delning mellan ursprung (CORS).
 - Hel Webbs Ides webbläsare omdirigeras bort från appen kan vara invasiv till användar upplevelsen.
 
-För att stödja dessa program använder Azure Active Directory B2C (Azure AD B2C) det implicita flödet för OAuth 2,0. Det implicita beviljande flödet för OAuth 2,0-auktorisering beskrivs i [avsnittet 4,2 i OAuth 2,0-specifikationen](https://tools.ietf.org/html/rfc6749). I implicit flöde tar appen emot token direkt från Azure Active Directory (Azure AD) auktorisera slut punkt, utan server-till-Server-utbyte. All autentiserings-och sessionshantering utförs helt i JavaScript-klienten med antingen en Omdirigerad sida eller en popup-ruta.
+Det rekommenderade sättet att stödja en Enkels Ides program är [OAuth 2,0 Authorization Code Flow (med PKCE)](./authorization-code-flow.md).
+
+Vissa ramverk, t. ex. [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), stöder bara det implicita tilldelnings flödet. I dessa fall Azure Active Directory B2C (Azure AD B2C) stöder det implicita tilldelnings flödet för OAuth 2,0-auktorisering. Thee-flödet beskrivs i [avsnitt 4,2 i OAuth 2,0-specifikationen](https://tools.ietf.org/html/rfc6749). I implicit flöde tar appen emot token direkt från Azure Active Directory (Azure AD) auktorisera slut punkt, utan server-till-Server-utbyte. All autentiserings-och sessionshantering utförs helt i JavaScript-klienten med antingen en Omdirigerad sida eller en popup-ruta.
 
 Azure AD B2C utökar standard OAuth 2,0-det implicita flödet till mer än enkel autentisering och auktorisering. Azure AD B2C introducerar [princip parametern](user-flow-overview.md). Med princip parametern kan du använda OAuth 2,0 för att lägga till principer till appen, till exempel registrering, inloggning och profil hantering användar flöden. I exempel-HTTP-begärandena i den här artikeln används **{Tenant}. onmicrosoft. com** som exempel. Ersätt `{tenant}` med namnet på din klient om du har ett och har även skapat ett användar flöde.
 
@@ -166,18 +168,18 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | Parameter | Obligatoriskt? | Beskrivning |
 | --- | --- | --- |
-|innehav| Krävs | Namnet på din Azure AD B2C-klient|
-politik| Krävs| Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in` , `b2c_1_sign_up` , eller `b2c_1_edit_profile` . |
-| client_id |Krävs |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
-| response_type |Krävs |Måste inkludera `id_token` för OpenID Connect-inloggning.  Den kan även innehålla svars typen `token` . Om du använder `token` Detta kan din app omedelbart ta emot en åtkomsttoken från den auktoriserade slut punkten, utan att göra en andra begäran till behörighets slut punkten. Om du använder `token` svars typen `scope` måste parametern innehålla ett definitions område som anger vilken resurs som ska utfärda token för. |
+|innehav| Obligatorisk | Namnet på din Azure AD B2C-klient|
+politik| Obligatorisk| Det användar flöde som ska köras. Ange namnet på ett användar flöde som du har skapat i Azure AD B2C klient organisationen. Till exempel: `b2c_1_sign_in` , `b2c_1_sign_up` , eller `b2c_1_edit_profile` . |
+| client_id |Obligatorisk |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
+| response_type |Obligatorisk |Måste inkludera `id_token` för OpenID Connect-inloggning.  Den kan även innehålla svars typen `token` . Om du använder `token` Detta kan din app omedelbart ta emot en åtkomsttoken från den auktoriserade slut punkten, utan att göra en andra begäran till behörighets slut punkten. Om du använder `token` svars typen `scope` måste parametern innehålla ett definitions område som anger vilken resurs som ska utfärda token för. |
 | redirect_uri |Rekommenderas |Omdirigerings-URI för appen, där autentiseringsbegäranden kan skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i portalen, förutom att den måste vara URL-kodad. |
-| omfång |Krävs |En blankstegsavgränsad lista över omfång.  Ta med alla omfattningar som krävs för den avsedda resursen för att hämta tokens. |
+| omfång |Obligatorisk |En blankstegsavgränsad lista över omfång.  Ta med alla omfattningar som krävs för den avsedda resursen för att hämta tokens. |
 | response_mode |Rekommenderas |Anger den metod som används för att skicka den resulterande token tillbaka till din app. Använd för implicit flöde `fragment` . Två andra lägen kan anges `query` och `form_post` , men fungerar inte i det implicita flödet. |
 | state |Rekommenderas |Ett värde som ingår i begäran som returneras i token-svaret.  Det kan vara en sträng med innehåll som du vill använda.  Vanligt vis används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en annan plats.  Det här läget används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat. Till exempel visar sidan eller visar användaren. |
-| Nnär |Krävs |Ett värde som ingår i begäran, som genereras av appen, som ingår i den resulterande ID-token som ett anspråk.  Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Normalt är värdet en slumpmässig, unik sträng som identifierar ursprunget för begäran. |
-| visas |Krävs |Om du vill uppdatera och hämta tokens i en dold iframe använder `prompt=none` du för att se till att iframe inte fastnar på inloggnings sidan och returnerar omedelbart. |
-| login_hint |Krävs |Om du vill uppdatera och hämta tokens i en dold iframe inkluderar du användar namnet för användaren i det här tipset för att skilja mellan flera sessioner som användaren kan ha vid en angiven tidpunkt. Du kan extrahera användar namnet från en tidigare inloggning med hjälp av `preferred_username` anspråket ( `profile` omfånget krävs för att ta emot `preferred_username` anspråket). |
-| domain_hint |Krävs |Det kan vara `consumers` eller `organizations`.  För att uppdatera och hämta tokens i en dold iframe, inkludera `domain_hint` värdet i begäran.  Extrahera `tid` anspråk från ID-token för en tidigare inloggning för att avgöra vilket värde som ska användas ( `profile` omfånget krävs för att ta emot `tid` anspråket). Om `tid` anspråk svärdet är `9188040d-6c67-4c5b-b112-36a304b66dad` använder du `domain_hint=consumers` .  Annars använder du `domain_hint=organizations` . |
+| Nnär |Obligatorisk |Ett värde som ingår i begäran, som genereras av appen, som ingår i den resulterande ID-token som ett anspråk.  Appen kan sedan verifiera det här värdet för att minimera omuppspelning av token. Normalt är värdet en slumpmässig, unik sträng som identifierar ursprunget för begäran. |
+| visas |Obligatorisk |Om du vill uppdatera och hämta tokens i en dold iframe använder `prompt=none` du för att se till att iframe inte fastnar på inloggnings sidan och returnerar omedelbart. |
+| login_hint |Obligatorisk |Om du vill uppdatera och hämta tokens i en dold iframe inkluderar du användar namnet för användaren i det här tipset för att skilja mellan flera sessioner som användaren kan ha vid en angiven tidpunkt. Du kan extrahera användar namnet från en tidigare inloggning med hjälp av `preferred_username` anspråket ( `profile` omfånget krävs för att ta emot `preferred_username` anspråket). |
+| domain_hint |Obligatorisk |Det kan vara `consumers` eller `organizations`.  För att uppdatera och hämta tokens i en dold iframe, inkludera `domain_hint` värdet i begäran.  Extrahera `tid` anspråk från ID-token för en tidigare inloggning för att avgöra vilket värde som ska användas ( `profile` omfånget krävs för att ta emot `tid` anspråket). Om `tid` anspråk svärdet är `9188040d-6c67-4c5b-b112-36a304b66dad` använder du `domain_hint=consumers` .  Annars använder du `domain_hint=organizations` . |
 
 Genom att ange `prompt=none` parametern slutförs eller Miss lyckas denna begäran omedelbart och återgår till ditt program.  Ett lyckat svar skickas till din app vid angiven omdirigerings-URI, genom att använda metoden som anges i `response_mode` parametern.
 

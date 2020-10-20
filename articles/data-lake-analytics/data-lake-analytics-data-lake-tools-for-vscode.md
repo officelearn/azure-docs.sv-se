@@ -1,18 +1,16 @@
 ---
 title: Använda Azure Data Lake Tools för Visual Studio Code
 description: Lär dig hur du använder Azure Data Lake verktyg för Visual Studio Code för att skapa, testa och köra U-SQL-skript.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 02/09/2018
-ms.openlocfilehash: b554869864ff71fb31b6c4e2b891fd42c4a380b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7da5454581e0e414dc832d4fcec50277f3b7f40
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87126490"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221255"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Använda Azure Data Lake Tools för Visual Studio Code
 
@@ -146,7 +144,7 @@ Azure Data Lake verktyg stöder flera anpassade koder. Anvisningar finns i [utve
 
 ## <a name="work-with-assemblies"></a>Arbeta med sammansättningar
 
-Information om hur du utvecklar sammansättningar finns i [utveckla U-SQL-sammansättningar för Azure Data Lake Analytics jobb](data-lake-analytics-u-sql-develop-assemblies.md).
+Information om hur du utvecklar sammansättningar finns i [utveckla U-SQL-sammansättningar för Azure Data Lake Analytics jobb]().
 
 Du kan använda Data Lake verktyg för att registrera anpassade kod sammansättningar i Data Lake Analytics katalogen.
 

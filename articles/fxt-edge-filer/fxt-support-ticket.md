@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: rohogue
-ms.openlocfilehash: a6630a04f3811aae0b75bc378a66e8a05e4f8203
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b23bd81f7b527f578bfd0adcedc79caed7c60fe
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650450"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217379"
 ---
 # <a name="open-a-support-ticket-for-the-azure-fxt-edge-filer"></a>Öppna ett support ärende för Azure FXT Edge-filer
 
@@ -21,18 +21,18 @@ Använd Azure Portal för att öppna ett support ärende med Microsofts kund ser
 
 1. Öppna [Azure Portal](https://portal.azure.com/) och logga in.
 1. Rulla längst ned i den vänstra panelen och klicka på **Hjälp + Support**.
-1. Klicka på **ny supportbegäran**. 
+1. Klicka på **ny supportbegäran**.
 
    ![Skärm bild som visar sidan "hjälp + support" med "ny supportbegäran" vald.](media/fxt-support-blank.png)
 
 1. Fyll i formuläret för begäran.  
-    1. På fliken **grundläggande** väljer du typ av **problem** ``Technical`` . 
-    1. Välj din prenumeration. 
-    1. Under **tjänst**väljer du **Azure FXT Edge**-filer. Du kan behöva klicka på filter kontrollen **alla tjänster** för att hitta den. 
-    1. Ange en **Sammanfattning** och välj **problem typen**. 
-    ![Skärm bild av tomt support ärende formulär](media/fxt-support-populated.png) 
-    1. Fortsätt genom att klicka på **Next** . 
-1. På fliken **information** lägger du till mer information om problemet och hur du kontaktar dig. Du kan ladda upp en fil som är relaterad till problemet. 
+    1. På fliken **grundläggande** väljer du typ av **problem** ``Technical`` .
+    1. Välj din prenumeration.
+    1. Under **tjänst**väljer du **Azure FXT Edge**-filer. Du kan behöva klicka på filter kontrollen **alla tjänster** för att hitta den.
+    1. Ange en **Sammanfattning** och välj **problem typen**.
+    ![Skärm bild av tomt support ärende formulär](media/fxt-support-populated.png)
+    1. Fortsätt genom att klicka på **Next** .
+1. På fliken **information** lägger du till mer information om problemet och hur du kontaktar dig. Du kan ladda upp en fil som är relaterad till problemet.
 1. I **Granska + skapa**, kontrol lera informationen och klicka på knappen **skapa** för att skicka in din begäran.
 
 När du har skickat in begäran får du ett bekräftelse meddelande med ett biljett nummer. En support personal medlem kommer att kontakta dig om begäran.

@@ -9,12 +9,12 @@ ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: f8768a1b2542eb0461ef0c50c96e22c80eced57a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f920a937f4b9b51f9babd03ed0fb42dd3c7775d8
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836470"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92217797"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob"></a>Snabb start: använda Azure Storage Explorer för att skapa en BLOB
 
@@ -38,7 +38,7 @@ Första gången programmet startas visas fönstret **Microsoft Azure Storage Exp
 
 Välj **Lägg till ett Azure-konto** och klicka på **Logga in..**. Logga in på ditt Azure-konto genom att följa anvisningarna på skärmen.
 
-![Fönstret Microsoft Azure Storage Explorer – anslut](media/storage-quickstart-blobs-storage-explorer/connect.png)
+![Skärm bild som visar Microsoft Azure Storage Explorer-Connect-fönstret.](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
 När anslutningen är klar läses Azure Storage Explorer in med fliken **Utforskaren** öppen. Den här vyn ger dig insikt om alla dina Azure Storage-konton samt lokal lagring som kon figurer ATS via [Azurite Storage-emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) -konton eller [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) miljöer.
 
@@ -70,7 +70,7 @@ När du väljer **OK** sätts de valda filerna i kö för uppladdning och varje 
 
 I programmet **Azure Storage Explorer** väljer du en container under ett lagringskonto. I huvudrutan visas en lista över blobarna i den valda containern.
 
-![Microsoft Azure Storage Explorer – lista med blobar i en container](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
+![Skärm bild som visar var du väljer en behållare i Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
 
 ## <a name="download-blobs"></a>Ladda ned blobbar
 
@@ -80,7 +80,7 @@ Ladda ned blobar med hjälp av **Azure Storage Explorer** genom att markera en b
 
 I Azure Storage Explorer kan du ta och hantera [ögonblicksbilder](storage-blob-snapshots.md) av dina blobar. Om du vill ta en ögonblicksbild av en blob högerklickar du på bloben och väljer **Skapa ögonblicksbild**. Visa en ögonblickbild av en blob genom att högerklicka på den och välja **Manage Snapshots** (Hantera ögonblicksbilder). En lista över ögonblicksbilder för bloben visas på den aktuella fliken.
 
-![Microsoft Azure Storage Explorer – lista med blobar i en container](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
+![Skärm bild som visar en lista över blobbar i Microsoft Azure Storage Explorer.](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 
 ## <a name="manage-access-policies"></a>Hantera åtkomstprinciper
 

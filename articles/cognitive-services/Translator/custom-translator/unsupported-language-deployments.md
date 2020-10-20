@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5918adfb6724c984f4a59fda802e2f4c5cde7c1
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85964693"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221204"
 ---
 # <a name="unsupported-language-deployments"></a>Språkdistributioner som inte stöds
 
@@ -25,7 +25,7 @@ Med den kommande indragningen av Microsoft Translator-hubben kommer Microsoft at
 
 Nu har vi en process som gör att du kan distribuera dina modeller som inte stöds via den anpassade översättare.  Med den här processen kan du fortsätta att översätta innehåll med hjälp av det senaste v3-API: et.  Dessa modeller är värdar tills du väljer att avdistribuera dem, eller så blir språk paret tillgängligt i en anpassad översättare.  I den här artikeln beskrivs processen för att distribuera modeller med språk par som inte stöds.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att dina modeller ska vara kandidater för distribution måste de uppfylla följande kriterier:
 * Projektet som innehåller modellen måste ha migrerats från hubben till den anpassade översättare med hjälp av Migreringsverktyget.  Du hittar den [här](how-to-migrate.md)processen för att migrera projekt och arbets ytor.
@@ -35,11 +35,11 @@ För att dina modeller ska vara kandidater för distribution måste de uppfylla 
 ## <a name="process"></a>Process
 När du har migrerat modeller från hubben som är kandidater för distribution kan du hitta dem genom att gå till **inställnings** sidan för din arbets yta och bläddra till slutet av sidan där du kommer att se avsnittet **utbildningar som inte stöds av Translator Hub** .  Det här avsnittet visas bara om du har projekt som uppfyller de krav som anges ovan.
 
-![Migrera från hubben](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
+![Skärm bild som visar avsnittet inlärnings verktyg som inte stöds.](media/unsupported-language-deployments/unsupported-translator-hub-trainings.jpg)
 
 På sidan Val av **översättnings nav som inte stöds** , innehåller fliken inte **begärda utbildningar** modeller som är tillgängliga för distribution.  Välj de modeller som du vill distribuera och skicka en begäran.   Före den 30 april-distributions tids gränsen kan du välja så många modeller som du vill för distributionen.
  
-![Migrera från hubben](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
+![Skärm bild som visar fliken utbildningar som inte har begärts.](media/unsupported-language-deployments/unsupported-translator-hub-trainings-list.jpg)
 
 När den har skickats är den inte längre tillgänglig på fliken **utbildningar** som inte har begärts och visas i stället på fliken **begärda utbildningar** .  Du kan när som helst visa dina begärda utbildningar.
 

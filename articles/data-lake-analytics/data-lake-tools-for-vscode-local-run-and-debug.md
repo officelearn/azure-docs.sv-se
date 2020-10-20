@@ -1,18 +1,16 @@
 ---
 title: Felsöka U-SQL-jobb – Azure Data Lake verktyg för Visual Studio Code
 description: Lär dig hur du använder Azure Data Lake verktyg för Visual Studio Code för att köra och felsöka U-SQL-jobb lokalt.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: how-to
 ms.date: 07/14/2017
-ms.openlocfilehash: 4b8285281119121b509c62b11bf48a5f70a9f0f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef32372cbaa70f7bca609c2ed1db118f33237e2b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87125708"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216206"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Kör U-SQL och Felsök lokalt i Visual Studio Code
 I den här artikeln beskrivs hur du kör U-SQL-jobb på en lokal utvecklings dator för att påskynda kod fasen eller för att felsöka kod lokalt i Visual Studio Code. Instruktioner för Azure Data Lake verktyg för Visual Studio Code finns i [använda Azure Data Lake Tools för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -87,4 +85,4 @@ Utför lokal fel sökning genom att följa stegen nedan:
 * [Kom igång med Data Lake Analytics med PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Kom igång med Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md)
 * [Använd Data Lake verktyg för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)
-* [Använda Data Lake Analytics-katalogen (U-SQL)](data-lake-analytics-use-u-sql-catalog.md)
+* [Använda Data Lake Analytics-katalogen (U-SQL)](./data-lake-analytics-u-sql-get-started.md)

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 4df4f7e1db880a38f647e8e384cbfb29b70954ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9647de255b749e064b94f57c9067aaff7dc3cb7
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187259"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219470"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så startar och stoppar du Azure-SSIS Integration Runtime enligt ett schema
 
@@ -30,7 +30,7 @@ Alternativt kan du skapa webb aktiviteter i ADF-pipeliner för att starta/stoppa
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du inte redan har etablerat ditt Azure-SSIS IR kan du etablera det genom att följa anvisningarna i [självstudien](tutorial-create-azure-ssis-runtime-portal.md). 
 
 ## <a name="create-and-schedule-adf-pipelines-that-start-and-or-stop-azure-ssis-ir"></a>Skapa och schemalägga ADF-pipelines som startar och stoppar Azure-SSIS IR
@@ -149,7 +149,7 @@ Nu när dina pipelines fungerar som förväntat kan du skapa utlösare för att 
 
 1. I pipeline-verktygsfältet väljer du **utlösare** och sedan **ny/redigera**. 
 
-   ![Utlös > ny/redigera](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
+   ![Skärm bild som visar meny alternativet utlösare > nytt/redigera.](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-new-menu.png)
 
 2. I fönstret **Lägg till utlösare** väljer du **+ ny**.
 
@@ -220,7 +220,7 @@ Om du inte redan har ett Azure Automation konto skapar du ett genom att följa a
 2. Logga in på [Azure Portal](https://portal.azure.com/).    
 3. Välj **nytt** på den vänstra menyn, Välj **övervakning och hantering**och välj **Automation**. 
 
-   ![New-> Övervakning och hantering-> Automation](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
+   ![Skärm bild som visar alternativet Övervakning och hantering > Automation.](./media/how-to-schedule-azure-ssis-integration-runtime/new-automation.png)
     
 2. I fönstret **Lägg till Automation-konto** utför du följande åtgärder.
 
@@ -262,7 +262,7 @@ I följande avsnitt beskrivs hur du skapar en PowerShell-Runbook. Skriptet som �
 
 1. Växla till fliken **Runbooks** och välj **+ Lägg till en Runbook** från verktygsfältet. 
 
-   ![Knappen Lägg till en Runbook](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
+   ![Skärm bild som visar knappen Lägg till en Runbook.](./media/how-to-schedule-azure-ssis-integration-runtime/runbooks-window.png)
    
 2. Välj **skapa en ny Runbook** och utför följande åtgärder: 
 
@@ -345,7 +345,7 @@ I följande avsnitt beskrivs hur du skapar en PowerShell-Runbook. Skriptet som �
    
 6. Välj panelen **utdata** i fönstret jobb. I fönstret utdata väntar du tills meddelandet **# # # # har slutförts # # # # #** efter att du ser **# # # # # som börjar # #**# #. Det tar cirka 20 minuter att starta Azure-SSIS IR. Stäng **jobb** fönstret och gå tillbaka till **Runbook** -fönstret.
 
-   ![Azure SSIS IR – Startad](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
+   ![Skärm bild som visar panelen utdata.](./media/how-to-schedule-azure-ssis-integration-runtime/start-completed.png)
     
 7. Upprepa föregående två steg med **stopp** som värde för **åtgärden**. Starta din Runbook igen genom att välja **Start** -knappen i verktygsfältet. Ange resurs grupp, ADF och Azure-SSIS IR namn. Vid **åtgärd**anger du **stopp**. I fönstret utdata väntar du tills meddelandet **# # # # har slutförts # # # # #** när du ser **# # # # # Stop # # # #**. Att stoppa Azure-SSIS IR tar inte så lång tid att starta. Stäng **jobb** fönstret och gå tillbaka till **Runbook** -fönstret.
 
@@ -373,7 +373,7 @@ I föregående avsnitt har du skapat din Azure Automation Runbook som antingen k
     
 3. Växla till fliken **parametrar och kör inställningar** . Ange resurs grupp, ADF och Azure-SSIS IR namn. Vid **åtgärd**anger du **Start** och väljer **OK**. Välj **OK** igen för att Visa schema på sidan **scheman** i din Runbook. 
 
-   ![Schema för att stjärna Azure SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
+   ![Skärm bild som markerar fältet åtgärd.](./media/how-to-schedule-azure-ssis-integration-runtime/start-schedule.png)
     
 4. Upprepa föregående två steg för att skapa ett schema med namnet **stoppa IR dagligen**. Ange en tid på minst 30 minuter efter den tid som du har angett för **Start-IR daglig** schema. Vid **åtgärd**anger du **stopp** och väljer **OK**. Välj **OK** igen för att Visa schema på sidan **scheman** i din Runbook. 
 

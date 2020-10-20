@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 10/19/2020
 ms.author: juliako
-ms.openlocfilehash: f6c3953947e6f7e84f4cf9b565d2f66648b177f7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b154db25f1f13b60e4110d1b1866308ee952487
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85130763"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219808"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Snabb start: så här registrerar du dig och laddar upp din första video
 
@@ -39,24 +39,28 @@ I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-
 ### <a name="upload-a-video"></a>Ladda upp en video
 
 1. Logga in på [Video Indexer](https://www.videoindexer.ai/)-webbplatsen.
-2. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp**.
+1. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp**.
 
     > [!NOTE]
     > Namnet på videon får inte vara större än 80 tecken.
 
-    ![Ladda upp](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Överför":::
+1. När videon har laddats upp påbörjar Video Indexer indexering och analys av videon. Du ser förloppet. 
 
-    När videon har laddats upp påbörjar Video Indexer indexering och analys av videon.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Överför":::
+1. När Video Indexer har analyser ATS får du ett e-postmeddelande med en länk till din video och en kort beskrivning av vad som hittades i videon. Exempel: personer, talade och skrivna ord, ämnen och namngivna entiteter.
+1. Du kan senare hitta din video i biblioteks listan och utföra olika åtgärder. Exempel: Sök, indexera om, redigera.
 
-    ![Uppladdad](./media/video-indexer-get-started/video-indexer-uploaded.png) 
-
-    När Video Indexer är klar med analysen får du ett meddelande med en länk till videon och en kort beskrivning av vad som hittades i videon. Till exempel: personer, ämnen och OCR.
-
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Överför":::
+ 
 ## <a name="see-also"></a>Se även
 
 Mer information finns i [Ladda upp och indexera videor](upload-index-videos.md) .
 
-När du har laddat upp och indexerat en video kan du börja använda [video Indexer](video-indexer-view-edit.md) webbplats eller [video Indexer Developer-portalen](video-indexer-use-apis.md) för att se insikterna för videon. 
+När du har laddat upp och indexerat en video kan du börja använda [video Indexer webbplats](video-indexer-view-edit.md) eller [video Indexer Developer-portalen](video-indexer-use-apis.md) för att se insikterna för videon. 
 
 [Börja använda API: er](video-indexer-use-apis.md)
 

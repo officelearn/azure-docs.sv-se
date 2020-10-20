@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b1f261d3d777ccf19cea84e77ef83eb45ecc2065
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0076c70f64ec5cea8b92cb2b9ed27de05406316d
+ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372263"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91827578"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -151,9 +151,11 @@ Visa kostnaderna för en prenumeration genom att öppna **Kostnadshantering + fa
 
 Kostnadsanalys, budgetar och aviseringar är tillgängliga för prenumerationens och resursgruppens Azure RBAC-omfång för priser baserade på betala per användning.
 
-Vyer för amorterad och faktisk kostnad för reserverade instanser i Azure RBAC-omfången visar noll avgifter. Kostnader för reserverad instans visas bara i faktureringsomfång där inköpen gjordes.
+Vyer för amorterad och faktisk kostnad för reserverade instanser i Azure RBAC-omfången visar noll avgifter. Inköpskostnader för rättigheter såsom reserverade instanser och Marketplace-avgifter visas bara i faktureringsomfång i partnerns klientorganisation där köpen gjordes.
 
 De återförsäljningspriser som används för att beräkna kostnaderna som visas i vyn är samma priser som de som visas i priskalkylatorn för Azure för alla kunder. Kostnaderna som visas inkluderar inte rabatter eller krediter som partnern kan ha, t.ex. partnerns intjänade krediter, nivårabatter och globala tjänstrabatter.
+
+ 
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analysera kostnader i kostnadsanalys
 

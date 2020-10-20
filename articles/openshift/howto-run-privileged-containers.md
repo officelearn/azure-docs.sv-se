@@ -7,14 +7,20 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: Aro, OpenShift, aquasec, twistlock, Red Hat
-ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78271364"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218875"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Köra privilegierade containers i ett Azure Red Hat OpenShift-kluster
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 kommer att dras tillbaka 30 juni 2022. Stöd för att skapa nya Azure Red Hat OpenShift 3,11-kluster fortsätter till och med 30 november 2020. Efter pensionering kommer de återstående Azure Red Hat OpenShift 3,11-klustren att stängas av för att förhindra säkerhets problem.
+> 
+> Följ den här guiden för att [skapa ett Azure Red Hat OpenShift 4-kluster](tutorial-create-cluster.md).
+> Om du har frågor kan du [kontakta oss](mailto:arofeedback@microsoft.com).
 
 Du kan inte köra godtyckliga privilegierade behållare i Azure Red Hat OpenShift-kluster.
 Två lösningar för säkerhetsövervakning och efterlevnad får köras på ARO-kluster.
@@ -111,7 +117,7 @@ oc get route aqua-web -n aqua-security
 ### <a name="step-4-deploy-aqua-enforcers"></a>Steg 4: Distribuera turkosa genomdrivor
 Ange följande fält vid distribution av Genomdrivare:
 
-| Field          | Värde         |
+| Fält          | Värde         |
 | -------------- | ------------- |
 | Orchestrator   | OpenShift     |
 | ServiceAccount | turkos – konto  |

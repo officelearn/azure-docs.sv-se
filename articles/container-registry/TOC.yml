@@ -120,6 +120,7 @@
                   href: container-registry-repository-scoped-permissions.md
             - name: Rollbaserad Azure-åtkomstkontroll
               href: container-registry-roles.md
+              displayName: 'permissions, authorization'
             - name: Förtroende för innehåll
               href: container-registry-content-trust.md
             - name: Avbildningsgenomsökning med Security Center

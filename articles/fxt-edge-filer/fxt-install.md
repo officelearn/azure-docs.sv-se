@@ -6,39 +6,40 @@ ms.author: rohogue
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.openlocfilehash: 7c77e25d0dcabc49f2e6672645c6bc41e8662ec8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48ee6de28bcd76d4c484b77c981062bad1a3754d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75551037"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219759"
 ---
-# <a name="tutorial-install-azure-fxt-edge-filer"></a>Självstudie: installera Azure FXT Edge-filer 
+# <a name="tutorial-install-azure-fxt-edge-filer"></a>Självstudie: installera Azure FXT Edge-filer
 
 I den här självstudien beskrivs hur du installerar en maskinvarubaserad nod för Azure FXT Edge-filer hybrid Storage cache. Du måste installera minst tre maskinvarukonfigurationer för att skapa ett Azure FXT Edge-kluster.
 
-Installations proceduren omfattar att packa upp och racka montera enheten och koppla CMA (kabel Management arm) och front panel. En separat själv studie kurs beskriver hur du kopplar samman nätverks kablar och ansluter till strömförsörjningen. 
+Installations proceduren omfattar att packa upp och racka montera enheten och koppla CMA (kabel Management arm) och front panel. En separat själv studie kurs beskriver hur du kopplar samman nätverks kablar och ansluter till strömförsörjningen.
 
-Det tar cirka en timme att installera en Azure FXT Edge-nod. 
+Det tar cirka en timme att installera en Azure FXT Edge-nod.
 
-I den här självstudien ingår följande installations steg: 
+I den här självstudien ingår följande installations steg:
 
 > [!div class="checklist"]
+>
 > * Packa upp enheten
 > * Montera enheten i ett rack
 > * Installera Front Panel (valfritt)
 
-## <a name="installation-prerequisites"></a>Installationskrav 
+## <a name="installation-prerequisites"></a>Installationskrav
 
 Innan du börjar ska du kontrol lera att data Center och rack som du kommer att använda har följande funktioner:
 
 * En tillgänglig 1U-plats på racket där du tänker montera enheten.
 * AC-strömförsörjning och kylnings system som uppfyller behoven hos Azure FXT Edge-filer. (Läs [energi-och termiska specifikationer](fxt-specs.md#power-and-thermal-specifications) för hjälp med att planera och ändra storlek på installationen.)  
 
-  > [!NOTE] 
+  > [!NOTE]
   > Om du vill dra full nytta av de två redundanta strömförsörjnings enheterna (PSUs) använder du enheter för Power distribution på två olika förgrenings kretsar när du kopplar nätström. Läs [Anslut ström kablar](fxt-network-power.md#connect-power-cables) för mer information.  
 
-## <a name="unpack-the-hardware-node"></a>Packa upp noden för maskin vara 
+## <a name="unpack-the-hardware-node"></a>Packa upp noden för maskin vara
 
 Varje Azure FXT Edge-nod skickas i en enda ruta. Slutför de här stegen för att packa upp en enhet.
 
@@ -56,7 +57,7 @@ Varje Azure FXT Edge-nod skickas i en enda ruta. Slutför de här stegen för at
    * Installations anvisningar för rack
    * Broschyr om säkerhet, miljö och reglerande information
 
-Om du inte har fått alla objekt i listan kontaktar du enhets leverantören för support. 
+Om du inte har fått alla objekt i listan kontaktar du enhets leverantören för support.
 
 Kontrol lera att enheten har haft tillräckligt med tid för att uppnå samma temperatur som rummet innan du installerar den eller slår på den. Om du upptäcker att en del av enheten är kondenserad kan du vänta minst 24 timmar innan du installerar.
 
@@ -64,20 +65,20 @@ Nästa steg är att rackmontera enheten.
 
 ## <a name="rack-the-device"></a>Rackmontera enheten
 
-Azure FXT Edge-enheten måste installeras på en standardiserad 19-tums rack. 
+Azure FXT Edge-enheten måste installeras på en standardiserad 19-tums rack.
 
-Azure FXT Edge-filer hybrid Storage cache består av tre eller flera Azure FXT Edge-filer. Upprepa installations stegen för varje enhet som ingår i systemet. 
+Azure FXT Edge-filer hybrid Storage cache består av tre eller flera Azure FXT Edge-filer. Upprepa installations stegen för varje enhet som ingår i systemet.
 
 ### <a name="rack-install-prerequisites"></a>Krav för rack installation
 
 * Innan du börjar läser du säkerhets anvisningarna i broschyren säkerhet, miljö och information om regler som levererades med din enhet.
 
   > [!NOTE]
-  > Använd alltid två personer när du lyfter noden, inklusive när du installerar den i ett rack eller tar bort den från racket. 
+  > Använd alltid två personer när du lyfter noden, inklusive när du installerar den i ett rack eller tar bort den från racket.
 
-* Identifiera vilken typ av räl-installation som används med utrustnings racket. 
+* Identifiera vilken typ av räl-installation som används med utrustnings racket.
   * För snap-in-och Round håls-näthanterings rack följer du anvisningarna för verktygs lösa räl.
-  * För gängade håls ställningar följer du anvisningarna för de verktyg som visas. 
+  * För gängade håls ställningar följer du anvisningarna för de verktyg som visas.
   
     För konfigurationen av konfiguration av järnvägar måste du ange åtta skruvar, skriva 10-32, 12-24, M5 eller M6. Skruvens huvud diameter måste vara mindre än 10 mm (0,4 ").
 
@@ -92,7 +93,7 @@ Leta upp komponenterna för installation av järnvägs kit-sammansättningen:
 
 ### <a name="rail-assembly---tool-less-rails-square-hole-or-round-hole-racks"></a>Järn vägs sammansättning-verktyg med mindre räler (håls hål eller runda hål)
 
-Följ den här proceduren för att sätta samman och installera räler för rack med en kvadratisk eller runda hålen. 
+Följ den här proceduren för att sätta samman och installera räler för rack med en kvadratisk eller runda hålen.
 
 1. Placera den vänstra och högra delen av järnvägarna som är märkta **fram** och inåt. Placera varje slut punkt så att den placeras på hålen på fram sidan av de lodräta rackets fläns. 81.1
 
@@ -121,7 +122,7 @@ För rack med gängade hål följer du stegen nedan för att sätta samman och i
 Följ de här stegen för att montera Azure FXT Edge-enheten i racket.
 
 1. Hämta de inre bildskärmarna från racket tills de låser sig. 81.1
-1. Hitta den bakre järnvägs Standoff på varje sida av enheten och sänk dem till bak sidan av bild sammansättningarna. (2) 
+1. Hitta den bakre järnvägs Standoff på varje sida av enheten och sänk dem till bak sidan av bild sammansättningarna. (2)
 1. Rotera enheten nedåt tills alla räl-standoffs har placerats på J-facken. 3
 1. Push-enheten inåt tills lås spaken klickar på plats.
 1. Tryck på knapparna för att frigöra lås på båda spåren (4) och skjut enheten i racket.
@@ -130,7 +131,7 @@ Följ de här stegen för att montera Azure FXT Edge-enheten i racket.
 
 ### <a name="remove-the-system-from-the-rack"></a>Ta bort systemet från racket
 
-Följ den här proceduren om du vill ta bort enheten från racket. 
+Följ den här proceduren om du vill ta bort enheten från racket.
 
 1. Leta upp Lås spaken på sidorna av de inre räler (1).
 2. Lås upp varje spaken genom att rotera den upp till dess versions position (2).
@@ -141,7 +142,7 @@ Följ den här proceduren om du vill ta bort enheten från racket.
 ### <a name="engage-the-slam-latch"></a>Engagera slam-spärren
 
 1. Placera slam-spärren (1) på någon av systemets sida.
-2. Spärren sker automatiskt när systemet är i racket. 
+2. Spärren sker automatiskt när systemet är i racket.
 
 Om du vill frigöra spärren när du tar bort systemet kan du hämta dem (2).
 
@@ -149,50 +150,50 @@ Tillvals skruvar för hård montering är till för att skydda systemet till rac
 
 ![En numrerad illustration av att engagera och släppa slam-låset](media/fxt-install/engaging-releasing-slam-latch-400.png)
 
-### <a name="install-the-cable-management-arm"></a>Installera kabel hanterings arm 
+### <a name="install-the-cable-management-arm"></a>Installera kabel hanterings arm
 
-En valfri kabel hanterings arm (CMA) finns i FXT Edge-filer. De utskrivna instruktionerna för att installera det finns i paketet. 
+En valfri kabel hanterings arm (CMA) finns i FXT Edge-filer. De utskrivna instruktionerna för att installera det finns i paketet.
 
 1. Packa upp och identifiera komponenterna i kabel hanterings arm-paketet:
    * CMA-fack (1)
    * CMA (2)
    * I nylon-kabeln binder (3)
    * CMA-hakparenteser (4)
-   * Status indikator kabel (5) 
+   * Status indikator kabel (5)
 
-   > [!TIP] 
+   > [!TIP]
    > Om du vill skydda CMA för försändelse i racket kan du göra det i racket runt båda korgarna och facket och lätt dem ordentligt. Att skydda CMA på det här sättet skyddar också systemet i instabila miljöer.
 
    ![Bild av CMA-delar](media/fxt-install/cma-kit-400.png)
 
 2. Installera CMA-facket.
 
-   CMA-facket ger stöd och fungerar som en kvarhållare för CMA. 
+   CMA-facket ger stöd och fungerar som en kvarhållare för CMA.
 
-   1. Justera och placera varje sida av facket med mottagarens hakparenteser på spårens inre kanter. 
+   1. Justera och placera varje sida av facket med mottagarens hakparenteser på spårens inre kanter.
    1. Push-överför facket tills det klickar på plats. 81.1
    1. Om du vill ta bort facket, kan du överföra spärr knapparna mot mitten och dra ut facket från mottagar hakparenteserna (2).
 
    ![Bild av CMA Tray-installation](media/fxt-install/cma-tray-install-400.png)
 
-3. Installera CMA-hakparenteserna för bilagor. 
+3. Installera CMA-hakparenteserna för bilagor.
 
    > [!NOTE]
    >
-   > * Du kan koppla CMA till antingen höger eller vänster monterings järnväg, beroende på hur du tänker skicka kablar från systemet. 
-   > * För enkelhetens skull kan du montera CMA på sidan mittemot strömförsörjningen (sida A). Om den är monterad på sidan B måste CMA vara frånkopplad för att den yttre strömförsörjningen ska kunna tas bort. 
-   > * Ta alltid bort facket innan du tar bort ström försörjningen. 
+   > * Du kan koppla CMA till antingen höger eller vänster monterings järnväg, beroende på hur du tänker skicka kablar från systemet.
+   > * För enkelhetens skull kan du montera CMA på sidan mittemot strömförsörjningen (sida A). Om den är monterad på sidan B måste CMA vara frånkopplad för att den yttre strömförsörjningen ska kunna tas bort.
+   > * Ta alltid bort facket innan du tar bort ström försörjningen.
 
    ![Bild av CMA Haking-installation](media/fxt-install/cma-bracket-l-r-install-400.png)
 
    1. Välj lämplig CMA för den sida där du vill montera CMA (sida B eller sida A).
    1. Installera CMA-textklammern med motsvarande sida A-eller B B-markering längst bak i bild spåret.
-   1. Justera hålen på hakparentesen med stiften på bild spåret. Placera parentesen tills den låser sig. 
+   1. Justera hålen på hakparentesen med stiften på bild spåret. Placera parentesen tills den låser sig.
 
 4. Installera CMA.
 
-   1. På bak sidan av systemet anpassar du spärren på klient delen av CMA på den innersta hakparentesen för bild sammansättningen tills spärren (1) är klar. 
-   1. Anpassa det andra spärret i slutet av den yttre hakparentesen tills spärren (2) är klar. 
+   1. På bak sidan av systemet anpassar du spärren på klient delen av CMA på den innersta hakparentesen för bild sammansättningen tills spärren (1) är klar.
+   1. Anpassa det andra spärret i slutet av den yttre hakparentesen tills spärren (2) är klar.
    1. Om du vill ta bort CMA tar du bort båda låsen genom att trycka på CMA-release-knapparna överst i de inre och yttre låsen (3).
 
    ![Bild av Main CMA-installation](media/fxt-install/cma-install-400.png)
@@ -203,20 +204,21 @@ En valfri kabel hanterings arm (CMA) finns i FXT Edge-filer. De utskrivna instru
 
 ## <a name="install-the-front-bezel-optional"></a>Installera Front Panel (valfritt)
 
-I det här avsnittet beskrivs hur du installerar och tar bort Front Panel (Faceplate) för maskin varan för Azure FXT Edge-filer. 
+I det här avsnittet beskrivs hur du installerar och tar bort Front Panel (Faceplate) för maskin varan för Azure FXT Edge-filer.
 
-Så här installerar du Front Panel: 
+Så här installerar du Front Panel:
 
-1. Leta upp och ta bort panel nyckeln, som finns i panel paketet. 
-1. Justera ramen mot chassits fram sida och infoga stiften på höger sida av ramen i hålen på nodens högra rack monterings fläns. 
+1. Leta upp och ta bort panel nyckeln, som finns i panel paketet.
+1. Justera ramen mot chassits fram sida och infoga stiften på höger sida av ramen i hålen på nodens högra rack monterings fläns.
 1. Anpassa den vänstra änden av ramen till chassit. Tryck på ramen tills knappen till vänster hamnar på plats.
 1. Lås ramen med nyckeln.
 
-Ta bort Front Panel: 
+Ta bort Front Panel:
+
 1. Lås upp ramen med hjälp av panel nyckeln.
 1. Tryck på knappen släpp på vänster sida och dra bort den vänstra änden av ramen från chassit.
 1. Koppla bort den högra änden och ta bort ramen.
-   
+
    ![Bild som visar knappen släpp till vänster på ramen och hur du tar bort den genom att dra utåt från vänster sida](media/fxt-install/remove-bezel-edited-600.png)
 
 ## <a name="next-steps"></a>Nästa steg

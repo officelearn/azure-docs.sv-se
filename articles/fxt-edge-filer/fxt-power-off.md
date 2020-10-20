@@ -6,22 +6,22 @@ ms.service: fxt-edge-filer
 ms.topic: how-to
 ms.date: 07/01/2019
 ms.author: rohogue
-ms.openlocfilehash: d597d5d1e86a2ea13363bc270fb55304d77dee5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01c34304ac0e3e7faa42611758d77893e149a2f8
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88184881"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218739"
 ---
 # <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Hur man på ett säkert sätt stänger av maskin vara från Azure FXT Edge-filer
 
 Även om du kan använda den fysiska strömbrytaren för att växla på en enskild nod bör du inte använda den för att stänga av enheten under normala omständigheter.
 
-När en Azure FXT Edge-nod används som en del av ett kluster, bör du använda kluster kontroll panelens program vara för att stänga av maskin varan. 
+När en Azure FXT Edge-nod används som en del av ett kluster, bör du använda kluster kontroll panelens program vara för att stänga av maskin varan.
 
-> [!NOTE] 
+> [!NOTE]
 > För att undvika data förlust eller skada bör du alltid använda program varan på kontroll panelen för att stänga av en Azure FXT Edge-filer. Använd inte den fysiska ström knappen för avstängning om du inte uppmanas att göra det av Microsofts kund service och support.
-> 
+>
 > I en elektrisk nöd situation kan du koppla bort ström sladdarna eller använda data centrets mekanism för el från koppling.
 
 ## <a name="shut-down-a-node-from-the-control-panel"></a>Stänga av en nod från kontroll panelen
@@ -30,7 +30,7 @@ Följ de här anvisningarna för att säkert stänga av en Azure FXT Edge-nod:
 
 1. Logga in på kluster kontroll panelen. (Riktningar i [Öppna inställnings sidorna](fxt-cluster-create.md#open-the-settings-pages))
 1. Klicka på fliken **Inställningar** och Läs sedan in sidan **cluster**  >  **FXT Nodes** .
-1. Leta upp den som du vill stänga av i listan över klusternoder. Klicka på knappen **ström** i kolumnen **åtgärder** . 
+1. Leta upp den som du vill stänga av i listan över klusternoder. Klicka på knappen **ström** i kolumnen **åtgärder** .
 1. Vänta en stund. Noden stängs av och stängs av.
 
 ## <a name="next-steps"></a>Nästa steg

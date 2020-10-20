@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 438d2fec9efc6a1ad3fcdaa2829573e7205820ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5473730484240f2c813c9ae279e1516ed93a45c5
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385968"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214965"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Lägga till ett webb-API-program till din Azure Active Directory B2C-klient
 
@@ -34,7 +34,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda vår
 1. Välj **Register** (Registrera).
 1. Registrera **program-ID: t (Client)** som ska användas i din webb-API-kod.
 
-Om du har ett program som implementerar det implicita tilldelnings flödet, till exempel ett JavaScript-baserat program med en enda sida (SPA), kan du aktivera flödet genom att följa dessa steg:
+Om du har ett program som implementerar det implicita tilldelnings flödet, till exempel ett [JavaScript-baserat program med en enda sida (Spa)](tutorial-register-spa.md), kan du aktivera flödet genom att följa dessa steg:
 
 1. Under **Hantera**väljer du **autentisering**.
 1. Under **implicit beviljande**väljer du kryss rutorna för **åtkomst-tokens** och **ID-token** .

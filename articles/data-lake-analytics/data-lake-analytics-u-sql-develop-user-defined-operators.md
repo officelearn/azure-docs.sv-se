@@ -1,18 +1,16 @@
 ---
 title: Utveckla användardefinierade U-SQL-operatörer – Azure Data Lake Analytics
 description: Lär dig hur du utvecklar användardefinierade operatörer som ska användas och återanvändas i Azure Data Lake Analytics-jobb.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: 71cb6e026c81b00e475ae3f4e7fc4958a8de82a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11efdb727bacadb674fb49374ef1c70fcc788ecc
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87131811"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92219997"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Utveckla användardefinierade U-SQL-operatörer (Katalogentiteter)
 Den här artikeln beskriver hur du utvecklar användardefinierade operatorer för att bearbeta data i ett U-SQL-jobb.

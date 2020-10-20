@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: 86367f1dce3cc8040555827935e9ca2f9f9fb4c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045407"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92218263"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Felsöka Azure Stream Analytics frågor lokalt med hjälp av jobb diagram i Visual Studio
 
@@ -87,7 +87,7 @@ I det här avsnittet ska du utforska de mått som är tillgängliga för varje d
   
 #### <a name="output-sinks-live-output"></a>Utgående handfat (direktsända utdata)
 
-![Data mottagare för lokalt utgående jobb diagram](./media/debug-locally-using-job-diagram/live-output.png)
+![Jobb diagram som visar de lokala sinkarna för utdata.](./media/debug-locally-using-job-diagram/live-output.png)
 
 |Mått|Beskrivning|
 |-|-|

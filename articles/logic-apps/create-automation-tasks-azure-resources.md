@@ -6,17 +6,17 @@ ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 1826b17a971b49fdfe8d5df02d71eb682b15db6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269734"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201128"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Hantera Azure-resurser och övervaka kostnader genom att skapa automatiserings uppgifter (för hands version)
 
 > [!IMPORTANT]
-> Den här funktionen finns i en offentlig för hands version, som tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här funktionen är tillgänglig som en offentlig förhandsversion utan servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 För att hjälpa dig att hantera [Azure-resurser](../azure-resource-manager/management/overview.md#terminology) enklare kan du skapa automatiserade hanterings uppgifter för en speciell resurs eller resurs grupp med hjälp av mallar för automatisering, som varierar i tillgänglighet baserat på resurs typen. För ett [Azure Storage-konto](../storage/common/storage-account-overview.md)kan du till exempel konfigurera en automatiserings uppgift som skickar dig månads kostnaden för det lagrings kontot. För en [virtuell Azure-dator](https://azure.microsoft.com/services/virtual-machines/)kan du skapa en automatiserings uppgift som aktiverar eller inaktiverar den virtuella datorn enligt ett fördefinierat schema.
 
@@ -47,7 +47,7 @@ Den här artikeln visar hur du utför följande uppgifter:
 
 För närvarande kan du bara skapa en automatiserings uppgift på resurs nivå, visa aktivitetens körnings historik och redigera aktivitetens underliggande Logic app-arbetsflöde, som drivs av [Azure Logic Apps](../logic-apps/logic-apps-overview.md) tjänsten. Automatiserings aktiviteter är mer grundläggande och lätta än [Azure Automation](../automation/automation-intro.md).
 
-I jämförelse är Azure Automation en molnbaserad automatiserings-och konfigurations tjänst som stöder konsekvent hantering i dina Azure-och icke-Azure-miljöer. Tjänsten omfattar [process automatisering för att dirigera processer](../automation/automation-intro.md#process-automation) med hjälp av [Runbooks](../automation/automation-runbook-execution.md), konfigurations hantering med [ändrings spårning och inventering](../automation/change-tracking.md), uppdaterings hantering, delade funktioner och heterogena funktioner. Automation ger dig fullständig kontroll under distribution, drift och inaktive ring av arbets belastningar och resurser.
+I jämförelse är Azure Automation en molnbaserad automatiserings-och konfigurations tjänst som stöder konsekvent hantering i dina Azure-och icke-Azure-miljöer. Tjänsten omfattar [process automatisering för att dirigera processer](../automation/automation-intro.md#process-automation) med hjälp av [Runbooks](../automation/automation-runbook-execution.md), konfigurations hantering med [ändrings spårning och inventering](../automation/change-tracking/overview.md), uppdaterings hantering, delade funktioner och heterogena funktioner. Automation ger dig fullständig kontroll under distribution, drift och inaktive ring av arbets belastningar och resurser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

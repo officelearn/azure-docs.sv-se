@@ -94,25 +94,24 @@
     - name: Övervaka
     - name: Skapa roller och behörigheter
       href: spring-cloud-howto-permissions.md
-      items:
-        - name: Distribuerad spårning och App Insights
-          href: spring-cloud-tutorial-distributed-tracing.md
-        - name: Analysera loggar och mått
-          href: diagnostic-services.md
-        - name: Strömningsloggar i realtid
-          href: spring-cloud-howto-log-streaming.md
-    - name: DevOps-distribuering
-      items:
-        - name: CI/CD med Azure DevOps
-          href: spring-cloud-howto-cicd.md
-        - name: CI/CD med GitHub-åtgärder
-          href: spring-cloud-howto-github-actions.md
-        - name: Autentisering med Key Vault i GitHub Actions
-          href: spring-cloud-github-actions-key-vault.md
-    - name: Felsöka
-      items:
-        - name: Felsökningsguide
-          href: spring-cloud-troubleshoot.md
+    - name: Distribuerad spårning och App Insights
+      href: spring-cloud-tutorial-distributed-tracing.md
+    - name: Analysera loggar och mått
+      href: diagnostic-services.md
+    - name: Strömningsloggar i realtid
+      href: spring-cloud-howto-log-streaming.md
+- name: DevOps-distribuering
+  items:
+    - name: CI/CD med Azure DevOps
+      href: spring-cloud-howto-cicd.md
+    - name: CI/CD med GitHub-åtgärder
+      href: spring-cloud-howto-github-actions.md
+    - name: Autentisering med Key Vault i GitHub Actions
+      href: spring-cloud-github-actions-key-vault.md
+- name: Felsöka
+  items:
+    - name: Felsökningsguide
+      href: spring-cloud-troubleshoot.md
 - name: Referens
   items:
     - name: Azure CLI-plugin

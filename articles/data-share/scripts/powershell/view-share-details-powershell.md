@@ -1,20 +1,18 @@
 ---
-title: 'PowerShell-skript: lista befintliga resurser i Azure Data Share | Microsoft Docs'
+title: 'PowerShell-skript: lista befintliga resurser i Azure Data Share'
 description: Det här PowerShell-skriptet listar och visar information om resurser.
 services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
-ms.openlocfilehash: 6314bd348c22c901001b88eda6875181a2f69df4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54b4b6cedc2dc09e4a9d5c4b7b937e80750e17c6
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70307130"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220830"
 ---
 # <a name="use-powershell-to-view-the-details-of-a-sent-data-share"></a>Använd PowerShell för att visa information om en data resurs som skickats
 
@@ -43,13 +41,13 @@ Get-AzDataShare -ResourceGroupName $resourceGroupName -AccountName $dataShareAcc
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
-| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare?view=azps-2.6.0) | Hämtar och visar en lista över resurser i ett konto. |
+| [Get-AzDataShare](/powershell/module/az.datashare/get-azdatashare) | Hämtar och visar en lista över resurser i ett konto. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/).
 
 Ytterligare exempel för Azure Data Share PowerShell-skript finns i [PowerShell-exemplen för Azure Data Share](../../samples-powershell.md).

@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e1d76c5ef1f003fe9e01b866343ef7de7ab4166
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433916"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92214931"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>Den nya Appregistreringar upplevelsen för Azure Active Directory B2C
 
@@ -53,13 +53,13 @@ Azure AD B2C Appregistreringar-upplevelsen baseras på den allmänna [appens reg
 ## <a name="new-supported-account-types"></a>Nya konto typer som stöds
 
 I den nya upplevelsen väljer du en Support konto typ från följande alternativ:
-- Konton i den här organisations katalogen.
-- Konton i valfri organisations katalog (alla Azure AD-kataloger – flera innehavare).
-- Konton i en organisations katalog eller en identitets leverantör. För autentisering av användare med Azure AD B2C.
+- Endast konton i den här organisationskatalogen
+- Konton i valfri organisations katalog (alla Azure AD-kataloger – flera klient organisationer)
+- Konton i valfri identitets leverantör eller organisations katalog (för autentisering av användare med användar flöden)
 
 Om du vill förstå de olika konto typerna väljer du **Hjälp mig att välja** i skapande upplevelsen.
 
-I den tidigare versionen har appar alltid skapats som kund program. För dessa appar anges konto typen till **konton i alla organisations kataloger eller identitets leverantörer. För autentisering av användare med Azure AD B2C**.
+I den tidigare versionen har appar alltid skapats som kund program. För dessa appar anges konto typen till **konton i valfri identitets leverantör eller organisations katalog (för autentisering av användare med användar flöden)**.
 > [!NOTE]
 > Det här alternativet krävs för att kunna köra Azure AD B2C användar flöden för att autentisera användare för programmet. Lär dig [hur du registrerar ett program för användning med användar flöden.](tutorial-register-applications.md)
 
@@ -96,13 +96,12 @@ I den nya upplevelsen i stället för **nycklar**använder du bladet **certifika
 
 ## <a name="features-not-applicable-in-azure-ad-b2c-tenants"></a>Funktioner som inte är tillämpliga i Azure AD B2C-klienter
 Följande funktioner i Azure AD App Registration är inte tillämpliga på eller tillgängliga i Azure AD B2C klienter:
-- **Roller och administratörer** – detta kräver en Azure AD Premium P1-eller P2-licens som för närvarande inte är tillgänglig för Azure AD B2C.
+- **Roller och administratörer** – för närvarande inte tillgängligt för Azure AD B2C.
 - **Anpassning – UI** /UX-anpassning konfigureras i **företags anpassnings** miljön eller som en del av ett användar flöde. Lär dig hur du [anpassar användar gränssnittet i Azure Active Directory B2C](customize-ui-overview.md).
 - **Domän verifiering i Publisher** – appen är registrerad på *. onmicrosoft.com*, vilket inte är en verifierad domän. Dessutom används Publisher-domänen främst för att bevilja användar medgivande, som inte gäller för Azure AD B2C appar för användarautentisering. [Läs mer om Publisher-domän](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
 - **Token-konfiguration** – token är konfigurerad som en del av ett användar flöde i stället för en app.
 - **Snabb** starten är för närvarande inte tillgänglig för Azure AD B2C klienter.
-- **Integration Assistant** -bladet är för närvarande inte tillgängligt för Azure AD B2C klienter.
-
+<!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
 
 ## <a name="limitations"></a>Begränsningar
 Den nya upplevelsen har följande begränsningar:

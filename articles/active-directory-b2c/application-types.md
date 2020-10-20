@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 29a82c1aed4ea79673b4019270a334eac722bc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f99c5b9362380690badce832c3dd540137d35ac
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84295430"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215422"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Program typer som kan användas i Active Directory B2C
-
+ 
 Azure Active Directory B2C (Azure AD B2C) stöder autentisering för en mängd moderna program arkitekturer. Alla baseras på standardprotokollen [OAuth 2.0](protocols-overview.md) och [OpenID Connect](protocols-overview.md). I den här artikeln beskrivs de olika typerna av program som du kan bygga, oberoende av vilket språk eller vilken plattform du föredrar. Du får också förståelse för de övergripande scenarierna innan du börjar utveckla program.
 
 Alla program som använder Azure AD B2C måste registreras i din [Azure AD B2C-klient](tutorial-create-tenant.md) med hjälp av [Azure Portal](https://portal.azure.com/). Program registrerings processen samlar in och tilldelar värden, till exempel:
@@ -75,6 +75,26 @@ Om du vill se hur det här scenariot fungerar kan du prova någon av inloggnings
 
 Förutom att under lätta enkel inloggning, kan ett webb serverprogram också ha åtkomst till en backend-webbtjänst. I det här fallet kan webb programmet utföra ett något annorlunda [OpenID Connect-flöde](openid-connect.md) och hämta token genom att använda auktoriseringsregler och uppdatera tokens. Det här scenariot illustreras i följande avsnitt om [webb-API:er](#web-apis).
 
+## <a name="single-page-applications"></a>Program med en enda sida
+Många moderna webb program skapas som program på klient sidan ("SPAs"). Utvecklare skriver dem med hjälp av Java Script eller ett SPA-ramverk, till exempel vinkel, Vue och reagera. Dessa program körs i en webbläsare och har olika egenskaper för autentisering än traditionella webb program på Server sidan.
+
+Azure AD B2C innehåller **två** alternativ för att aktivera program med en enda sida för att logga in användare och hämta token för att få åtkomst till backend-tjänster eller webb-API: er:
+
+### <a name="authorization-code-flow-with-pkce"></a>Flöde för auktoriseringskod (med PKCE)
+- [OAuth 2,0 Authorization Code Flow (med PKCE)](./authorization-code-flow.md). Med auktoriseringskod-flödet kan programmet byta auktoriseringskod för **ID-** token för att representera den autentiserade **användare och de åtkomsttoken som** krävs för att anropa skyddade API: er. Dessutom returneras **uppdaterings** -token som ger långsiktig åtkomst till resurser för användare utan att det krävs någon interaktion med dessa användare. 
+
+Detta är den **rekommenderade** metoden. Om du har en token med begränsad livs längd kan ditt program anpassa sig till [moderna webbläsare cookies sekretess begränsningar](../active-directory/develop/reference-third-party-cookies-spas.md), till exempel Safari ITP.
+
+För att dra nytta av det här flödet kan programmet använda ett autentiseringspaket som stöder det, t. ex. [MSAL.js 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
+
+<!-- ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg) -->
+![Program med en enda sida – auth](./media/tutorial-single-page-app/active-directory-oauth-code-spa.png)
+
+### <a name="implicit-grant-flow"></a>Implicit beviljande flöde
+- [OAuth 2,0 implicit flöde](implicit-flow-single-page-application.md). Vissa ramverk, t. ex. [MSAL.js 1. x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), stöder bara det implicita tilldelnings flödet. Med det implicita tilldelnings flödet kan programmet Hämta **ID-** **och åtkomsttoken** . Till skillnad från flödet för auktoriseringskod returnerar inte det implicita tilldelnings flödet en **uppdateringstoken**. 
+
+Det här autentiseringsschemat omfattar inte program scenarier som använder plattforms oberoende JavaScript-ramverk som Electron och reagerar-Native. De här scenarierna kräver ytterligare funktioner för interaktion med de ursprungliga plattformarna.
+
 ## <a name="web-apis"></a>Webb-API:er
 
 Du kan använda Azure AD B2C för att skydda webb tjänster, till exempel programmets RESTful webb-API. Web API:er kan använda OAuth 2.0 för att skydda sina data genom att autentisera inkommande HTTP-begäranden med hjälp av token. Anroparen av ett webb-API lägger till en token i auktoriseringshuvudet för en HTTP-begäran:
@@ -85,7 +105,7 @@ Host: www.mywebapi.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6...
 Accept: application/json
 ...
-```
+``` 
 
 Webb-API:et kan sedan använda token för att verifiera API-anroparens identitet och för att extrahera information om anroparen från anspråk som är kodade i token. Mer information om vilka typer av token och anspråk som är tillgängliga för en app finns i [referens för Azure AD B2C-token](tokens-overview.md).
 

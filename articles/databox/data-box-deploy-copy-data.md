@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fcdc5d0e7254b8e491285baae6c2a1bc6979e437
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 4dbae9d08a4adf250c9317b392d80f8e04c53d56
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766313"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951017"
 ---
 ::: zone target="docs"
 
@@ -116,19 +116,19 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 När du är ansluten till Data Box-resurser är nästa steg att kopiera data. Granska följande innan du kopierar data:
 
 * Se till att du kopierar data till resurser som motsvarar lämplig dataformat. Kopiera exempelvis blockblobdata till resursen för blockblobobjekt. Kopiera de virtuella hårddiskarna till en sidblob. Om dataformatet inte matchar lämplig resurstyp misslyckas datauppladdningen till Azure i ett senare skede.
+* Skapa alltid en mapp under resursen för de filer som du vill kopiera och kopiera sedan filerna till den mappen. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
 * När du kopierar data ska du se till att datastorleken följer de storleksbegränsningar som beskrivs i [Storleksgränser för Azure-lagringskonto](data-box-limits.md#azure-storage-account-size-limits).
-* Om data som laddas upp av Data Box samtidigt överförs av andra program utanför Data Box, kan detta resultera i att uppladdningsjobbet misslyckas samt att data skadas.
+* Om du vill bevara metadata (ACL:er, tidsstämplar och filattribut) när du överför data till Azure Files följer du anvisningarna i [Bevara fil-ACL:er, attribut och tidsstämplar med Azure Data Box](data-box-file-acls-preservation.md)  
+* Om data som laddas upp av Data Box samtidigt laddas upp av ett annat program, utanför Data Box, kan det leda till uppladdningsfel och skadade data.
 * Vi rekommenderar att du:
   * Inte använder SMB och NFS samtidigt.
   * Kopierar samma data till samma mål på Azure.
-
   I sådana fall kan slutresultatet inte fastställas.
-* Skapa alltid en mapp för de filer som du vill kopiera under resursen och kopiera sedan filerna till den mappen. Mappen som skapas under blockblob- och sidblobresurser representerar en container som data laddas upp som blobar till. Du kan inte kopiera filer direkt till *root*-mappen i lagringskontot.
 
 > [!IMPORTANT]
 > Se till att du behåller en kopia av dina källdata tills du kan bekräfta att Data Box-enheten har överfört dina data till Azure Storage.
 
-När du har anslutit till SMB-resursen kan du påbörja en datakopiering. Du kan använda valfritt SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy, för att kopiera data. Flera kopieringsjobb kan initieras med hjälp av Robocopy. Ange följande kommando:
+När du har anslutit till SMB-resursen börjar du kopiera data. Du kan använda valfritt SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy, för att kopiera data. Flera kopieringsjobb kan initieras med hjälp av Robocopy. Ange följande kommando:
 
 ```console
 robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile>

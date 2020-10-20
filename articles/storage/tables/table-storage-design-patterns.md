@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b200782d10ae3637fcade63feab1e638d40acddb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41e07087574989935e89ba2c1f4c09a3c12b192d
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006354"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215611"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 I den här artikeln beskrivs några mönster som lämpar sig för användning med Table service lösningar. Dessutom får du se hur du praktiskt taget kan åtgärda några av de problem och kompromisser som beskrivs i andra tabell lagrings design artiklar. Följande diagram sammanfattar relationerna mellan olika mönster:  
@@ -294,7 +294,7 @@ I en Relations databas är det naturligt att använda kopplingar i frågor för 
 
 Anta att du lagrar anställdas entiteter i Table service med hjälp av följande struktur:  
 
-![Enhets struktur för anställd](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
+![Skärm bild som visar hur du kan lagra personal enheter i Table service.](media/storage-table-design-guide/storage-table-design-IMAGE18.png)
 
 Du måste också lagra historiska data som rör granskningar och prestanda för varje år som den anställde har arbetat för din organisation och du måste kunna komma åt den här informationen per år. Ett alternativ är att skapa en annan tabell som lagrar entiteter med följande struktur:  
 

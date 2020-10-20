@@ -1,18 +1,16 @@
 ---
 title: Guide för U-SQL-programmering för Azure Data Lake
 description: Lär dig mer om den uppsättning tjänster i Azure Data Lake Analytics som gör att du kan skapa en molnbaserad stor data plattform.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0e914b5f36d58ec3aab24099c8b3787f0cf648
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87288941"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215458"
 ---
 # <a name="u-sql-programmability-guide"></a>Programmerings guide för U-SQL
 
@@ -121,7 +119,7 @@ Följande kod visar hur du refererar till en sammansättning:
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-Mer information finns i [anvisningarna för monterings registrering](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) som täcker det här avsnittet.
+Mer information finns i [anvisningarna för monterings registrering](/archive/blogs/azuredatalake/how-to-register-u-sql-assemblies-in-your-u-sql-catalog) som täcker det här avsnittet.
 
 
 ### <a name="use-assembly-versioning"></a>Använd sammansättnings version

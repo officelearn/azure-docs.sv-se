@@ -7,32 +7,32 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d01808eac854e0a694608fc963bd97b035d29ac8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 03d960f95aed4c6843e29dbebd37feec64b6eae2
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146174"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221153"
 ---
 # <a name="azure-security-baseline-for-data-lake-analytics"></a>Azures säkerhets bas linje för Data Lake Analytics
 
 Azures säkerhets bas linje för Data Lake Analytics innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
 
-Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
+Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](../security/benchmarks/overview.md), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
 
-Mer information finns i [Översikt över Azure Security-bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Mer information finns i [Översikt över Azure Security-bas linjer](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets kontroll: nätverks säkerhet](/azure/security/benchmarks/security-control-network-security).*
+*Mer information finns i [säkerhets kontroll: nätverks säkerhet](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
 **Vägledning**: Använd brand Väggs inställningar för data Lake Analytics för att begränsa externa IP-adressintervall för att tillåta åtkomst från dina lokala klienter och tjänster från tredje part. Konfiguration av brand Väggs inställningar är tillgängligt via portalen, REST API: er eller PowerShell.
 
-* [Brand Väggs regler](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
+* [Brand Väggs regler](/rest/api/datalakeanalytics/firewallrules)
 
-* [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
+* [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -58,9 +58,9 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 **Vägledning**: Använd brand Väggs inställningar för data Lake Analytics för att begränsa externa IP-adressintervall för att tillåta åtkomst från dina lokala klienter och tjänster från tredje part. Konfiguration av brand Väggs inställningar är tillgängligt via portalen, REST API: er eller PowerShell.
 
-* [Brand Väggs regler](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
+* [Brand Väggs regler](/rest/api/datalakeanalytics/firewallrules)
 
-* [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
+* [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -124,7 +124,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets kontroll: loggning och övervakning](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets kontroll: loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2,1: Använd godkända tids källor för synkronisering
 
@@ -140,13 +140,13 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM från tredje part.
 
-* [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)
+* [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](./data-lake-analytics-diagnostic-logs.md)
 
-* [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Samla in plattforms loggar och mått med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Samla in plattforms loggar och mått med Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Så här samlar du in interna värd loggar för virtuella Azure-datorer med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+* [Så här samlar du in interna värd loggar för virtuella Azure-datorer med Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
 
 * [Komma igång med Azure Monitor och SIEM-integrering från tredje part](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -158,9 +158,9 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 **Vägledning**: Aktivera diagnostikinställningar för data Lake Analytics för att få åtkomst till gransknings-och förfrågnings loggar. Detta inkluderar data som händelse källa, datum, användare, tidsstämpel och andra användbara element.
 
-* [Samla in plattforms loggar och mått med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+* [Samla in plattforms loggar och mått med Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
 
-* [Förstå loggning och olika logg typer i Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+* [Förstå loggning och olika logg typer i Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -178,9 +178,9 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 **Vägledning**: i Azure Monitor anger Log Analytics du arbets ytans lagrings period enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig lagring och arkivering.
 
-* [Ändra data lagrings perioden i Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+* [Ändra data lagrings perioden i Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-* [Konfigurera bevarande princip för Azure Storage konto loggar](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+* [Konfigurera bevarande princip för Azure Storage konto loggar](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 **Azure Security Center övervakning**: Ja
 
@@ -190,11 +190,11 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 **Vägledning**: analysera och övervaka loggar för avvikande beteende och granska resultaten regelbundet för dina data Lake Analytics-resurser. Använd Azure Monitor Log Analytics arbets ytan för att granska loggar och köra frågor om loggdata. Alternativt kan du aktivera och fordonsbaserad information till Azure Sentinel eller en SIEM från tredje part.
 
-* [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Mer information om arbets ytan Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+* [Mer information om arbets ytan Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-* [Så här utför du anpassade frågor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* [Så här utför du anpassade frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -204,11 +204,11 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 **Vägledning**: Aktivera diagnostikinställningar för data Lake Analytics och skicka loggar till en Log Analytics arbets yta. Publicera din Log Analytics-arbetsyta till Azure-kontroll när den tillhandahåller en SOAR-lösning (Security Orchestration autoresponse). Detta gör det möjligt för spel böcker (automatiserade lösningar) att skapas och användas för att åtgärda säkerhets problem.
 
-* [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Så här aviserar du om Log Analytics-loggdata](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+* [Så här aviserar du om Log Analytics-loggdata](../azure-monitor/learn/tutorial-response.md)
 
-* [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)
+* [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](./data-lake-analytics-diagnostic-logs.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -240,15 +240,15 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
 **Vägledning**: Azure AD har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
-* [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center övervakning**: Ja
 
@@ -258,7 +258,7 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 **Vägledning**: data Lake Analytics saknar begreppet standard lösen ord som autentiseringen tillhandahålls med Azure Active Directory och skyddas av rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
-* [Översikt över Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-overview)
+* [Översikt över Azure Data Lake Analytics](./data-lake-analytics-overview.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -270,7 +270,7 @@ Du kan också aktivera och inaktivera data till Azure Sentinel eller en SIEM fr�
 
 Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Privileged Identity Management och Azure Resource Manager.
 
-* [Läs mer om Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+* [Läs mer om Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center övervakning**: Ja
 
@@ -280,7 +280,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: där det är möjligt använder Azure Active Directory SSO i stället för att konfigurera enskilda fristående autentiseringsuppgifter per tjänst. Använd Azure Security Center identitets-och åtkomst rekommendationer.
 
-* [Förstå SSO med Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+* [Förstå SSO med Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -290,9 +290,9 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: Aktivera Azure Active Directory Multi-Factor Authentication (MFA) och Azure Security Center Följ rekommendationerna för identitets-och åtkomst hantering som hjälper dig att skydda dina data Lake Analytics resurser.
 
-* [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-* [Övervaka identitet och åtkomst i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -302,9 +302,9 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: Använd en säker, Azure-hanterad arbets Station (kallas även en privilegie rad åtkomst arbets Station eller Paw) för administrativa uppgifter som kräver förhöjda privilegier.
 
-* [Förstå säkra, Azure-hanterade arbets stationer](https://docs.microsoft.com/azure/active-directory/devices/concept-azure-managed-workstation)
+* [Förstå säkra, Azure-hanterade arbets stationer](../active-directory/devices/concept-azure-managed-workstation.md)
 
-* [Så här aktiverar du Azure AD MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+* [Så här aktiverar du Azure AD MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -314,9 +314,9 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: Använd Azure Active Directory säkerhets rapporter för att skapa loggar och varningar när misstänkt eller osäker aktivitet inträffar i miljön. Använd Azure Security Center för att övervaka identitets-och åtkomst aktiviteter.
 
-* [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+* [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Övervaka användarnas identitets-och åtkomst aktiviteter i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+* [Övervaka användarnas identitets-och åtkomst aktiviteter i Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -326,7 +326,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: Använd namngivna platser i Azure AD för att endast tillåta åtkomst från särskilda logiska grupperingar av IP-adressintervall eller länder/regioner.
 
-* [Så här konfigurerar du Azure AD-namngivna platser](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Så här konfigurerar du Azure AD-namngivna platser](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -336,7 +336,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: använda Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Rollbaserad åtkomst kontroll i Azure (Azure RBAC) ger detaljerad kontroll över en klients åtkomst till Data Lake Analytics resurser.
 
-* [Så här skapar och konfigurerar du en Azure AD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+* [Så här skapar och konfigurerar du en Azure AD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -346,9 +346,9 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: Azure AD innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure AD-identitets-och åtkomst granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst.
 
-* [Förstå Azure AD repor ting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+* [Förstå Azure AD repor ting](../active-directory/reports-monitoring/index.yml)
 
-* [Använda Azure AD-identitets-och åtkomst granskningar](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+* [Använda Azure AD-identitets-och åtkomst granskningar](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -358,7 +358,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: Aktivera diagnostikinställningar för Data Lake Analytics och Azure Active Directory och skicka alla loggar till en Log Analytics-arbetsyta. Konfigurera önskade aviseringar (till exempel försök att komma åt inaktiverade hemligheter) i Log Analytics.
 
-* [Integrera Azure AD-loggar med Azure Monitor loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+* [Integrera Azure AD-loggar med Azure Monitor loggar](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -368,11 +368,11 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: Använd Azure Active Directorys risk-och identitets skydds funktioner för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör dina data Lake Analytics resurser. Du bör aktivera automatiserade svar via Azure Sentinel för att implementera din organisations säkerhets svar.
 
-* [Visa Azure AD-riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+* [Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md)
 
-* [Så här konfigurerar och aktiverar du risk principer för identitets skydd](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+* [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-* [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+* [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -382,7 +382,7 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: ej tillämpligt; Customer Lockbox stöds inte för Azure Data Lake Analytics.
 
-* [Tjänster och scenarier som stöds i allmän tillgänglighet](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+* [Tjänster och scenarier som stöds i allmän tillgänglighet](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -390,13 +390,13 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [säkerhets kontroll: data skydd](/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [säkerhets kontroll: data skydd](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
 **Vägledning**: Använd taggar för att spåra data Lake Analytics resurser som lagrar eller bearbetar känslig information.
 
-* [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -406,17 +406,17 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 **Vägledning**: implementera isolering med separata prenumerationer, hanterings grupper för enskilda säkerhets domäner, till exempel miljö, data känslighet. Du kan begränsa din Data Lake Analytics för att kontrol lera åtkomst nivån till dina Data Lake Analytics resurser som dina program och företags miljöer kräver. När brand Väggs regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt dina Data Lake Analytics-resurser. Du kan styra åtkomsten till Azure Data Lake Analytics via Azure RBAC.
 
-* [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
-* [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
-* [Hantera rollbaserad åtkomst kontroll i Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+* [Hantera rollbaserad åtkomst kontroll i Azure](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
-* [Brand Väggs regler](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
+* [Brand Väggs regler](/rest/api/datalakeanalytics/firewallrules)
 
-* [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-powershell)
+* [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](./data-lake-analytics-manage-use-powershell.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -428,9 +428,9 @@ Du kan också aktivera en just-in-Time-åtkomst genom att använda Azure AD Priv
 
 För den underliggande plattform som hanteras av Microsoft behandlar Microsoft allt kund innehåll som känsligt och skyddar mot kund data förlust och exponering. För att säkerställa att kunddata i Azure förblir skyddade har Microsoft implementerat och underhåller en svit med robusta data skydds kontroller och-funktioner.
 
-* [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
-* [Skydda Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-security-guide)
+* [Skydda Azure Storage-konton](../storage/blobs/security-recommendations.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -440,7 +440,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 **Vägledning**: Microsoft Azure resurser förhandlar TLS 1,2 som standard. Se till att alla klienter som ansluter till Data Lake Analytics kan förhandla med TLS 1,2 eller senare.
 
-* [Exempel på åtgärds lista](https://docs.microsoft.com/rest/api/datalakeanalytics/operations/list)
+* [Exempel på åtgärds lista](/rest/api/datalakeanalytics/operations/list)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -450,7 +450,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 **Vägledning**: funktionerna för data identifiering är ännu inte tillgängliga för Azure Data Lake Analytics-resurser. Implementera en lösning från tredje part om det krävs för efterlevnad.
 
-* [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+* [Förstå kundens data skydd i Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -460,7 +460,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 **Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att styra hur användare interagerar med tjänsten.
 
-* [Hantera Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
+* [Hantera Azure RBAC](./data-lake-analytics-manage-use-portal.md#manage-azure-role-based-access-control)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -478,7 +478,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 **Vägledning**: data lagras på standard data Lake Storage Gen1s kontot. För data i vila stöder Data Lake Storage Gen1 "på som standard" transparent kryptering.
 
-* [Kryptering av data i Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-encryption)
+* [Kryptering av data i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -488,7 +488,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i produktions instanser av Azure Data Lake Analytics resurser.
 
-* [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+* [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -496,7 +496,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [säkerhets kontroll: sårbarhets hantering](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Mer information finns i [säkerhets kontroll: sårbarhets hantering](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
@@ -504,7 +504,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 Microsoft utför sårbarhets hantering på de underliggande system som har stöd för Azure Data Lake Analytics.
 
-* [Förstå Azure Security Center rekommendationer](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+* [Förstå Azure Security Center rekommendationer](../security-center/recommendations-reference.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -546,7 +546,7 @@ Microsoft utför sårbarhets hantering på de underliggande system som har stöd
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
 
@@ -554,11 +554,11 @@ Microsoft utför sårbarhets hantering på de underliggande system som har stöd
 
 Även om klassiska Azure-resurser kan identifieras via Azure Resource Graph Explorer, rekommenderar vi starkt att du skapar och använder Azure Resource Manager resurser som går framåt.
 
-* [Så här skapar du frågor med Azure Resource Graph Explorer](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Så här skapar du frågor med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-* [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription)
 
-* [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -568,7 +568,7 @@ Microsoft utför sårbarhets hantering på de underliggande system som har stöd
 
 **Vägledning**: Använd taggar till Azure-resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-* [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -582,11 +582,11 @@ Använd dessutom Azure policy för att ange begränsningar för den typ av resur
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
-* [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+* [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
-* [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -608,9 +608,9 @@ Använd dessutom Azure policy för att ange begränsningar för den typ av resur
 
 Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i prenumerationerna.
 
-* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Så här skapar du frågor med Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+* [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -646,9 +646,9 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
-* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Så här nekar du en speciell resurs typ med Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+* [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -666,7 +666,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning**: Konfigurera villkorlig åtkomst i Azure för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering".
 
-* [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till ARM](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+* [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till ARM](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -690,16 +690,16 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [säkerhets kontroll: säker konfiguration](/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [säkerhets kontroll: säker konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. DataLakeAnalytics" för att skapa anpassade principer som ska granskas eller tillämpas på konfigurationen av din Azure Data Lake Analytics. Du kan också använda inbyggda princip definitioner som är relaterade till din Azure Data Lake Analytics, till exempel:
 - Diagnostikloggar i Data Lake Analytics ska vara aktive rad
 
-* [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias)
 
-* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -717,9 +717,9 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning**: Använd Azure policy [Deny] och [distribuera om det inte finns] för att genomdriva säkra inställningar i dina Azure-resurser.
 
-* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Förstå Azure Policys effekter](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+* [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -737,9 +737,9 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning**: Använd Azure-databaser för att lagra och hantera din kod på ett säkert sätt, till exempel anpassade Azure-principer, Azure Resource Manager mallar, önskade tillstånds konfigurations skript osv. För att få åtkomst till de resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps eller Active Directory om det är integrerat med TFS.
 
-* [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-* [Om behörigheter och grupper i Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+* [Om behörigheter och grupper i Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -773,7 +773,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. DataLakeAnalytics" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure-princip [granskning], [neka] och [distribuera om den inte finns] för att automatiskt genomdriva konfigurationer för dina Azure Data Lake Analytics-resurser.
 
-* [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+* [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -815,7 +815,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd en centralt hanterad program vara mot skadlig kod
 
@@ -845,17 +845,17 @@ Förskanna allt innehåll som överförs till Azure-resurser, till exempel App S
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [säkerhets kontroll: Data återställning](/azure/security/benchmarks/security-control-data-recovery).*
+*Mer information finns i [säkerhets kontroll: Data återställning](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: Säkerställ regelbunden automatisk säkerhets kopiering
 
 **Vägledning**: data Lake Analytics jobb loggar och data utdata lagras i den underliggande data Lake Storage Gen1s tjänsten. Du kan använda olika metoder för att kopiera data, inklusive ADLCopy, Azure PowerShell eller Azure Data Factory. Du kan också använda Azure Automation för att säkerhetskopiera data regelbundet med jämna mellanrum.
 
-* [Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)
+* [Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer](../data-lake-store/data-lake-store-in-storage-explorer.md)
 
-* [Kopiera data från Azure Storage blobbar till Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)
+* [Kopiera data från Azure Storage blobbar till Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)
 
-* [Översikt över Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+* [Översikt över Azure Automation](../automation/automation-intro.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -865,9 +865,9 @@ Förskanna allt innehåll som överförs till Azure-resurser, till exempel App S
 
 **Vägledning**: data Lake Analytics jobb loggar och data utdata lagras i den underliggande data Lake Storage Gen1s tjänsten. Du kan använda olika metoder för att kopiera data, inklusive ADLCopy, Azure PowerShell eller Azure Data Factory.
 
-* [Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-in-storage-explorer)
+* [Hantera Azure Data Lake Storage Gen1 resurser med Storage Explorer](../data-lake-store/data-lake-store-in-storage-explorer.md)
 
-* [Kopiera data från Azure Storage blobbar till Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)
+* [Kopiera data från Azure Storage blobbar till Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -885,9 +885,9 @@ Förskanna allt innehåll som överförs till Azure-resurser, till exempel App S
 
 **Vägledning**: data Lake Analytics säkerhets kopior som lagras i Data Lake Storage Gen1 eller Azure Storage stöder kryptering som standard och inte kan stängas av. Du bör behandla dina säkerhets kopior som känsliga data och tillämpa relevanta åtkomst-och data skydds kontroller som en del av den här bas linjen.
 
-* [Skydda data som lagras i Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-secure-data)
+* [Skydda data som lagras i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-secure-data.md)
 
-* [Auktorisera åtkomst till data i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+* [Auktorisera åtkomst till data i Azure Storage](../storage/common/storage-auth.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -895,7 +895,7 @@ Förskanna allt innehåll som överförs till Azure-resurser, till exempel App S
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [säkerhets kontroll: incident svar](/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [säkerhets kontroll: incident svar](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
@@ -917,9 +917,9 @@ Förskanna allt innehåll som överförs till Azure-resurser, till exempel App S
 
 Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data. Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
 
-* [Säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+* [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-* [Använd taggar till att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Använda taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -939,7 +939,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olagligt eller obehörig part. Granska incidenter när du är säker på att problemen är lösta.
 
-* [Så här ställer du in Azure Security Center säkerhets kontakt](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+* [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -949,9 +949,9 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export för att identifiera risker för Azure-resurser. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviseringarna till Azure Sentinel.
 
-* [Så här konfigurerar du kontinuerlig export](https://docs.microsoft.com/azure/security-center/continuous-export)
+* [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md)
 
-* [Strömma aviseringar till Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+* [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -961,7 +961,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: Använd funktionen för arbets flödes automatisering i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer för att skydda dina Azure-resurser.
 
-* [Konfigurera automatisering av arbets flöden och Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+* [Konfigurera automatisering av arbets flöden och Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -969,7 +969,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
-*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
@@ -985,5 +985,5 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)

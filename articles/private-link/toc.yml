@@ -31,6 +31,8 @@
       href: tutorial-private-endpoint-storage-portal.md
     - name: Ansluta till ett Cosmos DB-konto
       href: tutorial-private-endpoint-cosmosdb-portal.md
+    - name: Ansluta till en webbapp
+      href: tutorial-private-endpoint-webapp-portal.md
 - name: Begrepp
   items:
     - name: Privat slutpunkt

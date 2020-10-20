@@ -1,18 +1,17 @@
 ---
 title: Kör U-SQL-jobb lokalt – Azure Data Lake U-SQL SDK
 description: Lär dig hur du kör och testar U-SQL-jobb lokalt med hjälp av kommando raden och programmerings gränssnitt på din lokala arbets Station.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 03/01/2017
-ms.openlocfilehash: daf72fcf7baba289b4145d06d878c8a7232f1c6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fb60e62a63bfc4562f19d483dc84c99c37676b0
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132423"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215543"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Köra och testa U-SQL med Azure Data Lake U-SQL SDK
 

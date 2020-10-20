@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/27/2019
-ms.openlocfilehash: 6edd32f8f3579238d1f08f55ce9fb1528fa5d211
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 5181ceb7d5959436b704202fd3179773c9654679
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417482"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220490"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Kopiera data till och från Azure Table Storage med hjälp av Azure Data Factory
 
@@ -222,7 +222,7 @@ Om du vill kopiera data till och från Azure-tabellen anger du egenskapen type f
 
 Data Factory härleder schemat på något av följande sätt för schema fria data lager, till exempel Azure Table:
 
-* Om du anger kolumn mappningen i kopierings aktiviteten Data Factory använda kolumn listan på käll sidan för att hämta data. I det här fallet anges ett null-värde för det om en rad inte innehåller något värde för en kolumn.
+* Om du anger kolumn mappningen i kopierings aktiviteten, kan Data Factory använda kolumn listan på käll sidan för att hämta data. I det här fallet anges ett null-värde för det om en rad inte innehåller något värde för en kolumn.
 * Om du inte anger kolumn mappningen i kopierings aktiviteten härleder Data Factory schemat genom att använda den första raden i data. I detta fall, om den första raden inte innehåller det fullständiga schemat (t. ex. om vissa kolumner har null-värde), saknas vissa kolumner i resultatet av kopierings åtgärden.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
@@ -236,7 +236,7 @@ Om du vill kopiera data från Azure-tabellen anger du käll typen i kopierings a
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Typ egenskapen för kopierings aktivitets källan måste anges till **AzureTableSource**. |Ja |
-| azureTableSourceQuery |Använd den anpassade tabell lagrings frågan för att läsa data. Se exemplen i följande avsnitt. |Inga |
+| azureTableSourceQuery |Använd den anpassade tabell lagrings frågan för att läsa data.<br/>Käll frågan är en direkt karta från `$filter` frågealternativet som stöds av Azure Table Storage, lär dig mer om syntaxen från [det här dokumentet](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options)och se exemplen i följande azureTableSourceQuery- [exempel avsnitt](#azuretablesourcequery-examples). |Inga |
 | azureTableSourceIgnoreTableNotFound |Anger om undantag för tabellen inte finns.<br/>Tillåtna värden är **True** och **false** (standard). |Inga |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery-exempel

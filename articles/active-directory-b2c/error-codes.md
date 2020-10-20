@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0122fa43c9d99c01797e3523748e4f31b4b7469a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6ae806b7666d83652e6b82bac16d89f2f9ce7aa
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91664859"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92215441"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>Felkoder: Azure Active Directory B2C
 
@@ -61,6 +61,7 @@ Följande fel kan returneras av tjänsten Azure Active Directory B2C.
 | `AADB2C90055` | Omfånget {0} som anges i begäran måste ange en resurs, till exempel https://example.com/calendar.read . |
 | `AADB2C90057` | Det tillhandahållna programmet har inte kon figurer ATS för att tillåta OAuth-implicit flöde. |
 | `AADB2C90058` | Det tillhandahållna programmet har inte kon figurer ATS för att tillåta offentliga klienter. |
+| `AADB2C99059` | Den angivna begäran måste presentera en code_challenge. Krävs för appar med en sida med hjälp av flödes kods flödet.| 
 | `AADB2C90067` | Omutloggning omdirigerings-URI: n {0} har ett ogiltigt format. Ange en https-baserad URL, till exempel " https://example.com/return " eller för interna klienter använder den inbyggda IETF-klient-URI: n "urn: IETF: WG: OAuth: 2.0: OOB". |
 | `AADB2C90068` | Det angivna programmet med ID {0} är inte giltigt för den här tjänsten. Använd ett program som skapats via B2C-portalen och försök igen. |
 | `AADB2C90075` | Anspråks utbytet {0} som anges i steg {1} returnerade http-felsvaret med koden {2} och skälet {3} . |

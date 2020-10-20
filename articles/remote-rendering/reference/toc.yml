@@ -11,8 +11,8 @@
 - name: Lagringsplats för Remote Rendering-exempel (GitHub)
   href: 'https://github.com/Azure/azure-remote-rendering'
 - name: REST API för resurshantering i Azure Mixed Reality
-  href: 'https://docs.microsoft.com/rest/api/mixedreality/'
+  href: /rest/api/mixedreality/
 - name: C# API-dokumentation
-  href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.RemoteRendering'
+  href: /dotnet/api/Microsoft.Azure.RemoteRendering
 - name: C++ API-dokumentation
   href: 'https://docs.microsoft.com/cpp/api/remote-rendering'

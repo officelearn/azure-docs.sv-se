@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/23/2018
+ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: 4f646cdb4a3f000df219f627cbd7e7c841ed68ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8262a80fac42f103d571523c75c5064d5d43949
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651249"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207350"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Självstudie: förbättra webbplatsens svar med hjälp av Traffic Manager
 
 I den här självstudien beskrivs hur du använder Traffic Manager för att skapa en webbplats med hög tillgänglighet genom att dirigera användar trafik till webbplatsen med den lägsta svars tiden. Normalt är data centret med den lägsta svars tiden det som är närmast det geografiska avståndet.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer som kör en grundläggande webbplats i IIS
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill se hur Traffic Manager fungerar i praktiken behöver du använda följande i den här självstudien:
 
@@ -139,13 +139,13 @@ Skapa en Traffic Manager profil som dirigerar användar trafiken genom att skick
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profil**  >  **skapa**.
 2. I **Skapa Traffic Manager-profil** anger eller väljer du följande information, accepterar standardinställningarna för återstående inställningar och väljer sedan **Skapa**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Namn                   | Namnet måste var unikt inom trafficmanager.net-zonen och generera DNS-namnet, trafficmanager.net, som används för att öppna din Traffic Manager-profil.                                   |
     | Routningsmetod          | Välj routningsmetod för **prestanda** .                                       |
     | Prenumeration            | Välj din prenumeration.                          |
     | Resursgrupp          | Välj resurs gruppen *myResourceGroupTM1*. |
-    | Location                | Välj **USA, östra**. Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
+    | Plats                | Välj **USA, östra**. Inställningen refererar till platsen för resursgruppen och har ingen inverkan på Traffic Manager-profilen som distribueras globalt.                              |
     |
 
     ![Skapa en Traffic Manager-profil](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-profile.png)
@@ -158,10 +158,10 @@ Lägg till de två virtuella datorerna som kör IIS-servrarna *myIISVMEastUS*  &
 2. I **Traffic Manager-profilen** går du till avsnittet **Inställningar** och klickar på **Slutpunkter** och klickar sedan på **Lägg till**.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Typ                    | Azure-slutpunkt                                   |
-    | Name           | myEastUSEndpoint                                        |
+    | Namn           | myEastUSEndpoint                                        |
     | Målresurstyp           | Offentlig IP-adress                          |
     | Målresurs          | **Välj en offentlig IP-adress** för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resurs** väljer du den offentliga IP-adressen med namnet *myIISVMEastUS-ip*. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|
     |        |           |
@@ -209,7 +209,7 @@ I det här avsnittet får du se Traffic Manager i arbete.
 
    ![Testa Traffic Manager-profil](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
 
-## <a name="delete-the-traffic-manager-profile"></a>Ta bort Traffic Manager-profilen
+## <a name="clean-up-resources"></a>Rensa resurser
 
 När resursgrupperna inte längre behövs kan du ta bort dem (**ResourceGroupTM1** och **ResourceGroupTM2**). Om du vill göra det markerar du resursgruppen (**ResourceGroupTM1** eller **ResourceGroupTM2**) och väljer sedan **Ta bort**.
 

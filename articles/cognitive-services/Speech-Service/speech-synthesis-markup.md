@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: baa8b1f302c0d8a7355f74b686ffedfb45ac22d3
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 2c60d2e874e861eebac54e24ba0cb949bfb9a57b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096053"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207690"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -58,9 +58,9 @@ Varje SSML-dokument skapas med SSML-element (eller taggar). Dessa element använ
 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `version` | Anger den version av SSML-specifikationen som används för att tolka dokument markeringen. Den aktuella versionen är 1,0. | Krävs |
-| `xml:lang` | Anger språket för rot dokumentet. Värdet får innehålla gemener, gemener och versaler (t. ex. `en` ) eller språk koden och land/region (t. ex. `en-US` ). | Krävs |
-| `xmlns` | Anger den URI till dokumentet som definierar ord listan (element typerna och attributnamnet) för SSML-dokumentet. Aktuell URI är http://www.w3.org/2001/10/synthesis . | Krävs |
+| `version` | Anger den version av SSML-specifikationen som används för att tolka dokument markeringen. Den aktuella versionen är 1,0. | Obligatorisk |
+| `xml:lang` | Anger språket för rot dokumentet. Värdet får innehålla gemener, gemener och versaler (t. ex. `en` ) eller språk koden och land/region (t. ex. `en-US` ). | Obligatorisk |
+| `xmlns` | Anger den URI till dokumentet som definierar ord listan (element typerna och attributnamnet) för SSML-dokumentet. Aktuell URI är http://www.w3.org/2001/10/synthesis . | Obligatorisk |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Välj röst för text till tal
 
@@ -78,7 +78,7 @@ Varje SSML-dokument skapas med SSML-element (eller taggar). Dessa element använ
 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Krävs |
+| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Obligatorisk |
 
 **Exempel**
 
@@ -101,7 +101,7 @@ I `speak` -elementet kan du ange flera röster för text till tal-utdata. Dessa 
 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Krävs |
+| `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Obligatorisk |
 
 > [!IMPORTANT]
 > Flera röster är inkompatibla med ord gränsens funktion. Ord gränsen måste inaktive ras för att flera röster ska kunna användas.
@@ -148,7 +148,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Mer information finns i <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Mer information finns i <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -617,7 +617,7 @@ Du kan ändra bredden på standard-röster på ord-eller menings nivå. Föränd
 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `interpret-as` | Anger innehålls typen för elementets text. En lista med typer finns i tabellen nedan. | Krävs |
+| `interpret-as` | Anger innehålls typen för elementets text. En lista med typer finns i tabellen nedan. | Obligatorisk |
 | `format` | Innehåller ytterligare information om den exakta formateringen av elementets text för innehålls typer som kan ha tvetydiga format. SSML definierar format för innehålls typer som använder dem (se tabellen nedan). | Valfritt |
 | `detail` | Anger detalj nivån som ska läsas. Det här attributet kan till exempel begära att tal syntes motorn uttalar skiljetecken. Inga standard värden har definierats för `detail` . | Valfritt |
 

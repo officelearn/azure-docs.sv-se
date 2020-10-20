@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2508846e5dd2fcc96aade9ce64b599bb4154de00
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91397818"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203389"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -130,7 +130,7 @@ Tjänster för nätverk både i Azure och mellan Azure och lokala data Center:
 
 - Azure Content Delivery Network
 
-Detaljerad dokumentation om Azure-tjänster finns i [dokumentationen för Azure-tjänsten](https://docs.microsoft.com/azure).
+Detaljerad dokumentation om Azure-tjänster finns i [dokumentationen för Azure-tjänsten](/azure).
 
 ## <a name="azure-key-concepts"></a>Azure Key-koncept
 
@@ -142,7 +142,7 @@ En av fördelarna med att använda Azure är att du kan distribuera dina program
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Azure Portal är ett webbaserat program som kan användas för att skapa, hantera och ta bort Azure-resurser och-tjänster. Azure Portal finns på [Portal.Azure.com](https://portal.azure.com). Den innehåller en anpassningsbar instrument panel och verktyg för att hantera Azure-resurser. Den innehåller även information om fakturering och prenumerationer. Mer information finns i [Microsoft Azure-portalen översikt](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) och [Hantera Azure-resurser via portalen](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+Azure Portal är ett webbaserat program som kan användas för att skapa, hantera och ta bort Azure-resurser och-tjänster. Azure Portal finns på [Portal.Azure.com](https://portal.azure.com). Den innehåller en anpassningsbar instrument panel och verktyg för att hantera Azure-resurser. Den innehåller även information om fakturering och prenumerationer. Mer information finns i [Microsoft Azure-portalen översikt](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) och [Hantera Azure-resurser via portalen](../../azure-resource-manager/management/manage-resources-portal.md).
 
 ### <a name="resources"></a>Resurser
 
@@ -170,11 +170,11 @@ Azures kommando rads gränssnitt är ett verktyg som du kan använda för att sk
 
 #### <a name="rest-apis"></a>REST API:er
 
-Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och appar från valfri enhet med Internet. Mer information finns i [Azure rest SDK-referensen](https://docs.microsoft.com/rest/api/index).
+Azure bygger på en uppsättning REST API: er som stöder Azure Portal gränssnittet. De flesta av dessa REST API: er stöds också för att låta dig program mässigt etablera och hantera dina Azure-resurser och appar från valfri enhet med Internet. Mer information finns i [Azure rest SDK-referensen](/rest/api/index).
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Administratörer har åtkomst till Azure PowerShell och Azure CLI via en webb läsar tillgänglig upplevelse som kallas Azure Cloud Shell. Det här interaktiva gränssnittet är ett flexibelt verktyg för Linux-och Windows-administratörer att använda sitt kommando rads gränssnitt, antingen bash eller PowerShell. Azure Cloud Shell kan komma åt via portalen, som ett fristående webb gränssnitt på [Shell.Azure.com](https://shell.azure.com), eller från ett antal andra åtkomst punkter. Mer information finns i [Översikt över Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Administratörer har åtkomst till Azure PowerShell och Azure CLI via en webb läsar tillgänglig upplevelse som kallas Azure Cloud Shell. Det här interaktiva gränssnittet är ett flexibelt verktyg för Linux-och Windows-administratörer att använda sitt kommando rads gränssnitt, antingen bash eller PowerShell. Azure Cloud Shell kan komma åt via portalen, som ett fristående webb gränssnitt på [Shell.Azure.com](https://shell.azure.com), eller från ett antal andra åtkomst punkter. Mer information finns i [Översikt över Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ## <a name="azure-subscriptions"></a>Azure-prenumerationer
 
@@ -282,7 +282,7 @@ Följande mekanismer är tillgängliga för Automation-distribution:
 
 - **Mall länkning**: inifrån en Resource Manager-mall kan du länka till en annan mall. Detta möjliggör distributions sammansättning i en uppsättning riktade, specifika mallar.
 
-Du kan bygga Resource Manager-mallar i valfri text redigerare. Azure SDK för Visual Studio innehåller emellertid verktyg som hjälper dig. Med hjälp av Visual Studio kan du lägga till resurser till mallen via en guide och sedan distribuera och felsöka mallen direkt från Visual Studio. Mer information finns i [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
+Du kan bygga Resource Manager-mallar i valfri text redigerare. Azure SDK för Visual Studio innehåller emellertid verktyg som hjälper dig. Med hjälp av Visual Studio kan du lägga till resurser till mallen via en guide och sedan distribuera och felsöka mallen direkt från Visual Studio. Mer information finns i [redigera Azure Resource Manager mallar](../../azure-resource-manager/templates/template-syntax.md).
 
 Slutligen kan du konvertera befintliga resurs grupper till en återanvändbar mall från Azure Portal. Detta kan vara användbart om du vill skapa en distributions bara mall för en befintlig resurs grupp eller om du bara vill granska den underliggande JSON. Om du vill exportera en resurs grupp väljer du knappen **Automation-skript** från resurs gruppens inställningar.
 
@@ -314,7 +314,7 @@ Azure Virtual Machines är en av de centrala IaaS-tjänsterna i Azure. Azure Vir
 
 När du distribuerar en virtuell Azure-dator kan du välja en avbildning från Azure Marketplace, eller så kan du ange en egen generaliserad avbildning. Den här avbildningen används för att tillämpa operativ systemet och den inledande konfigurationen. Under distributionen hanterar Resource Manager vissa konfigurations inställningar, till exempel att tilldela dator namn, administratörs behörighet och nätverks konfiguration. Du kan använda tillägg för virtuella Azure-datorer för att ytterligare automatisera konfigurationer, till exempel program varu installation, antivirus konfiguration och övervaknings lösningar.
 
-Du kan skapa virtuella datorer i många olika storlekar. Storleken på den virtuella datorn avgör resursallokeringen, till exempel bearbetning, minne och lagrings kapacitet. I vissa fall är specifika funktioner som RDMA-aktiverade nätverkskort och SSD-diskar bara tillgängliga med vissa VM-storlekar. En fullständig lista över VM-storlekar och-funktioner finns i "storlekar för virtuella datorer i Azure" för [Windows](../../virtual-machines/windows/sizes.md) och [Linux](../../virtual-machines/linux/sizes.md).
+Du kan skapa virtuella datorer i många olika storlekar. Storleken på den virtuella datorn avgör resursallokeringen, till exempel bearbetning, minne och lagrings kapacitet. I vissa fall är specifika funktioner som RDMA-aktiverade nätverkskort och SSD-diskar bara tillgängliga med vissa VM-storlekar. En fullständig lista över VM-storlekar och-funktioner finns i "storlekar för virtuella datorer i Azure" för [Windows](../../virtual-machines/sizes.md) och [Linux](../../virtual-machines/sizes.md).
 
 ### <a name="use-cases"></a>Användningsfall
 
@@ -344,7 +344,7 @@ På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource
 
 ### <a name="access-and-security-for-virtual-machines"></a>Åtkomst och säkerhet för virtuella datorer
 
-Åtkomst till en virtuell dator från Internet kräver att det associerade nätverks gränssnittet eller belastningsutjämnaren, om det är tillämpligt, ska konfigureras med en offentlig IP-adress. Den offentliga IP-adressen innehåller ett DNS-namn som kommer att matcha den virtuella datorn eller belastningsutjämnaren. Mer information finns i [IP-adresser i Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+Åtkomst till en virtuell dator från Internet kräver att det associerade nätverks gränssnittet eller belastningsutjämnaren, om det är tillämpligt, ska konfigureras med en offentlig IP-adress. Den offentliga IP-adressen innehåller ett DNS-namn som kommer att matcha den virtuella datorn eller belastningsutjämnaren. Mer information finns i [IP-adresser i Azure](../../virtual-network/public-ip-addresses.md).
 
 Du kan hantera åtkomsten till den virtuella datorn via den offentliga IP-adressen med hjälp av en nätverks säkerhets grupps resurs (NSG). En NSG fungerar som en brand vägg och tillåter eller nekar trafik över nätverks gränssnittet eller under nätet på en uppsättning definierade portar. Om du till exempel vill skapa en fjärrskrivbordssession med en virtuell Azure-dator måste du konfigurera NSG för att tillåta inkommande trafik på port 3389. Mer information finns i [öppna portar till en virtuell dator i Azure med hjälp av Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
@@ -378,7 +378,7 @@ Azure Storage stöder tre typer av blobar:
 
 - **Tillägg av blobbar** består av block som block blobbar, men de är optimerade för att lägga till åtgärder. Dessa används ofta för att logga information från en eller flera källor till samma blob. Du kan till exempel skriva all spårnings loggning till samma tilläggs-BLOB för ett program som körs på flera virtuella datorer. En enda tilläggsblob kan ha upp till 195 GB.
 
-Mer information finns i [Kom igång med Azure Blob Storage med hjälp av .net](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Mer information finns i [Kom igång med Azure Blob Storage med hjälp av .net](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 #### <a name="file-storage"></a>File Storage
 
@@ -394,7 +394,7 @@ Azure Table Storage är en tjänst som lagrar strukturerade NoSQL-data i molnet.
 
 Du kan använda Table Storage för att lagra flexibla datauppsättningar, till exempel användardata för webbprogram, adressböcker, enhetsinformation och andra typer av metadata som din tjänst kräver. Du kan lagra valfritt antal entiteter i en tabell. Ett lagrings konto kan innehålla valfritt antal tabeller, upp till lagrings kontots kapacitets gräns.
 
-Mer information finns i [Kom igång med Azure Table Storage](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+Mer information finns i [Kom igång med Azure Table Storage](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 #### <a name="queue-storage"></a>Queue Storage
 
@@ -414,15 +414,15 @@ Förutom att distribuera ett lagrings konto från Azure Portal kan du distribuer
 
 #### <a name="powershell"></a>PowerShell
 
-Genom att distribuera ett Azure Storage-konto med hjälp av PowerShell kan du slutföra distributions automatisering av lagrings kontot. Mer information finns i [använda Azure PowerShell med Azure Storage](../../storage/common/storage-powershell-guide-full.md).
+Genom att distribuera ett Azure Storage-konto med hjälp av PowerShell kan du slutföra distributions automatisering av lagrings kontot. Mer information finns i [använda Azure PowerShell med Azure Storage](/powershell/module/az.storage/).
 
 Förutom att distribuera Azure-resurser individuellt kan du använda Azure PowerShell-modulen för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
 #### <a name="command-line-interface-cli"></a>Kommandoradsgränssnittet (CLI)
 
-Precis som med PowerShell-modulen tillhandahåller Azures kommando rads gränssnitt distributions automatisering och kan användas på Windows-, OS X-eller Linux-system. Du kan skapa ett lagrings konto med hjälp av kommandot **skapa** ett lagrings konto i Azure CLI. Mer information finns i [använda Azure CLI med Azure Storage.](../../storage/common/storage-azure-cli.md)
+Precis som med PowerShell-modulen tillhandahåller Azures kommando rads gränssnitt distributions automatisering och kan användas på Windows-, OS X-eller Linux-system. Du kan skapa ett lagrings konto med hjälp av kommandot **skapa** ett lagrings konto i Azure CLI. Mer information finns i [använda Azure CLI med Azure Storage.](../../storage/blobs/storage-quickstart-blobs-cli.md)
 
-På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../../resource-group-template-deploy-cli.md).
+På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-azure-storage"></a>Åtkomst och säkerhet för Azure Storage
 
@@ -446,7 +446,7 @@ Varje lagrings konto har två autentiseringsinställningar, en primär och en se
 
 #### <a name="shared-access-signatures"></a>Signaturer för delad åtkomst
 
-Om du behöver tillåta att användare har kontrollerad åtkomst till dina lagrings resurser kan du skapa en signatur för delad åtkomst. En signatur för delad åtkomst är en token som kan läggas till i en URL som möjliggör delegerad åtkomst till en lagrings resurs. Alla som har token kan komma åt resursen som den pekar på med de behörigheter som anges, under den tids period som den är giltig. Mer information finns i [använda signaturer för delad åtkomst](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Om du behöver tillåta att användare har kontrollerad åtkomst till dina lagrings resurser kan du skapa en signatur för delad åtkomst. En signatur för delad åtkomst är en token som kan läggas till i en URL som möjliggör delegerad åtkomst till en lagrings resurs. Alla som har token kan komma åt resursen som den pekar på med de behörigheter som anges, under den tids period som den är giltig. Mer information finns i [använda signaturer för delad åtkomst](../../storage/common/storage-sas-overview.md).
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 
@@ -456,7 +456,7 @@ Virtuella nätverk är nödvändiga för att stödja kommunikation mellan virtue
 
 Ett virtuellt Azure-nätverk är som standard endast tillgängligt för resurser som är lagrade i Azure. Resurser som är anslutna till samma virtuella nätverk kan kommunicera med varandra. Du kan koppla nätverks gränssnitt och belastningsutjämnare för virtuella datorer med en offentlig IP-adress för att göra den virtuella datorn tillgänglig via Internet. Du kan skydda åtkomsten till de offentligt exponerade resurserna genom att använda en nätverks säkerhets grupp.
 
-![Azure Virtual Network för ett webb program med två nivåer](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+![Azure Virtual Network för ett webb program med två nivåer](/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
 
 ### <a name="hybrid-virtual-networks"></a>Virtuella hybrid nätverk
 
@@ -479,7 +479,7 @@ Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 
 ### <a name="access-and-security-for-virtual-networks"></a>Åtkomst och säkerhet för virtuella nätverk
 
-Du kan skydda virtuella Azure-nätverk med hjälp av en nätverks säkerhets grupp. NSG: er innehåller en lista över regler för åtkomst kontrol lista (ACL) som tillåter eller nekar nätverks trafik till dina VM-instanser i ett virtuellt nätverk. Du kan associera NSG: er med antingen undernät eller enskilda VM-instanser inom det under nätet. När du associerar en NSG med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det under nätet. Dessutom kan du ytterligare begränsa trafik till en enskild virtuell dator genom att associera en NSG direkt med den virtuella datorn. Mer information finns i [Filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../../virtual-network/security-overview.md).
+Du kan skydda virtuella Azure-nätverk med hjälp av en nätverks säkerhets grupp. NSG: er innehåller en lista över regler för åtkomst kontrol lista (ACL) som tillåter eller nekar nätverks trafik till dina VM-instanser i ett virtuellt nätverk. Du kan associera NSG: er med antingen undernät eller enskilda VM-instanser inom det under nätet. När du associerar en NSG med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det under nätet. Dessutom kan du ytterligare begränsa trafik till en enskild virtuell dator genom att associera en NSG direkt med den virtuella datorn. Mer information finns i [Filtrera nätverkstrafik med nätverkssäkerhetsgrupper](../../virtual-network/network-security-groups-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

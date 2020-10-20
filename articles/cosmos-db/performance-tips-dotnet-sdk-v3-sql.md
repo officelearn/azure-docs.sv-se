@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f8e610531eaf3e7e5dbee9c40c88683a05029303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 432d9656bf56b87798d6563cfd545b34c20001b6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802998"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204035"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -163,7 +163,7 @@ När du arbetar med Azure Functions bör instanserna också följa de befintliga
 För arbets belastningar som har tung Create-nyttolaster anger du `EnableContentResponseOnWrite` alternativet för begäran till `false` . Tjänsten kommer inte längre att returnera den skapade eller uppdaterade resursen till SDK: n. Normalt, eftersom programmet har det objekt som skapas, behöver inte tjänsten returnera det. Huvud värden är fortfarande tillgängliga, t. ex. en begär ande avgift. Att inaktivera innehålls svaret kan förbättra prestandan, eftersom SDK inte längre behöver allokera minne eller serialisera bröd texten i svaret. Det minskar också nätverkets bandbredds användning för att ytterligare hjälpa till med prestanda.  
 
 ```csharp
-ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
+ItemRequestOptions requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
 ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(book, new PartitionKey(book.pk), requestOptions);
 // Resource will be null
 itemResponse.Resource

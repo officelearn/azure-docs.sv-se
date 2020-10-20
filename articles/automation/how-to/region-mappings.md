@@ -1,16 +1,16 @@
 ---
 title: Regioner som stöder länkade Log Analytics-arbetsytor
 description: I den här artikeln beskrivs de region mappningar som stöds mellan ett Automation-konto och en Log Analytics arbets yta som relaterar till vissa funktioner i Azure Automation.
-ms.date: 09/03/2020
+ms.date: 10/19/2020
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bffd1cc0ce2a6a827c0bc708321a6bd2839aae2d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440668"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207333"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regioner som stöder länkade Log Analytics-arbetsytor
 
@@ -32,6 +32,7 @@ Följande tabell visar de mappningar som stöds:
 |**USA**||
 |Östra USA<sup>1</sup>|EastUS2|
 |WestUS2|WestUS2|
+|Usasödracentrala|Usasödracentrala|
 |WestCentralUS|WestCentralUS|
 |**Kanada**||
 |Indiensödra|Indiensödra|
@@ -44,6 +45,7 @@ Följande tabell visar de mappningar som stöds:
 |**Europa**||
 |UKSouth|UKSouth|
 |Västeuropa|Västeuropa|
+|SwitzerlandNorth|SwitzerlandNorth|
 |**US Gov**||
 |USGovVirginia|USGovVirginia|
 |USGovArizona<sup>2</sup>|USGovArizona|
@@ -86,5 +88,5 @@ Du kan också ta bort länken för arbets ytan från ditt Automation-konto på a
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om Uppdateringshantering i [uppdateringshantering översikt](../update-management/update-mgmt-overview.md).
-* Läs mer om Ändringsspårning och inventering i [ändringsspårning och inventerings översikt](../change-tracking.md).
+* Läs mer om Ändringsspårning och inventering i [ändringsspårning och inventerings översikt](../change-tracking/overview.md).
 * Läs mer om Starta/stoppa virtuella datorer när de inte används i [Starta/stoppa virtuella datorer när de inte används översikt](../automation-solution-vm-management.md).

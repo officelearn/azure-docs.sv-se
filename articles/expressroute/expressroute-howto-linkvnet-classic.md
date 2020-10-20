@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a731962f22985268093c547b09a8cd77c5b92660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8a1d48934d73f1035c6f2c4c76e56d9a0e4052
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395816"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206978"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Ansluta ett virtuellt nätverk till en ExpressRoute-krets med PowerShell (klassisk)
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
@@ -42,7 +42,7 @@ Du kan länka upp till 10 virtuella nätverk till en ExpressRoute-krets. Alla vi
    * Följ anvisningarna för att [skapa en ExpressRoute-krets](expressroute-howto-circuit-classic.md) och be anslutnings leverantören aktivera kretsen.
    * Se till att du har konfigurerat Azures privata peering för din krets. Mer information finns i artikeln [om konfigurering av routning](expressroute-howto-routing-classic.md) .
    * Se till att Azures privata peering har kon figurer ATS och BGP-peering mellan ditt nätverk och Microsoft är igång så att du kan aktivera slut punkt till slut punkt.
-   * Du måste ha ett virtuellt nätverk och en virtuell nätverksgateway skapad och helt etablerad. Följ anvisningarna för att [Konfigurera ett virtuellt nätverk för ExpressRoute](expressroute-howto-vnet-portal-classic.md).
+   * Du måste ha ett virtuellt nätverk och en virtuell nätverksgateway skapad och helt etablerad. Följ anvisningarna för att [Konfigurera ett virtuellt nätverk för ExpressRoute](./expressroute-howto-add-gateway-portal-resource-manager.md).
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>Hämta de senaste PowerShell-cmdletarna
 

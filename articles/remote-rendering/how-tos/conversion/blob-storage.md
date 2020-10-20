@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 6f0605077bd131c54f27e3bf46240331557fd92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96a2fde3e510c6eb7146da9c92d93f69111e8c80
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80681654"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206551"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Använda Azure-Blob Storage för modellkonvertering
 
@@ -27,8 +27,8 @@ ms.locfileid: "80681654"
 
 Att skapa lagrings kontot och blob-behållarna kan göras med något av följande verktyg:
 
-- [Azure Portal](https://portal.azure.com)
-- [AZ kommando rad](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure-portalen](https://portal.azure.com)
+- [AZ kommando rad](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - SDK: er (C#, python...)
 
@@ -46,13 +46,13 @@ Följ stegen i avsnittet [skapa ett konto](../create-an-account.md#link-storage-
 
 Lagrade Access-signaturer (SAS) används för att bevilja Läs åtkomst för indata och skriv åtkomst för utdata. Vi rekommenderar att du genererar nya URI: er varje gången en modell konverteras. Eftersom URI: er upphör att gälla efter en viss tid kan det vara risk att programmet slutar svara för en längre varaktighet.
 
-Information om SAS finns i [SAS-dokumentationen](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+Information om SAS finns i [SAS-dokumentationen](../../../storage/common/storage-sas-overview.md).
 
 En SAS-URI kan genereras med hjälp av en av:
 
 - AZ PowerShell-modul
   - Se [PowerShell-skripten](../../samples/powershell-example-scripts.md)
-- [AZ kommando rad](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [AZ kommando rad](/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
   - Högerklicka på container "Get Shared Access Signature" (Läs, lista åtkomst för inmatnings behållare, skriv åtkomst för behållaren utdata)
 - SDK: er (C#, python...)
@@ -64,11 +64,11 @@ Ett exempel på hur du använder signaturer för delad åtkomst i till gångs ko
 Om du vill börja konvertera en modell måste du ladda upp den med något av följande alternativ:
 
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) – ett bekvämt gränssnitt för att ladda upp/ladda ned/hantera filer på Azure Blob Storage
-- [Kommando rad i Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli)
-- [Azure PowerShell-modul](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.2.0)
+- [Kommando rad i Azure](../../../storage/blobs/storage-quickstart-blobs-cli.md)
+- [Azure PowerShell-modul](/powershell/azure/install-az-ps?view=azps-2.2.0)
   - Se [PowerShell-skripten](../../samples/powershell-example-scripts.md)
-- [Använda en Storage SDK (python, C#...)](https://docs.microsoft.com/azure/storage/)
-- [Använda Azure Storage REST-API: er](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)
+- [Använda en Storage SDK (python, C#...)](../../../storage/index.yml)
+- [Använda Azure Storage REST-API: er](/rest/api/storageservices/blob-service-rest-api)
 
 Ett exempel på hur du överför data för konvertering hittar du i Conversion.ps1 av [PowerShell-exempel skripten](../../samples/powershell-example-scripts.md#script-conversionps1).
 

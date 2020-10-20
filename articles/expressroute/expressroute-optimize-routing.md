@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 07/11/2019
 ms.author: duau
-ms.openlocfilehash: 731101b1a8236e20a9af07f1bbf5a7b70d53c0ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f35f1d390762d3f83176d7b36db8959dc5ed0157
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653391"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204885"
 ---
 # <a name="optimize-expressroute-routing"></a>Optimera ExpressRoute-routning
 När du har flera ExpressRoute-kretsar måste ha du mer än en sökväg för att ansluta till Microsoft. Därför kan en icke-optimal routning inträffa - vilket innebär att din trafik får en längre sökväg till Microsoft, och Microsoft till nätverket. Ju längre nätverkssökvägen är, desto längre svarstid. Svarstiden har direkt inverkan på programmens prestanda och användarupplevelse. Den här artikeln beskriver problemet och förklarar hur du optimerar routning med standardroutningstekniker.
@@ -64,7 +64,7 @@ För att optimera routningen för båda kontoren måste du veta vilket prefix so
 >
 
 ## <a name="suboptimal-routing-from-microsoft-to-customer"></a>Icke-optimal routning från Microsoft till kund
-Här är ett annat exempel där anslutningar från Microsoft tar en längre sökväg till ditt nätverk. I detta fall måste du använda lokala Exchange-servrar och Exchange Online i en [hybridmiljö](https://technet.microsoft.com/library/jj200581%28v=exchg.150%29.aspx). Dina kontor är anslutna till ett WAN-nätverk. Du annonserar prefixen för dina lokala servrar på båda kontoren till Microsoft via de två ExpressRoute-kretsarna. Exchange Online initierar anslutningar till lokala servrar vid exempelvis migrering av postlådor. Tyvärr dirigeras anslutningen till Los Angeles-kontoret till ExpressRoute-kretsen i USA, östra, innan den färdas över hela kontinenten tillbaka till västkusten. Orsaken till problemet liknar det första fallet. Microsofts nätverk kan inte att avgöra vilket kundprefix som är nära USA, östra och vilket som är nära USA, västra. Det råkar välja fel sökväg till kontoret i Los Angeles.
+Här är ett annat exempel där anslutningar från Microsoft tar en längre sökväg till ditt nätverk. I detta fall måste du använda lokala Exchange-servrar och Exchange Online i en [hybridmiljö](/exchange/exchange-hybrid). Dina kontor är anslutna till ett WAN-nätverk. Du annonserar prefixen för dina lokala servrar på båda kontoren till Microsoft via de två ExpressRoute-kretsarna. Exchange Online initierar anslutningar till lokala servrar vid exempelvis migrering av postlådor. Tyvärr dirigeras anslutningen till Los Angeles-kontoret till ExpressRoute-kretsen i USA, östra, innan den färdas över hela kontinenten tillbaka till västkusten. Orsaken till problemet liknar det första fallet. Microsofts nätverk kan inte att avgöra vilket kundprefix som är nära USA, östra och vilket som är nära USA, västra. Det råkar välja fel sökväg till kontoret i Los Angeles.
 
 ![ExpressRoute fall 2 – Problem: Icke-optimal routning från Microsoft till kund](./media/expressroute-optimize-routing/expressroute-case2-problem.png)
 

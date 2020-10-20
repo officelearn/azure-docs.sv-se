@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 5c638b434ceb31b57689b11971f48eb322b94726
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87985622"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201791"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Använda REST API:et för modellkonvertering
 
@@ -54,7 +54,7 @@ Returnerar ID: t för den pågående konverteringen, figursatt i ett JSON-dokume
 #### <a name="request-body"></a>Begärandetext
 
 > [!NOTE]
-> Allt under hämtas `input.folderPath` för att utföra konverteringen på Azure. Om `input.folderPath` inte anges hämtas hela innehållet i behållaren. Alla blobbar och mappar som hämtats måste ha [giltiga Windows-filnamn](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
+> Allt under hämtas `input.folderPath` för att utföra konverteringen på Azure. Om `input.folderPath` inte anges hämtas hela innehållet i behållaren. Alla blobbar och mappar som hämtats måste ha [giltiga Windows-filnamn](/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {
@@ -91,7 +91,7 @@ Begär ande texten är samma som i Create REST-anropet ovan, men indata och utda
 > Dessa SAS URI-token är frågesträngarna och inte hela URI: n. 
 
 > [!NOTE]
-> Allt under hämtas `input.folderPath` för att utföra konverteringen på Azure. Om `input.folderPath` inte anges hämtas hela innehållet i behållaren. Alla blobbar och mappar som hämtats måste ha [giltiga Windows-filnamn](https://docs.microsoft.com/windows/win32/fileio/naming-a-file#naming-conventions).
+> Allt under hämtas `input.folderPath` för att utföra konverteringen på Azure. Om `input.folderPath` inte anges hämtas hela innehållet i behållaren. Alla blobbar och mappar som hämtats måste ha [giltiga Windows-filnamn](/windows/win32/fileio/naming-a-file#naming-conventions).
 
 ```json
 {

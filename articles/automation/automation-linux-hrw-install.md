@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8295b6bba9703c276bf60a0360ded6f0e195369e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c84f168104be4ba4cb8af2e31be82eed0e2ae83a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776280"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205192"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -28,7 +28,7 @@ Hybrid Runbook Worker-rollen beror på en Azure Monitor Log Analytics arbets yta
 
 Om du inte har en Azure Monitor Log Analytics arbets yta granskar du [rikt linjerna för Azure Monitor logg design](../azure-monitor/platform/design-logs-deployment.md) innan du skapar arbets ytan.
 
-Om du har en arbets yta, men inte är länkad till ditt Automation-konto, så lägger en automatiserings funktion till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du aktiverar någon av de Azure Automation funktionerna i Log Analytics-arbetsytan, specifikt [uppdateringshantering](update-management/update-mgmt-overview.md) eller [ändringsspårning och inventering](change-tracking.md), flyttas Worker-komponenterna automatiskt till agent datorn.
+Om du har en arbets yta, men inte är länkad till ditt Automation-konto, så lägger en automatiserings funktion till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du aktiverar någon av de Azure Automation funktionerna i Log Analytics-arbetsytan, specifikt [uppdateringshantering](update-management/update-mgmt-overview.md) eller [ändringsspårning och inventering](change-tracking/overview.md), flyttas Worker-komponenterna automatiskt till agent datorn.
 
 Om du vill lägga till funktionen Uppdateringshantering i din arbets yta kör du följande PowerShell-cmdlet:
 

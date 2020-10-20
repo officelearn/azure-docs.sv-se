@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: bc4fbbc265bef00be27c890c3f090a49591dc415
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562748"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201451"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Tjänstbegäran misslyckades. Status: 403 (ej tillåtet)
 
@@ -29,9 +29,9 @@ Oftast anger det här felet att RBAC-behörighet (rollbaserad åtkomst kontroll)
 
 ### <a name="cause-2"></a>Orsak #2
 
-Om du använder en-klient för att kommunicera med Azure Digitals, kan det här felet inträffa eftersom din [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) -appens registrering inte har behörighet att konfigurera för Azure Digitals-tjänsten.
+Om du använder en-app för att kommunicera med Azure Digitals, som autentiserar med en [registrerad app-registrering](how-to-create-app-registration.md), kan det här felet inträffa eftersom registreringen av appen inte har behörighet att konfigurera för Azure Digitals-tjänsten.
 
-Appens registrering krävs för att få åtkomst behörighet som kon figurer ATS för Azure Digitals dubbla API: er. När klient programmet autentiserar mot appens registrering beviljas den de behörigheter som appens registrering har konfigurerat.
+App-registreringen måste ha åtkomst behörighet som kon figurer ATS för Azure Digitals dubbla API: er. När klient programmet autentiserar mot appens registrering beviljas den de behörigheter som appens registrering har konfigurerat.
 
 ## <a name="solutions"></a>Lösningar
 
@@ -59,23 +59,33 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 Mer information om det här roll kravet och tilldelnings processen finns i avsnittet [ *Konfigurera din användares åtkomst behörigheter* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) i *instruktion: Konfigurera en instans och autentisering (CLI eller Portal)*.
 
-Om du redan har den här roll tilldelningen och fortfarande stöter på 403-problemet kan du fortsätta till nästa lösning.
+Om du redan har den här roll tilldelningen *och* du använder en Azure AD-App-registrering för att autentisera en klient app, kan du fortsätta till nästa lösning om lösningen inte löste 403-problemet.
 
 ### <a name="solution-2"></a>Lösnings #2
 
-Den andra lösningen är att kontrol lera att Azure AD-appens registrering har behörigheter som har kon figurer ATS för tjänsten Azure Digitals dubbla. Om detta inte är konfigurerat ställer du in dem.
+Om du använder en Azure AD-App-registrering för att autentisera en klient app, är den andra möjliga lösningen att verifiera att appens registrering har behörigheter som har kon figurer ATS för tjänsten Azure Digitals dubbla. Om dessa inte är konfigurerade ställer du in dem.
 
 #### <a name="check-current-setup"></a>Kontrol lera aktuell installation
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
+Om du vill kontrol lera om behörigheterna har kon figurer ATS korrekt går du till [översikts sidan för Azure AD-appen registrering](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) i Azure Portal. Du kan komma åt den här sidan själv genom att söka efter *Appregistreringar* i portalens Sök fält.
+
+Växla till fliken *alla program* för att se alla app-registreringar som har skapats i din prenumeration.
+
+Du bör se den app-registrering som du nyss skapade i listan. Välj den för att öppna informationen.
+
+:::image type="content" source="media/troubleshoot-error-403/app-registrations.png" alt-text="Appregistreringar sida i Azure Portal":::
 
 Kontrol lera först att inställningarna för Azure Digitals-inställningar för digital har kon figurer ATS korrekt i registreringen. Det gör du genom att välja *manifest* från meny raden för att visa appens registrerings manifest kod. Bläddra till slutet av kod fönstret och leta efter dessa fält under `requiredResourceAccess` . Värdena ska matcha dem i skärm bilden nedan:
 
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+:::image type="content" source="media/troubleshoot-error-403/verify-manifest.png" alt-text="Appregistreringar sida i Azure Portal":::
+
+Välj sedan *API-behörigheter* från meny raden för att kontrol lera att den här program registreringen innehåller Läs-/Skriv behörighet för Azure Digitals. Du bör se en post så här:
+
+:::image type="content" source="media/troubleshoot-error-403/verify-api-permissions.png" alt-text="Appregistreringar sida i Azure Portal":::
 
 #### <a name="fix-issues"></a>Åtgärda problem
 
-Om något av detta visas annorlunda än det som beskrivs, följer du anvisningarna om hur du konfigurerar en app-registrering i [avsnittet *Konfigurera åtkomst behörigheter för klient program* ](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) i *anvisningar: Konfigurera en instans och autentisering (CLI eller Portal)*.
+Om något av detta visas på ett annat sätt än det som beskrivs, följer du anvisningarna om hur du konfigurerar en app-registrering i [*anvisningar: skapa en app-registrering*](how-to-create-app-registration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

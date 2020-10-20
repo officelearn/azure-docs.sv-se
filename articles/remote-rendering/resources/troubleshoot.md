@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: e8de33e7417ab6421792d341474c320a5f63423b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50abfec19295f80fa79864fedb31eadd31dd4d69
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803831"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203678"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -88,7 +88,7 @@ Video kvaliteten kan komprometteras antingen av nätverks kvaliteten eller den s
 
 ## <a name="video-recorded-with-mrc-does-not-reflect-the-quality-of-the-live-experience"></a>Video som spelas in med MRC visar inte kvaliteten på Live-upplevelsen
 
-En video kan spelas in på HoloLens genom en [MRC-avbildning (Mixed Reality Capture)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). Den resulterande videon har dock sämre kvalitet än Live-upplevelsen av två orsaker:
+En video kan spelas in på HoloLens genom en [MRC-avbildning (Mixed Reality Capture)](/windows/mixed-reality/mixed-reality-capture-for-developers). Den resulterande videon har dock sämre kvalitet än Live-upplevelsen av två orsaker:
 * Video hastigheten är en gräns på 30 Hz i stället för 60 Hz.
 * Video bilderna går inte genom bearbetnings steget för [försenad fas](../overview/features/late-stage-reprojection.md) bearbetning, så videon verkar vara choppier.
 

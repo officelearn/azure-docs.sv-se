@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/14/2020
-ms.openlocfilehash: 1a8dbbb42a548a8c4e9a1117166aa621e8734208
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/16/2020
+ms.openlocfilehash: 48a044e53602b330e43b35ce2425b4b7a90582bf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044504"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206585"
 ---
 # <a name="common-issues-when-certifying-virtual-machine-images-for-azure-marketplace"></a>Vanliga problem vid certifiering av avbildningar av virtuella datorer för Azure Marketplace
 
@@ -35,7 +35,7 @@ Felet uppstår när du använder en bas avbildning som tillhör en annan utgivar
 - [Windows-avbildningar](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 > [!Note]
-> Om du använder en Linux-avbildningsfil som inte tas från Marketplace kan du förskjuta den första partitionen med 2048 KB. På så sätt kan du använda det oformaterade utrymmet för att lägga till ny fakturerings information och låta Azure fortsätta att publicera den virtuella datorn på Marketplace.  
+> Om du använder en Linux-avbildning som inte tas från Azure Marketplace kan du förskjuta den första partitionen med 2048 KB. På så sätt kan du använda det oformaterade utrymmet för att lägga till ny fakturerings information och låta Azure fortsätta att publicera den virtuella datorn på Azure Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Problem med VM-tillägg
 
@@ -87,7 +87,7 @@ Om du försöker installera Visual Studio eller någon Office-licensierad produk
 
 Mer information om hur du väljer en godkänd bas finns i [skapa tekniska till gångar för virtuella Azure-datorer](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Det gick inte att köra test väska för verktygs paket 
+## <a name="tool-kit-test-case-execution-failed"></a>Det gick inte att köra test väska för verktygs paket
 
 Microsoft Certificate Toolkit kan hjälpa dig att köra test ärenden och kontrol lera att den virtuella hård disken eller avbildningen är kompatibel med Azure-miljön.
 
@@ -145,7 +145,7 @@ I följande tabell visas de Windows-testfall där verktygs uppsättningen ska k�
 |16|Windows Internet Name Service|Windows Internet Name Service. Den här server funktionen stöds inte ännu. Programmet bör inte vara beroende av den här funktionen.|
 |17|Trådlös LAN-tjänst|Tjänsten Wireless LAN. Den här server funktionen stöds inte ännu. Programmet bör inte vara beroende av den här funktionen.|
 
-Om du kommer över eventuella problem med föregående test fall, se kolumnen **Beskrivning** i tabellen för lösningen. Kontakta support teamet om du behöver mer information. 
+Om du kommer över eventuella problem med föregående test fall, se kolumnen **Beskrivning** i tabellen för lösningen. Kontakta support teamet om du behöver mer information.
 
 ## <a name="data-disk-size-verification"></a>Verifiering av data disk storlek
 
@@ -199,8 +199,8 @@ Uppdatera kärnan med en godkänd version och skicka begäran på nytt. Du hitta
 
 Om avbildningen inte är installerad med någon av följande kernel-versioner uppdaterar du den med rätt korrigeringar. Begär det godkännande som krävs från support teamet efter att avbildningen har uppdaterats med de här korrigeringarna:
 
-- CVE – 2019-11477 
-- CVE – 2019-11478 
+- CVE – 2019-11477
+- CVE – 2019-11478
 - CVE – 2019-11479
 
 |OS-familj|Version|Kernel|
@@ -261,12 +261,12 @@ Om du kommer över problem med nekad åtkomst när du kör test fallen på den v
 Kontrol lera om rätt åtkomst är aktive rad för det konto som självtest-fall körs på. Om åtkomst inte är aktive rad kan du köra test fallen. Om du inte vill aktivera åtkomst kan du dela resultatet av självtesten med support teamet.
 
 ## <a name="download-failure"></a>Nedladdnings problem
-    
+
 I följande tabell finns några problem som kan uppstå när du hämtar den virtuella dator avbildningen med hjälp av en URL för signatur för delad åtkomst (SAS).
 
 |Scenario|Fel|Orsak|Lösning|
 |---|---|---|---|
-|1|Blobben hittades inte|Den virtuella hård disken kan antingen tas bort eller flyttas från den angivna platsen.|| 
+|1|Blobben hittades inte|Den virtuella hård disken kan antingen tas bort eller flyttas från den angivna platsen.||
 |2|BLOB som används|Den virtuella hård disken används av en annan intern process.|Den virtuella hård disken ska vara i ett använt tillstånd när du laddar ned den med hjälp av en SAS-URL.|
 |3|Ogiltig SAS-URL|Den tillhör ande SAS-URL: en för den virtuella hård disken är felaktig.|Hämta rätt SAS-URL.|
 |4|Ogiltig signatur|Den tillhör ande SAS-URL: en för den virtuella hård disken är felaktig.|Hämta rätt SAS-URL.|
@@ -317,7 +317,7 @@ Använd följande tabell för lösningar på fel som är relaterade till data di
 
 ## <a name="remote-access-issue"></a>Problem med fjärråtkomst
 
-Om alternativet Remote Desktop Protocol (RDP) inte är aktiverat för Windows-avbildningen visas det här felet. 
+Om alternativet Remote Desktop Protocol (RDP) inte är aktiverat för Windows-avbildningen visas det här felet.
 
 Aktivera RDP-åtkomst för Windows-avbildningar innan du skickar dem.
 
@@ -336,9 +336,9 @@ Kommando: "Cat/dev/null > ~/.bash_history && historik-c" ![ bash historik komman
 
 Steg 3. När du har kört kommandot startar du om den virtuella datorn.
 
-Steg 4. Generalisera den virtuella datorn, ta avbildningen av den virtuella hård disken och stoppa den virtuella datorn.
+Steg 4. generalisera den virtuella datorn, ta avbildningen av den virtuella hård disken och stoppa den virtuella datorn.
 
-Steg 5.     Re-Submit den generaliserade avbildningen.
+Steg 5. Re-Submit den generaliserade avbildningen.
 
 ## <a name="requesting-exceptions-custom-templates-on-vm-images-for-selective-tests"></a>Begär undantag (anpassade mallar) på VM-avbildningar för selektiva tester
 
@@ -349,7 +349,7 @@ I avsnitten nedan kommer vi att prata om huvud scenarier där undantag begärs o
 
 Scenarier för undantag
 
-Det finns tre scenarier/fall där utgivare vanligt vis begär dessa undantag. 
+Det finns tre scenarier/fall där utgivare vanligt vis begär dessa undantag.
 
 * **Undantag för ett eller flera test fall:** Utgivare kan kontakta Marketplace- [support](https://aka.ms/marketplacepublishersupport) begär ande undantag för test ärenden. 
 
@@ -357,20 +357,22 @@ Det finns tre scenarier/fall där utgivare vanligt vis begär dessa undantag.
        I det här fallet kan utgivare Ladda ned det [certifierade testverktyget](https://aka.ms/AzureCertificationTestTool) här och tillhandahålla rapporten på [Marketplace Publisher-support](https://aka.ms/marketplacepublishersupport)
 
 
-* **Anpassade mallar:** Vissa utgivare publicerar VM-avbildningar som kräver en anpassad ARM-mall för att distribuera de virtuella datorerna. I det här fallet uppmanas utgivare att tillhandahålla anpassade mallar på [Marketplace Publisher-stöd](https://aka.ms/marketplacepublishersupport) så att samma kan användas av certifierings teamet för verifiering. 
+* **Anpassade mallar:** Vissa utgivare publicerar VM-avbildningar som kräver en anpassad ARM-mall för att distribuera de virtuella datorerna.
+
+I det här fallet uppmanas utgivare att tillhandahålla anpassade mallar på [Marketplace Publisher-stöd](https://aka.ms/marketplacepublishersupport) så att samma kan användas av certifierings teamet för verifiering.
 
 ### <a name="information-to-provide-for-exception-scenarios"></a>Information som ska tillhandahållas för undantags scenarier
 
 Utgivare måste kontakta supporten på [Marketplace Publisher-stöd](https://aka.ms/marketplacepublishersupport) för att begära undantag för scenariot ovan med ytterligare följande information:
 
-   1.   Utgivar-ID – utgivarens ID på Partner Center-portalen
-   2.   Erbjudande-ID/namn – erbjudande-ID/namn för vilket undantag begärs 
-   3.   SKU/plan-ID – plan-ID/SKU för det virtuella dator erbjudandet för vilket undantag begärs
-   4.    Version – den version av VM-erbjudandet för vilket undantag begärs
-   5.   Undantags typ – test, låst virtuell dator, anpassade mallar
-   6.   Orsak till begäran – orsak till detta undantag och information om test som ska undantas 
-   7. Tids linje – datum till vilket detta undantag har begärts 
-   8.   Bifogade filer – bifoga alla dokument med viktig bevisning. För låsta virtuella datorer, koppla test rapporten och för anpassade mallar, anger du den anpassade ARM-mallen som bilaga. Det gick inte att bifoga rapporten för låsta virtuella datorer och en anpassad ARM-mall för anpassade mallar, vilket leder till att begäran nekas
+   1. Utgivar-ID – utgivarens ID på Partner Center-portalen
+   1. Erbjudande-ID/namn – erbjudande-ID/namn för vilket undantag begärs 
+   1. SKU/plan-ID – plan-ID/SKU för det virtuella dator erbjudandet för vilket undantag begärs
+   1. Version – den version av VM-erbjudandet för vilket undantag begärs
+   1. Undantags typ – test, låst virtuell dator, anpassade mallar
+   1. Orsak till begäran – orsak till detta undantag och information om test som ska undantas 
+   1. Tids linje – datum till vilket detta undantag har begärts 
+   1. Bifogade filer – bifoga alla dokument med viktig bevisning. För låsta virtuella datorer, koppla test rapporten och för anpassade mallar, anger du den anpassade ARM-mallen som bilaga. Det gick inte att bifoga rapporten för låsta virtuella datorer och en anpassad ARM-mall för anpassade mallar, vilket leder till att begäran nekas
 
 ## <a name="how-to-address-a-vulnerability-or-exploit-in-a-vm-offer"></a>Så här åtgärdar du ett sårbarhets-eller sårbarhets erbjudande i ett virtuellt dator erbjudande
 
@@ -403,7 +405,7 @@ För att slutföra de här stegen måste du förbereda den tekniska till gången
 1. På fliken **plan översikt** i kolumnen **namn** väljer du den plan som du vill lägga till den virtuella datorn i.
 1. På fliken **teknisk konfiguration** , under **VM-avbildningar**, väljer du **+ Lägg till avbildning av virtuell dator**.
    > [!NOTE]
-   > Du kan bara lägga till en avbildning av en virtuell dator till en plan i taget. Om du vill lägga till flera VM-avbildningar publicerar du den första och väntar tills den når _utgivarens signerings_ steg innan du lägger till nästa avbildning av virtuella datorer.
+   > Du kan bara lägga till en avbildning av en virtuell dator till en plan i taget. Om du vill lägga till flera VM-avbildningar ska du publicera var och en Live innan du lägger till nästa virtuella dator avbildning.
 1. I rutorna som visas anger du en ny disk version och avbildningen av den virtuella datorn.
 1. Välj **Spara utkast**.
 1. Fortsätt till nästa avsnitt för att ta bort den virtuella dator avbildningen med säkerhets risken.
@@ -425,6 +427,7 @@ När du har tagit bort eller ersatt avbildningen av den virtuella datorn måste 
 1. Välj **Granska och publicera**.
 1. Om du behöver ange någon information till certifierings teamet lägger du till den i rutan **kommentarer för certifiering** .
 1. Välj **Publicera**.
+1. När publicerings statusen når publicerings fasen väljer du **gå live**.
 
 Mer information om publicerings processen finns i [Granska och publicera ett erbjudande på den kommersiella Marketplace](../review-publish-offer.md).
 

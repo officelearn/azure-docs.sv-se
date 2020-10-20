@@ -3,14 +3,14 @@ title: Distribuera en Windows-Hybrid Runbook Worker i Azure Automation
 description: Den här artikeln beskriver hur du distribuerar en Hybrid Runbook Worker som du kan använda för att köra Runbooks på Windows-baserade datorer i ditt lokala data Center eller i moln miljön.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/20/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74657743d14b9365f66ed3373592b708a07e11dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a03d14fa272f5f86af1caf0ce9537bbb186d13cc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88660520"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204527"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuera en Windows-Hybrid Runbook Worker
 
@@ -28,7 +28,7 @@ Hybrid Runbook Worker-rollen beror på en Azure Monitor Log Analytics arbets yta
 
 Om du inte har en Azure Monitor Log Analytics arbets yta granskar du [rikt linjerna för Azure Monitor logg design](../azure-monitor/platform/design-logs-deployment.md) innan du skapar arbets ytan.
 
-Om du har en arbets yta, men inte är länkad till ditt Automation-konto, så lägger en automatiserings funktion till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du aktiverar någon av de Azure Automation funktionerna i Log Analytics-arbetsytan, specifikt [uppdateringshantering](update-management/update-mgmt-overview.md) eller [ändringsspårning och inventering](change-tracking.md), flyttas Worker-komponenterna automatiskt till agent datorn.
+Om du har en arbets yta, men inte är länkad till ditt Automation-konto, så lägger en automatiserings funktion till funktioner för Azure Automation, inklusive stöd för Hybrid Runbook Worker. När du aktiverar någon av de Azure Automation funktionerna i Log Analytics-arbetsytan, specifikt [uppdateringshantering](update-management/update-mgmt-overview.md) eller [ändringsspårning och inventering](change-tracking/overview.md), flyttas Worker-komponenterna automatiskt till agent datorn.
 
 > [!NOTE]
 > När du aktiverar Uppdateringshantering-eller Ändringsspårning-och inventerings funktion Azure Automation bara har stöd för vissa regioner för länkning av en Log Analytics arbets yta och ett Automation-konto. En lista över mappnings par som stöds finns i [region mappning för Automation-konto och Log Analytics-arbetsyta](how-to/region-mappings.md). Innan du aktiverar någon av funktionerna granskar du pris informationen för [Azure](https://azure.microsoft.com/pricing/details/automation/) för Azure Automation.
@@ -175,7 +175,7 @@ Heartbeat
 
 I Sök resultaten bör du se pulsslags poster för datorn, vilket indikerar att den är ansluten och rapporterar till tjänsten. Som standard vidarebefordrar varje agent en pulsslags post till den tilldelade arbets ytan. Använd följande steg för att slutföra Agent installationen och installationen.
 
-1. Aktivera funktionen för att lägga till agent datorn. För Uppdateringshantering och virtuella Azure-datorer, se [aktivera uppdateringshantering från ett Automation-konto](update-management/update-mgmt-enable-automation-account.md), [Aktivera uppdateringshantering genom att bläddra bland Azure Portal](update-management/update-mgmt-enable-portal.md), [Aktivera uppdateringshantering från en Runbook](update-management/update-mgmt-enable-runbook.md)eller [Aktivera uppdateringshantering från en virtuell Azure-dator](update-management/update-mgmt-enable-vm.md). För Ändringsspårning och virtuella Azure-datorer, se [Aktivera virtuella Azure-datorer](automation-enable-changes-from-auto-acct.md#enable-azure-vms)och för icke-virtuella datorer i Azure se [Aktivera datorer i arbets ytan](automation-enable-changes-from-auto-acct.md#enable-machines-in-the-workspace).
+1. Aktivera funktionen för att lägga till agent datorn. För Uppdateringshantering och virtuella Azure-datorer, se [aktivera uppdateringshantering från ett Automation-konto](update-management/update-mgmt-enable-automation-account.md), [Aktivera uppdateringshantering genom att bläddra bland Azure Portal](update-management/update-mgmt-enable-portal.md), [Aktivera uppdateringshantering från en Runbook](update-management/update-mgmt-enable-runbook.md)eller [Aktivera uppdateringshantering från en virtuell Azure-dator](update-management/update-mgmt-enable-vm.md). För Ändringsspårning och virtuella Azure-datorer, se [Aktivera virtuella Azure-datorer](change-tracking/enable-from-automation-account.md#enable-azure-vms)och för icke-virtuella datorer i Azure se [Aktivera datorer i arbets ytan](change-tracking/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
 2. Om du vill bekräfta versionen av Hybrid Runbook Worker bläddrar du till `C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\` och noterar undermappen **version** .
 
@@ -214,7 +214,7 @@ Runbooks kan använda alla aktiviteter och cmdletar som definierats i modulerna 
 
 Eftersom det primära syftet med Hybrid Runbook Worker är att hantera lokala resurser, behöver du förmodligen installera modulerna som stöder dessa resurser, särskilt `PowerShellGet` modulen. Information om hur du installerar Windows PowerShell-moduler finns i [Windows PowerShell](/powershell/scripting/developer/windows-powershell).
 
-Moduler som är installerade måste finnas på en plats som refereras av `PSModulePath` miljövariabeln så att hybrid Worker kan importera dem automatiskt. Mer information finns [i installera moduler i PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module?view=powershell-7).
+Moduler som är installerade måste finnas på en plats som refereras av `PSModulePath` miljövariabeln så att hybrid Worker kan importera dem automatiskt. Mer information finns [i installera moduler i PSModulePath](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 ## <a name="remove-the-hybrid-runbook-worker-from-an-on-premises-windows-machine"></a><a name="remove-windows-hybrid-runbook-worker"></a>Ta bort Hybrid Runbook Worker från en lokal Windows-dator
 

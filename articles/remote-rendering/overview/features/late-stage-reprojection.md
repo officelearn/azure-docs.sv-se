@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f0951415bba22a226dadb7f2a115cede451399bc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893211"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205650"
 ---
 # <a name="late-stage-reprojection"></a>Omprojektion av sena steg
 
@@ -46,7 +46,7 @@ Plan LSR reprojicerar objekten på bästa sätt som ligger nära det angivna pla
 
 ### <a name="configure-planar-lsr-in-unity"></a>Konfigurera plan LSR i Unity
 
-Plan parametrarna härleds från en så kallad *fokus punkt*, som du måste ange för varje bild ruta `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Se [API för Unity Focus Point](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) för mer information. Om du inte anger en fokus punkt väljs en återställnings punkt åt dig. Den automatiska återställningen leder ofta till underoptimala resultat.
+Plan parametrarna härleds från en så kallad *fokus punkt*, som du måste ange för varje bild ruta `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Se [API för Unity Focus Point](/windows/mixed-reality/focus-point-in-unity) för mer information. Om du inte anger en fokus punkt väljs en återställnings punkt åt dig. Den automatiska återställningen leder ofta till underoptimala resultat.
 
 Du kan beräkna fokus punkten själv, men det kan vara bra att basera det på den som beräknas av värden för fjärrrendering. Anropa `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` för att hämta det. Du uppmanas att ange en koordinat-ram där du vill uttrycka fokus punkten. I de flesta fall vill du bara ge resultatet från `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` här.
 

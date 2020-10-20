@@ -8,18 +8,18 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2b88c053e1f9029f916d9a180221a3bb58629608
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25022cc70f3b6c8fc01aa556b6229ae8a6ccb82b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448861"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205098"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Windows-dator i Azure
 
-Med Azure [ändringsspårning](../../automation/change-tracking.md) och [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md)kan du enkelt identifiera ändringar i dina virtuella Windows-datorer i Azure och hantera uppdateringar av operativ system för de virtuella datorerna.
+Med Azure [ändringsspårning](../../automation/change-tracking/overview.md) och [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md)kan du enkelt identifiera ändringar i dina virtuella Windows-datorer i Azure och hantera uppdateringar av operativ system för de virtuella datorerna.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Hantera Windows-uppdateringar.

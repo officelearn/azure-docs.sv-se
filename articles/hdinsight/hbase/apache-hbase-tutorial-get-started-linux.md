@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: a19e2c6647f1ff072c61044e8e5777d5d3f8d2db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114a0d6f97149baad0c9e76fb359c52996820575
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85958369"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207163"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Självstudie: använda Apache HBase i Azure HDInsight
 
 Den här självstudien visar hur du skapar ett Apache HBase-kluster i Azure HDInsight, skapar HBase-tabeller och frågetabeller med hjälp av Apache Hive.  Allmän HBase-information finns i [HDInsight HBase-översikt](./apache-hbase-overview.md).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa Apache HBase-kluster
@@ -28,7 +28,7 @@ I den här guiden får du lära dig att:
 > * Använd HBase REST API:er med Curl
 > * Kontrollera klusterstatus
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -48,7 +48,7 @@ I följande procedur används en Azure Resource Manager-mall för att skapa ett 
     |---|---|
     |Prenumeration|Välj din Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Skapa en Azure-resurs hanterings grupp eller Använd en befintlig.|
-    |Location|Ange platsen för resurs gruppen. |
+    |Plats|Ange platsen för resurs gruppen. |
     |ClusterName|Ange ett namn för HBase-klustret.|
     |Inloggningsnamn och lösenord för klustret|Standard inloggnings namnet är **admin**.|
     |SSH-användarnamn och lösenord|Standardanvändarnamnet är **sshuser**.|
@@ -206,6 +206,23 @@ Du kan fråga efter data i HBase-tabeller med hjälp av [Apache Hive](https://hi
 1. Om du vill avsluta Beeline använder du `!exit` .
 
 1. Använd om du vill avsluta ssh-anslutningen `exit` .
+
+### <a name="separate-hive-and-hbase-clusters"></a>Separata Hive-och HBase-kluster
+
+Hive-frågan för att komma åt HBase-data behöver inte köras från HBase-klustret. Alla kluster som ingår i Hive (inklusive Spark, Hadoop, HBase eller interaktiv fråga) kan användas för att fråga HBase-data, förutsatt att följande steg har slutförts:
+
+1. Båda klustren måste kopplas till samma Virtual Network och undernät
+2. Kopiera `/usr/hdp/$(hdp-select --version)/hbase/conf/hbase-site.xml` från HBase-huvudnoderna till Hive-klustret huvudnoderna
+
+### <a name="secure-clusters"></a>Säkra kluster
+
+HBase-data kan också frågas från Hive med hjälp av ESP-aktiverade HBase: 
+
+1. När du följer ett mönster för flera kluster måste båda klustren vara ESP-aktiverade. 
+2. Om du vill tillåta Hive att fråga HBase data, se till att `hive` användaren har behörighet att komma åt HBase-data via HBase Apache Ranger-plugin-programmet
+3. När du använder separata, ESP-aktiverade kluster måste innehållet i `/etc/hosts` från HBase-huvudnoderna läggas till i `/etc/hosts` Hive-klustrets huvudnoderna. 
+> [!NOTE]
+> När du har skalat kluster `/etc/hosts` måste du lägga till det igen
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>Använd HBase REST API:er med Curl
 

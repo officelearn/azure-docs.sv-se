@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fd48ff8dd0f4fa44206f6636f869d4ea3f959ae5
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/19/2020
-ms.locfileid: "92174177"
+ms.locfileid: "92205598"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -24,7 +24,8 @@ Den här versionen av den här artikeln slutför de här stegen genom att köra 
 * Om du vill visa de manuella CLI-stegen som skriptet körs genom i bakgrunden, se CLI-versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (CLI)*](how-to-set-up-instance-cli.md).
 * Om du vill visa de manuella stegen enligt Azure Portal, se Portal versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (portal)*](how-to-set-up-instance-portal.md).
 
-[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="prerequisites-download-the-script"></a>Krav: Hämta skriptet
 
@@ -59,28 +60,19 @@ Här följer stegen för att köra distributions skriptet i Cloud Shell.
 
     Navigera till _**deploy.ps1**_ -filen på din dator (i _Azure_Digital_Twins_end_to_end_samples > skript > **deploy.ps1** _) och tryck på "öppna". Detta kommer att överföra filen till Cloud Shell så att du kan köra den i fönstret Cloud Shell.
 
-4. Kör skriptet genom `./deploy.ps1` att skicka kommandot i Cloud Shell-fönstret med växeln som innehåller registrerings konfiguration för appar. Du kan kopiera kommandot nedan (kom ihåg att klistra in i Cloud Shell, du kan använda **CTRL + SHIFT + v** på Windows och Linux eller **cmd + Shift + v** på MacOS. Du kan också använda snabb menyn.
+4. Kör skriptet genom `./deploy.ps1` att skicka kommandot i Cloud Shells fönstret. Du kan kopiera kommandot nedan (kom ihåg att klistra in i Cloud Shell, du kan använda **CTRL + SHIFT + v** på Windows och Linux eller **cmd + Shift + v** på MacOS. Du kan också använda snabb menyn.
 
     ```azurecli
-    ./deploy.ps1 -RegisterAadApp
+    ./deploy.ps1
     ```
+
+    Skriptet skapar en Azure Digitals-instans och tilldelar Azure-användaren rollen *Azure Digitals-ägare (för hands version)* på instansen.
 
     När skriptet körs genom de automatiserade konfigurations stegen uppmanas du att skicka in följande värden:
     * För instansen: *prenumerations-ID* för din Azure-prenumeration som ska användas
     * För-instansen: en *plats* där du vill distribuera instansen. Om du vill se vilka regioner som stöder Azure Digitals, kan du gå till [*Azure-produkter som är tillgängliga efter region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * För instansen: ett *resurs grupp* namn. Du kan använda en befintlig resurs grupp eller ange ett nytt namn på en som ska skapas.
     * För-instansen: ett *namn* för din Azure Digital-instansen. Namnet på den nya instansen måste vara unikt inom regionen för din prenumeration (vilket innebär att om din prenumeration har en annan Azure Digital-instans i den region som redan använder det namn du väljer, blir du ombedd att välja ett annat namn).
-    * För app-registreringen: ett *visnings namn för Azure AD-program* som ska associeras med registreringen. Den här appens registrering är den plats där du konfigurerar åtkomst behörigheter till [Azure Digitals dubbla API: er](how-to-use-apis-sdks.md). Senare kommer klient programmet att autentiseras mot appens registrering och därför beviljas de konfigurerade åtkomst behörigheterna till API: erna.
-    * För app-registreringen: en *Azure AD Application svars-URL* för Azure AD-programmet. Använd `http://localhost`. Skriptet konfigurerar en *offentlig klient/ursprunglig-URI (mobile & Desktop)* för den.
-
-Skriptet skapar en Azure Digital-instansen, tilldelar din Azure-användare rollen *Azure Digitals-ägare (för hands version)* på instansen och konfigurerar en Azure AD-App-registrering för din klient app som ska användas.
-
->[!NOTE]
->Det finns för närvarande ett **känt problem** med skript konfiguration, där vissa användare (särskilt användare på personliga [Microsoft-konton (MSA: er)](https://account.microsoft.com/account)) kan hitta **roll tilldelningen till _Azure Digitals-ägare (förhands granskning)_ har inte skapats**.
->
->Du kan kontrol lera roll tilldelningen med avsnittet [*Verifiera tilldelning av användar roll*](#verify-user-role-assignment) senare i den här artikeln och, om det behövs, konfigurera roll tilldelningen manuellt med hjälp av [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) eller [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
->
->Mer information om det här problemet finns i [*fel sökning: kända problem i Azure Digitals*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 Här är ett utdrag från utmatnings loggen från skriptet:
 
@@ -90,46 +82,21 @@ Här är ett utdrag från utmatnings loggen från skriptet:
 
 Om skriptet har slutförts kommer den slutliga utskriften att stå `Deployment completed successfully` . Annars kan du åtgärda fel meddelandet och köra skriptet igen. De steg som du redan har slutfört kommer att kringgås och börja begära inmatningar vid den punkt där du slutade.
 
-När skriptet har slutförts har du nu en Azure Digital-instans som är redo att användas med behörigheter för att hantera den och har angett behörighet för en klient app för att få åtkomst till den.
-
 > [!NOTE]
 > Skriptet tilldelar för närvarande den nödvändiga hanterings rollen i Azure Digitals (för hands version) av Azure Digitals (för*hands version)* till samma användare som kör skriptet från Cloud Shell. Om du behöver tilldela rollen till någon annan som ska hantera instansen kan du göra det nu via Azure Portal ([instruktioner](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) eller CLI ([instruktioner](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
-## <a name="collect-important-values"></a>Samla in viktiga värden
+>[!NOTE]
+>Det finns för närvarande ett **känt problem** med skript konfiguration, där vissa användare (särskilt användare på personliga [Microsoft-konton (MSA: er)](https://account.microsoft.com/account)) kan hitta **roll tilldelningen till _Azure Digitals-ägare (förhands granskning)_ har inte skapats**.
+>
+>Du kan kontrol lera roll tilldelningen med avsnittet [*Verifiera tilldelning av användar roll*](#verify-user-role-assignment) senare i den här artikeln och, om det behövs, konfigurera roll tilldelningen manuellt med hjälp av [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) eller [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
+>
+>Mer information om det här problemet finns i [*fel sökning: kända problem i Azure Digitals*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
-Det finns flera viktiga värden från de resurser som konfigureras av skriptet som du kan behöva när du fortsätter att arbeta med din Azure Digital-instansen. I det här avsnittet ska du använda [Azure Portal](https://portal.azure.com) för att samla in dessa värden. Du bör spara dem på en säker plats eller gå tillbaka till det här avsnittet för att hitta dem senare när du behöver dem.
+## <a name="verify-success-and-collect-important-values"></a>Verifiera lyckade och samla in viktiga värden
 
-Om andra användare kommer att program mera mot instansen bör du även dela dessa värden med dem.
+Om du vill kontrol lera att dina resurser och behörigheter som skapats av skriptet är skapade kan du titta på dem i [Azure Portal](https://portal.azure.com) med hjälp av anvisningarna nedan. Om du inte kan verifiera att något steg lyckas kan du försöka med steget igen. Du kan utföra stegen individuellt med hjälp av [Azure Portal](how-to-set-up-instance-portal.md) -eller [CLI](how-to-set-up-instance-cli.md) -instruktionerna.
 
-### <a name="collect-instance-values"></a>Samla in instans värden
-
-I [Azure Portal](https://portal.azure.com)kan du hitta din Azure Digital-instansen genom att söka efter namnet på din instans i portalens sökfält.
-
-Om du markerar den öppnas sidan med instansens *Översikt* . Anteckna *namn*, *resurs grupp*och *värdnamn*. Du kan behöva dessa senare för att identifiera och ansluta till din instans.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version&quot;:::
-
-1. Välj ikonen &quot;Ladda upp/ladda ned filer":::
-
-### <a name="collect-app-registration-values"></a>Samla in registrerings värden för appar 
-
-Det finns två viktiga värden från App-registreringen som kommer att behövas senare för att [skriva kod för klientautentisering för Azure Digitals dubbla API: er](how-to-authenticate-client.md). 
-
-Du hittar dem genom att följa [den här länken](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) för att gå till översikts sidan för Azure AD-appen registrering i Azure Portal. Den här sidan visar alla app-registreringar som har skapats i din prenumeration.
-
-Du bör se den app-registrering som du nyss skapade i den här listan. Välj den för att öppna informationen:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version&quot;:::
-
-1. Välj ikonen &quot;Ladda upp/ladda ned filer":::
-
-Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . Om du inte är den person som ska skriva kod för klient program måste du dela dessa värden med den person som ska vara.
-
-## <a name="verify-success"></a>Verifieringen lyckades
-
-Om du vill kontrol lera skapandet av dina resurser och behörigheter som har skapats av skriptet kan du titta på dem i [Azure Portal](https://portal.azure.com).
-
-Om du inte kan verifiera att något steg lyckas kan du försöka med steget igen. Du kan utföra stegen individuellt med hjälp av [Azure Portal](how-to-set-up-instance-portal.md) -eller [CLI](how-to-set-up-instance-cli.md) -instruktionerna.
+Det här avsnittet visar också hur du hittar viktiga värden från resurserna som har skapats av skriptet som du kan behöva när du fortsätter att arbeta med din Azure Digital-instansen. Du bör spara dessa värden på en säker plats eller gå tillbaka till det här avsnittet för att hitta dem senare när du behöver dem. Om andra användare kommer att program mera mot instansen bör du även dela dessa värden med dem.
 
 ### <a name="verify-instance"></a>Verifiera instans
 
@@ -138,6 +105,14 @@ För att kontrol lera att din instans har skapats går du till [sidan Azure Digi
 Den här sidan visar alla dina Azure Digitals dubbla instanser. Leta efter namnet på den nyligen skapade instansen i listan.
 
 Om verifieringen misslyckades kan du försöka skapa en instans med hjälp av [portalen](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) eller [CLI](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
+
+### <a name="collect-instance-values"></a>Samla in instans värden
+
+Öppna instansens *översikts* sida genom att välja namnet på din instans från [sidan Azure Digitals dubbla](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) . Anteckna *namn*, *resurs grupp*och *värdnamn*. Du kan behöva dessa senare för att identifiera och ansluta till din instans.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Cloud Shell fönster som visar valet av PowerShell-version&quot;:::
+
+1. Välj ikonen &quot;Ladda upp/ladda ned filer":::
 
 ### <a name="verify-user-role-assignment"></a>Verifiera tilldelning av användar roll
 
@@ -148,25 +123,11 @@ Om verifieringen misslyckades kan du försöka skapa en instans med hjälp av [p
 
 Om verifieringen misslyckades kan du också göra om din egen roll tilldelning med hjälp av [portalen](how-to-set-up-instance-portal.md#set-up-user-access-permissions) eller [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
-### <a name="verify-app-registration"></a>Verifiera registrering av appar
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
-
-Kontrol lera sedan att inställningarna för Azure Digitals dubblare har angetts korrekt i registreringen. Det gör du genom att välja *manifest* från meny raden för att visa appens registrerings manifest kod. Bläddra till slutet av kod fönstret och leta efter dessa fält under `requiredResourceAccess` . Värdena ska matcha dem i skärm bilden nedan:
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
-
-Om ett eller båda av dessa verifierings steg Miss lyckas kan du försöka skapa appens registrering igen med hjälp av [portalen](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) eller [CLI](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications) -instruktionerna.
-
-## <a name="other-possible-steps-for-your-organization"></a>Andra möjliga steg för din organisation
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
-
 ## <a name="next-steps"></a>Nästa steg
 
 Testa enskilda REST API-anrop på din instans med hjälp av Azure Digitals flätat CLI-kommandon: 
 * [AZ DT-referens](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
 
-Du kan också se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:
+Du kan också se hur du ansluter ett klient program till din instans med autentiserings kod:
 * [*Instruktion: skriva kod för app-autentisering*](how-to-authenticate-client.md)

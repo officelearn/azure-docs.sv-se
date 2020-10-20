@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c17750fbe016e8bfa86569f34f9af26b1c6de3bd
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 32d0ebc3f37f7af4d9cdb1940f1870dbf51f86b4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055859"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206139"
 ---
 # <a name="example-powershell-scripts"></a>PowerShell-exempelskript
 
@@ -27,13 +27,13 @@ Azure Remote rendering innehåller följande två REST-API: er:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill köra exempel skripten behöver du en fungerande installation av [Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+Om du vill köra exempel skripten behöver du en fungerande installation av [Azure PowerShell](/powershell/azure/).
 
 1. Installera Azure PowerShell:
     1. Öppna ett PowerShell-fönster med administratörs behörighet.
     1. Fungerar `Install-Module -Name Az -AllowClobber`
 
-1. Om du får problem med att köra skript, se till att [körnings principen](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) är korrekt inställd:
+1. Om du får problem med att köra skript, se till att [körnings principen](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) är korrekt inställd:
     1. Öppna ett PowerShell-fönster med administratörs behörighet.
     1. Fungerar `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 
@@ -44,7 +44,7 @@ Om du vill köra exempel skripten behöver du en fungerande installation av [Azu
     1. Kör: `Connect-AzAccount` och följ anvisningarna på skärmen.
 
     > [!NOTE]
-    > Om din organisation har mer än en prenumeration kan du behöva ange SubscriptionId-och klient argument. Mer information finns i [dokumentationen för Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+    > Om din organisation har mer än en prenumeration kan du behöva ange SubscriptionId-och klient argument. Mer information finns i [dokumentationen för Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 1. Hämta mappen *skript* från GithHub- [lagringsplatsen för Azure Remote rendering](https://github.com/Azure/azure-remote-rendering).
 
@@ -276,5 +276,5 @@ Används `-Poll` för att vänta tills konverteringen är genomförd eller ett f
 ## <a name="next-steps"></a>Nästa steg
 
 - [Snabb start: rendera en modell med Unity](../quickstarts/render-model.md)
-- [Snabb start: konvertera en modell för åter givning](../quickstarts/convert-model.md)
+- [Snabbstart: Konvertera en modell för rendering](../quickstarts/convert-model.md)
 - [Modell konvertering](../how-tos/conversion/model-conversion.md)

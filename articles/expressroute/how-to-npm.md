@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 7810afffd5da6d46439ff27ddb3f5b0aafdc2341
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8127a60a4685a615bc07e21a1efb4dd216c5b8c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981325"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201060"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera övervakare av nätverksprestanda för ExpressRoute
 
@@ -54,7 +54,7 @@ Skapa en arbets yta i prenumerationen som har virtuella nätverk-länken till Ex
 1. I [Azure Portal](https://portal.azure.com)väljer du den prenumeration som har virtuella nätverk som peer-kopplats till din ExpressRoute-krets. Sök sedan efter "Övervakare av nätverksprestanda" i listan över tjänster i **Marketplace** . Klicka för att öppna sidan **övervakare av nätverksprestanda** i retur.
 
    >[!NOTE]
-   >Du kan skapa en ny arbets yta eller använda en befintlig arbets yta. Om du vill använda en befintlig arbets yta måste du se till att arbets ytan har migrerats till det nya frågespråket. [Mer information...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Du kan skapa en ny arbets yta eller använda en befintlig arbets yta. Om du vill använda en befintlig arbets yta måste du se till att arbets ytan har migrerats till det nya frågespråket. [Mer information...](../azure-monitor/log-query/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
@@ -92,7 +92,7 @@ Skapa en arbets yta i prenumerationen som har virtuella nätverk-länken till Ex
 Vi rekommenderar att du installerar minst två agenter på varje sida av ExpressRoute-anslutningen för redundans (till exempel lokalt, Azure virtuella nätverk). Agenten måste vara installerad på en Windows Server (2008 SP1 eller senare). Det finns inte stöd för att övervaka ExpressRoute-kretsar med Windows Desktop OS och Linux OS. Använd följande steg för att installera agenter:
    
   >[!NOTE]
-  >Agenter som har överförts av SCOM (inklusive [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) kanske inte kan upptäcka sin plats konsekvent om de finns i Azure. Vi rekommenderar att du inte använder dessa agenter i Azure virtuella nätverk för att övervaka ExpressRoute.
+  >Agenter som har överförts av SCOM (inklusive [MMA](/previous-versions/system-center/system-center-2012-R2/dn465154(v=sc.12))) kanske inte kan upptäcka sin plats konsekvent om de finns i Azure. Vi rekommenderar att du inte använder dessa agenter i Azure virtuella nätverk för att övervaka ExpressRoute.
   >
 
 1. Kör **installations programmet** för att installera agenten på varje server som du vill använda för övervakning av ExpressRoute. Servern som du använder för övervakning kan antingen vara en virtuell dator eller lokalt och måste ha Internet åtkomst. Du måste installera minst en agent lokalt och en agent på varje nätverks segment som du vill övervaka i Azure.
@@ -118,7 +118,7 @@ Vi rekommenderar att du installerar minst två agenter på varje sida av Express
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2,3: Konfigurera proxyinställningar (valfritt)
 
-Om du använder en webbproxy för att få åtkomst till Internet använder du följande steg för att konfigurera proxyinställningar för Microsoft Monitoring Agent. Utför de här stegen för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så fall, se [Konfigurera proxyinställningar för Microsoft Monitoring Agent med hjälp av ett skript](../log-analytics/log-analytics-windows-agent.md).
+Om du använder en webbproxy för att få åtkomst till Internet använder du följande steg för att konfigurera proxyinställningar för Microsoft Monitoring Agent. Utför de här stegen för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så fall, se [Konfigurera proxyinställningar för Microsoft Monitoring Agent med hjälp av ett skript](../azure-monitor/platform/agent-windows.md).
 
 Konfigurera proxyinställningar för Microsoft Monitoring Agent med hjälp av kontroll panelen:
 
@@ -161,7 +161,7 @@ Port 8084 öppnas som standard. Du kan använda en anpassad port genom att ange 
 
 Om du vill övervaka agent servrar som finns i Azure måste du konfigurera regler för nätverks säkerhets grupper (NSG) så att TCP-trafik på en port som används av NPM för syntetiska transaktioner. Standard porten är 8084. Detta gör att en övervaknings agent som är installerad på en virtuell Azure-dator kan kommunicera med en lokal övervaknings agent.
 
-Mer information om NSG finns i [nätverks säkerhets grupper](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
+Mer information om NSG finns i [nätverks säkerhets grupper](../virtual-network/tutorial-filter-network-traffic.md).
 
 >[!NOTE]
 >Kontrol lera att du har installerat agenterna (både den lokala server agenten och Azure Server Agent) och att du har kört PowerShell-skriptet innan du fortsätter med det här steget.

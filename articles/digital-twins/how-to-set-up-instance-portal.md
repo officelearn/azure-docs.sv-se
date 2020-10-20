@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c67add18dc653cc033d0cf4990f9c44f07633ac2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047411"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205514"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurera en digital Azure-instans och autentisering (portal)
 
@@ -24,7 +24,8 @@ Den här versionen av den här artikeln går igenom de här stegen manuellt, en 
 * Om du vill gå igenom dessa steg manuellt med hjälp av CLI, se CLI-versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (CLI)*](how-to-set-up-instance-cli.md).
 * Om du vill köra en automatiserad installation med hjälp av ett skript exempel för distribution, se den skript version som beskrivs i den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (skript)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## <a name="create-the-azure-digital-twins-instance"></a>Skapa Azure Digitals-instansen
 
@@ -94,72 +95,7 @@ Du kan visa roll tilldelningen som du har angett under *åtkomst kontroll (IAM) 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
 
-Nu har du en Azure Digital-instansen som är redo att gå och har tilldelats behörighet att hantera den. Sedan konfigurerar du behörigheter för en klient-app för att komma åt den.
-
-## <a name="set-up-access-permissions-for-client-applications"></a>Konfigurera åtkomst behörigheter för klient program
-
-[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
-
-Börja med att navigera till [Azure Active Directory](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) i Azure Portal (du kan använda den här länken eller hitta den med Portal Sök fältet). Välj *Appregistreringar* på menyn tjänst och sedan *+ ny registrering*.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/new-registration.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
-
-På sidan *Registrera en program* som följer fyller du i de begärda värdena:
-* **Namn**: ett visnings namn för Azure AD-program som ska associeras med registreringen
-* **Konto typer som stöds**: Välj *konton endast i den här organisations katalogen (endast standard katalog-en klient)*
-* **Omdirigerings-URI**: en *Azure AD Application svars-URL* för Azure AD-programmet. Lägg till en *offentlig klient/ursprunglig (mobile & Desktop)* URI för `http://localhost` .
-
-Tryck på knappen *Registrera* när du är färdig.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/register-an-application.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
-
-När registreringen är färdig kommer portalen att omdirigera dig till sidan med information.
-
-### <a name="provide-azure-digital-twins-api-permission"></a>Ge Azure Digitals dubbla API-behörighet
-
-Konfigurera sedan den app-registrering som du har skapat med baseline-behörigheter till Azures digitala dubbla API: er.
-
-Välj *API-behörigheter* på menyn på Portal sidan för din app-registrering. På sidan följande behörigheter trycker du på knappen *+ Lägg till en behörighet* .
-
-:::image type="content" source="media/how-to-set-up-instance/portal/add-permission.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
-
-På sidan *begär API-behörigheter* som följer växlar du till fliken *API: er som min organisation använder* och söker efter *Azure Digital-dubbla*. Välj _**Azure Digitals flätar**_ från Sök resultaten om du vill fortsätta med att tilldela behörigheter för Azures digitala dubbla API: er.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
-
->[!NOTE]
-> Om prenumerationen fortfarande har en befintlig Azure Digital-instans från den tidigare offentliga för hands versionen av tjänsten (före den 2020 juli) måste du söka efter och välja _**Azure Smart Spaces-tjänst**_ i stället. Detta är ett äldre namn för samma uppsättning API: er (Observera att *program-ID: t (klient) ID* är detsamma som i skärm bilden ovan) och att din upplevelse inte ändras utanför det här steget.
-> :::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1-smart-spaces.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
-
-Sedan väljer du vilka behörigheter som ska beviljas för dessa API: er. Expandera **Läs-(1)-** behörigheten och markera kryss rutan med texten *Read. Write* för att ge appen registrerings läsare och skrivar behörigheter.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
-
-Tryck på *Lägg till behörigheter* när du är färdig.
-
-### <a name="verify-success"></a>Verifieringen lyckades
-
-På sidan *API-behörigheter* kontrollerar du att det nu finns en post för digitaler i Azure som återspeglar Läs-/skriv behörigheter:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-api-permissions.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
-
-Du kan också kontrol lera anslutningen till Azure Digitals dubbla i program registreringens *manifest.jspå*, som automatiskt uppdaterades med den digitala Azure-informations informationen när du lade till API-behörigheterna.
-
-Om du vill göra det väljer du *manifest* på menyn för att visa appens registrerings manifest kod. Bläddra till slutet av kod fönstret och leta efter dessa fält under `requiredResourceAccess` . Värdena ska matcha dem i skärm bilden nedan:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-manifest.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
-
-### <a name="collect-important-values"></a>Samla in viktiga värden
-
-Välj sedan *Översikt* på Meny raden för att se information om appens registrering:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
-
-Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . De här värdena kommer att behövas senare för att [autentisera en klient app mot de Azure Digitals dubbla API: er](how-to-authenticate-client.md). Om du inte är den person som ska skriva kod för sådana program bör du dela dessa värden med den person som ska vara.
-
-### <a name="other-possible-steps-for-your-organization"></a>Andra möjliga steg för din organisation
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
+Nu har du en Azure Digital-instansen som är redo att gå och har tilldelats behörighet att hantera den.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -167,5 +103,5 @@ Testa enskilda REST API-anrop på din instans med hjälp av Azure Digitals flät
 * [AZ DT-referens](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
 
-Du kan också se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:
+Du kan också se hur du ansluter ett klient program till din instans med autentiserings kod:
 * [*Instruktion: skriva kod för app-autentisering*](how-to-authenticate-client.md)

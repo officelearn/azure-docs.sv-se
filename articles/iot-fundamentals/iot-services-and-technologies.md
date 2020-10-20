@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: dobett
-ms.openlocfilehash: ad0712de85a08ed581ba89d7e01d8ba1244006b2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0678b2c36d341b2bc2bd9be755b9a6213acdd462
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977569"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206092"
 ---
 # <a name="what-azure-technologies-and-services-can-you-use-to-create-iot-solutions"></a>Vilka Azure-tekniker och tjänster kan du använda för att skapa IoT-lösningar?
 
@@ -61,7 +61,7 @@ Du kan förenkla hur du skapar den inbäddade koden för dina enheter genom att 
 
 Med [Azure IoT Edge](../iot-edge/about-iot-edge.md) kan du avlasta delar av din IoT-arbetsbelastning från dina Azure Cloud Services till dina enheter. IoT Edge kan minska svars tiden i din lösning, minska mängden data som dina enheter utbyter med molnet och Aktivera offline-scenarier. Du kan hantera IoT Edge enheter från IoT Central och vissa lösnings acceleratorer.
 
-[Azure Sphere](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere) är en säker, högnivå applikations plattform med inbyggda kommunikations-och säkerhetsfunktioner för Internet-anslutna enheter. Den innehåller en säker mikrostyrenhet-enhet, ett anpassat Linux-baserat operativ system och en molnbaserad säkerhets tjänst som tillhandahåller kontinuerlig, förnybar säkerhet.
+[Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) är en säker, högnivå applikations plattform med inbyggda kommunikations-och säkerhetsfunktioner för Internet-anslutna enheter. Den innehåller en säker mikrostyrenhet-enhet, ett anpassat Linux-baserat operativ system och en molnbaserad säkerhets tjänst som tillhandahåller kontinuerlig, förnybar säkerhet.
 
 ### <a name="cloud-connectivity"></a>Moln anslutning
 
@@ -76,7 +76,7 @@ IoT Hub är en kärn komponent i Solution Accelerators och du kan använda den f
 
 ### <a name="bridging-the-gap-between-the-physical-and-digital-worlds"></a>Överbrygga avståndet mellan det fysiska och digitala världar
 
-[Azure Digitals dubbla](../digital-twins/about-digital-twins.md) är en IoT-tjänst som gör det möjligt att modellera en fysisk miljö. Den använder ett geografiskt informations diagram för att modellera relationerna mellan personer, utrymmen och enheter. Genom att samrelatera data över digitala och fysiska världar kan du skapa sammanhangsbaserade medvetna lösningar.
+[Azure Digitals dubbla](../digital-twins/overview.md) är en IoT-tjänst som gör det möjligt att modellera en fysisk miljö. Den använder ett geografiskt informations diagram för att modellera relationerna mellan personer, utrymmen och enheter. Genom att samrelatera data över digitala och fysiska världar kan du skapa sammanhangsbaserade medvetna lösningar.
 
 IoT Central använder digitala enheter för att synkronisera enheter och data i den verkliga världen med de digitala modeller som gör det möjligt för användare att övervaka och hantera anslutna enheter.
 
@@ -84,7 +84,7 @@ IoT Central använder digitala enheter för att synkronisera enheter och data i 
 
 IoT-enheter genererar vanligt vis stora mängder tids serie data, till exempel temperatur läsningar från sensorer. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) kan ansluta till en IoT-hubb, läsa telemetri-dataströmmen från dina enheter, lagra dessa data och göra det möjligt att fråga och visualisera den.
 
-[Azure Maps](/azure/azure-maps) är en samling geospatiala tjänster som använder nya mappnings data för att tillhandahålla korrekt geografisk kontext till webb-och mobil program. Du kan använda en REST API, en webbaserad JavaScript-kontroll eller en Android SDK för att bygga dina program.
+[Azure Maps](../azure-maps/index.yml) är en samling geospatiala tjänster som använder nya mappnings data för att tillhandahålla korrekt geografisk kontext till webb-och mobil program. Du kan använda en REST API, en webbaserad JavaScript-kontroll eller en Android SDK för att bygga dina program.
 
 ## <a name="next-steps"></a>Nästa steg
 

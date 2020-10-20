@@ -5,14 +5,14 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: f3fd214fa62d95430bd8ca62e78fd3df30c77d19
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a3325592c2085034473163cb886ba2b8b416a30
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91652456"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205837"
 ---
-# <a name="quickstart-convert-a-model-for-rendering"></a>Snabb start: konvertera en modell för åter givning
+# <a name="quickstart-convert-a-model-for-rendering"></a>Snabbstart: Konvertera en modell för rendering
 
 I [snabb start: återge en modell med Unit](render-model.md), har du lärt dig hur du använder Unity-exempelprojektet för att rendera en inbyggd modell. Den här guiden visar hur du konverterar egna modeller.
 
@@ -27,7 +27,7 @@ Du lär dig följande:
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [snabb start: rendera en modell med Unity](render-model.md)
-* Installera Azure PowerShell [(dokumentation)](https://docs.microsoft.com/powershell/azure/)
+* Installera Azure PowerShell [(dokumentation)](/powershell/azure/)
   * Öppna en PowerShell med administratörs behörighet
   * Fungerar `Install-Module -Name Az -AllowClobber`
 
@@ -166,7 +166,7 @@ Connect-AzAccount
 ```
 
 > [!NOTE]
-> Om din organisation har mer än en prenumeration kan du behöva ange SubscriptionId-och klient argument. Mer information finns i [dokumentationen för Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> Om din organisation har mer än en prenumeration kan du behöva ange SubscriptionId-och klient argument. Mer information finns i [dokumentationen för Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 Ändra till `azure-remote-rendering\Scripts` katalogen och kör konverterings skriptet:
 

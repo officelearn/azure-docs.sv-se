@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 1841c4eb8975c865c5f15a0e8fe3a6b5f0522820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8c4eea10b0c2230e50b5ded710b3455539f6493
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435413"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206041"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -55,7 +55,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 - Loggar – tjänsten stöder diagnostikinställningar som kan samla in plattforms loggar och statistik för att Azure Monitor loggar.
 - Insight – det finns en insikt tillgänglig för tjänsten som tillhandahåller en anpassad övervaknings upplevelse för tjänsten.
 
-| Tjänst | Mått | Loggar | Insight | Obs! |
+| Tjänst | Mått | Loggar | Insight | Kommentarer |
 |:---|:---|:---|:---|:---|
 |Active Directory | Nej | Ja | [Ja](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
 |Active Directory B2C | Inga | Inga | Inga |  |
@@ -79,13 +79,13 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Batch AI | Inga | Inga | Inga |  |
 |Blockchain Service | Inga | Ja | Inga |  |
 |Skisser | Inga | Inga | Inga |  |
-|Bot Service | Inga | Inga | Inga |  |
+|Robottjänst | Inga | Inga | Inga |  |
 |Cloud Services | Ja | Ja | Inga | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
 |Cloud Shell | Inga | Inga | Inga |  |
 |Cognitive Services | Ja | Ja | Inga |  |
 |Container Instances | Ja | Inga | Inga |  |
 |Container Registry | Ja | Ja | Inga |  |
-|Content Delivery Network (CDN) | Inga | Ja | Inga |  |
+|Innehållsleverantörsnätverk (CDN) | Inga | Ja | Inga |  |
 |Cosmos DB | Ja | Ja | [Ja](insights/cosmosdb-insights-overview.md) |  |
 |Cost Management | Inga | Inga | Inga |  |
 |Data Box | Inga | Inga | Inga |  |
@@ -164,7 +164,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Traffic Manager | Ja | Ja | Inga |  |
 |Universell utskrift | Inga | Inga | Inga |  |
 |Virtual Machine Scale Sets | Inga | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
-|Virtual Machines | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
+|Virtuella datorer | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
 |Virtual Network | Ja | Ja | [Ja](insights/network-insights-overview.md) |  |
 |Virtual Network NSG flödes loggar | Inga | Ja | Inga |  |
 |VPN Gateway | Ja | Ja | Inga |  |
@@ -176,7 +176,7 @@ Tjänsterna och lösningarna i följande tabell lagrar sina data på en Log Anal
 
 | Produkt/tjänst | Beskrivning |
 |:---|:---|
-| [Azure Automation](../automation/index.yml) | Hantera uppdateringar av operativ system och spåra ändringar på Windows-och Linux-datorer. Se [ändringsspårning](../automation/change-tracking.md) och [uppdateringshantering](../automation/update-management/update-mgmt-overview.md). |
+| [Azure Automation](../automation/index.yml) | Hantera uppdateringar av operativ system och spåra ändringar på Windows-och Linux-datorer. Se [ändringsspårning](../automation/change-tracking/overview.md) och [uppdateringshantering](../automation/update-management/update-mgmt-overview.md). |
 | [Azure Information Protection ](/azure/information-protection/) | Klassificera och eventuellt skydda dokument och e-postmeddelanden. Se [Central rapportering för Azure information Protection](/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
 | [Azure Security Center](../security-center/index.yml) | Samla in och analysera säkerhets händelser och utför hot analyser. Se [data insamling i Azure Security Center](../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](../sentinel/index.yml) | Ansluter till olika källor, inklusive Office 365 och Amazon Web Services Cloud trailer. Se [Anslut data källor](../sentinel/connect-data-sources.md). |

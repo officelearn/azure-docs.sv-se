@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: duau
-ms.openlocfilehash: bf600d835e177ce51870ed2a8894adcd667e3901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5c44e6c6a7a9af4edc2c711b17ec50aa2bf62c98
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398060"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202455"
 ---
 # <a name="about-expressroute-fastpath"></a>Om ExpressRoute FastPath
 
@@ -41,7 +41,7 @@ Om du vill konfigurera FastPath måste den virtuella Nätverksgatewayen vara ant
 
 * VNet-peering: om du har andra virtuella nätverk som är peer-anslutna med det som är anslutet till ExpressRoute kommer nätverks trafiken från ditt lokala nätverk till de andra virtuella nätverken (d.v.s. det kallas "ekrar"-virtuella nätverk) att skickas vidare till den virtuella Nätverksgatewayen. Lösningen är att ansluta alla virtuella nätverk till ExpressRoute-kretsen direkt.
 
-* Grundläggande Load Balancer: om du distribuerar en enkel intern belastningsutjämnare i det virtuella nätverket eller Azure PaaS-tjänsten som du distribuerar i ditt virtuella nätverk använder en grundläggande intern belastningsutjämnare, nätverks trafiken från ditt lokala nätverk till de virtuella IP-adresser som finns på den grundläggande belastningsutjämnaren skickas till den virtuella Nätverksgatewayen. Lösningen är att uppgradera den grundläggande belastningsutjämnaren till en [standard belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).
+* Grundläggande Load Balancer: om du distribuerar en enkel intern belastningsutjämnare i det virtuella nätverket eller Azure PaaS-tjänsten som du distribuerar i ditt virtuella nätverk använder en grundläggande intern belastningsutjämnare, nätverks trafiken från ditt lokala nätverk till de virtuella IP-adresser som finns på den grundläggande belastningsutjämnaren skickas till den virtuella Nätverksgatewayen. Lösningen är att uppgradera den grundläggande belastningsutjämnaren till en [standard belastnings utjämning](../load-balancer/load-balancer-overview.md).
 
 * Privat länk: om du ansluter till en [privat slut punkt](../private-link/private-link-overview.md) i ditt virtuella nätverk från ditt lokala nätverk, kommer anslutningen att gå via den virtuella Nätverksgatewayen.
  

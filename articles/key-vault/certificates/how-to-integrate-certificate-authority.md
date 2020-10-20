@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: 01383acad9f221e376f814ecf99794eb0431d0cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d02568dbb5dfc6b7feb38d353e1ba0ecd8ae25d6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588933"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204001"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrera nyckelvalv med DigiCert-certifikatutfärdare
 
@@ -27,7 +27,7 @@ Mer allmän information om certifikat finns i [Azure Key Vault certifikat](/azur
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här guiden måste du ha följande resurser.
 * Ett nyckel valv. Du kan använda ett befintligt nyckel valv eller skapa ett nytt genom att följa stegen i någon av följande snabb starter:
@@ -136,8 +136,15 @@ Mer information finns i [certifikat åtgärderna i Key Vault REST API referens](
 
 - Kan jag generera ett DigiCert-certifikat med jokertecken i ett nyckel valv? 
    Ja. Det beror på hur du har konfigurerat ditt DigiCert-konto.
-- Hur anger vi att du vill skapa ett EV-certifikat? 
-   När du skapar ett certifikat klickar du på avancerad princip konfiguration och anger sedan certifikat typen. De värden som stöds är: OV-SSL, EV-SSL
+- Hur skapar jag **OV-SSL eller ev-SSL-** certifikat med DigiCert? 
+   Key Vault stöder skapande av OV-och EV SSL-certifikat. När du skapar ett certifikat klickar du på avancerad princip konfiguration och anger sedan certifikat typen. De värden som stöds är: OV-SSL, EV-SSL
+   
+   Du kan skapa den här typen av certifikat i Key Vault om ditt DigiCert-konto tillåter. För den här typen av certifikat utförs verifieringen av DigiCert och support teamet skulle kunna hjälpa dig med lösningen, om valideringen Miss lyckas. Du kan lägga till ytterligare information när du skapar ett certifikat genom att definiera dem i subjectName.
+
+Exempel
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+   
 - Finns det en tids fördröjning i att skapa DigiCert-certifikat via integrering eller förvärva certifikat via DigiCert direkt?
    Nej. När du skapar ett certifikat är det verifierings processen som kan ta tid och verifieringen är beroende av process DigiCert nedan.
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401749"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204647"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verifiera ExpressRoute-anslutning
 Den här artikeln hjälper dig att kontrol lera och felsöka ExpressRoute-anslutningen. ExpressRoute utökar ett lokalt nätverk till Microsoft-molnet via en privat anslutning som ofta fören klar av en anslutnings leverantör. ExpressRoute-anslutningen omfattar vanligt vis tre olika nätverks zoner, enligt följande:
@@ -36,7 +36,7 @@ Syftet med det här dokumentet är att hjälpa användarna att identifiera om oc
 
 ## <a name="overview"></a>Översikt
 Följande diagram visar den logiska anslutningen för ett kund nätverk till Microsoft-nätverk med ExpressRoute.
-[![1]][1]
+[![81.1]][1]
 
 I föregående diagram indikerar talen viktiga nätverks punkter. Dessa nätverks platser refereras i den här artikeln vid tidpunkten med deras associerade nummer. Beroende på ExpressRoute-anslutnings modell – molnets Exchange-samplacering, punkt-till-punkt-Ethernet-anslutning eller alla-till-alla (IPVPN)--nätverks punkterna 3 och 4 kan vara växlar (skikt 2 enheter) eller routrar (Layer 3-enheter). Det finns inga nätverks punkter 3 och 4 i den direkta anslutnings modellen. i stället är CEs (2) direkt ansluten till msee via mörk fiber. De viktiga nätverks punkterna illustreras på följande sätt:
 
@@ -316,7 +316,7 @@ Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Se
 StatusCode: 400
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Mer information eller hjälp finns i följande länkar:
 
 - [Microsoft Support][Support]
@@ -332,13 +332,8 @@ Mer information eller hjälp finns i följande länkar:
 
 <!--Link References-->
 [Support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
-[CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ARP]: https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-[HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute
-[DR-Pvt]: https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
-
-
-
-
-
+[CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md
+[CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
+[ARP]: ./expressroute-troubleshooting-arp-resource-manager.md
+[HA]: ./designing-for-high-availability-with-expressroute.md
+[DR-Pvt]: ./designing-for-disaster-recovery-with-expressroute-privatepeering.md

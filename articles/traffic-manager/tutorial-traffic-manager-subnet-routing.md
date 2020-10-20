@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: duau
-ms.openlocfilehash: 5c6551e721a4bf197ea7091b8c0b71829693ba76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 348f1d779f8ea67860726b8f8b7739921e7ad54a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398298"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205956"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Självstudie: direkt trafik till vissa slut punkter baserade på användar under nätet med hjälp av Traffic Manager
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du konfigurerar trafikroutningsmetoden för unde
 
 I de här självstudierna används undernätsroutning, vilket innebär att trafik dirigeras antingen till en intern webbplats eller en produktionswebbplats beroende på IP-adressen för användarens fråga.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer som kör en grundläggande webbplats i IIS
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill se hur Traffic Manager fungerar i praktiken behöver du använda följande i den här självstudien:
 
@@ -152,7 +152,7 @@ Skapa en Traffic Manager-profil som gör det möjligt att returnera specifika sl
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profil**  >  **skapa**.
 2. I **Skapa Traffic Manager-profil** anger eller väljer du följande information, accepterar standardinställningarna för återstående inställningar och väljer sedan **Skapa**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Namn                   | Namnet måste var unikt inom trafficmanager.net-zonen och generera DNS-namnet, trafficmanager.net, som används för att öppna din Traffic Manager-profil.                                   |
     | Routningsmetod          | Välj routningsmetoden för **undernät**.                                       |
@@ -171,10 +171,10 @@ Lägg till de två virtuella datorerna som kör IIS-servrarna *myIISVMEastUS*  &
 2. I **Traffic Manager-profilen** går du till avsnittet **Inställningar** och klickar på **Slutpunkter** och klickar sedan på **Lägg till**.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Typ                    | Azure-slutpunkt                                   |
-    | Name           | myInternalWebSiteEndpoint                                        |
+    | Namn           | myInternalWebSiteEndpoint                                        |
     | Målresurstyp           | Offentlig IP-adress                          |
     | Målresurs          | **Välj en offentlig IP-adress** för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resurs** väljer du den offentliga IP-adressen med namnet *myIISVMEastUS-ip*. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|
     |  Inställningar för undernätsroutning    |   Lägg till IP-adressen för *myVMEastUS* test VM. Alla användar frågor som kommer från den här virtuella datorn dirigeras till *myInternalWebSiteEndpoint*.    |
@@ -214,12 +214,13 @@ I det här avsnittet får du se Traffic Manager i arbete.
 
 7. Anslut sedan till den VM- *myVMWestEurope* **som finns i västeuropa** med steg 1-5 och bläddra till den Traffic Manager profilens domän namn från den här virtuella datorn. Eftersom den virtuella datorns *myVMWestEurope* -IP-adress är associerad med slut punkts *MyProductionWebsiteEndpoint*startar webbläsaren test webbplats servern- *myIISVMWestEurope*.
 
-## <a name="delete-the-traffic-manager-profile"></a>Ta bort Traffic Manager-profilen
+## <a name="clean-up-resources"></a>Rensa resurser
 
 När resursgrupperna inte längre behövs kan du ta bort dem (**ResourceGroupTM1** och **ResourceGroupTM2**). Om du vill göra det markerar du resursgruppen (**ResourceGroupTM1** eller **ResourceGroupTM2**) och väljer sedan **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [routningsmetoden för viktad trafik](traffic-manager-configure-weighted-routing-method.md).
-- Lär dig mer om [prioritetsroutningsmetoden](traffic-manager-configure-priority-routing-method.md).
-- Lär dig mer om den [geografiska routningsmetoden](traffic-manager-configure-geographic-routing-method.md).
+Mer information om routnings metoden för undernät finns i:
+
+> [!div class="nextstepaction"]
+> [Routing-metod för under näts trafik](traffic-manager-routing-methods.md#subnet)

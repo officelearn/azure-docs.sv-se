@@ -1,18 +1,18 @@
 ---
 title: Azure-delegerad resurshantering
 description: Azure-delegerad resurs hantering är en viktig del av Azure Lighthouse, vilket gör det möjligt för tjänst leverantörer att hantera delegerade resurser i stor skala med flexibilitet och precision.
-ms.date: 08/12/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9a499ceda546b7ea5c71cd8c770f1a4b99001b08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d484e61fc4ab3714eb362b26d64d449890065888
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163534"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203865"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure-delegerad resurshantering
 
-Azure-delegerad resurs hantering är en av de viktigaste komponenterna i [Azure DataLighthouses](../overview.md). Med Azure-delegerad resurs hantering kan tjänst leverantörer förenkla kund engagemang och onboarding-upplevelser, samtidigt som de delegerade resurserna hanteras i stor skala med flexibilitet och precision.
+Azure-delegerad resurs hantering är en av de viktigaste komponenterna i [Azure DataLighthouses](../overview.md). Med Azure-delegerad resurs hantering kan tjänst leverantörer förenkla kund engagemang och onboarding-upplevelser, samtidigt som de delegerade resurserna hanteras i stor skala med flexibilitet och precision. Kunderna behåller kontrollen över vilka tjänst leverantörer som har åtkomst till sin klient, kunderna behåller kontroll över vem som har åtkomst till sin klient, vilka resurser de kan komma åt och vilka åtgärder som kan vidtas.
 
 ## <a name="what-is-azure-delegated-resource-management"></a>Vad är Azure-delegerad resurs hantering?
 
@@ -35,7 +35,8 @@ Så här fungerar Azure-delegerad resurs hantering på hög nivå:
 2. Du kan ange den här åtkomsten och publicera kunden till Azure-Lighthouse på något av två sätt:
    - [Publicera ett Azure Marketplace-hanterat tjänst erbjudande](../how-to/publish-managed-services-offers.md) (privat eller offentlig) som kunden accepterar
    - [Distribuera en Azure Resource Manager-mall till kundens klient](../how-to/onboard-customer.md) för en eller flera specifika prenumerationer eller resurs grupper
-3. När kunden har registrerats kan behöriga användare logga in på den hanterande klienten och utföra uppgifter i den angivna kund omfattningen, baserat på den åtkomst som du har definierat.
+
+3. När kunden har registrerats kan behöriga användare logga in på den hanterande klienten och utföra uppgifter i den angivna kund omfattningen, baserat på den åtkomst som du har definierat. Kunderna kan granska tjänste leverantörs åtgärder och välja att ta bort åtkomst om det behövs.
 
 > [!NOTE]
 > Du kan hantera delegerade resurser som finns i olika [regioner](../../availability-zones/az-overview.md#regions). Delegering av prenumerationer i ett [nationellt moln](../../active-directory/develop/authentication-national-cloud.md) och det offentliga Azure-molnet, eller över två separata nationella moln, stöds dock inte.

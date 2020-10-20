@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 1c8143a19d7e18b24e202018698b37e1b2855db4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125430"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206805"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -164,7 +164,7 @@ Du ser följande utdata:
     WSManStackVersion              3.0
 ```
 
-Om din version är lägre än 6.2.4 måste du uppgradera din version av Windows PowerShell. Information om hur du installerar den senaste versionen av Windows PowerShell finns i [installera Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7).
+Om din version är lägre än 6.2.4 måste du uppgradera din version av Windows PowerShell. Information om hur du installerar den senaste versionen av Windows PowerShell finns i [installera Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
 
 **Installera Azure PowerShell-och Data Box-enhet-moduler**
 
@@ -247,7 +247,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     ![Skärm bild av guiden order som visar grundläggande steg i guiden med rätt information ifylld.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    Som standard krypteras lösen ordet för enhets upplåsningen med hjälp av en Microsoft-hanterad nyckel. När du har slutfört beställningen kan du lägga till en kund hanterad nyckel. Med en kundhanterad nyckel kan du använda din egen nyckel från en Azure Key Vault-nyckel för att skydda enhetens lösen ord för att låsa upp enheten. Mer information finns i [använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+    Som standard krypteras lösen ordet för enhets upplåsningen med hjälp av en Microsoft-hanterad nyckel. När du har slutfört beställningen kan du lägga till en kundhanterad nyckel. Med en kundhanterad nyckel kan du använda din egen nyckel från en Azure Key Vault-nyckel för att skydda enhetens lösen ord för att låsa upp enheten. Mer information finns i [använda Kundhanterade nycklar i Azure Key Vault för Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
 7. På fliken **data mål** väljer du **data mål**.
 
@@ -273,14 +273,44 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
     Välj **Nästa: säkerhet** för att fortsätta.
 
-1. I **säkerhet**, om du vill aktivera programvarubaserad dubbel kryptering, väljer du **Aktivera dubbel kryptering för ordern**. 
+    På sidan **säkerhet** kan du använda din egen enhet och dela lösen ord och välja att använda Double Encryption. 
+
+    Alla inställningar på **säkerhets** skärmen är valfria. Om du inte ändrar några inställningar används standardinställningarna.
+
+    ![Säkerhets skärm för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+
+1. Om du inte vill använda de systemgenererade lösen orden som Azure Data Box använder som standard, expanderar **du ta med ditt eget lösen ord**.
+
+   De systemgenererade lösen orden är säkra och rekommenderas om inte organisationen kräver något annat.
+
+   ![Utöka alternativen för att ta med egna lösen ord för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+
+   - Om du vill använda ditt eget lösen ord för den nya enheten väljer du **Använd ditt eget lösen ord**i **Ange inställningar för enhetens lösen**ord och anger ett lösen ord som uppfyller säkerhets kraven.
+   
+     ![Säkerhets skärm för Data Box-enhet import, alternativ för att använda ditt eget enhets lösen ord](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+
+   - Så här använder du egna lösen ord för resurser:
+
+     1. Genom att **Ange inställningar för dela lösen ord**väljer **du Använd dina egna lösen ord** och **väljer sedan lösen ord för resurserna**.
+     
+        ![Säkerhets skärmen för Data Box-enhet import, alternativ för att använda dina egna resurs lösen ord](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+
+     1. Ange ett lösen ord för varje lagrings konto i ordern. Lösen ordet kommer att användas på alla resurser för lagrings kontot.
+     
+        Om du vill använda samma lösen ord för alla lagrings konton väljer **du kopiera till alla**. När du är klar väljer du **Spara**.
+     
+        ![Skärm för att ange resurs lösen ord för en Data Box-enhet import ordning](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+       På sidan **säkerhet** kan du använda **visning av ändrings lösen ord** för att ändra lösen ord.
+
+1. I **säkerhet**, om du vill aktivera programvarubaserad dubbel kryptering, expanderar du **Double-Encryption (för hög säkra miljöer)** och väljer **Aktivera dubbel kryptering för beställningen**.
+
+   ![Säkerhets skärm för Data Box-enhet import, aktivera programvarubaserad kryptering för en Data Box-enhet beställning](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    Den programvarubaserade krypteringen utförs förutom AES-256-bitars kryptering av data på Data Box-enhet.
 
    > [!NOTE]
    > Att aktivera det här alternativet kan göra order bearbetning och data kopieringen ta längre tid. Du kan inte ändra det här alternativet när du har skapat din beställning.
-
-   ![Säkerhets skärm för import av data Box, dubbel kryptering](media/data-box-deploy-ordered/select-data-box-import-07c.png)
 
    Välj **Nästa: kontakt uppgifter** för att fortsätta.
 
@@ -296,7 +326,7 @@ Utför följande steg i Azure Portal för att beställa en enhet.
 
 10. Välj **Lägg till leverans adress** när leverans informationen har verifierats. Du kommer tillbaka till fliken **kontakt information** .
 
-11. Lägg till en eller flera e-postadresser när du har återgår till **kontakt uppgifter** . Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
+11. När du har återlämnat **kontakt uppgifterna**lägger du till en eller flera e-postadresser. Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
 
     Vi rekommenderar att du använder en grupp-e-postadress, så att du kan fortsätta att ta emot meddelanden även om en gruppadministratör lämnar företaget.
 
@@ -338,7 +368,7 @@ Utför följande steg med Azure CLI för att beställa en enhet:
    |DocumentDB| Frågesträngen JMESPath. Mer information finns i [JMESPath](http://jmespath.org/). | --fråga <string>|
    |utförlig| Inkludera utförlig loggning. | --utförlig |
 
-2. I kommando tolken för Choice eller Terminal använder du [data Box-jobbet AZ Create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create) för att skapa din Azure Data boxs order.
+2. I kommando tolken för Choice eller Terminal kör du [AZ data Box Create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) för att skapa din Azure Data boxs order.
 
    ```azurecli
    az databox job create --resource-group <resource-group> --name <order-name> --location <azure-location> --sku <databox-device-type> --contact-name <contact-name> --phone <phone-number> --email-list <email-list> --street-address1 <street-address-1> --street-address2 <street-address-2> --city "contact-city" --state-or-province <state-province> --country <country> --postal-code <postal-code> --company-name <company-name> --storage-account "storage-account"
@@ -506,7 +536,7 @@ Microsoft förbereder sedan enheten och skickar den via en regional transportör
 
 ### <a name="track-a-single-order"></a>Spåra en enskild order
 
-Om du vill ha spårnings information om en enskild, befintlig Azure Data Box ordning kör du [AZ Data Center-jobbet show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show). Kommandot visar information om ordningen, till exempel, men inte begränsat till: namn, resurs grupp, spårnings information, prenumerations-ID, kontakt information, leverans typ och enhets-SKU.
+Om du vill ha spårnings information om en enskild, befintlig Azure Data Box ordning kör du [AZ Data Center-jobbet show](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-show&preserve-view=true). Kommandot visar information om ordningen, till exempel, men inte begränsat till: namn, resurs grupp, spårnings information, prenumerations-ID, kontakt information, leverans typ och enhets-SKU.
 
    ```azurecli
    az databox job show --resource-group <resource-group> --name <order-name>
@@ -547,7 +577,7 @@ Om du vill ha spårnings information om en enskild, befintlig Azure Data Box ord
 
 ### <a name="list-all-orders"></a>Lista alla beställningar
 
-Om du har ordnat flera enheter kan du köra [AZ](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list) för att visa alla dina Azure Data boxs beställningar. Kommandot visar alla beställningar som tillhör en speciell resurs grupp. Visas också i utdata: order namn, leverans status, Azure-region, leverans typ, order status. Annullerade order ingår också i listan.
+Om du har ordnat flera enheter kan du köra [AZ](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-list&preserve-view=true) för att visa alla dina Azure Data boxs beställningar. Kommandot visar alla beställningar som tillhör en speciell resurs grupp. Visas också i utdata: order namn, leverans status, Azure-region, leverans typ, order status. Annullerade order ingår också i listan.
 Kommandot visar även tidsstämplar för varje order.
 
 ```azurecli
@@ -666,7 +696,7 @@ Om du vill ta bort en annullerad order går du till **Översikt** och väljer **
 
 ### <a name="cancel-an-order"></a>Annullera en beställning
 
-Om du vill avbryta en Azure Data Boxs ordning kan du köra [AZ data-Job Cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel). Du måste ange orsaken till annulleringen av ordern.
+Om du vill avbryta en Azure Data Boxs ordning kan du köra [AZ data-Job Cancel](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-cancel&preserve-view=true). Du måste ange orsaken till annulleringen av ordern.
 
    ```azurecli
    az databox job cancel --resource-group <resource-group> --name <order-name> --reason <cancel-description>
@@ -703,7 +733,7 @@ Om du vill avbryta en Azure Data Boxs ordning kan du köra [AZ data-Job Cancel](
 
 ### <a name="delete-an-order"></a>Ta bort en order
 
-Om du har avbrutit en Azure Data Box order kan du köra [AZ](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete) för att ta bort ordern.
+Om du har avbrutit en Azure Data Box order kan du köra [AZ](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-delete&preserve-view=true) för att ta bort ordern.
 
    ```azurecli
    az databox job delete --name [-n] <order-name> --resource-group <resource-group> [--yes] [--verbose]

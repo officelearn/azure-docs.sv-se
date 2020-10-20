@@ -3,14 +3,14 @@ title: Skapa aviseringar för Azure Automation Uppdateringshantering
 description: Den här artikeln beskriver hur du konfigurerar Azure-aviseringar för att meddela om status för uppdaterings bedömningar eller distributioner.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1a46b5bf6c4be4953e6cde9972aa143be71406a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8f832f0359bd8f9caf13008939f482b440faa1a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977006"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203185"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Skapa aviseringar för Uppdateringshantering
 
@@ -86,3 +86,8 @@ När du har konfigurerat dina aviseringar kan du konfigurera en åtgärds grupp,
 
 ## <a name="next-steps"></a>Nästa steg
 
+* Lär dig mer om [aviseringar i Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+
+* Lär dig mer om [logg frågor](../../azure-monitor/log-query/log-query-overview.md) för att hämta och analysera data från en Log Analytics-arbetsyta.
+
+* Hantera [användning och kostnader med Azure Monitor loggar](../../azure-monitor/platform/manage-cost-storage.md) beskriver hur du styr dina kostnader genom att ändra din data lagrings period och hur du analyserar och varnar för din data användning.

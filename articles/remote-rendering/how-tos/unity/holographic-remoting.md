@@ -5,16 +5,16 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/23/2020
 ms.topic: how-to
-ms.openlocfilehash: 180af30f57a8123b6e90cc8b11848b92b3c86db1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd69710b6e4404a76d3cca385b6c07ea7c1f3f5c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802182"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201825"
 ---
 # <a name="use-holographic-remoting-and-remote-rendering-in-unity"></a>Använda Holographic-fjärrstyrning och Remote Rendering i Unity
 
-[Holographic fjärr kommunikation](https://docs.microsoft.com/windows/mixed-reality/holographic-remoting-player) och Azure fjärrrendering är ömsesidigt uteslutande i ett program. Enhets [uppspelnings läget](https://docs.microsoft.com/windows/mixed-reality/unity-play-mode) är inte heller tillgängligt.
+[Holographic fjärr kommunikation](/windows/mixed-reality/holographic-remoting-player) och Azure fjärrrendering är ömsesidigt uteslutande i ett program. Enhets [uppspelnings läget](/windows/mixed-reality/unity-play-mode) är inte heller tillgängligt.
 
 För varje körning av Unity-redigeraren går det bara att använda en av de två. Om du vill använda den andra måste du först starta om den.
 

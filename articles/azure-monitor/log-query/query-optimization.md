@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 31b1ff3324c610c385ad793f124735be30cab9f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba9f2b10258f19504e3fd37723eceff7b8c37f6a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327722"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203491"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -110,7 +110,7 @@ Syslog
 | count 
 ```
 
-I vissa fall skapas den utvärderade kolumnen implicit av processen som bearbetar enine eftersom filtreringen inte bara görs i fältet:
+I vissa fall skapas den utvärderade kolumnen implicit av motorn för bearbetning av förfrågningar eftersom filtreringen inte bara görs i fältet:
 ```Kusto
 //less efficient
 SecurityEvent

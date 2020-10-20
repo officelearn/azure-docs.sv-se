@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d92b5685722b8a37de3945caa1305a76b3cabb8a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252637"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206245"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
@@ -70,7 +70,7 @@ Du kan visa nära real tids tillgänglighet för BGP över peering och peer-dato
 
 ### <a name="arp-availability---split-by-peering"></a>ARP-tillgänglighet – dela via peering  
 
-Du kan visa nära real tids tillgänglighet för [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) över peering och peer-datorer (primära och sekundära ExpressRoute-routrar). Den här instrument panelen visar ARP-sessionen för privata peering på båda peer-datorerna, men slutfört för Microsoft-peering mellan peering. Standard agg regeringen (Average) utnyttjades över båda peer-datorerna.  
+Du kan visa nära real tids tillgänglighet för [ARP](./expressroute-troubleshooting-arp-resource-manager.md) över peering och peer-datorer (primära och sekundära ExpressRoute-routrar). Den här instrument panelen visar ARP-sessionen för privata peering på båda peer-datorerna, men slutfört för Microsoft-peering mellan peering. Standard agg regeringen (Average) utnyttjades över båda peer-datorerna.  
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg" alt-text="krets mått":::
 

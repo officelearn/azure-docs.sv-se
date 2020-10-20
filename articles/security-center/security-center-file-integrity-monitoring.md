@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 0b6b27f4f71e9159c17ec2df68c6af5f1b98b177
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 45e173f87559368244ab7b0f90af1dbb6fc739d4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946101"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205395"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil integritet i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
@@ -31,7 +31,7 @@ Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Ce
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md).<br>FIM överför data till Log Analytics-arbetsytan. Data avgifterna gäller baserat på mängden data som du överför. Mer information finns i [Log Analytics prissättning](https://azure.microsoft.com/pricing/details/log-analytics/) .|
 |Nödvändiga roller och behörigheter:|**Arbets ytans ägare** kan aktivera/inaktivera FIM (mer information finns i [Azure roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Läsaren** kan visa resultat.|
-|Moln|![Ja ](./media/icons/yes-icon.png) kommersiella moln<br>![Ja ](./media/icons/yes-icon.png) US gov<br>![Ingen ](./media/icons/no-icon.png) Kina gov, andra gov<br>Stöds bara i regioner där Azure Automation lösning för ändrings spårning är tillgänglig.<br>Se [regioner som stöds för länkad Log Analytics-arbetsyta](../automation/how-to/region-mappings.md).<br>[Läs mer om ändrings spårning](../automation/change-tracking.md).|
+|Moln|![Ja ](./media/icons/yes-icon.png) kommersiella moln<br>![Ja ](./media/icons/yes-icon.png) US gov<br>![Ingen ](./media/icons/no-icon.png) Kina gov, andra gov<br>Stöds bara i regioner där Azure Automation lösning för ändrings spårning är tillgänglig.<br>Se [regioner som stöds för länkad Log Analytics-arbetsyta](../automation/how-to/region-mappings.md).<br>[Läs mer om ändrings spårning](../automation/change-tracking/overview.md).|
 |||
 
 ## <a name="what-is-fim-in-security-center"></a>Vad är FIM i Security Center?
@@ -56,7 +56,7 @@ I den här kursen får du lära du dig att:
 
 Genom att jämföra det aktuella läget för dessa objekt med statusen under den föregående sökningen, varnar FIM dig om misstänkta ändringar har gjorts.
 
-FIM använder Azure Ändringsspårning-lösningen för att spåra och identifiera ändringar i din miljö. När fil integritets övervakning har Aktiver ATS har du en **ändringsspårning** resurs av typen **lösning**. Information om datainsamlingsfrekvens finns i [Information om insamling av ändringsspårningsdata](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) för Azure Ändringsspårning.
+FIM använder Azure Ändringsspårning-lösningen för att spåra och identifiera ändringar i din miljö. När fil integritets övervakning har Aktiver ATS har du en **ändringsspårning** resurs av typen **lösning**. Information om frekvens information om data insamling finns i [ändringsspårning information om data insamling](../automation/change-tracking/overview.md#change-tracking-and-inventory-data-collection).
 
 > [!NOTE]
 > Om du tar bort **ändringsspårning** resursen inaktiverar du även funktionen för övervakning av fil integritet i Security Center.

@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 05/12/2020
-ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: ec076567d06a8237db2a708a5276a358f64a8388
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033259"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204919"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet för säljsamarbete i Partner Center
 
@@ -36,7 +36,7 @@ Alternativet Co-försäljning i Partner Center är för närvarande tillgänglig
 
 ## <a name="listing"></a>Lista
 
-Med samförsäljnings listor kan Microsoft Sales Teams marknadsföra din lösning till en bredare publik.
+Med samförsäljnings listor kan Microsoft Sales Teams marknadsföra din lösning till en bredare publik. *(Alla fält krävs.)*
 
 - Välj de Microsoft-plattformar som ditt erbjudande bygger på, utökar eller integrerar med.
 - Välj marknads segment som ditt erbjudande riktar sig mot.
@@ -58,26 +58,26 @@ Lösnings typer hjälper dig att definiera scenarier som ditt erbjudande är utf
 
 Lösnings områden hjälper till att ytterligare definiera din lösning.
 
-Du kan lägga till upp till tre lösnings områden för ditt erbjudande. För varje lösnings områden kan du välja upp till två del områden för lösningen. Om du vill välja flera under Kategorier använder du `Ctrl` nyckeln (i Windows) eller kommando nyckeln (på Mac OS).
+Du kan lägga till upp till tre lösnings områden för ditt erbjudande. För varje lösnings områden kan du välja upp till två del områden för lösningen. Om du vill välja flera under Kategorier använder du `Ctrl` nyckeln (i Windows) eller kommando nyckel (på MacOS).
 
 ## <a name="documents"></a>Dokument
 
-Du har möjlighet att tillhandahålla dokument som Microsoft kommer att använda för att lära dig mer om ditt erbjudande och utvärdera det efter dina kund behov. Alla dokument som anges i tabellen nedan är valfria.
+Du har möjlighet att tillhandahålla dokument som Microsoft kommer att använda för att lära dig mer om ditt erbjudande och utvärdera det efter dina kund behov.
 
 | **Dokument**    | **Beskrivning**  |
 | :------------------- | :-------------------|
-| *Kund One – personsökare* | Kund färdig Beskrivning av ditt erbjudande. Microsoft Sales Teams kan dela den här informationen med kunder för att hjälpa till att avgöra om ditt erbjudande kan vara en bra passning och se till att det är kund klart. <br> <br> Använd en av de relevanta mallarna som är tillgängliga i Partner Center: <br> <ul> <li> Microsoft Azure One-pager-mall </li> <li> Microsoft Dynamics 365 1 – pager-mall </li> <li> Microsoft 365 1 – pager-mall </li> <li> Windows 10 1-pager-mall </li> </ul> |
-| *Kund presentation* | Dra däcket för att stämma av din lösning och dess värde förslag. När du har säkerställt att ditt erbjudande är kund klart kan Microsoft Sales-teamet dela med sig av presentationen med kunder för att tydliggör värdet som båda företagen tar när de distribuerar en gemensam lösning. Presentationen bör avse vad din lösning gör, hur den kan hjälpa kunder, vilka branscher lösningen är för och hur den jämförs med konkurrerande lösningar. <br> <br> Använd mallen som är tillgänglig i Partner Center.|
+| *Kunden One-pager (krävs)* | Kund färdig Beskrivning av ditt erbjudande. Microsoft Sales Teams kan dela den här informationen med kunder för att hjälpa till att avgöra om ditt erbjudande kan vara en bra passning och se till att det är kund klart. <br> <br> Använd en av de relevanta mallarna som är tillgängliga i Partner Center: <br> <ul> <li> Microsoft Azure One-pager-mall </li> <li> Microsoft Dynamics 365 1 – pager-mall </li> <li> Microsoft 365 1 – pager-mall </li> <li> Windows 10 1-pager-mall </li> </ul> |
+| *Kund presentation (krävs)* | Dra däcket för att stämma av din lösning och dess värde förslag. När du har säkerställt att ditt erbjudande är kund klart kan Microsoft Sales-teamet dela med sig av presentationen med kunder för att tydliggör värdet som båda företagen tar när de distribuerar en gemensam lösning. Presentationen bör avse vad din lösning gör, hur den kan hjälpa kunder, vilka branscher lösningen är för och hur den jämförs med konkurrerande lösningar. <br> <br> Använd mallen som är tillgänglig i Partner Center.|
 | *Fallstudie om kund* | Den här informationen visar en potentiell kund hur du och Microsoft har distribuerat den här lösningen i tidigare fall. <br> <br> Använd mallen som är tillgänglig i Partner Center. |
-| *Kund-och verifierbar kund (valfritt)* | Specifika exempel på kund framgångar efter att din lösning har distribuerats. |
-| *Kanal bredds däck (valfritt)* | En bildkortlek med information som hjälper kanal åter försäljare att lära sig mer om din lösning och är redo för deras sälj team att sälja ditt erbjudande. Det innehåller vanligt vis ett höjd-och utbredds problem, information om kunder, frågor för att be kunder, prata om punkter och länkar till videor, dokumentation och supportinformation. |
+| *Kund-och verifierbar kund* | Specifika exempel på kund framgångar efter att din lösning har distribuerats. |
+| *Kanal bredds däck* | En bildkortlek med information som hjälper kanal åter försäljare att lära sig mer om din lösning och är redo för deras sälj team att sälja ditt erbjudande. Det innehåller vanligt vis ett höjd-och utbredds problem, information om kunder, frågor för att be kunder, prata om punkter och länkar till videor, dokumentation och supportinformation. |
 | *Referens arkitektur diagram* | Ett dokument som visar modellen som representerar IP-adressen som skapats av partnern, tillsammans med dess relation med Microsofts moln tjänster och hur den uppfyller de tekniska kraven i IP-Co-programmet. |
 | *Andra dokument* | Alternativt kan du överföra upp till fem ytterligare dokument eller videor för att hjälpa Microsofts försäljnings team och kanal åter försäljare att lära sig mer om din lösning, organisation och/eller differentiering. |
 | *Extern referens-URL* | Länken till produktens webbplats där Microsoft Sales Teams och Channel-återförsäljare kan lära sig mer om din lösning. |
 
 ## <a name="contacts"></a>Kontakter
 
-Med din kontakt information kan Microsoft sälj team och kanal åter försäljare begära ytterligare information från den aktuella resursen i din organisation. Kontakt information är tillgänglig för alla Microsoft-säljteam. Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet är den här kontakt informationen också tillgänglig för kanal åter försäljare.
+Med din kontakt information kan Microsoft sälj team och kanal åter försäljare begära ytterligare information från den aktuella resursen i din organisation. Kontakt information är tillgänglig för alla Microsoft-säljteam. *(En kontakt för varje geografiskt område där ditt erbjudande är tillgängligt krävs för programmet Co-sälja.)* Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet är den här kontakt informationen också tillgänglig för kanal åter försäljare.
 
 Du kan ange dina kontakter genom att hämta CSV-mallen från Partner Center, fylla i varje rad med information om kontakten och importera den här CSV-filen. Om du importerar en CSV-fil skrivs befintliga kontakter över.
 

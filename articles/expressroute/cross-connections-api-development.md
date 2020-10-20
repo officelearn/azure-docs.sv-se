@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: duau
-ms.openlocfilehash: 25c8288e1804e6a08ae2b5b128ab6fbc699563f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b80392231dba26a10141dcd8247b092e8171894c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397856"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202488"
 ---
 # <a name="expressroute-crossconnnections-api-development-and-integration"></a>ExpressRoute CrossConnnections API-utveckling och integrering
 
@@ -30,7 +30,7 @@ Fördelar med att flytta till expressRouteCrossConnections-resursen:
 
 * Alla framtida förbättringar av ExpressRoute-partner görs tillgängliga på ExpressRouteCrossConnection-resursen.
 
-* Partner kan använda [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
+* Partner kan använda [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md) till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
 
 * ExpressRouteCrossConnection-resursen exponerar API: er som kan vara till hjälp vid fel sökning av ExpressRoute-anslutningar. Detta inkluderar ARP-tabell, tabell Sammanfattning för BGP-vägar och information om BGP-routningstabell. Den här funktionen stöds inte av klassiska distributions-API: er.
 
@@ -51,7 +51,7 @@ Test-peering-platserna: dummy-enheter och portar exponeras inte för produktions
 
 ### <a name="2-register-the-dev_provider-subscription-to-access-the-expressroutecrossconnections-api"></a>2. registrera Dev_Provider-prenumerationen för att få åtkomst till expressRouteCrossConnections-API: et
 
-För att få åtkomst till expressRouteCrossConnections-API: et måste partner prenumerationen registreras i **Microsoft. Network Resource-providern**. Följ stegen i artikeln [Azure-resurs leverantörer och typer](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) för att slutföra registrerings processen.
+För att få åtkomst till expressRouteCrossConnections-API: et måste partner prenumerationen registreras i **Microsoft. Network Resource-providern**. Följ stegen i artikeln [Azure-resurs leverantörer och typer](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) för att slutföra registrerings processen.
 
 ### <a name="3-set-up-authentication-for-azure-resource-manager-rest-api-calls"></a>3. Konfigurera autentisering för Azure Resource Manager REST API-anrop
 
@@ -59,8 +59,8 @@ De flesta Azure-tjänster kräver klient kod för att autentisera med Resource M
 
 Autentiseringsprocessen omfattar två huvud steg:
 
-1. [Registrera klienten](https://docs.microsoft.com/rest/api/azure/#register-your-client-application-with-azure-ad).
-2. [Skapa åtkomstbegäran](https://docs.microsoft.com/rest/api/azure/#create-the-request).
+1. [Registrera klienten](/rest/api/azure/#register-your-client-application-with-azure-ad).
+2. [Skapa åtkomstbegäran](/rest/api/azure/#create-the-request).
 
 ### <a name="4-provide-network-contributor-permission-to-the-client-application"></a>4. ge nätverks deltagare behörighet till klient programmet
 
@@ -76,12 +76,12 @@ När autentiseringen har kon figurer ATS måste du bevilja nätverks deltagare �
 
 ### <a name="5-develop"></a>5. utveckla
 
-Utveckla mot [expressRouteCrossConnections-API: et](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections).
+Utveckla mot [expressRouteCrossConnections-API: et](/rest/api/expressroute/expressroutecrossconnections).
 
 ## <a name="rest-api"></a>REST-API
 
-Se [ExpressRoute CrossConnections REST API](https://docs.microsoft.com/rest/api/expressroute/expressroutecrossconnections) for Rest API documentation.
+Se [ExpressRoute CrossConnections REST API](/rest/api/expressroute/expressroutecrossconnections) for Rest API documentation.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om alla ExpressRoute REST API: er finns i [EXPRESSROUTE REST-API: er](https://docs.microsoft.com/rest/api/expressroute/).
+Mer information om alla ExpressRoute REST API: er finns i [EXPRESSROUTE REST-API: er](/rest/api/expressroute/).

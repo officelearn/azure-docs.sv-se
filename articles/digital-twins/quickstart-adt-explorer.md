@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 848894518077ca41d3166570bf0dc39914f1c439
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5fb00fb6382bb53f40ad63a95c880c47f91cae2f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131164"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201672"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
 
@@ -47,18 +47,17 @@ Det första steget när du arbetar med Azure Digitals dubbla är att konfigurera
 
 Du kan också konfigurera behörigheter för ADT Explorer att köras på din dator och få åtkomst till din Azure Digital-instansen. Detta gör att du kan använda exempel appen för att utforska din instans och dess data.
 
-### <a name="set-up-azure-digital-twins-instance"></a>Konfigurera Azure Digitals dubbla instanser
+### <a name="set-up-azure-digital-twins-instance-and-app-registration"></a>Konfigurera Digital Azure Digitals-instans och registrera appar
 
-Börja med att konfigurera en digital Azure-instans och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Beroende på din önskade upplevelse, erbjuds installations artikeln för skript exemplet [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)eller [automatiserad Cloud Shell distribution](how-to-set-up-instance-scripted.md). Alla versioner av instruktionerna innehåller också steg för att kontrol lera att du har slutfört varje steg och är redo att gå vidare till med den nya instansen.
+Börja med att **Konfigurera en digital Azure-instans** och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Beroende på din önskade upplevelse, erbjuds installations artikeln för skript exemplet [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)eller [automatiserad Cloud Shell distribution](how-to-set-up-instance-scripted.md). Alla versioner av instruktionerna innehåller också steg för att kontrol lera att du har slutfört varje steg och är redo att gå vidare till med den nya instansen.
+* När du har konfigurerat din Azure Digital-instansen behöver du instansen **_värdnamn_** ([Sök i portalen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-I den här snabb starten behöver du följande värden från när du konfigurerar din instans. Om du behöver samla in värdena igen använder du länkarna nedan till motsvarande avsnitt i installations artikeln för att hitta dem i [Azure Portal](https://portal.azure.com).
-* Azure Digitals dubbla instans **_värd namn_** ([Sök i portalen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* ID för Azure AD App Registration- **_program (klient)_** ([Sök i portalen](how-to-set-up-instance-portal.md#collect-important-values))
-* ID för Azure AD App Registration **_-katalogen (klient)_** ([Sök i portalen](how-to-set-up-instance-portal.md#collect-important-values))
+För att kunna autentisera ADT Explorer-programmet måste du också konfigurera en app- **registrering**. Följ instruktionerna i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md) för att konfigurera den här. 
+* När du har registrerat en app behöver du registrerings-ID och katalog (klient)-ID och **_katalog (klient)-ID: t_** ( **_klient_** ) för att[hitta dessa i portalen](how-to-create-app-registration.md#collect-client-id-and-tenant-id).
 
 ### <a name="set-adt-explorer-permissions"></a>Ange behörigheter för ADT Explorer
 
-Förbered sedan Azure Digital-instansen som du skapade för att arbeta med ADT Explorer, som är ett lokalt värdbaserade webb program. Besök sidan [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) i Azure Portal och välj namnet på din app-registrering i listan.
+Förbered sedan Azure Digital-instansen som du skapade för att arbeta med ADT Explorer, som är ett lokalt värdbaserade webb program. Besök sidan [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) i Azure Portal och välj namnet på din **app-registrering** som du skapade i föregående avsnitt i listan.
 
 Välj *autentisering* på registrerings menyn och tryck på *+ Lägg till en plattform*.
 

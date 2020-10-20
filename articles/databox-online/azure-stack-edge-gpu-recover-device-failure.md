@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: alkohli
-ms.openlocfilehash: ef99ff874376e0d76e45e4b0b2c36a78d938130b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91efdac9d17e679226f10012bbff9b5b6676ff0e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844012"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205586"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Återställa från en misslyckad Azure Stack Edge Pro GPU-enhet 
 
@@ -62,7 +62,8 @@ För att förbereda för ett potentiellt enhets haveri kan du ha distribuerat f�
 | Tredjepartsprogram           | Referens till lösningen                               |
 |--------------------------------|---------------------------------------------------------|
 | Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> Kontakta Cohesity om du vill ha mer information.          |
-| Veritas                        | Kontakta Veritas om du vill ha mer information.   |
+| CommVault                      | https://www.commvault.com/azure <br> Kontakta CommVault om du vill ha mer information. |
+| Veritas                        | http://veritas.com/azure <br> Kontakta Veritas om du vill ha mer information.   |
 
 När ersättnings enheten är helt konfigurerad aktiverar du enheten för lokal lagring. 
 
@@ -82,7 +83,8 @@ För att förbereda för ett potentiellt enhets haveri kan du ha distribuerat n�
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Microsoft Azure Recovery Services MARS-agenten för Azure Backup | Windows        | [Om MARS-agent](/azure/backup/backup-azure-about-mars)    |
 | Cohesity                | Windows, Linux | [Microsoft Azure integrering, lösning för säkerhets kopiering och återställning kort](https://www.cohesity.com/solution/cloud/azure) <br>Kontakta Cohesity om du vill ha mer information.                          |
-| Veritas                 | Windows, Linux | Kontakta Veritas om du vill ha mer information.                    |
+| CommVault               | Windows, Linux | https://www.commvault.com/azure <br> Kontakta CommVault om du vill ha mer information.
+| Veritas                 | Windows, Linux | http://veritas.com/azure <br> Kontakta Veritas om du vill ha mer information.                    |
 
 När den nya enheten har kon figurer ATS fullständigt kan du distribuera om de virtuella datorerna med den virtuella dator avbildningen som användes tidigare. 
 

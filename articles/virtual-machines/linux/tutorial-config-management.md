@@ -15,18 +15,18 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 31a8457b4b1ac069cafbfd9713f15fdad7142d10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 451b651be8036feb272d4444d00608bb61c1e438
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87445803"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204494"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Linux-dator i Azure
 
-Med Azure [ändringsspårning](../../automation/change-tracking.md) kan du enkelt identifiera ändringar och [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md) göra det möjligt att hantera operativ system uppdateringar för dina virtuella Azure Linux-datorer.
+Med Azure [ändringsspårning](../../automation/change-tracking/overview.md) kan du enkelt identifiera ändringar och [uppdateringshantering](../../automation/update-management/update-mgmt-overview.md) göra det möjligt att hantera operativ system uppdateringar för dina virtuella Azure Linux-datorer.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Hantera Linux-uppdateringar
@@ -113,7 +113,7 @@ Om du vill skapa en ny uppdaterings distribution väljer du **Schemalägg uppdat
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| Name |Unikt namn som identifierar uppdateringsdistributionen. |
+| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
 | Grupper att uppdatera |För Azure-datorer definierar du en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i distributionen. </br></br>För datorer som inte är Azure-datorer väljer du en befintlig sparad sökning för att välja en grupp datorer som inte är Azure-datorer att inkludera i distributionen. </br></br>Mer information finns i [Dynamiska grupper](../../automation/update-management/update-mgmt-groups.md)|
 | Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../../azure-monitor/platform/computer-groups.md) |

@@ -1,18 +1,18 @@
 ---
-title: Roller och behörigheter för Azure
+title: Register roller och behörigheter
 description: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) och identitets-och åtkomst hantering (IAM) för att ge detaljerade behörigheter till resurser i ett Azure Container Registry.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: b8562d3e33cd49082d4ba4d8567d5f0c816070b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 097ccf89caf63d2a504d072cf04c2b534a57a031
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661392"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207962"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry roller och behörigheter
 
-Tjänsten Azure Container Registry stöder en uppsättning [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md) som ger olika behörighets nivåer till ett Azure Container Registry. Använd [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/index.yml) för att tilldela särskilda behörigheter till användare, tjänst huvud namn eller andra identiteter som behöver samverka med ett register. Du kan också definiera [anpassade roller](#custom-roles) med detaljerade behörigheter till ett register för olika åtgärder.
+Tjänsten Azure Container Registry stöder en uppsättning [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md) som ger olika behörighets nivåer till ett Azure Container Registry. Använd [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/index.yml) för att tilldela särskilda behörigheter till användare, tjänst huvud namn eller andra identiteter som behöver samverka med ett register, till exempel för att hämta eller skicka behållar avbildningar. Du kan också definiera [anpassade roller](#custom-roles) med detaljerade behörigheter till ett register för olika åtgärder.
 
 | Roll/behörighet       | [Åtkomst till Resource Manager](#access-resource-manager) | [Skapa/ta bort registret](#create-and-delete-registry) | [Push-avbildning](#push-image) | [Hämta bild](#pull-image) | [Ta bort avbildnings data](#delete-image-data) | [Ändra principer](#change-policies) |   [Signera bilder](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
@@ -24,13 +24,19 @@ Tjänsten Azure Container Registry stöder en uppsättning [inbyggda Azure-rolle
 | AcrDelete |  |  |  |  | X |  |  |
 | AcrImageSigner |  |  |  |  |  |  | X |
 
+## <a name="assign-roles"></a>Tilldela roller
+
+Se [steg för att lägga till en roll tilldelning](../role-based-access-control/role-assignments-steps.md) för avancerade steg för att lägga till en roll tilldelning till en befintlig användare, grupp, tjänstens huvud namn eller hanterad identitet. Du kan använda Azure Portal, Azure CLI eller andra Azure-verktyg.
+
+När du skapar ett huvud namn för tjänsten konfigurerar du också dess åtkomst och behörighet till Azure-resurser, till exempel ett behållar register. Ett exempel skript som använder Azure CLI finns i [Azure Container Registry autentisering med tjänstens huvud namn](container-registry-auth-service-principal.md#create-a-service-principal).
+
 ## <a name="differentiate-users-and-services"></a>Särskilja användare och tjänster
 
 När du använder en viss tids period är det en bra idé att tillhandahålla den mest begränsade uppsättningen behörigheter för en person, eller tjänst, för att utföra en uppgift. Följande behörighets uppsättningar representerar en uppsättning funktioner som kan användas av människor och konsol lösa tjänster.
 
 ### <a name="cicd-solutions"></a>CI/CD-lösningar
 
-När du automatiserar `docker build` kommandon från CI/CD-lösningar behöver du `docker push` funktioner. Vi föreslår att du tilldelar **AcrPush** -rollen för dessa scenarier för konsol lös tjänst. Den här rollen, till skillnad från rollen bredare **deltagare** , förhindrar att kontot utför andra register åtgärder eller använder Azure Resource Manager.
+När du automatiserar `docker build` kommandon från CI/CD-lösningar behöver du `docker push` funktioner. För dessa sammanhang rekommenderar vi att du tilldelar **AcrPush** -rollen. Den här rollen, till skillnad från rollen bredare **deltagare** , förhindrar att kontot utför andra register åtgärder eller använder Azure Resource Manager.
 
 ### <a name="container-host-nodes"></a>Noder i container värden
 

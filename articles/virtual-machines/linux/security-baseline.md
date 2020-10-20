@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9468b9c2c906ffe26bae400dc9e4746630a66e0e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ab266e1a94a647c4c1f0c42cc75fe6b6a68d9afa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970324"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205157"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Azures säkerhets bas linje för Virtuella Linux-datorer
 
@@ -760,7 +760,7 @@ Förutom att använda Ändringsspårning för övervakning av program vara kan a
 
 * [En introduktion till Azure Automation](../../automation/automation-intro.md)
 
-* [Förstå Ändringsspårning](../../automation/change-tracking.md)
+* [Förstå Ändringsspårning](../../automation/change-tracking/overview.md)
 
 **Azure Security Center övervakning**: inte tillgänglig
 
@@ -1128,7 +1128,7 @@ Om du använder Azure Disk Encryption kan du återställa den virtuella Azure-da
 
 * [Säkerhetsaviseringar i Azure Security Center](../../security-center/security-center-alerts-overview.md)
 
-* [Använd taggar till att organisera dina Azure-resurser](../../azure-resource-manager/management/tag-resources.md)
+* [Använda taggar för att organisera dina Azure-resurser](../../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: Ja
 

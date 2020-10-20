@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9afc827d1cef4ae1f0ed304b3c1d3cfbfe89b82e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904738"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201808"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 
@@ -91,7 +91,7 @@ Det finns två installations scenarier som kan ge olika resultat när du install
 | Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Log Analytics-agenten misslyckades. Security Center identifierat en lokal agent (Log Analytics eller System Center Operations Manager) som redan har installerats på den virtuella datorn. För att undvika konfiguration av flera värdar, där den virtuella datorn rapporterar till två separata arbets ytor, stoppades installationen av Log Analytics-agenten. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
 | Agenten kan inte ansluta till arbetsytan | Log Analytics-agenten installerades men misslyckades på grund av en nätverks anslutning.  Kontrollera att du har internetåtkomst eller att en giltig HTTP-proxy har konfigurerats för agenten. | Se felsöka nätverkskrav för övervakningsagenten. |
 | Agenten ansluten till arbetsyta som saknas eller är okänd | Security Center identifierat att den Log Analyticss agenten som är installerad på den virtuella datorn är ansluten till en arbets yta som den inte har åtkomst till. | Det kan hända i två fall. Arbetsytan togs bort eller finns inte längre. Installera om agenten med rätt arbetsyta eller avinstallera agenten och tillåt att Security Center slutför sin automatiska etableringsinstallation. Det andra fallet är när arbetsytan är en del av en prenumeration som Security Center inte har behörighet till. Security Center kräver att prenumerationer tillåter att Microsoft Security Resource Provider får åtkomst till dem. Aktivera genom att registrera prenumerationen på Microsoft Security Resource Provider. Du kan göra det via API, PowerShell, portalen eller helt enkelt genom att filtrera prenumerationen i Security Centers **översiktsinstrumentpanel**. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
-| Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så är agenten rapportering av data men saknar ett Azure-resurs-ID så det är omöjligt att matcha data till den virtuella Azure-datorn. För att felsöka Linux, se [fel söknings guide för Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
+| Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så är agenten rapportering av data men saknar ett Azure-resurs-ID så det är omöjligt att matcha data till den virtuella Azure-datorn. För att felsöka Linux, se [fel söknings guide för Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#troubleshoot-and-support). |
 | Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera data insamling i säkerhets principen eller installera Log Analytics agenten manuellt. |
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Felsöka nätverkskrav för övervakningsagenten <a name="mon-network-req"></a>

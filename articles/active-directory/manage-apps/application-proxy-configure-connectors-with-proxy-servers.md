@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 2311b905aeeaacb6c445f441d5268d06a150de64
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107648"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208013"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -113,7 +113,7 @@ Tillåt åtkomst till följande webbadresser:
 | URL | Hur den används |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Kommunikation mellan anslutningsprogrammet och molntjänsten för programproxy |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Anslutnings tjänsten använder dessa URL: er för att verifiera certifikat |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | Anslutnings tjänsten använder dessa URL: er för att verifiera certifikat. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.net <br> *. msauthimages.net<br>*. msecnd.net <br> *. msftauth.net<br>*. msftauthimages.net <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 
 Om din brand vägg eller proxy låter dig konfigurera listor över tillåtna DNS-listor kan du tillåta anslutningar till \* . msappproxy.net och \* . ServiceBus.Windows.net.

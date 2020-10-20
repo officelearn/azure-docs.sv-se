@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b0c85f2c9ba04ac999911e534b906c634d457b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 073fab4aee084513db4ca05af6c12087c0a8f911
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360964"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206381"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Självstudie: röst – aktivera din robot med tal-SDK
 
@@ -412,7 +412,7 @@ Följ de här stegen för att skapa en nyckelords modell, konfigurera Windows Vo
 
 Ta en titt på de här filerna i klient käll koden för Windows röst assistenten och granska koden som används för att aktivera nyckelords identifiering:
 
-1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) innehåller ett anrop till metoden Speech SDK [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-) som används för att instansiera modellen från en lokal fil på disk.
+1. [`VoiceAssistantClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/Models.cs) innehåller ett anrop till metoden Speech SDK [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest&preserve-view=true#fromfile-string-) som används för att instansiera modellen från en lokal fil på disk.
 1. [`VoiceAssistantClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/VoiceAssistantClient/MainWindow.xaml.cs) innehåller ett anrop till metoden Speech SDK [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync) som aktiverar kontinuerlig identifiering av nyckelord.
 
 ## <a name="optional-change-the-language-and-bot-voice"></a>Valfritt Ändra språk och bot-röst
@@ -478,7 +478,7 @@ Om du inte kommer att fortsätta använda eko-roboten som distribuerats i den h�
 * Distribuera till en [Azure-region som stöder NEURALA TTS-röster med hög kvalitet](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
 * Priser som är kopplade till kanal för direkt linje tal:
   * [Priser för bot service](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Tjänst för taligenkänning](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Tal tjänst](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Skapa och distribuera din egen röst aktive rad bot:
   * Bygg en bot [Framework-robot](https://dev.botframework.com/). Registrera dig med [direkt kanal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) och [Anpassa din robot för röst](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
   * Utforska befintliga [bot Framework-lösningar](https://microsoft.github.io/botframework-solutions/index): bygga en [virtuell assistent](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) och [utöka den till direkt linje tal](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

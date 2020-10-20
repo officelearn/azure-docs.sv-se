@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07374debf8d660d8f1c32788db3d218da611d539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 200d23f390c9c22af90099e1e136c832287aa10d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650484"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207537"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Självstudie: skydda Azure-fjärråter givning och modell lagring
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -23,7 +23,7 @@ I den här guiden får du lära dig att:
 > * Autentisera med Azure AD för att få åtkomst till din Azure Remote rendering-instans
 > * Använd Azure-autentiseringsuppgifter för Azure-fjärrrendering-autentisering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här självstudien bygger på [Självstudier: förfina material, belysning och effekter](..\materials-lighting-effects\materials-lighting-effects.md).
 
@@ -188,11 +188,11 @@ Vi har ett "lösen ord", AccountKey, för att ta bort från det lokala programme
 
 ## <a name="azure-active-directory-azure-ad-authentication"></a>Azure Active Directory (Azure AD)-autentisering
 
-Med AAD-autentisering kan du avgöra vilka individer eller grupper som använder ARR på ett mer kontrollerat sätt. ARR har inbyggt stöd för att acceptera [åtkomsttoken](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) i stället för att använda en konto nyckel. Du kan tänka på åtkomst-token som en tidsbegränsad, användarspecifik nyckel, som bara låser upp vissa delar av den specifika resurs som den begärde för.
+Med AAD-autentisering kan du avgöra vilka individer eller grupper som använder ARR på ett mer kontrollerat sätt. ARR har inbyggt stöd för att acceptera [åtkomsttoken](../../../../active-directory/develop/access-tokens.md) i stället för att använda en konto nyckel. Du kan tänka på åtkomst-token som en tidsbegränsad, användarspecifik nyckel, som bara låser upp vissa delar av den specifika resurs som den begärde för.
 
 **RemoteRenderingCoordinator** -skriptet har ett ombud med namnet **ARRCredentialGetter**, som innehåller en metod som returnerar ett **AzureFrontendAccountInfo** -objekt, som används för att konfigurera fjärrhantering av sessionen. Vi kan tilldela en annan metod till **ARRCredentialGetter**, så att vi kan använda ett Azure Sign in-flöde, vilket genererar ett **AzureFrontendAccountInfo** -objekt som innehåller en Azure-åtkomsttoken. Denna åtkomsttoken är speciell för användaren som loggar in.
 
-1. Följ anvisningarna för [att: Konfigurera autentisering-autentisering för distribuerade program](../../../how-tos/authentication.md#authentication-for-deployed-applications), i synnerhet du följer anvisningarna i dokumentationen för Azures ankare i Azure [AD User Authentication](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication). Det innebär att registrera ett nytt Azure Active Directory program och konfigurera åtkomst till din ARR-instans.
+1. Följ anvisningarna för [att: Konfigurera autentisering-autentisering för distribuerade program](../../../how-tos/authentication.md#authentication-for-deployed-applications), i synnerhet du följer anvisningarna i dokumentationen för Azures ankare i Azure [AD User Authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication). Det innebär att registrera ett nytt Azure Active Directory program och konfigurera åtkomst till din ARR-instans.
 1. När du har konfigurerat det nya AAD-programmet kontrollerar du att AAD-programmet ser ut som följande bilder:
 
     **AAD-program – > autentisering** ![ App-autentisering](./media/app-authentication-public.png)
@@ -361,7 +361,7 @@ Med Azures sida av saker på plats måste vi nu ändra hur koden ansluter till A
 
 Koden försöker först hämta token i tyst läge med hjälp av **AquireTokenSilent**. Detta kommer att lyckas om användaren tidigare har autentiserat det här programmet. Om det inte lyckas kan du gå vidare till en mer engagerad strategi.
 
-För den här koden använder vi [enhets kod flödet](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-device-code) för att få en åtkomsttoken. Det här flödet gör att användaren kan logga in på sina Azure-konton på en dator eller en mobil enhet och låta den resulterande token skickas tillbaka till HoloLens-programmet.
+För den här koden använder vi [enhets kod flödet](../../../../active-directory/develop/v2-oauth2-device-code.md) för att få en åtkomsttoken. Det här flödet gör att användaren kan logga in på sina Azure-konton på en dator eller en mobil enhet och låta den resulterande token skickas tillbaka till HoloLens-programmet.
 
 Den viktigaste delen av den här klassen från ett ARR-perspektiv är den här raden:
 

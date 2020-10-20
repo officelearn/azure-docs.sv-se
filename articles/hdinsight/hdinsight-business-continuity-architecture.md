@@ -8,12 +8,12 @@ keywords: Hadoop hög tillgänglighet
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 9eb0cd3fd327a53dd0761779916caa096153a010
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856440"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207588"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight affärs kontinuitets arkitekturer
 
@@ -57,6 +57,8 @@ I en *aktiv primär klient med sekundär arkitektur på begäran* , skriver prog
 I en *aktiv primär med sekundär vänte läge*kan program skriva till den aktiva primära regionen medan ett vänte läge som skalas ned sekundärt kluster i skrivskyddat läge körs under normal drift. Under normal drift kan du välja att avlasta regions information läs åtgärder till sekundär.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
+
+Mer information om Hive-replikering och kod exempel hittar [Apache Hive replikering i Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
 
 ## <a name="apache-spark"></a>Apache Spark
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: 8ca6794024d3a6327b918eb1c369a627837e0bd0
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: ec7b776f7d573ea07f010eeab81d98222102be41
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131028"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202012"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Översikt över Azure Monitor agenter
 
@@ -35,7 +35,7 @@ Följande tabeller ger en snabb jämförelse mellan Azure Monitors agenter för 
 | | Azure Monitor Agent (förhands granskning) | Diagnostik<br>tillägg (WAD) | Log Analytics<br>agent | Beroende<br>agent |
 |:---|:---|:---|:---|:---|
 | **Miljöer som stöds** | Azure | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | 
-| **Agent krav**  | Inga | Inga | Inga | Kräver Log Analytics agent |
+| **Agent krav**  | Inget | Inget | Inget | Kräver Log Analytics agent |
 | **Insamlade data** | Händelseloggar<br>Prestanda | Händelseloggar<br>ETW-händelser<br>Prestanda<br>Filbaserade loggar<br>IIS-loggar<br>.NET-app-loggar<br>Kraschdumpar<br>Loggar för agent-diagnostik | Händelseloggar<br>Prestanda<br>Filbaserade loggar<br>IIS-loggar<br>Insikter och lösningar<br>Övriga tjänster | Process beroenden<br>Mått för nätverks anslutning |
 | **Data som skickas till** | Azure Monitor-loggar<br>Azure Monitor mått | Azure Storage<br>Azure Monitor mått<br>Händelsehubb | Azure Monitor-loggar | Azure Monitor-loggar<br>(via Log Analytics agent) |
 | **Tjänster och**<br>**egenskaper**<br>**tillåtna** | Log Analytics<br>Måttutforskare | Måttutforskare | Azure Monitor för virtuella datorer<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor för virtuella datorer<br>Tjänstkarta |
@@ -45,7 +45,7 @@ Följande tabeller ger en snabb jämförelse mellan Azure Monitors agenter för 
 | | Azure Monitor Agent (förhands granskning) | Diagnostik<br>tillägg (LAD) | Teleympkvistar<br>agent | Log Analytics<br>agent | Beroende<br>agent |
 |:---|:---|:---|:---|:---|:---|
 | **Miljöer som stöds** | Azure | Azure | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal | Azure<br>Annat moln<br>Lokal |
-| **Agent krav**  | Inga | Inga | Inga | Inga | Kräver Log Analytics agent |
+| **Agent krav**  | Inget | Inget | Inget | Inget | Kräver Log Analytics agent |
 | **Insamlade data** | Syslog<br>Prestanda | Syslog<br>Prestanda | Prestanda | Syslog<br>Prestanda| Process beroenden<br>Mått för nätverks anslutning |
 | **Data som skickas till** | Azure Monitor-loggar<br>Azure Monitor mått | Azure Storage<br>Händelsehubb | Azure Monitor mått | Azure Monitor-loggar | Azure Monitor-loggar<br>(via Log Analytics agent) |
 | **Tjänster och**<br>**egenskaper**<br>**tillåtna** | Log Analytics<br>Måttutforskare | | Måttutforskare | Azure Monitor för virtuella datorer<br>Log Analytics<br>Azure Automation<br>Azure Security Center<br>Azure Sentinel | Azure Monitor för virtuella datorer<br>Tjänstkarta |
@@ -81,8 +81,8 @@ Använd Log Analytics-agenten om du behöver:
 * Samla in loggar och prestanda data från virtuella eller fysiska datorer i eller utanför Azure. 
 * Skicka data till en Log Analytics arbets yta för att dra nytta av funktioner som stöds av [Azure Monitor loggar](data-platform-logs.md) som [logg frågor](../log-query/log-query-overview.md).
 * Använd [Azure Monitor for VMS](../insights/vminsights-overview.md) som gör att du kan övervaka dina virtuella datorer i skala och övervaka deras processer och beroenden på andra resurser och externa processer..  
-* Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Security Center](../../security-center/security-center-introduction.md)  eller [Azure Sentinel](../../sentinel/overview.md).
-* Använd [Azure Automation uppdaterings hantering](../../automation/update-management/update-mgmt-overview.md), [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md)eller [Azure Automation ändringsspårning och inventering](../../automation/change-tracking.md) för att leverera omfattande hantering av dina virtuella Azure-datorer
+* Hantera säkerheten för dina virtuella datorer med hjälp av [Azure Security Center](../../security-center/security-center-intro.md)  eller [Azure Sentinel](../../sentinel/overview.md).
+* Använd [Azure Automation uppdaterings hantering](../../automation/update-management/update-mgmt-overview.md), [Azure Automation tillstånds konfiguration](../../automation/automation-dsc-overview.md)eller [Azure Automation ändringsspårning och inventering](../../automation/change-tracking/overview.md) för att leverera omfattande hantering av dina virtuella Azure-datorer
 * Använd olika [lösningar](../monitor-reference.md#insights-and-core-solutions) för att övervaka en viss tjänst eller ett visst program.
 
 Begränsningar för Log Analytics agenten är:

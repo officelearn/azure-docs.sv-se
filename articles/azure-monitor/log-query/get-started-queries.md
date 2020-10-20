@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: 345d4fe218f5eed433204622bd47481628ec810f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43a72db385d282ee189c179254cfc270929dbbf
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87874069"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207197"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Kom igång med loggfrågor i Azure Monitor
 
@@ -171,7 +171,7 @@ Föregående exempel genererar följande utdata:
 Du kan också använda **Project** för att byta namn på kolumner och definiera nya. I följande exempel används Project för att göra följande:
 
 * Välj endast de ursprungliga kolumnerna för *dator* och *TimeGenerated* .
-* Byt namn på kolumnen *aktivitet* till *EventDetails*.
+* Visar *aktivitets* kolumnen som *EventDetails*.
 * Skapa en ny kolumn med namnet *EventCode*. Funktionen **substring ()** används för att bara hämta de första fyra tecknen från fältet aktivitet.
 
 

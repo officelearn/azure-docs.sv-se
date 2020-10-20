@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 18ee64e6866764e250cfa08a1d4721674bb66e5a
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 31660d13fe69d393a19167eaea8a69bfb6260467
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097345"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202080"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
 Microsoft tillhandahåller storskaliga tjänster för traditionella återförsäljare och distributörer (CSP), för att de snabbt ska kunna etablera nya tjänster och lösningar för sina kunder utan att behöva investera i att utveckla dessa nya tjänster. Om du vill ge CSP:n (Cloud Solution Provider) möjlighet att direkt hantera dessa nya tjänster, erbjuder Microsoft program och API:er som tillåter CSP:n att hantera Microsoft Azure-resurser åt dina kunder. En av resurserna är ExpressRoute. Med ExpressRoute kan CSP:n ansluta befintliga kundresurser till Azure-tjänster. ExpressRoute är en höghastighets anslutning med privat kommunikation till tjänster i Azure. 
@@ -28,7 +28,7 @@ ExpressRoute består av ett par kretsar för hög tillgänglighet som är koppla
 Microsoft Azure tillhandahåller ett växande antal tjänster som du kan erbjuda dina kunder. ExpressRoute hjälper dig och dina kunder att dra nytta av dessa tjänster genom att tillhandahålla snabb fördröjning med låg fördröjning i Microsoft Azures miljön.
 
 ## <a name="microsoft-azure-management"></a>Microsoft Azure-hantering
-Microsoft tillhandahåller kryptografiproviders med API: er för att hantera Azures kund prenumerationer genom att tillåta programmerings integrering med dina egna tjänst hanterings system. Hanteringsfunktioner som stöds finns [här](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
+Microsoft tillhandahåller kryptografiproviders med API: er för att hantera Azures kund prenumerationer genom att tillåta programmerings integrering med dina egna tjänst hanterings system. Hanteringsfunktioner som stöds finns [här](/previous-versions/windows/mt844538(v=win.10)).
 
 ## <a name="microsoft-azure-resource-management"></a>Microsoft Azure-resurshantering
 Avtalet med kunden som avgör hur prenumerationen ska hanteras. CSP:n kan direkt hantera skapande och underhåll av resurser, eller kunden kan behålla kontrollen över Microsoft Azure-prenumerationen och skapa sådana Azure-resurser som de behöver. Om kunden hanterar skapandet av resurser i sin Microsoft Azure-prenumeration använder de en av två modeller: "*Anslut via*"-modellen eller "*direkt till"-* modellen. Dessa modeller beskrivs i detalj i följande avsnitt.  
@@ -129,6 +129,6 @@ Med Cloud Solution Provider-tjänsten kan du öka värdet för kunderna utan att
 
 Mer information finns i följande länkar:
 
-[Azure i Cloud Solution Provider-program](https://docs.microsoft.com/azure/cloud-solution-provider).  
+[Azure i Cloud Solution Provider-program](/azure/cloud-solution-provider).  
 [Bli redo att agera som en Cloud Solution Provider](https://partner.microsoft.com/solutions/cloud-reseller-pre-launch).  
 [Microsoft Cloud Solution Provider-resurser](https://partner.microsoft.com/solutions/cloud-reseller-resources).

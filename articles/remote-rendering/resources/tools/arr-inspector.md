@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/09/2020
 ms.topic: article
-ms.openlocfilehash: e3acfc15b0c12822e48009bef4aabadac701fb2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ee9d39db130c76f683ca1f4d1ff64f9ed86d97e
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80680081"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204749"
 ---
 # <a name="the-arrinspector-inspection-tool"></a>Kontrollverktyget för ArrInspector
 
@@ -29,7 +29,7 @@ Om appen som anropar `ConnectToArrInspectorAsync` redan körs på en dator:
 
 Om appen körs på en HoloLens:
 
-1. Få åtkomst till HoloLens med hjälp av [Windows Device Portal](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal).
+1. Få åtkomst till HoloLens med hjälp av [Windows Device Portal](/windows/mixed-reality/using-the-windows-device-portal).
 1. Gå till *System > Utforskaren*.
 1. Navigera till *localappdata för \\ användare \\ [your_app] \\ AC- \\ Temp*.
 1. Spara *StartArrInspector.html* på din dator.

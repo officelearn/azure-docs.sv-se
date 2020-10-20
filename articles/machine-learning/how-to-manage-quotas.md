@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a81af14992c8557c245ab3a1073f031a6c505084
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019400"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203064"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera & öka kvoter för resurser med Azure Machine Learning
 
@@ -178,11 +178,13 @@ Använd följande steg för att begära en ersättning för dessa scenarier:
     | Typ av problem | Teknik |
     | Tjänst | Mina tjänster. Välj __Machine Learning__ i list rutan. |
     | Problem typ | Installation av arbets yta, SDK och CLI |
-    | Problem under typ | Problem med etablering eller hantering av arbetsyta |
+    | Problem under typ | Begäran om tilldelning av privat slut punkt och Privat DNS zon |
 
 2. I avsnittet __information__ använder du fältet __Beskrivning__ för att ange den Azure-region som du vill använda och det scenario som du planerar att använda. Om du behöver begära kvot ökningar för flera prenumerationer kan du även ange prenumerations-ID: n i det här fältet.
 
 3. Välj __skapa__ för att skapa begäran.
+
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Skärm bild av en privat slut punkt och en privat DNS-kvot öka begäran":::
 
 ## <a name="next-steps"></a>Nästa steg
 

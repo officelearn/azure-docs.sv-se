@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b5865f2fd76c1159f7f72633362a96335af8a059
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74bad563de60abc0c1eb7623a81c83fea03f5ee6
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88509373"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207231"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Snabb start: rendera en modell med Unity
 
@@ -18,7 +18,7 @@ Den här snabb starten beskriver hur du kör ett Unity-exempel som återger en i
 
 Vi kommer inte att gå in i detalj om ARR-API: et eller hur du konfigurerar ett nytt Unity-projekt. De här avsnitten beskrivs i [själv studie kursen: Visa fjärranslutna modeller](../tutorials/unity/view-remote-models/view-remote-models.md).
 
-I den här snabb starten får du lära dig att:
+I den här snabbstarten lär du dig att:
 > [!div class="checklist"]
 >
 >* Konfigurera din lokala utvecklings miljö
@@ -33,7 +33,7 @@ Följande program vara måste vara installerad:
 
 * Windows SDK 10.0.18362.0 [(Hämta)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * Den senaste versionen av Visual Studio 2019 [(Hämta)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio Tools för Mixad verklighet](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Mer specifikt är följande *arbets belastnings* installationer obligatoriska:
+* [Visual Studio Tools för Mixad verklighet](/windows/mixed-reality/install-the-tools). Mer specifikt är följande *arbets belastnings* installationer obligatoriska:
   * **Skriv bords utveckling med C++**
   * **Universell Windows-plattform (UWP) utveckling**
 * GIT [(nedladdning)](https://git-scm.com/downloads)
@@ -111,7 +111,7 @@ Om du vill synkronisera transformeringar klickar du antingen på **Synkronisera 
 I nästa snabb start kommer vi att distribuera exemplet till en HoloLens för att visa den fjärranslutna modellen i ursprunglig storlek.
 
 > [!div class="nextstepaction"]
-> [Snabb start: Distribuera Unity-exempel till HoloLens](deploy-to-hololens.md)
+> [Snabbstart: Distribuera Unity-exempel till HoloLens](deploy-to-hololens.md)
 
 Alternativt kan exemplet också distribueras till en stationär dator.
 

@@ -5,12 +5,12 @@ author: aagup
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: f98bf4f4518abd5f1b1a826e355c851acc055852
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d881033b8dde6cc55a9720ec94084bd876116f1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246698"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207401"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Återställa säkerhets kopia i Azure Service Fabric
 
@@ -23,7 +23,7 @@ Du kan till exempel konfigurera en tjänst för att säkerhetskopiera data för 
 - **Händelse av data förlust**: oavsiktlig borttagning eller skada på tjänsten. En administratör tar till exempel bort tjänsten felaktigt.
 - **Händelse av data skada**: fel i tjänsten orsakar skadade data. Data skada kan till exempel inträffa när en tjänst kods uppgradering skriver felaktiga data till en tillförlitlig samling. I sådana fall måste du kanske återställa både koden och data till ett tidigare tillstånd.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - För att utlösa en återställning måste _fel analys tjänsten (fas)_ vara aktive rad för klustret.
 - Säkerhets _kopieringen av BRS (Backup Restore service)_ skapade säkerhets kopian.
@@ -190,6 +190,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Du kan följa förloppet för en återställning med TrackRestoreProgress.
 
+> [!NOTE]
+> När du använder PowerShell för att återställa partitionen, om BackupLocation har $, Escape-filen med ~
+>
+
 ### <a name="using-service-fabric-explorer"></a>Använda Service Fabric Explorer
 Du kan utlösa en återställning från Service Fabric Explorer. Kontrol lera att Avancerat läge har Aktiver ATS i Service Fabric Explorer inställningar.
 1. Välj önskade partitioner och klicka på åtgärder. 
@@ -250,6 +254,10 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ```
 
 Du kan spåra återställnings förloppet med hjälp av TrackRestoreProgress.
+
+> [!NOTE]
+> När du använder PowerShell för att återställa partitionen, om BackupLocation har $, Escape-filen med ~
+>
 
 ## <a name="track-restore-progress"></a>Spåra återställnings förlopp
 

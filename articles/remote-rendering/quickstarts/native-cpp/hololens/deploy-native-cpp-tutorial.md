@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: 71760e9b54ff3a520f0784ecda4484bb3ea047e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4513a1997dc2955e1c5488a4a3740afa88f51623
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88892668"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207282"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Snabb start: Distribuera inbyggt C++-exempel till HoloLens
 
 Den här snabb starten beskriver hur du distribuerar och kör det inbyggda programmet för C++-självstudie på en HoloLens 2.
 
-I den här snabb starten får du lära dig att:
+I den här snabbstarten lär du dig att:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ Följande program vara måste vara installerad:
 
 * Windows SDK 10.0.18362.0 [(Hämta)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * Den senaste versionen av Visual Studio 2019 [(Hämta)](https://visualstudio.microsoft.com/vs/older-downloads/)
-* [Visual Studio Tools för Mixad verklighet](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Mer specifikt är följande *arbets belastnings* installationer obligatoriska:
+* [Visual Studio Tools för Mixad verklighet](/windows/mixed-reality/install-the-tools). Mer specifikt är följande *arbets belastnings* installationer obligatoriska:
   * **Skriv bords utveckling med C++**
   * **Universell Windows-plattform (UWP) utveckling**
 * GIT [(nedladdning)](https://git-scm.com/downloads)
@@ -89,7 +89,7 @@ Nu kan programmet kompileras.
 
 1. Anslut HoloLens med en USB-kabel till din dator.
 1. Aktivera HoloLens och vänta tills Start menyn visas.
-1. Starta fel söknings programmet i Visual Studio (F5). Appen installeras automatiskt på enheten.
+1. Starta felsökningsprogrammet i Visual Studio (F5). Appen distribueras automatiskt till enheten.
 
 Exempel appen bör starta och en text panel visas som informerar dig om det aktuella program läget. Statusen vid start är antingen att starta en ny session eller ansluta till en befintlig session. När modell inläsningen har slutförts visas den inbyggda motor modellen i ditt huvud läge. Ocklusion är att motor modellen samverkar korrekt med den snurrande kub som återges lokalt.
 

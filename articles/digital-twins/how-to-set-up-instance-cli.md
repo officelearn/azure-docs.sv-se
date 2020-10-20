@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0dfc86503f1b3aa648cb8c7cefe14fbd123f1459
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 081eb10166ff681990af15110829030176efa3fa
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047513"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207792"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurera en digital Azure-instans och autentisering (CLI)
 
@@ -24,7 +24,9 @@ Den här versionen av den här artikeln går igenom dessa steg manuellt, en i ta
 * Om du vill gå igenom de här stegen manuellt med Azure Portal, se Portal versionen av den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (portal)*](how-to-set-up-instance-portal.md).
 * Om du vill köra en automatiserad installation med hjälp av ett skript exempel för distribution, se den skript version som beskrivs i den här artikeln: [*anvisningar: Konfigurera en instans och autentisering (skript)*](how-to-set-up-instance-scripted.md).
 
-[!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
+[!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
+[!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-cloud-shell-session"></a>Konfigurera Cloud Shell-session
@@ -86,67 +88,7 @@ Resultatet av det här kommandot är information om den roll tilldelning som har
 
 [!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
 
-Nu har du en Azure Digital-instansen som är redo att gå och har tilldelats behörighet att hantera den. Sedan konfigurerar du behörigheter för en klient-app för att komma åt den.
-
-## <a name="set-up-access-permissions-for-client-applications"></a>Konfigurera åtkomst behörigheter för klient program
-
-[!INCLUDE [digital-twins-setup-app-registration.md](../../includes/digital-twins-setup-app-registration.md)]
-
-Om du vill skapa en app-registrering måste du ange resurs-ID: n för Azure Digitals dubbla API: er och bas linje behörigheterna till API: et.
-
-I arbets katalogen skapar du en ny fil och anger följande JSON-kodfragment för att konfigurera den här informationen: 
-
-```json
-[{
-    "resourceAppId": "0b07f429-9f4b-4714-9392-cc5e8e80c8b0",
-    "resourceAccess": [
-     {
-       "id": "4589bd03-58cb-4e6c-b17f-b580e39652f8",
-       "type": "Scope"
-     }
-    ]
-}]
-``` 
-
-Spara filen som _**manifest.jspå**_.
-
-> [!NOTE] 
-> Det finns vissa platser där en "läsvänlig", läsbar sträng `https://digitaltwins.azure.net` kan användas för resurs-ID: t för Azure Digital tillsammans i stället för GUID `0b07f429-9f4b-4714-9392-cc5e8e80c8b0` . Till exempel använder många exempel i den här dokumentationen autentisering med MSAL-biblioteket och den egna strängen kan användas för det. Men under det här steget för att skapa appens registrering krävs GUID-formatet för ID: t som visas ovan. 
-
-Sedan laddar du upp den här filen till Cloud Shell. I Cloud Shell-fönstret klickar du på ikonen Ladda upp/ladda ned filer och väljer överför.
-
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Fönstret Kommando med att skapa en resurs grupp och en Azure Digital-instans":::
-Navigera till *manifest.jspå* du nyss skapade och tryck på "öppna".
-
-Kör sedan följande kommando för att skapa en app-registrering med en *offentlig klient/ursprunglig (mobile & Desktop)* svars-URL för `http://localhost` . Ersätt plats hållare efter behov:
-
-```azurecli
-az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
-```
-
-Här är ett utdrag av utdata från det här kommandot som visar information om registreringen du har skapat:
-
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/new-app-registration.png" alt-text="Fönstret Kommando med att skapa en resurs grupp och en Azure Digital-instans":::
-
-### <a name="verify-success"></a>Verifieringen lyckades
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
-
-Kontrol lera sedan att inställningarna från din uppladdade *manifest.jspå* har angetts korrekt i registreringen. Det gör du genom att välja *manifest* från meny raden för att visa appens registrerings manifest kod. Bläddra till slutet av kod fönstret och leta efter fälten från din *manifest.js* under `requiredResourceAccess` :
-
-[!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
-
-### <a name="collect-important-values"></a>Samla in viktiga värden
-
-Välj sedan *Översikt* på Meny raden för att se information om appens registrering:
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Fönstret Kommando med att skapa en resurs grupp och en Azure Digital-instans":::
-
-Anteckna *program* -ID och *katalog (klient)-ID: t* som **visas på sidan** . De här värdena kommer att behövas senare för att [autentisera en klient app mot de Azure Digitals dubbla API: er](how-to-authenticate-client.md). Om du inte är den person som ska skriva kod för sådana program måste du dela dessa värden med den person som ska vara.
-
-### <a name="other-possible-steps-for-your-organization"></a>Andra möjliga steg för din organisation
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
+Nu har du en Azure Digital-instansen som är redo att gå och har tilldelats behörighet att hantera den.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -154,5 +96,5 @@ Testa enskilda REST API-anrop på din instans med hjälp av Azure Digitals flät
 * [AZ DT-referens](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Anvisningar: använda Azure Digitals flätat CLI*](how-to-use-cli.md)
 
-Du kan också se hur du ansluter klient programmet till din instans genom att skriva klient appens autentiseringsnyckel:
+Du kan också se hur du ansluter ett klient program till din instans med autentiserings kod:
 * [*Instruktion: skriva kod för app-autentisering*](how-to-authenticate-client.md)

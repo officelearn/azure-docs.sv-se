@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/07/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: c0b08a6c1a784216abe2bd562109dbb1586252c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f40c2bb0f529f9e0683c67bea884443458707f4f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119818"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206602"
 ---
 # <a name="handle-exceptions-and-errors-in-msal-for-android"></a>Hantera undantag och fel i MSAL för Android
 
@@ -30,7 +30,7 @@ Under inloggningen kan du stöta på fel om medgivanden, villkorlig åtkomst (MF
 
 |Fel klass | Orsak/fel sträng| Så här hanterar du |
 |-----------|------------|----------------|
-|`MsalUiRequiredException`| <ul><li>`INVALID_GRANT`: Uppdateringstoken som används för att lösa in åtkomsttoken är ogiltig, har upphört att gälla eller återkallats. Detta undantag kan bero på en lösen ords ändring. </li><li>`NO_TOKENS_FOUND`: Åtkomsttoken finns inte och det går inte att hitta någon uppdateringstoken för att lösa in åtkomsttoken.</li> <li>Steg-upp krävs<ul><li>Multifaktorautentisering</li><li>Anspråk som saknas</li></ul></li><li>Blockeras av villkorlig åtkomst (till exempel krävs en installation av [Authentication Broker](./brokered-auth.md) )</li><li>`NO_ACCOUNT_FOUND`: Inget konto är tillgängligt i cacheminnet för tyst autentisering.</li></ul> |Anropa `acquireToken()` för att uppmana användaren att ange sitt användar namn och lösen ord och eventuellt godkänna och utföra Multi Factor Authentication.|
+|`MsalUiRequiredException`| <ul><li>`INVALID_GRANT`: Uppdateringstoken som används för att lösa in åtkomsttoken är ogiltig, har upphört att gälla eller återkallats. Detta undantag kan bero på en lösen ords ändring. </li><li>`NO_TOKENS_FOUND`: Åtkomsttoken finns inte och det går inte att hitta någon uppdateringstoken för att lösa in åtkomsttoken.</li> <li>Steg-upp krävs<ul><li>Multifaktorautentisering</li><li>Anspråk som saknas</li></ul></li><li>Blockeras av villkorlig åtkomst (till exempel krävs en installation av [Authentication Broker](./msal-android-single-sign-on.md) )</li><li>`NO_ACCOUNT_FOUND`: Inget konto är tillgängligt i cacheminnet för tyst autentisering.</li></ul> |Anropa `acquireToken()` för att uppmana användaren att ange sitt användar namn och lösen ord och eventuellt godkänna och utföra Multi Factor Authentication.|
 |`MsalDeclinedScopeException`|<ul><li>`DECLINED_SCOPE`: Användaren eller servern har inte accepterat alla omfattningar. Servern kan neka en omfattning om det begärda omfånget inte stöds, inte känns igen eller inte stöds för ett visst konto. </li></ul>| Utvecklaren bör bestämma om du vill fortsätta autentiseringen med de beviljade omfattningarna eller avsluta autentiseringsprocessen. Alternativ för att skicka begäran om Hämta token endast för beviljade omfattningar och tillhandahålla tips för vilka behörigheter som har beviljats genom att skicka `silentParametersForGrantedScopes` och anropa `acquireTokenSilent` . |
 |`MsalServiceException`|<ul><li>`INVALID_REQUEST`: Den här begäran saknar en obligatorisk parameter, innehåller en ogiltig parameter, innehåller en parameter mer än en gång eller är annars felaktig. </li><li>`SERVICE_NOT_AVAILABLE`: Representerar 500/503/506-felkoder på grund av att tjänsten inte är igång. </li><li>`UNAUTHORIZED_REQUEST`: Klienten har inte behörighet att begära en auktoriseringskod.</li><li>`ACCESS_DENIED`: Resurs ägaren eller auktoriseringsservern nekade begäran.</li><li>`INVALID_INSTANCE`: `AuthorityMetadata` verifieringen misslyckades</li><li>`UNKNOWN_ERROR`: Begäran till Server misslyckades, men inget fel `error_description` har returnerats från tjänsten.</li><ul>| Den här undantags klassen representerar fel vid kommunikation med tjänsten, kan vara från behörighets-eller token-slutpunkterna. MSAL läser fel och error_description från Server svaret. De här felen löses vanligt vis genom att du korrigerar appars konfigurationer i kod eller i registrerings portalen för appen. Sällan ett avbrott i tjänsten kan utlösa den här varningen, som bara kan begränsas genom att vänta på att tjänsten ska återställas.  |
 |`MsalClientException`|<ul><li> `MULTIPLE_MATCHING_TOKENS_DETECTED`: Det finns flera cacheposter och SDK: n kan inte identifiera rätt åtkomst eller uppdateringstoken från cachen. Detta undantag tyder vanligt vis på ett fel i SDK: n för att lagra token eller att utfärdaren inte finns i den tysta begäran och flera matchande token hittas. </li><li>`DEVICE_NETWORK_NOT_AVAILABLE`: Det finns inget aktivt nätverk på enheten. </li><li>`JSON_PARSE_FAILURE`: SDK kunde inte parsa JSON-formatet.</li><li>`IO_ERROR`: `IOException` hände, kan vara ett enhets-eller nätverks fel. </li><li>`MALFORMED_URL`: URL: en är felaktig. Troligt vis orsakades vid konstruktion av auth-begäran,-utfärdare eller omdirigerings-URI. </li><li>`UNSUPPORTED_ENCODING`: Kodningen stöds inte av enheten. </li><li>`NO_SUCH_ALGORITHM`: Algoritmen som används för att generera [PKCE](https://tools.ietf.org/html/rfc7636) -utmaningen stöds inte. </li><li>`INVALID_JWT`: `JWT` returnerad av servern är ogiltig eller tom eller felaktig. </li><li>`STATE_MISMATCH`: Tillstånd från svars svar matchade inte tillståndet i auktoriseringsbegäran. För auktoriserings begär Anden kontrollerar SDK det tillstånd som returnerades från omdirigering och den som skickas i begäran. </li><li>`UNSUPPORTED_URL`: URL: en stöds inte, det går inte att utföra verifiering av ADFS-auktoritet. </li><li> `AUTHORITY_VALIDATION_NOT_SUPPORTED`: Auktoriteten stöds inte för verifiering av utfärdare. SDK stöder B2C-utfärdare, men har inte stöd för verifiering av B2C-auktoritet. Endast välkänd värd kommer att stödjas. </li><li>`CHROME_NOT_INSTALLED`: Chrome är inte installerat på enheten. SDK använder en anpassad flik för begäran om auktorisering om det är tillgängligt och kommer att gå tillbaka till Chrome-webbläsaren. </li><li>`USER_MISMATCH`: Den användare som anges i begäran om inhämta token matchar inte användaren som returnerades från servern.</li></ul>|Den här undantags klassen representerar allmänna fel som är lokala i biblioteket. Dessa undantag kan hanteras genom att korrigera begäran.|
@@ -75,6 +75,6 @@ private SilentAuthenticationCallback getAuthSilentCallback() {
 }
 ```
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 
 Läs mer om [loggnings fel](./msal-logging.md?tabs=android)

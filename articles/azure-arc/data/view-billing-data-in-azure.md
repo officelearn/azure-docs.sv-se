@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108158"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206460"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Ladda upp fakturerings data till Azure och visa dem i Azure Portal
 
@@ -135,11 +135,11 @@ Du kan också regelbundet exportera **detaljerad** användnings-och fakturerings
 
 Följ de här stegen för att ställa in ett fakturerings export jobb:
 
-1. Klicka på Exportera till vänster.
-1. Klicka på Add (Lägg till).
+1. Klicka på **Exportera** till vänster.
+1. Klicka på **Lägg till**.
 1. Ange ett namn och en export frekvens och klicka på Nästa.
-1. Välj att antingen skapa ett nytt lagrings konto eller skapa ett nytt och fyll i formuläret för att ange lagrings konto, behållare och katalog Sök väg att exportera datafilerna till och klicka på Nästa.
-1. Klicka på Skapa.
+1. Välj att antingen skapa ett nytt lagrings konto eller använda ett befintligt konto och fyll i formuläret för att ange lagrings kontot, behållaren och sökvägen för att exportera datafilerna till och klicka på Nästa.
+1. Klicka på **Skapa**.
 
 Dina exportfiler för fakturerings data kommer att vara tillgängliga på ungefär fyra timmar och kommer att exporteras enligt det schema du angav när du skapade export jobbet för fakturering.
 
@@ -156,7 +156,7 @@ Du kan verifiera fakturerings data filen i Azure Portal.
 5. Klicka på den behållare som du angav när du skapade export jobbet för fakturering ovan.
 6. Klicka på den mapp som du angav när du skapade export jobbet för fakturering ovan.
 7. Öka detalj nivån i de genererade mapparna och filerna och klicka på en av de genererade CSV-filerna.
-8. Klicka på knappen Ladda ned för att spara filen i mappen med lokala nedladdningar.
+8. Klicka på knappen **Ladda ned** för att spara filen i mappen med lokala nedladdningar.
 9. Öppna filen med ett. CSV-filformat som Excel.
 10. Filtrera resultaten så att endast de rader som har **resurs typen**visas  =  `Microsoft.AzureData/<data service resource type` .
 11. Du kommer att se antalet timmar som instansen användes under den aktuella 24-timmarsperiod i kolumnen UsageQuantity.

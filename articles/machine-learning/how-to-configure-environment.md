@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: b97d36a5773eeb82a60330d0398ea19232f72b1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613721"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203100"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 
@@ -276,7 +276,7 @@ Om installationen lyckades bör det importerade biblioteket se ut ungefär så h
 Om klustret skapades med Databricks utan ML runtime 7,1 eller senare kör du följande kommando i den första cellen i antecknings boken för att installera AML SDK.
 
 ```
-%pip install -r https://aka.ms/automl_linux_requirements.txt
+%pip install --upgrade --force-reinstall -r https://aka.ms/automl_linux_requirements.txt
 ```
 För Databricks utan ML runtime 7,0 och lägre installerar du AML SDK med hjälp av [init-skriptet](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
 

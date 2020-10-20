@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: duau
-ms.openlocfilehash: db2f45da0193ac648d58c0be9773f36e542ed917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd1cad4031d83fd0e17286bfaabb77aa746b646a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397618"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202335"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Konfigurera BFD över ExpressRoute
 
@@ -68,7 +68,7 @@ Mellan BFD-peer-datorer fastställer överföringshastigheten för de två peer-
 >Om du har konfigurerat geo-redundanta ExpressRoute-kretsar eller använda VPN-anslutning från plats till plats som säkerhets kopiering, aktivering av BFD skulle hjälpa till att växla snabbare efter ett ExpressRoute anslutnings fel. 
 >
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Mer information eller hjälp finns i följande länkar:
 
@@ -79,12 +79,6 @@ Mer information eller hjälp finns i följande länkar:
 [1]: ./media/expressroute-bfd/BFD_Need.png "BFD påskyndar länkning" av länkfel
 
 <!--Link References-->
-[CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
-[CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ResetPeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-reset-peering
-
-
-
-
-
-
+[CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md
+[CreatePeering]: ./expressroute-howto-routing-portal-resource-manager.md
+[ResetPeering]: ./expressroute-howto-reset-peering.md

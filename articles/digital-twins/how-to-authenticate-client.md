@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bb35b81a287179900485c7190a57c492cfc39203
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d71a7535c40d240b6c9bf53cff906f12b4b8b5df
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043042"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204307"
 ---
 # <a name="write-client-app-authentication-code"></a>Skriv kod för klientautentisering för klient program
 
@@ -22,7 +22,7 @@ Azure Digitals dubblare utför autentisering med [Azure AD-säkerhetstoken baser
 
 I den här artikeln beskrivs hur du hämtar autentiseringsuppgifter med hjälp av `Azure.Identity` klient biblioteket. Även om den här artikeln visar kod exempel i C#, till exempel vad du skriver för [.net (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core), kan du använda en version av `Azure.Identity` oavsett vilken SDK du använder (mer information om SDK: er som är tillgängliga för Azure Digitals finns i [*How-to: använda Azures digitala dubbla API: er och SDK: er*](how-to-use-apis-sdks.md)).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför först installations stegen i [*anvisningar: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). På så sätt ser du till att du har en Azure Digitals-instans, att användaren har åtkomst behörighet och att du har konfigurerat behörigheter för klient program. När du har konfigurerat den här konfigurationen är du redo att skriva kod för klient program.
 
@@ -105,9 +105,9 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 
 [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) -metoden är avsedd för interaktiva program och kommer att hämta en webbläsare för autentisering. Du kan använda det här i stället för `DefaultAzureCredential` i fall där du kräver interaktiv autentisering.
 
-Om du vill använda autentiseringsuppgifter för den interaktiva webbläsaren behöver du en **registrerad app-registrering** som har behörighet till Azure Digitals dubbla API: er. Anvisningar om hur du konfigurerar den här appen finns i avsnittet [*Konfigurera åtkomst behörigheter för klient program*](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) i *anvisningar: Konfigurera en instans och autentisering*. När appens registrering har kon figurer ATS behöver du...
-* app-programmets registrerings *program (klient) ID*
-* appens registrerings *katalog (klient) ID*
+Om du vill använda autentiseringsuppgifter för den interaktiva webbläsaren behöver du en **registrerad app-registrering** som har behörighet till Azure Digitals dubbla API: er. Anvisningar för hur du konfigurerar den här appen finns i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md). När appens registrering har kon figurer ATS behöver du...
+* appens registrerings *program (klient) ID* ([instruktioner att söka efter](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* appens registrerings *katalog (klient)-ID* ([instruktioner att hitta](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * Azure Digitals sammanflätade instanss URL ([instruktioner att hitta](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 Här är ett exempel på koden för att skapa en autentiserad SDK-klient med hjälp av `InteractiveBrowserCredential` .

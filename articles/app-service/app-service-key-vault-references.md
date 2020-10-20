@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2806216bff462a673eddd8eba994d38b1c5e1fdc
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930500"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205854"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Använd Key Vault referenser för App Service och Azure Functions
 
@@ -30,8 +30,8 @@ För att kunna läsa hemligheter från Key Vault måste ett valv skapas och ge d
 
 1. Skapa en [åtkomst princip i Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) för den program identitet som du skapade tidigare. Aktivera hemliga behörigheten "Get" för den här principen. Konfigurera inte det "auktoriserade programmet" eller `applicationId` Inställningar, eftersom detta inte är kompatibelt med en hanterad identitet.
 
-    > [!IMPORTANT]
-    > Key Vault referenser kan för närvarande inte lösa hemligheter som lagras i ett nyckel valv med [nätverks begränsningar](../key-vault/general/overview-vnet-service-endpoints.md).
+   > [!IMPORTANT]
+   > Key Vault referenser kan för närvarande inte lösa hemligheter som lagras i ett nyckel valv med [nätverks begränsningar](../key-vault/general/overview-vnet-service-endpoints.md) om inte appen finns i en [App Service-miljön](./environment/intro.md).
 
 ## <a name="reference-syntax"></a>Syntax för referenser
 
@@ -45,8 +45,8 @@ En Key Vault referens är av formuläret `@Microsoft.KeyVault({referenceString})
 
 > [!NOTE] 
 > Versioner är för närvarande nödvändiga. När du roterar hemligheter måste du uppdatera versionen i program konfigurationen.
-
 En fullständig referens skulle till exempel se ut så här:
+
 
 ```
 @Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)

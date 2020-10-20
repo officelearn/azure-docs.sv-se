@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: b44e15e4592de5e874ee50ebd390940e8ab16a22
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 2a62cae025be05a8f5a6ef4407737ab8da36a951
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92157780"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92210805"
 ---
 ## <a name="configure-the-sample-project"></a>Konfigurera exempelprojektet
 
@@ -22,12 +22,10 @@ När du är i mappen navigerar du till _AdtSampleApp_. Öppna _**AdtE2ESample. S
 
 I Visual Studio använder du fönstret *Solution Explorer* för att skapa en kopia av den _SampleClientApp > **serviceConfig.js. MALLFIL** _ (du kan använda de högra menyerna för att kopiera och klistra in). Byt namn på kopian *serviceConfig.jspå*. Detta fungerar som en för hands uppsättnings-JSON-fil med nödvändiga konfigurationsfiler för att köra projektet.
 
-Välj *serviceConfig.jspå* filen för att öppna den i redigerings fönstret. Ändra `tenantId` till ditt *katalog-ID*, `clientId` till ditt *program-ID*och `instanceUrl` till din Azure Digital-instansen *värdnamn* -URL (med *https://* framför den som visas nedan).
+Välj *serviceConfig.jspå* filen för att öppna den i redigerings fönstret. Ändra `instanceUrl` till din Azure Digital-instansen med *värdnamn* -URL (med *https://* framför den som visas nedan).
 
 ```json
 {
-  "tenantId": "<your-directory-ID>",
-  "clientId": "<your-application-ID>",
   "instanceUrl": "https://<your-Azure-Digital-Twins-instance-hostName>"
 }
 ```

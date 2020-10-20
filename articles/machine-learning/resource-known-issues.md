@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
 ms.date: 10/02/2020
-ms.openlocfilehash: 365d38eedd327bb50bbbea01a6847738c482b1bd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d214a746a4eb5035e007136da80f4c69ae1dd1c8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091193"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204477"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Kända problem och fel sökning i Azure Machine Learning
 
@@ -306,20 +306,20 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
  
 * **NameError (namn har inte definierats), AttributeError (objektet har inget attribut)**: det här undantaget bör komma från dina utbildnings skript. Du kan titta på loggfilerna från Azure Portal för att få mer information om det angivna namnet inte är definierat eller ett attributvärde. Från SDK kan du använda `run.get_details()` för att titta på fel meddelandet. Detta visar även alla loggfiler som genererats för din körning. Se till att ta en titt på ditt utbildnings skript och åtgärda felet innan du skickar om körningen. 
 
-* **Horovod har stängts av**: i de flesta fall, om du stöter på "AbortedError: Horovod har stängts av" det här undantaget innebär det ett underliggande undantag i en av de processer som orsakade att Horovod stängdes. Varje rang i MPI-jobbet hämtar den egna dedikerade logg filen i Azure ML. De här loggarna kallas `70_driver_logs` . I händelse av distribuerad utbildning suffixs logg namnen med `_rank` för att göra det enklare att skilja loggarna åt. Om du vill hitta det exakta fel som orsakade Horovod stänger du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
+* **Horovod har stängts av**: i de flesta fall, om du stöter på "AbortedError: Horovod har stängts av" det här undantaget innebär det ett underliggande undantag i en av de processer som orsakade att Horovod stängdes. Varje rang i MPI-jobbet hämtar en egen dedikerad loggfilen i Azure ML. De här loggarna heter `70_driver_logs`. Vid distribuerad träning får loggnamnen suffixet `_rank` så att du enklare kan se skillnad på loggarna. Om du vill hitta det exakta fel som orsakade Horovod stänger du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 
 
 * **Körning eller experimentering**: experiment kan arkiveras med hjälp av metoden [experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truearchive--) eller från fliken experiment i Azure Machine Learning Studio-klienten via "arkivera experiment"-knappen. Den här åtgärden döljer experimentet från List frågor och vyer, men tar inte bort den.
 
-    Permanent borttagning av enskilda experiment eller körningar stöds inte för närvarande. Mer information om hur du tar bort arbets ytans till gångar finns i [Exportera eller ta bort data för Machine Learning service-arbetsytan](how-to-export-delete-data.md).
+    Permanent borttagning av enskilda experiment eller körningar stöds för närvarande inte. Mer information om hur du tar bort arbets ytans till gångar finns i [Exportera eller ta bort data för Machine Learning service-arbetsytan](how-to-export-delete-data.md).
 
-* **Mått dokumentet är för stort**: Azure Machine Learning har interna gränser för mått objekts storlek som kan loggas samtidigt från en utbildnings körning. Om ett "Metric-dokument är för stort"-fel vid loggning av ett List värdes mått kan du försöka dela listan i mindre segment, till exempel:
+* **Mått dokumentet är för stort**: Azure Machine Learning har interna gränser för mått objekts storlek som kan loggas samtidigt från en utbildnings körning. Om du ser felet ”Måttdokumentet är för stort” när ett mått med listor som värdetyp kan du prova att dela upp listan i mindre segment, till exempel:
 
     ```python
     run.log_list("my metric name", my_metric[:N])
     run.log_list("my metric name", my_metric[N:])
     ```
 
-    Internt sammanfogar Azure ML blocken med samma mått namn i en sammanhängande lista.
+    Internt sammanfogar Azure ML blocken med samma måttnamn i en sammanhängande lista.
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
@@ -365,7 +365,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
 * **automl_setup Miss lyckas**: 
-    * I Windows kör du automl_setup från en Anaconda-prompt. Klicka [här](https://docs.conda.io/en/latest/miniconda.html)om du vill installera Miniconda.
+    * I Windows kör du automl_setup från en Anaconda-prompt. Använd den här länken för att [Installera Miniconda](https://docs.conda.io/en/latest/miniconda.html).
     * Se till att Conda 64-bit är installerad, i stället för 32-bitars genom att köra `conda info` kommandot. `platform`Ska vara `win-64` för Windows eller `osx-64` Mac.
     * Se till att Conda 4.4.10 eller senare är installerat. Du kan kontrol lera versionen med kommandot `conda -V` . Om du har installerat en tidigare version kan du uppdatera den med hjälp av kommandot: `conda update conda` .
     * Linux `gcc: error trying to exec 'cc1plus'`
@@ -481,6 +481,12 @@ Till exempel visas ett fel meddelande om du försöker skapa eller ansluta ett b
 Rollbaserad åtkomst kontroll i Azure kan användas för att begränsa åtgärder som du kan utföra med Azure Machine Learning. Dessa begränsningar kan förhindra att användar gränssnitts objekt visas i Azure Machine Learning Studio. Om du till exempel har tilldelats en roll som inte kan skapa en beräknings instans visas inte alternativet för att skapa en beräknings instans i Studio.
 
 Mer information finns i [Hantera användare och roller](how-to-assign-roles.md).
+
+## <a name="compute-cluster-wont-resize"></a>Det går inte att ändra storlek på beräknings klustret
+
+Om ditt Azure Machine Learning Compute-kluster ser fastnat i storleks ändring (0-> 0) för Node-tillståndet kan detta bero på att Azure-resursens lås är låst.
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

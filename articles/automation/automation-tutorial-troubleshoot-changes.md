@@ -7,12 +7,12 @@ keywords: ändring, spårning, ändrings spårning, inventering, automatisering
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 05b99c7f010ad307956b70890ee45f649111b373
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530547"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204259"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Felsöka ändringar på en virtuell Azure-dator
 
@@ -30,7 +30,7 @@ I den här guiden får du lära du dig hur man:
 > * Visa ändringar
 > * Konfigurera aviseringar
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -238,4 +238,4 @@ I den här självstudiekursen lärde du dig att:
 Fortsätt till översikten över funktionen Ändringsspårning och inventering för att lära dig mer om det.
 
 > [!div class="nextstepaction"]
-> [Översikt över Ändringsspårning och inventering](./change-tracking.md)
+> [Översikt över Ändringsspårning och inventering](change-tracking/overview.md)

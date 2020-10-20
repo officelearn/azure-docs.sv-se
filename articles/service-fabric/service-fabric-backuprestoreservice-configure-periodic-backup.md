@@ -3,12 +3,12 @@ title: Förstå konfiguration av regelbunden säkerhetskopiering
 description: Använd Service Fabric periodiska säkerhets kopierings-och återställnings funktionen för att konfigurera regelbunden säkerhets kopiering av dina pålitliga tillstånds känsliga tjänster eller Reliable Actors.
 ms.topic: article
 ms.date: 2/01/2019
-ms.openlocfilehash: 852e430a9183d92e13536fd6499f3d1404985455
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633b13104ecc1697685f49a42b2a9c76b43b81d0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538627"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205701"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå regelbunden konfiguration av säkerhets kopiering i Azure Service Fabric
 
@@ -23,6 +23,9 @@ Att konfigurera regelbunden säkerhets kopiering av dina pålitliga tillstånds 
 En säkerhets kopierings princip består av följande konfigurationer:
 
 * **Automatisk återställning vid data förlust**: anger om återställning ska aktive ras automatiskt med den senaste tillgängliga säkerhets kopian, om partitionen upplever en data förlust händelse.
+> [!NOTE]
+> Vi rekommenderar att inte ställa in automatisk återställning i produktions kluster
+>
 
 * **Högsta antal säkerhets kopior**: definierar det maximala antalet stegvisa säkerhets kopior som ska tas mellan två fullständiga säkerhets kopieringar. Högsta antal stegvisa säkerhets kopieringar anger den övre gränsen. En fullständig säkerhets kopiering kan utföras innan det angivna antalet stegvisa säkerhets kopieringar har slutförts på något av följande villkor
 
@@ -86,6 +89,9 @@ En säkerhets kopierings princip består av följande konfigurationer:
             "ContainerName": "BackupContainer"
         }
         ```
+> [!NOTE]
+> Tjänsten för återställning av säkerhets kopiering fungerar inte med v1 Azure Storage
+>
 
     2. **Fil resurs**: den här lagrings typen ska väljas för _fristående_ kluster när behovet är att lagra data säkerhets kopia lokalt. Beskrivningen för den här lagrings typen kräver en fil resurs Sök väg där säkerhets kopior måste överföras. Åtkomst till fil resursen kan konfigureras med hjälp av något av följande alternativ
         1. _Integrerad Windows-autentisering_, där åtkomst till fil resursen tillhandahålls till alla datorer som hör till Service Fabric klustret. I det här fallet anger du följande fält för att konfigurera _fildelning_ baserad lagring av säkerhets kopior.
@@ -129,6 +135,10 @@ En säkerhets kopierings princip består av följande konfigurationer:
 
 ## <a name="enable-periodic-backup"></a>Aktivera periodisk säkerhets kopiering
 När du har definierat säkerhets kopierings policyn för att uppfylla kraven på säkerhets kopiering måste säkerhets kopierings principen vara lämplig för antingen ett _program_, en _tjänst_eller en _partition_.
+
+> [!NOTE]
+> Se till att inga program uppgraderingar pågår innan du aktiverar säkerhets kopiering
+>
 
 ### <a name="hierarchical-propagation-of-backup-policy"></a>Hierarkisk spridning av säkerhets kopierings princip
 I Service Fabric är relationen mellan program, tjänst och partitioner hierarkisk, som förklaras i [program modellen](./service-fabric-application-model.md). Säkerhets kopierings policyn kan kopplas antingen till ett _program_, en _tjänst_eller en _partition_ i hierarkin. Säkerhets kopierings policyn sprids hierarkiskt till nästa nivå. Förutsatt att det bara finns en säkerhets kopierings princip som skapats och associerats med ett _program_, säkerhets kopie ras alla tillstånds känsliga partitioner som tillhör alla _pålitliga tillstånds känsliga tjänster_ och _Reliable Actors_ av _programmet_ med säkerhets kopierings principen. Eller om säkerhets kopierings policyn är associerad med en _tillförlitlig tillstånds känslig tjänst_säkerhets kopie ras alla dess partitioner med säkerhets kopierings principen.
@@ -186,6 +196,9 @@ Säkerhets kopierings principer kan inaktive ras när det inte finns några beho
         "CleanBackup": true 
     }
     ```
+> [!NOTE]
+> Se till att inga program uppgraderingar pågår innan du inaktiverar säkerhets kopieringen
+>
 
 ## <a name="suspend--resume-backup"></a>Pausa & återuppta säkerhets kopieringen
 En viss situation kan kräva tillfällig fjädring av regelbunden säkerhets kopiering av data. I sådana fall, beroende på vad som krävs, kan du inaktivera säkerhets kopierings-API: et för ett _program_, en _tjänst_eller en _partition_. Regelbunden SUS Pension är transitiv över under trädet för programmets hierarki från den punkt som används. 
@@ -213,6 +226,10 @@ Inaktive ring kan bara anropas på en nivå som tidigare har Aktiver ATS för s�
 -Tjänstepartitionen kan förlora data på grund av oväntade fel. Till exempel kan disken för två av tre repliker för en partition (inklusive den primära repliken) skadas eller rensas.
 
 När Service Fabric upptäcker att partitionen har data förlust, anropar den `OnDataLossAsync` gränssnitts metod på partitionen och förväntar sig att partitionen ska vidta den nödvändiga åtgärden för att ta bort data förlust. I det här fallet `AutoRestoreOnDataLoss` `true` utlöses återställningen automatiskt med den senaste tillgängliga säkerhets kopian för den här partitionen, om den gällande säkerhets kopierings principen vid partitionen har angetts till.
+
+> [!NOTE]
+> Vi rekommenderar att inte ställa in automatisk återställning i produktions kluster
+>
 
 ## <a name="get-backup-configuration"></a>Hämta säkerhets kopierings konfiguration
 Separata API: er görs tillgängliga för att hämta konfigurations information för säkerhets kopiering i en _program_-, _tjänst_-och _partition_ omfattning. [Hämta konfigurations information för program säkerhets kopiering](/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Hämta konfigurations information för tjänst säkerhets kopiering](/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo)och [Hämta konfigurations information för säkerhets kopiering av partitioner](/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) är dessa API: er Huvudsakligen returnerar dessa API: er den tillämpliga säkerhets kopierings principen, omfattning som säkerhets kopierings principen tillämpas på och information om SUS pension. Följande är en kort beskrivning av returnerade resultat från dessa API: er.

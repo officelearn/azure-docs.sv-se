@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 9506b3430775f137c09fe3d155b203cdcbd14783
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d46b3ba9e3df5e2b3600db2be2a41789fed5242f
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070562"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207979"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor om Azure Kubernetes Service (AKS)
 
@@ -193,7 +193,7 @@ Nej, skalnings åtgärder med hjälp av API: er för skalnings uppsättningen f�
 
 ## <a name="can-i-use-custom-vm-extensions"></a>Kan jag använda anpassade VM-tillägg?
 
-Ingen AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte. Så här installerar du anpassade komponenter osv. Använd Kubernetes-API: er och mekanismer. Du kan till exempel utnyttja DaemonSets för att installera nödvändiga komponenter.
+Nej, AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte. Så här installerar du anpassade komponenter osv. Använd Kubernetes-API: er och mekanismer. Du kan till exempel utnyttja DaemonSets för att installera nödvändiga komponenter.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>Lagrar AKS kund information utanför klustrets region?
 

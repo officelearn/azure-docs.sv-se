@@ -6,20 +6,20 @@ author: duongau
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: 90ed68e36b47d46c47e78407fac3b5fd74924b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55c316a370b9e44e906e48b4716201384567c9c2
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89397091"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205888"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Självstudie: Styr trafikroutning med viktade slutpunkter med hjälp av Traffic Manager
 
 Den här självstudien beskriver hur du använder Azure Traffic Manager till att styra routningen av användartrafik mellan slutpunkter med hjälp av routningsmetoden Viktat. I den här routningsmetoden tilldelar du vikter till varje slutpunkt i Traffic Manager-profilkonfigurationen. Sedan dirigeras användartrafiken baserat på vikt som tilldelats varje slutpunkt. Vikten är ett heltal mellan 1 och 1000. Ju högre viktningsvärde som tilldelas till en slutpunkt desto högre prioritet har det.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer som kör en grundläggande webbplats i IIS.
@@ -31,7 +31,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill se hur Traffic Manager fungerar distribuerar du följande för den här självstudien:
 
@@ -137,7 +137,7 @@ Skapa en Traffic Manager-profil baserat på routningsmetoden **Viktat**.
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**  >  **nätverk**  >  **Traffic Manager profil**  >  **skapa**.
 2. I **Skapa Traffic Manager-profil** anger eller väljer du följande information. Acceptera standardinställningarna för de andra inställningarna och välj sedan **skapa**.
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Namn                   | Ange ett unikt namn inom trafficmanager.net-zonen. Det resulterar i DNS-namnet trafficmanager.net, som används för att få åtkomst till Traffic Manager-profilen.                                   |
     | Routningsmetod          | Välj routningsmetoden **Viktat**.                                       |
@@ -155,10 +155,10 @@ Lägg till de två virtuella datorerna som kör IIS-servrarna myIISVMEastUS och 
 2. Klicka på **Slutpunkter** på bladet **Traffic Manager-profil** i avsnittet **Inställningar** och välj  > **Lägg till**.
 3. Ange eller välj följande information. Acceptera standardinställningarna för de andra inställningarna och välj sedan **OK**.
 
-    | Inställningen                 | Värde                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Typ                    | Ange Azure-slutpunkten.                                   |
-    | Name           | Ange **myEastUSEndpoint**.                                        |
+    | Namn           | Ange **myEastUSEndpoint**.                                        |
     | Målresurstyp           | Välj **Offentlig IP-adress**.                          |
     | Målresurs          | Välj en offentlig IP-adress för att visa en lista över resurser med offentliga IP-adresser i samma prenumeration. I **Resurs** väljer du den offentliga IP-adressen med namnet **myIISVMEastUS-ip**. Det här är den offentliga IP-adressen för virtuella datorer med IIS i USA, östra.|
     |  Vikt      | Ange **100**.        |
@@ -201,11 +201,13 @@ I det här avsnittet får du se Traffic Manager i arbete.
 
 7. Upprepa steg 1-6 på VM-myVMWestEurope för att se svaret på den viktade webbplatsen.
 
-## <a name="delete-the-traffic-manager-profile"></a>Ta bort Traffic Manager-profilen
+## <a name="clean-up-resources"></a>Rensa resurser
 
 När du inte längre behöver de resursgrupper som skapades i den här självstudien kan du ta bort dem. Om du vill göra det markerar du resursgruppen (**ResourceGroupTM1** eller **ResourceGroupTM2**) och väljer sedan **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
+Mer information om routningsmetoder finns i:
+
 > [!div class="nextstepaction"]
-> [Dirigera trafik till specifika slutpunkter baserat på användarens geografiska plats](traffic-manager-configure-geographic-routing-method.md)
+> [Traffic routing-metod](traffic-manager-routing-methods.md)

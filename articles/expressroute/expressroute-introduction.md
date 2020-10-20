@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: 5de3d61f5b671f5ed6685e6cdee25be951fab69e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 82562eae748753cd785851c5d91f5f152b4c9960
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071888"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206959"
 ---
 # <a name="what-is-azure-expressroute"></a>Vad är Azure ExpressRoute?
 Med ExpressRoute kan du utöka dina lokala nätverk till Microsoft-molnet via en privat anslutning med hjälp av en anslutnings leverantör. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Microsoft 365.
@@ -39,7 +39,7 @@ Mer information finns i [Vanliga frågor och svar om ExpressRoute](expressroute-
 Microsoft använder BGP, branschens standardprotokoll för dynamisk routning för att utbyta routning mellan det lokala nätverket, dina instanser i Azure och Microsofts offentliga adresser. Vi upprättar flera BGP-sessioner med ditt nätverk för olika trafikprofiler. Mer information finns i artikeln [ExpressRoute-krets och routningsdomäner](expressroute-circuit-peerings.md).
 
 ### <a name="redundancy"></a>Redundans
-Varje ExpressRoute-krets består av två anslutningar till två Microsoft Enterprise Edge-routrar (msee) på en [ExpressRoute-plats](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations) från anslutnings leverantören/din nätverks gräns. Microsoft kräver en dubbel BGP-anslutning från anslutningsleverantören/din nätverksgräns – en för varje MSEE. Du kan välja att inte distribuera redundanta enheter/Ethernet-kretsar. Dock använder anslutningsleverantörer redundanta enheter för att dina projekt ska lämnas över till Microsoft på ett redundant sätt. En redundant Layer 3-anslutningskonfiguration är ett krav för att vår [SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltig.
+Varje ExpressRoute-krets består av två anslutningar till två Microsoft Enterprise Edge-routrar (msee) på en [ExpressRoute-plats](./expressroute-locations.md#expressroute-locations) från anslutnings leverantören/din nätverks gräns. Microsoft kräver en dubbel BGP-anslutning från anslutningsleverantören/din nätverksgräns – en för varje MSEE. Du kan välja att inte distribuera redundanta enheter/Ethernet-kretsar. Dock använder anslutningsleverantörer redundanta enheter för att dina projekt ska lämnas över till Microsoft på ett redundant sätt. En redundant Layer 3-anslutningskonfiguration är ett krav för att vår [SLA](https://azure.microsoft.com/support/legal/sla/) ska vara giltig.
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Anslutning till Microsofts molntjänster
 ExpressRoute-anslutningar ger åtkomst till följande tjänster:
@@ -82,7 +82,7 @@ Viktiga funktioner som ExpressRoute Direct tillhandahåller inkluderar, men är 
 * Fysisk isolering för branscher som är reglerade och kräver dedikerade och isolerade anslutningar, till exempel bankväsende, myndigheter och detaljhandel
 * Detaljerad kontroll över kretsfördelning utifrån affärsenheter
 
-Mer information finns i [Om ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
+Mer information finns i [Om ExpressRoute Direct](./expressroute-erdirect-about.md).
 
 ### <a name="bandwidth-options"></a>Bandbreddsalternativ
 Du kan köpa ExpressRoute-kretsar för en mängd olika bandbredder. De bandbredder som stöds visas som följer. Kontrollera med din anslutningsleverantör för att avgöra vilka bandbredder de stöder.
@@ -109,10 +109,10 @@ Du kan välja den faktureringsmodell som passar dig bäst. Välj mellan de faktu
   * Global anslutning för tjänster. En ExpressRoute-krets som har skapats i vilken region som helst (exklusive nationella moln) har till gång till resurser i alla andra regioner i världen. Till exempel kan ett virtuellt nätverk som skapats i Europa, västra nås via en ExpressRoute-krets som etablerats i Silicon Valley.
   * Ökat antal VNet-länkar per ExpressRoute-krets från 10 till en högre gräns, beroende på kretsens bandbredd.
 
-## <a name="faq"></a>Vanliga frågor
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 Vanliga frågor om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md).
 
-## <a name="whats-new"></a><a name="new"></a>Vad är det senaste?
+## <a name="whats-new"></a><a name="new"></a>Nyheter
 
 Prenumerera på RSS-flödet och Visa de senaste ExpressRoute-funktions uppdateringarna på sidan [Azure updates](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) .
 

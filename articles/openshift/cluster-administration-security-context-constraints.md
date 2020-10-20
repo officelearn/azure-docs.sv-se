@@ -7,14 +7,20 @@ ms.author: b-trconn
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 24163adcec889e9eedc2362ff1f01f00257a98f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb5c568f056a99187a0e7a78a6f89b206f2d8dec
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80063181"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220252"
 ---
-# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Hantera säkerhets kontext begränsningar i Azure Red Hat OpenShift 
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Hantera säkerhets kontext begränsningar i Azure Red Hat OpenShift
+
+> [!IMPORTANT]
+> Azure Red Hat OpenShift 3,11 kommer att dras tillbaka 30 juni 2022. Stöd för att skapa nya Azure Red Hat OpenShift 3,11-kluster fortsätter till och med 30 november 2020. Efter pensionering kommer de återstående Azure Red Hat OpenShift 3,11-klustren att stängas av för att förhindra säkerhets problem.
+> 
+> Följ den här guiden för att [skapa ett Azure Red Hat OpenShift 4-kluster](tutorial-create-cluster.md).
+> Om du har frågor kan du [kontakta oss](mailto:arofeedback@microsoft.com).
 
 Begränsningar för säkerhets kontexter (SCCs) gör det möjligt för kluster administratörer att kontrol lera behörigheter för poddar. Mer information om den här API-typen finns i [arkitektur dokumentationen för SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Du kan hantera SCCs i din instans som vanliga API-objekt med hjälp av CLI.
 

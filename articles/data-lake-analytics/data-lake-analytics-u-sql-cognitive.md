@@ -1,18 +1,16 @@
 ---
 title: Funktioner i U-SQL kognitivt i Azure Data Lake Analytics
 description: Lär dig hur du använder funktionerna för kognitiva funktioner i U-SQL. I det här kod exemplen får du hjälp att komma igång.
-services: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/05/2018
-ms.openlocfilehash: 35973f3453daf61ee18b04b68e2fee4dd2e52402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19d947b8b595107c76c1201d05e4d5ade3d7a092
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87125487"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92220066"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Kom igång med kognitiva funktioner i U-SQL
 
@@ -32,4 +30,4 @@ Innan du börjar följer du stegen i den här artikeln för att registrera kogni
 ## <a name="next-steps"></a>Nästa steg
 * [U-SQL/kognitiva exempel](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
 * [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Använda U-SQL-fönstrets funktioner för Azure Data Lake Analytics jobb](data-lake-analytics-use-window-functions.md)
+* [Använda U-SQL-fönstrets funktioner för Azure Data Lake Analytics jobb](./data-lake-analytics-u-sql-get-started.md)

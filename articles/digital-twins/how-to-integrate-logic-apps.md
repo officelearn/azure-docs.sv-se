@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: cbd8c91391cc1e3afe930094f34e5015ea3c3450
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 21e72e63dae2c52d04aca0cd11971fe5cd23fb47
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097532"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207554"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrera med Logic Apps med hjälp av en anpassad anslutning
 
@@ -26,7 +26,7 @@ Azure Digitals dubbla är för närvarande inte en certifierad (fördefinierad) 
 
 I den här artikeln ska du använda [Azure Portal](https://portal.azure.com) för att **skapa en anpassad anslutning** som kan användas för att ansluta Logic Apps till en digital Azure-instans. Sedan skapar du **en Logic-app** som använder den här anslutningen för ett exempel scenario, där händelser som utlöses av en timer automatiskt uppdaterar en dubbla i din Azure Digital-instansen. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du **skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ** innan du börjar.
 Logga in på [Azure Portal](https://portal.azure.com) med det här kontot. 
@@ -40,16 +40,15 @@ Du måste också utföra följande objekt som en del av den nödvändiga install
 
 Om du vill ansluta en Azure Digitals-instans till Logic Apps i den här artikeln måste du redan har konfigurerat **Azure Digital-instansen** . 
 
-Börja med att konfigurera en digital Azure-instans och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Beroende på din önskade upplevelse, erbjuds installations artikeln för skript exemplet [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)eller [automatiserad Cloud Shell distribution](how-to-set-up-instance-scripted.md). Alla versioner av instruktionerna innehåller också steg för att kontrol lera att du har slutfört varje steg och är redo att gå vidare till med den nya instansen.
+Börja med att **Konfigurera en digital Azure-instans** och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Beroende på din önskade upplevelse, erbjuds installations artikeln för skript exemplet [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)eller [automatiserad Cloud Shell distribution](how-to-set-up-instance-scripted.md). Alla versioner av instruktionerna innehåller också steg för att kontrol lera att du har slutfört varje steg och är redo att gå vidare till med den nya instansen.
+* När du har konfigurerat din Azure Digital-instansen behöver du instansen **_värdnamn_** ([hitta i Azure Portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-I den här självstudien behöver du flera värden från när du konfigurerar din instans. Om du behöver samla in värdena igen använder du länkarna nedan till motsvarande avsnitt i installations artikeln för att hitta dem i [Azure Portal](https://portal.azure.com).
-* Azure Digitals dubbla instans **_värd namn_** ([Sök i portalen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* ID för Azure AD App Registration- **_program (klient)_** ([Sök i portalen](how-to-set-up-instance-portal.md#collect-important-values))
-* ID för Azure AD App Registration **_-katalogen (klient)_** ([Sök i portalen](how-to-set-up-instance-portal.md#collect-important-values))
+För att kunna autentisera ADT Explorer-programmet måste du också konfigurera en app- **registrering**. Följ instruktionerna i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md) för att konfigurera den här. 
+* När du har registrerat en app behöver du registreringens **_program_** -ID och **_katalog (klient)-ID_** ([hitta i Azure Portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Hämta klient hemlighet för app-registrering
 
-Du måste också skapa en **_klient hemlighet_** för din Azure AD-App-registrering. Det gör du genom att gå till sidan [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal (du kan använda den här länken eller leta efter den i portalens Sök fält). Öppna informationen genom att välja registreringen i listan. 
+Du måste också skapa en **_klient hemlighet_** för din Azure AD-App-registrering. Det gör du genom att gå till sidan [Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal (du kan använda den här länken eller leta efter den i portalens Sök fält). Välj din registrering som du skapade i föregående avsnitt i listan för att öppna dess information. 
 
 Besök *certifikat och hemligheter* från registrerings menyn och välj *+ ny klient hemlighet*.
 

@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2595c79c024ea7583f6c6a263dcf4f6034ba6df9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 741f1ba60a5824654737558d9d977333d3911f45
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072296"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201689"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Key Vault tillägg för virtuell dator för Windows
 
@@ -85,9 +85,9 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Name | Värde/exempel | Datatyp |
+| Namn | Värde/exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | datum |
 | utgivare | Microsoft.Azure.KeyVault | sträng |
 | typ | KeyVaultForWindows | sträng |
 | typeHandlerVersion | 1.0 | int |
@@ -222,6 +222,11 @@ Observera följande begränsningar/krav:
 ### <a name="troubleshoot"></a>Felsöka
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell.
+
+### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+
+* Finns det en gräns för hur många observedCertificates du kan konfigurera?
+  Nej, Key Vault VM-tillägget har inte någon gräns för antalet observedCertificates.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell

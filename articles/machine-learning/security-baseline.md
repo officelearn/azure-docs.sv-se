@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 831e72610690753a62c04b51e277110653e0d2c9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107682"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204341"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azures säkerhets bas linje för Azure Machine Learning
 
@@ -721,7 +721,7 @@ Ta bort Azure-resurser när de inte längre behövs.
 
 - [Så här använder du övervakning av fil integritet](../security-center/security-center-file-integrity-monitoring.md)
 
-- [Förstå Azure Automation Ändringsspårning och inventering](../automation/change-tracking.md)
+- [Förstå Azure Automation Ändringsspårning och inventering](../automation/change-tracking/overview.md)
 
 - [Så här aktiverar du inventering av virtuella Azure-datorer](../automation/automation-tutorial-installed-software.md)
 
@@ -820,7 +820,7 @@ Azure Machine Learning har fullt stöd för git-lagringsplatser för att spåra 
 
 - [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+- [Säkerhetsrekommendationer – en referensguide](../security-center/recommendations-reference.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -834,7 +834,7 @@ Azure Machine Learning har varierande stöd för olika beräknings resurser och 
 
 - [Så här övervakar du Azure Security Center rekommendationer](../security-center/security-center-recommendations.md)
 
-- [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+- [Säkerhetsrekommendationer – en referensguide](../security-center/recommendations-reference.md)
 
 - [Översikt över Azure Automation tillstånds konfiguration](../automation/automation-dsc-overview.md)
 
@@ -1129,7 +1129,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 

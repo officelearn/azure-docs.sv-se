@@ -7,12 +7,12 @@ ms.date: 10/03/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: github-actions-azure
-ms.openlocfilehash: d6f66993b0fb7f97c551f4fbcb305111cfb2097e
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3bc407791b25e4dc1dddd61b60b3cefe0195919
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150274"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203202"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>Distribuera en anpassad behållare för att App Service med GitHub-åtgärder
 
@@ -190,15 +190,17 @@ jobs:
 
 ## <a name="deploy-to-an-app-service-container"></a>Distribuera till en App Service-behållare
 
-Om du vill distribuera avbildningen till en anpassad behållare i App Service använder du `azure/webapps-deploy@v2` åtgärden. Den här åtgärden har fem parametrar:
+Om du vill distribuera avbildningen till en anpassad behållare i App Service använder du `azure/webapps-deploy@v2` åtgärden. Den här åtgärden har sju parametrar:
 
 | **Parameter**  | **Förklaring**  |
 |---------|---------|
 | **App-Name** | Kunna Namnet på App Service-appen | 
-| **publicera – profil** | Valfritt Publicera profil filens innehåll med webb distributions hemligheter |
-| **avbildningar** | Fullständigt kvalificerat behållar avbildnings namn. Till exempel "myregistry.azurecr.io/nginx:latest" eller "python: 3.7.2-alpina/". För scenario med flera behållare kan du ange namn på flera behållar avbildningar (flera rader separerade) |
+| **publicera – profil** | Valfritt Gäller för Web Apps (Windows och Linux) och Web App-behållare (Linux). Scenario för flera behållare stöds inte. Publicera profil \* fil innehåll (. publishsettings) med webb distributions hemligheter | 
 | **plats namn** | Valfritt Ange en befintlig plats förutom produktions platsen |
-| **konfiguration – fil** | Valfritt Sökväg till Docker-Compose-filen |
+| **paketfilerna** | Valfritt Gäller endast för webbappen: sökväg till paket eller mapp. \*. zip, \* . War, \* . jar eller en mapp för distribution |
+| **avbildningar** | Kunna Gäller endast för webb program behållare: Ange det fullständigt kvalificerade behållar avbildnings namnet. Till exempel "myregistry.azurecr.io/nginx:latest" eller "python: 3.7.2-alpina/". För en app med flera behållare kan du ange flera behållar avbildnings namn (flera rader separerade) |
+| **konfiguration – fil** | Valfritt Gäller endast för webbappens behållare: sökvägen till Docker-Compose-filen. Måste vara en fullständigt kvalificerad sökväg eller i förhållande till standard arbets katalogen. Krävs för appar med flera behållare. |
+| **Start kommando** | Valfritt Ange start kommandot. För t. ex. dotNet-körning eller dotNet-filename.dll |
 
 # <a name="publish-profile"></a>[Publicera profil](#tab/publish-profile)
 

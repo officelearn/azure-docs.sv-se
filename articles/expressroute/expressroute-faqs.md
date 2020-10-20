@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: a862b978d7737d3d1c301d090012576f64a3ddda
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150738"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202216"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -80,12 +80,12 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
-Om din ExpressRoute-krets är aktive rad för Microsoft-peering för Azure kan du komma åt de [offentliga IP-adressintervall](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) som används i Azure över kretsen. Azure Microsoft-peering ger till gång till tjänster som finns i Azure (med geo-begränsningar beroende på din krets-SKU). Om du vill verifiera tillgänglighet för en speciell tjänst kan du kontrol lera dokumentationen för tjänsten för att se om det finns ett reserverat intervall publicerat för tjänsten. Leta sedan upp IP-intervallen för mål tjänsten och jämför med intervallen som anges i [Azure IP-intervallen och service märken – offentlig moln-XML-fil](https://www.microsoft.com/download/details.aspx?id=56519). Du kan också öppna ett support ärende för tjänsten i fråga för att klargöra.
+Om din ExpressRoute-krets är aktive rad för Microsoft-peering för Azure kan du komma åt de [offentliga IP-adressintervall](../virtual-network/public-ip-addresses.md#public-ip-addresses) som används i Azure över kretsen. Azure Microsoft-peering ger till gång till tjänster som finns i Azure (med geo-begränsningar beroende på din krets-SKU). Om du vill verifiera tillgänglighet för en speciell tjänst kan du kontrol lera dokumentationen för tjänsten för att se om det finns ett reserverat intervall publicerat för tjänsten. Leta sedan upp IP-intervallen för mål tjänsten och jämför med intervallen som anges i [Azure IP-intervallen och service märken – offentlig moln-XML-fil](https://www.microsoft.com/download/details.aspx?id=56519). Du kan också öppna ett support ärende för tjänsten i fråga för att klargöra.
 
 **Tillåtna**
 
 * [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
-* Power BI – tillgängligt via en regional Azure-community, finns [här](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) för hur du kan ta reda på den region där din Power BI-klient finns.
+* Power BI – tillgängligt via en regional Azure-community, finns [här](/power-bi/service-admin-where-is-my-tenant-located) för hur du kan ta reda på den region där din Power BI-klient finns.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azures globala tjänster community)
 * Offentliga Azure-IP-adresser för IaaS (Virtual Machines, Virtual Network gatewayer, belastnings utjämning osv.)  
@@ -118,7 +118,7 @@ Om du ser meddelandet "validering krävs" samlar du in dokumenten som visar att 
 Dynamics 365-och Common Data Service-miljöer (CD) är värdbaserade på Azure och därför drar kunderna nytta av det underliggande ExpressRoute-stödet för Azure-resurser. Du kan ansluta till dess tjänst slut punkter om ditt router-filter innehåller Azure-regionerna som dina Dynamics 365/CD-miljöer finns i.
 
 > [!NOTE]
-> [ExpressRoute Premium](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) krävs **inte** för Dynamics 365-anslutning via Azure ExpressRoute om ExpressRoute-kretsen har distribuerats inom samma [naturpolitisk region](https://docs.microsoft.com/azure/expressroute/expressroute-locations-providers#expressroute-locations).
+> [ExpressRoute Premium](#expressroute-premium) krävs **inte** för Dynamics 365-anslutning via Azure ExpressRoute om ExpressRoute-kretsen har distribuerats inom samma [naturpolitisk region](./expressroute-locations-providers.md#expressroute-locations).
 
 ## <a name="data-and-connections"></a>Data och anslutningar
 
@@ -152,15 +152,15 @@ Du kommer inte att förlora anslutningen om någon av kors anslutningarna Miss l
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Hur gör jag för att implementera redundans på privat peering?
 
-Flera ExpressRoute-kretsar från olika peering-platser eller upp till fyra anslutningar från samma peering-plats kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) till en av de lokala anslutningarna för att föredra en speciell krets. Vi rekommenderar starkt att kunderna installerar minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
+Flera ExpressRoute-kretsar från olika peering-platser eller upp till fyra anslutningar från samma peering-plats kan anslutas till samma virtuella nätverk för att tillhandahålla hög tillgänglighet om en enda krets blir otillgänglig. Du kan sedan [tilldela högre vikter](./expressroute-optimize-routing.md#solution-assign-a-high-weight-to-local-connection) till en av de lokala anslutningarna för att föredra en speciell krets. Vi rekommenderar starkt att kunderna installerar minst två ExpressRoute-kretsar för att undvika enskilda felpunkter. 
 
-Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för att utforma för hög tillgänglighet [och för att utforma](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) för haveri beredskap.  
+Se [här](./designing-for-high-availability-with-expressroute.md) för att utforma för hög tillgänglighet [och för att utforma](./designing-for-disaster-recovery-with-expressroute-privatepeering.md) för haveri beredskap.  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Hur implementerar jag redundans på Microsoft-peering?
 
-Vi rekommenderar starkt att du använder Microsoft-peering för att få åtkomst till Azures offentliga tjänster som Azure Storage eller Azure SQL, samt kunder som använder Microsoft-peering för att Microsoft 365 att de implementerar flera kretsar på olika peering-platser för att undvika enskilda fel punkter. Kunder kan antingen annonsera samma prefix på båda kretsarna och använda [som sökväg förväntat](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) eller annonsera olika prefix för att fastställa sökväg lokalt.
+Vi rekommenderar starkt att du använder Microsoft-peering för att få åtkomst till Azures offentliga tjänster som Azure Storage eller Azure SQL, samt kunder som använder Microsoft-peering för att Microsoft 365 att de implementerar flera kretsar på olika peering-platser för att undvika enskilda fel punkter. Kunder kan antingen annonsera samma prefix på båda kretsarna och använda [som sökväg förväntat](./expressroute-optimize-routing.md#solution-use-as-path-prepending) eller annonsera olika prefix för att fastställa sökväg lokalt.
 
-Se [här](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) för att utforma för hög tillgänglighet.
+Se [här](./designing-for-high-availability-with-expressroute.md) för att utforma för hög tillgänglighet.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hur gör jag för att garantera hög tillgänglighet på ett virtuellt nätverk som är anslutet till ExpressRoute?
 
@@ -170,7 +170,7 @@ Du kan få hög tillgänglighet genom att ansluta upp till fyra ExpressRoute-kre
 
 Du måste implementera attributet *lokal inställning* på din router (er) för att säkerställa att sökvägen från lokal till Azure alltid prioriteras på dina ExpressRoute-kretsar.
 
-Se ytterligare information [här](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) om val av BGP-sökvägar och vanliga konfigurationer av routrar. 
+Se ytterligare information [här](./expressroute-optimize-routing.md#path-selection-on-microsoft-and-public-peerings) om val av BGP-sökvägar och vanliga konfigurationer av routrar. 
 
 ### <a name="if-im-not-co-located-at-a-cloud-exchange-and-my-service-provider-offers-point-to-point-connection-do-i-need-to-order-two-physical-connections-between-my-on-premises-network-and-microsoft"></a><a name="onep2plink"></a>Måste jag beställa två fysiska anslutningar mellan mitt lokala nätverk och Microsoft om jag inte är samordnad i ett moln utbyte och min tjänst leverantör har en punkt-till-punkt-anslutning?
 
@@ -384,7 +384,7 @@ Mer information finns i [ExpressRoute-partners och-platser](expressroute-locatio
 Ja. Microsoft 365 tjänstens slut punkter går att komma åt via Internet, även om ExpressRoute har kon figurer ATS för nätverket. Kontakta din organisations nätverks team om nätverket på din plats är konfigurerat för att ansluta till Microsoft 365 Services via ExpressRoute.
 
 ### <a name="how-can-i-plan-for-high-availability-for-microsoft-365-network-traffic-on-azure-expressroute"></a>Hur kan jag planera för hög tillgänglighet för Microsoft 365 nätverks trafik på Azure-ExpressRoute?
-Se rekommendationer för [hög tillgänglighet och redundans med Azure ExpressRoute](https://aka.ms/erhighavailability)
+Se rekommendationer för [hög tillgänglighet och redundans med Azure ExpressRoute](/microsoft-365/enterprise/network-planning-with-expressroute)
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Kan jag få åtkomst till Office 365 amerikanska GCC-tjänster (amerikanska myndigheter) via en ExpressRoute-krets för Azure-myndigheter?
 
@@ -422,5 +422,4 @@ Din befintliga krets fortsätter att annonsera om prefixen för Microsoft 365. O
 
 ### <a name="does-the-expressroute-service-store-customer-data"></a>Lagrar ExpressRoute-tjänsten kund information?
 
-Nej. 
-
+Nej.

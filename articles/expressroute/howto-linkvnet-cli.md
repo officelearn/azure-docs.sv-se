@@ -7,26 +7,26 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
-ms.openlocfilehash: 41bb72ba4c220a0dd2ebb93f2bd313a15d108faa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9dda384e2ef30808559d10012dea2909b2af0fd
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856287"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206942"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>Självstudie: ansluta ett virtuellt nätverk till en ExpressRoute-krets med CLI
 
 Den här självstudien visar hur du länkar virtuella nätverk (virtuella nätverk) till Azure ExpressRoute-kretsar med Azure CLI. Om du vill länka med Azure CLI måste de virtuella nätverken skapas med distributions modellen för Resource Manager. De kan antingen finnas i samma prenumeration eller ingå i en annan prenumeration. Om du vill använda en annan metod för att ansluta ditt VNet till en ExpressRoute-krets kan du välja en artikel från följande lista:
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure-portalen](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
 > * [Video – Azure Portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (klassisk)](expressroute-howto-linkvnet-classic.md)
 > 
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > - Anslut ett virtuellt nätverk i samma prenumeration till en krets
 > - Anslut ett virtuellt nätverk i en annan prenumeration till en krets
@@ -35,13 +35,13 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du behöver den senaste versionen av kommando rads gränssnittet (CLI). Mer information finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Du behöver den senaste versionen av kommando rads gränssnittet (CLI). Mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 * Granska kraven [prerequisites](expressroute-prerequisites.md), kraven för [routning](expressroute-routing.md)och [arbets flöden](expressroute-workflows.md) innan du påbörjar konfigurationen.
 * Du måste ha en aktiv ExpressRoute-krets. 
   * Följ anvisningarna för att [skapa en ExpressRoute-krets](howto-circuit-cli.md) och ha den krets som Aktiver ATS av anslutnings leverantören. 
   * Se till att du har konfigurerat Azures privata peering för din krets. Mer information finns i artikeln [om konfigurering av routning](howto-routing-cli.md) . 
   * Se till att Azures privata peering har kon figurer ATS. BGP-peering mellan ditt nätverk och Microsoft måste upprättas så att du kan aktivera slutpunkt-till-slutpunkt-anslutning.
-  * Se till att du har ett virtuellt nätverk och en virtuell nätverksgateway som skapats och är helt etablerad. Följ anvisningarna för att [Konfigurera en virtuell nätverksgateway för ExpressRoute](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli). Var noga med att använda `--gateway-type ExpressRoute` .
+  * Se till att du har ett virtuellt nätverk och en virtuell nätverksgateway som skapats och är helt etablerad. Följ anvisningarna för att [Konfigurera en virtuell nätverksgateway för ExpressRoute](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md). Var noga med att använda `--gateway-type ExpressRoute` .
 * Du kan länka upp till 10 virtuella nätverk till en standard ExpressRoute-krets. Alla virtuella nätverk måste finnas i samma naturpolitisk region när man använder en standard ExpressRoute-krets. 
 * Ett enda VNet kan länkas till upp till fyra ExpressRoute-kretsar. Använd följande process för att skapa ett nytt anslutnings objekt för varje ExpressRoute-krets som du ansluter till. ExpressRoute-kretsarna kan vara i samma prenumeration, olika prenumerationer eller en blandning av båda.
 * Om du aktiverar ExpressRoute Premium-tillägget kan du länka virtuella nätverk utanför det politiska området för ExpressRoute-kretsen. Med Premium-tillägget kan du också ansluta fler än 10 virtuella nätverk till din ExpressRoute-krets beroende på vilken bandbredd som valts. Läs [vanliga frågor och svar](expressroute-faqs.md) om du vill ha mer information om Premium-tillägget.

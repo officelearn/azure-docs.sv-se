@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 468d21abc861e905472d1d15405b1c8ba9e5be74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d8905fbdcfc03f2683698cca57ab6c066e77863
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904884"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92205939"
 ---
 # <a name="cut-planes"></a>Klippa ut planer
 
@@ -94,8 +94,8 @@ Varje aktivt klipp plan kostar en låg kostnad under åter givningen. Inaktivera
 
 ## <a name="api-documentation"></a>API-dokumentation
 
-* [C# CutPlaneComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
-* [C++ CutPlaneComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
+* [C# CutPlaneComponent-klass](/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
+* [C++ CutPlaneComponent-klass](/cpp/api/remote-rendering/cutplanecomponent)
 
 ## <a name="next-steps"></a>Nästa steg
 

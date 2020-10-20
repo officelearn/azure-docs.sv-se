@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dcb8489d94b9afc3ae4df829b37dd9785383d85
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89396496"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208251"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Konfigurera IPsec-transportläge för privat ExpressRoute-peering
 
@@ -65,7 +65,7 @@ När du konfigurerar IPsec-principen är det viktigt att förstå följande term
 
 Se till att du uppfyller följande krav:
 
-* Du måste ha en fungerande Active Directory konfiguration som du kan använda för att implementera grupprincip inställningar. Mer information om grup princip objekt finns i [Grupprincip objekt](https://msdn.microsoft.com/library/windows/desktop/aa374162(v=vs.85).aspx).
+* Du måste ha en fungerande Active Directory konfiguration som du kan använda för att implementera grupprincip inställningar. Mer information om grup princip objekt finns i [Grupprincip objekt](/previous-versions/windows/desktop/Policy/group-policy-objects).
 
 * Du måste ha en aktiv ExpressRoute-krets.
   * Information om hur du skapar en ExpressRoute-krets finns i [skapa en ExpressRoute-krets](expressroute-howto-circuit-arm.md). 

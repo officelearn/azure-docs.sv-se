@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0580614468d4003b3640fd4df08ff02f3a1c8476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04cb48a3ff84a67995c1a920a323fa568a67cdf3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021076"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203253"
 ---
 # <a name="tutorial-refining-materials-lighting-and-effects"></a>Självstudie: förfina material, belysning och effekter
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 > * Segmentera genom modeller med klipp plan
 > * Lägg till enkla animeringar för fjärrrenderade objekt
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här självstudien bygger på [Självstudier: manipulera modeller](..\manipulate-models\manipulate-models.md).
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Att tillhandahålla visuell feedback till användaren är en viktig del av användar upplevelsen i alla program. Azure fjärrrendering tillhandahåller visuella feedback-mekanismer genom [hierarkiska tillstånds åsidosättningar](../../../overview/features/override-hierarchical-state.md). Åsidosättningar av hierarkiskt tillstånd implementeras med komponenter som är kopplade till lokala modell instanser. Vi har lärt dig hur du skapar de här lokala instanserna i [synkroniseringen av Fjärrobjektets graf till Unity-hierarkin](../manipulate-models/manipulate-models.md#synchronizing-the-remote-object-graph-into-the-unity-hierarchy).
 
-Först skapar vi en omslutning runt [**HierarchicalStateOverrideComponent**](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) -komponenten. **HierarchicalStateOverrideComponent** är det lokala skript som styr åsidosättningarna på den fjärranslutna entiteten. [**Självstudiernas till gångar**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) innehåller en abstrakt basklass som heter **BaseEntityOverrideController**, som vi utökar för att skapa omslutningen.
+Först skapar vi en omslutning runt [**HierarchicalStateOverrideComponent**](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent) -komponenten. **HierarchicalStateOverrideComponent** är det lokala skript som styr åsidosättningarna på den fjärranslutna entiteten. [**Självstudiernas till gångar**](../custom-models/custom-models.md#import-assets-used-by-this-tutorial) innehåller en abstrakt basklass som heter **BaseEntityOverrideController**, som vi utökar för att skapa omslutningen.
 
 1. Skapa ett nytt skript med namnet **EntityOverrideController** och ersätt innehållet med följande kod:
 

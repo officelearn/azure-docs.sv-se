@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 17e3e8dca1c03f9783c0ca94350bb8a4ba5aca64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 737c7e61a7ae0573ca6de0d6daa8288313f70741
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941372"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201910"
 ---
 # <a name="securing-azure-sql-edge"></a>Skydda Azure SQL Edge
 
@@ -92,8 +92,8 @@ I likhet med Azure SQL och Microsoft SQL Server tillhandahåller Azure SQL Edge 
 
 Metod tips för Azure SQL Edge Security är att skriva säkra klient program. Mer information om hur du skyddar klient program på nätverks nivå finns i [klient nätverks konfiguration](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration).
 
-### <a name="sql-server-security-catalog-views-and-functions"></a>SQL Server säkerhets katalogs visningar och funktioner  
- Säkerhets information visas i flera vyer och funktioner som är optimerade för prestanda och verktyg. Följande tabell innehåller information om säkerhets vyer och-funktioner.  
+### <a name="security-catalog-views-and-functions"></a>Säkerhets katalogs visningar och funktioner  
+Säkerhets information visas i flera vyer och funktioner som är optimerade för prestanda och verktyg. Följande tabell innehåller information om säkerhetsvyer och funktioner i Azure SQL Edge.  
   
 |Funktioner och vyer|Länkar|  
 |---------------------------|---------|  

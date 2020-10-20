@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 845c4f3194f35c68306e74734e5ecc6109d9c103
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087147038286bd7363fcc0eb3812abccc6ef9206
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318032"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201842"
 ---
 # <a name="security-control-v2-asset-management"></a>Säkerhets kontroll v2: till gångs hantering
 
@@ -150,7 +150,7 @@ Du kan också använda en lösning från tredje part för att identifiera och id
 
 - [Använda Azure Security Center adaptiva program kontroller](../../security-center/security-center-adaptive-application.md)
 
-- [Förstå Azure Automation Ändringsspårning och inventering](../../automation/change-tracking.md)
+- [Förstå Azure Automation Ändringsspårning och inventering](../../automation/change-tracking/overview.md)
 
 - [Så här styr du körning av PowerShell-skript i Windows-miljöer](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 

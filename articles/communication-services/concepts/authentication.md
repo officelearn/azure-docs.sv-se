@@ -9,12 +9,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 928737608ae3e3e44b352724713a284ff9a45da9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 939c36cd62dab4362232aef0da8701b34a88c6ff
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941752"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202964"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autentisera till Azure Communication Services
 
@@ -33,7 +33,7 @@ I följande tabell beskrivs vilka autentiseringsalternativ som stöds av klient 
 
 Varje Authorization-alternativ beskrivs kortfattat nedan:
 
-- **Åtkomst nyckel** autentisering för SMS-och administrations åtgärder. Autentisering av åtkomst nycklar är lämpligt för program som körs i en betrodd tjänst miljö. För att autentisera med en åtkomst nyckel genererar en-klient en [hash-baserad metod verifierings kod (HMAC)](https://en.wikipedia.org/wiki/HMAC) och inkluderar den i `Authorization` rubriken för varje http-begäran. Mer information finns i [autentisera med en åtkomst nyckel](#authenticate-with-an-access-key).
+- **Åtkomst nyckel** autentisering för SMS-och administrations åtgärder. Autentisering av åtkomst nycklar är lämpligt för program som körs i en betrodd tjänst miljö. För att autentisera med en åtkomst nyckel genererar en klient en [hash-baserad meddelande verifierings kod (HMAC)](https://en.wikipedia.org/wiki/HMAC) och inkluderar den i `Authorization` rubriken för varje http-begäran. Mer information finns i [autentisera med en åtkomst nyckel](#authenticate-with-an-access-key).
 - **Token** -autentisering för användar åtkomst för chatt och uppringning. Token för användar åtkomst gör att klient programmen autentiseras direkt mot Azure Communication Services. Dessa tokens genereras på en server sidans etablerings tjänst för token som du skapar. De tillhandahålls sedan till klient enheter som använder token för att initiera chatten och anropa klient biblioteken. Mer information finns i [autentisera med en token för användar åtkomst](#authenticate-with-a-user-access-token).
 
 ## <a name="authenticate-with-an-access-key"></a>Autentisera med en åtkomst nyckel

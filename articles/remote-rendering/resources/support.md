@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 04/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 082148ecfd4332abb42f96afcd94032d428069ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a05216fd44a64c037561662009987615f5657a8
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782525"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207180"
 ---
 # <a name="azure-remote-rendering-support-options"></a>Support alternativ för Azure Remote rendering
 
@@ -56,7 +56,7 @@ Om du vill ge feedback, dela med dig av en idé eller förslag för Azure-fjärr
 
 ## <a name="microsoft-qa"></a>Microsoft Q&A
 
-För snabba och pålitliga svar på dina tekniska produkt frågor från Microsoft-tekniker, Azure Most Valuable profession ALS (MVP) eller vår expert community, engagerar vi oss på [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-remote-rendering.html), Azures önskade mål för Community-support.
+För snabba och pålitliga svar på dina tekniska produkt frågor från Microsoft-tekniker, Azure Most Valuable profession ALS (MVP) eller vår expert community, engagerar vi oss på [Microsoft Q&A](/answers/topics/azure-remote-rendering.html), Azures önskade mål för Community-support.
 
 ## <a name="next-steps"></a>Nästa steg
 

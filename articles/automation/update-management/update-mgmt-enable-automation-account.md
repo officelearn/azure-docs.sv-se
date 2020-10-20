@@ -2,15 +2,15 @@
 title: Aktivera Azure Automation Uppdateringshantering från Automation-konto
 description: Den här artikeln beskriver hur du aktiverar Uppdateringshantering från ett Automation-konto.
 services: automation
-ms.date: 09/09/2020
+ms.date: 10/15/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b46bd1e30efff81748389ef62c46410479fb4b
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669506"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206636"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Aktivera Uppdateringshantering från ett Automation-konto
 
@@ -65,14 +65,14 @@ Manuellt installerade datorer eller datorer som redan rapporterar till din arbet
 
     ![Sparade sökningar](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. Om du vill aktivera Uppdateringshantering för alla tillgängliga datorer som rapporterar till arbets ytan väljer du **Aktivera på alla tillgängliga datorer** på sidan hantera datorer. Den här åtgärden inaktiverar kontrollen för att lägga till datorer individuellt. Den här uppgiften lägger till alla namn på de datorer som rapporterar till arbets ytan till den dator grupp som sparade Sök frågan `MicrosoftDefaultComputerGroup` . När det här alternativet är markerat inaktive ras knappen **hantera datorer** .
+3. Om du vill aktivera Uppdateringshantering för alla tillgängliga datorer som rapporterar till arbets ytan väljer du **Aktivera på alla tillgängliga datorer** på sidan hantera datorer. Den här åtgärden inaktiverar kontrollen för att lägga till datorer individuellt och lägger till alla datorer som rapporterar till arbets ytan till dator gruppens sparade Sök fråga `MicrosoftDefaultComputerGroup` . När det här alternativet är markerat inaktiverar den här åtgärden alternativet **hantera datorer** .
 
-4. Om du vill aktivera funktionen för alla tillgängliga datorer och framtida datorer väljer du **Aktivera på alla tillgängliga och framtida datorer**. Det här alternativet tar bort den sparade Sök-och omfattnings konfigurationen från arbets ytan och tillåter att funktionen inkluderar alla Azure-och icke-Azure-datorer som för närvarande eller i framtiden rapporterar till arbets ytan. När det här alternativet är markerat inaktive ras knappen **hantera datorer** permanent, eftersom det inte finns någon tillgänglig omfattnings konfiguration.
+4. Om du vill aktivera funktionen för alla tillgängliga datorer och framtida datorer väljer du **Aktivera på alla tillgängliga och framtida datorer**. Det här alternativet tar bort den sparade Sök-och omfattnings konfigurationen från arbets ytan och tillåter att funktionen inkluderar alla Azure-och icke-Azure-datorer som för närvarande eller i framtiden rapporterar till arbets ytan. När det här alternativet är markerat inaktiverar den här åtgärden alternativet **hantera datorer** permanent, eftersom det inte finns någon tillgänglig omfattnings konfiguration.
 
     > [!NOTE]
-    > Eftersom det här alternativet tar bort de sparade sökningarna och omfattnings konfigurationerna i Log Analytics, är det viktigt att ta bort eventuella borttagnings lås på arbets ytan Log Analytics innan du väljer det här alternativet. Om du inte gör det kan inte alternativet ta bort konfigurationerna och du måste ta bort dem manuellt.
+    > Eftersom det här alternativet tar bort den sparade Sök-och omfattnings konfigurationen inom Log Analytics, är det viktigt att ta bort eventuella borttagnings lås på arbets ytan Log Analytics innan du väljer det här alternativet. Om du inte gör det kan inte alternativet ta bort konfigurationerna och du måste ta bort dem manuellt.
 
-5. Om det behövs kan du lägga till omfångs konfigurationerna genom att lägga till den ursprungliga sparade Sök frågan igen. Mer information finns i [begränsa uppdateringshantering distributions omfång](update-mgmt-scope-configuration.md).
+5. Om det behövs kan du lägga till omfattnings konfigurationen igen genom att lägga till den ursprungliga sparade Sök frågan igen. Mer information finns i [begränsa uppdateringshantering distributions omfång](update-mgmt-scope-configuration.md).
 
 6. Om du vill aktivera funktionen för en eller flera datorer väljer du **Aktivera på valda datorer** och väljer **Lägg till** bredvid varje dator. Den här uppgiften lägger till de valda dator namnen i den dator grupp sparade Sök frågan för funktionen.
 

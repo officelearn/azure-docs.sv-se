@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889136"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208234"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabbstart: Kom igång med Azure Sentinel
 
@@ -26,7 +26,7 @@ I den här snabb starten får du lära dig hur du snabbt kan visa och övervaka 
 
 ## <a name="get-visualization"></a>Hämta visualisering
 
-Om du vill visualisera och få en analys av vad som händer i din miljö kan du först ta en titt på översikts instrument panelen för att få en uppfattning om organisationens säkerhets position. Du kan klicka på varje element i dessa paneler för att öka detalj nivån till de rå data som de skapats från. För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel en fusions teknik för att korrelera aviseringar till incidenter. **incidenter** är grupper med relaterade aviseringar som tillsammans skapar en åtgärds bara incident som du kan undersöka och lösa.
+Om du vill visualisera och få en analys av vad som händer i din miljö kan du först ta en titt på översikts instrument panelen för att få en uppfattning om organisationens säkerhets position. Du kan klicka på varje element i dessa paneler för att öka detalj nivån till de rå data som de skapats från. För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel en fusions teknik för att korrelera aviseringar till incidenter. **Incidenter** är grupper med relaterade aviseringar som tillsammans skapar en åtgärds bara incident som du kan undersöka och lösa.
 
 - I Azure Portal väljer du Azure Sentinel och väljer sedan den arbets yta som du vill övervaka.
 
@@ -44,7 +44,7 @@ Huvud delen av översikts sidan ger en överblick över en överskådlig säkerh
 
    ![Karta över skadlig trafik](./media/qs-get-visibility/map.png)
 
-- **Senaste incidenter**: om du vill visa dina senaste incidenter, deras allvarlighets grad och antalet aviseringar som är associerade med incidenten. Om du ser som plötslig topp i en speciell typ av avisering, kan det betyda att det finns ett aktivt angrepp som körs för tillfället. Om du till exempel har en plötslig topp på 20 pass-The-hash-händelser från Microsoft Defender för identitet (tidigare Azure ATP), är det möjligt att någon för närvarande försöker attackera dig.
+- **Senaste incidenter**: om du vill visa dina senaste incidenter, deras allvarlighets grad och antalet aviseringar som är associerade med incidenten. Om du ser en plötslig topp i en speciell typ av avisering, kan det betyda att det finns ett aktivt angrepp som körs. Om du till exempel har en plötslig topp på 20 pass-The-hash-händelser från Microsoft Defender för identitet (tidigare Azure ATP), är det möjligt att någon för närvarande försöker attackera dig.
 
 - **Avvikelser i data källan**: Microsofts dataanalytiker skapade modeller som kontinuerligt söker efter avvikelser i data källor. Om det inte finns några avvikelser visas inget. Om avvikelser upptäcks bör du ta en djup inblick i dem för att se vad som hände. Klicka till exempel på insamling i Azure-aktivitet. Du kan klicka på **diagrammet** för att se när insamling skedde och sedan filtrera efter aktiviteter som inträffade under den tids perioden för att se vad som orsakade insamling.
 

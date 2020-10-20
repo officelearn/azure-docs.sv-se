@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8f3a0d0ec79624fb709bb80b8392e2ad8d6f7ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dca22303edc3b75625df88dac98557c6a2e6162
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613879"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202860"
 ---
 # <a name="materials"></a>Material
 
@@ -84,14 +84,14 @@ void SetMaterialColorToGreen(ApiHandle<Material> material)
 
 ## <a name="api-documentation"></a>API-dokumentation
 
-* [C#-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.material)
-* [C# ColorMaterial-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.colormaterial)
-* [C# PbrMaterial-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
-* [C# RemoteManager. CreateMaterial ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
-* [C++-klass](https://docs.microsoft.com/cpp/api/remote-rendering/material)
-* [C++ ColorMaterial-klass](https://docs.microsoft.com/cpp/api/remote-rendering/colormaterial)
-* [C++ PbrMaterial-klass](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
-* [C++ RemoteManager:: CreateMaterial ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
+* [C#-klass](/dotnet/api/microsoft.azure.remoterendering.material)
+* [C# ColorMaterial-klass](/dotnet/api/microsoft.azure.remoterendering.colormaterial)
+* [C# PbrMaterial-klass](/dotnet/api/microsoft.azure.remoterendering.pbrmaterial)
+* [C# RemoteManager. CreateMaterial ()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.creatematerial)
+* [C++-klass](/cpp/api/remote-rendering/material)
+* [C++ ColorMaterial-klass](/cpp/api/remote-rendering/colormaterial)
+* [C++ PbrMaterial-klass](/cpp/api/remote-rendering/pbrmaterial)
+* [C++ RemoteManager:: CreateMaterial ()](/cpp/api/remote-rendering/remotemanager#creatematerial)
 
 ## <a name="next-steps"></a>Nästa steg
 

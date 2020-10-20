@@ -10,17 +10,72 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2020
+ms.date: 10/19/2020
 ms.author: yohaddad
-ms.openlocfilehash: 6ceba8e81c4700963e0d147c10085760b9308319
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3f088d248037ecf552bf7130e3fe4c86d7430695
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076665"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207996"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
+
+## <a name="october-2020-guest-os"></a>Oktober 2020 gäst operativ system
+>[!NOTE] 
+
+>Gäst operativ systemet i oktober distribueras för närvarande till virtuella datorer i moln tjänsten som är konfigurerade för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringar ingår i oktober-gäst operativ systemet. Den här listan kan ändras. 
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
+| --- | --- | --- | --- | --- |
+|  Rel 20-10 |  [4577010]  |  Kumulativ uppdatering för IE | 2,103, 3,90, 4,83 | Sep 8, 2020 |
+|  Rel 20-10 |  [4580325]  |  Uppdatera Flash | 3,90, 4,83, 5,48, 6,24 | 13 oktober 2020 |
+|  Rel 20-10 |  [4577668]  |  Senaste kumulativa uppdateringen | 6,24 | 13 oktober 2020 |
+|  Rel 20-10 |  [4580346]  |  Senaste kumulativa uppdateringen | 5,48 | 13 oktober 2020 |
+|  Rel 20-10 |  [4580970]  |  Uppdatering av underhålls stack | 2,103 | 13 oktober 2020 |
+|  Rel 20-10 |  [4580345]  |  Månatlig sammanställning | 2,103 | 13 oktober 2020 |
+|  Rel 20-10 |  [4578952]  |  .NET Framework 3.5.1-säkerhet och kvalitets sammanslagning | 2,103 | 13 oktober 2020 |
+|  Rel 20-10 |  [4578955]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 2,103 | 13 oktober 2020 |
+|  Rel 20-10 |  [4566426]  |  Uppdatering av underhålls stack | 3,90 | Jul 14, 2020 |
+|  Rel 20-10 |  [4580382]  |  Månatlig sammanställning | 3,90 | 13 oktober 2020 |
+|  Rel 20-10 |  [4578950]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | 3,90 | 13 oktober 2020 |
+|  Rel 20-10 |  [4578954]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 3,90 | 13 oktober 2020 |
+|  Rel 20-10 |  [4566425]  |  Uppdatering av underhålls stack | 4,83 | Jul 14, 2020 |
+|  Rel 20-10 |  [4580347]  |  Månatlig sammanställning | 4,83 | 13 oktober 2020 |
+|  Rel 20-10 |  [4578953]  |  .NET Framework 3,5 säkerhets-och kvalitets sammanslagning | 4,83 | 13 oktober 2020 |
+|  Rel 20-10 |  [4578956]  |  .NET Framework 4.5.2 säkerhet och kvalitet | 4,83 | 13 oktober 2020 |
+|  Rel 20-10 |  [4578013]  |  Fristående säkerhets uppdatering | 4,83 | Aug 19, 2020 |
+|  Rel 20-10 |  [4576750]  |  Uppdatering av underhålls stack | 5,48 | Sep 8, 2020 |
+|  Rel 20-10 |  [4494175]  |  Microcode | 5,48 | Sep 1, 2020 |
+|  Rel 20-10 |  [4577667]  |  Uppdatering av underhålls stack | 6,24 | 13 oktober 2020 |
+|  Rel 20-10 |  [4578966]  |  .NET Framework 3,5 och 4.7.2-ackumulerad uppdatering | 6,24 | 13 oktober 2020 |
+|  Rel 20-10 |  [4494174]  |  Microcode | 6,24 | Sep 3, 2020 |
+
+
+[4577010]: https://support.microsoft.com/kb/4577010
+[4580325]: https://support.microsoft.com/kb/4580325
+[4577668]: https://support.microsoft.com/kb/4577668
+[4580346]: https://support.microsoft.com/kb/4580346
+[4580970]: https://support.microsoft.com/kb/4580970
+[4580345]: https://support.microsoft.com/kb/4580345
+[4578952]: https://support.microsoft.com/kb/4578952
+[4578955]: https://support.microsoft.com/kb/4578955
+[4566426]: https://support.microsoft.com/kb/4566426
+[4580382]: https://support.microsoft.com/kb/4580382
+[4578950]: https://support.microsoft.com/kb/4578950
+[4578954]: https://support.microsoft.com/kb/4578954
+[4566425]: https://support.microsoft.com/kb/4566425
+[4580347]: https://support.microsoft.com/kb/4580347
+[4578953]: https://support.microsoft.com/kb/4578953
+[4578956]: https://support.microsoft.com/kb/4578956
+[4578013]: https://support.microsoft.com/kb/4578013
+[4576750]: https://support.microsoft.com/kb/4576750
+[4494175]: https://support.microsoft.com/kb/4494175
+[4577667]: https://support.microsoft.com/kb/4577667
+[4578966]: https://support.microsoft.com/kb/4578966
+[4494174]: https://support.microsoft.com/kb/4494174
+
 
 ## <a name="september-2020-guest-os"></a>September 2020-gäst operativ system
 
@@ -689,11 +744,11 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 |  Rel 19-07   |  [4507460]  |  Windows-säkerhet   |  5.33  |  9 juli 2019  |
 |  Rel 19-07   |  [4506998]  |  .NET 3,5 & 4.7.2-säkerhet   |  6,9  |  9 juli 2019  |
 |  Rel 19-07   |  [4507469]  |  Windows-säkerhet   |  6,9  |  9 juli 2019  |
-|  Saknas  |  [4503537]  |  19 juni servicing stack-uppdatering för (Server 2016)   |  5.33  |  14 maj, 2019  |
-|  Saknas  |  [4504369]  |  19 juni servicing stack-uppdatering för (Server 2019)   |  6,9  |  14 maj, 2019  |
+|  Saknas  |  [4503537]  |  19 juni servicing stack-uppdatering för (Server 2016)   |  5.33  |  Den 14 maj 2019  |
+|  Saknas  |  [4504369]  |  19 juni servicing stack-uppdatering för (Server 2019)   |  6,9  |  Den 14 maj 2019  |
 |  Saknas  |  [4503292]  |  Juni ' 19 icke-säkerhet (Server 2008 R2)   |  2,88  |  20 maj, 2019  |
-|  Saknas  |  [4503285]  |  Juni ' 19 icke-säkerhet (Server 2012)   |  3.75  |  14 maj, 2019  |
-|  Saknas  |  [4503276]  |  Juni ' 19 icke-säkerhet (Server 2012 R2)   |  4,68  |  14 maj, 2019  |
+|  Saknas  |  [4503285]  |  Juni ' 19 icke-säkerhet (Server 2012)   |  3.75  |  Den 14 maj 2019  |
+|  Saknas  |  [4503276]  |  Juni ' 19 icke-säkerhet (Server 2012 R2)   |  4,68  |  Den 14 maj 2019  |
 
 [4507434]: https://support.microsoft.com/kb/4507434
 [4506621]: https://support.microsoft.com/kb/4506621
@@ -729,15 +784,15 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 |  Rel 19-06   |  [4494175]  |  Uppdatering av mikrokoder   |  5,32  |  3 juni 2019  |
 |  Rel 19-06   |  [4503308]  |  Utvecklingsverktyget   |  3,74, 4,67, 5,32, 6,8  |  11 juni 2019  |
 |  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2,87, 3,74, 4,67  |  13 juni 2019  |
-|  Saknas  |  [4499164]  |  Maj ' 19 icke-säkerhet  |  2,87  |  14 maj, 2019  |
-|  Saknas  |  [4495606]  |  Maj är 19 .NET 3,5-säkerhet  |  2,87  |  14 maj, 2019  |
+|  Saknas  |  [4499164]  |  Maj ' 19 icke-säkerhet  |  2,87  |  Den 14 maj 2019  |
+|  Saknas  |  [4495606]  |  Maj är 19 .NET 3,5-säkerhet  |  2,87  |  Den 14 maj 2019  |
 |  Saknas  |  [4495596]  |  Maj är 19 .NET 4,5-säkerhet  |  2,87  |  20 maj, 2019  |
-|  Saknas  |  [4499171]  |  Maj ' 19 icke-säkerhet  |  3,74  |  14 maj, 2019  |
-|  Saknas  |  [4495602]  |  Maj är 19 .NET 3,5-säkerhet  |  3,74  |  14 maj, 2019  |
-|  Saknas  |  [4495594]  |  19 maj .NET 4. x icke-säkerhet  |  4,67  |  14 maj, 2019  |
-|  Saknas  |  [4499151]  |  Maj ' 19 icke-säkerhet  |  4,67  |  14 maj, 2019  |
-|  Saknas  |  [4495608]  |  Maj är 19 .NET 3,5-säkerhet  |  4,67  |  14 maj, 2019  |
-|  Saknas  |  [4495592]  |  19 maj .NET 4.5.2 icke-säkerhet  |  4,67  |  14 maj, 2019  |
+|  Saknas  |  [4499171]  |  Maj ' 19 icke-säkerhet  |  3,74  |  Den 14 maj 2019  |
+|  Saknas  |  [4495602]  |  Maj är 19 .NET 3,5-säkerhet  |  3,74  |  Den 14 maj 2019  |
+|  Saknas  |  [4495594]  |  19 maj .NET 4. x icke-säkerhet  |  4,67  |  Den 14 maj 2019  |
+|  Saknas  |  [4499151]  |  Maj ' 19 icke-säkerhet  |  4,67  |  Den 14 maj 2019  |
+|  Saknas  |  [4495608]  |  Maj är 19 .NET 3,5-säkerhet  |  4,67  |  Den 14 maj 2019  |
+|  Saknas  |  [4495592]  |  19 maj .NET 4.5.2 icke-säkerhet  |  4,67  |  Den 14 maj 2019  |
 |  Saknas  |  [4501226]  |  SOMMAR tids zons uppdateringar för Marocko och den palestinska myndigheten  |  2,87, 3,74, 4,67  |  23 maj 2019  |
 |  Saknas  |  [4490128]  |  SOMMAR tids zons uppdateringar för São Tomé och Príncipe och Qyzylorda  |  2,87, 3,74, 4,67  |  17 april 2019  |
 
@@ -766,26 +821,26 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  Maj IE Rollup   |  2,86, 3,73, 4,66  |  14 maj, 2019  |
+|  Rel 19-05   |  [4498206]  |  Maj IE Rollup   |  2,86, 3,73, 4,66  |  Den 14 maj 2019  |
 |  Rel 19-05   |  [4505050]  |  Maj IE Rollup   |  2,86, 3,73, 4,66  |  18 maj 2019  |
-|  Rel 19-05   |  [4497932]  |  Uppdatering maj   |  3,73, 4,66, 5,31  |  14 maj, 2019  |
-|  Rel 19-05   |  [4499175]  |  Kan samla in säkerhet   |  2,86  |  14 maj, 2019  |
-|  Rel 19-05   |  [4495612]  |  Kan samlad säkerhet i .NET 3,5   |  2,86  |  14 maj, 2019  |
-|  Rel 19-05   |  [4495593]  |  Maj-säkerhetssamlad .NET 4.5.2   |  2,86  |  14 maj, 2019  |
-|  Rel 19-05   |  [4499158]  |  Kan samla in säkerhet   |  3.73  |  14 maj, 2019  |
-|  Rel 19-05   |  [4495607]  |  Kan samlad säkerhet i .NET 3,5   |  3.73  |  14 maj, 2019  |
-|  Rel 19-05   |  [4495591]  |  Maj-säkerhetssamlad .NET 4.5.2   |  3.73  |  14 maj, 2019  |
+|  Rel 19-05   |  [4497932]  |  Uppdatering maj   |  3,73, 4,66, 5,31  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4499175]  |  Kan samla in säkerhet   |  2,86  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495612]  |  Kan samlad säkerhet i .NET 3,5   |  2,86  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495593]  |  Maj-säkerhetssamlad .NET 4.5.2   |  2,86  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4499158]  |  Kan samla in säkerhet   |  3.73  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495607]  |  Kan samlad säkerhet i .NET 3,5   |  3.73  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495591]  |  Maj-säkerhetssamlad .NET 4.5.2   |  3.73  |  Den 14 maj 2019  |
 |  Rel 19-05   |  [4492872]  |  Samlad IE   |  3.73  |  16 april 2019  |
-|  Rel 19-05   |  [4499165]  |  Samlad säkerhet i mars   |  4,66  |  14 maj, 2019  |
-|  Rel 19-05   |  [4495615]  |  Kan samlad säkerhet i .NET 3,5   |  4,66  |  14 maj, 2019  |
-|  Rel 19-05   |  [4495589]  |  Maj-säkerhetssamlad .NET 4.5.2   |  4,66  |  14 maj, 2019  |
-|  Rel 19-05   |  [4498947]  |  Maj SJÄLVBETJÄNINGS   |  5,31  |  14 maj, 2019  |
-|  Rel 19-05   |  [4494175]  |  Maj-kod uppdatering   |  5,31  |  14 maj, 2019  |
+|  Rel 19-05   |  [4499165]  |  Samlad säkerhet i mars   |  4,66  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495615]  |  Kan samlad säkerhet i .NET 3,5   |  4,66  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495589]  |  Maj-säkerhetssamlad .NET 4.5.2   |  4,66  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4498947]  |  Maj SJÄLVBETJÄNINGS   |  5,31  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4494175]  |  Maj-kod uppdatering   |  5,31  |  Den 14 maj 2019  |
 |  Rel 19-05   |  [4505052]  |  Kan samla in säkerhet   |  5,31  |  19 maj 2019  |
 |  Rel 19-05   |  [4499728]  |  Maj SJÄLVBETJÄNINGS   |  6.7  |  19 maj 2019  |
 |  Rel 19-05   |  [4505056]  |  Kan samla in säkerhet   |  6.7  |  19 maj 2019  |
-|  Rel 19-05   |  [4494174]  |  Maj-kod uppdatering   |  6.7  |  14 maj, 2019  |
-|  Rel 19-05   |  [4495590]  |  Kan samlad säkerhet i .NET   |  6.7  |  14 maj, 2019  |
+|  Rel 19-05   |  [4494174]  |  Maj-kod uppdatering   |  6.7  |  Den 14 maj 2019  |
+|  Rel 19-05   |  [4495590]  |  Kan samlad säkerhet i .NET   |  6.7  |  Den 14 maj 2019  |
 
 [4498206]: https://support.microsoft.com/kb/4498206
 [4505050]: https://support.microsoft.com/kb/4505050
@@ -1001,7 +1056,7 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 | Rel 18-12 | [4470491] | .NET 4. x-säkerhet  | 4,61| 11 december 2018 |
 | Rel 18-12 | [4471331] | Utvecklingsverktyget  | 3,68, 4,61, 5,26 | 5 december 2018  |
 | Rel 18-12 | [4470199] | Internet Explorer  | 2,81, 3,68, 4,61 | 11 december 2018 |
-| Saknas | [4468323] | Uppdatering av tidszon    | 2,81, 3,68, 4,61 | 13 december 2018 |
+| Saknas | [4468323] | Uppdatering av tidszon    | 2,81, 3,68, 4,61 | Den 13 december 2018 |
 | Saknas | [4467107] | Sammanslagning av icke-säkerhetsbulletiner   | 2,81 | 13 november 2018 |
 | Saknas | [4467701] | Sammanslagning av icke-säkerhetsbulletiner     | 3,68 | 13 november 2018 |
 | Saknas | [4467697] | Sammanslagning av icke-säkerhetsbulletiner     | 4,61 | 13 november 2018 |

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 418be35cb7996acaa7f11f37627d065451c9c7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42b86cadefea41bc438c8f2e91c5eaa86af172b0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055222"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204979"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Begränsa åtkomst behörigheter för gäst (för hands version) i Azure Active Directory
 
@@ -139,25 +139,26 @@ Med stöd för vi betyder det att upplevelsen är som förväntat. Mer specifikt
 - Teams
 - Outlook (OWA)
 - SharePoint
+- Planner i Teams
+- Webb program för Planner
 
 ### <a name="services-currently-not-supported"></a>Tjänster stöds inte för närvarande
 
 Tjänsten utan aktuellt stöd kan ha kompatibilitetsproblem med den nya inställningen för gäst begränsning.
 
 - Formulär
-- Planner i Teams
-- Planner-app
+- Planner-mobilapp
 - Project
 - Yammer
 
-## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
 Fråga | Svar
 -------- | ------
 Var gäller dessa behörigheter? | Dessa behörigheter för katalog nivå tillämpas i Azure AD-tjänster och portaler, inklusive Microsoft Graph, PowerShell V2, Azure Portal och mina apps-portalen. Microsoft 365 tjänster som utnyttjar Microsoft 365 grupper för samarbets scenarier påverkas också, särskilt Outlook, Microsoft Teams och SharePoint.
 Vilka delar av portalen för Mina appar påverkar den här funktionen? | Grupp funktionen i portalen Mina appar kommer att respektera dessa nya behörigheter. Detta omfattar alla sökvägar för att Visa grupp listan och grupp medlemskap i Mina appar. Inga ändringar har gjorts i grupp panelens tillgänglighet. Grupp panelens tillgänglighet styrs fortfarande av den befintliga grupp inställningen i Azure admin-portalen.
 Åsidosätter dessa behörigheter SharePoint-eller Microsoft Teams gäst inställningar? | Nej. De befintliga inställningarna styr fortfarande upplevelsen och åtkomsten i dessa program. Om du till exempel ser problem i SharePoint, dubbelklickar du på inställningarna för extern delning.
-Vilka är kända kompatibilitetsproblem i Planner och Yammer? | <li>Om behörigheterna har angetts till "begränsad" kommer gäster som loggats in i Planner-appen eller åtkomst till Planner i Microsoft team inte att kunna komma åt sina planer eller uppgifter.<li>När behörigheter har angetts till "begränsad" kommer gäster som loggats in på Yammer inte att kunna lämna gruppen.
+Vilka är kända kompatibilitetsproblem i Planner och Yammer? | <li>När behörigheter har angetts till "begränsad" kommer gäster som loggats till Planner-mobilappen inte att kunna komma åt sina planer eller aktiviteter.<li>När behörigheter har angetts till "begränsad" kommer gäster som loggats in på Yammer inte att kunna lämna gruppen.
 Kommer mina befintliga gäst behörigheter att ändras i min klient? | Inga ändringar har gjorts i de aktuella inställningarna. Vi bibehåller bakåtkompatibilitet med dina befintliga inställningar. Du bestämmer när du vill göra ändringar.
 Kommer de här behörigheterna att anges som standard? | Nej. De befintliga standard behörigheterna förblir oförändrade. Du kan också ange att behörigheterna ska vara mer restriktiva.
 Finns det några licens krav för den här funktionen? | Nej, det finns inga nya licensierings krav för den här funktionen.

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 2ddce7e2f073914e9393eabf12e8b0f4ef347828
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49027899d66a2192cc311fb4dba66e441155b527
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613653"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206857"
 ---
 # <a name="scene-lighting"></a>Scenbelysning
 
@@ -72,14 +72,14 @@ Ljusa källor har en betydande inverkan på åter givnings prestanda. Använd de
 
 ## <a name="api-documentation"></a>API-dokumentation
 
-* [C# LightComponentBase-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
-* [C# PointLightComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
-* [C# SpotLightComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
-* [C# DirectionalLightComponent-klass](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
-* [C++ LightComponentBase-klass](https://docs.microsoft.com/cpp/api/remote-rendering/lightcomponentbase)
-* [C++ PointLightComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/pointlightcomponent)
-* [C++ SpotLightComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/spotlightcomponent)
-* [C++ DirectionalLightComponent-klass](https://docs.microsoft.com/cpp/api/remote-rendering/directionallightcomponent)
+* [C# LightComponentBase-klass](/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [C# PointLightComponent-klass](/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [C# SpotLightComponent-klass](/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [C# DirectionalLightComponent-klass](/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [C++ LightComponentBase-klass](/cpp/api/remote-rendering/lightcomponentbase)
+* [C++ PointLightComponent-klass](/cpp/api/remote-rendering/pointlightcomponent)
+* [C++ SpotLightComponent-klass](/cpp/api/remote-rendering/spotlightcomponent)
+* [C++ DirectionalLightComponent-klass](/cpp/api/remote-rendering/directionallightcomponent)
 
 ## <a name="next-steps"></a>Nästa steg
 

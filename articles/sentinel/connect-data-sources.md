@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: c1df52f027c23b2e3618ad17494b06c2ccecfaf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97873c9f59dc0d99293d2b1ebaf87af309dbcf47
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627150"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208302"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -158,8 +158,8 @@ Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-
 | MCAS SecurityAlert  | [Anslut Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon (händelse) | [Anslut Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Anslut Windows-händelser](../azure-monitor/platform/data-sources-windows-events.md) <br> [Hämta Sysmon-parsern](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon-samlingen installeras inte som standard på virtuella datorer. Mer information om hur du installerar Sysmon-agenten finns i [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
-| ConfigurationData  | [Automatisera VM-inventering](../automation/automation-vm-inventory.md)| &#10007; | |
-| ConfigurationChange  | [Automatisera spårning av virtuella datorer](../automation/change-tracking.md) | &#10007; | |
+| ConfigurationData  | [Automatisera VM-inventering](../automation/change-tracking/overview.md)| &#10007; | |
+| ConfigurationChange  | [Automatisera spårning av virtuella datorer](../automation/change-tracking/overview.md) | &#10007; | |
 | F5 BIG-IP | [Ansluta F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
 | McasShadowItReporting  |  | &#10007; | |
 | Barracuda_CL | [Ansluta till Barracuda](connect-barracuda.md) | &#10003; | |

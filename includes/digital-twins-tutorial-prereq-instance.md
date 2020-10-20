@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 302a478dd32c93a555bb17e9d7d0f60bd7859a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a4c7b8afab1a9f102bc0bc24b40a7525d93d83
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292743"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201365"
 ---
 ### <a name="prepare-an-azure-digital-twins-instance"></a>Förbered en digital Azure-instans
 
@@ -18,8 +18,4 @@ För att slutföra den här självstudien behöver du en **Azure Digital-instans
 
 * Annars **ställer du in en instans och autentisering** med hjälp av instruktionerna i [*instruktion: Konfigurera en instans och autentisering*](../articles/digital-twins/how-to-set-up-instance-portal.md). Anvisningarna innehåller också anvisningar för att kontrol lera att du har slutfört varje steg och att du är redo att gå vidare till att använda den nya instansen.
 
-I den här självstudien behöver du följande värden från när du konfigurerar din instans. Om du behöver samla in värdena igen använder du länkarna nedan till motsvarande avsnitt i installations artikeln för att hitta dem i [Azure Portal](https://portal.azure.com).
-* Azure Digitals sammanflätade instans **_namn_** ([Sök i portalen](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* Azure Digitals dubbla instans **_värd namn_** ([Sök i portalen](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* ID för Azure AD App Registration- **_program (klient)_** ([Sök i portalen](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-* ID för Azure AD App Registration **_-katalogen (klient)_** ([Sök i portalen](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
+När du har en Azure Digitals-instans för att arbeta med i självstudien behöver du instansen **_värdnamn_** ([Sök i portalen](../articles/digital-twins/how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).

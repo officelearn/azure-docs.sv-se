@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 2ddc15e9da3eaa3609b039f2f92e424b9d9449c1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 208fe9c5bfa20bf5b2daab296af9f955db67a33d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106322"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204681"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -138,7 +138,7 @@ Standardvägar tillåts bara i Azures privata peeringsessioner. I dessa fall kom
 * Du använder användardefinierad routning för att tillåta anslutning till Internet för varje undernät som kräver Internetanslutning.
 
 > [!NOTE]
-> Annonsering av standardvägar bryter Windows- och andra VM-licensaktiveringar. Följ anvisningarna [här](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) för kringgå detta.
+> Annonsering av standardvägar bryter Windows- och andra VM-licensaktiveringar. Följ anvisningarna [här](/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) för kringgå detta.
 > 
 > 
 

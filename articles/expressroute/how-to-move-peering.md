@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2019
 ms.author: duau
-ms.openlocfilehash: 5671be5e54a9bb789e349a4da6d0f1809807d974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 608d6c87442821e904fde16c6b75841fe792e3f0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401426"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206296"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Flytta offentlig peering till Microsoft-peering
 
@@ -31,7 +31,7 @@ För att ansluta till Microsoft-peering måste du konfigurera och hantera NAT. D
 > [!Warning]
 > NAT:s IP-pool som annonseras till Microsoft får inte annonseras till Internet. Detta bryter anslutningen till andra Microsoft-tjänster.
 
-Se [asymmetrisk routning med flera nätverks Sök vägar](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) för varningar från asymmetrisk routning innan du konfigurerar Microsoft-peering.
+Se [asymmetrisk routning med flera nätverks Sök vägar](./expressroute-asymmetric-routing.md) för varningar från asymmetrisk routning innan du konfigurerar Microsoft-peering.
 
 * Om du använder offentlig peering och för närvarande har IP-nätverks regler för offentliga IP-adresser som används för att komma åt [Azure Storage](../storage/common/storage-network-security.md) eller [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), måste du se till att NAT IP-poolen som kon figurer ATS med Microsoft-peering ingår i listan över offentliga IP-adresser för Azure Storage-kontot eller Azure SQL-kontot.<br>
 * Använd stegen i den här artikeln i den ordning som de presenteras för att flytta till Microsoft-peering utan drift avbrott.

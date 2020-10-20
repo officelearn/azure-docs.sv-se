@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2020
 ms.author: duau
-ms.openlocfilehash: 1be507f3676a5531855e3a8deb6801b1a5cb8e74
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1835377f4690097c8390957bf7d897242ba7aace
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166804"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208064"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Självstudie: Konfigurera prioritet för trafik cirkulation i Traffic Manager
 
@@ -98,7 +98,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. När din Traffic Manager-profil fungerar redigerar du DNS-posten på den auktoritativa DNS-servern för att peka ditt företags domän namn till Traffic Manager domän namnet.
 
-## <a name="clean-up-resource"></a>Rensa resurs
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte längre behöver Traffic Manager profilen letar du reda på profilen och väljer **ta bort profil**.
 

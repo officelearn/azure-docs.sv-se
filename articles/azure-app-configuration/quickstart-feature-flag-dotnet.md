@@ -13,14 +13,14 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 10/21/2019
+ms.date: 10/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: 145015b7645cf7923f15ecd7c0378ff6cb96dd7e
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: c379d3f99628c2d3fb32ae34ca0214f608d365c7
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767692"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201280"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Snabb start: Lägg till funktions flaggor i en .NET Framework app
 
@@ -28,9 +28,9 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funktions flagga. Dessa bibliotek skapas ovanpå .NET-konfigurations systemet. De integreras med app-konfiguration via dess .NET-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
@@ -49,7 +49,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funkt
 
 1. Starta Visual Studio och välj **fil**  >  **nytt**  >  **projekt**.
 
-1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Klicka på **Next**.
+1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)**. Klicka på **Nästa**.
 
 1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4,8** eller högre. Klicka på **Skapa**.
 
@@ -70,6 +70,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funkt
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Microsoft.FeatureManagement;
+    using System.Threading.Tasks;
     ```
 
 1. Uppdatera `Main` metoden för att ansluta till app-konfigurationen och ange `UseFeatureFlags` alternativet så att funktions flaggor hämtas. Visa sedan ett meddelande om `Beta` funktions flaggan är aktive rad.
@@ -99,6 +100,8 @@ Biblioteken för .NET-funktions hantering utökar ramverket med stöd för funkt
             }
 
             Console.WriteLine("Hello World!");
+            Console.WriteLine("Press any key to continue ...");
+            Console.Read();
         }
     ```
 

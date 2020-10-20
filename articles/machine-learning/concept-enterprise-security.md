@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 35b39ceb7ef54b0e00eaa53dad821c9336ea88ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302629"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207945"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning stöder två typer av autentisering för webb tjänster: 
 
 |Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
 |---|---|---|---|
-|Tangent|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
+|Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
@@ -291,7 +291,7 @@ Information om bedömnings förfrågningar lagras i Application Insights. Applic
 >
 > Några av dessa åtgärder visas i området **aktiviteter** i din arbets yta, men dessa meddelanden indikerar inte vem som initierade aktiviteten.
 
-### <a name="vulnerability-scanning"></a>Sårbarhets sökning
+### <a name="vulnerability-scanning"></a>Sårbarhetsgenomsökning
 
 Azure Security Center erbjuder enhetlig säkerhetshantering och avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. För Azure Machine Learning bör du Aktivera genomsökning av Azure Container Registry resurs-och Azure Kubernetes-tjänsteresurser. Se [Azure Container Registry avbildnings genomsökning av Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) och [integrering med Azure Kubernetes Services med Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
 
@@ -376,6 +376,10 @@ Här är information:
 Mer information om Azure Policy finns i Azure Policy- [dokumentationen](/azure/governance/policy/overview).
 
 Mer information om principerna som är speciella för Azure Machine Learning finns i [Granska och hantera efterlevnad med Azure policy](how-to-integrate-azure-policy.md).
+
+## <a name="resource-locks"></a>Resurslås
+
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 05/04/2020
 ms.topic: tutorial
-ms.openlocfilehash: 9457323b2642d0e7c5a623c13ec8440520bd5b8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56e889778e3b598dc4ded5f64eef20101c542b6a
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88891784"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207520"
 ---
 # <a name="tutorial-integrate-remote-rendering-into-a-hololens-holographic-app"></a>Självstudie: integrera fjärrrendering i en HoloLens Holographic-app
 
@@ -26,14 +26,14 @@ Den här självstudien fokuserar på att lägga till nödvändiga bitar i ett in
 > [!TIP]
 > [Databasen arr samples](https://github.com/Azure/azure-remote-rendering) innehåller resultatet av den här självstudien som ett Visual Studio-projekt som är klart att använda. Det är också berikat med korrekt fel-och status rapportering via användar gränssnitts klass `StatusDisplay` . I självstudien är alla arr-speciella tillägg begränsade `#ifdef USE_REMOTE_RENDERING`  /  `#endif` till, så det är enkelt att identifiera tillägg för fjärrrendering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här självstudien behöver du:
 
 * Din konto information (konto-ID, konto nyckel, prenumerations-ID). [Skapa ett konto](../../../how-tos/create-an-account.md)om du inte har något konto.
 * Windows SDK 10.0.18362.0 [(Hämta)](https://developer.microsoft.com/windows/downloads/windows-10-sdk).
 * Den senaste versionen av Visual Studio 2019 [(Hämta)](https://visualstudio.microsoft.com/vs/older-downloads/).
-* [Visual Studio Tools för Mixad verklighet](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). Mer specifikt är följande *arbets belastnings* installationer obligatoriska:
+* [Visual Studio Tools för Mixad verklighet](/windows/mixed-reality/install-the-tools). Mer specifikt är följande *arbets belastnings* installationer obligatoriska:
   * **Skriv bords utveckling med C++**
   * **Universell Windows-plattform (UWP) utveckling**
 * App-mallarna för Windows Mixed Reality for Visual Studio [(Hämta)](https://marketplace.visualstudio.com/items?itemName=WindowsMixedRealityteam.WindowsMixedRealityAppTemplatesVSIX).
@@ -593,4 +593,4 @@ I den här självstudien har du lärt dig alla steg som krävs för att lägga t
 Om du vill konvertera din egen modell, se följande snabb start:
 
 > [!div class="nextstepaction"]
-> [Snabb start: konvertera en modell för åter givning](../../../quickstarts/convert-model.md)
+> [Snabbstart: Konvertera en modell för rendering](../../../quickstarts/convert-model.md)

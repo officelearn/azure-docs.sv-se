@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: duau
-ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0365fd8d0d04b7d144ca6826d3d5eff976558eb3
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566406"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202164"
 ---
 # <a name="about-expressroute-direct"></a>Om ExpressRoute Direct
 
@@ -73,7 +73,7 @@ ExpressRoute Direct stöder enorma data inmatnings scenarier i Azure Storage och
     * Måste lägga till den yttre VLAN-taggen (STAG) baserat på det VLAN-ID som anges av Microsoft- *endast tillgängligt på QinQ*
     * Måste ha stöd för flera BGP-sessioner (VLAN) per port och enhet
     * IPv4-och IPv6-anslutning. *Inga ytterligare under gränssnitt kommer att skapas för IPv6. IPv6-adressen kommer att läggas till i det befintliga under gränssnittet*. 
-    * Valfritt: stöd för [BFD-stöd (dubbelriktad vidarebefordring)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) som är konfigurerat som standard för alla privata peer-kopplingar på ExpressRoute-kretsar
+    * Valfritt: stöd för [BFD-stöd (dubbelriktad vidarebefordring)](./expressroute-bfd.md) som är konfigurerat som standard för alla privata peer-kopplingar på ExpressRoute-kretsar
 
 ## <a name="vlan-tagging"></a>VLAN-taggning
 

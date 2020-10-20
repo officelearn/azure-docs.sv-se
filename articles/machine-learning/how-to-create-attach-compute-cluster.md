@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d33af7a9c2d48ded84bd675364469dab09a79d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711477"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207129"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Skapa ett Azure Machine Learning beräknings kluster
 
@@ -51,6 +51,8 @@ Compute-kluster kan köra jobb säkert i en [virtuell nätverks miljö](how-to-s
 * Några av de scenarier som anges i det här dokumentet är markerade som för __hands version__. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 * Azure Machine Learning Compute har standard gränser, till exempel antalet kärnor som kan allokeras. Mer information finns i [Hantera och begära kvoter för Azure-resurser](how-to-manage-quotas.md).
+
+* Med Azure kan du placera _Lås_ på resurser, så att de inte kan tas bort eller är skrivskyddade. __Använd inte resurs lås till resurs gruppen som innehåller din arbets yta__. Genom att använda ett lås på den resurs grupp som innehåller arbets ytan kan du förhindra skalnings åtgärder för Azure ML-beräknings kluster. Mer information om hur du låser resurser finns i [låsa resurser för att förhindra oväntade ändringar](../azure-resource-manager/management/lock-resources.md).
 
 > [!TIP]
 > Kluster kan i allmänhet skala upp till 100 noder så länge som du har tillräckligt med kvot för antalet kärnor som krävs. Som standard konfigureras kluster för kommunikation mellan noder mellan noderna i klustret som stöd för MPI-jobb till exempel. Du kan dock skala dina kluster till tusentals noder genom att bara [höja ett support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)och begära att tillåta att en lista över din prenumeration, arbets yta eller ett särskilt kluster inaktive ras i kommunikation mellan noder. 

@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4c3003a5cbb55464f3a089c3045ac28f3786cb6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f96b48b8fec07ab207ea3962a201bbff68a5339
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91742981"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200856"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Service-plan
 
@@ -37,7 +37,7 @@ Varje nivå tillhandahåller också en viss delmängd av App Service funktioner.
 <a name="new-pricing-tier-premiumv3"></a>
 
 > [!NOTE]
-> Den nya pris nivån för **PremiumV3** garanterar [dv3-seriens virtuella datorer](../virtual-machines/dv3-dsv3-series.md) med snabbare processorer, SSD-lagring och fyra förhållandet mellan minne och kärna jämfört med **standard** nivån. **PremiumV3** har också stöd för högre skala via ökade instans antal samtidigt som alla avancerade funktioner som finns i **standard** -nivån fortfarande tillhandahålls. Alla funktioner som är tillgängliga i den befintliga **PremiumV2** -nivån ingår i **PremiumV3**.
+> Den nya pris nivån för **PremiumV3** garanterar datorer med snabbare processorer (minst 195 [ACU](https://docs.microsoft.com/azure/virtual-machines/acu) per virtuell processor), SSD-lagring och fyr dubbelt minne-till-kärna-förhållande jämfört med **standard** nivån. **PremiumV3** har också stöd för högre skala via ökade instans antal samtidigt som alla avancerade funktioner som finns i **standard** -nivån fortfarande tillhandahålls. Alla funktioner som är tillgängliga i den befintliga **PremiumV2** -nivån ingår i **PremiumV3**.
 >
 > På samma sätt som andra dedikerade nivåer är tre VM-storlekar tillgängliga för den här nivån:
 >

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: duau
-ms.openlocfilehash: a5829399b70871903c8eb433b95e0cb09e5d2c60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 477145619e1b4d8b41c422389b57a46615597478
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398094"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202556"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Skapa och hantera ExpressRoute offentlig peering
 
@@ -28,9 +28,9 @@ Den här artikeln hjälper dig att skapa och hantera konfiguration av offentlig 
 >Offentlig peering är föråldrad. Du kan inte skapa offentlig peering på nya ExpressRoute-kretsar. Om du har en ny ExpressRoute-krets använder du i stället [Microsoft-peering](expressroute-circuit-peerings.md#microsoftpeering) för dina Azure-tjänster.
 >
 
-## <a name="connectivity"></a>Anslutningsmöjlighet
+## <a name="connectivity"></a>Anslutning
 
-Anslutningen initieras alltid från WAN till Microsoft Azure-tjänster. Microsoft Azure Services kommer inte att kunna initiera anslutningar till nätverket via den här routningsdomänen. Om din ExpressRoute-krets är aktive rad för offentlig Azure-peering, kan du komma åt de [offentliga IP-adressintervall som används i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) över kretsen.
+Anslutningen initieras alltid från WAN till Microsoft Azure-tjänster. Microsoft Azure Services kommer inte att kunna initiera anslutningar till nätverket via den här routningsdomänen. Om din ExpressRoute-krets är aktive rad för offentlig Azure-peering, kan du komma åt de [offentliga IP-adressintervall som används i Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) över kretsen.
 
 När offentlig peering har Aktiver ATS kan du ansluta till de flesta Azure-tjänster. Vi tillåter inte att du selektivt väljer tjänster som vi annonserar vägar till.
 
@@ -47,7 +47,7 @@ I det här avsnittet visas de tjänster som är tillgängliga via offentlig peer
 * Power BI
 * De flesta Azure-tjänster stöds. Markera direkt med den tjänst som du vill använda för att verifiera stödet.
 
-**Stöds inte:**
+**Stöds ej:**
   * CDN
   * Azure Front Door
   * Multi-Factor Authentication-Server (bakåtkompatibelt)
@@ -60,7 +60,7 @@ Om du vill verifiera tillgänglighet för en speciell tjänst kan du kontrol ler
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 
 > [!NOTE]
-> Offentlig Azure-peering har en NAT-IP-adress kopplad till varje BGP-session. För fler än 2 NAT IP-adresser flyttar du till Microsoft-peering. Med Microsoft-peering kan du konfigurera dina egna NAT-allokeringar, samt använda väg filter för annonser av selektivt prefix. Mer information finns i [Flytta till Microsoft-peering](https://docs.microsoft.com/azure/expressroute/how-to-move-peering).
+> Offentlig Azure-peering har en NAT-IP-adress kopplad till varje BGP-session. För fler än 2 NAT IP-adresser flyttar du till Microsoft-peering. Med Microsoft-peering kan du konfigurera dina egna NAT-allokeringar, samt använda väg filter för annonser av selektivt prefix. Mer information finns i [Flytta till Microsoft-peering](./how-to-move-peering.md).
 >
 
 ## <a name="custom-route-filters"></a>Anpassade väg filter

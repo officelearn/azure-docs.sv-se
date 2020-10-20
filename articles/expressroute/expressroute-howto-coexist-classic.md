@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/06/2019
 ms.author: duau
-ms.openlocfilehash: 4cc96a8183e07a17ae880549cdc2b8bdca516322
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70407d726b697dd6c4dfb6777cf6c445092d3b73
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651504"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206333"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Konfigurera ExpressRoute-anslutningar och VPN-anslutningar för plats-till-plats som kan samexistera (klassisk)
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Det finns två uppsättningar procedurer att välja mellan för att konfigurera 
 Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats- och ExpressRoute-anslutningar som ska finnas samtidigt.
 
 1. Du måste installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/). Observera att de cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna. 
-2. Skapa ett schema för det virtuella nätverket. Mer information om konfigurationsschemat finns i [Konfigurationsschema för Azure Virtual Network](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+2. Skapa ett schema för det virtuella nätverket. Mer information om konfigurationsschemat finns i [Konfigurationsschema för Azure Virtual Network](/previous-versions/azure/reference/jj157100(v=azure.100)).
    
     När du skapar ditt schema bör du vara noga med att använda följande värden:
    
@@ -229,7 +229,7 @@ Om gateway-undernätet är /27 eller större och det virtuella nätverket är an
 4. Redigera nätverksschemat för konfigurationsfilen så att gateway-undernätet är /27 eller ett kortare prefix (till exempel /26 eller /25). Se följande exempel. 
    
    > [!NOTE]
-   > Om du inte har tillräckligt med IP-adresser kvar i det virtuella nätverket för att kunna öka storleken på gateway-undernätet, måste du lägga till mer IP-adressutrymme. Mer information om konfigurationsschemat finns i [Konfigurationsschema för Azure Virtual Network](https://msdn.microsoft.com/library/azure/jj157100.aspx).
+   > Om du inte har tillräckligt med IP-adresser kvar i det virtuella nätverket för att kunna öka storleken på gateway-undernätet, måste du lägga till mer IP-adressutrymme. Mer information om konfigurationsschemat finns i [Konfigurationsschema för Azure Virtual Network](/previous-versions/azure/reference/jj157100(v=azure.100)).
    > 
    > 
    
@@ -253,4 +253,3 @@ Om gateway-undernätet är /27 eller större och det virtuella nätverket är an
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om ExpressRoute finns i [Vanliga frågor och svar om ExpressRoute](expressroute-faqs.md)
-

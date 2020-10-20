@@ -3,12 +3,12 @@ title: Hämta resursändringar
 description: Lär dig hur du hittar när en resurs har ändrats, hämta en lista över de egenskaper som har ändrats och utvärdera differenserna.
 ms.date: 10/14/2020
 ms.topic: how-to
-ms.openlocfilehash: bab51ac7b55e2a838d98b46a09289f2cc19bfde3
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 70213caeaf71e1adc5a11ec0e9cbadfea032dca4
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057577"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203474"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
@@ -28,7 +28,7 @@ Resurser ändras genom daglig användning, omkonfiguration och till och med omdi
 Den här artikeln visar hur du samlar in den här informationen via resurs Diagramets SDK. Information om hur du kan se den här informationen i Azure Portal finns i Azure Policys [ändrings historik](../../policy/how-to/determine-non-compliance.md#change-history) eller [ändrings historik](../../../azure-monitor/platform/activity-log.md#view-the-activity-log)för Azure aktivitets loggen. Mer information om ändringar i dina program från infrastruktur skiktet hela vägen till program distribution finns i [använda program ändrings analys (för hands version)](../../../azure-monitor/app/change-analysis.md) i Azure Monitor.
 
 > [!NOTE]
-> Ändrings informationen i resurs diagrammet är för Resource Manager-egenskaper. Information om hur du spårar ändringar i en virtuell dator finns i Azure Automation [ändrings spårning](../../../automation/change-tracking.md) eller Azure policys [gäst konfiguration för virtuella datorer](../../policy/concepts/guest-configuration.md).
+> Ändrings informationen i resurs diagrammet är för Resource Manager-egenskaper. Information om hur du spårar ändringar i en virtuell dator finns i Azure Automation [ändrings spårning](../../../automation/change-tracking/overview.md) eller Azure policys [gäst konfiguration för virtuella datorer](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
 > Ändrings historiken i Azure Resource Graph finns i en offentlig för hands version.

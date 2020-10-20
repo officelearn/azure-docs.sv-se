@@ -5,21 +5,21 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: how-to
-ms.openlocfilehash: 8f3b144a7790c3122d59d27183b3037998ddadd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e61767b9b8d904eae9a247f48d2d781fd0c95192
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85565853"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92202726"
 ---
 # <a name="configure-authentication"></a>Konfigurera autentisering
 
-Azure fjärrrendering använder samma autentiseringsmekanism som [Azure spatiala ankare (ASA)](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp). Klienterna måste ange *något* av följande för att anropa REST-API: er:
+Azure fjärrrendering använder samma autentiseringsmekanism som [Azure spatiala ankare (ASA)](../../spatial-anchors/concepts/authentication.md?tabs=csharp). Klienterna måste ange *något* av följande för att anropa REST-API: er:
 
 * **AccountKey**: kan hämtas på fliken "nycklar" för det fjärranslutna åter givnings kontot på Azure Portal. Konto nycklar rekommenderas endast för utveckling/prototypering.
     ![Konto-ID](./media/azure-account-primary-key.png)
 
-* **AuthenticationToken**: är en Azure AD-token som kan hämtas med hjälp av [MSAL-biblioteket](https://docs.microsoft.com/azure/active-directory/develop/msal-overview). Det finns flera olika flöden som kan användas för att acceptera användarautentiseringsuppgifter och använda dessa autentiseringsuppgifter för att hämta en åtkomsttoken.
+* **AuthenticationToken**: är en Azure AD-token som kan hämtas med hjälp av [MSAL-biblioteket](../../active-directory/develop/msal-overview.md). Det finns flera olika flöden som kan användas för att acceptera användarautentiseringsuppgifter och använda dessa autentiseringsuppgifter för att hämta en åtkomsttoken.
 
 * **MRAccessToken**: är en Mr-token som kan hämtas från Azure Mixed Reality Security Token Service (STS). Hämtas från `https://sts.mixedreality.azure.com` slut punkten med ett rest-anrop som liknar anropet nedan:
 
@@ -44,7 +44,7 @@ Azure fjärrrendering använder samma autentiseringsmekanism som [Azure spatiala
 
 Konto nycklar rekommenderas endast för snabb prototyper under utveckling. Vi rekommenderar att du inte levererar ditt program till produktion med hjälp av en inbäddad konto nyckel i det. Den rekommenderade metoden är att använda en användar-eller tjänstebaserad Azure AD-autentisering.
 
- Azure AD-autentisering beskrivs i avsnittet [Azure AD-användarautentisering](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) i tjänsten [Azure spatial ankare (ASA)](https://docs.microsoft.com/azure/spatial-anchors/) .
+ Azure AD-autentisering beskrivs i avsnittet [Azure AD-användarautentisering](../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication) i tjänsten [Azure spatial ankare (ASA)](../../spatial-anchors/index.yml) .
 
  Mer information finns i [självstudien: skydda Azure-Fjärråter givning och modell lagring – Azure Active Directory autentisering](../tutorials/unity/security/security.md#azure-active-directory-azure-ad-authentication)
 

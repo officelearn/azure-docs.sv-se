@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/05/2020
+ms.date: 10/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4a21300872e98a35ea27835385b4045921f4657
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ea5d291f372485da714104eaa7df19ed3a153423
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969576"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92206194"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -82,6 +82,8 @@ I det här avsnittet hittar du information om hur du konfigurerar SSO med de fle
 
 ## <a name="change-log"></a>Ändrings logg
 
+- 10/16/2020: ändra i/ [ha för IBM DB2-LUW på virtuella Azure-datorer på SLES med pacemaker](./dbms-guide-ha-ibm.md), [ha för SAP NW på virtuella Azure-datorer på RHEL för SAP-program](./high-availability-guide-rhel.md), [ha för IBM DB2 LUW på virtuella Azure-datorer på RHEL](./high-availability-guide-rhel-ibm-db2-luw.md), [ha för SAP NW på](./high-availability-guide-rhel-multi-sid.md)virtuella Azure-datorer på RHEL [med](./high-availability-guide-rhel-netapp-files.md)RHEL, ha [för SAP NW på virtuella Azure-datorer på SLES för SAP-program,](./high-availability-guide-suse.md)ha för SAP-NNW [på virtuella Azure-datorer på SLES multi-sid-guide,](./high-availability-guide-suse-multi-sid.md)ha [för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program,](./high-availability-guide-suse-netapp-files.md)ha för NFS [på virtuella Azure-](./high-availability-guide-suse-nfs.md)datorer på SLES, ha till SAP HANA [på SLES](./sap-hana-high-availability.md)för virtuella Azure-datorer med [ANF](./sap-hana-high-availability-netapp-files-red-hat.md) SAP HANA , [Ha av SAP HANA på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-rhel.md), [SAP HANA Scale-Out-HSR med pacemaker på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [förbereda Azure-infrastrukturen för SAP ASCS/SCS med WSFC och delad disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md), [multi-sid ha guide för SAP ASCS/SCS med WSFC och Azure Shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) och [multi-sid ha hand bok för SAP ASCS/SCS](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) med WSFC och delad disk för att lägga till en instruktion som flytande IP inte stöds i belastnings utjämning  
+- 10/15/2020: utgåva av SAP BusinessObjects BI-plattformen i Azure-dokumentation, [SAP BUSINESSOBJECTS bi plattforms planering och implementerings guide för Azure](businessobjects-deployment-guide.md) och [SAP BusinessObjects bi Platform Deployment Guide for Linux på Azure](businessobjects-deployment-guide-linux.md)
 - 10/05/2020: version av [SAP HANA skalbar HSR med pacemaker på virtuella Azure-datorer i](./sap-hana-high-availability-scale-out-hsr-rhel.md) konfigurations guiden för RHEL
 - 09/30/2020: ändra [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-rhel.md), [ha för SAP HANA skala upp med ANF på RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) och [Konfigurera pacemaker på RHEL i Azure](./high-availability-guide-rhel-pacemaker.md) för att anpassa instruktionerna för RHEL 8,1
 - 09/29/2020: gör begränsningar och rekommendationer kring användningen av PPG tydligare i artikel [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](./sap-proximity-placement-scenarios.md) 

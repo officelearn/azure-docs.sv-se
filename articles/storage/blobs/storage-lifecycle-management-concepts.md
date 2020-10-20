@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 49e82467cd5e9cef8100aa56016f778df3445f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 264f0e59e2c43ca92fc5209b8613282a0b0fca37
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822394"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203780"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -22,8 +22,9 @@ Data uppsättningar har unika livscykler. Tidigt i livs cykeln får människor o
 
 Med policyn för livs cykel hantering kan du:
 
-- Över gångs blobbar till en låg frekvent lagrings nivå (frekvent till låg frekvent, frekvent till arkiv eller låg frekvent att arkivera) för att optimera prestanda och kostnad
-- Ta bort blobbar i slutet av deras livscykler
+- Över gångs blobbar från låg frekvent till frekvent omedelbart om de används för att optimera prestanda 
+- Över gångs-blobar, BLOB-versioner och blob-ögonblicksbilder till en låg frekvent lagrings nivå (frekvent till låg frekvent, frekvent till arkiv eller låg frekvent till Arkiv lag ring) om de inte går att komma åt eller ändra under en viss tids period för att optimera kostnaderna
+- Ta bort blobbar, BLOB-versioner och blob-ögonblicksbilder i slutet av deras livscykler
 - Definiera regler som ska köras en gång per dag på lagrings konto nivå
 - Tillämpa regler på behållare eller en delmängd av blobbar (med hjälp av prefix för namn eller [BLOB-index](storage-manage-find-blobs.md) som filter)
 
@@ -33,7 +34,7 @@ Tänk dig ett scenario där data får frekvent åtkomst under de tidiga faserna 
 
 ## <a name="availability-and-pricing"></a>Tillgänglighet och priser
 
-Funktionen för livs cykel hantering är tillgänglig i alla Azure-regioner för Generell användning v2-konton (GPv2), Blob Storage-konton och Premium Block Blob Storage-konton. I Azure Portal kan du uppgradera ett befintligt Generell användning-konto (GPv1) till ett GPv2-konto. Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).
+Funktionen för livs cykel hantering är tillgänglig i alla Azure-regioner för Generell användning v2-konton (GPv2), Blob Storage-konton, Premium Block Blob Storage-konton och Azure Data Lake Storage Gen2-konton. I Azure Portal kan du uppgradera ett befintligt Generell användning-konto (GPv1) till ett GPv2-konto. Mer information om lagrings konton finns i [Översikt över Azure Storage-konto](../common/storage-account-overview.md).
 
 Funktionen för livs cykel hantering är kostnads fri. Kunderna debiteras den vanliga drift kostnaden för den [angivna](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-anropen på BLOB-nivå. Borttagnings åtgärden är kostnads fri. Mer information om priser finns i [Block-Blob-prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -235,13 +236,13 @@ En princip för livs cykel hantering är en samling regler i ett JSON-dokument:
 
 En princip är en samling regler:
 
-| Parameternamn | Parameter typ | Obs! |
+| Parameternamn | Parameter typ | Kommentarer |
 |----------------|----------------|-------|
 | `rules`        | En matris med regel objekt | Minst en regel krävs i en princip. Du kan definiera upp till 100 regler i en princip.|
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parameter typ | Obs! | Krävs |
+| Parameternamn | Parameter typ | Kommentarer | Obligatorisk |
 |----------------|----------------|-------|----------|
 | `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt. Det måste vara unikt inom en princip. | Sant |
 | `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
@@ -263,29 +264,41 @@ Följande exempel regel filtrerar kontot för att köra åtgärder på objekt so
 - Nivå-blob till låg frekvent nivå 30 dagar efter senaste ändring
 - Nivå-blob till Arkiv lag ring 90 dagar efter senaste ändring
 - Ta bort BLOB 2 555 dagar (sju år) efter senaste ändring
-- Ta bort BLOB-ögonblicksbilder 90 dagar efter att ögonblicks bilden har skapats
+- Ta bort tidigare BLOB-versioner 90 dagar efter skapande
 
 ```json
 {
   "rules": [
     {
-      "name": "ruleFoo",
       "enabled": true,
+      "name": "rulefoo",
       "type": "Lifecycle",
       "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "container1/foo" ]
-        },
         "actions": {
-          "baseBlob": {
-            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-            "tierToArchive": { "daysAfterModificationGreaterThan": 90 },
-            "delete": { "daysAfterModificationGreaterThan": 2555 }
+          "version": {
+            "delete": {
+              "daysAfterCreationGreaterThan": 90
+            }
           },
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "baseBlob": {
+            "tierToCool": {
+              "daysAfterModificationGreaterThan": 30
+            },
+            "tierToArchive": {
+              "daysAfterModificationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterModificationGreaterThan": 2555
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "container1/foo"
+          ]
         }
       }
     }
@@ -299,7 +312,7 @@ Filtrerar begränsnings regel åtgärder till en delmängd av blobbar i lagrings
 
 Filtren är:
 
-| Filternamn | Filtertyp | Obs! | Krävs |
+| Filternamn | Filtertyp | Kommentarer | Krävs |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` och `appendBlob` . Endast borttagning stöds för `appendBlob` , Set-nivån stöds inte. | Ja |
 | prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
@@ -312,24 +325,24 @@ Filtren är:
 
 Åtgärder tillämpas på filtrerade blobbar när körnings villkoret är uppfyllt.
 
-Livs cykel hantering stöder skiktning och borttagning av blobbar och borttagning av BLOB-ögonblicksbilder. Definiera minst en åtgärd för varje regel på blobbar eller BLOB-ögonblicksbilder.
+Livs cykel hantering stöder nivåer och borttagning av blobbar, tidigare BLOB-versioner och blob-ögonblicksbilder. Definiera minst en åtgärd för varje regel på bas-blobbar, tidigare BLOB-versioner eller BLOB-ögonblicksbilder.
 
-| Action                      | Bas-BLOB                                   | Ögonblicksbild      |
-|-----------------------------|---------------------------------------------|---------------|
-| tierToCool                  | Stöd för blobbar på frekvent nivå         | Stöds inte |
-| enableAutoTierToHotFromCool | Stöd för blobbar på låg frekvent nivå        | Stöds inte |
-| tierToArchive               | Stöd för blobbar på frekvent eller låg frekvent nivå | Stöds inte |
-| delete                      | Stöds för `blockBlob` och `appendBlob`  | Stöds     |
+| Åtgärd                      | Bas-BLOB                                  | Ögonblicksbild      | Version
+|-----------------------------|--------------------------------------------|---------------|---------------|
+| tierToCool                  | Stöds för `blockBlob`                  | Stöds     | Stöds     |
+| enableAutoTierToHotFromCool | Stöds för `blockBlob`                  | Stöds inte | Stöds inte |
+| tierToArchive               | Stöds för `blockBlob`                  | Stöds     | Stöds     |
+| delete                      | Stöds för `blockBlob` och `appendBlob` | Stöds     | Stöds     |
 
 >[!NOTE]
 >Om du definierar mer än en åtgärd på samma BLOB, tillämpar livs cykel hanteringen den minst dyra åtgärden på blobben. Till exempel är åtgärden `delete` billigare än åtgärd `tierToArchive` . Åtgärden `tierToArchive` är billigare än åtgärd `tierToCool` .
 
-Körnings villkoren baseras på ålder. Bas-blobbar använder senaste ändrings tid för att spåra ålder och blob-ögonblicksbilder använder ögonblicks bilds skapande tiden för att spåra ålder.
+Körnings villkoren baseras på ålder. Bas-blobbar använder den senast ändrade tiden, BLOB-versioner använder skapande tid för version och blob-ögonblicksbilder använder ögonblicks bilds skapande tiden för att spåra ålder.
 
 | Åtgärds körnings villkor               | Villkors värde                          | Beskrivning                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | daysAfterModificationGreaterThan   | Heltals värde som anger ålder i dagar | Villkoret för bas-BLOB-åtgärder                                              |
-| daysAfterCreationGreaterThan       | Heltals värde som anger ålder i dagar | Villkoret för BLOB Snapshot-åtgärder                                          |
+| daysAfterCreationGreaterThan       | Heltals värde som anger ålder i dagar | Villkoret för blob-version och åtgärder för BLOB-ögonblicksbilder                         |
 | daysAfterLastAccessTimeGreaterThan | Heltals värde som anger ålder i dagar | förhandsgranskningsvyn Villkoret för grundläggande BLOB-åtgärder när senaste åtkomst tid har Aktiver ATS |
 
 ## <a name="examples"></a>Exempel
@@ -522,26 +535,35 @@ Vissa data bör bara upphöra att gälla om de uttryckligen har marker ATS för 
 }
 ```
 
-### <a name="delete-old-snapshots"></a>Ta bort gamla ögonblicks bilder
+### <a name="manage-versions"></a>Hantera versioner
 
-För data som ändras och används regelbundet under hela livs längden används ögonblicks bilder ofta för att spåra äldre versioner av data. Du kan skapa en princip som tar bort gamla ögonblicks bilder baserat på ögonblicks bildens ålder. Ögonblicks bildens ålder bestäms genom utvärdering av ögonblicks bildens skapande tid. Den här princip regeln tar bort block BLOB-ögonblicksbilder i behållare `activedata` som är 90 dagar eller äldre efter att ögonblicks bilden har skapats.
+För data som ändras och används regelbundet under hela sin livs längd kan du aktivera Blob Storage-versioner för att automatiskt underhålla tidigare versioner av ett objekt. Du kan skapa en princip för att skikta eller ta bort tidigare versioner. Versionens ålder bestäms genom utvärdering av den tid då versionen skapades. Den här princip regeln skiktar tidigare versioner i behållare `activedata` som är 90 dagar eller äldre efter att versionen har skapats till låg frekvent nivå, och som tar bort tidigare versioner som är 365 dagar eller äldre.
 
 ```json
 {
   "rules": [
     {
-      "name": "snapshotRule",
       "enabled": true,
+      "name": "versionrule",
       "type": "Lifecycle",
-    "definition": {
-        "filters": {
-          "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "activedata" ]
-        },
+      "definition": {
         "actions": {
-          "snapshot": {
-            "delete": { "daysAfterCreationGreaterThan": 90 }
+          "version": {
+            "tierToCool": {
+              "daysAfterCreationGreaterThan": 90
+            },
+            "delete": {
+              "daysAfterCreationGreaterThan": 365
+            }
           }
+        },
+        "filters": {
+          "blobTypes": [
+            "blockBlob"
+          ],
+          "prefixMatch": [
+            "activedata"
+          ]
         }
       }
     }

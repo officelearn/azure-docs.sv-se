@@ -3,12 +3,12 @@ title: Azures säkerhets bas linje för Azure DevTest Labs
 description: Azures säkerhets bas linje för Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: 838501bf4195c99c4d4ef7805fb8f4cba79e05d2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 98f6ce7eee799b1baf29782d7eca11d62cf62353
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151876"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207299"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Azures säkerhets bas linje för Azure DevTest Labs
 
@@ -493,7 +493,7 @@ Förutom att använda Ändringsspårning för övervakning av program vara kan a
 **Vägledning:** Azure Automation ger fullständig kontroll under distribution, åtgärder och inaktive ring av arbets belastningar och resurser. Som prenumerations administratör kan du använda Ändringsspårning för att identifiera all program vara som är installerad på virtuella datorer som finns i DevTest Labs. Du kan implementera en egen process eller använda Azure Automation tillstånds konfiguration för att ta bort otillåten program vara.
 
 - [En introduktion till Azure Automation](../automation/automation-intro.md)
-- [Spåra ändringar i din miljö med Ändringsspårning-lösningen](../automation/change-tracking.md)
+- [Spåra ändringar i din miljö med Ändringsspårning-lösningen](../automation/change-tracking/overview.md)
 - [Översikt över Azure Automation tillstånds konfiguration](../automation/automation-dsc-overview.md)
 
 **Azure Security Center övervakning:** Inte tillgängligt
@@ -581,7 +581,7 @@ Du kan också använda rekommendationer från Azure Security Center som en säke
 - [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 - [Självstudie: skapa och hantera principer för att genomdriva efterlevnad](../governance/policy/tutorials/create-and-manage.md)
 - [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
-- [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+- [Säkerhetsrekommendationer – en referensguide](../security-center/recommendations-reference.md)
 
 **Azure Security Center övervakning:** Ej tillämpligt
 
@@ -591,7 +591,7 @@ Du kan också använda rekommendationer från Azure Security Center som en säke
 **Vägledning:** Använd Azure Security Center rekommendationer för att underhålla säkerhetskonfigurationer på alla underliggande beräknings resurser som skapats som en del av DevTest Labs. Dessutom kan du använda anpassade operativ Systems avbildningar eller Azure Automation tillstånds konfiguration eller DevTest labb artefakter för att upprätta säkerhets konfigurationen för det operativ system som krävs av din organisation.
 
 - [Så här övervakar du Azure Security Center rekommendationer](../security-center/security-center-recommendations.md)
-- [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+- [Säkerhetsrekommendationer – en referensguide](../security-center/recommendations-reference.md)
 - [Översikt över Azure Automation tillstånds konfiguration](../automation/automation-dsc-overview.md)
 - [Ladda upp en virtuell hård disk och Använd den för att skapa nya virtuella Windows-datorer i Azure](../virtual-machines/windows/upload-generalized-managed.md)
 - [Skapa en virtuell Linux-dator från en anpassad disk med Azure CLI](../virtual-machines/linux/upload-vhd.md)
@@ -828,7 +828,7 @@ Om du använder Azure Disk Encryption kan du återställa den virtuella Azure-da
 Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data. Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
-- [Använd taggar till att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
+- [Använda taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning:** Ja
 

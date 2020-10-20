@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/23/2020
-ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268731"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207723"
 ---
 # <a name="co-sell-partner-engagement"></a>Deltagande i partnersäljsamarbete
 
@@ -45,7 +45,7 @@ I tabellen nedan visas de steg och krav som finns för att hämta ditt erbjudand
 |Steg    |Erbjudandetyp    |Krav    |Status för samtidig försäljning    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li> Skapa ett konto i Partner Center och publicera ditt erbjudande på den kommersiella marknaden.</li>|Alla|<li>Erbjudandet uppfyller de kommersiella publicerings kraven för Marketplace.</li><li>Du har en fullständig företags profil i Partner Center.</li>|Inte klar|
-|<ol start=2><li>Skicka nödvändigt material för co-försäljning.</li>|IP-erbjudanden *med* [samförsäljnings alternativ i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Överför nödvändigt material i Partner Center](#how-to-submit-co-sell-materials-in-partner-center): <ul><li>Sälj kontakt för varje berättigat land.</li><li>Struktur: kund One-pager, kund presentations däck (valfritt), lösningens landnings sida URL, sociala media Channel-URL eller annat (till exempel en fallstudie).|Färdiga försäljnings produkter|
+|<ol start=2><li>Skicka nödvändigt material för co-försäljning.</li>|IP-erbjudanden *med* [samförsäljnings alternativ i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Överför nödvändigt material i Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Färdiga försäljnings produkter|
 ||IP-erbjudanden *utan* [medförsäljnings alternativ i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>En begäran om att [samar beta med en moln specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) för att tillhandahålla nödvändig dokumentation för co-försäljning.|Färdiga försäljnings produkter|
 ||Rådgivningstjänster|<li>En begäran om att [samar beta med en moln specialist](https://partner.microsoft.com/campaigns/ced-nomination-form/) för att tillhandahålla nödvändig dokumentation för co-försäljning.</li><li>Aktiv guld-kompetens.</li>|Färdiga försäljnings produkter|
 |<ol start=3><li>Kvalificera för IP-incitament</li>|Azure-program, Azure-behållare, IoT Edge moduler, SaaS, virtuella datorer|När du har slutfört den färdiga försäljningen finns det två ytterligare krav: <ul> Krav 1: uppnå antingen:<ul><li>*På organisations nivå:* uppfyller eller överskrider $100 000 USD av Azures förbrukade intäkter under de efterföljande 12 månaderna.</li><li>*På erbjudande nivån:* ackumulerad marknads intäkt på $100 000 USD.</li></ul><br>Krav 2: mer än 50% av ditt erbjudandes infrastruktur måste köras på Azure:<ul><li>IP-erbjudanden *med* [alternativet Samförsäljning i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): Ladda upp ett arkitektur diagram med dina samsäljande dokument i Partner Center för granskning.</li><li>IP-erbjudanden *utan* [alternativet Medförsäljning i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell): Ladda upp ett arkitektur diagram till OCP GTM.|Azure IP Co-Sälj motiverade|
@@ -63,15 +63,19 @@ Starta din co-försäljnings resa direkt i Partner Center genom att följa stege
 
 1. I menyn till vänster väljer du **Co-Sälj med Microsoft**.
 
-    [![Den här bilden visar platsen för samförsäljnings platsen med Microsoft-fliken.](./media/co-sell/co-sell-with-microsoft-tab.png)](./media/co-sell/co-sell-with-microsoft-tab.png#lightbox)
+    :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Den här bilden visar platsen för samförsäljnings platsen med Microsoft-fliken.":::
 
-1. Ange information om ditt erbjudande och din överföring av säkerhet i avsnittet **dokument** . Microsoft-säljarna kommer att använda den här informationen för att rekommendera och sälja ditt erbjudande.
+1. Ange grundläggande registrerings information för att hjälpa Microsoft-säljare att snabbt sortera och identifiera ditt erbjudande i **list** avsnittet. (*Obligatoriskt: alla fält.*)
+
+    :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Den här bilden visar platsen för samförsäljnings platsen med Microsoft-fliken.":::  
+
+1. Ange information om ditt erbjudande och din överföring av säkerhet i avsnittet **dokument** . Microsoft-säljarna kommer att använda den här informationen för att rekommendera och sälja ditt erbjudande. (*Krävs: kundens ett-personsökare och en kund presentations kortlek.*)
+
+    :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Den här bilden visar platsen för samförsäljnings platsen med Microsoft-fliken.":::
  
-   [![I den här bilden visas avsnittet dokument på fliken Co-försäljning.](./media/co-sell/co-sell-documents-section.png)](./media/co-sell/co-sell-documents-section.png#lightbox)
+1. Överför Sälj kontakt information i avsnittet **kontakter** . Microsoft-säljare kan kontakta dessa kontakter för att begära ytterligare information om ditt erbjudande. (*Krävs: en kontakt för varje geografi där ditt erbjudande görs tillgängligt.*)
 
-1. Överför Sälj kontakt information i avsnittet **kontakter** . Microsoft-säljare kan kontakta dessa kontakter för att begära ytterligare information om ditt erbjudande.
-
-     [![I den här bilden visas avsnittet kontakter på fliken Co-försäljning.](./media/co-sell/co-sell-contacts-section.png)](./media/co-sell/co-sell-contacts-section.png#lightbox)
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Den här bilden visar platsen för samförsäljnings platsen med Microsoft-fliken.":::
 
 1. Spara utkastet innan du fortsätter.
 1. När du har slutfört alla nödvändiga avsnitt i erbjudandet kan du skicka det till granskning och publicering. I det övre högra hörnet väljer du **Granska och publicera**. Granska erbjudande informationen och välj sedan **publicera**.

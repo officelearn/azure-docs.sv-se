@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 0dad78ad76a870ea9f1db28a3cb5ccace5cd804f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ff6d064b6bfabbd8a648c23b5648aae9b12a11d
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510937"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207503"
 ---
 # <a name="tutorial-creating-a-commercial-ready-azure-remote-rendering-application"></a>Självstudie: skapa ett affärs klart program för Azure Remote rendering
 
@@ -23,7 +23,7 @@ I den här självstudien lär du dig:
 > * Optimera användar upplevelsen kring tiden för inläsning av session
 > * Att tänka på kring nätverks fördröjning
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Den här självstudien bygger på [Självstudier: skydda Azure-Fjärråter givning och modell lagring](../security/security.md).
 
@@ -35,10 +35,10 @@ I den här modulen får du en introduktion till vissa ytterligare funktioner som
 
 En bred översikt över metod tips för System-Wide-arkitektur finns på:
 
-* [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/)
-* [Kom igång-guide för Azure-utvecklare](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
+* [Azure Architecture Center](/azure/architecture/)
+* [Kom igång-guide för Azure-utvecklare](../../../../guides/developer/azure-developer-guide.md)
 
-## <a name="analytics"></a>Analytics
+## <a name="analytics"></a>Analys
 
 Integrering av analys verktyg kan hjälpa dig att hantera, spåra och förbättra din lösning.
 
@@ -54,7 +54,7 @@ För att uppnå detta erbjuder Azure en tjänst som kallas resurs märkning, som
 
 För mer information om resurs namn och taggning är en bra plats att starta:
 
-* [Guide för resurs namn givning och Taggnings beslut](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+* [Guide för resurs namn givning och Taggnings beslut](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
 ### <a name="diagnostics"></a>Diagnostik
 
@@ -62,9 +62,9 @@ Kraftfulla verktyg som ETW (Event Tracing for Windows) (ETW) och händelse spår
 
 Mer information finns på:
 
-* [Skapa prestanda spårning på klient Sidan](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
-* [Samla in ETW (Event Tracing for Windows)-data (ETW)](https://docs.microsoft.com/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
-* [Använda Windows-enhets portalen: Logga](https://docs.microsoft.com/windows/mixed-reality/using-the-windows-device-portal)
+* [Skapa prestanda spårning på klient Sidan](../../../how-tos/performance-tracing.md)
+* [Samla in ETW (Event Tracing for Windows)-data (ETW)](/visualstudio/profiling/how-to-collect-event-tracing-for-windows-etw-data)
+* [Använda Windows-enhets portalen: Logga](/windows/mixed-reality/using-the-windows-device-portal)
 
 ### <a name="usage-analysis"></a>Användnings analys
 
@@ -72,7 +72,7 @@ Azure Application Insights hjälper dig att förstå hur personer använder ditt
 
 Mer information finns på:
 
-* [Användnings analys med Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)
+* [Användnings analys med Application Insights](../../../../azure-monitor/app/usage-overview.md)
 
 ## <a name="fast-startup-time-strategies"></a>Snabba start tids strategier
 
@@ -102,7 +102,7 @@ Den här strategin hjälper också till att optimera valet mellan *standard* -oc
 
 Om du vill ha mer information om Azure Remote rendering-sessioner kan du kolla in:
 
-* [Remote Rendering-sessioner](https://docs.microsoft.com/azure/remote-rendering/concepts/sessions)
+* [Remote Rendering-sessioner](../../../concepts/sessions.md)
 
 ## <a name="standard-vs-premium-server-size-routing-strategies"></a>Strategier för routning av standard vs. Premium-Server storlek
 
@@ -164,9 +164,9 @@ Andra exempel är direktuppspelad video, samtidiga bakgrunds överföringar av a
 För mer information om Network Analytics, se:
 
 * [Hastighets test för Azure Storage Blob hämtning](https://www.azurespeed.com/Azure/Download)
-* [Svars tids statistik för Azure Network tur och retur](https://docs.microsoft.com/azure/networking/azure-network-latency)
-* [Prestanda spårning på Server Sidan](https://docs.microsoft.com/azure/remote-rendering/overview/features/performance-queries)
-* [Prestanda spårning på klient Sidan](https://docs.microsoft.com/azure/remote-rendering/how-tos/performance-tracing)
+* [Svars tids statistik för Azure Network tur och retur](../../../../networking/azure-network-latency.md)
+* [Prestanda spårning på Server Sidan](../../../overview/features/performance-queries.md)
+* [Prestanda spårning på klient Sidan](../../../how-tos/performance-tracing.md)
 
 ## <a name="collaboration-considerations"></a>Samarbets överväganden
 
@@ -192,8 +192,8 @@ Men för 3D-tillgångar som ska användas flera gånger, till exempel i ett scen
 
 Mer information:
 
-* [Delade upplevelser i Mixad verklighet](https://docs.microsoft.com/windows/mixed-reality/shared-experiences-in-mixed-reality)
-* [Azure Storage redundans](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+* [Delade upplevelser i Mixad verklighet](/windows/mixed-reality/shared-experiences-in-mixed-reality)
+* [Azure Storage redundans](../../../../storage/common/storage-redundancy.md)
 
 ## <a name="managing-model-access"></a>Hantera modell åtkomst
 
@@ -230,7 +230,7 @@ Den här metoden kan fattas ett steg ytterligare genom att bevara en koppling me
 Mer information:
 
 * [Microsoft Power automatiserings mall för OneDrive till Azure Storage-replikering](https://flow.microsoft.com/galleries/public/templates/2f90b5d3-029b-4e2e-ad37-1c0fe6d187fe/when-a-file-is-uploaded-to-onedrive-copy-it-to-azure-storage-container/)
-* [Översikt över OneDrive File Storage API](https://docs.microsoft.com/graph/onedrive-concept-overview)
+* [Översikt över OneDrive File Storage API](/graph/onedrive-concept-overview)
 
 ### <a name="direct-cad-access"></a>Direkt CAD-åtkomst
 
@@ -255,7 +255,7 @@ Många företags klienter bestämmer att din Azure Stack kan distribueras under 
 Mer information:
 
 * [Azure Marketplace](https://azure.microsoft.com/marketplace/)
-* [Självstudie: publicera Azure-hanterade program på Marketplace](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/publish-marketplace-app)
+* [Självstudie: publicera Azure-hanterade program på Marketplace](../../../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)
 
 ### <a name="security"></a>Säkerhet
 
@@ -277,6 +277,6 @@ För autentisering är det klokt att flytta så mycket av ARR-autentisering och-
 
 Mer information:
 
-* [Azure AD-tjänsteautentisering](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-service-authentication)
+* [Azure AD-tjänsteautentisering](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-service-authentication)
 * [Förbättra din säkerhets position med Azure](https://azure.microsoft.com/overview/security/)
 * [Cloud Security](https://azure.microsoft.com/product-categories/security/)

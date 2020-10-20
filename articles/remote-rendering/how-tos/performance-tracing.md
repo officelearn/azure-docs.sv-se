@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d4ce68bdda5fbc3dfdb7396141289a58dab5bd1
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84021168"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92204103"
 ---
 # <a name="create-client-side-performance-traces"></a>Samla in klientsidans prestandavarningar
 
@@ -24,7 +24,7 @@ Om du är nybörjare på Windows :::no-loc text="performance tracing"::: -funkti
 
 ### <a name="installation"></a>Installation
 
-Programmen som används för att spåra med ARR är generella syftes verktyg som kan användas för all Windows-utveckling. De tillhandahålls via [Windows Performance Toolkit](https://docs.microsoft.com/windows-hardware/test/wpt/). Hämta verktygs uppsättningen för [Windows Assessment and Deployment Kit](https://docs.microsoft.com/windows-hardware/get-started/adk-install).
+Programmen som används för att spåra med ARR är generella syftes verktyg som kan användas för all Windows-utveckling. De tillhandahålls via [Windows Performance Toolkit](/windows-hardware/test/wpt/). Hämta verktygs uppsättningen för [Windows Assessment and Deployment Kit](/windows-hardware/get-started/adk-install).
 
 ### <a name="terminology"></a>Terminologi
 
@@ -35,13 +35,13 @@ När du söker efter information om prestanda spårningar kommer du oundvikligen
 * `WPR`
 * `WPA`
 
-**ETW** står för [ **E**- **T**Windows **W**](https://docs.microsoft.com/windows/win32/etw/about-event-tracing). Det är helt enkelt det övergripande namnet för den effektiva spårnings funktionen på kernel-nivå som är inbyggd i Windows. Den kallas *händelse* spårning, eftersom program som stöder ETW genererar händelser för att logga åtgärder som kan hjälpa till att spåra prestanda problem. Som standard genererar operativ systemet händelser för till exempel disk åtkomst, aktivitets växlar och sådana. Program som ARR genererar dessutom anpassade händelser, till exempel om släppta ramar, nätverks fördröjning osv.
+**ETW** står för [ **E**- **T**Windows **W**](/windows/win32/etw/about-event-tracing). Det är helt enkelt det övergripande namnet för den effektiva spårnings funktionen på kernel-nivå som är inbyggd i Windows. Den kallas *händelse* spårning, eftersom program som stöder ETW genererar händelser för att logga åtgärder som kan hjälpa till att spåra prestanda problem. Som standard genererar operativ systemet händelser för till exempel disk åtkomst, aktivitets växlar och sådana. Program som ARR genererar dessutom anpassade händelser, till exempel om släppta ramar, nätverks fördröjning osv.
 
 **ETL** står för **E**-ventilation **t**. ex. **L**ogging. Det innebär bara att en spårning har samlats in (loggats) och vanligt vis används som fil namns tillägg för filer som lagrar spårnings data. När du gör en spårning får du därför vanligt vis en \* . etl-fil efteråt.
 
-**WPR** står för [ **W**Windows **P**erformance **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) och är namnet på programmet som startar och stoppar inspelningen av händelse spår. WPR tar en profil fil ( \* . wprp) som konfigurerar vilka exakta händelser som ska loggas. En sådan `wprp` fil ingår i arr SDK. När du spårar på en stationär dator kan du starta WPR direkt. När du utför en spårning på HoloLens går du normalt igenom webb gränssnittet i stället.
+**WPR** står för [ **W**Windows **P**erformance **R**ecorder](/windows-hardware/test/wpt/windows-performance-recorder) och är namnet på programmet som startar och stoppar inspelningen av händelse spår. WPR tar en profil fil ( \* . wprp) som konfigurerar vilka exakta händelser som ska loggas. En sådan `wprp` fil ingår i arr SDK. När du spårar på en stationär dator kan du starta WPR direkt. När du utför en spårning på HoloLens går du normalt igenom webb gränssnittet i stället.
 
-**WPA** står för [ **b**Windows **P**erformance **A**nalyzer](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) och är namnet på det GUI-program som används för att öppna \* . etl-filer och gå igenom data för att identifiera prestanda problem. Med WPA kan du sortera data efter olika villkor, Visa data på flera sätt, få mer information och korrelera information.
+**WPA** står för [ **b**Windows **P**erformance **A**nalyzer](/windows-hardware/test/wpt/windows-performance-analyzer) och är namnet på det GUI-program som används för att öppna \* . etl-filer och gå igenom data för att identifiera prestanda problem. Med WPA kan du sortera data efter olika villkor, Visa data på flera sätt, få mer information och korrelera information.
 
 Även om ETL-spårningar kan skapas på en Windows-enhet (lokal dator, HoloLens, moln server osv.), sparas de vanligt vis på disk och analyseras med WPA på en stationär dator. ETL-filer kan skickas till andra utvecklare så att de får en titt. Tänk på att känslig information, t. ex. fil Sök vägar och IP-adresser, kan fångas in i ETL-spår, även om. Du kan använda ETW på två sätt: om du vill spela in spår eller analysera spår. Inspelnings spårningar är rakt framåt och kräver minimal konfiguration. Analys av spår å andra sidan kräver en vettigt förståelse av både WPA-verktyget och det problem som du undersöker. Allmänt material för Learning WPA anges nedan, samt rikt linjer för hur du tolkar ARR-specifikt spår.
 
@@ -51,7 +51,7 @@ För att identifiera problem med ARR-prestanda bör du prioritera en spårning d
 
 ### <a name="wpr-configuration"></a>WPR-konfiguration
 
-1. Starta [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) från *Start-menyn*.
+1. Starta [:::no-loc text="Windows Performance Recorder":::](/windows-hardware/test/wpt/windows-performance-recorder) från *Start-menyn*.
 1. Expandera **fler alternativ**
 1. Klicka på **Lägg till profiler...**
 1. Välj filen *AzureRemoteRenderingNetworkProfiling. wprp*. Du hittar den här filen i ARR SDK under *Tools/ETLProfiles*.
@@ -95,7 +95,7 @@ Nu har du en ETL-fil som du antingen kan öppna direkt i WPA eller skicka till n
 
 Windows Performance Analyzer är standard verktyget för att öppna ETL-filer och granska spåren. En förklaring om att WPA fungerar utanför räckvidden för den här artikeln. Kom igång genom att ta en titt på dessa resurser:
 
-* Titta på de [inledande videorna](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) för en första översikt.
+* Titta på de [inledande videorna](/windows-hardware/test/wpt/windows-performance-analyzer) för en första översikt.
 * WPA har en *komma igång* flik, som förklarar vanliga steg. Titta på de tillgängliga ämnena. I synnerhet under "Visa data" får du en snabb introduktion till hur du skapar grafer för vissa data.
 * Det finns mycket bra information [på den här webbplatsen](https://randomascii.wordpress.com/2015/09/24/etw-central/), men alla är inte relevanta för nybörjare.
 

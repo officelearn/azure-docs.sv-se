@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80239550"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308887"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Hur länge rapporterar Azure AD Store-data?
 
@@ -34,7 +34,7 @@ I den här artikeln får du lära dig om data lagrings principer för de olika a
 | Azure AD-utgåva | Samlings start |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | När du registrerar dig för en prenumeration |
-| Azure AD Kostnadsfri| Första gången du öppnar [Azure Active Directory bladet](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) eller använder [rapporterings-API: erna](https://aka.ms/aadreports)  |
+| Azure AD Kostnadsfri| Första gången du öppnar [Azure Active Directory bladet](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) eller använder [rapporterings-API: erna](./overview-reports.md)  |
 
 ---
 

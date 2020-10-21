@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 01/16/2020
-ms.openlocfilehash: f83f5da03d2db5354b020ce7d0c3c8d70f1830a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 810c38397981a100c2d5a68492f8a15b75cd79bd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89650103"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276048"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i den kommersiella Marketplace
 
@@ -67,7 +67,7 @@ Nu när du har dolt planen med det gamla priset skapar du en kopia av planen med
 
 1. Gå tillbaka till **plan översikt**i Partner Center.
 2. Välj **Skapa ny plan**. Ange ett **plan-ID** och ett **plan namn**och välj sedan **skapa**.
-1. Om du vill återanvända den tekniska konfigurationen från den plan som du har dolt, markerar du kryss rutan **Återanvänd teknisk konfiguration** . Läs [plan översikten](azure-vm-create-offer.md#plan-overview) om du vill veta mer.
+1. Om du vill återanvända den tekniska konfigurationen från den plan som du har dolt, markerar du kryss rutan **Återanvänd teknisk konfiguration** . Läs [skapa planer för ett virtuellt dator erbjudande](../azure-vm-create-plans.md) om du vill veta mer.
     > [!IMPORTANT]
     > Om du väljer **den här planen återanvänder teknisk konfiguration från en annan plan**kan du inte sluta sälja den överordnade planen senare. Använd inte det här alternativet om du inte vill sluta att sälja den överordnade planen.
 3. Slutför alla nödvändiga avsnitt för den nya planen, inklusive det nya priset.

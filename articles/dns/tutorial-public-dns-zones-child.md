@@ -1,5 +1,5 @@
 ---
-title: Skapa en Azure-underordnad DNS-zon
+title: 'Självstudie: skapa en Azure-underordnad DNS-zon'
 titleSuffix: Azure DNS
 description: Själv studie kurs om hur du skapar underordnade DNS-zoner i Azure Portal.
 author: jonbeck
@@ -10,12 +10,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: 3f35d39634470ccacffa4d35c272a82725e9001c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c763f761d77ac05d9f6b45e5656436faa5697e88
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89088367"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310073"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Självstudie: skapa en ny underordnad DNS-zon
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Azure-konto med en aktiv prenumeration.  Om du inte har något konto kan du [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Befintlig överordnad Azure DNS zon.  
@@ -40,7 +40,7 @@ I den här självstudien kommer vi att använda contoso.com som överordnad zon 
 ## <a name="sign-in-to-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Azure-konto.
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar.
 
 Det finns två sätt att skapa en underordnad DNS-zon.
 1.  Via portal sidan Skapa DNS-zon.

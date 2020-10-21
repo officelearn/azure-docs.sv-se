@@ -16,12 +16,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fa96d6bd0032f675ffaeabc58c62c13312039dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662160"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276944"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 I den här artikeln beskrivs kraven och maskin varu kraven för Azure Active Directory (Azure AD) Connect.
@@ -46,6 +46,14 @@ Innan du installerar Azure AD Connect finns det några saker du behöver.
 * Domänkontrollanten som används av Azure AD måste vara skrivbar. Det *finns inte stöd*för att använda en skrivskyddad DOMÄNKONTROLLANT (RODC) och Azure AD Connect inte utföra några Skriv omdirigeringar.
 * Att använda lokala skogar eller domäner med hjälp av "prickad" (namnet innehåller en punkt ".") NetBIOS-namn *stöds inte*.
 * Vi rekommenderar att du [aktiverar Active Directory pappers korgen](how-to-connect-sync-recycle-bin.md).
+
+### <a name="powershell-execution-policy"></a>PowerShell-körningsprincip
+Azure Active Directory Connect kör signerade PowerShell-skript som en del av installationen. Kontrol lera att körnings principen för PowerShell tillåter körning av skript.
+
+Den rekommenderade körnings principen under installationen är "RemoteSigned".
+
+Mer information om hur du anger körnings principen för PowerShell finns i [set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect Server
 Azure AD Connect servern innehåller kritiska identitets data. Det är viktigt att administrativ åtkomst till den här servern är korrekt skyddad. Följ rikt linjerna för att [skydda privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
@@ -91,7 +99,7 @@ Vi rekommenderar att du skärper Azure AD Connect-servern för att minska säker
 * Om du använder [Express inställningar](reference-connect-accounts-permissions.md#express-settings-installation) eller uppgraderar från DirSync måste du ha ett företags administratörs konto för din lokala Active Directory.
 * Om du använder installations Sök vägen för anpassade inställningar har du fler alternativ. Mer information finns i [anpassade installations inställningar](reference-connect-accounts-permissions.md#custom-installation-settings).
 
-### <a name="connectivity"></a>Anslutningsmöjlighet
+### <a name="connectivity"></a>Anslutningar
 * Den Azure AD Connect servern behöver DNS-matchning för både intranätet och Internet. DNS-servern måste kunna matcha namn både till din lokala Active Directory och Azure AD-slutpunkter.
 * Om du har brand väggar i intranätet och du behöver öppna portar mellan Azure AD Connect-servrar och domän kontrol Lanterna, se [Azure AD Connect portar](reference-connect-ports.md) för mer information.
 * Om din proxy eller brand vägg begränsar vilka URL: er som kan nås, måste URL: erna som dokumenteras i [Office 365-URL: er och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) öppnas.

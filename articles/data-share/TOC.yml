@@ -44,10 +44,6 @@
         - name: Dela från Azure Data Explorer
           href: /azure/data-explorer/data-share
           maintainContext: true
-    - name: Övervaka
-      href: how-to-monitor.md
-    - name: Felsöka
-      href: data-share-troubleshoot.md
     - name: Lägga till datauppsättningar
       href: how-to-add-datasets.md
     - name: Konfigurera datauppsättningsmappningar
@@ -58,10 +54,14 @@
       href: how-to-delete-invitation.md
     - name: Återkalla en delad prenumeration
       href: how-to-revoke-share-subscription.md
+    - name: Övervaka
+      href: how-to-monitor.md
     - name: Säkerhet
       href: security.md
     - name: Haveriberedskap
       href: disaster-recovery.md
+    - name: Felsöka
+      href: data-share-troubleshoot.md
 - name: Referens
   items:
     - name: .NET

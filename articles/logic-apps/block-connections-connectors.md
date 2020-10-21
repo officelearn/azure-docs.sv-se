@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02d9852f6615c3926a02294e0e7eca50f2fbe9a5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269768"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310040"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Blockera anslutningar som skapats av anslutningar i Azure Logic Apps
 
@@ -127,7 +127,7 @@ Följ dessa steg om du vill blockera skapandet av en anslutning helt i en Logic 
    |----------|----------|-------|-------------|
    | **Definitions plats** | Ja | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
    | **Namn** | Ja | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
-   | **Beskrivning** | Inga | <*princip-definition-namn*> | En beskrivning av princip definitionen |
+   | **Beskrivning** | Nej | <*princip-definition-namn*> | En beskrivning av princip definitionen |
    | **Kategori** | Ja | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
    | **Principframtvingande** | Ja | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
    ||||
@@ -224,7 +224,7 @@ Mer information om definitioner av Azure-principer finns i följande avsnitt:
 
 * [Princip struktur definition](../governance/policy/concepts/definition-structure.md)
 * [Självstudie: skapa och hantera principer för att genomdriva efterlevnad](../governance/policy/tutorials/create-and-manage.md)
-* [Azure Policy inbyggda princip definitioner för Azure Logic Apps](../logic-apps/policy-samples.md)
+* [Azure Policy inbyggda princip definitioner för Azure Logic Apps](./policy-reference.md)
 
 <a name="create-policy-connector-usage"></a>
 
@@ -248,7 +248,7 @@ När du skapar en anslutning i en Logic app, finns anslutningen som separat Azur
    |----------|----------|-------|-------------|
    | **Definitions plats** | Ja | <*Azure-prenumeration-namn*> | Azure-prenumerationen som ska användas för princip definitionen <p><p>1. om du vill hitta din prenumeration väljer du knappen med tre punkter (**...**). <br>2. i **prenumerations** listan letar du reda på och väljer din prenumeration. <br>3. Välj **Välj**när du är klar. |
    | **Namn** | Ja | <*princip-definition-namn*> | Namnet som ska användas för princip definitionen |
-   | **Beskrivning** | Inga | <*princip-definition-namn*> | En beskrivning av princip definitionen |
+   | **Beskrivning** | Nej | <*princip-definition-namn*> | En beskrivning av princip definitionen |
    | **Kategori** | Ja | **Logic Apps** | Namnet på en befintlig kategori eller ny kategori för princip definitionen |
    | **Principframtvingande** | Ja | **Aktiverad** | Den här inställningen anger om du vill aktivera eller inaktivera princip definitionen när du sparar ditt arbete. |
    ||||
@@ -311,7 +311,7 @@ Mer information om definitioner av Azure-principer finns i följande avsnitt:
 
 * [Princip struktur definition](../governance/policy/concepts/definition-structure.md)
 * [Självstudie: skapa och hantera principer för att genomdriva efterlevnad](../governance/policy/tutorials/create-and-manage.md)
-* [Azure Policy inbyggda princip definitioner för Azure Logic Apps](../logic-apps/policy-samples.md)
+* [Azure Policy inbyggda princip definitioner för Azure Logic Apps](./policy-reference.md)
 
 <a name="create-policy-assignment"></a>
 
@@ -332,13 +332,13 @@ Därefter måste du tilldela den princip definition där du vill genomdriva prin
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Omfång** | Ja | De resurser där du vill genomdriva princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **omfång** . <br>2. Välj Azure-prenumerationen i listan **prenumeration** . <br>3. du kan också välja resurs gruppen från listan **resurs grupp** . <br>4. När du är klar väljer du **Välj**. |
-   | **Undantag** | Inga | Alla Azure-resurser som ska undantas från princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **undantag** . <br>2. Välj resurs > **Lägg till i det valda omfånget**i **resurs** listan. <br>3. När du är klar väljer du **Spara**. |
+   | **Undantag** | Nej | Alla Azure-resurser som ska undantas från princip tilldelningen. <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **undantag** . <br>2. Välj resurs > **Lägg till i det valda omfånget**i **resurs** listan. <br>3. När du är klar väljer du **Spara**. |
    | **Principdefinition** | Ja | Namnet på den princip definition som du vill tilldela och tillämpa. Det här exemplet fortsätter med exempel Instagram-principen "blockera Instagram-anslutningar". <p><p>1. Klicka på knappen med tre punkter (**...**) bredvid rutan **princip definition** . <br>2 **. Sök efter** och välj princip definitionen med hjälp av **typ** filtret eller sökrutan. <br>3. Välj **Välj**när du är klar. |
    | **Namn på tilldelning** | Ja | Namnet som ska användas för princip tilldelningen, om det skiljer sig från princip definitionen |
    | **Tilldelnings-ID** | Ja | Automatiskt genererat ID för princip tilldelningen |
-   | **Beskrivning** | Inga | En beskrivning av princip tilldelningen |
+   | **Beskrivning** | Nej | En beskrivning av princip tilldelningen |
    | **Principframtvingande** | Ja | Inställningen som aktiverar eller inaktiverar princip tilldelningen |
-   | **Tilldelad av** | Inga | Namnet på den person som skapade och tillämpade princip tilldelningen |
+   | **Tilldelad av** | Nej | Namnet på den person som skapade och tillämpade princip tilldelningen |
    ||||
 
    Om du till exempel vill tilldela principen till en Azure-resurs grupp med hjälp av Instagram-exemplet:

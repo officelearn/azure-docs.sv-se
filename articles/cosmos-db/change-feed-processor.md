@@ -6,15 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3a802cc3d6178302445e0c31c52785d00207d0bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88998551"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277031"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändringsflödesprocessorn i Azure Cosmos DB
 
@@ -68,9 +68,9 @@ Den normala livscykeln för en värdinstans är:
 
 Processorn för ändrings flöden är elastisk för användar kod fel. Det innebär att om din ombuds implementering har ett ohanterat undantag (steg #4), stoppas tråd bearbetningen av den aktuella batchen av ändringar och en ny tråd skapas. Den nya tråden kontrollerar vilken som är den senaste tidpunkten som leasing lagret har för intervallet av partitionsnyckel, och sedan startar om därifrån, skickar samma batch med ändringar i delegaten. Det här beteendet fortsätter tills ditt ombud bearbetar ändringarna korrekt och det är orsaken till att den ändrade feed-processorn har en "minst en gång"-garanti, eftersom om Delegerings koden genererar ett undantag kommer den att försöka utföra batchen igen.
 
-För att förhindra att en ändrings flödes processor får "fastnat" och samtidigt prova samma batch med ändringar, bör du lägga till logik i din ombuds kod för att skriva dokument, vid undantag, till en kö för obeställbara meddelanden. Den här designen garanterar att du kan hålla koll på obearbetade ändringar samtidigt som du fortfarande kan fortsätta att bearbeta framtida ändringar. Kön för obeställbara meddelanden kan bara vara en annan Cosmos-behållare. Det exakta data lagret spelar ingen roll, bara att de obearbetade ändringarna är bestående.
+För att förhindra att en ändrings flödes processor får "fastnat" och samtidigt prova samma batch med ändringar, bör du lägga till logik i din ombuds kod för att skriva dokument, vid undantag, till en kö för obeställbara meddelanden. Den här designen garanterar att du kan hålla koll på obearbetade ändringar samtidigt som du fortfarande kan fortsätta att bearbeta framtida ändringar. Kön för obeställbara meddelanden kan vara en annan Cosmos-behållare. Det exakta data lagret spelar ingen roll, bara att de obearbetade ändringarna är bestående.
 
-Dessutom kan du använda [uppskattningen ändra feed](how-to-use-change-feed-estimator.md) för att övervaka förloppet för dina byte av Change feed processor när de läser ändrings flödet. Förutom övervakningen om processorn för förändrings flödet får "fastnat" och försöker igen med samma batch med ändringar, kan du också förstå om din process för ändrings flöden håller på att förfalla efter tillgängliga resurser som processor, minne och nätverks bandbredd.
+Dessutom kan du använda [uppskattningen ändra feed](how-to-use-change-feed-estimator.md) för att övervaka förloppet för dina byte av Change feed processor när de läser ändrings flödet. Du kan använda den här uppskattningen för att förstå om din process för ändrings flöden är "fastnad" eller när du har använt resurser som processor, minne och nätverks bandbredd.
 
 ## <a name="deployment-unit"></a>Distributions enhet
 
@@ -94,7 +94,32 @@ Dessutom kan Processorn för förändrings flöden dynamiskt justera till behål
 
 ## <a name="change-feed-and-provisioned-throughput"></a>Ändra feed och tillhandahållet data flöde
 
-Du debiteras för ru: er som förbrukas, eftersom data förflyttning in och ut ur Cosmos-behållare använder alltid ru: er. Du debiteras för ru: er som används av leasing containern.
+Att ändra feed Läs åtgärder på den övervakade behållaren använder ru: er. 
+
+Åtgärder på leasing containern använder ru: er. Ju högre antal instanser som använder samma leasing behållare, desto högre är den potentiella RU-förbrukningen. Kom ihåg att övervaka din RU-förbrukning på behållaren lån om du bestämmer dig för att skala och öka antalet instanser.
+
+## <a name="starting-time"></a>Start tid
+
+Som standard när en ändrings flödes processor startar första gången initieras behållaren lån och startar dess [bearbetnings livs cykel](#processing-life-cycle). Eventuella ändringar som skett i den övervakade behållaren innan processorn för ändrings flöden initierades för första gången identifieras inte.
+
+### <a name="reading-from-a-previous-date-and-time"></a>Läser från ett tidigare datum och en tidigare tidpunkt
+
+Det är möjligt att initiera processen för att ändra feed för att läsa ändringar som börjar vid ett **visst datum och en angiven tidpunkt**, genom att skicka en instans av en `DateTime` till `WithStartTime` Builder-tillägget:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
+
+Processorn för ändrings flöden initieras för det aktuella datumet och den aktuella tiden och börjar läsa de ändringar som skett efter.
+
+### <a name="reading-from-the-beginning"></a>Läser från början
+
+I andra scenarier, t. ex. datamigrering eller analys av hela historiken för en behållare, måste vi läsa ändrings flödet från **början av behållarens livs längd**. Vi kan göra det med hjälp av `WithStartTime` tillägget Builder, men genom att skicka `DateTime.MinValue.ToUniversalTime()` , vilket genererar UTC-representationen av det lägsta `DateTime` värdet, så här:
+
+[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
+
+Processorn för ändrings flöden initieras och börjar läsa ändringar från början av containerns livs längd.
+
+> [!NOTE]
+> Dessa anpassnings alternativ fungerar bara för att konfigurera start tidpunkten för bytet av Change feed. När låne containern har initierats för första gången har ändringar gjorts.
 
 ## <a name="where-to-host-the-change-feed-processor"></a>Var du ska vara värd för Change feed-processorn
 
@@ -105,7 +130,7 @@ Processorn för ändrings flöden kan finnas på alla plattformar som stöder ti
 * Ett bakgrunds jobb i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
 * En [värdbaserad ASP.net-tjänst](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
 
-Medan byte av flödes processor kan köras i korta miljön, eftersom Lease-behållaren upprätthåller tillstånd, kommer start-och stopp cykeln för dessa miljöer att lägga till fördröjning för att ta emot meddelanden (på grund av omkostnader för att starta processorn varje gång miljön startas).
+Medan byte av flödes processor kan köras i korta levde miljöer, eftersom Lease-behållaren upprätthåller tillstånd, kommer start cykeln för de här miljöerna att lägga till fördröjning för att ta emot meddelanden (på grund av omkostnader för att starta processorn varje gång miljön startas).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

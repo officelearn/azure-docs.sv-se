@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: b056c12f51c6e36a806f2bba0f5efe9ea9498798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59f1231e2edf3277898ff57d8e6f8da42ee057ca
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015644"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276987"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Ändra flödes hämtnings modell i Azure Cosmos DB
 
@@ -112,7 +112,7 @@ Här är ett exempel som visar hur du hämtar en lista över intervall för din 
 IReadOnlyList<FeedRange> ranges = await container.GetFeedRangesAsync();
 ```
 
-När du hämtar en lista över FeedRanges för din behållare får du en `FeedRange` per [fysisk partition](partition-data.md#physical-partitions).
+När du hämtar en lista över FeedRanges för din behållare får du en `FeedRange` per [fysisk partition](partitioning-overview.md#physical-partitions).
 
 Med hjälp av en `FeedRange` kan du skapa en `FeedIterator` för att parallellisera bearbetning av ändrings flödet över flera datorer eller trådar. Till skillnad från föregående exempel som visade hur du hämtar en `FeedIterator` för hela behållaren eller en enskild partitionsnyckel, kan du använda FeedRanges för att hämta flera FeedIterators som kan bearbeta ändrings flödet parallellt.
 

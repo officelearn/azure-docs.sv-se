@@ -402,6 +402,8 @@
       href: luis-reference-prebuilt-sentiment.md
 - name: Resurser
   items:
+    - name: Alternativ för support och hjälp
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/luis/context/context
     - name: Kodexempel
       href: 'https://github.com/Azure-Samples/cognitive-services-language-understanding'
     - name: Regional tillgänglighet
@@ -425,10 +427,6 @@
     - name: Konfigurera virtuella nätverk
       maintainContext: true
       href: ../cognitive-services-virtual-networks.md
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/LUIS'
-    - name: UserVoice
-      href: 'https://go.microsoft.com/fwlink/?linkid=2092090'
     - name: Search
       href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: Blogg

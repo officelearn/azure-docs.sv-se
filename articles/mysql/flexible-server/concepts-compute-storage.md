@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 8a1b30803494facf6eaabcc3695770d694b4e221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708687"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315162"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Beräknings-och lagrings alternativ i Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -49,25 +49,25 @@ De detaljerade specifikationerna för de tillgängliga Server typerna är följa
 | Beräknings storlek         | Virtuella kärnor | Minnes storlek (GiB) | 
 |----------------------|--------|-------------------|
 | **Burstable**        |        |                   | 
-| B1S                  | 1      | 1                 |  
-| B1ms                 | 1      | 2                 | 
-| B2s                  | 2      | 4                 |  
+| Standard_B1s         | 1      | 1                 |  
+| Standard_B1ms        | 1      | 2                 | 
+| Standard_B2s         | 2      | 4                 |  
 | **Generell användning**  |        |                   | 
-| D2ds_v4              | 2      | 8                 |  
-| D4ds_v4              | 4      | 16                | 
-| D8ds_v4              | 8      | 32                | 
-| D16ds_v4             | 16     | 64                | 
-| D32ds_v4             | 32     | 128               |  
-| D48ds_v4             | 48     | 192               |  
-| D64ds_v4             | 64     | 256               | 
+| Standard_D2ds_v4     | 2      | 8                 |  
+| Standard_D4ds_v4     | 4      | 16                | 
+| Standard_D8ds_v4     | 8      | 32                | 
+| Standard_D16ds_v4    | 16     | 64                | 
+| Standard_D32ds_v4    | 32     | 128               |  
+| Standard_D48ds_v4    | 48     | 192               |  
+| Standard_D64ds_v4    | 64     | 256               | 
 | **Minnesoptimerade** |        |                   |
-| E2ds_v4              | 2      | 16                |
-| E4ds_v4              | 4      | 32                |
-| E8ds_v4              | 8      | 64                |
-| E16ds_v4             | 16     | 128               |
-| E32ds_v4             | 32     | 256               |
-| E48ds_v4             | 48     | 384               |
-| E64ds_v4             | 64     | 504               |
+| Standard_E2ds_v4     | 2      | 16                |
+| Standard_E4ds_v4     | 4      | 32                |
+| Standard_E8ds_v4     | 8      | 64                |
+| Standard_E16ds_v4    | 16     | 128               |
+| Standard_E32ds_v4    | 32     | 256               |
+| Standard_E48ds_v4    | 48     | 384               |
+| Standard_E64ds_v4    | 64     | 504               |
 
 För att få mer information om beräknings serien tillgänglig, se Azure VM-dokumentation för [Burstable (B-serien)](../../virtual-machines/sizes-b-series-burstable.md), [generell användning (Ddsv4-serien)](../../virtual-machines/ddv4-ddsv4-series.md)och [minnesoptimerade (Edsv4-serien)](../../virtual-machines/edv4-edsv4-series.md).
 
@@ -110,25 +110,25 @@ Om du vill veta mer om högsta antalet effektiva IOPS per beräknings storlek, k
 | Beräknings storlek         | Högsta effektiva IOPS  | 
 |----------------------|---------------------|
 | **Burstable**        |                     |
-| B1S                  | 320                 |
-| B1ms                 | 640                 |
-| B2s                  | 1280                | 
+| Standard_B1s         | 320                 |
+| Standard_B1ms        | 640                 |
+| Standard_B2s         | 1280                | 
 | **Generell användning**  |                     |
-| D2ds_v4              | 3200                |
-| D4ds_v4              | 6400                |
-| D8ds_v4              | 12800               |
-| D16ds_v4             | 20000               |
-| D32ds_v4             | 20000               |
-| D48ds_v4             | 20000               | 
-| D64ds_v4             | 20000               | 
+| Standard_D2ds_v4     | 3200                |
+| Standard_D4ds_v4     | 6400                |
+| Standard_D8ds_v4     | 12800               |
+| Standard_D16ds_v4    | 20000               |
+| Standard_D32ds_v4    | 20000               |
+| Standard_D48ds_v4    | 20000               | 
+| Standard_D64ds_v4    | 20000               | 
 | **Minnesoptimerade** |                     | 
-| E2ds_v4              | 3200                | 
-| E4ds_v4              | 6400                | 
-| E8ds_v4              | 12800               | 
-| E16ds_v4             | 20000               | 
-| E32ds_v4             | 20000               | 
-| E48ds_v4             | 20000               | 
-| E64ds_v4             | 20000               |  
+| Standard_E2ds_v4     | 3200                | 
+| Standard_E4ds_v4     | 6400                | 
+| Standard_ E8ds_v4    | 12800               | 
+| Standard_ E16ds_v4   | 20000               | 
+| Standard_E32ds_v4    | 20000               | 
+| Standard_E48ds_v4    | 20000               | 
+| Standard_E64ds_v4    | 20000               |  
 
 Högsta effektiva IOPS är beroende av Max antalet tillgängliga IOPS per beräknings storlek. Se formeln nedan och referera till *maximalt antal cachelagrade diskar i kolumnen: IOPS/Mbps* i dokumentationen för [B-serien](../../virtual-machines/sizes-b-series-burstable.md), [Ddsv4-serien](../../virtual-machines/ddv4-ddsv4-series.md)och [Edsv4-serien](../../virtual-machines/edv4-edsv4-series.md) .
 

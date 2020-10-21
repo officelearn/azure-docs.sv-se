@@ -3,12 +3,12 @@ title: Resurs typer som stöds genom Azure Resource Health | Microsoft Docs
 description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bbc7b03a508c9b156de039b4f8706f5063fd23b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447057"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316128"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
 Nedan visas en fullständig lista över alla kontroller som utförs via resurs hälsa efter resurs typer.
@@ -51,7 +51,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 ## <a name="microsoftclassiccomputedomainnames"></a>Microsoft. classiccompute/domän namn
 |Utförda kontroller|
 |---|
-|<ul><li>Är produktions plats distributionen felfri i alla roll instanser?</li><li>Är rollen felfri i alla dess VM-instanser?</li><li>Vilken är hälso status för varje virtuell dator i en roll för en moln tjänst?</li><li>Har VM-statusen ändrats på grund av en plattforms-eller kund initierad åtgärd?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li><li>Är värd maskin varan försämrad och förväntas sluta att fungera snart?</li><li>[Läs mer](https://docs.microsoft.com/azure/cloud-services/resource-health-for-cloud-services) om genomförda kontroller</li></ul>|
+|<ul><li>Är produktions plats distributionen felfri i alla roll instanser?</li><li>Är rollen felfri i alla dess VM-instanser?</li><li>Vilken är hälso status för varje virtuell dator i en roll för en moln tjänst?</li><li>Har VM-statusen ändrats på grund av en plattforms-eller kund initierad åtgärd?</li><li>Har starten av gäst operativ systemet slutförts?</li><li>Finns det pågående planerat underhåll?</li><li>Är värd maskin varan försämrad och förväntas sluta att fungera snart?</li><li>[Läs mer](../cloud-services/resource-health-for-cloud-services.md) om genomförda kontroller</li></ul>|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft. cognitiveservices/konton
 |Utförda kontroller|
@@ -254,7 +254,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är värd servern igång?</li><li>Körs Internet Information Server?</li><li>Körs belastningsutjämnaren?</li><li>Kan webb programmet nås från data centret?</li><li>Är lagrings kontot som är värd för plats innehållet tillgängligt?</li></ul>|
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 -  Se [Introduktion till Azure Service Health instrument panel](service-health-overview.md) och [Introduktion till Azure Resource Health](resource-health-overview.md) om du vill veta mer om dem. 
 -  [Vanliga frågor och svar om Azure Resource Health](resource-health-faq.md)
-- Konfigurera aviseringar så att du får ett meddelande om hälso problem. Mer information finns i [Konfigurera aviseringar för service Health-händelser](./alerts-activity-log-service-notifications-portal.md). 
+- Konfigurera aviseringar så att du får ett meddelande om hälso problem. Mer information finns i [Konfigurera aviseringar för service Health-händelser](./alerts-activity-log-service-notifications-portal.md).

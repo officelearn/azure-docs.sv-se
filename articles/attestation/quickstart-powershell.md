@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d25cdce2670de64fecc8590a2f5f833c10d2df69
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89421296"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316008"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Snabb start: Konfigurera Azure-attestering med Azure PowerShell
 
@@ -23,7 +23,7 @@ Observera att PowerShell-galleriet har föråldrade Transport Layer Security (TL
 - Varning: det går inte att matcha paket källan https://www.powershellgallery.com/api/v2
 - PackageManagement\Install-Package: ingen matchning hittades för de angivna Sök kriterierna och modulnamnet 
 
-Om du vill fortsätta att interagera med PowerShell-galleriet kör du följande kommando innan du installerar-module-kommandon
+Om du vill fortsätta att interagera med PowerShell-galleriet kör du följande kommando innan du Install-Module kommandon
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
@@ -81,7 +81,7 @@ Kör kommandot nedan för att kontrol lera den installerade versionen av alla AZ
 ```powershell
 Get-InstalledModule
 ```
-Om versionerna inte matchar minimi kravet kör du kommandot Update-module.
+Om versionerna inte matchar minimi kravet kör Update-Module-kommandon.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -157,7 +157,7 @@ Tags:
 TagsTable: 
 ```
 
-Attesterings leverantörer kan tas bort med cmdleten Remove-AzAttestation.  
+Attesterings leverantörer kan tas bort med hjälp av Remove-AzAttestation-cmdleten.  
 
 ```powershell
 Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
@@ -186,9 +186,9 @@ $teeType = "<tee Type>"
 Get-AzAttestationPolicy   -Name $attestationProvider -ResourceGroupName $attestationResourceGroup -Tee $teeType 
 ```
 
-TEE-typer som stöds är "sgxenclave" och "vbsenclave".
+TEE-typer som stöds är "SgxEnclave", "OpenEnclave" och "VbsEnclave".
 
-Set-AttestationPolicy anger en ny princip för den angivna TEE. Cmdlet: en accepterar en princip i text-eller JWT-format och styrs av PolicyFormat-parametern. "Text" är standardvärdet för PolicyFormat. 
+Set-AttestationPolicy anger en ny princip för angivet TEE. Cmdlet: en accepterar en princip i text-eller JWT-format och styrs av PolicyFormat-parametern. "Text" är standardvärdet för PolicyFormat. 
 
 ```powershell
 $policyFormat = "<policy format>"

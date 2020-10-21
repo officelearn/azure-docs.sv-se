@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/16/2018
-ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 7838f9f1febcab073633dbb4af011e99acbe22d3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75397474"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310299"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor logg frågor
 
@@ -50,32 +50,32 @@ Operator       |Beskrivning                         |Case-Sensitive|Exempel (avk
 ---------------|------------------------------------|--------------|-----------------------
 `==`           |Lika med                              |Ja           |`"aBc" == "aBc"`
 `!=`           |Inte lika med                          |Ja           |`"abc" != "ABC"`
-`=~`           |Lika med                              |Inga            |`"abc" =~ "ABC"`
-`!~`           |Inte lika med                          |Inga            |`"aBc" !~ "xyz"`
-`has`          |Höger sida är en hel term i vänster sida |Inga|`"North America" has "america"`
-`!has`         |Höger sida är inte en fullständig term i vänster sida       |Inga            |`"North America" !has "amer"` 
+`=~`           |Lika med                              |Nej            |`"abc" =~ "ABC"`
+`!~`           |Inte lika med                          |Nej            |`"aBc" !~ "xyz"`
+`has`          |Höger sida är en hel term i vänster sida |Nej|`"North America" has "america"`
+`!has`         |Höger sida är inte en fullständig term i vänster sida       |Nej            |`"North America" !has "amer"` 
 `has_cs`       |Höger sida är en hel term i vänster sida |Ja|`"North America" has_cs "America"`
 `!has_cs`      |Höger sida är inte en fullständig term i vänster sida       |Ja            |`"North America" !has_cs "amer"` 
-`hasprefix`    |Höger sida är ett term prefix i vänster sida         |Inga            |`"North America" hasprefix "ame"`
-`!hasprefix`   |Höger sida är inte ett term prefix i vänster sida     |Inga            |`"North America" !hasprefix "mer"` 
+`hasprefix`    |Höger sida är ett term prefix i vänster sida         |Nej            |`"North America" hasprefix "ame"`
+`!hasprefix`   |Höger sida är inte ett term prefix i vänster sida     |Nej            |`"North America" !hasprefix "mer"` 
 `hasprefix_cs`    |Höger sida är ett term prefix i vänster sida         |Ja            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |Höger sida är inte ett term prefix i vänster sida     |Ja            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |Höger sida är ett term suffix i vänster sida         |Inga            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Höger sida är inte ett term suffix i vänster sida     |Inga            |`"North America" !hassuffix "americ"`
+`hassuffix`    |Höger sida är ett term suffix i vänster sida         |Nej            |`"North America" hassuffix "ica"`
+`!hassuffix`   |Höger sida är inte ett term suffix i vänster sida     |Nej            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |Höger sida är ett term suffix i vänster sida         |Ja            |`"North America" hassuffix_cs "ica"`
 `!hassuffix_cs`   |Höger sida är inte ett term suffix i vänster sida     |Ja            |`"North America" !hassuffix_cs "icA"`
-`contains`     |Höger sida visas som en underordnad sida till vänster  |Inga            |`"FabriKam" contains "BRik"`
-`!contains`    |Höger sida visas inte i vänster sida           |Inga            |`"Fabrikam" !contains "xyz"`
+`contains`     |Höger sida visas som en underordnad sida till vänster  |Nej            |`"FabriKam" contains "BRik"`
+`!contains`    |Höger sida visas inte i vänster sida           |Nej            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Höger sida visas som en underordnad sida till vänster  |Ja           |`"FabriKam" contains_cs "Kam"`
 `!contains_cs`  |Höger sida visas inte i vänster sida           |Ja           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |Höger sida är en inledande delsekvens av vänster sida|Inga            |`"Fabrikam" startswith "fab"`
-`!startswith`  |Höger sida är inte en inledande underordnad del i vänster sida|Inga        |`"Fabrikam" !startswith "kam"`
+`startswith`   |Höger sida är en inledande delsekvens av vänster sida|Nej            |`"Fabrikam" startswith "fab"`
+`!startswith`  |Höger sida är inte en inledande underordnad del i vänster sida|Nej        |`"Fabrikam" !startswith "kam"`
 `startswith_cs`   |Höger sida är en inledande delsekvens av vänster sida|Ja            |`"Fabrikam" startswith_cs "Fab"`
 `!startswith_cs`  |Höger sida är inte en inledande underordnad del i vänster sida|Ja        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |Höger sida är en avslutande delsekvens av den vänstra sidan|Inga             |`"Fabrikam" endswith "Kam"`
-`!endswith`    |Den högra sidan är inte en avslutande delsekvens av den vänstra sidan|Inga         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |Höger sida är en avslutande delsekvens av den vänstra sidan|Ja             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |Den högra sidan är inte en avslutande delsekvens av den vänstra sidan|Ja         |`"Fabrikam" !endswith "brik"`
+`endswith`     |Höger sida är en avslutande delsekvens av den vänstra sidan|Nej             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |Den högra sidan är inte en avslutande delsekvens av den vänstra sidan|Nej         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |Höger sida är en avslutande delsekvens av den vänstra sidan|Ja             |`"Fabrikam" endswith_cs "kam"`
+`!endswith_cs`    |Den högra sidan är inte en avslutande delsekvens av den vänstra sidan|Ja         |`"Fabrikam" !endswith_cs "brik"`
 `matches regex`|den vänstra hand sidan innehåller en matchning för höger sida        |Ja           |`"Fabrikam" matches regex "b.*k"`
 `in`           |Lika med ett av elementen       |Ja           |`"abc" in ("123", "345", "abc")`
 `!in`          |Är inte lika med något av elementen   |Ja           |`"bca" !in ("123", "345", "abc")`
@@ -95,7 +95,7 @@ countof(text, search [, kind])
 - `search` – En vanlig sträng eller ett reguljärt uttryck som matchar text i text.
 - `kind` - _Normal_  |  _regex_ (standard: normal).
 
-### <a name="returns"></a>Returer
+### <a name="returns"></a>Returnerar
 
 Antalet gånger som Sök strängen kan matchas i behållaren. Matchningar med oformaterade strängar kan överlappa även om regex matchar inte.
 
@@ -137,7 +137,7 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text` – En sträng att söka i.
 - `typeLiteral` – En valfri typ literal (till exempel typeof (Long)). Om den extraherade del strängen har angetts konverteras den till den här typen.
 
-### <a name="returns"></a>Returer
+### <a name="returns"></a>Returnerar
 Del strängen matchad mot den angivna insamlings gruppen captureGroup, eventuellt konverteras till typeLiteral.
 Om det inte finns någon matchning, eller om typ konverteringen Miss lyckas, returnerar du null.
 
@@ -243,7 +243,7 @@ replace(regex, rewrite, input_text)
 - `rewrite` – Ersättnings regex för all matchning som görs genom matchande regex. Använd \ 0 om du vill referera till hela matchningen, \ 1 för den första infångnings gruppen, \ 2, och så vidare för efterföljande infångnings grupper.
 - `input_text` – Den inmatade sträng som ska genomsökas.
 
-### <a name="returns"></a>Returer
+### <a name="returns"></a>Returnerar
 Texten efter att alla matchningar av regex har ersatts med utvärdering av omskrivning. Matchningar överlappar inte.
 
 ### <a name="examples"></a>Exempel

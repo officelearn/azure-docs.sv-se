@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: b639bc19620a07d9730066f98977080827f07ec0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67ed8c54e32a301a50fa49b1ebba284b216d8664
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91570453"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276310"
 ---
 # <a name="quickstart-build-a-console-app-using-the-net-v4-sdk-to-manage-azure-cosmos-db-sql-api-account-resources"></a>Snabb start: Bygg en konsol app med hjälp av .NET v4 SDK för att hantera Azure Cosmos DB SQL API-konto resurser.
 
@@ -22,14 +22,14 @@ ms.locfileid: "91570453"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
-> * [Våren data v3](create-sql-api-spring-data.md)
+> * [Spring-data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 Kom igång med klient biblioteket Azure Cosmos DB SQL API för .NET. Följ stegen i det här dokumentet för att installera .NET v4-paketet (Azure. Cosmos), bygga en app och testa exempel koden för grundläggande CRUD-åtgärder för de data som lagras i Azure Cosmos DB. 
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga nyckel/värde-, dokument-och Graf-databaser. Använd klient biblioteket Azure Cosmos DB SQL-API för .NET för att:
+Azure Cosmos DB är Microsofts snabba NoSQL-databas med öppna API: er för alla skalor. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga nyckel/värde-, dokument-och Graf-databaser. Använd klient biblioteket Azure Cosmos DB SQL-API för .NET för att:
 
 * Skapa en Azure Cosmos-databas och en behållare
 * Lägg till exempel data i behållaren
@@ -124,7 +124,7 @@ När du fortfarande är i program katalogen installerar du Azure Cosmos DB klien
 
 Exempel programmet måste autentisera till ditt Azure Cosmos-konto. För att autentisera bör du skicka autentiseringsuppgifter för Azure Cosmos-kontot till programmet. Hämta dina autentiseringsuppgifter för Azure Cosmos-kontot genom att följa dessa steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Navigera till ditt Azure Cosmos-konto.
 
@@ -139,7 +139,7 @@ Innan du börjar skapa programmet ska vi titta närmare på hierarkin över resu
 * Containers 
 * Poster
 
-Mer information om hierarkin för olika entiteter finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](databases-containers-items.md) artikel. Du kommer att använda följande .NET-klasser för att interagera med dessa resurser:
+Mer information om hierarkin för olika entiteter finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](account-databases-containers-items.md) artikel. Du kommer att använda följande .NET-klasser för att interagera med dessa resurser:
 
 * CosmosClient – den här klassen tillhandahåller en logisk representation på klient sidan för Azure Cosmos DBs tjänsten. Klient objekt används för att konfigurera och köra begär Anden mot tjänsten.
 * CreateDatabaseIfNotExistsAsync – den här metoden skapar (om den inte finns) eller hämtar (om redan finns) en databas resurs som en asynkron åtgärd. 

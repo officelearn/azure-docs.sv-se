@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.custom: sfrev, devx-track-azurepowershell
-ms.openlocfilehash: 08abd9ff1134415e47923f22e753691225fc23b8
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f32bc444ba753f48955de4a4c16bde8dfb7a05fc
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164728"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316652"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 
@@ -94,7 +94,7 @@ Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra pro
 
 * [Lär dig hur du skapar, distribuerar och hanterar program](service-fabric-tutorial-create-dotnet-app.md)
 * [Lär dig mer om programmeringsmodeller: Reliable Services och Reliable Actors](service-fabric-choose-framework.md)
-* [Kolla in Service Fabric-kodexemplen på GitHub](https://aka.ms/servicefabricsamples)
+* [Kolla in Service Fabric-kodexemplen på GitHub](/samples/browse/?products=azure)
 * [Visualisera ditt kluster med hjälp av Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Förbereda en Linux-utvecklingsmiljö i Windows](service-fabric-local-linux-cluster-windows.md)
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)

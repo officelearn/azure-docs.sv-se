@@ -2,14 +2,14 @@
 title: Uppdatera Azure Monitor för behållare för mått | Microsoft Docs
 description: I den här artikeln beskrivs hur du uppdaterar Azure Monitor för behållare för att aktivera funktionen anpassade mått som stöder utforska och aviserar på sammansatta mått.
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c420c91e20cc1cf9ab5e4f58bdd352ead3ba4d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a94f250c83fbd2779620376087a83b8851e583e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618153"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309440"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Uppdatera Azure Monitor för containrar för att aktivera mått
 
@@ -26,6 +26,7 @@ Följande mått är aktiverade som en del av den här funktionen:
 | Insights. container/Nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Som *Node* -mått innehåller de *värden* som en dimension. De innehåller också<br> nodens namn som värde för *värd* dimensionen. |
 | Insights. container/poddar | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Som *Pod* mått inkluderar de följande som dimensioner – ControllerName, Kubernetes-namnrymd, namn, fas. |
 | Insights. container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
+| Insights. container/persistentvolumes | pvUsageExceededPercentage | |
 
 För att stödja dessa nya funktioner ingår en ny container agent i versionen, version **Microsoft/OMS: ciprod05262020** för AKS och version **Microsoft/OMS: Ciprod09252020** för Azure Arc-aktiverade Kubernetes-kluster. Nya distributioner av AKS inkluderar automatiskt den här konfigurations ändringen och-funktionerna. Uppdatering av klustret för att stödja den här funktionen kan utföras från Azure Portal, Azure PowerShell eller med Azure CLI. Med Azure PowerShell och CLI. Du kan aktivera detta per kluster eller för alla kluster i din prenumeration.
 

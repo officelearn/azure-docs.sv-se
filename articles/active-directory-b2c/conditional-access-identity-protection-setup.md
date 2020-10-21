@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5554cfcde9aba1b0e5c9c8b60e2e6a7e9a8ba378
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fb585e2ccf8c8ed071b5156961adf48d4e4b108d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89271596"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309774"
 ---
 # <a name="set-up-identity-protection-and-conditional-access-in-azure-ad-b2c"></a>Konfigurera identitets skydd och villkorlig åtkomst i Azure AD B2C
 
@@ -41,14 +41,16 @@ Följande identifieringar för risker stöds för närvarande för Azure AD B2C:
 |Typ av risk identifiering  |Beskrivning  |
 |---------|---------|
 | Ovanlig resa     | Logga in från en ovanlig-plats baserat på användarens senaste inloggningar.        |
-|Anonym IP-adress     | Logga in från en anonym IP-adress (t. ex. Tor webbläsare, Anonymizer VPN)        |
+|Anonym IP-adress     | Logga in från en anonym IP-adress (t. ex. Tor webbläsare, Anonymizer VPN).        |
+|Länkad IP-adress för skadlig kod     | Logga in från en länkad IP-adress med skadlig kod.         |
 |Obekanta inloggningsegenskaper     | Logga in med egenskaper som vi inte har sett nyligen för den angivna användaren.        |
-|Länkad IP-adress för skadlig kod     | Logga in från en länkad IP-adress med skadlig kod         |
-|Azure AD Threat Intelligence     | Microsofts interna och externa hot informations källor har identifierat ett känt angrepps mönster        |
+|Administratören bekräftade att användaren har komprometterats    | En administratör har angett att en användare har komprometterats.             |
+|Lösen ords sprayning     | Logga in via ett angrepp vid lösen ords spridning.      |
+|Azure AD Threat Intelligence     | Microsofts interna och externa hot informations källor har identifierat ett känt angrepps mönster.        |
 
 ## <a name="view-risk-events-for-your-azure-ad-b2c-tenant"></a>Visa risk händelser för din Azure AD B2C-klient
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 
@@ -68,7 +70,7 @@ Om du vill lägga till en princip för villkorlig åtkomst baserat på identifie
 
 ### <a name="to-disable-security-defaults"></a>Så här inaktiverar du säkerhets inställningar
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 
@@ -84,7 +86,7 @@ Om du vill lägga till en princip för villkorlig åtkomst baserat på identifie
 
 ### <a name="to-create-a-conditional-access-policy"></a>Så här skapar du en princip för villkorlig åtkomst
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 
@@ -122,7 +124,7 @@ Om du vill lägga till en princip för villkorlig åtkomst baserat på identifie
 
 Granska resultatet av en händelse för villkorlig åtkomst:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 

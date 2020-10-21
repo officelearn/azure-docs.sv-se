@@ -3,18 +3,18 @@ title: Service Fabric program uppgradering
 description: Den här artikeln innehåller en introduktion till att uppgradera ett Service Fabric program, inklusive att välja uppgraderings lägen och utföra hälso kontroller.
 ms.topic: conceptual
 ms.date: 8/5/2020
-ms.openlocfilehash: cb0c1c0049957244b94b59707b70e47dc53f6c9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eecd923b009ecbe9f4e607ad57a99b3f20955b9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067519"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309855"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric program uppgradering
 Ett Azure Service Fabric-program är en samling tjänster. Under en uppgradering jämför Service Fabric det nya [applikations manifestet](service-fabric-application-and-service-manifests.md) med den tidigare versionen och avgör vilka tjänster i programmet som behöver uppdateras. Service Fabric jämför versions numren i tjänst manifesten med versions numren i den tidigare versionen. Tjänsten uppgraderas inte om en tjänst inte har ändrats.
 
 > [!NOTE]
-> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s bevaras inte i en program uppgradering. För att bevara aktuella program parametrar bör användaren hämta parametrarna först och skicka dem till uppgraderings-API-anropet som nedan:
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s bevaras inte i en program uppgradering. För att bevara aktuella program parametrar bör användaren hämta parametrarna först och skicka dem till uppgraderings-API-anropet som nedan:
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters

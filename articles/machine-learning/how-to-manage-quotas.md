@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 93cf29651110356023752f2377c9a0fc358982a7
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 4b072257d49011819fe19d6e2901560df43b26dc
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203064"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275556"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera & öka kvoter för resurser med Azure Machine Learning
 
@@ -177,7 +177,7 @@ Använd följande steg för att begära en ersättning för dessa scenarier:
     | ----- | ----- |
     | Typ av problem | Teknik |
     | Tjänst | Mina tjänster. Välj __Machine Learning__ i list rutan. |
-    | Problem typ | Installation av arbets yta, SDK och CLI |
+    | Problem typ | Arbets ytans konfiguration och säkerhet |
     | Problem under typ | Begäran om tilldelning av privat slut punkt och Privat DNS zon |
 
 2. I avsnittet __information__ använder du fältet __Beskrivning__ för att ange den Azure-region som du vill använda och det scenario som du planerar att använda. Om du behöver begära kvot ökningar för flera prenumerationer kan du även ange prenumerations-ID: n i det här fältet.

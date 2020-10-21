@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: duau
-ms.openlocfilehash: bac1d1e41cab4aa3be10fb226df57277db20c78e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db01531a34e936c59e5aa01a5c37f3a2ccf7345
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030284"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277712"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Front Door-domän
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i din Front Door](front-door-custom-domain.md).
 
@@ -154,7 +154,7 @@ CNAME-posten ska ha följande format, där *Namn* är namnet på ditt anpassade 
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
-Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
+Mer information om CNAME-poster finns i [Skapa CNAME DNS-posten](../cdn/cdn-map-content-to-custom-domain.md).
 
 Om din CNAME-post har rätt format verifierar DigiCert automatiskt det anpassade domännamnet och skapar ett dedikerat certifikat för domännamnet. DigitCert skickar ingen bekräftelse via e-post och du behöver inte godkänna din begäran. Certifikatet är giltigt i ett år och förnyas automatiskt innan det upphör att gälla. Gå vidare till [Vänta på spridning](#wait-for-propagation). 
 

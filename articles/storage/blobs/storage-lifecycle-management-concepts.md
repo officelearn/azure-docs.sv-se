@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: 264f0e59e2c43ca92fc5209b8613282a0b0fca37
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203780"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309803"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -31,6 +31,8 @@ Med policyn för livs cykel hantering kan du:
 Tänk dig ett scenario där data får frekvent åtkomst under de tidiga faserna i livs cykeln, men bara ibland efter två veckor. Utöver den första månaden kommer data uppsättningen sällan att användas. I det här scenariot är frekvent lagring bäst i de tidiga faserna. Låg frekvent lagring är lämplig för tillfällig åtkomst. Arkiv lag ring är det bästa alternativet på nivån efter att data har funnits under en månad. Genom att justera lagrings nivåer avseende ålder på data kan du utforma de billigaste lagrings alternativen för dina behov. För att uppnå den här över gången är policy regler för livs cykel hantering tillgängliga för att flytta ålders data till låg frekventa nivåer.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+>[!NOTE]
+>Om du behöver data för att kunna läsas, till exempel när det används av StorSimple, ska du inte ange någon princip för att flytta blobbar till Arkiv nivån.
 
 ## <a name="availability-and-pricing"></a>Tillgänglighet och priser
 
@@ -242,7 +244,7 @@ En princip är en samling regler:
 
 Varje regel i principen har flera parametrar:
 
-| Parameternamn | Parameter typ | Kommentarer | Obligatorisk |
+| Parameternamn | Parameter typ | Kommentarer | Krävs |
 |----------------|----------------|-------|----------|
 | `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt. Det måste vara unikt inom en princip. | Sant |
 | `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
@@ -315,8 +317,8 @@ Filtren är:
 | Filternamn | Filtertyp | Kommentarer | Krävs |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob` och `appendBlob` . Endast borttagning stöds för `appendBlob` , Set-nivån stöds inte. | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
-| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
+| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är prefixMatch `container1/foo` . | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot. | Nej |
+| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är blobIndexMatch `{"name": "Project","op": "==","value": "Contoso"}` . | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | Nej |
 
 > [!NOTE]
 > BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, **centrala Frankrike**och **södra Frankrike** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).

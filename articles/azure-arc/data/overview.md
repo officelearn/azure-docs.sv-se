@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 47fef490c5ece577823a14e3fa4c415f0f613ccb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8a28415bf9448133102e92a658e7d200ac2772c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948140"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316974"
 ---
 # <a name="what-are-azure-arc-enabled-data-services-preview"></a>Vad är Azure Arc-aktiverade data tjänster (för hands version)?
 
@@ -41,7 +41,7 @@ Azure-bågen ger också andra fördelar i molnet, till exempel snabb distributio
 
 ## <a name="unified-management"></a>Enhetlig hantering
 
-Med välbekanta verktyg som Azure Portal, Azure Data Studio och Azure Data CLI kan du nu få en enhetlig vy över alla dina data till gångar som har distribuerats med Azure Arc. Du kan inte bara visa och hantera en rad Relations databaser i din miljö och Azure, men även få loggar och telemetri från Kubernetes-API: er för att analysera den underliggande infrastruktur kapaciteten och hälsan. Förutom att ha lokaliserad logg analys och prestanda övervakning kan du nu utnyttja Azure Monitor för omfattande Operational Insights på hela din egendom.
+Med välbekanta verktyg som Azure Portal, Azure Data Studio och kan [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] du nu få en enhetlig vy över alla dina data till gångar som har distribuerats med Azure Arc. Du kan inte bara visa och hantera en rad Relations databaser i din miljö och Azure, men även få loggar och telemetri från Kubernetes-API: er för att analysera den underliggande infrastruktur kapaciteten och hälsan. Förutom att ha lokaliserad logg analys och prestanda övervakning kan du nu utnyttja Azure Monitor för omfattande Operational Insights på hela din egendom.
 
 ## <a name="disconnected-scenario-support"></a>Stöd för frånkopplat scenario
 

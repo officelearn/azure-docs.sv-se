@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: f672c90f6056cd735d5ddc8dd96de9e7007999ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667800"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315800"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -20,7 +20,7 @@ Om du vill migrera virtuella VMware-datorer till Azure läser du [matrisen migra
 
 ## <a name="limitations"></a>Begränsningar
 
-**Support** | **Information**
+**Support** | **Detaljer**
 --- | ---
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration.<br/><br/> Du kan identifiera och utvärdera upp till 35 000 virtuella VMware-datorer i ett enda [projekt](migrate-support-matrix.md#azure-migrate-projects). Ett projekt kan även innehålla fysiska servrar och virtuella Hyper-V-datorer, upp till utvärderings gränserna för var och en.
 **Identifiering** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
@@ -31,13 +31,13 @@ Om du vill migrera virtuella VMware-datorer till Azure läser du [matrisen migra
 
 ## <a name="vmware-requirements"></a>Krav för VMware
 
-**VMware** | **Information**
+**VMware** | **Detaljer**
 --- | ---
 **vCenter Server** | Datorer som du vill identifiera och utvärdera måste hanteras av vCenter Server version 5,5, 6,0, 6,5, 6,7 eller 7,0.<br/><br/> Det finns för närvarande inte stöd för att identifiera virtuella VMware-datorer genom att tillhandahålla ESXi-värd information i installationen.
 **Behörigheter** | Server utvärderingen behöver ett vCenter Server skrivskyddat konto för identifiering och utvärdering.<br/><br/> Om du vill göra en program identifiering eller beroende visualisering måste kontot ha behörighet att aktivera för **Virtual Machines**  >  **gäst åtgärder**.
 
 ## <a name="vm-requirements"></a>Krav för virtuell dator
-**VMware** | **Information**
+**VMware** | **Detaljer**
 --- | ---
 **VMwares virtuella datorer** | Alla operativ system kan utvärderas för migrering. 
 **Storage** | Diskar som är anslutna till SCSI-, IDE-och SATA-baserade styrenheter stöds.
@@ -64,7 +64,7 @@ Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för iden
 
 Förutom att identifiera datorer kan Server utvärderingen identifiera appar, roller och funktioner som körs på datorer. Genom att identifiera din program inventering kan du identifiera och planera en sökväg för migrering som är anpassad för dina lokala arbets belastningar. 
 
-**Support** | **Information**
+**Support** | **Detaljer**
 --- | ---
 **Datorer som stöds** | Identifiering av appar stöds för närvarande endast för virtuella VMware-datorer.
 **Identifiering** | Identifiering av appar är agenten. Den använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer via WMI och SSH-samtal.
@@ -81,7 +81,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 
 Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera beroenden mellan lokala datorer som du vill utvärdera och migrera till Azure. Tabellen sammanfattar kraven för att skapa en agent utan beroende analys.
 
-**Krav** | **Information**
+**Krav** | **Detaljer**
 --- | --- 
 **Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget för Server bedömning som har lagts till i projektet.<br/><br/>  Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala VMware-datorer.<br/><br/> [Lär dig hur](create-manage-projects.md) du skapar ett projekt för första gången.<br/> [Lär dig hur](how-to-assess.md) du lägger till ett utvärderings verktyg i ett befintligt projekt.<br/> [Lär dig hur](how-to-set-up-appliance-vmware.md) du konfigurerar Azure Migrate-installationen för utvärdering av virtuella VMware-datorer.
 **Datorer som stöds** | Stöds för närvarande endast för virtuella VMware-datorer.
@@ -100,7 +100,7 @@ Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identif
 
 Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera beroenden mellan lokala datorer som du vill utvärdera och migrera till Azure. I tabellen sammanfattas kraven för att skapa en agent beroende analys. 
 
-**Krav** | **Information** 
+**Krav** | **Detaljer** 
 --- | --- 
 **Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget Azure Migrate: Server bedömning som har lagts till i projektet.<br/><br/>  Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala datorer<br/><br/> [Lär dig hur](create-manage-projects.md) du skapar ett projekt för första gången.<br/> [Lär dig hur](how-to-assess.md) du lägger till ett utvärderings verktyg i ett befintligt projekt.<br/> Lär dig hur du konfigurerar Azure Migrate-enheten för utvärdering av [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md)eller fysiska servrar.
 **Datorer som stöds** | Stöds för alla datorer.
@@ -117,4 +117,4 @@ Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identif
 ## <a name="next-steps"></a>Nästa steg
 
 - [Granska](best-practices-assessment.md) Metod tips för att skapa utvärderingar.
-- [Förbered för VMware](tutorial-prepare-vmware.md) -utvärdering.
+- [Förbered för VMware](./tutorial-discover-vmware.md) -utvärdering.

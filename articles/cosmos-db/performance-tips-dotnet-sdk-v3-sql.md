@@ -4,15 +4,15 @@ description: Lär dig hur du kan använda klient konfigurations alternativ för 
 author: j82w
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 432d9656bf56b87798d6563cfd545b34c20001b6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c869f80eba5a6bdff4b952c62b0d964401f904d2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204035"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277300"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -67,32 +67,7 @@ Om du testar med höga data flödes nivåer eller priser som är större än 50 
 
 **Anslutnings princip: Använd direkt anslutnings läge**
 
-Hur en klient ansluter till Azure Cosmos DB har viktiga prestanda effekter, särskilt för observerad svars tid på klient sidan. Det finns två nyckel konfigurations inställningar för att konfigurera klient anslutnings principen: anslutnings *läge* och anslutnings *protokoll*. De två tillgängliga anslutnings lägena är:
-
-   * Direkt läge (standard)
-
-     Direct-läget stöder anslutning via TCP-protokollet och är standard anslutnings läget om du använder [Microsoft. Azure. Cosmos/. net v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3). Direkt läge ger bättre prestanda och kräver färre nätverks hopp än Gateway-läge.
-
-   * Gateway-läge
-      
-     Om ditt program körs i ett företags nätverk som har strikta brand Väggs begränsningar, är Gateway-läget det bästa valet eftersom det använder HTTPS-standardporten och en enda slut punkt. 
-     
-     Prestanda kompromissen är dock att Gateway-läget omfattar ytterligare ett nätverks hopp varje gång data läses från eller skrivs till Azure Cosmos DB. Det direkta läget ger bättre prestanda eftersom det finns färre nätverks hopp. Vi rekommenderar också Gateway-anslutnings läge när du kör program i miljöer som har ett begränsat antal socketanslutningar.
-
-     När du använder SDK i Azure Functions, i synnerhet i [förbruknings planen](../azure-functions/functions-scale.md#consumption-plan), var medveten om de aktuella [gränserna för anslutningar](../azure-functions/manage-connections.md). I så fall kan gateway-läget vara bättre om du även arbetar med andra HTTP-baserade klienter i ditt Azure Functions-program.
-     
-När du använder TCP-protokollet i direkt läge måste du, förutom Gateway-portarna, se till att port intervallet från 10000 till 20000 är öppet, eftersom Azure Cosmos DB använder dynamiska TCP-portar. När du använder direkt läge för [privata slut punkter](./how-to-configure-private-endpoints.md)ska hela intervallet TCP-portar från 0 till 65535 vara öppen. Portarna är öppna som standard för standard konfigurationen av virtuella Azure-datorer. Om de här portarna inte är öppna och du försöker använda TCP visas fel meddelandet "503 tjänsten är inte tillgänglig". 
-
-I följande tabell visas de anslutnings lägen som är tillgängliga för olika API: er och tjänst portar som används för varje API:
-
-|Anslutningsläge  |Protokoll som stöds  |SDK: er som stöds  |API/tjänst-port  |
-|---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  Alla SDK: er    |   SQL (443), MongoDB (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443) <br><br> Port 10250 mappar till ett standard-Azure Cosmos DB-API för MongoDB-instans utan geo-replikering och portarna 10255 och 10256 mappar till instansen med geo-replikering.   |
-|Direct    |     TCP    |  .NET SDK    | När du använder offentliga/tjänst slut punkter: portar i intervallet 10000 till 20000<br><br>När du använder privata slut punkter: portar inom intervallet 0 till 65535 |
-
-Azure Cosmos DB erbjuder en enkel, öppen RESTful programmerings modell över HTTPS. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och är tillgängligt via .NET-klient-SDK: n. TCP-protokollet använder Transport Layer Security (TLS) för inledande autentisering och kryptering av trafik. Använd TCP-protokollet när det är möjligt för bästa prestanda.
-
-För SDK v3 konfigurerar du anslutnings läget när du skapar `CosmosClient` instansen i `CosmosClientOptions` . Kom ihåg att Direct-läget är standardvärdet.
+.NET v3 SDK standard anslutnings läge är direkt. Du konfigurerar anslutnings läget när du skapar `CosmosClient` instansen i `CosmosClientOptions` .  Mer information om olika anslutnings alternativ finns i artikeln [anslutnings lägen](sql-sdk-connection-modes.md) .
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -102,10 +77,6 @@ new CosmosClientOptions
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
 });
 ```
-
-Eftersom TCP endast stöds i direkt läge, om du använder Gateway-läge, används HTTPS-protokollet alltid för att kommunicera med gatewayen.
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Upprätta anslutning till Azure Cosmos DB med olika anslutnings lägen och protokoll." border="false":::
 
 **Tillfällig portöverbelastning**
 
@@ -126,7 +97,7 @@ Placera eventuella program som anropar Azure Cosmos DB i samma region som Azure 
 
 Du kan få lägsta möjliga fördröjning genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/#services).
 
-:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Upprätta anslutning till Azure Cosmos DB med olika anslutnings lägen och protokoll." border="false":::
+:::image type="content" source="./media/performance-tips/same-region.png" alt-text="Samordna-klienter i samma region." border="false":::
 
    <a id="increase-threads"></a>
 
@@ -287,4 +258,4 @@ Begär ande avgiften (dvs. bearbetnings kostnaden för bearbetning) för en angi
 ## <a name="next-steps"></a>Nästa steg
 Ett exempel program som används för att utvärdera Azure Cosmos DB för scenarier med hög prestanda på ett fåtal klient datorer finns i [prestanda-och skalnings testning med Azure Cosmos DB](performance-testing.md).
 
-Mer information om hur du utformar programmet för skalning och höga prestanda finns i [partitionering och skalning i Azure Cosmos DB](partition-data.md).
+Mer information om hur du utformar programmet för skalning och höga prestanda finns i [partitionering och skalning i Azure Cosmos DB](partitioning-overview.md).

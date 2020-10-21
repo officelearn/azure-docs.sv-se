@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: 08ac95fe2a6b3e01d6bbcf96b120426f12f4e21c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261264"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276118"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Köra frågor mot en Azure Cosmos-container
 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du kör frågor mot en container (samling, graf 
 
 ## <a name="in-partition-query"></a>Frågekörning inom en partition
 
-När du frågar efter data från behållare, om frågan har ett filter för partitionsnyckel, optimerar Azure Cosmos DB automatiskt frågan. Den dirigerar frågan till de [fysiska partitionerna](partition-data.md#physical-partitions) som motsvarar de partitionsnyckel som anges i filtret.
+När du frågar efter data från behållare, om frågan har ett filter för partitionsnyckel, optimerar Azure Cosmos DB automatiskt frågan. Den dirigerar frågan till de [fysiska partitionerna](partitioning-overview.md#physical-partitions) som motsvarar de partitionsnyckel som anges i filtret.
 
 Överväg till exempel frågan nedan med ett likhets filter på `DeviceId` . Om vi kör den här frågan på en behållare som partitionerats på `DeviceId` , kommer den här frågan att filtrera till en enda fysisk partition.
 
@@ -61,7 +61,7 @@ Du kan hantera parallell frågekörning genom att justera följande parametrar:
 
 - **MaxBufferedItemCount**: Avväger frågesvarstid kontra minnesanvändning på klientsidan. Om det här alternativet utelämnas eller anges till -1 hanterar SDK:n antalet objekt som buffras under en parallell frågekörning.
 
-På grund av Azure Cosmos DBs möjlighet att parallellisera frågor över olika partitioner, kommer fråge svars tiden ofta att skalas och systemet lägger till [fysiska partitioner](partition-data.md#physical-partitions). Avgifterna för RU kommer dock att öka markant eftersom det totala antalet fysiska partitioner ökar.
+På grund av Azure Cosmos DBs möjlighet att parallellisera frågor över olika partitioner, kommer fråge svars tiden ofta att skalas och systemet lägger till [fysiska partitioner](partitioning-overview.md#physical-partitions). Avgifterna för RU kommer dock att öka markant eftersom det totala antalet fysiska partitioner ökar.
 
 När du kör en fråga för flera partitioner utförs en separat fråga per enskild fysisk partition. Även om frågor med frågor om kors partition kommer att använda index, om det är tillgängligt, är de fortfarande inte nästan lika effektiva som frågor i partitionen.
 

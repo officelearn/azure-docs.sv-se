@@ -4,12 +4,12 @@ description: Den här artikeln innehåller information om olika alternativ för 
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 18b8bd80eaec316fbaefadad0dd7a19418bfa838
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fc35387f4ac28ad4dd28bea0013bcdf1e1e9f02
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85323184"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332390"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Ge åtkomst till Azure Event Hubs
 Varje gång du publicerar eller använder händelser/data från en händelsehubben försöker klienten få åtkomst till Event Hubs resurser. Varje begäran till en säker resurs måste auktoriseras så att tjänsten kan se till att klienten har de behörigheter som krävs för att publicera/använda data. 
@@ -23,7 +23,7 @@ Azure Event Hubs erbjuder följande alternativ för att auktorisera åtkomst til
 > Den här artikeln gäller för både Event Hubs-och [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) scenarier. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory (Azure AD)-integration för Event Hubs resurser ger rollbaserad åtkomst kontroll (RBAC) för detaljerad kontroll över en klients åtkomst till resurser. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till säkerhets objekt, som kan vara en användare, en grupp eller ett huvud namn för en program tjänst. Säkerhets objekt autentiseras av Azure AD för att returnera en OAuth 2,0-token. Token kan användas för att auktorisera en begäran om åtkomst till en Event Hubs-resurs.
+Azure Active Directory (Azure AD)-integration för Event Hubs resurser ger Azure-rollbaserad åtkomst kontroll (Azure RBAC) för detaljerad kontroll över en klients åtkomst till resurser. Du kan använda Azure RBAC för att bevilja behörighet till säkerhets objekt, som kan vara en användare, en grupp eller ett huvud namn för program tjänsten. Säkerhets objekt autentiseras av Azure AD för att returnera en OAuth 2,0-token. Token kan användas för att auktorisera en begäran om åtkomst till en Event Hubs-resurs.
 
 Mer information om hur du autentiserar med Azure AD finns i följande artiklar:
 
@@ -40,7 +40,7 @@ Som standard är alla Event Hubs resurser säkra och är bara tillgängliga för
 Mer information om auktorisering med SAS finns i [auktorisera åtkomst till Event Hubs resurser med hjälp av signaturer för delad åtkomst](authorize-access-shared-access-signature.md).
 
 ## <a name="next-steps"></a>Nästa steg
-- Granska [RBAC-exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) som publicerats i vår GitHub-lagringsplats. 
+- Granska [Azure RBAC-exempel](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac) som publicerats i vår GitHub-lagringsplats. 
 - Se följande artiklar:
     - [Autentisera begär anden till Azure Event Hubs från ett program med Azure Active Directory](authenticate-application.md)
     - [Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Event Hubs resurser](authenticate-managed-identity.md)

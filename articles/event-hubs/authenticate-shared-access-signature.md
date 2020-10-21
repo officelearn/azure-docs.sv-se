@@ -4,12 +4,12 @@ description: Den här artikeln visar hur du autentiserar åtkomst till Event Hub
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: f0cdf37963e40d871ad1079e9ccd5d0eb61fa2c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5d52b82ad6bbcb8dc7c028d3eba25a584590840
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270108"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332441"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autentisera åtkomst till Event Hubs resurser med signaturer för delad åtkomst (SAS)
 Signaturen för delad åtkomst (SAS) ger dig detaljerad kontroll över vilken typ av åtkomst du beviljar till de klienter som har signaturen för delad åtkomst. Här följer några av de kontroller som du kan ange i en SAS: 
@@ -222,7 +222,7 @@ För att autentisera backend-program som använder sig av data som genereras av 
 Se följande artiklar:
 
 - [Auktorisera med SAS](authenticate-shared-access-signature.md)
-- [Auktorisera med roll bas åtkomst kontroll (RBAC)](authenticate-shared-access-signature.md)
+- [Auktorisera med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC)](authenticate-shared-access-signature.md)
 - [Läs mer om Event Hubs](event-hubs-about.md)
 
 Se följande relaterade artiklar:

@@ -9,19 +9,19 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d61bc99e851b28712262dba8512c06b6e8872c0e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ecf0f54913f980d879b562eb4aa8063acf6c4772
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108226"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320258"
 ---
 # <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Installera klientverktyg för att distribuera och hantera Azure Arc-aktiverade datatjänster
 
 > [!IMPORTANT]
-> Om du uppdaterar till en ny månads utgåva måste du också uppdatera till den senaste versionen av Azure Data Studio, verktyget Azure Data CLI (azdata) och Azure Data CLI och Azure Arc-tilläggen för Azure Data Studio.
+> Om du uppdaterar till en ny månads utgåva måste du också uppdatera till den senaste versionen av Azure Data Studio, [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] verktyget och [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] Azure Arc-tilläggen för Azure Data Studio.
 
-Det här dokumentet vägleder dig genom stegen för att installera Azure Data CLI (azdata), Azure Data Studio, Azure CLI (AZ) och Kubernetes CLI-verktyget (kubectl) på klient datorn.
+Det här dokumentet vägleder dig genom stegen för att installera [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] , Azure Data Studio, Azure CLI (AZ) och KUBERNETES CLI-verktyget (kubectl) på klient datorn.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -31,10 +31,10 @@ I följande tabell visas vanliga verktyg som krävs för att skapa och hantera A
 
 | Verktyg | Krävs | Beskrivning | Installation |
 |---|---|---|---|
-| Azure Data CLI (azdata) | Ja | Kommando rads verktyg för att installera och hantera ett stort data kluster. Azure Data CLI innehåller också ett kommando rads verktyg för att ansluta till och fråga Azure SQL och SQL Server instanser och postgres-servrar med hjälp av kommandona `azdata sql query` (köra en enda fråga från kommando raden), `azdata sql shell` (ett interaktivt gränssnitt) `azdata postgres query` och `azdata postgres shell` . | [Installera](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
+| [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] | Ja | Kommando rads verktyg för att installera och hantera ett stort data kluster. [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] innehåller också ett kommando rads verktyg för att ansluta till och fråga Azure SQL och SQL Server instanser och postgres-servrar med hjälp av kommandona `azdata sql query` (köra en enda fråga från kommando raden), `azdata sql shell` (ett interaktivt gränssnitt) `azdata postgres query` och `azdata postgres shell` . | [Installera](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
 | Azure Data Studio | Ja | Omfattande upplevelse verktyg för att ansluta till och fråga en rad olika databaser, inklusive Azure SQL, SQL Server, PostrgreSQL och MySQL. Tillägg till Azure Data Studio ger en administrations upplevelse för Azure Arc-aktiverade data tjänster. | [Installera](/sql/azure-data-studio/download-azure-data-studio) |
-| Azure Data CLI-tillägg för Azure Data Studio | Ja | Tillägg för Azure Data Studio som ska installera Azure Data CLI om du inte redan har det.| Installera från tilläggs galleriet i Azure Data Studio.|
-| Azure Arc-tillägg för Azure Data Studio | Ja | Tillägg för Azure Data Studio som ger en hanterings upplevelse för Azure Arc-aktiverade data tjänster. Det finns ett beroende av Azure Data CLI-tillägget för Azure Data Studio. | Installera från tilläggs galleriet i Azure Data Studio.|
+| [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tillägg för Azure Data Studio | Ja | Tillägg för Azure Data Studio som kommer att installeras [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] om du inte redan har det.| Installera från tilläggs galleriet i Azure Data Studio.|
+| Azure Arc-tillägg för Azure Data Studio | Ja | Tillägg för Azure Data Studio som ger en hanterings upplevelse för Azure Arc-aktiverade data tjänster. Det finns ett beroende av [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] tillägget för Azure Data Studio. | Installera från tilläggs galleriet i Azure Data Studio.|
 | PostgreSQL-tillägg i Azure Data Studio | Nej | PostgreSQL-tillägg för Azure Data Studio som tillhandahåller hanterings funktioner för PostgreSQL. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Installera från tilläggs galleriet i Azure Data Studio.|
 | Azure CLI (AZ)<sup>1</sup> | Ja | Modernt kommando rads gränssnitt för att hantera Azure-tjänster. Används med AKS-distributioner och för att överföra Azure Arc-aktiverade data Services-inventering och fakturerings data till Azure. ([Mer information](/cli/azure/?view=azure-cli-latest&preserve-view=true)). | [Installera](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) |
 | Kubernetes CLI (kubectl)<sup>2</sup> | Ja | Kommando rads verktyg för att hantera Kubernetes-klustret ([Mer information](https://kubernetes.io/docs/tasks/tools/install-kubectl/)). | [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-powershell-from-psgallery) \| [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-using-native-package-management) |

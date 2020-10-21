@@ -12,19 +12,19 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 1bcaaed394d8e802a9660e2fdf0e37994ee795a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d04d29b82ecf09d1ee52986fc40687e5511573da
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617697"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331914"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Snabb start: Konfigurera en punkt-till-plats-anslutning till en Azure SQL-hanterad instans från den lokala platsen
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Den här snabb starten visar hur du ansluter till en Azure SQL-hanterad instans med [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) från en lokal klient dator över en punkt-till-plats-anslutning. Information om punkt-till-plats-anslutningar finns i [om punkt-till-plats-VPN](../../vpn-gateway/point-to-site-about.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här snabbstarten:
 
@@ -86,13 +86,13 @@ Den här snabbstarten:
 2. Välj **Anslut**.
 3. I dialog rutan väljer du **Anslut**.
 
-    ![VPN-anslutning](./media/point-to-site-p2s-configure/vpn-connection2.png)  
+    ![Skärm bild som visar knappen Anslut.](./media/point-to-site-p2s-configure/vpn-connection2.png)  
 4. När du uppmanas att anslutnings hanteraren behöver förhöjd behörighet för att uppdatera routningstabellen väljer du **Fortsätt**.
 5. Välj **Ja** i dialog rutan User Account Control för att fortsätta.
 
    Du har upprättat en VPN-anslutning till ditt SQL-hanterade instans-VNet.
 
-    ![VPN-anslutning](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
+    ![Skärm bild som visar det anslutna meddelandet när du har upprättat din anslutning.](./media/point-to-site-p2s-configure/vpn-connection-succeeded.png)  
 
 ## <a name="connect-with-ssms"></a>Anslut med SSMS
 

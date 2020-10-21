@@ -1,22 +1,22 @@
 ---
 title: Skapa ett erbjudande för virtuell dator på Azure Marketplace.
-description: Lär dig hur du skapar ett erbjudande för virtuella datorer på Azure Marketplace.
+description: Lär dig hur du skapar ett erbjudande för virtuella datorer på Microsofts kommersiella marknads plats.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/19/2020
-ms.openlocfilehash: 9395b607f235ab606c9013f9273c4162b8c953d7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.date: 10/20/2020
+ms.openlocfilehash: 5964292d7037465456efe22283a5552a2bfc7ad8
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284794"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331268"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Så här skapar du ett erbjudande för virtuella datorer på Azure Marketplace
 
-Den här artikeln beskriver hur du skapar och publicerar ett erbjudande för virtuella Azure-datorer på [Azure Marketplace](https://azuremarketplace.microsoft.com/). Den behandlar både Windows-baserade och Linux-baserade virtuella datorer som innehåller ett operativ system, en virtuell hård disk (VHD) och upp till 16 data diskar.
+Den här artikeln beskriver hur du skapar ett erbjudande för virtuella Azure-datorer för [Azure Marketplace](https://azuremarketplace.microsoft.com/). Den behandlar både Windows-baserade och Linux-baserade virtuella datorer som innehåller ett operativ system, en virtuell hård disk (VHD) och upp till 16 data diskar.
 
 Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](partner-center-portal/create-account.md). Se till att ditt konto har registrerats i programmet för kommersiella marknads platser.
 

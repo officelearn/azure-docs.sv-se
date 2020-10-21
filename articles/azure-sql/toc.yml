@@ -263,6 +263,8 @@
           items:
             - name: IP-brandväggsregler på servernivå
               href: database/firewall-create-server-level-portal-quickstart.md
+        - name: GitHub Actions
+          href: database/connect-github-actions-sql-db.md
     - name: Självstudier
       items:
         - name: Utforma en databas

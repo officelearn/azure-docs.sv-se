@@ -1,27 +1,20 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 08/27/2020
+ms.date: 10/20/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 517acc5137d70c722d8defade1e218a3b2e78f86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a66596ecb926c1bf3c6b61cc99e1eb1b56e99158
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89052506"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328460"
 ---
-Du kan skapa en VNet i Resource Manager-distributionsmodellen och Azure-portalen genom att följa stegen nedan. Mer information om virtuella nätverk finns i [Översikt över virtuella nätverk](../articles/virtual-network/virtual-networks-overview.md).
-
->[!NOTE]
->När du använder ett virtuellt nätverk som en del av en lokal arkitektur, måste du koordinera med den lokala nätverks administratören för att dela ut ett IP-adressintervall som du kan använda specifikt för det här virtuella nätverket. Om det finns ett duplicerat adressintervall på båda sidorna av VPN-anslutningen dirigeras trafiken på ett oväntat sätt. Dessutom, om du vill ansluta det här virtuella nätverket till ett annat virtuellt nätverk, kan inte adress utrymmet överlappa med det andra virtuella nätverket. Planera din nätverkskonfiguration på lämpligt sätt.
->
->
-
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. I **Sök efter resurser, tjänst och dokument (G +/)** skriver du *virtuellt nätverk*.
 

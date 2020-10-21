@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: devx-track-js
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 4e8d7054fb0df265285bda223e360ea61612aaf2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ca225f136b0c3a6fc8b47d00ff64064fe17d4ee
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263954"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281754"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Använd en markdown-panel på Azure-instrumentpaneler för att visa anpassat innehåll
 
@@ -48,7 +48,7 @@ Du kan lägga till en markdown-panel till dina Azure-instrumentpaneler för att 
       ![Skärm bild som visar ange URL](./media/azure-portal-markdown-tile/azure-portal-dashboard-markdown-url.png)
 
       > [!NOTE]
-      > För ökad säkerhet kan du skapa en MARKDOWN-fil och lagra den i en [BLOB för Azure Storage-konto där kryptering är aktiverat](../storage/common/storage-service-encryption.md). peka sedan på filen med URL-alternativet. Markdown-innehållet krypteras via lagrings kontots krypterings alternativ. Endast användare med behörighet till filen kan se markdown-innehållet på instrument panelen.
+      > För ökad säkerhet kan du skapa en MARKDOWN-fil och lagra den i en [BLOB för Azure Storage-konto där kryptering är aktiverat](../storage/common/storage-service-encryption.md). peka sedan på filen med URL-alternativet. Markdown-innehållet krypteras via lagrings kontots krypterings alternativ. Endast användare med behörighet till filen kan se markdown-innehållet på instrument panelen. Ange en CORS-regel (Cross-Origin Resource Sharing) för lagrings kontot så att Azure Portal ( _https://portal.azure.com/_ ) kan komma åt markdown-filen i blobben.
 
 1. Välj **Done** för att stänga fönstret **Redigera markdown** . Ditt innehåll visas på markdown-panelen, som du kan ändra storlek på genom att dra handtaget i det nedre högra hörnet.
 

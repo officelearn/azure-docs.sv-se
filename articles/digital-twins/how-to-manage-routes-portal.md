@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91c767fb031633900434b3aa07ccfae7cf7458cb
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279370"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332101"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (portal)
 
@@ -24,7 +24,7 @@ Den här artikeln vägleder dig genom processen att skapa slut punkter och flöd
 
 Du kan också hantera slut punkter och vägar med [EventRoutes-API: er](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md). En version av den här artikeln som använder dessa mekanismer i stället för portalen finns i [*så här gör du: hantera slut punkter och vägar (API: er och CLI)*](how-to-manage-routes-apis-cli.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Du behöver ett **Azure-konto** (du kan ställa in ett kostnads fritt [här](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * Du behöver en **Azure Digitals-instans** i din Azure-prenumeration. Om du inte redan har en instans kan du skapa en med hjälp av anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Ha följande värden från installations programmet som är praktiskt att använda senare i den här artikeln:
@@ -72,7 +72,7 @@ Du kan också Visa slut punkten som skapades på sidan *slut punkter* för din A
 
 Om det inte går att skapa en slut punkt, Observera fel meddelandet och försök igen om några minuter.
 
-Nu är event Grid-avsnittet tillgängligt som en slut punkt inuti Azure Digital-dubbla, under det namn som anges i fältet _namn_ . Du använder vanligt vis det namnet som mål för en **händelse väg**, som du kommer att skapa [senare i den här artikeln](#event-routes).
+Nu är event Grid-avsnittet tillgängligt som en slut punkt inuti Azure Digital-dubbla, under det namn som anges i fältet _namn_ . Du använder vanligt vis det namnet som mål för en **händelse väg**, som du kommer att skapa [senare i den här artikeln](#create-an-event-route).
 
 ### <a name="create-an-event-hubs-endpoint"></a>Skapa en Event Hubs-slutpunkt
 
@@ -94,7 +94,7 @@ Du kan kontrol lera att slut punkten har skapats genom att kontrol lera meddelan
 
 Om det inte går att skapa en slut punkt, Observera fel meddelandet och försök igen om några minuter.
 
-Nu är Händelsehubben tillgänglig som en slut punkt inuti Azure Digital-dubbla, under det namn som anges i fältet _namn_ . Du använder vanligt vis det namnet som mål för en **händelse väg**, som du kommer att skapa [senare i den här artikeln](#event-routes).
+Nu är Händelsehubben tillgänglig som en slut punkt inuti Azure Digital-dubbla, under det namn som anges i fältet _namn_ . Du använder vanligt vis det namnet som mål för en **händelse väg**, som du kommer att skapa [senare i den här artikeln](#create-an-event-route).
 
 ### <a name="create-a-service-bus-endpoint"></a>Skapa en Service Bus-slutpunkt
 
@@ -116,7 +116,7 @@ Du kan kontrol lera att slut punkten har skapats genom att kontrol lera meddelan
 
 Om det inte går att skapa en slut punkt, Observera fel meddelandet och försök igen om några minuter.
 
-Nu är Service Bus avsnittet tillgängligt som en slut punkt inuti Azure Digital-dubbla, under det namn som anges i fältet _namn_ . Du använder vanligt vis det namnet som mål för en **händelse väg**, som du kommer att skapa [senare i den här artikeln](#event-routes).
+Nu är Service Bus avsnittet tillgängligt som en slut punkt inuti Azure Digital-dubbla, under det namn som anges i fältet _namn_ . Du använder vanligt vis det namnet som mål för en **händelse väg**, som du kommer att skapa [senare i den här artikeln](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Skapa en slut punkt med obeställbara meddelanden
 
@@ -126,7 +126,7 @@ Du måste använda [arm-API: erna](/rest/api/digital-twins/controlplane/endpoint
 
 Instruktioner för hur du gör detta med API: erna finns i [*API: erna och CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) -versionen av den här artikeln.
 
-## <a name="event-routes"></a>Händelsevägar
+## <a name="create-an-event-route"></a>Skapa en händelse väg
 
 Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut punkt måste du definiera en **händelse väg**. Med de här vägarna kan utvecklare skapa händelse flöden i systemet och till underordnade tjänster. Läs mer om händelse vägar i [*begrepp: routing Azure Digitals, dubbla händelser*](concepts-route-events.md).
 
@@ -135,7 +135,7 @@ Om du faktiskt vill skicka data från digitala Azure-sändningar till en slut pu
 >[!NOTE]
 >Om du nyligen har distribuerat dina slut punkter kontrollerar du att de är klara med distributionen **innan** du försöker använda dem för en ny händelse väg. Om du inte kan konfigurera vägen eftersom slut punkterna inte är klara, väntar du några minuter och försöker igen.
 
-### <a name="create-an-event-route"></a>Skapa en händelse väg 
+### <a name="creation-steps-with-the-azure-portal"></a>Skapa steg med Azure Portal
 
 En händelse flödes definition innehåller följande element:
 * Det väg namn som du vill använda
@@ -161,7 +161,7 @@ För att vägen ska aktive ras måste du också **lägga till ett händelse flö
 
 När du är färdig trycker du på knappen _Spara_ för att skapa din händelse väg.
 
-### <a name="filter-events"></a>Filtrera händelser
+## <a name="filter-events"></a>Filtrera händelser
 
 Som beskrivs ovan har vägar ett **filter** fält. Om filtervärdet i din väg är `false` , skickas inga händelser till din slut punkt. 
 

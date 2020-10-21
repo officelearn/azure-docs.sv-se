@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 8cca75f7071b8b9c8d1108b82ebf8f7049ec316a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282574"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331829"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 
@@ -96,7 +96,7 @@ Du kan kombinera de två modellerna. Etablering av data flöde på både databas
 
 När du har skapat en Azure Cosmos-behållare eller en databas kan du uppdatera det etablerade data flödet. Det finns ingen gräns för maximalt tillhandahållet data flöde som du kan konfigurera i databasen eller behållaren.
 
-### <a name="current-provisioned-throughput"></a>Aktuellt allokerat data flöde
+### <a name="current-provisioned-throughput"></a><a id="current-provisioned-throughput"></a> Aktuellt allokerat data flöde
 
 Du kan hämta det etablerade data flödet för en behållare eller en databas i Azure Portal eller genom att använda SDK: erna:
 
@@ -135,6 +135,14 @@ Du kan kontrol lera skalnings förloppet program mässigt genom att läsa det [a
 * [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) i Java SDK.
 
 Du kan använda [Azure Monitor mått](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) för att visa historiken över det etablerade data flödet (ru/s) och lagrings utrymme på en resurs.
+
+## <a name="high-storage--low-throughput-program"></a><a id="high-storage-low-throughput-program"></a> Program med hög lagring/låg genom strömning
+
+Som det beskrivs i avsnittet [Aktuellt etablerat data flöde](#current-provisioned-throughput) ovan, är det minsta data flöde som du kan etablera på en behållare eller databas beroende av ett antal faktorer. En av dem är den mängd data som för närvarande lagras, eftersom Azure Cosmos DB tillämpar ett minsta data flöde på 10 RU/s per GB lagrings utrymme.
+
+Detta kan vara ett problem i situationer där du behöver lagra stora mängder data, men ha låga data flödes krav i jämförelse. För att bättre kunna hantera dessa scenarier har Azure Cosmos DB infört ett **"högt lagrings-/låg data flöde"-program** som minskar begränsningen ru/s per GB från 10 till 1 på berättigade konton.
+
+Du måste för närvarande ha minst 1 container eller en databas med delat data flöde som innehåller mer än 1 TB data i ditt konto för att bli berättigad. Om du vill delta i programmet och utvärdera din fullständiga behörighet måste du fylla i [den här undersökningen](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRzBPrdEMjvxPuDm8fCLUtXpUREdDU0pCR0lVVFY5T1lRVEhWNUZITUJGMC4u). Azure Cosmos DBs teamet följer sedan upp och fortsätter med din onboarding.
 
 ## <a name="comparison-of-models"></a>Jämförelse av modeller
 Den här tabellen visar en jämförelse mellan Provisioning standard (manuell) data flöde i en databas jämfört med på en behållare. 

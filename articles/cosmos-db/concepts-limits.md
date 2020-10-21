@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: e67346eb1a0fccc7a788e8698df734536e1e395b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708959"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329380"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -19,7 +19,7 @@ Den här artikeln innehåller en översikt över standardkvoterna som erbjuds ti
 
 ## <a name="storage-and-database-operations"></a>Lagrings-och databas åtgärder
 
-När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera data i ditt konto genom att [skapa databaser, behållare och objekt](databases-containers-items.md).
+När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera data i ditt konto genom att [skapa databaser, behållare och objekt](account-databases-containers-items.md).
 
 ### <a name="provisioned-throughput"></a>Etablerat dataflöde
 
@@ -27,15 +27,15 @@ Du kan etablera data flöde på en behållar nivå eller på databas nivå avsee
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Maximalt antal ru: er per behållare ([dedikerat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](create-support-request-quota-increase.md) |
-| Maximalt antal ru: er per databas ([delat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](create-support-request-quota-increase.md) |
+| Maximalt antal ru: er per behållare ([dedikerat data flöde har allokerat läge](account-databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](create-support-request-quota-increase.md) |
+| Maximalt antal ru: er per databas ([delat data flöde har allokerat läge](account-databases-containers-items.md#azure-cosmos-containers)) | 1 000 000 som standard. Du kan öka det genom att [arkivera ett support ärende för Azure](create-support-request-quota-increase.md) |
 | Maximal ru: er per (logisk) partition | 10 000 |
 | Maximalt lagrings utrymme för alla objekt per (logisk) partition | 20 GB |
 | Maximalt antal distinkta (logiska) sessionsnycklar | Obegränsat |
 | Maximalt lagrings utrymme per behållare | Obegränsat |
 | Maximalt lagrings utrymme per databas | Obegränsat |
 | Maximal storlek på bifogade filer per konto (bilage funktionen är föråldrad) | 2 GB |
-| Lägsta ru: er som krävs per 1 GB | 10 RU/s |
+| Lägsta RU/s krävs per 1 GB | 10 RU/s<br>**Obs!** om din behållare eller databas innehåller mer än 1 TB data kan ditt konto vara berättigat till vårt [program för "hög lagring/låg data flöde"](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > Mer information om metod tips för att hantera arbets belastningar som har partitionsnyckel som kräver högre gränser för lagring eller data flöde finns i [skapa en syntetisk partitionsnyckel](synthetic-partition-keys.md).
@@ -55,8 +55,8 @@ Här är de lägsta etablerade RU-gränserna i sammanfattning.
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Lägsta ru: er per container ([dedikerat data flöde har allokerat läge](databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Lägsta ru: er per databas ([delat data flöde, etablerings läge](databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Lägsta ru: er per container ([dedikerat data flöde har allokerat läge](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
+| Lägsta ru: er per databas ([delat data flöde, etablerings läge](account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
 | Minsta ru: er per behållare i en delad data flödes databas | 100 |
 
 Cosmos DB stöder elastisk skalning av data flöde (ru: er) per behållare eller databas via SDK: er eller portalen. Varje behållare kan skalas synkront och omedelbart inom ett skalnings intervall på 10 till 100 gånger, mellan lägsta och högsta värden. Om det begärda data flöde svärdet ligger utanför intervallet utförs skalningen asynkront. Asynkron skalning kan ta minuter till timmar att slutföra beroende på begärt data flöde och data lagrings storlek i behållaren.  
@@ -230,7 +230,7 @@ I följande tabell visas gränserna för try- [Azure Cosmos dB för kostnads fri
 | Maximalt antal behållare per prenumeration (MongoDB-API) | 3 |
 | Maximalt data flöde per behållare | 5000 |
 | Maximalt data flöde per delat data flödes databas | 20000 |
-| Maximalt totalt lagrings utrymme per konto | 10 GB |
+| Maximalt totalt lagrings utrymme per konto | 10 GB |
 
 Testa Cosmos DB stöder global distribution bara i Central USA, Nord Europa och Sydostasien regioner. Det går inte att skapa biljetter för Azure-Support för try Azure Cosmos DB-konton. Support ges dock för prenumeranter med befintliga support avtal.
 

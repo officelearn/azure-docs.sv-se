@@ -67,6 +67,8 @@
       items:
         - name: Koda och strömma en fjärrfil – REST
           href: stream-files-tutorial-with-rest.md
+        - name: Kundhanterade nycklar med Media Services
+          href: tutorial-byok.md
     - name: CLI
       items:
         - name: Koda och strömma en fjärrfil – CLI
@@ -175,6 +177,8 @@
         - name: Dynamisk kryptering och nyckelleverans
           displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
+        - name: Kundhanterade nycklar
+          href: concept-use-customer-managed-keys-byok.md
         - name: Design för multi-DRM-system
           displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md

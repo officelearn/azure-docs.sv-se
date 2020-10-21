@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfff96666981a522cd6d91828604696a12ecad56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576870"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331693"
 ---
 # <a name="introduction-to-azure-defender"></a>Introduktion till Azure Defender
 
@@ -36,13 +36,14 @@ När du aktiverar Azure Defender från avsnittet **priser och inställningar** i
 - [Azure Defender för App Service](defender-for-app-service-introduction.md)
 - [Azure Defender för Storage](defender-for-storage-introduction.md)
 - [Azure Defender för SQL](defender-for-sql-introduction.md)
-- [Azure Defender för IoT](defender-for-iot-introduction.md)
 - [Azure Defender för Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender för containerregister](defender-for-container-registries-introduction.md)
 - [Azure Defender för Key Vault](defender-for-key-vault-introduction.md)
 
 Var och en av dessa planer beskrivs separat i Security Center-dokumentationen.
 
+> [!TIP]
+> Azure Defender för IoT (för hands version) är en separat produkt. Du hittar all information i [Introduktion till Azure Defender for IoT (för hands version)](../defender-for-iot/overview.md). 
 
 ## <a name="hybrid-cloud-protection"></a>Hybrid moln skydd
 
@@ -50,7 +51,6 @@ Du kan lägga till Azure Defender-funktioner i din hybrid moln miljö, samt skyd
 
 - Skydda dina icke-Azure-servrar
 - Skydda dina virtuella datorer i andra moln (till exempel AWS och GCP)
-- Skydda dina IoT-enheter
 
 Du får en anpassad Hot information och prioriterade aviseringar enligt din miljö så att du kan fokusera på det som är mest viktigt.
 

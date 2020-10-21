@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f3441d7c7f42c58928bb97c945e7b1e7673f7afa
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 00a3c1d0a2a905e6435b811d5f2611c16a5de502
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877161"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328887"
 ---
 # <a name="configure-device-redirections"></a>Konfigurera omdirigering av enheter
 
@@ -50,7 +50,10 @@ Ange följande RDP-egenskap för att konfigurera omdirigering av kamera:
 - `camerastoredirect:s:*` omdirigerar alla kameror.
 - `camerastoredirect:s:` inaktiverar omdirigering av kamera.
 
-Du kan också omdirigera särskilda kameror med en semikolonavgränsad lista med KSCATEGORY_VIDEO_CAMERA gränssnitt, till exempel `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` .
+>[!NOTE]
+>Även om `camerastoredirect:s:` egenskapen är inaktive rad kan lokala kameror omdirigeras via `devicestoredirect:s:` egenskapen. För att helt inaktivera uppsättning av omdirigering `camerastoredirect:s:` av kamera och antingen ange `devicestoredirect:s:` eller definiera vissa delar av plug and Play-enheter som inte innehåller någon kamera.
+
+Du kan också omdirigera särskilda kameror med en semikolonavgränsad lista med KSCATEGORY_VIDEO_CAMERA gränssnitt, till exempel `camerastoredirect:s:\?\usb#vid_0bda&pid_58b0&mi` . 
 
 ### <a name="clipboard-redirection"></a>Omdirigering av Urklipp
 

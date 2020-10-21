@@ -292,8 +292,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
-                - name: Resource Manager-mall
-                  href: ./samples/resource-manager-workspace.md
+            - name: Övervaka en arbetsyta
+              href: platform/monitor-workspace.md
             - name: Ta bort och återställa en arbetsyta
               href: platform/delete-workspace.md
             - name: Hantera åtkomst

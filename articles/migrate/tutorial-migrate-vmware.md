@@ -4,12 +4,12 @@ description: Lär dig hur du kör en agent lös migrering av virtuella VMware-da
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: 37181246a20044f16414735e2247fa90fc36433b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e263306cf18dfebe4b73f8d940b8eb5c99ed16f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530530"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310635"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella VMware-datorer till Azure (utan agent)
 
@@ -32,12 +32,12 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar de här självstudierna bör du:
 
-1. [Slutför den första självstudien](tutorial-prepare-vmware.md) för att förbereda Azure och VMware för migrering.
-2. Vi rekommenderar att du slutför den andra självstudien för att [utvärdera virtuella VMware-datorer](tutorial-assess-vmware.md) innan du migrerar dem till Azure, men du behöver inte. 
+1. [Slutför den första självstudien](./tutorial-discover-vmware.md) för att förbereda Azure och VMware för migrering.
+2. Vi rekommenderar att du slutför den andra självstudien för att [utvärdera virtuella VMware-datorer](./tutorial-assess-vmware-azure-vm.md) innan du migrerar dem till Azure, men du behöver inte. 
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Lägg till verktyget för migrering av Azure Migrate Server
@@ -59,7 +59,7 @@ Om du inte har konfigurerat något Azure Migrate-projekt ännu, [gör du det](ho
 
 ## <a name="set-up-the-azure-migrate-appliance"></a>Konfigurera Azure Migrate-enheten
 
-Azure Migrate Server-migrering kör en enkel VMware VM-enhet som används för identifiering, utvärdering och migrering utan agent för virtuella VMware-datorer. Om du följer [utvärderings guiden](tutorial-assess-vmware.md)har du redan ställt in installationen. Om du inte gjorde det konfigurerar du det nu genom att använda någon av följande metoder:
+Azure Migrate Server-migrering kör en enkel VMware VM-enhet som används för identifiering, utvärdering och migrering utan agent för virtuella VMware-datorer. Om du följer [utvärderings guiden](./tutorial-assess-vmware-azure-vm.md)har du redan ställt in installationen. Om du inte gjorde det konfigurerar du det nu genom att använda någon av följande metoder:
 
 - **Ägg-mall**: [Konfigurera](how-to-set-up-appliance-vmware.md) på en virtuell VMware-dator med en Hämtad områdesmall-mall.
 - **Skript**: [Konfigurera](deploy-appliance-script.md) på en virtuell VMware-dator eller fysisk dator med hjälp av ett PowerShell-skript för installations programmet. Den här metoden ska användas om du inte kan konfigurera en virtuell dator med en behållar mall eller om du är i Azure Government.
@@ -210,7 +210,7 @@ När du har kontrollerat att testmigreringen fungerar som förväntat kan du mig
     - Håll arbetsbelastningar i körning och kontinuerligt tillgängliga genom att replikera virtuella Azure-datorer till en sekundär region med Site Recovery. [Läs mer](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - För ökad säkerhet:
     - Lås och begränsa inkommande trafik åtkomst med [Azure Security Center – just-in-Time-administration](../security-center/security-center-just-in-time.md).
-    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md).
+    - Begränsa nätverkstrafik till hanteringsslutpunkter med [nätverkssäkerhetsgrupper](../virtual-network/network-security-groups-overview.md).
     - Distribuera [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) för att säkra diskar och skydda data från stöld och obehörig åtkomst.
     - Läs mer om [ att skydda IaaS-resurser](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) och besök [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - För övervakning och hantering:

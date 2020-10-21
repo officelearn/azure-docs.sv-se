@@ -1,6 +1,6 @@
 ---
-title: Azure-guide – skapa ett Azure Key Vault och en valv åtkomst princip med hjälp av Azure Resource Manager mall | Microsoft Docs
-description: Visar hur du skapar Azure Key Vault och valv åtkomst principer med hjälp av Azure Resource Manager mall.
+title: Skapa ett Azure Key Vault och en valv åtkomst princip med hjälp av ARM-mall
+description: Den här artikeln visar hur du skapar Azure Key Vault och valv åtkomst principer med hjälp av en Azure Resource Manager mall.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,29 +10,29 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cf19561005fe2e98b7b5cf6812ff9224fd9474dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804400"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282318"
 ---
-# <a name="how-to-create-azure-key-vault-and-vault-access-policy-using-a-resource-manager-template"></a>Så här skapar du Azure Key Vault-och valv åtkomst princip med hjälp av en Resource Manager-mall
+# <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Så här skapar du en Azure Key Vault-och en valv åtkomst princip med hjälp av en Resource Manager-mall
 
-[Azure Key Vault](../general/overview.md) är en moln tjänst som ger en säker lagring för hemligheter, till exempel nycklar, lösen ord, certifikat och andra hemligheter. Den här guiden fokuserar på processen att distribuera en Azure Resource Manager-mall (ARM-mall) för att skapa ett nyckel valv.
+[Azure Key Vault](../general/overview.md) är en moln tjänst som tillhandahåller en säker lagring för hemligheter som nycklar, lösen ord och certifikat. I den här artikeln beskrivs processen för att distribuera en Azure Resource Manager-mall (ARM-mall) för att skapa ett nyckel valv.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här artikeln:
+För att slutföra stegen i den här artikeln:
 
-* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 
-## <a name="create-key-vault-resource-manager-template"></a>Skapa Key Vault Resource Manager-mall
+## <a name="create-a-key-vault-resource-manager-template"></a>Skapa en Key Vault Resource Manager-mall
 
-Följande mall visar ett enkelt sätt att skapa Key Vault. Vissa värden anges i mallen.
+Följande mall visar ett enkelt sätt att skapa ett nyckel valv. Vissa värden anges i mallen.
 
 ```json
 {
@@ -87,11 +87,11 @@ Följande mall visar ett enkelt sätt att skapa Key Vault. Vissa värden anges i
 Mer information om inställningar för Key Vault mal len finns i [referens för Key Vault arm-mall](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
-> Om mallen omdistribueras åsidosätts eventuella befintliga åtkomst principer i nyckel valvet. Vi rekommenderar att du fyller i en `accessPolicies` egenskap med befintliga åtkomst principer för att undvika återfick åtkomst till nyckel valvet. 
+> Om en mall omdistribueras kommer alla befintliga åtkomst principer i nyckel valvet att åsidosättas. Vi rekommenderar att du fyller i `accessPolicies` egenskapen med befintliga åtkomst principer för att undvika att förlora åtkomst till nyckel valvet. 
 
-## <a name="add-access-policy-to-key-vault-resource-manager-template"></a>Lägg till åtkomst princip i Key Vault Resource Manager-mall
+## <a name="add-an-access-policy-to-a-key-vault-resource-manager-template"></a>Lägga till en åtkomst princip i en Key Vault Resource Manager-mall
 
-Du kan distribuera åtkomst principer till befintligt nyckel valv utan att omdistribuera hela Key Vault-mallen. Följande mall visar ett enkelt sätt att skapa åtkomst principer.
+Du kan distribuera åtkomst principer till ett befintligt nyckel valv utan att omdistribuera hela Key Vault-mallen. Följande mall visar ett enkelt sätt att skapa åtkomst principer:
 
 ```json
 {
@@ -162,21 +162,21 @@ Du kan distribuera åtkomst principer till befintligt nyckel valv utan att omdis
 ```
 Mer information om inställningar för Key Vault mal len finns i [referens för Key Vault arm-mall](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
-## <a name="other-available-key-vault-resource-manager-templates"></a>Andra tillgängliga Key Vault Resource Manager-mallar
+## <a name="more-key-vault-resource-manager-templates"></a>Fler Key Vault Resource Manager-mallar
 
 Det finns andra tillgängliga Resource Manager-mallar för Key Vault objekt:
 
 | Hemligheter | Nycklar | Certifikat |
 |--|--|--|
-|[Snabbstart](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<br>[Referens](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|Saknas|Saknas|
+|<ul><li>[Snabbstart](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Referens](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|Saknas|Saknas|
 
-Fler Key Vault mallar som du kan hitta här: [Key Vault Resource Manager-referens](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions)
+Du hittar fler Key Vault mallar här: [Key Vault Resource Manager-referens](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Distribuera mallarna
 
-Du kan använda Azure Portal för att distribuera över mallar med hjälp av alternativet "Bygg en egen mall i redigerings programmet" i guiden nedan: [distribuera resurser från anpassad mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template)
+Du kan använda Azure Portal för att distribuera de föregående mallarna med hjälp av alternativet för att **bygga en egen mall i redigerings** alternativet som beskrivs här: [distribuera resurser från en anpassad mall](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
 
-Du kan också spara över mallar till filer och använda följande kommandon:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) och [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create):
+Du kan också spara föregående mallar till filer och använda följande kommandon:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) och [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create):
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile key-vault-template.json
@@ -188,7 +188,7 @@ az group deployment create --resource-group ExampleGroup --template-file key-vau
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta och arbeta med efterföljande snabb starter och självstudier kan du lämna resurserna på plats. När resurserna inte längre behövs tar du bort resurs gruppen, som tar bort nyckel valvet och relaterade resurser. Om du vill ta bort resurs gruppen med hjälp av Azure CLI eller Azure PowerShell använder du följande steg.
+Om du planerar att fortsätta med efterföljande snabb starter och självstudier kan du lämna resurserna på plats. När du inte behöver resurserna längre tar du bort resurs gruppen. Om du tar bort gruppen raderas även nyckel valvet och relaterade resurser. Slutför följande steg för att ta bort resurs gruppen med hjälp av Azure CLI eller Azure PowerShell:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -211,12 +211,12 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="resources"></a>Resurser
 
-- Läs en [Översikt över Azure Key Vault](../general/overview.md)
-- Läs mer om [Azure Resource Manager](../../azure-resource-manager/management/overview.md)
-- Granska [Azure Key Vault bästa praxis](../general/best-practices.md)
+- Läs en [Översikt över Azure Key Vault](../general/overview.md).
+- Läs mer om [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
+- Granska [Azure Key Vault bästa praxis](../general/best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Säker åtkomst till ett nyckel valv](secure-your-key-vault.md)
 - [Autentisera till ett nyckel valv](authentication.md)
-- [Guide för Azure Key Vault utvecklare](developers-guide.md)
+- [Utvecklarguide för Azure Key Vault](developers-guide.md)

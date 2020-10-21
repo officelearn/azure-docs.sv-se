@@ -4,12 +4,12 @@ description: Den här artikeln innehåller en översikt över stöd för schema 
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 30ef2f102a4b8d9f9908ba915f179889710bafd0
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a876651b76aa259754623854b8fc4a7c6c8a939e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938805"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330503"
 ---
 # <a name="azure-schema-registry-in-event-hubs-preview"></a>Azure Schema Registry i Event Hubs (förhandsversion)
 I många händelse strömnings-och meddelande scenarier innehåller händelse-och meddelande nytto Last strukturerad data som antingen serialiseras eller avserialiseras med hjälp av ett schema drivet format som Apache Avro. Både avsändare och mottagare kan vilja verifiera integriteten för data med ett schema dokument som med JSON-schema. För schema drivna format är det ett krav för att konsumenten ska kunna deserialisera data för att göra schemat tillgängligt för meddelande konsumenten. 
@@ -50,8 +50,8 @@ Följande bild visar informations flödet i schema registret med Event Hubs:
 ## <a name="standard-vs-dedicated-limits"></a>Standard kontra dedikerade gränser
 För gränser (till exempel: antalet schema grupper i ett namn område) som är samma och olika för standard-och dedikerade nivåer av Event Hubs, se [schema register gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
 
-## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
-När du ansluter till schema registret program mässigt måste du registrera ett program i Azure Active Directory (Azure AD) och lägga till programmets säkerhets objekt i någon av RBAC-rollerna (rollbaserad åtkomst kontroll):
+## <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
+När du har åtkomst till schema registret program mässigt måste du registrera ett program i Azure Active Directory (Azure AD) och lägga till programmets säkerhets objekt i någon av rollbaserade roller för Azure-rollbaserad åtkomst kontroll (Azure RBAC):
 
 | Roll | Beskrivning | 
 | ---- | ----------- | 

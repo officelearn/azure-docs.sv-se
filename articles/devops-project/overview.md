@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure DevOps starter | Microsoft Docs
-description: Lär dig hur Azure DevOps starter hjälper dig att starta, distribuera och hantera din app från en enda vy i Azure Portal.
+title: Översikt över DevOps starter för Azure | Microsoft Docs
+description: Förstå värdet för DevOps starter
 services: devops-project
 documentationcenter: ''
 author: mlearned
@@ -14,30 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 3e6f28da37980717e15b05ab94c582aa5c77e9e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c36539ef5be503b2cb7e14047e596522ef8e962
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856870"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330656"
 ---
-# <a name="overview-of-azure-devops-starter"></a>Översikt över Azure DevOps starter
+# <a name="overview-of-devops-starter"></a>Översikt över DevOps starter
 
- Med Azure DevOps Starter är det enkelt att komma igång med Azure. Det hjälper dig att distribuera din favoritapp på den Azure-tjänst du föredrar med några snabba steg i Azure-portalen. 
+ DevOps starter gör det enkelt att komma igång med Azure med hjälp av antingen GitHub-åtgärder eller Azure DevOps. Det hjälper dig att distribuera din favoritapp på den Azure-tjänst du föredrar med några snabba steg i Azure-portalen. 
 
  DevOps starter ställer in allt du behöver för att utveckla, distribuera och övervaka ditt program. Du kan använda instrument panelen för DevOps starter för att övervaka kod skrivningar,-versioner och-distributioner, allt från en enda vy i Azure Portal.
 
 ## <a name="advantages-of-using-devops-starter"></a>Fördelar med att använda DevOps starter
 
-  DevOps starter automatiserar installationen av en hel kontinuerlig integrering (CI) och kontinuerlig leverans (CD) pipeline till Azure.  Du kan börja med befintlig kod eller använda en av de exempelprogram som tillhandahålls. Sedan kan du snabbt distribuera programmet till olika Azure-tjänster såsom virtuella datorer, App Service, Azure Kubernetes Service (AKS), Azure SQL Database och Azure Service Fabric.  
+  DevOps Starter har stöd för två CI/CD-providrar för att automatisera distributioner
+  * [GitHub Actions](https://github.com/features/actions)
+  * [Azure DevOps](https://azure.microsoft.com/services/devops)
 
-  DevOps startstarter utför allt arbete för den inledande konfigurationen av en DevOps-pipeline, inklusive allt från att ställa in den första git-lagringsplatsen, konfigurera CI/CD-pipeline, skapa en Application Insights-resurs för övervakning och tillhandahålla en enda vy av hela lösningen med att skapa en DevOps Projectss instrument panel i Azure Portal.
+  DevOps starter automatiserar installationen av en hel kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för ditt program till Azure.  Du kan börja med befintlig kod eller använda en av de exempelprogram som tillhandahålls. Sedan kan du snabbt distribuera programmet till olika Azure-tjänster såsom virtuella datorer, App Service, Azure Kubernetes Service (AKS), Azure SQL Database och Azure Service Fabric.  
+
+  DevOps starter utför allt arbete för den inledande konfigurationen av en DevOps-pipeline, inklusive allt från att ställa in den första git-lagringsplatsen, konfigurera CI/CD-pipeline, skapa en Application Insights-resurs för övervakning och tillhandahålla en enda vy av hela lösningen med att skapa en DevOps starter-instrumentpanel i Azure Portal.
 
 Du kan använda DevOps starter för att:
 
 * Snabbt distribuera ditt program till Azure
-* Automatisera konfigurationen av en CI/CD-pipeline
-* Visa och förstå hur du konfigurerar en CI/CD-pipeline på rätt sätt
+* Automatisera konfigurationen av ett CI/CD-arbetsflöde eller en pipeline
+* Visa och förstå hur du konfigurerar ett CI/CD-arbetsflöde eller en pipeline korrekt
 * Ytterligare anpassa versionspipelinen baserat på dina specifika scenarier
 
 ## <a name="how-to-use-devops-starter"></a>Hur använder jag DevOps starter?
@@ -46,31 +50,37 @@ Du kan använda DevOps starter för att:
 
 Du kan välja flera konfigurationsalternativ som en del av den initiala installationen. Dessa alternativ är:
 
-* Använda den tillhandahållna exempelappen eller din egen kod
+* Välja din att prioritera CI/CD-providern
+* Använda den tillhandahållna exempel appen eller att ta med din egen kod (endast för Azure-DevOps)
 * Välja ett appspråk
 * Välja ett appramverk utifrån språket
 * Välja en Azure-tjänst (distributionsmål)
-* Skapa en ny Azure DevOps-organisation eller använda en befintlig organisation 
+* Välj din GitHub-eller Azure DevOps-organisation
 * Välja en Azure-prenumeration
 * Välja en plats för Azure-tjänsterna
 * Välja bland olika prisnivåer för Azure-tjänster
 
+När du har skapat dina DevOps-startstarter kan du:
+
+* Anpassa ditt GitHub-arbetsflöde eller Azure DevOps-pipeline
+* Använda pull-förfrågningar för att hantera ditt kodflöde och hålla en hög kvalitet
+* Testa och bygga varje incheckning innan du slår samman koden för att höja kvalitetsribban
+
 När du har använt DevOps Starter kan du också ta bort alla resurser från en enda plats från DevOps starter-instrumentpanelen på Azure Portal.
+
+## <a name="devops-starter-and-github-integration"></a>DevOps start och GitHub-integrering
+
+DevOps starter stöder nu GitHub-åtgärder som en CI/CD-Provider. Den automatiserar allt arbete som behövs i GitHub för att skapa ett CI/CD-arbetsflöde med GitHub-åtgärder. Den skapar en GitHub-lagringsplats i en befintlig GitHub-organisation och genomför sedan ett exempel program till den nya GitHub-lagringsplatsen.  
+
+Automation skapar också en utlösare för arbets flödet så att varje ny kod bekräftelse initierar ett bygg-och distributions jobb i arbets flödet. Programmet distribueras till valfri Azure-tjänst. GitHub-arbetsflödet kan anpassas för ytterligare scenarier. 
 
 ## <a name="devops-starter-and-azure-devops-integration"></a>DevOps starter och Azure DevOps-integrering
 
-DevOps starter drivs av Azure DevOps. DevOps starter automatiserar allt arbete som behövs i Azure pipelines för att skapa en CI/CD-pipeline. Det skapar en Git-lagringsplats i en ny eller befintlig Azure DevOps-organisation och checkar sedan in ett exempelprogram eller din befintliga kod till en ny Git-lagringsplats.  
+DevOps starter med Azure DevOps automatiserar allt arbete som behövs i Azure-pipeliner för att konfigurera en CI/CD-pipeline. Det skapar en Git-lagringsplats i en ny eller befintlig Azure DevOps-organisation och checkar sedan in ett exempelprogram eller din befintliga kod till en ny Git-lagringsplats.  
 
 Automatiseringen upprättar även en CI-utlösare för versionen så att varje ny kodincheckning initierar en version. DevOps starter skapar en CD-utlösare och distribuerar varje ny lyckad version till den Azure-tjänst du väljer.  
 
 Versionspipelines kan anpassas för ytterligare scenarier. Dessutom kan du klona versions- och byggpipelines för användning i andra projekt.
-
-När du har skapat dina DevOps-startstarter kan du:
-
-* Anpassa din versionspipeline
-* Använda pull-förfrågningar för att hantera ditt kodflöde och hålla en hög kvalitet
-* Testa och bygga varje incheckning innan du slår samman koden för att höja kvalitetsribban
-* Spåra dina kvarvarande uppgifter och problem tillsammans med programmet
 
 ## <a name="getting-started-with-devops-starter"></a>Komma igång med DevOps starter
 

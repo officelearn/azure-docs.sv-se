@@ -4,12 +4,12 @@ description: Den här artikeln innehåller rikt linjer för att dirigera impleme
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 0438445f99a22ed9fd239156044d6b3f6b477edc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1958e818f014b7419a1a33e9453fbad460dfc159
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85480855"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330622"
 ---
 # <a name="orchestrate-the-implementation-of-azure-devtest-labs"></a>Dirigera implementeringen av Azure DevTest Labs
 Den här artikeln innehåller en rekommenderad metod för snabb distribution och implementering av Azure DevTest Labs. Följande bild betonar den övergripande processen som vägledning och ger flexibilitet för att stödja olika bransch krav och scenarier.
@@ -36,7 +36,7 @@ När nätverk sto pol Ogin är på plats kan du skapa det första/pilot labbet g
 
 1. Skapa en första DevTest Labs-miljö.
 2. Bestäm vilka tillåtna VM-avbildningar och storlekar som ska användas med labb. Bestäm om anpassade avbildningar kan överföras till Azure för användning med DevTest Labs.
-3. Skydda åtkomsten till labbet genom att skapa den inledande rollen grundläggande åtkomst kontroll (RBAC) för labbet (labb ägare och labb användare). Vi rekommenderar att du använder synkroniserade Active Directory-konton med Azure Active Directory för identitet med DevTest Labs.
+3. Skydda åtkomsten till labbet genom att skapa en första Azure-rollbaserad åtkomst kontroll (Azure RBAC) för labbet (labb ägare och labb användare). Vi rekommenderar att du använder synkroniserade Active Directory-konton med Azure Active Directory för identitet med DevTest Labs.
 4. Konfigurera DevTest Labs för att använda principer som scheman, kostnads hantering, virtuella datorer som kan krävas, anpassade bilder eller formler.
 5. Upprätta en online-lagringsplats, till exempel Azure databaser/git.
 6. Bestäm om du vill använda offentliga eller privata databaser eller kombinationen av båda. Organisera JSON-mallar för distributioner och långsiktigt skydd.

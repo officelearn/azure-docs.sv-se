@@ -75,6 +75,8 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
+        - name: Blazor WebAssembly
+          href: tutorial-blazor-webassembly.md
         - name: JavaScript – auth-kodflöde
           href: tutorial-v2-javascript-auth-code.md
         - name: Java Script – implicit flöde
@@ -123,6 +125,9 @@
       href: authentication-flows-app-scenarios.md
     - name: Metodtips för identitetsplattform
       href: identity-platform-integration-checklist.md
+    - name: Mobil enkel inloggning (SSO)
+      href: mobile-sso-support-overview.md
+      displayName: 'android, ios'
     - name: Programscenarier
       displayName: App scenarios
       items:
@@ -291,10 +296,8 @@
           items:
             - name: Konton och klientorganisationsprofiler
               href: accounts-overview.md
-            - name: Auktoriseringsagenter
-              href: authorization-agents.md
-            - name: Asynkron autentisering
-              href: brokered-auth.md
+            - name: SSO med MSAL Android
+              href: msal-android-single-sign-on.md
             - name: Integrera med Azure AD B2C
               href: msal-android-b2c.md
             - name: Migrera till MSAL.Android

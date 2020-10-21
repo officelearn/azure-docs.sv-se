@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
-ms.openlocfilehash: d6605aa77cfa746f60fc3b23e120267a2614f7b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d803acc7f2287d0b88791d85fa876f89e4a0955
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82864687"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332193"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Chroot-miljö i en Linux-räddande VM
 
@@ -146,7 +146,7 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
       #umount /rescue/dev/
       #umount /rescue/run
       #cd /
-      #umount /rescue/boot/efi
+      #umount /rescue/boot/
       #umount /rescue
       ```
 
@@ -519,6 +519,6 @@ Den här artikeln beskriver hur du felsöker chroot-miljön i den virtuella dato
 1. Koppla bort disken från den virtuella datorn för räddning och utför en disk växling med den ursprungliga virtuella datorn.
 1. Starta den ursprungliga virtuella datorn och kontrol lera anslutningen.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Felsök SSH-anslutning](troubleshoot-ssh-connection.md)

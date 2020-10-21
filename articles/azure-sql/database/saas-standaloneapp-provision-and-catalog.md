@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: efee261478cdc8b9b5349ef4c69ab5fc250315c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619468"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332203"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Etablera och katalogisera nya klienter med hjälp av mönstret program per klient SaaS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ När du distribuerar ett program för en klient, tillhandahålls appen och datab
 
 Även om varje klients app och databas är helt isolerade kan olika hanterings-och analys scenarier samverka mellan klienter.  Att använda en schema ändring för en ny version av programmet kräver till exempel ändringar i schemat för varje klient databas. Rapporter och analys scenarier kan också kräva åtkomst till alla klient databaser oavsett var de distribueras.
 
-   ![app-per-klient mönster](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
+   ![Diagram som visar hur du använder en klient katalog med ett program per klient mönster.](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern-with-catalog.png)
 
 Klient katalogen innehåller en mappning mellan en klient-ID och en klient databas, vilket gör att en identifierare kan matchas mot en server och ett databas namn.  I Wingtip SaaS-appen beräknas klient-ID: t som en hash för klient namnet, även om andra scheman kan användas.  Även om fristående program inte behöver katalogen för att hantera anslutningar, kan katalogen användas för att begränsa andra åtgärder till en uppsättning klient databaser. Elastisk fråga kan till exempel använda katalogen för att fastställa den uppsättning databaser över vilka frågor distribueras för rapportering mellan klienter.
 
@@ -68,7 +68,7 @@ En Azure Resource Manager mall används för att distribuera och konfigurera pro
 
 I slutet av den här självstudien har du en uppsättning fristående klient program, där varje databas är registrerad i katalogen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 

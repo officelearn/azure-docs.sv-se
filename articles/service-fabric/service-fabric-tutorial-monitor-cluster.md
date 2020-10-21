@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 17ec3c6d3b9b19b7bc6edcb82cef438e27189c33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9ad0f443b1647499f7085693f34f4da9ec85398
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020124"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331999"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Självstudie: övervaka ett Service Fabric kluster i Azure
 
@@ -57,7 +57,7 @@ Välj resurs **-ServiceFabric (mysfomsworkspace)**.
 
 I **Översikt** ser du paneler i form av en graf för var och en av de lösningar som är aktiverade, inklusive en för Service Fabric. Fortsätt till Service Fabric-analys-lösningen genom att klicka på **Service Fabric** graf.
 
-![Service Fabric lösning](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
+![Skärm bild som visar Service Fabric grafen.](media/service-fabric-tutorial-monitor-cluster/oms-service-fabric-summary.png)
 
 Följande bild visar Service Fabric-analys lösningens start sida. Den här start sidan innehåller en Snapshot-vy över vad som händer i klustret.
 

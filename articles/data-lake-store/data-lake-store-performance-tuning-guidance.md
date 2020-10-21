@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 4c9cb1d0496fe05c208cfd446a51cbf4ef8e8d4e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: e9a589b43490613834a810a68636c426e45c2656
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108617"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332526"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Justera Azure Data Lake Storage Gen1 för prestanda
 
@@ -25,7 +25,7 @@ Data Lake Storage Gen1 kan skalas för att tillhandahålla nödvändigt data fl�
 
 När data matas in från ett käll system till Data Lake Storage Gen1 är det viktigt att tänka på att käll maskin varan, käll nätverks maskin vara och nätverks anslutning till Data Lake Storage Gen1 kan vara Flask halsen.
 
-![Data Lake Storage Gen1 prestanda](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Diagram som visar att käll maskin vara, käll nätverks maskin vara och nätverks anslutning till Data Lake Storage Gen1 kan vara Flask halsen.](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 Det är viktigt att se till att data flytten inte påverkas av dessa faktorer.
 
@@ -100,7 +100,7 @@ Det finns tre skikt i ett HDInsight-kluster som kan justeras för att öka antal
 
 **Kör kluster med fler noder och/eller större virtuella datorer.** Ett större kluster gör att du kan köra fler garn behållare som visas på bilden nedan.
 
-![Data Lake Storage Gen1 prestanda](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Diagram som visar användningen av fler garn behållare.](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
 **Använd virtuella datorer med mer nätverks bandbredd.** Mängden nätverks bandbredd kan vara en Flask hals om det finns mindre nätverks bandbredd än Data Lake Storage Gen1 data flöde. Olika virtuella datorer har varierande storlek på nätverks bandbredd. Välj en VM-typ som har största möjliga nätverks bandbredd.
 
@@ -108,7 +108,7 @@ Det finns tre skikt i ett HDInsight-kluster som kan justeras för att öka antal
 
 **Använd mindre garn behållare.** Minska storleken på varje garn behållare för att skapa fler behållare med samma mängd resurser.
 
-![Data Lake Storage Gen1 prestanda](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Diagram som visar användningen av mindre garn behållare.](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 Beroende på din arbets belastning är det alltid en minsta storlek för garn behållare som behövs. Om du väljer för litet en behållare kommer jobben att köras i minnes brist. Vanligt vis får inte garn behållare vara mindre än 1 GB. Det är vanligt att se 3 GB garn behållare. För vissa arbets belastningar kan du behöva större garn behållare.
 
@@ -118,7 +118,7 @@ Beroende på din arbets belastning är det alltid en minsta storlek för garn be
 
 **Använd alla tillgängliga behållare.** Ange antalet aktiviteter som ska vara lika med eller större än antalet tillgängliga behållare så att alla resurser används.
 
-![Data Lake Storage Gen1 prestanda](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Diagram som visar användningen av alla tillgängliga behållare.](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **Misslyckade uppgifter är kostsame.** Om varje aktivitet har en stor mängd data som ska bearbetas resulterar det i ett dyrt försök att utföra en aktivitet. Därför är det bättre att skapa fler uppgifter, som var och en bearbetar en liten mängd data.
 

@@ -7,12 +7,12 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: c15724643fb3c8c74d3afe58509822c56d2d17f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0cd8245b6d8298ae1d99e2dbe1e8457a40dc7d6
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91821947"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330418"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Schema referens guide för utlösare och åtgärds typer i Azure Logic Apps
 
@@ -340,8 +340,8 @@ För att fungera bra med din Logi Kap par måste slut punkten följa ett särski
 | Egenskap | Krävs | Beskrivning |
 |----------|----------|-------------|
 | Statuskod | Ja | Status koden "200 OK" startar en körning. All annan status kod startar inte en körning. |
-| Nytt försök-efter-rubrik | Inga | Antalet sekunder tills din Logic-app avsöker slut punkten igen |
-| Plats rubrik | Inga | Den URL som ska anropas vid nästa avsöknings intervall. Om inget anges används den ursprungliga URL: en. |
+| Nytt försök-efter-rubrik | Nej | Antalet sekunder tills din Logic-app avsöker slut punkten igen |
+| Plats rubrik | Nej | Den URL som ska anropas vid nästa avsöknings intervall. Om inget anges används den ursprungliga URL: en. |
 |||| 
 
 *Exempel beteenden för olika begär Anden*
@@ -826,7 +826,7 @@ Här följer några vanliga åtgärds typer:
 | [**Slå ihop**](#join-action) | Skapar en sträng från alla objekt i en matris och avgränsar objekten med ett angivet avgränsnings tecken. | 
 | [**Parsa JSON**](#parse-json-action) | Skapar användarvänliga tokens från egenskaper i JSON-innehåll. Du kan sedan referera till dessa egenskaper genom att inkludera tokens i din Logic app. | 
 | [**Söka i data**](#query-action) | Skapar en matris från objekt i en annan matris baserat på ett villkor eller filter. | 
-| [**Svarade**](#response-action) | Skapar ett svar på ett inkommande samtal eller en begäran. | 
+| [**Svarsåtgärder**](#response-action) | Skapar ett svar på ett inkommande samtal eller en begäran. | 
 | [**Select**](#select-action) | Skapar en matris med JSON-objekt genom att transformera objekt från en annan matris baserat på den angivna kartan. | 
 | [**Partitionstabell**](#table-action) | Skapar en CSV-eller HTML-tabell från en matris. | 
 | [**Terminate**](#terminate-action) | Stoppar ett aktivt arbets flöde som körs. | 
@@ -2308,6 +2308,9 @@ Den här slingan-åtgärden innehåller åtgärder som körs tills det angivna v
 | <*loop-antal*> | Integer | Gränsen för det mest antal slingor som åtgärden kan köra. Mer information om standard gränsen och den maximala gränsen finns i [gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). | 
 | <*loop-timeout*> | Sträng | Gränsen på den längsta tid som slingan kan köras. `timeout`Standardvärdet är `PT1H` , vilket är det [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601)som krävs. |
 |||| 
+
+> [!NOTE]
+> Om uttrycket är beroende av utdata från vilken åtgärd som helst i slingan tills, kontrollerar du att du har ett konto för eventuella problem som uppstår från åtgärden.
 
 *Exempel*
 

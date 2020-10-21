@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 2508846e5dd2fcc96aade9ce64b599bb4154de00
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7b9e95c06dd48e78e42244d27d27d063bf5f0be7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203389"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327781"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -198,9 +198,9 @@ Om du överskrider kredit beloppet inaktive ras tjänsten tills nästa månad b�
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Ge administrativ åtkomst till en Azure-prenumeration
 
-RBAC har flera inbyggda roller som du kan använda för att tilldela behörigheter. Om du vill göra en användare till en administratör för en Azure-prenumeration tilldelar du den till [ägar](../../role-based-access-control/built-in-roles.md#owner) rollen i prenumerations omfånget. Rollen ägare ger fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att ge åtkomst till andra.
+Azure RBAC har flera inbyggda roller som du kan använda för att tilldela behörigheter. Om du vill göra en användare till en administratör för en Azure-prenumeration tilldelar du den till [ägar](../../role-based-access-control/built-in-roles.md#owner) rollen i prenumerations omfånget. Rollen ägare ger fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att ge åtkomst till andra.
 
-Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+Mer information finns i [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Visa fakturerings information i Azure Portal
 
@@ -238,7 +238,7 @@ Resource Manager har flera fördelar:
 
 - Du kan definiera beroenden mellan resurser så att de distribueras i rätt ordning.
 
-- Du kan använda åtkomst kontroll för alla tjänster i din resurs grupp eftersom RBAC är inbyggt i hanterings plattformen.
+- Du kan använda åtkomst kontroll för alla tjänster i resurs gruppen eftersom Azure RBAC är inbyggt integrerat i hanterings plattformen.
 
 - Du kan använda taggar på resurser för att logiskt organisera alla resurser i din prenumeration.
 
@@ -286,7 +286,7 @@ Du kan bygga Resource Manager-mallar i valfri text redigerare. Azure SDK för Vi
 
 Slutligen kan du konvertera befintliga resurs grupper till en återanvändbar mall från Azure Portal. Detta kan vara användbart om du vill skapa en distributions bara mall för en befintlig resurs grupp eller om du bara vill granska den underliggande JSON. Om du vill exportera en resurs grupp väljer du knappen **Automation-skript** från resurs gruppens inställningar.
 
-## <a name="security-of-azure-resources-rbac"></a>Säkerhet för Azure-resurser (RBAC)
+## <a name="security-of-azure-resources-azure-rbac"></a>Säkerhet för Azure-resurser (Azure RBAC)
 
 Du kan bevilja drift åtkomst till användar konton vid en angiven omfattning: prenumeration, resurs grupp eller enskild resurs. Det innebär att du kan distribuera en uppsättning resurser till en resurs grupp, till exempel en virtuell dator och alla relaterade resurser, samt bevilja behörighet till en speciell användare eller grupp. Den här metoden begränsar åtkomsten till de resurser som tillhör mål resurs gruppen. Du kan också bevilja åtkomst till en enskild resurs, till exempel en virtuell dator eller ett virtuellt nätverk.
 
@@ -306,7 +306,7 @@ Här följer några exempel [på inbyggda roller i Azure](../../role-based-acces
 
 - **Lagrings konto deltagare**: en användare med den här rollen kan hantera lagrings konton, men kan inte hantera åtkomst till lagrings kontona.
 
-Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+Mer information finns i [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 

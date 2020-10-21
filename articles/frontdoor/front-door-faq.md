@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2020
+ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: c7a5a02a063f90953982d42fe9c7d2c6dc199b2a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282293"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331591"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -161,6 +161,10 @@ Lär dig mer om alla dokumenterade [tids gränser och begränsningar för Azures
 ### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Hur lång tid tar det innan en regel börjar gälla när den har lagts till i motorn för front dörrs regler?
 
 Konfigurationen av regel motorn tar cirka 10 till 15 minuter att slutföra en uppdatering. Du kan se till att regeln börjar gälla så fort uppdateringen har slutförts. 
+
+### <a name="can-i-configure-azure-cdn-behind-my-front-door-profile-or-vice-versa"></a>Kan jag konfigurera Azure CDN bakom min profil för front dörren eller vice versa?
+
+Azures front dörr och Azure CDN kan inte konfigureras tillsammans eftersom båda tjänsterna använder samma Azure Edge-webbplatser när de svarar på begär Anden. 
 
 ## <a name="performance"></a>Prestanda
 

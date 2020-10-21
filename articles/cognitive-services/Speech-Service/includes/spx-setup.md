@@ -5,16 +5,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 3c176f103371bfb1b35231f222b2045f1f4a3ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327054"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92323426"
 ---
 ## <a name="download-and-install"></a>Hämta och installera
 
 #### <a name="windows-install"></a>[Windows-installation](#tab/windowsinstall)
+
+> [!NOTE]
+> I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform. Om du installerar den första gången kan du behöva starta om Windows.
 
 Följ de här stegen för att installera tal-CLI i Windows:
 

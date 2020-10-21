@@ -11,12 +11,12 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 07/16/2019
 ms.topic: how-to
-ms.openlocfilehash: b91b7175fa4c7b91fec63a817206fa540813bdb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0e62a7d9b9beb8ecdfaabdd44fdd547dd78d38f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443798"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328200"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportera till en BACPAC-fil – Azure SQL Database och Azure SQL-hanterad instans
 
@@ -39,7 +39,7 @@ När du behöver exportera en databas för arkivering eller för att flytta till
 > [!NOTE]
 > BACPACs är inte avsedda att användas för säkerhets kopierings-och återställnings åtgärder. Azure skapar automatiskt säkerhets kopior för varje användar databas. Mer information finns i [Översikt över verksamhets kontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md) och [SQL Database säkerhets kopieringar](automated-backups-overview.md).
 
-## <a name="the-azure-portal"></a>Azure Portal
+## <a name="the-azure-portal"></a>Azure-portalen
 
 Det finns för närvarande inte stöd för att exportera en BACPAC av en databas från en [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md) med hjälp av Azure Portal. Använd SQL Server Management Studio eller SQLPackage i stället.
 
@@ -48,7 +48,7 @@ Det finns för närvarande inte stöd för att exportera en BACPAC av en databas
 
 1. Om du vill exportera en databas med hjälp av [Azure Portal](https://portal.azure.com)öppnar du sidan för din databas och klickar på **Exportera** i verktygsfältet.
 
-   ![Databas export](./media/database-export/database-export1.png)
+   ![Skärm bild som visar knappen Exportera.](./media/database-export/database-export1.png)
 
 2. Ange BACPAC-filnamn, Välj ett befintligt Azure Storage-konto och container för exporten och ange sedan lämpliga autentiseringsuppgifter för åtkomst till käll databasen. En SQL **Server Admin-inloggning** krävs här även om du är Azure-administratören, eftersom det är en Azure-administratör som inte motsvarar administratörs behörighet i Azure SQL Database eller Azure SQL-hanterad instans.
 

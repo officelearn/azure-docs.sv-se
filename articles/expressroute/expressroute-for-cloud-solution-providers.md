@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 31660d13fe69d393a19167eaea8a69bfb6260467
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 09fee610ccc15874481ecfd4693e4b89379caa7a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202080"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330044"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute för Cloud Solution Providers (CSP)
 Microsoft tillhandahåller storskaliga tjänster för traditionella återförsäljare och distributörer (CSP), för att de snabbt ska kunna etablera nya tjänster och lösningar för sina kunder utan att behöva investera i att utveckla dessa nya tjänster. Om du vill ge CSP:n (Cloud Solution Provider) möjlighet att direkt hantera dessa nya tjänster, erbjuder Microsoft program och API:er som tillåter CSP:n att hantera Microsoft Azure-resurser åt dina kunder. En av resurserna är ExpressRoute. Med ExpressRoute kan CSP:n ansluta befintliga kundresurser till Azure-tjänster. ExpressRoute är en höghastighets anslutning med privat kommunikation till tjänster i Azure. 
@@ -60,7 +60,7 @@ Det här anslutnings scenariot kräver att kunden ansluter direkt via ett kund n
 
 Valen mellan dessa två alternativ baseras på kundens behov och ditt nuvarande behov av att tillhandahålla Azure-tjänster. Information om dessa modeller och associerad rollbaserad åtkomststyrning, nätverk och identitetsdesignmönster beskrivs i informationen i följande länkar:
 
-* **Rollbaserad åtkomst kontroll i Azure (Azure RBAC)** – RBAC baseras på Azure Active Directory.  Mer information om Azure RBAC finns [här](../role-based-access-control/role-assignments-portal.md).
+* **Rollbaserad åtkomst kontroll i Azure (Azure RBAC)** – Azure RBAC baseras på Azure Active Directory.  Mer information om Azure RBAC finns [här](../role-based-access-control/role-assignments-portal.md).
 * **Nätverk** – Beskriver olika delar av nätverk i Microsoft Azure.
 * **Azure Active Directory (Azure AD)** – Azure AD tillhandahåller identitets hantering för Microsoft Azure och SaaS-program från tredje part. Mer information om Azure AD finns [här](https://azure.microsoft.com/documentation/services/active-directory/).  
 

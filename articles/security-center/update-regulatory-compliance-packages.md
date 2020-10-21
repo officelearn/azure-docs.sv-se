@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 5e32aa8491e18a66a3e8b90f065e6b785d1e3bd9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106271"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342203"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Anpassa uppsättningen standarder i din instrument panel för regelefterlevnad
 
 Azure Security Center jämför kontinuerligt konfigurationen av dina resurser med krav i bransch standarder, regler och benchmarks. **Instrument panelen** för övervakning av efterlevnad ger insikter om position utifrån hur du uppfyller särskilda kompatibilitetsinställningar och krav.
 
 
-## <a name="overview-of-compliance-packages"></a>Översikt över Compliance-paket
+## <a name="overview-of-compliance-packages"></a>Översikt över efterlevnadspaket
 
 Bransch standarder, reglerande standarder och benchmarks visas i Security Center som *efterlevnadsprinciper*.  Varje paket är ett initiativ som definieras i Azure Policy. Om du vill visa efterföljande data som har mappats som utvärderingar på din instrument panel lägger du till ett kompatibilitetstillstånd i hanterings gruppen eller prenumerationen från sidan **säkerhets princip** . (Läs mer om Azure Policy och initiativ i [arbeta med säkerhets principer](tutorial-security-policy.md).)
 
@@ -41,7 +41,7 @@ Microsoft spårar också gällande regelverk och förbättrar automatiskt täckn
 
 Du kan lägga till standarder som NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, Storbritannien officiella och Storbritannien NHS, Kanadas federala PBMM och Azure CIS 1.1.0 (ny) – en mer fullständig representation av Azure CIS 1.1.0. 
 
-Dessutom kan du lägga till **Azure Security benchmark**, de Microsoft-baserade, Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad av praxis som baseras på vanliga ramverk för efterlevnad. ([Läs mer om Azure Security benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).)
+Dessutom kan du lägga till **Azure Security benchmark**, de Microsoft-baserade, Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad av praxis som baseras på vanliga ramverk för efterlevnad. ([Läs mer om Azure Security benchmark](../security/benchmarks/introduction.md).)
 
 Ytterligare standarder kommer att stödjas på instrument panelen när de blir tillgängliga. 
 
@@ -116,6 +116,6 @@ I den här artikeln har du lärt dig hur du **lägger till efterlevnadsprinciper
 
 Information om annat relaterat material finns i följande artiklar: 
 
-- [Benchmark för Azure-säkerhet](https://docs.microsoft.com/azure/security/benchmarks/introduction)
+- [Benchmark för Azure-säkerhet](../security/benchmarks/introduction.md)
 - [Instrument panel för övervakning av gällande säkerhets Center](security-center-compliance-dashboard.md)
 - [Arbeta med säkerhetspolicyer](tutorial-security-policy.md)

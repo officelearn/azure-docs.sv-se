@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 12/14/2019
 ms.author: rohogue
-ms.openlocfilehash: 69395a27500b8e7bd066536b367b8e6cb385602c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79e7c5db2a2c445ae740a21744a0bdfe0736c01a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85505621"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342441"
 ---
 # <a name="access-the-vfxt-cluster"></a>Komma åt vFXT-klustret
 
@@ -27,7 +27,7 @@ Det finns två grundläggande steg:
 > [!NOTE]
 > Den här artikeln förutsätter att du har angett en offentlig IP-adress på kluster styrenheten eller en annan virtuell dator i klustrets virtuella nätverk. Den här artikeln beskriver hur du använder den virtuella datorn som värd för att komma åt klustret. Om du använder en VPN-eller ExpressRoute för åtkomst till virtuella nätverk går du vidare till [Anslut till kontroll panelen aver](#connect-to-the-avere-control-panel-in-a-browser).
 
-Innan du ansluter måste du kontrol lera att det offentliga/privata SSH-nyckelpar som du använde när du skapade kluster styrenheten är installerad på den lokala datorn. Läs dokumentationen om SSH-nycklar för [Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) eller för [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) om du behöver hjälp. Om du använder ett lösen ord i stället för en offentlig nyckel uppmanas du att ange det när du ansluter.
+Innan du ansluter måste du kontrol lera att det offentliga/privata SSH-nyckelpar som du använde när du skapade kluster styrenheten är installerad på den lokala datorn. Läs dokumentationen om SSH-nycklar för [Windows](../virtual-machines/linux/ssh-from-windows.md) eller för [Linux](../virtual-machines/linux/mac-create-ssh-keys.md) om du behöver hjälp. Om du använder ett lösen ord i stället för en offentlig nyckel uppmanas du att ange det när du ansluter.
 
 ## <a name="create-an-ssh-tunnel"></a>Skapa en SSH-tunnel
 

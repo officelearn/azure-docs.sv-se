@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 22885d9d29bfbfc008b668889f7813ece1df8918
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5aa6906f7f06e109342d81db6171773a68642e0c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945760"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342288"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetspolicyer
 
@@ -33,7 +33,7 @@ Azure Security Center gör säkerhets rekommendationerna baserade på dina valda
 
 Security Center erbjuder följande alternativ för att arbeta med säkerhets principer:
 
-* **Visa och redigera den inbyggda standard principen** – när du aktiverar Security Center tilldelas en inbyggd initiativ med namnet "ASC default" automatiskt till alla Security Center registrerade prenumerationer. Du kan anpassa det här initiativet genom att aktivera eller inaktivera enskilda principer i den. Se listan över [inbyggda säkerhets principer](security-center-policy-definitions.md) för att förstå alternativen som är tillgängliga direkt.
+* **Visa och redigera den inbyggda standard principen** – när du aktiverar Security Center tilldelas en inbyggd initiativ med namnet "ASC default" automatiskt till alla Security Center registrerade prenumerationer. Du kan anpassa det här initiativet genom att aktivera eller inaktivera enskilda principer i den. Se listan över [inbyggda säkerhets principer](./policy-reference.md) för att förstå alternativen som är tillgängliga direkt.
 
 * **Lägg till egna anpassade principer** – om du vill anpassa de säkerhets initiativ som tillämpas på din prenumeration kan du göra det i Security Center. Du får sedan rekommendationer om datorerna inte följer de principer som du skapar. Anvisningar om hur du skapar och tilldelar anpassade principer finns i [använda anpassade säkerhets principer](custom-security-policies.md).
 

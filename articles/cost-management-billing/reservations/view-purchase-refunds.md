@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d9e5269468f7cd4571e7ae686af7f1ef159b4ef3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b986aa2bfce203be85adbcde8e2966c167bf7ca1
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681710"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151778"
 ---
 # <a name="view-reservation-purchase-and-refund-transactions"></a>Visa köp- och återbetalningstransaktioner för reservationer
 
@@ -39,11 +39,11 @@ En faktureringsadministratör för en Enterprise-registrering eller ett Microsof
 
 [![Exempel som visar transaktioner för reservationer](./media/view-purchase-refunds/power-bi-reservation-transactions.png)](./media/view-purchase-refunds/power-bi-reservation-transactions.png#lightbox)
 
-Ta reda på mer genom [Azure Cost Management Power BI-appen för Enterprise-avtal](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+Ta reda på mer genom [Azure Cost Management Power BI-appen för Enterprise-avtal](../costs/analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 ## <a name="use-apis-to-get-reservation-transactions"></a>Använd API:er för att hämta transaktioner för reservationer
 
-Användare av Enterprise-avtal (EA) och Microsoft-kundavtal kan hämta transaktioner för reservationer med [Reservation Transactions - List API](https://docs.microsoft.com/rest/api/consumption/reservationtransactions/list).
+Användare av Enterprise-avtal (EA) och Microsoft-kundavtal kan hämta transaktioner för reservationer med [Reservation Transactions - List API](/rest/api/consumption/reservationtransactions/list).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

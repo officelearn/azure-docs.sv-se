@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cc4678b082aa5a4a3f90518ff8fac448f414f1a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75966654"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342254"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Vägledning för haveri beredskap för AVERT vFXT för Azure
 
@@ -117,7 +117,7 @@ Följ den här processen om du vill komma åt behållaren för säkerhets kopier
 * Läs [kluster justeringen](avere-vfxt-tuning.md)om du vill ha mer information om att anpassa inställningar för AVERT VFXT för Azure.
 * Lär dig mer om haveri beredskap och att skapa elastiska program i Azure:
 
-  * [Azure-återhämtning, tekniska riktlinjer](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-  * [Återställa från regionomfattande tjänststörningar](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
-  * [Haveriberedskap och hög tillgänglighet för Azure-program](<https://docs.microsoft.com/azure/resiliency/resiliency-disaster-recovery-high-availability-azure-applications>)
+  * [Azure-återhämtning, tekniska riktlinjer](/azure/architecture/framework/resiliency/overview)
+  * [Återställa från regionomfattande tjänststörningar](/azure/architecture/resiliency/recovery-loss-azure-region)
+  * [Haveriberedskap och hög tillgänglighet för Azure-program](/azure/architecture/framework/resiliency/backup-and-recovery)
   <!-- can't find these in the source tree to use relative links -->

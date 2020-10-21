@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38e1fc7f062908f8c4a4b9aa903ca09dd7fb9ea5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314495"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342339"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center beredskaps översikt
 I det här dokumentet får du en beredskapsöversikt som hjälper dig att komma igång med Azure Security Center.
@@ -59,9 +59,9 @@ Security Center samlar automatiskt in, analyserar och integrerar loggdata från 
 Följande resurser hjälper dig att hantera säkerhetsaviseringar och skydda dina resurser.
 
 Artiklar    
-- [Övervakning av säkerhetshälsa i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-- [Skydda nätverket i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-- [Skydda Azure SQL-tjänsten och data i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
+- [Övervakning av säkerhetshälsa i Azure Security Center](./security-center-monitoring.md)
+- [Skydda nätverket i Azure Security Center](./security-center-network-recommendations.md)
+- [Skydda Azure SQL-tjänsten och data i Azure Security Center](./security-center-remediate-recommendations.md)
 
 
 Video    
@@ -77,7 +77,7 @@ Videoklipp
 * [Reagera snabbt på hot med nästa generations säkerhetsåtgärder och undersökning](https://youtu.be/e8iFCz5RM4g)
 
 Artiklar    
-* [Använda Azure Security Center vid incidenthantering](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
+* [Använda Azure Security Center vid incidenthantering](./tutorial-security-incident.md)
 * [Automatisera svar med automatisering av arbets flöde](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Avancerat molnskydd
@@ -91,8 +91,8 @@ Videoklipp
 * [Azure Security Center – Anpassningsbara programkontroller](https://youtu.be/wWWekI1Y9ck)
 
 Artiklar    
-* [Hantera åtkomst till virtuella datorer med just-in-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
-* [Anpassningsbara programkontroller i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
+* [Hantera åtkomst till virtuella datorer med just-in-Time](./security-center-just-in-time.md)
+* [Anpassningsbara programkontroller i Azure Security Center](./security-center-adaptive-application.md)
 
 ## <a name="hands-on-activities"></a>Praktiska aktiviteter
 
@@ -101,17 +101,17 @@ Artiklar
 * [Spelbok om Azure Security Center: Säkerhetsaviseringar](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-* [Dokumentationssidan om Security Center](https://docs.microsoft.com/azure/security-center/)
-* [Dokumentationssidan om REST-API för Security Center](https://msdn.microsoft.com/library/mt704034.aspx)
-* [Vanliga frågor och svar om Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-faq)
+* [Dokumentationssidan om Security Center](./index.yml)
+* [Dokumentationssidan om REST-API för Security Center](/previous-versions/azure/reference/mt704034(v=azure.100))
+* [Vanliga frågor och svar om Azure Security Center](./faq-general.md)
 * [Prissättningssidan för Security Center](https://azure.microsoft.com/pricing/details/security-center/)
-* [Metodtips för identitetssäkerhet](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
-* [Metodtips för nätverkssäkerhet](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
-* [PaaS-rekommendationer](https://docs.microsoft.com/azure/security/security-paas-deployments)
+* [Metodtips för identitetssäkerhet](../security/fundamentals/identity-management-best-practices.md)
+* [Metodtips för nätverkssäkerhet](../security/fundamentals/network-best-practices.md)
+* [PaaS-rekommendationer](../security/fundamentals/paas-deployments.md)
 * [Efterlevnad](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
-* [Log Analytics-kunder kan nu använda Azure Security Center för att skydda sina hybrid moln arbets belastningar](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
+* [Log Analytics-kunder kan nu använda Azure Security Center för att skydda sina hybrid moln arbets belastningar](/archive/blogs/msoms/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads)
 
 ## <a name="community-resources"></a>Community-resurser
 
 * [Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [F&en sida för Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
+* [F&en sida för Security Center](/answers/topics/azure-security-center.html)

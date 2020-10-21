@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 300ac0996d9dcb9ecb07abd3392447e393c1781b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400134"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151615"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Hantera reservationer för Azure-resurser
 
@@ -110,7 +110,7 @@ Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. 
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Ändra optimeringsinställningen för reserverade VM-instanser
 
- När du köper en reserverad VM-instans väljer du mellan att prioritera instansens kapacitet eller flexibilitet gällande storleken. Om du väljer att prioritera flexibilitet gällande storleken använder du reservationsrabatten för andra virtuella datorer i samma [VM-storleksgrupp](https://aka.ms/RIVMGroups). Om du prioriterar kapaciteten prioriteras datacenterkapaciteten för dina distributioner. Det här alternativet gör det säkrare att du kan starta VM-instanserna när du behöver dem.
+ När du köper en reserverad VM-instans väljer du mellan att prioritera instansens kapacitet eller flexibilitet gällande storleken. Om du väljer att prioritera flexibilitet gällande storleken använder du reservationsrabatten för andra virtuella datorer i samma [VM-storleksgrupp](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Om du prioriterar kapaciteten prioriteras datacenterkapaciteten för dina distributioner. Det här alternativet gör det säkrare att du kan starta VM-instanserna när du behöver dem.
 
 När reservationens omfång är delat prioriteras som standard flexibilitet i storleken. Datacenterkapaciteten prioriteras inte för VM-distributioner.
 
@@ -173,7 +173,7 @@ Köpa en tjänstplan:
 - [Betala i förväg för Azure Cosmos DB-resurser med reserverad Azure Cosmos DB-kapacitet](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Köpa en programvaruplan:
-- [Förskottsbetala för Red Hat-programvaruplaner från Azure Reservations](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Förskottsbetala för Red Hat-programvaruplaner från Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Förskottsbetala för SUSE-programvaruplaner från Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
 
 Förstå rabatter och användning:

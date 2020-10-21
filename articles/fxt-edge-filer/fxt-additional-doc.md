@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: f2f40d2ac6652b2b7c968a428961a9bd7f7b4288
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 6be5e9bda27ddff157eda10bbb695dfacaecda7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217515"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342271"
 ---
 # <a name="additional-documentation-for-azure-fxt-edge-filer"></a>Ytterligare dokumentation för Azure FXT Edge-filer
 
@@ -19,7 +19,7 @@ Vissa resurser utanför den här docs.microsoft.com-webbplatsen kan hjälpa dig 
 
 ## <a name="avere-vfxt-for-azure-cache-documentation"></a>Aver vFXT för Azure cache-dokumentation
 
-[Aver vFXT for Azure](https://docs.microsoft.com/azure/avere-vfxt/) är en liknande kluster-cache-produkt som använder virtuella noder i Microsoft Azure. Den skapas med Azure Portal, men använder samma konfigurations program för kontroll panelen som Azure FXT Edge-cachelagring.
+[Aver vFXT for Azure](../avere-vfxt/index.yml) är en liknande kluster-cache-produkt som använder virtuella noder i Microsoft Azure. Den skapas med Azure Portal, men använder samma konfigurations program för kontroll panelen som Azure FXT Edge-cachelagring.
 
 ## <a name="legacy-hardware-documentation"></a>Äldre maskin varu dokumentation
 

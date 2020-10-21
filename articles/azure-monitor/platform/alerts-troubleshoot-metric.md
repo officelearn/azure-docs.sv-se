@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 2e68a780890b8ddf857bf8f52a0ecf9a4c24b36c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102161"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342135"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Fel sökning av problem i Azure Monitor mått varningar 
 
@@ -228,7 +228,7 @@ Kontrol lera att du använder rätt CLI-kommandon för mått varningar:
 Om du vill skapa en regel för mått varningar måste du ha följande behörigheter:
 
 - Läs behörighet för aviserings regelns mål resurs
-- Skriv behörighet för resurs gruppen där varnings regeln skapas (om du skapar varnings regeln från Azure Portal skapas varnings regeln i samma resurs grupp där mål resursen finns)
+- Skriv behörighet för resurs gruppen där varnings regeln skapas (om du skapar varnings regeln från Azure Portal skapas varnings regeln som standard i samma resurs grupp som mål resursen finns i)
 - Läs behörighet för alla åtgärds grupper som är kopplade till aviserings regeln (om tillämpligt)
 
 

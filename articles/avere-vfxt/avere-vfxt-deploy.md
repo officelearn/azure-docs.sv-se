@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 31d12466186bb7f66197218fbb9675888a35fef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110fc658ffc3b72de91bbf1c9562f3efeecaf55b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272781"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342424"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
@@ -64,7 +64,7 @@ Fyll i följande information:
 
 * **Användar namn för kontrollant** – ange rot användar namnet för den virtuella kluster styrenheten.
 
-* **Autentiseringstyp** – Välj antingen lösen ord eller autentisering med offentlig SSH-nyckel för att ansluta till kontrollanten. Metoden för offentlig SSH-nyckel rekommenderas. Läs om [hur du skapar och använder SSH-nycklar](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) om du behöver hjälp.
+* **Autentiseringstyp** – Välj antingen lösen ord eller autentisering med offentlig SSH-nyckel för att ansluta till kontrollanten. Metoden för offentlig SSH-nyckel rekommenderas. Läs om [hur du skapar och använder SSH-nycklar](../virtual-machines/linux/ssh-from-windows.md) om du behöver hjälp.
 
 * **Lösen ord** eller **Offentlig SSH-nyckel** – beroende på vilken autentiseringstyp du valde måste du ange en offentlig RSA-nyckel eller ett lösen ord i nästa fält. Den här autentiseringsuppgiften används med användar namnet som angavs tidigare.
 

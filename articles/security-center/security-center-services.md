@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: dad35af600b8973268d07f3a8baae225b91cebc1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 59a87e7c91266dd1ec2d7263df7149d07f6e7ce8
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275232"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342305"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
@@ -55,7 +55,7 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |**Funktion**|**Azure Virtual Machines**|**Skalningsuppsättningar för virtuella Azure-datorer**|**Azure Arc-aktiverade datorer**|**Azure Defender krävs**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|-|-|-|Ja|
-|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](security-center-alerts-iaas.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Ja|
+|[Beteende analys av virtuella datorer (och säkerhets aviseringar)](./azure-defender.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Ja|
 |[Filbaserad säkerhets aviseringar](alerts-reference.md#alerts-windows)|-|-|-|Ja|
 |[Nätverksbaserade säkerhets aviseringar](other-threat-protections.md#network-layer)|✔|✔|-|Ja|
 |[Just-in-time-åtkomst till virtuella datorer](security-center-just-in-time.md)|✔|-|-|Ja|
@@ -96,10 +96,10 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 | Trend Micro – djup säkerhet | Windows Server-familjen  | Nej | Ja |
 | Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
 | McAfee v10 + | Windows Server-familjen  | Nej | Ja |
-| McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
-| Sophos v9 +| Linux Server-serien  | Nej | Ja  **\***  |
+| McAfee v10 + | Linux Server-serien  | Nej | Ja * *\** _ |
+| Sophos v9 +| Linux Server-serien  | Nej | Ja  _*\**_  |
 
- **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
+ _ *\** * Täcknings tillstånd och stödjande data är för närvarande endast tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 
 > [!NOTE]
 > Identifiering av System Center Endpoint Protection (SCEP) på en virtuell dator med Windows Server 2008 R2 kräver SCEP för att installeras efter PowerShell (v 3.0 eller senare).

@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: c4eb30df74e2a8d6748ede987df0b1c41cff0ca3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448474"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342101"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Ignorera aviseringar från Azure Defender
 
@@ -47,18 +47,18 @@ Dina undertrycks regler definierar kriterierna för vilka aviseringar automatisk
 
 :::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Skapa regel för att utelämna varningar":::
 
-## <a name="create-a-suppression-rule"></a>Skapa en undertrycks regel
+## <a name="create-a-suppression-rule"></a>Skapa undertryckningsregel
 
-Det finns några sätt som du kan skapa regler för att förhindra oönskade säkerhets aviseringar:
+Du kan skapa regler för att undertrycka oönskade säkerhetsaviseringar på några olika sätt:
 
-- Om du vill ignorera aviseringar på hanterings grupps nivå använder du Azure Policy
-- Om du vill ignorera aviseringar på prenumerations nivå kan du använda Azure Portal eller REST API som beskrivs nedan
+- Om du vill undertrycka aviseringar på hanteringsgruppsnivå använder du Azure Policy
+- Om du vill undertrycka aviseringar på prenumerationsnivå kan du använda Azure-portalen eller REST-API:et på det sätt som beskrivs nedan
 
 Undertrycks regler kan bara ignorera aviseringar som redan har utlösts av de valda prenumerationerna.
 
 Så här skapar du en regel direkt i Azure Portal:
 
-1. Från Security Center sidan säkerhets aviseringar:
+1. Gå till sidan för säkerhetsvarningar i Security Center:
 
     - Leta upp den avisering som du inte vill se längre och gå till menyn med tre punkter (...) för aviseringen och välj **skapa undertrycks regel**:
 
@@ -77,7 +77,7 @@ Så här skapar du en regel direkt i Azure Portal:
 
     [![Fönstret Skapa undertrycks regel](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. Ange information om regeln:
-    - **Namn** – ett namn för regeln. Regel namn måste börja med en bokstav eller en siffra, vara mellan 2 och 50 tecken och får inte innehålla några andra symboler än bindestreck (-) eller under streck (_). 
+    - **Namn** – ett namn för regeln. Regelnamn måste börja med en bokstav eller en siffra, innehålla mellan 2 och 50 tecken och de får inte innehålla några andra symboler än bindestreck (-) och understreck (_). 
     - **State** -aktive rad eller inaktive rad.
     - **Orsak** – Välj en av de inbyggda orsakerna eller "andra" om de inte uppfyller dina behov.
     - **Utgångs datum** – slutdatum och slut tid för regeln. Regler kan köras i upp till sex månader.
@@ -139,7 +139,7 @@ Relevanta HTTP-metoder för undertrycks regler i REST API är:
 
 - **Ta bort**: tar bort en befintlig regel (men ändrar inte statusen för aviseringar som redan har avslagits av den).
 
-Fullständig information och användnings exempel finns i [API-dokumentationen](https://docs.microsoft.com/rest/api/securitycenter/). 
+Fullständig information och användnings exempel finns i [API-dokumentationen](/rest/api/securitycenter/). 
 
 
 ## <a name="next-steps"></a>Nästa steg

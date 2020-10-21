@@ -4,12 +4,12 @@ description: Få en översikt över vad du kan göra med mått aviseringar och h
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 78ec5ff3fc87ef29d25e439b7d4c69bb3a10f3a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3581c1f1660527bfbf2ae598349e30001962b1b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578078"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342186"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
 
@@ -137,7 +137,7 @@ Den här funktionen stöds för närvarande för plattforms mått (inte anpassad
 
 | Tjänst | Offentlig Azure | Myndigheter | Kina |
 |:--------|:--------|:--------|:--------|
-| Virtuella datorer<sup>1</sup>  | **Ja** | Inga | Inga |
+| Virtuella datorer<sup>1</sup>  | **Ja** | Nej | Nej |
 | SQL Server-databaser | **Ja** | **Ja** | **Ja** |
 | Elastiska SQL Server-pooler | **Ja** | **Ja** | **Ja** |
 | Kapacitets pooler för NetApp-filer | **Ja** | **Ja** | **Ja** |
@@ -166,7 +166,7 @@ Skapa mått varnings regler som övervakar flera resurser, till exempel att [ska
 
 ## <a name="typical-latency"></a>Typisk svars tid
 
-För mått aviseringar visas vanligt vis att du får ett meddelande under 5 minuter om du ställer in frekvensen för varnings regeln på 1 min. Vid tung belastning för aviserings system kan du se längre svars tid.
+Måttaviseringar når dig vanligtvis inom 5 minuter om du ställer in aviseringsregelns frekvens på 1 min. Om aviseringssystemet är tungt belastat kan svarstiden vara längre.
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Resurs typer som stöds för mått aviseringar
 
@@ -179,4 +179,5 @@ Du hittar en fullständig lista över resurs typer som stöds i den här [artike
 - [Lär dig hur du distribuerar mått aviseringar med hjälp av Azure Resource Manager mallar](./alerts-metric-create-templates.md)
 - [Läs mer om åtgärds grupper](action-groups.md)
 - [Läs mer om villkors typen för dynamiska tröskelvärden](alerts-dynamic-thresholds.md)
+- [Läs mer om fel sökning av problem i mått aviseringar](alerts-troubleshoot-metric.md)
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: e5c33144dcebe491757dfafb2879fe51545827ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f852ec056f3252005bba0bc142c05a9cfbe6c20
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272798"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342407"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planera för ditt Avere vFXT-system
 
@@ -109,7 +109,7 @@ Varje vFXT-nod kommer att vara identisk. Det innebär att om du skapar ett klust
 
 Disk-cache per nod kan konfigureras och kan Rage från 1000 GB till 8000 GB. 4 TB per nod är den rekommenderade cachestorleken för Standard_E32s_v3 noder.
 
-Mer information om de här virtuella datorerna finns i Microsoft Azure-dokumentationen: [minnesoptimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+Mer information om de här virtuella datorerna finns i Microsoft Azure-dokumentationen: [minnesoptimerade storlekar för virtuella datorer](../virtual-machines/sizes-memory.md)
 
 ## <a name="account-quota"></a>Konto kvot
 

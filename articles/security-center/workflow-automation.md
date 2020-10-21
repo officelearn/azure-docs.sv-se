@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: b713977d811411ea2ccd7dfa22c7757321ecd7aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 015b3fb116c4eb16e4280e2f71873e88dccff278
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91712297"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92344040"
 ---
-# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Skapa automatiska svar på aviseringar och rekommendationer med automatisering av arbets flöden
+# <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Skapa automatiska svar på aviseringar och rekommendationer med automatisering av arbetsflöden
 
 Varje säkerhets program innehåller flera arbets flöden för incident svar. De här processerna kan omfatta att meddela relevanta intressenter, starta en ändrings hanterings process och tillämpa vissa åtgärder för reparation. Säkerhets experter rekommenderar att du automatiserar så många steg som beskrivs i de här procedurerna. Automation minskar kostnaderna. Det kan också förbättra säkerheten genom att se till att process stegen utförs snabbt, konsekvent och enligt dina fördefinierade krav.
 
-I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azure Security Center. Den här funktionen kan utlösa Logic Apps om säkerhets aviseringar och rekommendationer. Till exempel kanske du vill Security Center att e-posta en speciell användare när en avisering inträffar. Du lär dig också hur du skapar Logic Apps att använda [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azure Security Center. Den här funktionen kan utlösa Logic Apps om säkerhets aviseringar och rekommendationer. Till exempel kanske du vill Security Center att e-posta en speciell användare när en avisering inträffar. Du lär dig också hur du skapar Logic Apps att använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 > [!NOTE]
 > Om du tidigare använde vyn spel böcker (förhands granskning) på sid panelen, hittar du samma funktioner tillsammans med de utökade funktionerna på automatiserings sidan för nya arbets flöden.
@@ -32,7 +32,7 @@ I den här artikeln beskrivs funktionen för arbets flödes automatisering i Azu
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kostnadsfri|
-|Nödvändiga roller och behörigheter:|**Rollen säkerhets administratör** eller **ägare** av resurs gruppen<br>Måste också ha Skriv behörighet för mål resursen<br><br>Om du vill arbeta med Azure Logic Apps arbets flöden måste du också ha följande Logic Apps roller/behörigheter:<br> - [Logic app operatörs](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) behörigheter krävs eller Läs-/utlösare för Logic app (den här rollen kan inte skapa eller redigera Logi Kap par). *Kör* bara befintliga)<br> - [Logic app Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) -behörigheter krävs för att skapa och ändra Logic app<br>Om du vill använda Logic app-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/team/slack-instanser)|
+|Nödvändiga roller och behörigheter:|**Rollen säkerhets administratör** eller **ägare** av resurs gruppen<br>Måste också ha Skriv behörighet för mål resursen<br><br>Om du vill arbeta med Azure Logic Apps arbets flöden måste du också ha följande Logic Apps roller/behörigheter:<br> - [Logic app operatörs](../role-based-access-control/built-in-roles.md#logic-app-operator) behörigheter krävs eller Läs-/utlösare för Logic app (den här rollen kan inte skapa eller redigera Logi Kap par). *Kör* bara befintliga)<br> - [Logic app Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) -behörigheter krävs för att skapa och ändra Logic app<br>Om du vill använda Logic app-kopplingar kan du behöva ytterligare autentiseringsuppgifter för att logga in på deras respektive tjänster (till exempel dina Outlook/team/slack-instanser)|
 |Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
@@ -109,9 +109,9 @@ I den här artikeln har du lärt dig att skapa Logic Apps, automatisera körning
 
 För relaterat material, se: 
 
-- [Microsoft Learn-modulen för att automatisera ett säkerhets svar med hjälp av arbets flödes automatisering](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
+- [Microsoft Learn-modulen för att automatisera ett säkerhets svar med hjälp av arbets flödes automatisering](/learn/modules/resolve-threats-with-azure-security-center/)
 - [Säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md)
 - [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
-- [Om Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
-- [Logic Apps-anslutningsappar](https://docs.microsoft.com/connectors/)
-- [Data typs scheman för arbets flödes automatisering](https://aka.ms/ASCAutomationSchemas)
+- [Om Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+- [Logic Apps-anslutningsappar](/connectors/)
+- [Scheman för datatyper för arbetsflödesautomation](https://aka.ms/ASCAutomationSchemas)

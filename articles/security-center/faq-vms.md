@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0b7817539a26b7ebfa24efd086edf8b0ef82eae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d91f8242e31aa1efdf9301101307d5bad39a459
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436013"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342220"
 ---
 # <a name="faq---questions-about-virtual-machines"></a>Vanliga frågor och svar om virtuella datorer
 
 
 ## <a name="what-types-of-virtual-machines-are-supported"></a>Vilka typer av virtuella datorer stöds?
 
-Övervakning och rekommendationer är tillgängliga för virtuella datorer som skapats med hjälp av både [klassiska distributions modeller för och Resource Manager](../azure-classic-rm.md).
+Övervakning och rekommendationer är tillgängliga för virtuella datorer som skapats med hjälp av både [klassiska distributions modeller för och Resource Manager](/azure/security-center/./azure-resource-manager/management/deployment-models).
 
 Se [plattformar som stöds i Azure Security Center](security-center-os-coverage.md) för en lista över plattformar som stöds.
 
@@ -51,7 +51,7 @@ Nedan visas svars tiderna för Security Center genomsökningar av sårbarheter, 
 Security Center vanligt vis söker efter nya data varje timme och uppdaterar rekommendationerna i enlighet med detta. 
 
 > [!NOTE]
-> Security Center använder Log Analytics-agenten för att samla in och lagra data. Läs mer i [Azure Security Center plattforms migrering](security-center-platform-migration.md).
+> Security Center använder Log Analytics-agenten för att samla in och lagra data. Läs mer i [Azure Security Center plattforms migrering](./security-center-enable-data-collection.md).
 
 
 ## <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Varför visas meddelandet "VM-agenten saknas?"

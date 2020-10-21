@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 39c890e9e6634413947a96b1ddac608ee44bd9a0
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 92c8d860925ebde7d20befbaa708e8530cd1a0eb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327407"
+ms.locfileid: "92344023"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
 
@@ -65,7 +65,7 @@ Om du bara behöver åtkomst till Blob Storage kan du använda standard-Azure-st
 
 En enkel DNS-server kan också användas för att belastningsutjämna klient anslutningar bland alla tillgängliga cache-monterings punkter.
 
-Lär dig mer om Azure Virtual Networks och DNS-serverkonfigurationer i [namn matchning för resurser i virtuella Azure-nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+Lär dig mer om Azure Virtual Networks och DNS-serverkonfigurationer i [namn matchning för resurser i virtuella Azure-nätverk](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -110,7 +110,7 @@ Om du använder ett NFS-filsystem (till exempel ett lokalt maskinvaru-NAS-system
 
 Mer information finns i [Felsöka problem med NAS-konfiguration och NFS-lagring](troubleshoot-nas.md).
 
-* **Nätverks anslutning:** Azure HPC-cachen behöver nätverks åtkomst med hög bandbredd mellan cache-undernät och NFS-systemets Data Center. [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) eller liknande åtkomst rekommenderas. Om du använder en VPN-anslutning kan du behöva konfigurera den till dessutom foga ihop TCP MSS på 1350 för att se till att stora paket inte blockeras. Läs [storleks begränsningar för VPN-paket](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) för ytterligare hjälp vid fel sökning av VPN-inställningar.
+* **Nätverks anslutning:** Azure HPC-cachen behöver nätverks åtkomst med hög bandbredd mellan cache-undernät och NFS-systemets Data Center. [ExpressRoute](../expressroute/index.yml) eller liknande åtkomst rekommenderas. Om du använder en VPN-anslutning kan du behöva konfigurera den till dessutom foga ihop TCP MSS på 1350 för att se till att stora paket inte blockeras. Läs [storleks begränsningar för VPN-paket](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) för ytterligare hjälp vid fel sökning av VPN-inställningar.
 
 * **Port åtkomst:** Cachen behöver åtkomst till vissa TCP/UDP-portar på lagrings systemet. Olika typer av lagrings enheter har olika port krav.
 

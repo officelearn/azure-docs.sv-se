@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 026425c78934209a2d258d50a5c7f51feeebd63b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275391"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342152"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Skydda dina slut punkter med Security Center Integrated EDR-lösning: Microsoft Defender för slut punkt
 
@@ -81,7 +81,7 @@ När du har konfigurerat platsen kan du inte ändra den. Om du behöver flytta d
     > [!NOTE]
     > Du skyddar dina Azure Arc-aktiverade datorer genom att följa anvisningarna i [snabb start: ansluta hybrid dator med Azure Arc-aktiverade servrar](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
-1. Om du redan har licensierat och distribuerat Microsoft Defender för slut punkter på dina servrar, tar du bort den med hjälp av proceduren som beskrivs i [avpublicera Windows-servrar](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
+1. Om du redan har licensierat och distribuerat Microsoft Defender för slut punkter på dina servrar, tar du bort den med hjälp av proceduren som beskrivs i [avpublicera Windows-servrar](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. Från Security Center menyn väljer du **pris & inställningar**.
 1. Välj den prenumeration som du vill ändra.
 1. Välj **hot identifiering**.
@@ -94,11 +94,11 @@ När du har konfigurerat platsen kan du inte ändra den. Om du behöver flytta d
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Åtkomst till Microsoft Defender för slut punkts portalen
 
-1. Se till att användar kontot har de behörigheter som krävs. [Läs mer](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Se till att användar kontot har de behörigheter som krävs. [Läs mer](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
-1. Kontrol lera om du har en proxy eller brand vägg som blockerar anonym trafik. Defender för slut punkts sensorn ansluter från system kontexten, så anonym trafik måste tillåtas. För att förhindra åtkomst till Defender för slut punkts portalen, följ instruktionerna i [ge åtkomst till tjänst-URL: er i proxyservern](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+1. Kontrol lera om du har en proxy eller brand vägg som blockerar anonym trafik. Defender för slut punkts sensorn ansluter från system kontexten, så anonym trafik måste tillåtas. För att förhindra åtkomst till Defender för slut punkts portalen, följ instruktionerna i [ge åtkomst till tjänst-URL: er i proxyservern](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
-1. Öppna [Microsoft Defender Security Center-portalen](https://securitycenter.windows.com/). Läs mer om portalens funktioner och ikoner i [Microsoft Defender Security Center Portal-översikt](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
+1. Öppna [Microsoft Defender Security Center-portalen](https://securitycenter.windows.com/). Läs mer om portalens funktioner och ikoner i [Microsoft Defender Security Center Portal-översikt](/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
 
 ## <a name="send-a-test-alert"></a>Skicka en test avisering
 
@@ -128,7 +128,7 @@ Defender för slut punkt ingår utan extra kostnad med **Azure Defender för ser
 
 ### <a name="how-do-i-switch-from-a-third-party-edr-tool"></a>Hur gör jag för att växlar från ett EDR-verktyg från tredje part?
 
-Fullständiga instruktioner för att byta från en slut punkts lösning som inte kommer från Microsoft finns i dokumentationen för Microsoft Defender för slut punkt: [Översikt över migrering](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
+Fullständiga instruktioner för att byta från en slut punkts lösning som inte kommer från Microsoft finns i dokumentationen för Microsoft Defender för slut punkt: [Översikt över migrering](/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
   
 
 

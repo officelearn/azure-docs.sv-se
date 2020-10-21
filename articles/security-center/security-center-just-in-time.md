@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440730"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342390"
 ---
-# <a name="secure-your-management-ports-with-just-in-time-access"></a>Skydda dina hanterings portar med just-in-Time-åtkomst
+# <a name="secure-your-management-ports-with-just-in-time-access"></a>Skydda dina hanteringsportar med just-in-time-åtkomst
 
 Lås inkommande trafik till din Azure-Virtual Machines med Azure Security Centers funktioner för virtuell dator med JIT (just-in-Time) (VM). Detta minskar risken för attacker och ger enkel åtkomst när du behöver ansluta till en virtuell dator.
 
@@ -35,7 +35,7 @@ Den här sidan lär dig hur du inkluderar JIT i ditt säkerhets program. Du lär
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
-|Virtuella datorer som stöds:|![Ja ](./media/icons/yes-icon.png) distribuerade virtuella datorer via Azure Resource Manager.<br>![Inga ](./media/icons/no-icon.png) virtuella datorer har distribuerats med klassiska distributions modeller. [Läs mer om de här distributions modellerna](../azure-resource-manager/management/deployment-models.md).<br>![Inga ](./media/icons/no-icon.png) virtuella datorer skyddas av Azure-brandväggar som styrs av [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
+|Virtuella datorer som stöds:|![Ja ](./media/icons/yes-icon.png) distribuerade virtuella datorer via Azure Resource Manager.<br>![Inga ](./media/icons/no-icon.png) virtuella datorer har distribuerats med klassiska distributions modeller. [Läs mer om de här distributions modellerna](../azure-resource-manager/management/deployment-models.md).<br>![Inga ](./media/icons/no-icon.png) virtuella datorer skyddas av Azure-brandväggar som styrs av [Azure Firewall Manager](../firewall-manager/overview.md)|
 |Nödvändiga roller och behörigheter:|**Reader** -och **SecurityReader** -roller kan båda Visa JIT-status och parametrar.<br>Om du vill skapa anpassade roller som kan fungera med JIT, se [vilka behörigheter som krävs för att konfigurera och använda JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit).<br>Om du vill skapa en roll med minst privilegier för användare som behöver begära JIT-åtkomst till en virtuell dator och inte utföra några andra JIT-åtgärder, använder du [set-JitLeastPrivilegedRole-skriptet](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) från community-sidorna för Security Center GitHub.|
 |Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
@@ -215,7 +215,7 @@ Följande PowerShell-kommandon skapar den här JIT-konfigurationen:
 
 Just-in-Time-funktionen för VM-åtkomst kan användas via Azure Security Center-API: et. Använd det här API: et för att hämta information om konfigurerade virtuella datorer, lägga till nya, begära åtkomst till en virtuell dator med mera. 
 
-Läs mer om [JIT-principer för nätverks åtkomst](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Läs mer om [JIT-principer för nätverks åtkomst](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 
 --- 
@@ -229,7 +229,7 @@ Läs mer om [JIT-principer för nätverks åtkomst](https://docs.microsoft.com/r
 
 
 
-## <a name="request-access-to-a-jit-enabled-vm"></a>Begär åtkomst till en JIT-aktiverad virtuell dator
+## <a name="request-access-to-a-jit-enabled-vm"></a>Begära åtkomst till en JIT-aktiverad virtuell dator
 
 Du kan begära åtkomst till en JIT-aktiverad virtuell dator från Azure Portal (i Security Center eller Azure Virtual Machines) eller program mässigt.
 
@@ -290,7 +290,7 @@ Så här begär du åtkomst från virtuella Azure-datorer:
 
 ### <a name="powershell"></a>[**PowerShell**](#tab/jit-request-powershell)
 
-### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Begär åtkomst till en JIT-aktiverad virtuell dator med hjälp av PowerShell
+### <a name="request-access-to-a-jit-enabled-vm-using-powershell"></a>Begära åtkomst till en JIT-aktiverad virtuell dator med PowerShell
 
 I följande exempel kan du se en just-in-Time-begäran om VM-åtkomst till en angiven virtuell dator där port 22 begärs att öppnas för en speciell IP-adress och under en angiven tids period:
 
@@ -319,7 +319,7 @@ Kör följande i PowerShell:
     Start-AzJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
     ```
 
-Läs mer i [PowerShell-cmdlet-dokumentationen](https://docs.microsoft.com/powershell/scripting/developer/cmdlet/cmdlet-overview).
+Läs mer i [PowerShell-cmdlet-dokumentationen](/powershell/scripting/developer/cmdlet/cmdlet-overview).
 
 
 
@@ -329,7 +329,7 @@ Läs mer i [PowerShell-cmdlet-dokumentationen](https://docs.microsoft.com/powers
 
 Just-in-Time-funktionen för VM-åtkomst kan användas via Azure Security Center-API: et. Använd det här API: et för att hämta information om konfigurerade virtuella datorer, lägga till nya, begära åtkomst till en virtuell dator med mera. 
 
-Läs mer om [JIT-principer för nätverks åtkomst](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies).
+Läs mer om [JIT-principer för nätverks åtkomst](/rest/api/securitycenter/jitnetworkaccesspolicies).
 
 ---
 

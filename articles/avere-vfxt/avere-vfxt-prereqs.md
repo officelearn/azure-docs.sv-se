@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: be5c640ef069690c408460b7374aee82c35b3a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d87f57873a4bb84b20df3da3880017d9ef2484a5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272424"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342118"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -42,7 +42,7 @@ Det finns vissa lösningar för att tillåta att en icke-ägare skapar ett AVERT
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Kvot för vFXT-klustret
 
-Kontrol lera att du har tillräcklig kvot för följande Azure-komponenter. Om det behövs kan du [begära en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+Kontrol lera att du har tillräcklig kvot för följande Azure-komponenter. Om det behövs kan du [begära en kvot ökning](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 > [!NOTE]
 > De virtuella datorer och SSD-komponenter som anges här är för själva vFXT-klustret. Kom ihåg att du även behöver kvot för de virtuella datorer och SSD som du ska använda för beräknings gruppen.

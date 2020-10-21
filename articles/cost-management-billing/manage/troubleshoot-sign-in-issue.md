@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3ee600cb72d06781f87c8f68640576afa50cea06
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686504"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132337"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Felsöka problem med inloggning för Azure-prenumeration
 
 Den här guiden hjälper till att lösa de problem som gör att du inte kan logga in på Azure-portalen eller Azure-kontocentret.
 
 > [!NOTE]
-> Om du har problem med att registrera dig för ett nytt Azure-konto läser du [Felsöka problem med registreringen av en Azure-prenumeration](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up).
+> Om du har problem med att registrera dig för ett nytt Azure-konto läser du [Felsöka problem med registreringen av en Azure-prenumeration](./troubleshoot-azure-sign-up.md).
 
 ## <a name="page-hangs-in-the-loading-status"></a>Sidan låser sig under inläsningen
 
@@ -66,7 +66,7 @@ Det här problemet inträffar om du har valt fel katalog eller om kontot inte ha
 Så här åtgärdar du problemet:
 
 - Kontrollera att rätt Azure-katalog har valts genom att välja ditt konto i det övre högra hörnet.
-- Om rätt Azure-katalog har valts men du fortfarande får felmeddelandet [lägger du till ditt konto som ägare](https://docs.microsoft.com/azure/cost-management-billing/manage/add-change-subscription-administrator).
+- Om rätt Azure-katalog har valts men du fortfarande får felmeddelandet [lägger du till ditt konto som ägare](./add-change-subscription-administrator.md).
 
 **Scenario 2:** Du får felmeddelandet när du loggar in till [Azure-kontocenter](https://account.windowsazure.com/Subscriptions)
 
@@ -80,11 +80,11 @@ Kontrollera om kontot du använder är en kontoadministratör. Så här kontroll
 
 Här är några fler felsökningsartiklar som gäller fakturering och prenumerationer i Azure
 
-- [Nekat kort](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problem med prenumerationsregistrering](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-azure-sign-up)
-- [Inga prenumerationer hittades](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Företagskostnadsvy inaktiverad](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
-- [Dokumentation om Azure-fakturering](https://docs.microsoft.com/azure/cost-management-billing/)
+- [Nekat kort](./troubleshoot-declined-card.md)
+- [Problem med prenumerationsregistrering](./troubleshoot-azure-sign-up.md)
+- [Inga prenumerationer hittades](./no-subscriptions-found.md)
+- [Företagskostnadsvy inaktiverad](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
+- [Dokumentation om Azure-fakturering](../index.yml)
 
 ## <a name="contact-us-for-help"></a>Kontakta oss om du behöver hjälp
 

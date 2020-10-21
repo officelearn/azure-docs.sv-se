@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 02/16/2020
-ms.openlocfilehash: 1d21c7ed93ac2ce2ab61282707d57fbf43e0b71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 110d4a3219b4898fa6f138e29f1112d7134f674c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81261082"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340095"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Mått aviseringar med dynamiska tröskelvärden i Azure Monitor
 
@@ -98,7 +98,7 @@ För befintliga resurser med tillräckliga mått data kan dynamiska tröskelvär
 
 ## <a name="dynamic-thresholds-best-practices"></a>Metod tips för dynamiska tröskelvärden
 
-Dynamiska tröskelvärden kan tillämpas på alla plattformar eller anpassade mått i Azure Monitor och den är också justerad för gemensamma program-och infrastruktur mått.
+Dynamiska tröskelvärden kan tillämpas på de flesta plattformar och anpassade mått i Azure Monitor och de är också justerade för gemensamma program-och infrastruktur mått.
 Följande objekt är metod tips för hur du konfigurerar aviseringar för vissa av dessa mått med hjälp av dynamiska tröskelvärden.
 
 ### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Dynamiska tröskelvärden för den virtuella datorns processor procents mått

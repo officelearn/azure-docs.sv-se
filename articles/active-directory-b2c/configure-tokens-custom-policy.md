@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a9b2c5b24b88dd51596dfb5bd8b5f397419ca6e4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e72bd04bb41537546191b8ceb320c0722bd10146
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215203"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340299"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Hantera SSO-och token-anpassning med anpassade principer i Azure Active Directory B2C
 
@@ -90,6 +90,45 @@ Följande värden anges i föregående exempel:
 
 > [!NOTE]
 > Program med en enda sida som använder auktoriseringskod med PKCE har alltid en livs längd på 24 timmar. [Lär dig mer om säkerhets konsekvenserna av uppdateringstoken i webbläsaren](../active-directory/develop/reference-third-party-cookies-spas.md#security-implications-of-refresh-tokens-in-the-browser).
+
+## <a name="provide-optional-claims-to-your-app"></a>Tillhandahålla valfria anspråk till din app
+
+De utgångna anspråken för [teknisk profil för den förlitande parten](relyingparty.md#technicalprofile) är värden som returneras till ett program. Att lägga till utgående anspråk utfärdar anspråk till token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part för att lägga till önskade anspråk som ett utgående anspråk.
+
+1. Öppna din anpassade princip fil. Till exempel SignUpOrSignin.xml.
+1. Hitta OutputClaims-elementet. Lägg till OutputClaim som du vill ska ingå i token. 
+1. Ange attributen för utdata-anspråk. 
+
+I följande exempel läggs `accountBalance` anspråket till. AccountBalance-anspråket skickas till programmet som ett saldo. 
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <!--Add the optional claims here-->
+      <OutputClaim ClaimTypeReferenceId="accountBalance" DefaultValue="" PartnerClaimType="balance" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+OutputClaim-elementet innehåller följande attribut:
+
+  - **ClaimTypeReferenceId** – identifieraren för en anspråks typ som redan har definierats i [ClaimsSchema](claimsschema.md) -avsnittet i princip filen eller den överordnade princip filen.
+  - **PartnerClaimType** – låter dig ändra namnet på anspråket i token. 
+  - **Standardvärde** -ett standardvärde. Du kan också ställa in standardvärdet för en [anspråks lösare](claim-resolver-overview.md), t. ex. klient-ID.
+  - **AlwaysUseDefaultValue** – Framtvinga användning av standardvärdet.
 
 ## <a name="next-steps"></a>Nästa steg
 

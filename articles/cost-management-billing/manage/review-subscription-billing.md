@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 345535ae52b9a271bcee5ff7a2b651af144624f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: b4d6502e49fdd30a68188a1e580a1c137984c89f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684719"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132388"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Granska prenumerationsfakturering med hjälp av REST-API:er
 
@@ -32,7 +32,7 @@ Authorization: Bearer
 
 Parametern `{subscriptionID}` är obligatorisk och identifierar målprenumerationen.
 
-Parametern `{billingPeriod}` är obligatorisk och anger en aktuell [faktureringsperiod](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+Parametern `{billingPeriod}` är obligatorisk och anger en aktuell [faktureringsperiod](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
 Parametrarna `${startDate}` och`${endDate}` är obligatoriska för det här exemplet men valfria för slutpunkten. De anger datumintervallet som strängar i formatet ÅÅÅÅ-MM-DD (exempel: `'20180501'` och `'20180615'`).
 
@@ -41,7 +41,7 @@ Följande huvuden krävs:
 |Begärandehuvud|Beskrivning|
 |--------------------|-----------------|
 |*Content-Type:*|Krävs. Ange till `application/json`.|
-|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[åtkomsttoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[åtkomsttoken](/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 ## <a name="response"></a>Svar
 
@@ -85,7 +85,7 @@ Varje objekt i **värde** representerar information om användningen av en tjän
 |**meterDetails** | Detaljerad information om användningen. |
 |**nextLink**| När denna egenskap anges specificerar den en URL för nästa ”sida” med information. Tom när sidan är den sista. |
 
-Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält finns i [Visa användningsinformation](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy).
+Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält finns i [Visa användningsinformation](/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy).
 
 Andra statuskoder indikerar felvillkor. I dessa fall förklarar svarsobjektet varför begäran misslyckades.
 
@@ -101,6 +101,6 @@ Andra statuskoder indikerar felvillkor. I dessa fall förklarar svarsobjektet va
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Granska [Översikt över företagsrapportering](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Undersöka [REST API för företagsfakturering](https://docs.microsoft.com/rest/api/billing/)
-- [Komma igång med Azure REST API](https://docs.microsoft.com/rest/api/azure/)
+- Granska [Översikt över företagsrapportering](./enterprise-api.md)
+- Undersöka [REST API för företagsfakturering](/rest/api/billing/)
+- [Komma igång med Azure REST API](/rest/api/azure/)

@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: acfbdb203cfa6b1b54145c5d325493b90525bf43
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 52ac239369f2998a3a8eac9c400512ac845a0c49
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690161"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131436"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Aktivera Azure-prenumerationer och konton med Cloudyn
 
@@ -96,7 +96,7 @@ Föregående meddelanden indikerar att du har köpt ett Azure Enterprise-avtal g
 Så här löser du problemen:
 
 1. Återförsäljaren måste aktivera _pålägg_ för ditt konto. Mer information finns i [guiden för indirekt kundregistrering](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Du genererar Azure-nyckeln för Enterprise-avtal för användning med Cloudyn. Instruktioner finns i [Registrera ett Azure Enterprise-avtal och visa kostnadsdata](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
+2. Du genererar Azure-nyckeln för Enterprise-avtal för användning med Cloudyn. Instruktioner finns i [Registrera ett Azure Enterprise-avtal och visa kostnadsdata](./quick-register-ea.md).
 
 Innan du kan generera API-nyckeln för Azures Enterprise-avtal för att konfigurera Cloudyn, måste du aktivera fakturerings-API:n för Azure genom att följa anvisningarna i:
 

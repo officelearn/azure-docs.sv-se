@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 82c800df03826386c8b79d45584f4b26b0bc45e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88fd707d769c7aed53160a9f22fefd15cce19a4b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440665"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340741"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användar data som finns i en Azure Security Center undersökning
-Den här artikeln innehåller information om hur du hanterar användar data som finns i Azure Security Centers undersöknings funktion. Gransknings data lagras i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) och exponeras i Security Center. Att hantera användar data innebär att du kan ta bort eller exportera data.
+Den här artikeln innehåller information om hur du hanterar användar data som finns i Azure Security Centers undersöknings funktion. Gransknings data lagras i [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) och exponeras i Security Center. Att hantera användar data innebär att du kan ta bort eller exportera data.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 

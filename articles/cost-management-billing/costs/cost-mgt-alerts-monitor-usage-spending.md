@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 72e9fd0d5a178897cf84b2babe4c02f7ef920841
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: c59bd7f9bc8c5049572afdf93343222b30c0007b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531346"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131912"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Använda kostnadsaviseringar för att övervaka användning och utgifter
 
@@ -21,7 +21,7 @@ Den här artikeln hjälper dig att förstå och använda Cost Management-aviseri
 
 ## <a name="budget-alerts"></a>Budgetaviseringar
 
-Budgetaviseringar meddelar dig när utgifter, baserat på användning eller kostnad, når eller överskrider det belopp som definieras i [budgetens aviseringsvillkor](tutorial-acm-create-budgets.md). Cost Management-budgetar skapas med hjälp av Azure-portalen eller [Azure Consumption](https://docs.microsoft.com/rest/api/consumption)-API:et.
+Budgetaviseringar meddelar dig när utgifter, baserat på användning eller kostnad, når eller överskrider det belopp som definieras i [budgetens aviseringsvillkor](tutorial-acm-create-budgets.md). Cost Management-budgetar skapas med hjälp av Azure-portalen eller [Azure Consumption](/rest/api/consumption)-API:et.
 
 I Azure-portalen definieras budgetar efter kostnad. Med hjälp av Azure Consumption-API:et definieras budgetarna efter kostnad eller förbrukningsanvändning. Budgetaviseringar stöder både kostnadsbaserade och användningsbaserade budgetar. Budgetaviseringar genereras automatiskt när villkor för budgetavisering uppfylls. Du kan visa alla kostnadsaviseringar i Azure-portalen. När en avisering genereras visas den i kostnadsaviseringar. En e-postavisering skickas dessutom till personerna i budgetens lista över mottagare som ska meddelas.
 

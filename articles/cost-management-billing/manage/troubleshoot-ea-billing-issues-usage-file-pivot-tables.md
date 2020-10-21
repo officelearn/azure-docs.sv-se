@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/09/2020
 ms.author: banders
-ms.openlocfilehash: a30f85ae1b65321a25ee93239374d2a8aae26769
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b32bb979176af8a8a3751db8edf9c129caf1002e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026683"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131997"
 ---
 # <a name="troubleshoot-ea-billing-issues-with-usage-file-pivot-tables"></a>Felsöka problem med EA-faktureringen med hjälp av pivottabeller baserade på användningsfiler
 
@@ -33,7 +33,7 @@ Endast EA-administratörer, kontoägare och avdelningsadministratörer har behö
 
 Eftersom Azure-användningsfilerna har CSV-format måste du förbereda dina data för användning i Excel. Formatera dina data som en tabell genom att följa stegen nedan.
 
-1. Ladda ned filen Usage Details Version 2 with All Charges (användning och inköp) genom att följa anvisningarna i [Ladda ned användningsdata för EA-kunder](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-ea-customers).
+1. Ladda ned filen Usage Details Version 2 with All Charges (användning och inköp) genom att följa anvisningarna i [Ladda ned användningsdata för EA-kunder](./download-azure-invoice-daily-usage-date.md#download-usage-for-ea-customers).
 1. Öppna filen i Excel.
 1. I exemplet nedan ser du filen med oformaterade data.  
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" alt-text="Exempel som visar oformaterade data i Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" :::

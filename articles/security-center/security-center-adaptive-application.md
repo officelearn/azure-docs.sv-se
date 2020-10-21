@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076988"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339721"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Använd anpassningsbara program kontroller för att minska dina datorers attack ytor
 
@@ -52,9 +52,9 @@ Genom att definiera listor över kända säkra program och generera aviseringar 
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
-|Datorer som stöds:|![Ja ](./media/icons/yes-icon.png) Azure-och icke-Azure-datorer som kör Windows och Linux<br>![Ja ](./media/icons/yes-icon.png) [Azure båg](https://docs.microsoft.com/azure/azure-arc/) -datorer|
+|Datorer som stöds:|![Ja ](./media/icons/yes-icon.png) Azure-och icke-Azure-datorer som kör Windows och Linux<br>![Ja ](./media/icons/yes-icon.png) [Azure båg](../azure-arc/index.yml) -datorer|
 |Nödvändiga roller och behörigheter:|**Säkerhets läsare** och **läsar** roller kan båda Visa grupper och listor över kända säkra program<br>Rollerna **deltagare** och **säkerhets administratör** kan både redigera grupper och listor över kända säkra program|
-|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![Yes](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -85,7 +85,7 @@ Välj rekommendationen eller öppna sidan adaptiva program kontroller om du vill
     - **Ingen rekommendation** – datorer utan en definierad lista över tillåtna program och som inte stöder funktionen. Datorn kan vara på den här fliken av följande orsaker:
       - En Log Analytics agent saknas
       - Log Analytics agenten skickar inte händelser
-      - Det är en Windows-dator med en befintlig [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) -princip som Aktiver ATS av antingen ett grup princip objekt eller en lokal säkerhets princip
+      - Det är en Windows-dator med en befintlig [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) -princip som Aktiver ATS av antingen ett grup princip objekt eller en lokal säkerhets princip
 
       > [!TIP]
       > Security Center behöver minst två veckors data för att definiera de unika rekommendationerna per grupp av datorer. Datorer som nyligen har skapats, eller som tillhör prenumerationer som nyligen har Aktiver ATS med Azure Defender, visas på fliken **Ingen rekommendation** .
@@ -224,7 +224,7 @@ När du flyttar en dator från en grupp till en annan så ändras den program ko
 
 Använd vår REST API för att hantera dina anpassningsbara program kontroller program mässigt. 
 
-Den fullständiga API-dokumentationen finns [här](https://docs.microsoft.com/rest/api/securitycenter/adaptiveapplicationcontrols).
+Den fullständiga API-dokumentationen finns [här](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Några av de funktioner som är tillgängliga från REST API:
 
@@ -245,5 +245,5 @@ Några av de funktioner som är tillgängliga från REST API:
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du använder adaptiv-Programkontroll i Azure Security Center för att definiera listor över tillåtna program som körs på dina Azure-och icke-Azure-datorer. Mer information om några av Security Centers andra moln skydds funktioner finns i:
 
-* [Förstå VM-åtkomst med just-in-Time (JIT)](just-in-time-explained.md)
+* [Förstå VM-åtkomst med just-in-time (JIT)](just-in-time-explained.md)
 * [Skydda dina Azure Kubernetes-kluster](defender-for-kubernetes-introduction.md)

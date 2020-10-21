@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: e6bb3389fe035b1ccfbefaca788a40530581ac7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b17e15c5548b4c9b93a62a7d4dfe62ff44404c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851087"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341761"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Anpassad nätverks härdning i Azure Security Center
 Lär dig hur du konfigurerar anpassad nätverks härdning i Security Center.
@@ -29,11 +29,11 @@ Lär dig hur du konfigurerar anpassad nätverks härdning i Security Center.
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Nödvändiga roller och behörigheter:|Skriv behörighet för datorns NSG: er|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>Vad är anpassad nätverks härdning?
-Genom att använda [nätverks säkerhets grupper (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) för att filtrera trafik till och från resurser förbättras nätverks säkerhets position. Det kan dock fortfarande finnas fall där den faktiska trafiken som flödar genom NSG är en del av de NSG-regler som definierats. I dessa fall kan ytterligare förbättra säkerheten position genom att skärpa NSG-reglerna, baserat på de faktiska trafik mönstren.
+Genom att använda [nätverks säkerhets grupper (NSG)](../virtual-network/network-security-groups-overview.md) för att filtrera trafik till och från resurser förbättras nätverks säkerhets position. Det kan dock fortfarande finnas fall där den faktiska trafiken som flödar genom NSG är en del av de NSG-regler som definierats. I dessa fall kan ytterligare förbättra säkerheten position genom att skärpa NSG-reglerna, baserat på de faktiska trafik mönstren.
 
 Anpassad nätverks härdning ger rekommendationer för ytterligare härdning av NSG-reglerna. Den använder en Machine Learning-algoritm som faktorer i faktisk trafik, känd betrodd konfiguration, Hot information och andra risk indikatorer och ger rekommendationer för att endast tillåta trafik från specifika IP/port-tupler.
 
@@ -93,7 +93,7 @@ Några viktiga rikt linjer för att ändra en regel för anpassad nätverks här
 * Du kan inte ändra reglerna för "Tillåt" för att bli "Neka"-regler. 
 
   > [!NOTE]
-  > Att skapa och ändra "Neka"-regler görs direkt på NSG. Mer information finns i [skapa, ändra eller ta bort en nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+  > Att skapa och ändra "Neka"-regler görs direkt på NSG. Mer information finns i [skapa, ändra eller ta bort en nätverks säkerhets grupp](../virtual-network/manage-network-security-group.md).
 
 * En regel för att **neka all trafik** är den enda typen av "Neka"-regel som visas här, och den kan inte ändras. Du kan dock ta bort den (se [ta bort en regel](#delete-rule)).
   > [!NOTE]
@@ -121,7 +121,7 @@ Några viktiga rikt linjer för att ändra en regel för anpassad nätverks här
 Du kan lägga till en regel för "Tillåt" som inte rekommenderades av Security Center.
 
 > [!NOTE]
-> Det går bara att lägga till regler för "Tillåt" här. Om du vill lägga till regler för neka kan du göra det direkt på NSG. Mer information finns i [skapa, ändra eller ta bort en nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+> Det går bara att lägga till regler för "Tillåt" här. Om du vill lägga till regler för neka kan du göra det direkt på NSG. Mer information finns i [skapa, ändra eller ta bort en nätverks säkerhets grupp](../virtual-network/manage-network-security-group.md).
 
 *Så här lägger du till en regel för anpassad nätverks härdning:*
 

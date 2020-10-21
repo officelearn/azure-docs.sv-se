@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 48cf5aea60f66fa8b24fd09e7304be0077f2fdcf
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527147"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132813"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
 Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar. Med budgetar kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumererar på under en viss period. De hjälper dig att informera andra om sina utgifter för att proaktivt hantera kostnader och för att övervaka hur utgifter fortskrider över tid. När de budgettrösklar som du har skapat har överskridits utlöses bara meddelanden. Ingen av dina resurser påverkas och förbrukningen stoppas inte. Du kan använda budgetar för att jämföra och spåra utgifter när du analyserar kostnader.
 
-Information om kostnader och användning är normalt tillgänglig inom 8 till 24 timmar, och budgetar utvärderas mot dessa kostnader var 12:e till 14:e timme. Se till att du läser och förstår informationen i [Uppdateringar av kostnader och användningsdata](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). När en budgettröskel nås skickas normalt e-postaviseringar inom en timme från utvärderingen.
+Information om kostnader och användning är normalt tillgänglig inom 8 till 24 timmar, och budgetar utvärderas mot dessa kostnader var 12:e till 14:e timme. Se till att du läser och förstår informationen i [Uppdateringar av kostnader och användningsdata](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). När en budgettröskel nås skickas normalt e-postaviseringar inom en timme från utvärderingen.
 
 Budgetar återställs automatiskt i slutet av en period (månadsvis, kvartalsvis eller årsvis) för samma budgetbelopp när du väljer ett förfallodatum i framtiden. Eftersom de återställs med samma budgetbelopp måste du skapa separata budgetar när budgeterade valutabelopp skiljer sig åt för framtida perioder.
 
@@ -72,7 +72,7 @@ Följande Azure-behörigheter, eller -omfång, stöds per prenumeration för bud
 - Deltagare och Cost Management-deltagare – Kan skapa, ändra och ta bort sina egna budgetar. Kan ändra budgetbeloppet för budgetar som skapats av andra.
 - Läsare och Cost Management-läsare – Kan visa budgetar som de har behörighet till.
 
-Mer information om hur du tilldelar åtkomst till Cost Management-data finns i [Tilldela åtkomst till Cost Management-data](../../cost-management/assign-access-acm-data.md).
+Mer information om hur du tilldelar åtkomst till Cost Management-data finns i [Tilldela åtkomst till Cost Management-data](./assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -104,7 +104,7 @@ Baserat på de fält som valts i budgeten så långt visas ett diagram som hjäl
 
 När du har konfigurerat budgetbeloppet väljer du **Nästa** för att konfigurera budgetaviseringar. Budgetar kräver minst en kostnadströskel (% av budgeten) och en motsvarande e-postadress. Du kan också använda upp till fem tröskelvärden och fem e-postadresser i en enda budget. När en budgettröskel nås skickas normalt e-postaviseringar inom en timme från utvärderingen.
 
-Om du vill få e-postmeddelanden lägger du till azure-noreply@microsoft.com i din lista med godkända avsändare så att meddelandena inte hamnar i skräppostmappen. Mer information om händelseaviseringar finns i [Använda kostnadsaviseringar](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
+Om du vill få e-postmeddelanden lägger du till azure-noreply@microsoft.com i din lista med godkända avsändare så att meddelandena inte hamnar i skräppostmappen. Mer information om händelseaviseringar finns i [Använda kostnadsaviseringar](./cost-mgt-alerts-monitor-usage-spending.md).
 
 I exemplet nedan skapas en e-postavisering när 90% av budgeten nås. Om du skapar en budget med budget-API:et kan du även tilldela roller till personer som ska ta emot aviseringar. Det finns inte stöd för att tilldela roller till personer i Azure-portalen. Mer information om API:er för Azure-budgetar finns i [API för budgetar](/rest/api/consumption/budgets). Se artikeln [Nationella inställningar som stöds för budgetavisering via e-post](manage-automation.md#supported-locales-for-budget-alert-emails) om du vill att en e-postavisering ska skickas på ett annat språk.
 
@@ -112,7 +112,7 @@ Aviseringsgränser kan ligga inom ett intervall på 0,01 till 1 000 % av den bud
 
 ![Exempel som visar aviseringsvillkor](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
-När du har skapat en budget visas den i kostnadsanalysen. Att visa din budget i förhållande till din utgiftstrend är ett av de första stegen när du börjar [analysera dina kostnader och utgifter](../../cost-management/quick-acm-cost-analysis.md).
+När du har skapat en budget visas den i kostnadsanalysen. Att visa din budget i förhållande till din utgiftstrend är ett av de första stegen när du börjar [analysera dina kostnader och utgifter](./quick-acm-cost-analysis.md).
 
 ![Exempel på budget och utgifter som visas i kostnadsanalys](./media/tutorial-acm-create-budgets/cost-analysis.png)
 

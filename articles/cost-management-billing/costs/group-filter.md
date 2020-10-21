@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
-ms.openlocfilehash: 82e542eafe1578a969c4348fe7562ba1da106e2c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: ac9828ca61009eb3ee39412169b2b454b9ecbd00
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683410"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131878"
 ---
 # <a name="group-and-filter-options-in-cost-analysis"></a>Alternativ för gruppering och filter i kostnadsanalys
 
@@ -49,10 +49,10 @@ I följande tabell visas några av de vanligaste alternativen för gruppering oc
 | **Tjänstnamn** eller **Mätarkategori** | Dela upp kostnad per Azure-tjänst. | Köp och Marketplace-användning visas som **Inte tillämpligt** eller **Otilldelad**. |
 | **Tjänstnivå** eller **Mätarunderkategori** | Dela upp kostnaden efter Azure-användningsmätarens underklassificering. | Köp och Marketplace-användning visas som **Inte tillämpligt** eller **Otilldelad**. |
 | **Prenumeration** | Dela upp kostnader per Azure-prenumeration och AWS-länkat konto. | Köp- och klientresurser kan visas som **Ej tillämpligt**. |
-| **Tag** | Dela upp kostnader efter taggvärden för en speciell taggnyckel. | Taggar är inte tillgängliga för köp, klientresurser som inte är associerade med prenumerationer, prenumerationsresurser som inte har distribuerats till en resursgrupp eller klassiska resurser. Vissa tjänster innehåller inte taggar i användningsdata. Läs mer om [stöd för taggar för varje resurstyp](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
+| **Tag** | Dela upp kostnader efter taggvärden för en speciell taggnyckel. | Taggar är inte tillgängliga för köp, klientresurser som inte är associerade med prenumerationer, prenumerationsresurser som inte har distribuerats till en resursgrupp eller klassiska resurser. Vissa tjänster innehåller inte taggar i användningsdata. Läs mer om [stöd för taggar för varje resurstyp](../../azure-resource-manager/management/tag-support.md). |
 
 Mer information om villkor finns i [Understand the terms used in the Azure usage and charges file](../understand/understand-usage.md) (Förstå villkoren som används i filen för Azure-användning och avgifter).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Börja analysera kostnader](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis).
+- [Börja analysera kostnader](./quick-acm-cost-analysis.md).

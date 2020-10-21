@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: dd21faa07426c80bb3a95dbd1b6d4ee93f783881
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: e9ee1d9ff8145051bbbe6b65004f7f358b5fdade
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686453"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132150"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Så tillämpas rabatten för Azure-reservation på virtuella datorer
 
@@ -57,7 +57,7 @@ När du kör instanser av virtuella Windows-datorer tillämpas reservationen fö
 
 ## <a name="discount-can-apply-to-different-sizes"></a>Rabatten kan tillämpas på olika storlekar
 
-När du köper en reserverad VM-instans och väljer **Optimerad för flexibel instansstorlek** beror rabattens täckning på den VM-storlek du väljer. Den kan också gälla för andra VM-storlekar som är i samma serie av flexibel instansstorlek. Mer information finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+När du köper en reserverad VM-instans och väljer **Optimerad för flexibel instansstorlek** beror rabattens täckning på den VM-storlek du väljer. Den kan också gälla för andra VM-storlekar som är i samma serie av flexibel instansstorlek. Mer information finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 ## <a name="premium-storage-vms-dont-get-non-premium-discounts"></a>Virtuella datorer i Premium Storage får inte rabatter som inte är premium
 

@@ -7,12 +7,12 @@ ms.subservice: enterprise
 ms.topic: article
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 652348d5feb7e382287c91536f1479f9aec126e1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 777c8549d79f820c1847e711969919df128cebd3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031814"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132422"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Granska fakturering för företagsregistrering med hjälp av REST-API:er
 
@@ -37,9 +37,9 @@ Följande huvuden krävs:
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
 |*Content-Type:*|Krävs. Ange till `application/json`.|  
-|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[API-nyckel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[API-nyckel](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-I det här exemplet visas ett synkront anrop som returnerar information om den aktuella faktureringsperioden. Av prestandaskäl returnerar synkrona anrop information för den senaste månaden.  Du kan även anropa [API:et asynkront](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) för att returnera data för 36 månader.
+I det här exemplet visas ett synkront anrop som returnerar information om den aktuella faktureringsperioden. Av prestandaskäl returnerar synkrona anrop information för den senaste månaden.  Du kan även anropa [API:et asynkront](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) för att returnera data för 36 månader.
 
 
 ## <a name="response"></a>Svar  
@@ -90,9 +90,9 @@ Följande huvuden krävs:
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
 |*Content-Type:*|Krävs. Ange till `application/json`.|  
-|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[API-nyckel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[API-nyckel](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-I det här exemplet visas ett synkront anrop som returnerar information om den aktuella faktureringsperioden. Av prestandaskäl returnerar synkrona anrop information för den senaste månaden.  Du kan även anropa [API:et asynkront](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) för att returnera data för 36 månader.
+I det här exemplet visas ett synkront anrop som returnerar information om den aktuella faktureringsperioden. Av prestandaskäl returnerar synkrona anrop information för den senaste månaden.  Du kan även anropa [API:et asynkront](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) för att returnera data för 36 månader.
 
 ### <a name="response"></a>Svar  
 
@@ -146,9 +146,9 @@ Följande huvuden krävs:
 |Begärandehuvud|Beskrivning|  
 |--------------------|-----------------|  
 |*Content-Type:*|Krävs. Ange till `application/json`.|  
-|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[API-nyckel](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Auktorisering:*|Krävs. Ange till en giltig `Bearer`-[API-nyckel](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-I det här exemplet visas ett synkront anrop som returnerar information om den aktuella faktureringsperioden. Av prestandaskäl returnerar synkrona anrop information för den senaste månaden.  Du kan även anropa [API:et asynkront](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) för att returnera data för 36 månader.
+I det här exemplet visas ett synkront anrop som returnerar information om den aktuella faktureringsperioden. Av prestandaskäl returnerar synkrona anrop information för den senaste månaden.  Du kan även anropa [API:et asynkront](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) för att returnera data för 36 månader.
 
 ### <a name="response"></a>Svar  
 
@@ -183,6 +183,6 @@ I följande exempel visas utdata från REST-API:et för företagsregistrering `1
 Det här exemplet är förkortat; en fullständig beskrivning av varje svarsfält och felhantering finns i [Hämta användningsinformation för ett registreringskonto](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy).
 
 ## <a name="next-steps"></a>Nästa steg
-- Granska [Översikt över företagsrapportering](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Undersöka [REST API för företagsfakturering](https://docs.microsoft.com/rest/api/billing/)   
-- [Komma igång med Azure REST API](https://docs.microsoft.com/rest/api/azure/)   
+- Granska [Översikt över företagsrapportering](./enterprise-api.md)
+- Undersöka [REST API för företagsfakturering](/rest/api/billing/)   
+- [Komma igång med Azure REST API](/rest/api/azure/)

@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 6b4b5fe5d7dffbcacc804500cc1f3f8f07f0090d
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758548"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131147"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Lägga till eller uppdatera ett kreditkort för Azure
 
@@ -32,7 +32,7 @@ Med ett Microsoft-kundavtal är dina betalningsmetoder associerade med faktureri
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Hantera kreditkort för en Azure-prenumeration
 
-Följande avsnitt gäller för kunder som har ett Microsoft Online Services Program-faktureringskonto. Läs om hur du [kontrollerar vilken typ av faktureringskonto du har](#check-the-type-of-your-account). Om din faktureringskontotyp är Microsoft Online Services-program är betalningsmetoderna kopplade till enskilda Azure-prenumerationer. Om det uppstår ett fel när du har lagt till kreditkortet kan du läsa avsnittet om att [kreditkortet nekas vid Azure-registrering](/azure/cost-management-billing/manage/troubleshoot-declined-card).
+Följande avsnitt gäller för kunder som har ett Microsoft Online Services Program-faktureringskonto. Läs om hur du [kontrollerar vilken typ av faktureringskonto du har](#check-the-type-of-your-account). Om din faktureringskontotyp är Microsoft Online Services-program är betalningsmetoderna kopplade till enskilda Azure-prenumerationer. Om det uppstår ett fel när du har lagt till kreditkortet kan du läsa avsnittet om att [kreditkortet nekas vid Azure-registrering](./troubleshoot-declined-card.md).
 
 ### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Ändra kreditkort för en prenumeration genom att lägga till ett nytt kreditkort
 

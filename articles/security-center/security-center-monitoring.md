@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 893b2eefc2c4c81e66bf86a1c999a3c4198a3c71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d7ecf4751e9f3fe2051feb64a94e828e00bf106
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883831"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339501"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Förbättra din säkerhetshållning med Azure Security Center
 Den här artikeln hjälper dig att förstärka din säkerhets position. Använd övervaknings funktionerna i Azure Security Center för att se till att resurs säkerheten är så tätt som möjligt och övervaka efterlevnaden av principer.
@@ -38,4 +38,4 @@ I den här artikeln har du fått lära dig hur du använder övervakningsfunktio
 
 * [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md): Här får du lära dig hur du ställer in säkerhetsprinciper i Azure Security Center.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
+* [Övervaka partnerlösningar med Azure Security Center](./security-center-partner-integration.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.

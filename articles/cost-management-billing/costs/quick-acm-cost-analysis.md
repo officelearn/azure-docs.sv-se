@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 89a12be047a3571c1d85febc246a1ed8a3c8b720
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 62651f611654fa601752308ac2fa7f4c388297d6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297869"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132847"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnadsanalys
 
@@ -32,7 +32,7 @@ I den här snabbstarten lär du dig att:
 
 Kostnadsanalys stöder en mängd olika typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto.
 
-Mer information om hur du får åtkomst till Azure Cost Management finns i [Tilldela åtkomst till data](../../cost-management/assign-access-acm-data.md).
+Mer information om hur du får åtkomst till Azure Cost Management finns i [Tilldela åtkomst till data](./assign-access-acm-data.md).
 
 Om du har en ny prenumeration kan du inte använda Cost Management-funktioner direkt. Det kan ta upp till 48 timmar innan du kan använda alla Cost Management-funktioner.
 
@@ -108,7 +108,7 @@ När du stänger av utgiftsprognosen visas inte planerade utgifter för framtida
 
 Normalt kan du förvänta dig att se data eller meddelanden för förbrukade resurser inom åtta till tolv timmar.
 
-**Gruppera efter** vanliga egenskaper för att dela upp kostnader och identifiera de flesta deltagarna. Om du till exempel grupperar efter resurstaggar väljer du den taggnyckel som du vill gruppera efter. Kostnaderna visas uppdelade efter varje taggvärde, med ett extra segment för resurser som inte har den taggen tillämpad.  Mer information om alternativ för gruppering och filtrering finns i [Alternativ för gruppering och filter](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter).
+**Gruppera efter** vanliga egenskaper för att dela upp kostnader och identifiera de flesta deltagarna. Om du till exempel grupperar efter resurstaggar väljer du den taggnyckel som du vill gruppera efter. Kostnaderna visas uppdelade efter varje taggvärde, med ett extra segment för resurser som inte har den taggen tillämpad.  Mer information om alternativ för gruppering och filtrering finns i [Alternativ för gruppering och filter](./group-filter.md).
 
 De flesta [Azure-resurser stöder taggning](../../azure-resource-manager/management/tag-support.md). Vissa taggar är emellertid inte tillgängliga inom Cost Management (kostnadshantering) och fakturering. Dessutom stöds inte resursgrupptaggar. Stöd för taggar gäller för användning som rapporterats *efter* taggen tillämpades på resursen. Taggar tillämpas inte retroaktivt för insamlade kostnader.
 

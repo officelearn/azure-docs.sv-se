@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9f42359cc843a934cf1258576d13eec8af2279cc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9afe34097d005daeedf46fbaf30b37e53a8e3658
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687662"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132048"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Förstå Cloudyn-kostnadshanteringsrapporter
 
@@ -205,5 +205,5 @@ När du visar en rapport klickar du på **Actions** (Åtgärder) och väljer **E
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om de rapporter som ingår i Cloudyn på [Använda Cloudyn-rapporter](../../cost-management/use-reports.md).
-- Lär dig mer om hur du använder rapporter för att skapa [instrumentpaneler](../../cost-management/dashboards.md).
+- Lär dig mer om de rapporter som ingår i Cloudyn på [Använda Cloudyn-rapporter](./use-reports.md).
+- Lär dig mer om hur du använder rapporter för att skapa [instrumentpaneler](./dashboards.md).

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 0de41941fa5907b7d33e24de331571015510e7bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de6a416666866a4089d22f2fa047dc860c922d3c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713789"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341251"
 ---
 # <a name="planning-and-operations-guide"></a>Planerings- och drifthandbok
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -135,7 +135,7 @@ Azure Security Center använder Log Analytics agent – det här är samma agent
 
 ### <a name="agent"></a>Agent
 
-När automatisk etablering är aktiverat i säkerhets principen installeras Log Analytics agent (för [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) eller [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents)) på alla virtuella Azure-datorer som stöds och eventuella nya som skapas. Om den virtuella datorn eller datorn redan har Log Analytics-agenten installerad använder Azure Security Center den aktuella installerade agenten. Agentens process är utformad för att vara icke-invasiv och har mycket minimal påverkan på VM-prestanda.
+När automatisk etablering är aktiverat i säkerhets principen installeras Log Analytics agent (för [Windows](../azure-monitor/platform/agent-windows.md) eller [Linux](../azure-monitor/learn/quick-collect-linux-computer.md)) på alla virtuella Azure-datorer som stöds och eventuella nya som skapas. Om den virtuella datorn eller datorn redan har Log Analytics-agenten installerad använder Azure Security Center den aktuella installerade agenten. Agentens process är utformad för att vara icke-invasiv och har mycket minimal påverkan på VM-prestanda.
 
 Log Analytics agent för Windows kräver TCP-port 443. Se [Felsökningsartikeln](security-center-troubleshooting-guide.md) för ytterligare information.
 
@@ -217,7 +217,7 @@ Följande exempel visar en misstänkt RDP-aktivitet:
 
 ![Misstänkt aktivitet](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-ga.png)
 
-Den här sidan visar information om när angreppet upptäcktes, varifrån det kommer och vilken virtuell dator som är drabbad, och här finns även rekommendationer för vad du bör göra. I vissa fall kan Angreppets käll information vara tom. [Här](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/25/missing-source-information-in-azure-security-center-alerts/) finns mer information om de fall då uppgift om källa saknas i aviseringar i Azure Security Center.
+Den här sidan visar information om när angreppet upptäcktes, varifrån det kommer och vilken virtuell dator som är drabbad, och här finns även rekommendationer för vad du bör göra. I vissa fall kan Angreppets käll information vara tom. [Här](/archive/blogs/azuresecurity/missing-source-information-in-azure-security-center-alerts) finns mer information om de fall då uppgift om källa saknas i aviseringar i Azure Security Center.
 
 När du har identifierat det komprometterade systemet kan du köra en [arbets flödes automatisering](workflow-automation.md) som skapats tidigare. Detta är en samling procedurer som kan köras från Security Center när de utlöses av en avisering.
 
@@ -233,6 +233,6 @@ I det här dokumentet har du lärt dig hur du planerar integreringen av Security
 
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar Azure-resursernas hälsa.
-* [Övervaka partner lösningar med Azure Security Center](security-center-partner-solutions.md) – lär dig hur du övervakar dina partner lösningars hälso status.
+* [Övervaka partner lösningar med Azure Security Center](./security-center-partner-integration.md) – lär dig hur du övervakar dina partner lösningars hälso status.
 * [Azure Security Center vanliga frågor och svar](faq-general.md) – hitta vanliga frågor om att använda tjänsten.
-* [Azures säkerhetsblogg](https://docs.microsoft.com/archive/blogs/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+* [Azures säkerhetsblogg](/archive/blogs/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

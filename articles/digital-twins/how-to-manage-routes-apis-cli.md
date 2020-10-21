@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 96d759f0f722e332eb25e049fd336c784eb99789
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c6c0ee775ec1405fa76424e6b0ad57436d2d233e
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332084"
+ms.locfileid: "92340112"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)
 
@@ -223,7 +223,6 @@ Utan filtrering tar slut punkter emot flera olika händelser från Azures digita
 * Telemetri som har utlösts av [digitala sammanflätade](concepts-twins-graph.md) tjänster med Azure Digitals dubbla tjänst-API
 * Dubbla egenskaps ändrings meddelanden, utlöses vid egenskaps ändringar för alla dubbla i Azure Digitals-instansen
 * Livs cykel händelser, utlöses när de är uppdelade eller relationer skapade eller raderas
-* Modell ändrings händelser, som utlöses när [modeller](concepts-models.md) som kon figurer ATS i en Azure Digitals dubblas-instans läggs till eller tas bort
 
 Du kan begränsa vilka händelser som ska skickas genom att lägga till ett **filter** för en slut punkt till händelse vägen.
 

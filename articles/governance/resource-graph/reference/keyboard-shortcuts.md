@@ -1,15 +1,15 @@
 ---
 title: Kortkommandon i Azure Portal för Azure Resource Graph Explorer
 description: Azure Resource Graph Explorer i Azure Portal stöder kortkommandon som hjälper dig att utföra åtgärder och navigera.
-ms.date: 08/25/2020
+ms.date: 10/21/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdb53e079adf2f65180c15ab93da4f8343e3bab5
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146444"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340129"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Kortkommandon för Azure Resource Graph Explorer
 
@@ -17,14 +17,14 @@ Den här artikeln innehåller kortkommandon som fungerar på Azure Resource Grap
 
 ## <a name="keyboard-shortcuts-for-editing-queries"></a>Kortkommandon för att redigera frågor
 
-| Action | Windows-genväg | Mac-genväg |
+| Åtgärd | Windows-genväg | Mac-genväg |
 |---|---|---|
 |Kommentera/ta bort kommentar |<kbd>NEDTRYCKT</kbd>+<kbd>/</kbd> | <kbd>Kommandot</kbd>+<kbd>/</kbd> |
 |Minska indrag |<kbd>CTRL</kbd> + <kbd>[</kbd> |<kbd>Cmd</kbd> + <kbd>[</kbd> |
 |Öka indrag |<kbd>CTRL</kbd> + <kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
 |Flytta raden nedåt |<kbd>Alt</kbd> + <kbd>↓</kbd> |<kbd>Alternativ</kbd> + <kbd>↓</kbd> |
 |Flytta upp raden |<kbd>Alt</kbd> + <kbd>↑</kbd> |<kbd>Alternativ</kbd> + <kbd>↑</kbd> |
-|Ersätt |<kbd>CTRL</kbd> + <kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>Alt</kbd> + <kbd>F</kbd> |
+|Ersätt |<kbd>CTRL</kbd> + <kbd>H</kbd> |<kbd>Cmd</kbd> + <kbd>H</kbd> |
 |Välj alla |<kbd>CTRL</kbd> + <kbd>En</kbd> |<kbd>Cmd</kbd> + <kbd>En</kbd> |
 |Välj nedåt |<kbd>Shift</kbd> + <kbd>↓</kbd> |<kbd>Shift</kbd> + <kbd>↓</kbd> |
 |Välj höger |<kbd>Shift</kbd> + <kbd>→</kbd> |<kbd>Shift</kbd> + <kbd>→</kbd> |
@@ -37,7 +37,7 @@ Den här artikeln innehåller kortkommandon som fungerar på Azure Resource Grap
 
 ## <a name="keyboard-shortcuts-for-the-query-editor"></a>Kortkommandon för Frågeredigeraren
 
-| Action | Windows-genväg | Mac-genväg |
+| Åtgärd | Windows-genväg | Mac-genväg |
 |---|---|---|
 |Kör fråga som marker ATS |<kbd>Shift</kbd> + <kbd>Ange</kbd> | <kbd>Shift</kbd> + <kbd>Ange</kbd> |
 |Avbryt körning av fråga |<kbd>Esc</kbd> | <kbd>Esc</kbd> |
@@ -52,7 +52,7 @@ Den här artikeln innehåller kortkommandon som fungerar på Azure Resource Grap
 
 ## <a name="keyboard-shortcuts-for-the-results-pane"></a>Kortkommandon för resultat fönstret
 
-| Action | Windows-genväg | Mac-genväg |
+| Åtgärd | Windows-genväg | Mac-genväg |
 |---|---|---|
 |Växla till fliken "kom igång"  |<kbd>CTRL</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> | <kbd>Cmd</kbd> + <kbd>Alternativ</kbd> + <kbd>S</kbd> |
 |Växla till fliken resultat  |<kbd>CTRL</kbd> + <kbd>Alt</kbd> + <kbd>R</kbd> | <kbd>Cmd</kbd> + <kbd>Alternativ</kbd> + <kbd>R</kbd> |

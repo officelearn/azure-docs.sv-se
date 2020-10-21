@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2aa75fb7c532d48188493b2ed09adc8b141b6a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448999"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340027"
 ---
-# <a name="understanding-just-in-time-jit-vm-access"></a>Förstå VM-åtkomst med just-in-Time (JIT)
+# <a name="understanding-just-in-time-jit-vm-access"></a>Förstå VM-åtkomst med just-in-time (JIT)
 
 På den här sidan förklaras principerna bakom Azure Security Center just-in-Time (JIT)-funktionen för VM-åtkomst och logiken bakom rekommendationen.
 
@@ -40,14 +40,14 @@ Azure Security Center erbjuder JIT för att lösa den här dilemma. Med JIT kan 
 
 ## <a name="how-jit-operates-with-network-security-groups-and-azure-firewall"></a>Hur JIT fungerar med nätverks säkerhets grupper och Azure-brandvägg
 
-När du aktiverar just-in-Time VM-åtkomst kan du välja portarna på den virtuella datorn som inkommande trafik ska blockeras för. Security Center garanterar att regler för "neka all inkommande trafik" finns för de valda portarna i [nätverks säkerhets gruppen](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) (NSG) och [Azure brand Väggs regler](https://docs.microsoft.com/azure/firewall/rule-processing). Dessa regler begränsar åtkomsten till dina virtuella Azure-datorers hanterings portar och skyddar dem från angrepp. 
+När du aktiverar just-in-Time VM-åtkomst kan du välja portarna på den virtuella datorn som inkommande trafik ska blockeras för. Security Center garanterar att regler för "neka all inkommande trafik" finns för de valda portarna i [nätverks säkerhets gruppen](../virtual-network/network-security-groups-overview.md#security-rules) (NSG) och [Azure brand Väggs regler](../firewall/rule-processing.md). Dessa regler begränsar åtkomsten till dina virtuella Azure-datorers hanterings portar och skyddar dem från angrepp. 
 
 Om det redan finns andra regler för de valda portarna prioriteras dessa befintliga regler för den nya regeln "neka all inkommande trafik". Om det inte finns några befintliga regler på de valda portarna, prioriteras de nya reglerna först i NSG och Azure-brandväggen.
 
-När en användare begär åtkomst till en virtuell dator kontrollerar Security Center att användaren har [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) behörigheter för den virtuella datorn. Om begäran har godkänts konfigurerar Security Center NSG: er och Azure-brandväggen för att tillåta inkommande trafik till de valda portarna från den relevanta IP-adressen (eller intervallet) för den angivna tiden. När tiden har gått ut Security Center återställer NSG: er till sina tidigare tillstånd. Anslutningar som redan har upprättats avbryts inte.
+När en användare begär åtkomst till en virtuell dator kontrollerar Security Center att användaren har [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) behörigheter för den virtuella datorn. Om begäran har godkänts konfigurerar Security Center NSG: er och Azure-brandväggen för att tillåta inkommande trafik till de valda portarna från den relevanta IP-adressen (eller intervallet) för den angivna tiden. När tiden har gått ut Security Center återställer NSG: er till sina tidigare tillstånd. Anslutningar som redan har upprättats avbryts inte.
 
 > [!NOTE]
-> JIT stöder inte virtuella datorer som skyddas av Azure-brandväggar som kontrol leras av [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview).
+> JIT stöder inte virtuella datorer som skyddas av Azure-brandväggar som kontrol leras av [Azure Firewall Manager](../firewall-manager/overview.md).
 
 
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 0800c0d6fb2cf57b919d29ac354d2d89c06c7aeb
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b4458a2b37a3da83591e101344d08c3090868696
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946845"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341812"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>Strömma aviseringar till en SIEM, SOAR eller IT Service Management-lösning
 
@@ -60,7 +60,7 @@ Security Center har direkt integrering med Microsoft Graph Security API. Ingen k
 Du kan använda detta API för att strömma aviseringar från **hela din klient organisation** (och data från många andra Microsoft-säkerhetsprodukter) till Siem från tredje part och andra populära plattformar:
 
 - **Splunk Enterprise och Splunk Cloud**  -  [Använd Add-On Microsoft Graph Security API för Splunk](https://splunkbase.splunk.com/app/4564/) 
-- **Power BI**  -  [Anslut till Microsoft Graph Security API i Power BI Desktop](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-graph-security)
+- **Power BI**  -  [Anslut till Microsoft Graph Security API i Power BI Desktop](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow**  -  [Följ anvisningarna för att installera och konfigurera Microsoft Graph Security API-programmet från ServiceNow Store](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **QRadar**  -  [IBM: s enhets support modul för Azure Security Center via Microsoft Graph-API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
 - **Palo-nätverk**, **avvikelsei**, **Lookout**, **inspark**och fler- [Microsoft Graph säkerhets-API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)

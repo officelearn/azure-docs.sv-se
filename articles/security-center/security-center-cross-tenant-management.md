@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 7700e151a49dbfbad452927ba4a308651a0b584a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68338341d47b8fa15d0bd88ea23e951210105fc4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84782820"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340792"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Hantering av flera innehavare i Security Center
 
@@ -57,4 +57,4 @@ Den här artikeln förklarar hur hantering av flera innehavare fungerar i Securi
 
 * [Förbättra din säkerhets position med Azure Security Center](security-center-monitoring.md) – lär dig att övervaka hälso tillståndet för dina Azure-resurser.
 * [Azure Security Center FAQ](faq-general.md) – hitta vanliga frågor om att använda tjänsten.
-* [Lär dig om Azure Lighthouse i Enterprise-scenarier](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) – Upptäck hur Azure Lighthouse kan förenkla hantering av flera innehavare i ett företag som använder flera Azure AD-klienter.
+* [Lär dig om Azure Lighthouse i Enterprise-scenarier](../lighthouse/concepts/enterprise.md) – Upptäck hur Azure Lighthouse kan förenkla hantering av flera innehavare i ett företag som använder flera Azure AD-klienter.

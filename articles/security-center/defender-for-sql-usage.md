@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a532418ebc5cab08b06f8dde87e8126bf8e96ffe
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: aee886e4e5ccaa3e07851ba839532f47c0a46ef8
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217175"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342050"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure Defender för SQL-servrar på datorer 
 
@@ -33,7 +33,7 @@ Du ser aviseringar när det finns misstänkta databas aktiviteter, potentiella s
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|**Azure Defender för SQL-servrar på datorer** faktureras enligt [pris sidan](security-center-pricing.md)|
 |Skyddade SQL-versioner:|Azure SQL Server (alla versioner som omfattas av Microsofts support)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 ## <a name="set-up-azure-defender-for-sql-servers-on-machines"></a>Konfigurera Azure Defender för SQL-servrar på datorer
@@ -49,13 +49,13 @@ Båda beskrivs nedan.
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Steg 1. Etablera Log Analytics-agenten på SQL Server-värden:
 
 - **SQL Server på Azure VM** – om din SQL-dator finns på en virtuell Azure-dator kan du [etablera Log Analytics-agenten automatiskt](security-center-enable-data-collection.md#workspace-configuration). Alternativt kan du följa den manuella proceduren för att [publicera dina Azure Stack virtuella datorer](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
-- **SQL Server på Azure-bågen** – om SQL Server finns på en [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) -dator kan du distribuera Log Analytics agenten med hjälp av Security Center rekommendationen Log Analytics Agent installeras på dina Windows-baserade Azure Arc-datorer (för hands version) ". Du kan också följa den manuella proceduren i [Azure Arc-dokumentationen](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
+- **SQL Server på Azure-bågen** – om SQL Server finns på en [Azure Arc](../azure-arc/index.yml) -dator kan du distribuera Log Analytics agenten med hjälp av Security Center rekommendationen Log Analytics Agent installeras på dina Windows-baserade Azure Arc-datorer (för hands version) ". Du kan också följa den manuella proceduren i [Azure Arc-dokumentationen](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
 
 - **SQL Server lokal** – om din SQL Server finns på en lokal Windows-dator utan Azure ARC har du två alternativ för att ansluta den till Azure:
     
-    - **Distribuera Azure-båge** – du kan ansluta en Windows-dator till Security Center. Azure-bågen ger dock djupare integrering i *hela* Azure-miljön. Om du konfigurerar Azure Arc visas sidan **SQL Server – Azure-båge** i portalen. dina säkerhets aviseringar visas på en särskild **säkerhets** flik på sidan. Det första och rekommenderade alternativet är att [Konfigurera Azure-bågen på värden](https://docs.microsoft.com/azure/azure-arc/servers/onboard-portal#install-and-validate-the-agent-on-windows) och följa anvisningarna för **SQL Server på Azure-bågen**ovan.
+    - **Distribuera Azure-båge** – du kan ansluta en Windows-dator till Security Center. Azure-bågen ger dock djupare integrering i *hela* Azure-miljön. Om du konfigurerar Azure Arc visas sidan **SQL Server – Azure-båge** i portalen. dina säkerhets aviseringar visas på en särskild **säkerhets** flik på sidan. Det första och rekommenderade alternativet är att [Konfigurera Azure-bågen på värden](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) och följa anvisningarna för **SQL Server på Azure-bågen**ovan.
         
-    - **Anslut Windows-datorn utan Azure-båge** – om du väljer att ansluta en SQL Server som körs på en Windows-dator utan att använda Azure-bågen följer du anvisningarna i [Anslut Windows-datorer till Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+    - **Anslut Windows-datorn utan Azure-båge** – om du väljer att ansluta en SQL Server som körs på en Windows-dator utan att använda Azure-bågen följer du anvisningarna i [Anslut Windows-datorer till Azure Monitor](../azure-monitor/platform/agent-windows.md).
 
 
 ### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Steg 2. Aktivera den valfria planen på Security Center pris-och inställnings sida:
@@ -75,7 +75,7 @@ Båda beskrivs nedan.
     Planen kommer att aktive ras på alla SQL-servrar som är anslutna till den valda arbets ytan. Skyddet aktive ras fullständigt efter den första omstarten av SQL Server-instansen.
 
     >[!TIP] 
-    > Skapa en ny arbets yta genom att följa anvisningarna i [skapa en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+    > Skapa en ny arbets yta genom att följa anvisningarna i [skapa en Log Analytics arbets yta](../azure-monitor/learn/quick-create-workspace.md).
 
 
 1. Du kan också konfigurera e-postavisering om säkerhets aviseringar. 
@@ -118,7 +118,7 @@ Azure Defender-aviseringar är tillgängliga i Security Center sidan aviseringar
 
 1. Aviseringar är utformade för att vara fristående, med detaljerade åtgärds steg och information om undersökningar i var och en. Du kan undersöka ytterligare med hjälp av andra Azure Security Center-och Azure Sentinel-funktioner för en bredare vy:
 
-    * Aktivera SQL Server gransknings funktion för ytterligare undersökningar. Om du är en Azure Sentinel-användare kan du överföra SQL-gransknings loggarna från Windows säkerhets logg händelser till kontroll och få en omfattande gransknings upplevelse. [Läs mer om SQL Server granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?view=sql-server-ver15&preserve-view=true).
+    * Aktivera SQL Server gransknings funktion för ytterligare undersökningar. Om du är en Azure Sentinel-användare kan du överföra SQL-gransknings loggarna från Windows säkerhets logg händelser till kontroll och få en omfattande gransknings upplevelse. [Läs mer om SQL Server granskning](/sql/relational-databases/security/auditing/create-a-server-audit-and-server-audit-specification?preserve-view=true&view=sql-server-ver15).
     * Använd Security Center rekommendationer för värddatorn som anges i varje avisering för att förbättra din säkerhets position. Detta minskar risken för framtida attacker. 
 
     [Lär dig mer om att hantera och svara på aviseringar](security-center-managing-and-responding-alerts.md).
@@ -130,5 +130,5 @@ Information om relaterade material finns i följande artikel:
 
 - [Säkerhets aviseringar för SQL Database och Azure Synapse Analytics (tidigare SQL Data Warehouse)](alerts-reference.md#alerts-sql-db-and-warehouse)
 - [Konfigurera e-postavisering för säkerhetsmeddelanden](security-center-provide-security-contact-details.md)
-- [Läs mer om Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
-- [Azure Security Centers data säkerhets paket](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+- [Läs mer om Azure Sentinel](../sentinel/index.yml)
+- [Azure Security Centers data säkerhets paket](../azure-sql/database/azure-defender-for-sql.md)

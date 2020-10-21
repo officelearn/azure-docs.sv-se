@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: eb266680cc514b1e2d70e510ed65e9a7790c0260
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 255fbe4036c83618dd0131b262d13709ab7f9c2f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370342"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131895"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-microsoft-365-account"></a>Registrera dig för en Azure-prenumeration med ditt Microsoft 365-konto
 
-Om du har en Microsoft 365-prenumeration kan du använda ditt Microsoft 365-konto för att skapa en Azure-prenumeration. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt användarnamn och lösenord för Microsoft 365. Om du vill konfigurera virtuella datorer eller använda andra Azure-tjänster måste du registrera dig för en Azure-prenumeration. Du kan dela din Azure-prenumeration med andra och [använda rollbaserad åtkomst i Azure (Azure RBAC) för att hantera åtkomst till din Azure-prenumeration och dina resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+Om du har en Microsoft 365-prenumeration kan du använda ditt Microsoft 365-konto för att skapa en Azure-prenumeration. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt användarnamn och lösenord för Microsoft 365. Om du vill konfigurera virtuella datorer eller använda andra Azure-tjänster måste du registrera dig för en Azure-prenumeration. Du kan dela din Azure-prenumeration med andra och [använda rollbaserad åtkomst i Azure (Azure RBAC) för att hantera åtkomst till din Azure-prenumeration och dina resurser](../../role-based-access-control/role-assignments-portal.md).
 
 Om du redan har både ett Microsoft 365-konto och en Azure-prenumeration läser du artikeln om att [associera en Microsoft 365-klientorganisation med en Azure-prenumeration](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -57,4 +57,4 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Dela din Azure-prenumeration med andra och [använd rollbaserad åtkomst i Azure (Azure RBAC) för att hantera åtkomst till din Azure-prenumeration och dina resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Dela din Azure-prenumeration med andra och [använd rollbaserad åtkomst i Azure (Azure RBAC) för att hantera åtkomst till din Azure-prenumeration och dina resurser](../../role-based-access-control/role-assignments-portal.md).

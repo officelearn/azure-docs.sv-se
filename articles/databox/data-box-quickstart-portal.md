@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 2ee9d1edefb0e248d0eba13e2d0b9f1c651fdd42
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 81dee0c63db711b39ff8fd2123623a16b2b9cb91
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924520"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122797"
 ---
 # <a name="get-started-with-azure-data-box-to-import-data-into-azure"></a>Kom igång med Azure Data Box för att importera data till Azure
 
@@ -40,7 +40,7 @@ Innan du börjar:
 
 - Kontrollera att den prenumeration du använder för Data Box-tjänsten är någon av följande typer:
     - Microsoft Enterprise-avtal (EA). Läs mer om [EA-prenumerationer](https://azure.microsoft.com/pricing/enterprise-agreement/).
-    - Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+    - Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Microsoft Azure-sponsring. Läs mer om [Azure-sponsringsprogrammet](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Kontrollera att du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box-beställning.
@@ -131,7 +131,7 @@ Det här steget tar cirka 5–7 minuter att slutföra.
 
 Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken och nätverkshastigheten.
  
-1. Om du använder en Windows-värd använder du ett SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy. För en NFS-värd använder du kommandot `cp` eller `rsync` för att kopiera data. Anslut verktyget till din enhet och börja kopiera data till resurserna. Om du vill ha mer information om hur du använder Robocopy för att kopiera data går du till [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+1. Om du använder en Windows-värd använder du ett SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy. För en NFS-värd använder du kommandot `cp` eller `rsync` för att kopiera data. Anslut verktyget till din enhet och börja kopiera data till resurserna. Om du vill ha mer information om hur du använder Robocopy för att kopiera data går du till [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
 2. Anslut till resurserna med hjälp av sökvägen `\\<IP address of your device>\ShareName`. Du kan hämta autentiseringsuppgifterna för åtkomst till resursen på sidan **Connect & copy** (Anslut och kopiera) i det lokala webbgränssnittet i Data Box.
 3. Kontrollera att resursen och mappnamnen, och data följer riktlinjerna som beskrivs i [tjänstbegränsningarna för Azure Storage och Data Box](data-box-limits.md).
 
@@ -170,5 +170,3 @@ I den här snabbstarten har du distribuerat en Azure Data Box-enhet för att imp
 > [Administrera Data Box via Azure-portalen](data-box-portal-admin.md)
 
 ::: zone-end
-
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 2bf28384ae672440a18331cad8ac95f6ea051b85
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 939e621da414fc2d4d55d85e8b66a409b1338941
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372195"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131980"
 ---
 # <a name="manage-costs-with-automation"></a>Hantera kostnader med automatisering
 
@@ -21,7 +21,7 @@ Med Cost Management-automatisering kan du skapa en anpassad uppsättning lösnin
 
 ## <a name="automate-cost-data-retrieval-for-offline-analysis"></a>Automatisera hämtning av kostnadsdata för analys offline
 
-Du kan behöva ladda ned dina Azure-kostnadsdata för att slå ihop dem med andra datauppsättningar. Eller så kan du behöva integrera kostnadsdata i dina egna system. Det finns olika alternativ tillgängliga beroende på hur mycket data det rör sig om. Du måste ha Cost Management-behörighet i lämpligt omfång för att kunna använda API:er och verktyg. Mer information finns i [Tilldela åtkomst till data](https://docs.microsoft.com/azure/cost-management-billing/costs/assign-access-acm-data).
+Du kan behöva ladda ned dina Azure-kostnadsdata för att slå ihop dem med andra datauppsättningar. Eller så kan du behöva integrera kostnadsdata i dina egna system. Det finns olika alternativ tillgängliga beroende på hur mycket data det rör sig om. Du måste ha Cost Management-behörighet i lämpligt omfång för att kunna använda API:er och verktyg. Mer information finns i [Tilldela åtkomst till data](./assign-access-acm-data.md).
 
 ## <a name="suggestions-for-handling-large-datasets"></a>Förslag för hantering av stora datauppsättningar
 
@@ -29,33 +29,33 @@ Om din organisation använder Azure i stor omfattning med många resurser eller 
 
 **Power BI**
 
-Power BI används för att mata in och hantera stora mängder data. Om du är Enterprise-avtalskund kan du använda Power BI-mallappen för att analysera kostnaderna för ditt faktureringskonto. Rapporten innehåller viktiga vyer som används av kunder. Mer information finns i [Analysera Azure-kostnader med Power BI-mallappen](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
+Power BI används för att mata in och hantera stora mängder data. Om du är Enterprise-avtalskund kan du använda Power BI-mallappen för att analysera kostnaderna för ditt faktureringskonto. Rapporten innehåller viktiga vyer som används av kunder. Mer information finns i [Analysera Azure-kostnader med Power BI-mallappen](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
 
 **Power BI-dataanslutning**
 
-Om du vill analysera dina data dagligen rekommenderar vi att du använder [Power BI-dataanslutningen](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management) för att hämta data för detaljerad analys. Alla rapporter du skapar uppdateras av anslutningsprogrammet när det uppstår kostnader.
+Om du vill analysera dina data dagligen rekommenderar vi att du använder [Power BI-dataanslutningen](/power-bi/connect-data/desktop-connect-azure-cost-management) för att hämta data för detaljerad analys. Alla rapporter du skapar uppdateras av anslutningsprogrammet när det uppstår kostnader.
 
 **Cost Management-exporter**
 
-Du kanske inte behöver analysera data dagligen. I så fall kan du använda [exportfunktionen](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) i Cost Management för att schemalägga dataexporter till ett Azure Storage-konto. Sedan kan du läsa in data i Power BI om det behövs, eller analysera dem i Excel om inte filen är för stor. Exportfunktionen finns i Azure-portalen, men du kan också konfigurera exporter med [export-API:et](https://docs.microsoft.com/rest/api/cost-management/exports).
+Du kanske inte behöver analysera data dagligen. I så fall kan du använda [exportfunktionen](./tutorial-export-acm-data.md) i Cost Management för att schemalägga dataexporter till ett Azure Storage-konto. Sedan kan du läsa in data i Power BI om det behövs, eller analysera dem i Excel om inte filen är för stor. Exportfunktionen finns i Azure-portalen, men du kan också konfigurera exporter med [export-API:et](/rest/api/cost-management/exports).
 
 **API för användningsinformation**
 
-Överväg att använda [API:et för användningsinformation](https://docs.microsoft.com/rest/api/consumption/usageDetails) om du har en liten mängd kostnadsdata. Om du har en stor mängd kostnadsdata bör du begära den minsta möjliga mängden användningsdata för en period. Det gör du genom att antingen ange ett litet tidsintervall eller genom att använda ett filter i begäran. Om du till exempel behöver tre års kostnadsdata får du bättre prestanda med API:et om du gör flera anrop för olika tidsintervall i stället för ett enda anrop. Sedan kan du läsa in data i Excel för ytterligare analys.
+Överväg att använda [API:et för användningsinformation](/rest/api/consumption/usageDetails) om du har en liten mängd kostnadsdata. Om du har en stor mängd kostnadsdata bör du begära den minsta möjliga mängden användningsdata för en period. Det gör du genom att antingen ange ett litet tidsintervall eller genom att använda ett filter i begäran. Om du till exempel behöver tre års kostnadsdata får du bättre prestanda med API:et om du gör flera anrop för olika tidsintervall i stället för ett enda anrop. Sedan kan du läsa in data i Excel för ytterligare analys.
 
 ## <a name="automate-retrieval-with-usage-details-api"></a>Automatisera hämtning med API:et för användningsinformation
 
-Med [API:et för användningsinformation](https://docs.microsoft.com/rest/api/consumption/usageDetails) kan du enkelt hämta råa, icke-aggregerade kostnadsdata som motsvarar din Azure-faktura. API:et är användbart när din organisation behöver en lösning för att hämta data programmatiskt. Överväg att använda API:et om du vill analysera mindre mängder kostnadsdata. Du bör dock använda andra lösningar som nämnts tidigare om du har större datamängder. Användningsinformationen tillhandahålls per mätare per dag. Den används för beräkning av din månadsfaktura. Versionen för allmän tillgänglighet för API:erna är `2019-10-01`. Använd `2019-04-01-preview` för att komma åt förhandsversionen för reservation och Azure Marketplace-köp med API:erna.
+Med [API:et för användningsinformation](/rest/api/consumption/usageDetails) kan du enkelt hämta råa, icke-aggregerade kostnadsdata som motsvarar din Azure-faktura. API:et är användbart när din organisation behöver en lösning för att hämta data programmatiskt. Överväg att använda API:et om du vill analysera mindre mängder kostnadsdata. Du bör dock använda andra lösningar som nämnts tidigare om du har större datamängder. Användningsinformationen tillhandahålls per mätare per dag. Den används för beräkning av din månadsfaktura. Versionen för allmän tillgänglighet för API:erna är `2019-10-01`. Använd `2019-04-01-preview` för att komma åt förhandsversionen för reservation och Azure Marketplace-köp med API:erna.
 
 ### <a name="usage-details-api-suggestions"></a>Förslag för API:et för användningsinformation
 
 **Schema för begäranden**
 
-Vi rekommenderar att du inte gör _fler än ett begärande_ till API:et för användningsinformation per dag. Mer information om hur ofta kostnadsdata uppdateras och hur avrundning hanteras finns i [Förstå Cost Management-data](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#rated-usage-data-refresh-schedule).
+Vi rekommenderar att du inte gör _fler än ett begärande_ till API:et för användningsinformation per dag. Mer information om hur ofta kostnadsdata uppdateras och hur avrundning hanteras finns i [Förstå Cost Management-data](./understand-cost-mgt-data.md).
 
 **Mål på den översta nivån utan filtrering**
 
-Använd API:et för att hämta alla data som du behöver på den högsta tillgängliga nivån. Vänta tills alla data som behövs har matats in innan du utför någon filtrering, gruppering eller aggregerad analys. API:et är optimerat för att tillhandahålla stora mängder råa, icke-aggregerade kostnadsdata. Du kan läsa mer om vilka omfång som är tillgängliga i Cost Management i [Förstå och arbeta med omfång](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-work-scopes). När du har laddat ned de data som behövs för ett omfång använder du Excel för att analysera data ytterligare med filter och pivottabeller.
+Använd API:et för att hämta alla data som du behöver på den högsta tillgängliga nivån. Vänta tills alla data som behövs har matats in innan du utför någon filtrering, gruppering eller aggregerad analys. API:et är optimerat för att tillhandahålla stora mängder råa, icke-aggregerade kostnadsdata. Du kan läsa mer om vilka omfång som är tillgängliga i Cost Management i [Förstå och arbeta med omfång](./understand-work-scopes.md). När du har laddat ned de data som behövs för ett omfång använder du Excel för att analysera data ytterligare med filter och pivottabeller.
 
 ## <a name="example-usage-details-api-requests"></a>Exempelbegäranden till API:et för användningsinformation
 
@@ -329,6 +329,6 @@ För att alla Cost Management-prenumeranter ska få en smidig upplevelse har API
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Analysera Azure-kostnader med Power BI-mallappen](https://docs.microsoft.com/azure/cost-management-billing/costs/analyze-cost-data-azure-cost-management-power-bi-template-app).
-- [Skapa och hantera exporterade data](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data) med exporter.
-- Läs mer om [API:et för användningsinformation](https://docs.microsoft.com/rest/api/consumption/usageDetails).
+- [Analysera Azure-kostnader med Power BI-mallappen](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
+- [Skapa och hantera exporterade data](./tutorial-export-acm-data.md) med exporter.
+- Läs mer om [API:et för användningsinformation](/rest/api/consumption/usageDetails).

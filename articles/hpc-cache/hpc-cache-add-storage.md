@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1edbaf394a4abd36e47843a6f419eb9d62f08d7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611310"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340316"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -74,9 +74,9 @@ När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Lägg till roller för åtkomst kontroll i ditt konto
 
-Azure HPC cache använder [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) för att ge Cache-tjänsten åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
+Azure HPC cache använder [Azure-rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/index.yml) för att ge Cache-tjänsten åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
 
-Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) och [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) för användaren "HPC-Provider för HPC-cache".
+Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto deltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor) och [Storage BLOB data-deltagare](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) för användaren "HPC-Provider för HPC-cache".
 
 Du kan göra detta i förväg eller genom att klicka på en länk på sidan där du lägger till ett Blob Storage-mål. Tänk på att det kan ta upp till fem minuter innan roll inställningarna sprids genom Azure-miljön, så du bör vänta några minuter efter att du har lagt till rollerna innan du skapar ett lagrings mål.
 
@@ -140,7 +140,7 @@ Förutom standard resurs gruppen och cache namn parametrarna måste du ange föl
 
 * ``--virtual-namespace-path`` -Ange sökvägen till klientens fil för det här lagrings målet. Omge sökvägar med citat tecken. Läs [planera det sammanställda namn området](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
-Exempelkommando:
+Exempel kommando:
 
 ```azurecli
 az hpc-cache blob-storage-target add --resource-group "hpc-cache-group" \
@@ -248,7 +248,7 @@ Ange dessa värden utöver cache-namn och cache-resurs grupp:
 
   Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
-Exempelkommando:
+Exempel kommando:
 
 ```azurecli
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 764a2263587a477eb506edec1e0f661d0ca7ae31
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 999888b12f10c07f7d42f14289e88030f9542a36
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971616"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340826"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Aviserings validering i Azure Security Center
 I det här dokumentet får du hjälp med att verifiera systemet är rätt konfigurerat för aviseringar från Azure Security Center.
@@ -36,7 +36,7 @@ När Security Center agent har installerats på datorn följer du de här stegen
 1. Vänta 5–10 minuter och öppna sedan Security Center-aviseringar. En avisering ska visas.
 
 > [!NOTE]
-> När du granskar test aviseringen för Windows kontrollerar du att fält **argumenten granskning är aktive rad** är **Sant**. Om det är **falskt**måste du aktivera granskning av kommando rads argument. Använd följande kommando för att aktivera det:
+> När du granskar test aviseringen för Windows kontrollerar du att fält **argumenten granskning är aktive rad** är **Sant**. Om det är **falskt**måste du aktivera granskning av kommando rads argument. Använd följande kommando för att aktivera funktionen: 
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
@@ -65,7 +65,7 @@ Mer information om att försvara dina Kubernetes-noder och-kluster finns i [Intr
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln förklaras processen för aviseringsverifiering. Nu när du är bekant med den här verifieringen kan du titta på följande artiklar:
 
-* [Verifiera Azure Key Vault hot identifiering i Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
+* [Validera Azure Key Vault Threat Detection i Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Hantera och svara på säkerhets aviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – lär dig hur du hanterar aviseringar och svarar på säkerhets incidenter i Security Center.
 * [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
-* [Förstå säkerhets aviseringar i Azure Security Center](security-center-alerts-type.md) – lär dig mer om de olika typerna av säkerhets aviseringar.
+* [Förstå säkerhets aviseringar i Azure Security Center](./security-center-alerts-overview.md) – lär dig mer om de olika typerna av säkerhets aviseringar.

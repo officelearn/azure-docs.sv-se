@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: v-erkel
-ms.openlocfilehash: 2cd97e205d88fe7ead02889f5ae9ad9df0985f07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bce19e384e600e95b8306dcbba38652b4432bc9
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092532"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340537"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Använd kund hanterade krypterings nycklar för Azure HPC cache
 
@@ -58,7 +58,7 @@ Nyckel egenskaper:
 
 * Användaren som skapar Azure HPC-cachen måste ha behörigheter som motsvarar [rollen Key Vault Contributor](../role-based-access-control/built-in-roles.md#key-vault-contributor). Samma behörigheter krävs för att konfigurera och hantera Azure Key Vault.
 
-  Läs [säker åtkomst till ett nyckel valv](../key-vault/key-vault-secure-your-key-vault.md) för mer information.
+  Läs [säker åtkomst till ett nyckel valv](../key-vault/general/secure-your-key-vault.md) för mer information.
 
 ## <a name="1-set-up-azure-key-vault"></a>1. Konfigurera Azure Key Vault
 
@@ -66,7 +66,7 @@ Du kan ställa in ett nyckel valv och en nyckel innan du skapar cachen eller gö
 
 När du skapar en cache måste du ange ett valv, en nyckel och en nyckel version som ska användas för cachens kryptering.
 
-Läs [Azure Key Vault-dokumentationen](../key-vault/key-vault-overview.md) om du vill ha mer information.
+Läs [Azure Key Vault-dokumentationen](../key-vault/general/overview.md) om du vill ha mer information.
 
 > [!NOTE]
 > Azure Key Vault måste använda samma prenumeration och vara i samma region som Azure HPC-cachen. Se till att den region du väljer [stöder funktionen Kundhanterade nycklar](hpc-cache-overview.md#region-availability).
@@ -92,7 +92,7 @@ Den användare som skapar cachen måste ha behörigheter som är lika med [rolle
 
 1. När du har valt ett valv väljer du den enskilda nyckeln från de tillgängliga alternativen eller skapar en ny nyckel. Nyckeln måste vara en 2048-bitars RSA-nyckel.
 
-1. Ange versionen för den valda nyckeln. Läs mer om versions hantering i [Azure Key Vault-dokumentationen](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning).
+1. Ange versionen för den valda nyckeln. Läs mer om versions hantering i [Azure Key Vault-dokumentationen](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning).
 
 Fortsätt med resten av specifikationerna och skapa cachen enligt beskrivningen i [skapa en Azure HPC-cache](hpc-cache-create.md).
 

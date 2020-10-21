@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: cc44f05491cc17adb9ca51963d09667400fa1ff6
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 33a53fa46d7d07183b77f2608d44f8ea5d0d2804
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371923"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132269"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -71,13 +71,13 @@ Du kan administrera kostnader och användning för Azure EA i Azure EA-portalen.
 
 De olika rollerna har olika åtkomstnivå och behörighet.
 
-Du kan läsa mer om användarroller under [Enterprise user roles](https://docs.microsoft.com/azure/billing/billing-ea-portal-get-started#enterprise-user-roles) (Roller för företagsanvändare).
+Du kan läsa mer om användarroller under [Enterprise user roles](./ea-portal-get-started.md#enterprise-user-roles) (Roller för företagsanvändare).
 
 ## <a name="add-an-azure-ea-account"></a>Lägga till ett Azure EA-konto
 
 Azure EA-kontot är en organisationsenhet i Azure EA-portalen. Den används för att administrera prenumerationer samt för rapportering. Om du ska kunna komma åt och använda Azure-tjänster måste du eller någon annan skapa ett konto åt dig.
 
-Du kan läsa mer om Azure-konton under [Lägga till ett konto](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#add-an-account).
+Du kan läsa mer om Azure-konton under [Lägga till ett konto](./ea-portal-get-started.md#add-an-account).
 
 ## <a name="enterprise-devtest-offer"></a>Enterprise Dev/Test-erbjudande
 

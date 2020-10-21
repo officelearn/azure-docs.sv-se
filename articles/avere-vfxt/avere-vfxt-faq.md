@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
-ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a9792384a21dfc191371ef444cbdc098bc819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88272699"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342373"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
 
@@ -160,7 +160,7 @@ Det finns inte stöd för att ta bort och återansluta SSD. Metadata eller fil i
 
 ### <a name="does-the-system-encrypt-the-cache"></a>Krypterar systemet cacheminnet?
 
-Data överförs över diskarna, men krypteras inte. Diskarna kan dock vara krypterade. Mer information finns i [skydda och använda principer på virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
+Data överförs över diskarna, men krypteras inte. Diskarna kan dock vara krypterade. Mer information finns i [skydda och använda principer på virtuella datorer i Azure](../virtual-machines/security-policy.md#encryption).
 
 ## <a name="technical-networking"></a>Teknisk: nätverk
 
@@ -259,7 +259,7 @@ Nej. Service avtals avtalet (SLA) för Arkiv lag ring är inte kompatibelt med d
 
 Blob-lagring på låg nivå rekommenderas vanligt vis inte för ett AVERT vFXT för Azure core-filer. Låg frekvent nivå erbjuder lägre kostnader för lagring men högre drifts kostnader. (Se [Block Blob-prissättning](<https://azure.microsoft.com/pricing/details/storage/blobs/>) för mer information.) Om data kommer att kommas åt och ändras eller tas bort ofta, bör du överväga att använda frekvent nivå.
 
-[Åtkomst nivåer](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) ger mer information om när det kan vara bra att använda lagring på låg frekvent nivå som vFXT kärnor.
+[Åtkomst nivåer](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) ger mer information om när det kan vara bra att använda lagring på låg frekvent nivå som vFXT kärnor.
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>Hur gör jag för att kryptera BLOB-behållaren?
 

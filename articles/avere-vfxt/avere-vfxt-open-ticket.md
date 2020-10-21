@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 522d29505d7d10f5f6d97136f270f07a63053d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8159d83624cdd474d91030d5376a3db447beffe1
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271115"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342356"
 ---
 # <a name="get-help-with-your-system"></a>Få hjälp med systemet
 
@@ -57,4 +57,4 @@ Följ dessa steg för att se till att ditt support ärende är taggat med en res
 
 ## <a name="request-a-quota-increase"></a>Begär en kvot ökning
 
-Läs [kvoten för vFXT-klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) för att lära dig vilka komponenter som behövs för att distribuera AVERT VFXT för Azure. Du kan [begära en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) från Azure Portal.
+Läs [kvoten för vFXT-klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) för att lära dig vilka komponenter som behövs för att distribuera AVERT VFXT för Azure. Du kan [begära en kvot ökning](../azure-portal/supportability/resource-manager-core-quotas-request.md) från Azure Portal.

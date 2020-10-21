@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 5a0a040d80911b086561213bd0884ed67545c618
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9eda54ad23e06149910fe69ec16588f49829a5a5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920797"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122831"
 ---
 ::: zone target = "docs"
 
@@ -124,7 +124,7 @@ Hur lång tid åtgärden tar beror på datastorleken och hastigheten i nätverke
  
 1. Kopiera data till båda enhetsnoderna med hjälp av båda 40 Gbit/s-datagränssnitten parallellt.
 
-    - Om du använder en Windows-värd använder du ett SMB-kompatibelt filkopieringsverktyg, till exempel [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+    - Om du använder en Windows-värd använder du ett SMB-kompatibelt filkopieringsverktyg, till exempel [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
     - För en NFS-värd använder du kommandot `cp` eller `rsync` för att kopiera data.
 2. Anslut till resurserna på enheten med hjälp av sökvägen:`\\<IP address of your device>\ShareName`. Du kan hämta autentiseringsuppgifterna för åtkomst till resursen på sidan **Connect & copy** (Anslut och kopiera) i det lokala webbgränssnittet i Data Box Heavy.
 3. Kontrollera att resurs- och mappnamnen och data följer riktlinjerna som beskrivs i [tjänstbegränsningarna för Azure Storage och Data Box Heavy](data-box-heavy-limits.md).

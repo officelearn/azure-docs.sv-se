@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 50451acdbd1c88b6ae703ed25de9cee1f3e48216
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91446457"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131470"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Hantera kostnader med Azure Budgets
 
-Kostnadskontroll är en viktig komponent om du ska kunna få ut mesta möjliga av dina investeringar i molnet. Det finns flera scenarier där kostnadsinsyn, rapportering och kostnadsbaserad orkestrering är kritiska komponenter för affärsverksamheten. [Azure Cost Management-API:erna](https://docs.microsoft.com/rest/api/consumption/) omfattar ett antal API:er som ger stöd för dessa scenarier. API:erna returnerar användningsdata så att du kan visa detaljerad kostnadsinformation på instansnivå.
+Kostnadskontroll är en viktig komponent om du ska kunna få ut mesta möjliga av dina investeringar i molnet. Det finns flera scenarier där kostnadsinsyn, rapportering och kostnadsbaserad orkestrering är kritiska komponenter för affärsverksamheten. [Azure Cost Management-API:erna](/rest/api/consumption/) omfattar ett antal API:er som ger stöd för dessa scenarier. API:erna returnerar användningsdata så att du kan visa detaljerad kostnadsinformation på instansnivå.
 
-Budgetar används ofta som en del av kostnadsstyrningen. I Azure kan du begränsa budgetomfånget. Du kan till exempel begränsa budgetvyn baserat på prenumeration, resursgrupper eller en samling resurser. Budget-API:et kan avisera dig via e-post när en budgettröskel nås, men du kan också använda [Azure Monitor-åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) för att utlösa orkestrerade åtgärder när en budgethändelse inträffar.
+Budgetar används ofta som en del av kostnadsstyrningen. I Azure kan du begränsa budgetomfånget. Du kan till exempel begränsa budgetvyn baserat på prenumeration, resursgrupper eller en samling resurser. Budget-API:et kan avisera dig via e-post när en budgettröskel nås, men du kan också använda [Azure Monitor-åtgärdsgrupper](../../azure-monitor/platform/action-groups.md) för att utlösa orkestrerade åtgärder när en budgethändelse inträffar.
 
 Ett exempel på ett vanligt budgetscenario för en kund som kör icke-kritiska arbetsbelastningar är när kunden vill hantera kostnaderna mot en budget och få en förutsägbar kostnad på månadsfakturan. Det här scenariot kräver viss kostnadsbaserad orkestrering av resurser som ingår i Azure-miljön. I det här scenariot är den månatliga budgeten 1 000 USD för prenumerationen. Meddelandetrösklar konfigureras också, som utlöser en del orkestreringar. Det här scenariot börjar med en kostnadströskel på 80 %, som gör att alla virtuella datorer i resursgruppen **Optional** (Valfri) stoppas. Därefter stoppas samtliga VM-instanser vid 100 %-kostnadströskeln.
 
@@ -35,7 +35,7 @@ Genom att utföra åtgärderna som beskrivs i den här självstudien kan du:
 
 ## <a name="create-an-azure-automation-runbook"></a>Skapa en Azure Automation-runbook
 
-[Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) är en tjänst som du kan använda för att skapa skript för de flesta resurshanteringsaktiviteter och köra dessa uppgifter som schemalagda eller på begäran. Som en del av det här scenariot ska du skapa en [Azure Automation-runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types) som ska användas för att stoppa virtuella datorer. Du ska använda den grafiska runbooken [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) (Stoppa virtuella Azure V2-datorer) från [galleriet](https://docs.microsoft.com/azure/automation/automation-runbook-gallery) för att utveckla det här scenariot. Genom att importera den här runbooken till ditt Azure-konto och publicera den, kan du stoppa virtuella datorer när ett budgettröskelvärde nås.
+[Azure Automation](../../automation/automation-intro.md) är en tjänst som du kan använda för att skapa skript för de flesta resurshanteringsaktiviteter och köra dessa uppgifter som schemalagda eller på begäran. Som en del av det här scenariot ska du skapa en [Azure Automation-runbook](../../automation/automation-runbook-types.md) som ska användas för att stoppa virtuella datorer. Du ska använda den grafiska runbooken [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) (Stoppa virtuella Azure V2-datorer) från [galleriet](../../automation/automation-runbook-gallery.md) för att utveckla det här scenariot. Genom att importera den här runbooken till ditt Azure-konto och publicera den, kan du stoppa virtuella datorer när ett budgettröskelvärde nås.
 
 ### <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 
@@ -49,7 +49,7 @@ Genom att utföra åtgärderna som beskrivs i den här självstudien kan du:
 
 ### <a name="import-the-stop-azure-v2-vms-runbook"></a>Importera runbooken Stop Azure V2 VMs (Stoppa virtuella Azure V2-datorer)
 
-Du använder en [Azure Automation-runbook](https://docs.microsoft.com/azure/automation/automation-runbook-types) för att importera den grafiska runbooken [Stop Azure v2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) (Stoppa virtuella Azure V2-datorer) från galleriet.
+Du använder en [Azure Automation-runbook](../../automation/automation-runbook-types.md) för att importera den grafiska runbooken [Stop Azure v2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) (Stoppa virtuella Azure V2-datorer) från galleriet.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med autentiseringsuppgifterna för ditt Azure-konto.
 1. Öppna ditt Automation-konto genom att välja **Alla tjänster** > **Automation-konton**. Välj sedan ditt Automation-konto.
@@ -60,7 +60,7 @@ Du använder en [Azure Automation-runbook](https://docs.microsoft.com/azure/auto
 1. När runbooken har importerats väljer du **Redigera** för att visa den grafiska runbook-redigeraren och publiceringsalternativet.  
     ![Azure – Redigera grafisk runbook](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-01.png)
 1. Välj **Publicera** för att publicera runbooken och välj sedan **Ja** när du uppmanas att göra det. När du publicerar en runbook åsidosätter du den befintliga publicerade versionen med utkastversionen. I detta fall finns det ingen publicerad version eftersom du har skapat runbooken.
-    Mer information om hur du publicerar en runbook finns i [Skapa en grafisk runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-graphical).
+    Mer information om hur du publicerar en runbook finns i [Skapa en grafisk runbook](../../automation/learn/automation-tutorial-runbook-graphical.md).
 
 ## <a name="create-webhooks-for-the-runbook"></a>Skapa webhooks för runbooken
 
@@ -91,7 +91,7 @@ Nu är Azure Automation-konfigurationen klar. Du kan testa webhookarna med ett e
 
 ## <a name="create-an-azure-logic-app-for-orchestration"></a>Skapa en Azure-logikapp för orkestrering
 
-Med Logic Apps kan du skapa, schemalägga och automatisera processer som arbetsflöden så att du kan integrera appar, data, system och tjänster i företag i organisationer. I det här scenariot gör [logikappen](https://docs.microsoft.com/azure/logic-apps/) som du skapar lite mer än att bara anropa Automation-webhooken som du skapade.
+Med Logic Apps kan du skapa, schemalägga och automatisera processer som arbetsflöden så att du kan integrera appar, data, system och tjänster i företag i organisationer. I det här scenariot gör [logikappen](../../logic-apps/index.yml) som du skapar lite mer än att bara anropa Automation-webhooken som du skapade.
 
 Budgetar kan konfigureras att utlösa ett meddelande när ett angivet tröskelvärde nås. Du kan ange flera tröskelvärden då du vill aviseras. Logikappen ger dig möjlighet att utföra olika åtgärder baserat på tröskelvärdet. I det här exemplet ska du skapa ett scenario där du får ett par aviseringar. Det första meddelandet får du när 80 % av budgeten har nåtts, och det andra meddelandet skickas när 100 % av budgeten har nåtts. Logikappen används för att stänga av alla virtuella datorer i resursgruppen. Först nås tröskelvärdet **Optional** (Valfri) vid 80 %. Sedan nås det andra tröskelvärdet, vilket gör att alla virtuella datorer i prenumerationen stoppas.
 
@@ -122,11 +122,11 @@ När Azure har distribuerat din app öppnas **Logic Apps Designer**. Ett område
 Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som startar och kör ditt arbetsflöde. Åtgärder är alla steg som sker efter utlösaren.
 
 1. Välj **Tom logikapp** under **Mallar** på området **Logic Apps Designer**.
-1. Lägg till en [utlösare](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) genom att ange ”http request” i sökrutan **Logic Apps Designer** och leta upp och välj utlösaren med namnet **Begäran – När en HTTP-förfrågan tas emot**.  
+1. Lägg till en [utlösare](../../logic-apps/logic-apps-overview.md#logic-app-concepts) genom att ange ”http request” i sökrutan **Logic Apps Designer** och leta upp och välj utlösaren med namnet **Begäran – När en HTTP-förfrågan tas emot**.  
     ![Azure – Logikapp – HTTP-utlösare](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-04.png)
 1. Välj **Nytt steg** > **Lägg till en åtgärd**.  
     ![Azure – Nytt steg – Lägg till en åtgärd](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-05.png)
-1. Sök efter ”Parsa JSON” i sökrutan i **Logic Apps Designer** och leta upp och välj **åtgärden** [Dataåtgärder – Parsa JSON](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts).  
+1. Sök efter ”Parsa JSON” i sökrutan i **Logic Apps Designer** och leta upp och välj **åtgärden** [Dataåtgärder – Parsa JSON](../../logic-apps/logic-apps-overview.md#logic-app-concepts).  
     ![Azure – Logikapp – Lägg till åtgärden Parsa JSON](./media/cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png)
 1. Ange ”Payload” (nyttolast) som **innehållsnamn** för nyttolasten Parsa JSON eller använd taggen ”Body” (innehåll) från dynamiskt innehåll.
 1. Välj alternativet **Generera schemat genom att använda en exempelnyttolast** i rutan **Parsa JSON**.  
@@ -311,7 +311,7 @@ Nu ska du konfigurera **Postman** för att skapa en budget genom att anropa REST
     ```
 1. Skicka begäran genom att klicka på **Skicka**.
 
-Nu har du alla delar som du behöver för att anropa [API:et för budgetar](https://docs.microsoft.com/rest/api/consumption/budgets). Referensen för API:et för budgetar har ytterligare information om de specifika begärandena, inklusive:
+Nu har du alla delar som du behöver för att anropa [API:et för budgetar](/rest/api/consumption/budgets). Referensen för API:et för budgetar har ytterligare information om de specifika begärandena, inklusive:
 
 - **budgetName** – Flera budgetar stöds.  Budgetnamnen måste vara unika.
 - **category** – Måste vara antingen **Cost** eller **Usage**. API:et stöder både kostnads- och användningsbudgetar.

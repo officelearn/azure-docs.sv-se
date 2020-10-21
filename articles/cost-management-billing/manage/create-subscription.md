@@ -7,12 +7,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: aa8cf0d2a48c75b71895eb75db362c4ec4e291c5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 006c995217ced91690798ae68f04e3b6c3148228
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925053"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131963"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Skapa ytterligare en Azure-prenumeration
 
@@ -30,7 +30,7 @@ Du behöver följande behörigheter för att skapa prenumerationer:
 |---------|---------|
 |Enterprise-avtal (EA) |  Rollen som kontoägare för Enterprise-avtalsregistreringen. Mer information finns i [Förstå administrativa roller för Azure Enterprise-avtal i Azure](understand-ea-roles.md).    |
 |Microsoft-kundavtal (MCA) |  Rollen som ägare eller deltagare för fakturaavsnittet, faktureringsprofilen eller faktureringskontot. Eller rollen som Azure-prenumerationsförfattare för fakturaavsnittet.  Mer information finns i [Roller och uppgifter för prenumerationsfakturering](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
-|Microsoft-partneravtal (MPA) |   Rollen som global administratör eller administratörsrepresentant för CSP-partnerorganisationen. Läs mer i [Partner Center – Tilldela användarroller och behörigheter](https://docs.microsoft.com/partner-center/permissions-overview).  Användaren måste logga in på partnerklientorganisationen för att skapa Azure-prenumerationer.   |
+|Microsoft-partneravtal (MPA) |   Rollen som global administratör eller administratörsrepresentant för CSP-partnerorganisationen. Läs mer i [Partner Center – Tilldela användarroller och behörigheter](/partner-center/permissions-overview).  Användaren måste logga in på partnerklientorganisationen för att skapa Azure-prenumerationer.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Skapa en prenumeration i Azure-portalen
 
@@ -79,7 +79,7 @@ Du kan också skapa ytterligare prenumerationer programmatiskt. Du kan läsa mer
 
 - [Lägg till eller ändra Azure-prenumerationsadministratörer](add-change-subscription-administrator.md)
 - [Flytta resurser till ny resursgrupp eller prenumeration](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Skapa hanteringsgrupper för organisering och hantering av resurser](../../governance/management-groups/create.md)
+- [Skapa hanteringsgrupper för organisering och hantering av resurser](../../governance/management-groups/create-management-group-portal.md)
 - [Avbryta prenumerationen på Azure](cancel-azure-subscription.md)
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.

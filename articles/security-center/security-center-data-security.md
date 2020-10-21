@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2020
 ms.author: memildin
-ms.openlocfilehash: d829ffb9d3a264052e3f688018acd7afa854578e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 49533947ff01aea07eaacd9d761b6414fb672a1c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018278"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339483"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center data säkerhet
 
@@ -51,7 +51,7 @@ Microsoft använder mönster och hot information som visas över flera klienter 
 ## <a name="manage-data-collection-from-machines"></a>Hantera data insamling från datorer
 När du väljer att aktivera Security Center i Azure är datainsamling aktiverat för var och en av dina Azure-prenumerationer. Du kan också aktivera data insamling för dina prenumerationer i Security Center. När data insamling är aktiverat Security Center etablerar Log Analytics agenten på alla befintliga virtuella Azure-datorer som stöds och eventuella nya som skapas.
 
-Log Analytics agent söker efter olika säkerhetsrelaterade konfigurationer och händelser i [ETW (Event tracing for Windows)](https://docs.microsoft.com/windows/win32/etw/event-tracing-portal) (ETW) spår. Dessutom utlöser operativsystemet händelselogghändelser när datorn körs. Exempel på sådana data är: operativsystemets typ och version, operativsystemloggar (Windows-händelseloggar), processer som körs, datornamn, IP-adresser, inloggad användare och klient-ID. Log Analytics agent läser händelse logg poster och ETW-spårning och kopierar dem till dina arbets ytor för analys. Log Analytics agenten aktiverar också process skapande händelser och kommando rads granskning.
+Log Analytics agent söker efter olika säkerhetsrelaterade konfigurationer och händelser i [ETW (Event tracing for Windows)](/windows/win32/etw/event-tracing-portal) (ETW) spår. Dessutom utlöser operativsystemet händelselogghändelser när datorn körs. Exempel på sådana data är: operativsystemets typ och version, operativsystemloggar (Windows-händelseloggar), processer som körs, datornamn, IP-adresser, inloggad användare och klient-ID. Log Analytics agent läser händelse logg poster och ETW-spårning och kopierar dem till dina arbets ytor för analys. Log Analytics agenten aktiverar också process skapande händelser och kommando rads granskning.
 
 Om du inte använder Azure Defender kan du också inaktivera data insamling från virtuella datorer i säkerhets principen. Data insamling krävs för prenumerationer som skyddas av Azure Defender. Funktionerna för ögonblicksbilder av virtuella datordisker och artefaktinsamling är fortfarande aktiverade även om datainsamling har inaktiverats.
 
@@ -82,10 +82,10 @@ Kunder kan komma åt Security Center relaterade data från följande data ström
 
 | Dataström                                                                                | Datatyper                                                                                                                                                                                                          |
 |---------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Azure-aktivitetslogg](../azure-monitor/platform/activity-log.md)                       | Alla säkerhets aviseringar, godkända Security Center [just-in-Time-](security-center-just-in-time.md) begäranden och alla aviseringar som genereras av [adaptiva program kontroller](security-center-adaptive-application.md).|
-| [Azure Monitor loggar](../azure-monitor/platform/data-platform.md)                      | Alla säkerhets aviseringar.                                                                                                                                                                                                |
+| [Azure aktivitets logg](../azure-monitor/platform/activity-log.md)                       | Alla säkerhets aviseringar, godkända Security Center [just-in-Time-](security-center-just-in-time.md) begäranden och alla aviseringar som genereras av [adaptiva program kontroller](security-center-adaptive-application.md).|
+| [Azure Monitor-loggar](../azure-monitor/platform/data-platform.md)                      | Alla säkerhets aviseringar.                                                                                                                                                                                                |
 | [Azure Resource Graph](../governance/resource-graph/overview.md)                      | Säkerhets aviseringar, säkerhets rekommendationer, sårbarhets bedömnings resultat, säker Poäng information, status för kontroll av efterlevnad och mycket annat.                                                                       |
-| [REST API för Azure Security Center](https://docs.microsoft.com/rest/api/securitycenter/) | Säkerhets aviseringar, säkerhets rekommendationer med mera.                                                                                                                                                                |
+| [REST API för Azure Security Center](/rest/api/securitycenter/) | Säkerhets aviseringar, säkerhets rekommendationer med mera.                                                                                                                                                                |
 |                                                                                       |                                                                                                                                                                                                                     |
 
 ## <a name="next-steps"></a>Nästa steg

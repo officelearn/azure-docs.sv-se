@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 42d9c2b4b1edac62449fa4120463a384400d6d27
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 0049efda603532099cc9bf24dc9d9411b5aaa389
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360708"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132133"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Faktureringskonton och omfång på Azure-portalen
 
@@ -27,7 +27,7 @@ Azure-portalen stöder följande typer av faktureringskonton:
 
 - **Microsoft-kundavtal**: Ett faktureringskonto för ett Microsoft-kundavtal skapas när din organisation arbetar med en Microsoft-representant för att teckna ett Microsoft-kundavtal. Vissa kunder i utvalda regioner som registrerar sig via Azure-webbplatsen för ett [konto med Betala per användning-priser](https://azure.microsoft.com/offers/ms-azr-0003p/) eller ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/offers/ms-azr-0044p/) kan även ha ett faktureringskonto för ett Microsoft-kundavtal. Du kan ha högst 20 prenumerationer i ett Microsoft-kundavtal. Mer information finns i artikeln om att [komma igång med ditt faktureringskonto för Microsoft-kundavtal](../understand/mca-overview.md).
 
-- **Microsoft-partneravtal**: Ett faktureringskonto för ett Microsoft-partneravtal skapas för CSP-partner (leverantörer av molnlösningar) för kundhantering i den nya köpupplevelsen. Partner måste ha minst en kund med en [Azure-plan](https://docs.microsoft.com/partner-center/purchase-azure-plan) för att kunna hantera sina faktureringskonton på Azure-portalen. Mer information finns i artikeln om [hur du kommer igång med ditt faktureringskonto för Microsoft-partneravtal](../understand/mpa-overview.md).
+- **Microsoft-partneravtal**: Ett faktureringskonto för ett Microsoft-partneravtal skapas för CSP-partner (leverantörer av molnlösningar) för kundhantering i den nya köpupplevelsen. Partner måste ha minst en kund med en [Azure-plan](/partner-center/purchase-azure-plan) för att kunna hantera sina faktureringskonton på Azure-portalen. Mer information finns i artikeln om [hur du kommer igång med ditt faktureringskonto för Microsoft-partneravtal](../understand/mpa-overview.md).
 
 Information om hur du avgör typen av ditt faktureringskonto finns i [Kontrollera typen av ditt faktureringskonto](#check-the-type-of-your-account).
 

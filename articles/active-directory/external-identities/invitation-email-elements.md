@@ -5,28 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d03391ba5a82c128197c86ea6ed84389552fadb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439846"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340639"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementen i e-postinbjudanen B2B – Azure Active Directory
 
 E-postinbjudningar är en viktig komponent för att ta fram partner till användare i B2B-samarbete i Azure AD. Även om det [inte krävs att du skickar ett e-postmeddelande för att bjuda in någon med B2B-samarbete](add-user-without-invite.md), ger användaren all information som de behöver för att fatta ett beslut om att godkänna din inbjudan. Det ger också en länk som de kan alltid referera till i framtiden när de behöver gå tillbaka till dina resurser.
 
 ![Skärm bild som visar e-postinbjudan om B2B](media/invitation-email-elements/invitation-email.png)
-
-> [!NOTE]
-> Den nya e-postmallen distribueras fortfarande till alla klienter så att vissa klienter fortfarande använder en äldre design. I slutet av maj 2020 kommer inbjudningar från alla klienter att använda den här mallen.
 
 ## <a name="explaining-the-email"></a>Förklarar e-postmeddelandet
 
@@ -52,17 +49,11 @@ E-postmeddelandet börjar med en kort varning till användaren om nätfiske, som
 
 ![Bild av nät fiske varningen i e-postmeddelandet](media/invitation-email-elements/phishing-warning.png)
 
-### <a name="inviters-information"></a>Information om bjudaren
+### <a name="inviters-information-and-invitation-message"></a>Inbjudans information och Inbjudnings meddelande
 
-E-postmeddelandet innehåller information om den inbjudna och den organisation som de skickar inbjudan från. Detta inkluderar avsändarens namn och e-postadress, samt namnet och den primära domän som är associerad med organisationen. All den här informationen bör hjälpa inbjudan att fatta ett välgrundat beslut om att godkänna inbjudan.
+E-postmeddelandet innehåller namnet och den primära domän som är kopplad till organisationen som skickar inbjudan. Den här informationen bör hjälpa inbjudan att fatta ett välgrundat beslut om att godkänna inbjudan. Om deltagaren innehåller ett meddelande som en del av sin inbjudan när de [bjuder in en gäst användare till katalogen, gruppen eller appen](add-users-administrator.md) eller när de [använder Inbjudnings-API: t](customize-invitation-api.md)markeras meddelandet i huvud avsnittet av e-postmeddelandet. Här ingår också inbjudans namn och profil avbildning om de har ställt in ett. Själva meddelandet är ett text utrymme, så av säkerhets skäl bearbetar det inte HTML-taggar.
 
-![Bild av inbjudans information i e-postmeddelandet](media/invitation-email-elements/inviters-information.png)
-
-### <a name="invitation-message"></a>Inbjudnings meddelande
-
-Om deltagaren innehåller ett meddelande som en del av sin inbjudan när de [bjuder in en gäst användare till katalogen, gruppen eller appen](add-users-administrator.md) eller när de [använder Inbjudnings-API: t](customize-invitation-api.md)markeras meddelandet i huvud avsnittet av e-postmeddelandet. Här ingår också inbjudans namn och profil avbildning om de har ställt in ett. Själva meddelandet är ett text utrymme, så av säkerhets skäl bearbetar det inte HTML-taggar.
-
-![Bild av Inbjudnings meddelandet i e-postmeddelandet](media/invitation-email-elements/invitation-message.png)
+![Bild av Inbjudnings meddelandet i e-postmeddelandet](media/invitation-email-elements/invitation-message-inviters-info.png)
 
 ### <a name="accept-button-and-redirect-url"></a>Acceptera knapp och omdirigerings-URL
 

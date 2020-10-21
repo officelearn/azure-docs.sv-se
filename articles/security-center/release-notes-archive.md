@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: c6bb335ad7783c180ceeaafde955d6ac9dcb8799
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2d156887416fb9a587c9690c3b275229e91f1dbe
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280129"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339806"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Vill du arkivera vad som är nytt i Azure Security Center?
 
@@ -93,7 +93,7 @@ Varje säkerhets program innehåller flera arbets flöden för incident svar. De
 
 Mer information om automatiska och manuella Security Center-funktioner för att köra arbets flöden finns i [arbets flödes automatisering](workflow-automation.md).
 
-Lär dig mer om att [skapa Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Lär dig mer om att [skapa Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integrering av Azure Security Center med administrations Center för Windows
@@ -214,7 +214,7 @@ Idag introducerar vi en ny funktion i Security Center som gör det möjligt för
 
 Mer information om automatiska och manuella Security Center-funktioner för att köra arbets flöden finns i [arbets flödes automatisering](workflow-automation.md).
 
-Information om hur du skapar Logic Apps finns i [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+Information om hur du skapar Logic Apps finns i [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ### <a name="quick-fix-for-bulk-resources-generally-available"></a>Snabb korrigering för Mass resurser som är allmänt tillgängliga
@@ -270,9 +270,9 @@ Program som installeras på virtuella datorer kan ofta ha sårbarheter som kan l
 
 Azure Security Center support för skydd mot hot och sårbarheter för SQL-databaser som körs på virtuella IaaS-datorer finns nu som för hands version.
 
-[Sårbarhetsbedömning](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) är en tjänst som är enkel att konfigurera och som kan identifiera, spåra och hjälpa dig att åtgärda eventuella säkerhetsrisker i databasen. Den ger insyn i din säkerhets position som en del av Azures säkra poäng och innehåller stegen för att lösa säkerhets problem och förbättra din databas Fortifications.
+[Sårbarhetsbedömning](../azure-sql/database/sql-vulnerability-assessment.md) är en tjänst som är enkel att konfigurera och som kan identifiera, spåra och hjälpa dig att åtgärda eventuella säkerhetsrisker i databasen. Den ger insyn i din säkerhets position som en del av Azures säkra poäng och innehåller stegen för att lösa säkerhets problem och förbättra din databas Fortifications.
 
-[Avancerat skydd](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja din SQL Server. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och tillhandahåller åtgärds säkerhets aviseringar om avvikande databas åtkomst mönster. De här aviseringarna ger information om misstänkta aktiviteter och rekommenderade åtgärder för att undersöka och minimera hotet.
+[Avancerat skydd](../azure-sql/database/threat-detection-overview.md) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja din SQL Server. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och tillhandahåller åtgärds säkerhets aviseringar om avvikande databas åtkomst mönster. De här aviseringarna ger information om misstänkta aktiviteter och rekommenderade åtgärder för att undersöka och minimera hotet.
 
 
 ### <a name="support-for-custom-policies-preview"></a>Stöd för anpassade principer (förhands granskning)
@@ -346,7 +346,7 @@ När du aktiverar JIT för dina virtuella datorer skapar du en princip som avgö
 
 Begär Anden loggas i aktivitets loggen i Azure så att du enkelt kan övervaka och granska åtkomst. Sidan just-in-Time hjälper dig också att snabbt identifiera befintliga virtuella datorer med JIT aktiverat och virtuella datorer där JIT rekommenderas.
 
-[Läs mer om Azure-brandväggen](https://docs.microsoft.com/azure/firewall/overview).
+[Läs mer om Azure-brandväggen](../firewall/overview.md).
 
 
 ### <a name="single-click-remediation-to-boost-your-security-posture-preview"></a>Reparation med enkel klickning för att öka din säkerhets position (för hands version)

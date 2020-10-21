@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2019
 ms.author: banders
-ms.openlocfilehash: ebe750440528e40feaf0b4700c018a612b482e34
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: cf5772e9cf08eaa7f34acd59a9c96da6f20cd03d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447622"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131419"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Spåra Azure-kreditbalansen för Microsoft-kundavtal
 
@@ -102,7 +102,7 @@ Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [K
 
 ### <a name="rest-api"></a>[REST-API](#tab/rest)
 
-Du kan använda API:erna [Azure Billing](https://docs.microsoft.com/rest/api/billing/) och [Consumption](https://docs.microsoft.com/rest/api/consumption/) till att kontrollera kreditsaldot för ditt faktureringskonto programmatiskt.
+Du kan använda API:erna [Azure Billing](/rest/api/billing/) och [Consumption](/rest/api/consumption/) till att kontrollera kreditsaldot för ditt faktureringskonto programmatiskt.
 
 I exemplen nedan används REST-API:er. PowerShell och Azure CLI stöds inte för närvarande.
 

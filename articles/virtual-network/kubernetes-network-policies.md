@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 0ecf3e5f30ee38c0d60c77df3d6aae3ad90930e9
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 36e5bb33b7d555c3b457b63f94d9032ff390e6cb
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332347"
+ms.locfileid: "92342322"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Översikt över Azure Kubernetes Network policies
 
@@ -154,7 +154,7 @@ När NPM mått samling har Aktiver ATS kan du visa måtten i Azure Portal med hj
 Förutom att Visa arbets boken (bilder nedan), kan du också direkt fråga Prometheus-måtten i "logs" i avsnittet insikter. Den här frågan returnerar till exempel alla mått som samlas in.
 | där TimeGenerated > sedan (5H) | där namnet innehåller "npm_"
 
-Du kan också fråga Log Analytics direkt för måtten. Lär dig mer om det med Komma igång med Log Analytics frågor] (https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
+Du kan också fråga Log Analytics direkt för måtten. Lär dig mer om det med [komma igång med Log Analytics frågor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-log-search) 
 
 #### <a name="viewing-in-grafana-dashboard"></a>Visa på Grafana-instrumentpanelen
 Konfigurera din Grafana-Server och konfigurera en Log Analytics data källa enligt beskrivningen [här](https://grafana.com/grafana/plugins/grafana-azure-monitor-datasource). Importera sedan [Grafana-instrumentpanelen med en Log Analytics Server](https://grafana.com/grafana/dashboards/10956) del till dina Grafana-labb.

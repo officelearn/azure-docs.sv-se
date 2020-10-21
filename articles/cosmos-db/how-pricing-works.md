@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: a992d240955f42ec030a84c887ba086ce92f9790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605265"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281533"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Prismodell i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Prissättningsmodellen för Azure Cosmos DB gör det enkelt att planera och hant
 
 - **Databas åtgärder**: hur du debiteras för dina databas åtgärder beror på vilken typ av Azure Cosmos-konto du använder.
 
-  - **Tillhandahållet data flöde**: ett [allokerat data flöde](set-throughput.md) (kallas även reserverat data flöde) garanterar höga prestanda i alla skalor. Du anger det data flöde som du behöver i [enheter för programbegäran](request-units.md) per sekund (ru/s) och Azure Cosmos DB dedikera de resurser som krävs för att garantera det konfigurerade data flödet. Du kan [etablera data flöde för antingen en databas eller en behållare](set-throughput.md). Utifrån dina arbets belastnings behov kan du skala data flödet uppåt/nedåt när som helst eller använda [autoskalning](provision-throughput-autoscale.md) (även om det finns ett minsta data flöde som krävs för en databas eller en behållare för att garantera service avtal). Du faktureras per timme för maximalt tillhandahållet data flöde i en specifik timme.
+  - **Tillhandahållet data flöde**: ett [tillhandahållet data flöde](set-throughput.md) (kallas även reserverat data flöde) ger hög prestanda i valfri skala. Du anger det data flöde som du behöver i [enheter för programbegäran](request-units.md) per sekund (ru/s) och Azure Cosmos DB dedikera de resurser som krävs för att tillhandahålla det konfigurerade data flödet. Du kan [etablera data flöde för antingen en databas eller en behållare](set-throughput.md). Utifrån dina arbets belastnings behov kan du skala data flödet uppåt/nedåt när som helst eller använda [autoskalning](provision-throughput-autoscale.md) (även om det finns ett minsta data flöde som krävs för en databas eller en behållare för att garantera service avtal). Du faktureras per timme för maximalt tillhandahållet data flöde i en specifik timme.
 
    > [!NOTE]
    > Eftersom den etablerade data flödes modellen dedikerar resurser till din behållare eller databas debiteras du för det data flöde som du har allokerat även om du inte kör några arbets belastningar.

@@ -12,17 +12,17 @@ ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/24/2020
+ms.date: 10/20/2020
 ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 51f9043dcf329e4f3f23ddb930e53cfdfa2f107a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78871441fe7f9b0f6d02cdf6f05b97933abfca54
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631655"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275645"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 
@@ -42,7 +42,7 @@ Följande tabell är en lista över kraven för att använda Azure AD Connect He
 | TLS-kontroll för utgående trafik filtreras eller inaktive ras | Det kan hända att agent registrerings steget eller data överförings åtgärderna Miss lyckas om det finns en TLS-kontroll eller upphör för utgående trafik på nätverks lagret. Läs mer om [att konfigurera TLS-kontroll](/previous-versions/tn-archive/ee796230(v=technet.10)) |
 | Brandväggsportar på servern som agenten körs på |Följande brandväggsportar måste vara öppna för att agenten ska kunna kommunicera med Azure AD Health-tjänstens slutpunkter.<br /><br /><li>TCP-port 443</li><li>TCP-port 5671</li> <br />Observera att port 5671 inte längre krävs för den senaste versionen av agenten. Uppgradera till den senaste versionen så att endast port 443 krävs. Läs mer om att [aktivera brandväggsportar](/previous-versions/sql/sql-server-2008/ms345310(v=sql.100)) |
 | Tillåt följande webbplatser om Förbättrad säkerhet i Internet Explorer är aktiverat |Följande webbplatser måste tillåtas om Förbättrad säkerhet i Internet Explorer är aktiverat på servern som agenten ska installeras på.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.net</li><li>Federationsservern för din organisation måste vara betrodd av Azure Active Directory. Till exempel: https:\//sts.contoso.com</li> Läs mer om [hur du konfigurerar IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Om du har en proxyserver i nätverket kan du läsa Obs!|
-| Kontrollera att PowerShell v4.0 eller senare har installerats | <li>Windows Server 2008 R2 levereras med PowerShell v2.0, vilket inte är tillräckligt för agenten. Uppdatera PowerShell enligt beskrivningen under [Agentinstallation på Windows Server 2008 R2-servrar](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 levereras med PowerShell v3.0, vilket inte är tillräckligt för agenten.</li><li>Windows Server 2012 R2 och senare levereras med en tillräckligt ny version av PowerShell.</li>|
+| Kontrollera att PowerShell v4.0 eller senare har installerats | <li>Windows Server 2012 levereras med PowerShell v3.0, vilket inte är tillräckligt för agenten.</li><li>Windows Server 2012 R2 och senare levereras med en tillräckligt ny version av PowerShell.</li>|
 |Inaktivera FIPS|FIPS stöds inte av Azure AD Connect Health-agenter.|
 
 > [!IMPORTANT]
@@ -111,17 +111,6 @@ Kontrollera att agenten har installerats genom att leta efter följande tjänste
 
 ![Azure AD Connect Health AD FS tjänster](./media/how-to-connect-health-agent-install/install5.png)
 
-### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Agentinstallation på Windows Server 2008 R2-servrar
-
-Steg för Windows Server 2008 R2-servrar:
-
-1. Kontrollera att servern körs med Service Pack 1 eller högre.
-2. Inaktivera Förbättrad säkerhet i Internet Explorer för agentinstallationen:
-3. Installera Windows PowerShell 4.0 på alla servrar innan du installerar AD Health-agenten. Så här installerar du Windows PowerShell 4.0:
-   * Installera [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=40779) via följande länk för att hämta offlineinstallationsprogrammet.
-   * Installera PowerShell ISE (från Windows-funktioner)
-   * Installera Internet Explorer version 10 eller senare på servern. (Detta krävs av Health Service för att autentisera dig med dina Azure-administratörsautentiseringsuppgifter.)
-4. Mer information om hur du installerar Windows PowerShell 4.0 på Windows Server 2008 R2 finns i wiki-artikeln [här](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
 ### <a name="enable-auditing-for-ad-fs"></a>Aktivera granskning för AD FS
 
@@ -130,20 +119,6 @@ Steg för Windows Server 2008 R2-servrar:
 >
 
 För att funktionen Användningsanalys ska kunna samla in och analysera data behöver Azure AD Connect Health-agenten informationen i AD FS-granskningsloggarna. Dessa loggar är inte aktiverade som standard. Följ stegen nedan för att aktivera AD FS-granskning och hitta AD FS-granskningsloggarna på dina AD FS-servrar.
-
-#### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Så här aktiverar du granskning för AD FS i Windows Server 2008 R2
-
-1. Klicka på **Starta**, peka på **Program**, peka på **Administrationsverktyg** och klicka sedan på **Lokal säkerhetsprincip**.
-2. Gå till mappen **Säkerhetsinställningar\Lokala principer\Tilldelning av användarrättigheter** och dubbelklicka sedan på **Generera säkerhetsgranskningar**.
-3. På fliken **Lokal säkerhetsinställning** kontrollerar du att AD FS 2.0-tjänstkontot visas. Om det inte visas klickar du på **Lägg till användare eller grupp**, lägger till det i listan och klickar på **OK**.
-4. Öppna en kommandotolk med förhöjd behörighet och kör följande kommando för att aktivera granskning: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
-5. Stäng **Lokal säkerhetsprincip**.
-<br />   -- **Följande steg krävs bara för primära AD FS-servrar.** -- <br />
-6. Öppna snapin-modulen **AD FS-hantering**. Öppna snapin-modulen för AD FS-hantering genom att klicka på **Start**, peka på **Program**, peka på **Administrationsverktyg** och klicka på **AD FS 2.0 Management**.
-7. Klicka på **Redigera egenskaper för Federation Service** i fönstret **Åtgärder**.
-8. I dialog rutan **federationstjänst egenskaper** klickar du på fliken **händelser** .
-9. Markera kryssrutorna **Lyckade granskningar** och **Misslyckade granskningar**.
-10. Klicka på **OK**.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Så här aktiverar du granskning för AD FS i Windows Server 2012 R2
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409620"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279845"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduktion till Gremlin-API i Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Följande är de differentierade funktionerna som Azure Cosmos DB Gremlin-API: e
 
   Azure Cosmos DB eliminerar behovet av att hantera databasen och datorresurserna. De flesta befintliga Graph Database-plattformarna är kopplade till begränsningarna i infrastrukturen och kräver ofta en hög grad av underhåll för att säkerställa driften. 
   
-  Som en helt hanterad tjänst tar Cosmos DB bort behovet av att hantera virtuella datorer, uppdatera runtime-programvaran, hantera horisontell partitionering eller replikering, eller hantera komplexa uppgraderingar av data nivåer. Varje databas säkerhetskopieras och skyddas automatiskt mot regionala fel. Dessa garantier gör att utvecklare kan fokusera på att leverera program värde i stället för att hantera sina graf-databaser. 
+  Som en helt hanterad tjänst tar Cosmos DB bort behovet av att hantera virtuella datorer, uppdatera runtime-programvaran, hantera horisontell partitionering eller replikering, eller hantera komplexa uppgraderingar av data nivåer. Varje databas säkerhetskopieras och skyddas automatiskt mot regionala fel. På så sätt kan utvecklare fokusera på att leverera program värde i stället för att hantera sina graf-databaser. 
 
 * **Automatisk indexering**
 

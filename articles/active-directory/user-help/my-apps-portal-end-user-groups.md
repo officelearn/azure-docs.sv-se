@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f5804819e3a7a63120fa8c64d8df27b16608ece1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2774750b61ce92b3b34f6a5cbd961e4faa7d3e7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798082"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277477"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Uppdatera dina grupp information på portalen Mina appar
 
@@ -44,13 +44,11 @@ Om administratören har gett dig behörighet att visa panelen **grupper** kan du
 
     Sidan **appar** visas och visar alla molnbaserade appar som ägs av din organisation och som du kan använda.
 
-    ![Sidan appar i portalen Mina appar](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
+    ![Sidan appar i portalen Mina appar](media/my-apps-portal-end-user-groups/my-apps-home-large.png)
 
-3. Välj panelen **grupper** för att se grupprelaterad information.
+3. Dra ned menyn **Mina appar** och välj **Mina grupper** för att se din grupprelaterad information.
 
-    ![Sidan grupper med både ägda och medlems grupper](media/my-apps-portal/my-apps-portal-groups-page.png)
-
-4. Baserat på dina behörigheter kan du använda sidan **grupper** för att:
+4. Baserat på dina behörigheter kan du använda sidan **Mina grupper** för att:
 
     - **Granska de grupper som du äger.** Visa information om alla grupper som du äger i organisationen från **grupper i eget** områden. Om du väljer ett särskilt grupp namn får du mer information om gruppen, inklusive grupp typen, antalet medlemmar, kopplings principen och listan över aktiva medlemmar.
 

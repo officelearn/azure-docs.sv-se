@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d925c1387a408d38eb7974a01ebf3ce3386b7e58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a44848e81e974d8294b84471d68ded8509f4ddf6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067618"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282810"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB asynkron Java SDK v2
 
@@ -304,4 +304,4 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utformar programmet för skalning och höga prestanda finns i [partitionering och skalning i Azure Cosmos DB](partition-data.md).
+Mer information om hur du utformar programmet för skalning och höga prestanda finns i [partitionering och skalning i Azure Cosmos DB](partitioning-overview.md).

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 32d0ebc3f37f7af4d9cdb1940f1870dbf51f86b4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb8cc98a020cb382a6941c1e410eab4543594629
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206139"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279006"
 ---
 # <a name="example-powershell-scripts"></a>PowerShell-exempelskript
 
@@ -21,6 +21,9 @@ Azure Remote rendering innehåller följande två REST-API: er:
 - [Session REST API](../how-tos/session-rest-api.md)
 
 [Plats exemplen för arr](https://github.com/Azure/azure-remote-rendering) innehåller exempel skript i mappen *skript* för att interagera med REST-API: erna för tjänsten. I den här artikeln beskrivs användningen.
+
+> [!TIP]
+> Det finns också ett [UI-baserat verktyg som kallas ARRT](azure-remote-rendering-asset-tool.md) för att interagera med tjänsten, vilket är ett praktiskt alternativ till att använda skript. ![ARRT](./media/azure-remote-rendering-asset-tool.png "ARRT skärm bild")
 
 > [!CAUTION]
 > Om du anropar REST API Functions för ofta kommer servern att kunna begränsas och returnera felet på ett tag. ID för HTTP-felkod i det här fallet är 429 ("för många begär Anden"). Som en regel för tummen bör det finnas en fördröjning på **5-10 sekunder mellan efterföljande anrop**.
@@ -46,7 +49,7 @@ Om du vill köra exempel skripten behöver du en fungerande installation av [Azu
     > [!NOTE]
     > Om din organisation har mer än en prenumeration kan du behöva ange SubscriptionId-och klient argument. Mer information finns i [dokumentationen för Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
-1. Hämta mappen *skript* från GithHub- [lagringsplatsen för Azure Remote rendering](https://github.com/Azure/azure-remote-rendering).
+1. Hämta mappen *skript* från GitHub- [lagringsplatsen för Azure Remote rendering](https://github.com/Azure/azure-remote-rendering).
 
 ## <a name="configuration-file"></a>Konfigurationsfil
 

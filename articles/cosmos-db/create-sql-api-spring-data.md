@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 0ccab295d39e463d4b6d1e764862678469fba751
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: acd5914ca9f465c69df4c017162ef92f795b235a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776416"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278359"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Snabb start: bygga en våren data Azure Cosmos DB v3-app för att hantera Azure Cosmos DB SQL API-data
 
@@ -23,7 +23,7 @@ ms.locfileid: "91776416"
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
-> * [Våren data v3](create-sql-api-spring-data.md)
+> * [Spring-data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -41,7 +41,7 @@ I den här snabb starten skapar och hanterar du ett Azure Cosmos DB SQL API-kont
 > * [Fjädra data Gremlin med Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI `https://localhost:8081` och nyckeln `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Peka `JAVA_HOME` miljö variabeln till den mapp där JDK är installerad.
@@ -52,9 +52,9 @@ I den här snabb starten skapar och hanterar du ett Azure Cosmos DB SQL API-kont
 
 *Strukturen för ett Cosmos DB konto.* Oavsett API eller programmeringsspråk innehåller ett Cosmos DB- *konto* noll eller flera *databaser*, en *databas* (dB) innehåller noll eller flera *behållare*, och en *behållare* innehåller noll eller flera objekt, som visas i diagrammet nedan:
 
-:::image type="content" source="./media/databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos Account-entiteter" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Azure Cosmos Account-entiteter" border="false":::
 
-Du kan läsa mer om databaser, behållare och objekt [här.](databases-containers-items.md) Några viktiga egenskaper definieras på nivån för behållaren, bland dem med det *etablerade data flödet* och *partitionsnyckel*. 
+Du kan läsa mer om databaser, behållare och objekt [här.](account-databases-containers-items.md) Några viktiga egenskaper definieras på nivån för behållaren, bland dem med det *etablerade data flödet* och *partitionsnyckel*. 
 
 Det etablerade data flödet mäts i*ru: er*(Request units) som har ett penning pris och är en väsentlig avgörande faktor för kontots drift kostnad. Det etablerade data flödet kan väljas per behållar kornig het eller granularitet per databas, men data flödes specifikationen på behållare nivå är vanligt vis lämplig. Du kan läsa mer om data flödes etablering [här.](set-throughput.md)
 

@@ -4,27 +4,27 @@ description: Lär dig att identifiera, diagnostisera och felsöka Azure Cosmos D
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 09/12/2020
+ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089997"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277167"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsöka problem med frågor när du använder Azure Cosmos DB
 
-Den här artikeln vägleder dig genom en allmänt rekommenderad metod för fel sökning av frågor i Azure Cosmos DB. Även om du inte bör tänka på de steg som beskrivs i den här artikeln får du ett fullständigt försvar mot potentiella frågor, men vi har inkluderat de vanligaste prestanda tipsen här. Använd den här artikeln som utgångspunkt vid felsökning av långsamma eller resurskrävande frågor i SQL-API:et i Azure Cosmos DB. Du kan också använda [diagnostikloggarna](cosmosdb-monitor-resource-logs.md) till att identifiera vilka frågor som är långsamma eller som förbrukar stora mängder dataflöde.
+Den här artikeln vägleder dig genom en allmänt rekommenderad metod för fel sökning av frågor i Azure Cosmos DB. Även om du inte bör tänka på de steg som beskrivs i den här artikeln får du ett fullständigt försvar mot potentiella frågor, men vi har inkluderat de vanligaste prestanda tipsen här. Använd den här artikeln som utgångspunkt vid felsökning av långsamma eller resurskrävande frågor i SQL-API:et i Azure Cosmos DB. Du kan också använda [diagnostikloggarna](cosmosdb-monitor-resource-logs.md) till att identifiera vilka frågor som är långsamma eller som förbrukar stora mängder dataflöde. Om du använder Azure Cosmos DBs API för MongoDB bör du använda [Azure Cosmos DB s API för fel söknings guide för MongoDB-frågor](mongodb-troubleshoot-query.md)
 
-Du kan i stort sett kategorisera optimeringar av frågor i Azure Cosmos DB:
+Optimeringar av frågor i Azure Cosmos DB är i stort sett kategoriserade enligt följande:
 
 - Optimeringar som minskar antalet begär ande enheter (RU) för frågan
 - Optimeringar som bara minskar svars tiden
 
-Om du minskar avgifts avgiften för en fråga kommer du nästan absolut bara att minska svars tiden.
+Om du minskar avgiften för en fråga så minskar du normalt svars tiden.
 
 Den här artikeln innehåller exempel som du kan återskapa med hjälp av [närings data uppsättningen](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
@@ -191,7 +191,7 @@ Indexerings princip har uppdaterats:
 
 **Avgift för ru:** 2,98 ru: er
 
-Du kan när som helst lägga till egenskaper till indexerings principen, utan någon effekt på Skriv tillgänglighet eller prestanda. Om du lägger till en ny egenskap i indexet använder frågor som använder egenskapen omedelbart det nya tillgängliga indexet. Frågan kommer att använda det nya indexet när den skapas. Därför kan frågeresultatet vara inkonsekvent medan index återställningen pågår. Om en ny egenskap indexeras påverkas inte frågor som använder bara befintliga index under index återuppbyggnaden. Du kan [spåra förloppet för index omvandling](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Du kan när som helst lägga till egenskaper till indexerings principen, utan någon påverkan på Skriv-eller Läs tillgänglighet. Du kan [spåra förloppet för index omvandling](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Förstå vilka system funktioner som använder indexet
 
@@ -469,7 +469,7 @@ Här är det relevanta sammansatta indexet:
 
 ## <a name="optimizations-that-reduce-query-latency"></a>Optimeringar som minskar svars tiden för frågor
 
-I många fall kan avgiften för RU vara acceptabel när svars tiden för frågor fortfarande är för hög. I följande avsnitt får du en översikt över tips för att minska svars tiden för frågor. Om du kör samma fråga flera gånger på samma data uppsättning får den samma RU-avgift varje gång. Men svars tiden kan variera mellan frågekörningen.
+I många fall kan avgiften för RU vara acceptabel när svars tiden för frågor fortfarande är för hög. I följande avsnitt får du en översikt över tips för att minska svars tiden för frågor. Om du kör samma fråga flera gånger på samma data uppsättning har den normalt samma RU-avgift varje gång. Men svars tiden kan variera mellan frågekörningen.
 
 ### <a name="improve-proximity"></a>Förbättra närhet
 

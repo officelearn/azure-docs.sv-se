@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 10/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be43b74e7128f9b250d25f8bdb2642c6f7b41d2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6adb06f22013e68987f3315d52e3594fba63907
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87115537"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309015"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Begära en åtkomsttoken i Azure Active Directory B2C
 
@@ -50,10 +50,15 @@ I följande exempel visas omfång som är kodade i en URL:
 scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
 ```
 
-Om du begär fler omfång än vad ditt klientprogram beviljas, lyckas anropet om minst en behörighet beviljas. **SCP**-anspråket i den resulterande åtkomsttoken innehåller endast de behörigheter som beviljades. OpenID Connect-standarden anger flera särskilda omfångsvärden. Följande omfång representerar behörigheten för att komma åt användarens profil:
+Om du begär fler omfång än vad ditt klientprogram beviljas, lyckas anropet om minst en behörighet beviljas. **SCP**-anspråket i den resulterande åtkomsttoken innehåller endast de behörigheter som beviljades. 
+
+### <a name="openid-connect-scopes"></a>OpenID Connect-omfång
+
+OpenID Connect-standarden anger flera särskilda omfångsvärden. Följande omfång representerar behörigheten för att komma åt användarens profil:
 
 - **openid** – Begär en ID-token.
 - **offline_access** – Begär en uppdateringstoken via [auktoriseringskodflöden](authorization-code-flow.md).
+- **00000000-0000-0000-0000-000000000000** – med hjälp av klient-ID som omfånget anger att appen behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.
 
 Om parametern **response_type** i en `/authorize`-begäran innehåller `token`, måste **scope**-parametern innehålla minst ett annat resursomfång än `openid` och `offline_access` som kommer att beviljas. Annars misslyckas `/authorize`-begäran.
 

@@ -3,12 +3,12 @@ title: MABS & System Center DPM support Matrix
 description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server (MABS) eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0180135da793aaf7869441ee290f6125ea88fc88
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332703"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276958"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 
@@ -58,9 +58,9 @@ Mer information:
 
 DPM/MABS kan distribueras som sammanfattas i följande tabell.
 
-**Distribution** | **Support** | **Information**
+**Distribution** | **Support** | **Detaljer**
 --- | --- | ---
-**Distribuerad lokalt** | Fysisk server<br/><br/>Hyper-V VM<br/><br/> Virtuell VMware-dator | Om DPM/MABS installeras som en virtuell VMware-dator, säkerhetskopierar den bara virtuella VMware-datorer och arbets belastningar som körs på dessa virtuella datorer.
+**Distribuerad lokalt** | Fysisk server<br/><br/>Hyper-V VM<br/><br/> Virtuell VMware-dator | Mer information finns i [skydds matrisen](backup-mabs-protection-matrix.md) . 
 **Distribuerad som en Azure Stack VM** | Endast MABS | DPM kan inte användas för att säkerhetskopiera Azure Stack virtuella datorer.
 **Distribuerad som en virtuell Azure-dator** | Skyddar virtuella Azure-datorer och arbets belastningar som körs på dessa virtuella datorer | DPM/MABS som körs i Azure kan inte säkerhetskopiera lokala datorer.
 
@@ -80,7 +80,7 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 
 ## <a name="management-support"></a>Hanterings support
 
-**Problem** | **Information**
+**Problem** | **Detaljer**
 --- | ---
 **Installation** | Installera DPM/MABS på en dator med ett enda syfte.<br/><br/> Installera inte DPM/MABS på en domänkontrollant på en dator med rollen som program server roll på en dator som kör Microsoft Exchange Server eller System Center Operations Manager eller på en klusternod.<br/><br/> [Granska alla system krav för DPM](/system-center/dpm/prepare-environment-for-dpm#dpm-server).
 **Domän** | DPM/MABS ska vara ansluten till en domän. Installera först och Anslut sedan till DPM/MABS till en domän. Det finns inte stöd för att flytta DPM/MABS till en ny domän efter distribution.
@@ -92,7 +92,7 @@ Azure Backup kan säkerhetskopiera DPM/MABS-instanser som kör något av följan
 
 Du kan distribuera MABS på en Azure Stack VM så att du kan hantera säkerhets kopiering av Azure Stack virtuella datorer och arbets belastningar från en enda plats.
 
-**Komponent** | **Information**
+**Komponent** | **Detaljer**
 --- | ---
 **MABS på Azure Stack VM** | Minst storlek a2. Vi rekommenderar att du börjar med en Windows Server 2012 R2-eller Windows Server 2016-avbildning från Azure Marketplace.<br/><br/> Installera inte något annat på den virtuella datorn MABS.
 **MABS-lagring** | Använd ett separat lagrings konto för den virtuella MABS-datorn. MARS-agenten som körs på MABS behöver tillfällig lagring för en cache-plats och för att lagra data som återställs från molnet.
@@ -164,7 +164,7 @@ Ingen anslutning under mer än 15 dagar | Upphört/avetablerats | Ingen säkerhe
 
 Data som säkerhets kopie ras till DPM/MABS lagras på den lokala disk lagringen.
 
-**Storage** | **Information**
+**Storage** | **Detaljer**
 --- | ---
 **MB** | Modern backup Storage (MB) stöds från DPM 2016/MABS v2 och senare. Den är inte tillgänglig för MABS v1.
 **MABS-lagring på virtuell Azure-dator** | Data lagras på Azure-diskar som är anslutna till den virtuella DPM-MABS och som hanteras i DPM/MABS. Antalet diskar som kan användas för DPM/MABS-lagringspoolen begränsas av storleken på den virtuella datorn.<br/><br/> A2 VM: 4 diskar; A3 VM: 8 diskar; A4 VM: 16 diskar, med en maximal storlek på 1 TB för varje disk. Detta avgör den totala tillgängliga lagringspoolen för säkerhets kopiering.<br/><br/> Mängden data som du kan säkerhetskopiera beror på antalet och storleken på de anslutna diskarna.

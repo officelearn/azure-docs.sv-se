@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: f81161d52a74aec07c9bb84f76e65088c7e48f11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e55b93d3790efe01a796860bd3607f2fcc6ba5f6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91844260"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281975"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>Data flöde (RU/s)-åtgärder med PowerShell för en databas eller behållare för API för Azure Cosmos DB Core (SQL)
 
@@ -44,7 +44,7 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
 |**Azure Cosmos DB**| |
 | [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Hämta det data flöde som har skapats i en Azure Cosmos DB Core (SQL) API-databas. |
@@ -60,5 +60,3 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
-
-Fler skriptexempel för PowerShell i Azure Cosmos DB finns i [PowerShell-skript för Azure Cosmos DB](../../../powershell-samples.md).

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b49e6fc45a84f600131f571d1305c8160ddb1d21
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 49fe4f2d0a31918dec94163b4ebb5c45af53cfe7
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145986"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282252"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -83,7 +83,7 @@ await client.CreateEventRoute("routeName", er);
 
 1. Först skapas ett- `EventRoute` objekt och konstruktorn tar namnet på en slut punkt. I det här `endpointName` fältet identifieras en slut punkt som händelsehubben, Event Grid eller Service Bus. De här slut punkterna måste skapas i din prenumeration och anslutas till Azure Digital-dubbla med kontroll Plans-API: er innan det här registrerings anropet görs.
 
-2. Objektet för händelse vägen har också ett [**filter**](./how-to-manage-routes-apis-cli.md#filter-events) fält som kan användas för att begränsa vilka typer av händelser som följer den här vägen. Ett filter för `true` aktiverar vägen utan ytterligare filtrering (ett filter av `false` inaktiverar vägen). 
+2. Objektet för händelse vägen har också ett [**filter**](how-to-manage-routes-apis-cli.md#filter-events) fält som kan användas för att begränsa vilka typer av händelser som följer den här vägen. Ett filter för `true` aktiverar vägen utan ytterligare filtrering (ett filter av `false` inaktiverar vägen). 
 
 3. Objektet för händelse vägen skickas sedan till `CreateEventRoute` , tillsammans med ett namn för vägen.
 
@@ -93,18 +93,19 @@ await client.CreateEventRoute("routeName", er);
 Vägar kan också skapas med hjälp av [Azure Digitals flätade CLI](how-to-use-cli.md).
 
 ## <a name="dead-letter-events"></a>Händelser för obeställbara meddelanden
+
 När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**. Digitala Azure-dubblare kommer att döda en händelse när **något av följande** villkor uppfylls. 
 
-- Händelsen har inte levererats inom Time-to-Live-perioden
-- Antalet försök att leverera händelsen har överskridit gränsen
+* Händelsen har inte levererats inom Time-to-Live-perioden
+* Antalet försök att leverera händelsen har överskridit gränsen
 
-Om något av villkoren är uppfyllt tas händelsen bort eller tas bort från kön.  Som standard aktiverar varje slut punkt **inte** obeställbara meddelanden. Om du vill aktivera det måste du ange ett lagrings konto som ska innehålla ej levererade händelser när slut punkten skapas. Du kan hämta händelser från det här lagrings kontot för att lösa leveranser.
+Om något av villkoren är uppfyllt tas händelsen bort eller tas bort från kön. Som standard aktiverar varje slut punkt **inte** obeställbara meddelanden. Om du vill aktivera det måste du ange ett lagrings konto som ska innehålla ej levererade händelser när slut punkten skapas. Du kan sedan hämta händelser från det här lagrings kontot för att lösa leveranser.
 
 Innan du anger platsen för obeställbara meddelanden måste du ha ett lagrings konto med en behållare. Du anger URL: en för den här behållaren när du skapar slut punkten. Obeställbara meddelanden anges som en behållar-URL med en SAS-token. Denna token behöver bara `write` behörighet för mål behållaren i lagrings kontot. Den fullständigt utformade URL: en kommer att ha formatet: `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 Mer information om SAS-token finns i: [ *bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-Information om hur du konfigurerar en obeställbara meddelanden finns i så här gör du för att [*Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
+Information om hur du skapar en slut punkt med obeställbara meddelanden finns i så här gör du för att [*Hantera slut punkter och vägar i Azure Digitals dubbla (API: er och CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### <a name="types-of-event-messages"></a>Typer av händelse meddelanden
 

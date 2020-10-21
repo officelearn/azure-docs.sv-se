@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: d3eda4694decb74912cc125ef0a33de04838be2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66314155a8de5036009b8e42bf84a8ae8860d0ea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260635"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278952"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrera data från Cassandra till Azure Cosmos DB API för Cassandra konto med Blitzz
 
@@ -34,7 +34,7 @@ Blitzz för migrering följer en steg-för-steg-metod för att migrera komplexa 
 
 * Blitzz erbjuder hög volym-och parallell databasreplikering. Det gör att både käll-och mål plattformarna kan synkroniseras under migreringen med hjälp av en metod som kallas för ändrings data fångst (CDC). Genom att använda CDC hämtar Blitzz kontinuerligt en ström med ändringar från käll databasen (Apache Cassandra) och tillämpar den på mål databasen (Azure Cosmos DB).
 
-* Den är feltolerant och garanterar exakt när leverans av data sker även under ett maskin-eller program varu fel i systemet.
+* Den är feltolerant och ger exakt en leverans av data även under ett maskin-eller program varu fel i systemet.
 
 * Den skyddar data under överföringen med hjälp av en rad säkerhets metoder som TLS, kryptering.
 

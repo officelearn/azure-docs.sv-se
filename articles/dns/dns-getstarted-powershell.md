@@ -6,15 +6,15 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
-ms.date: 3/11/2019
+ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7361f58247019584d7fb3d60cdd7f76b2e62a212
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f2563c33d02490732f73fcf9d1a78f548ec2d3e2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91355507"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282216"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Snabbstart: Skapa en Azure DNS-zon och post med Azure PowerShell
 
@@ -26,9 +26,12 @@ En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill l
 
 Azure DNS stöder även skapandet av privata domäner. Stegvisa instruktioner för hur du skapar din första privata DNS-zon och post finns i [Komma igång med privata Azure DNS-zoner med PowerShell](private-dns-getstarted-powershell.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Azure PowerShell installerat lokalt eller Azure Cloud Shell
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-the-resource-group"></a>Skapa resursgruppen
 
@@ -82,7 +85,7 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
    nslookup www.contoso.xyz <name server name>
    ```
 
-   Till exempel:
+   Exempel:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
@@ -94,7 +97,7 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
 
 Värd namnet **www \. contoso. xyz** matchas till **10.10.10.10**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
 
-## <a name="delete-all-resources"></a>Ta bort alla resurser
+## <a name="clean-up-resources"></a>Rensa resurser
 
 Du kan ta bort alla resurser som skapats i den här snabbstarten när de inte behövs längre genom att ta bort resursgruppen:
 

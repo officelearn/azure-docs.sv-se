@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931809"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275538"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS-API version 2 på den kommersiella marknaden
 
@@ -178,7 +178,7 @@ När en kund omdirigeras till partnerns URL för landnings sidan skickas kundens
 
 Om du anropar lösnings-API returneras prenumerations information och status för SaaS-prenumerationer i alla status värden som stöds.
 
-##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Skicka`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Efter`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
@@ -256,7 +256,7 @@ Kod: 500 internt Server fel.  Gör om API-anropet.  Kontakta [Microsoft-supporte
 
 När SaaS-kontot har kon figurer ATS för en slut kund måste utgivaren anropa API för aktiverings prenumeration på Microsoft.  Kunden debiteras inte om inte API-anropet lyckas.
 
-##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Skicka`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="posthttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Efter`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Frågeparametrar:*
 
@@ -953,11 +953,11 @@ Utgivaren måste implementera en webhook i SaaS-tjänsten för att SaaS-prenumer
 
 För att starta utvecklings processen rekommenderar vi att du skapar dummy API-svar på utgivarens sida.  Svaren kan baseras på exempel svar som anges i det här dokumentet.
 
-När utgivaren är klar för testningen av slut punkt till slut punkt: 
+När utgivaren är klar för testningen av slut punkt till slut punkt:
 
 * Publicera ett SaaS-erbjudande till en begränsad förhands gransknings publik och behåll den i för hands versions fasen.
-* Det här erbjudandet bör ha en plan med 0 pris, så du bör inte utlösa faktisk fakturerings kostnad under testningen.  Ett annat alternativ är att ange ett pris som inte är noll och avbryta alla test inköp inom 24 timmar. 
-* Se till att alla flöden anropas från slut punkt till slut punkt, precis som en kund köper erbjudandet. 
+* Det här erbjudandet bör ha en plan med 0 pris, så du bör inte utlösa faktisk fakturerings kostnad under testningen.  Ett annat alternativ är att ange ett pris som inte är noll och avbryta alla test inköp inom 24 timmar.
+* Se till att alla flöden anropas från slut punkt till slut punkt, precis som en kund köper erbjudandet.
 * Om partnern vill testa hela inköps-och fakturerings flödet gör du det med erbjudandet som kostar över $0.  Inköpet faktureras och en faktura skapas.
 
 Ett inköps flöde kan utlösas från Azure Portal eller Microsoft AppSource platser, beroende på var erbjudandet publiceras.
@@ -966,8 +966,7 @@ Ett inköps flöde kan utlösas från Azure Portal eller Microsoft AppSource pla
 
 ## <a name="get-support"></a>Få support
 
-Se [Support för det kommersiella Marketplace-programmet i Partner Center](support.md) for Publisher support options.
-
+Se [Support för det kommersiella Marketplace-programmet i Partner Center](../support.md) for Publisher support options.
 
 ## <a name="next-steps"></a>Nästa steg
 

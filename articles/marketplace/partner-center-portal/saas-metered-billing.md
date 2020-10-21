@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d232f7ba1304d76a0ba2db62b9f0f9b4229513f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378616"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279179"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Mätning av fakturering för SaaS med hjälp av den kommersiella tjänsten för avläsning av marknads platser
 
@@ -153,7 +153,7 @@ Om du har något av följande problem kan du öppna ett support ärende.
 - Ett problem som måste eskaleras på grund av ett fel eller fel på sidan (t. ex. fel användnings händelse).
 - Eventuella andra problem som rör mätning av fakturering.
 
-Om du vill förstå support alternativen för Publisher och öppna ett support ärende med Microsoft, följer du instruktionerna i [Support för programmet för kommersiella marknads platser i Partner Center](./support.md).
+Om du vill förstå support alternativen för Publisher och öppna ett support ärende med Microsoft, följer du instruktionerna i [Support för programmet för kommersiella marknads platser i Partner Center](../support.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

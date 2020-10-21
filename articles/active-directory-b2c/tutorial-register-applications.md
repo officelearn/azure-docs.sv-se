@@ -12,12 +12,12 @@ ms.date: 04/10/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f278f0713280dde27d6c3892b4d1f1557d17ecb4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d38f10e5a4f2562825ed2374317602b0640894ae
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215951"
+ms.locfileid: "92275880"
 ---
 # <a name="tutorial-register-a-web-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett webb program i Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Innan dina [program](application-types.md) kan interagera med Azure Active Direc
 Ett "webb program" syftar på ett traditionellt webb program som utför merparten av program logiken på servern. De kan skapas med hjälp av ramverk som ASP.NET Core, maven (Java), kolv (python) och Express (Node.js).
 
 > [!IMPORTANT]
-> Om du använder ett **enda webb program ("Spa")** i stället (t. ex. genom att använda vinkel, Vue eller reagera), lär du dig [hur du registrerar ett program](tutorial-register-spa.md)med en sida.
+> Om du använder ett enda webb program ("SPA") i stället (t. ex. genom att använda vinkel, Vue eller reagera), lär du dig [hur du registrerar ett program](tutorial-register-spa.md)med en sida.
 > 
-> Om du använder en **inbyggd app** i stället (t. ex. iOS, Android, mobil & Desktop), lär du dig [hur du registrerar ett internt klient program](add-native-application.md).
+> Om du använder en inbyggd app i stället (t. ex. iOS, Android, mobil & Desktop), lär du dig [hur du registrerar ett internt klient program](add-native-application.md).
 
 ## <a name="prerequisites"></a>Krav
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
@@ -67,13 +67,11 @@ Om du vill registrera ett webb program i din Azure AD B2C klient kan du använda
 1. Välj **program (bakåtkompatibelt)** och välj sedan **Lägg till**.
 1. Ange ett namn på programmet. Till exempel *webapp1*.
 1. För **Inkludera webb program/webb-API**väljer du **Ja**.
-1. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. Du kan till exempel ange att den ska lyssna lokalt på `https://localhost:44316` . Om du inte känner till port numret än kan du ange ett värde för plats hållare och ändra det senare.
+1. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. Du kan till exempel ange att den ska lyssna lokalt på `http://localhost:5000` . Du kan när som helst lägga till och ändra omdirigerings-URI: er i dina registrerade program.
 
-    För testnings ändamål som den här själv studie kursen kan du ange det `https://jwt.ms` som visar innehållet i en token för att kontrol lera. I den här självstudien anger du **svars-URL** till `https://jwt.ms` .
+    Följande begränsningar gäller för omdirigerings-URI: er:
 
-    Följande begränsningar gäller för svars-URL: er:
-
-    * Svars-URL: en måste börja med schemat `https` .
+    * Svars-URL: en måste börja med schemat `https` , om du inte använder `localhost` .
     * Svars-URL: en är Skift läges känslig. Dess fall måste matcha fallet med URL-sökvägen till det program som körs. Om ditt program t. ex. ingår som en del av sökvägen `.../abc/response-oidc` ska du inte ange `.../ABC/response-oidc` i svars-URL: en. Eftersom webbläsaren behandlar sökvägar som Skift läges känsliga, kan cookies som är kopplade till `.../abc/response-oidc` uteslutas om de omdirigeras till den Skift läges fel matchnings bara `.../ABC/response-oidc` URL: en.
 
 1. Välj **skapa** för att slutföra program registreringen.

@@ -4,12 +4,12 @@ description: Ger en översikt över Azure Site Recovery-tjänsten och sammanfatt
 ms.topic: overview
 ms.date: 03/17/2020
 ms.custom: MVC
-ms.openlocfilehash: 2b8268a47a141bb7254571a762bb9603e1a31b04
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 19860e64182cd73fe9f9fa1246f440a03109d465
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86135228"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281879"
 ---
 # <a name="about-site-recovery"></a>Om Site Recovery
 
@@ -29,7 +29,7 @@ Site Recovery kan hantera replikering för:
 
 ## <a name="what-does-site-recovery-provide"></a>Vad tillhandahåller Site Recovery?
 
-**Funktion** | **Information**
+**Funktion** | **Detaljer**
 --- | ---
 **Enkel BCDR-lösning** | Med Site Recovery kan du konfigurera och hantera replikering, redundans och återställning från en enda plats i Azure-portalen.
 **Replikering av virtuella Azure-datorer** | Du kan konfigurera återställning av virtuella Azure-datorer från en primär region till en sekundär region.
@@ -47,10 +47,10 @@ Site Recovery kan hantera replikering för:
 
 ## <a name="what-can-i-replicate"></a>Vad kan jag replikera?
 
-**Stöds** | **Information**
+**Stöds** | **Detaljer**
 --- | ---
 **Replikeringsscenarier** | Replikera virtuella Azure-datorer från en Azure-region till en annan.<br/><br/>  Replikera lokala, virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar (Windows och Linux) samt virtuella Azure Stack-datorer till Azure.<br/><br/> Replikera AWS Windows-instanser till Azure.<br/><br/> Replikera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer som hanteras av System Center VMM och fysiska servrar till en sekundär plats.
-**Regioner** | Kontrollera [regioner som stöds](https://azure.microsoft.com/regions/services/) för Site Recovery. |
+**Regioner** | Kontrollera [regioner som stöds](https://azure.microsoft.com/global-infrastructure/services/?products=site-recovery) för Site Recovery. |
 **Replikerade datorer** | Granska replikeringskraven för [virtuella Azure-datorer](azure-to-azure-support-matrix.md#replicated-machine-operating-systems), [lokala virtuella datorer med VMware och fysiska servrar](vmware-physical-azure-support-matrix.md#replicated-machines) samt [lokala virtuella datorer med Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms).
 **Arbetsbelastningar** | Du kan replikera alla arbetsbelastningar som körs på en dator det finns replikeringsstöd för. Och Site Recovery-teamet startade appar för [flera olika appar](site-recovery-workload.md#workload-summary).
 

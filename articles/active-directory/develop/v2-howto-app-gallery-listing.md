@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/14/2020
+ms.date: 08/19/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: dc271fa768bee66107e66a1b8d4f16c1188ce418
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439752"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275737"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicera din app i Azure AD App-galleriet
 
@@ -240,7 +240,7 @@ Om du vill lägga till ditt program i listan i galleriet med **saml 2,0** eller 
 
 ![Lista ett SAML 2,0-eller WS-Fed-program i galleriet](./media/howto-app-gallery-listing/saml.png)
 
-Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen ord för enkel inloggning väljer du **lösen ord för inloggning** som visas.
+Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen ord för enkel inloggning väljer du **lösen ord SSO (användar namn & lösen ord)** som det visas.
 
 ![Visar en lista med ett SSO-program i galleriet](./media/howto-app-gallery-listing/passwordsso.png)
 

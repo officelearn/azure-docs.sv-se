@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 58db7dcade7567d632fb405b31c4ff7bdbc6e71a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 399f81a5246633912d1e17a13492e404119e362f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018977"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282068"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läsa ändringsflödet i Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Att använda en push-modell är det enklaste sättet att läsa från ändrings f
 
 ### <a name="azure-functions"></a>Azure Functions
 
-Azure Functions är det enklaste alternativet om du precis har börjat använda ändrings flödet. På grund av dess enkelhet är det också det rekommenderade alternativet för de flesta användnings fall av ändrings flöden. När du skapar en Azure Functions utlösare för Azure Cosmos DB väljer du den behållare som ska anslutas, och Azure-funktionen utlöses när det finns en ändring i behållaren. Eftersom Azure Functions använder processorn för byte av byte i bakgrunden, parallelizes ändrings bearbetningen automatiskt mellan dina behållares [partitioner](partition-data.md).
+Azure Functions är det enklaste alternativet om du precis har börjat använda ändrings flödet. På grund av dess enkelhet är det också det rekommenderade alternativet för de flesta användnings fall av ändrings flöden. När du skapar en Azure Functions utlösare för Azure Cosmos DB väljer du den behållare som ska anslutas, och Azure-funktionen utlöses när det finns en ändring i behållaren. Eftersom Azure Functions använder processorn för byte av byte i bakgrunden, parallelizes ändrings bearbetningen automatiskt mellan dina behållares [partitioner](partitioning-overview.md).
 
 Att utveckla med Azure Functions är en enkel upplevelse och kan vara snabbare än att distribuera bytet av byte av byte på egen hand. Utlösare kan skapas med hjälp av Azure Functions portalen eller via programmering med SDK: er. Visual Studio och VS Code ger stöd för att skriva Azure Functions, och du kan även använda Azure Functions CLI för utveckling över plattformar. Du kan skriva och felsöka koden på Skriv bordet och sedan distribuera funktionen med ett klick. Läs mer i [data behandling utan server med hjälp av Azure Functions](serverless-computing-database.md) och [Använd ändra feed med Azure Functions](change-feed-functions.md) artiklar.
 

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570008"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320219"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Felsöka PostgreSQL för storskaliga Server grupper
 I den här artikeln beskrivs några tekniker som du kan använda för att felsöka Server gruppen. Förutom den här artikeln kanske du vill läsa om hur du använder [Kibana](monitor-grafana-kibana.md) för att söka i loggarna eller använda [Grafana](monitor-grafana-kibana.md) för att visualisera mått för Server gruppen. 
@@ -51,13 +51,13 @@ Vi kan till exempel felsöka en PostgreSQL-Server grupp som kan ha problem med a
 
 ### <a name="install-tools"></a>Installera verktygen
 
-Installera Azure Data Studio `kubectl` och `azdata` på klient datorn som du använder för att köra antecknings boken i Azure Data Studio. Det gör du genom att följa anvisningarna i [Installera klient verktyg](install-client-tools.md)
+Installera Azure Data Studio `kubectl` och [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] på klient datorn som du använder för att köra antecknings boken i Azure Data Studio. Det gör du genom att följa anvisningarna i [Installera klient verktyg](install-client-tools.md)
 
 ### <a name="update-the-path-environment-variable"></a>Uppdatera PATH-miljövariabeln
 
 Se till att dessa verktyg kan anropas från var som helst på klient datorn. Till exempel på en Windows-klientdator uppdaterar du sökvägen systemets miljö variabel och lägger till den mapp där du installerade kubectl.
 
-### <a name="sign-in-with-azdata"></a>Logga in med `azdata`
+### <a name="sign-in-with-azure-data-cli-azdata"></a>Logga in med [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
 Logga in på din ARC-datakontrollant från den här klient datorn och innan du startar Azure Data Studio. Det gör du genom att köra ett kommando som:
 

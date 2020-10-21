@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 50d077c1d7c9e4e421a43a4e0379b57608d1192c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63663d228052934616a59f5d84ff16a6510e46c9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361774"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282090"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Förstå skillnaderna mellan NoSQL och Relations databaser
 
@@ -95,8 +95,8 @@ Lär dig hur du hanterar ditt Azure Cosmos-konto och andra koncept:
 * [Så här hanterar du ditt Azure Cosmos-konto](how-to-manage-database-account.md)
 * [Global distribution](distribute-data-globally.md)
 * [Konsekvensnivåer](consistency-levels.md)
-* [Arbeta med Azure Cosmos-behållare och-objekt](databases-containers-items.md)
-* [VNET-tjänstens slut punkt för ditt Azure Cosmos-konto](vnet-service-endpoint.md)
-* [IP-brandvägg för ditt Azure Cosmos-konto](firewall-support.md)
+* [Arbeta med Azure Cosmos-behållare och-objekt](account-databases-containers-items.md)
+* [VNET-tjänstens slut punkt för ditt Azure Cosmos-konto](how-to-configure-vnet-service-endpoint.md)
+* [IP-brandvägg för ditt Azure Cosmos-konto](how-to-configure-firewall.md)
 * [Anvisningar för att lägga till och ta bort Azure-regioner i ditt Azure Cosmos-konto](how-to-manage-database-account.md)
 * [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: b327c0786fb07488fd8863272598dbffe19bfe07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167614"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278193"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Vanliga frågor och svar om API för Cassandra i Azure Cosmos DB
 
@@ -79,11 +79,11 @@ Diagnostikloggar beskrivs i artikeln [Azure Cosmos DB diagnostisk loggning](logg
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>Mappar primär nyckeln till partitionens nyckel koncept för Azure Cosmos DB?
 
-Ja, partitionsnyckel används för att placera entiteten på rätt plats. I Azure Cosmos DB används den för att hitta rätt logisk partition som lagras på en fysisk partition. Partitionerings begreppet är väl förklarat i [partitionen och skala i Azure Cosmos DB](partition-data.md) artikel. Den viktigaste sak här är att en logisk partition inte ska gå över 20 GB-gränsen.
+Ja, partitionsnyckel används för att placera entiteten på rätt plats. I Azure Cosmos DB används den för att hitta rätt logisk partition som lagras på en fysisk partition. Partitionerings begreppet är väl förklarat i [partitionen och skala i Azure Cosmos DB](partitioning-overview.md) artikel. Den viktigaste sak här är att en logisk partition inte ska gå över 20 GB-gränsen.
 
 ### <a name="what-happens-when-i-get-a-notification-that-a-partition-is-full"></a>Vad händer när jag får ett meddelande om att en partition är full?
 
-Azure Cosmos DB är ett system baserat på service nivå avtal (SLA). Den ger obegränsad skalning, med garantier för svars tid, data flöde, tillgänglighet och konsekvens. Det här obegränsade lagrings utrymmet baseras på vågrätt nedskalning av data, med partitionering som nyckel koncept. Partitionerings begreppet är väl förklarat i [partitionen och skala i Azure Cosmos DB](partition-data.md) artikel.
+Azure Cosmos DB är ett system baserat på service nivå avtal (SLA). Den ger obegränsad skalning, med garantier för svars tid, data flöde, tillgänglighet och konsekvens. Det här obegränsade lagrings utrymmet baseras på vågrätt nedskalning av data, med partitionering som nyckel koncept. Partitionerings begreppet är väl förklarat i [partitionen och skala i Azure Cosmos DB](partitioning-overview.md) artikel.
 
 Du bör följa 20 GB-gränsen för antalet entiteter eller objekt per logisk partition. För att säkerställa att ditt program skalar bra, rekommenderar vi att du *inte* skapar en aktiv partition genom att lagra all information i en partition och fråga den. Det här felet kan bara förekomma om dina data är skevade: det vill säga att du har massor av data för en partitionsnyckel (mer än 20 GB). Du kan hitta data fördelningen med hjälp av lagrings portalen. Sättet att åtgärda det här felet är att återskapa tabellen och välja en detaljerad primär nyckel (partitionsnyckel), vilket gör att data kan distribueras bättre.
 

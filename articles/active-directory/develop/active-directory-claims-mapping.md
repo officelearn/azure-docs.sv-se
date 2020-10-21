@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c300faf33f57518d26f82234bdff94a37235cd66
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601477"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275799"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
 
@@ -419,7 +419,7 @@ Baserat på den valda metoden förväntas en uppsättning indata och utdata. Def
 
 ### <a name="custom-signing-key"></a>Anpassad signerings nyckel
 
-En anpassad signerings nyckel måste tilldelas till tjänstens huvud objekt för att en anspråks mappnings princip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråks mappnings principen och skyddar program från principer för anspråk mappning som skapats av skadliga aktörer. Om du vill lägga till en anpassad signerings nyckel kan du använda Azure PowerShell cmdlet `new-azureadapplicationkeycredential` för att skapa en symmetrisk nyckel autentiseringsuppgift för ditt program objekt. Mer information om denna Azure PowerShell-cmdlet finns i [New-AzureADApplicationKeyCredential](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+En anpassad signerings nyckel måste tilldelas till tjänstens huvud objekt för att en anspråks mappnings princip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråks mappnings principen och skyddar program från principer för anspråk mappning som skapats av skadliga aktörer. Du kan lägga till en anpassad signerings nyckel genom att använda Azure PowerShell-cmdlet: [`New-AzureADApplicationKeyCredential`](/powerShell/module/Azuread/New-AzureADApplicationKeyCredential) en för att skapa en certifikat nyckels autentiseringsuppgift för ditt program objekt.
 
 Appar som har aktiverat anspråks mappning måste verifiera sina token signerings nycklar genom `appid={client_id}` att lägga till i deras [OpenID Connect metadata-begäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Nedan visas formatet för OpenID Connect-Metadatadokumentet som du bör använda:
 

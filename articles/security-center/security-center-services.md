@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad35af600b8973268d07f3a8baae225b91cebc1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858021"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275232"
 ---
 # <a name="feature-coverage-for-machines"></a>Funktions täckning för datorer
 
@@ -28,7 +28,7 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 
 ### <a name="windows-machines"></a>[**Windows-datorer**](#tab/features-windows)
 
-|**Funktion**|**Azure Virtual Machines**|**Skalningsuppsättningar för virtuella Azure-datorer**|**Datorer som inte är Azure-datorer**|**Azure Defender krävs**
+|**Funktion**|**Azure Virtual Machines**|**Skalningsuppsättningar för virtuella Azure-datorer**|**Azure Arc-aktiverade datorer**|**Azure Defender krävs**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Ja|
 |[Beteende analys av virtuella datorer (och säkerhets aviseringar)](alerts-reference.md)|✔|✔|✔|Ja|
@@ -42,17 +42,17 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Ja|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Ja|
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|-|-|-|Ja|
-|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
-|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
-|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
-|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Inga|
-|Sårbarhets bedömning från tredje part|✔|-|-|Inga|
-|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Inga|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: Nej<br><br>Arc-aktiverat: Ja|
+|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: Nej<br><br>Arc-aktiverat: Ja|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Nej<br><br>Arc-aktiverat: Ja|
+|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nej|
+|Sårbarhets bedömning från tredje part|✔|-|-|Nej|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Nej|
 
 
 ### <a name="linux-machines"></a>[**Linux-datorer**](#tab/features-linux)
 
-|**Funktion**|**Azure Virtual Machines**|**Skalningsuppsättningar för virtuella Azure-datorer**|**Datorer som inte är Azure-datorer**|**Azure Defender krävs**
+|**Funktion**|**Azure Virtual Machines**|**Skalningsuppsättningar för virtuella Azure-datorer**|**Azure Arc-aktiverade datorer**|**Azure Defender krävs**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP-integrering](security-center-wdatp.md)|-|-|-|Ja|
 |[Beteende analys av virtuella datorer (och säkerhets aviseringar)](security-center-alerts-iaas.md)|✔</br>(i versioner som stöds)|✔</br>(i versioner som stöds)|✔|Ja|
@@ -66,12 +66,12 @@ De två flikarna nedan visar funktionerna i Azure Security Center som är tillg�
 |[Anpassningsbar nätverkshärdning](security-center-adaptive-network-hardening.md)|✔|-|-|Ja|
 |[Instrument panel för regelefterlevnad & rapporter](security-center-compliance-dashboard.md)|✔|✔|✔|Ja|
 |Rekommendationer och hot skydd på Docker-värdbaserade IaaS-behållare|✔|✔|✔|Ja|
-|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
-|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: Nej<br><br>Icke-Azure: Ja|
-|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Inga|
-|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Inga|
-|Sårbarhets bedömning från tredje part|✔|-|-|Inga|
-|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Inga|
+|Utvärdering av OS-korrigeringsfiler som saknas|✔|✔|✔|Azure: Nej<br><br>Arc-aktiverat: Ja|
+|Utvärdering av felkonfigurationer för säkerhet|✔|✔|✔|Azure: Nej<br><br>Arc-aktiverat: Ja|
+|[Endpoint Protection-utvärdering](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Nej|
+|Disk krypterings bedömning|✔</br>(för [scenarier som stöds](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|Nej|
+|Sårbarhets bedömning från tredje part|✔|-|-|Nej|
+|[Nätverks säkerhets utvärdering](security-center-network-recommendations.md)|✔|✔|-|Nej|
 
 --- 
 
@@ -93,11 +93,11 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 |------|------|-----|-----|
 | Microsoft Defender Antivirus| Windows Server 2016 eller senare| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
-| Trend Micro – djup säkerhet | Windows Server-familjen  | Inga | Ja |
-| Symantec v12.1.1100+| Windows Server-familjen  | Inga | Ja |
-| McAfee v10 + | Windows Server-familjen  | Inga | Ja |
-| McAfee v10 + | Linux Server-serien  | Inga | Ja **\*** |
-| Sophos v9 +| Linux Server-serien  | Inga | Ja  **\***  |
+| Trend Micro – djup säkerhet | Windows Server-familjen  | Nej | Ja |
+| Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
+| McAfee v10 + | Windows Server-familjen  | Nej | Ja |
+| McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
+| Sophos v9 +| Linux Server-serien  | Nej | Ja  **\***  |
 
  **\*** Täcknings tillstånd och kompletterande data är för närvarande bara tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer. Den visas inte i Azure Security Center portalen.
 

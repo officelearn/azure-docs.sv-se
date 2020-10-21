@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334437"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279716"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
@@ -87,8 +87,8 @@ Följande tabell visar mappningen mellan olika Azure Cosmos-kontos API-typer, un
 |Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
 |Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
 |Gremlin     |  SQL       |  privatelink.documents.azure.com    |
-|Tabell    |    Tabell     |   privatelink.table.cosmos.azure.com    |
-|Tabell     |   SQL      |  privatelink.documents.azure.com    |
+|Tabeller    |    Tabeller     |   privatelink.table.cosmos.azure.com    |
+|Tabeller     |   SQL      |  privatelink.documents.azure.com    |
 
 ### <a name="fetch-the-private-ip-addresses"></a>Hämta de privata IP-adresserna
 
@@ -684,7 +684,7 @@ Om du inte rensar DNS-posterna kan oväntade data Plans problem uppstå. Dessa p
 
 Mer information om Azure Cosmos DB säkerhetsfunktioner finns i följande artiklar:
 
-* Information om hur du konfigurerar en brand vägg för Azure Cosmos DB finns i [brand Väggs stöd](firewall-support.md).
+* Information om hur du konfigurerar en brand vägg för Azure Cosmos DB finns i [brand Väggs stöd](how-to-configure-firewall.md).
 
 * Information om hur du konfigurerar en tjänst slut punkt för ett virtuellt nätverk för ditt Azure Cosmos-konto finns i [Konfigurera åtkomst från virtuella nätverk](how-to-configure-vnet-service-endpoint.md).
 

@@ -9,32 +9,32 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1061cd7a37cbe9ce5ea360de22594d6eb4c0c2f5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569930"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275294"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
-> * [Våren data v2](sql-api-sdk-java-spring-v2.md)
-> * [Våren data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring-data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring-data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Masskörningsbibliotek – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Masskörningsbibliotek – Java](sql-api-sdk-bulk-executor-java.md)
 
 Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL API som stöder synkrona åtgärder.
 
@@ -85,7 +85,7 @@ Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL 
 ### <a name="230"></a><a name="2.3.0"></a>2.3.0
 * Separat timeout-stöd har lagts till för direkt läge.
 
-### <a name="223"></a><a name="2.2.3"></a>punkt
+### <a name="223"></a><a name="2.2.3"></a>2.2.3
 * Använder null-felmeddelande från tjänst och genererar dokument klient undantag.
 
 ### <a name="222"></a><a name="2.2.2"></a>2.2.2
@@ -232,7 +232,7 @@ Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL 
 * Stöd för TTL (Time to Live) för dokument har lagts till.
 
 ### <a name="160"></a><a name="1.6.0"></a>1.6.0
-* Implementerade [partitionerade samlingar](partition-data.md) och [användardefinierade prestanda nivåer](performance-levels.md).
+* Implementerade [partitionerade samlingar](partitioning-overview.md) och [användardefinierade prestanda nivåer](performance-levels.md).
 
 ### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * En bugg har åtgärd ATS i HashPartitionResolver för att generera hash-värden i lite-endian för att vara konsekventa med andra SDK: er.
@@ -260,15 +260,15 @@ Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL 
 
 ## <a name="release-and-retirement-dates"></a>Datum för lansering och indragning
 
-Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds. Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, eftersom det rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
+Microsoft meddelar kunder minst **12 månader** innan en SDK-version dras tillbaka för att säkerställa en smidig övergång till en nyare version eller en version som stöds. Nya funktioner och funktioner och optimeringar läggs bara till i den aktuella SDK: n, eftersom det rekommenderar att du alltid uppgraderar till den senaste SDK-versionen så tidigt som möjligt.
 
 > [!WARNING]
-> Efter 30 maj 2020 kommer Azure Cosmos DB inte längre att göra fel korrigeringar, lägga till nya funktioner och ge stöd till version 1. x av Azure Cosmos DB Java SDK för SQL API. Om du föredrar att inte uppgradera fortsätter de begär Anden som skickas från version 1. x av SDK att hanteras av Azure Cosmos DBs tjänsten.
+> Efter 30 maj 2020 kommer Azure Cosmos DB inte längre att göra fel korrigeringar, lägga till nya funktioner och ge stöd till version 1. x av Azure Cosmos DB Java SDK för SQL API. Om du föredrar att inte uppgradera kommer begäranden från version 1.x av SDK:n att fortsätta att hanteras av tjänsten Azure Cosmos DB.
 >
 > Efter 29 februari 2016 kommer Azure Cosmos DB inte längre att göra fel korrigeringar, lägga till nya funktioner och ge stöd till version 0. x av Azure Cosmos DB Java SDK för SQL API. Om du inte vill uppgradera, kommer begär Anden som skickats från version 0. x av SDK fortsätta att hanteras av tjänsten Azure Cosmos DB.
 
 
-| Version | Lanserings datum | Förfallodatum |
+| Version | Utgivningsdatum | Förfallodatum |
 | --- | --- | --- |
 | [2.5.1](#2.5.1) |Juli 03 2020 |--- |
 | [2.5.0](#2.5.0) |12 maj 2020 |--- |
@@ -280,7 +280,7 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 | [2.4.1](#2.4.1) |Jul 18, 2019 |--- |
 | [2.4.0](#2.4.0) |Den 04 maj 2019 |--- |
 | [2.3.0](#2.3.0) |24 april 2019 |--- |
-| [punkt](#2.2.3) |16 april 2019 |--- |
+| [2.2.3](#2.2.3) |16 april 2019 |--- |
 | [2.2.2](#2.2.2) |Apr 05, 2019 |--- |
 | [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
 | [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
@@ -330,5 +330,5 @@ Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även
-Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
+Mer information om Cosmos DB finns på sidan om tjänsten [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 

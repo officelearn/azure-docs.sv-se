@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea5d291f372485da714104eaa7df19ed3a153423
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b481a1ccf36120a30bf7c923e2d59c5782433567
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206194"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282508"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -73,16 +73,14 @@ I det här avsnittet hittar du information om hur du konfigurerar SSO med de fle
 
 
 ## <a name="documentation-on-integration-of-azure-services-into-sap-components"></a>Dokumentation om integrering av Azure-tjänster i SAP-komponenter
+I det här avsnittet hittar du dokument om PowerBI-integrering i SAP-datakällor och Azure Data Factory integrering i SAP BW.
 
-- [Använda SAP HANA i Power BI Desktop](/power-bi/desktop-sap-hana)
-- [DirectQuery och SAP HANA](/power-bi/desktop-directquery-sap-hana)
-- [Använda SAP BW-anslutningsappen i Power BI Desktop](/power-bi/desktop-sap-bw-connector) 
-- [Azure Data Factory erbjuder dataintegrering för SAP HANA och Business Warehouse](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 
 ## <a name="change-log"></a>Ändrings logg
 
-- 10/16/2020: ändra i/ [ha för IBM DB2-LUW på virtuella Azure-datorer på SLES med pacemaker](./dbms-guide-ha-ibm.md), [ha för SAP NW på virtuella Azure-datorer på RHEL för SAP-program](./high-availability-guide-rhel.md), [ha för IBM DB2 LUW på virtuella Azure-datorer på RHEL](./high-availability-guide-rhel-ibm-db2-luw.md), [ha för SAP NW på](./high-availability-guide-rhel-multi-sid.md)virtuella Azure-datorer på RHEL [med](./high-availability-guide-rhel-netapp-files.md)RHEL, ha [för SAP NW på virtuella Azure-datorer på SLES för SAP-program,](./high-availability-guide-suse.md)ha för SAP-NNW [på virtuella Azure-datorer på SLES multi-sid-guide,](./high-availability-guide-suse-multi-sid.md)ha [för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program,](./high-availability-guide-suse-netapp-files.md)ha för NFS [på virtuella Azure-](./high-availability-guide-suse-nfs.md)datorer på SLES, ha till SAP HANA [på SLES](./sap-hana-high-availability.md)för virtuella Azure-datorer med [ANF](./sap-hana-high-availability-netapp-files-red-hat.md) SAP HANA , [Ha av SAP HANA på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-rhel.md), [SAP HANA Scale-Out-HSR med pacemaker på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [förbereda Azure-infrastrukturen för SAP ASCS/SCS med WSFC och delad disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md), [multi-sid ha guide för SAP ASCS/SCS med WSFC och Azure Shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) och [multi-sid ha hand bok för SAP ASCS/SCS](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) med WSFC och delad disk för att lägga till en instruktion som flytande IP inte stöds i belastnings utjämning  
+- 10/16/2020: ändra i/ [ha för IBM DB2-LUW på virtuella Azure-datorer på SLES med pacemaker](./dbms-guide-ha-ibm.md), [ha för SAP NW på virtuella Azure-datorer på RHEL för SAP-program](./high-availability-guide-rhel.md), [ha för IBM DB2 LUW på virtuella Azure-datorer på RHEL](./high-availability-guide-rhel-ibm-db2-luw.md), [ha för SAP NW på](./high-availability-guide-rhel-multi-sid.md)virtuella Azure-datorer på RHEL [med](./high-availability-guide-rhel-netapp-files.md)RHEL, ha [för SAP NW på virtuella Azure-datorer på SLES för SAP-program,](./high-availability-guide-suse.md)ha för SAP-NNW [på virtuella Azure-datorer på SLES multi-sid-guide,](./high-availability-guide-suse-multi-sid.md)ha [för SAP NW på virtuella Azure-datorer på SLES med ANF för SAP-program,](./high-availability-guide-suse-netapp-files.md)ha för NFS [på virtuella Azure-](./high-availability-guide-suse-nfs.md)datorer på SLES, ha till SAP HANA [på SLES](./sap-hana-high-availability.md)för virtuella Azure-datorer med [ANF](./sap-hana-high-availability-netapp-files-red-hat.md) SAP HANA , [Ha av SAP HANA på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-rhel.md), [SAP HANA Scale-Out-HSR med pacemaker på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md), [förbereda Azure-infrastrukturen för SAP ASCS/SCS med WSFC och delad disk](./sap-high-availability-infrastructure-wsfc-shared-disk.md), [multi-sid ha guide för SAP ASCS/SCS med WSFC och Azure Shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) och [multi-sid ha hand bok för SAP ASCS/SCS](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md) med WSFC och delad disk för att lägga till en instruktion som flytande IP inte stöds i belastnings utjämning 
+- 10/16/2020: lägga till dokumentation för att kontrol lera lagrings ögonblicks bilder av HANA-stora instanser i [säkerhets kopiering och återställning av SAP HANA på Hana stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore)
 - 10/15/2020: utgåva av SAP BusinessObjects BI-plattformen i Azure-dokumentation, [SAP BUSINESSOBJECTS bi plattforms planering och implementerings guide för Azure](businessobjects-deployment-guide.md) och [SAP BusinessObjects bi Platform Deployment Guide for Linux på Azure](businessobjects-deployment-guide-linux.md)
 - 10/05/2020: version av [SAP HANA skalbar HSR med pacemaker på virtuella Azure-datorer i](./sap-hana-high-availability-scale-out-hsr-rhel.md) konfigurations guiden för RHEL
 - 09/30/2020: ändra [hög tillgänglighet för SAP HANA på virtuella Azure-datorer på RHEL](./sap-hana-high-availability-rhel.md), [ha för SAP HANA skala upp med ANF på RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) och [Konfigurera pacemaker på RHEL i Azure](./high-availability-guide-rhel-pacemaker.md) för att anpassa instruktionerna för RHEL 8,1

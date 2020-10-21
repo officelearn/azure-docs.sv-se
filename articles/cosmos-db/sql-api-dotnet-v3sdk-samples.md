@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 66cf408799b37de1160ec3a76ee11ff1ffbb770b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe31e67168c4eaf6fe94c056a96fdf695ea94fe4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801434"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279987"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Azure Cosmos DB.NET v3 SDK-exempel (Microsoft. Azure. Cosmos) för SQL-API: et
 
@@ -33,7 +33,7 @@ ms.locfileid: "91801434"
 * Länkar till uppgifterna i var och en av C#-projektfilerna.
 * Länkar till det relaterade API-referensinnehållet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Visual Studio 2019 med arbets flödet Azure Development installerat
 
@@ -54,7 +54,7 @@ En Azure-prenumeration eller ett kostnads fritt Cosmos DB utvärderings konto
 
 ## <a name="database-examples"></a>Databasexempel
 
-[RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L65-L91) -metoden för exempel *DatabaseManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om Azure Cosmos-databaser innan du kör följande exempel kan du läsa [arbeta med databaser, behållare och objekt](databases-containers-items.md).
+[RunDatabaseDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/DatabaseManagement/Program.cs#L65-L91) -metoden för exempel *DatabaseManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om Azure Cosmos-databaser innan du kör följande exempel kan du läsa [arbeta med databaser, behållare och objekt](account-databases-containers-items.md).
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -65,7 +65,7 @@ En Azure-prenumeration eller ett kostnads fritt Cosmos DB utvärderings konto
 
 ## <a name="container-examples"></a>Containerexempel
 
-[RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L69-L89) -metoden för exempel *ContainerManagement* -projektet visar hur du utför följande uppgifter. Information om Azure Cosmos-behållare innan du kör följande exempel finns i [arbeta med databaser, behållare och objekt](databases-containers-items.md).
+[RunContainerDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ContainerManagement/Program.cs#L69-L89) -metoden för exempel *ContainerManagement* -projektet visar hur du utför följande uppgifter. Information om Azure Cosmos-behållare innan du kör följande exempel finns i [arbeta med databaser, behållare och objekt](account-databases-containers-items.md).
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -78,7 +78,7 @@ En Azure-prenumeration eller ett kostnads fritt Cosmos DB utvärderings konto
 
 ## <a name="item-examples"></a>Objektexempel
 
-[RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L119-L130) -metoden för exempel *ItemManagement* -projektet visar hur du utför följande uppgifter. Information om Azure Cosmos-objekt innan du kör följande exempel finns i [arbeta med databaser, behållare och objekt](databases-containers-items.md).
+[RunItemsDemo](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L119-L130) -metoden för exempel *ItemManagement* -projektet visar hur du utför följande uppgifter. Information om Azure Cosmos-objekt innan du kör följande exempel finns i [arbeta med databaser, behållare och objekt](account-databases-containers-items.md).
 
 | Uppgift | API-referens |
 | --- | --- |

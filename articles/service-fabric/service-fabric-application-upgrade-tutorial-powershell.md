@@ -4,12 +4,12 @@ description: Den här artikeln beskriver hur du distribuerar ett Service Fabric 
 ms.topic: conceptual
 ms.date: 8/5/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 61eba8b7285c2a015ee40d48bc4a73850b412576
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee040916ae1ce6ac931abc1fc07021b08cdbf895
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075196"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309060"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Service Fabric program uppgradering med PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ En övervakad program uppgradering kan utföras med hjälp av hanterade eller in
 Med Service Fabric övervakade rullande uppgraderingar kan program administratören konfigurera hälso utvärderings principen som Service Fabric använder för att avgöra om programmet är felfritt. Dessutom kan administratören konfigurera åtgärden som ska vidtas när hälso utvärderingen Miss lyckas (till exempel göra en automatisk återställning). Det här avsnittet går igenom en övervakad uppgradering för ett av SDK-exemplen som använder PowerShell. 
 
 > [!NOTE]
-> [ApplicationParameter](https://docs.microsoft.com/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s bevaras inte i en program uppgradering. För att bevara aktuella program parametrar bör användaren hämta parametrarna först och skicka dem till uppgraderings-API-anropet som nedan:
+> [ApplicationParameter](/dotnet/api/system.fabric.description.applicationdescription.applicationparameters?view=azure-dotnet#System_Fabric_Description_ApplicationDescription_ApplicationParameters)s bevaras inte i en program uppgradering. För att bevara aktuella program parametrar bör användaren hämta parametrarna först och skicka dem till uppgraderings-API-anropet som nedan:
 ```powershell
 $myApplication = Get-ServiceFabricApplication -ApplicationName fabric:/myApplication
 $appParamCollection = $myApplication.ApplicationParameters
@@ -149,4 +149,3 @@ Gör dina program uppgraderingar kompatibla genom att lära dig hur du använder
 Lär dig hur du använder avancerade funktioner när du uppgraderar ditt program genom att titta på [avancerade ämnen](service-fabric-application-upgrade-advanced.md).
 
 Åtgärda vanliga problem i program uppgraderingar genom att följa stegen i [Felsöka program uppgraderingar](service-fabric-application-upgrade-troubleshooting.md).
-

@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9d8bd72b6a03164a41e0b7c0ff00ac728cecf7f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355395"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278732"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Kontroll över transaktioner och optimistisk samtidighet
 
 Databas transaktioner tillhandahåller en säker och förutsägbar programmerings modell för att hantera samtidiga ändringar av data. Traditionella Relations databaser, som SQL Server, låter dig skriva affärs logik med lagrade procedurer och/eller utlösare, skicka den till servern för körning direkt i databas motorn. Med traditionella Relations databaser måste du hantera två olika programmeringsspråk (icke-transaktionell) programprogrammeringsspråk, till exempel Java Script, python, C#, Java osv. och det transaktions programmerings språk (t. ex. T-SQL) som körs internt av databasen.
 
-Databas motorn i Azure Cosmos DB har stöd för fullständiga syror (atomiska, konsekvens, isolering, hållbarhet)-kompatibla transaktioner med ögonblicks bild isolering. Alla databas åtgärder inom omfånget för en behållares [logiska partition](partition-data.md) är transaktionella exekverade i databas motorn som är värd för partitionens replik. Dessa åtgärder omfattar både skrivning (uppdatering av ett eller flera objekt i den logiska partitionen) och Läs åtgärder. I följande tabell visas olika åtgärder och transaktions typer:
+Databas motorn i Azure Cosmos DB har stöd för fullständiga syror (atomiska, konsekvens, isolering, hållbarhet)-kompatibla transaktioner med ögonblicks bild isolering. Alla databas åtgärder inom omfånget för en behållares [logiska partition](partitioning-overview.md) är transaktionella exekverade i databas motorn som är värd för partitionens replik. Dessa åtgärder omfattar både skrivning (uppdatering av ett eller flera objekt i den logiska partitionen) och Läs åtgärder. I följande tabell visas olika åtgärder och transaktions typer:
 
 | **Åtgärd**  | **Åtgärds typ** | **Transaktion för enkel eller flera objekt** |
 |---------|---------|---------|
@@ -51,7 +51,7 @@ Möjligheten att köra Java Script direkt i databas motorn ger prestanda och tra
 
 Med optimistisk concurrency-kontroll kan du förhindra förlorade uppdateringar och borttagningar. Samtidiga är att motstridiga åtgärder har den vanliga pessimistiska låsningen av databas motorn som är värd för den logiska partition som äger objektet. När två samtidiga åtgärder försöker uppdatera den senaste versionen av ett objekt i en logisk partition, kommer en av dem att vinna och det andra Miss lyckas. Men om en eller två åtgärder som försöker uppdatera samma objekt tidigare hade läst ett äldre värde av objektet, vet inte databasen om det tidigare läsning svärdet av antingen eller båda de motstridiga åtgärderna faktiskt var det senaste värdet för objektet. I tur och miljö kan den här situationen identifieras med **optimistisk Samtidighets kontroll (OCC)** innan de två åtgärderna anges i databas motorn. OCC skyddar dina data från att oavsiktligt skriva över ändringar som har gjorts av andra. Det förhindrar också andra från att av misstag skriva över dina egna ändringar.
 
-Samtidiga uppdateringar av ett objekt underkastas OCC av protokoll skiktet för Azure Cosmos DB. Azure Cosmos Database säkerställer att versions versionen av det objekt som du uppdaterar (eller tar bort) är samma som versionen av objektet i Azure Cosmos-behållaren. Detta garanterar att dina skrivningar är skyddade från att skrivas över av misstag av andras skrivningar och tvärtom. I en miljö med flera användare skyddar den optimistisk samtidighets kontrollen dig från att oavsiktligt ta bort eller uppdatera fel version av ett objekt. Därför skyddas objekt mot Infamous "förlorad uppdatering" eller "förlorad borttagning".
+Samtidiga uppdateringar av ett objekt underkastas OCC av protokoll skiktet för Azure Cosmos DB. Azure Cosmos Database säkerställer att versions versionen av det objekt som du uppdaterar (eller tar bort) är samma som versionen av objektet i Azure Cosmos-behållaren. Detta säkerställer att dina skrivningar är skyddade från att skrivas över av misstag av andras skrivningar och tvärtom. I en miljö med flera användare skyddar den optimistisk samtidighets kontrollen dig från att oavsiktligt ta bort eller uppdatera fel version av ett objekt. Därför skyddas objekt mot Infamous "förlorad uppdatering" eller "förlorad borttagning".
 
 Alla objekt som lagras i en Azure Cosmos-behållare har en systemdefinierad `_etag` egenskap. Värdet för `_etag` genereras automatiskt och uppdateras av servern varje gång objektet uppdateras. `_etag` kan användas med klientens `if-match` begär ande huvud för att tillåta att servern bestämmer om ett objekt kan uppdateras villkorligt. Värdet för `if-match` rubriken matchar värdet på `_etag` på servern, objektet uppdateras sedan. Om värdet för `if-match` begär ande rubriken inte längre är aktuellt, avvisar servern åtgärden med svarsmeddelandet "HTTP 412-förhands fel". Klienten kan sedan återskapa objektet för att hämta den aktuella versionen av objektet på servern eller åsidosätta versionen av objektet på servern med ett eget `_etag` värde för objektet. `_etag`Kan dessutom användas med `if-none-match` rubriken för att avgöra om en återhämtning av en resurs behövs.
 
@@ -61,7 +61,7 @@ Objektets `_etag` värde ändras varje gång objektet uppdateras. För att ersä
 
 Läs mer om databas transaktioner och optimistisk concurrency-kontroll i följande artiklar:
 
-- [Arbeta med Azure Cosmos-databaser, behållare och objekt](databases-containers-items.md)
+- [Arbeta med Azure Cosmos-databaser, behållare och objekt](account-databases-containers-items.md)
 - [Konsekvensnivåer](consistency-levels.md)
 - [Konflikttyper och matchningsprinciper](conflict-resolution-policies.md)
 - [Lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md)

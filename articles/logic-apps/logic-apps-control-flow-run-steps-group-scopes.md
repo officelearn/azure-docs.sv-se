@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95b5cc191ac6857bf8e1b09e70b22d928473fe03
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575018"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314846"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Kör åtgärder baserat på grupp status med hjälp av omfång i Azure Logic Apps
 
@@ -31,7 +31,7 @@ Om du vill följa exemplet i den här artikeln behöver du följande objekt:
 
 * Ett e-postkonto från valfri e-postleverantör som stöds av Logic Apps. I det här exemplet används Outlook.com. Om du använder en annan provider förblir det allmänna flödet detsamma, men ditt användar gränssnitt ser annorlunda ut.
 
-* En Bing Maps-nyckel. För att hämta den här nyckeln, se <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Hämta en Bing Maps-nyckel</a>.
+* En Bing Maps-nyckel. För att hämta den här nyckeln, se <a href="/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key" target="_blank">Hämta en Bing Maps-nyckel</a>.
 
 * Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 

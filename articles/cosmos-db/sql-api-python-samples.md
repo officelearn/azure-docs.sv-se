@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: a0db0ff7db8f0bf5b036e40080ee7ff8eac62b63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba4382e03e6fc1acfd606a375a062c05581f712c
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322690"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278221"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python-exempel
 
@@ -32,7 +32,7 @@ Exempellösningarna som utför CRUD-åtgärder och andra vanliga åtgärder på 
 * Länkar till uppgifterna i var och en av Python-exempelprojektfilerna.
 * Länkar till det relaterade API-referensinnehållet.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Cosmos DB konto. Du kan välja mellan följande alternativ:
     * I en Azure Active-prenumeration:
@@ -50,7 +50,7 @@ Exempellösningarna som utför CRUD-åtgärder och andra vanliga åtgärder på 
 
 ## <a name="database-examples"></a>Databasexempel
 
-Exemplet [database_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) python visar hur du utför följande uppgifter. Information om Azure Cosmos-databaser innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel.
+Exemplet [database_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/database_management.py) python visar hur du utför följande uppgifter. Information om Azure Cosmos-databaser innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](account-databases-containers-items.md) konceptuell artikel.
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -62,7 +62,7 @@ Exemplet [database_management. py](https://github.com/Azure/azure-sdk-for-python
 
 ## <a name="container-examples"></a>Containerexempel
 
-Exemplet [container_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) python visar hur du utför följande uppgifter. Mer information om Azure Cosmos-samlingarna innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel.
+Exemplet [container_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/container_management.py) python visar hur du utför följande uppgifter. Mer information om Azure Cosmos-samlingarna innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](account-databases-containers-items.md) konceptuell artikel.
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -75,7 +75,7 @@ Exemplet [container_management. py](https://github.com/Azure/azure-sdk-for-pytho
 
 ## <a name="item-examples"></a>Objektexempel
 
-Exemplet [item_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) python visar hur du utför följande uppgifter. Information om Azure Cosmos-dokumenten innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel.
+Exemplet [item_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/document_management.py) python visar hur du utför följande uppgifter. Information om Azure Cosmos-dokumenten innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](account-databases-containers-items.md) konceptuell artikel.
 
 | Uppgift | API-referens |
 | --- | --- |

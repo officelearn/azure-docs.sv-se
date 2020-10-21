@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d60297ba3bf16eac496703635ec8faf647c7f94
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252841"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279370"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Hantera slut punkter och vägar i Azure Digitals dubbla (portal)
 
@@ -117,6 +117,14 @@ Du kan kontrol lera att slut punkten har skapats genom att kontrol lera meddelan
 Om det inte går att skapa en slut punkt, Observera fel meddelandet och försök igen om några minuter.
 
 Nu är Service Bus avsnittet tillgängligt som en slut punkt inuti Azure Digital-dubbla, under det namn som anges i fältet _namn_ . Du använder vanligt vis det namnet som mål för en **händelse väg**, som du kommer att skapa [senare i den här artikeln](#event-routes).
+
+### <a name="create-an-endpoint-with-dead-lettering"></a>Skapa en slut punkt med obeställbara meddelanden
+
+När en slut punkt inte kan leverera en händelse inom en viss tids period eller när händelsen försöker leverera händelsen ett visst antal gånger, kan den skicka den ej levererade händelsen till ett lagrings konto. Den här processen kallas för **obeställbara meddelanden**.
+
+Du måste använda [arm-API: erna](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) för att skapa en slut punkt, i stället för Azure Portal, för att kunna skapa en slut punkt där obeställbara meddelanden har Aktiver ATS.
+
+Instruktioner för hur du gör detta med API: erna finns i [*API: erna och CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) -versionen av den här artikeln.
 
 ## <a name="event-routes"></a>Händelsevägar
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 416cf4f027b6f1e72641324be39ba0304301db37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b43bd0a076a21429a5f6fe05ef0c20d62674acdf
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82614504"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281555"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Vanliga frågor om Gremlin-API: et i Azure Cosmos DB
 
@@ -99,7 +99,7 @@ Avgiften för RU baseras på arbets data uppsättningen för genom gången och i
 
 ### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Vad är den maximala skalan som en diagram databas kan ha i Azure Cosmos DB Gremlin API?
 
-Azure Cosmos DB använder [vågrät partitionering](partition-data.md) för att automatiskt öka antalet lagrings-och data flödes krav. Högsta data flöde och lagrings kapacitet för en arbets belastning bestäms av antalet partitioner som associeras med en specifik behållare. En Gremlin API-behållare har dock en uppsättning rikt linjer för att säkerställa en korrekt prestanda upplevelse i stor skala. Mer information om partitionering och bästa praxis finns i [partitionering i Azure Cosmos DB](partition-data.md) artikel.
+Azure Cosmos DB använder [vågrät partitionering](partitioning-overview.md) för att automatiskt öka antalet lagrings-och data flödes krav. Högsta data flöde och lagrings kapacitet för en arbets belastning bestäms av antalet partitioner som associeras med en specifik behållare. En Gremlin API-behållare har dock en uppsättning rikt linjer för att säkerställa en korrekt prestanda upplevelse i stor skala. Mer information om partitionering och bästa praxis finns i [partitionering i Azure Cosmos DB](partitioning-overview.md) artikel.
 
 ### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>För C#/.NET-distribution.-utveckling ska jag använda Microsoft. Azure. graphs-paketet eller Gremlin.NET?
 

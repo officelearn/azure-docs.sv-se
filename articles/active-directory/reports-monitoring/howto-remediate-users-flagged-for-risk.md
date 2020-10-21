@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23bd7a26bc6215f50a2860ab4aac84f1b46301f5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600508"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308948"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Åtgärda användare som flaggats för risk i Azure Active Directory-portalen
 
@@ -60,7 +60,7 @@ För att få åtkomst till de användare som har **flaggats för risk** rapporte
 Gör följande för att åtgärda de berörda kontona och göra miljön säker:
 
 1.  [Verifiera korrekt information](https://aka.ms/MFAValid) för Multi-Factor Authentication och återställning av lösen ord för självbetjäning. 
-2.  [Aktivera Multi-Factor Authentication](https://aka.ms/MFAuth) för alla användare. 
+2.  [Aktivera Multi-Factor Authentication](/microsoft-365/admin/security-and-compliance/set-up-multi-factor-authentication) för alla användare. 
 3.  Använd det här [reparations skriptet](https://aka.ms/remediate) för varje påverkat konto för att automatiskt utföra följande steg: 
 
     a. Återställ lösen ordet för att skydda kontot och avsluta aktiva sessioner.
@@ -85,8 +85,8 @@ Gör följande för att åtgärda de berörda kontona och göra miljön säker:
 
 Dessutom bör du:
 
-- Läs och implementera den här [vägledningen om hur du löser ovanliga aktiviteter](https://aka.ms/fixaccount). 
-- [Aktivera gransknings pipelinen](https://aka.ms/improvesecurity) för att hjälpa dig att analysera aktiviteten i din klient organisation. När du är klar börjar gransknings lagret fylla med aktivitets loggar. I det här läget kan du också använda [Sök-och gransknings resurserna i Security och Compliance Center](https://aka.ms/sccsearch). 
+- Läs och implementera den här [vägledningen om hur du löser ovanliga aktiviteter](/archive/blogs/office365security/how-to-fix-a-compromised-hacked-microsoft-office-365-account). 
+- [Aktivera gransknings pipelinen](/archive/blogs/office365security/using-office-365-activity-data-to-improve-your-cybersecurity-stance-and-capability) för att hjälpa dig att analysera aktiviteten i din klient organisation. När du är klar börjar gransknings lagret fylla med aktivitets loggar. I det här läget kan du också använda [Sök-och gransknings resurserna i Security och Compliance Center](https://aka.ms/sccsearch). 
 - Granska reglerna för delegeringsbehörigheter och vidarebefordran av e-post för alla brevlådor. Du kan använda det här [PowerShell-skriptet](https://aka.ms/delegateforwardrules) för at utföra den här uppgiften. 
 
 ## <a name="next-steps"></a>Nästa steg

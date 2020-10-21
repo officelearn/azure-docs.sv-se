@@ -1,43 +1,43 @@
 ---
-title: Konfigurera Azure-Multi-Factor Authentication för Windows Virtual Desktop – Azure
-description: Konfigurera Azure-Multi-Factor Authentication för ökad säkerhet i Windows Virtual Desktop.
+title: Konfigurera Azure multifaktor-autentisering för Windows Virtual Desktop – Azure
+description: Konfigurera Azure multifaktor-autentisering för ökad säkerhet i Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 10/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e67e3d391ba69bacb82a9154f577942a017e5795
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 35af8191cfe237175cbd6669797d1744ac3ecd49
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108991"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312654"
 ---
-# <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för Windows Virtual Desktop
+# <a name="enable-azure-multifactor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure multifaktor-autentisering för Windows Virtual Desktop
 
 >[!IMPORTANT]
 > Om du besöker den här sidan från den klassiska Windows-dokumentationen (klassisk) ser du till att [återgå till Windows Virtual Desktop (klassisk)-dokumentationen](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) när du är klar.
 
 Windows-klienten för virtuellt Windows-skrivbord är ett utmärkt alternativ för att integrera virtuella Windows-datorer med din lokala dator. Men när du konfigurerar ditt Windows-konto för virtuella skriv bord till Windows-klienten, finns det vissa mått som du måste vidta för att hålla dig trygg och dina användare.
 
-När du först loggar in frågar klienten efter ditt användar namn, lösen ord och Azure MFA. Efter det kommer klienten att komma ihåg din token från din Azure Active Directory (AD) företags program nästa gången du loggar in. När du väljer **kom ihåg mig**kan användarna logga in efter omstart av klienten utan att behöva ange sina autentiseringsuppgifter på annat sätt.
+När du först loggar in frågar klienten efter ditt användar namn, lösen ord och Azure multifaktor-autentisering. Efter det kommer klienten att komma ihåg din token från din Azure Active Directory (AD) företags program nästa gången du loggar in. När du väljer **kom ihåg mig** i prompten efter autentiseringsuppgifter för sessionens värd kan användarna logga in efter omstart av klienten utan att behöva ange sina autentiseringsuppgifter på annat sätt.
 
-Även om det är praktiskt att komma ihåg autentiseringsuppgifterna, kan det också göra distributioner i företags scenarier eller personliga enheter mindre säkra. För att skydda dina användare måste du kontrol lera att klienten fortfarande ber om autentiseringsuppgifter för Azure Multi-Factor Authentication (MFA). I den här artikeln visas hur du konfigurerar principen för villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
+Även om det är praktiskt att komma ihåg autentiseringsuppgifterna, kan det också göra distributioner i företags scenarier eller personliga enheter mindre säkra. För att skydda dina användare kan du kontrol lera att klienten fortfarande ber om autentiseringsuppgifter för Azure multifaktor-autentisering oftare. I den här artikeln visas hur du konfigurerar principen för villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här behöver du för att komma igång:
 
 - Tilldela användare en licens som innehåller Azure Active Directory Premium P1 eller P2.
 - En Azure Active Directory grupp med dina användare tilldelade som grupp medlemmar.
-- Aktivera Azure MFA för alla dina användare. Mer information om hur du gör finns i [så här kräver du tvåstegsverifiering för en användare](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
+- Aktivera Azure multifaktor-autentisering för alla dina användare. Mer information om hur du gör finns i [så här kräver du tvåstegsverifiering för en användare](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 > [!NOTE]
-> Följande inställning gäller även för [webb klienten för virtuella Windows-datorer](https://rdweb.wvd.microsoft.com/webclient/index.html).
+> Följande inställning gäller även för [webb klienten för virtuella Windows-datorer](https://rdweb.wvd.microsoft.com/arm/webclient/index.html).
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor Authentication vid anslutning till virtuella Windows-datorer:
+Så här skapar du en princip för villkorlig åtkomst som kräver multifaktorautentisering vid anslutning till virtuella Windows-datorer:
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
 2. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
@@ -63,7 +63,7 @@ Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor 
         Sedan går du till steg 10.
 
    >[!IMPORTANT]
-   > Välj inte appen som heter Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Den här appen används bara för att hämta användar flödet och får inte ha MFA.
+   > Välj inte appen som heter Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Den här appen används bara för att hämta användar flödet och får inte ha multifaktorautentisering.
    > 
    > Om du använder Windows Virtual Desktop (klassisk), och om principen för villkorlig åtkomst blockerar all åtkomst och bara undantar Windows-ID: n för virtuella Skriv bords program, kan du åtgärda detta genom att lägga till app-ID-9cdead84-a844-4324-93f2-b2e6bb768d07 till principen. Om du inte lägger till det här app-ID: t blockeras feed-identifiering av klassiska Windows-resurser.
 
@@ -85,7 +85,7 @@ Så här skapar du en princip för villkorlig åtkomst som kräver Multi-Factor 
     >Om du vill hitta app-ID: t för den app som du vill välja går du till **företags program** och väljer **Microsoft-program** i den nedrullningsbara menyn program typ.
 
 12. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
-13. Under **Access Controls**  >  -**session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och väljer sedan **Välj**.
+13. Under **Access Controls**  >  -**session**väljer du **inloggnings frekvens**, anger värdet till den tid som du vill ha mellan prompterna och väljer sedan **Välj**. Om du till exempel ställer in värdet på **1** och enheten till **timmar**kräver multifaktorautentisering autentisering om en anslutning startas en timme efter den sista.
 14. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 15. Välj **skapa** för att aktivera principen.
 

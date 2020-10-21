@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bda72a72e8ac0adf48fd8981a6eccf40385469d5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369917"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281395"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Vanliga frågor om över gång från Cloud Partner Portal till Partner Center
 
@@ -30,7 +30,7 @@ Du kan fortsätta att göra affärer i Partner Center:
 | Nya inköp och distributioner | Inga ändringar. Dina kunder kan fortsätta att köpa och distribuera erbjudanden utan avbrott. |
 | Utbetalningar | Alla inköp och distributioner fortsätter att betalas ut till dig som vanligt. Lär dig mer om [att betala på den kommersiella Marketplace](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context). |
 | API-integration med befintliga [Cloud Partner Portal-API: er](cloud-partner-portal-api-overview.md) | Befintliga Cloud Partner Portal-API: er stöds fortfarande och befintliga integreringar fungerar fortfarande. Vill du veta mer på, [kommer Cloud Partner Portal REST-API: er att stödjas?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Analytics | Du kan fortsätta att övervaka försäljning, utvärdera prestanda och optimera dina erbjudanden på den kommersiella Marketplace genom att visa analyser i Partner Center. Det finns skillnader mellan hur analys rapporter visas i CPP och partner Center. Till exempel har **säljare insikter** i cpp en **order & fliken användning** som visar data för användnings erbjudanden och icke-användnings erbjudanden, men på sidan beställningar i Partner Center har sidan **beställningar** en separat flik för SaaS-erbjudanden. Lär dig mer [om åtkomst analys rapporter för den kommersiella marknads platsen i Partner Center](partner-center-portal/analytics.md). |
+| Analys | Du kan fortsätta att övervaka försäljning, utvärdera prestanda och optimera dina erbjudanden på den kommersiella Marketplace genom att visa analyser i Partner Center. Det finns skillnader mellan hur analys rapporter visas i CPP och partner Center. Till exempel har **säljare insikter** i cpp en **order & fliken användning** som visar data för användnings erbjudanden och icke-användnings erbjudanden, men på sidan beställningar i Partner Center har sidan **beställningar** en separat flik för SaaS-erbjudanden. Lär dig mer [om åtkomst analys rapporter för den kommersiella marknads platsen i Partner Center](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>Måste jag skapa ett nytt konto för att hantera mina erbjudanden i Partner Center?
@@ -78,7 +78,7 @@ För de erbjudande typer som stöds i Partner Center har alla erbjudanden flytta
 | Erbjudandetyp <img src="" width=150px>| Har du flyttat till Partner Center? <img src="" width=100px>| Nästa steg |
 | --- | --- | --- |
 | SaaS | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace](partner-center-portal/create-new-saas-offer.md). |
-| Virtuell dator | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace](partner-center-portal/azure-vm-create-offer.md). |
+| Virtuell dator | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace](azure-vm-create.md). |
 | Azure-program | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för Azure-program](partner-center-portal/create-new-azure-apps-offer.md). |
 | Dynamics 365 Business Central | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett Dynamics 365 Business Central-erbjudande](partner-center-portal/create-new-business-central-offer.md). |
 | Dynamics 365 för kund engagemang & PowerApps | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa en Dynamics 365 för kund engagemang & PowerApps-erbjudande](partner-center-portal/create-new-customer-engagement-offer.md). |
@@ -88,8 +88,8 @@ För de erbjudande typer som stöds i Partner Center har alla erbjudanden flytta
 | Container | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett erbjudande för Azure Container](partner-center-portal/create-azure-container-offer.md). |
 | Konsulttjänst | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett konsult tjänst erbjudande](partner-center-portal/create-consulting-service-offer.md). |
 | Hanterad tjänst | Ja | Logga in på Partner Center för att skapa nya erbjudanden och hantera erbjudanden som skapats i Cloud Partner Portal. Läs mer i [skapa ett hanterat tjänst erbjudande](partner-center-portal/create-new-managed-service-offer.md). |
-| Hanterad tjänst för Dynamics NAV | Inga | Microsoft har utvecklats för att hantera Dynamics NAV Managed Service till [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), så vi debiteras de Live-erbjudanden som hanteras av Dynamics NAV Managed Service från AppSource. Dessa erbjudanden kan inte längre identifieras av kunder och har inte flyttats till Partner Center. Om du vill göra dina erbjudanden tillgängliga i AppSource kan du anpassa dem till Dynamics 365 Business Central-erbjudanden och skicka dem till [partner Center](https://partner.microsoft.com/). Läs mer i [skapa ett Dynamics 365 Business Central-erbjudande](partner-center-portal/create-new-business-central-offer.md). |
-| Cortana Intelligence | Inga | Microsoft har utvecklats produktens väg karta för Cortana Intelligence, så vi har tagit bort Cortana Intelligence Live-erbjudanden från AppSource. Dessa erbjudanden kan inte längre identifieras av kunder och har inte flyttats till Partner Center. Om du vill göra dina erbjudanden tillgängliga på den kommersiella Marketplace kan du anpassa dina erbjudanden till SaaS (Software as a Service) och skicka dem i [partner Center](https://partner.microsoft.com/). Läs mer i [Check lista för att skapa SaaS i Partner Center](partner-center-portal/offer-creation-checklist.md). |
+| Hanterad tjänst för Dynamics NAV | Nej | Microsoft har utvecklats för att hantera Dynamics NAV Managed Service till [Dynamics 365 Business Central](https://docs.microsoft.com/dynamics365/business-central/), så vi debiteras de Live-erbjudanden som hanteras av Dynamics NAV Managed Service från AppSource. Dessa erbjudanden kan inte längre identifieras av kunder och har inte flyttats till Partner Center. Om du vill göra dina erbjudanden tillgängliga i AppSource kan du anpassa dem till Dynamics 365 Business Central-erbjudanden och skicka dem till [partner Center](https://partner.microsoft.com/). Läs mer i [skapa ett Dynamics 365 Business Central-erbjudande](partner-center-portal/create-new-business-central-offer.md). |
+| Cortana Intelligence | Nej | Microsoft har utvecklats produktens väg karta för Cortana Intelligence, så vi har tagit bort Cortana Intelligence Live-erbjudanden från AppSource. Dessa erbjudanden kan inte längre identifieras av kunder och har inte flyttats till Partner Center. Om du vill göra dina erbjudanden tillgängliga på den kommersiella Marketplace kan du anpassa dina erbjudanden till SaaS (Software as a Service) och skicka dem i [partner Center](https://partner.microsoft.com/). Läs mer i [Check lista för att skapa SaaS i Partner Center](partner-center-portal/offer-creation-checklist.md). |
 
 ## <a name="i-cant-find-my-cloud-partner-portal-offers-in-partner-center"></a>Jag kan inte hitta mina Cloud Partner Portal erbjudanden i Partner Center
 
@@ -155,16 +155,16 @@ Du märker några anpassnings ändringar. *SKU: er* är till exempel märkta som
 
 Informationen som du tidigare angav i **Marketplace** -eller butik- **information**  (konsult tjänst, Power BI app) i Cloud Partner Portal har nu samlats in på sidan för **erbjudande listan** i Partner Center:
 
-[![Skärm bild som visar List sidan för erbjudande för partner Center.](media/cpp-pc-faq/offer-listing.png "Visar List sidan för erbjudande för partner Center")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[! [Skärm bild som visar List sidan för erbjudande för partner Center.] (Media/cpp-PC – FAQ/offer-listing.png](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 Den information som du tidigare angav för SKU: er på en enda sida i Cloud Partner Portal kan nu samlas in på flera sidor i Partner Center:
 
-- Sidan planera konfiguration
+- Installations sida för plan
 - Plan List sida
 - Plan tillgänglighets sida
 - Sidan planera teknisk konfiguration, som du ser här:
 
-![! [Skärm bild som visar sidan teknisk konfiguration för partner Center.] (Media/cpp-PC – FAQ/technical-configuration.png "visar sidan teknisk konfiguration för partner Center")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+[![Visar sidan teknisk konfiguration för partner Center.](media/cpp-pc-faq/technical-configuration.png)](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 Ditt erbjudande-ID visas nu i det vänstra navigerings fältet i erbjudandet:
 

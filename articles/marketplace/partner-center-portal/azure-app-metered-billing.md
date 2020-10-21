@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52ae961a813b6d14592953fdf8662cbaecf662e1
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320059"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280444"
 ---
 # <a name="managed-application-metered-billing"></a>Förvaltad fakturering för program 
 
@@ -117,7 +117,7 @@ Om du har något av följande problem kan du öppna ett support ärende.
 * Ett problem som måste eskaleras på grund av ett fel eller fel på sidan (t. ex. fel användnings händelse).
 * Eventuella andra problem som rör mätning av fakturering.
 
-Följ anvisningarna [för programmet för kommersiella marknads platser i Partner Center](./support.md) för att förstå support alternativen för Publisher och öppna support ärenden med Microsoft.
+Följ anvisningarna [för programmet för kommersiella marknads platser i Partner Center](../support.md) för att förstå support alternativen för Publisher och öppna support ärenden med Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 

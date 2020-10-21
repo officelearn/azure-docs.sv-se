@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: ef840abdfdb51e2472615ffabf0b49545b6fef3f
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938431"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313152"
 ---
 # <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Självstudie: Migrera Azure DB för PostgreSQL – en server till Azure DB för PostgreSQL – en server online med DMS via Azure Portal
 
@@ -100,7 +100,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     psql -h hostname -U db_username -d db_name < your_schema.sql
     ```
 
-    Till exempel:
+    Exempel:
 
     ```
     psql -h mypgserver-source.postgres.database.azure.com  -U pguser@mypgserver-source -d dvdrental citus < dvdrentalSchema.sql
@@ -258,7 +258,18 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 * Välj **Kör migrering**.
 
-    Fönstret migrering av aktivitet visas och aktivitetens **status** bör uppdateras för att visa när **säkerhets kopiering pågår**.
+Fönstret migrering av aktivitet visas och aktivitetens **status** bör uppdateras för att visa när **säkerhets kopiering pågår**. Följande fel kan uppstå när du uppgraderar från Azure DB för PostgreSQL 9,5 eller 9,6:
+
+**Ett scenario rapporterade ett okänt fel. 28000: ingen pg_hba. conf-post för replikeringsanslutning från värden "40.121.141.121", användare "SR"**
+
+Detta beror på att PostgreSQL inte har rätt behörighet för att skapa nödvändiga artefakter för logiska replikeringar. Om du vill aktivera nödvändiga behörigheter kan du göra följande:
+
+1. Öppna inställningarna för "anslutnings säkerhet" för den Azure DB for PostgreSQL-server som du försöker migrera/uppgradera från.
+2. Lägg till en ny brand Väggs regel med ett namn som slutar med "_replrule" och Lägg till IP-adressen från fel meddelandet i fälten Start-IP och slut-IP-adress. Exempel på ovanstående fel –
+> Brand Väggs regelns namn = sr_replrule; Start-IP = 40.121.141.121; Slut-IP = 40.121.141.121
+
+3. Klicka på Spara och låt ändringen slutföras. 
+4. Gör om DMS-aktivitet. 
 
 ## <a name="monitor-the-migration"></a>Övervaka migreringen
 

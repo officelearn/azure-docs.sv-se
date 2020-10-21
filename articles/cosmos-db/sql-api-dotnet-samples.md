@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: e9eeca39dfbbefd36c9662aa0fc8b16d2c804158
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ef3347b6f22d623571c8fe9cc8b156bfd92c411
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252994"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282562"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-exempel för SQL API
 
@@ -35,7 +35,7 @@ ms.locfileid: "91252994"
 
 För kod exempel för .NET SDK version 3,0 (för hands version), se de senaste exemplen i databasen [Azure-Cosmos-dotNet-v3](https://github.com/Azure/azure-cosmos-dotnet-v3) GitHub. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Visual Studio 2019 med arbets flödet Azure Development installerat
 - Du kan hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio. 
@@ -53,7 +53,7 @@ En Azure-prenumeration eller ett kostnads fritt Cosmos DB utvärderings konto
 > 
 
 ## <a name="database-examples"></a>Databasexempel
-[RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) -metoden för exempel *DatabaseManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om Azure Cosmos-databaser innan du kör följande exempel kan du läsa [arbeta med databaser, behållare och objekt](databases-containers-items.md). 
+[RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) -metoden för exempel *DatabaseManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om Azure Cosmos-databaser innan du kör följande exempel kan du läsa [arbeta med databaser, behållare och objekt](account-databases-containers-items.md). 
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -63,7 +63,7 @@ En Azure-prenumeration eller ett kostnads fritt Cosmos DB utvärderings konto
 | [Ta bort en databas](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L89) |[DocumentClient.DeleteDatabaseAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedatabaseasync) |
 
 ## <a name="collection-examples"></a>Samlingsexempel
-[RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) -metoden för exempel *CollectionManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om Azure Cosmos-samlingar innan du kör följande exempel kan du läsa [arbeta med databaser, behållare och objekt](databases-containers-items.md). 
+[RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) -metoden för exempel *CollectionManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om Azure Cosmos-samlingar innan du kör följande exempel kan du läsa [arbeta med databaser, behållare och objekt](account-databases-containers-items.md). 
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -74,7 +74,7 @@ En Azure-prenumeration eller ett kostnads fritt Cosmos DB utvärderings konto
 | [Ta bort en samling](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L228) |[DocumentClient.DeleteDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## <a name="document-examples"></a>Exempel på dokument
-[RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) -metoden för exempel *DocumentManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om Azure Cosmos-dokument innan du kör följande exempel kan du läsa [arbeta med databaser, behållare och objekt](databases-containers-items.md). 
+[RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) -metoden för exempel *DocumentManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om Azure Cosmos-dokument innan du kör följande exempel kan du läsa [arbeta med databaser, behållare och objekt](account-databases-containers-items.md). 
 
 | Uppgift | API-referens |
 | --- | --- |

@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 760752094296db52fb1ef353d6143f9153784745
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1bdf1ca9ebf878927a9ae7b01f1ef77d56a49648
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093607"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280187"
 ---
-# <a name="security-recommendations---a-reference-guide"></a>Säkerhets rekommendationer – en referens guide
+# <a name="security-recommendations---a-reference-guide"></a>Säkerhetsrekommendationer – en referensguide
 
 Den här artikeln innehåller de rekommendationer som du kan se i Azure Security Center. Rekommendationerna som visas i din miljö beror på vilka resurser du skyddar och din anpassade konfiguration.
 
-Security Centers rekommendationer baseras på bästa praxis. Vissa är justerade med **Azures säkerhets benchmark**, de Microsoft-baserade, Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad metod tips baserade på vanliga ramverk för efterlevnad. [Lär dig mer om Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).
+Security Centers rekommendationer baseras på bästa praxis. Vissa är justerade med **Azures säkerhets benchmark**, de Microsoft-baserade, Azure-/regionsspecifika rikt linjerna för säkerhet och efterlevnad metod tips baserade på vanliga ramverk för efterlevnad. [Läs mer om Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/introduction).
 
 Information om hur du svarar på dessa rekommendationer finns i [åtgärda rekommendationer i Azure Security Center](security-center-remediate-recommendations.md).
 
@@ -46,6 +46,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 |**IP-vidarebefordran på den virtuella datorn bör inaktive ras**|Inaktivera IP-vidarebefordring. När IP-vidarebefordring är aktiverat på en virtuell dators nätverkskort kan datorn ta emot trafik som är adresserad till andra mål. IP-vidarebefordran krävs sällan (till exempel när du använder den virtuella datorn som en virtuell nätverks installation) och därför bör detta granskas av nätverks säkerhets teamet.<br>(Relaterad princip: [för hands version]: IP-vidarebefordran på den virtuella datorn bör inaktive RAS)|Medium|N|Virtuell dator|
 |**Hanterings portar för virtuella datorer bör skyddas med just-in-Time-kontroll för nätverks åtkomst**|Använd just-in-Time (JIT)-åtkomst kontroll för att permanent låsa åtkomsten till valda portar och aktivera behöriga användare för att öppna dem via JIT, under en begränsad tid.<br>(Relaterad princip: hanterings portar för virtuella datorer bör skyddas med just-in-Time-kontroll för nätverks åtkomst)|Högt|N|Virtuell dator|
 |**Hanterings portar bör stängas på dina virtuella datorer**|Skärp nätverks säkerhets gruppen för dina virtuella datorer för att begränsa åtkomsten till hanterings portar.<br>(Relaterad princip: hanterings portar bör stängas på dina virtuella datorer)|Högt|N|Virtuell dator|
+|**Virtuella nätverk bör skyddas av Azure-brandväggen**|Några av dina virtuella nätverk är inte skyddade med en brand vägg. Använd Azure-brandväggen för att begränsa åtkomsten till dina virtuella nätverk och förhindra eventuella hot.<br>[Läs mer om Azure-brandväggen](https://azure.microsoft.com/services/azure-firewall/).<br>(Relaterad princip: virtuella nätverk bör skyddas av Azure-brandväggen)|Låg|N|Virtuellt nätverk|
 |**Säker överföring till lagringskonton ska vara aktiverat**|Aktivera säker överföring till lagrings konton. Säker överföring är ett alternativ som tvingar ditt lagrings konto att endast godkänna begär Anden från säkra anslutningar (HTTPS). Användning av HTTPS garanterar autentisering mellan servern och tjänsten och skyddar data i överföring från angrepp på nätverks nivå, till exempel man-in-the-Middle, avlyssning och session-kapning.<br>(Relaterad princip: säker överföring till lagrings konton ska vara aktive rad)|Hög|**J**|Lagringskonto|
 |**Undernät ska associeras med en nätverks säkerhets grupp**|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst till resurser som har distribuerats i dina undernät.<br>(Relaterad princip: undernät ska associeras med en nätverks säkerhets grupp.<br>Den här principen är inaktive rad som standard)|Hög/medel|N|Undernät|
 |**Webb program bör endast vara tillgängliga via HTTPS**|Aktivera "endast HTTPS"-åtkomst för webb program. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.<br>(Relaterad princip: webb programmet bör endast vara tillgängligt via HTTPS)|Medium|**Y**|Webbprogram|
@@ -147,7 +148,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 |**Diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad**|Aktivera loggar och behåll dem i upp till ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte. Detta är användbart när en säkerhets incident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad)|Låg|N|Skaluppsättning för virtuella datorer|
 |**Hälso fel i Endpoint Protection bör åtgärdas på virtuella datorers skalnings uppsättningar**|Åtgärda problem med slut punkts skydd på den virtuella datorns skalnings uppsättningar för att skydda dem mot hot och sårbarheter.<br>(Ingen relaterad princip beroende på "Endpoint Protection-lösning ska installeras på Virtual Machine Scale Sets")|Låg|N|Skaluppsättning för virtuella datorer|
 |**Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar**|Installera en Endpoint Protection-lösning på den virtuella datorns skalnings uppsättningar för att skydda dem mot hot och sårbarheter.<br>(Relaterad princip: Endpoint Protection-lösning bör installeras på virtuella datorers skalnings uppsättningar)|Högt|N|Skaluppsättning för virtuella datorer|
-|**Log Analytics agenten ska installeras på den virtuella datorns skalnings uppsättningar**|Security Center samlar in data från dina virtuella Azure-datorer (VM) för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som tidigare kallades för Microsoft Monitoring Agent (MMA), som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Du måste också följa proceduren i f de virtuella datorerna används av en Azure-hanterad tjänst, till exempel Azure Kubernetes service eller Azure Service Fabric.<br>Du kan inte konfigurera automatisk etablering av agenten för skalnings uppsättningar för virtuella Azure-datorer.<br>Om du vill distribuera agenten på virtuella datorers skalnings uppsättningar (inklusive de som används av Azure-hanterade tjänster som Azure Kubernetes service och Azure Service Fabric) följer du stegen i åtgärds stegen.|Hög|**J**|Skaluppsättning för virtuella datorer|
+|**Log Analytics agenten ska installeras på den virtuella datorns skalnings uppsättningar**|Security Center samlar in data från dina virtuella Azure-datorer (VM) för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som tidigare kallades för Microsoft Monitoring Agent (MMA), som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Du måste också följa proceduren om dina virtuella datorer används av en Azure-hanterad tjänst, till exempel Azure Kubernetes service eller Azure Service Fabric.<br>Du kan inte konfigurera automatisk etablering av agenten för skalnings uppsättningar för virtuella Azure-datorer.<br>Om du vill distribuera agenten på virtuella datorers skalnings uppsättningar (inklusive de som används av Azure-hanterade tjänster som Azure Kubernetes service och Azure Service Fabric) följer du stegen i åtgärds stegen.|Hög|**J**|Skaluppsättning för virtuella datorer|
 |**System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras**|Installera system säkerhet och viktiga uppdateringar som saknas för att skydda dina skalnings uppsättningar för virtuella Windows-och Linux-datorer.<br>(Relaterad princip: system uppdateringar på Virtual Machine Scale set bör installeras)|Högt|N|Skaluppsättning för virtuella datorer|
 |**Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas**|Åtgärda sårbarheter i säkerhets konfiguration på dina virtuella datorers skalnings uppsättningar för att skydda dem mot angrepp. <br>(Relaterad princip: sårbarheter i säkerhets konfiguration i skalnings uppsättningar för virtuella datorer bör åtgärdas)|Högt|N|Skaluppsättning för virtuella datorer|
 ||||||

@@ -4,12 +4,12 @@ description: Så här beskriver du slut punkts resurser i ett tjänst manifest, 
 ms.topic: conceptual
 ms.date: 09/16/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 775e554128b9828915ce7dafaf4bccf597911912
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5e8f39fe25011d02b989614fdc6538cd92c12d4e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017598"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313574"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänst manifest
 ## <a name="overview"></a>Översikt
@@ -158,7 +158,7 @@ Här är ett exempel på en ApplicationManifest som demonstrerar konfigurationen
 
 För Linux-kluster är **mitt** Arkiv standardvärdet för mappen **/var/lib/sfcerts**.
 
-Ett exempel på ett fullständigt program som använder en HTTPS-slutpunkt finns i [lägga till en HTTPS-slutpunkt till en ASP.net Core webb-API-frontend-tjänst med hjälp av Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+Ett exempel på ett fullständigt program som använder en HTTPS-slutpunkt finns i [lägga till en HTTPS-slutpunkt till en ASP.net Core webb-API-frontend-tjänst med hjälp av Kestrel](./service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest).
 
 ## <a name="port-acling-for-http-endpoints"></a>Port ACLing för HTTP-slutpunkter
 Service Fabric kommer automatiskt att ange HTTP-slutpunkter för ACL: er som anges som standard. Den kommer **inte** att utföra automatiska ACLing om en slut punkt inte har någon kopplad [SecurityAccessPolicy](service-fabric-assign-policy-to-endpoint.md) och Service Fabric har kon figurer ATS för att köras med ett konto med administratörs behörighet.
@@ -199,7 +199,7 @@ I parametrarna lägger du till nedan:
   </Parameters>
 ```
 
-När du distribuerar programmet kan du skicka dessa värden som ApplicationParameters.  Till exempel:
+När du distribuerar programmet kan du skicka dessa värden som ApplicationParameters.  Exempel:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
@@ -207,7 +207,7 @@ PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -Application
 
 Obs! Om värdet som angetts för en angiven ApplicationParameter är tomt går vi tillbaka till det standardvärde som anges i ServiceManifest för motsvarande EndPointName.
 
-Till exempel:
+Exempel:
 
 Om du har angett i ServiceManifest
 

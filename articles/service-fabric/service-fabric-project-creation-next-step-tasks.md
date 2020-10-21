@@ -3,12 +3,12 @@ title: Nästa steg för att skapa Service Fabric projekt
 description: Lär dig mer om programprojektet som du nyss skapade i Visual Studio.  Lär dig hur du skapar tjänster med hjälp av självstudier och lär dig mer om att utveckla tjänster för Service Fabric.
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: e8fc105657bda6114851f4819be4658926ad621c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01a69016e0c299fba0365fab5332b572fd2ca87a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75349403"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314479"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Ditt Service Fabric program och nästa steg
 Ditt Azure Service Fabric-program har skapats. I den här artikeln beskrivs några självstudier för att prova, makeup för ditt projekt, viss mer information som du kanske är intresse rad av och potentiella nästa steg.
@@ -24,7 +24,7 @@ Alternativt kan du prova någon av följande steg-för-steg-anvisningar och skap
 - [Körbar gäst tjänst i Windows](quickstart-guest-app.md) 
 - [Windows-containerprogrammet](service-fabric-get-started-containers.md) 
 
-Du kanske också är intresse rad av att prova våra [exempel program](https://aka.ms/servicefabricsamples).
+Du kanske också är intresse rad av att prova våra [exempel program](/samples/browse/?products=azure).
 
 ## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>Har du några frågor eller feedback?  Behöver du rapportera ett problem?
 Läs igenom [vanliga frågor](service-fabric-common-questions.md) och få svar på vad Service Fabric kan göra och hur det ska användas.
@@ -62,5 +62,3 @@ Precis som med andra plattformar går ett Service Fabric-program vanligt vis ige
 - [Skapa ett Windows-kluster i Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 - Visualisera klustret, inklusive distribuerade program och fysisk layout, med [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
 - [Version och uppgradera dina tjänster](service-fabric-application-upgrade-tutorial.md)
-
-

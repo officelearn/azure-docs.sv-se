@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53a10123bf3304ab9c949146d7cad6b904c8323d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89001645"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317210"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -85,7 +85,7 @@ En dator flyttas bara till ett senare steg om den tidigare har passerat. Om en d
 
 Vyn för Azure-beredskap i utvärderingen visar beredskapsstatus för varje virtuell dator.
 
-**Beredskap** | **Stat** | **Information**
+**Beredskap** | **Tillstånd** | **Detaljer**
 --- | --- | ---
 Redo för Azure | Inga kompatibilitetsproblem. Datorn kan migreras med Azure, och den kommer att startas i Azure med fullständig support för Azure. | För förberedda virtuella datorer rekommenderar Azure Migrate en VM-storlek i Azure.
 Villkorligt redo för Azure | Datorn kan starta i Azure, men kanske inte har fullständig support för Azure. Till exempel en dator med en äldre version av Windows Server som inte stöds i Azure. | Azure Migrate förklarar beredskaps problemen och ger åtgärder.
@@ -97,7 +97,7 @@ Beredskap okänd | Azure Migrate kan inte identifiera Azure-beredskap, vanligt v
 Beredskapen tar hänsyn till ett antal VM-egenskaper, för att identifiera om den virtuella datorn kan köras i Azure.
 
 
-**Egenskap** | **Information** | **Beredskap**
+**Egenskap** | **Detaljer** | **Beredskap**
 --- | --- | ---
 **Start typ** | BIOS stöds. UEFI stöds inte. | Villkoret klart om start typen är UEFI.
 **Kärnor** | Datorer Core <= det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
@@ -114,14 +114,14 @@ Tillsammans med VM-egenskaper tittar Azure Migrate också på gäst operativ sys
 
 Följande logik används.
 
-**Operativsystem** | **Information** | **Beredskap**
+**Operativsystem** | **Detaljer** | **Beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2012 och alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2008 R2 och alla SPs | Azure ger fullständig support.| Redo för Azure
 Windows Server 2008 (32-bitars och 64-bitars) | Azure ger fullständig support. | Redo för Azure
-Windows Server 2003, 2003 R2 | Out-of-support och behöver ett [anpassat support avtal (CSA)](https://aka.ms/WSosstatement) för support i Azure. | Villkorligt redo för Azure bör du överväga att uppgradera operativ systemet innan du migrerar till Azure.
+Windows Server 2003, 2003 R2 | Out-of-support och behöver ett [anpassat support avtal (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) för support i Azure. | Villkorligt redo för Azure bör du överväga att uppgradera operativ systemet innan du migrerar till Azure.
 Windows 2000, 98, 95, NT, 3,1, MS-DOS | Out-of-support. Datorn kan starta i Azure, men det finns inget stöd för operativ systemet i Azure. | Villkorligt redo för Azure, vi rekommenderar att du uppgraderar operativ systemet innan du migrerar till Azure.
 Windows-klient 7, 8 och 10 | Azure har endast stöd för [Visual Studio-prenumeration.](../virtual-machines/windows/client-images.md) | Villkorligt redo för Azure
 Windows 10 Pro Desktop | Azure har stöd för [värd rättigheter för flera innehavare.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Villkorligt redo för Azure

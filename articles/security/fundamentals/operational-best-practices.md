@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 2c949447635ccdf4cf36acec43a09c1104b9fdd4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943874"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280028"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -53,7 +53,7 @@ Se till att säkerhets åtgärds teamet tar emot Azure incident-aviseringar frå
 I Azure-registrerings portalen kan du se till att administratörs kontakt information innehåller information som meddelar säkerhets åtgärder. Kontakt information är en e-postadress och ett telefonnummer.
 
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organisera Azure-prenumerationer i hanterings grupper
-Om din organisation har många prenumerationer kanske du behöver ett sätt att effektivt hantera åtkomst, principer och efterlevnad för dessa prenumerationer. [Hanterings grupper för Azure](/azure/governance/management-groups/create) ger en nivå av omfattning som är ovanför prenumerationer. Du ordnar prenumerationer i behållare som kallas hanterings grupper och tillämpar dina styrnings villkor i hanterings grupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som tillämpas för hanteringsgruppen.
+Om din organisation har många prenumerationer kanske du behöver ett sätt att effektivt hantera åtkomst, principer och efterlevnad för dessa prenumerationer. [Hanterings grupper för Azure](/azure/governance/management-groups/create) ger en nivå av omfattning som är ovanför prenumerationer. Du ordnar dina prenumerationer i behållare som kallas hanteringsgrupper och tillämpar styrningsvillkor på de olika hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de villkor som tillämpas för hanteringsgruppen.
 
 Du kan bygga en flexibel struktur av hanterings grupper och prenumerationer i en katalog. Varje katalog tilldelas en enda toppnivå hanterings grupp som kallas rot hanterings gruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Rot hanterings gruppen tillåter att globala principer och Azure Role-tilldelningar tillämpas på katalog nivå.
 
@@ -122,7 +122,7 @@ De säkra poängen, som baseras på CIS-kontroller (Center for Internet Security
 **Information**: Använd [Azure Monitor för att samla in och exportera data](/azure/azure-monitor/overview#integrate-and-export-data). Den här metoden är viktig för att aktivera undersökningen av säkerhets incidenter och logg kvarhållning online är begränsad. Om du använder Azure Sentinel, se [Anslut data källor](../../sentinel/connect-data-sources.md).
 
 **Bästa praxis**: påskynda dina undersökningar och jakt processer och minska antalet falska positiva identifieringar genom att integrera funktionerna för slut punkts identifiering och-svar (EDR) i angrepps undersökningen.   
-**Information**: [aktivera Microsoft Defender ATP-integrering](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) via din Security Center säkerhets princip. Överväg att använda Azure Sentinel för hotets jakt och incident svar.
+**Information**: [aktivera Microsoft Defender för slut punkts integrering](../../security-center/security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration) via din Security Center säkerhets princip. Överväg att använda Azure Sentinel för hotets jakt och incident svar.
 
 ## <a name="monitor-end-to-end-scenario-based-network-monitoring"></a>Övervaka övervakning från slut punkt till slut punkt för scenario baserad nätverks övervakning
 Kunderna skapar ett nätverk från slut punkt till slut punkt i Azure genom att kombinera nätverks resurser som ett virtuellt nätverk, ExpressRoute, Application Gateway och belastningsutjämnare. Övervakning är tillgängligt på varje nätverks resurs.

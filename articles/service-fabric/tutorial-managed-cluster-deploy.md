@@ -4,12 +4,12 @@ description: I den här självstudien ska du distribuera ett Service Fabric hant
 ms.topic: tutorial
 ms.date: 08/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: c7ed1a8fceeddecb942edb541c6112492a6e5a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0265a1393c697cbd767de13df1064a5eea957380
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410468"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316175"
 ---
 # <a name="tutorial-deploy-a-service-fabric-managed-cluster-preview"></a>Självstudie: Distribuera ett Service Fabric hanterat kluster (för hands version)
 
@@ -29,7 +29,7 @@ Den här delen av serien handlar om hur du:
 > * Distribuera ett Service Fabric hanterat kluster
 > * Lägg till en typ av primär nod i klustret
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -37,7 +37,7 @@ Innan du börjar den här självstudien:
 
 * Installera [modulen Service Fabric SDK och PowerShell](service-fabric-get-started.md).
 
-* Installera [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) (eller senare).
+* Installera [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) (eller senare).
 
 ## <a name="connect-to-your-azure-account"></a>Anslut till ditt Azure-konto
 
@@ -73,7 +73,7 @@ I det här steget anger du dina egna värden för följande parametrar:
 
 * **Kluster namn**: Ange ett unikt namn för klustret, till exempel *mysfcluster*.
 * **Administratörs lösen ord**: Ange ett lösen ord för den administratör som ska användas för RDP på de underliggande virtuella datorerna i klustret.
-* **Tumavtryck för klient certifikat**: Ange tumavtrycket för det klient certifikat som du vill använda för att få åtkomst till klustret. Om du inte har ett certifikat, följer du [Ange och hämta ett certifikat](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) för att skapa ett självsignerat certifikat.
+* **Tumavtryck för klient certifikat**: Ange tumavtrycket för det klient certifikat som du vill använda för att få åtkomst till klustret. Om du inte har ett certifikat, följer du [Ange och hämta ett certifikat](../key-vault/certificates/quick-create-portal.md) för att skapa ett självsignerat certifikat.
 * **Kluster-SKU**: ange vilken [typ av Service Fabric hanterat kluster](overview-managed-cluster.md#service-fabric-managed-cluster-skus) som ska distribueras. *Basic* SKU-kluster är endast avsedda för test distributioner och tillåter inte tillägg eller borttagning av Node-typer.
 
 ```powershell

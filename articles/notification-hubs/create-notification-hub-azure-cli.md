@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ebed70a99e8e906db802099e052e69ab2575d737
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: e7e140e26da79475bea032c8190ee64740370d04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875043"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312875"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Snabb start: skapa en Azure Notification Hub med Azure CLI
 
@@ -36,7 +36,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Azure Notification Hubs, precis som alla Azure-resurser, måste distribueras till en resurs grupp.  Resursgrupper gör det enkelt att organisera och hantera relaterade Azure-resurser.  Se [Vad är Azure Resource Manager](/azure/azure-resource-manager/management/overview) för att lära dig mer om resurs grupper.
+Azure Notification Hubs, precis som alla Azure-resurser, måste distribueras till en resurs grupp.  Resursgrupper gör det enkelt att organisera och hantera relaterade Azure-resurser.  Se [Vad är Azure Resource Manager](../azure-resource-manager/management/overview.md) för att lära dig mer om resurs grupper.
 
 I den här snabb starten skapar du en resurs grupp med namnet **spnhubrg** på den **östra** platsen med följande [AZ Group Create](/cli/azure/group#az-group-create) -kommando.
 

@@ -3,12 +3,12 @@ title: Azure Service Fabric – använda referenser för Service Fabric-program 
 description: Den här artikeln förklarar hur du använder Service Fabric KeyVaultReference-stöd för program hemligheter.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: c4de6ae17ae728e1dbadbd6d6e2d94c0e1471112
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2221bb3e8e3ee3181b2cff70107dccc203954cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261149"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313801"
 ---
 # <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric program (för hands version)
 
@@ -18,7 +18,7 @@ En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligh
 > Användning av den här förhands gransknings funktionen rekommenderas inte i produktions miljöer.
 
 > [!NOTE]
-> Funktionen för hands version av nyckel valv har endast stöd för [versions](https://docs.microsoft.com/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) hemligheter. Det finns inte stöd för versions hanterings hemligheter.
+> Funktionen för hands version av nyckel valv har endast stöd för [versions](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) hemligheter. Det finns inte stöd för versions hanterings hemligheter.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

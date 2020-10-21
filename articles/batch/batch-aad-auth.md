@@ -2,18 +2,18 @@
 title: Autentisera Azure Batch tjänster med Azure Active Directory
 description: Batch stöder Azure AD för autentisering från batch-tjänsten. Lär dig hur du autentiserar på ett av två sätt.
 ms.topic: how-to
-ms.date: 01/28/2020
+ms.date: 10/20/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 8d84086e3fa59c1e04df5b2717738da44f5c14b2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cb8306da4022ea1819e2da32a2f513c83bed309f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144847"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309379"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
-Azure Batch stöder autentisering med [Azure Active Directory][aad_about] (Azure AD). Azure AD är Microsofts molnbaserade katalog-och identitets hanterings tjänst för flera innehavare. Azure använder sig av Azure AD för att autentisera sina kunder, tjänst administratörer och organisations användare.
+Azure Batch stöder autentisering med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD). Azure AD är Microsofts molnbaserade katalog-och identitets hanterings tjänst för flera innehavare. Azure använder sig av Azure AD för att autentisera sina kunder, tjänst administratörer och organisations användare.
 
 När du använder Azure AD-autentisering med Azure Batch kan du autentisera på ett av två sätt:
 
@@ -40,10 +40,8 @@ Om du vill autentisera med Azure AD använder du den här slut punkten tillsamma
 > Den klient-/regionsspecifika slut punkten krävs när du autentiserar med ett huvud namn för tjänsten.
 >
 > Den klient-/regionsspecifika slut punkten är valfri när du autentiserar med integrerad autentisering, men rekommenderas. Du kan dock också använda den vanliga Azure AD-slutpunkten. Den gemensamma slut punkten ger ett allmänt gränssnitt för insamling av autentiseringsuppgifter när en enskild klient inte har angetts. Den gemensamma slut punkten är `https://login.microsoftonline.com/common` .
->
->
 
-Mer information om Azure AD-slutpunkter finns i [autentiserings scenarier för Azure AD][aad_auth_scenarios].
+Mer information om Azure AD-slutpunkter finns i [autentisering kontra auktorisering]()... /active-directory/develop/authentication-vs-authorization.md).
 
 ### <a name="batch-resource-endpoint"></a>Slut punkt för batch-resurs
 
@@ -53,17 +51,15 @@ Använd **Azure Batch resurs slut punkt** för att hämta en token för att aute
 
 ## <a name="register-your-application-with-a-tenant"></a>Registrera ditt program med en klient
 
-Det första steget i att använda Azure AD för att autentisera är att registrera ditt program i en Azure AD-klient. Genom att registrera ditt program kan du anropa Azure- [Active Directory-autentiseringsbibliotek][aad_adal] (ADAL) från din kod. ADAL tillhandahåller ett API för autentisering med Azure AD från ditt program. Registrering av ditt program krävs om du planerar att använda integrerad autentisering eller ett huvud namn för tjänsten.
+Det första steget i att använda Azure AD för att autentisera är att registrera ditt program i en Azure AD-klient. Genom att registrera ditt program kan du anropa Azure- [Active Directory-autentiseringsbibliotek](../active-directory/azuread-dev/active-directory-authentication-libraries.md) (ADAL) från din kod. ADAL tillhandahåller ett API för autentisering med Azure AD från ditt program. Registrering av ditt program krävs om du planerar att använda integrerad autentisering eller ett huvud namn för tjänsten.
 
 När du registrerar ditt program anger du information om ditt program till Azure AD. Azure AD tillhandahåller sedan ett program-ID (även kallat ett *klient-ID*) som du använder för att associera ditt program med Azure AD vid körning. Mer information om program-ID finns [i program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Registrera batch-programmet genom att följa stegen i avsnittet [lägga till ett program](../active-directory/develop/quickstart-register-app.md) i [integrera program med Azure Active Directory][aad_integrate]. Om du registrerar ditt program som ett internt program kan du ange en giltig URI för **omdirigerings-URI: n**. Det behöver inte vara en riktig slut punkt.
+Registrera ditt batch-program genom att följa stegen i avsnittet **Registrera ett program** i [snabb start: registrera ett program med Microsoft Identity Platform](../active-directory/develop/quickstart-register-app.md). Om du registrerar ditt program som ett internt program kan du ange en giltig URI för **omdirigerings-URI: n**. Det behöver inte vara en riktig slut punkt.
 
 När du har registrerat ditt program visas program-ID: t:
 
-![Registrera ditt batch-program med Azure AD](./media/batch-aad-auth/app-registration-data-plane.png)
-
-Mer information om hur du registrerar ett program med Azure AD finns i [autentiserings scenarier för Azure AD](../active-directory/develop/authentication-vs-authorization.md).
+![Skärm bild av det program-ID som visas i Azure Portal.](./media/batch-aad-auth/app-registration-data-plane.png)
 
 ## <a name="get-the-tenant-id-for-your-active-directory"></a>Hämta klient-ID: t för din Active Directory
 
@@ -73,7 +69,7 @@ Klient-ID: t identifierar den Azure AD-klient som tillhandahåller Authenticatio
 1. Välj **Egenskaper**.
 1. Kopiera GUID-värdet som har angetts för **katalog-ID: t**. Detta värde kallas även klient-ID.
 
-![Kopiera katalog-ID](./media/batch-aad-auth/aad-directory-id.png)
+![Skärm bild av katalog-ID: t i Azure Portal.](./media/batch-aad-auth/aad-directory-id.png)
 
 ## <a name="use-integrated-authentication"></a>Använd integrerad autentisering
 
@@ -81,22 +77,17 @@ Om du vill autentisera med integrerad autentisering måste du ge dina program be
 
 När du har registrerat ditt program följer du de här stegen i Azure Portal för att ge åtkomst till batch-tjänsten:
 
-1. I det vänstra navigerings fönstret i Azure Portal väljer du **alla tjänster**. Välj **app-registreringar**.
-1. Sök efter namnet på ditt program i listan med app-registreringar:
-
-    ![Sök efter ditt program namn](./media/batch-aad-auth/search-app-registration.png)
-
+1. I Azure Portal väljer du **alla tjänster**och väljer sedan **app-registreringar**.
+1. Sök efter namnet på ditt program i listan med app-registreringar.
 1. Välj programmet och välj **API-behörigheter**.
 1. I avsnittet **API-behörigheter** väljer du **Lägg till en behörighet**.
 1. I **Välj ett API**söker du efter batch-API: et. Sök efter var och en av de här strängarna tills du hittar API:t:
     1. **Microsoft Azure Batch**
     1. **ddbf3205-c6bd-46ae-8127-60eb93363864** är id:t för API:t.
-1. När du har hittat batch-API: t väljer du den och väljer **Välj**.
+1. När du har hittat batch-API: t väljer du det och väljer sedan **Välj**.
 1. Markera kryss rutan bredvid **åtkomst Azure Batch tjänst** i **Välj behörigheter**och välj sedan **Lägg till behörigheter**.
 
 Avsnittet **API-behörigheter** visar nu att Azure AD-programmet har åtkomst till både Microsoft Graph och batch-tjänstens API. Behörigheter beviljas till Microsoft Graph automatiskt när du först registrerar din app med Azure AD.
-
-![Bevilja API-behörigheter](./media/batch-aad-auth/required-permissions-data-plane.png)
 
 ## <a name="use-a-service-principal"></a>Använd ett huvud namn för tjänsten
 
@@ -111,13 +102,11 @@ När ditt program autentiserar med ett huvud namn för tjänsten, skickar det b�
 
 Följ dessa steg i Azure-portalen:
 
-1. I det vänstra navigerings fönstret i Azure Portal väljer du **alla tjänster**. Välj **app-registreringar**.
+1. I Azure Portal väljer du **alla tjänster**. Välj **app-registreringar**.
 1. Välj ditt program i listan med app-registreringar.
 1. Välj programmet och välj sedan **certifikat & hemligheter**. I avsnittet **klient hemligheter** väljer du **ny klient hemlighet**.
-1. Ange en beskrivning av hemligheten om du vill skapa en hemlighet. Välj sedan ett förfallo datum för hemligheten för ett år, två år eller inget förfallo datum.
+1. Ange en beskrivning av hemligheten om du vill skapa en hemlighet. Välj sedan ett förfallo datum för hemligheten för ett år, två år eller ingen utgång.
 1. Välj **Lägg till** för att skapa och Visa hemligheten. Kopiera det hemliga värdet till en säker plats, eftersom du inte kan komma åt det igen när du har lämnat sidan.
-
-    ![Skapa en hemlig nyckel](./media/batch-aad-auth/secret-key.png)
 
 ### <a name="assign-azure-rbac-to-your-application"></a>Tilldela Azure RBAC till ditt program
 
@@ -157,6 +146,9 @@ Du kan använda en anpassad roll för att bevilja behörighet till en Azure AD-a
 
 Anpassade roller är för användare som autentiseras av Azure AD, inte för batch-kontots autentiseringsuppgifter (delad nyckel). Observera att autentiseringsuppgifterna för batch-kontot ger fullständig behörighet till batch-kontot. Observera också att jobb som använder autopoolen kräver behörigheter på grupp nivå.
 
+> [!NOTE]
+> Vissa roll tilldelningar måste anges i fältet åtgärd, medan andra måste anges i fältet DataAction. Mer information finns i [Azure Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftbatch).
+
 Här är ett exempel på en anpassad roll definition:
 
 ```json
@@ -193,7 +185,7 @@ Här är ett exempel på en anpassad roll definition:
 }
 ```
 
-Mer allmän information om hur du skapar en anpassad roll finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md).
+Mer information om hur du skapar en anpassad roll finns i [Azure-anpassade roller](../role-based-access-control/custom-roles.md).
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Hämta klient-ID: t för din Azure Active Directory
 
@@ -212,10 +204,7 @@ I kod exemplen i det här avsnittet visas hur du autentiserar med Azure AD med i
 > [!NOTE]
 > En token för Azure AD-autentisering upphör att gälla efter en timme. När du använder ett **metoden batchclient** -objekt med lång livs längd rekommenderar vi att du hämtar en token från ADAL på varje begäran för att säkerställa att du alltid har en giltig token.
 >
->
-> För att uppnå detta i .NET, skriver du en metod som hämtar token från Azure AD och skickar den metoden till ett **BatchTokenCredentials** -objekt som ett ombud. Metoden delegate anropas på varje begäran till batch-tjänsten för att säkerställa att en giltig token har angetts. Som standard cachelagrar ADAL-token, så en ny token hämtas endast från Azure AD vid behov. Mer information om tokens i Azure AD finns i [autentiserings scenarier för Azure AD][aad_auth_scenarios].
->
->
+> För att uppnå detta i .NET, skriver du en metod som hämtar token från Azure AD och skickar den metoden till ett **BatchTokenCredentials** -objekt som ett ombud. Metoden delegate anropas på varje begäran till batch-tjänsten för att säkerställa att en giltig token har angetts. Som standard cachelagrar ADAL-token, så en ny token hämtas endast från Azure AD vid behov. Mer information om tokens i Azure AD finns i [säkerhetstoken](../active-directory/develop/security-tokens.md).
 
 ### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Kod exempel: använda Azure AD-integrerad autentisering med batch .NET
 
@@ -419,16 +408,8 @@ Använd autentiseringsuppgifterna för tjänstens huvud namn för att öppna ett
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om Azure AD finns i Azure Active Directory- [dokumentationen](../active-directory/index.yml). Djupgående exempel som visar hur du använder ADAL finns i [Azure kod exempel](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
-
-- Mer information om tjänstens huvud namn finns i [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Om du vill skapa ett huvud namn för tjänsten med hjälp av Azure Portal, se [använda Portal för att skapa Active Directory program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md). Du kan också skapa ett huvud namn för tjänsten med PowerShell eller Azure CLI.
-
-- Information om hur du autentiserar batch Management-program med hjälp av Azure AD finns i [autentisera batch Management-lösningar med Active Directory](batch-aad-auth-management.md).
-
+- Läs [Azure Active Directory-dokumentationen](../active-directory/index.yml). Djupgående exempel som visar hur du använder ADAL finns i [Azure kod exempel](https://azure.microsoft.com/resources/samples/?service=active-directory) biblioteket.
+- Lär dig mer om [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) och [hur du skapar ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md).
+- Lär dig mer om att [autentisera lösningar för batch-hantering med Active Directory](batch-aad-auth-management.md).
 - Ett python-exempel på hur du skapar en batch-klient autentiserad med hjälp av en Azure AD-token finns i avsnittet [distribuera Azure Batch anpassad avbildning med ett Python-skript](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) exempel.
 
-[aad_about]: ../active-directory/fundamentals/active-directory-whatis.md "Vad är Azure Active Directory?"
-[aad_adal]: ../active-directory/azuread-dev/active-directory-authentication-libraries.md
-[aad_auth_scenarios]: ../active-directory/develop/authentication-vs-authorization.md "Autentiserings scenarier för Azure AD"
-[aad_integrate]: ../active-directory/develop/quickstart-register-app.md "Integrera program med Azure Active Directory"
-[azure_portal]: https://portal.azure.com

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 188c30a79074b819c5785cf5560f5843a3fcf6b4
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 80c27613ad3956d565b858b02ed32ac13af3a62c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131623"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320477"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>Åtkomst kontrol listor (ACL: er) i Azure Data Lake Storage Gen2
 
@@ -199,7 +199,7 @@ Som illustreras i algoritmen för åtkomst kontroll begränsar masken åtkomsten
 
 För en ny Data Lake Storage Gen2-behållare är masken för åtkomst-ACL: en för rot katalogen ("/") standardvärdet **750** för kataloger och **640** för filer. I följande tabell visas den symboliska notationen för dessa behörighets nivåer.
 
-|Entitet|Kataloger|Files|
+|Entitet|Kataloger|Filer|
 |--|--|--|
 |Ägande användare|`rwx`|`r-w`|
 |Ägande grupp|`r-x`|`r--`|
@@ -326,6 +326,11 @@ OID kommer att visas.
 
 När du har rätt OID för tjänstens huvud namn går du till sidan Storage Explorer **Hantera åtkomst** för att lägga till OID och tilldela lämpliga behörigheter för OID. Se till att du väljer **Spara**.
 
+### <a name="can-i-set-the-acl-of-a-container"></a>Kan jag ange ACL för en behållare?
+
+Nej. En behållare har ingen ACL. Du kan dock ange ACL: en för behållarens rot Katalog. Varje behållare har en rot Katalog och den delar samma namn som behållaren. Om behållaren till exempel heter `my-container` , namnges rot katalogen `myContainer/` . 
+
+Azure Storage REST API innehåller en åtgärd med namnet [set behållar-ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), men åtgärden kan inte användas för att ange ACL för en behållare eller rot katalogen för en behållare. I stället används den åtgärden för att indikera om blobbar i en behållare [kan nås offentligt](anonymous-read-access-configure.md). 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Var hittar jag mer information om POSIX-modellen för åtkomstkontroll?
 

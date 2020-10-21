@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 02/06/2020
+ms.date: 10/19/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: d1059bae047774864868fbe90df50a877f9a3869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d27e5b22fc0e24850a8c454ef1f07e77341ac15a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798065"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282539"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>Använda samlingar i portalen Mina appar
 
@@ -32,7 +32,7 @@ Samlingar är olika app-vyer som visas i portalen för **Mina appar** . Appar ka
 
 Listan över samlingar i **Mina Apps** -portalens standardinställningar visar en namngiven **alla appar**, som har alla appar som du har åtkomst till:
 
-![Sidan alla appar i portalen Mina appar](media/my-applications-portal-workspaces/my-apps-all.png)
+![Sidan alla appar i portalen Mina appar](media/my-applications-portal-workspaces/my-apps-all-apps.png)
 
 Alla andra samlingar som visas i den här listan har skapats av din administratör och delas med dig. Du kan välja någon av dessa samlingar för att se en mer begränsad uppsättning appar, till exempel *support* i följande exempel:
 

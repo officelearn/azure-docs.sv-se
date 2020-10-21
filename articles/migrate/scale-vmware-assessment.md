@@ -3,12 +3,12 @@ title: Utvärdera ett stort antal virtuella VMware-datorer för migrering till A
 description: Beskriver hur du bedömer ett stort antal virtuella VMware-datorer för migrering till Azure med hjälp av tjänsten Azure Migrate. e
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a5a29ffc8abe0e8ec4fe85a41b4b67c2e655d2b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87171918"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314117"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Utvärdera ett stort antal virtuella VMware-datorer för migrering till Azure
 
@@ -26,7 +26,7 @@ I den här artikeln kan du se hur du:
 
 
 > [!NOTE]
-> Om du vill testa ett koncept koncept för att utvärdera ett antal virtuella datorer innan du bedömer i skala följer du våra [själv studie kurser](tutorial-prepare-vmware.md)
+> Om du vill testa ett koncept koncept för att utvärdera ett antal virtuella datorer innan du bedömer i skala följer du våra [själv studie kurser](./tutorial-discover-vmware.md)
 
 ## <a name="plan-for-assessment"></a>Planera för utvärdering
 
@@ -78,7 +78,7 @@ Förbered Azure och VMware för Server utvärdering.
 2. Konfigurera behörigheter för ditt Azure-konto för att interagera med Azure Migrate.
 3. Förbered VMware för utvärdering.
 
-Följ anvisningarna i [den här självstudien](tutorial-prepare-vmware.md) för att konfigurera de här inställningarna.
+Följ anvisningarna i [den här självstudien](./tutorial-discover-vmware.md) för att konfigurera de här inställningarna.
 
 
 ## <a name="create-a-project"></a>Skapa ett projekt
@@ -96,7 +96,7 @@ I enlighet med dina planerings krav gör du följande:
 1. Granska utvärderingarna i förberedelser inför planering av migrering.
 
 
-Följ anvisningarna i [den här självstudien](tutorial-assess-vmware.md) för att konfigurera de här inställningarna.
+Följ anvisningarna i [den här självstudien](./tutorial-assess-vmware-azure-vm.md) för att konfigurera de här inställningarna.
     
 
 ## <a name="next-steps"></a>Nästa steg

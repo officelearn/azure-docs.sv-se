@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71c84b35c001be7fafdc2df53014050ae21dec63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941560"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320208"
 ---
 # <a name="get-azure-arc-enabled-data-services-logs"></a>Hämta Azure Arc-aktiverade data Services-loggar
 
@@ -22,48 +22,60 @@ ms.locfileid: "90941560"
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att hämta Azure Arc-aktiverade data Services-loggar behöver du Azure Data CLI-verktyget. [Installationsinstruktioner](./install-client-tools.md)
+Innan du fortsätter behöver du:
 
-Du måste kunna logga in på tjänsten Azure Arc Enabled Data Services Controller som administratör.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Installationsinstruktioner](./install-client-tools.md).
+* Ett administratörs konto för att logga in på den Azure Arc-aktiverade data Services-styrenheten.
 
 ## <a name="get-azure-arc-enabled-data-services-logs"></a>Hämta Azure Arc-aktiverade data Services-loggar
 
-Du kan hämta Azure Arc-aktiverade data Services-loggar över alla poddar eller vissa poddar i fel söknings syfte.  Du kan göra detta med hjälp av standard Kubernetes-verktyg som `kubectl logs` kommandot eller i den här artikeln ska du använda Azure Data CLI-verktyget som gör det enklare att hämta alla loggar samtidigt.
+Du kan hämta Azure Arc-aktiverade data Services-loggar över alla poddar eller vissa poddar i fel söknings syfte. Du kan göra detta med hjälp av standard Kubernetes-verktyg som `kubectl logs` kommandot eller i den här artikeln ska du använda [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] verktyget, vilket gör det enklare att hämta alla loggar samtidigt.
 
-Kontrol lera först att du är inloggad på data styrenheten.
+1. Logga in på data styrenheten med ett administratörs konto.
 
-```console
-azdata login
-```
+   ```console
+   azdata login
+   ```
 
-Kör sedan följande kommando för att dumpa loggarna:
-```console
-azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+2. Dumpa loggarna genom att köra följande kommando:
 
-#Example:
-#azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
-```
+   ```console
+   azdata arc dc debug copy-logs --namespace <namespace name> --exclude-dumps --skip-compress
+   ```
 
-Loggfilerna skapas i den aktuella arbets katalogen som standard i en under katalog som kallas "loggar".  Du kan spara loggfilerna i en annan katalog med hjälp av- `--target-folder` parametern.
+   Exempel:
 
-Du kan välja att komprimera filerna genom att utelämna `--skip-compress` parametern.
+   ```console
+   #azdata arc dc debug copy-logs --namespace arc --exclude-dumps --skip-compress
+   ```
 
-Du kan utlösa och ta med minnes dum par genom att utesluta `--exclude-dumps` , men detta rekommenderas inte om Microsoft support har begärt minnes dum par.  Om du tar en minnes dumpning krävs det att inställningen `allowDumps` för datakontrollant är inställd på `true` tiden för att skapa datakontrollanten.
+Datakontrollanten skapar loggfilerna i den aktuella arbets katalogen i en under katalog som kallas `logs` . 
 
-Du kan välja att filtrera för att samla in loggar för bara en speciell Pod ( `--pod` ) eller container ( `--container` ) efter namn.
+## <a name="options"></a>Alternativ
 
-Du kan också välja att filtrera för att samla in loggar för en speciell resurs genom att skicka filen `--resource-kind` och `--resource-name` parameter.  `resource-kind`Parametervärdet måste vara ett av de anpassade resurs definitions namn som kan hämtas av kommandot `kubectl get customresourcedefinition` .
+`azdata arc dc debug copy-logs` innehåller följande alternativ för att hantera utdata.
+
+* Spara loggfilerna i en annan katalog med hjälp av `--target-folder` parametern.
+* Komprimera filerna genom att utelämna `--skip-compress` parametern.
+* Utlös och inkludera minnes dum par genom att utesluta `--exclude-dumps` . Den här metoden rekommenderas inte om Microsoft Support har begärt minnes dum par. Om du tar en minnes dumpning krävs det att inställningen `allowDumps` för datakontrollant är inställd på `true` tiden för att skapa datakontrollanten.
+* Filtrera för att samla in loggar för bara en speciell Pod ( `--pod` ) eller container ( `--container` ) efter namn.
+* Filtrera för att samla in loggar för en angiven anpassad resurs genom att skicka `--resource-kind` `--resource-name` parametern och. `resource-kind`Parametervärdet måste vara ett av de anpassade resurs definitions namnen, som kan hämtas av kommandot `kubectl get customresourcedefinition` .
+
+Med dessa parametrar kan du ersätta `<parameters>` i följande exempel. 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
+```
 
-#Example
+Till exempel
+
+```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Exempel på mapphierarki.  Observera att mapphierarkin är ordnad efter namn på pod namn och sedan efter behållare och sedan efter katalog-hierarki i behållaren.
+Exempel på mapphierarki. Mapphierarkin är ordnad efter Pod namn, sedan container och sedan efter katalogpartition i behållaren.
 
-```console
+```output
 <export directory>
 ├───debuglogs-arc-20200827-180403
 │   ├───bootstrapper-vl8j2
@@ -181,3 +193,7 @@ Exempel på mapphierarki.  Observera att mapphierarkin är ordnad efter namn på
             ├───journal
             └───openvpn
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+[azdata Arc DC debug Copy-Logs](/sql/azdata/reference/reference-azdata-arc-dc-debug#azdata-arc-dc-debug-copy-logs?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json)

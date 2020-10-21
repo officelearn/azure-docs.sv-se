@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: e8786c2d6e93c18a5bf9856a5555d6b528f842c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75441221"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279863"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Skapa en syntetisk partitionsnyckel
 
@@ -58,7 +58,7 @@ Med den här strategin sprids skrivningarna jämnt över nyckel värden och öve
 
 Du kan lära dig mer om partitionerings konceptet i följande artiklar:
 
-* Läs mer om [logiska partitioner](partition-data.md).
+* Läs mer om [logiska partitioner](partitioning-overview.md).
 * Lär dig mer om hur du [etablerar data flöde i Azure Cosmos-behållare och databaser](set-throughput.md).
 * Lär dig hur du [etablerar data flöde i en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 * Lär dig hur du [etablerar data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).

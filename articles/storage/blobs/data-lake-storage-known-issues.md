@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fee5427981cbd2c04a5ee88500a1aee77e2e5ffd
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876132"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282198"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -92,7 +92,11 @@ Program från tredje part som använder REST-API: er för arbete fortsätter att
 
 Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats till en behållare, har ACL: er ingen påverkan på den behållaren eller filerna i den behållaren.
 
-## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Premium-prestanda BlockBlobStorage lagrings konton
+### <a name="diagnostic-logs"></a>Diagnostikloggar
+
+Inställningen för kvarhållning av dagar stöds inte ännu, men du kan ta bort loggar manuellt med hjälp av ett verktyg som stöds, till exempel Azure Storage Explorer, REST eller en SDK.
+
+## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Problem som är specifika för BlockBlobStorage lagrings konton för Premium-prestanda
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
 
@@ -108,8 +112,6 @@ Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumG
 #Enable logging
 Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
 ```
-
-Inställningen för kvarhållning av dagar stöds inte ännu, men du kan ta bort loggar manuellt med hjälp av ett verktyg som stöds, till exempel Azure Storage Explorer, REST eller en SDK.
 
 ### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 

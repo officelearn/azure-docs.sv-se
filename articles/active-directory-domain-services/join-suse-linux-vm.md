@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.author: joflore
-ms.openlocfilehash: 5d89f1a3d6028afb3450e0112a6081c9c706775b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 607d3bc8eca3bd969f0f47ca95923040fb22591e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962470"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275868"
 ---
 # <a name="join-a-suse-linux-enterprise-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Ansluta en SUSE Linux Enterprise-dator till en Azure Active Directory Domain Services hanterad domän
 
@@ -165,7 +165,7 @@ Slutför följande steg för att ansluta till den hanterade domänen med **winbi
 
 1. Välj *Expert inställningar*om du vill ändra UID-och GID-intervall för samba-användare och-grupper.
 
-1. Konfigurera NTP-tidssynkronisering för din hanterade domän genom att välja *NTP-konfiguration*. Ange IP-adresserna för den hanterade domänen. De här IP-adresserna visas i fönstret *Egenskaper* i Azure Portal för din hanterade domän, till exempel *10.0.2.4* och *10.0.2.5*.
+1. Konfigurera NTP-tidssynkronisering (Network Time Protocol) för din hanterade domän genom att välja *NTP-konfiguration*. Ange IP-adresserna för den hanterade domänen. De här IP-adresserna visas i fönstret *Egenskaper* i Azure Portal för din hanterade domän, till exempel *10.0.2.4* och *10.0.2.5*.
 
 1. Välj **OK** och bekräfta domän anslutningen när du uppmanas till det.
 
@@ -174,6 +174,127 @@ Slutför följande steg för att ansluta till den hanterade domänen med **winbi
     ![Exempel skärm bild av dialog rutan för autentisering när du ansluter en virtuell SLE-dator till den hanterade domänen](./media/join-suse-linux-vm/domain-join-authentication-prompt.png)
 
 När du har anslutit till den hanterade domänen kan du logga in på den från din arbets station med hjälp av din dators visnings hanterare eller-konsolen.
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-yast-command-line-interface"></a>Anslut den virtuella datorn till den hanterade domänen med winbind från kommando rads gränssnittet YaST
+
+Så här ansluter du till den hanterade domänen med hjälp av **winbind** och *kommando rads gränssnittet för YaST*:
+
+* Anslut till domänen:
+
+  ```console
+  sudo yast samba-client joindomain domain=aaddscontoso.com user=<admin> password=<admin password> machine=<(optional) machine account>
+  ```
+
+## <a name="join-vm-to-the-managed-domain-using-winbind-from-the-terminal"></a>Anslut den virtuella datorn till den hanterade domänen med winbind från terminalen
+
+Så här ansluter du till den hanterade domänen med **winbind** och * `samba net` kommandot*:
+
+1. Installera Kerberos-klienten och Samba-winbind:
+
+   ```console
+   sudo zypper in krb5-client samba-winbind
+   ```
+
+2. Redigera konfigurationsfilerna:
+
+   * /etc/samba/smb.conf
+   
+     ```ini
+     [global]
+         workgroup = AADDSCONTOSO
+         usershare allow guests = NO #disallow guests from sharing
+         idmap config * : backend = tdb
+         idmap config * : range = 1000000-1999999
+         idmap config AADDSCONTOSO : backend = rid
+         idmap config AADDSCONTOSO : range = 5000000-5999999
+         kerberos method = secrets and keytab
+         realm = AADDSCONTOSO.COM
+         security = ADS
+         template homedir = /home/%D/%U
+         template shell = /bin/bash
+         winbind offline logon = yes
+         winbind refresh tickets = yes
+     ```
+
+   * /etc/krb5.conf
+   
+     ```ini
+     [libdefaults]
+         default_realm = AADDSCONTOSO.COM
+         clockskew = 300
+     [realms]
+         AADDSCONTOSO.COM = {
+             kdc = PDC.AADDSCONTOSO.COM
+             default_domain = AADDSCONTOSO.COM
+             admin_server = PDC.AADDSCONTOSO.COM
+         }
+     [domain_realm]
+         .aaddscontoso.com = AADDSCONTOSO.COM
+     [appdefaults]
+         pam = {
+             ticket_lifetime = 1d
+             renew_lifetime = 1d
+             forwardable = true
+             proxiable = false
+             minimum_uid = 1
+         }
+     ```
+
+   * /etc/Security/pam_winbind. conf
+   
+     ```ini
+     [global]
+         cached_login = yes
+         krb5_auth = yes
+         krb5_ccache_type = FILE
+         warn_pwd_expire = 14
+     ```
+
+   * /etc/nsswitch.conf
+   
+     ```ini
+     passwd: compat winbind
+     group: compat winbind
+     ```
+
+3. Kontrol lera att datum och tid i Azure AD och Linux är synkroniserade. Du kan göra detta genom att lägga till Azure AD-servern till NTP-tjänsten:
+   
+   1. Lägg till följande rad i/etc/NTP.conf:
+     
+      ```console
+      server aaddscontoso.com
+      ```
+
+   1. Starta om NTP-tjänsten:
+     
+      ```console
+      sudo systemctl restart ntpd
+      ```
+
+4. Anslut till domänen:
+
+   ```console
+   sudo net ads join -U Administrator%Mypassword
+   ```
+
+5. Aktivera winbind som inloggnings källa i PAM-modulerna (Pluggable Authentication Module) för Linux:
+
+   ```console
+   pam-config --add --winbind
+   ```
+
+6. Aktivera automatisk skapande av hem kataloger så att användarna kan logga in:
+
+   ```console
+   pam-config -a --mkhomedir
+   ```
+
+7. Starta och aktivera winbind-tjänsten:
+
+   ```console
+   sudo systemctl enable winbind
+   sudo systemctl start winbind
+   ```
 
 ## <a name="allow-password-authentication-for-ssh"></a>Tillåt lösenordsautentisering för SSH
 

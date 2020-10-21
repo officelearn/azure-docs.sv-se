@@ -1,19 +1,19 @@
 ---
 title: Skapa en privat slut punkt för en säker anslutning
 titleSuffix: Azure Cognitive Search
-description: Konfigurera en privat slut punkt i ett virtuellt nätverk för en säker anslutning till en Azure Kognitiv sökning-tjänst
+description: Konfigurera en privat slut punkt i ett virtuellt nätverk för en säker anslutning till en Azure Kognitiv sökning-tjänst.
 manager: nitinme
 author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: bbbc79a129ec3140ea6d286cbdce0165e2f6ae7b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935763"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280396"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Skapa en privat slut punkt för en säker anslutning till Azure Kognitiv sökning
 
@@ -152,10 +152,16 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
     ||
 
+   > [!NOTE]
+   > IPv4-adresser kan uttryckas i [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) -format. Kom ihåg att undvika det reserverade IP-intervallet för privata nätverk, enligt beskrivningen i [RFC 1918](https://tools.ietf.org/html/rfc1918):
+   >
+   > - `10.0.0.0 - 10.255.255.255  (10/8 prefix)`
+   > - `172.16.0.0 - 172.31.255.255  (172.16/12 prefix)`
+   > - `192.168.0.0 - 192.168.255.255 (192.168/16 prefix)`
+
 1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
 
 1. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**. 
-
 
 ## <a name="connect-to-the-vm"></a>Anslut till VM:en
 
@@ -181,7 +187,6 @@ Ladda ned och Anslut till VM- *myVm* på följande sätt:
 1. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
 
 1. När virtuella datorns skrivbord visas kan du minimera det att gå tillbaka till din lokala dator.  
-
 
 ## <a name="test-connections"></a>Test anslutningar
 

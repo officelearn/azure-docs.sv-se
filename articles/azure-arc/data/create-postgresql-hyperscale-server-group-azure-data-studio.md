@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 1b1cf90efa14345fa8395f5f62fd80934b922352
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2007d8f0c558d35c0507b6e12bce6d6777fad52
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273015"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310906"
 ---
 # <a name="create-azure-arc-enabled-postgresql-hyperscale-using-azure-data-studio"></a>Skapa en Azure Arc-aktiverad PostgreSQL-skalning med Azure Data Studio
 
@@ -62,7 +62,7 @@ Nu kan du implementera nästa steg.
 1. På fliken anslutningar klickar du på de tre punkterna längst upp till vänster och väljer "ny distribution"
 1. Från distributions alternativen väljer du **postgresql för skalnings Server grupp – Azure Arc**
     >[!NOTE]
-    > Du kan uppmanas att installera `azdata` CLI här om det inte redan är installerat.
+    > Du kan uppmanas att installera det [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] här om det inte redan är installerat.
 1. Godkänn sekretess-och licens villkoren och klicka på **Välj** längst ned
 1. Ange följande information i bladet distribuera PostgreSQL för storskalig Server grupp – Azure Arc:
    - Ange ett namn för Server gruppen

@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 675c98e00b7458f326c95741529f7ce41a91dc18
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056165"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319731"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Etablering av rapporter i Azure Active Directory portal (för hands version)
 
@@ -61,7 +61,7 @@ Etablerings loggarna ger svar på följande frågor:
 
 Du kan komma åt etablerings loggarna genom att välja **etablerings loggar** i avsnittet **övervakning** på bladet **Azure Active Directory** i [Azure Portal](https://portal.azure.com). Det kan ta upp till två timmar för vissa etablerings poster att visas i portalen.
 
-![Etablerings loggar](./media/concept-provisioning-logs/access-provisioning-logs.png "Etableringsloggar")
+![Etableringsloggar](./media/concept-provisioning-logs/access-provisioning-logs.png "Etableringsloggar")
 
 
 En etablerings logg har en Standardlistvy som visar:
@@ -86,7 +86,7 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
-![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filtrera")
+![Detaljerad information](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrera etablerings aktiviteter
@@ -100,7 +100,7 @@ I standardvyn kan du välja följande filter:
 - Åtgärd
 
 
-![Lägg till filter](./media/concept-provisioning-logs/default-filter.png "Filtrera")
+![Lägg till filter](./media/concept-provisioning-logs/default-filter.png "Filter")
 
 Med filtret **identitet** kan du ange namnet eller identiteten som du bryr dig om. Den här identiteten kan vara en användare, grupp, roll eller något annat objekt. Du kan söka efter objektets namn eller ID. ID varierar beroende på scenario. När ett objekt till exempel konfigureras från Azure AD till SalesForce, är käll-ID: t objekt-ID för användaren i Azure AD medan TargetID är användarens ID i Salesforce. Vid etablering från arbets dagar till Active Directory, är käll-ID: t arbets dagen anställdas anställnings-ID. Observera att namnet på användaren kanske inte alltid finns i identitets kolumnen. Det kommer alltid att finnas ett ID. 
 
@@ -191,7 +191,7 @@ På fliken **steg** beskrivs de steg som vidtas för att etablera ett objekt. Et
 
 
 
-![Skärm bild som visar fliken steg som visar etablerings stegen.](./media/concept-provisioning-logs/steps.png "Filtrera")
+![Skärm bild som visar fliken steg som visar etablerings stegen.](./media/concept-provisioning-logs/steps.png "Filter")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Felsöka och rekommendationer
@@ -215,7 +215,7 @@ Fliken **Sammanfattning** ger en översikt över vad som hände och identifierar
 
 - Du kan använda attributet ändra ID som unik identifierare. Detta är till exempel användbart när du interagerar med produkt supporten.
 
-- Det finns för närvarande inget alternativ för att ladda ned etablerings data som en CSV-fil, men du kan exportera data med hjälp av [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
+- Det finns för närvarande inget alternativ för att ladda ned etablerings data som en CSV-fil, men du kan exportera data med hjälp av [Microsoft Graph](/graph/api/provisioningobjectsummary-list?tabs=http&view=graph-rest-beta).
 
 - Du kan se hoppade händelser för användare som inte omfattas av omfånget. Detta förväntas, särskilt när Sync-omfånget är inställt på alla användare och grupper. Tjänsten kommer att utvärdera alla objekt i klienten, även de som ligger utanför omfånget. 
 
@@ -245,10 +245,10 @@ Använd tabellen nedan för att bättre förstå hur du löser fel som du kan hi
 |DuplicateSourceEntries | Det gick inte att slutföra åtgärden eftersom mer än en användare hittades med de konfigurerade matchande attributen. Ta antingen bort den duplicerade användaren eller konfigurera om dina mappningar för attribut enligt beskrivningen [här](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | När varje användare utvärderas försöker vi importera användaren från käll systemet. Det här felet uppstår vanligt vis när användaren som importeras saknar matchande egenskap som definierats i dina Attribute-mappningar. Utan ett värde som finns på användarobjektet för det matchande attributet kan vi inte utvärdera omfattnings-, matchnings-eller export ändringar. Obs! närvaro av det här felet anger inte att användaren är i omfånget eftersom vi ännu inte har utvärderat omfattning för användaren.|
 |EntrySynchronizationSkipped | Etablerings tjänsten har skickat frågan till käll systemet och identifierade användaren. Ingen ytterligare åtgärd vidtogs för användaren och de hoppades över. Det kan bero på att användaren är utanför omfånget eller att användaren redan finns i mål systemet utan ytterligare ändringar som krävs.|
-|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| När du utför en GET-begäran för att hämta en användare eller grupp, fick vi flera användare eller grupper i svaret. Vi förväntade dig att endast ta emot en användare eller grupp i svaret. Om [exempelvis](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group)vi gör en get-begäran för att hämta en grupp och tillhandahåller ett filter för att undanta medlemmar och din scim-slutpunkt returnerar medlemmarna, kommer vi att utlösa det här felet.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| När du utför en GET-begäran för att hämta en användare eller grupp, fick vi flera användare eller grupper i svaret. Vi förväntade dig att endast ta emot en användare eller grupp i svaret. Om [exempelvis](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group)vi gör en get-begäran för att hämta en grupp och tillhandahåller ett filter för att undanta medlemmar och din scim-slutpunkt returnerar medlemmarna, kommer vi att utlösa det här felet.|
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Kontrol lera status för användar etablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
 * [Problem med att konfigurera användar etablering i ett Azure AD Gallery-program](../app-provisioning/application-provisioning-config-problem.md)
-* [Konfiguration av loggar Graph API](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)
+* [Konfiguration av loggar Graph API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta)

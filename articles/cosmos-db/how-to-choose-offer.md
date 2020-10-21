@@ -1,17 +1,17 @@
 ---
-title: Så här väljer du rätt data flödes erbjudande i Azure Cosmos DB
-description: Lär dig mer om hur du väljer mellan standard (manuell) allokerat data flöde och autoskalning av allokerat data flöde för din arbets belastning.
+title: Hur du väljer mellan manuell och autoskalning på Azure Cosmos DB
+description: Lär dig hur du väljer mellan standard (manuell) etablerad data flöde och autoskalning av allokerat data flöde för din arbets belastning.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: fbe17d75ad809c54939624b1409e281b2f62a037
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0365238fd70e2e098e5a228ee71d5b9e0e584c71
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605206"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279784"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Välja mellan standard (manuell) och autoskalning av allokerat data flöde 
 
@@ -54,17 +54,82 @@ Om du har ett befintligt program med standard (manuellt) tillhandahållet data f
 
 Börja med att hitta den [normaliserade förbruknings måttet för begär ande enheter](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) för din databas eller behållare. Normaliserad användning är ett mått på hur mycket du för närvarande använder ditt standard (manuellt) allokerade data flöde. Närmare talet är 100%, desto mer är du helt använder dina etablerade RU/s. [Läs mer](monitor-normalized-request-units.md#view-the-normalized-request-unit-consumption-metric) om måttet.
 
-Sedan fastställer du hur den normaliserade användningen varierar över tid. Om du ser att din normaliserade användning är variabel eller oförutsägbar, kan du överväga att aktivera autoskalning på din databas eller behållare. Om det däremot är stabilt och förutsägbart, bör du överväga återstående på standard (manuellt) allokerat data flöde. 
+Sedan fastställer du hur den normaliserade användningen varierar över tid. Hitta den högsta normaliserade användningen för varje timme. Beräkna sedan den genomsnittliga normaliserade användningen för alla timmar. Om du ser att den genomsnittliga användningen är mindre än 66% kan du överväga att aktivera autoskalning på din databas eller behållare. Om den genomsnittliga användningen är större än 66% rekommenderar vi däremot att du fortsätter med standard (manuellt) allokerat data flöde.
+
+> [!TIP]
+> Om ditt konto har kon figurer ATS för att använda flera regioner och har mer än en region, är priset per 100 RU/s detsamma för både manuell och autoskalning. Det innebär att aktivering av autoskalning medför ingen ytterligare kostnad oavsett användning. Därför rekommenderar vi alltid att du använder autoskalning med flera regioner när du har mer än en region, så att du kan dra nytta av besparingarna från att bara betala för RU/s ditt program skalas till. Om du har skrivningar i flera regioner och en region använder du den genomsnittliga användningen för att avgöra om autoskalning leder till kostnads besparingar. 
+
+#### <a name="examples"></a>Exempel
+
+Låt oss ta en titt på två olika exempel arbets belastningar och analysera om de är lämpliga för manuell eller automatisk skalning av data flöde. För att illustrera den allmänna metoden analyserar vi tre timmars historik för att fastställa kostnads skillnaden mellan att använda manuell och autoskalning. För produktions arbets belastningar rekommenderar vi att du använder 7 till 30 dagars historik (eller längre om tillgängligt) för att upprätta ett mönster för RU/s-användning.
+
+> [!NOTE]
+> Alla exempel som visas i det här dokumentet baseras på priset för ett Azure Cosmos-konto som distribueras i en icke-myndighets region i USA. Prissättningen och beräkningen varierar beroende på vilken region du använder, se [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste pris informationen.
+
+Antaganden:
+- Anta att vi för närvarande har manuellt genomflöde av 30 000 RU/s. 
+- Vår region har kon figurer ATS med en enda regions skrivning, med en region. Om vi hade flera regioner skulle vi multiplicera Tim kostnaden med antalet regioner.
+- Använd priser för offentliga priser för manuell ($0,008 USD per 100 RU/s per timme) och autoskalning av data flöde ($0,012 USD per 100 RU/s per timme) i ett konto med en regions skrivning. Mer information finns på [sidan med pris](https://azure.microsoft.com/pricing/details/cosmos-db/) information. 
+
+#### <a name="example-1-variable-workload-autoscale-recommended"></a>Exempel 1: variabel arbets belastning (Autoskala rekommenderas)
+
+Först tittar vi på den normaliserade RU-förbrukningen. Den här arbets belastningen har varierande trafik, med normaliserad RU-förbrukning mellan 6 och 100%. Det finns tillfälliga toppar till 100% som är svåra att förutsäga, men många timmar med låg belastning. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload_use_autoscale.png" alt-text="Arbets belastning med variabel trafik – normaliserad RU-förbrukning mellan 6% och 100% för alla timmar":::
+
+Nu ska vi jämföra kostnaden för etablering av 30 000 RU/s manuellt data flöde, jämfört med att ange max. RU/s till 30 000 (skalas mellan 3000-30 000 RU/s). 
+
+Nu ska vi analysera historiken. Anta att vi har den användning som beskrivs i följande tabell. Den genomsnittliga användningen för dessa tre timmar är 39%. Eftersom den normaliserade RU-förbrukningen är mindre än 66% sparar vi med hjälp av autoskalning. 
+
+Observera att när det finns 6% användning i timmen 1 faktureras autoskalning för RU/s för 10% av Max RU/s, vilket är minimivärdet per timme. Även om kostnaden för autoskalning kan vara högre än manuellt genom strömning under vissa timmar, blir den automatiska skalningen billigare övergripande, förutsatt att den genomsnittliga användningen är mindre än 66% över hela tiden.
+
+|  | Användning |Fakturerad autoskalning av RU/s  |Alternativ 1: manuell 30 000 RU/s  | Alternativ 2: autoskalning mellan 3000-30 000 RU/s |
+|---------|---------|---------|---------|---------|
+|Timme 1  | 6 %  |     3000  |  30 000 * 0,008/100 = $2,40        |   3000 * 0,012/100 = $0,36      |
+|Timme 2  | 100 %  |     30 000    |  30 000 * 0,008/100 = $2,40       |  30 000 * 0,012/100 = $3,60      |
+|Timme 3 |  11.3  |     3300    |  30 000 * 0,008/100 = $2,40       |    3300 * 0,012/100 = $0,40     |
+|**Totalt**   |  |        |  $7,20       |    $4,36 (39% besparingar)    |
+
+#### <a name="example-2-steady-workload-manual-throughput-recommended"></a>Exempel 2: stabil arbets belastning (manuellt data flöde rekommenderas)
+
+Den här arbets belastningen har stadig trafik, med normaliserad RU-förbrukning mellan 72% och 100%. Med 30 000 RU/s etablerad innebär det att vi tar mellan 21 600 och 30 000 RU/s.
+
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Arbets belastning med variabel trafik – normaliserad RU-förbrukning mellan 6% och 100% för alla timmar":::
+
+Nu ska vi jämföra kostnaden för etablering av 30 000 RU/s manuellt data flöde, jämfört med att ange max. RU/s till 30 000 (skalas mellan 3000-30 000 RU/s).
+
+Anta att vi har användnings historiken enligt beskrivningen i tabellen. Den genomsnittliga användningen för dessa tre timmar är 88%. Eftersom den normaliserade RU-förbrukningen är större än 66% sparar vi med hjälp av manuellt data flöde.
+
+I allmänhet kommer vi att spara med hjälp av manuellt data flöde om den genomsnittliga användningen för alla 730 timmar i en månad är större än 66%. 
+
+|  | Användning |Fakturerad autoskalning av RU/s  |Alternativ 1: manuell 30 000 RU/s  | Alternativ 2: autoskalning mellan 3000-30 000 RU/s |
+|---------|---------|---------|---------|---------|
+|Timme 1  | 72%  |     21 600   |  30 000 * 0,008/100 = $2,40        |   21600 * 0,012/100 = $2,59      |
+|Timme 2  | 93 %  |     28 000    |  30 000 * 0,008/100 = $2,40       |  28 000 * 0,012/100 = $3,36       |
+|Timme 3 |  100 %  |     30 000    |  30 000 * 0,008/100 = $2,40       |    30 000 * 0,012/100 = $3,60     |
+|**Totalt**   |  |        |  $7,20       |    $9,55     |
 
 > [!TIP]
 > Med standard-genomflödet (manuell) kan du använda det normaliserade användnings måttet för att beräkna de faktiska RU/s som du kan använda om du växlar till autoskalning. Multiplicera den normaliserade användningen vid en tidpunkt genom den aktuella etablerade standarden (manuell) RU/s. Om du till exempel har etablerade 5000 RU/s och den normaliserade användningen är 90% är RU/s-användningen 0,9 * 5000 = 4500 RU/s. Om du ser att ditt trafik mönster är variabelt, men du är över eller under etablerad, kanske du vill aktivera autoskalning och sedan ändra inställningen för autoskalning Max RU/s.
+
+#### <a name="how-to-calculate-average-utilization"></a>Beräkna genomsnittlig användning
+Autoskalning av fakturor för flest RU/s skalas till i en timme. När du analyserar normaliserad RU-förbrukning över tid är det viktigt att använda den högsta användningen per timme när du beräknar genomsnittet. 
+
+Beräkna medelvärdet för den högsta användningen för alla timmar:
+1. Ställ in **agg regeringen** på Noramlized ru-förbruknings måttet till **Max**.
+1. Välj **tids kornig het** till 1 timme.
+1. Navigera till **diagram alternativ**.
+1. Välj alternativet stapeldiagram. 
+1. Under **dela**väljer du alternativet **Ladda ned till Excel** . Beräkna den genomsnittliga användningen för alla timmar från det genererade kalkyl bladet. 
+
+:::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Arbets belastning med variabel trafik – normaliserad RU-förbrukning mellan 6% och 100% för alla timmar":::
 
 ## <a name="measure-and-monitor-your-usage"></a>Mäta och övervaka din användning
 Med tiden bör du övervaka ditt program och göra justeringar efter behov när du har valt typ av data flöde. 
 
 När du använder autoskalning använder du Azure Monitor för att se den allokerade autoskalning Max RU/s (**autoskalning Max-genomflöde**) och ru/s-systemet skalas för närvarande till (**etablerings data flöde**). Nedan visas ett exempel på en variabel eller oförutsägbar arbets belastning med hjälp av autoskalning. Observera att när det inte finns någon trafik skalar systemet RU/s till minst 10% av Max RU/s, som i det här fallet är 5000 RU/s respektive 50 000 RU/s respektive. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Exempel på arbets belastning med autoskalning":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Arbets belastning med variabel trafik – normaliserad RU-förbrukning mellan 6% och 100% för alla timmar":::
 
 > [!NOTE]
 > När du använder standard (manuellt) tillhandahållet data flöde, refererar det **tillhandahållna data flödes** måttet till det som användaren har angett. När du använder autoskalning av data flöde refererar detta mått till RU/s-systemet är för närvarande skalat till.

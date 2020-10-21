@@ -3,12 +3,12 @@ title: Uppgradera klusternoder för att använda Azure Managed disks
 description: Så här uppgraderar du ett befintligt Service Fabric-kluster för att använda Azure Managed disks med liten eller ingen stillestånds tid för klustret.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: 152bdaea121e65de8332fcde8543b8158ff11714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36896a6cf471ff0c9312ab454465419471bb164d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717531"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316148"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Uppgradera klusternoder för att använda Azure Managed disks
 
@@ -25,7 +25,7 @@ Den allmänna strategin för att uppgradera en Service Fabric klusternod till at
 Den här artikeln beskriver steg för steg hur du uppgraderar den primära nodtypen i ett exempel kluster för att använda hanterade diskar, samtidigt som du undviker eventuella avbrott i klustret (se OBS!). Det första stadiet i exempel-test klustret består av en nodtyp av [silver tålighet](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster), med en enda skalnings uppsättning med fem noder.
 
 > [!NOTE]
-> Begränsningarna för en Basic SKU-belastningsutjämnare förhindrar att ytterligare en skalnings uppsättning läggs till. Vi rekommenderar att du använder standard-SKU-belastningsutjämnaren i stället. Mer information finns i [jämförelse av de två SKU: erna](/azure/load-balancer/skus).
+> Begränsningarna för en Basic SKU-belastningsutjämnare förhindrar att ytterligare en skalnings uppsättning läggs till. Vi rekommenderar att du använder standard-SKU-belastningsutjämnaren i stället. Mer information finns i [jämförelse av de två SKU: erna](../load-balancer/skus.md).
 
 > [!CAUTION]
 > Du får bara ett avbrott med den här proceduren om du har beroenden för kluster-DNS (till exempel vid åtkomst till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)). [Bästa praxis för klient dels tjänster](/azure/architecture/microservices/design/gateway) är att ha någon typ av belastningsutjämnare framför dina nodtyper för att göra det möjligt att växla [mellan](/azure/architecture/guide/technology-choices/load-balancing-overview) noder utan avbrott.

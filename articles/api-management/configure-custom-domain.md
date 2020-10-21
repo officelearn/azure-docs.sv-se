@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 53442f0727544221f28bfdb58d8069163eb374e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7032c64efa486c65830e013373239647a368540
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87024868"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311140"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-api-management-instance"></a>Konfigurera ett anpassat domän namn för Azure API Management-instansen
 
@@ -50,10 +50,10 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     Det finns ett antal slut punkter som du kan tilldela ett anpassat domän namn. För närvarande är följande slut punkter tillgängliga:
 
     - **Gateway** (standard är: `<apim-service-name>.azure-api.net` ),
-    - **Portal** (standard är: `<apim-service-name>.portal.azure-api.net` ),
+    - **Utvecklings portal (bakåtkompatibelt)** (standard är: `<apim-service-name>.portal.azure-api.net` ),
+    - **Developer-portalen** (standard är: `<apim-service-name>.developer.azure-api.net` ).
     - **Hantering** (standard är: `<apim-service-name>.management.azure-api.net` ),
     - **SCM** (standard är: `<apim-service-name>.scm.azure-api.net` ),
-    - **NewPortal** (standard är: `<apim-service-name>.developer.azure-api.net` ).
 
     > [!NOTE]
     > Endast **Gateway** -slutpunkten är tillgänglig för konfiguration i förbruknings nivån.
@@ -78,7 +78,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     >
     > Om certifikatet är inställt på automatisk förnyelse, kommer API Management automatiskt att hämta den senaste versionen utan drift avbrott till tjänsten (om din API Management-nivå har SLA-i. e. i alla nivåer förutom utvecklings nivån).
 
-1. Klicka på Applicera.
+1. Klicka på Använd.
 
     > [!NOTE]
     > Processen för att tilldela certifikatet kan ta 15 minuter eller mer beroende på storleken på distributionen. Developer SKU: n har avbrott, Basic och högre SKU: er har inte någon nedtid.

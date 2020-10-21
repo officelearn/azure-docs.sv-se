@@ -9,12 +9,12 @@ ms.date: 08/07/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: abd6d6379fba1efac20255ca97e66e6b2d7e72ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324417"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282367"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Hantera indexering i Azure Cosmos DBs API för MongoDB
 
@@ -138,7 +138,7 @@ När du börjar utveckla kan det vara praktiskt att skapa ett Wildcard-index i a
 Jokertecken index stöder inte någon av följande index typer eller egenskaper:
 
 - Beräkning
-- TTL-värde
+- TTL
 - Unik
 
 Till **skillnad från i MongoDB**, i Azure Cosmos DB s API för MongoDB, **kan du inte** använda jokertecken index för:
@@ -324,7 +324,7 @@ Oavsett vilket värde som angetts för egenskapen för **bakgrunds** index görs
 
 Det finns ingen inverkan på Läs tillgänglighet när du lägger till ett nytt index. Frågor använder bara nya index när index omvandlingen har slutförts. Vid omvandlingen av index fortsätter Frågeredigeraren att använda befintliga index, så du ser liknande Läs prestanda under indexerings omvandlingen till det du hade observerat innan du påbörjar indexerings ändringen. När du lägger till nya index är det inte heller någon risk för ofullständiga eller inkonsekventa frågeresultat.
 
-När du tar bort index och omedelbart kör frågor, så kan resultaten vara inkonsekventa och ofullständiga tills index omvandlingen har slutförts. Om du tar bort index garanterar inte frågesyntaxen konsekvent eller fullständig resultat när frågor filtrerar på dessa nyligen borttagna index. De flesta utvecklare släpper inte indexen och försöker sedan omedelbart fråga dem så, i praktiken är den här situationen osannolik.
+När du tar bort index och omedelbart kör frågor, så kan resultaten vara inkonsekventa och ofullständiga tills index omvandlingen har slutförts. Om du tar bort index ger inte frågespråket några konsekventa eller fullständiga resultat när frågor filtrerar på dessa nyligen borttagna index. De flesta utvecklare släpper inte indexen och försöker sedan omedelbart fråga dem så, i praktiken är den här situationen osannolik.
 
 > [!NOTE]
 > Du kan [spåra index förloppet](#track-index-progress).

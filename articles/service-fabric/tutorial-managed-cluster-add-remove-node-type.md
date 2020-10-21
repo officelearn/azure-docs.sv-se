@@ -3,12 +3,12 @@ title: Lägga till och ta bort nodtyper för ett Service Fabric hanterat kluster
 description: I den här självstudien får du lära dig hur du lägger till och tar bort nodtyper för ett Service Fabric hanterat kluster.
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.openlocfilehash: 860345f5b297edaeea9d099ac392243176dfaca7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51cc83b4accae5f2791ce378e30f6fa692446b1c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410472"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92316212"
 ---
 # <a name="tutorial-add-and-remove-node-types-from-a-service-fabric-managed-cluster-preview"></a>Självstudie: lägga till och ta bort nodtyper från ett Service Fabric hanterat kluster (för hands version)
 
@@ -26,10 +26,10 @@ Den här delen av serien handlar om hur du:
 > * Lägga till en nodtyp i ett Service Fabric hanterat kluster
 > * Ta bort en nodtyp från ett Service Fabric hanterat kluster
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Service Fabric hanterat kluster (se [*distribuera ett hanterat kluster*](tutorial-managed-cluster-deploy.md)).
-* [Azure PowerShell 4.7.0](https://docs.microsoft.com/powershell/azure/release-notes-azureps?view=azps-4.7.0&preserve-view=true#azservicefabric) eller senare (se [*Installera Azure PowerShell*](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.7.0&preserve-view=true)).
+* [Azure PowerShell 4.7.0](/powershell/azure/release-notes-azureps?preserve-view=true&view=azps-4.7.0#azservicefabric) eller senare (se [*Installera Azure PowerShell*](/powershell/azure/install-az-ps?preserve-view=true&view=azps-4.7.0)).
 
 ## <a name="add-a-node-type-to-a-service-fabric-managed-cluster"></a>Lägga till en nodtyp i ett Service Fabric hanterat kluster
 

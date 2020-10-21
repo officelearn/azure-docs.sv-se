@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090407"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309919"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Visa och skapa frågor för att övervaka och spåra Azure Monitor loggar för Azure Logic Apps
 
-Du kan visa de underliggande frågorna som producerar resultatet från [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) och skapa frågor som filtrerar resultaten baserat på dina kriterier. Du kan till exempel hitta meddelanden baserat på ett speciellt utbytes kontroll nummer. Frågor använder [Kusto-frågespråket](https://aka.ms/LogAnalyticsLanguageReference), som du kan redigera om du vill visa olika resultat. Mer information finns i [Azure Monitor logg frågor](../azure-monitor/log-query/query-language.md).
+Du kan visa de underliggande frågorna som producerar resultatet från [Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) och skapa frågor som filtrerar resultaten baserat på dina kriterier. Du kan till exempel hitta meddelanden baserat på ett speciellt utbytes kontroll nummer. Frågor använder [Kusto-frågespråket](/azure/data-explorer/kusto/query/), som du kan redigera om du vill visa olika resultat. Mer information finns i [Azure Monitor logg frågor](/azure/data-explorer/kusto/query/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -59,7 +59,7 @@ Om du vill hitta eller filtrera resultat baserat på specifika egenskaper eller 
 
      ![Börja med "Logic Apps B2B"-lösning för inbyggda frågor](./media/create-monitoring-tracking-queries/b2b-prebuilt-queries.png)
 
-   * Börja med en tom fråga i Frågeredigeraren genom att skriva [Kusto-frågespråket](../azure-monitor/log-query/query-language.md) för frågan.
+   * Börja med en tom fråga i Frågeredigeraren genom att skriva [Kusto-frågespråket](/azure/data-explorer/kusto/query/) för frågan.
 
      ![Starta med en tom fråga](./media/create-monitoring-tracking-queries/create-query-from-blank.png)
 

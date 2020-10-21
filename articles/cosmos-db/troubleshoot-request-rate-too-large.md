@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f8b1129c94ecf80efb60a13a0b80b1cc1817ff3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 905560094afa9338d44ba73120d316b3c81b5580
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871096"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277151"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>Diagnostisera och Felsök Azure Cosmos DB begär ande frekvens för stora undantag
 En "begär ande frekvens för stor"-meddelande eller felkod 429 anger att dina förfrågningar begränsas.
@@ -24,7 +24,7 @@ Följande avsnitt innehåller kända orsaker och lösningar för för många beg
 Kontrol [Azure Cosmos DB övervakning](monitor-cosmos-db.md) för att se antalet 429-undantag.
 
 #### <a name="cause"></a>Orsak:
-Det förbrukade data flödet (enheter för programbegäran per sekund) har överskridit det [etablerade data flödet](set-throughput.md). SDK: n försöker automatiskt att utföra förfrågningar baserat på den angivna återförsöks principen. Om du får det här felet ofta bör du överväga att öka data flödet för samlingen. Kontrol lera portalens mått för att se om du får 429 fel. Granska din partitionsnyckel för att säkerställa att den resulterar i en [jämn fördelning av lagrings utrymme och begär ande volym](partition-data.md).
+Det förbrukade data flödet (enheter för programbegäran per sekund) har överskridit det [etablerade data flödet](set-throughput.md). SDK: n försöker automatiskt att utföra förfrågningar baserat på den angivna återförsöks principen. Om du får det här felet ofta bör du överväga att öka data flödet för samlingen. Kontrol lera portalens mått för att se om du får 429 fel. Granska din partitionsnyckel för att säkerställa att den resulterar i en [jämn fördelning av lagrings utrymme och begär ande volym](partitioning-overview.md).
 
 #### <a name="solution"></a>Lösning:
 1. Använd [portalen eller SDK: n](set-throughput.md) för att öka det etablerade data flödet.

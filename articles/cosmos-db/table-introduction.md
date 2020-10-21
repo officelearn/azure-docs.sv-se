@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 07/26/2019
 ms.author: sngun
-ms.openlocfilehash: f56c3bd2d302fc7163fa8c05c595891f191c6a11
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3219fe3507af1c6020ad3a7d84782847dbb57ae
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91568445"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275103"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introduktion till Azure Cosmos DB | Tabell-API
 
 [Microsoft Azure Cosmos-DB](introduction.md) tillhandahåller tabell-API:t för program som är skrivna för Azure-tabellagring och som behöver premiumfunktioner som:
 
 * [Nyckel färdig global distribution](distribute-data-globally.md).
-* [Dedikerat dataflöde](partition-data.md) över hela världen.
+* [Dedikerat dataflöde](partitioning-overview.md) över hela världen.
 * Latensvärden på enstaka millisekunder vid 99:e percentilen.
 * Garanterat hög tillgänglighet.
 * Automatisk sekundär indexering.

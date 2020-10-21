@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4a3325592c2085034473163cb886ba2b8b416a30
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b2a15bcc9d9dce922470031fd07b66cf9899f0b3
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205837"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281348"
 ---
 # <a name="quickstart-convert-a-model-for-rendering"></a>Snabbstart: Konvertera en modell för rendering
 
@@ -27,7 +27,7 @@ Du lär dig följande:
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Slutför [snabb start: rendera en modell med Unity](render-model.md)
-* Installera Azure PowerShell [(dokumentation)](/powershell/azure/)
+* För konverteringen med hjälp av PowerShell-skriptet: installera Azure PowerShell [(dokumentation)](/powershell/azure/)
   * Öppna en PowerShell med administratörs behörighet
   * Fungerar `Install-Module -Name Az -AllowClobber`
 
@@ -108,12 +108,21 @@ Du bör nu ha två Blob Storage-behållare:
 
 ## <a name="run-the-conversion"></a>Kör konverteringen
 
+Det finns tre olika sätt att utlösa en modell konvertering:
+
+### <a name="1-conversion-via-the-arrt-tool"></a>1. Conversion via verktyget ARRT
+
+Det finns ett [UI-baserat verktyg som heter ARRT](./../samples/azure-remote-rendering-asset-tool.md) för att starta konverteringar och interagera med det resulterande resultatet.
+![ARRT](./../samples/media/azure-remote-rendering-asset-tool.png "ARRT skärm bild")
+
+### <a name="2-conversion-via-a-powershell-script"></a>2. Conversion via ett PowerShell-skript
+
 För att göra det enklare att anropa till gångs konverterings tjänsten tillhandahåller vi ett verktygs skript. Den finns i mappen *skript* och kallas **Conversion.ps1**.
 
 I synnerhet detta skript
 
 1. överför alla filer i en specifik katalog från den lokala disken till behållaren för indata-lagring
-1. anropar den [till gångs konverterings REST API](../how-tos/conversion/conversion-rest-api.md) som hämtar data från behållaren för inkommande lagring och startar en konvertering som returnerar ett konverterings-ID
+1. anropar den [till gångs konverterings REST API](../how-tos/conversion/conversion-rest-api.md), som hämtar data från behållaren för inkommande lagring och startar en konvertering som returnerar ett konverterings-ID
 1. Avsök konverterings status-API: et med det hämtade konverterings-ID: t tills konverterings processen avslutas med lyckat eller misslyckat
 1. hämtar en länk till den konverterade till gången i utgående lagring
 
@@ -147,15 +156,15 @@ Skriptet läser konfigurationen från filen *Scripts\arrconfig.jspå*. Öppna JS
 Konfigurationen i **accountSettings** -gruppen (konto-ID och nyckel) bör fyllas i analogt med autentiseringsuppgifterna i avsnittet [rendera en modell med enhets snabb start](render-model.md).
 
 I gruppen **assetConversionSettings** ser du till att ändra **resourceGroup**, **blobInputContainerName**och **blobOutputContainerName** som visas ovan.
-Observera att värdet **arrtutorialstorage** måste ersättas med det unika namn som du valde när du skapade lagrings kontot.
+Observera att värdet för **arrtutorialstorage** måste ersättas med det unika namn som du valde när du skapade lagrings kontot.
 
-Ändra **localAssetDirectoryPath** så att den pekar på den katalog på disken som innehåller den modell som du vill konvertera. Var noga med att kringgå omvända snedstreck (" \\ ") i sökvägen med dubbla omvända snedstreck (" \\ \\ ").
+Ändra **localAssetDirectoryPath** så att den pekar på katalogen på disken, som innehåller den modell som du vill konvertera. Var noga med att kringgå omvända snedstreck (" \\ ") i sökvägen med dubbla omvända snedstreck (" \\ \\ ").
 
 Alla data från sökvägen som anges i **localAssetDirectoryPath** överförs till **blobInputContainerName** -BLOB-behållaren under en under Sök väg som anges av **inputFolderPath**. Så i exempel konfigurationen ovan överförs innehållet i katalogen "D: \\ tmp \\ robot" till BLOB-behållaren "arrinput" för lagrings kontot "arrtutorialstorage" under sökvägen "robotConversion". Redan befintliga filer kommer att skrivas över.
 
-Ändra **inputAssetPath** till sökvägen till den modell som ska konverteras – sökvägen är relativ till localAssetDirectoryPath. Använd "/" i stället för " \\ " som Sök vägs avgränsare. Så för en "robot. FBX"-fil som finns direkt i "D: \\ tmp \\ robot" använder du "robot. FBX".
+Ändra **inputAssetPath** till sökvägen till den modell som ska konverteras – sökvägen är relativ till localAssetDirectoryPath. Använd "/" i stället för " \\ " som Sök vägs avgränsare. Så för en robot. FBX-fil, som finns direkt i "D: \\ tmp \\ robot", använder du "robot. FBX".
 
-När modellen konverteras skrivs den tillbaka till den lagrings behållare som anges av **blobOutputContainerName**. En under Sök väg kan anges genom att tillhandahålla den valfria **outputFolderPath**. I exemplet ovan kommer "robot. arrAsset" att kopieras till utgående BLOB-behållare under "konverterad/robot".
+När modellen har konverterats kommer den att skrivas tillbaka till den lagrings behållare som anges av **blobOutputContainerName**. En under Sök väg kan anges genom att tillhandahålla den valfria **outputFolderPath**. I exemplet ovan kommer den resulterande "robot. arrAsset" kopieras till BLOB-behållaren för utgående data under "konverterad/robot".
 
 Konfigurations inställningen **outputAssetFileName** bestämmer namnet på den konverterade till gången – parametern är valfri och utdata-filnamn kommer att härledas från indatafilens namn annars.
 
@@ -175,6 +184,13 @@ Connect-AzAccount
 ```
 
 Du bör se något som liknar detta: ![Conversion.ps1](./media/successful-conversion.png)
+
+### <a name="3-conversion-via-api-calls"></a>3. konvertering via API-anrop
+
+Både C#-och C++-API: et tillhandahåller en start punkt för att interagera med tjänsten:
+* [C# AzureFrontend. StartAssetConversionAsync ()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
+* [C++ AzureFrontend:: StartAssetConversionAsync ()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+
 
 ## <a name="insert-new-model-into-quickstart-sample-app"></a>Infoga ny modell i exempel appen för snabb start
 

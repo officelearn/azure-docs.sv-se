@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: bc8e5baa92f507c9abb9bc6b5305773010803f01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567595"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277976"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Vanliga frågor om autoskalning av allokerat data flöde i Azure Cosmos DB
 
@@ -125,7 +125,7 @@ Anta till exempel att du har en behållare för autoskalning med 400 – 4000 RU
 - Timme 1: T = 2: behållaren börjar hämta begär Anden, som förbrukar 1000 RU i 1 sekund. Det finns också 200 ru: er för TTL som måste utföras. Fakturerbara RU/s är fortfarande 1000 RU/s. Oavsett när TTLs inträffar kommer de inte att påverka logiken för automatisk skalnings skalning.
 
 ### <a name="what-is-the-mapping-between-the-max-rus-and-physical-partitions"></a>Vad är mappningen mellan de högsta RU/s och fysiska partitionerna?
-Första gången du väljer Max RU/s är Azure Cosmos DB att etablera: Max RU/s/10 000 RU/s = antal fysiska partitioner. Varje [fysisk partition](partition-data.md#physical-partitions) har stöd för upp till 10 000 ru/s och 50 GB lagrings utrymme. När lagrings storleken ökar, delar Azure Cosmos DB automatiskt partitionerna för att lägga till fler fysiska partitioner för att hantera lagrings ökningen, eller öka antalet RU/s om lagringen [överskrider den associerade gränsen](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
+Första gången du väljer Max RU/s är Azure Cosmos DB att etablera: Max RU/s/10 000 RU/s = antal fysiska partitioner. Varje [fysisk partition](partitioning-overview.md#physical-partitions) har stöd för upp till 10 000 ru/s och 50 GB lagrings utrymme. När lagrings storleken ökar, delar Azure Cosmos DB automatiskt partitionerna för att lägga till fler fysiska partitioner för att hantera lagrings ökningen, eller öka antalet RU/s om lagringen [överskrider den associerade gränsen](#what-is-the-storage-limit-associated-with-each-max-rus-option). 
 
 Max RU/s för databasen eller containern är jämnt fördelad över alla fysiska partitioner. Det totala data flödet som en enskild fysisk partition kan skalas till är alltså: Max RU/s av databas eller behållare/# fysiska partitioner. 
 
@@ -147,5 +147,5 @@ Om du till exempel väljer alternativet 20 000 RU/s max data flöde och har 200 
 
 * Lär dig hur du [aktiverar autoskalning på en Azure Cosmos DB databas eller behållare](how-to-provision-autoscale-throughput.md).
 * Lär dig mer om [fördelarna med etablerad data flöde med autoskalning](provision-throughput-autoscale.md#benefits-of-autoscale).
-* Läs mer om [logiska och fysiska partitioner](partition-data.md).
+* Läs mer om [logiska och fysiska partitioner](partitioning-overview.md).
                         

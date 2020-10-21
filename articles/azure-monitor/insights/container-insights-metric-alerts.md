@@ -2,13 +2,13 @@
 title: Mått varningar från Azure Monitor för behållare
 description: Den här artikeln granskar rekommenderade mått varningar som är tillgängliga från Azure Monitor för behållare i offentlig för hands version.
 ms.topic: conceptual
-ms.date: 09/24/2020
-ms.openlocfilehash: 83394faf3d7296522151b815bddd910d47e45d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/09/2020
+ms.openlocfilehash: 7d9e6cb9a89dfe65777f8bcf507186e24d38a422
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619958"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308650"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Rekommenderade mått varningar (förhands granskning) från Azure Monitor för behållare
 
@@ -45,6 +45,7 @@ För att varna om vad som är viktigt, innehåller Azure Monitor för behållare
 |Genomsnittlig container i arbets minnet% |Beräknar Genomsnittligt arbets minne som används per container.|När genomsnittlig användning av arbets minne per behållare är större än 95%. |
 |Genomsnittlig CPU % |Beräknar Genomsnittlig CPU som används per nod. |När Genomsnittlig CPU-användning på noden är större än 80% |
 |Genomsnittlig disk användning% |Beräknar genomsnittlig disk användning för en nod.|När disk användningen för en nod är större än 80%. |
+|Genomsnittlig användning av beständiga volymer% |Beräknar genomsnittlig användning av PV per POD. |När den genomsnittliga PV-användningen per POD är större än 80%.|
 |Genomsnittligt minne för arbets minne% |Beräknar Genomsnittligt arbets minne för en nod. |När Genomsnittligt arbets minne för en nod är större än 80%. |
 |Startar om container antal |Beräknar antalet omstarter av behållare. | När omstarter av behållare är större än 0. |
 |Antal misslyckade Pod |Beräknar om en pod är i ett felaktigt tillstånd.|När ett antal poddar i felaktigt tillstånd är större än 0. |
@@ -75,6 +76,8 @@ Följande aviserings mått har unika beteende egenskaper jämfört med de andra 
 
 * *cpuExceededPercentage*-, *MemoryRssExceededPercentage*-och *memoryWorkingSetExceededPercentage* -mått skickas när värdena för processor, minne-RSS och minne som arbetar överskrider den konfigurerade tröskeln (standard tröskelvärdet är 95%). De här tröskelvärdena är exklusiva från tröskelvärdet för aviserings villkor som angetts för motsvarande aviserings regel. Om du vill samla in dessa mått och analysera dem från [Metrics Explorer](../platform/metrics-getting-started.md)rekommenderar vi att du konfigurerar tröskelvärdet till ett värde som är lägre än tröskelvärdet för aviseringar. Konfigurationen som är relaterad till samlings inställningarna för deras användnings tröskelvärden för container resurser kan åsidosättas i ConfigMaps-filen under avsnittet `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` . Mer information om hur du konfigurerar din ConfigMap-konfigurationsfil finns i avsnittet [Konfigurera aviserings bara statistik ConfigMaps](#configure-alertable-metrics-in-configmaps) .
 
+* *pvUsageExceededPercentage* -måttet skickas när den permanenta volym användnings procenten överskrider den konfigurerade tröskeln (standard tröskelvärdet är 60%). Tröskelvärdet är exklusivt för aviserings villkors tröskelvärdet som angetts för motsvarande aviserings regel. Om du vill samla in dessa mått och analysera dem från [Metrics Explorer](../platform/metrics-getting-started.md)rekommenderar vi att du konfigurerar tröskelvärdet till ett värde som är lägre än tröskelvärdet för aviseringar. Konfigurationen som rör samlings inställningarna för gränser för permanent användning av volymer kan åsidosättas i ConfigMaps-filen under avsnittet `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` . Mer information om hur du konfigurerar din ConfigMap-konfigurationsfil finns i avsnittet [Konfigurera aviserings bara statistik ConfigMaps](#configure-alertable-metrics-in-configmaps) . Insamling av permanenta volym mått med anspråk i *Kube-systemets* namnrymd utesluts som standard. Om du vill aktivera samling i det här namn området använder du avsnittet `[metric_collection_settings.collect_kube_system_pv_metrics]` i ConfigMap-filen. Mer information finns i [Inställningar för mått samling](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-agent-config#metric-collection-settings) .
+
 ## <a name="metrics-collected"></a>Insamlade mått
 
 Följande mått är aktiverade och samlas in, om inget annat anges som en del av den här funktionen:
@@ -97,6 +100,7 @@ Följande mått är aktiverade och samlas in, om inget annat anges som en del av
 |Insights. container/containers |cpuExceededPercentage |Procent andel CPU-användning för behållare som överskrider användar konfigurerbart tröskelvärde (Standardvärdet är 95,0) enligt behållar namn, kontrollantens namn, Kubernetes-namnrymd, Pod namn.<br> Ställ  |
 |Insights. container/containers |memoryRssExceededPercentage |RSS-procent för behållare som överskrider användar konfigurerbart tröskelvärde (Standardvärdet är 95,0) enligt behållar namn, kontrollantens namn, Kubernetes-namnrymd, Pod namn.|
 |Insights. container/containers |memoryWorkingSetExceededPercentage |Procent andel ledigt minne för behållare som överstiger användar konfigurerbart tröskelvärde (Standardvärdet är 95,0) enligt behållar namn, kontrollantens namn, Kubernetes-namnrymd, Pod namn.|
+|Insights. container/persistentvolumes |pvUsageExceededPercentage |Procent andel nuvärde för beständiga volymer som överstiger användar konfigurerbart tröskelvärde (standard är 60,0) efter anspråks namn, Kubernetes-namnrymd, volym namn, Pod-namn och nodnamn.
 
 ## <a name="enable-alert-rules"></a>Aktivera varnings regler
 
@@ -207,29 +211,40 @@ Om du vill visa aviseringar som skapats för de aktiverade reglerna väljer du *
 
 ## <a name="configure-alertable-metrics-in-configmaps"></a>Konfigurera aviserings bara mått i ConfigMaps
 
-Utför följande steg för att konfigurera konfigurations filen för ConfigMap för att åsidosätta standard tröskelvärdena för container resursanvändning. De här stegen gäller endast för följande aviserings bara mått.
+Utför följande steg för att konfigurera konfigurations filen för ConfigMap för att åsidosätta standard tröskelvärdena för användning. De här stegen gäller endast för följande aviserings bara mått:
 
 * *cpuExceededPercentage*
 * *memoryRssExceededPercentage*
 * *memoryWorkingSetExceededPercentage*
+* *pvUsageExceededPercentage*
 
-1. Redigera ConfigMap yaml-filen under avsnittet `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` .
+1. Redigera ConfigMap YAML-filen under avsnittet `[alertable_metrics_configuration_settings.container_resource_utilization_thresholds]` eller `[alertable_metrics_configuration_settings.pv_utilization_thresholds]` .
 
-2. Om du vill ändra tröskelvärdet för *cpuExceededPercentage* till 90% och börja samla in det här måttet när tröskelvärdet är uppfyllt och överskridet, konfigurerar du ConfigMap-filen med hjälp av följande exempel.
+   - Om du vill ändra tröskelvärdet för *cpuExceededPercentage* till 90% och börja samla in det här måttet när tröskelvärdet är uppfyllt och överskridet, konfigurerar du ConfigMap-filen med hjälp av följande exempel:
 
-    ```
-    container_cpu_threshold_percentage = 90.0
-    # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
-    container_memory_rss_threshold_percentage = 95.0
-    # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
-    container_memory_working_set_threshold_percentage = 95.0
-    ```
+     ```
+     [alertable_metrics_configuration_settings.container_resource_utilization_thresholds]
+         # Threshold for container cpu, metric will be sent only when cpu utilization exceeds or becomes equal to the following percentage
+         container_cpu_threshold_percentage = 90.0
+         # Threshold for container memoryRss, metric will be sent only when memory rss exceeds or becomes equal to the following percentage
+         container_memory_rss_threshold_percentage = 95.0
+         # Threshold for container memoryWorkingSet, metric will be sent only when memory working set exceeds or becomes equal to the following percentage
+         container_memory_working_set_threshold_percentage = 95.0
+     ```
 
-3. Kör följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>` .
+   - Om du vill ändra tröskelvärdet för *pvUsageExceededPercentage* till 80% och börja samla in det här måttet när tröskelvärdet är uppfyllt och överskridet, konfigurerar du ConfigMap-filen med hjälp av följande exempel:
+
+     ```
+     [alertable_metrics_configuration_settings.pv_utilization_thresholds]
+         # Threshold for persistent volume usage bytes, metric will be sent only when persistent volume utilization exceeds or becomes equal to the following percentage
+         pv_usage_threshold_percentage = 80.0
+     ```
+
+2. Kör följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>` .
 
     Exempel: `kubectl apply -f container-azm-ms-agentconfig.yaml`.
 
-Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" created` .
+Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent poddar; de startar inte om på samma tid. När omstarterna är klara visas ett meddelande som liknar följande exempel och innehåller resultatet: `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="next-steps"></a>Nästa steg
 

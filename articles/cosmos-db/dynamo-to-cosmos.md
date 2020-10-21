@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.author: mansha
-ms.openlocfilehash: cfdeda8ac3957da272ab4c47fb93930c826d55aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 167d1f21a2eb7ea4c685b5bbbb5d8d64fcc1367e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261876"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278703"
 ---
 # <a name="migrate-your-application-from-amazon-dynamodb-to-azure-cosmos-db"></a>Migrera ditt program från Amazon DynamoDB till Azure Cosmos DB
 
@@ -23,10 +23,10 @@ Här följer de viktiga koncept skillnaderna mellan Azure Cosmos DB och DynamoDB
 
 |  DynamoDB | Azure Cosmos DB  |
 |---|---|
-|Inte tillämpligt|  Databas |
-|Tabell      |  Samling |
+|Ej tillämpligt|  Databasen |
+|Tabeller      |  Samling |
 |  Objekt |  Dokument |
-|Attribut|Field|
+|Attribut|Fält|
 |Sekundärt index|Sekundärt index|
 |Primär nyckel – partitionsnyckel|Partition Key (Partitionsnyckel)|
 |Primär nyckel – sorterings nyckel| Krävs inte |
@@ -144,7 +144,7 @@ client_documentDB = new CosmosClient("your connectionstring from the Azure porta
 
 Med Azure Cosmos DB kan du använda följande alternativ för att optimera anslutningen:
 
-* **ConnectionMode** – Använd direkt anslutnings läge för att ansluta till datanoderna i Azure Cosmos DBS tjänsten. Använd endast Gateway-läge för att initiera och cachelagra logiska adresser och uppdatera uppdateringar. Se artikeln [anslutnings lägen](performance-tips.md#networking) för mer information.
+* **ConnectionMode** – Använd direkt anslutnings läge för att ansluta till datanoderna i Azure Cosmos DBS tjänsten. Använd endast Gateway-läge för att initiera och cachelagra logiska adresser och uppdatera uppdateringar. Se artikeln [anslutnings lägen](sql-sdk-connection-modes.md) för mer information.
 
 * **ApplicationRegion** – det här alternativet används för att ange önskad geo-replikerad region som används för att interagera med Azure Cosmos dB. Mer information finns i den [globala distributions](distribute-data-globally.md) artikeln.
 
@@ -517,7 +517,7 @@ await cosmosDatabase.DeleteAsync();
 
 Som du kan se, Azure Cosmos DB stöder naturliga frågor (SQL), är åtgärder asynkrona och mycket enklare. Du kan enkelt migrera din komplexa kod till Azure Cosmos DB, vilket blir enklare efter migreringen.
 
-### <a name="next-steps"></a>Nästa steg
+### <a name="next-steps"></a>Efterföljande moment
 
 - Lär dig mer om [prestanda optimering](performance-tips.md).
 - Lär dig mer om att [optimera läsningar och skrivningar](key-value-store-cost.md)

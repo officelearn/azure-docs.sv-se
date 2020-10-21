@@ -3,12 +3,12 @@ title: Vanliga frågor om migrering av Azure Migrate Server
 description: Få svar på vanliga frågor om att använda Azure Migrate Server-migrering för att migrera datorer.
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 80334bb2f0d6c0284c9031a99c0eb469b348873d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b62110e6b2ce97cdd80ed91ee4b1e75d119c7c7d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275548"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315238"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrering av Azure Migrate Server: vanliga frågor
 
@@ -29,25 +29,25 @@ Azure Migrate: verktyget Migreringsverktyg migrerar UEFI-baserade datorer till A
 
 | **Operativ system som stöds för UEFI-baserade datorer** | **Agent lös VMware till Azure**                                                                                                             | **Agent lös Hyper-V till Azure** | **Agent-baserade VMware, fysiska och andra moln till Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
-| Windows Server 2019, 2016, 2012 R2, 201                 | J                                                                                                                                         | J                              | J                                                          |
-| Windows 10 Pro, Windows 10 Enterprise                   | J                                                                                                                                         | J                              | J                                                          |
-| SUSE Linux Enterprise Server 15 SP1                     | J                                                                                                                                         | J                              | J                                                          |
-| SUSE Linux Enterprise Server 12 SP4                     | J                                                                                                                                         | J                              | J                                                          |
-| Ubuntu Server 16,04, 18,04, 19,04, 19,10                | J                                                                                                                                         | J                              | J                                                          |
-| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | J<br>                 _RHEL 8. x kräver [manuell förberedelse](https://go.microsoft.com/fwlink/?linkid=2143939)_   | J                              | J                                                          |
-| % OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | J<br>_% OS 8. x kräver [manuell förberedelse](https://go.microsoft.com/fwlink/?linkid=2143939)_ | J                              | J                                                          |
-| Oracle Linux 7,7, 7,7 – CI                                |  J                                                                                                                                        | J                              | J                                                          |
+| Windows Server 2019, 2016, 2012 R2, 201                 | Y                                                                                                                                         | Y                              | Y                                                          |
+| Windows 10 Pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 15 SP1                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
+| Ubuntu Server 16,04, 18,04, 19,04, 19,10                | Y                                                                                                                                         | Y                              | Y                                                          |
+| RHEL 8,1, 8,0, 7,8, 7,7, 7,6, 7,5, 7,4, 7,0, 6. x        | Y<br>                 _RHEL 8. x kräver [manuell förberedelse](./prepare-for-migration.md#linux-machines)_   | Y                              | Y                                                          |
+| % OS 8,1, 8,0, 7,7, 7,6, 7,5, 7,4, 6. x               | Y<br>_% OS 8. x kräver [manuell förberedelse](./prepare-for-migration.md#linux-machines)_ | Y                              | Y                                                          |
+| Oracle Linux 7,7, 7,7 – CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
 
 ## <a name="can-i-use-the-recovery-services-vault-created-by-azure-migrate-for-disaster-recovery-scenarios"></a>Kan jag använda Recovery Services-valvet som skapats av Azure Migrate för katastrof återställnings scenarier?
 Vi rekommenderar inte att du använder Recovery Services-valvet som skapats av Azure Migrate för katastrof återställnings scenarier. Detta kan leda till att det inte går att starta replikeringar i Azure Migrate. 
 
 ## <a name="where-should-i-install-the-replication-appliance-for-agent-based-migrations"></a>Var bör jag installera Replication-enheten för agentbaserade migreringar?
 
-Replikeringssystemet bör installeras på en dedikerad dator. Replikeringssystemet bör inte installeras på en käll dator som du vill replikera eller på Azure Migrate identifierings-och utvärderings installation som du kan ha installerat tidigare. Följ [själv studie kursen](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines) om du vill ha mer information.
+Replikeringssystemet bör installeras på en dedikerad dator. Replikeringssystemet bör inte installeras på en käll dator som du vill replikera eller på Azure Migrate identifierings-och utvärderings installation som du kan ha installerat tidigare. Följ [själv studie kursen](./tutorial-migrate-physical-virtual-machines.md) om du vill ha mer information.
 
 ## <a name="how-can-i-migrate-my-aws-ec2-instances-to-azure"></a>Hur kan jag migrera mina AWS EC2-instanser till Azure?
 
-Läs den här [artikeln](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines) för att identifiera, utvärdera och MIGRERA dina AWS EC2-instanser till Azure.
+Läs den här [artikeln](./tutorial-migrate-aws-virtual-machines.md) för att identifiera, utvärdera och MIGRERA dina AWS EC2-instanser till Azure.
 
 ## <a name="can-i-migrate-aws-vms-running-amazon-linux-operating-system"></a>Kan jag migrera AWS-virtuella datorer som kör Amazon Linux-operativsystemet?
 
@@ -79,18 +79,18 @@ Oavsett vilket alternativ för migrering som valts, det första steget för att 
 Här är några saker som du bör tänka på när du bestämmer dig för migreringen.
 
 Utan **agent-migrering** kräver att ingen program vara (agenter) distribueras på de virtuella käll datorerna/-servrarna som migreras. Alternativet utan agent dirigerar replikeringen genom att integrera med de funktioner som tillhandahålls av Virtualization-providern.
-Alternativen för replikering utan agent är tillgängliga för virtuella [VMware-datorer](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) och [virtuella Hyper-V-datorer](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v).
+Alternativen för replikering utan agent är tillgängliga för virtuella [VMware-datorer](./tutorial-migrate-vmware.md) och [virtuella Hyper-V-datorer](./tutorial-migrate-hyper-v.md).
 
 Med **agentbaserade migreringar** måste Azure Migrate program vara (agenter) installeras på de virtuella käll datorer/datorer som ska migreras. Det agentbaserade alternativet är inte beroende av virtualiseringsplattformen för replikering och kan därför användas med en server som kör en x86/x64-arkitektur och en version av ett operativ system som stöds av den agentbaserade replikeringsprincipen.
 
-Alternativet för programbaserad migrering kan användas för [virtuella VMware-datorer](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware-agent), virtuella [Hyper-V-datorer](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), [fysiska servrar](https://docs.microsoft.com/azure/migrate/tutorial-migrate-physical-virtual-machines), [virtuella datorer som körs på AWS](https://docs.microsoft.com/azure/migrate/tutorial-migrate-aws-virtual-machines), virtuella datorer som körs på GCP eller virtuella datorer som körs på en annan Virtualization-Provider. Den agentbaserade migreringen behandlar dina datorer som fysiska servrar i syfte att migrera.
+Alternativet för programbaserad migrering kan användas för [virtuella VMware-datorer](./tutorial-migrate-vmware-agent.md), virtuella [Hyper-V-datorer](./tutorial-migrate-physical-virtual-machines.md), [fysiska servrar](./tutorial-migrate-physical-virtual-machines.md), [virtuella datorer som körs på AWS](./tutorial-migrate-aws-virtual-machines.md), virtuella datorer som körs på GCP eller virtuella datorer som körs på en annan Virtualization-Provider. Den agentbaserade migreringen behandlar dina datorer som fysiska servrar i syfte att migrera.
 
 Även om migreringen av agenten ger ytterligare bekvämlighet och enkelhet jämfört med de agentbaserade replikeringsalternativ för de scenarier som stöds (VMWare och Hyper-V), kanske du vill överväga att använda det agentbaserade scenariot för följande användnings fall:
 
 - IOPS-begränsad miljö: en agent utan replikering använder ögonblicks bilder och använder lagrings-IOPS/bandbredd. Vi rekommenderar den agentbaserade migreringsprocessen om det finns begränsningar för lagring/IOPS i din miljö.
 - Om du inte har en vCenter Server kan du behandla dina virtuella VMware-datorer som fysiska servrar och använda det agentbaserade migrerings flödet.
 
-Läs mer i den här [artikeln](https://docs.microsoft.com/azure/migrate/server-migrate-overview) för att jämföra migrerings alternativ för VMware-migreringar.
+Läs mer i den här [artikeln](./server-migrate-overview.md) för att jämföra migrerings alternativ för VMware-migreringar.
 
 ## <a name="how-does-agentless-migration-work"></a>Hur fungerar agent lös migrering?
 
@@ -101,13 +101,13 @@ Alternativet för att replikera utan agent fungerar med hjälp av mekanismer som
 När replikering har kon figurer ATS för en virtuell dator går den först igenom en inledande replikering. Under den inledande replikeringen tas en ögonblicks bild av en virtuell dator och en fullständig kopia av data från ögonblicks bild diskarna replikeras till hanterade diskar i din prenumeration. När den inledande replikeringen för den virtuella datorn är klar övergår replikeringen över till en stegvis replikering (delta replikering)-fas. I fasen för stegvis replikering replikeras de data ändringar som har inträffat sedan den senaste slutförda replikeringen regelbundet och tillämpas på de replik hanterade diskarna, vilket gör att replikeringen synkroniseras med ändringar som sker på den virtuella datorn. När det gäller virtuella VMware-datorer används den ändrade block spårnings tekniken i VMware för att hålla reda på ändringar mellan cykler. I början av replikeringen tas en VM-ögonblicksbild och ändrad block spårning används för att hämta ändringarna mellan den aktuella ögonblicks bilden och den senaste replikerade ögonblicks bilden. På så sätt måste endast data som har ändrats sedan den senaste slutförda replikeringen replikeras för att behålla replikeringen för den virtuella datorn synkroniserad. I slutet av varje replikeringscykel släpps ögonblicks bilden och ögonblicks bilds konsolideringen utförs för den virtuella datorn. För virtuella Hyper-V-datorer används på samma sätt för att spåra ändrings spårnings motorn för Hyper-V-replikering för att hålla reda på ändringar mellan flera olika replikerings-cykler.
 När du utför migreringen på en replikerad virtuell dator har du möjlighet att stänga av den lokala virtuella datorn och utföra en slutgiltig stegvis replikering för att säkerställa att inga data går förlorade. När du utför alternativet migrera används de replik hanterade diskar som motsvarar den virtuella datorn för att skapa den virtuella datorn i Azure.
 
-För att komma igång, se självstudierna [VMware agent-migrering](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) och [Hyper-V-migrering utan agent](https://docs.microsoft.com/azure/migrate/tutorial-migrate-hyper-v) .
+För att komma igång, se självstudierna [VMware agent-migrering](./tutorial-migrate-vmware.md) och [Hyper-V-migrering utan agent](./tutorial-migrate-hyper-v.md) .
 
 ## <a name="how-does-agent-based-migration-work"></a>Hur fungerar agent-baserad migrering?
 
 Förutom alternativ för att migrera virtuella VMware-datorer och virtuella Hyper-V-datorer innehåller verktyget Migreringsverktyg ett agent alternativ för migrering för att migrera Windows-och Linux-servrar som körs på fysiska servrar, eller som körs som x86/x64-virtuella datorer på VMware, Hyper-V, AWS, Google Cloud Platform osv.
 
-Den agentbaserade migreringsprocessen använder agentprogram vara som är installerad på den server som migreras för att replikera Server data till Azure. Vid replikeringen används en avlastnings arkitektur där agenten vidarebefordrar replikeringsdata till en dedikerad replikeringsfil som kallas för replikerings-eller konfigurations servern (eller till en skalbar Processerver). [Läs mer](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture) om hur det agentbaserade migrerings alternativet fungerar. 
+Den agentbaserade migreringsprocessen använder agentprogram vara som är installerad på den server som migreras för att replikera Server data till Azure. Vid replikeringen används en avlastnings arkitektur där agenten vidarebefordrar replikeringsdata till en dedikerad replikeringsfil som kallas för replikerings-eller konfigurations servern (eller till en skalbar Processerver). [Läs mer](./agent-based-migration-architecture.md) om hur det agentbaserade migrerings alternativet fungerar. 
 
 Obs! replikerings enheten skiljer sig från den Azure Migrate identifierings enheten och måste installeras på en separat/dedikerad dator.
 
@@ -127,7 +127,7 @@ Tid för att slutföra inledande replikering = {storlek på diskar (eller använ
 
 ### <a name="agent-based-vmware-vm-migration"></a>Agent-baserad virtuell VMware-migrering
 
-För en agent-baserad metod för replikering kan distributions planeraren hjälpa till att profilera miljön för data omsättningen och förutsäga kraven för bandbredd som krävs. Om du vill veta mer kan du läsa den här [artikeln](https://docs.microsoft.com/azure/migrate/agent-based-migration-architecture#plan-vmware-deployment). 
+För en agent-baserad metod för replikering kan distributions planeraren hjälpa till att profilera miljön för data omsättningen och förutsäga kraven för bandbredd som krävs. Om du vill veta mer kan du läsa den här [artikeln](./agent-based-migration-architecture.md#plan-vmware-deployment). 
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Hur gör jag för att begränsar du replikeringen i med Azure Migrate-utrustning för att kunna använda utan agent?  
 
@@ -153,10 +153,10 @@ Om en virtuell dator till exempel tar fyra timmar för en delta cykel, schemalä
 
 ## <a name="how-do-i-migrate-windows-server-2003-running-on-vmwarehyper-v-to-azure"></a>Hur gör jag för att migrera Windows Server 2003 som körs på VMware/Hyper-V till Azure?
 
-[Windows Server 2003 Extended support](https://go.microsoft.com/fwlink/?linkid=2140400) slutade den 14 juli 2015.  Support teamet för Azure fortsätter att hjälpa till med fel sökning av problem som rör körning av Windows Server 2003 på Azure. Detta stöd är dock begränsat till problem som inte kräver fel sökning eller uppdateringar på operativ system nivå.
+[Windows Server 2003 Extended support](/troubleshoot/azure/virtual-machines/run-win-server-2003#microsoft-windows-server-2003-end-of-support) slutade den 14 juli 2015.  Support teamet för Azure fortsätter att hjälpa till med fel sökning av problem som rör körning av Windows Server 2003 på Azure. Detta stöd är dock begränsat till problem som inte kräver fel sökning eller uppdateringar på operativ system nivå.
 Att migrera dina program till Azure-instanser som kör en nyare version av Windows Server är den rekommenderade metoden för att säkerställa att du effektivt utnyttjar Azure-molnets flexibilitet och tillförlitlighet.
 
-Men om du fortfarande väljer att migrera Windows Server 2003 till Azure kan du använda verktyget Azure Migrate: Migreringsverktyg för server om din Windows Server är en virtuell dator som körs på VMware eller Hyper-V går du igenom artikeln för att [förbereda dina Windows Server 2003-datorer för migrering](https://go.microsoft.com/fwlink/?linkid=2140302).
+Men om du fortfarande väljer att migrera Windows Server 2003 till Azure kan du använda verktyget Azure Migrate: Migreringsverktyg för server om din Windows Server är en virtuell dator som körs på VMware eller Hyper-V går du igenom artikeln för att [förbereda dina Windows Server 2003-datorer för migrering](./prepare-windows-server-2003-migration.md).
 
 ## <a name="what-is-the-difference-between-the-test-migration-and-migrate-operations"></a>Vad är skillnaden mellan åtgärderna testa migreringen och migrera?
 

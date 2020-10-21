@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ce81ce9afa45c93010c457bc292bba037607f96f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fd7431b19ed21ee9cf76b6c2fe190b3f31cacf6
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020889"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281053"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Dra tillbaka prestandanivåerna S1, S2 och S3
 
@@ -82,7 +82,7 @@ Förutsatt att du har 10 S1-samlingar, 1 GB lagrings utrymme för var och en, i 
 
 ## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>Vad händer om jag behöver mer än 20 GB lagrings utrymme?
 
-Oavsett om du har en samling med prestanda nivån S1, S2 eller S3, eller om du har en enda partitionsuppsättning, som har 20 GB lagrings utrymme kan du använda verktyget för datamigrering för Azure Cosmos DB för att migrera dina data till en partitionerad samling med praktiskt taget obegränsad lagring. Information om fördelarna med en partitionerad samling finns [i partitionering och skalning i Azure Cosmos DB](sql-api-partition-data.md). 
+Oavsett om du har en samling med prestanda nivån S1, S2 eller S3, eller om du har en enda partitionsuppsättning, som har 20 GB lagrings utrymme kan du använda verktyget för datamigrering för Azure Cosmos DB för att migrera dina data till en partitionerad samling med praktiskt taget obegränsad lagring. Information om fördelarna med en partitionerad samling finns [i partitionering och skalning i Azure Cosmos DB](partitioning-overview.md). 
 
 <a name="change-before"></a>
 
@@ -132,6 +132,6 @@ EA-kunder blir ett pris som skyddas tills det aktuella kontraktet upphör att g�
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta mer om prissättning och hantering av data med Azure Cosmos DB kan du utforska följande resurser:
 
-1.  [Partitionerar data i Cosmos DB](sql-api-partition-data.md). Förstå skillnaden mellan behållare med en enda partition och partitionerade behållare, samt tips om hur du implementerar en partitionerings strategi för skalning sömlöst.
+1.  [Partitionerar data i Cosmos DB](partitioning-overview.md). Förstå skillnaden mellan behållare med en enda partition och partitionerade behållare, samt tips om hur du implementerar en partitionerings strategi för skalning sömlöst.
 2.  [Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/). Lär dig mer om kostnaden för etablering av data flöde och förbrukning av lagrings utrymme.
 3.  [Enheter för programbegäran](request-units.md). Förstå användningen av data flödet för olika åtgärds typer, till exempel läsa, skriva och fråga.

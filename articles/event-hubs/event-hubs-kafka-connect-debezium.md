@@ -5,18 +5,18 @@ ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4bd6cdf6d3a5dc30b90abc5094202360181ae0b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90061690"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318526"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integrera Apache Kafka Connect-support på Azure Event Hubs (för hands version) med Debezium för registrering av ändrings data
 
 **Registrering av ändrings data (CDC)** är en teknik som används för att spåra ändringar på rad nivå i databas tabeller som svar på åtgärder för att skapa, uppdatera och ta bort. [Debezium](https://debezium.io/) är en distribuerad plattform som bygger på funktionerna för insamling av ändrings data i olika databaser (till exempel [logisk avkodning i postgresql](https://www.postgresql.org/docs/current/static/logicaldecoding-explanation.html)). Den innehåller en uppsättning [Kafka Connect-kopplingar](https://debezium.io/documentation/reference/1.2/connectors/index.html) som används för ändringar på radnivå i databas tabeller och konverterar dem till händelse strömmar som sedan skickas till [Apache Kafka](https://kafka.apache.org/).
 
-Den här självstudien vägleder dig genom hur du konfigurerar ett samlat system för ändrings data i Azure med hjälp av [azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-about?WT.mc_id=devto-blog-abhishgu) (för Kafka), [Azure dB för postgresql](../postgresql/overview.md) och Debezium. Den använder [Debezium postgresql-anslutningen](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) för att strömma databas ändringar från postgresql till Kafka ämnen i Azure Event Hubs
+Den här självstudien vägleder dig genom hur du konfigurerar ett samlat system för ändrings data i Azure med hjälp av [azure Event Hubs](./event-hubs-about.md?WT.mc_id=devto-blog-abhishgu) (för Kafka), [Azure dB för postgresql](../postgresql/overview.md) och Debezium. Den använder [Debezium postgresql-anslutningen](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html) för att strömma databas ändringar från postgresql till Kafka ämnen i Azure Event Hubs
 
 I den här självstudien gör du följande:
 

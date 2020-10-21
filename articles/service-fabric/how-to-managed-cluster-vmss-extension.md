@@ -3,18 +3,18 @@ title: Lägg till ett tillägg för skalnings uppsättning för virtuell dator t
 description: Så här lägger du till ett tillägg för skalnings uppsättning för virtuella datorer Service Fabric hanterad kluster nodtyp
 ms.topic: article
 ms.date: 09/28/2020
-ms.openlocfilehash: 10487bad4fce41c68b4e2cb90c311b986d709eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be51a03494c90ba91cddb383b62b2477fabc8fc3
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91410351"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309281"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Lägg till ett tillägg för skalnings uppsättning för virtuell dator till en Service Fabric hanterad kluster nodtyp (för hands version)
 
 Varje nodtyp i ett Service Fabric hanterat kluster backas upp av en skalnings uppsättning för virtuella datorer. På så sätt kan du lägga till [tillägg för skalnings uppsättningar för virtuella datorer](../virtual-machines/extensions/overview.md) i Service Fabric hanterade klusternoder.
 
-Du kan lägga till ett tillägg för skalnings uppsättning för virtuell dator till en nodtyp med PowerShell [-kommandot Add-AzServiceFabricManagedNodeTypeVMExtension](https://docs.microsoft.com/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?view=azps-4.7.0&preserve-view=true) .
+Du kan lägga till ett tillägg för skalnings uppsättning för virtuell dator till en nodtyp med PowerShell [-kommandot Add-AzServiceFabricManagedNodeTypeVMExtension](/powershell/module/az.servicefabric/add-azservicefabricmanagednodetypevmextension?preserve-view=true&view=azps-4.7.0) .
 
 Alternativt kan du använda ett tillägg för skalnings uppsättning för virtuella datorer på en Service Fabric hanterad klusternod i din Azure Resource Manager-mall, till exempel:
 
@@ -51,7 +51,7 @@ Alternativt kan du använda ett tillägg för skalnings uppsättning för virtue
 }
 ```
 
-Mer information om hur du konfigurerar Service Fabric hanterade klusternoder finns i avsnittet [hanterad kluster](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes)-nodtyp.
+Mer information om hur du konfigurerar Service Fabric hanterade klusternoder finns i avsnittet [hanterad kluster](/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes)-nodtyp.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,17 +5,17 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 81a31448a588849a410b37868cf579fbb0a9ceb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 8cca75f7071b8b9c8d1108b82ebf8f7049ec316a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777781"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282574"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 
-Med Azure Cosmos DB kan du ange tillhandahållet data flöde på dina databaser och behållare. Det finns två typer av tillhandahållet data flöde, standard (manuell) eller autoskalning. I den här artikeln får du en översikt över hur det etablerade data flödet fungerar. 
+Med Azure Cosmos DB kan du ange tillhandahållet data flöde på dina databaser och behållare. Det finns två typer av tillhandahållet data flöde, standard (manuell) eller autoskalning. Den här artikeln ger en översikt över hur det etablerade data flödet fungerar. 
 
 En Azure Cosmos-databas är en hanteringsenhet för en uppsättning containrar. En databas består av en uppsättning schemaoberoende containrar. En Azure Cosmos-container är skalbarhetsenheten för både dataflöde och lagring. En container partitioneras horisontellt över en uppsättning datorer i en Azure-region och distribueras i alla Azure-regioner som är kopplade till ditt Azure Cosmos-konto.
 
@@ -34,9 +34,9 @@ Det data flöde som har allokerats för en behållare distribueras jämnt mellan
 
 Om arbets belastningen som körs på en logisk partition förbrukar mer än det data flöde som allokerats till den underliggande fysiska partitionen, är det möjligt att dina åtgärder kommer att begränsas. Vad som kallas för en _aktiv partition_ inträffar när en logisk partition har oproportionerligt fler förfrågningar än andra nyckel värden.
 
-När Rate-Limiting inträffar kan du antingen öka det etablerade data flödet för hela behållaren eller utföra åtgärderna igen. Du bör också se till att du väljer en partitionsnyckel som jämnt distribuerar lagringen och begär volym. Mer information om partitionering finns [i partitionering och horisontell skalning i Azure Cosmos DB](partition-data.md).
+När Rate-Limiting inträffar kan du antingen öka det etablerade data flödet för hela behållaren eller utföra åtgärderna igen. Du bör också se till att du väljer en partitionsnyckel som jämnt distribuerar lagringen och begär volym. Mer information om partitionering finns [i partitionering och horisontell skalning i Azure Cosmos DB](partitioning-overview.md).
 
-Vi rekommenderar att du konfigurerar data flödet på behållar precisionen när du vill ha garanterade prestanda för behållaren.
+Vi rekommenderar att du konfigurerar data flödet på behållar precisionen om du vill ha förutsägbara prestanda för behållaren.
 
 Följande bild visar hur en fysisk partition är värd för en eller flera logiska partitioner i en behållare:
 
@@ -49,7 +49,7 @@ Följande bild visar hur en fysisk partition är värd för en eller flera logis
 
 När du etablerar data flöde i en Azure Cosmos-databas delas data flödet över alla behållare (kallas delade databas behållare) i databasen. Ett undantag är om du har angett ett etablerat dataflöde för specifika containrar i databasen. Att dela databas nivåns etablerade data flöde bland dess behållare är detsamma som att vara värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, kan du naturligt inte få förutsägbara prestanda för en viss behållare. Information om hur du konfigurerar tillhandahållet data flöde på en databas finns i [Konfigurera etablerade data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md). Information om hur du konfigurerar autoskalning av data flödet i en databas finns i [etablera autoskalning genom strömning](how-to-provision-autoscale-throughput.md).
 
-Genom att ställa in data flöde på en Azure Cosmos-databas garanteras att du tar emot det etablerade data flödet för databasen hela tiden. Eftersom alla behållare i databasen delar det etablerade data flödet ger Azure Cosmos DB inga förutsägbara data flödes garantier för en viss behållare i databasen. Den del av data flödet som en viss behållare kan ta emot är beroende av:
+Eftersom alla behållare i databasen delar det etablerade data flödet ger Azure Cosmos DB inga förutsägbara data flödes garantier för en viss behållare i databasen. Den del av data flödet som en viss behållare kan ta emot är beroende av:
 
 * Antalet behållare.
 * Val av partitionsnyckel för olika behållare.
@@ -63,9 +63,9 @@ Följande exempel visar var det är önskvärt att etablera data flöde på data
 
 * Att dela en Databass etablerade data flöde i en uppsättning behållare är användbart när du migrerar en NoSQL-databas, till exempel MongoDB eller Cassandra, som finns på ett kluster med virtuella datorer eller från lokala fysiska servrar till Azure Cosmos DB. Tänk på det etablerade data flödet som kon figurer ATS på din Azure Cosmos-databas som en logisk motsvarighet, men mer kostnads effektivt och elastiskt, till beräknings kapaciteten för ditt MongoDB-eller Cassandra-kluster.  
 
-Alla behållare som skapats i en databas med ett allokerat data flöde måste skapas med en [partitionsnyckel](partition-data.md). Vid en viss tidpunkt distribueras det data flöde som allokerats till en behållare i en databas över alla logiska partitioner i behållaren. När du har behållare som delar ett allokerat data flöde som kon figurer ATS för en databas, kan du inte selektivt använda genomflödet för en speciell behållare eller en logisk partition. 
+Alla behållare som skapats i en databas med ett allokerat data flöde måste skapas med en [partitionsnyckel](partitioning-overview.md). Vid en viss tidpunkt distribueras det data flöde som allokerats till en behållare i en databas över alla logiska partitioner i behållaren. När du har behållare som delar ett allokerat data flöde som kon figurer ATS för en databas, kan du inte selektivt använda genomflödet för en speciell behållare eller en logisk partition. 
 
-Om arbets belastningen på en logisk partition förbrukar mer än det data flöde som har allokerats till en viss logisk partition, är dina åtgärder avgiftsbelagda. När Rate-Limiting sker kan du antingen öka data flödet för hela databasen eller försöka utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
+Om arbets belastningen på en logisk partition förbrukar mer än det data flöde som har allokerats till en viss logisk partition, är dina åtgärder avgiftsbelagda. När Rate-Limiting sker kan du antingen öka data flödet för hela databasen eller försöka utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partitioning-overview.md).
 
 Containrar i en databas med delat dataflöde delar på dataflödet (RU/s) som allokerats till databasen. Du kan ha upp till fyra containrar med minst 400 RU/s med databasen. Med standard (manuellt) allokerat data flöde, kräver varje ny behållare efter de första fyra ytterligare 100 RU/s-minimum. Om du till exempel har en databas med delat dataflöde med åtta containrar, är databasens minsta RU/s 800 RU/s. Med autoskalning av allokerat data flöde kan du ha upp till 25 behållare i en databas med autoskalning Max 4000 RU/s (skalas mellan 400-4000 RU/s).
 
@@ -82,7 +82,7 @@ Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar
 Du kan kombinera de två modellerna. Etablering av data flöde på både databasen och behållaren tillåts. Följande exempel visar hur du etablerar standard (manuellt) etablerat data flöde på en Azure Cosmos-databas och en behållare:
 
 * Du kan skapa en Azure Cosmos-databas med namnet *Z* med standard (manuellt) allokerat data flöde för *"K"* ru: er. 
-* Skapa sedan fem behållare med namnet *A*, *B*, *C*, *D*och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Observera att du bara kan konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
+* Skapa sedan fem behållare med namnet *A*, *B*, *C*, *D*och *E* i databasen. När du skapar container B, se till att aktivera **etablera dedikerat data flöde för det här behållar** alternativet och konfigurera *"P"* -ru: er av etablerat data flöde på den här behållaren. Du kan bara konfigurera delade och dedikerade data flöde när du skapar databasen och behållaren. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Fysisk partition som är värd för en eller flera logiska partitioner i en behållare":::
 
@@ -94,22 +94,47 @@ Du kan kombinera de två modellerna. Etablering av data flöde på både databas
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Uppdatera data flödet för en databas eller en behållare
 
-När du har skapat en Azure Cosmos-behållare eller en databas kan du uppdatera det etablerade data flödet. Det finns ingen gräns för maximalt tillhandahållet data flöde som du kan konfigurera i databasen eller behållaren. 
+När du har skapat en Azure Cosmos-behållare eller en databas kan du uppdatera det etablerade data flödet. Det finns ingen gräns för maximalt tillhandahållet data flöde som du kan konfigurera i databasen eller behållaren.
 
-Om du vill uppskatta det [lägsta allokerade data flödet](concepts-limits.md#storage-and-database-operations) för en databas eller behållare, hitta Max:
+### <a name="current-provisioned-throughput"></a>Aktuellt allokerat data flöde
+
+Du kan hämta det etablerade data flödet för en behållare eller en databas i Azure Portal eller genom att använda SDK: erna:
+
+* [Container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) på .NET SDK.
+* [CosmosContainer. readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) i Java SDK.
+
+Svaret på dessa metoder innehåller också det [lägsta allokerade data flödet](concepts-limits.md#storage-and-database-operations) för behållaren eller databasen:
+
+* [ThroughputResponse. MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) på .NET SDK.
+* [ThroughputResponse. getMinThroughput ()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) i Java SDK.
+
+Det faktiska antalet RU/s kan variera beroende på din konto konfiguration. Men vanligt vis är det högst:
 
 * 400 RU/s 
 * Aktuellt lagrings utrymme i GB * 10 RU/s
 * Mest RU/s etablerad i databasen eller containern/100
 * Antal behållare * 100 RU/s (endast delad data flödes databas)
 
-Det faktiska antalet RU/s kan variera beroende på din konto konfiguration. Du kan använda [Azure Monitor mått](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) för att visa historiken över det etablerade data flödet (ru/s) och lagrings utrymme på en resurs.
+### <a name="changing-the-provisioned-throughput"></a>Ändra det etablerade data flödet
 
-Du kan hämta det lägsta data flödet för en behållare eller en databas program mässigt genom att använda SDK: erna eller Visa värdet i Azure Portal. När du använder .NET SDK, [behållaren. Med ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) -metoden kan du skala det tillhandahållna data flöde svärdet. När du använder Java SDK kan du använda metoden [CosmosContainer. replaceProvisionedThroughput](sql-api-java-sdk-samples.md) för att skala det tillhandahållna data flöde svärdet.
+Du kan skala det etablerade data flödet för en behållare eller en databas via Azure Portal eller genom att använda SDK: erna:
 
-När du använder .NET SDK kan du använda metoden [container. ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) för att hämta det lägsta data flödet för en behållare eller en databas. 
+* [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) på .NET SDK.
+* [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) i Java SDK.
 
-Du kan skala det etablerade data flödet för en behållare eller en databas när som helst. När en skalnings åtgärd utförs för att öka data flödet kan det ta längre tid på grund av system aktiviteterna för att etablera nödvändiga resurser. Du kan kontrol lera status för skalnings åtgärden i Azure Portal eller program mässigt med SDK: er. När du använder .NET SDK kan du hämta status för skalnings åtgärden med hjälp av- `Container.ReadThroughputAsync` metoden.
+Om du **minskar det etablerade data flödet**kommer du att kunna göra det till ett [minimum](#current-provisioned-throughput).
+
+Om du **ökar det etablerade data flödet**, är det mesta av tiden att göra en omedelbar åtgärd. Det finns dock fall där åtgärden kan ta längre tid på grund av system aktiviteterna för att etablera nödvändiga resurser. I det här fallet kommer ett försök att ändra det etablerade data flödet medan den här åtgärden pågår att ge ett HTTP 423-svar med ett fel meddelande som förklarar att en annan skalnings åtgärd pågår.
+
+> [!NOTE]
+> Om du planerar för en mycket stor inmatnings arbets belastning som kräver en stor ökning av det etablerade data flödet, bör du tänka på att skalnings åtgärden inte har något service avtal och, vilket beskrivs i föregående stycke, kan ta lång tid när ökningen är stor. Du kanske vill planera framåt och påbörja skalningen innan arbets belastningen startar och använda nedanstående metoder för att kontrol lera förloppet.
+
+Du kan kontrol lera skalnings förloppet program mässigt genom att läsa det [aktuella etablerade data flödet](#current-provisioned-throughput) och använda:
+
+* [ThroughputResponse. IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) på .NET SDK.
+* [ThroughputResponse. isReplacePending ()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) i Java SDK.
+
+Du kan använda [Azure Monitor mått](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) för att visa historiken över det etablerade data flödet (ru/s) och lagrings utrymme på en resurs.
 
 ## <a name="comparison-of-models"></a>Jämförelse av modeller
 Den här tabellen visar en jämförelse mellan Provisioning standard (manuell) data flöde i en databas jämfört med på en behållare. 
@@ -126,7 +151,7 @@ Den här tabellen visar en jämförelse mellan Provisioning standard (manuell) d
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [logiska partitioner](partition-data.md).
+* Läs mer om [logiska partitioner](partitioning-overview.md).
 * Lär dig hur du [etablerar standard (manuell) i en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 * Lär dig hur du [etablerar standard-genomflödet (manuell) i en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 * Lär dig hur du [etablerar autoskalning genom strömning på en Azure Cosmos-databas eller-behållare](how-to-provision-autoscale-throughput.md).

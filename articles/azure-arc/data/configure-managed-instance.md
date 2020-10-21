@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f687923f1185d848c2c4f2f40d949c71a7743d65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e2443014f6788504a11784945078187a5a72de4
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90942093"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311131"
 ---
 # <a name="configure-azure-arc-enabled-sql-managed-instance"></a>Konfigurera Azure Arc-aktiverad SQL-hanterad instans
 
@@ -22,11 +22,11 @@ Den här artikeln förklarar hur du konfigurerar Azure Arc-aktiverade SQL-instan
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="configure-resources-for-azure-arc-enabled-sql-managed-instance"></a>Konfigurera resurser för Azure Arc-aktiverad SQL-hanterad instans
+## <a name="configure-resources"></a>Konfigurera resurser
 
-### <a name="configure-using-azdata"></a>Konfigurera med azdata
+### <a name="configure-using-azure-data-cli-azdata"></a>Konfigurera med [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 
-Du kan redigera konfigurationen av Azure Arc-aktiverade SQL-hanterade instanser med `azdata` cli. Kör följande kommando för att Visa konfigurations alternativ. 
+Du kan redigera konfigurationen av Azure Arc-aktiverade SQL-hanterade instanser med [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] . Kör följande kommando för att Visa konfigurations alternativ. 
 
 ```
 azdata arc sql mi edit --help

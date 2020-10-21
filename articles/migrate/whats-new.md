@@ -4,12 +4,12 @@ description: Lär dig mer om nyheter och nya uppdateringar i tjänsten Azure Mig
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: a36e73496b07df18c61b07df9d90992c0ab399ce
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b03f3a7e10aa42f3393ecc22cb74f4e565587032
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124664"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314580"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Vad är nytt i Azure Migrate
 
@@ -36,7 +36,7 @@ ms.locfileid: "92124664"
 
 ## <a name="update-june-2020"></a>Uppdatering (2020 juni)
 
-- Utvärderingar för att migrera lokala virtuella VMware-datorer till [Azure VMware-lösningen (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) stöds nu. [Läs mer](how-to-create-azure-vmware-solution-assessment.md)
+- Utvärderingar för att migrera lokala virtuella VMware-datorer till [Azure VMware-lösningen (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) stöds nu. [Läs mer](how-to-create-azure-vmware-solution-assessment.md)
 - Stöd för flera autentiseringsuppgifter på installations programmet för fysisk server identifiering.
 - Stöd för att tillåta Azure-inloggning från enheten för klient organisationer där klient begränsning har kon figurer ATS.
 
@@ -104,4 +104,4 @@ Om du använder den tidigare versionen av Azure Migrate (endast utvärdering av 
 
 - [Läs mer](https://azure.microsoft.com/pricing/details/azure-migrate/) om priser för Azure Migrate.
 - [Läs vanliga frågor och svar](resources-faq.md) om Azure Migrate.
-- Prova våra självstudier för att utvärdera virtuella [VMware-datorer](tutorial-assess-vmware.md) och [virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md).
+- Prova våra självstudier för att utvärdera virtuella [VMware-datorer](./tutorial-assess-vmware-azure-vm.md) och [virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md).

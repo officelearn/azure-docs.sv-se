@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2020
 ms.author: duau
-ms.openlocfilehash: 7c5e938f985296e0534ca6e2438cf3acedb0fb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5d51a77b1da0ae44c76d0187113105c4e53c9b4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626487"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279225"
 ---
 # <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Självstudie: snabbt skala och skydda ett webb program med hjälp av Azures frontend och brand vägg för Azure Web Application (WAF)
 
@@ -36,10 +36,10 @@ I den här självstudien får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Anvisningarna i den här självstudien använder Azure CLI. [Visa den här guiden](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) för att komma igång med Azure CLI.
+- Anvisningarna i den här självstudien använder Azure CLI. [Visa den här guiden](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) för att komma igång med Azure CLI.
 
   > [!TIP] 
-  > Ett enkelt och snabbt sätt att komma igång med Azure CLI är med [bash i Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+  > Ett enkelt och snabbt sätt att komma igång med Azure CLI är med [bash i Azure Cloud Shell](../cloud-shell/quickstart.md).
 
 - Kontrol lera att `front-door` tillägget har lagts till i Azure CLI:
 
@@ -48,7 +48,7 @@ I den här självstudien får du lära dig att:
    ```
 
 > [!NOTE] 
-> Mer information om de kommandon som används i den här självstudien finns i [Azure CLI-referens för front dörren](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true).
+> Mer information om de kommandon som används i den här självstudien finns i [Azure CLI-referens för front dörren](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-an-azure-front-door-resource"></a>Skapa en resurs för Azures frontend-dörr
 
@@ -62,7 +62,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--name`: Namnet på din Azure-frontend-resurs.
 
-`--resource-group`: Den resurs grupp som du vill placera den här resursen i Azures frontend-dörr i. Mer information om resurs grupper finns i [Hantera resurs grupper i Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
+`--resource-group`: Den resurs grupp som du vill placera den här resursen i Azures frontend-dörr i. Mer information om resurs grupper finns i [Hantera resurs grupper i Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 I svaret som du får när du kör det här kommandot ska du leta efter nyckeln `hostName` . Du behöver det här värdet i ett senare steg. `hostName`Är DNS-namnet på den Azure-frontend-resurs som du skapade.
 
@@ -130,21 +130,21 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 Det anpassade domän namnet för ditt webb program är det som kunderna använder för att referera till ditt program. Till exempel www.contoso.com. Inlednings vis pekade det här anpassade domän namnet på den plats där det kördes innan du introducerade Azures front dörr. När du har lagt till Azures frontend-och WAF för att framgångs punkten ska den DNS-post som motsvarar den anpassade domänen peka på resursen för Azures front dörr. Du kan göra den här ändringen genom att mappa om posten i DNS-servern till den Azure-hemdörr `hostName` som du noterade när du skapade Azures frontend-resurs.
 
-De olika stegen för att uppdatera dina DNS-poster beror på din DNS-tjänstleverantör. Om du använder Azure DNS för att vara värd för ditt DNS-namn kan du läsa mer i dokumentationen om [hur du uppdaterar en DNS-post](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) och pekar på Azures front dörr `hostName` . 
+De olika stegen för att uppdatera dina DNS-poster beror på din DNS-tjänstleverantör. Om du använder Azure DNS för att vara värd för ditt DNS-namn kan du läsa mer i dokumentationen om [hur du uppdaterar en DNS-post](../dns/dns-operations-recordsets-cli.md) och pekar på Azures front dörr `hostName` . 
 
-Det finns ett viktigt saker att notera om du behöver dina kunder för att komma till din webbplats med hjälp av Zone Apex (till exempel contoso.com). I det här fallet måste du använda Azure DNS och dess [aliasresurspost](https://docs.microsoft.com/azure/dns/dns-alias) för att vara värd för ditt DNS-namn. 
+Det finns ett viktigt saker att notera om du behöver dina kunder för att komma till din webbplats med hjälp av Zone Apex (till exempel contoso.com). I det här fallet måste du använda Azure DNS och dess [aliasresurspost](../dns/dns-alias.md) för att vara värd för ditt DNS-namn. 
 
-Du måste också uppdatera konfigurationen för din Azure-frontend för att [lägga till den anpassade domänen](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) så att den är medveten om den här mappningen.
+Du måste också uppdatera konfigurationen för din Azure-frontend för att [lägga till den anpassade domänen](./front-door-custom-domain.md) så att den är medveten om den här mappningen.
 
-Slutligen, om du använder en anpassad domän för att komma åt ditt webb program och vill aktivera HTTPS-protokollet. Du måste [Konfigurera certifikaten för din anpassade domän i Azures front dörr](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Slutligen, om du använder en anpassad domän för att komma åt ditt webb program och vill aktivera HTTPS-protokollet. Du måste [Konfigurera certifikaten för din anpassade domän i Azures front dörr](./front-door-custom-domain-https.md). 
 
 ## <a name="lock-down-your-web-application"></a>Låsa ditt webb program
 
-Vi rekommenderar att du endast ser till att Azures front dörrs kanter kan kommunicera med ditt webb program. På så sätt ser du till att ingen kan kringgå Azures front dörrs skydd och få åtkomst till ditt program direkt. Om du vill göra detta kan du läsa mer i [Hur gör jag för att låsa ned åtkomsten till min server del till Azures front dörr?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+Vi rekommenderar att du endast ser till att Azures front dörrs kanter kan kommunicera med ditt webb program. På så sätt ser du till att ingen kan kringgå Azures front dörrs skydd och få åtkomst till ditt program direkt. Om du vill göra detta kan du läsa mer i [Hur gör jag för att låsa ned åtkomsten till min server del till Azures front dörr?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver de resurser som används i den här självstudien använder du kommandot [AZ Group Delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) för att ta bort resurs gruppen, frontend-dörren och WAF-principen:
+När du inte längre behöver de resurser som används i den här självstudien använder du kommandot [AZ Group Delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) för att ta bort resurs gruppen, frontend-dörren och WAF-principen:
 
 ```azurecli-interactive
   az group delete \

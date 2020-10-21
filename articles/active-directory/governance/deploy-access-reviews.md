@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306573"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318134"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planera distribution av Azure Active Directory åtkomst granskningar
 
@@ -87,7 +87,7 @@ Du kan också behöva andra funktioner för identitets styrning, t. ex. [livs cy
 
 ### <a name="engage-the-right-stakeholders"></a>Engagera rätt intressenter
 
-När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du är engagerande rätt intressenter](https://aka.ms/deploymentplans) och att projekt rollerna är tydliga.
+När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du är engagerande rätt intressenter](../fundamentals/active-directory-deployment-plans.md) och att projekt rollerna är tydliga.
 
 För åtkomst granskningar kommer du troligen att inkludera representanter från följande team i din organisation:
 
@@ -182,7 +182,7 @@ Typiska mål för granskning är:
 
 * Grupp [medlemskap](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synkroniserat till Azure AD eller skapats i Azure ad eller Microsoft 365, inklusive Microsoft Teams).
 
-* [Åtkomst paket](/azure/active-directory/governance/entitlement-management-overview) som grupperar resurser (grupper, appar och platser) till ett enda paket för att hantera åtkomst.
+* [Åtkomst paket](./entitlement-management-overview.md) som grupperar resurser (grupper, appar och platser) till ett enda paket för att hantera åtkomst.
 
 * [Azure AD-roller och Azure-resurs roller](../privileged-identity-management/pim-resource-roles-assign-roles.md) som definieras i Privileged Identity Management.
 
@@ -518,4 +518,3 @@ Lär dig mer om de nedan relaterade teknikerna.
 * [Vad är hantering av Azure AD-rättigheter?](entitlement-management-overview.md)
 
 * [Vad är Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-

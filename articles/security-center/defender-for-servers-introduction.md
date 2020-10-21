@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 8757399329f3a9bd9f4d7b914b12b2a0f7e85603
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711963a60d5c75031ff676a9c7f1db47f20fe895
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448288"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275253"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introduktion till Azure Defender för servrar
 
@@ -27,11 +27,18 @@ För Linux samlar Azure Defender in gransknings poster från Linux-datorer med h
 
 De hot identifierings-och skydds funktioner som ingår i Azure Defender för servrar är:
 
+- **Integrerad licens för Microsoft Defender för slut punkt (endast Windows)** – Azure Defender för servrar innehåller  [Microsoft Defender för slut punkt](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Tillsammans tillhandahåller de omfattande funktioner för slut punkts identifiering och-svar (EDR). [Läs mer](security-center-wdatp.md).
+
+    När Defender för slut punkten identifierar ett hot utlöses en avisering. Aviseringen visas i Security Center. Från Security Center kan du också pivotera till Defender för slut punkts konsolen och utföra en detaljerad undersökning för att få fram omfattningen av angreppet. Läs mer om Microsoft Defender för slut punkt.
+
+    > [!IMPORTANT]
+    > **Microsoft Defender för slut punkts** sensor aktive ras automatiskt på Windows-servrar som använder Security Center.
+
 - **Genomsökning av sårbarhets bedömning för virtuella datorer** – den sårbarhets-skanner som ingår i Azure Security Center drivs av Qualys. 
 
     Qualys ' Scanner är ett av de ledande verktygen för real tids identifiering av sårbarheter i din Azure-Virtual Machines. Du behöver inte en Qualys-licens eller ens ett Qualys-konto – allt hanteras sömlöst i Security Center. [Läs mer](deploy-vulnerability-assessment-vm.md).
 
-- **Just-in-Time (JIT) VM-anslutningar (just-in-Time)**  är aktivt för att nå datorer med öppna hanterings portar, som RDP eller ssh. Alla dina virtuella datorer är potentiella mål för ett angrepp. När en virtuell dator har komprometterats används den som start punkt för att angripa ytterligare resurser i din miljö.
+- **JIT (just-in-Time)-skydd för virtuella datorer (VM)** är aktivt för att nå datorer med öppna hanterings portar, som RDP eller ssh. Alla dina virtuella datorer är potentiella mål för ett angrepp. När en virtuell dator har komprometterats används den som start punkt för att angripa ytterligare resurser i din miljö.
 
     När du aktiverar Azure Defender för-servrar kan du använda just-in-Time VM-åtkomst för att låsa inkommande trafik till dina virtuella datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs. [Läs mer](just-in-time-explained.md).
 
@@ -46,13 +53,6 @@ De hot identifierings-och skydds funktioner som ingår i Azure Defender för ser
 - **Anpassningsbar nätverks härdning (Anh)** – genom att använda nätverks säkerhets grupper (NSG) för att filtrera trafik till och från resurser, ökar nätverks säkerheten position. Det kan dock fortfarande finnas fall där den faktiska trafiken som flödar genom NSG är en del av de NSG-regler som definierats. I dessa fall kan ytterligare förbättra säkerheten position genom att skärpa NSG-reglerna, baserat på de faktiska trafik mönstren.
 
     Anpassad nätverks härdning ger rekommendationer för ytterligare härdning av NSG-reglerna. Den använder en Machine Learning-algoritm som faktorer i faktisk trafik, känd betrodd konfiguration, Hot information och andra risk indikatorer och ger rekommendationer för att endast tillåta trafik från specifika IP/port-tupler. [Läs mer](security-center-adaptive-network-hardening.md).
-
-- **Integrering med Microsoft Defender Avancerat skydd (ATP) (endast Windows)** – Azure Defender integreras med Microsoft Defender Advanced Threat Protection (ATP). Tillsammans tillhandahåller de omfattande funktioner för slut punkts identifiering och-svar (EDR). [Läs mer](security-center-wdatp.md).
-
-    > [!IMPORTANT]
-    > Microsoft Defender ATP-sensorn aktive ras automatiskt på Windows-servrar som använder Security Center.
-
-    När Microsoft Defender ATP identifierar ett hot utlöses en avisering. Aviseringen visas i Security Center. Från Security Center kan du också pivotera till Microsoft Defender ATP-konsolen och utföra en detaljerad undersökning för att få fram omfattningen av angreppet. För ytterligare information om Microsoft Defender ATP, se [onboard-servrar till Microsoft Defender ATP-tjänsten](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
 - **Docker-värd härdning** – Azure Security Center identifierar ohanterade behållare som finns på virtuella Linux-datorer med IaaS eller andra Linux-datorer som kör Docker-behållare. Security Center kontinuerligt bedömer konfigurationen av dessa behållare. Den jämför sedan dem med Center for Internet Security (CIS) Docker-benchmark. Security Center innehåller hela ruleset av CIS Docker-benchmark och varnar dig om dina behållare inte uppfyller någon av kontrollerna. [Läs mer](harden-docker-hosts.md).
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: jasonh
-ms.openlocfilehash: 01bfff6db7827218dafa539b8bc2c7ce0a7869f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ad56bf0295efca45ee958e1ce135d79ed850d62
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409654"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277591"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Steg före migrering för datamigrering från MongoDB till Azure Cosmos DB s API för MongoDB
 
@@ -36,7 +36,7 @@ Följande är särskilda egenskaper för Azure Cosmos DB s API för MongoDB:
 
 - **Elastisk kapacitet**: kapaciteten för en specifik samling eller databas kan ändras när som helst. Detta gör att databasen kan anpassas elastiskt till data flödes kraven för din arbets belastning.
 
-- **Automatisk horisontell partitionering**: Azure Cosmos DB tillhandahåller ett automatiskt partitionerings system som bara kräver en Shard (eller en partitionsnyckel). [Mekanismen för automatisk partitionering](partition-data.md) delas över alla Azure Cosmos DB-API: er och möjliggör sömlös data och genom hela skalan genom horisontell distribution.
+- **Automatisk horisontell partitionering**: Azure Cosmos DB tillhandahåller ett automatiskt partitionerings system som bara kräver en Shard (eller en partitionsnyckel). [Mekanismen för automatisk partitionering](partitioning-overview.md) delas över alla Azure Cosmos DB-API: er och möjliggör sömlös data och genom hela skalan genom horisontell distribution.
 
 ## <a name="migration-options-for-azure-cosmos-dbs-api-for-mongodb"></a><a id="options"></a>Migrations alternativ för Azure Cosmos DBs API för MongoDB
 
@@ -88,7 +88,7 @@ De indexerings funktioner som tillhandahålls av Azure Cosmos DB innefattar att 
 ## <a name="next-steps"></a>Nästa steg
 * [Migrera dina MongoDB-data till Cosmos DB med hjälp av Database Migration Service.](../dms/tutorial-mongodb-cosmos-db.md) 
 * [Etablera data flöde i Azure Cosmos-behållare och databaser](set-throughput.md)
-* [Partitionering i Azure Cosmos DB](partition-data.md)
+* [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 * [Global distribution i Azure Cosmos DB](distribute-data-globally.md)
 * [Indexering i Azure Cosmos DB](index-overview.md)
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)

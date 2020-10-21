@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 1cd0c3f48d4dc79294b3ebf9907ac18d23794830
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de3ec79b94969e45553857f1179a1104e090347
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804205"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92276102"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Sid brytning i Azure Cosmos DB
 
@@ -21,7 +21,7 @@ I Azure Cosmos DB kan frågor ha flera sidor med resultat. Det här dokumentet b
 
 Ibland delas frågeresultatet över flera sidor. Varje sidas resultat genereras av en separat frågekörningen. Om frågeresultatet inte kan returneras i en enda körning, delas Azure Cosmos DB automatiskt in resultat på flera sidor.
 
-Du kan ange det maximala antalet objekt som returneras av en fråga genom att ange `MaxItemCount` . `MaxItemCount`Anges per begäran och garanterar att frågemotor returnerar detta antal objekt eller färre. Du kan ställa in `MaxItemCount` på `-1` om du inte vill placera en gräns för antalet resultat per frågekörningen.
+Du kan ange det maximala antalet objekt som returneras av en fråga genom att ange `MaxItemCount` . `MaxItemCount`Anges per begäran och talar om för frågemotor att returnera antalet objekt eller färre. Du kan ställa in `MaxItemCount` på `-1` om du inte vill placera en gräns för antalet resultat per frågekörningen.
 
 Dessutom finns det andra orsaker till att frågemotor kan behöva dela frågeresultaten på flera sidor. Exempel:
 
@@ -72,4 +72,4 @@ ORDER BY c.name
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [ORDER BY-sats](sql-query-order-by.md)
+- [ORDER BY-satsen](sql-query-order-by.md)

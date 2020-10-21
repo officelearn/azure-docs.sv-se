@@ -4,12 +4,12 @@ description: Läs mer om tjänsten Azure Migrate.
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 72f2dfb3e5e05466892d838af4e1c84c855b94a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 48447959f0a60baf8802a9939612bf0d536c2557
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86122089"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314755"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -30,7 +30,7 @@ Azure Migrate tillhandahåller en central hubb för att utvärdera och migrera t
 
 Azure Migrate Hub innehåller följande verktyg:
 
-**Verktyg** | **Utvärdera och migrera** | **Information**
+**Verktyg** | **Utvärdera och migrera** | **Detaljer**
 --- | --- | ---
 **Azure Migrate: Server utvärdering** | Utvärdera servrar. | Identifiera och utvärdera lokala virtuella VMware-datorer, virtuella Hyper-V-datorer och fysiska servrar som förbereder migrering till Azure.
 **Azure Migrate: Server-migrering** | Migrera servrar. | Migrera virtuella VMware-datorer, virtuella Hyper-V-datorer, fysiska servrar, andra virtualiserade datorer och virtuella datorer i offentliga moln till Azure.
@@ -80,7 +80,7 @@ Server utvärderingen använder en förenklad [Azure Migrate](migrate-appliance.
 
 Med verktyget Azure Migrate: Migreringsverktyg kan du migrera till Azure:
 
-**Flyttar** | **Information**
+**Migrera** | **Detaljer**
 --- | ---
 Lokala virtuella VMware-datorer | Migrera virtuella datorer till Azure med hjälp av en agent utan agent eller en agent-baserad migrering.<br/><br/> Vid migrering utan Agent använder Server Migration en Azure Migrate-enhet som du distribuerar lokalt. Det är samma typ av apparat som du använder för Server utvärdering.<br/><br/> För agent-baserad migrering använder Server utvärdering en replikeringsprincip.
 Lokala virtuella Hyper-V-datorer | Migrera virtuella datorer till Azure.<br/><br/> Server utvärderingen använder leverantörs agenter som är installerade på Hyper-V-värden för migreringen.
@@ -124,5 +124,5 @@ Det finns två versioner av tjänsten Azure Migrate.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Prova våra självstudier för att utvärdera virtuella [VMware-datorer](tutorial-prepare-vmware.md), [virtuella Hyper-V-datorer](tutorial-prepare-hyper-v.md)eller [fysiska servrar](tutorial-prepare-physical.md).
+- Prova våra självstudier för att utvärdera virtuella [VMware-datorer](./tutorial-discover-vmware.md), [virtuella Hyper-V-datorer](./tutorial-discover-hyper-v.md)eller [fysiska servrar](./tutorial-discover-physical.md).
 - [Läs vanliga frågor och svar](resources-faq.md) om Azure Migrate.

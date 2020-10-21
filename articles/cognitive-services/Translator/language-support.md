@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5da707d02d867ea35382b09612a89144f0a6527f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568105"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282302"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Språk-och region stöd för text-och tal Översättning
 
@@ -57,6 +57,7 @@ Translator stöder följande språk för text översättning av text.
 |Filipino|  `fil`   |
 |Finska|   `fi`    |
 |Franska|    `fr`    |
+|Franska (Kanada)|   `fr-ca` |
 |Tyska|    `de`    |
 |Grekiska| `el`    |
 |Gujarati|  `gu`    |
@@ -364,6 +365,7 @@ Konvertera tal till text för att översätta till valfritt språk. Tal-till-tex
 |Engelska|
 |Finska|
 |Franska|
+|Franska (Kanada)|
 |Tyska|
 |Gujarati|
 |Hindi|
@@ -401,6 +403,7 @@ Omvandla text till tal. Text till tal används för att lägga till ljud utmatni
 |Engelska|
 |Finska|
 |Franska|
+|Franska (Kanada)|
 |Tyska|
 |Grekiska|
 |Hebreiska|

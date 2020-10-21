@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/06/2020
+ms.date: 10/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
-ms.openlocfilehash: f8c6f7daecd38babaa4f2961d04a6cd4c3b4dbed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9cb7a97b3f57ee7ac10babc53ee2263d51838777
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840565"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309687"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: regions tillgänglighet & data placering
 
@@ -59,6 +59,14 @@ Följande länder/regioner håller på att läggas till i listan. Nu kan du fort
 
 > Argentina, Australien, Brasilien, Chile, Colombia, Ecuador, Irak, Nya Zeeland, Paraguay, Peru, Uruguay och Venezuela.
 
+## <a name="remote-profile-solution"></a>Fjär profils lösning
+
+Med Azure AD B2C [anpassade principer](custom-policy-overview.md)kan du integrera med [RESTful API-tjänster](custom-policy-rest-api-intro.md), vilket gör att du kan lagra och läsa användar profiler från en fjärrdatabas (till exempel en marknadsförings databas, ett CRM-system eller ett affärs program).  
+- Under redigeringen av registrering och profil, anropar Azure AD B2C en anpassad REST API för att spara användar profilen till fjärrdatakällan. Användarens autentiseringsuppgifter lagras i Azure AD B2C katalog. 
+- Vid inloggning, efter verifiering av autentiseringsuppgifter med ett lokalt eller socialt konto, anropar Azure AD B2C REST API, som skickar användarens unika identifierare som primär nyckel för användare (e-postadress eller användarens objectId). REST API läser data från fjärrdatabasen och returnerar användar profilen.  
+
+När registreringen, profil redigeringen eller inloggningen har slutförts innehåller Azure AD B2C användar profilen i den åtkomsttoken som returneras till programmet. Mer information finns i [exempel lösningen Azure AD B2C Remote Profile](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) i GitHub.
+
 ## <a name="preview-tenant"></a>Förhandsgranska klient organisation
 
 Om du har skapat en B2C-klient under för hands versionen av Azure AD B2C's är det troligt att **klient typen** säger för **hands klienten**.
@@ -70,3 +78,7 @@ I så fall måste du bara använda din klient för utvecklings-och testnings syf
 Det finns kända problem när du tar bort en för hands version av B2C-klienten och skapar en B2C-klient för produktion med samma domän namn. *Du måste skapa en B2C-klient för produktions skala med ett annat domän namn*.
 
 ![Skärm bild av en klient typ, som för hands versions klient.](./media/data-residency/preview-b2c-tenant.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Skapa en Azure AD B2C klient](tutorial-create-tenant.md).

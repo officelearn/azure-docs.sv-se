@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896631"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311519"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Självstudie: Distribuera en maskin inlärnings modell med designern
 
@@ -28,7 +28,7 @@ Du kan distribuera den förutsägande modellen som utvecklats i [del ett av sjä
 > * Distribuera real tids slut punkten.
 > * Testa real tids slut punkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Slutför [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) och lär dig hur du tränar och poängs ätter en maskin inlärnings modell i designern.
 
@@ -61,7 +61,7 @@ Om du vill distribuera din pipeline måste du först konvertera inlärnings pipe
 
 1. Välj **Skicka**och Använd samma beräknings mål och experiment som du använde i del ett.
 
-    Om är den första körningen kan det ta upp till 20 minuter innan din pipeline har slutförts. Standard beräknings inställningarna har en minsta Node-storlek på 0, vilket innebär att Designer måste allokera resurser efter inaktivitet. Upprepade pipelines körningar tar mindre tid eftersom beräknings resurserna redan har allokerats. Dessutom använder designern cachelagrade resultat för varje modul för att ytterligare förbättra effektiviteten.
+    Om det här är den första körningen kan det ta upp till 20 minuter innan din pipeline har slutförts. Standard beräknings inställningarna har en minsta Node-storlek på 0, vilket innebär att Designer måste allokera resurser efter inaktivitet. Upprepade pipelines körningar tar mindre tid eftersom beräknings resurserna redan har allokerats. Dessutom använder designern cachelagrade resultat för varje modul för att ytterligare förbättra effektiviteten.
 
 1. Välj **Distribuera**.
 
@@ -103,21 +103,17 @@ När din AKS-tjänst har slutfört etableringen återgår du till inferencing-pi
 
     Ett meddelande visas ovanför arbets ytan när distributionen är klar. Det kan ta några minuter.
 
-## <a name="test-the-real-time-endpoint"></a>Testa real tids slut punkten
+## <a name="view-the-real-time-endpoint"></a>Visa real tids slut punkten
 
-När distributionen är klar kan du testa slut punkten för Real tid genom att gå till sidan **slut punkter** .
+När distributionen är klar kan du Visa real tids slut punkten genom att gå till sidan **slut punkter** .
 
 1. På sidan **slut punkter** väljer du den slut punkt som du har distribuerat.
 
-    ![Skärm bild som visar fliken slut punkter i real tid med den nyligen skapade slut punkten markerad](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
+1. På fliken **information** kan du se mer information, till exempel rest-URI, status och taggar.
 
-1. Välj **Testa regel**.
+1. På fliken **förbrukare** kan du hitta säkerhets nycklar och ange autentiseringsmetoder.
 
-1. Du kan manuellt ange test data eller använda de automatiskt ifyllda exempel data och välja **testa**.
-
-    Portalen skickar en testbegäran till slut punkten och visar resultatet. Även om ett pris värde genereras för indata används inte det för att generera förutsägelse värdet.
-
-    ![Skärm bild som visar hur du testar real tids slut punkten med den visade etiketten för pris som marker ATS](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
+Mer information om hur du konsumerar din webb tjänst finns i [använda en modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

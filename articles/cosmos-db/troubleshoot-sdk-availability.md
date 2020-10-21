@@ -3,17 +3,17 @@ title: 'Diagnostisera och Felsök tillgängligheten för Azure Cosmos SDK: er i 
 description: Lär dig allt om tillgänglighets beteendet i Azure Cosmos SDK när du arbetar i flera regionala miljöer.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 400795d20b6e7ad919f5cbbfa6078987bb65297e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743972"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319368"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnostisera och Felsök tillgängligheten för Azure Cosmos SDK: er i multiregionala miljöer
 
@@ -34,7 +34,7 @@ När du anger den regionala inställningen ansluter klienten till en region som 
 | Enskild Skriv region | Önskad region | Primär region  |
 | Flera Skriv regioner | Önskad region | Önskad region  |
 
-Om du inte anger någon önskad region:
+Om du **inte anger någon önskad region**använder SDK-klienten som standard den primära regionen:
 
 |Kontotyp |Läsningar |Skrivningar |
 |------------------------|--|--|
@@ -44,7 +44,9 @@ Om du inte anger någon önskad region:
 > [!NOTE]
 > Primär region syftar på den första regionen i [Azure Cosmos-kontots region lista](distribute-data-globally.md)
 
-När något av följande inträffar visar klienten som använder Azure Cosmos SDK loggar och innehåller information om återförsöket som en del av **åtgärdens diagnostiska information**:
+Under normala omständigheter ansluter SDK-klienten till den önskade regionen (om en regional inställning har angetts) eller till den primära regionen (om ingen inställning har angetts) och åtgärderna kommer att begränsas till den regionen, om inte något av nedanstående scenarier inträffar.
+
+I dessa fall exponerar klienten som använder Azure Cosmos SDK loggar och innehåller information om återförsöket som en del av **åtgärdens diagnostiska information**:
 
 * Egenskapen *RequestDiagnosticsString* i svar i .NET v2 SDK.
 * Egenskapen *diagnostik* för svar och undantag i .net v3 SDK.
@@ -66,7 +68,7 @@ Om du tar bort en region och senare lägger till den i kontot igen, om den tilla
 
 Om du konfigurerar klienten för att helst ansluta till en region som Azure Cosmos-kontot inte har, ignoreras den önskade regionen. Om du lägger till den regionen senare identifierar klienten den och kommer att växla permanent till den regionen.
 
-## <a name="failover-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Redundansväxla Skriv regionen i ett enda Skriv regions konto
+## <a name="fail-over-the-write-region-in-a-single-write-region-account"></a><a id="manual-failover-single-region"></a>Redundansväxla Skriv region i ett konto för en Skriv region
 
 Om du initierar en redundansväxling av den aktuella Skriv regionen kommer nästa Skriv förfrågan att Miss förfalla med ett känt Server dels svar. När det här svaret identifieras frågar klienten om kontot för att lära sig den nya Skriv regionen och fortsätter med att försöka utföra den aktuella åtgärden igen och dirigera alla framtida Skriv åtgärder till den nya regionen permanent.
 
@@ -76,7 +78,7 @@ Om kontot är en enda Skriv region och det regionala avbrottet inträffar under 
 
 ## <a name="session-consistency-guarantees"></a>Konsekvens garanti för sessioner
 
-När du använder konsekvens kontroll av [sessioner](consistency-levels.md#guarantees-associated-with-consistency-levels)måste klienten garantera att den kan läsa sina egna skrivningar. I ett konto med en Skriv region där inställningen Läs region skiljer sig från Skriv regionen, kan det finnas fall där användaren får en Skriv åtgärd och när en läsning görs från en lokal region, den lokala regionen har ännu inte tagit emot datareplikeringen (hastighet för ljus begränsning). I sådana fall identifierar SDK det speciella fel som finns i Läs åtgärden och gör om läsningen på Hub-regionen för att säkerställa konsekvensen i sessionen.
+När du använder konsekvens kontroll av [sessioner](consistency-levels.md#guarantees-associated-with-consistency-levels)måste klienten garantera att den kan läsa sina egna skrivningar. I ett konto med en Skriv region där inställningen Läs region skiljer sig från Skriv regionen, kan det finnas fall där användaren får en Skriv åtgärd och när en läsning görs från en lokal region, den lokala regionen har ännu inte tagit emot datareplikeringen (hastighet för ljus begränsning). I sådana fall identifierar SDK ett särskilt fel för Läs åtgärden och gör om läsningen på den primära regionen för att säkerställa konsekvensen i sessionen.
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Tillfälliga anslutnings problem i TCP-protokollet
 

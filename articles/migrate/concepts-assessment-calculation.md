@@ -3,12 +3,12 @@ title: Utvärderingar av virtuella Azure-datorer i Azure Migrate Server-utvärde
 description: Lär dig mer om utvärderingar i Azure Migrate Server bedömning
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d08e3c1c0035ee2bb56ee54f1ffb7ffb439d61b6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275531"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319320"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Översikt över Server utvärdering (migrera till virtuella Azure-datorer)
 
@@ -54,7 +54,7 @@ Gör så här om du distribuerar en Azure Migrate-enhet för att identifiera lok
 
 När installationen har påbörjat dator identifiering kan du samla in datorer som du vill utvärdera i en grupp och köra en utvärdering av gruppen med utvärderings typ **Azure VM**.
 
-Följ våra självstudier för [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md)eller [fysiska servrar](tutorial-prepare-physical.md) för att prova de här stegen.
+Följ våra självstudier för [VMware](./tutorial-discover-vmware.md), [Hyper-V](./tutorial-discover-hyper-v.md)eller [fysiska servrar](./tutorial-discover-physical.md) för att prova de här stegen.
 
 ## <a name="how-do-i-assess-with-imported-data"></a>Hur gör jag för att utvärdering med importerade data?
 
@@ -112,7 +112,7 @@ Beräkningarna sker i föregående ordning. En dator server flyttas till ett sen
 
 Här är what's som ingår i en Azure VM-utvärdering i Server utvärderingen:
 
-**Egenskap** | **Information**
+**Egenskap** | **Detaljer**
 --- | ---
 **Målplats** | Den plats som du vill migrera till. Server utvärderingen stöder för närvarande följande Azure-regioner:<br/><br/> Östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra USA 2, centrala Tyskland, Tyskland nordöstra, Östra Japan, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra US gov, Arizona , Västra centrala USA, Västeuropa, västra Indien, västra USA och västra USA 2.
 **Mål lagrings disk (i storlek)** | Den typ av disk som ska användas för lagring i Azure. <br/><br/> Ange mål lagrings disken som Premium-hanterad, Standard SSD-hanterad eller Standard HDD-hanterad.
@@ -166,14 +166,14 @@ För en Azure VM-utvärdering, tillsammans med att granska VM-egenskaper, tittar
 
 Server utvärderingen använder följande logik för att identifiera Azure-beredskap baserat på operativ systemet:
 
-**Operativsystem** | **Information** | **Status för Azure-beredskap**
+**Operativsystem** | **Detaljer** | **Status för Azure-beredskap**
 --- | --- | ---
 Windows Server 2016 och alla SPs | Azure ger fullständig support. | Redo för Azure.
 Windows Server 2012 R2 och alla SPs | Azure ger fullständig support. | Redo för Azure.
 Windows Server 2012 och alla SPs | Azure ger fullständig support. | Redo för Azure.
 Windows Server 2008 R2 med alla SPs | Azure ger fullständig support.| Redo för Azure.
 Windows Server 2008 (32-bitars och 64-bitars) | Azure ger fullständig support. | Redo för Azure.
-Windows Server 2003 och Windows Server 2003 R2 | Dessa operativ system har passerat sina slut för ande support datum och behöver ett [anpassat support avtal (CSA)](https://aka.ms/WSosstatement) för support i Azure. | Villkorligt redo för Azure. Överväg att uppgradera operativ systemet innan du migrerar till Azure.
+Windows Server 2003 och Windows Server 2003 R2 | Dessa operativ system har passerat sina slut för ande support datum och behöver ett [anpassat support avtal (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) för support i Azure. | Villkorligt redo för Azure. Överväg att uppgradera operativ systemet innan du migrerar till Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3,1 och MS-DOS | Dessa operativ system har passerat sina slut för ande support datum. Datorn kan starta i Azure, men Azure ger inget operativ system stöd. | Villkorligt redo för Azure. Vi rekommenderar att du uppgraderar operativ systemet innan du migrerar till Azure.
 Windows 7, Windows 8 och Windows 10 | Azure har endast stöd för en [Visual Studio-prenumeration.](../virtual-machines/windows/client-images.md) | Villkorligt redo för Azure.
 Windows 10 Pro | Azure har stöd för [värd rättigheter för flera innehavare.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Villkorligt redo för Azure.
@@ -297,6 +297,6 @@ Kostnaderna visas i den valuta som anges i utvärderings inställningarna.
 
 [Granska](best-practices-assessment.md) Metod tips för att skapa utvärderingar. 
 
-- Lär dig mer om att köra utvärderingar för [virtuella VMware-datorer](tutorial-prepare-vmware.md), [virtuella Hyper-V-datorer](tutorial-prepare-hyper-v.md)och [fysiska servrar](tutorial-prepare-physical.md).
-- Lär dig mer om att utvärdera servrar [som importer ATS med en CSV-fil](tutorial-assess-import.md).
+- Lär dig mer om att köra utvärderingar för [virtuella VMware-datorer](./tutorial-discover-vmware.md), [virtuella Hyper-V-datorer](./tutorial-discover-hyper-v.md)och [fysiska servrar](./tutorial-discover-physical.md).
+- Lär dig mer om att utvärdera servrar [som importer ATS med en CSV-fil](./tutorial-discover-import.md).
 - Lär dig mer om att konfigurera [beroende visualisering](concepts-dependency-visualization.md).

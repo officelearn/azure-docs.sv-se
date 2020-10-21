@@ -3,12 +3,12 @@ title: Stöd för Hyper-V-utvärdering i Azure Migrate
 description: Läs mer om stöd för Hyper-V-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36cc96915380a464f02df5806337a06f022ecbbf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318185"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311334"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Stöd mat ris för Hyper-V-utvärdering
 
@@ -19,7 +19,7 @@ Om du vill konfigurera utvärdering av virtuell Hyper-V-dator skapar du ett Azur
 
 ## <a name="limitations"></a>Begränsningar
 
-**Support** | **Information**
+**Support** | **Detaljer**
 --- | ---
 **Utvärderings gränser** | Du kan identifiera och utvärdera upp till 35 000 virtuella Hyper-V-datorer i ett enda [Azure Migrate-projekt](migrate-support-matrix.md#azure-migrate-projects).
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration. Förutom virtuella Hyper-V-datorer kan ett projekt inkludera virtuella VMware-datorer och fysiska servrar, upp till utvärderings gränserna för var och en.
@@ -32,7 +32,7 @@ Om du vill konfigurera utvärdering av virtuell Hyper-V-dator skapar du ett Azur
 
 ## <a name="hyper-v-host-requirements"></a>Krav för Hyper-V-värd
 
-| **Support**                | **Information**               
+| **Support**                | **Detaljer**               
 | :-------------------       | :------------------- |
 | **Hyper-V-värd**       | Hyper-V-värden kan vara fristående eller distribuerade i ett kluster.<br/><br/> Hyper-V-värden kan köra Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2. Server Core-installation av dessa operativ system stöds också. <br/>Du kan inte utvärdera virtuella datorer som finns på Hyper-V-värdar som kör Windows Server 2012.
 | **Behörigheter**           | Du behöver administratörs behörighet på Hyper-V-värden. <br/> Om du inte vill tilldela administratörs behörighet skapar du ett lokalt användar konto eller ett domän användar konto och lägger till användar kontot i dessa grupper – fjärrhanterings användare, Hyper-V-administratörer och användare av prestanda övervakning. |
@@ -42,7 +42,7 @@ Om du vill konfigurera utvärdering av virtuell Hyper-V-dator skapar du ett Azur
 
 ## <a name="vm-requirements"></a>Krav för virtuell dator
 
-| **Support**                  | **Information**               
+| **Support**                  | **Detaljer**               
 | :----------------------------- | :------------------- |
 | **Operativsystem** | Alla operativ system kan utvärderas för migrering.  |
 | **Integration Services**       | [Integrerings tjänsterna för Hyper-V](/virtualization/hyper-v-on-windows/reference/integration-services) måste köras på de virtuella datorer som du bedömer, för att kunna avbilda information om operativ systemet. |
@@ -69,7 +69,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 
 Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identifiera beroenden mellan lokala datorer som du vill utvärdera och migrera till Azure. I tabellen sammanfattas kraven för att skapa en agent beroende analys. Hyper-V stöder för närvarande endast agentbaserade beroende visualisering. 
 
-**Krav** | **Information** 
+**Krav** | **Detaljer** 
 --- | --- 
 **Före distribution** | Du bör ha ett Azure Migrate-projekt på plats, med verktyget för Server bedömning som har lagts till i projektet.<br/><br/>  Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala datorer<br/><br/> [Lär dig hur](create-manage-projects.md) du skapar ett projekt för första gången.<br/> [Lär dig hur](how-to-assess.md) du lägger till ett utvärderings verktyg i ett befintligt projekt.<br/> Lär dig hur du konfigurerar Azure Migrate-enheten för utvärdering av [virtuella Hyper-V-datorer](how-to-set-up-appliance-hyper-v.md).
 **Azure Government** | Beroende visualisering är inte tillgänglig i Azure Government.
@@ -83,4 +83,4 @@ Beroende [analys](concepts-dependency-visualization.md) hjälper dig att identif
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Förbered för utvärdering av Hyper-V VM](tutorial-prepare-hyper-v.md)
+[Förbered för utvärdering av Hyper-V VM](./tutorial-discover-hyper-v.md)

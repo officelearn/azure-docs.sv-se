@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: overview
 ms.date: 10/01/2020
 ms.author: banders
-ms.openlocfilehash: d8c9f35ec7a8db3a777e48a629e4af1f15090a89
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: 5aeb9046b8901580e4de37b1735a2d2dddd42fce
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91652371"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147465"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -129,5 +129,5 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
     - [Azure Cosmos DB-resurser med reserverad Azure Cosmos DB-kapacitet](../../cosmos-db/cosmos-db-reserved-capacity.md)
     - [SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../../azure-sql/database/reserved-capacity-overview.md)
     - [Azure Cache for Redis-resurser med reserverad kapacitet för Azure Cache for Redis](../../azure-cache-for-redis/cache-reserved-pricing.md) Läs mer om reservationer för programvaruplaner:
-    - [Red Hat-programvaruplaner från Azure-reservationer](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+    - [Red Hat-programvaruplaner från Azure-reservationer](../../virtual-machines/linux/prepay-suse-software-charges.md)
     - [SUSE-programvaruplaner från Azure-reservationer](../../virtual-machines/linux/prepay-suse-software-charges.md)

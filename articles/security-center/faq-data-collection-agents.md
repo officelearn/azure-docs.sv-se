@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 315183040515110a6a21afcd00e12d1b12313170
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441497"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341846"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Vanliga frågor och svar om data insamling, agenter och arbets ytor
 
@@ -43,7 +43,7 @@ Mer information om priser finns i [Security Center prissättning](https://azure.
 
 ## <a name="what-is-the-log-analytics-agent"></a>Vad är Log Analytics agenten?
 
-För att övervaka säkerhets problem och hot, Azure Security Center är beroende av [Log Analytics agenten](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) – detta är samma agent som används av Azure Monitor tjänsten. 
+För att övervaka säkerhets problem och hot, Azure Security Center är beroende av [Log Analytics agenten](../azure-monitor/platform/log-analytics-agent.md) – detta är samma agent som används av Azure Monitor tjänsten. 
 
 Agenten kallas ibland Microsoft Monitoring Agent (eller "MMA"). 
 
@@ -66,7 +66,7 @@ Virtuella Windows-eller Linux IaaS-datorer är kvalificerade om:
 
 - Tillägget för Log Analytics agent är inte installerat på den virtuella datorn.
 - Den virtuella datorn körs.
-- Windows eller Linux [Azure Virtual Machine agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) är installerad.
+- Windows eller Linux [Azure Virtual Machine agent](../virtual-machines/extensions/agent-windows.md) är installerad.
 - Den virtuella datorn används inte som en installation av en brand vägg för webbaserade program eller nästa generations brand vägg.
 
 
@@ -88,7 +88,7 @@ Platsen för standard arbets ytan beror på din Azure-region:
 
 ## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Vilka data samlas in av Log Analytics agenten?
 
-En fullständig lista över de program och tjänster som övervakas av agenten finns i [vad övervakas av Azure Monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+En fullständig lista över de program och tjänster som övervakas av agenten finns i [vad övervakas av Azure Monitor?](../azure-monitor/monitor-reference.md#azure-services).
 
 > [!IMPORTANT]
 > Observera att för vissa tjänster, t. ex. Azure-brandvägg, om du har aktiverat loggning och valt en chatt-resurs som ska loggas (till exempel genom att ange loggen som *utförlig*) kan du se betydande påverkan på din Log Analytics lagrings plats behov. 

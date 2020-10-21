@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: e5c9540bed34de3cad5c74c7041c8d7e06aef9ca
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 68df6d6707ebe4f1a4b75a8005e746e2c1eba864
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946067"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341591"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Datainsamling i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare.
@@ -133,7 +133,7 @@ Så här väljer du en befintlig Log Analytics arbets yta:
 
 
 ## <a name="cross-subscription-workspace-selection"></a>Val av arbets yta mellan prenumerationer
-När du väljer en arbets yta där data ska lagras är alla arbets ytorna i alla prenumerationer tillgängliga. Denna möjlighet att välja arbetsyta mellan prenumerationer gör det möjligt att samla in data från virtuella datorer som körs i olika prenumerationer och lagra dessa data på önskad arbetsyta. Det här alternativet är användbart om du använder en centraliserad arbetsyta i din organisation och vill använda den för insamling av säkerhetsdata. Mer information om hur du hanterar arbets ytor finns i [Hantera åtkomst till arbets yta](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access).
+När du väljer en arbets yta där data ska lagras är alla arbets ytorna i alla prenumerationer tillgängliga. Denna möjlighet att välja arbetsyta mellan prenumerationer gör det möjligt att samla in data från virtuella datorer som körs i olika prenumerationer och lagra dessa data på önskad arbetsyta. Det här alternativet är användbart om du använder en centraliserad arbetsyta i din organisation och vill använda den för insamling av säkerhetsdata. Mer information om hur du hanterar arbets ytor finns i [Hantera åtkomst till arbets yta](../azure-monitor/platform/manage-access.md).
 
 
 
@@ -174,9 +174,9 @@ Här är en fullständig analys av händelse-ID: n för säkerhet och app Locker
 | | 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
 > [!NOTE]
-> - Om du använder grupprincip objekt (GPO) rekommenderar vi att du aktiverar gransknings princip processen för att skapa händelse 4688 och fältet *kommandorad* i händelse 4688. Mer information om hur du skapar en process 4688 finns i [vanliga frågor om](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)Security Center. Mer information om de här gransknings principerna finns i [rekommendationer för gransknings principer](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
+> - Om du använder grupprincip objekt (GPO) rekommenderar vi att du aktiverar gransknings princip processen för att skapa händelse 4688 och fältet *kommandorad* i händelse 4688. Mer information om hur du skapar en process 4688 finns i [vanliga frågor om](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)Security Center. Mer information om de här gransknings principerna finns i [rekommendationer för gransknings principer](/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations).
 > -  Om du vill aktivera insamling av data för [anpassningsbara program kontroller](security-center-adaptive-application.md)konfigurerar Security Center en lokal AppLocker-princip i gransknings läge så att alla program tillåts. Detta gör att AppLocker genererar händelser som sedan samlas in och utnyttjas av Security Center. Det är viktigt att Observera att den här principen inte kommer att konfigureras på datorer där det redan finns en konfigurerad AppLocker-princip. 
-> - Om du vill samla in [händelse-ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)för Windows Filtering Platform måste du aktivera [Granska filter plattforms anslutning](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol/set/Subcategory: "Filtering Platform Connection"/Success: Enable)
+> - Om du vill samla in [händelse-ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)för Windows Filtering Platform måste du aktivera [Granska filter plattforms anslutning](/windows/security/threat-protection/auditing/audit-filtering-platform-connection) (Auditpol/set/Subcategory: "Filtering Platform Connection"/Success: Enable)
 >
 
 Så här väljer du filtrerings princip:
@@ -204,7 +204,7 @@ Security Center kommer att installera Log Analytics agent-tillägget sida vid si
 
 - Det finns redan ett befintligt VM-tillägg<br>
     - När övervaknings agenten installeras som ett tillägg tillåter tilläggs konfigurationen rapportering till endast en enda arbets yta. Security Center åsidosätter inte befintliga anslutningar till användar arbets ytor. Security Center kommer att lagra säkerhets data från den virtuella datorn i arbets ytan som redan är ansluten, förutsatt att lösningen "säkerhet" eller "securityFree" har installerats på den. Security Center kan uppgradera tilläggs versionen till den senaste versionen i den här processen.  
-    - Om du vill se vilken arbets yta som det befintliga tillägget skickar data till kör du testet för att [Verifiera anslutningen med Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Du kan också öppna Log Analytics arbets ytor, välja en arbets yta, välja den virtuella datorn och titta på Log Analytics agent-anslutningen. 
+    - Om du vill se vilken arbets yta som det befintliga tillägget skickar data till kör du testet för att [Verifiera anslutningen med Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Du kan också öppna Log Analytics arbets ytor, välja en arbets yta, välja den virtuella datorn och titta på Log Analytics agent-anslutningen. 
     - Om du har en miljö där Log Analytics-agenten är installerad på klient arbets stationer och rapporterar till en befintlig Log Analytics arbets yta, granskar du listan över [operativ system som stöds av Azure Security Center](security-center-os-coverage.md) för att kontrol lera att operativ systemet stöds. Mer information finns i [befintliga Log Analytics-kunder](./faq-azure-monitor-logs.md).
  
 ### <a name="turn-off-automatic-provisioning"></a>Inaktivera automatisk etablering <a name="offprovisioning"></a>
@@ -265,8 +265,8 @@ Du kan installera Log Analytics-agenten manuellt, så Security Center kan samla 
 
 1. Om du vill använda PowerShell för att distribuera tillägget använder du anvisningarna från Virtual Machines-dokumentationen:
 
-    - [För Windows-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#powershell-deployment)
-    - [För Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-linux?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#azure-cli-deployment)
+    - [För Windows-datorer](../virtual-machines/extensions/oms-windows.md?toc=%252fazure%252fazure-monitor%252ftoc.json#powershell-deployment)
+    - [För Linux-datorer](../virtual-machines/extensions/oms-linux.md?toc=%252fazure%252fazure-monitor%252ftoc.json#azure-cli-deployment)
 
 
 

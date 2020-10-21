@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/06/2020
-ms.openlocfilehash: e9b2ec017ca985c1de739ee74c4d0732f39bdc1d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 8e259dffe95b992003c2d8edb5d2a9eb3486631f
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772744"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339347"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Snabb start: Använd en ARM-mall för att distribuera Azure API för FHIR
 
@@ -224,9 +224,14 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
+En steg-för-steg-guide som vägleder dig genom processen att skapa en ARM-mall finns i [självstudien för att skapa och distribuera din första arm-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+
 ## <a name="next-steps"></a>Nästa steg
 
-En steg-för-steg-guide som vägleder dig genom processen att skapa en ARM-mall finns i:
+I den här snabb starts guiden har du distribuerat Azure API för FHIR i din prenumeration. Om du vill ange ytterligare inställningar i Azure-API: et för FHIR går du vidare till ytterligare inställningar instruktions guide. Läs mer om hur du registrerar program om du är redo att börja använda Azure API för FHIR.
 
-> [!div class="nextstepaction"]
-> [ Självstudie: skapa och distribuera din första ARM-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+>[!div class="nextstepaction"]
+>[Ytterligare inställningar i Azure API för FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Översikt över program register](fhir-app-registration.md)

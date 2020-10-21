@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d964efd6d9923190a6fef92c91d357a8a650572d
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: 9186c742f34f1c060b57ffdfbf1bf688607b4c03
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91766838"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125345"
 ---
 ::: zone target="docs"
 
@@ -273,7 +273,7 @@ När datakopieringen är klar kan du fortsätta att verifiera dina data. Om du a
 
 Om du inte använde Split Copy-verktyget för att kopiera data måste du verifiera dina data. Verifiera data med hjälp av följande steg.
 
-1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet. Detta är endast tillgängligt för Windows-miljön. Linux-användare måste verifiera att källdata som kopieras till disken uppfyller [förhandskraven](https://docs.microsoft.com/azure/databox/data-box-disk-limits).
+1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet. Detta är endast tillgängligt för Windows-miljön. Linux-användare måste verifiera att källdata som kopieras till disken uppfyller [förhandskraven](./data-box-disk-limits.md).
     
     ![Utdata för Data Box Disk-valideringsverktyget](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
@@ -335,6 +335,6 @@ Utför följande steg för att verifiera dina data.
 1. Kör `DataBoxDiskValidation.cmd` för validering av kontrollsumma i mappen *DataBoxDiskImport* för din enhet.
 2. Använd alternativ 2 för att validera dina filer och generera kontrollsummor. Beroende på datastorleken kan det här steget ta en stund. Om det uppstår fel vid valideringen och genereringen av kontrollsumma meddelas du och du får även en länk till felloggarna.
 
-    Mer information om dataverifiering finns i [Verifiera data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). Om det uppstår fel under verifieringen läser du [Felsöka verifieringsfel](data-box-disk-troubleshoot.md).
+    Mer information om dataverifiering finns i [Verifiera data](#validate-data). Om det uppstår fel under verifieringen läser du [Felsöka verifieringsfel](data-box-disk-troubleshoot.md).
 
 ::: zone-end

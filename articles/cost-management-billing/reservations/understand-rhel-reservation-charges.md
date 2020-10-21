@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: banders
-ms.openlocfilehash: 4314a52488473bcacd4aa62a0e8f44d88d2b75f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 311ce7edc617b02e62f4e4fefc7393318f99a1a9
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681608"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148279"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Förstå hur rabatten för reservation med Red Hat Linux Enterprise-programvara tillämpas för Azure
 
@@ -53,7 +53,7 @@ Namn på Azure-portalens marknadsplats:
 Mer information om reservations finns i följande artiklar:
 
 - [Vad är reservationer för Azure](save-compute-costs-reservations.md)
-- [Förskottsbetala för Red Hat-programvaruplaner med Azure-reservationer](../../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Förskottsbetala för Red Hat-programvaruplaner med Azure-reservationer](../../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Hantera reservationer för Azure](manage-reserved-vm-instance.md)
 - [Förstå reservationsanvändning för din Betala per användning-prenumeration](understand-reserved-instance-usage.md)

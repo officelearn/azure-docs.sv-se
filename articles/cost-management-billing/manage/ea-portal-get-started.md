@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 0404e3b268f5797e34b3818df8eebeefbe68a1f3
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 617351d5d1bdf9b6528803552e2d34766e9ab217
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371957"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132660"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Komma igång med Azure Enterprise-portalen
 
@@ -561,7 +561,7 @@ Du kan skapa så många avdelningar som du behöver under din Azure EA-registrer
 
 När du har skapat avdelningar och prenumerationer kan du se data i användningsrapporten. Den här informationen kan hjälpa dig att spåra användning samt hantera kostnader och utgifter på avdelningsnivå.
 
-Du kan även komma åt användningsdata via rapporterings-API:et. Detaljerad information och exempelkod finns i [REST-API:er för Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Du kan även komma åt användningsdata via rapporterings-API:et. Detaljerad information och exempelkod finns i [REST-API:er för Azure Enterprise](./ea-portal-rest-apis.md).
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>Kan jag ange en utgiftskvot och få aviseringar när jag närmar mig min gräns?
 
@@ -573,7 +573,7 @@ Du definierar utgiftskvoten genom att välja en avdelning och sedan välja redig
 
 Om du använder _resursgrupper_ och _taggar_ spåras den här informationen på servicenivå, och du kan komma åt den i nedladdningsfilen (CSV) för detaljerad användning. Se [ladda ned användningsrapport](https://ea.azure.com/report/downloadusage) i Azure Enterprise-portalen.
 
-Du kan även komma åt användning via API. Detaljerad information och exempelkod finns i [REST-API:er för Azure Enterprise](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis).
+Du kan även komma åt användning via API. Detaljerad information och exempelkod finns i [REST-API:er för Azure Enterprise](./ea-portal-rest-apis.md).
 
 > [!NOTE]
 > Du kan endast använda taggar på resurser som stöder Azure Resource Manager-åtgärder. Om du har skapat en virtuell dator, ett virtuellt nätverk eller lagring via den klassiska distributionsmodellen (t.ex. via den klassiska portalen) kan du inte använda en tagg på den resursen. Du måste distribuera dessa resurser igen via Resource Manager för att stödja taggning. Alla andra resurser stöder taggning.

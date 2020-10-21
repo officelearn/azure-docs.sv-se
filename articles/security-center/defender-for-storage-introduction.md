@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4677426337a48d4fde74f61b8a4ad6fcb695f420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b2855f82927b6f1707fd748f097dd357818ac4b
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577823"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341982"
 ---
 # <a name="introduction-to-azure-defender-for-storage"></a>Introduktion till Azure Defender för lagring
 
@@ -27,8 +27,8 @@ Det här skydds lagret gör att du kan åtgärda hot *utan* att du behöver vara
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|**Azure Defender för lagring** faktureras så som visas på [sidan med priser](security-center-pricing.md)|
-|Skyddade lagrings typer:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)<br>[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Inga](./media/icons/no-icon.png) Kina gov, andra gov|
+|Skyddade lagrings typer:|[Blob Storage](https://azure.microsoft.com/services/storage/blobs/)<br>[Azure Files](../storage/files/storage-files-introduction.md)<br>[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Ja](./media/icons/yes-icon.png) US Gov<br>![Nej](./media/icons/no-icon.png) Kina gov, andra gov|
 |||
 
 
@@ -66,6 +66,6 @@ I den här artikeln har du lärt dig om Azure Defender för lagring.
 Information om relaterade material finns i följande artiklar: 
 
 - Om en avisering genereras av Security Center eller tas emot av Security Center från en annan säkerhets produkt, kan du exportera den. Om du vill exportera aviseringar till Azure Sentinel, SIEM eller andra externa verktyg, följer du anvisningarna i [Exportera aviseringar till en Siem](continuous-export.md).
-- [Så här aktiverar du avancerad Defender för lagring](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+- [Så här aktiverar du avancerad Defender för lagring](../storage/common/azure-defender-storage-configure.md)
 - [Listan över Azure Defender för lagrings aviseringar](alerts-reference.md#alerts-azurestorage)
 - [Microsofts funktioner för hot information](https://go.microsoft.com/fwlink/?linkid=2128684)

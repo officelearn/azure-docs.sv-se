@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 264cab08fa967af783b758ed1030826d2a179e8a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 082f246437cdd99b844d1ed8010d8dc846fc4d47
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220677"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341948"
 ---
 # <a name="security-alerts-schemas"></a>Säkerhets aviserings scheman
 
@@ -24,9 +24,9 @@ Om din prenumeration har aktiverat Azure Defender får du säkerhets aviseringar
 
 Du kan visa dessa säkerhets aviseringar i Azure Security Center s sidor för **skydd mot hot** , eller via externa verktyg som:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) – Microsofts moln-interna Siem. Indikatorn Connector hämtar varningar från Azure Security Center och skickar dem till [Log Analytics arbets ytan](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) för Azure Sentinel.
-- Tredjeparts-Siem – Använd Security Centers [löpande export](continuous-export.md) verktyg för att skicka data till [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). Integrera sedan Event Hub-data med en SIEM från tredje part.
-- [REST API](https://docs.microsoft.com/rest/api/securitycenter/) – om du använder REST API för att få åtkomst till aviseringar kan du läsa mer i [API-dokumentationen för online-aviseringar](https://docs.microsoft.com/rest/api/securitycenter/alerts).
+- [Azure Sentinel](../sentinel/index.yml) – Microsofts moln-interna Siem. Indikatorn Connector hämtar varningar från Azure Security Center och skickar dem till [Log Analytics arbets ytan](../azure-monitor/learn/quick-create-workspace.md) för Azure Sentinel.
+- Tredjeparts-Siem – Använd Security Centers [löpande export](continuous-export.md) verktyg för att skicka data till [Azure Event Hubs](../event-hubs/index.yml). Integrera sedan Event Hub-data med en SIEM från tredje part.
+- [REST API](/rest/api/securitycenter/) – om du använder REST API för att få åtkomst till aviseringar kan du läsa mer i [API-dokumentationen för online-aviseringar](/rest/api/securitycenter/alerts).
 
 Om du använder några programmerings metoder för att använda aviseringarna behöver du rätt schema för att hitta de fält som är relevanta för dig. Om du exporterar till en Händelsehubben eller försöker utlösa arbets flödes automatisering med allmänna HTTP-kopplingar använder du scheman för att korrekt parsa JSON-objekten.
 
@@ -60,7 +60,7 @@ Indikatorn Connector hämtar varningar från Azure Security Center och skickar d
 
 Om du vill skapa ett kontroll trycks fall eller en incident som använder Security Center aviseringar behöver du schemat för de aviseringar som visas nedan. 
 
-Mer information om Azure Sentinel finns i [dokumentationen](https://docs.microsoft.com/azure/sentinel/).
+Mer information om Azure Sentinel finns i [dokumentationen](../sentinel/index.yml).
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
@@ -172,7 +172,7 @@ Du kan visa säkerhets aviserings händelser i aktivitets loggen genom att söka
 
 Microsoft Graph är gatewayen till data och information i Microsoft 365. Det ger en enhetlig programmerings modell som du kan använda för att få åtkomst till den fantastiska mängden data i Microsoft 365, Windows 10 och Enterprise Mobility + Security. Använd stora mängder data i Microsoft Graph för att bygga appar för organisationer och konsumenter som interagerar med miljon tals användare.
 
-Schemat och en JSON-representation för säkerhets varningar som skickas till MS Graph finns i [Microsoft Graph-dokumentationen](https://docs.microsoft.com/graph/api/resources/alert?view=graph-rest-1.0&preserve-view=true).
+Schemat och en JSON-representation för säkerhets varningar som skickas till MS Graph finns i [Microsoft Graph-dokumentationen](/graph/api/resources/alert?preserve-view=true&view=graph-rest-1.0).
 
 ---
 
@@ -183,7 +183,7 @@ I den här artikeln beskrivs scheman som Azure Security Center skydds verktygen 
 
 Mer information om hur du kommer åt säkerhets aviseringar utanför Security Center finns på följande sidor:
 
-- [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/) – Microsofts moln – inbyggd Siem
-- [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/) – Microsofts fullständigt hanterade data inmatnings tjänst i real tid
+- [Azure Sentinel](../sentinel/index.yml) – Microsofts moln – inbyggd Siem
+- [Azure Event Hubs](../event-hubs/index.yml) – Microsofts fullständigt hanterade data inmatnings tjänst i real tid
 - Security Centers [kontinuerliga export funktion](continuous-export.md)
-- [Log Analytics arbets ytor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) – Azure Monitor lagrar loggdata i en Log Analytics arbets yta, en behållare som innehåller data och konfigurations information
+- [Log Analytics arbets ytor](../azure-monitor/learn/quick-create-workspace.md) – Azure Monitor lagrar loggdata i en Log Analytics arbets yta, en behållare som innehåller data och konfigurations information

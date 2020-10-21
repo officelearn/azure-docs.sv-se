@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: c31d3136ec4bcdf6da7680d41de078f8bd03d256
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447108"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341354"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Hantera säkerhets incidenter i Azure Security Center
 
 Sorterar och undersöker säkerhets aviseringar kan ta lång tid för även de mest erfarna säkerhetsanalytikerna. För många är det svårt att veta var du ska börja. 
 
-Security Center använder [analyser](security-center-detection-capabilities.md) för att ansluta informationen mellan olika [säkerhets aviseringar](security-center-managing-and-responding-alerts.md). Med dessa anslutningar kan Security Center tillhandahålla en enda vy över en angrepps kampanj och dess relaterade aviseringar för att hjälpa dig att förstå angriparens åtgärder och de resurser som påverkas.
+Security Center använder [analyser](./security-center-alerts-overview.md) för att ansluta informationen mellan olika [säkerhets aviseringar](security-center-managing-and-responding-alerts.md). Med dessa anslutningar kan Security Center tillhandahålla en enda vy över en angrepps kampanj och dess relaterade aviseringar för att hjälpa dig att förstå angriparens åtgärder och de resurser som påverkas.
 
 Den här sidan innehåller en översikt över incidenter i Security Center.
 

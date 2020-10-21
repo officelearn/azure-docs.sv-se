@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c86561f7c677ec4a335ecb04cc0da95dad119d1e
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906359"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340979"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Snabb start: skapa ett automatiskt svar på en säkerhets avisering med hjälp av en Azure Resource Manager-mall (ARM-mall)
 
@@ -64,7 +64,7 @@ För andra Security Center snabb starts mallar, se de här [communityn bidragit 
 
     [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-securitycenter-create-automation-for-alertnamecontains%2fazuredeploy.json)
 
-    Du hittar mer information om det här distributions alternativet i [Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button).
+    Du hittar mer information om det här distributions alternativet i [Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen](../azure-resource-manager/templates/deploy-to-azure-button.md).
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
@@ -94,4 +94,4 @@ När du inte längre behöver kan du ta bort arbets flödes automatiseringen med
 En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i:
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och distribuera din första ARM-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Självstudie: skapa och distribuera din första ARM-mall](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

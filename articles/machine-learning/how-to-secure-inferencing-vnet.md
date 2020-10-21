@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/12/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 806505e5ac9c9b3dcf53624a1151961b0db45ef9
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e778538efe97266eb73f85e8548a9cd5ca1f53c4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972517"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341319"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning inferencing-miljö med virtuella nätverk
 
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig att skydda följande inferencing-resurser 
 > - Azure Container Instances (ACI)
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -119,11 +119,11 @@ När processen har skapats kan du köra en härledning eller modell bedömning i
 
 Det finns två metoder för att isolera trafik till och från AKS-klustret till det virtuella nätverket:
 
-* __Privat AKS-kluster__: den här metoden använder Azures privata länk för att skapa en privat slut punkt för AKS-klustret i VNet.
-* __Intern AKS-belastningsutjämnare__: den här metoden konfigurerar belastningsutjämnaren för klustret att använda en intern IP-adress i VNet.
+* __Privat AKS-kluster__: den här metoden använder Azures privata länk för att skydda kommunikationen med klustret för distribution/hantering.
+* __Intern AKS-belastningsutjämnare__: den här metoden konfigurerar slut punkten för dina distributioner till AKS för att använda en privat IP-adress i det virtuella nätverket.
 
 > [!WARNING]
-> Båda konfigurationerna är olika sätt att uppnå samma mål (skydda trafik till AKS-klustret i VNet). **Använd en eller flera, men inte båda**.
+> **Använd antingen en privat AKS eller en intern belastningsutjämnare, men inte båda**.
 
 ### <a name="private-aks-cluster"></a>Privat AKS-kluster
 

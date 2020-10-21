@@ -8,12 +8,12 @@ ms.subservice: cost-management
 ms.topic: reference
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 07595eed70850ce5270a261d588a33b68ff964fe
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: b00b5a46a0cdeb95c357da521326fe2bb678490b
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371940"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132626"
 ---
 # <a name="azure-consumption-api-overview"></a>Översikt över API:erna för Azure-förbrukning
 
@@ -38,7 +38,7 @@ Använd API:et för användningsinformation för att få information om avgifter
 API:et ger tillgång till:
 
 -   **Användningsinformation på mätarnivå** – Visa information om användningskostnaden, vilken mätare kostnaden skickas från och vilken Azure-resurs som avgiften avser. Alla poster med användningsinformation mappar till en daglig bucket.
--   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) eller med [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+-   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](../../role-based-access-control/role-assignments-cli.md) eller med [Azure PowerShell-cmdletar](/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
 -   **Filtrering** – Trimma API-resultatet till en mindre uppsättning poster med användningsdata genom att använda följande filter:
     - Användningsstart/användningsslut
     - Resursgrupp
@@ -46,7 +46,7 @@ API:et ger tillgång till:
 -   **Dataaggregering** – Använd OData för att lägga till uttryck som aggregerar användningsdata baserat på taggar eller filteregenskaper
 -   **Användning för olika typer av erbjudanden** – Information om användningsdata är för närvarande tillgänglig för Enterprise- och Web Direct-kunder.
 
-Mer information finns i den tekniska specifikationen för [API:et för användningsinformation](https://docs.microsoft.com/rest/api/consumption/usagedetails).
+Mer information finns i den tekniska specifikationen för [API:et för användningsinformation](/rest/api/consumption/usagedetails).
 
 ## <a name="marketplace-charges-api"></a>API för Marketplace-debiteringar
 
@@ -55,14 +55,14 @@ Använd API:et för Marketplace-debiteringar för att hämta information om kost
 API:et ger tillgång till:
 
 -   **Användningsinformation på mätarnivå** – Visa information om kostnaden för Marketplace-användning, vilken mätare kostnaden skickas från och vilken Azure-resurs som avgiften avser. Alla poster med användningsinformation mappar till en daglig bucket.
--   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) eller med [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+-   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](../../role-based-access-control/role-assignments-cli.md) eller med [Azure PowerShell-cmdletar](/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
 -   **Filtrering** – Trimma API-resultatet till en mindre uppsättning Marketplace-poster genom att använda följande filter:
     - Användningsstart/användningsslut
     - Resursgrupp
     - Resursnamn
 -   **Användning för olika typer av erbjudanden** – Marketplace-information är för närvarande tillgänglig för Enterprise- och Web Direct-kunder.
 
-Mer information finns i den tekniska specifikationen för [API:et för Marketplace-debiteringar](https://docs.microsoft.com/rest/api/consumption/marketplaces).
+Mer information finns i den tekniska specifikationen för [API:et för Marketplace-debiteringar](/rest/api/consumption/marketplaces).
 
 ## <a name="balances-api"></a>API för saldon
 
@@ -70,11 +70,11 @@ Företagskunder kan använda API:et för saldon för att få en månatlig samman
 
 API:et ger tillgång till:
 
--   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) eller med [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+-   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](../../role-based-access-control/role-assignments-cli.md) eller med [Azure PowerShell-cmdletar](/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
 -   **Endast företagskunder** Det här API:et är endast tillgängligt för EA-kunder.
     - Kunder måste ha behörigheter som företagsadministratör för att anropa detta API
 
-Mer information finns i den tekniska specifikationen för [API:et för saldon](https://docs.microsoft.com/rest/api/consumption/balances).
+Mer information finns i den tekniska specifikationen för [API:et för saldon](/rest/api/consumption/balances).
 
 ## <a name="budgets-api"></a>API för budgetar
 
@@ -82,7 +82,7 @@ Företagskunder kan använda det här API:et för att skapa kostnads- eller anv�
 
 API:et ger tillgång till:
 
--   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) eller med [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+-   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](../../role-based-access-control/role-assignments-cli.md) eller med [Azure PowerShell-cmdletar](/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
 -   **Endast företagskunder** – Det här API:et är endast tillgängligt för EA-kunder.
 -   **Konfigurerbara aviseringar** – Ange vilka användare som ska aviseras om budgeten överskrids.
 -   **Användnings- eller kostnadsbaserade budgetar** – Skapa din budget baserat på förbrukning eller kostnad beroende på ditt scenario.
@@ -92,7 +92,7 @@ API:et ger tillgång till:
     - Mätare
 -   **Konfigurerbara tidsperioder för budget** – Ange hur ofta budgeten ska återställas och hur länge budgeten är giltig.
 
-Mer information finns i den tekniska specifikationen för [API:et för budgetar](https://docs.microsoft.com/rest/api/consumption/budgets).
+Mer information finns i den tekniska specifikationen för [API:et för budgetar](/rest/api/consumption/budgets).
 
 ## <a name="reservation-recommendations-api"></a>API för reservationsrekommendationer
 
@@ -100,13 +100,13 @@ Använd det här API:et för att få rekommendationer om köp av reserverade VM-
 
 API:et ger tillgång till:
 
--   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) eller med [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+-   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](../../role-based-access-control/role-assignments-cli.md) eller med [Azure PowerShell-cmdletar](/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
 -   **Filtrering** – Skräddarsy rekommendationerna genom att använda följande filter:
     - Omfång
     - Period bakåt i tiden
 -   **Reservationsinformation för olika typer av erbjudanden** – Reservationsinformation är för närvarande tillgänglig för Enterprise- och Web Direct-kunder.
 
-Mer information finns i den tekniska specifikationen för [API:et för reservationsrekommendationer](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations).
+Mer information finns i den tekniska specifikationen för [API:et för reservationsrekommendationer](/rest/api/consumption/reservationrecommendations).
 
 ## <a name="reservation-details-api"></a>API för reservationsdata
 
@@ -114,12 +114,12 @@ Använd API:et för reservationsdata för att visa information om tidigare köpt
 
 API:et ger tillgång till:
 
--   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) eller med [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+-   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](../../role-based-access-control/role-assignments-cli.md) eller med [Azure PowerShell-cmdletar](/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
 -   **Filtrering** – Trimma API-resultatet till en mindre uppsättning reservationer genom att använda följande filter:
     - Datumintervall
 -   **Reservationsinformation för olika typer av erbjudanden** – Reservationsinformation är för närvarande tillgänglig för Enterprise- och Web Direct-kunder.
 
-Mer information finns i den tekniska specifikationen för [API:et för reservationsdata](https://docs.microsoft.com/rest/api/consumption/reservationsdetails).
+Mer information finns i den tekniska specifikationen för [API:et för reservationsdata](/rest/api/consumption/reservationsdetails).
 
 ## <a name="reservation-summaries-api"></a>API för reservationssammanställningar
 
@@ -127,23 +127,23 @@ Använd det här API:et för att visa en sammanställning av tidigare köpta VM-
 
 API:et ger tillgång till:
 
--   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) eller med [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+-   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](../../role-based-access-control/role-assignments-cli.md) eller med [Azure PowerShell-cmdletar](/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
 -   **Filtrering** – Skräddarsy resultatet när du använder detaljnivån ”varje dag” genom att använda följande filter:
     - Datum för användning
 -   **Reservationsinformation för olika typer av erbjudanden** – Reservationsinformation är för närvarande tillgänglig för Enterprise- och Web Direct-kunder.
 -   **Dagliga eller månatliga aggregeringar** – Anropare kan välja att få sina reservationssammanställningar varje dag eller varje månad.
 
-Mer information finns i den tekniska specifikationen för [API:et för reservationssammanställningar](https://docs.microsoft.com/rest/api/consumption/reservationssummaries).
+Mer information finns i den tekniska specifikationen för [API:et för reservationssammanställningar](/rest/api/consumption/reservationssummaries).
 
 ## <a name="price-sheet-api"></a>API för prisdokument
 Enterprise-kunder kan använda det här API:et för att hämta sina priser för alla mätare. Företag kan använda det i kombination med användningsdata och information om Marketplace-användning för att göra kostnadsberäkningar med hjälp av användnings- och Marketplace-data.
 
 API:et ger tillgång till:
 
--   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli) eller med [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
+-   **Rollbaserad åtkomstkontroll i Azure (Azure RBAC)** – Konfigurera åtkomstprinciper i [Azure-portalen](https://portal.azure.com), i [Azure CLI](../../role-based-access-control/role-assignments-cli.md) eller med [Azure PowerShell-cmdletar](/powershell/azure/) för att ange vilka användare eller program som kan komma åt prenumerationens användningsdata. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till någon av rollerna Faktureringsläsare, Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en specifik Azure-prenumeration.
 -   **Endast företagskunder** – Det här API:et är endast tillgängligt för EA-kunder. Web Direct-kunder bör använda RateCard-API:et för att hämta priser.
 
-Mer information finns i den tekniska specifikationen för [API:et för prisdokumentet](https://docs.microsoft.com/rest/api/consumption/pricesheet).
+Mer information finns i den tekniska specifikationen för [API:et för prisdokumentet](/rest/api/consumption/pricesheet).
 
 ## <a name="scenarios"></a>Scenarier
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 02e78969ce30f109f16309075b040b06c773b0dd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946236"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341270"
 ---
 # <a name="monitor-identity-and-access"></a>Övervaka identitet och åtkomst
 
@@ -30,7 +30,7 @@ Genom att övervaka aktiviteternas och konfigurations inställningarna som är r
 
 Azure Security Center har två dedikerade säkerhets kontroller för att se till att du uppfyller organisationens identitets-och säkerhets krav: 
 
- - **Hantera åtkomst och behörigheter** – vi rekommenderar att du använder den [lägsta behörighets modellen för åtkomst](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) och ser till att du endast beviljar användare den åtkomst som krävs för att utföra sina jobb. Den här kontrollen innehåller även rekommendationer för att implementera [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md) för att kontrol lera åtkomsten till dina resurser.
+ - **Hantera åtkomst och behörigheter** – vi rekommenderar att du använder den [lägsta behörighets modellen för åtkomst](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) och ser till att du endast beviljar användare den åtkomst som krävs för att utföra sina jobb. Den här kontrollen innehåller även rekommendationer för att implementera [rollbaserad åtkomst kontroll (RBAC)](../role-based-access-control/overview.md) för att kontrol lera åtkomsten till dina resurser.
  
  - **Aktivera MFA** – med [MFA](https://www.microsoft.com/security/business/identity/mfa) aktiverat är dina konton säkrare och användare kan fortfarande autentisera till nästan alla program med enkel inloggning.
 
@@ -84,7 +84,7 @@ Använd följande Azure Resource Graph-fråga om du vill se vilka konton som int
     > Kontona visas som objekt-ID i stället för konto namn för att skydda konto innehavarens sekretess.
 
 > [!TIP]
-> Du kan också använda Security Center REST API metod [bedömningar – Hämta](https://docs.microsoft.com/rest/api/securitycenter/assessments/get).
+> Du kan också använda Security Center REST API metod [bedömningar – Hämta](/rest/api/securitycenter/assessments/get).
 
 
 ## <a name="next-steps"></a>Nästa steg

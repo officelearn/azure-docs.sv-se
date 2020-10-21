@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
-ms.openlocfilehash: bed158fb99654bd48184073b1266ae630255558b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867cfa1321106c24354b29ea803a4fb914a6778d
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613177"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341388"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Skapa en Azure HPC-cache
 
@@ -81,7 +81,7 @@ När du har skapat cachen måste du godkänna att den använder Key Vault-tjäns
 
 ## <a name="add-resource-tags-optional"></a>Lägg till resurs koder (valfritt)
 
-På sidan **taggar** kan du lägga till [resurs Taggar](https://go.microsoft.com/fwlink/?linkid=873112) till Azure HPC-instansen.
+På sidan **taggar** kan du lägga till [resurs Taggar](../azure-resource-manager/management/tag-resources.md) till Azure HPC-instansen.
 
 ## <a name="finish-creating-the-cache"></a>Slutför skapandet av cacheminnet
 
@@ -105,7 +105,7 @@ När en avisering har skapats visas ett meddelande med en länk till den nya Azu
 [!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
 
 > [!NOTE]
-> Azure CLI har för närvarande inte stöd för att skapa en cache med Kundhanterade krypterings nycklar. Använd Azure Portal.
+> Azure CLI har för närvarande inte stöd för att skapa en cache med Kundhanterade krypterings nycklar. Använd Azure-portalen.
 
 Använd kommandot [AZ HPC-cache Create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) för att skapa en ny Azure HPC-cache.
 
@@ -192,11 +192,11 @@ Meddelandet innehåller viss användbar information, inklusive följande objekt:
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 > [!CAUTION]
-> PowerShell-modulen AZ. HPCCache är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal. Det rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsade funktioner. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> PowerShell-modulen AZ. HPCCache är för närvarande en offentlig för hands version. Förhandsversionen tillhandahålls utan serviceavtal. Den rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsade funktioner. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Krav
 
-Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](/powershell/azure/install-az-ps). Om du väljer att använda Cloud Shell, se [Översikt över Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för mer information.
+Om du väljer att använda PowerShell lokalt kräver den här artikeln att du installerar AZ PowerShell-modulen och ansluter till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) . Mer information om hur du installerar AZ PowerShell-modulen finns i [installera Azure PowerShell](/powershell/azure/install-az-ps). Om du väljer att använda Cloud Shell, se [Översikt över Azure Cloud Shell](../cloud-shell/overview.md) för mer information.
 
 > [!IMPORTANT]
 > Även om **AZ. HPCCache** PowerShell-modulen är i för hands version måste du installera den separat med hjälp av `Install-Module` cmdleten. När den här PowerShell-modulen blir allmänt tillgänglig kommer den att ingå i framtida versioner av AZ PowerShell-modulen och vara tillgängliga internt från Azure Cloud Shell.
@@ -208,7 +208,7 @@ Install-Module -Name Az.HPCCache
 ## <a name="create-the-cache-with-azure-powershell"></a>Skapa cachen med Azure PowerShell
 
 > [!NOTE]
-> Azure PowerShell har för närvarande inte stöd för att skapa en cache med Kundhanterade krypterings nycklar. Använd Azure Portal.
+> Azure PowerShell har för närvarande inte stöd för att skapa en cache med Kundhanterade krypterings nycklar. Använd Azure-portalen.
 
 Använd cmdleten [New-AzHpcCache](/powershell/module/az.hpccache/new-azhpccache) för att skapa en ny Azure HPC-cache.
 

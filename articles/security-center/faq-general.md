@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 061b190af6e66cf0c7e8095251a3ef77d9aaf247
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91301456"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341693"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>Vanliga frågor och svar – allmänna frågor om Azure Security Center
 
@@ -62,7 +62,7 @@ Information om hur du konfigurerar en säkerhets princip finns [i ställa in sä
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När potentiella säkerhets risker identifieras skapas rekommendationer. Rekommendationerna vägleder dig genom processen med att konfigurera kontrollen som krävs. Några exempel:
 
 * Etablering av program mot skadlig kod för att identifiera och ta bort skadlig program vara
-* [Nätverks säkerhets grupper](../virtual-network/security-overview.md) och regler för att styra trafik till virtuella datorer
+* [Nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md) och regler för att styra trafik till virtuella datorer
 * Etablering av en brand vägg för webbaserade program för att skydda mot attacker som riktar sig mot dina webb program
 * genomföra alla systemuppdateringar som fattas
 * se till att operativsystemen är konfigurerade enligt rekommenderade baslinjer

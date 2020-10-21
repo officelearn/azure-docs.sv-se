@@ -10,12 +10,12 @@ ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: benshy
 ROBOTS: NOINDEX
-ms.openlocfilehash: 92d4c84cc73ea05f58912549674f76513e3faeb1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1cbdeb09a1f3182aef9dcc6445c5b5e22e2448ff
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985499"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132354"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrera dig för CSP-partnerprogrammet och visa kostnadsdata
 
@@ -29,7 +29,7 @@ Som CSP-partner kan du registrera dig för Cloudyn. Registreringen ger dig åtko
 > Endast CSP Direct-partner och CSP Indirect-partner kan slutföra Cloudyn-registreringen.
 >
 > Konfigurering av Partner Center API krävs för autentisering och åtkomst till data. Ett global administratör-konto för Partner Center krävs för att etablera API-åtkomst.
-> Mer information finns i [Ansluta till Partner Center API](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+> Mer information finns i [Ansluta till Partner Center API](/partner-center/develop/set-up-api-access-in-partner-center).
 >
 > Åtkomst till Cloudyn kan göras tillgänglig för CSP Indirect-återförsäljare när deras CSP Indirekt-leverantörer registreras i Cloudyn. Sedan kan CSP Indirect-återförsäljare ge Cloudyn-åtkomst till Azure-kunder och prenumerationer.
 >

@@ -8,20 +8,20 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab9be4b14ca51b56ec0a52147b409a56f87cf302
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448399"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341897"
 ---
-# <a name="using-custom-security-policies"></a>Använda anpassade säkerhets principer
+# <a name="using-custom-security-policies"></a>Använda anpassade säkerhetsprinciper
 
 Azure Security Center skapar säkerhets rekommendationer för att skydda dina system och miljöer. De här rekommendationerna baseras på bransch bästa praxis, som ingår i den allmänna, Standard säkerhets policy som tillhandahålls alla kunder. De kan också komma från Security Centers kunskaper om bransch-och reglerings standarder.
 
 Med den här funktionen kan du lägga till egna *anpassade* initiativ. Du får sedan rekommendationer om din miljö inte följer de principer som du skapar. Alla anpassade initiativ som du skapar visas tillsammans med de inbyggda initiativen på instrument panelen för kontroll av efterlevnad, enligt beskrivningen i självstudien [förbättra din efterlevnad](security-center-compliance-dashboard.md).
 
-Som beskrivs i [Azure policy-dokumentationen](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#definition-location), och när du anger en plats för ditt eget initiativ, måste det vara en hanterings grupp eller en prenumeration. 
+Som beskrivs i [Azure policy-dokumentationen](../governance/policy/concepts/definition-structure.md#definition-location), och när du anger en plats för ditt eget initiativ, måste det vara en hanterings grupp eller en prenumeration. 
 
 ## <a name="to-add-a-custom-initiative-to-your-subscription"></a>Lägga till ett anpassat initiativ i din prenumeration 
 
@@ -136,7 +136,7 @@ Nedan visas ett exempel på en anpassad princip, inklusive metadata/securityCent
 }
   ```
 
-Ett annat exempel på hur du använder egenskapen securityCenter finns i [det här avsnittet i REST API-dokumentationen](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
+Ett annat exempel på hur du använder egenskapen securityCenter finns i [det här avsnittet i REST API-dokumentationen](/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -146,4 +146,4 @@ I den här artikeln har du lärt dig hur du skapar anpassade säkerhets principe
 Information om annat relaterat material finns i följande artiklar: 
 
 - [Översikt över säkerhets principer](tutorial-security-policy.md)
-- [En lista över inbyggda säkerhets principer](security-center-policy-definitions.md)
+- [En lista över inbyggda säkerhets principer](./policy-reference.md)

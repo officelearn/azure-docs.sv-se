@@ -9,12 +9,12 @@ ms.subservice: enterprise
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 5340d6124ae4fdc669a30458b9e58cf4c86d6746
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d707051e20b4ce9d1289557aec6f8256c2e6bfba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684668"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150073"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Förstå fakturan för ditt Azure Enterprise-avtal
 
@@ -436,7 +436,7 @@ Om du har problem med Power BI loggar du en begäran om teknisk support till [Po
 
 ### <a name="why-dont-my-resource-tags-show-on-my-reports"></a>Varför visas inte resurstaggar i mina rapporter?
 
-Resurstaggar hanteras i Azure-portalen. Du kan kontakta Azure-prenumerationsteamet på [Azure-portalen](https://portal.azure.com). Följ stegen i artikeln [Skapa en supportbegäran för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Resurstaggar hanteras i Azure-portalen. Du kan kontakta Azure-prenumerationsteamet på [Azure-portalen](https://portal.azure.com). Följ stegen i artikeln [Skapa en supportbegäran för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="why-does-my-resource-rate-change-every-day"></a>Varför ändras mitt resurspris varje dag?
 

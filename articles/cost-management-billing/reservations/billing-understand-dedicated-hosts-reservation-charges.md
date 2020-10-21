@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: f9080d13c4358a03b3f13ffcf346af42e49c47c6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8d273aae3588a006f7b0a55d2798b7a43c040c9b
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689464"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148373"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-azure-dedicated-hosts"></a>Så tillämpas rabatten för Azure-reservation på Azure Dedicated Hosts
 
@@ -36,17 +36,16 @@ Om du har frågor eller behöver hjälp kan du  [skapa en supportbegäran](http
 
 Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-- [Vad är Azure-reservationer?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
+- [Vad är Azure-reservationer?](./save-compute-costs-reservations.md)
 
-- [Använda Azure Dedicated Hosts](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)
+- [Använda Azure Dedicated Hosts](../../virtual-machines/dedicated-hosts.md)
 
 - [Prissättning för reserverade värdar](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
-- [Hantera reservationer för Azure](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
+- [Hantera reservationer för Azure](./manage-reserved-vm-instance.md)
 
-- [Förstå reservationsanvändning för din Betala per användning-prenumeration](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Förstå reservationsanvändning för din Betala per användning-prenumeration](./understand-reserved-instance-usage.md)
 
-- [Förstå reservationsanvändning för din Enterprise-registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
+- [Förstå reservationsanvändning för din Enterprise-registrering](./understand-reserved-instance-usage-ea.md)
 
-- [Förstå reservationsanvändning för CSP-prenumerationer](https://docs.microsoft.com/partner-center/azure-reservations)
-
+- [Förstå reservationsanvändning för CSP-prenumerationer](/partner-center/azure-reservations)

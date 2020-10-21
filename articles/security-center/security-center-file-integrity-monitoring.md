@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 45e173f87559368244ab7b0f90af1dbb6fc739d4
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1773e1345e9410f54a0364b586c3afca5b648b4c
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205395"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341540"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil integritet i Azure Security Center
 Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Center att använda den här genom gången.
@@ -30,7 +30,7 @@ Lär dig hur du konfigurerar FIM (File Integrity Monitoring) i Azure Security Ce
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md).<br>FIM överför data till Log Analytics-arbetsytan. Data avgifterna gäller baserat på mängden data som du överför. Mer information finns i [Log Analytics prissättning](https://azure.microsoft.com/pricing/details/log-analytics/) .|
-|Nödvändiga roller och behörigheter:|**Arbets ytans ägare** kan aktivera/inaktivera FIM (mer information finns i [Azure roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**Läsaren** kan visa resultat.|
+|Nödvändiga roller och behörigheter:|**Arbets ytans ägare** kan aktivera/inaktivera FIM (mer information finns i [Azure roles for Log Analytics](/services-hub/health/azure-roles#azure-roles)).<br>**Läsaren** kan visa resultat.|
 |Moln|![Ja ](./media/icons/yes-icon.png) kommersiella moln<br>![Ja ](./media/icons/yes-icon.png) US gov<br>![Ingen ](./media/icons/no-icon.png) Kina gov, andra gov<br>Stöds bara i regioner där Azure Automation lösning för ändrings spårning är tillgänglig.<br>Se [regioner som stöds för länkad Log Analytics-arbetsyta](../automation/how-to/region-mappings.md).<br>[Läs mer om ändrings spårning](../automation/change-tracking/overview.md).|
 |||
 
@@ -262,7 +262,7 @@ I den här artikeln har du lärt dig att använda FIM (File Integrity Monitoring
 
 * [Ange säkerhets principer](tutorial-security-policy.md) --lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper.
 * [Hantera säkerhets rekommendationer](security-center-recommendations.md) – lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
-* [Azures säkerhetsblogg](https://docs.microsoft.com/archive/blogs/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
+* [Azures säkerhetsblogg](/archive/blogs/azuresecurity/) – Här kan du hitta de senaste nyheterna och aktuell information om säkerheten i Azure .
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: c8ab6f51daf18802b83508a3e1bbd5af3ee59799
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50180984423b7c6d2921234a3502495016c4df5c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337087"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150115"
 ---
 # <a name="plan-to-manage-azure-costs"></a>Planera för hantering av Azure-kostnader
 
@@ -24,7 +24,7 @@ Den här artikeln hjälper dig att komma igång med hur du planerar att hantera 
 - Få uppskattningar av kostnader innan du lägger till tjänster med [priskalkylatorn](https://azure.microsoft.com/pricing/calculator/), Azure-prisdokumentet eller när du lägger till tjänster i Azure-portalen.
 - Övervaka dina kostnader med [budgetar](../costs/tutorial-acm-create-budgets.md), [aviseringar](../costs/cost-mgt-alerts-monitor-usage-spending.md) och [kostnadsanalys](../costs/quick-acm-cost-analysis.md).
 - Granska kostnaderna på fakturan genom att jämföra dem med [de detaljerade användningsfilerna](../manage/download-azure-invoice-daily-usage-date.md).
-- Integrera fakturerings- och kostnadsdata i ditt eget rapportsystem med hjälp av API:erna för [fakturering](https://docs.microsoft.com/rest/api/billing/) och [förbrukning](https://docs.microsoft.com/rest/api/consumption/).
+- Integrera fakturerings- och kostnadsdata i ditt eget rapportsystem med hjälp av API:erna för [fakturering](/rest/api/billing/) och [förbrukning](/rest/api/consumption/).
 - Använd ytterligare resurser och verktyg för Enterprise-avtal (EA), Cloud Solution Provider (CSP) och Azure Sponsorship-kunder.
 - Använd [några av de populäraste Azure-tjänsterna utan kostnad i 12 månader](../manage/create-free-services.md) med ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Tillsammans med rekommendationerna nedan kan du läsa [Undvika att debiteras för ett kostnadsfritt konto](../manage/avoid-charges-free-account.md).
 
@@ -125,7 +125,7 @@ Gå igenom självstudien [Optimera kostnader från rekommendationer](../costs/tu
 
 ## <a name="integrate-with-billing-and-consumption-apis"></a>Integrera med API:er för fakturering och förbrukning
 
-Du kan använda Azure-API:erna för [fakturering](https://docs.microsoft.com/rest/api/billing/) och [förbrukning](https://docs.microsoft.com/rest/api/consumption/) till att hämta fakturerings- och kostnadsdata programmatiskt. Använd RateCard-API:et och användnings-API:et tillsammans för att visa din fakturerade användning. Mer information finns i [Få insikter om din resursförbrukning i Microsoft Azure](../manage/usage-rate-card-overview.md).
+Du kan använda Azure-API:erna för [fakturering](/rest/api/billing/) och [förbrukning](/rest/api/consumption/) till att hämta fakturerings- och kostnadsdata programmatiskt. Använd RateCard-API:et och användnings-API:et tillsammans för att visa din fakturerade användning. Mer information finns i [Få insikter om din resursförbrukning i Microsoft Azure](../manage/usage-rate-card-overview.md).
 
 ## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Ytterligare resurser och särskilda fall
 

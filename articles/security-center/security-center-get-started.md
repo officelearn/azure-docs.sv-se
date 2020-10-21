@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 46bb3b1e450312a2c02fec3f98e2b3d7381b53d2
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 3a523421c128ea26503c0848ad8fcf7d74636a04
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946023"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341337"
 ---
 # <a name="quickstart-setting-up-azure-security-center"></a>Snabb start: Konfigurera Azure Security Center
 
@@ -27,7 +27,7 @@ Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i 
 
 I den här artikeln uppgraderar du till Azure Defender för ytterligare säkerhet och installerar Log Analytics-agenten på dina datorer för att övervaka säkerhets problem och hot.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Om du vill aktivera Azure Defender för en prenumeration måste du ha tilldelats rollen som prenumerations ägare, prenumerations deltagare eller säkerhets administratör.
@@ -105,7 +105,7 @@ I den här snabb starten aktiverade du Azure Defender och etablerade Log Analyti
 Vill du optimera och Spara på dina moln utgifter?
 
 > [!div class="nextstepaction"]
-> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Börja analysera kostnaderna med Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 16ddb9cfc2f0731381b1c92d8fdb5f4cffa1ca63
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 61a8dbbdde87af792bb4337660d4d3c34f7cf802
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372365"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132303"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -180,7 +180,7 @@ Följande omfång stöds för CSP:er med kunder i ett Microsoft-kundavtal:
 
 Det är bara användare med rollen *Global administratör* och *Administratörsagent* som kan hantera och se kostnader för faktureringskonton, faktureringsprofiler och kunder direkt i partnerns Azure-klient. Mer information om Partner Center-roller finns i [Tilldela användarroller och behörigheter](/partner-center/permissions-overview).
 
-Azure Cost Management stöder bara CSP-partnerkunder om kunderna har ett Microsoft-kundavtal. Se [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview) för CSP-kunder som inte har något Microsoft-kundavtal än.
+Azure Cost Management stöder bara CSP-partnerkunder om kunderna har ett Microsoft-kundavtal. Se [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview) för CSP-kunder som inte har något Microsoft-kundavtal än.
 
 Hanteringsgrupper i CSP-omfång stöds inte av Cost Management. Om du har en CSP-prenumeration och anger omfattningen till en hanteringsgrupp i kostnadsanalysen visas ett fel som detta:
 

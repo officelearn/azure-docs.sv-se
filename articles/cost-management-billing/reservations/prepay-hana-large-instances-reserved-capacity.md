@@ -8,12 +8,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 44f7ce657ea9341779e15f6e4817e8fae1515e47
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d6d0d0a4c4b3328fa50777b5106bac202c9972ef
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685977"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151495"
 ---
 # <a name="save-on-sap-hana-large-instances-with-an-azure-reservation"></a>Få rabatt på SAP HANA – stora instanser med en Azure-reservation
 
@@ -32,15 +32,15 @@ Du måste etablera en HLI-SKU innan du köper den reserverade kapaciteten. Du be
 - Du kan inte ha ett delat reservationsomfång för reserverad HANA-kapacitet. Du kan inte dela upp, slå samman eller uppdatera reservationsomfånget.
 - Du kan köpa en HLI åt gången med API-anrop för reserverade kapaciteter. Gör ytterligare API-anrop om du vill köpa ytterligare kvantiteter.
 
-Du kan köpa reserverad kapacitet i Azure-portalen eller via [REST-API:et](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+Du kan köpa reserverad kapacitet i Azure-portalen eller via [REST-API:et](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ## <a name="buy-a-hana-large-instance-reservation"></a>Köpa en reservation för en stor HANA-instans
 
-Använd följande information när du ska köpa en HLI-reservation med [REST-API:et Reservation Order](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/purchase).
+Använd följande information när du ska köpa en HLI-reservation med [REST-API:et Reservation Order](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
 ### <a name="get-the-reservation-order-and-price"></a>Välj reservationsbeställningen och priset
 
-Börja med att hämta reservationsbeställningen och priset för SKU:n för den etablerade stora HANA-instansen via API:et [Calculate Price](https://docs.microsoft.com/rest/api/reserved-vm-instances/reservationorder/calculate).
+Börja med att hämta reservationsbeställningen och priset för SKU:n för den etablerade stora HANA-instansen via API:et [Calculate Price](/rest/api/reserved-vm-instances/reservationorder/calculate).
 
 I följande exempel används [armclient](https://github.com/projectkudu/ARMClient) till att göra REST API-anrop med PowerShell. Reservationsbeställningen, förfrågan i API:et Calculate Price och brödtexten i förfrågan bör likna följande:
 
@@ -220,7 +220,7 @@ Här förklaras innebörden av de olika reservationsfälten.
 
   **SKU** namnet på HLI-SKU:n. Det ser ut som `SAP_HANA_On_Azure_<SKUname>`.
 
-  **Plats** tillgängliga HLI-regioner. I [SKU:er för SAP HANA i Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) kan du läsa om tillgängliga regioner. Använd [API-anropet för att hämta platser](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations#locationlistresult) när du ska hämta formatet för platssträngen.
+  **Plats** tillgängliga HLI-regioner. I [SKU:er för SAP HANA i Azure (stora instanser)](../../virtual-machines/workloads/sap/hana-available-skus.md) kan du läsa om tillgängliga regioner. Använd [API-anropet för att hämta platser](/rest/api/resources/subscriptions/listlocations#locationlistresult) när du ska hämta formatet för platssträngen.
 
   **Typ av reserverad resurs** `SapHana`
 
@@ -248,5 +248,5 @@ location. You can also go to https://aka.ms/corequotaincrease to learn about quo
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om att [Anropa Azure REST-API:er med Postman och cURL](https://docs.microsoft.com/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
-- I [SKU:er för SAP HANA i Azure (stora instanser)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) kan du läsa om tillgängliga SKU:er och regioner.
+- Läs mer om att [Anropa Azure REST-API:er med Postman och cURL](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman).
+- I [SKU:er för SAP HANA i Azure (stora instanser)](../../virtual-machines/workloads/sap/hana-available-skus.md) kan du läsa om tillgängliga SKU:er och regioner.

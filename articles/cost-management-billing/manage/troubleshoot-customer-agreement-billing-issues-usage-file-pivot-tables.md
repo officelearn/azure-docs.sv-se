@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/09/2020
 ms.author: banders
-ms.openlocfilehash: 2ca4affaeae7f19cf3c913b5dfcf89a04e5bc628
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 32c0779f4086574aeaf8d38ea675f80fbd2c1ec7
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92026800"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132235"
 ---
 # <a name="troubleshoot-mca-billing-issues-with-usage-file-pivot-tables"></a>Felsöka problem med MCA-faktureringen med hjälp av pivottabeller baserade på användningsfiler
 
@@ -27,13 +27,13 @@ Den här artikeln beskriver hur du felsöker problem med MCA-faktureringen (Micr
 
 Informationen från användningsfilerna hjälper dig att förstå och diagnostisera användningsrelaterade problem. Användningsfiler genereras i kommaavgränsat format (CSV). Eftersom användningsfilerna kan vara stora CSV-filer är det lättare att ändra och visa dem som pivottabeller i ett kalkylbladsprogram som Excel. I exemplen i den här artikeln används Excel, men du kan använda valfritt kalkylbladsprogram.
 
-Endast faktureringsprofilägare, deltagare, läsare eller fakturaansvariga har behörighet att ladda ned användningsfiler. Mer information finns i [Ladda ned användningsdata för ditt Microsoft-kundavtal](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-for-your-microsoft-customer-agreement). 
+Endast faktureringsprofilägare, deltagare, läsare eller fakturaansvariga har behörighet att ladda ned användningsfiler. Mer information finns i [Ladda ned användningsdata för ditt Microsoft-kundavtal](./download-azure-invoice-daily-usage-date.md#download-usage-for-your-microsoft-customer-agreement). 
 
 ## <a name="get-the-data-and-format-it"></a>Hämta data och formatera dem
 
 Eftersom Azure-användningsfilerna har CSV-format måste du förbereda dina data för användning i Excel. Formatera data som en tabell genom att följa stegen nedan.
 
-1. Ladda ned användningsfilen genom att följa anvisningarna i [Ladda ned användningsdata på Azure-portalen](https://docs.microsoft.com/azure/cost-management-billing/manage/download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
+1. Ladda ned användningsfilen genom att följa anvisningarna i [Ladda ned användningsdata på Azure-portalen](./download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal).
 1. Öppna filen i Excel.
 1. I exemplet nedan ser du filen med oformaterade data.  
     :::image type="content" source="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" alt-text="Exempel som visar oformaterade data" lightbox="./media/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables/raw-csv-data-mca.png" :::

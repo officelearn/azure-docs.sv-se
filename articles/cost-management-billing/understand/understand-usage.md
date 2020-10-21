@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: d113ad7d3de3478fbbdcce32363e048b7a8a75ce
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 559fe43bbd9b8951a97733ae1250046f65f10404
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681744"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149353"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Förstå villkoren i filen för din Azure-användning och dina avgifter
 
@@ -90,8 +90,8 @@ PublisherType | Alla | Typ av utgivare (värden: **Azure**, **AWS**, **Marketpla
 Kvantitet | Alla | Antalet köpta eller förbrukade enheter.
 ReservationId | EA, MCA | Unik identifierare för den köpta reservationsinstansen.
 ReservationName | EA, MCA | Namn på den köpta reservationsinstansen.
-ResourceGroup | Alla | Namnet på den [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) som resursen finns i. Inte alla avgifter kommer från resurser som distribuerats till resursgrupper. Avgifter som inte har någon resursgrupp visas som null/tomma, **Andra** eller **Inte tillämpligt**.
-ResourceId<sup>1</sup> | Alla | Unik identifierare för [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources)-resursen.
+ResourceGroup | Alla | Namnet på den [resursgrupp](../../azure-resource-manager/management/overview.md) som resursen finns i. Inte alla avgifter kommer från resurser som distribuerats till resursgrupper. Avgifter som inte har någon resursgrupp visas som null/tomma, **Andra** eller **Inte tillämpligt**.
+ResourceId<sup>1</sup> | Alla | Unik identifierare för [Azure Resource Manager](/rest/api/resources/resources)-resursen.
 ResourceLocation | Alla | Platsen för det datacenter där resursen körs. Se Location.
 ResourceName | EA, PAYG | Namn på resursen. Inte alla resurser kommer från distribuerade resurser. Avgifter som inte har någon resurstyp visas som null/tomma, **Andra** eller **Inte tillämpligt**.
 ResourceType | MCA | Typ av resursinstans. Inte alla resurser kommer från distribuerade resurser. Avgifter som inte har någon resurstyp visas som null/tomma, **Andra** eller **Inte tillämpligt**.

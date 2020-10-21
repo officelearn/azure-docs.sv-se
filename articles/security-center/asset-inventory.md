@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 98e4a5097f1ebd26c54d1e0de9bda7ca2055c320
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: d15d73b0f2b87b8e6f66c7bd4e7fb34f6b06e1a0
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950745"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341931"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Utforska och hantera dina resurser med till gångs inventering och hanterings verktyg
 
@@ -68,22 +68,22 @@ Inventerings sidan innehåller följande verktyg:
     ![Lager export alternativ](./media/asset-inventory/inventory-export-options.png)
 
     > [!TIP]
-    > KQL-dokumentationen innehåller en databas med några exempel data tillsammans med några enkla frågor för att få &quot;känsla" för språket. [Läs mer i den här självstudien om KQL](https://docs.microsoft.com/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
+    > KQL-dokumentationen innehåller en databas med några exempel data tillsammans med några enkla frågor för att få &quot;känsla" för språket. [Läs mer i den här självstudien om KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer).
 
 - Med **alternativ för till gångs hantering** – med lager kan du utföra komplexa identifierings frågor. När du har hittat de resurser som matchar dina frågor tillhandahåller inventeringen genvägar för åtgärder som:
 
     - Tilldela taggar till de filtrerade resurserna – Markera kryss rutorna bredvid de resurser som du vill tagga.
     - Publicera nya servrar till Security Center – Använd verktygsfälts knappen **Lägg till icke-Azure-servrar** .
-    - Automatisera arbets belastningar med Azure Logic Apps – Använd knappen **Utlös Logic app** för att köra en Logic app på en eller flera resurser. Dina Logi Kap par måste förberedas i förväg och acceptera relevant utlösare (HTTP-begäran). [Läs mer om Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+    - Automatisera arbets belastningar med Azure Logic Apps – Använd knappen **Utlös Logic app** för att köra en Logic app på en eller flera resurser. Dina Logi Kap par måste förberedas i förväg och acceptera relevant utlösare (HTTP-begäran). [Läs mer om Logic Apps](../logic-apps/logic-apps-overview.md).
 
 
 ## <a name="how-does-asset-inventory-work"></a>Hur fungerar inventarie Inventory?
 
-Till gångs lagret använder sig av ett [arg (Azure Resource Graph)](https://docs.microsoft.com/azure/governance/resource-graph/), en Azure-tjänst som ger möjlighet att fråga Security Centers säkerhets position data över flera prenumerationer.
+Till gångs lagret använder sig av ett [arg (Azure Resource Graph)](../governance/resource-graph/index.yml), en Azure-tjänst som ger möjlighet att fråga Security Centers säkerhets position data över flera prenumerationer.
 
 ARG är utformat för att tillhandahålla effektiv resurs utforskning med möjlighet att fråga i stor skala.
 
-Med hjälp av [KQL (Kusto Query Language)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)kan till gångs inventering snabbt producera djup insikter genom att korsa referenser med andra resurs egenskaper.
+Med hjälp av [KQL (Kusto Query Language)](/azure/data-explorer/kusto/query/)kan till gångs inventering snabbt producera djup insikter genom att korsa referenser med andra resurs egenskaper.
 
 
 ## <a name="how-to-use-asset-inventory"></a>Använda till gångs inventering
@@ -201,5 +201,5 @@ I den här artikeln beskrivs sidan till gångs lager i Azure Security Center.
 
 Mer information om relaterade verktyg finns på följande sidor:
 
-- [Azure Resource Graph (ARG)](https://docs.microsoft.com/azure/governance/resource-graph/)
-- [Kusto Query Language (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
+- [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml)
+- [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)

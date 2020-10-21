@@ -10,19 +10,19 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 3e611e25288d52b0be93c76e8a3a28ce6d7d5088
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 91b3b7b71524c76006ad4d431774e05e47fd0266
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326614"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131079"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Felsöka problem när du registrerar ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter
 
 Ett problem kan uppstå när du försöker registrera ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter. Den här korta guiden vägleder dig genom registreringsprocessen och diskuterar några vanliga problem i varje steg.
 
 > [!NOTE]
-> Om du redan har ett befintligt konto och behöver hjälp med att felsöka inloggningsproblem kan du läsa [Felsöka problem med inloggning för Azure-prenumeration](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
+> Om du redan har ett befintligt konto och behöver hjälp med att felsöka inloggningsproblem kan du läsa [Felsöka problem med inloggning för Azure-prenumeration](./troubleshoot-sign-in-issue.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -76,8 +76,8 @@ Lös det här problemet genom att kontrollera om följande saker stämmer:
 
 #### <a name="you-see-the-message-your-current-account-type-is-not-supported"></a>Meddelandet ”Din aktuella kontotyp stöds inte” visas
 
-Det här problemet kan uppstå om kontot är registrerat i en [ohanterad Azure AD-katalog](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-self-service-signup) och inte finns i din organisations Azure AD-katalog.
-Lös det här problemet genom att registrera Azure-kontot med hjälp av ett annat konto eller ta över den ohanterade AD-katalogen. Mer information finns i [Ta över en ohanterad katalog som administratör i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover).
+Det här problemet kan uppstå om kontot är registrerat i en [ohanterad Azure AD-katalog](../../active-directory/users-groups-roles/directory-self-service-signup.md) och inte finns i din organisations Azure AD-katalog.
+Lös det här problemet genom att registrera Azure-kontot med hjälp av ett annat konto eller ta över den ohanterade AD-katalogen. Mer information finns i [Ta över en ohanterad katalog som administratör i Azure Active Directory](../../active-directory/users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="identity-verification-by-phone"></a>Identitetsverifiering via telefon
 
@@ -107,7 +107,7 @@ Här följer några ytterligare tips:
 
 #### <a name="credit-card-declined-or-not-accepted"></a>Kreditkort nekas eller accepterats inte
 
-Virtuella eller förbetalda kredit- eller debetkort accepteras inte som betalningsmedel för Azure-prenumerationer. Om du vill se fler potentiella orsaker till att ditt kort nekas kan du läsa [Felsöka ett nekat kort vid Azure-registreringen](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card).
+Virtuella eller förbetalda kredit- eller debetkort accepteras inte som betalningsmedel för Azure-prenumerationer. Om du vill se fler potentiella orsaker till att ditt kort nekas kan du läsa [Felsöka ett nekat kort vid Azure-registreringen](./troubleshoot-declined-card.md).
 
 #### <a name="credit-card-form-doesnt-support-my-billing-address"></a>Kreditkortsformuläret stöder inte min faktureringsadress
 
@@ -144,7 +144,7 @@ Slutför avtalet.
 Kontrollera att du använder rätt inloggningsuppgifter. Kontrollera sedan förmånsprogrammet för att ta reda på om du är berättigad.
 - MSDN
   - Kontrollera din berättigandestatus på din [MSDN-kontosida](https://msdn.microsoft.com/subscriptions/manage/default.aspx).
-  - Om du inte kan verifiera din status kontaktar du [kundtjänstcentret för MSDN-prenumerationskunder](https://msdn.microsoft.com/library/aa493452.aspx).
+  - Om du inte kan verifiera din status kontaktar du [kundtjänstcentret för MSDN-prenumerationskunder](/previous-versions/mappoint/aa493452(v=msdn.10)).
 - Microsoft for Startups
   - Logga in på [Microsoft for Startups-portalen](https://startups.microsoft.com/#start-two) för att kontrollera din berättigandestatus för Microsoft for Startups.
   - Om du inte kan verifiera statusen kan du få hjälp på [forumen för Microsoft for Startups](https://www.microsoftpartnercommunity.com/t5/Microsoft-for-Startups/ct-p/Microsoft_Startups).
@@ -161,10 +161,10 @@ För att kunna skapa en Azure In Open-prenumeration måste du ha en giltig OSA-n
 
 Här är några fler felsökningsartiklar som gäller fakturering och prenumerationer i Azure
 
-- [Nekat kort](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-declined-card)
-- [Problem med prenumerationsinloggning](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue)
-- [Inga prenumerationer hittades](https://docs.microsoft.com/azure/cost-management-billing/manage/no-subscriptions-found)
-- [Företagskostnadsvy inaktiverad](https://docs.microsoft.com/azure/cost-management-billing/manage/enterprise-mgmt-grp-troubleshoot-cost-view)
+- [Nekat kort](./troubleshoot-declined-card.md)
+- [Problem med prenumerationsinloggning](./troubleshoot-sign-in-issue.md)
+- [Inga prenumerationer hittades](./no-subscriptions-found.md)
+- [Företagskostnadsvy inaktiverad](./enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
 ## <a name="contact-us-for-help"></a>Kontakta oss om du behöver hjälp
 
@@ -172,4 +172,4 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="find-out-more-about-azure-cost-management"></a>Läs mer om Azure Cost Management
 
-- [Dokumentation om Azure Cost Management och fakturering](https://docs.microsoft.com/azure/cost-management-billing)
+- [Dokumentation om Azure Cost Management och fakturering](../index.yml)

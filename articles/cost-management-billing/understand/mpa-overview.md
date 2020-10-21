@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 4d6208360bd876a2a1ae0a9ff154604a33584db9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 4dff56db9f1450ff7eb2a2b9ca6f4ca648e2ac38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447936"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150100"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Kom igång med faktureringskontot för ditt Microsoft-partneravtal
 
@@ -29,7 +29,7 @@ I följande diagram ser du relationen mellan ett faktureringskonto, fakturerings
 
 ![Diagram som visar faktureringshierarkin för ett Microsoft-partneravtal](./media/mpa-overview/mpa-hierarchy.svg)
 
-Användare med roll som **global administratör** och **administratörsrepresentant** för organisationen kan hantera faktureringskonton, faktureringsprofiler och kunder. Läs mer i [Partner Center – Tilldela användarroller och behörigheter](https://docs.microsoft.com/partner-center/permissions-overview).
+Användare med roll som **global administratör** och **administratörsrepresentant** för organisationen kan hantera faktureringskonton, faktureringsprofiler och kunder. Läs mer i [Partner Center – Tilldela användarroller och behörigheter](/partner-center/permissions-overview).
 
 ## <a name="billing-profiles"></a>Faktureringsprofiler
 
@@ -47,7 +47,7 @@ Du kan visa och hantera kunder som har godkänt ett Microsofts-kundavtal och har
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>Aktivera policyn för att ge insyn i kostnaderna
 
-Använd policyn för att kontrollera om användare i kundorganisationen kan visa och analysera kostnader enligt taxan Betala per användning för sin Azure-förbrukning. Policyn är inaktiv som standard och användarna kan inte se kostnaden. När den är aktiverad kan de användare som har tillräcklig [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)-åtkomst till en prenumeration visa och analysera kostnaden för prenumerationen.
+Använd policyn för att kontrollera om användare i kundorganisationen kan visa och analysera kostnader enligt taxan Betala per användning för sin Azure-förbrukning. Policyn är inaktiv som standard och användarna kan inte se kostnaden. När den är aktiverad kan de användare som har tillräcklig [Azure RBAC](../../role-based-access-control/overview.md)-åtkomst till en prenumeration visa och analysera kostnaden för prenumerationen.
 
 Så här aktiverar du policyn:
 
@@ -69,7 +69,7 @@ Så här aktiverar du policyn:
 
 ## <a name="resellers"></a>Återförsäljare
 
-Indirekta leverantörer i [modellen med två nivåer](https://docs.microsoft.com/partner-center) för CSP kan välja en återförsäljare när de skapar prenumerationer för kunder i Azure-portalen. Efteråt kan de visa listan med prenumerationer filtrerad efter återförsäljare och analysera kostnaden för en kund per återförsäljare i Azures-kostnadsanalysen.
+Indirekta leverantörer i [modellen med två nivåer](/partner-center) för CSP kan välja en återförsäljare när de skapar prenumerationer för kunder i Azure-portalen. Efteråt kan de visa listan med prenumerationer filtrerad efter återförsäljare och analysera kostnaden för en kund per återförsäljare i Azures-kostnadsanalysen.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Kontrollera åtkomsten till ett Microsoft-partneravtal
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
@@ -83,5 +83,5 @@ Om du behöver hjälp kan du [kontakta supporten](https://portal.azure.com/?#bla
 I följande artiklar kan du läsa mer om ditt faktureringskonto:
 
 - [Skapa ytterligare en Azure-prenumeration för Microsoft-partneravtal](../manage/create-subscription.md)
-- Integrera faktureringsdata i ditt eget rapportsystem med hjälp av [API:erna för Azure-fakturering](https://docs.microsoft.com/rest/api/billing/)
-- [Snabbstartsguide till Azure Cost Management för partner](https://go.microsoft.com/fwlink/?linkid=2106482)
+- Integrera faktureringsdata i ditt eget rapportsystem med hjälp av [API:erna för Azure-fakturering](/rest/api/billing/)
+- [Snabbstartsguide till Azure Cost Management för partner](../costs/get-started-partners.md)

@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: be2dd4235883601b0b13c5783e4c7c7c106c20e9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0691ec320b62ed212235a63dacedcf3ec38a23ba
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682033"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151472"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mariadb"></a>Så tillämpas en reservationsrabatt på Azure Database for MariaDB
 
@@ -30,7 +30,7 @@ Rabatten för reserverad Azure Database for MariaDB-kapacitet tillämpas timvis 
 
 I följande exempel visas hur rabatten för reserverad Azure Database for MariaDB-kapacitet tillämpas beroende på det antal kärnor som du har köpt och när de körs.
 
-* **Exempel 1**: Du köper en reserverad Azure Database for MariaDB-kapacitet för en med 8 virtuella kärnor. Om du kör en Azure Database for MariaDB-server med 16 virtuella kärnor som matchar resten av attributen för reservationen debiteras du Betala per användning-priset för 8 virtuella kärnor för din beräkningsanvändning för MariaDB-servern och du får en reservationsrabatt för MariaDB-server med 8 virtuella kärnor.
+**Exempel 1**: Du köper en reserverad Azure Database for MariaDB-kapacitet för en med 8 virtuella kärnor. Om du kör en Azure Database for MariaDB-server med 16 virtuella kärnor som matchar resten av attributen för reservationen debiteras du Betala per användning-priset för 8 virtuella kärnor för din beräkningsanvändning för MariaDB-servern och du får en reservationsrabatt för MariaDB-server med 8 virtuella kärnor.
 
 För resten av dessa exempel förutsätter vi att den reserverade Azure Database for MariaDB-kapacitet som du köper är avsedd för en Azure Database for MariaDB med 16 virtuella kärnor och att resten av reservationens attribut matchar de Azure Database for MariaDB-servrar som körs.
 
@@ -40,7 +40,7 @@ För resten av dessa exempel förutsätter vi att den reserverade Azure Database
 
 * **Exempel 4**: Du kör en Azure Database for MariaDB-server med 16 virtuella kärnor från kl. 13:00 till kl. 13:45. Du kör en annan Azure Database for MariaDB-server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
 
-Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

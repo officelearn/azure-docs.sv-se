@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: c277da54e56fcd0ce68444d499b17e84f706ad03
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c4c99142c64278514066efa8925ed8e3f6617235
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442504"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132592"
 ---
 # <a name="azure-enterprise-rest-apis"></a>REST-API:er för Azure Enterprise
 
@@ -25,15 +25,15 @@ Microsoft Enterprise Azure-kunder kan få information om användning och fakture
 
 ### <a name="available-apis"></a>Tillgängliga API:er
 
-**Saldon och sammanfattningar** – [API:et för saldon och sammanfattningar](../../billing/billing-enterprise-api-balance-summary.md) returnerar en månatlig sammanfattning av information om saldon, nya inköp, kostnader för Azure Marketplace-tjänster, justeringar och kostnader för överförbrukning. Mer information finns i [Rapport-API:er för Enterprise-kunder – saldon och sammanfattningar](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary).
+**Saldon och sammanfattningar** – [API:et för saldon och sammanfattningar](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) returnerar en månatlig sammanfattning av information om saldon, nya inköp, kostnader för Azure Marketplace-tjänster, justeringar och kostnader för överförbrukning. Mer information finns i [Rapport-API:er för Enterprise-kunder – saldon och sammanfattningar](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary).
 
-**Användningsinformation** – [API:et för användningsinformation](../../billing/billing-enterprise-api-usage-detail.md) returnerar en daglig uppdelning av förbrukade kvantiteter och beräknade avgifter per registrering. Resultatet innehåller också information om instanser, mätare och avdelningar. Du kan köra frågor mot API:et per faktureringsperiod eller per start- och slutdatum. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – användningsinformation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
+**Användningsinformation** – [API:et för användningsinformation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) returnerar en daglig uppdelning av förbrukade kvantiteter och beräknade avgifter per registrering. Resultatet innehåller också information om instanser, mätare och avdelningar. Du kan köra frågor mot API:et per faktureringsperiod eller per start- och slutdatum. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – användningsinformation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
-**Kostnader för Marketplace Store** – [API:et för kostnader för Marketplace Store](../../billing/billing-enterprise-api-marketplace-storecharge.md) returnerar en uppdelning av de användningsbaserade kostnaderna för Marketplace per dag under den angivna faktureringsperioden eller per start- och slutdatum. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – kostnader för Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
+**Kostnader för Marketplace Store** – [API:et för kostnader för Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) returnerar en uppdelning av de användningsbaserade kostnaderna för Marketplace per dag under den angivna faktureringsperioden eller per start- och slutdatum. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – kostnader för Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
 **Prisdokument** – [API:et för prisdokument](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) returnerar relevant pris för respektive mätare för en registrering och faktureringsperiod. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – prisdokument](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
-**Faktureringsperioder** – [API:et för faktureringsperioder](../../billing/billing-enterprise-api-billing-periods.md) returnerar en lista med faktureringsperioder som har förbrukningsdata för en registrering i omvänd kronologisk ordning. Varje period innehåller en egenskap som pekar på API-vägen för de fyra datauppsättningarna BalanceSummary, UsageDetails, MarketplaceCharges och PriceSheet. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – faktureringsperioder](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
+**Faktureringsperioder** – [API:et för faktureringsperioder](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) returnerar en lista med faktureringsperioder som har förbrukningsdata för en registrering i omvänd kronologisk ordning. Varje period innehåller en egenskap som pekar på API-vägen för de fyra datauppsättningarna BalanceSummary, UsageDetails, MarketplaceCharges och PriceSheet. Du kan läsa mer i [Rapport-API:er för Enterprise-kunder – faktureringsperioder](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
 ### <a name="enable-api-data-access"></a>Aktivera dataåtkomst via API:er
 

@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Service Bus meddelande hantering
 description: Visar Azure Policy inbyggda princip definitioner för Azure Service Bus meddelanden. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-reference
-ms.openlocfilehash: fda9ea57533f813abd625e601e349bad7600b937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e957922a3401fa6e4645d187a2bc1feec1f99b3e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819687"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329057"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-service-bus-messaging"></a>Azure Policy inbyggda definitioner för Azure Service Bus meddelanden
 

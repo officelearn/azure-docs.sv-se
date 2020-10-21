@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 83cc1b2fd0936d814e4a31714fecfdea7ccce988
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f107741dc3e601d0a46c295932a745c99dadb96d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89225674"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328084"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Azures säkerhets bas linje för Azure DNS
 
@@ -102,7 +102,7 @@ I Azure DNS finns rollen som deltagare i DNS-zonen, samt zon nivå och post upps
 
 - [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-- [Förstå Azure RBAC i Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Förstå Azure RBAC i Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 **Azure Security Center övervakning**: Ja
 
@@ -260,13 +260,13 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Använd Azure RBAC för att hantera åtkomst till resurser
 
-**Vägledning**: azure Role-Based Access Control (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure-användare, grupper och resurser. Med Azure RBAC kan du ge den åtkomst nivå som användarna behöver. 
+**Vägledning**: rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure-användare, grupper och resurser. Med Azure RBAC kan du ge den åtkomst nivå som användarna behöver. 
 
 I Azure DNS finns rollen som deltagare i DNS-zonen, samt zon nivå och post uppsättnings nivå Azure RBAC. Det är också möjligt att skapa dina egna anpassade Azure-roller för att ge en bättre och mer detaljerad kontroll.
 
 - [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Förstå Azure RBAC i Azure DNS](dns-protect-zones-recordsets.md#role-based-access-control)
+- [Förstå Azure RBAC i Azure DNS](dns-protect-zones-recordsets.md#azure-role-based-access-control)
 
 - [Förstå Azure RBAC i Azure Privat DNS](dns-protect-private-zones-recordsets.md)
 
@@ -494,7 +494,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 

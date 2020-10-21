@@ -7,24 +7,24 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9b9fae8f32f9d7ffeee53df8e5a888394572cbd7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015012"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331761"
 ---
 # <a name="secure-azure-digital-twins"></a>Skydda digitala Azure-dubbla
 
-För säkerhet ger Azure Digitals dubbla, exakt åtkomst kontroll över specifika data, resurser och åtgärder i distributionen. Detta sker via en detaljerad roll och behörighets hanterings strategi som kallas **rollbaserad åtkomst kontroll (RBAC)**. Du kan läsa om de allmänna principerna för RBAC för Azure [här](../role-based-access-control/overview.md).
+För säkerhet ger Azure Digitals dubbla, exakt åtkomst kontroll över specifika data, resurser och åtgärder i distributionen. Det sker genom en detaljerad strategi för roll-och behörighets hantering som kallas **Azure rollbaserad åtkomst kontroll (Azure RBAC)**. Du kan läsa om de allmänna principerna för Azure RBAC [här](../role-based-access-control/overview.md).
 
 Azure Digitals dubbla är också stöd för kryptering av data i vila.
 
-## <a name="granting-permissions-with-rbac"></a>Bevilja behörigheter med RBAC
+## <a name="granting-permissions-with-azure-rbac"></a>Bevilja behörigheter med Azure RBAC
 
-RBAC tillhandahålls till Azure Digitals dubblare via integration med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
+Azure RBAC tillhandahålls till Azure Digitals sammanflätade via integrering med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
-Du kan använda RBAC för att bevilja behörighet till ett *säkerhets objekt*, som kan vara en användare, en grupp eller ett huvud namn för program tjänsten. Säkerhets objekt autentiseras av Azure AD och tar emot en OAuth 2,0-token i retur. Denna token kan användas för att auktorisera en åtkomstbegäran till en Azure Digitals-instans.
+Du kan använda Azure RBAC för att bevilja behörighet till ett *säkerhets objekt*, som kan vara en användare, en grupp eller ett program tjänst objekt. Säkerhets objekt autentiseras av Azure AD och tar emot en OAuth 2,0-token i retur. Denna token kan användas för att auktorisera en åtkomstbegäran till en Azure Digitals-instans.
 
 ### <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 
@@ -57,7 +57,7 @@ Azure tillhandahåller de här inbyggda Azure-rollerna för att auktorisera åtk
 Mer information om hur inbyggda roller definieras finns i [*förstå roll definitioner*](../role-based-access-control/role-definitions.md) i Azure RBAC-dokumentationen. Information om hur du skapar anpassade Azure-roller finns i [*Azure-anpassade roller*](../role-based-access-control/custom-roles.md).
 
 Du kan tilldela roller på två sätt:
-* via fönstret åtkomst kontroll (IAM) för Azure Digitals dubbla i Azure Portal (se [*lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal*](../role-based-access-control/role-assignments-portal.md))
+* via fönstret åtkomst kontroll (IAM) för Azure Digitals dubbla i Azure Portal (se [*lägga till eller ta bort Azure roll tilldelningar med hjälp av Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * via CLI-kommandon för att lägga till eller ta bort en roll
 
 Mer detaljerad information om hur du gör detta finns i självstudien om Azure Digitals dubbla steg [*: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md).
@@ -95,4 +95,4 @@ För att lösa det här felet kan du göra något av följande:
 
 * Se hur du interagerar med dessa begrepp från klient program kod i [*How-to: Write app authentication code*](how-to-authenticate-client.md).
 
-* Läs mer om [RBAC för Azure](../role-based-access-control/overview.md).
+* Läs mer om [Azure RBAC](../role-based-access-control/overview.md).

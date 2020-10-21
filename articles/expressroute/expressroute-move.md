@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.author: duau
-ms.openlocfilehash: 12ace8dff58d3d747bf17260950d2b91e31b398a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649174e59c3e58b4675393ce665cf765016d5551
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89395170"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331557"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Flytta ExpressRoute-kretsar från den klassiska till Resource Manager-distributionsmodellen
 Den här artikeln innehåller en översikt över vad det innebär att flytta en Azure ExpressRoute-krets från den klassiska till Azure Resource Manager-distributionsmodellen.
@@ -85,7 +85,7 @@ I det här avsnittet beskrivs vad som stöds för ExpressRoute-kretsar:
 I det här avsnittet beskrivs vad som inte stöds för ExpressRoute-kretsar:
 
 * Hantera livscykeln för en ExpressRoute-krets från den klassiska distributionsmodellen.
-* Rollbaserad åtkomstkontroll (RBAC) stöds för den klassiska distributionsmodellen. Du kan inte utföra RBAC-kontroller på en krets i den klassiska distributionsmodellen. En administratör/medadministratör för prenumerationen kan länka eller avlänka virtuella nätverk för kretsen.
+* Azure-rollbaserad åtkomst kontroll (Azure RBAC) stöds för den klassiska distributions modellen. Du kan inte utföra Azure RBAC-kontroller till en krets i den klassiska distributions modellen. En administratör/medadministratör för prenumerationen kan länka eller avlänka virtuella nätverk för kretsen.
 
 ## <a name="configuration"></a>Konfiguration
 Följ anvisningarna som beskrivs i [Flytta en ExpressRoute-krets från den klassiska till Resource Manager-distributionsmodellen](expressroute-howto-move-arm.md).

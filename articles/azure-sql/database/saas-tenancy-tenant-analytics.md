@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 19c09bd03a3d1eb3b16f69b9a605a4ccb763030a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8076b417c8043a4f6796ccca0e67db79360ede73
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619550"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331676"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analys av flera klienter med extraherade data – en-klient-app
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -65,7 +65,7 @@ Att förstå hur varje klient använder tjänsten används för att utforska alt
 
 ## <a name="setup"></a>Installation
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 
@@ -95,7 +95,7 @@ I följande steg distribuerar du Analytics Store, som kallas **tenantanalytics**
 
 Nu när du har distribuerat programmet och fyllt det med intressanta klient data använder du [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) för att ansluta **tenants1-DPT- &lt; User &gt; ** och **Catalog-DPT- &lt; User &gt; -** servrar med login = *Developer*, Password = *P \@ ssword1*. Mer information finns i [introduktions kursen](../../sql-database/saas-dbpertenant-wingtip-app-overview.md) .
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
+![Skärm bild som visar den information som behövs för att ansluta till SQL Server.](./media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
 Utför följande steg i Object Explorer:
 
@@ -110,7 +110,7 @@ Se följande databas objekt i SSMS-Object Explorer genom att expandera noden ana
 - De stjärn schema tabellerna är **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**och **dim_Dates**.
 - Den lagrade proceduren används för att fylla i stjärn schema tabeller från rå data tabeller.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
+![Skärm bild av de databas objekt som visas i SSMS-Object Explorer.](./media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>Data extrahering 
 

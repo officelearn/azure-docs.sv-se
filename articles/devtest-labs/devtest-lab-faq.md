@@ -3,18 +3,18 @@ title: Azure DevTest Labs vanliga frågor och svar | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure DevTest Labs.
 ms.topic: article
 ms.date: 07/17/2020
-ms.openlocfilehash: 6f4c0e34242677eca6a32af4731817085be12436
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1cbea3628d6c8c1b43766140d201ce46964a60b5
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144590"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328393"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
 
 ## <a name="blog-post"></a>Blogg inlägg
-Vår team blogg för DevTest Labs har dragits tillbaka från och med 20 mars 2019. 
+Vår team blogg för DevTest Labs har dragits tillbaka från och med 20 mars 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Var kan jag spåra funktions uppdateringar från nu?
 Nu kommer vi att publicera funktions uppdateringar och informativa blogg inlägg på Azure-bloggen och Azure-uppdateringar. Dessa blogg inlägg kommer också att länka till vår dokumentation där det behövs.
@@ -22,7 +22,7 @@ Nu kommer vi att publicera funktions uppdateringar och informativa blogg inlägg
 Prenumerera på [DevTest Labs Azure-bloggen](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) och [DevTest Labs Azure-uppdateringar](https://azure.microsoft.com/updates/?product=devtest-lab) för att hålla dig informerad om nya funktioner i DevTest Labs.
 
 ### <a name="what-happens-to-the-existing-blog-posts"></a>Vad händer med befintliga blogg inlägg?
-Vi arbetar för närvarande med att migrera befintliga blogg inlägg (exklusive avbrott-uppdateringar) till vår [DevTest Labs-dokumentation](devtest-lab-overview.md). När MSDN-bloggen är föråldrad kommer den att omdirigeras till dokumentations översikten för DevTest Labs. När den har omdirigerats kan du söka efter den artikel du letar efter i rubriken "Filtrera efter". Vi har inte migrerat alla inlägg ännu, men bör utföras vid slutet av den här månaden. 
+Vi arbetar för närvarande med att migrera befintliga blogg inlägg (exklusive avbrott-uppdateringar) till vår [DevTest Labs-dokumentation](devtest-lab-overview.md). När MSDN-bloggen är föråldrad kommer den att omdirigeras till dokumentations översikten för DevTest Labs. När den har omdirigerats kan du söka efter den artikel du letar efter i rubriken "Filtrera efter". Vi har inte migrerat alla inlägg ännu, men bör utföras vid slutet av den här månaden. 
 
 
 ### <a name="where-do-i-see-outage-updates"></a>Var kan jag se avbrott-uppdateringar?
@@ -68,7 +68,7 @@ DevTest Labs är en kostnads fri tjänst. Det är kostnads fritt att skapa labb 
 ## <a name="security"></a>Säkerhet
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Vilka är de olika säkerhets nivåerna i DevTest Labs?
-Säkerhets åtkomsten bestäms av Role-Based Access Control (RBAC). För att lära dig hur Access fungerar, hjälper det till att lära sig skillnaderna mellan en behörighet, en roll och ett omfång som definieras av RBAC.
+Säkerhets åtkomst bestäms av Azure-rollbaserad åtkomst kontroll (Azure RBAC). För att lära dig hur Access fungerar, hjälper det till att lära sig skillnaderna mellan en behörighet, en roll och ett omfång som definieras av Azure RBAC.
 
 - **Behörighet**: en behörighet är en definierad åtkomst till en viss åtgärd. Till exempel kan en behörighet ha Läs behörighet till alla virtuella datorer.
 - **Roll**: en roll är en uppsättning behörigheter som kan grupperas och tilldelas till en användare. Till exempel har en användare med rollen prenumerations ägare åtkomst till alla resurser i en prenumeration.
@@ -83,7 +83,7 @@ Du kan också skapa anpassade roller i DevTest Labs. Information om hur du skapa
 
 Eftersom omfattningar är hierarkiska, beviljas användaren automatiskt de behörigheter som finns på alla lågnivå omfattningar i omfånget när en användare har behörighet för ett visst omfång. Om en användare till exempel har tilldelats rollen som prenumerations ägare, har användaren åtkomst till alla resurser i en prenumeration. Dessa resurser omfattar virtuella datorer, virtuella nätverk och labb. En prenumerations ägare ärver automatiskt rollen som labb ägare. Motsatt är dock inte sant. En labb ägare har åtkomst till ett labb, vilket är ett lägre omfång än prenumerations nivån. En labb ägare kan därför inte se virtuella datorer, virtuella nätverk eller andra resurser som ligger utanför labbet.
 
-### <a name="how-do-i-define-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Hur gör jag för att definiera rollbaserad åtkomst kontroll för mina DevTest Labs-miljöer för att säkerställa att den kan styra medan utvecklare/test kan utföra sitt arbete?
+### <a name="how-do-i-define-azure-role-based-access-control-for-my-devtest-labs-environments-to-ensure-that-it-can-govern-while-developerstest-can-do-their-work"></a>Hur gör jag för att definierar du Azure rollbaserad åtkomst kontroll för mina DevTest Labs-miljöer för att säkerställa att den kan styra medan utvecklare/test kan utföra sitt arbete?
 Det finns ett brett mönster, men detaljerna beror på din organisation.
 
 Den centrala IT-avdelningen bör endast äga vad som är nödvändigt och göra det möjligt för projekt-och program team att ha den kontroll nivå som krävs. Det innebär vanligt vis att central IT äger prenumerationen och hanterar kärn IT-funktioner, till exempel nätverkskonfigurationer. Uppsättningen **ägare** för en prenumeration ska vara liten. Dessa ägare kan utse ytterligare ägare när det behövs eller tillämpa principer på prenumerations nivå, till exempel "ingen offentlig IP".
@@ -92,7 +92,7 @@ Det kan finnas en delmängd av användare som behöver åtkomst över en prenume
 
 DevTest Labs-resursen bör ägas av ägare som är nära projekt-/program gruppen. Det beror på att de förstår kraven för datorer och nödvändig program vara. I de flesta organisationer är ägaren av den här DevTest Labs-resursen ofta projekt-/utvecklings ledare. Den här ägaren kan hantera användare och principer i labb miljön och kan hantera alla virtuella datorer i DevTest Labs miljö.
 
-Projekt-/program grupp medlemmar ska läggas till i rollen **DevTest Labs-användare** . Dessa användare kan skapa virtuella datorer (i linje med principerna för labb och prenumerations nivå). De kan också hantera sina egna virtuella datorer. De kan inte hantera virtuella datorer som tillhör andra användare.
+Projekt-/program grupp medlemmar ska läggas till i **användar rollen DevTest Labs** . Dessa användare kan skapa virtuella datorer (i linje med principerna för labb och prenumerations nivå). De kan också hantera sina egna virtuella datorer. De kan inte hantera virtuella datorer som tillhör andra användare.
 
 Mer information finns i [Azure Enterprise-Autogenerera – dokumentation om preskripts styrning av prenumerationer](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 

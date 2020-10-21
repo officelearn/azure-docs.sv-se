@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 912b4966312d8925f70deeed99042d2701641f49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 587fe536e860f3039bfd3a2d2c1e3c76cb40e4d5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801519"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278463"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Självstudie: Bygg en .NET-konsol-app för att hantera data i Azure Cosmos DB SQL API-konto
 
@@ -45,7 +45,7 @@ Har du inte tid? Men oroa dig inte! Den kompletta lösningen finns på [GitHub](
 
 Nu sätter vi igång!
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett aktivt Azure-konto. Om du inte har ett kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
 
@@ -74,7 +74,7 @@ Nu ska vi skapa ett Azure Cosmos DB-konto. Hoppa över det här avsnittet om du 
 
    Paket-ID:t för Azure Cosmos DB-klientbiblioteket är [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
 
-Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Ett slutfört projekt av den här självstudien finns i [utveckla en .net-konsol program med hjälp av Azure Cosmos DB](https://github.com/Azure-Samples/cosmos-dotnet-getting-started).
+Toppen! Konfigurationen är slutförd, så vi kan börja skriva kod. Ett slutfört projekt av den här självstudien finns i [utveckla en .net-konsol program med hjälp av Azure Cosmos DB](https://github.com/Azure-Samples/cosmos-dotnet-getting-started).
 
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a><a id="Connect"></a>Steg 3: Ansluta till ett Azure Cosmos DB-konto
 
@@ -117,7 +117,7 @@ Bra! Konfigurationen är slutförd, så vi kan börja skriva kod. Ett slutfört 
     ```
 
    > [!NOTE]
-   > Om du är bekant med den tidigare versionen av .NET SDK kan du vara bekant med villkors *samlingen* och *dokumentet*. Eftersom Azure Cosmos DB stöder flera API-modeller, använder version 3,0 av .NET SDK de allmänna termerna *container* och *item*. En *behållare* kan vara en samling, Graf eller tabell. Ett *objekt* kan vara ett dokument, en kant/ett hörn eller en rad och är innehållet i en behållare. Mer information finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](databases-containers-items.md).
+   > Om du är bekant med den tidigare versionen av .NET SDK kan du vara bekant med villkors *samlingen* och *dokumentet*. Eftersom Azure Cosmos DB stöder flera API-modeller, använder version 3,0 av .NET SDK de allmänna termerna *container* och *item*. En *behållare* kan vara en samling, Graf eller tabell. Ett *objekt* kan vara ett dokument, en kant/ett hörn eller en rad och är innehållet i en behållare. Mer information finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](account-databases-containers-items.md).
 
 1. Öppna [Azure-portalen](https://portal.azure.com). Hitta ditt Azure Cosmos DB konto och välj sedan **nycklar**.
 
@@ -260,7 +260,7 @@ En databas är en logisk container med objekt som är partitionerade över conta
 1. Välj F5 för att köra programmet.
 
    > [!NOTE]
-   > Om du får fel meddelandet "503 Service Unavailable Exception" är det möjligt att de [portar](performance-tips.md#networking) som krävs för direkt anslutnings läge blockeras av en brand vägg. Du kan åtgärda det här problemet genom att antingen öppna de portar som krävs eller använda anslutnings tjänsten för gateway-läge som visas i följande kod:
+   > Om du får fel meddelandet "503 Service Unavailable Exception" är det möjligt att de [portar](sql-sdk-connection-modes.md#service-port-ranges) som krävs för direkt anslutnings läge blockeras av en brand vägg. Du kan åtgärda det här problemet genom att antingen öppna de portar som krävs eller använda anslutnings tjänsten för gateway-läge som visas i följande kod:
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

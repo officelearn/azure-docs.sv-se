@@ -4,12 +4,12 @@ description: Beskriver hur du distribuerar Azure Resource Manager-mallar med hj�
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: b5852a65b4ed3c7cc73352fed37eeff035f8563c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92106798"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282845"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuera Azure Resource Manager-mallar med GitHub-åtgärder
 
@@ -17,7 +17,7 @@ ms.locfileid: "92106798"
 
 Använd [åtgärden distribuera Azure Resource Manager mall](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) för att automatisera distributionen av en Resource Manager-mall till Azure. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Ett GitHub-konto. Om du inte har någon kan du registrera dig [kostnads fritt](https://github.com/join).  
@@ -40,13 +40,19 @@ Filen har två avsnitt:
 
 Du kan skapa ett [huvud namn för tjänsten](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) med kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) i [Azure CLI](/cli/azure/). Kör det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
 
+Skapa en resurs grupp om du inte redan har en. 
+
+```azurecli-interactive
+    az group create -n {MyResourceGroup}
+```
+
 Ersätt plats hållaren `myApp` med namnet på ditt program. 
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
+   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{MyResourceGroup} --sdk-auth
 ```
 
-I exemplet ovan ersätter du plats hållarna med ditt prenumerations-ID och resurs gruppens namn. Utdata är ett JSON-objekt med roll tilldelningens autentiseringsuppgifter som ger åtkomst till din App Service-app på liknande sätt som nedan. Kopiera det här JSON-objektet för senare.
+I exemplet ovan ersätter du plats hållarna med ditt prenumerations-ID och resurs gruppens namn. Utdata är ett JSON-objekt med roll tilldelningens autentiseringsuppgifter som ger åtkomst till din App Service-app på liknande sätt som nedan. Kopiera det här JSON-objektet för senare. Du behöver bara avsnitten med `clientId` `clientSecret` värdena,, `subscriptionId` och `tenantId` . 
 
 ```output 
   {
@@ -73,9 +79,9 @@ Du måste skapa hemligheter för dina Azure-autentiseringsuppgifter, resurs grup
 
 1. Klistra in hela JSON-utdata från Azure CLI-kommandot i fältet hemligt värde. Ge hemligheten namnet `AZURE_CREDENTIALS` .
 
-1. Skapa en annan hemlighet med namnet `AZURE_RG` . Lägg till namnet på din resurs grupp i fältet hemligt värde. 
+1. Skapa en annan hemlighet med namnet `AZURE_RG` . Lägg till namnet på din resurs grupp i fältet hemligt värde (exempel: `myResourceGroup` ). 
 
-1. Skapa ytterligare en hemlighet med namnet `AZURE_SUBSCRIPTION` . Lägg till ditt prenumerations-ID i fältet hemligt värde. 
+1. Skapa ytterligare en hemlighet med namnet `AZURE_SUBSCRIPTION` . Lägg till ditt prenumerations-ID i fältet hemligt värde (exempel: `90fd3f9d-4c61-432d-99ba-1273f236afa2` ). 
 
 ## <a name="add-resource-manager-template"></a>Lägg till Resource Manager-mall
 
@@ -114,17 +120,19 @@ Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten 
             creds: ${{ secrets.AZURE_CREDENTIALS }}
      
           # Deploy ARM template
-        - uses: azure/arm-deploy@v1
         - name: Run ARM deploy
+          uses: azure/arm-deploy@v1
           with:
             subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
             resourceGroupName: ${{ secrets.AZURE_RG }}
             template: ./azuredeploy.json
-            parameters: storageAccountType=Standard_LRS
+            parameters: storageAccountType=Standard_LRS 
         
           # output containerName variable from template
         - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
+    > [!NOTE]
+    > Du kan ange en parameter fil för JSON-format i stället i åtgärden ARM-distribution (exempel: `.azuredeploy.parameters.json` ).  
 
     Det första avsnittet i arbets flödes filen innehåller:
 

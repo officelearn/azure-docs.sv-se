@@ -3,12 +3,12 @@ title: Automatisera tillägg av en labb användare i Azure DevTest Labs | Micros
 description: Den här artikeln visar hur du automatiserar hur du lägger till en användare i ett labb i Azure DevTest Labs att använda Azure Resource Manager mallar, PowerShell och CLI.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b016d6edcb75016302cf652f873881008de18abb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61853efacc5974b81d46b2b8cca0f2796672d72d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483830"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327968"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatisera tillägg av en labb användare i ett labb i Azure DevTest Labs
 Azure DevTest Labs gör att du snabbt kan skapa självbetjänings utvecklings-och test miljöer med hjälp av Azure Portal. Men om du har flera team och flera DevTest Labs-instanser kan du spara tid genom att automatisera skapandet av processen. Med [Azure Resource Manager mallar](https://github.com/Azure/azure-devtestlab/tree/master/Environments) kan du skapa labb, virtuella labb datorer, anpassade bilder, formler och lägga till användare på ett automatiserat sätt. Den här artikeln fokuserar särskilt på att lägga till användare till en DevTest Labs-instans.
@@ -179,7 +179,7 @@ New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinition
 För att ange den resurs som behörigheter beviljas till kan anges med en kombination av `ResourceName` , `ResourceType` `ResourceGroup` eller av `scope` parametern. Oavsett vilken kombination av parametrar som används, ger du tillräckligt med information till cmdleten för att unikt identifiera Active Directory-objektet (användare, grupp eller tjänstens huvud namn), omfång (resurs grupp eller resurs) och roll definition.
 
 ## <a name="use-azure-command-line-interface-cli"></a>Använda kommando rads gränssnittet i Azure (CLI)
-I Azure CLI gör du det genom att lägga till en labb användare i ett labb med hjälp av `az role assignment create` kommandot. Mer information om Azure CLI-cmdlets finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md).
+I Azure CLI gör du det genom att lägga till en labb användare i ett labb med hjälp av `az role assignment create` kommandot. Mer information om Azure CLI-cmdlets finns i [lägga till eller ta bort Azure Role-tilldelningar med hjälp av Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 Objektet som beviljas åtkomst kan anges av `objectId` `signInName` parametrarna,, `spn` . Labbet som objektet beviljas åtkomst till kan identifieras av `scope` URL: en eller en kombination av `resource-name` `resource-type` parametrarna, och `resource-group` .
 

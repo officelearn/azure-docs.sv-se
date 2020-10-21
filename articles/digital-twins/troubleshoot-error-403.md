@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: 86fd6a5d7ca1cb9c828a4ad095720f1664b82caa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201451"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331506"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Tjänstbegäran misslyckades. Status: 403 (ej tillåtet)
 
@@ -25,7 +25,7 @@ Det här felet kan inträffa på många typer av tjänst begär Anden som kräve
 
 ### <a name="cause-1"></a>Orsak #1
 
-Oftast anger det här felet att RBAC-behörighet (rollbaserad åtkomst kontroll) för tjänsten inte har ställts in korrekt. Många åtgärder för en digital Azure Digital-instans kräver att du har rollen *Azure Digitals-ägare (förhands granskning)* **på den instans som du försöker hantera**. 
+Oftast indikerar det här felet att din Azure-rollbaserade åtkomst kontroll (Azure RBAC)-behörigheter för tjänsten inte har ställts in korrekt. Många åtgärder för en digital Azure Digital-instans kräver att du har rollen *Azure Digitals-ägare (förhands granskning)* **på den instans som du försöker hantera**. 
 
 ### <a name="cause-2"></a>Orsak #2
 

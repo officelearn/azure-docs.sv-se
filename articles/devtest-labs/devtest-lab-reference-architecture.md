@@ -4,12 +4,12 @@ description: Den här artikeln innehåller rikt linjer för referens arkitektur 
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 7b9652009a4e3c7bfdea029f204429a86562a552
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 29f739c2fb9dd1cc58bf6c400eeee1bebb6243c2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144557"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328852"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Azure DevTest Labs referens arkitektur för företag
 Den här artikeln innehåller en referens arkitektur som hjälper dig att distribuera en lösning som baseras på Azure DevTest Labs i ett företag. Den innehåller följande:
@@ -24,7 +24,7 @@ Den här artikeln innehåller en referens arkitektur som hjälper dig att distri
 Dessa är viktiga element i referens arkitekturen:
 
 - **Azure Active Directory (Azure AD)**: DevTest Labs använder [Azure AD-tjänsten för identitets hantering](../active-directory/fundamentals/active-directory-whatis.md). Tänk på följande två viktiga aspekter när du ger användarna åtkomst till en miljö baserat på DevTest Labs:
-    - **Resurs hantering**: den ger till gång till Azure Portal för att hantera resurser (skapa virtuella datorer, skapa miljöer, starta, stoppa, starta om, ta bort och tillämpa artefakter osv.). Resurs hantering görs i Azure med hjälp av rollbaserad åtkomst kontroll (RBAC). Du tilldelar roller till användare och anger behörigheter för resurs-och åtkomst nivå.
+    - **Resurs hantering**: den ger till gång till Azure Portal för att hantera resurser (skapa virtuella datorer, skapa miljöer, starta, stoppa, starta om, ta bort och tillämpa artefakter osv.). Resurs hantering görs med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Du tilldelar roller till användare och anger behörigheter för resurs-och åtkomst nivå.
     - **Virtuella datorer (nätverks nivå)**: i standard konfigurationen använder virtuella datorer ett lokalt administratörs konto. Om det finns en tillgänglig domän ([Azure AD Domain Services](../active-directory-domain-services/overview.md), en lokal domän eller en molnbaserad domän) kan datorer anslutas till domänen. Användarna kan sedan använda sina domänbaserade identiteter för att ansluta till de virtuella datorerna.
 - **Lokal anslutning**: i vårt arkitektur diagram används [ExpressRoute](../expressroute/expressroute-introduction.md) . Men du kan också använda en [VPN för plats-till-plats](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md). Även om ExpressRoute inte krävs för DevTest Labs, används det ofta i företag. ExpressRoute krävs endast om du behöver åtkomst till företags resurser. Vanliga scenarier är:
     - Du har lokala data som inte kan flyttas till molnet.

@@ -5,12 +5,12 @@ services: service-fabric
 documentationcenter: .net
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 7446a221d266230b319c808a88ef4fac05e6fff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c5e6fe92ce5ac118de204e43eb443b4aab3b698
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843319"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320512"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Översikt över Service Fabric kluster i Azure
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en klusternod. Kluster kan skalas till tusentals noder. Om du lägger till nya noder i klustret, Service Fabric balanseringen av tjänste partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod.
@@ -78,7 +78,7 @@ Mer information finns i [Service Fabric Role-Based Access Control (RBAC)](servic
 ### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper 
 Nätverks säkerhets grupper (NSG: er) kontrollerar inkommande och utgående trafik för ett undernät, en virtuell dator eller ett särskilt nätverkskort.  När flera virtuella datorer placeras i samma virtuella nätverk kan de kommunicera med varandra via vilken port som helst.  Om du vill begränsa kommunikationen mellan datorerna kan du definiera NSG: er för att segmentera nätverket eller isolera virtuella datorer från varandra.  Om du har flera nodtyper i ett kluster kan du tillämpa NSG: er på undernät för att förhindra att datorer som tillhör olika nodtyper från att kommunicera med varandra.  
 
-Mer information finns i om [säkerhets grupper](../virtual-network/security-overview.md)
+Mer information finns i om [säkerhets grupper](../virtual-network/network-security-groups-overview.md)
 
 ## <a name="scaling"></a>Skalning
 

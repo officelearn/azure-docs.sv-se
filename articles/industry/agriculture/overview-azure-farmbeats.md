@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12bb0b0098b5108bf780b88fc42b86861ea6fcdc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d9882f23096e19435566323de4d0ebaf7c0af3ef
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87439555"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331931"
 ---
 # <a name="overview-of-azure-farmbeats-preview"></a>Översikt över Azure-FarmBeats (för hands version)
 
@@ -43,7 +43,7 @@ Datahub är utformad som en utöknings bar API-plattform. Vi arbetar med många 
 
 Azure FarmBeats Accelerator är ett exempel på ett webb program som bygger på Datahub. Accelerator hopp – startar ditt användar gränssnitt och din modell utveckling. Azure FarmBeats-acceleratorn använder Azure FarmBeats-API: er. Den visualiserar inmatade sensor data som diagram och modellens utdata som Maps. Du kan till exempel använda acceleratorn för att skapa en Server grupp snabbt och få en vegetations index karta eller en sensor placerings karta för det Server gruppen enkelt.
 
-## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
+## <a name="azure-role-based-access-control-azure-rbac"></a>Azure RBAC (rollbaserad åtkomstkontroll)
 
 En administratör kan definiera åtkomst regler för Azure-FarmBeats med hjälp av en av de fördefinierade rollerna. Roller avgör vilka delar av programmet som en användare har åtkomst till och vilka åtgärder de kan utföra. Det finns två typer av roller i Azure-FarmBeats – för användare och för partner.
 
@@ -58,8 +58,8 @@ En administratör kan lägga till flera partner som data leverantörer i Azure F
 | Partner typ    |   Åtgärder  | Omfång |
 | ---- | -------- | -------- |
 | Sensor partner  |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera | DeviceModel, enhet, SensorModel, sensor <br/> <br/> ExtendedType |
-| Bilder-partner  |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera <br/> <br/> Läsa | Scen, SceneFile <br/> <br/> ExtendedType <br/> <br/> Anläggningen |
-| Väder partner * <br/> <br/>  (* Kommer snart) |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera <br/> <br/> Läsa | WeatherDataModel, WeatherDataLocation, JobType <br/> <br/> ExtendedType <br/> <br/> Anläggningen |
+| Bilder-partner  |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera <br/> <br/> Läs | Scen, SceneFile <br/> <br/> ExtendedType <br/> <br/> Anläggningen |
+| Väder partner * <br/> <br/>  (* Kommer snart) |   Skapa, läsa, uppdatera <br/> <br/> Läsa, uppdatera <br/> <br/> Läs | WeatherDataModel, WeatherDataLocation, JobType <br/> <br/> ExtendedType <br/> <br/> Anläggningen |
 
 ## <a name="resources"></a>Resurser
 

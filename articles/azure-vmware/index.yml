@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: dikamath
   ms.author: dikamath
-  ms.date: 09/21/2020
-  ms.openlocfilehash: 197cf8ca3f819a83d13869a43c3685bba916ce4f
-  ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+  ms.date: 10/19/2020
+  ms.openlocfilehash: 31b3ad9c33ffd07b62067de3aa46333608522f97
+  ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/12/2020
-  ms.locfileid: "91949113"
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92172135"
 landingContent:
 - title: Om Azure VMware Solution
   linkLists:
@@ -36,14 +36,12 @@ landingContent:
       url: concepts-role-based-access-control.md
     - text: Uppgraderingar för privata moln
       url: concepts-upgrades.md
-- title: Distribuera Azure VMware Solution
+- title: Kom igång
   linkLists:
-  - linkListType: get-started
+  - linkListType: deploy
     links:
-    - text: Fördistributionsprocess
+    - text: Planera distributionen
       url: production-ready-deployment-steps.md
-    - text: Checklista före distribution
-      url: pre-deployment-checklist.md
     - text: 1 – Distribuera Azure VMware Solution
       url: deploy-azure-vmware-solution.md
     - text: 2 – Ansluta till lokal miljö
@@ -64,14 +62,16 @@ landingContent:
       url: tutorial-nsx-t-network-segment.md
     - text: Lokal peer till privat moln
       url: tutorial-expressroute-global-reach-private-cloud.md
-    - text: Distribuera och konfigurera VMware HCX
-      url: tutorial-deploy-vmware-hcx.md
     - text: Skala ett privat moln
       url: tutorial-scale-private-cloud.md
 - title: Utöka Azure VMware Solution
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Aktivera Azure VMware Solution
+      url: enable-azure-vmware-solution.md
+    - text: Spara kostnader med en reserverad instans
+      url: reserved-instance.md
     - text: Migreringsutvärdering
       url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - text: Hantera DHCP
@@ -80,5 +80,49 @@ landingContent:
       url: disaster-recovery-for-virtual-machines.md
     - text: Distribuera virtuell dator via innehållsbibliotek
       url: ./deploy-vm-content-library.md
-    - text: Använda funktioner för offentlig IP
+    - text: Konfigurera GitHub Enterprise-server
+      url: github-enterprise-server.md
+    - text: Användning av offentlig IP
       url: public-ip-usage.md
+    - text: Skapa en IPSec-tunnel
+      url: create-ipsec-tunnel.md
+- title: Inbyggd Azure-integrering
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: API Management
+      url: concepts-api-management.md
+    - text: Nav och ekrar
+      url: concepts-hub-and-spoke.md
+    - text: Azure Backup Server
+      url: set-up-backup-server-for-azure-vmware-solution.md
+    - text: Livcykelhantering på virtuella datorer
+      url: lifecycle-management-of-azure-vmware-solution-vms.md
+    - text: Application Gateway
+      url: protect-azure-vmware-solution-with-application-gateway.md
+    - text: Traffic Manager
+      url: deploy-traffic-manager-balance-workloads.md
+- title: VMware-lösningar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera vRealize Operations
+      url: vrealize-operations-for-azure-vmware-solution.md
+    - text: Distribuera VMware Horizon
+      url: azure-vmware-solution-horizon.md
+- title: VMware-ekosystem
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Säkerhetskopieringslösningar för virtuella datorer
+      url: ecosystem-back-up-vms.md
+- title: Resurser
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.vmware
+    - text: Få hjälp med distribution och etableringsfel
+      url: fix-deployment-provisioning-failures.md
+    - text: VANLIGA FRÅGOR OCH SVAR
+      url: faq.md

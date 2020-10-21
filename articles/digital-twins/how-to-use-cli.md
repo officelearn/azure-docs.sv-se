@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 118e137f06a49f2c125b1ca156877514d65af86f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 34afc732d64a7aa29261989cc790c8a113208d96
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047071"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331778"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Använda Azure Digital Twins CLI
 
@@ -23,7 +23,7 @@ Förutom att hantera Azure Digitals-instansen i Azure Portal, har Azure Digitals
 * Hantera dubbla relationer
 * Konfigurera slut punkter
 * Hantera [vägar](concepts-route-events.md)
-* Konfigurera [säkerhet](concepts-security.md) via rollbaserad åtkomst kontroll (RBAC)
+* Konfigurera [säkerhet](concepts-security.md) via rollbaserad åtkomst kontroll i Azure (Azure RBAC)
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.openlocfilehash: 1de9fc480c753b2497a1ea4e3438583b3582bc96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595bf6f921265e9e8dbc0e0e065fe835efea14bc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072793"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331659"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – motivation och fördelar
 
@@ -39,11 +39,11 @@ Azure HDInsight är en moln distribution av Hadoop-komponenter. Med Azure HDInsi
 
 - **Hanterad maskin vara och konfiguration** – du behöver inte bekymra dig om den fysiska maskin varan eller infrastrukturen med ett HDInsight-kluster. Ange bara konfigurationen för klustret så konfigurerar Azure det.
 
-- **Enkelt skalbara** – HDInsight gör att du kan [skala](../hdinsight-administer-use-portal-linux.md) upp eller ned arbets belastningar. Azure tar hand om data omdistribution och ombalansering av arbets belastning utan att avbryta data bearbetnings jobb.
+- **Enkelt skalbara** – HDInsight gör att du kan [skala](../hdinsight-administer-use-portal-linux.md) upp eller ned arbets belastningar. Azure tar hand om data omdistribution och ombalansering av arbets belastning utan att avbryta data bearbetnings jobb.
 
 - **Global tillgänglighet** – HDInsight är tillgängligt i fler [regioner](https://azure.microsoft.com/regions/services/) än något annat erbjudande för stor data analys. Azure HDInsight är också tillgängligt i Azure Government, Kina och Tyskland så att du kan uppfylla företagets behov i viktiga områden.
 
-- **Säkert och kompatibelt** – HDInsight gör att du kan skydda företagets data till gångar med [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [kryptering](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)och integrering med [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight uppfyller även de mest populära bransch-och myndighets [normerna för efterlevnad](https://azure.microsoft.com/overview/trusted-cloud).
+- **Säkert och kompatibelt** – HDInsight gör att du kan skydda företagets data till gångar med [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [kryptering](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md)och integrering med [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight uppfyller också de vanligaste [efterlevnadskraven](https://azure.microsoft.com/overview/trusted-cloud) för olika branscher och myndigheter.
 
 - **Förenklad versions hantering** – Azure HDInsight hanterar versionen av Hadoop-miljö-system komponenter och håller dem uppdaterad. Program uppdateringar är vanligt vis en komplex process för lokala distributioner.
 
@@ -51,9 +51,9 @@ Azure HDInsight är en moln distribution av Hadoop-komponenter. Med Azure HDInsi
 
 - **Produktivitet** – du kan använda olika verktyg för Hadoop och spark i din önskade utvecklings miljö.
 
-- **Utöknings barhet med anpassade verktyg eller program från tredje part** – HDInsight-kluster kan utökas med installerade komponenter och kan också integreras med de andra Big data-lösningarna genom att använda distributioner med [en enda klickning](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)   från Azures marknads plats.
+- **Utöknings barhet med anpassade verktyg eller program från tredje part** – HDInsight-kluster kan utökas med installerade komponenter och kan också integreras med de andra Big data-lösningarna genom att använda distributioner med [en enda klickning](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) från Azures marknads plats.
 
-- **Enkel hantering, administration och övervakning** – Azure HDInsight integreras med [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md)   för att tillhandahålla ett enda gränssnitt som du kan använda för att övervaka alla dina kluster.
+- **Enkel hantering, administration och övervakning** – Azure HDInsight integreras med [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) för att tillhandahålla ett enda gränssnitt som du kan använda för att övervaka alla dina kluster.
 
 - **Integrering med andra Azure-tjänster** – HDInsight kan enkelt integreras med andra populära Azure-tjänster, till exempel följande:
 
@@ -183,9 +183,9 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Antal AD-användare som ska synkroniseras?|          100||
 |OK för att synkronisera lösen ord till molnet?|    Ja||
 |Endast moln användare?|                 Ja||
-|MFA krävs?|                       Inga|| 
+|MFA krävs?|                       Nej|| 
 |Krav för data auktorisation?|  Ja||
-|Role-Based Access Control?|        Ja||
+|Rollbaserad åtkomst kontroll?|        Ja||
 |Krävs granskning?|                  Ja||
 |Data kryptering i vila?|          Ja||
 |Data kryptering under överföring?|       Ja||

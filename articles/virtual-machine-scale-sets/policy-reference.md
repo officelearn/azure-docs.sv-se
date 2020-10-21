@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för skalnings uppsättningar för virtuella Azure-datorer
 description: Visar Azure Policy inbyggda princip definitioner för skalnings uppsättningar för virtuella Azure-datorer. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.openlocfilehash: c4ffc0fac896d7446c90c1711f8516c13dce4df7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6345b95b8fb7606f6ac5f1781961e14a5f3a924
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91817483"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330350"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Azure Policy inbyggda definitioner för skalnings uppsättningar för virtuella Azure-datorer
 

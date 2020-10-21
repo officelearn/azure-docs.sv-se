@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0126c5348a2acaebea0400a94ca0a1d14a1bf6ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707551"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318199"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Skapa ett nytt Access-paket i hantering av Azure AD-berättigande
 
@@ -135,11 +135,11 @@ På fliken **Granska + skapa** kan du granska dina inställningar och kontrol le
 
 Du kan också skapa ett Access-paket med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa API: et för att
 
-1. [Visa en lista över accessPackageResources i katalogen](https://docs.microsoft.com/graph/api/accesspackagecatalog-list?view=graph-rest-beta&tabs=http) och [skapa en accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&tabs=http) för alla resurser som ännu inte finns i katalogen.
-1. [Ange accessPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackage-list-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) för varje accessPackageResource i en accessPackageCatalog. Den här listan över roller används sedan för att välja en roll när du sedan skapar en accessPackageResourceRoleScope.
-1. [Skapa en accessPackage](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
-1. [Skapa en accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta&tabs=http).
-1. [Skapa en accessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) för varje resurs roll som behövs i åtkomst paketet.
+1. [Visa en lista över accessPackageResources i katalogen](/graph/api/accesspackagecatalog-list?tabs=http&view=graph-rest-beta) och [skapa en accessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?tabs=http&view=graph-rest-beta) för alla resurser som ännu inte finns i katalogen.
+1. [Ange accessPackageResourceRoles](/graph/api/accesspackage-list-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) för varje accessPackageResource i en accessPackageCatalog. Den här listan över roller används sedan för att välja en roll när du sedan skapar en accessPackageResourceRoleScope.
+1. [Skapa en accessPackage](/graph/tutorial-access-package-api?view=graph-rest-beta).
+1. [Skapa en accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta).
+1. [Skapa en accessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) för varje resurs roll som behövs i åtkomst paketet.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 166e365a4ead8ad6d0f7e543c081161ebff5f027
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362622"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330469"
 ---
 # <a name="elastic-database-tools-glossary"></a>Ord lista för Elastic Database tools
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -41,7 +41,7 @@ Dessa villkor används när du [lägger till en Shard med hjälp av Elastic Data
 
 **Flera innehavare** och en **enda klient**: här visas en databas för en enda klient och en databas för flera klienter:
 
-![Databaser med en och flera klienter](./media/elastic-scale-glossary/multi-single-simple.png)
+![Skärm bild som visar en databas för en enskild klient och en databas för flera innehavare.](./media/elastic-scale-glossary/multi-single-simple.png)
 
 Här är en representation av **shardade** -databaser med en och flera innehavare. 
 

@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d33811dc056baa3d205d7d86c1bdd7bff74ae54
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574287"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330010"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>IoT Plug and Play-komponenter i modeller
 
@@ -69,7 +69,7 @@ Modell-ID: t lagras i en enhets dubbla-egenskap som följande skärm bild visar:
 En DTDL-modell utan komponenter är en användbar förenkling för en enhet eller IoT Edge modul med en enda uppsättning telemetri, egenskaper och kommandon. En modell som inte använder komponenter gör det enkelt att migrera en befintlig enhet eller modul till en IoT Plug and Play enhet eller modul – du skapar en DTDL-modell som beskriver din faktiska enhet eller modul utan att behöva definiera några komponenter.
 
 > [!TIP]
-> En modul kan vara en enhet [modul] (.. /IoT-Hub/IoT-Hub-DevGuide-module-Twins.MD eller en [IoT Edge-modul](../iot-edge/about-iot-edge.md).
+> En modul kan vara en enhets [modul](../iot-hub/iot-hub-devguide-module-twins.md) eller en [IoT Edge-modul](../iot-edge/about-iot-edge.md).
 
 ## <a name="multiple-components"></a>Flera komponenter
 

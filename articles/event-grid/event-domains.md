@@ -3,12 +3,12 @@ title: Händelse domäner i Azure Event Grid
 description: Den här artikeln beskriver hur du använder händelse domäner för att hantera flödet av anpassade händelser till olika affärs organisationer, kunder eller program.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 02529ba770e636021cf9cec4ed555247e1c63d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b313784cd006087f3c2f1354053540cc9224782
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86114371"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328835"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Förstå händelse domäner för att hantera Event Grid ämnen
 
@@ -37,13 +37,13 @@ Du får också en enda slut punkt, som du kan publicera alla kund händelser til
 
 ## <a name="access-management"></a>Åtkomsthantering
 
-Med en domän får du detaljerad auktorisering och verifierings kontroll över varje ämne via Azures rollbaserad åtkomst kontroll (RBAC). Du kan använda dessa roller för att begränsa varje klient i ditt program till endast de ämnen som du vill ge dem åtkomst till.
+Med en domän får du detaljerad auktorisering och verifierings kontroll över varje ämne via rollbaserad åtkomst kontroll i Azure (Azure RBAC). Du kan använda dessa roller för att begränsa varje klient i ditt program till endast de ämnen som du vill ge dem åtkomst till.
 
-RBAC i händelse domäner fungerar på samma sätt som [hanterad åtkomst kontroll](security-authorization.md) fungerar i resten av event Grid och Azure. Använd RBAC för att skapa och tillämpa anpassade roll definitioner i händelse domäner.
+Azure RBAC i händelse domäner fungerar på samma sätt som [hanterad åtkomst kontroll](security-authorization.md) fungerar i resten av event Grid och Azure. Använd Azure RBAC för att skapa och genomdriva anpassade roll definitioner i händelse domäner.
 
 ### <a name="built-in-roles"></a>Inbyggda roller
 
-Event Grid har två inbyggda roll definitioner som gör det enklare för RBAC att arbeta med händelse domäner. De här rollerna är **EventGrid EventSubscription Contributor (för hands version)** och **EventGrid EventSubscription Reader (för hands version)**. Du tilldelar dessa roller till användare som behöver prenumerera på ämnen i din händelse domän. Du omfångerar roll tilldelningen till endast det ämne som användarna behöver för att prenumerera på.
+Event Grid har två inbyggda roll definitioner som gör det enklare för Azure RBAC att arbeta med händelse domäner. De här rollerna är **EventGrid EventSubscription Contributor (för hands version)** och **EventGrid EventSubscription Reader (för hands version)**. Du tilldelar dessa roller till användare som behöver prenumerera på ämnen i din händelse domän. Du omfångerar roll tilldelningen till endast det ämne som användarna behöver för att prenumerera på.
 
 Information om dessa roller finns i [inbyggda roller för Event Grid](security-authorization.md#built-in-roles).
 

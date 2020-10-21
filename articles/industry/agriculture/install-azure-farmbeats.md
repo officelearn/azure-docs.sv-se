@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2535c05241c076e08f8f0f2ba9e2301fb353723e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79479567"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330486"
 ---
 # <a name="install-azure-farmbeats"></a>Installera Azure FarmBeats
 
@@ -87,7 +87,7 @@ De första två behörigheterna krävs för att [skapa AAD](#create-an-aad-appli
 
 Den person som kör FarmBeats-installationen från Marketplace måste vara ägare till resurs gruppen där FarmBeats installeras. För prenumerations ägare sker detta automatiskt när resurs gruppen skapas. För andra måste du i förväg skapa resurs gruppen och be prenumerations ägaren att bli ägare till resurs gruppen.
 
-Du kan kontrol lera åtkomst behörigheterna i Azure Portal genom att följa anvisningarna i [rollbaserad åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/check-access).
+Du kan kontrol lera åtkomst behörigheterna i Azure Portal genom att följa anvisningarna i [rollbaserad åtkomst kontroll i Azure](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
 ### <a name="decide-subscription-and-region"></a>Bestäm prenumeration och region
 
@@ -172,7 +172,7 @@ När installationen är klar kan du verifiera installationen och börja använda
 
 **Datahub** finns på https:// \<FarmBeats-website-name> -API.azurewebsites.net/Swagger. Här visas de olika FarmBeats API-objekten och utför REST-åtgärder på API: erna.
 
-## <a name="upgrade"></a>Uppgradera
+## <a name="upgrade"></a>Upgrade
 
 Om du vill uppgradera FarmBeats till den senaste versionen kör du följande steg i en Cloud Shell instans med hjälp av PowerShell-miljön. Användaren måste vara ägare till den prenumeration där FarmBeats är installerad.
 

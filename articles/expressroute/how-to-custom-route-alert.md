@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: b812a727a555f8c4c95389f2ba0cc5ccea2f608a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b1b93110c3dba38dadf7079fc24ba12e81793c02
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205567"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329857"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurera anpassade aviseringar för att övervaka annonserade vägar
 
@@ -58,7 +58,7 @@ När du skapar ett Automation-konto i Azure Portal skapas ett [Kör som](../auto
 
 * Skapar ett tjänst objekts konto för programmet i Azure AD.
 
-* Tilldelar sig själv deltagar rollen (RBAC) för den Azure-prenumeration som används. Den här rollen hanterar Azure Resource Manager-resurser med hjälp av Runbooks.
+* Tilldelar sig själv deltagar rollen (Azure RBAC) på den Azure-prenumeration som används. Den här rollen hanterar Azure Resource Manager-resurser med hjälp av Runbooks.
 
 För att kunna skapa ett Automation-konto måste du ha behörigheter och behörigheter. Mer information finns i [behörigheter som krävs för att skapa ett Automation-konto](../automation/automation-create-standalone-account.md#permissions-required-to-create-an-automation-account).
 

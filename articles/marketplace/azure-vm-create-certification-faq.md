@@ -7,14 +7,14 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: ee7a7101740e88d55d77f769263ab03a86b878d4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 14360ab7668248f39c8ad0916eb964ffe11f7959
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284921"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331302"
 ---
-# <a name="vm-certification-troubleshooting"></a>Fel sökning av VM-certifiering
+# <a name="vm-certification-troubleshooting"></a>Felsökning av VM-certifiering
 
 När du publicerar avbildningen av den virtuella datorn (VM) till Azure Marketplace, verifierar Azure-teamet om det för att säkerställa dess start säkerhet, säkerhet och Azure-kompatibilitet. Om något av testerna med hög kvalitet Miss klar Miss klar, kommer publiceringen att Miss läge och du får ett fel meddelande som beskriver problemet.
 
@@ -410,7 +410,7 @@ För att slutföra de här stegen måste du förbereda de tekniska till gångarn
 5. På fliken **teknisk konfiguration** , under **VM-avbildningar** , väljer du **+ Lägg till avbildning av virtuell dator**.
 
 > [!NOTE]
-> Du kan bara lägga till en avbildning av en virtuell dator till en plan i taget. Om du vill lägga till flera VM-avbildningar publicerar du den första och väntar tills den når utgivarens signerings fas och lägger sedan till nästa avbildning av virtuella datorer.
+> Du kan bara lägga till en avbildning av en virtuell dator till en plan i taget. Om du vill lägga till flera VM-avbildningar publicerar du den första Live-avbildningen innan du lägger till nästa avbildning av virtuella datorer.
 
 6. I rutorna som visas anger du en ny disk version och avbildningen av den virtuella datorn.
 7. Välj **Spara utkast**.
@@ -439,6 +439,6 @@ Information om hur du slutför publicerings processen finns i [Granska och publi
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera egenskaper för virtuellt dator erbjudande](azure-vm-create-properties.md)
+- [Konfigurera egenskaper för VM-erbjudande](azure-vm-create-properties.md)
 - [Aktiva marknads förmåner](partner-center-portal/marketplace-rewards.md)
 - Kontakta [supporten](https://aka.ms/marketplacepublishersupport)för partner Center om du har frågor eller feedback om förbättringar.

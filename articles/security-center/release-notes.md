@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a93ba674e82da090eb2b7c8805880f6e79d7e5d7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 565282b2da5383c1d3471337f64588f97157a79c
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280220"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328682"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -172,7 +172,6 @@ Uppdateringar i september omfattar:
 - [Undanta en resurs från en rekommendation](#exempt-a-resource-from-a-recommendation)
 - [AWS-och GCP-anslutningar i Security Center ta en upplevelse i flera moln](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
 - [Paket för Kubernetes-skydds rekommendation](#kubernetes-workload-protection-recommendation-bundle)
-- [Förbättringar av IoT Threat Protection i Azure Defender för IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Rön om sårbarhets bedömning är nu tillgängliga i löpande export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Förhindra felaktig säkerhet genom att tvinga rekommendationer när du skapar nya resurser](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Bättre rekommendationer för nätverks säkerhets grupp](#network-security-group-recommendations-improved)
@@ -201,7 +200,6 @@ När du aktiverar Azure Defender från avsnittet **priser och inställningar** i
 - [Azure Defender för App Service](defender-for-app-service-introduction.md)
 - [Azure Defender för Storage](defender-for-storage-introduction.md)
 - [Azure Defender för SQL](defender-for-sql-introduction.md)
-- [Azure Defender för IoT](defender-for-iot-introduction.md)
 - [Azure Defender för Key Vault](defender-for-key-vault-introduction.md)
 - [Azure Defender för Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender för containerregister](defender-for-container-registries-introduction.md)
@@ -293,13 +291,6 @@ När du har installerat Azure Policy-tillägget för Kubernetes i ditt AKS-klust
 Du kan till exempel bestämma att privilegierade behållare inte ska skapas och eventuella framtida förfrågningar om detta kommer att blockeras.
 
 Läs mer i [metod tips för arbets belastnings skydd med Kubernetes-åtkomstkontroll](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
-
-
-### <a name="iot-threat-protection-enhancements-in-azure-defender-for-iot"></a>Förbättringar av IoT Threat Protection i Azure Defender för IoT
-
-Azure Defender för IoT ger fler hot skydds funktioner tack vare att CyberX agent lös teknik ingår. Detta ger säkerhets skydd för ohanterade brownfield-enheter som används i miljöer med drift teknik, till exempel tillverkning, byggnads hanterings system (BMS), bio vetenskap, energi-och vatten verktyg, olje & gas och logistik.
-
-Läs mer i [Introduktion till Azure Defender för IoT](defender-for-iot-introduction.md).
 
 
 ### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>Rön om sårbarhets bedömning är nu tillgängliga i löpande export

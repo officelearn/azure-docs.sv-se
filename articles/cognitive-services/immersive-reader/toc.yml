@@ -40,6 +40,8 @@
       href: reference.md
 - name: Resurser
   items:
+    - name: Alternativ för support och hjälp
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/immersive-reader/context/context
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Stöd för språk

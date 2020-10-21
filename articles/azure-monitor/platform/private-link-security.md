@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 0c7838b291ca5ba1747b08d7e8fcc6d17cc35f7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eac64eff8c87046fd1ce76ee71475fda79ac6f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802233"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329261"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Använd Azure Private Link för att ansluta nätverk till Azure Monitor på ett säkert sätt
 
@@ -41,6 +41,9 @@ Azure Monitor privat länk omfång är en grupperings resurs för att ansluta en
 ## <a name="planning-based-on-your-network"></a>Planera baserat på ditt nätverk
 
 Innan du konfigurerar dina AMPLS-resurser bör du ta hänsyn till kraven på nätverks isolering. Utvärdera dina virtuella nätverks åtkomst till offentligt Internet och åtkomst begränsningarna för var och en av dina Azure Monitor resurser (det vill säga Application Insights komponenter och Log Analytics arbets ytor).
+
+> [!NOTE]
+> NAV-och-eker-nätverk, eller någon annan topologi av peer-baserade nätverk, kan konfigurera en privat länk mellan hubben (huvud-VNet) och relevanta Azure Monitor resurser, i stället för att skapa en privat länk på varje VNet. Detta är särskilt användbart om Azure Monitor resurser som används av dessa nätverk delas. Men om du vill tillåta varje VNet att få åtkomst till en separat uppsättning övervaknings resurser skapar du en privat länk till en dedikerad AMPLS för varje nätverk.
 
 ### <a name="evaluate-which-virtual-networks-should-connect-to-a-private-link"></a>Utvärdera vilka virtuella nätverk som ska anslutas till en privat länk
 

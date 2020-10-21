@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: sample
 ms.workload: identity
-ms.date: 06/01/2020
+ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 948eea168b071813cf20e03d3a0744a824fd4c8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4327d8426a5dc1668993efd418c3f21624d407d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773900"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327662"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Kod exempel för Microsoft Identity Platform (v 2.0-slut punkt)
 
@@ -27,9 +27,6 @@ Du kan använda Microsoft Identity Platform för att:
 - Kräv en åtkomsttoken för att få åtkomst till ett skyddat webb-API.
 
 Den här artikeln beskriver och tillhandahåller länkar till exempel för Microsoft Identity Platform-slutpunkten. De här exemplen visar hur det är färdigt och innehåller även kodfragment som du kan använda i dina program. På sidan kod exempel hittar du detaljerade README-avsnitt som hjälper dig med krav, installation och konfiguration. Kommentarer i koden hjälper dig att förstå de kritiska avsnitten.
-
-> [!NOTE]
-> Om du är intresse rad av v 1.0-exempel kan du se [kod exempel för Azure AD (v 1.0-slutpunkt)](../azuread-dev/sample-v1-code.md).
 
 Information om det grundläggande scenariot för varje exempel typ finns i [app types för Microsoft Identity Platform-slutpunkten](v2-app-types.md).
 
@@ -142,5 +139,4 @@ Mer information om [exempel](https://github.com/microsoftgraph/msgraph-community
 
 ## <a name="see-also"></a>Se även
 
-- [Guide för Azure Active Directory (v 1.0)-utvecklare](../azuread-dev/v1-overview.md)
-- [Microsoft Graph API-konceptuell och referens](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Microsoft Graph API-konceptuell och referens](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)

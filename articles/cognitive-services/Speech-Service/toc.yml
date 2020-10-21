@@ -229,6 +229,8 @@
   items:
     - name: Dokumentation om avsiktsigenkänning
       href: index-intent-recognition.yml
+    - name: Översikt av avsiktsigenkänning
+      href: intent-recognition.md
     - name: Snabbstart för avsiktsigenkänning
       href: quickstarts/intent-recognition.md
     - name: Anvisningar

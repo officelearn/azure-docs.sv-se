@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 09/23/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f2046614f3665a699d02c76210676fb32f99fc73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2089a6895a34c74de9d3e14beaa3807bbb1b6e6b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288927"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279076"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Använda lagrade procedurer i Synapse SQL
 
-Tips för att implementera lagrade procedurer i Synapse SQL-pool (Data Warehouse) för att utveckla lösningar.
+Tips för att implementera lagrade procedurer i Synapse SQL-pool för utveckling av lösningar.
 
 ## <a name="what-to-expect"></a>Vad du kan förvänta dig
 
@@ -181,7 +181,7 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXESÖTA
 
-Synapse SQL tillåter inte att du använder resultat uppsättningen för en lagrad procedur med en INSERT-instruktion. Det finns en alternativ metod som du kan använda. Ett exempel finns i artikeln om [temporära tabeller](develop-tables-temporary.md).
+Synapse SQL tillåter inte att du använder resultat uppsättningen för en lagrad procedur med en INSERT-instruktion. Det finns en alternativ metod som du kan använda. Ett exempel finns i artikeln om [temporära tabeller](develop-tables-temporary.md) för etablerade Synapse SQL-pooler.
 
 ## <a name="limitations"></a>Begränsningar
 

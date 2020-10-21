@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
 ms.date: 08/31/2020
-ms.openlocfilehash: a936fbec23a38c5b96c678b38b92eed9346b88bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20bb77711833a1a17082e25e31d4a2e14db5bf9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567544"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328206"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Globala parametrar i Azure Data Factory
 
@@ -52,7 +52,7 @@ I de flesta användnings fall rekommenderar vi att du inkluderar globala paramet
 
 ![Ta med i ARM-mallen](media/author-global-parameters/include-arm-template.png)
 
-Om du lägger till globala parametrar i ARM-mallen läggs en inställning på fabriks nivå som kan åsidosätta andra inställningar på fabriks nivå, till exempel en kundhanterad nyckel eller git-konfiguration i andra miljöer. Om du har dessa inställningar aktiverade i en upphöjd miljö, till exempel UAT eller PROD, är det bättre att distribuera globala parametrar via ett PowerShell-skript i stegen som marker ATS nedan.
+Om du lägger till globala parametrar i ARM-mallen läggs en inställning på fabriks nivå som åsidosätter andra inställningar på fabriks nivå, till exempel en kundhanterad nyckel eller git-konfiguration i andra miljöer. Om du har dessa inställningar aktiverade i en upphöjd miljö, till exempel UAT eller PROD, är det bättre att distribuera globala parametrar via ett PowerShell-skript i stegen som marker ATS nedan.
 
 ### <a name="deploying-using-powershell"></a>Distribuera med PowerShell
 

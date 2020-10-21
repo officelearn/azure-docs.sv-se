@@ -3,12 +3,12 @@ title: Felsök problem med autentisering och auktorisering – Azure Event Hubs
 description: Den här artikeln innehåller information om hur du felsöker problem med autentisering och auktorisering med Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368fd8efda1b828f99bc41da0743768989c1a601
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566235"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329618"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Felsök problem med autentisering och auktorisering – Azure Event Hubs
 Artikeln [Felsöka anslutnings problem](troubleshooting-guide.md) innehåller tips för fel sökning av anslutnings problem med Azure Event Hubs. Den här artikeln innehåller tips och rekommendationer för att felsöka problem med autentisering och auktorisering med Azure Event Hubs. 
@@ -21,7 +21,7 @@ Om du använder Azure Active Directory (Azure AD) för att autentisera och aukto
 - [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) för sändnings åtkomst.
 - [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) för mottagnings åtkomst.
 
-Inbyggda roller för schema register finns i [schema register roller](schema-registry-overview.md#role-based-access-control).
+Inbyggda roller för schema register finns i [schema register roller](schema-registry-overview.md#azure-role-based-access-control).
 
 ### <a name="resource-scopes"></a>Resurs omfång
 - **Konsument grupp**: i det här området gäller roll tilldelningen enbart för den här entiteten. För närvarande har Azure Portal inte stöd för att tilldela en Azure-roll till ett säkerhets objekt på den här nivån. 

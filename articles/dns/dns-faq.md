@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: rohink
-ms.openlocfilehash: 76b19cfb3c00a26d81eab81f67d8e156a520f377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa03e9a9bbbc7f8eefc1e0ba57a0a8b18da6e29
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77121715"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328767"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS vanliga frågor och svar
 
@@ -24,7 +24,7 @@ Domain Name System (DNS) översätter eller matchar en webbplats eller ett tjän
 
 DNS-domäner i Azure DNS finns i Azures globala nätverk med DNS-namnservrar. Det här systemet använder anycast-nätverk så att varje DNS-fråga besvaras av den närmast tillgängliga DNS-servern. Azure DNS ger snabb prestanda och hög tillgänglighet för din domän.
 
-Azure DNS baseras på Azure Resource Manager. Azure DNS fördelarna med Resource Manager-funktioner som rollbaserad åtkomst kontroll, gransknings loggar och resurs låsning. Du kan hantera domäner och poster via Azure Portal, Azure PowerShell-cmdletar och plattforms oberoende Azure CLI. Program som kräver automatisk DNS-hantering kan integreras med tjänsten via REST API och SDK: er.
+Azure DNS baseras på Azure Resource Manager. Azure DNS fördelarna med Resource Manager-funktioner som Azure-rollbaserad åtkomst kontroll, gransknings loggar och resurs låsning. Du kan hantera domäner och poster via Azure Portal, Azure PowerShell-cmdletar och plattforms oberoende Azure CLI. Program som kräver automatisk DNS-hantering kan integreras med tjänsten via REST API och SDK: er.
 
 ### <a name="how-much-does-azure-dns-cost"></a>Hur mycket kostar Azure DNS?
 
@@ -177,7 +177,7 @@ Det kan ta lite längre tid att ändra befintliga DNS-poster. De visas vanligt v
 
 ### <a name="how-can-i-protect-my-dns-zones-against-accidental-deletion"></a>Hur kan jag skydda mina DNS-zoner mot oavsiktlig borttagning?
 
-Azure DNS hanteras med hjälp av Azure Resource Manager. Azure DNS fördelarna med de funktioner för åtkomst kontroll som Azure Resource Manager tillhandahåller. Rollbaserad åtkomst kontroll styr vilka användare som har Läs-eller Skriv behörighet till DNS-zoner och post uppsättningar. Resurs lås förhindrar oavsiktlig ändring eller borttagning av DNS-zoner och post uppsättningar.
+Azure DNS hanteras med hjälp av Azure Resource Manager. Azure DNS fördelarna med de funktioner för åtkomst kontroll som Azure Resource Manager tillhandahåller. Rollbaserad åtkomst kontroll i Azure kan användas för att kontrol lera vilka användare som har Läs-eller Skriv behörighet till DNS-zoner och post uppsättningar. Resurs lås förhindrar oavsiktlig ändring eller borttagning av DNS-zoner och post uppsättningar.
 
 Mer information finns i [skydda DNS-zoner och-poster](dns-protect-zones-recordsets.md).
 

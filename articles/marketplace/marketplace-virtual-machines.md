@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: d92dad445b1aeace24dc0af7d95289f5535a5680
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281817"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329040"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Planera ett erbjudande för virtuell dator
 
@@ -23,10 +23,7 @@ Innan du börjar ska du [skapa ett konto för kommersiell marknads plats i Partn
 
 ### <a name="technical-fundamentals"></a>Tekniska grunderna
 
-Processen för att utforma, skapa och testa erbjudanden tar tid och kräver expertis i både Azure-plattformen och teknikerna som används för att skapa ditt erbjudande. Ditt teknik team bör ha en fungerande kunskap om följande Microsoft-tekniker:
-
-- [Design och arkitektur för Azure-program](https://azure.microsoft.com/solutions/architecture/)
-- [Azure-Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)och [Azure-nätverk](https://azure.microsoft.com/services/?filter=networking#networking)
+Processen för att utforma, skapa och testa erbjudanden tar tid och kräver expertis i både Azure-plattformen och teknikerna som används för att skapa ditt erbjudande. Ditt tekniska team bör ha en fungerande kunskap om [Azure-Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)och [Azure-nätverk](https://azure.microsoft.com/services/?filter=networking#networking), samt kunskaper i [design och arkitektur för Azure-program](https://azure.microsoft.com/solutions/architecture/). Se dessa ytterligare tekniska resurser: 
 
 - Självstudier
   - [Virtuella Linux-datorer](../virtual-machines/linux/tutorial-manage-vm.md)
@@ -40,9 +37,17 @@ Processen för att utforma, skapa och testa erbjudanden tar tid och kräver expe
 
 ## <a name="technical-requirements"></a>Tekniska krav
 
+VM-erbjudanden har följande tekniska krav:
+
+- Du måste förbereda en virtuell hård disk för operativ system (VHD). Datadisk-VHD: ar är valfria. Detta förklaras i detalj nedan.
+- Kunden kan när som helst säga upp erbjudandet.
+- Du måste skapa minst en plan för ditt erbjudande. Din plan priss ätts baserat på det [licensierings alternativ](#licensing-options) du väljer.
+   > [!IMPORTANT]
+   > Varje VM-avbildning i en plan måste ha samma antal data diskar.
+
 En virtuell dator innehåller två komponenter:
 
-- **Virtuell hård disk (VHD) för operativ system** – innehåller det operativ system och den lösning som distribueras med ditt erbjudande. Processen för att förbereda den virtuella hård disken varierar beroende på om det är en Linux-, Windows-eller anpassad-baserad virtuell dator.
+- **Operativ hård disk** – innehåller det operativ system och den lösning som distribueras med ditt erbjudande. Processen för att förbereda den virtuella hård disken varierar beroende på om det är en Linux-, Windows-eller anpassad-baserad virtuell dator.
 - **Datadisk-VHD: er** (tillval) – dedikerad och beständig lagring för en virtuell dator. Använd inte den virtuella hård disken (t. ex. C: Drive) för att lagra beständig information. 
     - Du kan ta med upp till 16 data diskar.
     - Använd en virtuell hård disk per data disk, även om disken är tom.
@@ -50,13 +55,7 @@ En virtuell dator innehåller två komponenter:
     > [!NOTE]
     > Oavsett vilket operativ system du använder lägger du endast till det minsta antalet data diskar som behövs för lösningen. Kunder kan inte ta bort diskar som ingår i en avbildning vid tidpunkten för distributionen, men de kan alltid lägga till diskar under eller efter distributionen.
 
-VM-erbjudanden har följande tekniska krav:
-
-- Du måste förbereda en virtuell hård disk för operativ system (VHD). Datadisk-VHD: ar är valfria.
-- Kunden kan när som helst säga upp erbjudandet.
-- Du måste skapa minst en plan för ditt erbjudande. Din plan priss ätts baserat på det [licensierings alternativ](#licensing-options) du väljer.
-   > [!IMPORTANT]
-   > Varje VM-avbildning i en plan måste ha samma antal data diskar.
+Detaljerade anvisningar om hur du förbereder dina tekniska till gångar finns i [skapa en virtuell dator med en godkänd bas](azure-vm-create-using-approved-base.md) eller [skapa en virtuell dator med hjälp av en egen avbildning](azure-vm-create-using-own-image.md).
 
 ## <a name="preview-audience"></a>Förhandsgranska mål grupp
 
@@ -134,5 +133,6 @@ När du skapar erbjudandet i Partner Center visas fliken åter försäljning **v
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Skapa ett erbjudande för virtuell dator på Azure Marketplace](azure-vm-create.md)
 - [Skapa en virtuell dator med en godkänd bas](azure-vm-create-using-approved-base.md) eller [skapa en virtuell dator med hjälp av en egen avbildning](azure-vm-create-using-own-image.md).
 - [Metodtips för erbjudandelistor](gtm-offer-listing-best-practices.md)

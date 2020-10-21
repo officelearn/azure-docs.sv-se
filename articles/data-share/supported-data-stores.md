@@ -6,12 +6,12 @@ author: jifems
 ms.author: jife
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ddd586bf9a88b1246fcf20fc19493f5003bbb530
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3ecf8ef22d3f1d66b7148b809475a830c7e9f13
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151742"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318581"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Datalager som stöds i Azure Data Share
 
@@ -28,8 +28,8 @@ Tabellen nedan innehåller information om de data källor som stöds för Azure 
 | Azure Blob Storage |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |Offentlig för hands version | |
-| Azure Synapse Analytics (tidigare Azure SQL DW) |Offentlig för hands version | |
+| Azure SQL Database |✓ | |
+| Azure Synapse Analytics (tidigare Azure SQL DW) |✓ | |
 | Azure-datautforskaren | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Support mat ris för data lager

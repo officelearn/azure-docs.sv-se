@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbea6a0aa31034cd1c04145fb50b72432c9f8520
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329609"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319019"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Akamai
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig hur du integrerar Akamai med Azure Ac
 * Gör det möjligt för användarna att logga in automatiskt till Akamai med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-Med Azure Active Directory-och Akamai Enterprise Application Access integration får du sömlös åtkomst till äldre program som finns i molnet eller lokalt. Den integrerade lösningen drar nytta av alla moderna funktioner i Azure Active Directory som [Azure AD villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) och [Azure AD Identity Governance](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview) för äldre program åtkomst utan app-ändringar eller agent installation.
+Med Azure Active Directory-och Akamai Enterprise Application Access integration får du sömlös åtkomst till äldre program som finns i molnet eller lokalt. Den integrerade lösningen drar nytta av alla moderna funktioner i Azure Active Directory som [Azure AD villkorlig åtkomst](../conditional-access/overview.md), [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) och [Azure AD Identity Governance](../governance/identity-governance-overview.md) för äldre program åtkomst utan app-ändringar eller agent installation.
 
 I bilden nedan beskrivs var Akamai EAA passar i det bredare hybrid scenariot för säker åtkomst
 
@@ -84,7 +84,7 @@ Akamai EAA-programmet konfigureras separat på Azure AD-portalen. Administratör
 
 ![Integrations scenario 2](./media/header-akamai-tutorial/scenario2.png)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -589,14 +589,14 @@ I det här avsnittet skapar du en användare som heter B. Simon i Akamai. Arbeta
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Akamai på åtkomst panelen, bör du loggas in automatiskt på den Akamai som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Akamai på åtkomst panelen, bör du loggas in automatiskt på den Akamai som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova Akamai med Azure AD](https://aad.portal.azure.com/)

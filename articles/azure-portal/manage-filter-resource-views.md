@@ -3,15 +3,15 @@ title: Visa och filtrera information om Azure-resurser
 description: Filtrera informationen och Använd olika vyer för att bättre förstå dina Azure-resurser.
 author: mgblythe
 ms.service: azure-portal
-ms.topic: quickstart
+ms.topic: how-to
 ms.author: mblythe
 ms.date: 09/11/2020
-ms.openlocfilehash: 3b9783e7f452b38292c784d44ddb60672e150961
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f6185e1c4042110f446337c1b2c2904fefdae7a9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650414"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280242"
 ---
 # <a name="view-and-filter-azure-resource-information"></a>Visa och filtrera information om Azure-resurser
 
@@ -53,7 +53,7 @@ Ta bort en vy:
 
 ## <a name="summarize-resources-with-visuals"></a>Sammanfatta resurser med visuella objekt
 
-Vyerna som vi har tittat på hittills har varit _listvyer_, men det finns också _sammanfattnings vyer_ som innehåller visuella objekt. Du kan spara och använda dessa vyer precis som du kan visa vyer. Filtren är kvar mellan de två typerna av vyer. Det finns standardvyer, som vyn **plats** som visas nedan, samt vyer som är relevanta för vissa tjänster, till exempel vyn **status** för virtuella datorer.
+Vyerna som vi har tittat på hittills har varit _listvyer_, men det finns också _sammanfattnings vyer_ som innehåller visuella objekt. Du kan spara och använda dessa vyer precis som du kan visa vyer. Filtren är kvar mellan de två typerna av vyer. Det finns standardvyer, som vyn **plats** som visas nedan, samt vyer som är relevanta för vissa tjänster, till exempel vyn **status** för Azure Storage.
 
 :::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Azure Portal vy över alla resurser":::
 

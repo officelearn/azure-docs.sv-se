@@ -1,5 +1,5 @@
 ---
-title: Säkra poäng i Azure Security Center
+title: Säkerhetspoäng i Azure Security Center
 description: Beskrivning av Azure Security Center säkra poäng och säkerhets kontroller
 services: security-center
 documentationcenter: na
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 3aab1329dc7bbcc70621684b3f1ac2362f4bc458
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4897c1b54eff5eb06e0ef49f0c74e261f5a9687e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268272"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281290"
 ---
-# <a name="secure-score-in-azure-security-center"></a>Säkra poäng i Azure Security Center
+# <a name="secure-score-in-azure-security-center"></a>Säkerhetspoäng i Azure Security Center
 
 ## <a name="introduction-to-secure-score"></a>Introduktion till säkra Poäng
 
@@ -57,7 +57,7 @@ Security Center visar ditt resultat på en framträdande plats i portalen: det �
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Få dina säkra Poäng från REST API
 
-Du kan komma åt dina poäng via [Secure score-API: t](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (för närvarande i för hands version). API-metoderna ger flexibiliteten att fråga data och skapa en egen rapporterings mekanism för dina säkra poäng över tid. Du kan till exempel använda **Secure Scores** -API: et för att hämta poängen för en speciell prenumeration. Dessutom kan du använda API: et för **säker Poäng** för att visa en lista över säkerhets kontrollerna och de aktuella poängen för dina prenumerationer.
+Du kan komma åt dina poäng via Secure score-API: t (för närvarande i för hands version). API-metoderna ger flexibiliteten att fråga data och skapa en egen rapporterings mekanism för dina säkra poäng över tid. Du kan till exempel använda [Secure Scores-API: et](https://docs.microsoft.com/rest/api/securitycenter/securescores) för att hämta poängen för en speciell prenumeration. Dessutom kan du använda [API: et för säker Poäng](https://docs.microsoft.com/rest/api/securitycenter/securescorecontrols) för att visa en lista över säkerhets kontrollerna och de aktuella poängen för dina prenumerationer.
 
 ![Hämta en enskild säker Poäng via API: et](media/secure-score-security-controls/single-secure-score-via-api.png)
 
@@ -156,7 +156,7 @@ I tabellen nedan visas säkerhets kontrollerna i Azure Security Center. För var
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Begränsa obehörig nätverks åtkomst (max. 4)</p></strong>Slut punkter inom en organisation ger en direkt anslutning från ditt virtuella nätverk till Azure-tjänster som stöds. Virtuella datorer i ett undernät kan kommunicera med alla resurser. Om du vill begränsa kommunikationen till och från resurser inom ett undernät skapar du en nätverks säkerhets grupp och kopplar den till under nätet. Organisationer kan begränsa och skydda mot obehörig trafik genom att skapa regler för inkommande och utgående trafik.</td>
-    <td class="tg-lboi"; width=55%>- IP-vidarebefordran på den virtuella datorn bör inaktive ras<br>- Auktoriserade IP-intervall ska definieras för Kubernetes Services (för hands version)<br>- FÖRÅLDRAD Åtkomst till App Services ska vara begränsad (för hands version)<br>- FÖRÅLDRAD Reglerna för webb program på IaaS NSG: er bör vara härdade<br>- Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>- CORS bör inte tillåta alla resurser åtkomst till din API-app<br>- CORS bör inte tillåta alla resurser att komma åt din Funktionsapp<br>- CORS bör inte tillåta alla resurser åtkomst till ditt webb program<br>- Fjärrfelsökning bör inaktive ras för API-appen<br>- Fjärrfelsökning bör inaktive ras för Funktionsapp<br>- Fjärrfelsökning bör inaktive ras för webb program<br>- Åtkomsten ska begränsas för tillåtade nätverks säkerhets grupper med virtuella datorer som riktas mot Internet<br>- Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta<br>- Azure Policy tillägg för Kubernetes ska installeras och aktive ras på dina kluster (för hands version)<br>- Behållare ska bara lyssna på tillåtna portar (för hands version)<br>- Tjänsterna ska bara lyssna på tillåtna portar (för hands version)<br>- Användning av värd nätverk och portar ska begränsas (för hands version)</td>
+    <td class="tg-lboi"; width=55%>- IP-vidarebefordran på den virtuella datorn bör inaktive ras<br>- Auktoriserade IP-intervall ska definieras för Kubernetes Services (för hands version)<br>- FÖRÅLDRAD Åtkomst till App Services ska vara begränsad (för hands version)<br>- FÖRÅLDRAD Reglerna för webb program på IaaS NSG: er bör vara härdade<br>- Virtuella datorer ska associeras med en nätverks säkerhets grupp<br>- CORS bör inte tillåta alla resurser åtkomst till din API-app<br>- CORS bör inte tillåta alla resurser att komma åt din Funktionsapp<br>- CORS bör inte tillåta alla resurser åtkomst till ditt webb program<br>- Fjärrfelsökning bör inaktive ras för API-appen<br>- Fjärrfelsökning bör inaktive ras för Funktionsapp<br>- Fjärrfelsökning bör inaktive ras för webb program<br>- Åtkomsten ska begränsas för tillåtade nätverks säkerhets grupper med virtuella datorer som riktas mot Internet<br>- Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta<br>- Azure Policy tillägg för Kubernetes ska installeras och aktive ras på dina kluster (för hands version)<br>- Behållare ska bara lyssna på tillåtna portar (för hands version)<br>- Tjänsterna ska bara lyssna på tillåtna portar (för hands version)<br>- Användning av värd nätverk och portar ska begränsas (för hands version)<br>- Virtuella nätverk bör skyddas av Azure Firewall (för hands version)</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Använd adaptiv program kontroll (Max poäng 3)</p></strong>Adaptiva program kontroller (AAC) är en intelligent, automatiserad lösning från slut punkt till slut punkt som gör det möjligt att styra vilka program som kan köras på dina Azure-och icke-Azure-datorer. Det hjälper också till att förstärka dina datorer mot skadlig kod.<br>Security Center använder Machine Learning för att skapa en lista över kända säkra program för en grupp datorer.<br>Den här innovativa metoden för godkänd program registrering ger säkerhets fördelarna utan hanterings komplexitet.<br>AAC är särskilt relevant för syftes skapade servrar som behöver köra en särskild uppsättning program.</td>

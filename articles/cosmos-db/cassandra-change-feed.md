@@ -7,16 +7,16 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 417a1dbc72c3b3c35c501351dcc8bda9dc95a78d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b2e94bfe1bef9ecdeaa4b2b84224967bb1c7741
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84431601"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281587"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Ändra feed i Azure Cosmos DB API för Cassandra
 
-[Ändra feed](change-feed.md) -stöd i Azure Cosmos DB API för Cassandra är tillgängligt via frågesyntaxen i Cassandra-FRÅGESPRÅKET (CQL). Med dessa predikat villkor kan du fråga API: et för ändrings flöden. Program kan hämta de ändringar som gjorts i en tabell med hjälp av den primära nyckeln (kallas även partitionsnyckel) som krävs i CQL. Du kan sedan vidta ytterligare åtgärder baserat på resultaten. Ändringar av raderna i tabellen samlas i ordningen av deras ändrings tid och sorterings ordningen garanteras per partitionsnyckel.
+[Ändra feed](change-feed.md) -stöd i Azure Cosmos DB API för Cassandra är tillgängligt via frågesyntaxen i Cassandra-FRÅGESPRÅKET (CQL). Med dessa predikat villkor kan du fråga API: et för ändrings flöden. Program kan hämta de ändringar som gjorts i en tabell med hjälp av den primära nyckeln (kallas även partitionsnyckel) som krävs i CQL. Du kan sedan vidta ytterligare åtgärder baserat på resultaten. Ändringar av raderna i tabellen fångas i ordningen av deras ändrings tid och sorterings ordningen per partitionsnyckel.
 
 I följande exempel visas hur du hämtar en ändrings-feed på alla rader i en API för Cassandra i tabellen med .NET. Predikatet COSMOS_CHANGEFEED_START_TIME () används direkt i CQL för att skicka frågor till objekt i ändrings flödet från en angiven start tid (i det här fallet aktuell datetime). Du kan hämta hela exemplet, för C# [här](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) och för Java [här](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 

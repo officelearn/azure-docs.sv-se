@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979685"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282869"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp
 
@@ -39,10 +39,12 @@ Lösningar som måste tas bort innan du kan ta bort länken till ditt Automation
 - Azure Security Center
 
 >[!IMPORTANT]
-> **Azure Sentinel-kunder:**
+> **Azure Sentinel-kunder**
 > - När Azure Sentinel har distribuerats på en arbets yta **stöder den inte** flytten av arbets ytan till andra resurs grupper eller prenumerationer. 
->
->   Om du redan har flyttat arbets ytan inaktiverar du alla aktiva regler under **analyser** och aktiverar dem igen efter fem minuter. Detta bör vara effektivt i de flesta fall, men för att kunna upprepas, stöds den inte och görs på egen risk.
+> - Om du redan har flyttat arbets ytan inaktiverar du alla aktiva regler under **analyser** och aktiverar dem igen efter fem minuter. Detta bör vara effektivt i de flesta fall, men för att kunna upprepas, stöds den inte och görs på egen risk.
+> 
+> **Aviseringar**
+> - Alla aviseringar måste återskapas efter flytten, eftersom behörigheterna baseras på arbets ytans Azure-resurs-ID och ändringar i arbets ytan flyttas. 
 
 ### <a name="delete-solutions-in-azure-portal"></a>Ta bort lösningar i Azure Portal
 Använd följande procedur för att ta bort lösningarna med hjälp av Azure Portal:

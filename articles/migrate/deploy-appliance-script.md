@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat med ett skript
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat med ett skript
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f92d787ea2a72dd534e514e27fa1a5defef39c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438921"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317336"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Konfigurera en installation med ett skript
 
@@ -16,7 +16,7 @@ Följ den här artikeln för att skapa en [Azure Migrate-apparat](./migrate-appl
 
 Du kan distribuera-installationen för VMware-och Hyper-V-datorer med hjälp av ett skript eller med hjälp av en mall som du hämtar från Azure Portal. Att använda ett skript är användbart om du inte kan skapa en virtuell dator med hjälp av den nedladdade mallen.
 
-- Om du vill använda en mall följer du självstudierna för [VMware](tutorial-prepare-vmware.md) eller [Hyper-V](tutorial-prepare-hyper-v.md).
+- Om du vill använda en mall följer du självstudierna för [VMware](./tutorial-discover-vmware.md) eller [Hyper-V](./tutorial-discover-hyper-v.md).
 - Om du vill konfigurera en installation för fysiska servrar kan du bara använda ett skript. Följ [den här artikeln](how-to-set-up-appliance-physical.md).
 - Följ [den här artikeln](deploy-appliance-script-government.md)om du vill konfigurera en installation i ett Azure Government moln.
 

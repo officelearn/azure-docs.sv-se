@@ -4,12 +4,12 @@ description: Lär dig att identifiera lokala virtuella VMware-datorer med verkty
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3e8f61c898b08cc0638597e77fd3260cb4593b2
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442224"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311293"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Självstudie: identifiera virtuella VMware-datorer med Server utvärdering
 
@@ -32,12 +32,12 @@ I den här guiden får du lära dig att:
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien måste du kontrol lera att du har dessa krav på plats.
 
 
-**Krav** | **Information**
+**Krav** | **Detaljer**
 --- | ---
 **vCenter Server/ESXi-värd** | Du behöver ett vCenter Server som kör version 5,5, 6,0, 6,5 eller 6,7.<br/><br/> Virtuella datorer måste finnas på en ESXi-värd som kör version 5,5 eller senare.<br/><br/> På vCenter Server tillåter du inkommande anslutningar på TCP-port 443, så att du kan samla in utvärderings data på enheten.<br/><br/> Enheten ansluter som standard till vCenter på port 443. Om vCenter-servern lyssnar på en annan port kan du ändra porten när du ansluter från installations programmet till servern för att starta identifieringen.<br/><br/> På den EXSi-server som är värd för de virtuella datorerna kontrollerar du att inkommande åtkomst är tillåten på TCP-port 443 för identifiering av appar.
 **Enhet** | vCenter Server behöver resurser för att allokera en virtuell dator för Azure Migrates apparaten:<br/><br/> - Windows Server 2016<br/><br/> – 32 GB RAM, åtta virtuella processorer och cirka 80 GB disk lagring.<br/><br/> – En extern virtuell växel och Internet åtkomst på för den virtuella datorn, direkt eller via en proxyserver.
@@ -238,7 +238,7 @@ Konfigurera enheten för första gången.
    
    Inloggning med en PIN-kod stöds inte.
 3. När du har loggat in går du tillbaka till webbappen. 
-4. Om Azure-användarkontot som används för loggning har rätt [behörigheter](tutorial-prepare-vmware.md#prepare-azure) för de Azure-resurser som skapades under den här nyckeln, initieras registrerings enheten.
+4. Om Azure-användarkontot som används för loggning har rätt behörigheter för de Azure-resurser som skapades under den här nyckeln, initieras registrerings enheten.
 1. När installationen av enheten har registrerats kan du se registrerings informationen genom att klicka på **Visa information**.
 
 
@@ -248,7 +248,7 @@ Konfigurera enheten för första gången.
 Installations programmet måste ansluta till vCenter Server för att identifiera konfigurations-och prestanda data för de virtuella datorerna.
 
 1. I **steg 1: ange vCenter Server autentiseringsuppgifter**klickar du på **Lägg till autentiseringsuppgifter** för att ange ett eget namn för autentiseringsuppgifter, Lägg till **användar namn** och **lösen ord** för det vCenter servers konto som ska användas för att identifiera virtuella datorer på vCenter Server-instansen.
-    - Du bör ha skapat ett konto med de behörigheter som krävs i [föregående självstudie](tutorial-prepare-vmware.md#set-up-permissions-for-assessment).
+    - Du bör ha skapat ett konto med de behörigheter som krävs i föregående självstudie.
     - Om du vill begränsa identifieringen till specifika VMware-objekt (vCenter Server Data Center, kluster, en mapp med kluster, värdar, en mapp med värdar eller enskilda virtuella datorer) läser du anvisningarna i [den här artikeln](set-discovery-scope.md) för att begränsa det konto som används av Azure Migrate.
 1. I **steg 2: ange vCenter Server information**klickar du på **Lägg till identifierings källa** och väljer det egna namnet för autentiseringsuppgifter i list rutan. Ange **IP-adressen/FQDN** för vCenter Server-instansen. Du kan lämna **porten** till standard (443) eller ange en anpassad Port där vCenter Server lyssnar och klicka på **Spara**.
 1. När du klickar på Spara kommer installations programmet att försöka verifiera anslutningen till vCenter Server med de angivna autentiseringsuppgifterna och visa **verifierings status** i tabellen mot vCenter Server IP-adress/FQDN.
@@ -268,5 +268,5 @@ Identifiering fungerar på följande sätt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utvärdera virtuella VMware-datorer](tutorial-assess-vmware.md) för migrering till virtuella Azure-datorer.
+- [Utvärdera virtuella VMware-datorer](./tutorial-assess-vmware-azure-vm.md) för migrering till virtuella Azure-datorer.
 - [Granska de data](migrate-appliance.md#collected-data---vmware) som enheten samlar in under identifieringen.

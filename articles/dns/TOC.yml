@@ -79,7 +79,7 @@
           href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: VANLIGA FRÅGOR OCH SVAR
           href: dns-faq-private.md
-- name: Gör så här för att
+- name: Anvisningar
   items:
     - name: Offentligt DNS
       items:

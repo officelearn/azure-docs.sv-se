@@ -163,6 +163,8 @@
               href: 'https://rubygems.org/gems/azure_cognitiveservices_qnamaker'
 - name: Resurser
   items:
+    - name: Alternativ för support och hjälp
+      href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Efterlevnad
@@ -171,10 +173,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Priser och begränsningar
       href: 'https://aka.ms/qnamaker-pricing'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/578689-qna-maker-api'
     - name: Search
       href: 'https://docs.microsoft.com/search/index?search=QnAMaker'
     - name: Blogg

@@ -5,14 +5,20 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: baanders
-ms.openlocfilehash: bd3a192ed493a886da427cb6d89239a4eb8e4d17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574ca9d42565e897e49d6800e61bb2c33717891b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290113"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320728"
 ---
 >[!NOTE]
->Det finns för närvarande ett **känt problem** i Cloud Shell som påverkar dessa kommando grupper: `az dt route` , `az dt model` , `az dt twin` .
+>Det finns för närvarande ett **känt problem** i Cloud Shell som påverkar dessa kommando grupper när de körs från *https://shell.azure.com* : `az dt route` , `az dt model` , `az dt twin` .
 >
->Du kan lösa problemet genom att antingen köra `az login` i Cloud Shell innan du kör kommandot eller använda den [lokala CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : en i stället för Cloud Shell. Mer information finns i [*fel sökning: kända problem i Azure Digitals*](../articles/digital-twins/troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+>För att lösa problemet kan du göra något av följande:
+> * Kör `az login` i Cloud Shell innan du kör kommandot.
+> * Öppna fönstret Cloud Shell i Azure Portal och slutför din Cloud Shell arbete därifrån.
+>  :::image type="content" source="../articles/digital-twins/media/includes/portal-cloud-shell.png" alt-text="Vy av Azure Portal med ikonen &quot;Cloud Shell&quot; markerad och Cloud Shell visas längst ned i Portal fönstret":::
+> * Använd den [lokala CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : en i stället för Cloud Shell.
+>
+>Mer information om det här problemet finns i [*fel sökning: kända problem i Azure Digitals*](../articles/digital-twins/troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).

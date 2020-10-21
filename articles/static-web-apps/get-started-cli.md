@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 7e0fdbc50dd36e4ea23903a5929735c1c83bd394
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ed49892284b53844c5c578b752a598cdbdd9b946
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88752935"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320332"
 ---
 # <a name="quickstart-building-your-first-static-web-app-using-the-azure-cli"></a>Snabb start: skapa din första statiska webbapp med Azure CLI
 
@@ -25,7 +25,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärder
 - [GitHub](https://github.com)-konto
 - [Personlig GitHub-åtkomsttoken](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token)
 - [Azure](https://portal.azure.com) -konto
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installerat (version 2.8.0 och senare)
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) installerat (version 2.8.0 och senare)
 
 [!INCLUDE [create repository from template](../../includes/static-web-apps-get-started-create-repo.md)]
 

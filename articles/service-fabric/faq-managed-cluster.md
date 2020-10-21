@@ -6,12 +6,12 @@ ms.author: pepogors
 author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
-ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dc41d2c13c834657534971041440bb744cfca38
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729006"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319832"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Vanliga frågor och svar om Service Fabric hanterade kluster
 
@@ -41,7 +41,7 @@ SLA ändras inte från den aktuella Service Fabric resurs modellen.
 
 ### <a name="what-is-the-difference-between-a-basic-and-standard-sku-cluster"></a>Vad är skillnaden mellan ett Basic-och standard-SKU-kluster?
 
-Ett Basic SKU-kluster innebär att de flesta konfigurationer tillhandahålls av Service Fabric Resource Provider. Basic SKU-kluster är avsedda att användas för testning och för produktions miljöer. Med ett standard-SKU-kluster kan användare konfigurera klustret så att det uppfyller deras behov. Mer information finns i [Service Fabric hanterade kluster SKU: er](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster#service-fabric-managed-cluster-skus) .
+Ett Basic SKU-kluster innebär att de flesta konfigurationer tillhandahålls av Service Fabric Resource Provider. Basic SKU-kluster är avsedda att användas för testning och för produktions miljöer. Med ett standard-SKU-kluster kan användare konfigurera klustret så att det uppfyller deras behov. Mer information finns i [Service Fabric hanterade kluster SKU: er](./overview-managed-cluster.md#service-fabric-managed-cluster-skus) .
 
 ## <a name="cluster-deployment-and-management"></a>Kluster distribution och hantering
 
@@ -66,7 +66,7 @@ I för hands versionen slutförs alla uppgraderingar av uppgraderings tiden auto
 
 ### <a name="is-there-a-local-development-experience-for-service-fabric-managed-clusters"></a>Finns det en lokal utvecklings miljö för Service Fabric hanterade kluster?
 
-Den lokala utvecklings miljön är oförändrad från befintliga Service Fabric-kluster. Mer information finns i [skapa ett .NET-program](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-dotnet) för mer information om den lokala utvecklings miljön.
+Den lokala utvecklings miljön är oförändrad från befintliga Service Fabric-kluster. Mer information finns i [skapa ett .NET-program](./service-fabric-quickstart-dotnet.md) för mer information om den lokala utvecklings miljön.
 
 ### <a name="can-i-deploy-my-applications-as-an-azure-resource-manager-resource"></a>Kan jag distribuera mina program som en Azure Resource Manager-resurs?
 

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: cda123adb667b4c857e05ce53d603e328e995766
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 869bfcb87aa4846674db233c4268e9269929cd04
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108175"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320170"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Ladda upp användnings data, mått och loggar till Azure Monitor
 
@@ -23,9 +23,9 @@ Med jämna mellanrum kan du exportera användnings information för fakturerings
 > [!NOTE] 
 > Under för hands versions perioden kostar det inget att använda Azure Arc-aktiverade data tjänster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver Azure CLI (AZ) och Azure Data CLI (azdata) installerat.  [Installera verktyg](./install-client-tools.md).
+Du behöver Azure CLI (AZ) och [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] installerat.  [Installera verktyg](./install-client-tools.md).
 
 Innan du laddar upp data till Azure måste du se till att Azure-prenumerationen har Microsoft. AzureData-Resurshanterarens resurs leverantör registrerad.
 
@@ -45,7 +45,7 @@ az provider register -n Microsoft.AzureData --wait
 
 Användnings information som inventering och Resursanvändning kan laddas upp till Azure på följande två sätt:
 
-1. Exportera användnings data med hjälp av ```azdata export``` kommandot enligt följande:
+1. Exportera användnings data med hjälp av `azdata export` kommandot enligt följande:
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -56,7 +56,7 @@ Användnings information som inventering och Resursanvändning kan laddas upp ti
    ```
    Det här kommandot skapar en `usage.json` fil med alla Azure Arc-aktiverade data resurser, till exempel SQL-hanterade instanser och postgresql storskaliga instanser osv. som skapas på data styrenheten.
 
-2. Överför användnings data med ```azdata upload``` kommandot
+2. Överför användnings data med `azdata upload` kommandot
 
    > [!NOTE]
    > Vänta minst 24 timmar efter att du har skapat data styrenheten för Azure-bågen innan du kör överföringen

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2ea823a16714f9db85c3d5148bc8bb2ba7629b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 427facaffa277ec44ee99d70681928f49fe31df8
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565521"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278485"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Självstudie: utveckla mobil program med Xamarin och Azure Cosmos DB
 
@@ -25,7 +25,7 @@ ms.locfileid: "91565521"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-De flesta mobilappar måste lagra data i molnet och Azure Cosmos DB är en molndatabas för mobilappar. Den innehåller allt som mobilutvecklare behöver. Den är en fullständigt hanterad databas som en tjänst som kan skalas på begäran. Den överför dina data till tillämpningsprogrammet transparent, oavsett var dina användare befinner sig i världen. Med hjälp av [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md) kan du aktivera Xamarin-mobilappar så att de kan interagera direkt med Azure Cosmos DB, utan mellannivå.
+De flesta mobilappar måste lagra data i molnet och Azure Cosmos DB är en molndatabas för mobilappar. Det har allt som krävs av Mobile Developer. Den är en fullständigt hanterad databas som en tjänst som kan skalas på begäran. Den överför dina data till tillämpningsprogrammet transparent, oavsett var dina användare befinner sig i världen. Med hjälp av [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md) kan du aktivera Xamarin-mobilappar så att de kan interagera direkt med Azure Cosmos DB, utan mellannivå.
 
 Den här artikeln innehåller en självstudiekurs för att skapa mobilappar med Xamarin och Azure Cosmos DB. Du hittar källkoden för hela självstudiekursen på [Xamarin och Azure Cosmos DB på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin), inklusive information om hur du hanterar användare och behörigheter.
 
@@ -36,7 +36,7 @@ Azure Cosmos DB innehåller följande viktiga funktioner för utvecklare av mobi
 
 * Omfattande frågor för schemalösa data. Azure Cosmos DB lagrar data som schemalösa JSON-dokument i heterogena samlingar. Den erbjuder [omfattande och snabba frågor](how-to-sql-query.md) utan att du behöver bekymra dig om scheman eller index.
 * Högt dataflöde. Det tar bara några millisekunder att läsa och skriva dokument med Azure Cosmos DB. Utvecklare kan specificera vilket dataflöde de behöver och Azure Cosmos DB erbjuder ett serviceavtal med 99,99 % tillgänglighet för alla konton med tillgång till en eller flera regioner med konsekvensmodellen ”relaxed” (avslappnad), samt 99,999 % läsningstillgänglighet för alla databaskonton med tillgång till flera regioner.
-* Obegränsad skalning. Dina Azure Cosmos-behållare [växer när din app växer](partition-data.md). Du kan starta med ett liten datastorlek och ett dataflöde på ett par hundra förfrågningar per sekund. Dina samlingar eller databaser kan växa till flera petabyte data och ett högt dataflöde med hundratals miljoner förfrågningar per sekund.
+* Obegränsad skalning. Dina Azure Cosmos-behållare [växer när din app växer](partitioning-overview.md). Du kan starta med ett liten datastorlek och ett dataflöde på ett par hundra förfrågningar per sekund. Dina samlingar eller databaser kan växa till flera petabyte data och ett högt dataflöde med hundratals miljoner förfrågningar per sekund.
 * Globalt distribuerad. Användare av mobilappar är ofta på resande fot över hela världen. Azure Cosmos DB är en [globalt distribuerad databas](distribute-data-globally.md). Klicka på kartan för att göra data tillgängliga för användarna.
 * Inbyggd omfattande autentisering. Med Azure Cosmos DB kan du enkelt implementera populära mönster som [data per användare](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems) eller delade data för flera användare utan kod för komplex anpassad autentisering.
 * Geospatiala frågor. Många mobilappar erbjuder idag geo-baserade upplevelser. Med förstklassigt stöd för [geospatiala typer](geospatial.md) gör Azure Cosmos DB det enkelt att skapa sådana upplevelser.
@@ -50,7 +50,7 @@ Det är lätt att komma igång med Azure Cosmos DB. Gå till Azure Portal och sk
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-quickstart.png" alt-text="Azure Cosmos DB-funktioner för mobilappar":::
 
-Eller om du har en befintlig Xamarin-app kan du lägga till [Azure Cosmos DB NuGet-paketet](sql-api-sdk-dotnet-core.md). Azure Cosmos DB har stöd för Xamarin.IOS, Xamarin.Android och delade bibliotek för Xamarin Forms.
+Eller om du har en befintlig Xamarin-app kan du lägga till [Azure Cosmos DB NuGet-paketet](sql-api-sdk-dotnet-core.md). Azure Cosmos DB stöder delade bibliotek för Xamarin. iOS, Xamarin. Android och Xamarin Forms.
 
 ### <a name="work-with-data"></a>Arbeta med data
 Dina dataposter lagras i Azure Cosmos DB som schemalösa JSON-dokument i heterogena samlingar. Du kan lagra dokument med olika strukturer i samma samling:
@@ -88,10 +88,10 @@ Du hittar en fullständig kodsamling för det här mönstret under den [asynkron
 
 :::image type="content" source="media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png" alt-text="Azure Cosmos DB-funktioner för mobilappar" border="false":::
 
-Om du vill att två användare ska ha åtkomst till samma att göra-lista kan du lägga till ytterligare behörigheter för åtkomsttoken i den asynkrona meddelandekön för resurstoken.
+Om du vill att två användare ska ha, till gång till samma att göra-lista, kan du lägga till ytterligare behörigheter i åtkomsttoken i Resource token Broker.
 
 ### <a name="scale-on-demand"></a>Skala på begäran
-Azure Cosmos-DB är en hanterad databas som en tjänst. När användarbasen växer behöver du inte tänka på att behöva etablera virtuella datorer eller att öka kärnorna. Allt du behöver tala om för Azure Cosmos DB är hur många åtgärder per sekund (dataflöde) din app behöver. Du kan ange dataflödet via fliken **Skala** genom att använda ett mått på dataflödet som kallas enheter för programbegäran (RU) per sekund. En läsåtgärd på ett dokument på 1 kB kräver exempelvis 1 RU. Du kan också lägga till aviseringar till måttet för **dataflöde** för att övervaka trafiktillväxten och programmässigt ändra dataflödet när aviseringar utlöses.
+Azure Cosmos-DB är en hanterad databas som en tjänst. När användarbasen växer behöver du inte tänka på att behöva etablera virtuella datorer eller att öka kärnorna. Allt du behöver tala om för Azure Cosmos DB är hur många åtgärder per sekund (dataflöde) din app behöver. Du kan ange dataflödet via fliken **Skala** genom att använda ett mått på dataflödet som kallas enheter för programbegäran (RU) per sekund. Till exempel kräver en Läs åtgärd på ett 1-KB-dokument ett RU. Du kan också lägga till aviseringar till måttet för **dataflöde** för att övervaka trafiktillväxten och programmässigt ändra dataflödet när aviseringar utlöses.
 
 :::image type="content" source="media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png" alt-text="Azure Cosmos DB-funktioner för mobilappar":::
 

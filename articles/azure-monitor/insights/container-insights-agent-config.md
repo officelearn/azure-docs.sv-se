@@ -2,13 +2,13 @@
 title: Konfigurera Azure Monitor för behållare agent data insamling | Microsoft Docs
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare agent för att styra logg insamling för STDOUT/stderr och miljövariabler.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.date: 10/09/2020
+ms.openlocfilehash: 1644e541ee873a5bb058dd9bde2b82a907a400ff
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994608"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320400"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agentdatainsamling för Azure Monitor för containrar
 
@@ -29,9 +29,9 @@ En mall ConfigMap-fil tillhandahålls som gör att du enkelt kan redigera den me
 
 ### <a name="data-collection-settings"></a>Inställningar för data insamling
 
-Följande är de inställningar som kan konfigureras för att styra data insamling.
+I följande tabell beskrivs de inställningar som du kan konfigurera för att styra data insamling:
 
-| Tangent | Datatyp | Värde | Beskrivning |
+| Nyckel | Datatyp | Värde | Beskrivning |
 |--|--|--|--|
 | `schema-version` | Sträng (Skift läges känslig) | v1 | Det här är den schema version som används av agenten<br> vid parsning av den här ConfigMap.<br> Schema version som stöds för närvarande är v1.<br> Det finns inte stöd för att ändra det här värdet och det kommer att vara<br> avvisades när ConfigMap utvärderas. |
 | `config-version` | Sträng |  | Stöder möjlighet att hålla koll på den här konfigurations filens version i käll kontroll systemet/lagrings platsen.<br> Maximalt antal tillåtna tecken är 10 och alla andra tecken trunkeras. |
@@ -43,16 +43,24 @@ Följande är de inställningar som kan konfigureras för att styra data insamli
 | `[log_collection_settings.enrich_container_logs] enabled =` | Boolesk | sant eller falskt | Den här inställningen styr anrikningen av behållar loggen till att fylla i värdena för namn och bild egenskaper<br> för varje logg post skrivs till tabellen ContainerLog för alla behållar loggar i klustret.<br> Det används som standard `enabled = false` när det inte anges i ConfigMap. |
 | `[log_collection_settings.collect_all_kube_events]` | Boolesk | sant eller falskt | Den här inställningen tillåter insamling av Kube-händelser av alla typer.<br> Som standard samlas inte Kube-händelser av typen *Normal* in. När den här inställningen är inställd på `true` filtreras inte de *normala* händelserna längre och alla händelser samlas in.<br> Som standard är detta inställt på `false` . |
 
+### <a name="metric-collection-settings"></a>Inställningar för mått samling
+
+I följande tabell beskrivs de inställningar som du kan konfigurera för att styra mått samlingen:
+
+| Nyckel | Datatyp | Värde | Beskrivning |
+|--|--|--|--|
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolesk | sant eller falskt | Med den här inställningen kan du samla in användnings mått för beständig volym (PV) i Kube-systemets namnrymd. Som standard samlas användnings statistik för beständiga volymer med beständiga volym anspråk i Kube-systemets namnrymd inte in. När den här inställningen är inställd på `true` samlas användnings statistik för nuvärdet för alla namn områden. Som standard är detta inställt på `false` . |
+
 ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämpas på agenten. Det går inte att ha en annan ConfigMaps över samlingarna.
 
 ## <a name="configure-and-deploy-configmaps"></a>Konfigurera och distribuera ConfigMaps
 
 Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigurationsfil till klustret.
 
-1. [Hämta](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) mallen ConfigMap yaml File och spara den som container-AZM-MS-agentconfig. yaml. 
+1. Hämta [mallen CONFIGMAP yaml File](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) och spara den som container-AZM-MS-agentconfig. yaml. 
 
-   >[!NOTE]
-   >Det här steget krävs inte när du arbetar med Azure Red Hat OpenShift eftersom ConfigMap-mallen redan finns i klustret.
+   > [!NOTE]
+   > Det här steget krävs inte när du arbetar med Azure Red Hat OpenShift eftersom ConfigMap-mallen redan finns i klustret.
 
 2. Redigera ConfigMap yaml-filen med dina anpassningar för att samla in STDOUT-, stderr-och/eller miljövariabler. Om du redigerar ConfigMap yaml-filen för Azure Red Hat OpenShift ska du först köra kommandot `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` för att öppna filen i en text redigerare.
 

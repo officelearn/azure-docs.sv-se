@@ -5,15 +5,15 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: how-to
-ms.date: 07/08/2020
+ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43206fbc956602ddaf189f45648cf8a44a3dd143
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258305"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277320"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestandatips för Azure Cosmos DB Java SDK v4
 
@@ -38,14 +38,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 * **Anslutnings läge: Använd direkt läge**
 <a id="direct-connection"></a>
     
-    Hur en klient ansluter till Azure Cosmos DB har viktiga konsekvenser för prestanda, särskilt vad gäller svars tid på klient sidan. Anslutnings läget är en nyckel konfigurations inställning som är tillgänglig för att konfigurera klienten. För Azure Cosmos DB Java SDK V4 är de två tillgängliga anslutnings lägena:  
-
-    * Direkt läge (standard)      
-    * Gateway-läge
-
-    Dessa anslutnings lägen är i princip den väg som data planet begär – dokument läsningar och skrivningar – tar från klient datorn till partitioner i Azure Cosmos DB backend. Normalt är Direct-läge det bästa alternativet för bästa prestanda – det gör att klienten kan öppna TCP-anslutningar direkt till partitioner i Azure Cosmos DB backend-och sändnings begär Anden *Direct*-ly utan mellanmedium. I Gateway-läge dirigeras begär Anden som görs av klienten till en så kallad "Gateway"-server i Azure Cosmos DB klient del, som i sin tur ger ut dina begär anden till lämpliga partitioner i Azure Cosmos DB backend. Om ditt program körs i ett företags nätverk med strikta brand Väggs begränsningar är Gateway-läget det bästa valet eftersom det använder standard-HTTPS-porten och en enda slut punkt. Prestanda kompromissen är dock att Gateway-läget omfattar ytterligare nätverks hopp (klient till gateway och gateway till partition) varje gång data läses eller skrivs till Azure Cosmos DB. Därför erbjuder Direct-läget bättre prestanda på grund av färre nätverks hopp.
-
-    Anslutnings läget för data Plans begär Anden konfigureras i Azure Cosmos DB client Builder med hjälp av metoderna *directMode ()* eller *gatewayMode ()* , som du ser nedan. Om du vill konfigurera något av de båda alternativen med standardinställningar anropar du någon av metoderna utan argument. Annars skickar du en klass instans för konfigurations inställningar som argument (*DirectConnectionConfig* för *directMode ()*,  *GatewayConnectionConfig* för *gatewayMode ()*.)
+    Standard anslutnings läget för Java SDK är direkt. Du kan konfigurera anslutnings läget i klient verktyget med hjälp av metoderna *directMode ()* eller *gatewayMode ()* , som du ser nedan. Om du vill konfigurera något av de båda alternativen med standardinställningar anropar du någon av metoderna utan argument. Annars skickar du en klass instans för konfigurations inställningar som argument (*DirectConnectionConfig* för *directMode ()*,  *GatewayConnectionConfig* för *gatewayMode ()*.). Mer information om olika anslutnings alternativ finns i artikeln [anslutnings lägen](sql-sdk-connection-modes.md) .
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java v4 SDK
 
@@ -169,7 +162,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
         I det första steget använder du följande rekommenderade konfigurations inställningar nedan. Dessa *DirectConnectionConfig* -alternativ är avancerade konfigurations inställningar som kan påverka SDK-prestanda på oväntade sätt. Vi rekommenderar att användarna undviker att ändra dem om de inte känner sig för att förstå kompromisserna och det är absolut nödvändigt. Kontakta Azure Cosmos DB- [teamet](mailto:CosmosDBPerformanceSupport@service.microsoft.com) om du stöter på problem på det här specifika ämnet.
 
-        | Konfigurations alternativ       | Default    |
+        | Konfigurations alternativ       | Standard    |
         | :------------------:       | :-----:    |
         | idleConnectionTimeout      | "PT1M"     |
         | maxConnectionsPerEndpoint  | "PT0S"     |
@@ -372,4 +365,4 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utformar programmet för skalning och höga prestanda finns i [partitionering och skalning i Azure Cosmos DB](partition-data.md).
+Mer information om hur du utformar programmet för skalning och höga prestanda finns i [partitionering och skalning i Azure Cosmos DB](partitioning-overview.md).

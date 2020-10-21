@@ -40,6 +40,8 @@
       href: quickstart-create-workspace.md
     - name: Skapa en Synapse-arbetsyta med hjälp av Azure CLI
       href: quickstart-create-workspace-cli.md
+    - name: Skapa en Synapse-arbetsyta med hjälp av Azure PowerShell
+      href: quickstart-create-workspace-powershell.md
     - name: Distribuera med en mall
       href: quickstart-deployment-template-workspaces.md
     - name: Använda Synapse Studio
@@ -388,7 +390,7 @@
           items:
             - name: Guide till modellbedömning för SQL-pooler
               href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
-            - name: Köra ett regressionsexperiment med hjälp av Azure AutoML (bedömning i DW)
+            - name: Köra ett regressionsexperiment med Azure AutoML
               href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: 'Verktygsintegrering (AI, ETL, BI)'
       items:
@@ -483,9 +485,9 @@
             - name: Ansluta till Azure Synapse Link för Cosmos DB
               href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
             - name: Använda Power BI och serverlös SQL-pool för att analysera Azure Cosmos DB
-              href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+              href: ../cosmos-db/synapse-link-power-bi.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Köra frågor mot Azure Cosmos DB-data med serverlös SQL-pool
-              href: ./sql/query-cosmos-db-analytical-store.md
+              href: ./sql/query-cosmos-db-analytical-store.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Köra frågor mot Azure Cosmos DB-analysarkiv med Apache Spark
               href: ./synapse-link/how-to-query-analytical-store-spark.md
             - name: Kopiera data från Synapse Link till en SQL-pool med hjälp av Apache Spark
@@ -925,7 +927,7 @@
       href: 'https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/synapse@v43.3.0+incompatible'
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.synapse?view=azure-dotnet-preview
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: 'REST API:er'
       href: /rest/api/synapse/

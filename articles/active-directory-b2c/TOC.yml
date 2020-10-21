@@ -101,8 +101,10 @@
   items:
     - name: Appintegrering
       items:
-        - name: Registrera ett program
+        - name: Registrera ett webbprogram
           href: tutorial-register-applications.md
+        - name: Registrera en ensidesapplikation (SPA)
+          href: tutorial-register-spa.md
         - name: Registrera en SAML-tjänstprovider
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'

@@ -55,6 +55,8 @@
               href: how-to-set-up-instance-portal.md
         - name: Skriva appautentiseringskod
           href: how-to-authenticate-client.md
+        - name: Skapa en appregistrering
+          href: how-to-create-app-registration.md
         - name: Flytta en instans till en annan region
           href: how-to-move-regions.md
     - name: Utforma modeller

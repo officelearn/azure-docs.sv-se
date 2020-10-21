@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273049"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310922"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Skapa data styrenheten för Azure-bågen
 
@@ -65,7 +65,7 @@ Det finns flera alternativ för att skapa data styrenheten för Azure-bågen:
 > **Vill du bara testa saker?**  
 > Kom igång snabbt med [Azure Arc rivstart med](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) på Azure Kubernetes service (AKS), AWS elastisk Kubernetes service (EKS), Google Cloud Kubernetes Engine (GKE) eller i en virtuell Azure-dator!
 > 
-- [Skapa en datakontrollant med Azure Data CLI (azdata)](create-data-controller-using-azdata.md)
+- [Skapa en datakontrollant med [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](create-data-controller-using-azdata.md)
 - [Skapa en datakontrollant med Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Skapa en datakontrollant från Azure Portal via en Jupyter Notebook i Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
 - [Skapa en datakontrollant med Kubernetes-verktyg som kubectl eller oc](create-data-controller-using-kubernetes-native-tools.md)

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 05/21/2019
-ms.openlocfilehash: 70dbceb51ed030124d1b793d77c6bc287da91065
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e31150a15996d9c6e77c772e6d703a39adfa91f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "81687629"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278922"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introduktion till Cassandra-API:et för Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Med API för Cassandra kan du interagera med data som lagras i Azure Cosmos DB m
 
 **Möjlighet att använda befintlig kod och verktyg**: Azure Cosmos DB erbjuder kompatibilitet på trådprotokollsnivå med befintliga SDK:er och verktyg för Cassandra. Den här kompatibiliteten garanterar att du kan använda din befintliga kodbas med Cassandra-API:et för Azure Cosmos DB med minimala ändringar.
 
-**Dataflöde och lagringselasticitet**: Azure Cosmos DB tillhandahåller garanterad genomströmning i alla regioner och kan skala det etablerade dataflödet via Azure-portalen, PowerShell eller CLI. Du kan skala lagring och data flöde [elastiskt](manage-scale-cassandra.md) i dina tabeller efter behov med förutsägbar prestanda.
+**Elastiskhet för data flöde och lagring**: Azure Cosmos DB tillhandahåller data flöde i alla regioner och kan skala det etablerade data flödet med Azure Portal-, PowerShell-eller CLI-åtgärder. Du kan skala lagring och data flöde [elastiskt](manage-scale-cassandra.md) i dina tabeller efter behov med förutsägbar prestanda.
 
 **Global distribution och tillgänglighet**: Med Azure Cosmos DB kan du distribuera data över alla Azure-regioner globalt och tillhandahålla data lokalt med snabb dataåtkomst och hög tillgänglighet. Azure Cosmos DB erbjuder 99,99 % hög tillgänglighet inom en region och 99,999 % läs- och skrivtillgänglighet i flera regioner utan ytterligare driftkostnader. Läs mer i artikeln [Distribuera data globalt](distribute-data-globally.md). 
 

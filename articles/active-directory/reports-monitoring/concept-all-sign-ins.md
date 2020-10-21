@@ -17,12 +17,12 @@ ms.date: 09/23/2020
 ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1fc5051a6cc8b8f36a980ff86690ed4f8cbac60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e6642e230fa809630751e224ff9384ea8524d1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347714"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319782"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Rapporter för Azure Active Directory inloggnings aktivitet – för hands version
 
@@ -32,8 +32,8 @@ Rapporterings arkitekturen i Azure Active Directory (Azure AD) består av följa
     - **Inloggningar** – information om när användare, program och hanterade resurser loggar in på Azure AD för att komma åt resurser.
     - **Gransknings loggar**  -  [Gransknings loggar](concept-audit-logs.md) innehåller information om system aktivitet för användare och grupp hantering, hanterade program och katalog aktiviteter.
 - **Säkerhet** 
-    - **Riskfyllda inloggningar** – en [riskfylld inloggning](concept-risky-sign-ins.md) är en indikator för ett inloggnings försök av någon som inte är legitim ägare till ett användar konto.
-    - **Användare som har flaggats för risk** – en [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användar konto som kan ha komprometterats.
+    - **Riskfyllda inloggningar** – en [riskfylld inloggning](../identity-protection/overview-identity-protection.md) är en indikator för ett inloggnings försök av någon som inte är legitim ägare till ett användar konto.
+    - **Användare som har flaggats för risk** – en [riskfylld användare](../identity-protection/overview-identity-protection.md) är en indikator för ett användar konto som kan ha komprometterats.
 
 I den klassiska inloggnings rapporten i Azure Active Directory får du en översikt över interaktiva användar inloggningar. Dessutom har du nu till gång till tre ytterligare inloggnings rapporter som nu finns i för hands version:
 
@@ -86,7 +86,7 @@ I rapport bladet inloggningar kan du växla mellan:
 
 - **Inloggnings loggar för tjänstens huvud namn** -inloggningar av appar och tjänstens huvud namn som inte omfattar någon användare. I dessa inloggningar ger appen eller tjänsten en autentiseringsuppgift för det egna ombudet att autentisera eller komma åt resurser.
 
-- **Hanterade identiteter för Azure-resurser inloggningar** -inloggningar av Azure-resurser som har hemligheter som hanteras av Azure. Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 
+- **Hanterade identiteter för Azure-resurser inloggningar** -inloggningar av Azure-resurser som har hemligheter som hanteras av Azure. Mer information finns i [Vad är hanterade identiteter för Azure-resurser?](../managed-identities-azure-resources/overview.md) 
 
 
 ![Inloggnings rapport typer](./media/concept-all-sign-ins/sign-ins-report-types.png)

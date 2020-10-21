@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 6f57f801f2270819d4a67a49590f5ba61b32afcb
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047649"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311688"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Kända problem i Azure Digitals, dubbla
 
@@ -19,7 +19,7 @@ Den här artikeln innehåller information om kända problem som är associerade 
 
 ## <a name="400-client-error-bad-request-in-cloud-shell"></a>"400-klient fel: felaktig begäran" i Cloud Shell
 
-Kommandon i Cloud Shell kan ibland Miss lyckas med fel meddelandet "400-klient fel: felaktig begäran för URL: http://localhost:50342/oauth2/token " följt av fullständig stack spårning.
+Kommandon i Cloud Shell som körs på *https://shell.azure.com* kan tillfälligt Miss lyckas med felet "400-klient fel: felaktig begäran för URL: http://localhost:50342/oauth2/token ", följt av fullständig stack spårning.
 
 För Azure Digitals sammanflätade påverkar detta följande kommando grupper:
 * `az dt route`
@@ -30,7 +30,11 @@ För Azure Digitals sammanflätade påverkar detta följande kommando grupper:
 
 Detta kan lösas genom att köra `az login` kommandot i Cloud Shell och slutföra efterföljande inloggnings steg. Därefter ska du kunna köra kommandot igen.
 
-En alternativ lösning är att [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) på din dator så att du kan köra Azure CLI-kommandon lokalt. Den lokala CLI: en drabbas inte av det här problemet.
+Du kan också öppna fönstret Cloud Shell i Azure Portal och slutföra din Cloud Shell arbete därifrån:
+
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vy av Azure Portal med ikonen &quot;Cloud Shell&quot; markerad och Cloud Shell visas längst ned i Portal fönstret":::
+
+Slutligen är en annan lösning att [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) på datorn så att du kan köra Azure CLI-kommandon lokalt. Den lokala CLI: en drabbas inte av det här problemet.
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 

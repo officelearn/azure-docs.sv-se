@@ -1,29 +1,29 @@
 ---
-title: Arbetsflöden för att utforma princip som kod
+title: Utforma Azure Policy som kod arbets flöden
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fa8eb36283821527e16c1d97e326aa9dcde9dba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598210"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320616"
 ---
-# <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
+# <a name="design-azure-policy-as-code-workflows"></a>Utforma Azure Policy som kod arbets flöden
 
 När du fortskrider på resan med moln styrning vill du byta från manuellt hantering av varje princip definition i Azure Portal eller genom de olika SDK: erna till något mer hanterbart och upprepat i företags skala. Två av de dominerande metoderna för att hantera system i skala i molnet är:
 
 - Infrastruktur som kod: metoden att behandla innehållet som definierar dina miljöer, allt från Azure Resource Manager mallar (ARM-mallar) för att Azure Policy definitioner till Azure-ritningar som källkod.
 - DevOps: föreningen av personer, processer och produkter för att möjliggöra kontinuerlig leverans av värde till våra slutanvändare.
 
-Princip som kod är kombinationen av dessa idéer. Använd i princip definitionerna i käll kontrollen och när en ändring görs, testa och validera den ändringen. Det bör dock inte vara den omfattning av principer som används i infrastrukturen som kod eller DevOps.
+Azure Policy som kod är kombinationen av dessa idéer. Använd i princip definitionerna i käll kontrollen och när en ändring görs, testa och validera den ändringen. Det bör dock inte vara den omfattning av principer som används i infrastrukturen som kod eller DevOps.
 
 Validerings steget bör också vara en komponent i andra kontinuerliga integreringar eller arbets flöden för kontinuerlig distribution. Exempel på detta är att distribuera en program miljö eller virtuell infrastruktur. Genom att göra Azure Policy validera en tidig komponent i bygg-och distributions processen kan program-och drift grupper upptäcka om deras ändringar inte är kompatibla, långa innan de är för sent och de försöker distribuera i produktion.
 
 ## <a name="definitions-and-foundational-information"></a>Definitioner och grundläggande information
 
-Innan du hämtar information om principen som kod arbets flöde kan du läsa följande definitioner och exempel:
+Läs igenom följande definitioner och exempel om du får information om Azure Policy som kod arbets flöde:
 
 - [Principdefinition](./definition-structure.md)
 - [Initiativ definition](./initiative-definition-structure.md)
@@ -43,10 +43,10 @@ Läs också [exportera Azure policy resurser](../how-to/export-resources.md) fö
 
 ## <a name="workflow-overview"></a>Översikt över arbets flöde
 
-Det rekommenderade allmänna arbets flödet som kod ser ut som i det här diagrammet:
+Det rekommenderade allmänna arbets flödet för Azure Policy som kod ser ut som det här diagrammet:
 
-:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram som visar princip som kod arbets flödes rutor från Create to test to deploy." border="false":::
-   Diagrammet som visar princip som kod arbets flödes rutor. Skapa beskriver hur du skapar principer och initiativ definitioner. Testet täcker tilldelningar med tvingande läge inaktiverat. En gateway-kontroll för kompatibilitetsstatus följs av och beviljar behörigheterna för tilldelningarna M S och åtgärdar resurserna.  Distribuera omfattar uppdatering av tilldelningen med tvingande läge aktiverat.
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagram som visar Azure Policy som kod arbets flödes rutor från Create to test to deploy." border="false":::
+   Diagrammet som visar Azure Policy som kod arbets flödes rutor. Skapa beskriver hur du skapar principer och initiativ definitioner. Testet täcker tilldelningar med tvingande läge inaktiverat. En gateway-kontroll för kompatibilitetsstatus följs av och beviljar behörigheterna för tilldelningarna M S och åtgärdar resurserna.  Distribuera omfattar uppdatering av tilldelningen med tvingande läge aktiverat.
 :::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Skapa och uppdatera princip definitioner
@@ -56,22 +56,19 @@ Princip definitionerna skapas med JSON och lagras i käll kontroll. Varje princi
 ```text
 .
 |
-|- policies/  ________________________ # Root folder for policies
+|- policies/  ________________________ # Root folder for policy resources
 |  |- policy1/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
-|
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |  |- policy2/  ______________________ # Subfolder for a policy
 |     |- policy.json _________________ # Policy definition
 |     |- policy.parameters.json ______ # Policy definition of parameters
 |     |- policy.rules.json ___________ # Policy rule
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy definition
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy definition
 |
 ```
 
@@ -89,17 +86,15 @@ Initiativ har också sin egen JSON-fil och relaterade filer som ska lagras i sam
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 |  |- init2/ _________________________ # Subfolder for an initiative
 |     |- policyset.json ______________ # Initiative definition
 |     |- policyset.definitions.json __ # Initiative list of policies
 |     |- policyset.parameters.json ___ # Initiative definition of parameters
-|     |- params.dev.json _____________ # Parameters for a Dev environment
-|     |- params.prd.json _____________ # Parameters for a Prod environment
-|     |- params.tst.json _____________ # Parameters for a Test environment
+|     |- assign.<name1>.json _________ # Assignment 1 for this policy initiative
+|     |- assign.<name2>.json _________ # Assignment 2 for this policy initiative
 |
 ```
 
@@ -114,7 +109,7 @@ Tilldelningen ska använda [enforcementMode](./assignment-structure.md#enforceme
 > [!NOTE]
 > Även om tvingande läge är användbart, är det inte en ersättning för att noggrant testa en princip definition under olika förhållanden. Princip definitionen bör testas med `PUT` och `PATCH` REST API anrop, kompatibla och icke-kompatibla resurser och Edge-fall som en egenskap som saknas i resursen.
 
-När tilldelningen har distribuerats kan du använda princip-SDK: n eller [åtgärden Azure policy GitHub för regelefterlevnad](https://github.com/marketplace/actions/azure-policy-compliance-scan) för att [Hämta efterföljare data](../how-to/get-compliance-data.md) för den nya tilldelningen. Den miljö som används för att testa principerna och tilldelningarna bör ha både kompatibla och icke-kompatibla resurser.
+När tilldelningen har distribuerats använder du Azure Policy SDK, åtgärden för att [söka efter Azure policy GitHub eller åtgärden](https://github.com/marketplace/actions/azure-policy-compliance-scan) [Azure pipeline för säkerhet och efterlevnad](/azure/devops/pipelines/tasks/deploy/azure-policy) för att [Hämta efterlevnadsprinciper](../how-to/get-compliance-data.md) för den nya tilldelningen. Den miljö som används för att testa principerna och tilldelningarna bör ha både kompatibla och icke-kompatibla resurser.
 Precis som ett bra enhets test för kod vill du testa att resurserna är som förväntat och att du inte har några falska positiva eller falska negativa negativa. Om du testar och validerar enbart för det du förväntar dig kan det uppstå oväntade och oidentifierade konsekvenser från principen. Mer information finns i [utvärdera effekten av en ny Azure policy-definition](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Aktivera reparations åtgärder
@@ -138,13 +133,13 @@ När alla verifierings grindar har slutförts uppdaterar du tilldelningen för a
 
 ## <a name="process-integrated-evaluations"></a>Bearbeta integrerade utvärderingar
 
-Det allmänna arbets flödet för princip som kod är för att utveckla och distribuera principer och initiativ till en miljö i stor skala. Princip utvärderingen bör dock vara en del av distributions processen för alla arbets flöden som distribuerar eller skapar resurser i Azure, till exempel att distribuera program eller köra ARM-mallar för att skapa infrastruktur.
+Det allmänna arbets flödet för Azure Policy som kod är att utveckla och distribuera principer och initiativ till en miljö i stor skala. Princip utvärderingen bör dock vara en del av distributions processen för alla arbets flöden som distribuerar eller skapar resurser i Azure, till exempel att distribuera program eller köra ARM-mallar för att skapa infrastruktur.
 
 I dessa fall, när distributionen av program eller infrastrukturen görs i en test prenumeration eller resurs grupp, bör princip utvärderingen utföras för den omfattningen för att kontrol lera valideringen av alla befintliga principer och initiativ. Även om de kan konfigureras som **enforcementMode** _inaktiverade_ i en sådan miljö, är det bra att veta tidigt om en program-eller infrastruktur distribution strider mot princip definitionerna tidigt. Den här princip utvärderingen bör därför vara ett steg i dessa arbets flöden och misslyckade distributioner som skapar icke-kompatibla resurser.
 
 ## <a name="review"></a>Genomgång
 
-Den här artikeln beskriver det allmänna arbets flödet för policy som kod och även var princip utvärderingen ska ingå i andra distributions arbets flöden. Det här arbets flödet kan användas i alla miljöer som har stöd för skriptbaserade steg och automatisering baserat på utlösare.
+Den här artikeln beskriver det allmänna arbets flödet för Azure Policy som kod och även var princip utvärderingen ska ingå i andra distributions arbets flöden. Det här arbets flödet kan användas i alla miljöer som har stöd för skriptbaserade steg och automatisering baserat på utlösare. En själv studie kurs om hur du använder det här arbets flödet på GitHub finns i [Självstudier: implementera Azure policy som kod med GitHub](../tutorials/policy-as-code-github.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

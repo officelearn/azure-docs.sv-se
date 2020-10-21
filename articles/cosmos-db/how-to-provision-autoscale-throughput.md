@@ -1,22 +1,25 @@
 ---
-title: Etablera data flöde för autoskalning i Azure Cosmos DB
-description: 'Lär dig hur du etablerar autoskalning genom strömning på behållaren och databas nivån i Azure Cosmos DB att använda Azure Portal, CLI, PowerShell och andra SDK: er.'
+title: Etablera data flöde för autoskalning i Azure Cosmos DB SQL API
+description: 'Lär dig hur du etablerar autoskalning genom strömning på behållaren och databas nivån i Azure Cosmos DB SQL API med Azure Portal, CLI, PowerShell och andra SDK: er.'
 author: deborahc
 ms.author: dech
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e7c5f3f4bf84b7a267cb883df5f375f2a8cf981
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 190289165b291edabf31320eee1328c1b0cf6205
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89017149"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277833"
 ---
-# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db"></a>Etablera data flöde för autoskalning på databas eller behållare i Azure Cosmos DB
+# <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Etablera data flöde för autoskalning på databas eller behållare i Azure Cosmos DB-SQL API
 
-I den här artikeln beskrivs hur du etablerar autoskalning av data flödet i en databas eller behållare (samling, Graf eller tabell) i Azure Cosmos DB. Du kan aktivera autoskalning på en enskild behållare eller etablera data flöde för autoskalning på en databas och dela den bland alla behållare i databasen.
+I den här artikeln beskrivs hur du etablerar autoskalning av data flödet i en databas eller behållare (samling, Graf eller tabell) i Azure Cosmos DB SQL API. Du kan aktivera autoskalning på en enskild behållare eller etablera data flöde för autoskalning på en databas och dela den bland alla behållare i databasen.
+
+Om du använder ett annat API, se [API för MongoDB](how-to-provision-throughput-mongodb.md), [API för Cassandra](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) -artiklar för att etablera data flödet.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -52,7 +55,7 @@ Om du vill etablera autoskalning på den delade data flödes databasen väljer d
 > [!NOTE]
 > När du aktiverar autoskalning på en befintlig databas eller behållare, bestäms startvärdet för max RU/s av systemet, baserat på dina aktuella manuella etablerade data flödes inställningar och lagrings utrymme. När åtgärden har slutförts kan du ändra Max RU/s vid behov. [Läs mer.](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) 
 
-## <a name="azure-cosmos-db-net-v3-sdk-for-sql-api"></a>Azure Cosmos DB .NET v3 SDK för SQL API
+## <a name="azure-cosmos-db-net-v3-sdk"></a>Azure Cosmos DB .NET v3 SDK
 
 Använd [version 3,9 eller senare](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) av Azure Cosmos dB .NET SDK för SQL API för att hantera resurser för autoskalning. 
 
@@ -109,7 +112,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## <a name="azure-cosmos-db-java-v4-sdk-for-sql-api"></a>Azure Cosmos DB Java v4 SDK för SQL API
+## <a name="azure-cosmos-db-java-v4-sdk"></a>Azure Cosmos DB Java v4 SDK
 
 Du kan använda [version 4,0 eller senare](https://mvnrepository.com/artifact/com.azure/azure-cosmos) av Azure Cosmos DB Java SDK för SQL API för att hantera resurser för autoskalning.
 
@@ -242,14 +245,6 @@ container.replaceThroughput(ThroughputProperties.createAutoscaledThroughput(newA
 ```
 
 ---
-
-## <a name="cassandra-api"></a>Cassandra-API
-
-Azure Cosmos DB konton för API för Cassandra kan tillhandahållas för autoskalning med [CQL-kommandon](manage-scale-cassandra.md#use-autoscale), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) eller [Azure Resource Manager mallar](resource-manager-samples.md).
-
-## <a name="azure-cosmos-db-api-for-mongodb"></a>API för Azure Cosmos DB för MongoDB
-
-Azure Cosmos DB konton för MongoDB-API: et kan tillhandahållas för autoskalning med [MongoDB-tilläggs kommandon](mongodb-custom-commands.md), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) eller [Azure Resource Manager mallar](resource-manager-samples.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

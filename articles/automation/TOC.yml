@@ -193,29 +193,33 @@
         - name: Ändringsspårning och inventering
           items:
             - name: Översikt
-              href: change-tracking.md
+              href: change-tracking/overview.md
             - name: Regioner med stöd för länkade Log Analytics-arbetsytor
               href: how-to/region-mappings.md
             - name: Aktivera
               items:
-                - name: Aktivera Ändringsspårning och inventering från Azure-portalen
-                  href: automation-enable-changes-from-browse.md
-                - name: Aktivera Ändringsspårning och inventering från en virtuell Azure-dator
-                  href: automation-enable-changes-from-vm.md
-                - name: Aktivera Ändringsspårning och inventering från ett Automation-konto
-                  href: automation-enable-changes-from-auto-acct.md
-                - name: Aktivera Ändringsspårning och inventering från en runbook
-                  href: automation-enable-changes-from-runbook.md
+                - name: Aktivera från Azure-portalen
+                  href: change-tracking/enable-from-portal.md
+                - name: Aktivera från en virtuell Azure-dator
+                  href: change-tracking/enable-from-vm.md
+                - name: Aktivera från ett Automation-konto
+                  href: change-tracking/enable-from-automation-account.md
+                - name: Aktivera från en runbook
+                  href: change-tracking/enable-from-runbook.md
             - name: Hantera ändringsspårning och inventering
-              href: change-tracking-file-contents.md
+              href: change-tracking/manage-change-tracking.md
             - name: Hantera inventeringsinsamling från virtuella datorer
-              href: automation-vm-inventory.md
+              href: change-tracking/manage-inventory-vms.md
             - name: Arbeta med omfattningskonfigurationer
-              href: automation-scope-configurations-change-tracking.md
-            - name: Ta bort länk mellan arbetsyta och Automation-konto
-              href: automation-unlink-workspace-change-tracking.md
-            - name: Ta bort virtuella datorer från Ändringsspårning och inventering
-              href: automation-remove-vms-from-change-tracking.md
+              href: change-tracking/manage-scope-configurations.md
+            - name: Konfigurera aviseringar
+              href: change-tracking/configure-alerts.md
+            - name: Inaktivera
+              items:
+                - name: Ta bort Ändringsspårning och inventering
+                  href: change-tracking/remove-feature.md
+                - name: Ta bort virtuella datorer från Ändringsspårning och inventering
+                  href: change-tracking/remove-vms-from-change-tracking.md
             - name: Felsöka
               items:
                 - name: Felsöka problem med distribution av funktioner
@@ -239,49 +243,49 @@
     - name: Uppdateringshantering
       items:
         - name: Översikt
-          href: update-management/update-mgmt-overview.md
+          href: update-management/overview.md
         - name: Regioner som stöder länkade Log Analytics-arbetsytor
           href: how-to/region-mappings.md
         - name: Aktivera
           items:
-            - name: Aktivera Uppdateringshantering via en Azure Resource Manager-mall
-              href: update-management/update-mgmt-enable-template.md
-            - name: Aktivera Uppdateringshantering i Azure-portalen
-              href: update-management/update-mgmt-enable-portal.md
-            - name: Aktivera Uppdateringshantering från en virtuell Azure-dator
-              href: update-management/update-mgmt-enable-vm.md
-            - name: Aktivera Uppdateringshantering från ett Automation-konto
-              href: update-management/update-mgmt-enable-automation-account.md
-            - name: Aktivera Uppdateringshantering från en runbook
-              href: update-management/update-mgmt-enable-runbook.md
+            - name: Aktivera med hjälp av Azure Resource Manager-mall
+              href: update-management/enable-from-template.md
+            - name: Aktivera från Azure-portalen
+              href: update-management/enable-from-portal.md
+            - name: Aktivera från en virtuell Azure-dator
+              href: update-management/enable-from-vm.md
+            - name: Aktivera från ett Automation-konto
+              href: update-management/enable-from-automation-account.md
+            - name: Aktivera från en runbook
+              href: update-management/enable-from-runbook.md
         - name: Hantera uppdateringar för virtuella datorer
           items:
             - name: Kom igång
-              href: update-management/update-mgmt-manage-updates-for-vm.md
+              href: update-management/manage-updates-for-vm.md
             - name: Utvärdera kompatibilitet
-              href: update-management/update-mgmt-view-update-assessments.md
+              href: update-management/view-update-assessments.md
             - name: Distribuera uppdateringar och granska status
-              href: update-management/update-mgmt-deploy-updates.md
+              href: update-management/deploy-updates.md
             - name: Använda förskript och efterskript
-              href: update-management/update-mgmt-pre-post-scripts.md
+              href: update-management/pre-post-scripts.md
             - name: Konfigurera varningar
-              href: update-management/update-mgmt-configure-alerts.md
+              href: update-management/configure-alerts.md
         - name: Integrera med Configuration Manager
-          href: update-management/update-mgmt-mecmintegration.md
+          href: update-management/mecmintegration.md
         - name: Konfigurera en Windows Update-klient
-          href: update-management/update-mgmt-configure-wuagent.md
+          href: update-management/configure-wuagent.md
         - name: Använda dynamiska grupper
-          href: update-management/update-mgmt-groups.md
+          href: update-management/configure-groups.md
         - name: Fråga Uppdateringshanteringsloggar
-          href: update-management/update-mgmt-query-logs.md
+          href: update-management/query-logs.md
         - name: Arbeta med omfattningskonfigurationer
-          href: update-management/update-mgmt-scope-configuration.md
+          href: update-management/scope-configuration.md
         - name: Inaktivera
           items:
             - name: Ta bort Uppdateringshantering
-              href: update-management/update-mgmt-remove-feature.md
+              href: update-management/remove-feature.md
             - name: Ta bort virtuella datorer från Uppdateringshantering
-              href: update-management/update-mgmt-remove-vms.md
+              href: update-management/remove-vms.md
         - name: Felsöka
           items:
             - name: Felsöka problem med distribution av funktioner

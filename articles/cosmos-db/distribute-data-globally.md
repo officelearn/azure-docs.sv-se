@@ -6,18 +6,18 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 29917b0911fbab36fbb30a587ee7cac223b993f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ea5ee2dfe89b36fce78c369100224718eb5864f
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570191"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278763"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuera dina data globalt med Azure Cosmos DB
 
 Dagens program måste ha korta svarstider och alltid vara online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Dessa program distribueras vanligt vis i flera data Center och kallas globalt distribuerade. Globalt distribuerade program behöver en globalt distribuerad databas som transparent kan replikera data var som helst i världen så att programmen kan köras med en datakopia som ligger nära användarna. 
 
-Azure Cosmos DB är en globalt distribuerad databas tjänst som är utformad för att tillhandahålla låg latens, elastisk skalbarhet för data flöde, väldefinierade semantik för data konsekvens och hög tillgänglighet. Om ditt program behöver garanterad snabb svars tid var som helst i världen, om det är nödvändigt att alltid vara online och behöver en obegränsad och elastisk skalbarhet för data flöde och lagring, bör du bygga ditt program på Azure Cosmos DB.
+Azure Cosmos DB är en globalt distribuerad databas tjänst som är utformad för att tillhandahålla låg latens, elastisk skalbarhet för data flöde, väldefinierade semantik för data konsekvens och hög tillgänglighet. Om ditt program behöver snabba svars tider var som helst i världen, om det är nödvändigt att alltid vara online och behöver en obegränsad och elastisk skalbarhet för data flöde och lagring, bör du bygga ditt program på Azure Cosmos DB.
 
 Du kan konfigurera dina databaser så att de distribueras globalt och är tillgängliga i alla Azure-regioner. Minska svars tiden genom att placera data nära var användarna finns. Att välja de regioner som krävs beror på programmets globala räckvidd och var användarna finns. Cosmos DB replikerar data transparent till alla regioner som är kopplade till ditt Cosmos-konto. Den innehåller en enda system avbildning av din globalt distribuerade Azure Cosmos-databas och behållare som ditt program kan läsa och skriva till lokalt. 
 
@@ -29,7 +29,7 @@ Med Azure Cosmos DB kan du när som helst lägga till eller ta bort regioner som
 
 **Bygg globala Active-Active-appar.** Alla regioner stöder både skrivningar och läsningar med den nya multi-region skrivningar-replikeringstjänsten. Skriv funktionen i flera regioner möjliggör också:
 
-- Obegränsad elastisk Skriv-och Läs skalbarhet. 
+- Obegränsad elastisk Skriv-och Läs skalbarhet.
 - 99,999% tillgänglighet för läsning och skrivning över hela världen.
 - Garanterade läsningar och skrivningar som betjänas på mindre än 10 millisekunder vid 99 percentil.
 
@@ -41,7 +41,7 @@ Genom att använda API: erna Azure Cosmos DB multi-värdar är ditt program medv
 
 **Upprätthålla verksamhets kontinuitet under regionala drifts avbrott.** Azure Cosmos DB stöder [Automatisk redundans](how-to-manage-database-account.md#automatic-failover) under ett regionalt avbrott. Under ett regionalt avbrott fortsätter Azure Cosmos DB att bibehålla svars tid, tillgänglighet, konsekvens och data flödes service avtal. För att se till att hela programmet har hög tillgänglighet Cosmos DB erbjuder en manuell redundansväxlings-API för att simulera ett regionalt avbrott. Genom att använda det här API: et kan du utföra regelbundna affärs kontinuitets övningar.
 
-**Skala Läs-och Skriv data flöde globalt.** Du kan aktivera varje region för att vara skrivbar och samtidigt skala läsningar och skriv över hela världen. Data flödet som ditt program konfigurerar på en Azure Cosmos-databas eller en behållare garanterar att de levereras i alla regioner som är kopplade till ditt Azure Cosmos-konto. Det etablerade data flödet garanteras av [finansiellt säkerhetskopierade service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
+**Skala Läs-och Skriv data flöde globalt.** Du kan aktivera varje region för att vara skrivbar och samtidigt skala läsningar och skriv över hela världen. Det data flöde som programmet konfigurerar på en Azure Cosmos-databas eller en behållare etablerades i alla regioner som är associerade med ditt Azure Cosmos-konto. Det etablerade data flödet garanteras av [finansiellt säkerhetskopierade service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
 **Välj bland flera väldefinierade konsekvens modeller.** Azure Cosmos DB Replication-protokollet erbjuder fem väldefinierade, praktiska och intuitiva konsekvens modeller. Varje modell har en kompromiss mellan konsekvens och prestanda. Använd dessa konsekvens modeller för att enkelt bygga globalt distribuerade program.
 

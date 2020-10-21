@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 208c9b4172719b876766f0c4d07a17caa24bfd63
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273151"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310954"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Skapa datakontrollant i Azure Data Studio
 
@@ -25,7 +25,7 @@ Du kan skapa en datakontrollant med Azure Data Studio via distributions guiden o
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du behöver åtkomst till ett Kubernetes-kluster och har kubeconfig-filen konfigurerad så att den pekar på det Kubernetes-kluster som du vill distribuera till.
-- Du måste [Installera klient verktygen](install-client-tools.md) , inklusive **Azure Data Studio** Azure Data Studio tillägg som kallas **Azure Arc** och **Azure Data CLI**.
+- Du måste [Installera klient verktygen](install-client-tools.md) , inklusive **Azure Data Studio** Azure Data Studio tillägg som kallas **Azure Arc** och **[!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]** .
 - Du måste logga in på Azure i Azure Data Studio.  Gör så här: Skriv CTRL/Command + SHIFT + P för att öppna fönstret kommando text och skriv **Azure**.  Välj **Azure: Logga**in.   I panelen, som visas klickar du på +-ikonen längst upp till höger för att lägga till ett Azure-konto.
 
 ## <a name="use-the-deployment-wizard-to-create-azure-arc-data-controller"></a>Använd distributions guiden för att skapa data styrenheten för Azure Arc

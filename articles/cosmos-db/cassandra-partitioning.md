@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: d0234ca04b772e4ff5127ef9dd896b49141febfb
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: f12919cd35441c6c198269e2f79c705c1d304acd
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167567"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92278812"
 ---
 # <a name="partitioning-in-azure-cosmos-db-cassandra-api"></a>Partitionering i Azure Cosmos DB API för Cassandra
 
@@ -25,7 +25,7 @@ I utvecklings perspektivet fungerar partitionering på samma sätt för Azure Co
 
 ## <a name="differences-between-apache-cassandra-and-azure-cosmos-db"></a>Skillnader mellan Apache Cassandra och Azure Cosmos DB
 
-I Azure Cosmos DB kallas alla datorer där partitioner lagras som en [fysisk partition](partition-data.md#physical-partitions). Den fysiska partitionen är via till en virtuell dator. en dedikerad beräknings enhet eller uppsättning fysiska resurser. Varje partition som lagras i den här beräknings enheten kallas en [logisk partition](partition-data.md#logical-partitions) i Azure Cosmos dB. Om du redan är bekant med Apache Cassandra kan du tänka på logiska partitioner på samma sätt som du tänker på vanliga partitioner i Cassandra. 
+I Azure Cosmos DB kallas alla datorer där partitioner lagras som en [fysisk partition](partitioning-overview.md#physical-partitions). Den fysiska partitionen är via till en virtuell dator. en dedikerad beräknings enhet eller uppsättning fysiska resurser. Varje partition som lagras i den här beräknings enheten kallas en [logisk partition](partitioning-overview.md#logical-partitions) i Azure Cosmos dB. Om du redan är bekant med Apache Cassandra kan du tänka på logiska partitioner på samma sätt som du tänker på vanliga partitioner i Cassandra. 
 
 Apache Cassandra rekommenderar en gräns på 100 MB för storleken på data som kan lagras i en partition. API för Cassandra för Azure Cosmos DB tillåter upp till 20 GB per logisk partition och upp till 30 GB data per fysisk partition. I Azure Cosmos DB, till skillnad från Apache-Cassandra, uttrycks beräknings kapaciteten som är tillgänglig i den fysiska partitionen med hjälp av ett enda mått som kallas [begär ande enheter](request-units.md), vilket gör att du kan tänka på arbets belastningen i fråga om begär Anden (läsningar eller skrivningar) per sekund, i stället för kärnor, minne eller IOPS. Detta kan göra kapacitets planeringen mer direkt framåt när du förstår kostnaden för varje begäran. Varje fysisk partition kan ha upp till 10000 ru: er beräknings utrymme. Du kan lära dig mer om skalbarhets alternativ genom att läsa vår artikel om [elastisk skalning](manage-scale-cassandra.md) i API för Cassandra. 
 
@@ -112,6 +112,6 @@ CREATE TABLE uprofile.user (
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [partitionering och horisontell skalning i Azure Cosmos DB](partition-data.md).
+* Lär dig mer om [partitionering och horisontell skalning i Azure Cosmos DB](partitioning-overview.md).
 * Lär dig mer om [etablerade data flöden i Azure Cosmos DB](request-units.md).
 * Lär dig mer om [global distribution i Azure Cosmos DB](distribute-data-globally.md).

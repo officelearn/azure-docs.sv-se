@@ -9,21 +9,17 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Distribuera Azure API för FHIR – portalen
-      href: fhir-paas-portal-quickstart.md
-    - name: Distribuera Azure API för FHIR – PowerShell
-      href: fhir-paas-powershell-quickstart.md
-    - name: Distribuera Azure API för FHIR – CLI
-      href: fhir-paas-cli-quickstart.md
-    - name: Distribuera Azure API för FHIR – ARM-mall
-      href: fhir-paas-arm-template-quickstart.md
-      displayName: deploy azure resource manager template
-    - name: Distribuera FHIR Server för Azure – portalen
-      href: fhir-oss-portal-quickstart.md
-    - name: Distribuera FHIR Server för Azure – PowerShell
-      href: fhir-oss-powershell-quickstart.md
-    - name: Distribuera FHIR Server för Azure – CLI
-      href: fhir-oss-cli-quickstart.md
+    - name: Distribuera Azure API för FHIR
+      expanded: false
+      items:
+        - name: Använda portalen
+          href: fhir-paas-portal-quickstart.md
+        - name: Använda PowerShell
+          href: fhir-paas-powershell-quickstart.md
+        - name: Använda CLI
+          href: fhir-paas-cli-quickstart.md
+        - name: Använda ARM-mall
+          href: fhir-paas-arm-template-quickstart.md
     - name: Distribuera Azure IoT-anslutningsprogram för FHIR (förhandsversion) – Portal
       href: iot-fhir-portal-quickstart.md
 - name: Självstudier
@@ -93,6 +89,8 @@
       href: find-identity-object-ids.md
     - name: Aktivera diagnostisk loggning i Azure API for FHIR®
       href: enable-diagnostic-logging.md
+    - name: Exportera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion) via diagnostikinställningar
+      href: iot-metrics-diagnostics-export.md
     - name: Hämta en token för Azure API för FHIR – CLI
       href: get-healthcare-apis-access-token-cli.md
     - name: Felsöka fel i Azure IoT-anslutningsprogram för FHIR (förhandsversion)

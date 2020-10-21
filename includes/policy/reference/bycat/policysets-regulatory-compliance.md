@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: b088e2e8a63e68fcda1bf8d006a480966bf5a775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 394bad6623eeb4ce4b43cadd9bef53934ed7e852
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91820116"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311613"
 ---
-|Name |Beskrivning |Principer |Version |
+|Namn |Beskrivning |Principer |Version |
 |---|---|---|---|
 |[Den australiska regeringens ISM PROTECTED-kontroller](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/IRAP_Audit.json) |Det här initiativet inkluderar principer för granskning och distribution av virtuella datorer som åtgärdar en delmängd av de australiska-kontrollerna för säkerhets manuella myndigheter i myndigheter. Ytterligare principer kommer att läggas till i kommande versioner. Mer information finns på [https://aka.ms/AustralianGovernmentISM-blueprint](https://aka.ms/AustralianGovernmentISM-blueprint) . |62 |3.0.0 – för hands version |
 |[Benchmark för Azure-säkerhet](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policySetDefinitions/Regulatory%20Compliance/asb_audit.json) |Detta initiativ inkluderar principer för granskning och distribution av virtuella dator tillägg som hanterar en delmängd av Azures säkerhets bedömnings rekommendationer. Ytterligare principer kommer att läggas till i kommande versioner. Mer information finns på [https://aka.ms/azsecbm](https://aka.ms/azsecbm) . |136 |6.1.0 – för hands version |

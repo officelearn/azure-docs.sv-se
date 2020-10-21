@@ -3,12 +3,12 @@ title: Ange omfattning för identifiering av VMware VM med Azure Migrate
 description: Beskriver hur du ställer in identifierings omfånget för utvärdering av virtuella VMware-datorer och migrering med Azure Migrate.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c61f544e3222dba83123aa1be5e53a19e671035
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919734"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314036"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Ange identifierings omfång för virtuella VMware-datorer
 
@@ -21,7 +21,7 @@ När du konfigurerar enheten ansluter den till vCenter Server och påbörjar ide
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Om du inte har konfigurerat ett vCenter-användarkonto som Azure Migrate använder för identifiering, gör du det nu för [utvärdering](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) eller utan [agent migrering](tutorial-prepare-vmware.md#assign-permissions-to-an-account).
+Om du inte har konfigurerat ett vCenter-användarkonto som Azure Migrate använder för identifiering, gör du det nu för [utvärdering](./tutorial-discover-vmware.md#prepare-vmware) eller utan [agent migrering](./migrate-support-matrix-vmware-migration.md#agentless-migration).
 
 
 ## <a name="assign-permissions-and-roles"></a>Tilldela behörigheter och roller

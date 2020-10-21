@@ -3,12 +3,12 @@ title: Azure Event Hubs process Apache Kafka händelser
 description: 'Självstudie: den här artikeln visar hur du bearbetar Kafka-händelser som matas in via Event Hub med hjälp av Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 1f0c7bf40b721a3f35fcf68c71cb38a4302a56f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 328537eebd05391fc4c8138395a9c10f0a5d072f
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531295"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92319383"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Självstudie: bearbeta Apache Kafka för Event Hubs händelser med Stream Analytics 
 Den här artikeln visar hur du strömmar data till Event Hubs och bearbetar dem med Azure Stream Analytics. Det vägleder dig genom följande steg: 
@@ -20,12 +20,12 @@ Den här artikeln visar hur du strömmar data till Event Hubs och bearbetar dem 
 Du behöver inte ändra protokoll klienter eller köra egna kluster när du använder Kafka-slutpunkten som exponeras av en Event Hub. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html) och senare. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna slutföra den här snabbstarten behöver du följande:
 
 * En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 * [Ladda ned](https://maven.apache.org/download.cgi) och [installera](https://maven.apache.org/install.html) ett Maven-binärarkiv.
 * [Git](https://www.git-scm.com/)
 * Ett **Azure Storage konto**. Om du inte har ett kan du [skapa en](../storage/common/storage-account-create.md) innan du fortsätter. Stream Analyticss jobbet i den här genom gången lagrar utdata i Azure Blob Storage. 
@@ -171,4 +171,4 @@ När du har en Stream Analytics-jobbkonfiguration för att läsa en inkommande d
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur du strömmar till Event Hubs utan att ändra protokoll klienter eller köra egna kluster. Mer information om Event Hubs för Apache Kafka finns i [Apache Kafka Developer Guide for Azure Event Hubs](apache-kafka-developer-guide.md). 
+I den här artikeln har du lärt dig hur du strömmar till Event Hubs utan att ändra protokoll klienter eller köra egna kluster. Mer information om Event Hubs för Apache Kafka finns i [Apache Kafka Developer Guide for Azure Event Hubs](apache-kafka-developer-guide.md).

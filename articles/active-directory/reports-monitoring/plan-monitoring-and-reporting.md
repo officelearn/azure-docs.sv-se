@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568a524e9300905a5e70b2cf7481fc7eabfc669e
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331207"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311227"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planera en Azure Active Directory rapportering och övervakning av distribution
 
@@ -73,7 +73,7 @@ I det här projektet definierar du de mål grupper som ska förbruka och överva
 
 ### <a name="engage-the-right-stakeholders"></a>Engagera rätt intressenter
 
-När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du är engagerande rätt intressenter](https://aka.ms/deploymentplans). Se också till att från intressenter roller i projektet är väl förstå genom att dokumentera intressenterna och deras ingångs-och Accountabilities.
+När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du är engagerande rätt intressenter](../fundamentals/active-directory-deployment-plans.md). Se också till att från intressenter roller i projektet är väl förstå genom att dokumentera intressenterna och deras ingångs-och Accountabilities.
 
 ### <a name="plan-communications"></a>Planera kommunikation
 
@@ -97,12 +97,12 @@ Rapportering och övervakning används för att uppfylla dina affärs behov, få
 
 * Krävs för att lösningen ska uppfylla affärs behoven
 * Bra att uppfylla affärs behoven
-* Inte tillämpligt
+* Ej tillämpligt
 
 |Område |Beskrivning |
 |-|-|
 |Kvarhållning| **Logg kvarhållning på mer än 30 dagar**. På grund av juridiska krav eller affärs krav krävs det att lagra gransknings loggar och logga in loggar för Azure AD längre än 30 dagar. |
-|Analytics| **Loggarna måste vara**sökbara. De lagrade loggarna måste vara sökbara med analys verktyg. |
+|Analys| **Loggarna måste vara**sökbara. De lagrade loggarna måste vara sökbara med analys verktyg. |
 | Operational Insights| **Insikter för olika team**. Behovet av att ge åtkomst till olika användare för att få Operational Insights, till exempel program användning, inloggnings fel, självbetjänings användning, trender osv. |
 | Säkerhets insikter| **Insikter för olika team**. Behovet av att ge åtkomst till olika användare för att få Operational Insights, till exempel program användning, inloggnings fel, självbetjänings användning, trender osv. |
 | Integrering i SIEM-system      | **Siem-integrering**. Behovet av att integrera och strömma Azure AD-inloggnings loggar och gransknings loggar till befintliga SIEM-system. |
@@ -133,7 +133,7 @@ Lär dig att [installera och använda logganalysvyer för Azure AD-aktivitetslog
 
 Routning loggar till en Azure Event Hub möjliggör integrering med SIEM-verktyg från tredje part. Den här integrationen gör att du kan kombinera Azure AD-aktivitetsloggdata med andra data som hanteras av ditt SIEM, för att ge bättre inblick i din miljö. 
 
-Lär dig hur du [skickar händelser till en händelsehubb](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Lär dig hur du [skickar händelser till en händelsehubb](./tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planera åtgärder och säkerhet för Azure AD-rapportering och-övervakning
 

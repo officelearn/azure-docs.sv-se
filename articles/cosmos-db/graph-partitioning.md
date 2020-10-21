@@ -8,18 +8,18 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a993779bc47f1a9b2be8851fafe628ae4286f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89615f53f62329ca37ae4a4dde301a9fae6b1202
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400510"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279734"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Använda en partitionerad graf i Azure Cosmos DB
 
 En av de viktigaste funktionerna i Gremlin-API: et i Azure Cosmos DB är möjligheten att hantera storskaliga grafer genom vågrät skalning. Behållare kan skalas oberoende av lagring och data flöde. Du kan skapa behållare i Azure Cosmos DB som automatiskt kan skalas för att lagra diagram data. Data bal anse ras automatiskt baserat på den angivna **partitionsnyckel**.
 
-**Partitionering krävs** om behållaren förväntas lagra mer än 20 GB i storlek eller om du vill allokera mer än 10 000 enheter för programbegäran per sekund (ru: er). Samma allmänna principer från mekanismen för [Azure Cosmos DB partitionering](partition-data.md) gäller med några diagram olika optimeringar som beskrivs nedan.
+**Partitionering krävs** om behållaren förväntas lagra mer än 20 GB i storlek eller om du vill allokera mer än 10 000 enheter för programbegäran per sekund (ru: er). Samma allmänna principer från mekanismen för [Azure Cosmos DB partitionering](partitioning-overview.md) gäller med några diagram olika optimeringar som beskrivs nedan.
 
 :::image type="content" source="./media/graph-partitioning/graph-partitioning.png" alt-text="Diagram partitionering." border="false":::
 
@@ -78,7 +78,7 @@ Använd följande rikt linjer för att säkerställa prestanda och skalbarhet n�
 
 - **Använd den utgående riktningen när du frågar efter kanter när det är möjligt**. Som nämnts ovan lagras kanter med deras käll hörn i den utgående riktningen. Det innebär att det är möjligt att att använda frågor över olika partitioner minimeras när data och frågor är utformade med det här mönstret i åtanke. I motsatsen är `in()` frågan alltid en dyr fläkt fråga.
 
-- **Välj en partitionsnyckel som jämnt distribuerar data mellan partitioner**. Det här beslutet beror kraftigt på data modellen för lösningen. Läs mer om hur du skapar en lämplig partitionsnyckel i [partitionering och skalning i Azure Cosmos DB](partition-data.md).
+- **Välj en partitionsnyckel som jämnt distribuerar data mellan partitioner**. Det här beslutet beror kraftigt på data modellen för lösningen. Läs mer om hur du skapar en lämplig partitionsnyckel i [partitionering och skalning i Azure Cosmos DB](partitioning-overview.md).
 
 - **Optimera frågor för att hämta data inom gränserna för en partition**. En optimal partitionerings strategi skulle justeras mot fråge mönstren. Frågor som hämtar data från en enda partition ger bästa möjliga prestanda.
 
@@ -86,6 +86,6 @@ Använd följande rikt linjer för att säkerställa prestanda och skalbarhet n�
 
 Härnäst kan du fortsätta att läsa följande artiklar:
 
-* Lär dig mer om [partition och skalning i Azure Cosmos DB](partition-data.md).
+* Lär dig mer om [partition och skalning i Azure Cosmos DB](partitioning-overview.md).
 * Läs mer om [Gremlin-stöd i Gremlin-API](gremlin-support.md).
 * Lär dig mer om [Introduktion till Gremlin-API](graph-introduction.md).

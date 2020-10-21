@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: f9e1ff633f70e544a3cde579f1550d3fd708f269
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089521"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277806"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
@@ -271,7 +271,7 @@ Det påverkar inte Skriv tillgängligheten under index transformationer. Index o
 
 Det finns ingen inverkan på Läs tillgänglighet när du lägger till ett nytt index. Frågor använder bara nya index när index omvandlingen har slutförts. Vid omvandlingen av index fortsätter Frågeredigeraren att använda befintliga index, så du ser liknande Läs prestanda under indexerings omvandlingen till det du hade observerat innan du påbörjar indexerings ändringen. När du lägger till nya index är det inte heller någon risk för ofullständiga eller inkonsekventa frågeresultat.
 
-När du tar bort index och omedelbart kör frågor som filtrerar på de borttagna indexen, finns det ingen garanti för konsekventa eller fullständiga frågeresultat. Om du tar bort flera index och gör det i en enda princip ändring för index, garanterar Frågeredigeraren konsekventa och fullständiga resultat i index omvandlingen. Men om du tar bort index genom flera indexerings princip ändringar garanterar inte frågesyntaxen konsekventa eller fullständiga resultat förrän alla index omvandlingar har slutförts. De flesta utvecklare släpper inte indexen och försöker sedan omedelbart köra frågor som använder dessa index, så i praktiken är den här situationen osannolik.
+När du tar bort index och omedelbart kör frågor som filtrerar på de borttagna indexen, finns det ingen garanti för konsekventa eller fullständiga frågeresultat. Om du tar bort flera index och gör det i en enda princip ändring för index, ger Frågeredigeraren konsekventa och fullständiga resultat i index omvandlingen. Men om du tar bort index genom flera indexerings princip ändringar, kommer inte frågesyntaxen att tillhandahålla konsekventa eller fullständiga resultat förrän alla index omvandlingar har slutförts. De flesta utvecklare släpper inte indexen och försöker sedan omedelbart köra frågor som använder dessa index, så i praktiken är den här situationen osannolik.
 
 > [!NOTE]
 > Om möjligt bör du alltid försöka gruppera flera indexerings ändringar i en enda princip ändring för indexering

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 1e395e4e73f6c140d81189f1abbccca8c064f757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee440c77ec94a7c3e61c37e589aa5ef23031ca7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616660"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332424"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Utforska SaaS Analytics med Azure SQL Database, Azure Synapse Analytics, Data Factory och Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ Sedan omvandlas de extraherade data till en uppsättning med [stjärn schema](ht
 
 De centrala tabellerna och dimensions tabellerna möjliggör effektiv analytisk bearbetning. Det stjärn schema som används i den här självstudien visas i följande bild:
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
+![Diagram som visar det stjärn schema som används i den här självstudien.](./media/saas-tenancy-tenant-analytics-adf/starschematables.JPG)
 
 Slutligen frågas stjärn schema-tabellerna. Frågeresultat visas visuellt med Power BI för att framhäva insikter om klientens beteende och deras användning av programmet. Med det här stjärn schemat kan du köra frågor som visar:
 
@@ -66,7 +66,7 @@ Den här självstudien innehåller grundläggande exempel på insikter som kan u
 
 ## <a name="setup"></a>Installation
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Se till att följande förhandskrav är slutförda för att kunna slutföra den här guiden:
 

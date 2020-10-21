@@ -1,237 +1,256 @@
 ---
-title: Snabb start – hantera privata slut punkter i Azure
-description: Lär dig hur du skapar en privat slut punkt med hjälp av Azure Portal i den här snabb starten
+title: Snabb start – skapa en privat slut punkt med hjälp av Azure Portal
+description: Använd den här snabb starten för att lära dig hur du skapar en privat slut punkt med hjälp av Azure Portal.
 services: private-link
-author: malopMSFT
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
-ms.date: 09/16/2019
+ms.date: 10/20/2020
 ms.author: allensu
-ms.openlocfilehash: ef6d49c9046ba04bbac40ec9bf555e12d2faa8f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3deeca4635f33b63a6e0bcecc0c829d3df88e352
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84021712"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327521"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Snabb start: skapa en privat slut punkt med hjälp av Azure Portal
+# <a name="quickstart-create-a-private-endpoint-using-the-azure-portal"></a>Snabb start: skapa en privat slut punkt med hjälp av Azure Portal
 
-En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator på en Azure-Virtual Network, en logisk SQL-Server med en privat Azure-slutpunkt med hjälp av Azure Portal. Sedan kan du på ett säkert sätt komma åt SQL Database från den virtuella datorn.
+Kom igång med en privat Azure-länk genom att använda en privat slut punkt för att ansluta säkert till en Azure-webbapp.
 
-Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+I den här snabb starten skapar du en privat slut punkt för en Azure-webbapp och distribuerar en virtuell dator för att testa den privata anslutningen.  
 
+Privata slut punkter kan skapas för olika typer av Azure-tjänster, till exempel Azure SQL och Azure Storage.
+
+## <a name="prerequisites"></a>Krav
+
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* En Azure-webbapp med en **PremiumV2-** eller högre App Service-plan distribuerad i din Azure-prenumeration.  
+    * Mer information och ett exempel finns i [snabb start: skapa en ASP.net Core webbapp i Azure](../app-service/quickstart-dotnetcore.md). 
+    * En detaljerad själv studie kurs om hur du skapar en webbapp och en slut punkt finns i [Självstudier: Anslut till en webbapp med en privat Azure-slutpunkt](tutorial-private-endpoint-webapp-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på https://portal.azure.com.
 
-## <a name="create-a-vm"></a>Skapa en virtuell dator
-I det här avsnittet skapar du ett virtuellt nätverk och under nätet som är värd för den virtuella datorn som används för åtkomst till din privata länk resurs (en SQL-Server i Azure i det här exemplet).
+## <a name="create-a-virtual-network-and-bastion-host"></a>Skapa ett virtuellt nätverk och en skydds-värd
 
-## <a name="virtual-network-and-parameters"></a>Virtuellt nätverk och parametrar
+I det här avsnittet ska du skapa ett virtuellt nätverk, ett undernät och en skydds-värd. 
 
-I det här avsnittet ska du skapa en Virtual Network och under nätet som är värd för den virtuella datorn som används för åtkomst till din privata länk resurs.
+Skydds-värden kommer att användas för att ansluta säkert till den virtuella datorn för att testa den privata slut punkten.
 
-I det här avsnittet måste du ersätta följande parametrar i stegen med informationen nedan:
+1. Välj **Skapa en resurs > Nätverk > Virtuellt nätverk** eller sök efter **virtuellt nätverk** i sökrutan på den övre vänstra sidan på skärmen.
 
-| Parameter                   | Värde                |
-|-----------------------------|----------------------|
-| **\<resource-group-name>**  | myResourceGroup |
-| **\<virtual-network-name>** | myVirtualNetwork          |
-| **\<region-name>**          | USA, västra centrala    |
-| **\<IPv4-address-space>**   | 10.1.0.0/16          |
-| **\<subnet-name>**          | mySubnet        |
-| **\<subnet-address-range>** | 10.1.0.0/24          |
+2. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
 
-[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
+    | **Inställning**          | **Värde**                                                           |
+    |------------------|-----------------------------------------------------------------|
+    | **Projekt information**  |                                                                 |
+    | Prenumeration     | Välj din Azure-prenumeration                                  |
+    | Resursgrupp   | Välj **CreatePrivateEndpointQS-RG** |
+    | **Instansinformation** |                                                                 |
+    | Name             | Ange **myVNet**                                    |
+    | Region           | Välj **\<your-web-app-region>**. </br> Välj den region där din webbapp ska distribueras.|
 
-### <a name="create-virtual-machine"></a>Skapa virtuell dator
+3. Välj fliken **IP-adresser** eller Välj **Nästa: knappen Nästa: IP-adress** längst ned på sidan.
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **beräknings**  >  **virtuell dator**.
+4. På fliken **IP-adresser** anger du den här informationen:
 
-1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
+    | Inställning            | Värde                      |
+    |--------------------|----------------------------|
+    | IPv4-adressutrymme | Ange **10.1.0.0/16** |
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | **PROJEKT INFORMATION** | |
-    | Prenumeration | Välj din prenumeration. |
-    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
-    | **INSTANS INFORMATION** |  |
-    | Namn på virtuell dator | Ange *myVm*. |
-    | Region | Välj **WestCentralUS**. |
-    | Alternativ för tillgänglighet | Lämna standard **ingen redundans för infrastruktur krävs**. |
-    | Bild | Välj **Windows Server 2019 Data Center**. |
-    | Storlek | Lämna standard **ds1 v2**som standard. |
-    | **ADMINISTRATÖRSKONTO** |  |
-    | Användarnamn | Ange ett användar namn som du väljer. |
-    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 12 tecken långt och uppfylla de [definierade komplexitets kraven](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    | Bekräfta lösenord | Ange lösenordet igen. |
-    | **REGLER FÖR INKOMMANDE PORTAR** |  |
-    | Offentliga inkommande portar | Lämna standardvärdet **none**. |
-    | **SPARA PENGAR** |  |
-    | Har du redan en Windows-licens? | Lämna standardvärdet **Nej**. |
-    |||
+5. Under **under näts namn**väljer du ordet **standard**.
 
-1. Välj **Nästa: diskar**.
+6. I **Redigera undernät**anger du den här informationen:
 
-1. I **Skapa en virtuell dator – diskar** lämnar du standardinställningarna och väljer **Nästa: Nätverk**.
+    | Inställning            | Värde                      |
+    |--------------------|----------------------------|
+    | Namn på undernät | Ange **undernät** |
+    | Adressintervall för undernätet | Ange **10.1.0.0/24** |
 
-1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
+7. Välj **Spara**.
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
-    | Adressutrymme | Lämna standard **10.1.0.0/24**.|
-    | Undernät | Lämna standard **under nätet (10.1.0.0/24)**.|
-    | Offentlig IP-adress | Lämna standardvärdet **(New) myVm-IP**. |
-    | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
-    | Välj inkommande portar | Välj **HTTP** och **RDP**.|
-    |||
+8. Välj fliken **säkerhet** .
+
+9. Under **BastionHost**väljer du **Aktivera**. Ange den här informationen:
+
+    | Inställning            | Värde                      |
+    |--------------------|----------------------------|
+    | Skydds namn | Ange **myBastionHost** |
+    | AzureBastionSubnet-adressutrymme | Ange **10.1.1.0/24** |
+    | Offentlig IP-adress | Välj **Skapa ny**. </br> Som **namn**anger du **myBastionIP**. </br> Välj **OK**. |
 
 
-1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration.
+8. Välj fliken **Granska + skapa** eller Välj knappen **Granska + skapa** .
 
-1. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**.
+9. Välj **Skapa**.
 
-## <a name="create-a-logical-sql-server"></a>Skapa en logisk SQL-Server
+## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-I det här avsnittet ska du skapa en logisk SQL-Server i Azure. 
+I det här avsnittet ska du skapa en virtuell dator som ska användas för att testa den privata slut punkten.
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **databaser**  >  **SQL-databas**.
+1. På den övre vänstra sidan av portalen väljer du **skapa en resurs**  >  **beräkning**  >  **virtuell dator** eller Sök efter **virtuell dator** i sökrutan.
+   
+2. I **skapa en virtuell dator**skriver eller väljer du värdena på fliken **grundläggande** :
 
-1. I **skapa SQL Database – grunderna**anger eller väljer du den här informationen:
+    | Inställning | Värde                                          |
+    |-----------------------|----------------------------------|
+    | **Projekt information** |  |
+    | Prenumeration | Välj din Azure-prenumeration |
+    | Resursgrupp | Välj **CreatePrivateEndpointQS-RG** |
+    | **Instansinformation** |  |
+    | Namn på virtuell dator | Ange **myVM** |
+    | Region | Välj **\<your-web-app-region>**. </br> Välj den region där din webbapp ska distribueras. |
+    | Tillgänglighets alternativ | Välj **ingen redundans för infrastruktur krävs** |
+    | Bild | Välj **Windows Server 2019 Data Center – gen1** |
+    | Azure Spot-instans | Välj **Nej** |
+    | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
+    | **Administratörs konto** |  |
+    | Användarnamn | Ange ett användar namn |
+    | Lösenord | Ange ett lösen ord |
+    | Bekräfta lösenordet | Ange lösenordet igen |
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | **Databasinformation** | |
-    | Prenumeration | Välj din prenumeration. |
-    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    | **INSTANS INFORMATION** |  |
-    | Databasnamn  | Ange min *databas*. Om det här namnet tas skapar du ett unikt namn. |
-    |||
-5. I **Server**väljer du **Skapa ny**. 
-6. I **ny server**anger eller väljer du den här informationen:
+3. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**.
+  
+4. På fliken nätverk väljer eller anger du:
 
     | Inställning | Värde |
-    | ------- | ----- |
-    |Servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
-    | Inloggning för serveradministratör| Ange ett administratörs namn som du väljer. |
-    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
-    | Plats | Välj en Azure-region där du vill att din SQL Server ska finnas. |
-    
-7. Välj **OK**. 
-8. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration. 
-9. När du ser ett meddelande som anger att valideringen har slutförts klickar du på **Skapa**. 
-10. När du ser ett meddelande som anger att valideringen har slutförts klickar du på Skapa. 
+    |-|-|
+    | **Nätverksgränssnitt** |  |
+    | Virtuellt nätverk | **myVNet** |
+    | Undernät | **mySubnet** |
+    | Offentlig IP-adress | Välj **Ingen**. |
+    | Nätverks säkerhets grupp för nätverkskort | **Basic**|
+    | Offentliga inkommande portar | Välj **Ingen**. |
+   
+5. Välj **Granska + skapa**. 
+  
+6. Granska inställningarna och välj sedan **Skapa**.
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
-I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut punkt i den. 
+I det här avsnittet ska du skapa en privat slut punkt för den webbapp som du skapade i avsnittet krav.
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs**  >  **nätverk**  >  **Private Link Center (för hands version)**.
-2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
-1. I **skapa en privat slut punkt (för hands version) – grundläggande**anger eller väljer du den här informationen:
+1. På den övre vänstra sidan av skärmen i portalen väljer du **skapa en resurs**  >  **nätverk**  >  **privat länk**eller i rutan Sök anger du **privat länk**.
+
+2. Välj **Skapa**.
+
+3. I **Private Link Center**väljer du **privata slut punkter** i den vänstra menyn.
+
+4. I **privata slut punkter**väljer du **+ Lägg till**.
+
+5. På fliken **grundläggande** i **skapa en privat slut punkt**anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
     | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
-    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    | **INSTANS INFORMATION** |  |
-    | Name | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
-    |Region|Välj **WestCentralUS**.|
-    |||
-5. Välj **Nästa: resurs**.
-6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
+    | Resursgrupp | Välj **CreatePrivateEndpointQS-RG**. Du har skapat den här resurs gruppen i föregående avsnitt.|
+    | **Instansinformation** |  |
+    | Name  | Ange **myPrivateEndpoint**. |
+    | Region | Välj **\<your-web-app-region>**. </br> Välj den region där din webbapp ska distribueras. |
+
+6. Välj fliken **resurs** eller **Nästa: resurs** längst ned på sidan.
+    
+7. I **resurs**anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
-    |Anslutningsmetod  | Välj Anslut till en Azure-resurs i min katalog.|
-    | Prenumeration| Välj din prenumeration. |
-    | Resurstyp | Välj **Microsoft. SQL/Servers**. |
-    | Resurs |Välj *Server*|
-    |Målunderresurs |Välj *sqlServer*|
-    |||
-7. Välj **Nästa: konfiguration**.
-8. I **skapa en privat slut punkt (för hands version) – konfiguration**, anger eller väljer du den här informationen:
+    | Anslutningsmetod | Välj **Anslut till en Azure-resurs i min katalog**. |
+    | Prenumeration | Välj din prenumeration. |
+    | Resurstyp | Välj **Microsoft. Web/Sites**. |
+    | Resurs | Välj **\<your-web-app-name>**. </br> Välj namnet på den webbapp som du skapade i kraven. |
+    | Målunderresurs | Välj **platser**. |
+
+8. Välj fliken **konfiguration** eller **Nästa: konfigurations** knappen längst ned på skärmen.
+
+9. I **konfiguration**anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
-    |**NÄTVERK**| |
-    | Virtuellt nätverk| Välj *MyVirtualNetwork*. |
-    | Undernät | Välj *undernät*. |
-    |**PRIVAT DNS-INTEGRATION**||
-    |Integrera med privat DNS-zon |Välj **Ja**. |
-    |Privat DNS-zon |Välj *(ny) privatelink. Database. Windows. net* |
-    |||
+    | **Nätverk** |  |
+    | Virtuellt nätverk | Välj **myVNet**. |
+    | Undernät | Välj **undernät**. |
+    | **Privat DNS-integrering** |  |
+    | Integrera med privat DNS-zon | Låt standardvärdet **Ja**vara kvar. |
+    | Prenumeration | Välj din prenumeration. |
+    | Privata DNS-zoner | Lämna standardvärdet **(New) privatelink.azurewebsites.net**.
+    
 
-1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure verifierar din konfiguration. 
-2. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **Skapa**. 
- 
-## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av Fjärrskrivbord (RDP)
+13. Välj **Granska + skapa**.
 
+14. Välj **Skapa**.
 
-När du har skapat **myVm**ansluter du till den från Internet på följande sätt: 
+## <a name="test-connectivity-to-private-endpoint"></a>Testa anslutningen till privat slut punkt
 
-1. I portalens sökfältet anger du *myVm*.
+I det här avsnittet ska du använda den virtuella datorn som du skapade i föregående steg för att ansluta till webbappen över den privata slut punkten.
 
-1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
+1. Välj **resurs grupper** i det vänstra navigerings fönstret.
 
-1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
+2. Välj **CreatePrivateEndpointQS-RG**.
 
-1. Öppna den *nedladdade RDP* -filen.
+3. Välj **myVM**.
 
-    1. Välj **Anslut** om du uppmanas att göra det.
+4. På sidan Översikt för **myVM**väljer du **Anslut** sedan **skydds**.
 
-    1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
+5. Välj knappen blå **användnings skydds** .
 
-        > [!NOTE]
-        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+6. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
-1. Välj **OK**.
+7. Öppna Windows PowerShell på servern när du har anslutit.
 
-1. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
+8. Ange `nslookup <your-webapp-name>.azurewebsites.net`. Ersätt **\<your-webapp-name>** med namnet på den webbapp som du skapade i föregående steg.  Du får ett meddelande som liknar det som visas nedan:
 
-1. När virtuella datorns skrivbord visas kan du minimera det att gå tillbaka till din lokala dator.  
-
-## <a name="access-sql-database-privately-from-the-vm"></a>Åtkomst SQL Database privat från den virtuella datorn
-
-1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
-
-2. Ange `nslookup myserver.database.windows.net`. 
-
-    Du får ett meddelande som liknar detta:
-    ```azurepowershell
+    ```powershell
     Server:  UnKnown
     Address:  168.63.129.16
+
     Non-authoritative answer:
-    Name:    myserver.privatelink.database.windows.net
-    Address:  10.0.0.5
-    Aliases:   myserver.database.windows.net
+    Name:    mywebapp8675.privatelink.azurewebsites.net
+    Address:  10.1.0.5
+    Aliases:  mywebapp8675.azurewebsites.net
     ```
-3. Installera [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. I **Anslut till Server**anger eller väljer du den här informationen:
+    En privat IP-adress för **10.1.0.5** returneras för namnet på webb programmet.  Adressen finns i under nätet för det virtuella nätverk som du skapade tidigare.
 
-    | Inställning | Värde |
-    | ------- | ----- |
-    | Servertyp| Välj **Databasmotor**.|
-    | Servernamn| Välj *myserver.Database.Windows.net* |
-    | Användarnamn | Ange användar namn som username@servername anges när SQL-servern skapas. |
-    |Lösenord |Ange ett lösen ord som du angav när du skapade SQL-servern. |
-    |Kom ihåg lösenordet|Välj **Ja**.|
-    |||
-1. Välj **Anslut**.
-2. Bläddra bland databaser från menyn till vänster.
-3. Du kan också Skapa eller fråga efter information från databasen.
-4. Stäng fjärr skrivbords anslutningen till *myVm*. 
+11. Öppna Internet Explorer i skydds-anslutningen till **myVM**.
 
-## <a name="clean-up-resources"></a>Rensa resurser 
-När du är klar med den privata slut punkten, SQL Server och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller: 
-1. Skriv *myResourceGroup* i **sökrutan längst** upp i portalen och välj *myResourceGroup* från Sök resultaten. 
-2. Välj **Ta bort resursgrupp**. 
-3. Ange myResourceGroup för **Skriv resurs gruppens namn** och välj **ta bort**.
+12. Ange URL: en för din webbapp, **https:// \<your-webapp-name> . azurewebsites.net**.
+
+13. Du får standard sidan webbapp om ditt program inte har distribuerats:
+
+    :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Standard webb program sida." border="true":::
+
+18. Stäng anslutningen till **myVM**.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du inte kommer att fortsätta att använda det här programmet, tar du bort det virtuella nätverket, den virtuella datorn och webbappen med följande steg:
+
+1. Välj **resurs grupper**på den vänstra menyn.
+
+2. Välj **CreatePrivateEndpointQS-RG**.
+
+3. Välj **Ta bort resursgrupp**.
+
+4. Ange **CreatePrivateEndpointQS-RG** i **Skriv resurs gruppens namn**.
+
+5. Välj **Ta bort**.
+
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du en virtuell dator i ett virtuellt nätverk, en logisk SQL-Server och en privat slut punkt för privat åtkomst. Du har anslutit till en virtuell dator från Internet och kommunicerat på ett säkert sätt till SQL Database via en privat länk. Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?](private-endpoint-overview.md).
+I den här snabb starten skapade du en:
+
+* Virtuellt nätverk och skydds-värd.
+* Virtuell dator.
+* Privat slut punkt för en Azure-webbapp.
+
+Du använde den virtuella datorn för att testa anslutningen på ett säkert sätt till webbappen över den privata slut punkten.
+
+
+
+Mer information om de tjänster som stöder en privat slut punkt finns i:
+> [!div class="nextstepaction"]
+> [Tillgänglighet för privat länk](private-link-overview.md#availability)

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d02568dbb5dfc6b7feb38d353e1ba0ecd8ae25d6
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204001"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327424"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrera nyckelvalv med DigiCert-certifikatutfärdare
 
@@ -27,7 +27,7 @@ Mer allmän information om certifikat finns i [Azure Key Vault certifikat](/azur
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här guiden måste du ha följande resurser.
 * Ett nyckel valv. Du kan använda ett befintligt nyckel valv eller skapa ett nytt genom att följa stegen i någon av följande snabb starter:
@@ -52,9 +52,9 @@ När du har samlat in information från DigiCert CertCentral-kontot kan du nu l�
 
 1.  Om du vill lägga till DigiCert-certifikatutfärdare navigerar du till det nyckel valv som du vill lägga till DigiCert. 
 2.  Välj **certifikat**på sidan Key Vault egenskaper.
-3.  Välj fliken **certifikat utfärdare** . ![ Certifikat egenskaper](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+3.  Välj fliken **certifikat utfärdare** . ![ Välj certifikat utfärdare](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
 4.  Välj **Lägg till** alternativ.
- ![Certifikategenskaper](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
+ ![Lägg till certifikat utfärdare](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  På skärmen **skapa en certifikat utfärdare** väljer du följande värden:
     -   **Namn**: Lägg till ett identifierbart Issuer-namn. Exempel DigicertCA
     -   **Provider**: Välj DigiCert på menyn.
@@ -101,24 +101,22 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 - Definiera variabel för **konto-ID**
 - Definiera **org ID-** variabel
 - Definiera **API-nyckel** variabel
-- Definiera variabeln **utfärdarens namn**
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
-$issuerName = "DigiCertCA"
 ```
 
-4. Ange **utfärdare**. Detta lägger till DigiCert som en certifikat utfärdare i nyckel valvet.
+4. Ange **utfärdare**. Detta lägger till DigiCert som en certifikat utfärdare i nyckel valvet. Läs mer om parametrarna [här](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
-Set-AzureKeyVaultCertificateIssuer -VaultName $vaultName -IssuerName $issuerName -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org
+Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```
 
 5. **Ställer in principen för certifikatet och utfärdar certifikat** från DigiCert direkt i Key Vault.
 
 ```azurepowershell-interactive
-$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName DigiCertCA -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
+$Policy = New-AzKeyVaultCertificatePolicy -SecretContentType "application/x-pkcs12" -SubjectName "CN=contoso.com" -IssuerName "TestIssuer01" -ValidityInMonths 12 -RenewAtNumberOfDaysBeforeExpiry 60
 Add-AzKeyVaultCertificate -VaultName "Contoso-Vaultname" -Name "ExampleCertificate" -CertificatePolicy $Policy
 ```
 
@@ -128,7 +126,7 @@ Certifikatet har nu utfärdats av DigiCert CA i angivet Key Vault via den här i
 
 Om certifikatet som utfärdats är inaktiverat i Azure Portal kan du fortsätta att visa **certifikat åtgärden** för att granska DigiCert-felmeddelandet för det certifikatet.
 
- ![Certifikategenskaper](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+ ![Certifikat åtgärd](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 Mer information finns i [certifikat åtgärderna i Key Vault REST API referens](/rest/api/keyvault). Information om hur du etablerar behörigheter finns i [valv – skapa eller uppdatera](/rest/api/keyvault/vaults/createorupdate) och [valv – uppdatera åtkomst princip](/rest/api/keyvault/vaults/updateaccesspolicy).
 

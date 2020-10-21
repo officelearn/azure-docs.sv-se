@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c8219214e7053dcf6b119f6cd5dc97daaa355f7
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73663175"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327645"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Test resultat för Hyper-V-replikering till en sekundär plats
 
@@ -47,7 +47,7 @@ Det här är vad vi gjorde i test passet:
 * Hyper-V-replikering använder sig av fristående cacheminne för att minimera IOPS-omkostnader för spårning. Den lagrar skrivningar till VHDX i minnet och tömmer dem till logg filen före den tid som loggen skickas till återställnings platsen. En disk tömning sker också om skrivningar når en fördefinierad gräns.
 * I diagrammet nedan visas den stabila statusen IOPS för replikering. Vi kan se att IOPS-belastningen på grund av replikering är cirka 5%, vilket är ganska lågt.
 
-  ![Primära resultat](./media/hyper-v-vmm-performance-results/IC744913.png)
+  ![Diagram som visar det stabila läget för IOPS-kostnader för replikering.](./media/hyper-v-vmm-performance-results/IC744913.png)
 
 Hyper-V-replikering använder minne på den primära servern för att optimera disk prestanda. Som du ser i följande diagram är minnes belastningen på alla servrar i det primära klustret marginaler. Den minnes kapacitet som visas är procent andelen minne som används av replikering, jämfört med det totala installerade minnet på Hyper-V-servern.
 
@@ -55,20 +55,20 @@ Hyper-V-replikering använder minne på den primära servern för att optimera d
 
 Hyper-V-replikering har lägsta CPU-belastning. Som det visas i diagrammet är replikeringens kostnader i intervallet 2-3%.
 
-![Primära resultat](./media/hyper-v-vmm-performance-results/IC744915.png)
+![Diagram som visar belastningen på replikering är i intervallet 2-3%.](./media/hyper-v-vmm-performance-results/IC744915.png)
 
 ## <a name="secondary-server-performance"></a>Sekundär server prestanda
 
 Hyper-V-replikering använder en liten mängd minne på återställnings servern för att optimera antalet lagrings åtgärder. Diagrammet sammanfattar minnes användningen på återställnings servern. Den minnes kapacitet som visas är procent andelen minne som används av replikering, jämfört med det totala installerade minnet på Hyper-V-servern.
 
-![Sekundära resultat](./media/hyper-v-vmm-performance-results/IC744916.png)
+![Diagram som sammanfattar minnes användningen på återställnings servern.](./media/hyper-v-vmm-performance-results/IC744916.png)
 
 Mängden i/O-åtgärder på återställnings platsen är en funktion av antalet skriv åtgärder på den primära platsen. Nu ska vi titta på de totala I/O-åtgärderna på återställnings platsen jämfört med de totala I/O-åtgärderna och skriv åtgärderna på den primära platsen. Diagrammen visar att den totala IOPS på återställnings platsen är
 
 * Cirka 1,5 gånger skrivs IOPS på den primära.
 * Cirka 37% av det totala antalet IOPS på den primära platsen.
 
-![Sekundära resultat](./media/hyper-v-vmm-performance-results/IC744917.png)
+![Diagram som visar en jämförelse av IOPS på primära och sekundära platser.](./media/hyper-v-vmm-performance-results/IC744917.png)
 
 ![Sekundära resultat](./media/hyper-v-vmm-performance-results/IC744918.png)
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3394156b073df54d6582dc43571137b21df29cd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: cfc9745fc4684a7b0d8f7da7e63149a6fe50f6d2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968947"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331846"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Uppgradera från läsa v2. x för att läsa v3. x
 
@@ -27,11 +27,12 @@ Använd följande tabell för att fastställa **versions strängen** i API-sökv
 
 |Produkt typ| Version | Versions sträng i API-sökväg för 3. x |
 |:-----|:----|:----|
-|Tjänst | Läs 3,0 | **v3.0** |
-|Container | Läs 3,0 för hands version | **v3.0** |
-|Tjänst/container | Läs 3,1 för hands version | **v 3.1 – för hands version. 2** |
+|Tjänst | Läs 3,0 eller 3,1 | **v 3.0** respektive **v 3.1** |
+|Tjänst | Läs 3,2 för hands version | **v 3.2 – för hands version. 1** |
+|Container | Läs 3,0 Preview eller läsa 3,1 för hands version | **v 3.0** eller **v 3.1 – för hands version. 2** |
 
-Använd sedan följande avsnitt för att begränsa dina åtgärder och ersätta **versions strängen** i din API-sökväg med värdet från tabellen. Till exempel för för hands versionen av Cloud och container i **Read v 3.1** uppdaterar du API-sökvägen till **https://{Endpoint}/vision/v 3.1 – för hands version. 2/läsa/analysera [? Language]**.
+
+Använd sedan följande avsnitt för att begränsa dina åtgärder och ersätta **versions strängen** i din API-sökväg med värdet från tabellen. Om du till exempel har **läst v 3.2 Preview** Cloud och container-versioner uppdaterar du API-sökvägen till **https://{Endpoint}/vision/v 3.2 – för hands version. 1/läsa/analysera [? Language]**.
 
 ## <a name="servicecontainer"></a>Tjänst/container
 

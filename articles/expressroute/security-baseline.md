@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 053a64f276a09cfd1e11d51743a557e7a238cbc2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e1a9a644e3ec4690dbb1f536dd15db995b56cf12
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207911"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331727"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Azures säkerhets bas linje för ExpressRoute
 
@@ -242,7 +242,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 Du kan använda fönstret identitets-och åtkomst kontroll (IAM) i Azure Portal för din prenumeration för att konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC). Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory.
 
-Dessutom kan partner som använder API: et för ExpressRoute partner Resource Manager tillämpa Role-Based Access Control till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
+Dessutom kan partner som använder ExpressRoute partner Resource Manager-API: t använda rollbaserad åtkomst kontroll till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
 
 * [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
@@ -459,7 +459,7 @@ Så här konfigurerar du plats-till-plats-IPSEC över ExpressRoute: https://docs
 
 Azure ExpressRoute har också användar roller för krets ägare och kretsar. Krets användare är ägare till virtuella nätverksgateway som inte ingår i samma prenumeration som ExpressRoute-kretsen. Krets ägaren har möjlighet att ändra och återkalla auktorisering när som helst. Att återkalla ett auktoriserings resultat i alla länk anslutningar tas bort från prenumerationen vars åtkomst har återkallats. Krets användare kan lösa in auktoriseringar (en auktorisering per virtuellt nätverk).
 
-Dessutom kan partner som använder API: et för ExpressRoute partner Resource Manager tillämpa Role-Based Access Control till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
+Dessutom kan partner som använder ExpressRoute partner Resource Manager-API: t använda rollbaserad åtkomst kontroll till expressRouteCrossConnection-resursen. Dessa kontroller kan definiera behörigheter för vilka användare som konton kan ändra expressRouteCrossConnection-resursen och lägga till/uppdatera/ta bort peering-konfigurationer.
 
 * [Förstå Azure RBAC](../role-based-access-control/overview.md)
 

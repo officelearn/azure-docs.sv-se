@@ -3,18 +3,18 @@ title: Azure Event Grid säkerhet och autentisering
 description: Beskriver Azure Event Grid och dess begrepp.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8220e0f913a16cc32b4598ecb3836cc892ea83fd
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5a1e4af17c2f4335ed26490bfc2408c66f4aee6b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318558"
+ms.locfileid: "92328733"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Auktorisera åtkomst till Event Grid resurser
-Med Azure Event Grid kan du kontrol lera åtkomst nivån som ges till olika användare för att utföra olika **hanterings åtgärder** , till exempel lista händelse prenumerationer, skapa nya och generera nycklar. Event Grid använder Azures rollbaserad åtkomst kontroll (RBAC).
+Med Azure Event Grid kan du kontrol lera åtkomst nivån som ges till olika användare för att utföra olika **hanterings åtgärder** , till exempel lista händelse prenumerationer, skapa nya och generera nycklar. Event Grid använder rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 > [!NOTE]
-> EventGrid stöder inte RBAC för publicering av händelser för att Event Grid ämnen eller domäner. Använd en signatur för delad åtkomst (SAS) eller token för att autentisera klienter som publicerar händelser. Mer information finns i [autentisera publicerings klienter](security-authenticate-publishing-clients.md). 
+> EventGrid stöder inte Azure RBAC för publicering av händelser till Event Grid ämnen eller domäner. Använd en signatur för delad åtkomst (SAS) eller token för att autentisera klienter som publicerar händelser. Mer information finns i [autentisera publicerings klienter](security-authenticate-publishing-clients.md). 
 
 ## <a name="operation-types"></a>Åtgärds typer
 

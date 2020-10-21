@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 91589a88712b093acfbb88df146074ad91ba0ea2
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168383"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92277979"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Så här modellerar och partitionerar du data i Azure Cosmos DB med ett verkligt exempel
 
@@ -327,7 +327,7 @@ Den här lagrade proceduren hämtar ID för inlägget och texten för den nya ko
 - ersätter inlägget
 - lägger till den nya kommentaren
 
-Eftersom lagrade procedurer körs som atomiska transaktioner garanterar det att värdet för `commentCount` och det faktiska antalet kommentarer alltid förblir synkroniserat.
+Eftersom lagrade procedurer körs som atomiska transaktioner förblir värdet för `commentCount` och det faktiska antalet kommentarer alltid synkroniserat.
 
 Vi vill naturligtvis anropa en liknande lagrad procedur när du lägger till nya gillar att öka `likeCount` .
 
@@ -586,6 +586,6 @@ Den ändrings matning som vi använder för att distribuera uppdateringar till a
 
 Efter introduktionen till praktisk data modellering och partitionering kanske du vill kontrol lera följande artiklar för att granska de koncept som vi har täckt:
 
-- [Arbeta med databaser, containrar och objekt](databases-containers-items.md)
+- [Arbeta med databaser, containrar och objekt](account-databases-containers-items.md)
 - [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 - [Ändra feed i Azure Cosmos DB](change-feed.md)

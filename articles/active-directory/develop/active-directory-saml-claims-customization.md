@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90efdd560735a112c2a4c5eb5740f211b587a241
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421466"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92275760"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Gör så här: anpassa anspråk som utfärdats i SAML-token för företags program
 
@@ -56,7 +56,7 @@ I list rutan **Välj namn identifierare format** kan du välja något av följan
 
 | NameID-format | Beskrivning |
 |---------------|-------------|
-| **Default** | Microsoft Identity Platform använder standard käll formatet. |
+| **Standard** | Microsoft Identity Platform använder standard käll formatet. |
 | **Permanent** | Microsoft Identity Platform kommer att använda beständigt som NameID-format. |
 | **EmailAddress** | Microsoft Identity Platform kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerat** | Microsoft Identity Platform kommer att använda ospecificerat som NameID-format. |
@@ -167,7 +167,7 @@ Så här lägger du till ett anspråks villkor:
 3. Välj de grupper som användaren ska tillhöra. Du kan välja upp till 50 unika grupper i alla anspråk för ett angivet program. 
 4. Välj **källan** där anspråket ska hämta sitt värde. Du kan välja ett användarattribut från List rutan källattribut eller tillämpa en omvandling till användarattribut innan du avger det som ett anspråk.
 
-Den ordning som du lägger till villkoren i är viktiga. Azure AD utvärderar villkoren från uppifrån och ned för att bestämma vilket värde som ska ställas in i anspråket. 
+Den ordning som du lägger till villkoren i är viktiga. Azure AD utvärderar villkoren från uppifrån och ned för att bestämma vilket värde som ska ställas in i anspråket. Det sista värdet som matchar uttrycket genereras i anspråket.
 
 Till exempel är Britta Simon en gäst användare i Contoso-klienten. Hon tillhör en annan organisation som också använder Azure AD. Under den här konfigurationen av programmet Fabrikam när Britta försöker logga in på Fabrikam, kommer Microsoft Identity Platform att utvärdera villkoren enligt följande.
 

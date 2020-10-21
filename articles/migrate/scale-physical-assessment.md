@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/19/2020
 ms.author: hamusa
-ms.openlocfilehash: b84a7b88f700e2ba8e9fbe29099dfcbce8dbf3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 227e27d25ad5d0c61ed4f36c234222a079315619
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85081068"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317144"
 ---
 # <a name="assess-large-numbers-of-physical-servers-for-migration-to-azure"></a>Utvärdera ett stort antal fysiska servrar för migrering till Azure
 
@@ -30,7 +30,7 @@ I den här artikeln kan du se hur du:
 
 
 > [!NOTE]
-> Om du vill testa ett koncept koncept för att utvärdera ett par servrar innan du bedömer i skala följer du våra [själv studie kurser](tutorial-prepare-physical.md).
+> Om du vill testa ett koncept koncept för att utvärdera ett par servrar innan du bedömer i skala följer du våra [själv studie kurser](./tutorial-discover-physical.md).
 
 ## <a name="plan-for-assessment"></a>Planera för utvärdering
 
@@ -64,7 +64,7 @@ Förbered Azure och fysiska servrar för Server utvärdering.
 2. Konfigurera behörigheter för ditt Azure-konto för att interagera med Azure Migrate.
 3. Förbered de fysiska servrarna.
 
-Följ anvisningarna i [den här självstudien](tutorial-prepare-physical.md) för att konfigurera de här inställningarna.
+Följ anvisningarna i [den här självstudien](./tutorial-discover-physical.md) för att konfigurera de här inställningarna.
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 

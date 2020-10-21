@@ -3,12 +3,12 @@ title: Konfigurera ett delat avbildnings galleri i Azure DevTest Labs | Microsof
 description: Lär dig hur du konfigurerar ett delat avbildnings galleri i Azure DevTest Labs, vilket ger användare åtkomst till bilder från en delad plats när du skapar labb resurser.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 7ec08fa741c1b52d3dd1d1e2b4247d3689190020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96563b1dcfac171af38b229bb81d12b3afda2e2f
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88271047"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328002"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurera ett delat bildgalleri i Azure DevTest Labs
 DevTest Labs stöder nu funktionen för [delad bild galleri](../virtual-machines/windows/shared-image-galleries.md) . Det gör det möjligt för labb användare att komma åt bilder från en delad plats när du skapar labb resurser. Det hjälper dig också att bygga struktur och organisation runt dina anpassade avbildningar av virtuella datorer. Funktionen för delad bild galleri stöder:
@@ -16,7 +16,7 @@ DevTest Labs stöder nu funktionen för [delad bild galleri](../virtual-machines
 - Hanterad global replikering av avbildningar
 - Versions hantering och gruppering av avbildningar för enklare hantering
 - Gör dina avbildningar med hög tillgänglighet med ZRS-konton (Zone redundant Storage) i regioner som har stöd för tillgänglighets zoner. ZRS erbjuder bättre återhämtning mot zonindelade-problem.
-- Dela över prenumerationer och till och med mellan klienter, med rollbaserad åtkomst kontroll (RBAC).
+- Dela över prenumerationer och till och med mellan klienter, med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 Mer information finns i [dokumentationen för Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md). 
  

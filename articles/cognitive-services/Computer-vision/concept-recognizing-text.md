@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 32759ed59e280980abdced46c29390e00ee7229c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 34a7cd8669c1545361bc7cd9579cfb6140c0c946
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973282"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331710"
 ---
 # <a name="optical-character-recognition-ocr"></a>Optisk teckenläsning (OCR)
 
@@ -37,7 +37,7 @@ Visuellt innehåll [Read API](https://westcentralus.dev.cognitive.microsoft.com/
 * PDF-dimensionerna måste bestå av högst 17 × 17 tum, som motsvarar legal eller a3 pappers storlekar och mindre.
 
 ### <a name="read-32-preview-allows-selecting-pages"></a>Läs 3,2 för hands version tillåter att du väljer sidor
-Med [läsa 3,2 för hands versions-API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005): t kan du ange ett visst sid nummer eller sid intervall som en indataparameter för att extrahera text från dessa sidor för stora dokument med flera sidor. Detta är en ny indataparameter förutom den valfria språk parametern.
+Med [läsa 3,2 för hands versions-API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005): t kan du ange ett visst sid nummer eller sid intervall som en indataparameter för att extrahera text från dessa sidor för stora dokument med flera sidor. Detta är en ny indataparameter förutom den valfria språk parametern.
 
 > [!NOTE]
 > **Språk information** 
@@ -50,7 +50,7 @@ Läsnings-API: s [Läs anrop](https://westcentralus.dev.cognitive.microsoft.com/
 
 |Svars huvud| Resultat-URL |
 |:-----|:----|
-|Operation-Location | `https://cognitiveservice/vision/v3.2/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
+|Operation-Location | `https://cognitiveservice/vision/v3.1/read/analyzeResults/49a36324-fc4b-4387-aa06-090cfbf0064f` |
 
 > [!NOTE]
 > **Billing** 
@@ -129,23 +129,17 @@ Se följande exempel på ett lyckat JSON-svar:
 }
 ```
 ### <a name="read-32-preview-adds-text-line-style-latin-languages-only"></a>Läs 3,2 Preview lägger till text linje format (endast latinska språk)
-I [Read 3,2 Preview-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) visas ett **utseende** objekt som klassificerar om varje textrad är ett utskrifts-eller handstil, tillsammans med en förtroende poäng. Den här funktionen stöds bara för latinska språk.
+I [Read 3,2 Preview-API: et](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) visas ett **utseende** objekt som klassificerar om varje textrad är ett utskrifts-eller handstil, tillsammans med en förtroende poäng. Den här funktionen stöds bara för latinska språk.
 
-```json
-  "appearance": {
-              "style": "handwriting",
-              "styleConfidence": 0.836
-            }
-```
-Kom igång med snabb starter för [visuellt innehåll OCR SDK](./quickstarts-sdk/client-library.md) och [Läs REST API snabb](./QuickStarts/CSharp-hand-text.md) Starter för att börja integrera OCR-funktioner i dina program.
+Kom igång med [visuellt innehåll Läs snabb](./quickstarts-sdk/client-library.md) starter för OCR SDK och [Läs REST API snabb](./QuickStarts/CSharp-hand-text.md) Starter för att börja integrera OCR-funktioner i dina program.
 
 ## <a name="supported-languages-for-print-text"></a>Språk som stöds för utskrifts text
-[API: et Read 3,2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk.
+[Read API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005) stöder extrahering av utskriven text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska språk.
 
 Se de [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/computer-vision/language-support#optical-character-recognition-ocr) för den fullständiga listan över språk som stöds av OCR.
 
 ### <a name="read-32-preview-adds-simplified-chinese-and-japanese"></a>Läs 3,2 för hands version Lägg till förenklad kinesiska och japanska
-Den [offentliga för hands versionen av Read 3,2 API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) lägger till stöd för förenklad kinesiska och japanska. Om ditt scenario kräver stöd för fler språk, se avsnittet [OCR-API](#ocr-api) . 
+Den [offentliga för hands versionen av Read 3,2 API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) lägger till stöd för förenklad kinesiska och japanska. Om ditt scenario kräver stöd för fler språk, se avsnittet [OCR-API](#ocr-api) . 
 
 ## <a name="supported-languages-for-handwritten-text"></a>Språk som stöds för handskriven text
 Läs åtgärden stöder för närvarande extrahering av handskriven text exklusivt på engelska.
@@ -154,7 +148,7 @@ Läs åtgärden stöder för närvarande extrahering av handskriven text exklusi
 Filen [Read 3. x REST API](./QuickStarts/CSharp-hand-text.md) är det bästa alternativet för de flesta kunder på grund av enkel integrering och snabb produktivitet. Azure och Visuellt innehåll service hanterar skalning, prestanda, data säkerhet och efterlevnad för att möta kundernas behov.
 
 ## <a name="deploy-on-premise-with-docker-containers"></a>Distribuera lokalt med Docker-behållare
-Med den [Read 2,0 Docker-behållaren (för hands version)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) kan du distribuera de nya OCR-funktionerna i din egen lokala miljö. Containrar är bra för specifika säkerhets- och datastyrningskrav.
+Med den [skrivskyddade Docker-behållaren (för hands version)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers) kan du distribuera de nya OCR-funktionerna i din egen lokala miljö. Containrar är bra för specifika säkerhets- och datastyrningskrav.
 
 ## <a name="example-outputs"></a>Exempel på utdata
 
@@ -201,7 +195,7 @@ Precis som med alla kognitiva tjänster bör utvecklare som använder Läs-/OCR-
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kom igång med [visuellt innehåll Läs snabb starter för 3,0 SDK](./quickstarts-sdk/client-library.md) i C#, Java, java script eller python.
-- Använd [REST API snabb starter för att läsa 3,1](./QuickStarts/CSharp-hand-text.md) i C#, Java, java script eller python för att lära dig hur du använder REST-API: er.
-- Lär dig mer om att [läsa 3,1 REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
-- Läs mer om den [offentliga för hands versionen av läs 3,2 REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005) med stöd för förenklad kinesiska och japanska.
+- Kom igång med [visuellt innehåll Läs snabb starter för SDK](./quickstarts-sdk/client-library.md) i C#, Java, java script eller python.
+- Använd de [läs REST API snabb starterna](./QuickStarts/CSharp-hand-text.md) i C#, Java, java script eller python för att lära dig hur du använder REST-API: er.
+- Läs mer om [läsa REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005).
+- Läs mer om den [offentliga för hands versionen av läs 3,2 REST API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-1/operations/5d986960601faab4bf452005) med stöd för förenklad kinesiska och japanska.

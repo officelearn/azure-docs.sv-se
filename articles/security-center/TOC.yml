@@ -191,6 +191,9 @@
             - name: Hantera just-in-time-åtkomst
               displayName: 'jit, management'
               href: security-center-just-in-time.md
+        - name: Använda den integrerade licensen för Microsoft Defender för slutpunkter
+          displayName: 'ATP, mdatp, wdatp'
+          href: security-center-wdatp.md
         - name: Hantera anpassningsbara programkontroller
           href: security-center-adaptive-application.md
         - name: Använda övervakning av filintegritet
@@ -201,8 +204,6 @@
               href: security-center-file-integrity-monitoring-baselines.md
         - name: Hantera anpassad nätverkshärdning
           href: security-center-adaptive-network-hardening.md
-        - name: Integrera Microsoft Defender ATP
-          href: security-center-wdatp.md
         - name: Härda Docker-värdarna
           displayName: containers
           href: harden-docker-hosts.md

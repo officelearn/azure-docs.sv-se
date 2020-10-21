@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Stream Analytics
 description: Visar Azure Policy inbyggda princip definitioner för Azure Stream Analytics. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d33621aebc3a3bff61199b27e7196c2cea4aee75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a9836771b8e2a52cf23e069c28e40b788d24c45
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827124"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331880"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-stream-analytics"></a>Azure Policy inbyggda definitioner för Azure Stream Analytics
 

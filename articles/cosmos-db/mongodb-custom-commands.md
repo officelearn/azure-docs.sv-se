@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: a40be5212fb1335482ec5011d24c8eaf5f3d9a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409688"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282455"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB-tilläggs kommandon för att hantera data som lagras i Azure Cosmos DB s API för MongoDB 
 
-Följande dokument innehåller de anpassade åtgärds kommandon som är speciella för Azure Cosmos DB s API för MongoDB. Dessa kommandon kan användas för att skapa och hämta databas resurser som är speciella för [Azure Cosmos DB kapacitets modellen](databases-containers-items.md).
+Följande dokument innehåller de anpassade åtgärds kommandon som är speciella för Azure Cosmos DB s API för MongoDB. Dessa kommandon kan användas för att skapa och hämta databas resurser som är speciella för [Azure Cosmos DB kapacitets modellen](account-databases-containers-items.md).
 
 Genom att använda Azure Cosmos DBs API för MongoDB kan du dra nytta av fördelarna Cosmos DB till exempel global distribution, automatisk horisontell partitionering, hög tillgänglighet, fördröjnings garantier, automatisk, kryptering i vila, säkerhets kopiering och många fler, samtidigt som du behåller dina investeringar i din MongoDB-app. Du kan kommunicera med Azure Cosmos DBens API för MongoDB genom att använda någon av [MongoDB-klient driv rutinerna](https://docs.mongodb.org/ecosystem/drivers)med öppen källkod. Azure Cosmos DBens API för MongoDB gör det möjligt att använda befintliga klient driv rutiner genom att följa [MongoDB-Wire-protokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -43,7 +43,7 @@ Kommandot Skapa databas tillägg skapar en ny MongoDB-databas. Databas namnet ka
 | `offerThroughput` | `int`  | Tillhandahållet data flöde som du har angett för databasen. Den här parametern är valfri. |
 | `autoScaleSettings` | `Object` | Krävs för [autoskalning-läge](provision-throughput-autoscale.md). Det här objektet innehåller inställningarna som är associerade med läget för autoskalning-kapacitet. Du kan ställa in `maxThroughput` värdet, som beskriver det högsta antalet enheter för programbegäran som samlingen ökar till dynamiskt. |
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 Om kommandot lyckas returneras följande svar:
 
@@ -98,7 +98,7 @@ Kommandot uppdatera databas tillägg uppdaterar de egenskaper som är associerad
 
 Det här kommandot använder den databas som anges i sessionens kontext. Det här är den databas som du använde i `use <database>` kommandot. För tillfället går det inte att ändra databas namnet med det här kommandot.
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 Om kommandot lyckas returneras följande svar:
 
@@ -146,7 +146,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 |---------|---------|---------|
 |  `customAction`   |   `string`      |   Namnet på det anpassade kommandot. Måste vara "GetDatabase"|
         
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 Om kommandot lyckas innehåller svaret ett dokument med följande fält:
 
@@ -219,7 +219,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 | `shardKey` | `string` | Krävs för samlingar med stort data flöde | Sökvägen till Shard-nyckeln för shardade-samlingen. Den här parametern krävs om du anger mer än 10 000 RU/s i `offerThroughput` .  Om den är angiven, kommer alla dokument som infogas kräva denna nyckel och värde. |
 | `autoScaleSettings` | `Object` | Krävs för [autoskalning-läge](provision-throughput-autoscale.md) | Det här objektet innehåller inställningarna som är associerade med läget för autoskalning-kapacitet. Du kan ställa in `maxThroughput` värdet, som beskriver det högsta antalet enheter för programbegäran som samlingen ökar till dynamiskt. |
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 Returnerar ett anpassat standard kommando svar. Se [standardutdata](#default-output) för det anpassade kommandot för parametrarna i utdata.
 
@@ -309,7 +309,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 | `offerThroughput` | `int` |   Tillhandahållet data flöde som ska anges för samlingen.|
 | `autoScaleSettings` | `Object` | Krävs för [autoskalning-läge](provision-throughput-autoscale.md). Det här objektet innehåller inställningarna som är associerade med läget för autoskalning-kapacitet. `maxThroughput`Värdet beskriver det högsta antalet enheter för programbegäran som samlingen kommer att höjas till dynamiskt. |
 
-## <a name="output"></a>Utdata
+## <a name="output"></a>Resultat
 
 Returnerar ett anpassat standard kommando svar. Se [standardutdata](#default-output) för det anpassade kommandot för parametrarna i utdata.
 
@@ -343,7 +343,7 @@ I följande tabell beskrivs parametrarna i kommandot:
 | `customAction`    |   `string`      |   Namnet på det anpassade kommandot. Måste vara "GetCollection".      |
 | `collection`    |    `string`     |    Samlingens namn.     |
 
-### <a name="output"></a>Utdata
+### <a name="output"></a>Resultat
 
 Om kommandot lyckas innehåller svaret ett dokument med följande fält
 

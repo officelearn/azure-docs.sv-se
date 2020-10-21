@@ -1,20 +1,20 @@
 ---
 title: Azure Policy tillägg för Visual Studio Code
 description: Lär dig hur du använder Azure Policy-tillägget för Visual Studio Code för att leta upp Azure Resource Manager alias.
-ms.date: 10/14/2020
+ms.date: 10/20/2020
 ms.topic: how-to
-ms.openlocfilehash: ea05ffab9c57c50e451008a1ec7c534afbedf282
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 233c9158c30d6c373dd6147090894dc83b83da3d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077940"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317619"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Använd Azure Policy-tillägg för Visual Studio Code
 
-> Gäller Azure Policy Extension version **0.0.21** och senare
+> Gäller Azure Policy Extension version **0.1.0** och senare
 
-Lär dig hur du använder Azure Policy tillägget för Visual Studio Code för att söka efter [alias](../concepts/definition-structure.md#aliases) och granska resurser och principer. Först beskriver vi hur du installerar tillägget Azure Policy i Visual Studio Code. Sedan kommer vi att gå igenom hur du söker efter alias.
+Lär dig hur du använder Azure Policy tillägget för Visual Studio Code för att söka efter [alias](../concepts/definition-structure.md#aliases), granska resurser och principer, exportera objekt och utvärdera princip definitioner. Först beskriver vi hur du installerar tillägget Azure Policy i Visual Studio Code. Sedan kommer vi att gå igenom hur du söker efter alias.
 
 Azure Policy-tillägget för Visual Studio Code kan installeras på alla plattformar som stöds av Visual Studio Code. Det här stödet omfattar Windows, Linux och macOS.
 
@@ -25,7 +25,7 @@ Azure Policy-tillägget för Visual Studio Code kan installeras på alla plattfo
 
 Följande objekt krävs för att slutföra stegen i den här artikeln:
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - [Visual Studio Code](https://code.visualstudio.com).
 
 ## <a name="install-azure-policy-extension"></a>Installera Azure Policy tillägg
@@ -151,6 +151,51 @@ I Azure Policy-tillägget visas princip typer och princip tilldelningar som en T
 1. Använd filtret för att välja vilken princip eller Visa. Filtret fungerar för _DisplayName_ för princip definitionen eller princip tilldelningen.
 
 När du väljer en princip eller tilldelning, oavsett om du väljer att använda Sök gränssnittet eller genom att markera det i trädvyn, öppnar Azure Policy-tillägget den JSON som representerar principen eller tilldelningen och alla dess egenskaps värden för Resource Manager. Tillägget kan verifiera det öppnade Azure Policy JSON-schemat.
+
+## <a name="export-objects"></a>Exportera objekt
+
+Objekt från dina prenumerationer kan exporteras till en lokal JSON-fil. Hovra över eller Välj ett objekt som kan exporteras i fönstret **resurser** eller **principer** . Välj ikonen Spara i slutet av den markerade raden och välj en mapp där du vill spara resurs-JSON.
+
+Följande objekt kan exporteras lokalt:
+
+- Fönstret resurser
+  - Resursgrupper
+  - Enskilda resurser (antingen i en resurs grupp eller under en resurs leverantör)
+- Rutan principer
+  - Principtilldelningar
+  - Inbyggda princip definitioner
+  - Anpassade princip definitioner
+  - Initiativ
+
+## <a name="on-demand-evaluation-scan"></a>Utvärderingsgenomsökning på begäran
+
+En utvärderings genomsökning kan startas med Azure Policy-tillägget för Visual Studio Code. Starta en utvärdering genom att välja och fästa följande objekt: en resurs, en princip definition och en princip tilldelning.
+
+1. Om du vill fästa varje objekt kan du hitta det i antingen rutan **resurser** eller i fönstret **principer** och välja ikonen fäst på Redigera flik. Genom att fästa ett objekt läggs det till i **utvärderings** fönstret för tillägget.
+1. I **utvärderings** fönstret väljer du ett av varje objekt och använder ikonen Välj för utvärdering för att markera det som ingår i utvärderingen.
+1. Välj ikonen kör utvärdering längst upp i **utvärderings** fönstret. Ett nytt fönster i Visual Studio Code öppnas med den resulterande utvärderings informationen i JSON-format.
+
+> [!NOTE]
+> Om den valda princip definitionen är antingen en [AuditIfNotExists](../concepts/effects.md#auditifnotexists) eller [DeployIfNotExists](../concepts/effects.md#deployifnotexists), använder du plus ikonen i **utvärderings** fönstret för att välja en _relaterad_ resurs för den här kontrollen.
+
+Utvärderings resultaten innehåller information om princip definitionen och princip tilldelningen tillsammans med egenskapen **policyEvaluations. evaluationResult** . Utdata ser ut ungefär som i följande exempel:
+
+```json
+{
+    "policyEvaluations": [
+        {
+            "policyInfo": {
+                ...
+            },
+            "evaluationResult": "Compliant",
+            "effectDetails": {
+                "policyEffect": "Audit",
+                "existenceScope": "None"
+            }
+        }
+    ]
+}
+```
 
 ## <a name="sign-out"></a>Logga ut
 

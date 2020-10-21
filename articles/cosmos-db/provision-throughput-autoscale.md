@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9d645a16a59e34d1915cf9febde6b1f8a789355
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570727"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282098"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Skapa Azure Cosmos-behållare och databaser med autoskalning av data flöde
 
@@ -85,6 +85,6 @@ Mer information finns i den här [dokumentationen](how-to-choose-offer.md) om hu
 * Läs [vanliga frågor och svar om autoskalning](autoscale-faq.md).
 * Lär dig hur du [väljer mellan manuell och autoskalning av data flöde](how-to-choose-offer.md).
 * Lär dig hur du [etablerar autoskalning genom strömning på en Azure Cosmos-databas eller-behållare](how-to-provision-autoscale-throughput.md).
-* Läs mer om [partitionering](partition-data.md) i Azure Cosmos dB.
+* Läs mer om [partitionering](partitioning-overview.md) i Azure Cosmos dB.
 
 

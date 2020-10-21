@@ -1,18 +1,18 @@
 ---
 title: Säkerhets kopiering online och data återställning på begäran i Azure Cosmos DB
-description: Den här artikeln beskriver hur automatisk säkerhets kopiering, data återställning på begäran fungerar, hur du konfigurerar säkerhets kopierings intervall och kvarhållning i Azure Cosmos DB.
+description: Den här artikeln beskriver hur automatisk säkerhets kopiering, data återställning på begäran fungerar, hur du konfigurerar säkerhets kopierings intervall och kvarhållning, hur du kontaktar stöd för en data återställning i Azure Cosmos DB.
 author: kanshiG
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 08/24/2020
+ms.topic: how-to
+ms.date: 10/13/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 0db34a615c9d92401e760c702feb0dbbf13ce01d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c506d66c101c2770cffb8cc8d105b2f841c539a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803882"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279486"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Säkerhets kopiering online och data återställning på begäran i Azure Cosmos DB
 
@@ -34,15 +34,7 @@ Med Azure Cosmos DB, inte bara för dina data, utan även säkerhets kopior av d
 
 * Säkerhets kopiorna tas utan att påverka programmets prestanda eller tillgänglighet. Azure Cosmos DB utför säkerhets kopiering av data i bakgrunden utan att behöva använda ytterligare allokerat data flöde (ru: er) eller påverka databasens prestanda och tillgänglighet.
 
-## <a name="options-to-manage-your-own-backups"></a>Alternativ för att hantera dina egna säkerhets kopior
-
-Med Azure Cosmos DB SQL API-konton kan du även underhålla dina egna säkerhets kopior genom att använda någon av följande metoder:
-
-* Använd [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) för att flytta data regelbundet till valfri lagrings plats.
-
-* Använd Azure Cosmos DB [ändra feed](change-feed.md) för att läsa data regelbundet för fullständiga säkerhets kopieringar eller för stegvisa ändringar och lagra dem i ditt eget lagrings utrymme.
-
-## <a name="modify-the-backup-interval-and-retention-period"></a>Ändra intervallet för säkerhets kopiering och kvarhållningsperiod
+## <a name="modify-the-backup-interval-and-retention-period"></a><a id="configure-backup-interval-retention"></a>Ändra intervallet för säkerhets kopiering och kvarhållningsperiod
 
 Azure Cosmos DB automatiskt tar en fullständig säkerhets kopia av dina data varje 4 timme och när som helst, lagras de senaste två säkerhets kopiorna. Den här konfigurationen är standard alternativet och erbjuds utan extra kostnad. Du kan ändra standard intervallet för säkerhets kopiering och kvarhållningsperiod när du skapar ett Azure Cosmos-konto eller när kontot har skapats. Konfigurationen för säkerhetskopiering anges på kontonivå i Azure Cosmos och du måste ange inställningen för varje konto. När du har konfigurerat alternativ för säkerhets kopiering för ett konto tillämpas det på alla behållare i kontot. Du kan för närvarande bara ändra säkerhetskopieringsalternativ via Azure-portalen.
 
@@ -65,7 +57,32 @@ Om du konfigurerar säkerhets kopierings alternativ när kontot skapas kan du ko
 
 :::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Regelbundna fullständiga säkerhets kopieringar av alla Cosmos DB entiteter i GRS Azure Storage" border="true":::
 
-## <a name="restore-data-from-an-online-backup"></a>Återställa data från en säkerhets kopia online
+## <a name="request-data-restore-from-a-backup"></a>Begär data återställning från en säkerhets kopia
+
+Om du av misstag tar bort databasen eller en behållare kan du välja [ett support ärende](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [kontakta Azure-supporten](https://azure.microsoft.com/support/options/) för att återställa data från automatiska säkerhets kopieringar online. Support för Azure är tillgängligt för valda planer, till exempel **standard**, **utvecklare**och planer som är högre än de. Azure-supporten är inte tillgänglig med **Basic** -planen. Mer information om olika support avtal finns på sidan [support](https://azure.microsoft.com/support/plans/) avtal för Azure.
+
+För att återställa en speciell ögonblicks bild av säkerhets kopieringen kräver Azure Cosmos DB att data är tillgängliga under tiden för säkerhets kopierings cykeln för ögonblicks bilden.
+Du bör ha följande information innan du begär en återställning:
+
+* Ha ditt prenumerations-ID klart.
+
+* Utifrån hur dina data har tagits bort eller ändrats av misstag bör du förbereda dig för att ha ytterligare information. Vi rekommenderar att du har den information som är tillgänglig i förväg för att minimera den säkerhets kopiering som kan skadas i vissa tids känsliga fall.
+
+* Om hela Azure Cosmos DBs kontot tas bort måste du ange namnet på det borttagna kontot. Om du skapar ett annat konto med samma namn som det borttagna kontot, kan du dela det med support teamet, eftersom det hjälper till att fastställa rätt konto för att välja. Vi rekommenderar att du skiljer olika support biljetter för varje borttaget konto eftersom det minimerar förvirringen för återställnings läget.
+
+* Om en eller flera databaser tas bort bör du ange ett Azure Cosmos-konto, samt databas namnen för Azure Cosmos och ange om det finns en ny databas med samma namn.
+
+* Om en eller flera behållare tas bort bör du ange konto namnet för Azure-Cosmos, databas namn och behållar namnen. Och ange om det finns en behållare med samma namn.
+
+* Om du av misstag har tagit bort eller skadat dina data bör du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) inom 8 timmar så att Azure Cosmos DB-teamet kan hjälpa dig att återställa data från säkerhets kopiorna. **Innan du skapar en supportbegäran för att återställa data, se till att [öka säkerhets kopians kvarhållning](#configure-backup-interval-retention) för ditt konto till minst sju dagar. Det är bäst att öka din kvarhållning inom 8 timmar efter den här händelsen.** På så sätt får Azure Cosmos DB support-teamet tillräckligt med tid för att återställa ditt konto.
+
+Förutom namnet på Azure Cosmos-kontot, databas namn, behållar namn, bör du ange den tidpunkt som data kan återställas till. Det är viktigt att vara så exakt som möjligt för att hjälpa oss att fastställa de bästa tillgängliga säkerhets kopiorna. **Det är också viktigt att ange tiden i UTC.**
+
+Följande skärm bild visar hur du skapar en support förfrågan för en behållare (samling/graf/tabell) för att återställa data med hjälp av Azure Portal. Ange ytterligare information, till exempel typ av data, syftet med återställningen, tid när data togs bort för att prioritera begäran.
+
+:::image type="content" source="./media/online-backup-and-restore/backup-support-request-portal.png" alt-text="Regelbundna fullständiga säkerhets kopieringar av alla Cosmos DB entiteter i GRS Azure Storage":::
+
+## <a name="considerations-for-restoring-the-data-from-a-backup"></a>Att tänka på när du återställer data från en säkerhets kopia
 
 Du kan oavsiktligt ta bort eller ändra dina data i något av följande scenarier:  
 
@@ -85,38 +102,48 @@ När du råkar ta bort ett Azure Cosmos-konto kan vi återställa data till ett 
 
 När du tar bort en Azure Cosmos-databas av misstag kan vi återställa hela databasen eller en delmängd av behållarna i databasen. Det går också att välja vissa behållare i databaser och återställa dem till ett nytt Azure Cosmos-konto.
 
-När du oavsiktligt tar bort eller ändrar ett eller flera objekt i en behållare (skadade data) måste du ange hur lång tid som ska återställas. Tiden är viktig om data skadas. Eftersom behållaren är Live körs säkerhets kopieringen fortfarande, så om du väntar bortom kvarhållningsperioden (Standardvärdet är åtta timmar) kommer säkerhets kopiorna att skrivas över. **För att förhindra att säkerhets kopian skrivs över ökar du säkerhets kopians kvarhållning för ditt konto till minst sju dagar. Det är bäst att öka din kvarhållning inom 8 timmar från skadade data.**
+När du oavsiktligt tar bort eller ändrar ett eller flera objekt i en behållare (skadade data) måste du ange hur lång tid som ska återställas. Tiden är viktig om data skadas. Eftersom behållaren är Live körs säkerhets kopieringen fortfarande, så om du väntar bortom kvarhållningsperioden (Standardvärdet är åtta timmar) kommer säkerhets kopiorna att skrivas över. För att förhindra att säkerhets kopian skrivs över ökar du säkerhets kopians kvarhållning för ditt konto till minst sju dagar. Det är bäst att öka din kvarhållning inom 8 timmar från skadade data.
 
 Om du av misstag har tagit bort eller skadat dina data bör du kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) inom 8 timmar så att Azure Cosmos DB-teamet kan hjälpa dig att återställa data från säkerhets kopiorna. På så sätt får Azure Cosmos DB support-teamet tillräckligt med tid för att återställa ditt konto.
 
 > [!NOTE]
 > När du har återställt data överförs inte alla käll funktioner eller inställningar till det återställda kontot. Följande inställningar överförs inte till det nya kontot:
-
 > * Åtkomst kontrol listor för VNET
 > * Lagrade procedurer, utlösare och användardefinierade funktioner
 > * Inställningar för flera regioner  
 
 Om du etablerar data flöde på databas nivå sker säkerhets kopierings-och återställnings processen i det här fallet på hela databas nivån och inte på de enskilda behållar nivåerna. I sådana fall kan du inte välja en delmängd av behållare som ska återställas.
 
-## <a name="migrate-data-to-the-original-account"></a>Migrera data till det ursprungliga kontot
+## <a name="options-to-manage-your-own-backups"></a>Alternativ för att hantera dina egna säkerhets kopior
 
-Det primära målet för data återställningen är att återställa de data som du av misstag har tagit bort eller ändrat. Vi rekommenderar därför att du först kontrollerar innehållet i de återställda data för att se till att det innehåller det du förväntar dig. Senare kan du migrera data tillbaka till det primära kontot. Även om det är möjligt att använda det återställda kontot som ditt nya aktiva konto, är det inte ett rekommenderat alternativ om du har produktions arbets belastningar.  
+Med Azure Cosmos DB SQL API-konton kan du även underhålla dina egna säkerhets kopior genom att använda någon av följande metoder:
 
-Följande är olika sätt att migrera data tillbaka till det ursprungliga Azure Cosmos-kontot:
+* Använd [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) för att flytta data regelbundet till valfri lagrings plats.
+
+* Använd Azure Cosmos DB [ändra feed](change-feed.md) för att läsa data regelbundet för fullständiga säkerhets kopieringar eller för stegvisa ändringar och lagra dem i ditt eget lagrings utrymme.
+
+## <a name="post-restore-actions"></a>Åtgärder efter återställning
+
+Det primära målet för data återställningen är att återställa de data som du av misstag har tagit bort eller ändrat. Vi rekommenderar därför att du först kontrollerar innehållet i de återställda data för att se till att det innehåller det du förväntar dig. Om allting ser bra ut kan du migrera tillbaka data till det primära kontot. Även om det är möjligt att använda det återställda kontot som ditt nya aktiva konto, är det inte ett rekommenderat alternativ om du har produktions arbets belastningar. 
+
+När du har återställt data får du ett meddelande om namnet på det nya kontot (vanligt vis i formatet `<original-name>-restored1` ) och tiden då kontot återställdes till. Det återställda kontot kommer att ha samma allokerade data flöde, indexerings principer och finns i samma region som det ursprungliga kontot. En användare som är prenumerations administratör eller en medadministratör kan se det återställda kontot.
+
+### <a name="migrate-data-to-the-original-account"></a>Migrera data till det ursprungliga kontot
+
+Följande är olika sätt att migrera data tillbaka till det ursprungliga kontot:
 
 * Använd [verktyget för migrering av Azure Cosmos db data](import-data.md).
 * Använd [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 * Använd [ändra feed](change-feed.md) i Azure Cosmos dB.
 * Du kan skriva en egen anpassad kod.
 
-Se till att ta bort de återställda kontona så snart du har migrerat dina data, eftersom de kommer att medföra kontinuerliga kostnader.
+Vi rekommenderar att du tar bort behållaren eller databasen direkt efter att ha migrerat data. Om du inte tar bort de återställda databaserna eller behållarna kommer de att debiteras för enheter för programbegäran, lagring och utgående trafik.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Härnäst kan du lära dig hur du återställer data från ett Azure Cosmos-konto eller Lär dig hur du migrerar data till ett Azure Cosmos-konto
 
 * Om du vill göra en återställnings förfrågan kontaktar du Azure-supporten, [File a Ticket från Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-* [Så här återställer du data från ett Azure Cosmos-konto](how-to-backup-and-restore.md)
 * [Använd Cosmos DB ändra feed](change-feed.md) för att flytta data till Azure Cosmos dB.
 * [Använd Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) för att flytta Data till Azure Cosmos dB.
 

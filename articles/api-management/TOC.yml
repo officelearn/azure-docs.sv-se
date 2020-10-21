@@ -80,6 +80,8 @@
       href: self-hosted-gateway-overview.md
     - name: Överskådlighet
       href: observability.md
+    - name: CI/CD med hjälp av ARM-mallar
+      href: devops-api-development-templates.md
 - name: Anvisningar
   items:
     - name: 'Definiera API: er'

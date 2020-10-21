@@ -86,7 +86,7 @@
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
-      href: resource-manager-samples.md
+      href: templates-samples-sql.md
 - name: Begrepp
   items:
     - name: NoSQL jämfört med relationsdatabaser
@@ -99,31 +99,17 @@
         - name: Konsekvensnivåer
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: consistency-levels.md
-        - name: Välja rätt konsekvensnivå
-          displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
-          href: consistency-levels-choosing.md
-        - name: 'Konsekvensnivåer och API:er för Azure Cosmos DB'
-          href: consistency-levels-across-apis.md
-        - name: 'Kompromisser avseende konsekvens, tillgänglighet och prestanda'
-          href: consistency-levels-tradeoffs.md
         - name: Hög tillgänglighet
           href: high-availability.md
-        - name: Skala etablerat dataflöde globalt
-          displayName: 'request units, RUs, RU'
-          href: scaling-throughput.md
         - name: Konflikttyper och matchningsprinciper
           displayName: 'last write wins, custom, multi-region writes, multi-master'
           href: conflict-resolution-policies.md
         - name: Global distribution
           href: global-dist-under-the-hood.md
-        - name: Regional närvaro
-          href: regional-presence.md
     - name: Partitionering
       items:
-        - name: Översikt över partitionering
-          href: partitioning-overview.md
         - name: Partitionering och horisontell skalning
-          href: partition-data.md
+          href: partitioning-overview.md
         - name: Syntetisk partitionsnyckel
           href: synthetic-partition-keys.md
     - name: Kapacitet
@@ -389,6 +375,9 @@
                     - name: LTRIM
                       displayName: 'LTRIM, left trim, built-in functions'
                       href: sql-query-ltrim.md
+                    - name: REGEXMATCH
+                      displayName: 'REGEXMATCH, built-in functions'
+                      href: sql-query-regexmatch.md
                     - name: REPLACE
                       displayName: 'REPLACE, built-in functions'
                       href: sql-query-replace.md
@@ -486,13 +475,11 @@
         - name: LINQ till SQL
           displayName: 'linq, .NET'
           href: sql-query-linq-to-sql.md
-    - name: Arbeta med ett Azure Cosmos-konto
-      href: account-overview.md
+    - name: Resursmodell för Azure Cosmos DB
+      displayName: 'collection, document'
+      href: account-databases-containers-items.md
     - name: Containrar och objekt
       items:
-        - name: 'Arbeta med databaser, containrar och objekt'
-          displayName: 'collection, document'
-          href: databases-containers-items.md
         - name: Modelldokumentdata
           displayName: document
           href: modeling-data.md
@@ -564,12 +551,11 @@
         - name: Optimera kostnader för etablerat dataflöde
           displayName: 'request units, RUs, RU'
           href: optimize-cost-throughput.md
-        - name: Optimera kostnader för frågor
-          href: optimize-cost-queries.md
+        - name: Optimera begärandekostnad
+          displayName: 'request, cost, read, write, query, queries, RUs, RU'
+          href: optimize-cost-reads-writes.md
         - name: Optimera kostnader för lagring
           href: optimize-cost-storage.md
-        - name: Optimera kostnader för läsningar och skrivningar
-          href: optimize-cost-reads-writes.md
         - name: Optimera kostnader för flera regioner
           href: optimize-cost-regions.md
         - name: Optimera kostnader för utveckling och testning
@@ -586,11 +572,6 @@
         - name: Säker åtkomst till data
           displayName: 'primary key, resource token, users, roles'
           href: secure-access-to-data.md
-        - name: IP-brandvägg
-          href: firewall-support.md
-        - name: Åtkomst från virtuella nätverk
-          displayName: service endpoint
-          href: vnet-service-endpoint.md
         - name: Tjänsttaggar
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Rollbaserad åtkomstkontroll
@@ -605,8 +586,6 @@
           href: security-baseline.md
     - name: Företagsberedskap
       items:
-        - name: Säkerhetskopiering och återställning på begäran online
-          href: online-backup-and-restore.md
         - name: Efterlevnad
           href: compliance.md
         - name: Stöd för Azure-princip
@@ -663,6 +642,8 @@
               href: cassandra-partitioning.md
             - name: Sekundära index
               href: cassandra-secondary-index.md
+            - name: Mappning av konsekvensnivåer
+              href: cassandra-consistency.md
         - name: Anvisningar
           items:
             - name: Migrera till API för Cassandra
@@ -675,6 +656,14 @@
                   href: cassandra-migrate-cosmos-db-blitzz.md
             - name: Ändringsfeed
               href: cassandra-change-feed.md
+            - name: Skapa en container – API för Cassandra
+              href: how-to-create-container-cassandra.md
+            - name: Etablera dataflöde – API för Cassandra
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-cassandra.md
+            - name: Hitta avgifter för begäransenheter
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-cassandra.md
             - name: Lagra och hantera Spring Data
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Cassandra och Spark
@@ -700,12 +689,12 @@
                 - name: Kopiera tabelldata
                   href: cassandra-spark-table-copy-ops.md
             - name: Hantera med Resource Manager-mallar
-              href: manage-cassandra-with-resource-manager.md
+              href: templates-samples-cassandra.md
               displayName: ARM
             - name: Hantera med hjälp av PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-cassandra.md
             - name: Hantera med hjälp av Azure CLI
-              href: cli-samples.md
+              href: cli-samples-cassandra.md
     - name: MongoDB-API
       items:
         - name: Översikt
@@ -760,6 +749,8 @@
               href: mongodb-feature-support.md
             - name: VANLIGA FRÅGOR OCH SVAR
               href: mongodb-api-faq.md
+            - name: Mappning av konsekvensnivåer
+              href: mongodb-consistency.md
         - name: Anvisningar
           items:
             - name: Migrera till MongoDB-API
@@ -793,18 +784,28 @@
               href: mongodb-change-streams.md
             - name: Hantera dataindexering
               href: mongodb-indexing.md
+            - name: Skapa en container – MongoDB API
+              href: how-to-create-container-mongodb.md
+            - name: Etablera dataflöde – MongoDB API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-mongodb.md
+            - name: Hitta avgifter för begäransenheter
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-mongodb.md
+            - name: Felsöka frågeprestanda
+              href: mongodb-troubleshoot-query.md
             - name: Lagra och hantera Spring Data
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Kommandon för MongoDB-tillägg
               href: mongodb-custom-commands.md
               displayName: custom commands
             - name: Hantera med Resource Manager-mallar
-              href: manage-mongodb-with-resource-manager.md
+              href: templates-samples-mongodb.md
               displayName: ARM
             - name: Hantera med hjälp av PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-mongodb.md
             - name: Hantera med hjälp av Azure CLI
-              href: cli-samples.md
+              href: cli-samples-mongodb.md
             - name: Felsök vanliga problem
               href: mongodb-troubleshoot.md
     - name: Gremlin-API
@@ -838,6 +839,10 @@
           items:
             - name: VANLIGA FRÅGOR OCH SVAR
               href: gremlin-api-faq.md
+            - name: Svarshuvuden
+              href: gremlin-headers.md
+            - name: Begränsningar
+              href: gremlin-limits.md
         - name: Anvisningar
           items:
             - name: Diagramdatamodellering
@@ -848,6 +853,14 @@
               href: bulk-executor-graph-dotnet.md
             - name: Optimera Gremlin-frågor
               href: graph-execution-profile.md
+            - name: Skapa en container – Gremlin API
+              href: how-to-create-container-gremlin.md
+            - name: Etablera dataflöde – Gremlin API
+              displayName: 'request units, RUs, RU, collection level'
+              href: how-to-provision-throughput-gremlin.md
+            - name: Hitta avgifter för begäransenheter
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-gremlin.md
             - name: Använda resurstoken
               href: how-to-use-resource-tokens-gremlin.md
             - name: Använda regionala slutpunkter
@@ -859,12 +872,12 @@
             - name: Lagra och hantera Spring Data
               href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
             - name: Hantera med Resource Manager-mallar
-              href: manage-gremlin-with-resource-manager.md
+              href: templates-samples-gremlin.md
               displayName: ARM
             - name: Hantera med hjälp av PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-gremlin.md
             - name: Hantera med hjälp av Azure CLI
-              href: cli-samples.md
+              href: cli-samples-gremlin.md
         - name: Referens
           items:
             - name: Svarsrubriker
@@ -927,15 +940,20 @@
           items:
             - name: Skapa appar med tabell-API
               href: table-support.md
+            - name: Skapa en container – Tabell-API
+              href: how-to-create-container-table.md
+            - name: Hitta avgifter för begäransenheter
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge-table.md
             - name: Designguide för tabellagring
               href: table-storage-design-guide.md
             - name: Hantera med Resource Manager-mallar
-              href: manage-table-with-resource-manager.md
+              href: templates-samples-table.md
               displayName: ARM
             - name: Hantera med hjälp av PowerShell
-              href: powershell-samples.md
+              href: powershell-samples-table.md
             - name: Hantera med hjälp av Azure CLI
-              href: cli-samples.md
+              href: cli-samples-table.md
         - name: Referens
           items:
             - name: .NET
@@ -971,7 +989,7 @@
         - name: Använda Azure CLI
           href: manage-with-cli.md
         - name: Använda Resource Manager-mallar
-          href: manage-sql-with-resource-manager.md
+          href: manage-with-templates.md
           displayName: ARM
         - name: Flytta mellan regioner
           href: how-to-move-regions.md
@@ -1018,7 +1036,7 @@
               href: storage-explorer.md
             - name: Arbeta med data med hjälp av Azure Cosmos Explorer
               href: data-explorer.md
-        - name: Skapa en container
+        - name: Skapa en container – SQL API
           href: how-to-create-container.md
         - name: Skapa en container med en stor partitionsnyckel
           href: large-partition-keys.md
@@ -1038,6 +1056,8 @@
           href: how-to-define-unique-keys.md
     - name: Prestanda
       items:
+        - name: Anslutningslägen
+          href: sql-sdk-connection-modes.md
         - name: Söka i data
           items:
             - name: Hämta mått för frågekörning
@@ -1102,16 +1122,12 @@
               href: troubleshoot-java-async-sdk.md
     - name: Ändringsflöde
       items:
-        - name: Azure Cosmos DB-utlösarloggar
-          href: how-to-configure-cosmos-db-trigger-logs.md
-        - name: Anslutningsprincip för Azure Cosmos DB-utlösare
-          href: how-to-configure-cosmos-db-trigger-connection-policy.md
+        - name: Azure Cosmos DB – Utlösa avancerad konfiguration
+          href: how-to-configure-cosmos-db-trigger.md
         - name: Flera Azure Cosmos DB-utlösare
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Felsöka Azure Cosmos DB-utlösare
           href: troubleshoot-changefeed-functions.md
-        - name: Starttid för ändringsflödesprocessor
-          href: how-to-configure-change-feed-start-time.md
         - name: Använda ändringsflödesövervakaren
           href: how-to-use-change-feed-estimator.md
         - name: Migrera från Change Feed Processor-biblioteket
@@ -1180,8 +1196,8 @@
           href: how-to-setup-cmk.md
     - name: Företagsberedskap
       items:
-        - name: Återställa data från en säkerhetskopia
-          href: how-to-backup-and-restore.md
+        - name: Säkerhetskopiering och återställning på begäran online
+          href: online-backup-and-restore.md
         - name: Begära kvotökning
           href: create-support-request-quota-increase.md
     - name: Övervaka

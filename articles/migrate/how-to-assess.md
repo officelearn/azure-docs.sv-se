@@ -3,12 +3,12 @@ title: Lägg till utvärderings verktyg i Azure Migrate
 description: Lär dig hur du lägger till bedömnings verktyg i Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 5151135a57b7c2780485d85299ead5df83ea851e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dee9ec2210bf6e04255b07cf641ced6807c8b5a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86122123"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317370"
 ---
 # <a name="add-assessment-tools"></a>Lägga till utvärderingsverktyg
 
@@ -60,4 +60,4 @@ Den här artikeln beskriver hur du lägger till bedömnings verktyg i [Azure Mig
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova en utvärdering med hjälp av Azure Migrate Server utvärdering för virtuella [VMware](tutorial-prepare-vmware.md) -datorer, [Hyper-V](tutorial-prepare-hyper-v.md)eller [fysiska servrar](tutorial-prepare-physical.md)
+Prova en utvärdering med hjälp av Azure Migrate Server utvärdering för virtuella [VMware](./tutorial-discover-vmware.md) -datorer, [Hyper-V](./tutorial-discover-hyper-v.md)eller [fysiska servrar](./tutorial-discover-physical.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
-ms.openlocfilehash: cc64e36e5fa65a8d6eca117f33be8cac89514177
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fd7425169ddc3ebed11ddaf513f0182dd397703
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88538186"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313546"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-academy-attendance"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Academy-närvaro
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig hur du integrerar Academy-närvaro me
 * Gör det möjligt för användarna att logga in automatiskt till Academy-närvaro med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -94,11 +94,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
-    > Academy-närvaron har stöd för två roller för användare: **föreläsare** och **student**. Konfigurera de här rollerna i Azure AD så att användarna kan tilldelas lämpliga roller. I [det här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) dokumentet beskrivs hur du skapar anpassade roller i Azure AD.
+    > Academy-närvaron har stöd för två roller för användare: **föreläsare** och **student**. Konfigurera de här rollerna i Azure AD så att användarna kan tilldelas lämpliga roller. I [det här](../develop/active-directory-enterprise-app-role-management.md) dokumentet beskrivs hur du skapar anpassade roller i Azure AD.
 
 1. Utöver ovan förväntar sig Academy-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | --------- | --------------- |
     | roll      | user.assignedroles |
 
@@ -152,15 +152,14 @@ I det här avsnittet skapas en användare som kallas Britta Simon i Academy-när
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Academy-närvaro på åtkomst panelen, bör du loggas in automatiskt till Academy-närvaron som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Academy-närvaro på åtkomst panelen, bör du loggas in automatiskt till Academy-närvaron som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Testa Academy-närvaro med Azure AD](https://aad.portal.azure.com/)
-

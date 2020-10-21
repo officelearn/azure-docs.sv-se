@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07dc11877b38e830d90f544f1d7524b378bf5902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f14960f98a4257b0c8f920915327661cd8b867c
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90053760"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92310395"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Skapa en roll tilldelnings bara grupp i Azure Active Directory
 
-Du kan bara tilldela en roll till en grupp som har skapats med egenskapen "isAssignableToRole" inställd på True, eller så har du skapat den i Azure AD-portalen med **Azure AD-roller som du kan tilldela gruppen** aktiverade. Det här gruppattributet gör gruppen ett som kan tilldelas till en roll i Azure Active Directory (Azure AD). Den här artikeln beskriver hur du skapar den här särskilda typen av grupp. **Obs:** En grupp med egenskapen isAssignableToRole inställt på True får inte vara av typen dynamiskt medlemskap. Mer information finns i [använda en grupp för att hantera roll tilldelningar för Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
+Du kan bara tilldela en roll till en grupp som har skapats med egenskapen "isAssignableToRole" inställd på True, eller så har du skapat den i Azure AD-portalen med **Azure AD-roller som du kan tilldela gruppen** aktiverade. Det här gruppattributet gör gruppen ett som kan tilldelas till en roll i Azure Active Directory (Azure AD). Den här artikeln beskriver hur du skapar den här särskilda typen av grupp. **Obs:** En grupp med egenskapen isAssignableToRole inställt på True får inte vara av typen dynamiskt medlemskap. Mer information finns i [använda en grupp för att hantera roll tilldelningar för Azure AD](./roles-groups-concept.md).
 
 ## <a name="using-azure-ad-admin-center"></a>Använda Azure AD administrations Center
 

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22fcee69c32388c764434bedac04465bbc3e28cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801332"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281066"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnaden för etablerat dataflöde i Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Du kan etablera dataflöden för databaser och containrar, och de olika strategi
 
 * Om du etablerar data flöde för en databas kan alla behållare, till exempel samlingar/tabeller/grafer i den databasen, dela data flödet baserat på belastningen. Data flödet som reserver ATS på databas nivå delas ojämnt, beroende på arbets belastningen på en speciell uppsättning behållare.
 
-* Om du etablerar data flöde på en behållare, garanteras data flödet för den behållaren, som backas upp av service avtalet. Valet av logisk partitionsnyckel är avgörande för jämn fördelning av belastningen över alla logiska partitioner i en behållare. Mer information finns i artiklar om [partitionering](partitioning-overview.md) och [horisontell skalning](partition-data.md) .
+* Om du etablerar data flöde på en behållare, garanteras data flödet för den behållaren, som backas upp av service avtalet. Valet av logisk partitionsnyckel är avgörande för jämn fördelning av belastningen över alla logiska partitioner i en behållare. Mer information finns i artiklar om [partitionering](partitioning-overview.md) och [horisontell skalning](partitioning-overview.md) .
 
 Här följer några rikt linjer som du kan välja för en etablerad data flödes strategi:
 
@@ -56,11 +56,11 @@ Som du ser i följande tabell, beroende på valet av API, kan du etablera data f
 
 |API|För **delat** data flöde konfigurerar du |För **dedikerat** data flöde konfigurerar du |
 |----|----|----|
-|API för SQL|Databas|Container|
+|API för SQL|Databasen|Container|
 |API för Azure Cosmos DB för MongoDB|Databas|Samling|
-|Cassandra-API|Keyspace|Tabell|
+|Cassandra-API|Keyspace|Tabeller|
 |Gremlin-API|Databaskonto|Graph|
-|Tabell-API|Databaskonto|Tabell|
+|Tabell-API|Databaskonto|Tabeller|
 
 Genom att tillhandahålla data flöde på olika nivåer kan du optimera dina kostnader baserat på arbets Belastningens egenskaper. Som tidigare nämnts kan du program mässigt och när som helst öka eller minska ditt etablerade data flöde för antingen enskilda behållare eller kollektivt i en uppsättning behållare. Genom att elastiskt skala data flöde när din arbets belastning ändras betalar du bara för det data flöde som du har konfigurerat. Om din behållare eller en uppsättning behållare distribueras över flera regioner, garanteras det data flöde som du konfigurerar på behållaren eller en uppsättning behållare som görs tillgängliga i alla regioner.
 

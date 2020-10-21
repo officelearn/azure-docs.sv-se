@@ -1,17 +1,17 @@
 ---
-title: Skapa en Log Analytics arbets yta på Azure-portalen | Microsoft Docs
+title: Skapa en Log Analytics arbets yta i Azure Portal | Microsoft Docs
 description: Lär dig hur du skapar en Log Analytics arbets yta för att aktivera hanterings lösningar och data insamling från molnet och lokala miljöer i Azure Portal.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: f86cc5e3edc659a233066fcf2544ed4a5019d0f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0cf7c89c23b3df51dce2710be50c3c62f8f1e3cf
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324292"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320087"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Skapa en Log Analytics-arbetsyta i Azure-portalen
 Använd menyn **Log Analytics arbets ytor** för att skapa en arbets yta för Log Analytics med hjälp av Azure Portal. En Log Analytics-arbetsyta är en unik miljö för Azure Monitor loggdata. Varje arbets yta har sin egen data lagrings plats och konfiguration, och data källor och lösningar har kon figurer ATS för att lagra data i en viss arbets yta. Du behöver en Log Analytics arbets yta om du vill samla in data från följande källor:
@@ -62,8 +62,5 @@ När du skapar en arbets yta som har tagits bort under de senaste 14 dagarna och
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har en arbets yta tillgänglig kan du konfigurera insamling av övervakning, köra loggs ökningar för att analysera dessa data och lägga till en hanterings lösning för att tillhandahålla ytterligare data och analytiska insikter. 
 
-* Information om hur du aktiverar data insamling från Azure-resurser med Azure-diagnostik eller Azure Storage finns i [samla in Azure Service-loggar och mått för användning i Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace).  
-* [Lägg till System Center Operations Manager som en data källa](../platform/om-agents.md) för att samla in data från agenter som rapporterar din Operations Manager hanterings grupp och lagra den i din Log Analytics-arbetsyta. 
-* Anslut [Configuration Manager](../platform/collect-sccm.md) för att importera datorer som är medlemmar i samlingar i hierarkin.  
-* Granska de tillgängliga [övervaknings lösningarna](../insights/solutions.md) och Lägg till eller ta bort en lösning från din arbets yta.
-
+* Se [övervaka hälsan för Log Analytics arbets ytan i Azure Monitor](../platform/monitor-workspace.md) skapa aviserings regler för att övervaka arbets ytans hälsa. 
+* Se [samla in Azure Service-loggar och-mått för användning i Log Analytics](../platform/resource-logs.md#send-to-log-analytics-workspace) för att aktivera data insamling från Azure-resurser med Azure-diagnostik eller Azure Storage.

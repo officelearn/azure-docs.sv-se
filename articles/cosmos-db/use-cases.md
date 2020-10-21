@@ -6,15 +6,16 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 76016da2ec542091aa57d5081e275a1f9f6671cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 45303a8aaaa348d310d7f8b5e7cd98f8d465a282
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85114273"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280820"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsfall för Azure Cosmos DB
-Den här artikeln innehåller en översikt över flera vanliga användnings fall för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungerar som en utgångs punkt när du utvecklar ditt program med Cosmos DB.   
+
+Den här artikeln innehåller en översikt över flera vanliga användnings fall för Azure Cosmos DB.  Rekommendationerna i den här artikeln fungerar som en utgångs punkt när du utvecklar ditt program med Cosmos DB.
 
 När du har läst den här artikeln kan du svara på följande frågor: 
 
@@ -24,7 +25,8 @@ När du har läst den här artikeln kan du svara på följande frågor:
 * Vilka är fördelarna med att använda Azure Cosmos DB för webb-och mobil program?
 
 ## <a name="introduction"></a>Introduktion
-[Azure Cosmos DB](../cosmos-db/introduction.md) är Microsofts globalt distribuerade databas tjänst. Tjänsten är utformad för att göra det möjligt för kunder att elastiskt (och självständigt) skala data flöde och lagrings utrymme i valfritt antal geografiska regioner. Azure Cosmos DB är den första globalt distribuerade databas tjänsten på marknaden idag för att erbjuda omfattande [service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) som omfattar data flöde, svars tid, tillgänglighet och konsekvens. 
+
+[Azure Cosmos DB](../cosmos-db/introduction.md) är Microsofts snabba NoSQL-databas med öppna API: er för alla skalor. Tjänsten är utformad för att göra det möjligt för kunder att elastiskt (och självständigt) skala data flöde och lagrings utrymme i valfritt antal geografiska regioner. Azure Cosmos DB är den första globalt distribuerade databas tjänsten på marknaden idag för att erbjuda omfattande [service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) som omfattar data flöde, svars tid, tillgänglighet och konsekvens.
 
 Azure Cosmos DB är en globalt distribuerad databas för flera modeller som används i en mängd olika program och användnings fall. Det är ett bra val för alla program utan [Server](https://azure.com/serverless) som behöver svars tider med låg ordning i millisekunder och måste skalas snabbt och globalt. Den har stöd för flera data modeller (nyckel värde, dokument, grafer och kolumner) och många API: er för data åtkomst, inklusive [Azure Cosmos DB s API för MongoDB](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin API](graph-introduction.md)och [tabeller API](table-introduction.md) internt och på ett utöknings Bart sätt. 
 
@@ -40,6 +42,7 @@ Följande är några attribut för Azure Cosmos DB som gör det lämpligt för p
 Dessa attribut är fördelaktiga i webb-, mobil-, spel-och IoT-program som behöver låg svars tid och som behöver hantera enorma mängder läsningar och skrivningar.
 
 ## <a name="iot-and-telematics"></a>IoT och telematik
+
 Användnings områden för IoT delar ofta några mönster i hur de matar in, bearbetar och lagrar data.  För det första måste dessa system mata in burst-överföring av data från enhets sensorer för olika språk. Därefter kan dessa system bearbeta och analysera strömmande data för att få insikter i real tid. Data arkiveras sedan till kall lagring för batch Analytics. Microsoft Azure erbjuder omfattande tjänster som kan användas för användnings fall i IoT, inklusive Azure Cosmos DB, Azure Event Hubs, Azure Stream Analytics, Azure Notification Hub, Azure Machine Learning, Azure HDInsight och Power BI. 
 
 :::image type="content" source="./media/use-cases/iot.png" alt-text="Referens arkitektur för Azure Cosmos DB IoT" border="false":::

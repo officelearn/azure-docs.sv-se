@@ -7,16 +7,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f26dc5214222bb7564c0ba2b199adefad056ed5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132661"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280989"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Unika nyckel begränsningar i Azure Cosmos DB
 
-Unika nycklar Lägg till ett lager med data integritet i en Azure Cosmos-behållare. Du skapar en unik nyckel princip när du skapar en Azure Cosmos-behållare. Med unika nycklar ser du till att ett eller flera värden i en logisk partition är unika. Du kan också garantera unika nycklar per [partitionsnyckel](partition-data.md).
+Unika nycklar Lägg till ett lager med data integritet i en Azure Cosmos-behållare. Du skapar en unik nyckel princip när du skapar en Azure Cosmos-behållare. Med unika nycklar ser du till att ett eller flera värden i en logisk partition är unika. Du kan också garantera unika nycklar per [partitionsnyckel](partitioning-overview.md).
 
 När du har skapat en behållare med en unik nyckel princip förhindras skapandet av en ny eller en uppdatering av ett befintligt objekt som resulterar i en dubblett i en logisk partition, enligt vad som anges i den unika nyckel begränsningen. Partitionsnyckel i kombination med den unika nyckeln garanterar att ett objekt är unikt inom omfånget för behållaren.
 
@@ -55,5 +55,5 @@ Du kan bara definiera unika nycklar när du skapar en Azure Cosmos-behållare. E
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [logiska partitioner](partition-data.md)
+* Läs mer om [logiska partitioner](partitioning-overview.md)
 * Lär dig [hur du definierar unika nycklar när du](how-to-define-unique-keys.md) skapar en behållare

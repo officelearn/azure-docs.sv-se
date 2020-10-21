@@ -3,12 +3,12 @@ title: Identifiera appar, roller och funktioner på lokala servrar med Azure Mig
 description: Lär dig hur du identifierar appar, roller och funktioner på lokala servrar med Azure Migrate Server bedömning.
 ms.topic: article
 ms.date: 06/10/2020
-ms.openlocfilehash: 535c8ae8c2d6e5d9d175e663a58d47dc76aa0529
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bdc26ac3a27026183e889bf258e2e1a5dadebfb
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118655"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315196"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Identifiera appar, roller och funktioner i datorn
 
@@ -46,7 +46,7 @@ När installationen har distribuerats och du har angett autentiseringsuppgifter,
 
 ## <a name="verify-permissions"></a>Kontrollera behörigheter
 
-Du har [skapat ett vCenter Server skrivskyddat konto](tutorial-prepare-vmware.md#set-up-permissions-for-assessment) för identifiering och utvärdering. Det skrivskyddade kontot måste ha behörighet för **Virtual Machines**  >  **gäst åtgärder**för att kunna interagera med den virtuella datorn för identifiering av appar.
+Du har [skapat ett vCenter Server skrivskyddat konto](./tutorial-discover-vmware.md#prepare-vmware) för identifiering och utvärdering. Det skrivskyddade kontot måste ha behörighet för **Virtual Machines**  >  **gäst åtgärder**för att kunna interagera med den virtuella datorn för identifiering av appar.
 
 ### <a name="add-the-user-account-to-the-appliance"></a>Lägg till användar kontot till enheten
 

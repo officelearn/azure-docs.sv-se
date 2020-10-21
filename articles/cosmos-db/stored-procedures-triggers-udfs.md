@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 5fc74c554cbb283bc6bbfee737ef98e59dd4b0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af17e37e5acb1e3552dd92b82eaf8d6397e4bc5e
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82509677"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279905"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Lagrade procedurer, utlösare och användardefinierade funktioner
 
@@ -24,7 +24,7 @@ Genom att skriva lagrade procedurer, utlösare och användardefinierade funktion
 
 * **Procedur logik:** Java Script som ett högnivå programmerings språk som innehåller omfattande och välbekanta gränssnitt för att uttrycka affärs logik. Du kan utföra en sekvens av komplexa åtgärder på data.
 
-* **Atomiska transaktioner:** Azure Cosmos DB garanterar att databas åtgärderna som utförs inom en enda lagrad procedur eller en utlösare är atomiska. Med den här atomiska funktionen kan ett program kombinera relaterade åtgärder i en enda batch, så att antingen alla åtgärder lyckas eller ingen av dem lyckas.
+* **Atomiska transaktioner:** Azure Cosmos DB databas åtgärder som utförs inom en enda lagrad procedur eller en utlösare är atomiska. Med den här atomiska funktionen kan ett program kombinera relaterade åtgärder i en enda batch, så att antingen alla åtgärder lyckas eller ingen av dem lyckas.
 
 * **Prestanda:** JSON-data mappas inbäddat till språk typs systemet för Java Script. Den här mappningen möjliggör ett antal optimeringar som till exempel Lazy materialization av JSON-dokument i bufferten och gör dem tillgängliga på begäran till den kod som körs. Det finns andra prestanda fördelar kopplade till-databasen med affärs logik, bland annat:
 
@@ -55,7 +55,7 @@ I Azure Cosmos DB finns JavaScript-körningen i databas motorn. Begär Anden som
 
 ### <a name="scope-of-a-transaction"></a>En transaktions omfång
 
-Lagrade procedurer är associerade med en Azure Cosmos-behållare och körning av lagrade procedurer är begränsad till en logisk partitionsnyckel. Lagrade procedurer måste innehålla ett nyckel värde för logisk partition under körningen som definierar den logiska partitionen för transaktions omfånget. Mer information finns i artikeln [Azure Cosmos DB partitionering](partition-data.md) .
+Lagrade procedurer är associerade med en Azure Cosmos-behållare och körning av lagrade procedurer är begränsad till en logisk partitionsnyckel. Lagrade procedurer måste innehålla ett nyckel värde för logisk partition under körningen som definierar den logiska partitionen för transaktions omfånget. Mer information finns i artikeln [Azure Cosmos DB partitionering](partitioning-overview.md) .
 
 ### <a name="commit-and-rollback"></a>Bekräfta och Återställ
 

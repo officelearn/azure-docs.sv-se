@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8b9fac51b5bdab20d7b082945ee594ac76c3e52a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013754"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332509"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installera Log Analytics agent på Linux-datorer
 Den här artikeln innehåller information om hur du installerar Log Analytics-agenten på Linux-datorer med följande metoder:
@@ -43,9 +43,11 @@ Från och med versioner som publicerats efter 2018 augusti gör vi följande än
 >[!NOTE]
 >Om du använder en distribution eller version som inte stöds och inte justeras till vår support modell, rekommenderar vi att du förlitar dig på den här lagrings platsen, vilket erkänner att Microsoft Support inte kommer att ge hjälp med förgrenade agent versioner.
 
-### <a name="python-2-requirement"></a>Python 2-krav
+### <a name="python-requirement"></a>Python-krav
 
- Den Log Analytics agenten kräver python 2. Om den virtuella datorn använder en distribution som inte innehåller python 2 som standard måste du installera den. Följande exempel kommandon kommer att installera python 2 på olika distributioner.
+Från och med agent version 1.13.27 kommer Linux-agenten att stödja både python 2 och 3. Vi rekommenderar alltid att du använder den senaste agenten. 
+
+Om du använder en äldre version av agenten måste du använda python 2 som standard på den virtuella datorn. Om den virtuella datorn använder en distribution som inte innehåller python 2 som standard måste du installera den. Följande exempel kommandon kommer att installera python 2 på olika distributioner.
 
  - Red Hat, CentOS, Oracle: `yum install -y python2`
  - Ubuntu, Debian: `apt-get install -y python2`
@@ -71,7 +73,7 @@ OMS-agenten har begränsat anpassnings stöd för Linux.
 Följande stöds för närvarande: 
 - FIPs
 
-Följande planeras men stöds ännu inte:
+Följande beaktas men stöds ännu inte:
 - CIS
 - SELINUX
 
@@ -184,7 +186,7 @@ Log Analytics agenten för Linux finns i ett självextraherande och installerbar
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    Om autentisering krävs måste du ange användar namn och lösen ord. Till exempel: 
+    Om autentisering krävs måste du ange användar namn och lösen ord. Exempel: 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

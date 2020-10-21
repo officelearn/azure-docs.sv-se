@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f8a8f76ce7d46c0a44dd86ef1490c1c74a7992a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0f45a1481661aa350815560d795ab7411f99545
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979505"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317833"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Vanliga scenarier i hantering av Azure AD-berättigande
 
@@ -154,7 +154,7 @@ Det finns flera sätt som du kan konfigurera rättighets hantering för din orga
 
 ## <a name="programmatic-administration"></a>Programmatisk administration
 
-Du kan också hantera åtkomst paket, kataloger, principer, förfrågningar och tilldelningar med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa [API: et för rättighets hantering](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta ).
+Du kan också hantera åtkomst paket, kataloger, principer, förfrågningar och tilldelningar med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörigheten kan anropa [API: et för rättighets hantering](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Nästa steg
 

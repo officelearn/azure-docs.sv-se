@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dce10fb85ac181bb06aef0058768bef659462a5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be1cfc097da4f1f10bb775c9b20043096b9fb8b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019988"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279638"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Skapa flera Azure Functions utlösare för Cosmos DB
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs hur du kan konfigurera flera Azure Functions-utlös
 
 När du skapar Server lösa arkitekturer med [Azure Functions](../azure-functions/functions-overview.md) [rekommenderar](../azure-functions/functions-best-practices.md#avoid-long-running-functions) vi att du skapar små funktions uppsättningar som fungerar tillsammans i stället för stora tids krävande funktioner.
 
-När du skapar händelsebaserade Server lösa flöden med [Azure Functions utlösare för Cosmos DB](./change-feed-functions.md), kan du köra i scenariot där du vill göra flera saker när det finns en ny händelse i en viss [Azure Cosmos-behållare](./databases-containers-items.md#azure-cosmos-containers). Om åtgärder som du vill utlösa är oberoende av varandra, är den perfekta lösningen att **skapa en Azure Functions utlösare för Cosmos dB per åtgärd** som du vill göra, alla som lyssnar efter ändringar i samma Azure Cosmos-behållare.
+När du skapar händelsebaserade Server lösa flöden med [Azure Functions utlösare för Cosmos DB](./change-feed-functions.md), kan du köra i scenariot där du vill göra flera saker när det finns en ny händelse i en viss [Azure Cosmos-behållare](./account-databases-containers-items.md#azure-cosmos-containers). Om åtgärder som du vill utlösa är oberoende av varandra, är den perfekta lösningen att **skapa en Azure Functions utlösare för Cosmos dB per åtgärd** som du vill göra, alla som lyssnar efter ändringar i samma Azure Cosmos-behållare.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Optimera behållare för flera utlösare
 

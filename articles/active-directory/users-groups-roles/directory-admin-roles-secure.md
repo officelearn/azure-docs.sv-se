@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d845c1fbefd5c9a6119d089824eba6cc35228a3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7224f8fe1461727504a85df4a5fd95ba871258a8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055817"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92308731"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD
 
@@ -302,7 +302,7 @@ Om din Azure Active Directory är ansluten till den lokala Active Directory föl
 
 #### <a name="establish-integrated-monitoring"></a>Upprätta integrerad övervakning
 
-[Azure Security Center](../../security-center/security-center-intro.md):
+[Azure Security Center](../../security-center/security-center-introduction.md):
 
 * Tillhandahåller integrerad säkerhetsövervakning och princip hantering i dina Azure-prenumerationer
 * Hjälper till att upptäcka hot som annars kan gå vidare till
@@ -359,12 +359,12 @@ Steg 4 i översikten bör implementeras på sex månader och mer. Slutför din �
 Att skydda privilegie rad åtkomst är viktigt för att upprätta säkerhets garantier för företagets till gångar. Det bör dock ingå i ett komplett säkerhets program som tillhandahåller säkerhets garantier som pågår. Det här programmet bör innehålla element som:
 
 * Princip
-* Åtgärder
+* Operations
 * Informations säkerhet
 * Servrar
 * Program
 * Datorer
-* Egenskaper
+* Enheter
 * Cloud Fabric
 
 Vi rekommenderar följande metoder när du hanterar privilegierade åtkomst konton:

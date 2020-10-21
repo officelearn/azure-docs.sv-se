@@ -1,18 +1,18 @@
 ---
 title: 'Självstudie: värd för din domän och under domän – Azure DNS'
-description: I den här artikeln får du lära dig hur du konfigurerar Azure DNS att vara värd för dina DNS-zoner.
+description: I den här självstudien får du lära dig hur du konfigurerar Azure DNS att vara värd för dina DNS-zoner.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f64ab3141459142def12a1758b0fe0a94ca432
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078001"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282167"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Självstudie: Använda Azure DNS som värd för din domän
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste ha ett domän namn tillgängligt för att kunna testa med att du kan vara värd för Azure DNS. Du måste ha fullständig kontroll över den här domänen. Fullständig behörighet omfattar möjligheten att ange namnserverposter (NS-poster) för domänen.
 
@@ -49,7 +49,7 @@ I det här exemplet kommer vi att referera till den överordnade domänen som **
       > [!NOTE] 
       > Om den nya zonen som du skapar är en underordnad zon (t. ex. överordnad zon = contoso.net underordnad zon = child.contoso.net), se vår [själv studie kurs om att skapa en ny underordnad DNS-zon](./tutorial-public-dns-zones-child.md)
 
-    | **Inställning** | **Värde** | **Information** |
+    | **Inställning** | **Värde** | **Detaljer** |
     |--|--|--|
     | **Projekt information:**  |  |  |
     | **Resursgrupp**    | ContosoRG | Skapa en resursgrupp. Resurs gruppens namn måste vara unikt inom den prenumeration som du har valt. Platsen för resurs gruppen har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid "global" och visas inte. |

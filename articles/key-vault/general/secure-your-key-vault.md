@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: efbed9ec44bd386a4540c397ca8958fb3ccea807
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b04bd6975a2ba8824124c769e66da1e4ebe7534a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019893"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309939"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Säker åtkomst till ett nyckel valv
 
@@ -130,7 +130,7 @@ Mer information om Key Vault brand vägg och virtuella nätverk finns i [konfigu
 
 ## <a name="private-endpoint-connection"></a>Anslutning till privat slutpunkt
 
-Om du behöver blockera Key Vault exponering på ett helt enkelt sätt kan du använda en privat Azure-slutpunkt. En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
+Om du behöver blockera Key Vault exponering på ett helt enkelt sätt kan du använda en [privat Azure-slutpunkt](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) . En privat Azure-slutpunkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
 
 Vanliga scenarier för att använda privat länk för Azure-tjänster:
 
@@ -199,11 +199,11 @@ Vårt exempel beskriver ett enkelt scenario. Scenarier med real tid kan vara mer
 
 ## <a name="resources"></a>Resurser
 
-[Om Azure Key Vault](overview.md) 
- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) 
- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) 
- [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 
- [Privat länk](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Om Azure Key Vault](overview.md)
+- [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
+- [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)
+- [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview)
 
 ## <a name="next-steps"></a>Nästa steg
 

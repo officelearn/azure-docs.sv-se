@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ec98d194921cd9a7eced06ccee20a3375e8c8a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f43a335e6490858828fb2efcaa8436dcb6f3d250
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008700"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92280525"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera frågeprestanda med Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Azure Cosmos DB innehåller ett [SQL-API för att fråga data](how-to-sql-query.
 
 ## <a name="about-sql-query-execution"></a>Om SQL-frågekörningen
 
-I Azure Cosmos DB lagrar du data i behållare som kan växa till valfri [lagrings storlek eller genom att begära data flöde](partition-data.md). Azure Cosmos DB skalar data sömlöst över fysiska partitioner under försättsblad för att hantera data tillväxt eller öka i ett allokerat data flöde. Du kan skicka SQL-frågor till alla behållare med hjälp av REST API eller någon av de [SQL-SDK](sql-api-sdk-dotnet.md): er som stöds.
+I Azure Cosmos DB lagrar du data i behållare som kan växa till valfri [lagrings storlek eller genom att begära data flöde](partitioning-overview.md). Azure Cosmos DB skalar data sömlöst över fysiska partitioner under försättsblad för att hantera data tillväxt eller öka i ett allokerat data flöde. Du kan skicka SQL-frågor till alla behållare med hjälp av REST API eller någon av de [SQL-SDK](sql-api-sdk-dotnet.md): er som stöds.
 
 En kort översikt över partitionering: du definierar en partitionsnyckel som "stad", som avgör hur data delas mellan fysiska partitioner. Data som tillhör en enskild partitionsnyckel (till exempel "stad" = = "Seattle") lagras i en fysisk partition, men vanligt vis har en enda fysisk partition flera partitionsnyckel. När en partition når sin lagrings storlek delar tjänsten sömlöst upp partitionen i två nya partitioner och delar upp partitionsnyckel jämnt mellan dessa partitioner. Eftersom partitioner är tillfälliga, använder API: erna en abstraktion av ett "partitionsnyckel", som anger intervallet för partitionens nyckel-hashar. 
 
@@ -163,7 +163,7 @@ Med Azure Cosmos DB utför vanliga frågor i följande ordning från snabbast/me
 
 Frågor som måste kontakta alla partitioner behöver högre latens och kan använda högre ru: er. Eftersom varje partition har automatisk indexering för alla egenskaper kan frågan hanteras effektivt från indexet i det här fallet. Du kan göra frågor som sträcker sig över partitioner snabbare genom att använda alternativen för parallellitet.
 
-Mer information om partitionering och partitionerings nycklar finns i [partitionering i Azure Cosmos DB](partition-data.md).
+Mer information om partitionering och partitionerings nycklar finns i [partitionering i Azure Cosmos DB](partitioning-overview.md).
 
 ### <a name="sdk-and-query-options"></a>SDK och frågealternativ
 Se [prestanda tips](performance-tips.md) och [prestanda testning](performance-testing.md) för att få bästa prestanda på klient sidan från Azure Cosmos dB. Detta inkluderar användning av de senaste SDK: erna, konfiguration av plattformsspecifika konfigurationer som standard antal anslutningar, frekvens för skräp insamling och användning av alternativ för Lightweight-anslutning som direkt/TCP. 

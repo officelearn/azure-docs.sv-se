@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: raynew
-ms.openlocfilehash: c1ae3a9ed8a775161aaf85ab2c91b1e43113d2e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 393c58334f4a1bead7e089d0a64b2d165b67401d
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70279444"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317184"
 ---
 # <a name="assess-large-numbers-of-hyper-v-vms-for-migration-to-azure"></a>Utvärdera ett stort antal virtuella Hyper-V-datorer för migrering till Azure
 
@@ -30,7 +30,7 @@ I den här artikeln kan du se hur du:
 
 
 > [!NOTE]
-> Om du vill testa ett koncept koncept för att utvärdera ett antal virtuella datorer innan du bedömer i skala följer du våra [själv studie kurser](tutorial-prepare-hyper-v.md)
+> Om du vill testa ett koncept koncept för att utvärdera ett antal virtuella datorer innan du bedömer i skala följer du våra [själv studie kurser](./tutorial-discover-hyper-v.md)
 
 ## <a name="plan-for-assessment"></a>Planera för utvärdering
 
@@ -66,7 +66,7 @@ Förbered Azure och Hyper-V för Server utvärdering.
 2. Konfigurera behörigheter för ditt Azure-konto för att interagera med Azure Migrate
 3. Förbereda Hyper-V-värdar och virtuella datorer
 
-Följ anvisningarna i [den här självstudien](tutorial-prepare-hyper-v.md) för att konfigurera de här inställningarna.
+Följ anvisningarna i [den här självstudien](./tutorial-discover-hyper-v.md) för att konfigurera de här inställningarna.
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 

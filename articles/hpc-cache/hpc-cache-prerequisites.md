@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 9454dd8d1d6648396980f5148384d2e0119e0dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39c890e9e6634413947a96b1ddac608ee44bd9a0
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612990"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327407"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Krav för Azure HPC-cache
 
@@ -73,7 +73,7 @@ Kontrol lera de här behörighets kraven innan du börjar skapa din cache.
 
 * Cache-instansen måste kunna skapa virtuella nätverks gränssnitt (NIC). Den användare som skapar cachen måste ha tillräcklig behörighet i prenumerationen för att skapa nätverkskort.
 
-* Om du använder Blob Storage behöver Azure HPC cache auktorisering för att komma åt ditt lagrings konto. Använd rollbaserad åtkomst kontroll (RBAC) för att ge cache åtkomst till blob-lagringen. Två roller krävs: lagrings konto deltagare och data deltagare i Storage blob.
+* Om du använder Blob Storage behöver Azure HPC cache auktorisering för att komma åt ditt lagrings konto. Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att ge cache åtkomst till Blob Storage. Två roller krävs: lagrings konto deltagare och data deltagare i Storage blob.
 
   Följ instruktionerna i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att lägga till rollerna.
 

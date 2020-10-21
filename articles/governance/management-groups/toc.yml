@@ -28,6 +28,11 @@
     - name: Skapa en hanteringsgrupp – REST
       displayName: hierarchy
       href: ./create-management-group-rest-api.md
+- name: Självstudier
+  items:
+    - name: 'Learn: Skapa en strategi för prenumerationsstyrning'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/3-create-subscription-governance-strategy
 - name: Anvisningar
   expanded: true
   items:

@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 61a1d7cb3a5f43aa8100f1c7e8a102ab19b803f5
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e35206b5fa9466cda064c09f060f45b437fafd20
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932455"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329584"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelse analys och visualisering med Application Insights
 
@@ -32,7 +32,7 @@ Application Insights har en komplett Box-upplevelse när du använder Service Fa
 
 På den högra panelen i föregående bild finns det två huvud typer av poster i listan: begär Anden och händelser. Begär Anden görs anrop till appens API via HTTP-begäranden i det här fallet och händelser är anpassade händelser som fungerar som telemetri som du kan lägga till var som helst i din kod. Du kan ytterligare utforska instrumentering av dina program i [Application Insights API för anpassade händelser och mått](../azure-monitor/app/api-custom-events-metrics.md). Om du klickar på en begäran visas ytterligare information som visas i följande bild, inklusive data som är särskilt för Service Fabric, som samlas in i Application Insights Service Fabric NuGet-paketet. Den här informationen är användbar för fel sökning och kunskap om vad appens tillstånd är, och all den här informationen är sökbar i Application Insights
 
-![Information om Application Insights begäran](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
+![Skärm bild som visar mer information, inklusive data som är särskilt för Service Fabric, som samlas in i Application Insights Service Fabric NuGet-paketet.](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
 Application Insights har en angiven vy för frågor mot alla data som ingår i. Välj "Metrics Explorer" överst på översikts sidan för att navigera till Application Insights Portal. Här kan du köra frågor mot anpassade händelser som anges före, begär Anden, undantag, prestanda räknare och andra mått med hjälp av Kusto-frågespråket. I följande exempel visas alla begär Anden under den senaste timmen.
 
@@ -48,7 +48,7 @@ Om du använder EventFlow för att aggregera händelser måste du först importe
 "outputs": [
     {
         "type": "ApplicationInsights",
-        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE***"
+        "instrumentationKey": "***ADD INSTRUMENTATION KEY HERE**_"
     }
 ]
 ```
@@ -65,7 +65,7 @@ Om du utvecklar i .NET och kommer att använda några av Service Fabrics program
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Navigera Application Insights resursen i Azure Portal
 
-När du har konfigurerat Application Insights som utdata för dina händelser och loggar, ska information börja visas i din Application Insights-resurs om några minuter. Navigera till Application Insights resurs, som tar dig till Application Insights resurs instrument panel. Välj **Sök** i Application Insights aktivitets fältet för att se de senaste spårningarna som har tagits emot och för att kunna filtrera genom dem.
+När du har konfigurerat Application Insights som utdata för dina händelser och loggar, ska information börja visas i din Application Insights-resurs om några minuter. Navigera till Application Insights resurs, som tar dig till Application Insights resurs instrument panel. Välj _*Sök** i Application Insights aktivitets fältet för att se de senaste spårningarna som har tagits emot och för att kunna filtrera genom dem.
 
 *Metrics Explorer* är ett användbart verktyg för att skapa anpassade instrument paneler baserat på mått som dina program, tjänster och kluster kan rapportera. Se [utforska mått i Application Insights](../azure-monitor/platform/metrics-charts.md) för att skapa några diagram för dig själv baserat på de data som du samlar in.
 

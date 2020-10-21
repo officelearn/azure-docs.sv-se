@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 7a07a42e208cb0f6fe91f6a65777fd28155106a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e43f2e9897293cb4d5bc25b6ef95252a28628401
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330595"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279600"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Hantera konsekvensnivåer i Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Den här artikeln förklarar hur du hanterar konsekvensnivåer i Azure Cosmos DB
 
 [Standard konsekvens nivån](consistency-levels.md) är den konsekvens nivå som klienter använder som standard.
 
-# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+# <a name="azure-portal"></a>[Azure-portalen](#tab/portal)
 
 Om du vill visa eller ändra standardkonsekvensnivån loggar du in på Azure-portalen. Hitta ditt Azure Cosmos-konto och öppna fönstret **standard konsekvens** . Välj den konsekvensnivå som du vill ha som den nya standarden, och välj sedan **Spara**. Azure Portal innehåller också en visualisering av olika konsekvens nivåer med noter. 
 
@@ -288,8 +288,9 @@ Hur eventuell konsekvens fungerar? I genomsnitts fallet kan vi erbjuda inaktuell
 Läs mer om hur du hanterar datakonflikter eller gå vidare till nästa viktiga begrepp i Azure Cosmos DB. Se följande artiklar:
 
 * [Konsekvens nivåer i Azure Cosmos DB](consistency-levels.md)
-* [Hantera konflikter mellan regioner](how-to-manage-conflicts.md)
 * [Partitionering och datadistribution](partition-data.md)
+* [Hantera konflikter mellan regioner](how-to-manage-conflicts.md)
+* [Partitionering och datadistribution](partitioning-overview.md)
 * [Konsekvens i moderna distribuerade databas system design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Hög tillgänglighet](high-availability.md)
 * [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

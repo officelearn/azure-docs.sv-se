@@ -31,6 +31,9 @@
     - name: Skydda nya resurser med skissresurslås
       displayName: 'read only, do not delete, lock assignment'
       href: ./tutorials/protect-new-resources.md
+    - name: 'Learn: Styra flera prenumerationer med hjälp av Azure Blueprints'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/10-govern-subscriptions-azure-blueprints
 - name: Exempel
   items:
     - name: Index

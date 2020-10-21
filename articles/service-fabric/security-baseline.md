@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77ea96b1bd1b1d661bb835e7bb48d58ce4c3e118
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89227720"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92309160"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Azures säkerhets bas linje för Service Fabric
 
@@ -78,7 +78,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](../security/
 
 * [Så här konfigurerar du DDoS-skydd](../virtual-network/manage-ddos-protection.md)
 
-* [Förstå Azure Security Center integrerad Hot information](../security-center/threat-protection.md)
+* [Förstå Azure Security Center integrerad Hot information](../security-center/azure-defender.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -488,7 +488,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -572,7 +572,7 @@ För den underliggande plattform som hanteras av Microsoft behandlar Microsoft a
 
 * [Förstå kryptering i vila i Azure](../security/fundamentals/encryption-atrest.md)
 
-* [Så här konfigurerar du Kundhanterade krypterings nycklar](../storage/common/storage-encryption-keys-portal.md)
+* [Så här konfigurerar du Kundhanterade krypterings nycklar](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 * [Aktivera disk kryptering för Azure Service Fabric klusternoder i Windows](./service-fabric-enable-azure-disk-encryption-windows.md)
 
@@ -608,7 +608,7 @@ Använd en lösning från tredje part för att utföra sårbarhets bedömningar 
 
 * [Inducera kontrollerade kaos i Service Fabric kluster](./service-fabric-controlled-chaos.md)
 
-* [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](../security-center/security-center-vulnerability-assessment-recommendations.md)
+* [Så här implementerar du rekommendationer för Azure Security Center sårbarhets bedömning](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -698,7 +698,7 @@ Om du vill testa OS-korrigeringsfiler först innan du går vidare till produktio
 
 * [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+* [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 * [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
@@ -1042,7 +1042,7 @@ Om du använder Kundhanterade nycklar kontrollerar du att Soft-Delete i Key Vaul
 
 * [Azure Storage-kryptering i vila](../storage/common/storage-service-encryption.md)
 
-* [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Så här aktiverar du Soft-Delete i Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1074,7 +1074,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 * [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-* [Använd taggar till att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
+* [Använda taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: Ja
 

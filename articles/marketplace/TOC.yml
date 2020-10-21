@@ -105,30 +105,38 @@
               href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Skapa ett Azure Container-erbjudande
               href: partner-center-portal/create-azure-container-offer.md
-    - name: Erbjudanden om virtuell Azure-dator
+    - name: Erbjudande för virtuella Azure-datorer
       items:
-        - name: Planera ett erbjudande om virtuell dator
+        - name: Planera ett VM-erbjudande
           href: marketplace-virtual-machines.md
-        - name: Skapa och publicera ett erbjudande om virtuell dator
+        - name: Skapa och publicera ett VM-erbjudande
           items:
-            - name: Skapa ett erbjudande för virtuella datorer i Azure
-              href: partner-center-portal/azure-vm-create-offer.md
-            - name: Skapa tekniska tillgångar för virtuella Azure-datorer
+            - name: Skapa tekniska tillgångar för virtuella datorer
               items:
-                - name: Certifieringsproblem för virtuella datorer
-                  href: partner-center-portal/vm-certification-issues-solutions.md
-                - name: Skapa tekniska tillgångar för en virtuell Azure-dator
-                  href: partner-center-portal/create-azure-vm-technical-asset.md
-                - name: Vanliga frågor och svar om tekniska tillgångar för virtuella Azure-datorer
-                  href: partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Testa virtuell dator som distribuerats från VHD
-                  href: partner-center-portal/azure-vm-image-certification.md
-                - name: SAS-URI
-                  items:
-                    - name: Hämta SAS-URI
-                      href: partner-center-portal/get-sas-uri.md
-                    - name: Vanliga frågor och svar om SAS-URI
-                      href: partner-center-portal/common-sas-uri-issues.md
+                - name: Skapa virtuell dator från en godkänd bas
+                  href: azure-vm-create-using-approved-base.md
+                - name: Skapa virtuell dator med hjälp av din egen avbildning
+                  href: azure-vm-create-using-own-image.md
+                - name: Testa en VM-avbildning
+                  href: azure-vm-image-test.md
+                - name: Hämta SAS-URI
+                  href: azure-vm-get-sas-uri.md
+                - name: SAS-felmeddelanden
+                  href: azure-vm-sas-failure-messages.md
+                - name: Vanliga frågor och svar om VM-skapande
+                  href: azure-vm-create-faq.md
+                - name: Felsökning av VM-certifiering
+                  href: azure-vm-create-certification-faq.md
+            - name: Skapa ett VM-erbjudande
+              href: azure-vm-create.md
+            - name: Konfigurera egenskaper för VM-erbjudande
+              href: azure-vm-create-properties.md
+            - name: Konfigurera visning av VM-erbjudande
+              href: azure-vm-create-listing.md
+            - name: Skapa VM-planer
+              href: azure-vm-create-plans.md
+            - name: Lägg till en målgrupp för förhandsversionen
+              href: azure-vm-create-preview.md
     - name: Konsulttjänster
       items:
         - name: Planera ett erbjudande om konsulttjänster
@@ -329,7 +337,7 @@
     - name: Kontorstider för teknik och publicering
       href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: Supportalternativ för Partnercenter
-      href: partner-center-portal/support.md
+      href: support.md
     - name: Partnercenter-meddelanden
       href: /partner-center/announcements
     - name: Microsoft Partner-community

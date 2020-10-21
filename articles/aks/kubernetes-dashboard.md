@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8df913234be1f3e07677520e41b699fe6d503204
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570812"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314509"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Få åtkomst till Kubernetes-webbinstrumentpanelen i Azure Kubernetes service (AKS)
 
@@ -102,7 +102,7 @@ After you choose a method to sign in, the Kubernetes dashboard is displayed. If 
 ## <a name="sign-in-to-the-dashboard-kubernetes-116"></a>Logga in på instrument panelen (Kubernetes 1.16 +)
 
 > [!IMPORTANT]
-> Från och med [v 1.10.1 av Kubernetes-instrumentpanelen](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) eller Kubernetes v-1.16 + tjänst kontot "Kubernetes-instrumentpanel" kan inte längre användas för att hämta resurser på grund av en [säkerhets korrigering i den versionen](https://github.com/kubernetes/dashboard/pull/3400). Det innebär att förfrågningar utan auth-information returnerar ett 401-otillåtet fel. En Bearer-token som hämtats från ett tjänst konto kan fortfarande användas som i det här [Kubernetes-Instrumentpanels exemplet](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), men detta påverkar inloggnings flödet för instrument panels tillägget jämfört med äldre versioner.
+> Från och med [v 1.10.1 av Kubernetes-instrumentpanelen](https://github.com/kubernetes/dashboard/releases/tag/v1.10.1) eller Kubernetes v-1.16 + tjänst kontot "Kubernetes-instrumentpanel" kan inte längre användas för att hämta resurser på grund av en [säkerhets korrigering i den versionen](https://github.com/kubernetes/dashboard/pull/3400). Det innebär att förfrågningar utan auth-information returnerar ett [401-otillåtet fel](https://github.com/Azure/AKS/issues/1573#issuecomment-703040998). En Bearer-token som hämtats från ett tjänst konto kan fortfarande användas som i det här [Kubernetes-Instrumentpanels exemplet](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui), men detta påverkar inloggnings flödet för instrument panels tillägget jämfört med äldre versioner.
 >
 >Om du fortfarande kör en version före 1,16 kan du fortfarande ge behörighet till tjänst kontot "Kubernetes-Dashboard", men detta **rekommenderas inte**:
 > ```console

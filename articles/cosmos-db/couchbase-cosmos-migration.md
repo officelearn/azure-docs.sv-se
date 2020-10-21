@@ -7,12 +7,12 @@ ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: b0c9ef99e4cbb0683273d613d3a85e7f6455a40d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e8859eebf97b8d2788153e74e36f31fda3323c5
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87366729"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282467"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrera från CouchBase till Azure Cosmos DB SQL API
 
@@ -25,7 +25,7 @@ Följande är viktiga funktioner som fungerar annorlunda i Azure Cosmos DB jämf
 |   Couchbase     |   Azure Cosmos DB   |
 | ---------------|-------------------|
 |Couchbase-Server| Konto       |
-|Bucket           | Databas      |
+|Bucket           | Databasen      |
 |Bucket           | Container/samling |
 |JSON-dokument    | Objekt/dokument |
 
@@ -33,7 +33,7 @@ Följande är viktiga funktioner som fungerar annorlunda i Azure Cosmos DB jämf
 
 * Azure Cosmos DB har ett "ID"-fält i dokumentet medan Couchbase har ID som en del av Bucket. Fältet "ID" är unikt i hela partitionen.
 
-* Azure Cosmos DB skalas med hjälp av partitionering eller horisontell partitionering-teknik. Det innebär att data delas upp i flera Shards/partitioner. Dessa partitioner/Shards skapas utifrån den partitionsnyckel som du anger. Du kan välja partitionsnyckel för att optimera Läs-och skriv åtgärder, eller läsa/skriva optimerat. Mer information finns i [partitionerings](./partition-data.md) artikeln.
+* Azure Cosmos DB skalas med hjälp av partitionering eller horisontell partitionering-teknik. Det innebär att data delas upp i flera Shards/partitioner. Dessa partitioner/Shards skapas utifrån den partitionsnyckel som du anger. Du kan välja partitionsnyckel för att optimera Läs-och skriv åtgärder, eller läsa/skriva optimerat. Mer information finns i [partitionerings](./partitioning-overview.md) artikeln.
 
 * I Azure Cosmos DB krävs det inte för att hierarkin på den översta nivån ska beteckna samlingen, eftersom samlings namnet redan finns. Den här funktionen gör JSON-strukturen mycket enklare. Följande är ett exempel som visar skillnader i data modellen mellan Couchbase och Azure Cosmos DB:
 
@@ -435,7 +435,7 @@ Det finns två sätt att migrera data.
 
 * **Använd verktyget Azure Cosmos db data import:** Det här alternativet rekommenderas för att migrera med virtuella datorer med mindre mängd data. Detaljerade anvisningar finns i artikeln om [data import](./import-data.md) .
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * För att utföra prestanda testning, se [prestanda-och skalnings testning med Azure Cosmos DB](./performance-testing.md) artikel.
 * Information om hur du optimerar koden finns i [prestanda tips för Azure Cosmos DB](./performance-tips-async-java.md) artikel.

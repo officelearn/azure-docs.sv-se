@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91641926"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92325324"
 ---
 **Data insamlings volym och kvarhållning** 
 
@@ -33,7 +33,7 @@ ms.locfileid: "91641926"
 | Kostnadsfri nivå  | 10 | Det går inte att öka den här gränsen. |
 | Alla andra nivåer | Obegränsad | Du är begränsad till antalet resurser i en resurs grupp och antalet resurs grupper per prenumeration. |
 
-**Azure Portal**
+**Azure-portalen**
 
 | Kategori | Gräns | Kommentarer |
 |:---|:---|:---|
@@ -70,31 +70,7 @@ Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som 
 
 När du skickar data till en arbets yta med en volym hastighet som är högre än 80% av tröskelvärdet som kon figurer ATS i din arbets yta, skickas en händelse till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. När inmatad volym taxa är högre än tröskelvärdet släpps vissa data och en händelse skickas till *Åtgärds* tabellen i arbets ytan var 6: e timme medan tröskelvärdet fortsätter att överskridas. Om din inmatnings volym överskrider tröskelvärdet eller om du förväntar dig att få en stund snart, kan du begära att öka den i genom att öppna en support förfrågan. 
 
-Om du vill få ett meddelande när du närmar dig eller når antalet inläsnings volymer i arbets ytan skapar du en [logg aviserings regel](../articles/azure-monitor/platform/alerts-log.md) med hjälp av följande fråga med aviserings logik basen för antalet resultat som är större än noll, utvärderings perioden på 5 minuter och frekvensen 5 minuter.
-
-Inmatnings volymens hastighet överskrider tröskelvärdet
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Error"
-```
-
-Inmatnings volym hastighet över 80% av tröskelvärdet
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Warning"
-```
-
-Inmatnings volym hastighet över 70% av tröskelvärdet
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Info"
-```
+Se [övervaka hälsan för Log Analytics arbets ytan i Azure Monitor](../articles/azure-monitor/platform/monitor-workspace.md) för att skapa varnings regler som ska meddelas proaktivt när du når eventuella inmatnings gränser.
 
 >[!NOTE]
 >Beroende på hur länge du har använt Log Analytics kan du ha åtkomst till äldre pris nivåer. Läs mer om [Log Analytics äldre pris nivåer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

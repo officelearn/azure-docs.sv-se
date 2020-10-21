@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: b25cac502a4e9a0cc5582134cb9601b75672ffd1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 159f4b2ea0cafb0b2c883cde76ddce7ddd3f1fc6
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168515"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92317561"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -863,7 +863,7 @@ Om alternativet [grundläggande](../active-directory-b2c/secure-rest-api.md) är
 
 | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autentisering** | `type` | Ja | Basic | Autentiseringstypen som ska användas |
+| **Autentisering** | `type` | Ja | Grundläggande | Autentiseringstypen som ska användas |
 | **Användarnamn** | `username` | Ja | <*användar namn*>| Användar namnet för att autentisera åtkomsten till mål tjänstens slut punkt |
 | **Lösenord** | `password` | Ja | <*ords*> | Lösen ordet för att autentisera åtkomsten till mål tjänstens slut punkt |
 ||||||
@@ -1065,7 +1065,7 @@ Du kan använda Azure Logic Apps i [Azure Government](../azure-government/docume
 
   * [Azure App Services planer](../app-service/overview-hosting-plans.md)
   * [Nätverksalternativ för Azure Functions](../azure-functions/functions-networking-options.md)
-  * [Azure-dedikerade värdar för virtuella datorer](../virtual-machines/windows/dedicated-hosts.md)
+  * [Azure-dedikerade värdar för virtuella datorer](../virtual-machines/dedicated-hosts.md)
   * [Isolering av virtuella datorer i Azure](../virtual-machines/isolation.md)
   * [Distribuera dedikerade Azure-tjänster i virtuella nätverk](../virtual-network/virtual-network-for-azure-services.md)
 

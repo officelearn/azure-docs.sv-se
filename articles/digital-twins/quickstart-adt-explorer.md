@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 5fb00fb6382bb53f40ad63a95c880c47f91cae2f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 455cf921cfcd4ac5d0e81fb4e092ec165070a3f1
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201672"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331574"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
 
@@ -31,7 +31,7 @@ Det exempel diagram som du kommer att arbeta med representerar en byggnad med tv
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration för att slutföra den här snabb starten. Om du inte redan har en, kan du **[skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** nu.
 
@@ -53,7 +53,7 @@ Börja med att **Konfigurera en digital Azure-instans** och autentisering som kr
 * När du har konfigurerat din Azure Digital-instansen behöver du instansen **_värdnamn_** ([Sök i portalen](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
 För att kunna autentisera ADT Explorer-programmet måste du också konfigurera en app- **registrering**. Följ instruktionerna i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md) för att konfigurera den här. 
-* När du har registrerat en app behöver du registrerings-ID och katalog (klient)-ID och **_katalog (klient)-ID: t_** ( **_klient_** ) för att[hitta dessa i portalen](how-to-create-app-registration.md#collect-client-id-and-tenant-id).
+* När du har registrerat en app behöver du registrerings-ID: t och **_katalog (_** klient)-ID: t för **_klienten (klient_** ) för att[hitta dessa i portalen](how-to-create-app-registration.md#collect-client-id-and-tenant-id).
 
 ### <a name="set-adt-explorer-permissions"></a>Ange behörigheter för ADT Explorer
 

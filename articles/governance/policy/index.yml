@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/30/2020
-  ms.openlocfilehash: fce9674e9ad21f51344b3ea249849e1474c40ee4
-  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+  ms.date: 10/16/2020
+  ms.openlocfilehash: 28011d2f3bbbb838f0de9a66c98845d968620fb1
+  ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92054839"
+  ms.lasthandoff: 10/21/2020
+  ms.locfileid: "92314183"
 landingContent:
 - title: Om Azure Policy
   linkLists:
@@ -63,8 +63,10 @@ landingContent:
       url: ./tutorials/create-and-manage.md
     - text: Använda VS Code-tillägg
       url: ./how-to/extension-for-vscode.md
-    - text: Arbetsflöden för att utforma princip som kod
+    - text: Utforma arbetsflöden för Azure Policy som kod
       url: ./concepts/policy-as-code.md
+    - text: Implementera Azure Policy som kod med GitHub
+      url: ./tutorials/policy-as-code-github.md
   - linkListType: deploy
     links:
     - text: Index för principexempel
@@ -89,9 +91,9 @@ landingContent:
     links:
     - text: Regelefterlevnad
       url: ./concepts/regulatory-compliance.md
-    - text: Policy för Kubernetes
+    - text: Azure Policy för Kubernetes
       url: ./concepts/policy-for-kubernetes.md
-    - text: Princip för virtuella datorer
+    - text: Azure Policy för virtuella datorer
       url: ./concepts/guest-configuration.md
 - title: Granska och reparera resurser
   linkLists:

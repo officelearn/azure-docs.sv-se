@@ -1,18 +1,18 @@
 ---
 title: Inbyggda princip definitioner för Azure Cosmos DB
 description: Visar Azure Policy inbyggda princip definitioner för Azure Cosmos DB. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: reference
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 4083280484c5fe157f94a9561f7e4b7df1bcf55a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e3e8cd7a505b6f445a1a72cb9d5b2b77583ff87
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827570"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313101"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Azure Policy inbyggda definitioner för Azure Cosmos DB
 

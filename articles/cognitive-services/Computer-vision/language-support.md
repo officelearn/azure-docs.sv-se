@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: b5c263506db68ea62b0d65b7b866cfab33a36236
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9bd7e7dab5384ecd3e1e87d763d4b8f081b669be
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976886"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329840"
 ---
 # <a name="language-support-for-computer-vision"></a>Språk stöd för Visuellt innehåll
 
@@ -25,7 +25,7 @@ Vissa funktioner i Visuellt innehåll stöd för flera språk. de funktioner som
 
 Visuellt innehålls OCR-API: er stöder flera språk. De kräver inte att du anger en språkkod. Mer information finns i [OCR (optisk tecken läsning)](concept-recognizing-text.md) .
 
-|Språk| Språkkod | OCR-API | Läsa v 3.1 | Läsa v 3.1 – för hands version. 2 |
+|Språk| Språkkod | OCR-API | Läsa 3,0 och 3,1 | Läs v 3.2 – för hands version. 1 |
 |:-----|:----:|:-----:|:---:|:---:|
 |Arabiska | `ar`|✔ | | |
 |Kinesiska (förenklad) | `zh-Hans`|✔ | |✔ |

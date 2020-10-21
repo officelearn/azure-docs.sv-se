@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 2/20/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 16b9342f0374377349f338db7ce5c8389c77ea18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80e04ec06edc7169f0a4318c2c94de34dda9d96a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87425171"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331102"
 ---
 I det här steget ska du utvärdera hur många Azure-filresurser du behöver. En enda Windows Server-instans (eller kluster) kan synkronisera upp till 30 Azure-filresurser.
 
@@ -28,11 +28,15 @@ Om din HR-avdelning (till exempel) har totalt 15 resurser kan du överväga att 
 
 Azure File Sync stöder synkronisering av roten för en volym till en Azure-filresurs. Om du synkroniserar rotmappen kommer alla undermappar och filer att gå till samma Azure-filresurs.
 
-Synkronisering av volymens rot är inte alltid det bästa svaret. Det finns fördelar med att synkronisera flera platser. Om du till exempel gör det kan du behålla antalet objekt som ligger lägre per synkroniserings omfång. Att ställa in Azure File Sync med ett lägre antal objekt är inte bara bra för filsynkronisering. Ett lägre antal objekt fördelar också scenarier som dessa:
+Synkronisering av volymens rot är inte alltid det bästa svaret. Det finns fördelar med att synkronisera flera platser. Om du till exempel gör det kan du behålla antalet objekt som ligger lägre per synkroniserings omfång. Medan vi testar Azure-filresurser och Azure File Sync med 100 000 000 objekt (filer och mappar) per resurs, är det en bra idé att prova och behålla siffran under 20 eller 30 000 000 i en enda resurs. Att ställa in Azure File Sync med ett lägre antal objekt är inte bara bra för filsynkronisering. Ett lägre antal objekt fördelar också scenarier som dessa:
 
-* Återställning på moln sidan från en ögonblicks bild av Azure-filresurs kan tas som en säkerhets kopia.
+* Inledande genomsökning av moln innehållet innan namn området kan börja visas på en Azure File Sync aktive rad Server kan bli snabbare.
+* Det går snabbare att återställa på moln sidan från en ögonblicks bild av Azure-filresurs.
 * Haveri beredskap för en lokal server kan påskynda avsevärt.
 * Ändringar som görs direkt i en Azure-filresurs (utanför synkronisering) kan identifieras och synkroniseras snabbare.
+
+> [!TIP]
+> Om du är osäker på hur många filer och mappar du har, kan du kolla TreeSize-verktyget från sylt Software GmbH.
 
 #### <a name="a-structured-approach-to-a-deployment-map"></a>En strukturerad metod till en distributions karta
 
@@ -53,14 +57,12 @@ För att fatta beslut om hur många Azure-filresurser du behöver kan du läsa f
 >
 > Den här grupperingen under en gemensam rot har ingen påverkan på åtkomst till dina data. Dina ACL: er förblir i befintligt skick. Du behöver bara justera resurs Sök vägar (t. ex. SMB-eller NFS-resurser) du kan ha på servermappar som du nu har ändrat till en gemensam rot. Inga andra ändringar.
 
-En annan viktig aspekt av Azure File Sync och en bal anse rad prestanda och erfarenhet är att förstå skalnings faktorerna för Azure File Sync prestanda. När filerna synkroniseras över Internet tar större filer dessutom längre tid och bandbredd att synkronisera.
-
 > [!IMPORTANT]
 > Den viktigaste skalnings vektorn för Azure File Sync är antalet objekt (filer och mappar) som måste synkroniseras.
 
 Azure File Sync stöder synkronisering av upp till 100 000 000 objekt till en enda Azure-filresurs. Den här gränsen kan överskridas och visar bara hur Azure File Sync-grupptester regelbundet.
 
-Det är en bra idé att hålla antalet objekt per omfånget för synkronisering låg. Det är en viktig faktor att överväga i mappningen av mappar till Azure-filresurser.
+Det är en bra idé att hålla antalet objekt per omfånget för synkronisering låg. Det är en viktig faktor att överväga i mappningen av mappar till Azure-filresurser. Medan vi testar Azure-filresurser och Azure File Sync med 100 000 000 objekt (filer och mappar) per resurs, är det en bra idé att prova och behålla siffran under 20 eller 30 000 000 i en enda resurs. Dela upp ditt namn område i flera resurser om du börjar överskrida de här talen. Du kan fortsätta att gruppera flera lokal resurser i samma Azure-filresurs, så länge som du håller dig till ungefär så här. På så vis får du utrymme att växa.
 
 I din situation är det möjligt att en uppsättning mappar kan synkroniseras logiskt till samma Azure-filresurs (med den nya, gemensamma rotmappen som nämns ovan). Men det kan fortfarande vara bättre att gruppera mappar så att de synkroniseras till två i stället för en Azure-filresurs. Du kan använda den här metoden för att hålla reda på hur många filer och mappar per fil resurs som bal anse ras på servern.
 
@@ -73,7 +75,7 @@ I din situation är det möjligt att en uppsättning mappar kan synkroniseras lo
     :::column:::
         Använd en kombination av de tidigare begreppen för att avgöra hur många Azure-filresurser du behöver, och vilka delar av dina befintliga data som kommer att få plats i Azure-filresursen.
         
-        Skapa en tabell som registrerar dina tankar så att du kan referera till den i nästa steg. Att hålla ordning på är viktigt, eftersom det kan vara enkelt att förlora information om din kart plan när du konfigurerar många Azure-resurser på en gång. För att hjälpa dig att skapa en fullständig mappning kan du ladda ned en Microsoft Excel-fil som en mall.
+        Skapa en tabell som registrerar dina tankar så att du kan referera till den när det behövs. Att hålla ordning på är viktigt, eftersom det kan vara enkelt att förlora information om din kart plan när du konfigurerar många Azure-resurser på en gång. För att hjälpa dig att skapa en fullständig mappning kan du ladda ned en Microsoft Excel-fil som en mall.
 
 [//]: # (HTML visas som det enda sättet att lägga till en kapslad tabell med två kolumner med fungerande bild tolkning och text/hyperlänk på samma rad.)
 

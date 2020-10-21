@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 4dba170c750a61ea08e4116dc6f2b13ef14c87ed
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 231b6ffa3730721d4e44ecb15c2fc58591b80178
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217396"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314820"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
@@ -157,6 +157,17 @@ Om du väljer att öppna ett support ärende samlar du in följande information 
 - Använd Psping från en av de virtuella datorerna i det virtuella nätverket för att testa avsöknings portens svar (exempel: Psping 10.0.0.4:3389) och registrera resultat. 
 - Om inget svar tas emot i de här ping-testerna kör du en samtidig netsh-spårning på den virtuella datorns VM och VNet-testets VM medan du kör PsPing och stoppar sedan netsh-spårningen. 
  
+## <a name="symptom-load-balancer-in-failed-state"></a>Symptom: Load Balancer i felaktigt tillstånd 
+
+**Lösning**
+
+- När du har identifierat den resurs som är i fel tillstånd går du till [Azure Resource Explorer](https://resources.azure.com/) och identifierar resursen i det här läget. 
+- Uppdatera växlingen till höger övre övre hörn för att läsa/skriva.
+- Klicka på Redigera för resursen i felaktigt tillstånd.
+- Klicka på Lägg till, följt av GET för att se till att etablerings statusen har uppdaterats till slutfört.
+- Sedan kan du fortsätta med andra åtgärder eftersom resursen inte är i felläge.
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 Om föregående steg inte löser problemet öppnar du ett [support ärende](https://azure.microsoft.com/support/options/).

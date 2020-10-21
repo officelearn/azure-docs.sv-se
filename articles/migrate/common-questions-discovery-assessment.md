@@ -3,12 +3,12 @@ title: Frågor om identifiering, utvärdering och beroende analys i Azure Migrat
 description: Få svar på vanliga frågor om identifiering, utvärdering och beroende analys i Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 074f58a2f6c24f106de6b2b5003ce2dfd428f356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb1696c521f436280177f0263abd66aa2bfed7dc
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577279"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92312927"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Identifiering, utvärdering och beroende analys – vanliga frågor
 
@@ -50,7 +50,7 @@ Obs! Om någon av prestandaräknarna saknas återgår Azure Migrate: Server Asse
 
 ## <a name="why-is-the-confidence-rating-of-my-assessment-low"></a>Varför har min utvärdering lågt säkerhetsomdöme?
 
-Säkerhetsomdömet beräknas för ”prestandabaserade” utvärderingar baserat på den procentandel av [tillgängliga datapunkter](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#ratings) som behövdes för att beräkna utvärderingen. Ett lågt säkerhetsomdöme för en utvärdering kan bero på något av följande:
+Säkerhetsomdömet beräknas för ”prestandabaserade” utvärderingar baserat på den procentandel av [tillgängliga datapunkter](./concepts-assessment-calculation.md#ratings) som behövdes för att beräkna utvärderingen. Ett lågt säkerhetsomdöme för en utvärdering kan bero på något av följande:
 
 - Du profilerade inte din miljö för hela den varaktighet för vilken du skapar utvärderingen. Om du till exempel skapar en utvärdering med en varaktighet på en vecka måste du vänta minst en vecka efter att identifieringen startade, tills alla datapunkter har samlats in. Om du inte kan vänta hela varaktigheten ändrar du varaktigheten för prestanda till en kortare period och ”räknar om” utvärderingen.
  
@@ -58,7 +58,7 @@ Säkerhetsomdömet beräknas för ”prestandabaserade” utvärderingar baserat
 
 - Få virtuella datorer skapades efter att identifieringen startades i Server Assessment. Om du till exempel skapar en utvärdering för prestandahistoriken för den senaste månaden, men några virtuella datorer skapades i miljön för en vecka sedan. I detta fall kommer prestandadata för de nya virtuella datorerna inte att vara tillgängliga för hela tidsperioden och säkerhetsomdömet blir lågt.
 
-[Läs mer](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#confidence-ratings-performance-based) om säkerhetsomdömen.
+[Läs mer](./concepts-assessment-calculation.md#confidence-ratings-performance-based) om säkerhetsomdömen.
 
 ## <a name="i-cant-see-some-groups-when-i-am-creating-an-azure-vmware-solution-avs-assessment"></a>Jag kan inte se vissa grupper när jag skapar en Azure VMware-lösning (AVS)-utvärdering
 

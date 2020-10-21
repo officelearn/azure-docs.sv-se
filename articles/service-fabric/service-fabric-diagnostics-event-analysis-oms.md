@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: bd952449cb088a383f0b9241fb7856522fbeeb10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f44426103b8f0fce275f33682edbc3b84a08344b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257661"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329567"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Händelse analys och visualisering med Azure Monitor loggar
  Azure Monitor loggar samlar in och analyserar telemetri från program och tjänster som finns i molnet och tillhandahåller analys verktyg som hjälper dig att maximera deras tillgänglighet och prestanda. Den här artikeln beskriver hur du kör frågor i Azure Monitor loggar för att få insikter och felsöka vad som händer i klustret. Följande vanliga frågor behandlas:
@@ -42,7 +42,7 @@ I visas `Summary` paneler i form av en graf för var och en av de lösningar som
 
 Följande bild visar Service Fabric-analys lösningens start sida. Den här start sidan innehåller en Snapshot-vy över vad som händer i klustret.
 
-![Service Fabric lösning](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+![Skärm bild som visar start sidan för den Service Fabric-analys lösningen.](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
  Om du har aktiverat diagnostik när klustret har skapats kan du se händelser för 
 

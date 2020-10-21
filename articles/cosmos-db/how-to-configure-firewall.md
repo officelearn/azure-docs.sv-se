@@ -4,17 +4,27 @@ description: Lär dig hur du konfigurerar principer för IP-åtkomstkontroll fö
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 69c39d2478ed7d488c1209c2c7e16c241c59bcef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88814186"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279756"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurera IP-brandvägg i Azure Cosmos DB
+
+För att skydda data som lagras i ditt konto har Azure Cosmos DB stöd för en hemlig, baserad auktoriserings modell som använder sig av en stark hash-baserad Message Authentication Code (HMAC). Dessutom stöder Azure Cosmos DB IP-baserade åtkomst kontroller för inkommande brand Väggs stöd. Den här modellen liknar brand Väggs reglerna i ett traditionellt databas system och ger ytterligare en säkerhets nivå för ditt konto. Med brand väggar kan du konfigurera ditt Azure Cosmos-konto så att det bara kan nås från en godkänd uppsättning datorer och/eller moln tjänster. Åtkomst till data som lagras i din Azure Cosmos-databas från dessa godkända uppsättningar av datorer och tjänster kräver fortfarande att anroparen presenterar en giltig autentiseringstoken.
+
+## <a name="ip-access-control"></a><a id="ip-access-control-overview"></a>Kontroll av IP-åtkomst
+
+Som standard är ditt Azure Cosmos-konto tillgängligt från Internet, förutsatt att begäran åtföljs av en giltig autentiseringstoken. Om du vill konfigurera IP-principbaserad åtkomst kontroll måste användaren ange en uppsättning IP-adresser eller IP-adressintervall i CIDR-form (Classless Inter-Domain routing) som ska ingå i listan över tillåtna klient-IP-adresser för att få åtkomst till ett angivet Azure Cosmos-konto. När den här konfigurationen används får alla begär Anden som kommer från datorer utanför den här tillåtna listan mottagning 403 (förbjuden) svar. När du använder IP-brandvägg rekommenderar vi att du tillåter Azure Portal att komma åt ditt konto. Åtkomst krävs för att tillåta användning av data Utforskaren samt för att hämta mått för ditt konto som visas på Azure Portal. När du använder data Utforskaren måste du, förutom att tillåta Azure Portal komma åt ditt konto, uppdatera brand Väggs inställningarna för att lägga till din aktuella IP-adress i brand Väggs reglerna. Observera att det kan ta upp till 15min att sprida brand Väggs ändringar.
+
+Du kan kombinera IP-baserad brand vägg med åtkomst kontroll för undernät och VNET. Genom att kombinera dem kan du begränsa åtkomsten till alla källor som har en offentlig IP-adress och/eller från ett särskilt undernät i VNET. Om du vill veta mer om hur du använder undernät och VNET-baserad åtkomst kontroll, se [åtkomst Azure Cosmos DB resurser från virtuella nätverk](vnet-service-endpoint.md).
+
+För att sammanfatta krävs alltid autentiseringstoken för att få åtkomst till ett Azure Cosmos-konto. Om IP-brandväggen och VNET Access Control List (ACL) inte har kon figurer ATS kan Azure Cosmos-kontot nås med autentiseringstoken. När IP-brandväggen eller VNET-ACL: er eller båda har kon figurer ATS på Azure Cosmos-kontot får du bara begär Anden som härstammar från de källor du har angett (och med autentiseringstoken) get giltiga svar. 
 
 Du kan skydda data som lagras i Azure Cosmos DB-kontot med hjälp av IP-brandväggar. Azure Cosmos DB stöder IP-baserade åtkomst kontroller för inkommande brand Väggs stöd. Du kan ange en IP-brandvägg på Azure Cosmos DB kontot på något av följande sätt:
 
@@ -225,5 +235,5 @@ Det går inte att skapa eller uppdatera ett Azure Cosmos-konto med en lista öve
 
 Information om hur du konfigurerar en tjänst slut punkt för virtuellt nätverk för ditt Azure Cosmos DB-konto finns i följande artiklar:
 
-* [Åtkomst kontroll för virtuellt nätverk och undernät för ditt Azure Cosmos DB-konto](vnet-service-endpoint.md)
+* [Åtkomst kontroll för virtuellt nätverk och undernät för ditt Azure Cosmos DB-konto](how-to-configure-vnet-service-endpoint.md)
 * [Konfigurera Virtual Network och Subnet-based Access för ditt Azure Cosmos DB-konto](how-to-configure-vnet-service-endpoint.md)

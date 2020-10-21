@@ -3,12 +3,12 @@ title: Autentisera ett program för att få åtkomst till Azure Event Hubs-resur
 description: Den här artikeln innehåller information om hur du autentiserar ett program med Azure Active Directory för åtkomst till Azure Event Hubs-resurser
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1c8503aa8db7350275648d9f5eda69e9e352c859
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50c697e5c430b72f8d5da393e90f1db7ff6d48a1
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566337"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332492"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera ett program med Azure Active Directory för att få åtkomst till Event Hubs resurser
 Microsoft Azure ger integrerad åtkomst kontroll hantering för resurser och program baserat på Azure Active Directory (Azure AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Resurs namnet för att begära en token `https://eventhubs.azure.net/` (för Kafka-klienter är resursen att begära en token `https://<namespace>.servicebus.windows.net` ). Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
@@ -16,7 +16,7 @@ Microsoft Azure ger integrerad åtkomst kontroll hantering för resurser och pro
 När en roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, Event Hubs namn området eller någon annan resurs under den. En Azure AD-säkerhet kan tilldela roller till en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). 
 
 > [!NOTE]
-> En rolldefinition är en samling behörigheter. Rollbaserad åtkomst kontroll (RBAC) styr hur dessa behörigheter tillämpas via roll tilldelning. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång. Mer information finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
+> En rolldefinition är en samling behörigheter. Rollbaserad åtkomst kontroll i Azure (Azure RBAC) styr hur dessa behörigheter tillämpas genom roll tilldelning. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång. Mer information finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles-for-azure-event-hubs"></a>Inbyggda roller för Azure Event Hubs
 Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtkomst till Event Hubs data med hjälp av Azure AD och OAuth:
@@ -25,13 +25,13 @@ Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtk
 - [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Använd den här rollen för att ge åtkomst till Event Hubs resurser.
 - [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Använd den här rollen för att ge åtkomst till Event Hubs resurser.   
 
-Inbyggda roller för schema register finns i [schema register roller](schema-registry-overview.md#role-based-access-control).
+Inbyggda roller för schema register finns i [schema register roller](schema-registry-overview.md#azure-role-based-access-control).
 
 > [!IMPORTANT]
 > Vår för hands version har stöd för att lägga till Event Hubs behörigheter för data åtkomst till ägaren eller deltagar rollen. Däremot går det inte längre att använda behörigheter för data åtkomst för rollen ägare och deltagare. Om du använder rollen ägare eller deltagare växlar du till att använda rollen Azure Event Hubs data Owner.
 
 ## <a name="assign-azure-roles-using-the-azure-portal"></a>Tilldela Azure-roller med hjälp av Azure Portal  
-Mer information om hur du hanterar åtkomst till Azure-resurser med RBAC och Azure Portal finns i [den här artikeln](..//role-based-access-control/role-assignments-portal.md). 
+Mer information om hur du hanterar åtkomst till Azure-resurser med hjälp av Azure RBAC och Azure Portal finns i [den här artikeln](..//role-based-access-control/role-assignments-portal.md). 
 
 När du har bestämt lämplig omfattning för en roll tilldelning navigerar du till den resursen i Azure Portal. Visa inställningarna för åtkomst kontroll (IAM) för resursen och följ de här anvisningarna för att hantera roll tilldelningar:
 
@@ -109,12 +109,12 @@ En lista över scenarier där det finns stöd för att hämta token finns i avsn
     Det här exemplet har uppdaterats för att använda det senaste **Azure. Messaging. EventHubs** -biblioteket.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om RBAC finns i [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md)?
+- Om du vill veta mer om Azure RBAC, se [Vad är Azures rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/overview.md)?
 - Information om hur du tilldelar och hanterar roll tilldelningar i Azure med Azure PowerShell, Azure CLI eller REST API finns i följande artiklar:
-    - [Hantera rollbaserad åtkomst kontroll (RBAC) med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
-    - [Hantera rollbaserad åtkomst kontroll (RBAC) med Azure CLI](../role-based-access-control/role-assignments-cli.md)
-    - [Hantera rollbaserad åtkomst kontroll (RBAC) med REST API](../role-based-access-control/role-assignments-rest.md)
-    - [Hantera rollbaserad åtkomst kontroll (RBAC) med Azure Resource Manager mallar](../role-based-access-control/role-assignments-template.md)
+    - [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
+    - [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure CLI](../role-based-access-control/role-assignments-cli.md)
+    - [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API](../role-based-access-control/role-assignments-rest.md)
+    - [Lägg till Azure-roll tilldelningar med Azure Resource Manager mallar](../role-based-access-control/role-assignments-template.md)
 
 Se följande relaterade artiklar:
 - [Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Event Hubs resurser](authenticate-managed-identity.md)

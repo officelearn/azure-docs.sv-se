@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d89f9330947d1c5d0146b8531f265d86d0fd5160
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87289412"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92329159"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Skapa en röstassistent med Anpassade kommandon
 
@@ -34,7 +34,7 @@ För tillfället stöder anpassade kommandon tal prenumerationer som skapats i f
 * Asien, östra
 * Sydostasien
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
 > * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Skapa en Azure tal-resurs i en region som stöder anpassade kommandon.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Se avsnittet **region tillgänglighet** ovan för att visa en lista över regioner som stöds.
@@ -123,7 +123,7 @@ I den här artikeln kommer vi att använda Windows Voice Assistant-klienten som 
 1. Starta **VoiceAssistantClient.exe**.
 1. Skapa en ny publicerings profil och ange ett värde för **anslutnings profilen**. I avsnittet **allmänna inställningar** anger du **prenumerations nyckel** för värden (detta är samma som det **tal resurs nyckel** värde som du sparade vid publicering av programmet), **prenumerations nyckel region** och **anpassade kommandon app-ID**.
     > [!div class="mx-imgBorder"]
-    > ![Skapa profil för WVAC](media/custom-commands/create-profile.png)
+    > ![Skärm bild som visar avsnittet allmänna inställningar för att skapa en WVAC-profil.](media/custom-commands/create-profile.png)
 1. Välj **Spara och Använd profil**.
 1. Prova nu följande indata via tal/text
     > [!div class="mx-imgBorder"]

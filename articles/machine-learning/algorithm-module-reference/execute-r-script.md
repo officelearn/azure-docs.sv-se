@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542296"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330401"
 ---
 # <a name="execute-r-script-module"></a>Kör R-skript-modul
 
@@ -194,11 +194,11 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
     > [!NOTE]
     > Befintlig R-kod kan behöva mindre ändringar för att köras i en designer-pipeline. Indata som du anger i CSV-format ska till exempel uttryckligen konverteras till en data uppsättning innan du kan använda den i din kod. Data-och kolumn typer som används i R-språket skiljer sig också på vissa sätt från data-och kolumn typer som används i designern.
 
-    Om skriptet är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden överskrider gränsen på 16597 tecken*. 
+1. Om skriptet är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden överskrider gränsen på 16597 tecken*. 
     
     1. Paketera skriptet och andra anpassade resurser i en zip-fil.
     1. Överför zip-filen som en **fil data uppsättning** till Studio. 
-    1. Dra data uppsättnings modulen från listan *mina data uppsättningar* i den vänstra rutan på design sidan i designern. 
+    1. Dra data uppsättnings modulen från listan *data uppsättningar* i fönstret till vänster på design sidan i designern. 
     1. Anslut data uppsättnings modulen till **skript paket** porten för **Kör R-skript** -modulen.
     
     Följande är exempel koden för att använda skriptet i skript paketet:

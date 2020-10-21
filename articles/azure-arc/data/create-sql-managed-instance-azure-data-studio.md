@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2aed3ea48935a62d68f739594a265649a2e1292d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4c1d4d83ad3c39bab8058ad29662891fe3678a1
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311537"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92320305"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Skapa SQL-hanterad instans – Azure Arc med Azure Data Studio
 
@@ -49,7 +49,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - På fliken anslutningar klickar du på de tre punkterna längst upp till vänster och väljer "ny distribution"
 - Från distributions alternativen väljer du **Azure SQL-hanterad instans – Azure Arc** 
   > [!NOTE]
-  > Du kan uppmanas att installera azdata CLI här om det inte redan är installerat.
+  > Du kan uppmanas att installera det [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] här om det inte redan är installerat.
 - Godkänn sekretess-och licens villkoren och klicka på **Välj** längst ned
 
 
@@ -100,6 +100,6 @@ sqlinstance1  1/1         25.51.65.109:1433  Ready
 
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Försök nu att [övervaka din SQL-instans](monitor-grafana-kibana.md)

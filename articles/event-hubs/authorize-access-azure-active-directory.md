@@ -3,15 +3,15 @@ title: Ge åtkomst med Azure Active Directory
 description: Den här artikeln innehåller information om hur du auktoriserar åtkomst till Event Hubs resurser med Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f69c3e5136ab47de4683cc65c32054d067dde13
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566269"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332407"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Ge åtkomst till Event Hubs resurser med Azure Active Directory
-Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till Event Hubs resurser. Med Azure AD kan du använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare eller ett huvud namn för en program tjänst. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
+Azure Event Hubs stöder användning av Azure Active Directory (Azure AD) för att godkänna begär anden till Event Hubs resurser. Med Azure AD kan du använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att ge behörighet till ett säkerhets objekt, som kan vara en användare eller ett huvud namn för en program tjänst. Mer information om roller och roll tilldelningar finns i [förstå de olika rollerna](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Översikt
 När ett säkerhets objekt (en användare eller ett program) försöker få åtkomst till en Event Hubs-resurs måste begäran vara auktoriserad. Med Azure AD är åtkomst till en resurs en två stegs process. 
@@ -39,7 +39,7 @@ Azure tillhandahåller följande inbyggda Azure-roller för att auktorisera åtk
 | [Azure Event Hubs data avsändare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Använd den här rollen för att ge åtkomst till Event Hubs-resurser. |
 | [Azure Event Hubs data mottagare](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Använd den här rollen för att ge den förbrukar/får åtkomst till Event Hubs resurser. |
 
-Inbyggda roller för schema register finns i [schema register roller](schema-registry-overview.md#role-based-access-control).
+Inbyggda roller för schema register finns i [schema register roller](schema-registry-overview.md#azure-role-based-access-control).
 
 ## <a name="resource-scope"></a>Resursomfång 
 Innan du tilldelar en Azure-roll till ett säkerhets objekt bör du bestämma omfattningen av åtkomsten som säkerhets objekt ska ha. Bästa praxis är att bestämma att det alltid är bäst att bara bevilja det begränsande möjliga omfånget.
@@ -73,7 +73,7 @@ Mer information om hur inbyggda roller definieras finns i [förstå roll definit
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du tilldelar en inbyggd Azure-roll till ett säkerhets objekt finns i [autentisera åtkomst till Event Hubs resurser med Azure Active Directory](authenticate-application.md).
-- Lär dig [hur du skapar anpassade roller med RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
+- Lär dig [hur du skapar anpassade roller med Azure RBAC](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/CustomRole).
 - Lär dig [hur du använder Azure Active Directory med händelsehubbnamnområde](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 Se följande relaterade artiklar:

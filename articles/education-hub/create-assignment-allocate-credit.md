@@ -7,18 +7,18 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: a850e5ea851ee539c663b00ecc7f2053eae8dc34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7904efb92aa8362605f1f68ee0b39f4241339031
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87534098"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332475"
 ---
 # <a name="create-an-assignment-and-allocate-credit"></a>Skapa en tilldelning och allokera kredit
 
 När du har konfigurerat en kurs och skapat ett klass rum i Microsoft Azure Education Hub, uppmanas du att skapa en tilldelning där du kommer att allokera kredit och Bjud in de valda eleverna till din kurs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett akademiskt bidrag med ett godkänt kredit belopp
 - Ett klass rum som skapats i Azure-Education Hub
@@ -31,7 +31,7 @@ Azure-Education Hub accepterar alla e-postadresser i _____ @___.___ . Den söker
 > [!IMPORTANT]
 > Arbets-och skol konton omfattas av egna principer, inklusive om en e-postadress från en annan domän än organisationen tillåts (till exempel att lägga till student2@outlook.com i @school.edu domänen). Se till att kontrol lera dessa principer innan du lägger till nya användare.
 
-När ett arbets-eller skol konto (till exempel student1@school.edu ) läggs till som rollbaserad åtkomst kontroll (RBAC) i lärare sponsor-portalen eller [Azure Portal](https://portal.azure.com), skickar Azure automatiskt e-post till mottagaren. För det här e-postmeddelandet krävs att användaren accepterar det nya kontot och Azure-rollen innan de får åtkomst till prenumerationen. Om du är kurs undervisnings assistent (TA) eller lärare måste du informera eleverna om detta så att deras prenumeration visas i Azure Portal som förväntat. E-postmeddelandet bör se ut ungefär så här:
+När ett arbets-eller skol konto (till exempel student1@school.edu ) läggs till med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC) i lärare sponsor portal eller [Azure Portal](https://portal.azure.com), skickar Azure automatiskt e-post till mottagaren. För det här e-postmeddelandet krävs att användaren accepterar det nya kontot och Azure-rollen innan de får åtkomst till prenumerationen. Om du är kurs undervisnings assistent (TA) eller lärare måste du informera eleverna om detta så att deras prenumeration visas i Azure Portal som förväntat. E-postmeddelandet bör se ut ungefär så här:
 
 :::image type="content" source="media/create-assignment-allocate-credit/azure-active-directory-get-started.png" alt-text="Azure Active Directory kom igång" border="false":::
 

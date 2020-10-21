@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38edbd9e491d4bea469c6b83ad98df48fbce1d4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c578d9df8c008d73460801547e6b9361e60baa8
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597499"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92318005"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudie: skapa ditt första Access-paket i Azure AD-hantering av rättigheter
 
@@ -42,9 +42,9 @@ En steg-för-steg-demonstration av processen att distribuera Azure Active Direct
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-Du kan också skapa ett Access-paket program mässigt med hjälp av Microsoft Graph. En själv studie kurs som visar hur du skapar ett Access-paket program mässigt finns i [API för hantering av rättigheter](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
+Du kan också skapa ett Access-paket program mässigt med hjälp av Microsoft Graph. En själv studie kurs som visar hur du skapar ett Access-paket program mässigt finns i [API för hantering av rättigheter](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda hantering av Azure AD-rättigheter måste du ha en av följande licenser:
 
@@ -67,7 +67,7 @@ En resurs katalog har en eller flera resurser att dela. I det här steget skapar
 
 1. Skapa eller konfigurera följande två användare. Du kan använda dessa namn eller olika namn. **Admin1** kan vara den användare som du för närvarande är inloggad som.
 
-    | Name | Katalogroll |
+    | Namn | Katalogroll |
     | --- | --- |
     | **Admin1** | Global administratör<br/>\- eller -<br/>Användaradministratör |
     | **Requestor1** | Användare |

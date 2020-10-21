@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2047832f8cfbf31c04c84eb7a70fee6631fa4b
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619160"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330129"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveri beredskap för ett SaaS-program för flera innehavare med hjälp av databas geo-replikering
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ I den här uppgiften startar du en process som synkroniserar konfigurationen av 
     * **$DemoScenario = 1**, starta ett bakgrunds jobb som synkroniserar klient servern och konfigurations information för poolen i katalogen
 
 3. Tryck på **F5** för att köra Sync-skriptet. En ny PowerShell-session öppnas för att synkronisera konfigurationen av klient resurserna.
-![Synkronisera process](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
+![Skärm bild som visar den nya PowerShell-sessionen som är öppen för att synkronisera konfigurationen av klient resurserna.](./media/saas-dbpertenant-dr-geo-replication/sync-process.png)
 
 Låt PowerShell-fönstret köras i bakgrunden och fortsätt med resten av självstudien. 
 

@@ -43,6 +43,12 @@
     - name: Hantera taggstyrning
       displayName: 'modify, append, effects'
       href: ./tutorials/govern-tags.md
+    - name: Implementera Azure Policy som kod med GitHub
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./tutorials/policy-as-code-github.md
+    - name: 'Learn: Kontrollera och granska dina resurser med hjälp av Azure Policy'
+      displayName: 'governance, module'
+      href: /learn/modules/build-cloud-governance-strategy-azure/8-control-audit-resources-azure-policy
 - name: Exempel
   items:
     - name: Index
@@ -113,7 +119,7 @@
     - name: Regelefterlevnad
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md
-    - name: Arbetsflöden för att utforma princip som kod
+    - name: Utforma arbetsflöden för Azure Policy som kod
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Kubernetes-integrering

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7a5a02a063f90953982d42fe9c7d2c6dc199b2a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819025"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282293"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -71,7 +71,7 @@ Azures front dörr är en global tjänst som inte är kopplad till någon enskil
 
 ### <a name="what-are-the-pop-locations-for-azure-front-door"></a>Vilka är POP-platserna för Azures front dörr?
 
-Azures front dörr har samma lista med POP-platser (punkt för närvaro) som Azure CDN från Microsoft. En fullständig lista över våra pop- [platser finns Azure CDN pop-platser från Microsoft](https://docs.microsoft.com/azure/cdn/cdn-pop-locations).
+Azures front dörr har samma lista med POP-platser (punkt för närvaro) som Azure CDN från Microsoft. En fullständig lista över våra pop- [platser finns Azure CDN pop-platser från Microsoft](../cdn/cdn-pop-locations.md).
 
 ### <a name="is-azure-front-door-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>Är Azure front dörr en dedikerad distribution för mitt program eller delas den mellan kunder?
 
@@ -91,9 +91,9 @@ Om du vill låsa ditt program för att endast acceptera trafik från din specifi
 
 - Konfigurera IP-ACLing för dina Server delar för att acceptera trafik från Azure-klientens Server dels IP-adressutrymme och Azures infrastruktur tjänster. Se IP-informationen nedan för att ACLing din server del:
  
-    - Mer information finns i avsnittet om *AzureFrontDoor. backend* i [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för IP-adressintervall för IPv4-backend-IP-adresser eller också kan du använda service tag- *AzureFrontDoor. backend* i dina [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
+    - Mer information finns i avsnittet om *AzureFrontDoor. backend* i [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för IP-adressintervall för IPv4-backend-IP-adresser eller också kan du använda service tag- *AzureFrontDoor. backend* i dina [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md#security-rules).
     - Klient delens IP-utrymme för **IPv6** -Server delen, som omfattas av tjänst tag gen, visas inte i JSON-filen för Azure IP-intervall. Om du letar efter explicit IPv6-adressintervall är den för närvarande begränsad till `2a01:111:2050::/44`
-    - Azures [grundläggande infrastruktur tjänster](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) via virtualiserade värd-IP-adresser: `168.63.129.16` och `169.254.169.254`
+    - Azures [grundläggande infrastruktur tjänster](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) via virtualiserade värd-IP-adresser: `168.63.129.16` och `169.254.169.254`
 
     > [!WARNING]
     > Front dörrens IP-utrymme kan ändras senare, men vi kommer att se till att vi har integrerat med [Azure IP-intervall och service Taggar](https://www.microsoft.com/download/details.aspx?id=56519)innan det inträffar. Vi rekommenderar att du prenumererar på [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för ändringar eller uppdateringar.
@@ -156,7 +156,7 @@ Azures front dörr (AFD) kräver en offentlig IP-adress eller offentligt matchat
 
 ### <a name="what-are-the-various-timeouts-and-limits-for-azure-front-door"></a>Vilka är de olika tids gränserna och gränserna för Azures front dörr?
 
-Lär dig mer om alla dokumenterade [tids gränser och begränsningar för Azures front dörr](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
+Lär dig mer om alla dokumenterade [tids gränser och begränsningar för Azures front dörr](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-service-limits).
 
 ### <a name="how-long-does-it-take-for-a-rule-to-take-effect-after-being-added-to-the-front-door-rules-engine"></a>Hur lång tid tar det innan en regel börjar gälla när den har lagts till i motorn för front dörrs regler?
 
@@ -179,7 +179,7 @@ Frontend-dörren stöder TLS-versionerna 1,0, 1,1 och 1,2. TLS 1,3 stöds inte �
 ### <a name="what-certificates-are-supported-on-azure-front-door"></a>Vilka certifikat stöds på Azures frontend-dörr?
 
 Om du vill aktivera HTTPS-protokollet för säker leverans av innehåll på en anpassad domän i en annan dator, kan du välja att använda ett certifikat som hanteras av Azures front dörr eller använda ditt eget certifikat.
-Alternativet front dörr Managed tillhandahåller ett TLS/SSL-standardcertifikat via DigiCert och lagras i front dörrens Key Vault. Om du väljer att använda ditt eget certifikat kan du publicera ett certifikat från en certifikat utfärdare som stöds och kan vara ett standard-TLS, ett utökat verifierings certifikat eller till och med ett jokertecken. Självsignerade certifikat stöds inte. Lär dig [hur du aktiverar HTTPS för en anpassad domän](https://aka.ms/FrontDoorCustomDomainHTTPS).
+Alternativet front dörr Managed tillhandahåller ett TLS/SSL-standardcertifikat via DigiCert och lagras i front dörrens Key Vault. Om du väljer att använda ditt eget certifikat kan du publicera ett certifikat från en certifikat utfärdare som stöds och kan vara ett standard-TLS, ett utökat verifierings certifikat eller till och med ett jokertecken. Självsignerade certifikat stöds inte. Lär dig [hur du aktiverar HTTPS för en anpassad domän](./front-door-custom-domain-https.md).
 
 ### <a name="does-front-door-support-autorotation-of-certificates"></a>Stöder front dörren autorotation av certifikat?
 
@@ -220,7 +220,7 @@ När du använder anpassade domäner med TLS 1.0/1.1 aktiverat kan följande chi
 
 ### <a name="can-i-configure-tls-policy-to-control-tls-protocol-versions"></a>Kan jag konfigurera TLS-principen för att kontrol lera TLS-protokoll versioner?
 
-Du kan konfigurera en lägsta TLS-version i Azure-front dörren i de anpassade HTTPS-inställningarna för domänen via Azure Portal eller [Azure-REST API](https://docs.microsoft.com/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). För närvarande kan du välja mellan 1,0 och 1,2.
+Du kan konfigurera en lägsta TLS-version i Azure-front dörren i de anpassade HTTPS-inställningarna för domänen via Azure Portal eller [Azure-REST API](/rest/api/frontdoorservice/frontdoor/frontdoors/createorupdate#minimumtlsversion). För närvarande kan du välja mellan 1,0 och 1,2.
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Kan jag konfigurera front dörren till att bara stödja vissa chiffersviter?
 
@@ -247,7 +247,7 @@ Om du har lyckade HTTPS-anslutningar till din server del om det finns hälso avs
 
 1. **Certifikatets ämnes namn matchar inte**: för HTTPS-anslutningar förväntar sig front dörren att Server delen visar certifikat från en giltig certifikat utfärdare med ämnes namn som matchar backend-värdnamnet. Exempel: om ditt Server dels namn är inställt på `myapp-centralus.contosonews.net` och det certifikat som din server dels visar under TLS-handskakningen varken har `myapp-centralus.contosonews.net` eller `*myapp-centralus*.contosonews.net` i ämnes namnet, kommer front dörren att neka anslutningen och resultera i ett fel. 
     1. **Lösning**: även om det inte rekommenderas från en efterlevnadsprincip kan du lösa det här felet genom att inaktivera kontroll av certifikatets ämnes namn för din front dörr. Detta finns under Inställningar i Azure Portal och under BackendPoolsSettings i API: et.
-2. **Server dels värd certifikat från ogiltig certifikat utfärdare**: endast certifikat från [giltiga certifikat utfärdare](/azure/frontdoor/front-door-troubleshoot-allowed-ca) kan användas på Server delen med frontend. Certifikat från interna certifikat utfärdare eller självsignerade certifikat är inte tillåtna.
+2. **Server dels värd certifikat från ogiltig certifikat utfärdare**: endast certifikat från [giltiga certifikat utfärdare](./front-door-troubleshoot-allowed-ca.md) kan användas på Server delen med frontend. Certifikat från interna certifikat utfärdare eller självsignerade certifikat är inte tillåtna.
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Kan jag använda klient/ömsesidig autentisering med Azures frontend-dörr?
 

@@ -4,12 +4,12 @@ description: Visar hur du hanterar stora uppsättningar av ämnen i Azure Event 
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 277db97211b196c9853470c2d12cc2246a4005b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502043"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330085"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Hantera ämnen och publicera händelser med hjälp av händelse domäner
 
@@ -79,7 +79,7 @@ Observera att `endpoint` och `id` när de krävs för att hantera domänen och p
 
 ## <a name="manage-access-to-topics"></a>Hantera åtkomst till ämnen
 
-Hantering av åtkomst till ämnen görs via [roll tilldelning](../role-based-access-control/role-assignments-cli.md). Roll tilldelningen använder rollbaserad åtkomst kontroll för att begränsa åtgärder på Azure-resurser till behöriga användare i ett visst omfång.
+Hantering av åtkomst till ämnen görs via [roll tilldelning](../role-based-access-control/role-assignments-cli.md). Roll tilldelningen använder Azure-rollbaserad åtkomst kontroll för att begränsa åtgärder på Azure-resurser till behöriga användare i ett visst omfång.
 
 Event Grid har två inbyggda roller som du kan använda för att tilldela särskilda användare åtkomst till olika ämnen i en domän. De här rollerna är `EventGrid EventSubscription Contributor (Preview)` , som gör det möjligt att skapa och ta bort prenumerationer och `EventGrid EventSubscription Reader (Preview)` , som endast tillåter att lista över händelse prenumerationer.
 

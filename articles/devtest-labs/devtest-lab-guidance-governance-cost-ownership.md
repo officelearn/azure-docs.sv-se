@@ -4,12 +4,12 @@ description: Den här artikeln innehåller information som hjälper dig att opti
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: dbf0bb9cae87a51eb6e0a4fb25c700ec6f423ff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfac69a055c9b0c75032622caf7fb8502fad3406
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476265"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328274"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Styrning av Azure DevTest Labs infrastruktur – hantera kostnader och ägarskap
 Kostnader och ägarskap är huvudsakliga problem när du ska skapa utvecklings-och test miljöer. I det här avsnittet hittar du information som hjälper dig att optimera för kostnad och anpassa ägarskapet i din miljö.
@@ -34,9 +34,9 @@ Endast aktiva Visual Studio-prenumeranter (standard prenumerationer, årliga mol
 
 Om du väljer att använda DevTest-erbjudandet noterar du att den här förmånen är enbart avsedd för utveckling och testning av dina program. Användningen i prenumerationen har inget ekonomiskt service avtal, med undantag för användning av Azure-DevOps och HockeyApp.
 
-## <a name="define-a-role-based-access-across-your-organization"></a>Definiera en rollbaserad åtkomst i organisationen
+## <a name="define-role-based-access-across-your-organization"></a>Definiera rollbaserad åtkomst i hela organisationen
 ### <a name="question"></a>Fråga
-Hur gör jag för att definiera rollbaserad åtkomst kontroll för mina DevTest Labs-miljöer för att säkerställa att den kan styra medan utvecklare/test kan utföra sitt arbete? 
+Hur gör jag för att definierar du Azure rollbaserad åtkomst kontroll för mina DevTest Labs-miljöer för att säkerställa att den kan styra medan utvecklare/test kan utföra sitt arbete? 
 
 ### <a name="answer"></a>Svar
 Det finns ett brett mönster, men detaljerna beror på din organisation.

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 738d62d60ad06431bd77cd99343fc8835c4c5685
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91363230"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330180"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Skydda privata DNS-zoner och-poster
 
@@ -22,9 +22,9 @@ Privat DNS zoner och poster är kritiska resurser. Att ta bort en DNS-zon eller 
 
 I den här artikeln förklaras hur Azure DNS hjälper dig att skydda dina privata DNS-zoner och poster mot sådana ändringar.  Vi tillämpar två kraftfulla säkerhetsfunktioner som tillhandahålls av Azure Resource Manager: [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md) och [resurs lås](../azure-resource-manager/management/lock-resources.md).
 
-## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+## <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
 
-Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure-användare, grupper och resurser. Med RBAC kan du ge den åtkomst nivå som användarna behöver. Mer information om hur RBAC hjälper dig att hantera åtkomst finns i [Vad är rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md).
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure-användare, grupper och resurser. Med Azure RBAC kan du ge den åtkomst nivå som användarna behöver. Mer information om hur Azure RBAC hjälper dig att hantera åtkomst finns i [Vad är rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md).
 
 ### <a name="the-private-dns-zone-contributor-role"></a>Rollen Privat DNS Zone Contributor
 
@@ -32,11 +32,11 @@ Rollen Privat DNS Zone Contributor är en inbyggd roll för hantering av privata
 
 Resurs gruppen *myPrivateDNS* innehåller fem zoner för Contoso Corporation. Om du beviljar behörigheten DNS-administratör Privat DNS zon deltagare till den resurs gruppen ger fullständig kontroll över dessa DNS-zoner. Det förhindrar att du beviljar onödiga behörigheter. DNS-administratören kan inte skapa eller stoppa virtuella datorer.
 
-Det enklaste sättet att tilldela RBAC-behörigheter är [via Azure Portal](../role-based-access-control/role-assignments-portal.md).  
+Det enklaste sättet att tilldela Azure RBAC-behörigheter är [via Azure Portal](../role-based-access-control/role-assignments-portal.md).  
 
 Öppna **åtkomst kontroll (IAM)** för resurs gruppen, Välj **Lägg till**och välj sedan rollen **privat DNS Zone Contributor** . Välj de användare eller grupper som krävs för att bevilja behörigheter.
 
-![Resurs grupp nivå RBAC via Azure Portal](./media/dns-protect-private-zones-recordsets/rbac1.png)
+![Resurs grupps nivå Azure RBAC via Azure Portal](./media/dns-protect-private-zones-recordsets/rbac1.png)
 
 Behörigheter kan också [beviljas med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -61,15 +61,15 @@ az role assignment create \
 --resource-group "<resource group name>"
 ```
 
-### <a name="private-zone-level-rbac"></a>RBAC för privat zon nivå
+### <a name="private-zone-level-azure-rbac"></a>Nivå för privat zon Azure RBAC
 
 Azure RBAC-regler kan användas för en prenumeration, en resurs grupp eller en enskild resurs. Resursen kan vara en enskild DNS-zon eller en enskild post uppsättning.
 
 Resurs gruppen *myPrivateDNS* innehåller till exempel zonen *Private.contoso.com* och en under zon *Customers.Private.contoso.com*. CNAME-poster skapas för varje kund konto. Det administratörs konto som används för att hantera CNAME-poster tilldelas behörigheter för att skapa poster i *Customers.Private.contoso.com* -zonen. Kontot kan bara hantera *Customers.Private.contoso.com* .
 
-RBAC-behörigheter på Zone-nivå kan beviljas via Azure Portal.  Öppna **åtkomst kontroll (IAM)** för zonen, Välj **Lägg till**och välj sedan rollen **privat DNS Zone Contributor** . Välj de användare eller grupper som krävs för att bevilja behörigheter.
+Azure RBAC-behörigheter på Zone-nivå kan beviljas via Azure Portal.  Öppna **åtkomst kontroll (IAM)** för zonen, Välj **Lägg till**och välj sedan rollen **privat DNS Zone Contributor** . Välj de användare eller grupper som krävs för att bevilja behörigheter.
 
-![DNS-zons nivå RBAC via Azure Portal](./media/dns-protect-private-zones-recordsets/rbac2.png)
+![DNS-zon nivå Azure RBAC via Azure Portal](./media/dns-protect-private-zones-recordsets/rbac2.png)
 
 Behörigheter kan också [beviljas med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
@@ -96,17 +96,17 @@ az role assignment create \
 --scope "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/privateDnsZones/<zone name>/"
 ```
 
-### <a name="record-set-level-rbac"></a>Data uppsättnings nivå RBAC
+### <a name="record-set-level-azure-rbac"></a>Post uppsättnings nivå Azure RBAC
 
 Behörigheter tillämpas på post uppsättnings nivån.  Användaren beviljas kontroll över de poster de behöver och kan inte göra några andra ändringar.
 
-Du kan konfigurera RBAC-behörigheter för post uppsättnings nivåer via Azure Portal med hjälp av **Access Control (IAM)** på sidan post uppsättning:
+Det går att konfigurera Azure RBAC-behörigheter för Record-uppsättning via Azure Portal med hjälp av **Access Controls knappen (IAM)** på sidan post uppsättning:
 
 ![Skärm bild som visar knappen Access Control (I A M).](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
 ![Skärm bild som visar Access Control med Lägg till roll tilldelning markerad.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
-Det går även att bevilja RBAC-behörigheter för post uppsättnings nivåer [med hjälp av Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
+Det går även att bevilja Azure RBAC-behörighet för Record-uppsättning [med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
 ```azurepowershell-interactive
 # Grant permissions to a specific record set
@@ -188,7 +188,7 @@ az role create -inputfile <file path>
 
 Rollen kan sedan tilldelas på samma sätt som inbyggda roller, enligt beskrivningen ovan i den här artikeln.
 
-Mer information om hur du skapar, hanterar och tilldelar anpassade roller finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md).
+Mer information om hur du skapar, hanterar och tilldelar anpassade roller finns i Azure- [anpassade roller](../role-based-access-control/custom-roles.md).
 
 ## <a name="resource-locks"></a>Resurslås
 
@@ -287,5 +287,5 @@ Det går att använda båda metoderna-resurs lås och anpassade roller – samti
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du arbetar med RBAC finns i [Kom igång med åtkomst hantering i Azure Portal](../role-based-access-control/overview.md).
+* Mer information om hur du arbetar med Azure RBAC finns i [Vad är rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md).
 * Mer information om hur du arbetar med resurs lås finns i [låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

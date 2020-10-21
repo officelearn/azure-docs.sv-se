@@ -80,10 +80,10 @@
           href: redirect-overview.md
         - name: Skriva om HTTP-huvuden och URL
           href: rewrite-http-headers-url.md
-        - name: Säkerhet
-          items:
-            - name: Säkerhetsbaslinje
-              href: security-baseline.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
     - name: SSL
       items:
         - name: SSL-avslut och slutpunkt till slutpunkt över SSL

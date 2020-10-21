@@ -3,19 +3,19 @@ title: Lägg till ägare och användare i Azure DevTest Labs | Microsoft Docs
 description: Lägg till ägare och användare i Azure DevTest Labs med antingen Azure Portal eller PowerShell
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 40173589c4798a8b00d940bca2a71f4d61f2c199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d6af68cd663e88af90d690375a4d45c538aad1d
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533333"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330197"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Lägg till ägare och användare i Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Åtkomst i Azure DevTest Labs styrs av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md). Med hjälp av RBAC kan du åtskilja uppgifter i ditt team i *roller* där du endast beviljas den mängd åtkomst som krävs för att användarna ska kunna utföra sina jobb. Tre av dessa Azure-roller är *ägare*, *DevTest Labs-användare*och *deltagare*. I den här artikeln får du lära dig vilka åtgärder som kan utföras i de tre viktigaste Azure-rollerna. Därifrån får du lära dig hur du lägger till användare i ett labb – både via portalen och via ett PowerShell-skript och hur du lägger till användare på prenumerations nivå.
+Åtkomst i Azure DevTest Labs styrs av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/overview.md). Med hjälp av Azure RBAC kan du åtskilja uppgifter i ditt team i *roller* där du endast beviljas den mängd åtkomst som krävs för att användarna ska kunna utföra sina jobb. Tre av dessa Azure-roller är *ägare*, *DevTest Labs-användare*och *deltagare*. I den här artikeln får du lära dig vilka åtgärder som kan utföras i de tre viktigaste Azure-rollerna. Därifrån får du lära dig hur du lägger till användare i ett labb – både via portalen och via ett PowerShell-skript och hur du lägger till användare på prenumerations nivå.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Åtgärder som kan utföras i varje roll
 Det finns tre huvud roller som du kan tilldela en användare:
@@ -29,19 +29,19 @@ Följande tabell visar de åtgärder som kan utföras av användare i var och en
 | **Åtgärder som användare med den här rollen kan utföra** | **DevTest Labs-användare** | **Ägare** | **Deltagare** |
 | --- | --- | --- | --- |
 | **Labb uppgifter** | | | |
-| Lägga till användare i ett labb |Inga |Ja |Inga |
-| Uppdatera kostnads inställningar |Inga |Ja |Ja |
+| Lägga till användare i ett labb |Nej |Ja |Nej |
+| Uppdatera kostnads inställningar |Nej |Ja |Ja |
 | **Bas uppgifter för virtuella datorer** | | | |
-| Lägga till och ta bort anpassade avbildningar |Inga |Ja |Ja |
+| Lägga till och ta bort anpassade avbildningar |Nej |Ja |Ja |
 | Lägga till, uppdatera och ta bort formler |Ja |Ja |Ja |
-| Vitlista Azure Marketplace-avbildningar |Inga |Ja |Ja |
+| Vitlista Azure Marketplace-avbildningar |Nej |Ja |Ja |
 | **VM-aktiviteter** | | | |
 | Skapa VM:ar |Ja |Ja |Ja |
 | Starta, stoppa och ta bort virtuella datorer |Endast virtuella datorer som har skapats av användaren |Ja |Ja |
-| Uppdatera VM-principer |Inga |Ja |Ja |
+| Uppdatera VM-principer |Nej |Ja |Ja |
 | Lägga till/ta bort data diskar till och från virtuella datorer |Endast virtuella datorer som har skapats av användaren |Ja |Ja |
 | **Artefakt uppgifter** | | | |
-| Lägga till och ta bort artefakt databaser |Inga |Ja |Ja |
+| Lägga till och ta bort artefakt databaser |Nej |Ja |Ja |
 | Tillämpa artefakter |Ja |Ja |Ja |
 
 > [!NOTE]

@@ -1,20 +1,19 @@
 ---
 title: Förstå den digitala modellen med dubbla modeller | Microsoft Docs
-description: Som utvecklare får du lära dig hur du använder DTDL-parsern för att validera modeller
+description: Som utvecklare får du lära dig hur du använder DTDL-parsern för att validera modeller.
 author: rido-min
 ms.author: rmpablos
-ms.date: 04/29/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: peterpr
-ms.openlocfilehash: 20c4452a32c791f33e08c883d8cec89a345ab188
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d68abe8548dac3306228683e4b6ce8935a248ebc
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87352432"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331795"
 ---
 # <a name="understand-the-digital-twins-model-parser"></a>Förstå Digital Twins-modellparsern
 
@@ -28,9 +27,12 @@ Parsern är tillgänglig i NuGet.org med ID: [Microsoft. Azure. DigitalTwins. pa
 dotnet add package Microsoft.Azure.DigitalTwins.Parser
 ```
 
+> [!NOTE]
+> Vid tidpunkten för skrivning är versionen av parsern `3.12.5` .
+
 ## <a name="use-the-parser-to-validate-a-model"></a>Använd parsern för att validera en modell
 
-Modellen som du vill validera kan bestå av ett eller flera gränssnitt som beskrivs i JSON-filer. Du kan använda parsern för att läsa in alla filer i en specifik mapp och använda parsern för att validera alla filer som helhet, inklusive alla referenser mellan filerna:
+En modell kan bestå av ett eller flera gränssnitt som beskrivs i JSON-filer. Du kan använda parsern för att läsa in alla filer i en specifik mapp och använda parsern för att validera alla filer som helhet, inklusive alla referenser mellan filerna:
 
 1. Skapa en `IEnumerable<string>` med en lista över alla modell innehåll:
 
@@ -57,18 +59,20 @@ Modellen som du vill validera kan bestå av ett eller flera gränssnitt som besk
     IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     ```
 
-1. Sök efter verifierings fel. Om parsern hittar eventuella fel, genererar den en `AggregateException` lista med detaljerade fel meddelanden:
+1. Sök efter verifierings fel. Om parsern hittar eventuella fel, utlöses en `ParsingException` med en lista med fel:
 
     ```csharp
     try
     {
         IReadOnlyDictionary<Dtmi, DTEntityInfo> parseResult = await modelParser.ParseAsync(modelJson);
     }
-    catch (AggregateException ae)
+    catch (ParsingException pex)
     {
-        foreach (var e in ae.InnerExceptions)
+        Console.WriteLine(pex.Message);
+        foreach (var err in pex.Errors)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine(err.PrimaryID);
+            Console.WriteLine(err.Message);
         }
     }
     ```
@@ -76,19 +80,10 @@ Modellen som du vill validera kan bestå av ett eller flera gränssnitt som besk
 1. Granska `Model` . Om verifieringen lyckas kan du använda modellens parser-API för att kontrol lera modellen. Följande kodfragment visar hur du itererar över alla modeller som har parsats och visar de befintliga egenskaperna:
 
     ```csharp
-    foreach (var m in parseResult)
+    foreach (var item in parseResult)
     {
-        Console.WriteLine(m.Key);
-        foreach (var item in m.Value.AsEnumerable<DTEntityInfo>())
-        {
-            var p = item as DTInterfaceInfo;
-            if (p!=null)
-            {
-                Console.WriteLine($"\t{p.Id}");
-                Console.WriteLine($"\t{p.Description.FirstOrDefault()}");
-            }
-            Console.WriteLine("--------------");
-        }
+        Console.WriteLine($"\t{item.Key}");
+        Console.WriteLine($"\t{item.Value.DisplayName?.Values.FirstOrDefault()}");
     }
     ```
 

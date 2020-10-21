@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab257cee199050dcc444e9e3acf43370bd062e5
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056276"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313161"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Tilldela känslighets etiketter till Microsoft 365 grupper i Azure Active Directory
 
@@ -68,7 +68,7 @@ Om du vill tillämpa publicerade etiketter på grupper måste du först aktivera
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-Du måste också synkronisera dina känslighets etiketter till Azure AD. Instruktioner finns i [så här aktiverar du känslighets etiketter för behållare och synkronisera etiketter](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
+Du måste också synkronisera dina känslighets etiketter till Azure AD. Instruktioner finns i [så här aktiverar du känslighets etiketter för behållare och synkronisera etiketter](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Tilldela en etikett till en ny grupp i Azure Portal
 
@@ -99,7 +99,7 @@ Gruppen skapas och de webbplats-och grupp inställningar som är associerade med
 1. Välj **grupper**.
 1. På sidan **alla grupper** väljer du den grupp som du vill ta bort etiketten från.
 1. På sidan **grupp** väljer du **Egenskaper**.
-1. Välj **ta bort**.
+1. Välj **Ta bort**.
 1. Klicka på **Spara** för att tillämpa dina ändringar.
 
 ## <a name="using-classic-azure-ad-classifications"></a>Använda klassiska Azure AD-klassificeringar

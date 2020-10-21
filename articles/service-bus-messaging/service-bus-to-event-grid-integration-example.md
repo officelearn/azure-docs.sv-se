@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6f64c8155724a1306f5074a9164bcf97391dfbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7f177b8738fdaf8d0975877d9af094b6f0a49a9
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89000353"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92328155"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Självstudie: svara på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps
 I den här självstudien får du lära dig hur du svarar på Azure Service Bus händelser som tas emot via Azure Event Grid med Azure Functions och Azure Logic Apps. 
@@ -96,7 +96,7 @@ Anslut en Logic app med Azure Service Bus och Azure Event Grid genom att följa 
         ![Logic Apps designer – Välj den delade åtkomst nyckeln](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
     8. Välj ditt **ämne** och din **prenumeration**. 
     
-        ![Logic Apps designer – Välj ditt Service Bus ämne och prenumeration](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
+        ![Skärm bild som visar var du väljer ämnet och din prenumeration.](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)
 7. Välj **+ nytt steg**och utför följande steg: 
     1. Välj **Service Bus**.
     2. Välj **Slutför meddelandet i en ämnes prenumeration** i listan med åtgärder. 

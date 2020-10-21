@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 94a84220b276edf8eaf539151964715675693dec
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131385"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92332033"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -42,11 +42,11 @@ Använd följande länkar om du vill ha detaljerade instruktioner om hur du skap
 
 ### <a name="what-kinds-of-permissions-does-data-lake-storage-gen2-support"></a>Vilka typer av behörigheter Data Lake Storage Gen2 stöd för?
 
-Data Lake Storage Gen2 använder en modell för åtkomst kontroll som stöder både rollbaserad åtkomst kontroll (RBAC) och POSIX-liknande åtkomst kontrol listor (ACL: er). Data Lake Storage Gen1 stöder endast åtkomst kontrol listor för att kontrol lera åtkomst till data.
+Data Lake Storage Gen2 använder en modell för åtkomst kontroll som stöder både Azure-rollbaserad åtkomst kontroll (Azure RBAC) och POSIX-liknande åtkomst kontrol listor (ACL: er). Data Lake Storage Gen1 stöder endast åtkomst kontrol listor för att kontrol lera åtkomst till data.
 
-RBAC använder roll tilldelningar för att effektivt tillämpa uppsättningar av behörigheter för användare, grupper och tjänstens huvud namn för Azure-resurser. Normalt är dessa Azure-resurser begränsade till resurser på den översta nivån (till exempel Azure Blob Storage-konton). För Azure Blob Storage, och även Data Lake Storage Gen2, har den här mekanismen utökats till fil system resursen.
+Azure RBAC använder roll tilldelningar för att effektivt tillämpa uppsättningar av behörigheter för användare, grupper och tjänstens huvud namn för Azure-resurser. Normalt är dessa Azure-resurser begränsade till resurser på den översta nivån (till exempel Azure Blob Storage-konton). För Azure Blob Storage, och även Data Lake Storage Gen2, har den här mekanismen utökats till fil system resursen.
 
-För mer information om fil behörigheter med RBAC, se [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Mer information om fil behörigheter med Azure RBAC finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 Mer information om fil behörigheter med ACL: er finns i [åtkomst kontrol listor på filer och kataloger](../storage/blobs/data-lake-storage-access-control.md).
 

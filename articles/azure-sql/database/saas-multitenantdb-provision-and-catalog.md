@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 92dcb1e75d43a946b9b6a238aaa360ec3d84dbb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619635"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331948"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Etablera och katalogisera nya klienter i ett SaaS-program med shardade för flera innehavare Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -123,7 +123,7 @@ I den här guiden får du lära dig att:
 > * Etablera en batch med klienter i både flera klienter och databaser med en enda klient organisation
 > * Registrera en databas och klient mappning i en katalog
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
@@ -150,7 +150,7 @@ Följande är viktiga element i det etablerings arbets flöde som du steg för s
 - **Lägg till klientens namn i en katalog tilläggs tabell**: plats namnet läggs till i tabellen innehavare i katalogen.  Det här tillägget visar hur katalog databasen kan utökas för att stödja ytterligare programspecifika data.
 - **Öppna sidan händelser för den nya klienten**: sidan *Bushwillow blåa* händelser öppnas i webbläsaren.
 
-   ![händelser](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![Skärm bild som visar sidan händelser för en ny klient.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### <a name="debugger-steps"></a>Fel söknings steg
 
@@ -163,7 +163,7 @@ För att förstå hur Wingtip-appen implementerar ny klient etablering i en dela
 
 2. Lägg till en Bryt punkt genom att placera markören var som helst på rad 38, raden med texten: *New-Tenant*, och tryck sedan på **F9**.
 
-   ![brytpunkt](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![Skärm bild som visar den rad som innehåller ny klient.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
 3. Kör skriptet genom att trycka på **F5**.
 

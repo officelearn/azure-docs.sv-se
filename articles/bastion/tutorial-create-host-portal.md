@@ -7,14 +7,14 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: daf3b6c36b191f52f0d7ac7638ef59695325f541
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: a7937745e839b54d9ee7b6f056d10ff627e191d3
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078552"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92327339"
 ---
-# <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm-through-a-browser"></a>Självstudie: skapa en Azure skydds-värd och Anslut till en virtuell Windows-dator via en webbläsare
+# <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>Självstudie: Konfigurera skydds och ansluta till en virtuell Windows-dator via en webbläsare
 
 Den här självstudien visar hur du ansluter till en virtuell dator via webbläsaren med hjälp av Azure skydds och Azure Portal. I Azure Portal distribuerar du skydds till det virtuella nätverket. När du har distribuerat skydds ansluter du till en virtuell dator via dess privata IP-adress med hjälp av Azure Portal. Din virtuella dator behöver ingen offentlig IP-adress eller speciell program vara. När tjänsten har tillhandahållits är RDP/SSH-upplevelsen tillgänglig för alla virtuella datorer i samma virtuella nätverk. Mer information om Azure skydds finns i [Vad är Azure skydds?](bastion-overview.md).
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett virtuellt nätverk.
 * En virtuell Windows-dator i det virtuella nätverket.

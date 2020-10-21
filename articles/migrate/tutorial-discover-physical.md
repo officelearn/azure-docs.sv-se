@@ -4,12 +4,12 @@ description: Lär dig hur du identifierar lokala fysiska servrar med Azure Migra
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442284"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92314089"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Självstudie: identifiera fysiska servrar med Server utvärdering
 
@@ -31,11 +31,11 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien måste du kontrol lera att du har dessa krav på plats.
 
-**Krav** | **Information**
+**Krav** | **Detaljer**
 --- | ---
 **Enhet** | Du behöver en dator för att köra Azure Migrate-installationen. Datorn ska ha:<br/><br/> – Windows Server 2016 installerat. _(För närvarande stöds endast distributionen av installations programmet på Windows Server 2016.)_<br/><br/> – 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring<br/><br/> – En statisk eller dynamisk IP-adress, med Internet åtkomst, antingen direkt eller via en proxyserver.
 **Windows-servrar** | Tillåt inkommande anslutningar på WinRM-port 5985 (HTTP), så att enheten kan hämta konfigurations-och prestanda-metadata.
@@ -208,7 +208,7 @@ Konfigurera enheten för första gången.
    
    Inloggning med en PIN-kod stöds inte.
 3. När du har loggat in går du tillbaka till webbappen. 
-4. Om Azure-användarkontot som används för loggning har rätt [behörigheter](tutorial-prepare-physical.md) för de Azure-resurser som skapades under den här nyckeln, initieras registrerings enheten.
+4. Om Azure-användarkontot som används för loggning har rätt [behörigheter]() för de Azure-resurser som skapades under den här nyckeln, initieras registrerings enheten.
 1. När installationen av enheten har registrerats kan du se registrerings informationen genom att klicka på **Visa information**.
 
 
@@ -245,5 +245,3 @@ När identifieringen är klar kan du kontrol lera att servrarna visas i portalen
 
 - [Utvärdera fysiska servrar](tutorial-assess-physical.md) för migrering till virtuella Azure-datorer.
 - [Granska de data](migrate-appliance.md#collected-data---physical) som enheten samlar in under identifieringen.
-
-

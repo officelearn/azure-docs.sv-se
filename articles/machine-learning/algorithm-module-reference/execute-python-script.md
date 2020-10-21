@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 09/29/2020
-ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450121"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330382"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
@@ -120,9 +120,47 @@ EXECUTE Python-skript module innehåller exempel på python-kod som du kan anvä
 
     ![Köra python-indatamängds karta](media/module/python-module.png)
 
-4. Om du vill inkludera nya python-paket eller kod lägger du till den zippade filen som innehåller de här anpassade resurserna i **skript paket**. Indata till **skript paket** måste vara en zippad fil som överförs till din arbets yta som en fil typs data uppsättning. Du kan ladda upp data uppsättningen på till gångs sidan för **data uppsättningar** . Du kan dra data uppsättnings modulen från listan **mina data uppsättningar** i trädet till vänster-modul på design sidan för designern. 
+4. Om du vill inkludera nya python-paket eller-kod ansluter du den zippade filen som innehåller dessa anpassade resurser till **skript paketets** port. Eller om ditt skript är större än 16 KB använder du **Skriptets paket** port för att undvika fel som *kommando raden överskrider gränsen på 16597 tecken*. 
 
-    Alla filer som finns i det överförda zippade arkivet kan användas under pipeline-körningen. Om arkivet innehåller en katalog struktur bevaras strukturen, men du måste lägga en katalog med namnet **src** till sökvägen.
+    
+    1. Paketera skriptet och andra anpassade resurser i en zip-fil.
+    1. Överför zip-filen som en **fil data uppsättning** till Studio. 
+    1. Dra data uppsättnings modulen från listan *data uppsättningar* i fönstret till vänster på design sidan i designern. 
+    1. Anslut data uppsättnings modulen till **skript paket** porten för **Kör R-skript** -modulen.
+    
+    Alla filer som finns i det överförda zippade arkivet kan användas under pipeline-körningen. Om arkivet innehåller en katalog struktur bevaras strukturen.
+    
+    Följande är ett exempel på ett skript paket som innehåller en python-skriptfil och en txt-fil:
+      
+    > [!div class="mx-imgBorder"]
+    > ![Exempel på skript paket](media/module/python-script-bundle.png)  
+
+    Följande är innehållet i `my_script.py` :
+
+    ```python
+    def my_func(dataframe1):
+    return dataframe1
+    ```
+    Följande är exempel kod som visar hur du använder filerna i skript paketet:    
+
+    ```python
+    import pandas as pd
+    from my_script import my_func
+ 
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+ 
+        # Execution logic goes here
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+ 
+        # Test the custom defined python function
+        dataframe1 = my_func(dataframe1)
+ 
+        # Test to read custom uploaded files by relative path
+        with open('./Script Bundle/my_sample.txt', 'r') as text_file:
+            sample = text_file.read()
+    
+        return dataframe1, pd.DataFrame(columns=["Sample"], data=[[sample]])
+    ```
 
 5. I text rutan **Python-skript** skriver eller klistrar du in giltigt Python-skript.
 

@@ -4,17 +4,17 @@ description: Lär dig nu att importera certifikatfiler till en Service Fabric co
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 426aa2ebbfb87fe2c80e0d1aff3eeecbe0e2472d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 219882a3f7f6db665f1ec311098ef53464773b71
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050751"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92313688"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>Importera en certifikat fil till en behållare som körs på Service Fabric
 
 > [!NOTE]
-> För Service Fabric kluster som körs på Azure rekommenderar vi att du använder [Service Fabric program hanterad identitet](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity) för att etablera program certifikat inifrån en behållare. Hanterad identitet ger isolering av hemligheter och certifikat på tjänst nivå, och gör att Application Certificate-etableringen kan ingå i programmets arbets flöde i stället för infrastrukturens arbets flöde. CertificateRef-mekanismen är inaktuell i en framtida version.
+> För Service Fabric kluster som körs på Azure rekommenderar vi att du använder [Service Fabric program hanterad identitet](./concepts-managed-identity.md) för att etablera program certifikat inifrån en behållare. Hanterad identitet ger isolering av hemligheter och certifikat på tjänst nivå, och gör att Application Certificate-etableringen kan ingå i programmets arbets flöde i stället för infrastrukturens arbets flöde. CertificateRef-mekanismen är inaktuell i en framtida version.
 
 Du kan skydda behållar tjänsterna genom att ange ett certifikat. Service Fabric tillhandahåller en mekanism för tjänster i en behållare för att få åtkomst till ett certifikat som är installerat på noderna i ett Windows-eller Linux-kluster (version 5,7 eller senare). Certifikatet måste installeras i ett certifikat Arkiv under LocalMachine på alla noder i klustret. Den privata nyckeln som motsvarar certifikatet måste vara tillgänglig, tillgänglig och Windows-exporter bar. Certifikat informationen finns i program manifestet under `ContainerHostPolicies` taggen som följande fragment visar:
 

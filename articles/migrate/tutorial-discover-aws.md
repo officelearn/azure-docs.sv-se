@@ -4,12 +4,12 @@ description: Lär dig hur du identifierar AWS-instanser med Azure Migrate Server
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b837ae89831024b169782fe9ae1a062677a4b45b
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275463"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311279"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Självstudie: identifiera AWS-instanser med Server utvärdering
 
@@ -31,11 +31,11 @@ I den här guiden får du lära dig att:
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du påbörjar den här självstudien måste du kontrol lera att du har dessa krav på plats.
 
-**Krav** | **Information**
+**Krav** | **Detaljer**
 --- | ---
 **Enhet** | Du behöver en virtuell EC2-dator för att köra Azure Migrate-installationen. Datorn ska ha:<br/><br/> – Windows Server 2016 installerat. Det finns inte stöd för att köra installationen på en dator med Windows Server 2019.<br/><br/> – 16 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/><br/> – En statisk eller dynamisk IP-adress, med Internet åtkomst, antingen direkt eller via en proxyserver.
 **Windows-instanser** | Tillåt inkommande anslutningar på WinRM-port 5985 (HTTP), så att enheten kan hämta konfigurations-och prestanda-metadata.
@@ -224,7 +224,7 @@ Konfigurera enheten för första gången.
    
    Inloggning med en PIN-kod stöds inte.
 3. När du har loggat in går du tillbaka till webbappen. 
-4. Om Azure-användarkontot som används för loggning har rätt [behörigheter](tutorial-prepare-physical.md) för de Azure-resurser som skapades under den här nyckeln, initieras registrerings enheten.
+4. Om Azure-användarkontot som används för loggning har rätt [behörigheter](./tutorial-discover-physical.md) för de Azure-resurser som skapades under den här nyckeln, initieras registrerings enheten.
 1. När installationen av enheten har registrerats kan du se registrerings informationen genom att klicka på **Visa information**.
 
 

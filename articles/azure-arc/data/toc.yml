@@ -24,7 +24,7 @@
       items:
         - name: Installera klientverktyg
           href: install-client-tools.md
-        - name: azdata
+        - name: Azure Data CLI (azdata)
           items:
             - name: Installera
               href: /sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json
@@ -46,7 +46,7 @@
           href: create-data-controller-azure-data-studio.md
         - name: Skapa datakontrollantresurs (portal)
           href: create-data-controller-resource-in-azure-portal.md
-        - name: Skapa datakontrollant (azdata)
+        - name: Skapa datakontrollant (Azure Data CLI)
           href: create-data-controller-using-azdata.md
         - name: Skapa datakontrollant med Kubernetes
           href: create-data-controller-using-kubernetes-native-tools.md

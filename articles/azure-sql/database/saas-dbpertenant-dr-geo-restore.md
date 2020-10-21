@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 602ed2cca725814e4f150bc684036d166b8ff45a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620a5dad7966347667e0a0a50eb30d562ab700b2
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619046"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92330112"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Använd geo-återställning för att återställa ett SaaS-program med flera innehavare från databas säkerhets kopior
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -184,7 +184,7 @@ Tänk dig att det finns ett avbrott i den region där programmet distribueras oc
 
 3. Övervaka status för återställnings processen i PowerShell-fönstret.
 
-    ![Återställnings process](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
+    ![Skärm bild som visar PowerShell-fönstret där du kan övervaka status för återställnings processen.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress.png)
 
 > [!NOTE]
 > Om du vill utforska koden för återställnings jobben granskar du PowerShell-skripten i mappen. ..\Learning Modules\Business kontinuitet och katastrof Recovery\DR-RestoreFromBackup\RecoveryJobs.
@@ -202,7 +202,7 @@ När program slut punkten är inaktive rad i Traffic Manager är programmet inte
 
   * Om du öppnar en klients händelse sida direkt när klienten är offline visas en klient offline-avisering i sidan. Om contoso konsert Hall till exempel är offline kan du försöka öppna http://events.wingtip-dpt.&lt . user &gt; . trafficmanager.net/contosoconcerthall.
 
-    ![Återställnings process](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
+    ![Skärm bild som visar sidan offline-händelser.](./media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
 ## <a name="provision-a-new-tenant-in-the-recovery-region"></a>Etablera en ny klient i återställnings regionen
 Du kan etablera nya klienter i återställnings regionen även innan klient databaserna återställs. Nya klient databaser som etablerades i återställnings regionen är repatriated med de återställda databaserna senare.   

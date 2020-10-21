@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: a01d4137217aa594d4636f3338d3f33dc03cc836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6c3fff3ed265cb910388a2c9456b8a3f9d63c8b
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713750"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281197"
 ---
 # <a name="pricing-of-azure-security-center"></a>Prissättning för Azure Security Center
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Den ger insyn och kontroll över hybrid moln arbets belastningar, aktiva försvar som minskar exponeringen för hot och intelligent identifiering som hjälper dig att hålla jämna steg med snabbt växande cyberhot-attacker.
@@ -32,9 +32,10 @@ Security Center erbjuds i två lägen:
 
 - **Azure Defender on** -aktivera Azure Defender utökar funktionerna i det kostnads fria läget till arbets belastningar som körs i privata och andra offentliga moln, vilket ger enhetlig säkerhets hantering och skydd mot hot i dina hybrid moln arbets belastningar. Några av de viktigaste funktionerna i Azure Defender:
 
+    - **Microsoft Defender för slut punkt** – Azure Defender for-servrar innehåller [Microsoft Defender för slut punkt](https://www.microsoft.com/microsoft-365/security/endpoint-defender) för omfattande slut punkts identifiering och-svar (EDR). Lär dig mer om fördelarna med att använda Microsoft Defender för slut punkt tillsammans med Azure Defender som [används Security Center s integrerade EDR-lösning](security-center-wdatp.md).
+    - **Sårbarhets sökning för virtuella datorer och behållar register** – du kan enkelt distribuera en skanner till alla virtuella datorer som tillhandahåller branschens mest avancerade lösning för sårbarhets hantering. Visa, Undersök och åtgärda resultaten direkt i Security Center. 
     - **Hybrid säkerhet** – få en enhetlig vy över säkerheten i alla dina lokala och molnbaserade arbets belastningar. Tillämpa säkerhets principer och utvärdera kontinuerligt säkerheten för dina hybrid moln arbets belastningar för att säkerställa efterlevnaden av säkerhets standarder. Samla in, Sök och analysera säkerhets data från flera källor, inklusive brand väggar och andra partner lösningar.
     - **Hot skydds aviseringar** – avancerad beteende analys och Microsoft Intelligent Security Graph ger en gräns för de växande cyberhot-angrepp. Använd inbyggd beteende analys och maskin inlärning för att identifiera attacker och den långsiktiga ingreppen. Övervaka nätverk, datorer och moln tjänster för inkommande attacker och aktiviteter efter intrång. Effektivisera undersökningen med interaktiva verktyg och sammanhangsbaserad Hot information.
-    - **Sårbarhets sökning för virtuella datorer och behållar register** – du kan enkelt distribuera en skanner till alla virtuella datorer som tillhandahåller branschens mest avancerade lösning för sårbarhets hantering. Visa, Undersök och åtgärda resultaten direkt i Security Center. 
     - **Åtkomst-och program kontroller** – blockera skadlig kod och andra oönskade program genom att använda Machine Learning-baserade rekommendationer som är anpassade till dina specifika arbets belastningar för att skapa listor över tillåtna och nekade. Minska nätverks attack ytan med just-in-Time-kontrollerad åtkomst till hanterings portar på virtuella Azure-datorer. Detta minskar drastiskt exponeringen för brute force och andra nätverks attacker.
     - **Behållar säkerhetsfunktioner** – dra nytta av sårbarhets hantering och skydd mot Real tids skydd i dina behållares miljöer. När du aktiverar **Azure Defender för behållar register**kan det ta upp till 12hrs tills alla funktioner har Aktiver ATS. Avgifterna baseras på antalet unika behållar avbildningar som push-överförts till det anslutna registret. När en bild har genomsökts en gång, kommer du inte att debiteras för den igen om den inte ändras och skickas en gång till. 
 

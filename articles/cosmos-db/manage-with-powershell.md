@@ -4,19 +4,19 @@ description: Hantera API-resurser för Azure Cosmos DB Core (SQL) med hjälp av 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 652c546c5a38543e89f7a3b5ab8bc036c8d80911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4147b9a3a5f0a249366431a4e43f924e89f9075
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840888"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92281492"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Hantera API-resurser för Azure Cosmos DB Core (SQL) med PowerShell
 
-I följande guide beskrivs hur du använder PowerShell för att skripta och automatisera hanteringen av API-resurser i Azure Cosmos DB Core (SQL), inklusive Cosmos-konto, databas, behållare och data flöde.
+I följande guide beskrivs hur du använder PowerShell för att skripta och automatisera hanteringen av API-resurser i Azure Cosmos DB Core (SQL), inklusive Cosmos-konto, databas, behållare och data flöde. PowerShell-cmdletar för andra API: er i PowerShell-exempel för [Cassandra](powershell-samples-cassandra.md), PowerShell-exempel för [MongoDB-API](powershell-samples-mongodb.md), PowerShell-exempel för [Gremlin](powershell-samples-gremlin.md), [PowerShell-exempel för tabell](powershell-samples-table.md)
 
 > [!NOTE]
 > I exemplen i den här artikeln används [AZ. CosmosDB](/powershell/module/az.cosmosdb) hanterings-cmdletar. Se referens sidan för [AZ. CosmosDB](/powershell/module/az.cosmosdb) -API för de senaste ändringarna.

@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 10/12/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b2476d58cdfe057a94c52b40af7694abc7b263f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970647"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92315937"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -69,6 +69,10 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 - Säkerhetskopiera och återställa kund information [från lokala arbets belastningar, virtuella Azure-datorer, Azure-filresurser med mera](../..//backup/backup-overview.md#what-can-i-back-up)
 - Använd [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) för att Visa användnings information om säkerhets kopierings objekt (inklusive Azure-resurser som ännu inte har kon figurer ATS för säkerhets kopiering) och övervaknings information (jobb och aviseringar) för delegerade prenumerationer. Backup Explorer är för närvarande endast tillgängligt för Azure VM-data.
 - Använd [säkerhets kopierings rapporter](../../backup/configure-reports.md) över delegerade prenumerationer för att spåra historiska trender, analysera förbrukning av lagrings utrymme för säkerhets kopior och granska säkerhets kopieringar och återställning.
+
+[Azure-ritningar](../../governance/blueprints/index.yml):
+
+- Använd Azure-ritningar för att dirigera distributionen av resursfiler och andra artefakter (kräver [ytterligare åtkomst](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) för att förbereda kund prenumerationen)
 
 [Azure Cost Management + fakturering](../../cost-management-billing/index.yml):
 

@@ -122,6 +122,8 @@
       items:
         - name: Inga berättigade prenumerationer
           href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
+        - name: Felsöka reservationsförbrukning
+          href: troubleshoot-reservation-utilization.md??toc=/azure/cost-management-billing/reservations/toc.json
 - name: Referens
   items:
     - name: REST-API för reservationer

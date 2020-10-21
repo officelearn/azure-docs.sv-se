@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba683e3d616f52854f1055dab9b9fe2d389116a
+ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88893783"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92331744"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Använd Azures brand Väggs princip för att definiera en regelmall
 
@@ -21,7 +21,7 @@ Säkerhets administratörer behöver hantera brand väggar och säkerställa eft
 Med Azure Firewall-principen kan du definiera en regelmall och genomdriva efterlevnad:
 
 - Innehåller en hierarkisk struktur för att täcka en central bas princip ovanpå en underordnad program grupp princip. Bas principen har högre prioritet och körs före den underordnade principen.
-- Använd en anpassad rollbaserad åtkomst kontroll (RBAC)-definition för att förhindra oavsiktlig grund policy borttagning och ge selektiv åtkomst till regel samlings grupper i en prenumeration eller resurs grupp. 
+- Använd en anpassad roll definition i Azure för att förhindra oavsiktlig grund policy borttagning och ge selektiv åtkomst till regel samlings grupper i en prenumeration eller resurs grupp. 
 
 ## <a name="solution-overview"></a>Lösningsöversikt
 
@@ -153,7 +153,7 @@ Upprepa proceduren för de andra brand Väggs principerna.
 
 ### <a name="summary"></a>Sammanfattning
 
-Brand Väggs princip med anpassad RBAC ger nu selektiv åtkomst till samlings grupper för brand Väggs principer.
+Brand Väggs principen med anpassade roller ger nu selektiv åtkomst till samlings grupper för brand Väggs principer.
 
 Användare har inte behörighet att:
 - Ta bort Azure Firewall eller brand Väggs principen.

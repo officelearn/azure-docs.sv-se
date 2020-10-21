@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7252a6ccd77212f75f5db54e5f3fcad7aa2df50a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91440772"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339738"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Få överblick över hela organisationen för Azure Security Center
 Den här artikeln förklarar hur du hanterar din organisations säkerhets position i stor skala genom att använda säkerhets principer för alla Azure-prenumerationer som är kopplade till din Azure Active Directory-klient.
@@ -33,10 +33,10 @@ Rot hanterings gruppen skapas automatiskt när du gör någon av följande åtg�
 2. Skapa en hanterings grupp via ett API-anrop.
 3. Skapa en hanterings grupp med PowerShell.
 
-En detaljerad översikt över hanterings grupper finns i artikeln [organisera dina resurser med Azures hanterings grupper](../azure-resource-manager/management-groups-overview.md) .
+En detaljerad översikt över hanterings grupper finns i artikeln [organisera dina resurser med Azures hanterings grupper](../governance/management-groups/overview.md) .
 
 ## <a name="create-a-management-group-in-the-azure-portal"></a>Skapa en hanterings grupp i Azure Portal
-Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrnings principer i hanterings grupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. Även om hanterings grupper inte krävs för att publicera Security Center, rekommenderar vi starkt att du skapar minst en hanterings grupp så att rot hanterings gruppen skapas. När gruppen har skapats kommer alla prenumerationer i Azure AD-klienten att länkas till den. Instruktioner för PowerShell och mer information finns i [skapa hanterings grupper för resurs-och organisations hantering](../azure-resource-manager/management-groups-create.md).
+Du kan organisera prenumerationer i hanterings grupper och tillämpa dina styrnings principer i hanterings grupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. Även om hanterings grupper inte krävs för att publicera Security Center, rekommenderar vi starkt att du skapar minst en hanterings grupp så att rot hanterings gruppen skapas. När gruppen har skapats kommer alla prenumerationer i Azure AD-klienten att länkas till den. Instruktioner för PowerShell och mer information finns i [skapa hanterings grupper för resurs-och organisations hantering](../governance/management-groups/create-management-group-portal.md).
 
  
 1. Logga in på [Azure-portalen](https://portal.azure.com).

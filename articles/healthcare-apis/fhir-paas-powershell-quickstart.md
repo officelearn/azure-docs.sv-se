@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/15/2019
 ms.author: cavoeg
-ms.openlocfilehash: 07221e0cf8feeef48de27a84450c28b08d22e0d3
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2cb50f2ae98dab1e64e01498e0913d1932e455cd
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217498"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339415"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-powershell"></a>Snabb start: Distribuera Azure API för FHIR med PowerShell
 
@@ -68,7 +68,10 @@ Remove-AzResourceGroup -Name myResourceGroupName
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starts guiden har du distribuerat Azure API för FHIR i din prenumeration. Om du vill ange ytterligare inställningar i Azure-API: et för FHIR går du vidare till ytterligare inställningar instruktions guide.
+I den här snabb starts guiden har du distribuerat Azure API för FHIR i din prenumeration. Om du vill ange ytterligare inställningar i Azure-API: et för FHIR går du vidare till ytterligare inställningar instruktions guide. Läs mer om hur du registrerar program om du är redo att börja använda Azure API för FHIR.
 
 >[!div class="nextstepaction"]
 >[Ytterligare inställningar i Azure API för FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Översikt över program register](fhir-app-registration.md)

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 8fa72dcd857977474cf76eada500214bf8129aca
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993610"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340877"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Anslut dina datorer som inte är Azure-datorer till Security Center
 
@@ -86,7 +86,7 @@ Om du vill lägga till Azure Stack virtuella datorer behöver du informationen p
 1. Logga in på **Azure Stack** Portal och öppna sidan **virtuella datorer** .
 1. Välj den virtuella dator som du vill skydda med Security Center.
     >[!TIP]
-    > Information om hur du skapar en virtuell dator på Azure Stack finns i [den här snabb starten för virtuella Windows-datorer](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) eller [den här snabb starten för virtuella Linux-datorer](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
+    > Information om hur du skapar en virtuell dator på Azure Stack finns i [den här snabb starten för virtuella Windows-datorer](/azure-stack/user/azure-stack-quick-windows-portal) eller [den här snabb starten för virtuella Linux-datorer](/azure-stack/user/azure-stack-quick-linux-portal).
 1. Välj **Tillägg**. Listan över virtuella dator tillägg som är installerade på den här virtuella datorn visas.
 1. Välj fliken **Lägg till** . Menyn **Ny resurs** visar en lista över tillgängliga tillägg för virtuella datorer.
 1. Välj tillägget **Azure Monitor, uppdatering och konfigurations hantering** och välj **skapa**. Sidan **installera tillägg** konfiguration öppnas.

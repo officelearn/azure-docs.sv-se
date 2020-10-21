@@ -9,14 +9,14 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260163"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341557"
 ---
-# <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
+# <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version) 
 
 I den här artikeln får du lära dig hur du använder roller och åtkomst kontroll för att styra aktiviteter och åtkomst till data. Genom att följa dessa anvisningar är åtkomst kontroll i Azure Synapse Analytics förenklad. Du behöver bara lägga till och ta bort användare till en av tre säkerhets grupper.
 
@@ -31,7 +31,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
   - Apache Spark för Azure Synapse Analytics-administratör
 - Åtkomst kontroll för data i Azure Data Lake Storage gen 2 (ADLSGEN2).
 - Åtkomst kontroll för Synapse SQL-och Spark-databaser
-
+- 
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Steg för att skydda en Synapse-arbetsyta
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
@@ -71,11 +71,12 @@ Identifiera den här informationen om din lagring:
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>STEG 3: skapa och konfigurera din Synapse-arbetsyta
 
-I Azure Portal skapar du en arbets yta för Synapse:
+ I Azure Portal skapar du en arbets yta för Synapse:
 
+- Välj din prenumeration
+- Välj resurs grupp – du måste ha åtkomst till en resurs grupp som du har tilldelats **ägar** rollen för.
 - Namnge arbets ytans WS1
-- Välj STG1 för lagrings kontot
-- Välj CNT1 för den behållare som används som "filesystem".
+- Välj STG1 för lagrings kontot –. Välj CNT1 för den behållare som används som "filesystem".
 - Öppna WS1 i Synapse Studio
 - Välj **Hantera**  >  **Access Control** tilldela säkerhets grupperna till följande Synapse-roller.
   - Tilldela **WS1- \_ WSAdmins** till Synapse arbets ytans administratörer

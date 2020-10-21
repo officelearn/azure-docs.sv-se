@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 729150188e918d4964f8abe729c66032d8e6c9c0
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 4dd22427038bc7c4052ee714c3ec3ce45d7a1837
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689158"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132830"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Så här optimerar du din molninvestering med Azure Cost Management
 
@@ -126,7 +126,7 @@ Mer information finns på sidan med [priskalkylatorn för Azure](https://azure.m
 
 Azure Migrate är en tjänst som bedömer din organisations aktuella arbetsbelastningar i lokala datacenter. Du får en inblick i vad du kan behöva från en Azure-ersättningslösning. Först analyserar Migrate dina lokala datorer för att avgöra om migreringen är möjlig. Sedan rekommenderar den VM-storlekar i Azure för att maximera prestanda. Slutligen skapar den en kostnadsuppskattning för en Azure-baserad lösning.
 
-Mer information finns på sidan om [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview).
+Mer information finns på sidan om [Azure Migrate](../../migrate/migrate-services-overview.md).
 
 ## <a name="analyze-and-manage-your-costs"></a>Analysera och hantera kostnader
 

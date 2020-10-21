@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: ''
-ms.openlocfilehash: 7f4585d7199b44c82df9a03ea3244885da72d2fa
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 1e5f49fb48cfc9be9cfb6970641ad7b4b3c06fb5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685178"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131062"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>Vad är Azure Cost Management + Fakturering?
 
@@ -112,7 +112,7 @@ Titta på [videon om Azure Cost Management och Cloudyn](https://www.youtube.com/
 I Azure finns andra verktyg som inte ingår i funktionerna i Azure Cost Management + Fakturering. De spelar dock en viktig roll i kostnadshanteringsprocessen. Se följande länkar om du vill veta mer om dessa verktyg.
 
 - [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) – använd det här verktyget för att beräkna dina startkostnader för moln.
-- [Azure Migrate](../migrate/migrate-overview.md) – utvärdera din nuvarande datacenterarbetsbelastning för att få insikter om vad som behövs från en Azure-ersättningslösning.
+- [Azure Migrate](/azure/cost-management-billing/migrate-services-overview) – utvärdera din nuvarande datacenterarbetsbelastning för att få insikter om vad som behövs från en Azure-ersättningslösning.
 - [Azure Advisor](../advisor/advisor-overview.md) – identifiera oanvända virtuella datorer och få rekommendationer om köp av reserverade Azure-instanser.
 - [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) – använd dina aktuella lokala Windows Server- eller SQL Server-licenser för virtuella datorer i Azure för att spara.
 

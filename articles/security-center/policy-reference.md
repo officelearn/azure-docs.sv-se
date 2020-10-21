@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 371bbd6919f787401da361339f705fa5edfa4547
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b7478199e4bb6f1e9ad986193370d4ea8610bd7a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328699"
+ms.locfileid: "92340911"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Inbyggda definitioner för Azure Policy i Azure Security Center
 
@@ -52,5 +52,5 @@ I den här artikeln har du lärt dig mer om Azure Policy säkerhets princips def
 - [Azure Security Center planering och drifts guide](./security-center-planning-and-operations-guide.md): Lär dig hur du planerar och förstår design överväganden i Azure Security Center.
 - [Övervakning av säkerhetshälsa i Azure Security Center](./security-center-monitoring.md): Lär dig hur du övervakar dina Azure-resursers hälsa.
 - [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](./security-center-managing-and-responding-alerts.md): Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-- [Övervaka partnerlösningar med Azure Security Center](./security-center-partner-solutions.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
+- [Övervaka partnerlösningar med Azure Security Center](./security-center-partner-integration.md): Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 - [Azure policy](../governance/policy/overview.md): Lär dig att granska och styra dina Azure-resurser.

@@ -8,12 +8,12 @@ ms.reviewer: amberb
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: banders
-ms.openlocfilehash: 661b088d024a6da631fa06fbd97131091b9f650b
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 02919cf2e35fdd4d981f3fde53085c2174f11bd1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371889"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132575"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja behörighet att skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -84,7 +84,7 @@ För att kunna [skapa prenumerationer under ett registreringskonto](programmatic
 
     # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-    Använd kommandot [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) för att visa en lista över alla registreringskonton som du har åtkomst till. Välj **Prova** för att öppna [Azure Cloud Shell](https://shell.azure.com/). Du klistrar in koden genom att högerklicka på Shell-fönstren och välja **Klistra in**.
+    Använd kommandot [az billing enrollment-account list](/cli/azure/billing) för att visa en lista över alla registreringskonton som du har åtkomst till. Välj **Prova** för att öppna [Azure Cloud Shell](https://shell.azure.com/). Du klistrar in koden genom att högerklicka på Shell-fönstren och välja **Klistra in**.
 
     ```azurecli-interactive
     az billing enrollment-account list

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 565282b2da5383c1d3471337f64588f97157a79c
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 098cfa1784571856cbd80d55fec4e6232e882d17
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328682"
+ms.locfileid: "92339857"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -227,7 +227,7 @@ Läs mer i [Azure Defender för Key Vault](defender-for-key-vault-introduction.m
 
 **Azure Defender för lagring** identifierar potentiellt skadlig aktivitet på dina Azure Storage-konton. Dina data kan skyddas oavsett om de lagras som BLOB-behållare, fil resurser eller data sjöar.
 
-Support för [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) är nu allmänt tillgänglig.
+Support för [Azure Files](../storage/files/storage-files-introduction.md) och [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) är nu allmänt tillgänglig.
 
 Från 1 oktober 2020 börjar vi debitera för att skydda resurser på dessa tjänster.
 
@@ -363,7 +363,7 @@ Följande säkerhets rekommendationer relaterade till nätverks säkerhets grupp
 
 ### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>Föråldrad för hands version AKS-rekommendation "Pod Security Policies definieras i Kubernetes Services"
 
-Förhands gransknings rekommendationen "Pod Security Policies" måste definieras i Kubernetes Services ", vilket beskrivs i dokumentationen för [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/use-pod-security-policies) .
+Förhands gransknings rekommendationen "Pod Security Policies" måste definieras i Kubernetes Services ", vilket beskrivs i dokumentationen för [Azure Kubernetes-tjänsten](../aks/use-pod-security-policies.md) .
 
 Funktionen Pod Security Policy (för hands version) är inställd för utfasning och kommer inte längre att vara tillgänglig efter den 15 oktober 2020 i Azure Policy för AKS.
 
@@ -481,7 +481,7 @@ Läs mer om [till gångs inventering](asset-inventory.md).
 
 ### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Stöd har lagts till för Azure Active Directory säkerhets inställningar (för Multi-Factor Authentication)
 
-Security Center har lagt till fullständigt stöd för [säkerhets standarder](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), Microsofts kostnads fria identitets skydds skydd.
+Security Center har lagt till fullständigt stöd för [säkerhets standarder](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), Microsofts kostnads fria identitets skydds skydd.
 
 Säkerhets standarder tillhandahåller förkonfigurerade säkerhets inställningar för identitet för att skydda din organisation från vanliga problem med identitets angrepp. Säkerhets standarder skyddar redan över 5 000 000 klienter totalt. 50 000-klienter skyddas också av Security Center.
 
@@ -489,7 +489,7 @@ Security Center har nu en säkerhets rekommendation när den identifierar en Azu
 
 Vårt mål är att uppmuntra fler kunder att skydda sina moln miljöer med MFA och minimera en av de högsta riskerna som också är mest påverkan av dina [säkra Poäng](secure-score-security-controls.md).
 
-Läs mer om [säkerhets inställningar](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+Läs mer om [säkerhets inställningar](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 
 ### <a name="service-principals-recommendation-added"></a>Rekommendation för tjänstens huvud namn lades till
@@ -498,7 +498,7 @@ En ny rekommendation har lagts till för att rekommendera att Security Center ku
 
 Rekommendationen är att **tjänstens huvud namn ska användas för att skydda dina prenumerationer i stället för hanterings certifikat** som rekommenderar att du använder tjänstens huvud namn eller Azure Resource Manager för att hantera dina prenumerationer på ett säkert sätt. 
 
-Läs mer om [program-och tjänst huvud objekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+Läs mer om [program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object).
 
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Sårbarhets bedömning på virtuella datorer – rekommendationer och konsoliderade principer
@@ -679,7 +679,7 @@ Sex principer relaterade till avancerad data säkerhet för SQL-datorer är för
 - E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar för SQL-hanterad instans
 - E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar i SQL Server
 
-Läs mer om [inbyggda principer](security-center-policy-definitions.md).
+Läs mer om [inbyggda principer](./policy-reference.md).
 
 
 
@@ -699,7 +699,7 @@ Uppdateringarna i juni inkluderar:
 
 ### <a name="secure-score-api-preview"></a>Secure score-API (för hands version)
 
-Nu kan du komma åt dina poäng via [Secure score-API: t](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (för närvarande i för hands version). API-metoderna ger flexibiliteten att fråga data och skapa en egen rapporterings mekanism för dina säkra poäng över tid. Du kan till exempel använda **Secure Scores** -API: et för att hämta poängen för en speciell prenumeration. Dessutom kan du använda API: et för **säker Poäng** för att visa en lista över säkerhets kontrollerna och de aktuella poängen för dina prenumerationer.
+Nu kan du komma åt dina poäng via [Secure score-API: t](/rest/api/securitycenter/securescores/) (för närvarande i för hands version). API-metoderna ger flexibiliteten att fråga data och skapa en egen rapporterings mekanism för dina säkra poäng över tid. Du kan till exempel använda **Secure Scores** -API: et för att hämta poängen för en speciell prenumeration. Dessutom kan du använda API: et för **säker Poäng** för att visa en lista över säkerhets kontrollerna och de aktuella poängen för dina prenumerationer.
 
 Exempel på externa verktyg som möjliggörs med Secure score-API: et finns i avsnittet [Secure Scores i vår GitHub-community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
@@ -725,7 +725,7 @@ Lär dig mer om [Avancerad data säkerhet för SQL-datorer](defender-for-sql-usa
 
 ### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Två nya rekommendationer för att distribuera Log Analytics agent till Azure Arc-datorer (för hands version)
 
-Två nya rekommendationer har lagts till för att hjälpa till att distribuera [Log Analytics agenten](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) till dina Azure Arc-datorer och se till att de skyddas av Azure Security Center:
+Två nya rekommendationer har lagts till för att hjälpa till att distribuera [Log Analytics agenten](../azure-monitor/platform/log-analytics-agent.md) till dina Azure Arc-datorer och se till att de skyddas av Azure Security Center:
 
 - **Log Analytics agenten ska installeras på dina Windows-baserade Azure Arc-datorer (för hands version)**
 - **Log Analytics agent ska installeras på Linux-baserade Azure Arc-datorer (för hands version)**
@@ -921,11 +921,11 @@ De tre rekommendationer som flyttats är:
 
 De två nya rekommendationerna som läggs till i kontrollen är:
 
-- **Gäst konfigurations tillägget bör installeras på virtuella Windows-datorer (för hands version)** – med [Azure policy gäst konfiguration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) får du insyn i virtuella datorer för Server-och program inställningar (endast Windows).
+- **Gäst konfigurations tillägget bör installeras på virtuella Windows-datorer (för hands version)** – med [Azure policy gäst konfiguration](../governance/policy/concepts/guest-configuration.md) får du insyn i virtuella datorer för Server-och program inställningar (endast Windows).
 
 - **Windows Defender sårbarhet Guard måste vara aktiverat på dina datorer (för hands version)** – Windows Defender sårbarhet guard utnyttjar Azure policy konfigurations agenten för gäst. I sårbarhets Guard finns fyra komponenter som är utformade för att låsa enheter mot en mängd olika angrepps vektorer och blockera beteenden som ofta används i angrepp mot skadlig kod och som gör det möjligt för företag att balansera sina säkerhets risker och produktivitets krav (endast Windows).
 
-Lär dig mer om Windows Defender sårbarhet Guard i [skapa och distribuera en princip för sårbarhets skydd](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
+Lär dig mer om Windows Defender sårbarhet Guard i [skapa och distribuera en princip för sårbarhets skydd](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Lär dig mer om säkerhets kontroller i [förbättrade säkra poäng (för hands version)](secure-score-security-controls.md).
 

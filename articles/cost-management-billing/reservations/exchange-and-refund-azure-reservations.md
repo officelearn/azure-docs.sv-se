@@ -7,12 +7,12 @@ ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 553652832f3f4ce84a0a141455551e4977215184
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 32db8396a687428c668a9b8a4213b50986614083
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684430"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150124"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Byten och återbetalning för Azure-reservationer via självbetjäning
 
@@ -21,7 +21,7 @@ Azure-reservationer ger flexibilitet för att tillgodose dina föränderliga beh
 Byte eller annullering av kapacitet via självbetjäning är inte tillgängligt för US Government-kunder med Enterprise-avtal. Andra typer av US Government-prenumerationer, inklusive Pay-As-You-Go (betala per användning) och CSP (molnlösningsleverantör) stöds.
 
 > [!NOTE]
-> - **Du måste ha ägaråtkomst till reservationsbeställningen för att byta eller återbetala en befintlig reservation.** Du kan [Lägga till eller ändra användare som kan hantera en reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+> - **Du måste ha ägaråtkomst till reservationsbeställningen för att byta eller återbetala en befintlig reservation.** Du kan [Lägga till eller ändra användare som kan hantera en reservation](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 > - Microsoft debiterar för närvarande inte avgifter för tidig uppsägning för återbetalningar av reservationer. Vi kan komma att debitera avgifterna för återbetalningar som görs i framtiden. Vi har för närvarande inget datum för när den här avgiften skulle införas.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Så här byter eller återbetalar du en befintlig reservation

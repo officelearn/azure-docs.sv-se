@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122192"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341914"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med konfidentiella databeräknings-noder med Azure CLI (för hands version)
 
@@ -27,11 +27,11 @@ I den här snabb starten får du lära dig hur du distribuerar ett Azure Kuberne
 ### <a name="deployment-pre-requisites"></a>Krav för distribution
 
 1. Ha en aktiv Azure-prenumeration. Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar
-1. Ha Azure CLI-versionen 2.0.64 eller senare installerad och konfigurerad på din distributions dator (kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. Ha Azure CLI-versionen 2.0.64 eller senare installerad och konfigurerad på din distributions dator (kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
 1. [AKS –](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) lägsta version för för hands versions tillägg 0.4.62 
-1. Ha minst sex DCSv2-kärnor som är tillgängliga i din prenumeration för användning. Som standard används kvoten för VM-kärnor för konfidentiella data behandling per Azure-prenumeration 8 kärnor. Om du planerar att etablera ett kluster som kräver mer än 8 kärnor, följer du [dessa](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) anvisningar för att öka en kvots öknings biljett
+1. Ha minst sex **DC <x> s-v2-** kärnor som är tillgängliga i din prenumeration för användning. Som standard används kvoten för VM-kärnor för konfidentiella data behandling per Azure-prenumeration 8 kärnor. Om du planerar att etablera ett kluster som kräver mer än 8 kärnor, följer du [dessa](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) anvisningar för att öka en kvots öknings biljett
 
-### <a name="confidential-computing-node-features"></a>Funktioner i noden konfidentiellt data behandling
+### <a name="confidential-computing-node-features-dcxs-v2"></a>Funktioner för att beräkna konfidentiella noder (DC <x> s-v2)
 
 1. Linux Worker-noder som endast stöder Linux-behållare
 1. Ubuntu generation 2 18,04 Virtual Machines
@@ -94,14 +94,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-Kommandot ovan bör etablera ett nytt AKS-kluster med DCSv2-nodkonfigurationer och installera två daemon-uppsättningar automatiskt ([SGX-enhet plugin](confidential-nodes-aks-overview.md#sgx-plugin)-citat, med  &  [hjälp av hjälp](confidential-nodes-aks-overview.md#sgx-quote))
+Kommandot ovan bör etablera ett nytt AKS-kluster med **DC <x> s-v2-** nodkonfigurationer och automatiskt installera två daemon-uppsättningar – ([SGX-enhets-plugin](confidential-nodes-aks-overview.md#sgx-plugin)  &  [SGX citat hjälp](confidential-nodes-aks-overview.md#sgx-quote))
 
 Hämta autentiseringsuppgifterna för ditt AKS-kluster med kommandot AZ AKS get-credentials:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Kontrol lera att noderna har skapats korrekt och att de SGX-relaterade daemon-uppsättningarna körs på DCSv2-noder med kommandot kubectl get poddar & Nodes (se nedan):
+Kontrol lera att noderna har skapats korrekt och att de SGX-relaterade daemon-uppsättningarna körs på **DC <x> s-v2 Node-** pooler med hjälp av kubectl Hämta poddar & Nodes (se nedan):
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -130,9 +130,12 @@ Först kan du aktivera de AKS-tillägg som är relaterade till konfidentiell dat
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Lägg nu till en DCSv2 Node-pool i klustret
-
-```azurecli-interactive
+Lägg nu till en **DC <x> s-v2 Node-** pool i klustret
+    
+> [!NOTE]
+> För att kunna använda den konfidentiella data bearbetnings funktionen måste ditt befintliga AKS-kluster ha minst en **DC <x> s-v2 VM-** SKU baserad på VM. Läs mer om konfidentiell dator hantering DCsv2 VM SKU: [er här tillgängliga SKU: er och regioner som stöds](virtual-machine-solutions.md).
+    
+  ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
 
 output node pool added

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/17/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 01fdaa95dd396e5545b65bada2a9d6410169230b
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 789bd2f62673e7faf562d3a407bf2f0a4fd861bf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052468"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125500"
 ---
 # <a name="quickstart-get-started-with-azure-data-box-to-export-data-from-azure"></a>Snabbstart: Kom igång med Azure Data Box och exportera data från Azure
 
@@ -28,7 +28,7 @@ Innan du börjar:
 
 * Kontrollera att den prenumeration du använder för Data Box-tjänsten är någon av följande typer:
   * Microsoft Enterprise-avtal (EA). Läs mer om [EA-prenumerationer](https://azure.microsoft.com/pricing/enterprise-agreement/).
-  * Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
+  * Leverantör av molnlösningar (CSP). Läs mer om [Azure CSP-program](/azure/cloud-solution-provider/overview/azure-csp-overview).
   * Microsoft Azure-sponsring. Läs mer om [Azure-sponsringsprogrammet](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 * Kontrollera att du har ägar- eller deltagaråtkomst till prenumerationen för att skapa en Data Box-beställning.
@@ -96,7 +96,7 @@ Det här steget tar cirka 5–7 minuter att slutföra.
 
 Hur lång tid det tar att slutföra den här åtgärden beror på datastorleken och nätverkshastigheten.
 
-1. Om du använder en Windows-klient använder du ett SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy. För en NFS-värd använder du kommandot `cp` eller `rsync` för att kopiera data. Om du vill ha mer information om hur du använder Robocopy för att kopiera data går du till [Robocopy](https://technet.microsoft.com/library/ee851678.aspx).
+1. Om du använder en Windows-klient använder du ett SMB-kompatibelt filkopieringsverktyg, till exempel Robocopy. För en NFS-värd använder du kommandot `cp` eller `rsync` för att kopiera data. Om du vill ha mer information om hur du använder Robocopy för att kopiera data går du till [Robocopy](/previous-versions/technet-magazine/ee851678(v=msdn.10)).
 2. Anslut till enhetsresurserna och börja kopiera data till värddatorn.
 <!-- 1. Connect to the device shares using the path:`\\<IP address of your device>\ShareName`. To get the share access credentials, go to the **Connect & copy** page in the local web UI of the Data Box. --> 
 

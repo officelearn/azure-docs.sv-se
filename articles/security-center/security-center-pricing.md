@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: d6c3fff3ed265cb910388a2c9456b8a3f9d63c8b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 01d7d29e9fffff3be2c98c0ec52c01774439e3f7
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281197"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341196"
 ---
 # <a name="pricing-of-azure-security-center"></a>Prissättning för Azure Security Center
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Den ger insyn och kontroll över hybrid moln arbets belastningar, aktiva försvar som minskar exponeringen för hot och intelligent identifiering som hjälper dig att hålla jämna steg med snabbt växande cyberhot-attacker.
@@ -71,4 +71,4 @@ I den här artikeln introducerades priser för Security Center. Information om r
 
 - [Optimera dina Azure-arbetsbelastnings kostnader](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)
 - [Pris information i valfri valuta och enligt din region](https://azure.microsoft.com/pricing/details/security-center/)
-- Du kanske vill hantera dina kostnader och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning agenter. Med [lösnings mål](../operations-management-suite/operations-management-suite-solution-targeting.md) kan du tillämpa en omfattning för lösningen och rikta in dig på en delmängd av datorerna i arbets ytan. Om du använder lösnings mål, Security Center visar arbets ytan som en lösning.
+- Du kanske vill hantera dina kostnader och begränsa mängden data som samlas in för en lösning genom att begränsa den till en viss uppsättning agenter. Med [lösnings mål](../azure-monitor/insights/solution-targeting.md) kan du tillämpa en omfattning för lösningen och rikta in dig på en delmängd av datorerna i arbets ytan. Om du använder lösnings mål, Security Center visar arbets ytan som en lösning.

@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: banders
-ms.openlocfilehash: fce0ca7df3851aa0e96b6ee630a4a1b0b85eb070
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 0b3cf0c705048d37d422d62b77dc7d94c5ae13bd
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371750"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149391"
 ---
 # <a name="get-started-with-your-updated-azure-billing-account"></a>Kom igång med ditt uppdaterade Azure-faktureringskonto
 
@@ -104,8 +104,8 @@ Om du använder API:er för kostnadshantering och fakturering för att köra fr�
 
 |API | Ändringar  |
 |---------|---------|
-|[API:et Billing Accounts – List](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/billingaccounts/list) | I API:et Billing Accounts – List har ditt gamla faktureringskonto agreementType **MicrosoftOnlineServiceProgram**, och ditt nya faktureringskonto har agreementType **MicrosoftCustomerAgreement**. Om du har ett agreementType-beroende uppdaterar du det. |
-|[Invoices – List By Billing Subscription](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Detta API returnerar bara fakturor som genererades innan ditt konto uppdaterades. Du måste använda API:et [Invoices – List By Billing Account](https://docs.microsoft.com/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) för att få fakturor som genereras i det nya faktureringskontot. |
+|[API:et Billing Accounts – List](/rest/api/billing/2019-10-01-preview/billingaccounts/list) | I API:et Billing Accounts – List har ditt gamla faktureringskonto agreementType **MicrosoftOnlineServiceProgram**, och ditt nya faktureringskonto har agreementType **MicrosoftCustomerAgreement**. Om du har ett agreementType-beroende uppdaterar du det. |
+|[Invoices – List By Billing Subscription](/rest/api/billing/2019-10-01-preview/invoices/listbybillingsubscription)     | Detta API returnerar bara fakturor som genererades innan ditt konto uppdaterades. Du måste använda API:et [Invoices – List By Billing Account](/rest/api/billing/2019-10-01-preview/invoices/listbybillingaccount) för att få fakturor som genereras i det nya faktureringskontot. |
 
 ## <a name="additional-information"></a>Ytterligare information
 

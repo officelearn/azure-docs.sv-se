@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 51b2f4964c01efbfc82008134d47f09648a772ff
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d6b32df7264066daa0bc7298a04453dad4fc9937
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88681982"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147248"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Så tillämpas en reservationsrabatt på Azure Database for PostgreSQL – enskild server
 
@@ -30,7 +30,7 @@ Rabatten för reserverad kapacitet för Azure Database for PostgreSQL – enskil
 
 I följande exempel visas hur rabatten för reserverad kapacitet för Azure Database for PostgreSQL – enskild server tillämpas beroende på det antal kärnor som du har köpt och när de körs.
 
-* **Exempel 1**: Du köper en reserverad kapacitet för Azure Database for PostgreSQL – enskild server för en med 8 virtuella kärnor. Om du kör en Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor som matchar resten av attributen för reservationen debiteras du Betala per användning-priset för 8 virtuella kärnor för din beräkningsanvändning för PostgreSQL – enskild server och du får en reservationsrabatt för PostgreSQL – enskild server med 8 virtuella kärnor.</br>
+**Exempel 1**: Du köper en reserverad kapacitet för Azure Database for PostgreSQL – enskild server för en med 8 virtuella kärnor. Om du kör en Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor som matchar resten av attributen för reservationen debiteras du Betala per användning-priset för 8 virtuella kärnor för din beräkningsanvändning för PostgreSQL – enskild server och du får en reservationsrabatt för PostgreSQL – enskild server med 8 virtuella kärnor.</br>
 
 För resten av dessa exempel förutsätter vi att den reserverade kapaciteten för Azure Database for PostgreSQL – enskild server som du köper är avsedd för Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor och att resten av reservationens attribut matchar de enskilda Azure Database for PostgreSQL-servrar som körs.
 
@@ -40,7 +40,7 @@ För resten av dessa exempel förutsätter vi att den reserverade kapaciteten f�
 
 * **Exempel 4**: Du kör en Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor från kl. 13:00 till kl. 13:45. Du kör en annan Azure Database for PostgreSQL – enskild server med 16 virtuella kärnor från kl. 13:30 till kl. 14:00. Du debiteras Betala per användning-priset för överlappningen på 15 minuter. Reservationsrabatten gäller för beräkningsanvändningen för resten av tiden.
 
-Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](./understand-reserved-instance-usage-ea.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

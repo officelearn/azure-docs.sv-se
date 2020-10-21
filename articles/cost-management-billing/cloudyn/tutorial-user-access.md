@@ -10,12 +10,12 @@ ms.subservice: cloudyn
 ms.custom: seodec18
 ms.reviewer: benshy
 ROBOTS: NOINDEX
-ms.openlocfilehash: f981e347b809f5df87e3b5379c69aab83ecf74eb
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a3c10d95a57ea81f269af8f8f1cad49fc1c1b845
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687628"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131266"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Självstudier: Tilldela åtkomst till Cloudyn-data
 
@@ -135,4 +135,4 @@ I den här självstudiekursen lärde du dig att:
 Om du inte redan har aktiverat Azure Resource Manager API-åtkomst för dina konton, fortsätter du till följande artikel.
 
 > [!div class="nextstepaction"]
-> [Aktivera Azure-prenumerationer och -konton](../../cost-management/activate-subs-accounts.md)
+> [Aktivera Azure-prenumerationer och -konton](./activate-subs-accounts.md)

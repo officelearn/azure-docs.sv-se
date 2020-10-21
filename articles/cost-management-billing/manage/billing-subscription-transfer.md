@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 1fedad7dac4c253c68a0f27d0e0470123833a3be
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91666117"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131929"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Överföra faktureringsägarskap för en Azure-prenumeration till ett annat konto
 
@@ -69,7 +69,7 @@ Om du har godkänt faktureringsägarskapet för en Azure-prenumeration rekommend
 1. Granska och uppdatera Azure-rolltilldelningarna för tjänstadministratörer och medadministratörer. Mer information finns i [Lägga till eller ändra administratörer för en Azure-prenumeration](add-change-subscription-administrator.md) och [Lägga till eller ta bort Azure-rolltilldelningar från Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 1. Uppdatera autentiseringsuppgifter som är associerade med den här prenumerationens tjänster, däribland:
    1. Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md)
-   1. Åtkomstnycklar för tjänster såsom Storage. Mer information finns i [Om Azure Storage-konton](../../storage/common/storage-create-storage-account.md)
+   1. Åtkomstnycklar för tjänster såsom Storage. Mer information finns i [Om Azure Storage-konton](../../storage/common/storage-account-create.md)
    1. Autentiseringsuppgifter för fjärråtkomst för tjänster såsom Azure Virtual Machines.
 1. Om du arbetar med en partner kan du överväga att uppdatera partner-ID i prenumerationen. Du kan uppdatera partner-ID i [Azure-portalen](https://portal.azure.com). Mer information finns i [Länka ett partner-ID till dina Azure-konton](link-partner-id.md)
 

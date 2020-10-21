@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 09/24/2020
+ms.date: 10/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 24b30842bea51394a375cf48e09b7547e057405c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 22b202d0ef54984ea2818112b49bbdf7f1098833
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91261744"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341625"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -50,13 +50,16 @@ Nätverksfiltreringsregler för icke-TCP-/UDP-protokoll (till exempel ICMP) fung
 |Active FTP stöds inte|Active FTP är inaktiverat på Azure-brandväggen för att skydda mot FTP-attacker med kommandot FTP-PORT.|Du kan använda passiv FTP i stället. Du måste fortfarande öppna TCP-portarna 20 och 21 i brand väggen.
 |Mått för SNAT-port användning visar 0%|Måttet för Azure Firewall SNAT-port användning kan visa 0% användning även när SNAT-portar används. I det här fallet är det ett felaktigt resultat om du använder måttet som en del av hälso måttet för brand väggen.|Det här problemet har åtgärd ATS och distributionen till produktion är avsedd för maj 2020. I vissa fall löser brand Väggs distributionen problemet, men det är inte konsekvent. Som en mellanliggande lösning använder du endast brand väggens hälso tillstånd för att söka efter *status = degraderad*, inte för *status = ej felfri*. Port överbelastning visas som *degraderad*. *Inte felfri* är reserverad för framtida användning när är fler mått för att påverka brand väggens hälsa.
 |DNAT stöds inte med Tvingad tunnel trafik aktive rad|Brand väggar som distribueras med Tvingad tunnel trafik aktive rad kan inte stödja inkommande åtkomst från Internet på grund av asymmetrisk routning.|Detta är avsiktligt på grund av asymmetrisk routning. Retur Sök vägen för inkommande anslutningar skickas via den lokala brand väggen, vilket inte visade anslutningen.
-|Utgående passiv FTP fungerar inte för brand väggar med flera offentliga IP-adresser|Passiv FTP upprättar olika anslutningar för kontroll-och data kanaler. När en brand vägg med flera offentliga IP-adresser skickar data utgående väljer den slumpmässigt en av dess offentliga IP-adresser för käll-IP-adressen. FTP fungerar inte när data-och kontroll kanaler använder olika käll-IP-adresser.|En explicit SNAT-konfiguration planeras. Under tiden kan du överväga att använda en enda IP-adress i den här situationen.|
+|Utgående passiv FTP kanske inte fungerar för brand väggar med flera offentliga IP-adresser, beroende på din FTP-serverkonfiguration.|Passiv FTP upprättar olika anslutningar för kontroll-och data kanaler. När en brand vägg med flera offentliga IP-adresser skickar data utgående väljer den slumpmässigt en av dess offentliga IP-adresser för käll-IP-adressen. FTP kan Miss lyckas när data-och kontroll kanaler använder olika käll-IP-adresser, beroende på din FTP-serverkonfiguration.|En explicit SNAT-konfiguration planeras. Under tiden kan du Konfigurera FTP-servern så att den accepterar data-och kontroll kanaler från olika käll-IP-adresser (se [ett exempel för IIS](https://docs.microsoft.com/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity)). Du kan också överväga att använda en enda IP-adress i den här situationen.|
+|Inkommande passiv FTP kanske inte fungerar beroende på din FTP-serverkonfiguration |Passiv FTP upprättar olika anslutningar för kontroll-och data kanaler. Inkommande anslutningar i Azure Firewall är SNATed till en brand Väggs privata IP-adress för att säkerställa symmetrisk routning. FTP kan Miss lyckas när data-och kontroll kanaler använder olika käll-IP-adresser, beroende på din FTP-serverkonfiguration.|Att bevara den ursprungliga käll-IP-adressen unders öks. Under tiden kan du Konfigurera FTP-servern så att den accepterar data-och kontroll kanaler från olika käll-IP-adresser.|
 |NetworkRuleHit-måttet saknar en protokoll dimension|ApplicationRuleHit-måttet tillåter filtrering baserat protokoll, men den här funktionen saknas i motsvarande NetworkRuleHit-mått.|En korrigering undersökas.|
 |NAT-regler med portar mellan 64000 och 65535 stöds inte|Azure-brandväggen tillåter alla portar i 1-65535-intervallet i nätverks-och program regler, men NAT-regler stöder bara portar i 1-63999-intervallet.|Detta är en aktuell begränsning.
 |Konfigurations uppdateringar kan ta fem minuter i genomsnitt|En konfigurations uppdatering för Azure Firewall kan ta tre till fem minuter i genomsnitt, och parallella uppdateringar stöds inte.|En korrigering undersökas.|
 |Azure-brandväggen använder SNI TLS-huvuden för att filtrera HTTPS-och MSSQL-trafik|Om webb läsar-eller Server program inte stöder tillägget server namns indikator (SNI) kan du inte ansluta via Azure-brandväggen.|Om webb läsar-eller Server program inte har stöd för SNI kan du kontrol lera anslutningen med en nätverks regel i stället för en program regel. Se [servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication) för program vara som stöder SNI.|
 |Anpassad DNS (för hands version) fungerar inte med Tvingad tunnel trafik|Om Tvingad tunnel trafik är aktive rad fungerar inte anpassad DNS (för hands version).|En korrigering undersökas.|
-|Nytt stöd för offentliga IP-adresser för flera Tillgänglighetszoner|Du kan inte lägga till en ny offentlig IP-adress när du distribuerar en brand vägg med två tillgänglighets zoner (antingen 1 och 2, 2 och 3 eller 1 och 3)|Detta är en begränsning för en offentlig IP-adressresurs.
+|Nytt stöd för offentliga IP-adresser för flera Tillgänglighetszoner|Du kan inte lägga till en ny offentlig IP-adress när du distribuerar en brand vägg med två tillgänglighets zoner (antingen 1 och 2, 2 och 3 eller 1 och 3)|Detta är en begränsning för en offentlig IP-adressresurs.|
+|Starta/stoppa fungerar inte med en brand vägg som kon figurer ATS i Tvingad tunnel läge|Starta/stoppa fungerar inte med Azure-brandväggen konfigurerad i Tvingad tunnel läge. Försök att starta Azure-brandväggen med Tvingad tunnel trafik har kon figurer ATS i följande fel:<br><br>*Set-AzFirewall: AzureFirewall VB-XX Management IP-konfiguration kan inte läggas till i en befintlig brand vägg. Distribuera om med en hanterings-IP-konfiguration om du vill använda Tvingad tunnel trafik. <br> StatusCode: 400 <br> ReasonPhrase: felaktig begäran*|Under undersökning.<br><br>Som en lösning kan du ta bort den befintliga brand väggen och skapa en ny med samma parametrar.|
+
 
 ## <a name="next-steps"></a>Nästa steg
 

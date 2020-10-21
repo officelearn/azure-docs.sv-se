@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: 237565a7b72c3317e2c443f86965634ed7c9942c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f4dd6d67d60603ed6cad7056cff4bb07dcb1c2e5
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91337084"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92149378"
 ---
 # <a name="about-transferring-billing-ownership-for-an-azure-subscription"></a>Om att överföra faktureringsägarskap för en Azure-prenumeration
 
@@ -63,7 +63,7 @@ Prenumerationsöverföring i Azure-portalen är tillgänglig för de prenumerati
 
 ## <a name="resources-transferred-with-subscriptions"></a>Resurser som överförs med prenumerationer
 
-Alla dina resurser såsom virtuella datorer, diskar och webbplatser överförs till det nya kontot. Om du överför en prenumeration till ett konto i en annan Azure AD-klientorganisation kommer dock eventuella [administratörsroller](../manage/add-change-subscription-administrator.md) och [Azure-rolltilldelningar](../../role-based-access-control/role-assignments-portal.md) i prenumerationen inte att överföras. [Appregistreringar](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) och andra klientorganisationsspecifika tjänster överförs inte heller med prenumerationen.
+Alla dina resurser såsom virtuella datorer, diskar och webbplatser överförs till det nya kontot. Om du överför en prenumeration till ett konto i en annan Azure AD-klientorganisation kommer dock eventuella [administratörsroller](../manage/add-change-subscription-administrator.md) och [Azure-rolltilldelningar](../../role-based-access-control/role-assignments-portal.md) i prenumerationen inte att överföras. [Appregistreringar](../../active-directory/develop/quickstart-register-app.md) och andra klientorganisationsspecifika tjänster överförs inte heller med prenumerationen.
 
 ## <a name="transfer-account-ownership-to-another-countryregion"></a>Överföra kontoägarskap till ett annat land eller en annan region
 
@@ -99,7 +99,7 @@ I Azure-portalen kan du se de användare som har Azure-rolltilldelningar för at
 Även om [Azure-rolltilldelningar](../../role-based-access-control/role-assignments-portal.md) tas bort under överföringen kan användare under det ursprungliga ägarkontot fortfarande ha åtkomst till prenumerationen via andra säkerhetsmekanismer, t.ex.:
 
 * Hanteringscertifikat som ger användaren administratörsbehörighet till prenumerationsresurser. Mer information finns i [Skapa och ladda upp ett hanteringscertifikat för Azure](../../cloud-services/cloud-services-certs-create.md).
-* Åtkomstnycklar för tjänster som Storage. Mer information finns i [Om Azure Storage-konton](../../storage/common/storage-create-storage-account.md).
+* Åtkomstnycklar för tjänster som Storage. Mer information finns i [Om Azure Storage-konton](../../storage/common/storage-account-create.md).
 * Autentiseringsuppgifter för fjärråtkomst för tjänster som Azure Virtual Machines.
 
 Om mottagaren behöver begränsa åtkomsten till resurser bör denne överväga att uppdatera eventuella hemligheter som är associerade med tjänsten. De flesta resurser kan uppdateras. Logga in på [Azure-portalen](https://portal.azure.com) och välj sedan **Alla resurser** i hubbmenyn. Välj sedan resursen. På resurssidan väljer du sedan **Inställningar**. Där kan du visa och uppdatera befintliga hemligheter.

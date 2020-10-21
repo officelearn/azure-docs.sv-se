@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: 904ea7a50e4546d2721a9e701c78b6b77ed2d43a
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683189"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132320"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -110,7 +110,7 @@ Azure Cost Management tar emot taggar som en del av varje användningspost som s
 
 - Taggar måste användas direkt för resurser och ärvs inte implicit från den överordnade resursgruppen.
 - Resurstaggar stöds bara för resurser som har distribuerats till resursgrupper.
-- Vissa distribuerade resurser kanske inte stöder taggar eller så kanske de inte innehåller taggar i användningsdata – se [Stöd för taggar för Azure-resurser](../../azure-resource-manager/tag-support.md).
+- Vissa distribuerade resurser kanske inte stöder taggar eller så kanske de inte innehåller taggar i användningsdata – se [Stöd för taggar för Azure-resurser](../../azure-resource-manager/management/tag-support.md).
 - Resurstaggar ingår bara i användningsdata under tiden taggen används – taggar används inte för historiska data.
 - Resurstaggar är endast tillgängliga i Cost Management efter att data har uppdaterats – se [Uppdateringar av kostnader och användningsdata och kvarhållning](#cost-and-usage-data-updates-and-retention).
 - Resurstaggar är bara tillgängliga i Cost Management när resursen är aktiv/körs och skapar användningsposter (t. ex. inte när en virtuell dator frigörs).
@@ -121,7 +121,7 @@ Azure Cost Management tar emot taggar som en del av varje användningspost som s
 
 - Användes taggen direkt för resursen?
 - Användes taggen för mer än 24 timmar sedan? Se [Uppdateringar av kostnader och användningsdata och kvarhållning](#cost-and-usage-data-updates-and-retention)
-- Stöder resurstypen taggar? Följande resurstyper stöder inte taggar i användningsdata från den 1 december 2019. En fullständig lista över vad som stöds finns i [Stöd för taggar för Azure-resurser](../../azure-resource-manager/tag-support.md).
+- Stöder resurstypen taggar? Följande resurstyper stöder inte taggar i användningsdata från den 1 december 2019. En fullständig lista över vad som stöds finns i [Stöd för taggar för Azure-resurser](../../azure-resource-manager/management/tag-support.md).
     - Azure Active Directory B2C-kataloger
     - Azure Bastion
     - Azure Firewall-brandväggar
@@ -185,4 +185,4 @@ Historiska data för kreditbaserade och förbetalda erbjudanden överensstämmer
 
 ## <a name="see-also"></a>Se även
 
-- Om du inte redan har slutfört den första snabbstarten för Cost Management kan du läsa den i [Börja analysera kostnader](../../cost-management/quick-acm-cost-analysis.md).
+- Om du inte redan har slutfört den första snabbstarten för Cost Management kan du läsa den i [Börja analysera kostnader](./quick-acm-cost-analysis.md).

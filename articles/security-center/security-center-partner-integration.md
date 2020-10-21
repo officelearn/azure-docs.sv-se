@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: 9a781fd48b30ccb32b0a733e5aa1ac054b96dc12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039fabbbb04f352042973f559e34a3c3a77e7500
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323663"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340435"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -85,7 +85,7 @@ Välj **Visa** för ytterligare information och alternativ, till exempel:
 
 ### <a name="discovered-solutions"></a>Identifierade lösningar
 
-Security Center identifierar automatiskt säkerhetslösningar som körs i Azure men inte är anslutna till Security Center och visar lösningarna i avsnittet **identifierade lösningar** . Dessa lösningar omfattar Azure-lösningar som [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)och partner lösningar.
+Security Center identifierar automatiskt säkerhetslösningar som körs i Azure men inte är anslutna till Security Center och visar lösningarna i avsnittet **identifierade lösningar** . Dessa lösningar omfattar Azure-lösningar som [Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)och partner lösningar.
 
 > [!NOTE]
 > Aktivera **Azure Defender** på prenumerations nivå för funktionen identifierade lösningar. Se [prissättning](security-center-pricing.md) för att lära dig mer om pris nivåerna.

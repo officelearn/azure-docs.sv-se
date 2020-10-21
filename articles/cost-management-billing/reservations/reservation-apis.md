@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 12b20f7556a460506067305401fb2379678ee58e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: f12c1f20e01cb67adff2c83c7262f92daf8da969
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371702"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151479"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>API:er för Azure-reservationsautomation
 
@@ -115,4 +115,4 @@ Om du vill ändra omfånget programmatiskt använder du API:et [Reservation – 
 - [Förstå reservationsanvändning för din Betala per användning-prenumeration](understand-reserved-instance-usage.md)
 - [Förstå reservationsanvändning för din Enterprise-registrering](understand-reserved-instance-usage-ea.md)
 - [Kostnader för Windows-programvara ingår inte i reservationer](reserved-instance-windows-software-costs.md)
-- [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](/partner-center/azure-reservations)

@@ -9,12 +9,12 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 20a9fb6a158134ffc18dc5bbb7eddd34d2b79562
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6e51363ff2f3782b77288f9dc1fcb8e59e9ffe0c
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682016"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92151786"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Hämta data om reservationskostnader och reservationsanvändning för Enterprise-avtal (EA)
 
@@ -55,7 +55,7 @@ Annan information som är tillgänglig i Azures användningsdata har ändrats:
 - Term – 12 månader eller 36 månader.
 - RINormalizationRatio – Tillgängligt under AdditionalInfo. Detta anger i vilken grad reservationen tillämpas på användningsposten. Om flexibilitet för instansstorlek är aktiverat för din reservation kan det gälla andra storlekar. Värdet visar i vilken grad reservationen tillämpades på användningsposten.
 
-[Se definition för fält](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+[Se definition för fält](/rest/api/consumption/usagedetails/list#definitions)
 
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Hämta data om användning och reservationer i Azure med hjälp av API:er
 
@@ -71,7 +71,7 @@ Här är ett exempel på ett anrop till API:et för användningsinformation:
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
-Mer information om {enrollmentId} och {billingPeriodId} finns i artikeln om [API:et för användningsinformation – lista](https://docs.microsoft.com/rest/api/consumption/usagedetails/list).
+Mer information om {enrollmentId} och {billingPeriodId} finns i artikeln om [API:et för användningsinformation – lista](/rest/api/consumption/usagedetails/list).
 
 Informationen i följande tabell om mått och filter kan hjälpa dig att lösa vanliga reservationsproblem.
 

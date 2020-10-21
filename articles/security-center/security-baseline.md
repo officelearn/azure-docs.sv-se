@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f41dfa0889b7f0c34486eee5d16362f4c3c7360d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04745a618832285c44fe96affb0caa8d371a1a17
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894591"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340452"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Azures säkerhets bas linje för Security Center
 
@@ -20,7 +20,7 @@ Den här säkerhets bas linjen använder vägledning från [Azures säkerhets be
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets principen för Azure-säkerhet: nätverks säkerhet](/azure/security/benchmarks/security-control-network-security).*
+*Mer information finns i [säkerhets principen för Azure-säkerhet: nätverks säkerhet](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
@@ -72,7 +72,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Brand Väggs krav för att använda Log Analytics agent](../azure-monitor/platform/log-analytics-agent.md#firewall-requirements)
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags) 
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md) 
 
 - [Så här skapar du en Azure-Virtual Network](../virtual-network/quick-create-portal.md) 
 
@@ -86,7 +86,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka datorkonfigurationer och identifiera ändringar för nätverks resurser som är relaterade till Azure Security Center. Skapa aviseringar i Azure Monitor för att meddela dig när ändringar av kritiska resurser sker.
 
-- [Visa och hämta Azure aktivitets logg händelser](/azure/azure-monitor/platform/activity-log-view) 
+- [Visa och hämta Azure aktivitets logg händelser](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
 - [Så här skapar du aviseringar i Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -96,7 +96,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets benchmark för Azure: loggning och övervakning](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets benchmark för Azure: loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
 
@@ -186,7 +186,7 @@ Du kan också aktivera och anställa data som rör och tillverkas av Azure Secur
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [Azures säkerhets benchmark: identitets-och åtkomst kontroll](/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [Azures säkerhets benchmark: identitets-och åtkomst kontroll](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
@@ -194,9 +194,9 @@ Du kan också aktivera och anställa data som rör och tillverkas av Azure Secur
 
 - [Behörigheter i Azure Security Center](security-center-permissions.md)
 
-- [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
+- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -260,7 +260,7 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 **Vägledning**: Använd Azure Active Directory säkerhets rapporter och övervakning för att identifiera när misstänkt eller osäker aktivitet inträffar i miljön. Använd Azure Security Center för att övervaka identitets-och åtkomst aktiviteter.
 
-- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](/azure/active-directory/reports-monitoring/concept-user-at-risk) 
+- [Så här identifierar du Azure AD-användare som har flaggats för riskfylld aktivitet](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Övervaka användarnas identitets-och åtkomst aktiviteter i Azure Security Center](security-center-identity-access.md)
 
@@ -294,7 +294,7 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 **Vägledning**: Azure Active Directory innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure AD-identitets-och åtkomst granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst som är relaterad till Azure Security Center kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. 
 
-- [Förstå Azure AD repor ting](/azure/active-directory/reports-monitoring/) 
+- [Förstå Azure AD repor ting](../active-directory/reports-monitoring/index.yml) 
 
 - [Använda Azure AD-identitets-och åtkomst granskningar](../active-directory/governance/access-reviews-overview.md)
 
@@ -308,7 +308,7 @@ För att hjälpa dig att hålla koll på dedikerade administrativa konton kan du
 
 Du kan effektivisera den här processen genom att skapa diagnostikinställningar för Azure AD-användarkonton och skicka gransknings loggar och inloggnings loggar till en Log Analytics-arbetsyta. Du kan konfigurera önskade aviseringar i Log Analytics arbets ytan.  
 
-- [Så här integrerar du Azure-aktivitets loggar med Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Så här integrerar du Azure-aktivitets loggar med Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -318,7 +318,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 **Vägledning**: Använd Azure AD Identity Protection funktioner för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör användar identiteter. Du kan också mata in data i Azure Sentinel för ytterligare undersökning. 
 
-- [Visa Azure AD-riskfyllda inloggningar](/azure/active-directory/reports-monitoring/concept-risky-sign-ins) 
+- [Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md) 
 
 - [Så här konfigurerar och aktiverar du risk principer för identitets skydd](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md) 
 
@@ -330,13 +330,13 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [Azure Security benchmark: Data Protection](/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [Azure Security benchmark: Data Protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
 **Vägledning**: Använd taggar för att spåra Azure-resurser som arbets ytan Log Analytics som lagrar känslig säkerhets information från Azure Security Center.
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -352,11 +352,11 @@ Som standard lagras Azure Security Center data i Security Center backend-tjänst
 
 - [Datainsamling i Azure Security Center](security-center-enable-data-collection.md)
 
-- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription) 
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md) 
 
-- [Så här skapar du hanterings grupper](../governance/management-groups/create.md) 
+- [Så här skapar du hanterings grupper](../governance/management-groups/create-management-group-portal.md) 
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -412,7 +412,7 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [Azure Security benchmark: sårbarhet Management](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Mer information finns i [Azure Security benchmark: sårbarhet Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5,5: Använd en risk klassificerings process för att prioritera reparation av identifierade säkerhets risker
 
@@ -426,7 +426,7 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [Azure Security benchmark: inventering och till gångs hantering](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [Azure Security benchmark: inventering och till gångs hantering](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
 
@@ -434,7 +434,7 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 - [Så här skapar du frågor med Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) 
 
-- [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
+- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0) 
 
 - [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
@@ -446,7 +446,7 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 **Vägledning**: Använd taggar för att spåra Azure-resurser som arbets ytan Log Analytics som lagrar känslig säkerhets information från Azure Security Center.
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -461,11 +461,11 @@ Använd dessutom Azure policy för att ange begränsningar för den typ av resur
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
-- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create.md)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -512,7 +512,7 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -530,13 +530,13 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [Azure Security benchmark: säker konfiguration](/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [Azure Security benchmark: säker konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
 **Vägledning**: definiera och implementera standardkonfigurationer för Azure Security Center och dess anslutna arbets yta via Azure policy. Använd Azure Policy alias i namn områdena "Microsoft. OperationalInsights" och "Microsoft. Security" för att skapa anpassade Azure Policys definitioner för att granska eller framtvinga konfigurationen av Security Center och dess Log Analytics arbets yta.
 
-- [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -562,7 +562,7 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 **Vägledning**: Använd Azure-DevOps för att lagra och hantera din kod på ett säkert sätt, t. ex. anpassade Azure policy definitioner, Azure Resource Manager mallar och önskade tillstånds konfigurations skript. För att få åtkomst till de resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps eller Active Directory om det är integrerat med TFS. 
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops) 
 
 - [Om behörigheter och grupper i Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -614,7 +614,7 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [Azure Security benchmark: skydd mot skadlig kod](/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [Azure Security benchmark: skydd mot skadlig kod](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: för skanning av filer som ska laddas upp till Azure-resurser som inte är Compute
 
@@ -626,7 +626,7 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [Azure Security benchmark: Data återställning](/azure/security/benchmarks/security-control-data-recovery).*
+*Mer information finns i [Azure Security benchmark: Data återställning](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS 
 
@@ -656,9 +656,9 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 **Vägledning**: Säkerställ att du regelbundet kan utföra återställning med Azure Resource Manager backade mallfiler. Testa återställning av säkerhetskopierade nycklar som hanteras av kunden.
 
-- [Hantera Log Analytics arbets yta med Azure Resource Manager-mallar](../azure-monitor/platform/template-workspace-configuration.md)
+- [Hantera Log Analytics arbets yta med Azure Resource Manager-mallar](../azure-monitor/samples/resource-manager-workspace.md)
 
-- [Återställa Key Vault-nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Återställa Key Vault-nycklar i Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -670,13 +670,13 @@ Använd Azure Resource Graph för att fråga efter och identifiera resurser i pr
 
 Aktivera dessutom Soft-Delete och rensa skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning.  Om Azure Storage används för att lagra säkerhets kopior av Azure Resource Manager mallar aktiverar du mjuk borttagning för att spara och återställa data när blobbar eller BLOB-ögonblicksbilder tas bort. 
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Om behörigheter och grupper i Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [Aktivera Soft-Delete och rensa skydd i Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) 
+- [Aktivera Soft-Delete och rensa skydd i Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal) 
 
-- [Mjuk borttagning för Azure Storage-blobar](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Mjuk borttagning för Azure Storage-blobar](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -684,7 +684,7 @@ Aktivera dessutom Soft-Delete och rensa skydd i Key Vault för att skydda nyckla
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [Azure Security benchmark: incident svar](/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [Azure Security benchmark: incident svar](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
@@ -708,7 +708,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 - [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md) 
 
-- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -758,7 +758,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
-*Mer information finns i [övningen för Azure Security benchmark: inträngande tester och röda team](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [övningen för Azure Security benchmark: inträngande tester och röda team](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
@@ -774,5 +774,5 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 025b9b7e503f38a111bd158f17b7fbeec5b23579
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 51baa26cf78846bd0a719b8b86056e2ea8176155
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684991"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131096"
 ---
 # <a name="create-and-manage-azure-cost-allocation-rules-preview"></a>Skapa och hantera regler för kostnadsallokering i Azure (för hands version)
 
@@ -58,16 +58,16 @@ När du distribuerar kostnader per beräkningskostnad, lagringskostnad och nätv
 
 När du distribuerar kostnader proportionellt mot den totala kostnaden tilldelas den proportionella procentandelen av summan eller den totala kostnaden för de valda målen för den aktuella faktureringsmånaden.
 
-:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Exempel som visar allokeringsprocent" lightbox="./media/allocate-costs/cost-distribution.png" :::
+:::image type="content" source="./media/allocate-costs/cost-distribution.png" alt-text="Exempel som visar ett regelnamn som skapas" lightbox="./media/allocate-costs/cost-distribution.png" :::
 
 När du har angett de fördefinierade procentandelarna är de fasta. De används för alla pågående allokeringar. Procentandelarna ändras endast när regeln uppdateras manuellt.
 
 1. Välj något av följande alternativ i listan **Fyll i procentandelar till**.
     - **Distribuera jämnt** – varje mål får en lika stor procentandel av den totala kostnaden.
     - **Total kostnad** – skapar en kvot som är proportionell för målen baserat på den totala kostnaden. Kvoten används för att fördela kostnaderna från de valda källorna.
-    - **Compute Cost** – skapar en kvot som är proportionell för målen baserat på deras Azure Compute Cost (resurstyper i [Microsoft.Compute](https://docs.microsoft.com/azure/templates/microsoft.compute/allversions)-namnrymden. Kvoten används för att fördela kostnaderna från de valda källorna.
-    - **Lagringskostnad** – skapar en kvot som är proportionell för målen baserat på deras Azure Storage-kostnad (resurstyper i [Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)-namnområdet). Kvoten används för att fördela kostnaderna från de valda källorna.
-    - **Nätverkskostnad** – skapar en kvot som är proportionell för målen baserat på deras Azure-nätverks-kostnad (resurstyper i [Microsoft.Storage](https://docs.microsoft.com/azure/templates/microsoft.network/allversions)-namnområdet). Kvoten används för att fördela kostnaderna från de valda källorna.
+    - **Compute Cost** – skapar en kvot som är proportionell för målen baserat på deras Azure Compute Cost (resurstyper i [Microsoft.Compute](/azure/templates/microsoft.compute/allversions)-namnrymden. Kvoten används för att fördela kostnaderna från de valda källorna.
+    - **Lagringskostnad** – skapar en kvot som är proportionell för målen baserat på deras Azure Storage-kostnad (resurstyper i [Microsoft.Storage](/azure/templates/microsoft.storage/allversions)-namnområdet). Kvoten används för att fördela kostnaderna från de valda källorna.
+    - **Nätverkskostnad** – skapar en kvot som är proportionell för målen baserat på deras Azure-nätverks-kostnad (resurstyper i [Microsoft.Storage](/azure/templates/microsoft.network/allversions)-namnområdet). Kvoten används för att fördela kostnaderna från de valda källorna.
     - **Anpassad** – tillåter att en heltalsprocentandel anges manuellt. Den angivna summan måste vara lika med 100 %.
 1. När regeln har konfigurerats väljer du **Skapa**.
 
@@ -84,7 +84,7 @@ När kostnadsallokeringsregeln är aktiv distribueras kostnader från de valda k
 
 Du visar effekten av allokeringsregeln i en kostnadsanalys. I Azure-portalen går du till [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Välj en prenumeration i listan som är riktad mot en aktiv kostnadstilldelningsregel. Välj sedan **Kostnadsanalys** på menyn. I Kostnadsanalys väljer du **Gruppera efter** och väljer sedan **Kostnadsallokering**. I vyn som visas ser du en snabb kostnadsuppdelning som genererats av prenumerationen. Kostnader som allokeras till prenumerationen visas också, som i följande bild.
 
-:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Exempel som visar kostnadsuppdelning" lightbox="./media/allocate-costs/cost-breakdown.png" :::
+:::image type="content" source="./media/allocate-costs/cost-breakdown.png" alt-text="Exempel som visar ett regelnamn som skapas" lightbox="./media/allocate-costs/cost-breakdown.png" :::
 
 ### <a name="view-cost-allocation-for-a-resource-group"></a>Visa kostnadsallokering för en resursgrupp
 
@@ -94,7 +94,7 @@ Använd en liknande process för att se påverkan av en kostnadsallokering för 
 
 I Azure Portal navigerar du till **Cost Management + fakturering** > **Cost Management** > **Kostnadsanalys**. I Kostnadsanalys väljer du **Lägg till filter**. Välj **Tagg**, välj taggnyckeln och tagga värden som har kostnader allokerade till dem.
 
-:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Exempel som visar kostnader för alla kunder" lightbox="./media/allocate-costs/tagged-costs.png" :::
+:::image type="content" source="./media/allocate-costs/tagged-costs.png" alt-text="Exempel som visar ett regelnamn som skapas" lightbox="./media/allocate-costs/tagged-costs.png" :::
 
 ## <a name="edit-an-existing-cost-allocation-rule"></a>Redigera en befintlig kostnadsallokeringsregel
 
@@ -112,10 +112,10 @@ För närvarande kan kostnadsallokering användas i Cost Management av kostnadsa
 Följande objekt kan för närvarande inte användas i den offentliga förhandsversionen av kostnadsallokering:
 
 - Schemalagda [exporter](tutorial-export-acm-data.md)
-- Data som exponeras av API:et [Användningsinformation](https://docs.microsoft.com/rest/api/consumption/usagedetails/list)
+- Data som exponeras av API:et [Användningsinformation](/rest/api/consumption/usagedetails/list)
 - Området Faktureringsprenumerationer
 - [Cost Management Power BI-appen](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
-- [Power BI Desktop-anslutningsappen](https://docs.microsoft.com/power-bi/connect-data/desktop-connect-azure-cost-management)
+- [Power BI Desktop-anslutningsappen](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
 ### <a name="are-costs-factored-into-budgets-and-forecast-views"></a>Räknas kostnaderna med i budget- och prognosvyerna?
 <a name="budgets-forecast"></a>
@@ -144,5 +144,5 @@ Du bör inte ha regler med överlappande källor eller överlappande mål. Kostn
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa eller uppdatera allokeringsregler med hjälp av [REST-API:et för kostnadsallokering](https://go.microsoft.com/fwlink/?linkid=2135004)
+- Skapa eller uppdatera allokeringsregler med hjälp av [REST-API:et för kostnadsallokering](/rest/api/cost-management/costallocationrules)
 - Läs mer om att [optimera din molninvestering med Azure Cost Management](cost-mgt-best-practices.md)

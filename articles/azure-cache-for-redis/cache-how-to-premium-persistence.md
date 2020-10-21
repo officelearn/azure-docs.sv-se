@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 3e8cef04e0711492b6e76d4c865695ac75e21422
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125687"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339551"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du data persistence för en Premium Azure-cache för Redis
 I den här artikeln får du lära dig hur du konfigurerar persistence i en Premium Azure-cache för Redis-instansen via Azure Portal. Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. 
@@ -63,7 +63,7 @@ Persistence skriver Redis-data till ett Azure Storage-konto som du äger och han
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Säkerhets kopierings frekvens** | List rutan och välj ett intervall för säkerhets kopieringar, alternativ omfattar **15 minuter**, **30 minuter**, **60 minuter**, **6 timmar**, **12 timmar**och **24 timmar**. | Intervallet börjar räkna upp när den tidigare säkerhets kopieringen har slutförts och när en ny säkerhets kopia har initierats. | 
-   | **Lagringskonto** | List rutan och välj ditt lagrings konto. | Du måste välja ett lagrings konto i samma region och prenumeration som cachen, och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde.  | 
+   | **Lagrings konto** | List rutan och välj ditt lagrings konto. | Du måste välja ett lagrings konto i samma region och prenumeration som cachen, och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde.  | 
    | **Lagrings nyckel** | List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** . | 
 
     Den första säkerhets kopieringen initieras när intervallet för säkerhets kopierings frekvensen förflutit.
@@ -83,11 +83,11 @@ Persistence skriver Redis-data till ett Azure Storage-konto som du äger och han
 
 11. Alternativt går du till fliken **taggar** och anger namn och värde om du vill kategorisera resursen. 
 
-12. Välj **Granska + skapa**. Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
+12. Välj **Granska + skapa**. Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
 
 13. När meddelandet grön verifiering har skickats visas väljer du **skapa**.
 
-Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts**sidan för Azure-cache för Redis   . När **statusen**   är **igång**är cacheminnet redo att användas. 
+Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts** sidan för Azure-cache för Redis. När **statusen** är **igång**är cacheminnet redo att användas. 
 
 ## <a name="persistence-faq"></a>Beständiga vanliga frågor och svar
 Följande lista innehåller svar på vanliga frågor om Azure cache för Redis persistence.
@@ -96,6 +96,7 @@ Följande lista innehåller svar på vanliga frågor om Azure cache för Redis p
 * [Kan jag aktivera AOF och RDB persistence samtidigt?](#can-i-enable-aof-and-rdb-persistence-at-the-same-time)
 * [Vilken beständiga modell ska jag välja?](#which-persistence-model-should-i-choose)
 * [Vad händer om jag har skalat till en annan storlek och en säkerhets kopia har återställts före skalnings åtgärden?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [Kan jag använda samma lagrings konto för persistence över två olika cacheminnen?](#can-i-use-the-same-storage-account-for-persistence-across-two-different-caches)
 
 
 ### <a name="rdb-persistence"></a>RDB persistence
@@ -135,6 +136,9 @@ För både RDB och AOF persistence:
 * Om du har skalat till en större storlek påverkas ingen påverkan.
 * Om du har skalat till en mindre storlek och du har en inställning för anpassade [databaser](cache-configure.md#databases) som är större än [databasernas gräns](cache-configure.md#databases) för den nya storleken återställs inte data i dessa databaser. Mer information finns i [är mina anpassade databas inställningar som påverkas under skalning?](cache-how-to-scale.md#is-my-custom-databases-setting-affected-during-scaling)
 * Om du har skalat till en mindre storlek och det inte finns tillräckligt med utrymme i den mindre storleken för att lagra alla data från den senaste säkerhets kopieringen, tas nycklar bort under återställnings processen, vanligt vis med hjälp av [allkeys-LRU](https://redis.io/topics/lru-cache) .
+
+### <a name="can-i-use-the-same-storage-account-for-persistence-across-two-different-caches"></a>Kan jag använda samma lagrings konto för persistence över två olika cacheminnen?
+Ja, du kan använda samma lagrings konto för persistence över två olika cacheminnen
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Kan jag ändra frekvensen för RDB säkerhets kopiering när jag har skapat cacheminnet?
 Ja, du kan ändra säkerhets kopierings frekvensen för RDB persistence på bladet **data persistes** . Instruktioner finns i Konfigurera Redis persistence.

@@ -6,12 +6,12 @@ ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: c9ee50c146271106e2b9c693702827b2e1b52199
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: fa1f9da2c60aaf4c552916d16c266e984bf08892
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92219555"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340520"
 ---
 # <a name="tutorial-mount-the-cluster"></a>Självstudie: montera klustret
 
@@ -109,6 +109,6 @@ För att säkerställa en sömlös klient montering måste du överföra dessa i
 
 När du har monterat klienter kan du testa arbets flödet och komma igång med ditt kluster.
 
-Om du behöver flytta data till en ny Cloud core-filer, kan du utnyttja cache-strukturen genom att använda Parallel data inmatning. Vissa strategier beskrivs i [Flytta data till ett vFXT-kluster](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest). (Aver vFXT for Azure är en molnbaserad produkt som använder teknik för cachelagring som är mycket likt Azure FXT Edge-filer.)
+Om du behöver flytta data till en ny Cloud core-filer, kan du utnyttja cache-strukturen genom att använda Parallel data inmatning. Vissa strategier beskrivs i [Flytta data till ett vFXT-kluster](../avere-vfxt/avere-vfxt-data-ingest.md). (Aver vFXT for Azure är en molnbaserad produkt som använder teknik för cachelagring som är mycket likt Azure FXT Edge-filer.)
 
 Läs [övervaka maskin varu status för Azure FXT Edge](fxt-monitor.md) -filer om du behöver felsöka eventuella maskin varu problem.

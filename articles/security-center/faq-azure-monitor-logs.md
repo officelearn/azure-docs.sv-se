@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: c4af0e8eda818fcb57ea9e050b760c3754c46e2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a2854f4124a570de4fb467eb6a5d49a3214742e
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613653"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341829"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Vanliga frågor och svar om kunder som redan använder Azure Monitor loggar<a name="existingloganalyticscust"></a>
 
@@ -26,13 +26,13 @@ ms.locfileid: "91613653"
 
 Om en virtuell dator redan har Log Analytics-agenten installerad som ett Azure-tillägg åsidosätter Security Center inte den befintliga arbets ytans anslutning. I stället använder Security Center den befintliga arbets ytan. Den virtuella datorn kommer att skyddas förutsatt att lösningen "säkerhet" eller "SecurityCenterFree" har installerats på den arbets yta som den rapporterar till. 
 
-En Security Center lösning installeras på den arbets yta som valts på skärmen data insamling om den inte redan finns, och lösningen tillämpas bara på de relevanta virtuella datorerna. När du lägger till en lösning distribueras den automatiskt som standard till alla Windows-och Linux-agenter som är anslutna till din Log Analytics-arbetsyta. Med [lösnings mål](../operations-management-suite/operations-management-suite-solution-targeting.md) kan du tillämpa ett omfång på dina lösningar.
+En Security Center lösning installeras på den arbets yta som valts på skärmen data insamling om den inte redan finns, och lösningen tillämpas bara på de relevanta virtuella datorerna. När du lägger till en lösning distribueras den automatiskt som standard till alla Windows-och Linux-agenter som är anslutna till din Log Analytics-arbetsyta. Med [lösnings mål](../azure-monitor/insights/solution-targeting.md) kan du tillämpa ett omfång på dina lösningar.
 
 > [!TIP]
 > Om Log Analytics-agenten installeras direkt på den virtuella datorn (inte som ett Azure-tillägg) installerar Security Center inte Log Analytics agenten och säkerhets övervakningen är begränsad.
 
 ## <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Installerar Security Center lösningar på mina befintliga Log Analytics arbets ytor? Vilka är fakturerings konsekvenserna?
-När Security Center identifierar att en virtuell dator redan är ansluten till en arbets yta som du har skapat, kan Security Center aktivera lösningar på den här arbets ytan enligt pris konfigurationen. Lösningarna tillämpas bara på relevanta virtuella Azure-datorer, via [lösnings mål](../operations-management-suite/operations-management-suite-solution-targeting.md), så att faktureringen förblir densamma.
+När Security Center identifierar att en virtuell dator redan är ansluten till en arbets yta som du har skapat, kan Security Center aktivera lösningar på den här arbets ytan enligt pris konfigurationen. Lösningarna tillämpas bara på relevanta virtuella Azure-datorer, via [lösnings mål](../azure-monitor/insights/solution-targeting.md), så att faktureringen förblir densamma.
 
 - **Azure Defender av** – Security Center installerar lösningen "SecurityCenterFree" på arbets ytan. Du debiteras inte.
 - **Azure Defender på** – Security Center installerar säkerhets lösningen på arbets ytan.
@@ -40,7 +40,7 @@ När Security Center identifierar att en virtuell dator redan är ansluten till 
    ![Lösningar på standard arbets ytan](./media/security-center-platform-migration-faq/solutions.png)
 
 ## <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Jag har redan arbets ytor i min miljö, kan jag använda dem för att samla in säkerhets data?
-Om en virtuell dator redan har Log Analytics-agenten installerad som ett Azure-tillägg, Security Center använda den befintliga anslutna arbets ytan. En Security Center lösning installeras på arbets ytan om den inte redan finns, och lösningen tillämpas bara på relevanta virtuella datorer via [lösnings mål](../operations-management-suite/operations-management-suite-solution-targeting.md).
+Om en virtuell dator redan har Log Analytics-agenten installerad som ett Azure-tillägg, Security Center använda den befintliga anslutna arbets ytan. En Security Center lösning installeras på arbets ytan om den inte redan finns, och lösningen tillämpas bara på relevanta virtuella datorer via [lösnings mål](../azure-monitor/insights/solution-targeting.md).
 
 När Security Center installerar Log Analytics agent på virtuella datorer används standard arbets ytorna som skapats av Security Center om Security Center inte pekar på en befintlig arbets yta.
 

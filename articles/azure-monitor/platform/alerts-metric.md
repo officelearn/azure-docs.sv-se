@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7b5332f68bb35e3c9b9ed82bb7bed2908e744e9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b1015573e4c01f01d82c7c152b66db80bef0aee
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065870"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342169"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera måttaviseringar med Azure Monitor
 
@@ -43,11 +43,11 @@ Följande procedur beskriver hur du skapar en regel för mått varningar i Azure
 8. Om måttet har dimensioner, visas en dimensions tabell som visas. Välj ett eller flera värden per dimension.
     - Dimensions värden som visas baseras på mått data från de tre senaste dagarna.
     - Om det dimensions värde som du söker efter inte visas klickar du på "+" för att lägga till ett anpassat värde.
-    - Du kan också **välja \* ** för någon av dimensionerna. **Välj \* ** skalar markeringen dynamiskt till alla aktuella och framtida värden för en dimension.
+    - Du kan också **välja \* *_ för någon av dimensionerna. _*Välj \* *_ skalar markeringen dynamiskt till alla aktuella och framtida värden för en dimension.
 
     Mått varnings regeln utvärderar villkoret för alla kombinationer av värden som har valts. [Lär dig mer om hur aviseringar om flerdimensionella mått fungerar](alerts-metric-overview.md).
 
-9. Välj typ av **tröskel** , **operator**och **sammansättning**. Detta fastställer logiken som varnings regeln för mått kommer att utvärdera.
+9. Välj typen _*Threshold** Type, **operator**och **aggregation**. Detta fastställer logiken som varnings regeln för mått kommer att utvärdera.
     - Om du använder ett **statiskt** tröskelvärde kan du fortsätta att definiera ett **tröskelvärde**. Mått diagrammet kan hjälpa dig att avgöra vad som kan vara ett rimligt tröskelvärde.
     - Om du använder ett **dynamiskt** tröskelvärde kan du fortsätta med att definiera **tröskelns känslighet**. Mått diagrammet visar de beräknade tröskelvärdena baserat på senaste data. [Läs mer om villkors typ och känslighets alternativ för dynamisk tröskel](alerts-dynamic-thresholds.md).
 
@@ -154,8 +154,8 @@ Mått för varnings regler har dedikerade PowerShell-cmdlets tillgängliga:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa mått aviseringar med hjälp av Azure Resource Manager mallar](./alerts-metric-create-templates.md).
-- [Förstå hur mått aviseringar fungerar](alerts-metric-overview.md).
-- [Lär dig hur mått aviseringar med dynamiskt tröskelvärde fungerar](alerts-dynamic-thresholds.md).
+- [Skapa mått aviseringar med hjälp av Azure Resource Manager mallar](./alerts-metric-create-templates.md)
+- [Förstå hur mått aviseringar fungerar](alerts-metric-overview.md)
+- [Förstå hur mått aviseringar med villkor för dynamiskt tröskelvärden fungerar](alerts-dynamic-thresholds.md)
 - [Förstå webbhook-schemat för mått varningar](./alerts-metric-near-real-time.md#payload-schema)
-
+- [Felsöka problem i mått aviseringar](alerts-troubleshoot-metric.md)

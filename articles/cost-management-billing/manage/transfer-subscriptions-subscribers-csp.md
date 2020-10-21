@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: banders
-ms.openlocfilehash: d2d098c3a80bbbdb8c9fb64b25cc5967ee693046
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371413"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132371"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Överför Azure-prenumerationer mellan prenumeranter och molnlösningsleverantörer
 
@@ -26,7 +26,7 @@ CSP-partner som är certifierade som [Azure Expert-leverantörer av hanterade tj
 När begäran har godkänts kan CSP:n tillhandahålla en kombinerad faktura till sina kunder. Mer information om hur CSP:er överför prenumerationer finns i [Få faktureringsägarskap för Azure-prenumerationer för ditt MPA-konto](mpa-request-ownership.md).
 
 >[!IMPORTANT]
-> När du har överfört en EA-prenumeration till en CSP-partner återställs alla kvotökningar som tidigare tillämpats för EA-prenumerationen till standardvärdet. Om du behöver öka kvoten efter att prenumerationen har överförts ber du molnlösningsleverantören skicka en begäran om [ökad kvot](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
+> När du har överfört en EA-prenumeration till en CSP-partner återställs alla kvotökningar som tidigare tillämpats för EA-prenumerationen till standardvärdet. Om du behöver öka kvoten efter att prenumerationen har överförts ber du molnlösningsleverantören skicka en begäran om [ökad kvot](../../azure-portal/supportability/regional-quota-requests.md). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Andra prenumerationsöverföringar till en CSP-partner
 
@@ -42,7 +42,7 @@ För att kunna överföra andra Azure-prenumerationer till en CSP-partner måste
 1. Innan du börjar måste du [verifiera](/rest/api/resources/resources/validatemoveresources) att alla Azure-resurser kan flyttas från källprenumerationen till målprenumerationen.  
     Vissa Azure-resurser kan inte flyttas mellan prenumerationer. En fullständig lista över Azure-resurser som kan flyttas finns i [Stöd för flytt av resurser](../../azure-resource-manager/management/move-support-resources.md).
     > [!IMPORTANT]
-    >  - Azure CSP stöder endast Azure Resource Manager-resurser. Om det finns Azure-resurser i källprenumerationen som har skapats med den klassiska distributionsmodellen i Azure måste du först migrera dem till [Azure Resource Manager](https://docs.microsoft.com/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) innan du flyttar mellan prenumerationerna. För att kunna visa webbsidan måste du vara en partner.
+    >  - Azure CSP stöder endast Azure Resource Manager-resurser. Om det finns Azure-resurser i källprenumerationen som har skapats med den klassiska distributionsmodellen i Azure måste du först migrera dem till [Azure Resource Manager](/azure/cloud-solution-provider/migration/ea-payg-to-azure-csp/ea-open-direct-asm-to-arm) innan du flyttar mellan prenumerationerna. För att kunna visa webbsidan måste du vara en partner.
 
 1. Kontrollera att alla källprenumerationstjänster använder Azure Resource Manager-modellen. Överför sedan resurser från källprenumerationen till målprenumerationen med hjälp av [Azure Resource Move](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
     > [!IMPORTANT]

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 377c68cd2f0b0c132fc690cb03d7c3c5694bb52e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91438895"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92340894"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Ytterligare hot skydd i Azure Security Center
 I och med de inbyggda [Azure Defender-skydden](azure-defender.md)erbjuder Azure Security Center även följande hot skydds funktioner.
@@ -90,7 +90,7 @@ DDoS-attacker (distributed denial of Service) är kända för att vara lätta at
 
 Ett DDoS-angrepp försöker att belasta ett programs resurser, vilket gör programmet otillgängligt för legitima användare. DDoS-attacker kan rikta in sig på alla slut punkter som kan nås via Internet.
 
-Du kan skydda dig mot DDoS-attacker genom att köpa en licens för Azure DDoS Protection och se till att du följer metod tips för program design. DDoS Protection tillhandahåller olika tjänst nivåer. Mer information finns i [Azure DDoS Protection översikt](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Du kan skydda dig mot DDoS-attacker genom att köpa en licens för Azure DDoS Protection och se till att du följer metod tips för program design. DDoS Protection tillhandahåller olika tjänst nivåer. Mer information finns i [Azure DDoS Protection översikt](../virtual-network/ddos-protection-overview.md).
 
 En lista över Azure DDoS Protection aviseringar finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-azureddos).
 

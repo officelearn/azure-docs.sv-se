@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 79a0db3b9f81368fbdaace5be3fd94ad29649291
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532609"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92342084"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Använd Azure Defender för behållar register för att söka igenom dina avbildningar efter sårbarheter
 
@@ -29,8 +29,8 @@ När skannern rapporterar sårbarheter för att Security Center, Security Center
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|**Azure Defender för behållar register** faktureras enligt [pris sidan](security-center-pricing.md)|
 |Register och avbildningar som stöds:|![Ja ](./media/icons/yes-icon.png) -värdbaserade Linux-ACR register som är tillgängliga från det offentliga Internet och ger åtkomst till gränssnittet.<br>![Inga ](./media/icons/no-icon.png) Windows-värdbaserade ACR-register.<br>![Inga ](./media/icons/no-icon.png) privata register-Security Center kräver att dina register kan nås från det offentliga Internet. Security Center kan för närvarande inte ansluta till, eller skanna, register med begränsad åtkomst med en brand vägg, en tjänst slut punkt eller privata slut punkter som Azure Private Link.<br>![Det ](./media/icons/no-icon.png) finns inga super minimalist-bilder som [Docker](https://hub.docker.com/_/scratch/) -avbildningar, eller "Distroless"-avbildningar som bara innehåller ett program och dess körnings beroenden utan paket hanteraren, Shell eller OS.|
-|Nödvändiga roller och behörigheter:|Rollen **säkerhets läsare** och [Azure Container Registry läsare](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Nödvändiga roller och behörigheter:|Rollen **säkerhets läsare** och [Azure Container Registry läsare](../container-registry/container-registry-roles.md)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 

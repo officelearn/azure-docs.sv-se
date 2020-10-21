@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: c805b35b2c05600f96983da42ea7206a09e2e3e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20fce643defd12897eceb1accc7ade8b10548568
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447396"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341173"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatisera onboarding av Azure Security Center med hjälp av PowerShell
 
@@ -41,7 +41,7 @@ I det här exemplet aktiverar vi Security Center för en prenumeration med ID: d
 
 6. Tilldela Security Centers [Standard säkerhets principer](tutorial-security-policy.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 De här stegen bör utföras innan du kör Security Center-cmdlet: ar:
 
@@ -101,7 +101,7 @@ Du kan nu använda dessa PowerShell-cmdlets med Automation-skript för att progr
 ## <a name="see-also"></a>Se även
 Mer information om hur du kan använda PowerShell för att automatisera onboarding till Security Center finns i följande artikel:
 
-* [AZ. Security](https://docs.microsoft.com/powershell/module/az.security)
+* [AZ. Security](/powershell/module/az.security)
 
 Mer information om Security Center finns i följande artikel:
 

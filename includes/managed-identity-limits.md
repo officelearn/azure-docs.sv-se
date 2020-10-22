@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: active-directory
 author: daveba
 ms.service: active-directory
@@ -9,14 +9,14 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: dc7849e52b3e00c87d271ee8aef8788d816dff7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e5885e076222cd23ba127f3be41c1218f327ca0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971026"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92379826"
 ---
-- Varje hanterad identitet räknas mot objekt kvot gränsen i en Azure AD-klient enligt beskrivningen i [Azure AD-tjänstens gränser och begränsningar](../articles/active-directory/users-groups-roles/directory-service-limits-restrictions.md).
+- Varje hanterad identitet räknas mot objekt kvot gränsen i en Azure AD-klient enligt beskrivningen i [Azure AD-tjänstens gränser och begränsningar](../articles/active-directory/enterprise-users/directory-service-limits-restrictions.md).
 -   Den hastighet med vilken hanterade identiteter kan skapas har följande gränser:
 
     1. Per Azure AD-klient per Azure-region: 200 skapa åtgärder per 20 sekunder.

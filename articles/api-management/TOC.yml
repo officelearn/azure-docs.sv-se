@@ -62,8 +62,6 @@
       items:
         - name: Säkerhetsbaslinje
           href: security-baseline.md
-        - name: Inbyggda säkerhetskontroller
-          href: api-management-security-controls.md
     - name: Prenumerationer
       href: api-management-subscriptions.md
     - name: Versioner
@@ -160,6 +158,8 @@
       items:
         - name: Förstå utvecklarportalen
           href: api-management-howto-developer-portal.md
+        - name: Migrera från den inaktuella till den nya utvecklarportalen
+          href: developer-portal-deprecated-migration.md
         - name: Autentisera med Azure AD
           href: api-management-howto-aad.md
         - name: Autentisera med Azure AD B2C
@@ -170,13 +170,13 @@
           href: api-management-howto-configure-notifications.md
         - name: Aktivera OAuth-stöd för konsolen
           href: api-management-howto-oauth2.md
-        - name: Äldre portalen – anpassa portalen
+        - name: Inaktuell portal – anpassa portalen
           href: api-management-customize-styles.md
-        - name: Äldre portalen – ändra sidor och layouter
+        - name: Inaktuell portal – ändra sidor och layouter
           href: api-management-modify-content-layout.md
-        - name: Äldre portalen – anpassa med mallar
+        - name: Inaktuell portal – anpassa med mallar
           href: api-management-developer-portal-templates.md
-    - name: Mallar för den äldre portalen
+    - name: Mallar för den inaktuella portalen
       items:
         - name: Referens för datamodell
           href: api-management-template-data-model-reference.md

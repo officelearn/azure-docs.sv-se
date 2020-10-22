@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Dokumentation om QnA Maker
   description: QnA Maker är en molnbaserad API-tjänst som skapar ett konversationsanpassat lager för frågor och svar över dina data. Med QnA Maker kan du driva en tjänst för frågor och svar från halvstrukturerat innehåll som Vanliga frågor och svar-dokument, URL:er och produkthandböcker. QnA Maker-tjänsten svarar på dina användares frågor på naturligt språk genom att matcha med det bästa möjliga svaret från vanliga frågor och svar i kunskapsbasen.
-  ms.openlocfilehash: 09c577368ef6ca9b6bc584601ad018c2a63c7347
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: d82dcd03ce64c76a84811b5789ee5460ba089641
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "84628039"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372080"
 landingContent:
 - title: Om QnA Maker
   linkLists:
@@ -122,9 +122,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Alternativ för support och hjälp
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/qnamaker/context/context
     - text: Felsökning
       url: troubleshooting.md
-    - text: Ställa frågor i Stack Overflow
-      url: https://stackoverflow.com/questions/tagged/QnAMaker
-    - text: Påverka tjänsten med UserVoice
-      url: https://cognitive.uservoice.com/forums/578689-qna-maker-api

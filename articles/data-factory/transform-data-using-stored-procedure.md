@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: bdab4f33852be6bfc2621e2cbecff76778567b1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d62619fe2641ec1aded39650b47b53cf4269d8b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484739"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368884"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformera data med hjälp av aktiviteten SQL Server lagrad procedur i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -71,11 +71,11 @@ Följande tabell beskriver de här JSON-egenskaperna:
 | Egenskap                  | Beskrivning                              | Krävs |
 | ------------------------- | ---------------------------------------- | -------- |
 | name                      | Namn på aktiviteten                     | Ja      |
-| description               | Text som beskriver vad aktiviteten används för | Inga       |
+| description               | Text som beskriver vad aktiviteten används för | Nej       |
 | typ                      | För lagrad procedur aktivitet är aktivitets typen **SqlServerStoredProcedure** | Ja      |
 | linkedServiceName         | Referens till **Azure SQL Database** -eller **Azure Synapse Analytics** -eller **SQL Server** som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
 | storedProcedureName       | Ange namnet på den lagrade proceduren som ska anropas. | Ja      |
-| storedProcedureParameters | Ange värdena för parametrar för lagrad procedur. Används `"param1": { "value": "param1Value","type":"param1Type" }` för att skicka parameter värden och deras typ som stöds av data källan. Om du behöver skicka null för en parameter använder du `"param1": { "value": null }` (alla gemener). | Inga       |
+| storedProcedureParameters | Ange värdena för parametrar för lagrad procedur. Används `"param1": { "value": "param1Value","type":"param1Type" }` för att skicka parameter värden och deras typ som stöds av data källan. Om du behöver skicka null för en parameter använder du `"param1": { "value": null }` (alla gemener). | Nej       |
 
 ## <a name="parameter-data-type-mapping"></a>Parameter data typs mappning
 Den datatyp som du anger för parametern är den Azure Data Factorys typ som mappar till data typen i data källan som du använder. Du kan hitta data typs mappningar för data källan i kopplings avsnittet. Några exempel är
@@ -102,5 +102,5 @@ Se följande artiklar som förklarar hur du omformar data på andra sätt:
 * [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning körnings aktivitet för Bach](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (klassisk) batch execution Activity](transform-data-using-machine-learning.md)
 * [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

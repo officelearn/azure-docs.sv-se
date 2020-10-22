@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 00d8e0d3ba57034bd65dfb7663341e4fcdf586dc
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92310922"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372301"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Skapa data styrenheten för Azure-bågen
 
@@ -39,7 +39,7 @@ För närvarande är den lista över Kubernetes tjänster och distributioner som
 > * Den lägsta versionen av Kubernetes som stöds är v-1.14.
 > * Se [anslutnings kraven](connectivity.md) för att förstå vilken anslutning som krävs mellan din miljö och Azure.
 > * Mer information om hur du konfigurerar beständiga lagrings enheter finns i [rikt linjer för lagrings konfiguration](storage-configuration.md) .
-> * Om du använder Azure Kubernetes-tjänsten bör klustrets virtuella dator storlek vara minst **Standard_D8s_v3** och använda **Premium diskar.** 
+> * Om du använder Azure Kubernetes-tjänsten bör klustrets virtuella dator storlek vara minst **Standard_D8s_v3** och använda **Premium diskar.** Klustret ska inte omfatta flera tillgänglighets zoner. 
 > * Om du använder en annan Kubernetes-distribution eller tjänst bör du se till att du har en minsta Node-storlek på 8 GB RAM-minne och 4 kärnor och en total total kapacitet på 32 GB RAM-minne tillgängligt för alla dina Kubernetes-noder. Du kan till exempel ha 1 nod med 32 GB RAM-minne och 4 kärnor, eller så kan du ha 2 noder med 16 GB RAM-minne och 4 kärnor vardera.
 
 > [!NOTE]

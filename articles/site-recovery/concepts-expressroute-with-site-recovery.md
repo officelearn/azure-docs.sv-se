@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 68671a98c7703514af11de2f8c505110129fe713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12bec5af95e7da595d5af09fe9020992b1cf839d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398654"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368000"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure-ExpressRoute med Azure Site Recovery
 
@@ -37,7 +37,7 @@ Se till att [nätverks kraven](vmware-azure-configuration-server-requirements.md
 
 Om du använder proxy lokalt och vill använda ExpressRoute för replikeringstrafik måste du konfigurera listan över återanvändade proxyservrar på konfigurations servern och process servrarna. Följ stegen nedan:
 
-- Hämta PsExec-verktyget [härifrån för att få åtkomst till användar](https://aka.ms/PsExec) kontexten för systemet.
+- Hämta PsExec-verktyget [härifrån för att få åtkomst till användar](/sysinternals/downloads/psexec) kontexten för systemet.
 - Öppna Internet Explorer i system användar kontext genom att köra följande kommando rad PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
 - Lägg till proxyinställningar i IE
 - I listan över undantag lägger du till Azure Storage-URL: en *. blob.core.windows.net

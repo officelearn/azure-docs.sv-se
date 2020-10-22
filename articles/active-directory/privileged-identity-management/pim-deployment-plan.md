@@ -14,12 +14,12 @@ ms.date: 08/27/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bfe0fee14ed463e265dc4e7e4177c702b051c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9ba7217dfc167a06a1fea389cfc40a5e1251ca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89050207"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367813"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuera Azure AD Privileged Identity Management (PIM)
 
@@ -58,7 +58,7 @@ Det här avsnittet innehåller en översikt över planeringen av relevanta delar
 
 ## <a name="roles-that-can-be-managed-by-pim"></a>Roller som kan hanteras av PIM
 
-**Azure AD-roller** är alla i Azure Active Directory (till exempel global administratör, Exchange-administratör och säkerhets administratör). Du kan läsa mer om rollerna och deras funktioner i [Administratörs roll behörigheter i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). För hjälp med att bestämma vilka roller som ska tilldelas dina administratörer, se [minst privilegierade roller efter uppgift](../users-groups-roles/roles-delegate-by-task.md).
+**Azure AD-roller** är alla i Azure Active Directory (till exempel global administratör, Exchange-administratör och säkerhets administratör). Du kan läsa mer om rollerna och deras funktioner i [Administratörs roll behörigheter i Azure Active Directory](../roles/permissions-reference.md). För hjälp med att bestämma vilka roller som ska tilldelas dina administratörer, se [minst privilegierade roller efter uppgift](../roles/delegate-by-task.md).
 
 **Azure-roller** är roller som är länkade till en Azure-resurs, en resurs grupp, en prenumeration eller en hanterings grupp. Du kan använda PIM för att ge just-in-Time-åtkomst till inbyggda Azure-roller som ägare, användar åtkomst administratör och deltagare, samt även för [anpassade roller](../../role-based-access-control/custom-roles.md). Mer information om Azure-roller finns i [rollbaserad åtkomst kontroll i Azure](../../role-based-access-control/overview.md).
 
@@ -78,7 +78,7 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Intressenter: Privileged Identity Management för Azure AD-roller
 
-| Namn | Roll | Action |
+| Namn | Roll | Åtgärd |
 | --- | --- | --- |
 | Namn och e-postadress | **Identitets arkitekt eller Global Azure-administratör**<br/>En representant från identitets hanterings teamet som är ansvarig för att definiera hur den här ändringen ska justeras med infrastrukturen för kärn identitets hantering i din organisation. | SÅ/R/I |
 | Namn och e-postadress | **Tjänst ägare/rads hanterare**<br/>En representant från IT-ägare till en tjänst eller en grupp av tjänster. De är viktiga för att fatta beslut och hjälpa till att distribuera Privileged Identity Management för sitt team. | SÅ/R/I |
@@ -88,7 +88,7 @@ I följande avsnitt får du hjälp att identifiera alla intressenter som ingår 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-roles"></a>Intressenter: Privileged Identity Management för Azure-roller
 
-| Namn | Roll | Action |
+| Namn | Roll | Åtgärd |
 | --- | --- | --- |
 | Namn och e-postadress | **Prenumeration/resurs ägare**<br/>En representant från IT-ägarna till varje prenumeration eller resurs som du vill distribuera Privileged Identity Management för | SÅ/R/I |
 | Namn och e-postadress | **Säkerhets ägare**<br/>En representant från säkerhets teamet som kan signera att planen uppfyller organisationens säkerhets krav. | SÅ/R |
@@ -111,7 +111,7 @@ För Azure AD-roller är det vanligt att organisationer tilldelar rollen global 
 
 Följ dessa steg för att implementera principen om minsta behörighet för dina Azure AD-roller.
 
-1. Förstå rollernas granularitet genom att läsa och förstå de [tillgängliga administratörs rollerna för Azure AD](../users-groups-roles/directory-assign-admin-roles.md#available-roles). Du och ditt team bör också referera till [Administratörs roller efter identitets uppgift i Azure AD](../users-groups-roles/roles-delegate-by-task.md), som förklarar den minst privilegierade rollen för särskilda uppgifter.
+1. Förstå rollernas granularitet genom att läsa och förstå de [tillgängliga administratörs rollerna för Azure AD](../roles/permissions-reference.md#available-roles). Du och ditt team bör också referera till [Administratörs roller efter identitets uppgift i Azure AD](../roles/delegate-by-task.md), som förklarar den minst privilegierade rollen för särskilda uppgifter.
 
 1. Lista med privilegierade roller i din organisation. Du kan använda Privileged Identity Management [identifiering och insikter (för hands version)](pim-security-wizard.md) för att minska exponeringen.
 
@@ -200,11 +200,11 @@ Om du vill tilldela en roll till en grupp i stället för till enskilda använda
 
 #### <a name="many-users-are-assigned-to-a-role"></a>Många användare tilldelas en roll
 
-Hålla reda på vem som är tilldelad en roll och hantera tilldelningar baserat på när de behöver det kan ta tid när som helst. Om du vill tilldela en grupp till en roll måste du först [skapa en grupp](../users-groups-roles/roles-groups-create-eligible.md) för tilldelnings bara roller och sedan tilldela gruppen som giltig för en roll. Den här åtgärden delar alla i gruppen på samma aktiverings process som enskilda användare som är berättigade att kunna utökas till rollen. Grupp medlemmar aktiverar sina tilldelningar till gruppen individuellt med hjälp av processen för Privileged Identity Management aktiverings förfrågan och godkännande. Gruppen är inte aktive rad, bara användarens grupp medlemskap.
+Hålla reda på vem som är tilldelad en roll och hantera tilldelningar baserat på när de behöver det kan ta tid när som helst. Om du vill tilldela en grupp till en roll måste du först [skapa en grupp](../roles/groups-create-eligible.md) för tilldelnings bara roller och sedan tilldela gruppen som giltig för en roll. Den här åtgärden delar alla i gruppen på samma aktiverings process som enskilda användare som är berättigade att kunna utökas till rollen. Grupp medlemmar aktiverar sina tilldelningar till gruppen individuellt med hjälp av processen för Privileged Identity Management aktiverings förfrågan och godkännande. Gruppen är inte aktive rad, bara användarens grupp medlemskap.
 
 #### <a name="you-want-to-delegate-assigning-the-role"></a>Du vill delegera tilldelningen av rollen
 
-En grupp ägare kan hantera medlemskap för en grupp. För Azure AD Role-tilldelnings bara grupper kan endast privilegierade roll administratörer, global administratör och grupp ägare hantera grupp medlemskap. Genom att lägga till nya medlemmar i gruppen får medlemmen åtkomst till de roller som gruppen tilldelas om tilldelningen är giltig eller aktiv. Använd grupp ägare för att delegera hanteringen av grupp medlemskap för en tilldelad roll för att minska den behörighets bredd som krävs. Mer information om hur du tilldelar en ägare till en grupp när du skapar gruppen finns i [skapa en roll tilldelnings bara grupp i Azure AD](../users-groups-roles/roles-groups-create-eligible.md).
+En grupp ägare kan hantera medlemskap för en grupp. För Azure AD Role-tilldelnings bara grupper kan endast privilegierade roll administratörer, global administratör och grupp ägare hantera grupp medlemskap. Genom att lägga till nya medlemmar i gruppen får medlemmen åtkomst till de roller som gruppen tilldelas om tilldelningen är giltig eller aktiv. Använd grupp ägare för att delegera hanteringen av grupp medlemskap för en tilldelad roll för att minska den behörighets bredd som krävs. Mer information om hur du tilldelar en ägare till en grupp när du skapar gruppen finns i [skapa en roll tilldelnings bara grupp i Azure AD](../roles/groups-create-eligible.md).
 
 > [!TIP]
 > : heavy_check_mark: **Microsoft rekommenderar** att du ger Azure AD-roll tilldelnings bara grupper under hantering genom att Privileged Identity Management. När en grupp som kan tilldelas roller hanteras av PIM kallas den för en privilegie rad åtkomst grupp. Använd PIM för att kräva att grupp ägare aktiverar sina ägares roll tilldelningar innan de kan hantera grupp medlemskap. Mer information om att lägga till grupper under PIM-hantering finns i ge [privilegierade åtkomst grupper (för hands version) till Privileged Identity Management](groups-discover-groups.md).
@@ -214,7 +214,7 @@ En grupp ägare kan hantera medlemskap för en grupp. För Azure AD Role-tilldel
 När du har bestämt listan över roller som ska hanteras av Privileged Identity Management måste du bestämma vilka användare som ska få den kvalificerade rollen och den permanent aktiva rollen. Permanent aktiva roller är de normala roller som tilldelas via Azure Active Directory och Azure-resurser, medan berättigade roller bara kan tilldelas i Privileged Identity Management.
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft rekommenderar** att du har noll aktiva tilldelningar för både Azure AD-roller och andra Azure-roller än de rekommenderade två återställnings [kontona med hårt glas](../users-groups-roles/directory-emergency-access.md), vilket bör ha den permanenta globala administratörs rollen.
+> : heavy_check_mark: **Microsoft rekommenderar** att du har noll aktiva tilldelningar för både Azure AD-roller och andra Azure-roller än de rekommenderade två återställnings [kontona med hårt glas](../roles/security-emergency-access.md), vilket bör ha den permanenta globala administratörs rollen.
 
 Även om vi rekommenderar ständig administratör är det ibland svårt för organisationer att uppnå detta direkt. Följande är saker att tänka på när du fattar det här beslutet:
 

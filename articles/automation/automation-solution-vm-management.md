@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3210aa5ae2ff94ba2c7dda673fbb60847c4dfd0b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317369"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372165"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Översikt över Starta/stoppa virtuella datorer när de inte används
 
@@ -35,7 +35,7 @@ Följande är begränsningar med den aktuella funktionen:
 - Den hanterar virtuella datorer i vilken region som helst, men kan bara användas i samma prenumeration som ditt Azure Automation-konto.
 - Den är tillgänglig i Azure och Azure Government för alla regioner som stöder en Log Analytics arbets yta, ett Azure Automation-konto och aviseringar. Azure Government regioner stöder för närvarande inte e-postfunktioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Runbooks för funktionen starta/stoppa virtuella datorer under låg tid fungerar med ett [Kör som-konto i Azure](./manage-runas-account.md). Kör som-kontot är den föredragna autentiseringsmetoden eftersom den använder certifikatautentisering i stället för ett lösen ord som kan gå ut eller ändras ofta.
 
@@ -79,7 +79,7 @@ Om du vill aktivera virtuella datorer för Starta/stoppa virtuella datorer när 
 Du kan aktivera virtuella datorer för Starta/stoppa virtuella datorer när de inte används-funktionen med ett nytt Automation-konto och Log Analytics arbets yta. I det här fallet behöver du de behörigheter som definierats i föregående avsnitt samt de behörigheter som definierats i det här avsnittet. Du behöver också följande roller:
 
 - Co-Administrator prenumerationen. Den här rollen krävs för att skapa det klassiska kör som-kontot om du ska hantera klassiska virtuella datorer. [Klassiska kör som-konton](automation-create-standalone-account.md#create-a-classic-run-as-account) skapas inte längre som standard.
-- Medlemskap i rollen [Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) Application Developer. Mer information om hur du konfigurerar kör som-konton finns i [behörighet att konfigurera kör som-konton](manage-runas-account.md#permissions).
+- Medlemskap i rollen [Azure AD](../active-directory/roles/permissions-reference.md) Application Developer. Mer information om hur du konfigurerar kör som-konton finns i [behörighet att konfigurera kör som-konton](manage-runas-account.md#permissions).
 - Deltagare i prenumerationen eller följande behörigheter.
 
 | Behörighet |Omfång|
@@ -154,16 +154,16 @@ I alla scenarier, variablerna `External_Start_ResourceGroupNames` ,  `External_S
 
 ### <a name="schedules"></a>Scheman
 
-I följande tabell visas alla standard scheman som skapats i ditt Automation-konto.Du kan ändra dem eller skapa egna anpassade scheman.Som standard inaktive ras alla scheman förutom **Scheduled_StartVM** och **Scheduled_StopVM** scheman.
+I följande tabell visas alla standard scheman som skapats i ditt Automation-konto. Du kan ändra dem eller skapa egna anpassade scheman. Som standard inaktive ras alla scheman förutom **Scheduled_StartVM** och **Scheduled_StopVM** scheman.
 
 Aktivera inte alla scheman, eftersom detta kan skapa överlappande schema åtgärder. Det är bäst att bestämma vilka optimeringar du vill göra och ändra dem på lämpligt sätt. I exempel scenarierna i översikts avsnittet finns ytterligare förklaring.
 
 |Schema namn | Frequency | Beskrivning|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | Var 8:e timme | Kör **AutoStop_CreateAlert_Parent** Runbook var 8: e timme, vilket i sin tur stoppar de VM-baserade värdena i `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variablerna, och. Alternativt kan du ange en kommaavgränsad lista över virtuella datorer med hjälp av- `VMList` parametern.|
-|Scheduled_StopVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** Runbook med en parameter på `Stop` varje dag vid den angivna tiden.Stoppar automatiskt alla virtuella datorer som uppfyller reglerna som definierats av variabel till gångar.Aktivera det **schemalagda schemat för schemalagda StartVM**.|
-|Scheduled_StartVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** Runbook med ett parameter värde på `Start` varje dag vid den angivna tiden. Startar automatiskt alla virtuella datorer som uppfyller reglerna som definierats av variabel till gångar.Aktivera det **schemalagda schemat för schemalagda StopVM**.|
-|Sequenced-StopVM | 1:00 AM (UTC), varje fredag | Kör **Sequenced_StopStop_Parent** Runbook med ett parameter värde på `Stop` varje fredag vid den angivna tiden.I tur och ordning stoppas alla virtuella datorer med en tagg **SequenceStop** som definieras av lämpliga variabler. Mer information om tagg värden och till gångs variabler finns i [Runbooks](#runbooks).Aktivera relaterat schema, **sekvenserat-StartVM**.|
+|Scheduled_StopVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** Runbook med en parameter på `Stop` varje dag vid den angivna tiden. Stoppar automatiskt alla virtuella datorer som uppfyller reglerna som definierats av variabel till gångar. Aktivera det **schemalagda schemat för schemalagda StartVM**.|
+|Scheduled_StartVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** Runbook med ett parameter värde på `Start` varje dag vid den angivna tiden. Startar automatiskt alla virtuella datorer som uppfyller reglerna som definierats av variabel till gångar. Aktivera det **schemalagda schemat för schemalagda StopVM**.|
+|Sequenced-StopVM | 1:00 AM (UTC), varje fredag | Kör **Sequenced_StopStop_Parent** Runbook med ett parameter värde på `Stop` varje fredag vid den angivna tiden. I tur och ordning stoppas alla virtuella datorer med en tagg **SequenceStop** som definieras av lämpliga variabler. Mer information om tagg värden och till gångs variabler finns i [Runbooks](#runbooks). Aktivera relaterat schema, **sekvenserat-StartVM**.|
 |Sequenced-StartVM | 1:00 PM (UTC), varje måndag | Kör **SequencedStopStart_Parent** Runbook med ett parameter värde på `Start` varje måndag vid den angivna tiden. Sekventiellt (fallande) startar alla virtuella datorer med en tagg för **SequenceStart** som definieras av lämpliga variabler. Mer information om tagg värden och variabel till gångar finns i [Runbooks](#runbooks). Aktivera relaterat schema, **sekvenserat-StopVM**.
 
 ## <a name="use-the-feature-with-classic-vms"></a>Använda funktionen med klassiska virtuella datorer

@@ -2,13 +2,13 @@
 title: Azure Lab Services-administratörs guide | Microsoft Docs
 description: Den här guiden hjälper administratörer som skapar och hanterar labb konton med Azure Lab Services.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: ad3bc110d93efb5b735f77fb8a0b2af9e4f9a7cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/20/2020
+ms.openlocfilehash: 380676b22fc27b5f62c40112457c42a04b4bf955
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85444156"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371417"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services-administratörs guide
 IT-administratörer som hanterar ett universitets moln resurser är vanligt vis ansvariga för att ställa in labb kontot för sin skola. När ett labb konto har kon figurer ATS kan administratörer eller lärare skapa klass rums labb som finns i labb kontot. Den här artikeln innehåller en översikt över de Azure-resurser som ingår och vägledningen för att skapa dem.
@@ -144,11 +144,11 @@ Den plats som ett klass rums labb finns i varierar beroende på följande faktor
     > [!NOTE]
     > När ett labb konto är peer-kopplat med ett VNet inaktive ras inställningen för att **tillåta labb skapare att välja labb plats** . Ytterligare information finns i artikeln: [Tillåt labb skapare att välja plats för labbet](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-  - **Inget virtuellt nätverk är peer-kopplat ***och*** labb skapare får inte välja labb platsen**
+  - * * Inget VNet är peer-kopplat **_och_*_ labb skapare tillåts inte att välja labb location_ *
   
     När det inte finns **någon** VNet-peer med labb kontot *och* [labb skapare **inte** tillåts att välja labb platsen](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), skapas klass rum automatiskt i en region som har tillgänglig VM-kapacitet.  Mer specifikt Azure Lab Services letar efter tillgänglighet i [regioner som ligger inom samma geografi som labb kontot](https://azure.microsoft.com/global-infrastructure/regions).
 
-  - **Inget virtuellt nätverk är peer-kopplat ***och*** labb skapare kan välja labb plats**
+  - * * Inget VNet är peer-kopplat **_och_*_ labb skapare kan välja labb location_ *
        
     När det **inte finns något** virtuellt nätverk och [labb skapare tillåts att välja labb platsen](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location), baseras de platser som kan väljas av Labbets skapare på tillgänglig kapacitet.
 
@@ -171,7 +171,7 @@ När administratörer eller labb skapare skapar ett klass rums labb, kan de väl
 | Medium | <ul><li>4 kärnor</li><li>7 GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys. |
 | Medium (kapslad virtualisering) | <ul><li>4 kärnor</li><li>16 GB RAM</li></ul> | [Standard_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys.
 | Stor | <ul><li>8 kärnor</li><li>16 GB RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen.  Den här storleken stöder även kapslad virtualisering. |
-| Stor (kapslad virtualisering) | <ul><li>8 kärnor</li><li>16 GB RAM</li></ul>  | [Standard_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen. |
+| Stor (kapslad virtualisering) | <ul><li>8 kärnor</li><li>32 GB RAM</li></ul>  | [Standard_D8s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen. |
 | Liten GPU (visualisering) | <ul><li>6 kärnor</li><li>56 GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. |
 | Liten GPU (Compute) | <ul><li>6 kärnor</li><li>56 GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Den här storleken passar bäst för dator intensiva program som artificiell intelligens och djup inlärning. |
 | Medelhög GPU (visualisering) | <ul><li>12 kärnor</li><li>112 GB RAM</li></ul>  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. |

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc512bf664857129377d2eb928ff025d1c5f659b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28847ece3c08e93d14d381b35fc93fb16dad95a1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321182"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370873"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt anpassade domän namn med hjälp av Azure Active Directory portalen
 
@@ -104,9 +104,9 @@ Om det inte går att verifiera ett anpassat domän namn i Azure AD kan du prova 
 
   Om du inte kan uppdatera posten på registrator-webbplatsen delar du posten med någon som har behörighet att lägga till posten och kontrollerar att den är korrekt.
 
-- **Kontrol lera att domän namnet inte redan används i en annan katalog.** Ett domän namn kan bara verifieras i en katalog. Om ditt domän namn för närvarande är verifierat i en annan katalog kan det inte också verifieras i den nya katalogen. Du måste ta bort domän namnet från den gamla katalogen för att åtgärda det här problemet. Mer information om hur du tar bort domän namn finns i [Hantera anpassade domän namn](../users-groups-roles/domains-manage.md).
+- **Kontrol lera att domän namnet inte redan används i en annan katalog.** Ett domän namn kan bara verifieras i en katalog. Om ditt domän namn för närvarande är verifierat i en annan katalog kan det inte också verifieras i den nya katalogen. Du måste ta bort domän namnet från den gamla katalogen för att åtgärda det här problemet. Mer information om hur du tar bort domän namn finns i [Hantera anpassade domän namn](../enterprise-users/domains-manage.md).
 
-- **Kontrol lera att du inte har några ohanterade Power BI klienter.** Om dina användare har aktiverat Power BI via självbetjänings registrering och skapat en ohanterad klient för din organisation, måste du ta över hanteringen som en intern eller extern administratör med hjälp av PowerShell. Mer information finns i [Ta över en ohanterad katalog som administratör i Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
+- **Kontrol lera att du inte har några ohanterade Power BI klienter.** Om dina användare har aktiverat Power BI via självbetjänings registrering och skapat en ohanterad klient för din organisation, måste du ta över hanteringen som en intern eller extern administratör med hjälp av PowerShell. Mer information finns i [Ta över en ohanterad katalog som administratör i Azure Active Directory](../enterprise-users/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -114,6 +114,6 @@ Om det inte går att verifiera ett anpassat domän namn i Azure AD kan du prova 
 
 - Lägg till användare till din domän. Mer information finns i [så här lägger du till eller tar bort användare](add-users-azure-active-directory.md).
 
-- Hantera din domän namns information i Azure AD. Mer information finns i [Hantera anpassade domän namn](../users-groups-roles/domains-manage.md).
+- Hantera din domän namns information i Azure AD. Mer information finns i [Hantera anpassade domän namn](../enterprise-users/domains-manage.md).
 
 - Om du har lokala versioner av Windows Server som du vill använda tillsammans med Azure Active Directory, se [integrera dina lokala kataloger med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).

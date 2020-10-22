@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc36fccf84807621b8b3a186979ccfd000fe48f3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89146631"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372488"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Planera distribution av en Azure Active Directory Mina appar
 
@@ -225,7 +225,7 @@ Godkännande arbets flöden är tillgängliga för explicit godkännande för å
 
 Du kan göra det möjligt för användare att skapa och hantera egna säkerhets grupper eller Microsoft 365 grupper i Azure AD. Ägare av gruppen kan godkänna eller neka medlemskaps begär Anden och delegera kontrollen av grupp medlemskap. Funktioner för grupp hantering via självbetjäning är inte tillgängliga för e-postaktiverade säkerhets grupper eller distributions listor.
 
-Om du vill planera för grupp medlemskap i självbetjäning kontrollerar du om du ska tillåta alla användare i din organisation att skapa och hantera grupper eller endast en delmängd av användarna. Om du tillåter en delmängd av användarna måste du konfigurera en grupp som dessa personer läggs till i. Mer information om hur du aktiverar de här scenarierna finns i Konfigurera självbetjänings [grupp hantering i Azure Active Directory](../users-groups-roles/groups-self-service-management.md) .
+Om du vill planera för grupp medlemskap i självbetjäning kontrollerar du om du ska tillåta alla användare i din organisation att skapa och hantera grupper eller endast en delmängd av användarna. Om du tillåter en delmängd av användarna måste du konfigurera en grupp som dessa personer läggs till i. Mer information om hur du aktiverar de här scenarierna finns i Konfigurera självbetjänings [grupp hantering i Azure Active Directory](../enterprise-users/groups-self-service-management.md) .
 
 ## <a name="plan-reporting-and-auditing"></a>Planera rapportering och granskning
 
@@ -299,7 +299,7 @@ Det är viktigt att planera vad som ska göras om distributionen inte fungerar s
 
 ## <a name="manage-your-implementation"></a>Hantera din implementering
 
-Använd den minst privilegierade rollen för att utföra en obligatorisk uppgift i Azure Active Directory. [Granska de olika roller som är tillgängliga](../users-groups-roles/directory-assign-admin-roles.md) och välj rätt för att lösa dina behov för varje person för det här programmet. Vissa roller kan behöva tillämpas tillfälligt och tas bort när distributionen har slutförts.
+Använd den minst privilegierade rollen för att utföra en obligatorisk uppgift i Azure Active Directory. [Granska de olika roller som är tillgängliga](../roles/permissions-reference.md) och välj rätt för att lösa dina behov för varje person för det här programmet. Vissa roller kan behöva tillämpas tillfälligt och tas bort när distributionen har slutförts.
 
 | Profiler| Roller| Azure AD-roll  |
 | - | -| -|

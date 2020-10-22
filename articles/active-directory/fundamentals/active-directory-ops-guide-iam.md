@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66bce573be5a31641bdff809b8e9a79b617a703a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601322"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371009"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Referens guide för Azure Active Directory identitets-och åtkomst hanterings åtgärder
 
@@ -45,7 +45,7 @@ När du granskar listan kanske du måste tilldela en ägare för aktiviteter som
 
 #### <a name="assigning-owners-recommended-reading"></a>Tilldela ägare Rekommenderad läsning
 
-- [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Tilldela administratörsroller i Azure Active Directory](../roles/permissions-reference.md)
 - [Styrning i Azure](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>Synkronisering av lokala identiteter
@@ -157,13 +157,13 @@ Använd följande rikt linjer för att definiera tjänst planer för användare:
 - Du kan också definiera ett attribut för att lagra paketen för användare.
 
 > [!IMPORTANT]
-> Gruppbaserad licensiering i Azure AD introducerar begreppet användare i ett licensierings fel tillstånd. Om du ser eventuella licens fel bör du omedelbart [identifiera och lösa](../users-groups-roles/licensing-groups-resolve-problems.md) eventuella licens tilldelnings problem.
+> Gruppbaserad licensiering i Azure AD introducerar begreppet användare i ett licensierings fel tillstånd. Om du ser eventuella licens fel bör du omedelbart [identifiera och lösa](../enterprise-users/licensing-groups-resolve-problems.md) eventuella licens tilldelnings problem.
 
 ![En skärm bild av en dator skärms beskrivning som genereras automatiskt](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>Livs cykel hantering
 
-Om du för närvarande använder ett verktyg, till exempel [Microsoft Identity Manager](/microsoft-identity-manager/) eller ett system från tredje part, som förlitar sig på en lokal infrastruktur, rekommenderar vi att du avlastar tilldelningen från det befintliga verktyget, implementerar gruppbaserad licensiering och definierar en grupp livs cykel hantering baserat på [grupper](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). På samma sätt bör du, om din befintliga process inte har något konto för nya medarbetare eller anställda som lämnar organisationen, distribuera gruppbaserad licensiering baserat på dynamiska grupper och definiera en livs cykel för grupp medlemskap. Slutligen, om gruppbaserad licensiering distribueras mot lokala grupper som saknar livs cykel hantering, bör du överväga att använda moln grupper för att aktivera funktioner som delegerad ägarskap eller attributbaserade dynamiska medlemskap.
+Om du för närvarande använder ett verktyg, till exempel [Microsoft Identity Manager](/microsoft-identity-manager/) eller ett system från tredje part, som förlitar sig på en lokal infrastruktur, rekommenderar vi att du avlastar tilldelningen från det befintliga verktyget, implementerar gruppbaserad licensiering och definierar en grupp livs cykel hantering baserat på [grupper](../enterprise-users/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). På samma sätt bör du, om din befintliga process inte har något konto för nya medarbetare eller anställda som lämnar organisationen, distribuera gruppbaserad licensiering baserat på dynamiska grupper och definiera en livs cykel för grupp medlemskap. Slutligen, om gruppbaserad licensiering distribueras mot lokala grupper som saknar livs cykel hantering, bör du överväga att använda moln grupper för att aktivera funktioner som delegerad ägarskap eller attributbaserade dynamiska medlemskap.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Tilldelning av appar med gruppen "alla användare"
 

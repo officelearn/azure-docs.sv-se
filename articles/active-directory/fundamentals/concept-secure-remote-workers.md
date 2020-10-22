@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43b883cac7b970488a30116bc06efc8663766629
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705375"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370210"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Svara säkra identiteter snabbt med Azure AD
 
@@ -34,7 +34,7 @@ Den här check listan hjälper dig att snabbt distribuera kritiska rekommenderad
 - Använd Cloud Intelligence.
 - Aktivera självbetjäning för slutanvändare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här guiden förutsätter att endast ditt moln eller Hybrid identiteter har skapats i Azure AD. Om du behöver hjälp med att välja din identitets typ läser du artikeln och [väljer rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](../hybrid/choose-ad-authn.md) 
 
@@ -50,7 +50,7 @@ Det finns ett antal rekommendationer som Azure AD Free, Office 365 eller Microso
 - Microsoft 365 (Business Basic, Apps for Business, Business Standard, Business Premium, a1)
 - Azure AD Free (ingår i Azure, Dynamics 365, Intune och Power Platform)
 
-| Rekommenderad åtgärd | Information |
+| Rekommenderad åtgärd | Detalj |
 | --- | --- |
 | [Aktivera säkerhets inställningar](concept-fundamentals-security-defaults.md) | Skydda alla användar identiteter och program genom att aktivera MFA och blockera äldre autentisering |
 | [Aktivera hash-synkronisering av lösen ord](../hybrid/how-to-connect-password-hash-synchronization.md) (om Hybrid identiteter används) | Ge redundans för autentisering och förbättra säkerheten (inklusive Smart utelåsning, IP-utelåsning och möjligheten att identifiera läckta autentiseringsuppgifter.) |
@@ -61,7 +61,7 @@ Det finns ett antal rekommendationer som Azure AD Free, Office 365 eller Microso
 | [Automatisera användar etablering och avetablering från SaaS program](../app-provisioning/user-provisioning.md) (om tillämpligt) | Skapa automatiskt användar identiteter och roller i molnet (SaaS) som användare behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roll förändringar, vilket ökar din organisations säkerhet. |
 | [Aktivera säker hybrid åtkomst: säkra äldre appar med befintliga program leverans styrenheter och nätverk](../manage-apps/secure-hybrid-access.md) (om tillämpligt) | Publicera och skydda dina lokala och molnbaserade program för autentisering av äldre program genom att ansluta dem till Azure AD med din befintliga program leverans styrenhet eller ditt nätverk. |
 | [Aktivera lösen ords återställning via självbetjäning](../authentication/tutorial-enable-sspr.md) (gäller endast moln konton) | Detta minskar risken för support och produktivitets förlust när en användare inte kan logga in på sin enhet eller ett program. |
-| [Använd icke-globala administrativa roller där det är möjligt](../users-groups-roles/directory-assign-admin-roles.md) | Ge dina administratörer bara den åtkomst som de behöver för att komma åt de områden som de behöver åtkomst till. Alla administratörer behöver inte vara globala administratörer. |
+| [Använd icke-globala administrativa roller där det är möjligt](../roles/permissions-reference.md) | Ge dina administratörer bara den åtkomst som de behöver för att komma åt de områden som de behöver åtkomst till. Alla administratörer behöver inte vara globala administratörer. |
 | [Aktivera Microsofts lösen Ords vägledning](https://www.microsoft.com/research/publication/password-guidance/) | Sluta kräva att användarna ändrar sitt lösen ord enligt ett schema, inaktiverar komplexitets kraven och att användarna är mer Apta för att komma ihåg sina lösen ord och se till att de är säkra. |
 
 
@@ -73,7 +73,7 @@ Följande tabell är avsedd att markera viktiga åtgärder för följande licens
 - Enterprise Mobility + Security (EMS E3)
 - Microsoft 365 (M365 E3, A3, F1, F3)
 
-| Rekommenderad åtgärd | Information |
+| Rekommenderad åtgärd | Detalj |
 | --- | --- |
 | [Aktivera kombinerad registrerings upplevelse för Azure MFA och SSPR för att förenkla användar registrerings upplevelsen](../authentication/howto-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. |
 | [Konfigurera MFA-inställningar för din organisation](../authentication/howto-mfa-getstarted.md) | Se till att konton skyddas från att bli komprometterade med Multi-Factor Authentication |
@@ -90,8 +90,8 @@ Följande tabell är avsedd att markera viktiga åtgärder för följande licens
 | [Automatisera användar etablering och avetablering från SaaS program](../app-provisioning/user-provisioning.md) (om tillämpligt) | Skapa automatiskt användar identiteter och roller i molnet (SaaS) som användare behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roll förändringar, vilket ökar din organisations säkerhet. |
 | [Aktivera villkorlig åtkomst – enhet baserad](../conditional-access/require-managed-devices.md) | Förbättra säkerhets-och användar upplevelser med enhets-baserad villkorlig åtkomst. Det här steget ser till att användarna bara kan komma åt från enheter som uppfyller dina standarder för säkerhet och efterlevnad. Dessa enheter kallas även hanterade enheter. Hanterade enheter kan vara Intune-kompatibla eller hybrid Azure AD-anslutna enheter. |
 | [Aktivera lösen ords skydd](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Skydda användare från att använda svaga och enkla att gissa lösen ord. |
-| [Ange mer än en global administratör](../users-groups-roles/directory-emergency-access.md) | Tilldela minst två permanenta globala administratörs konton för enbart molnet som ska användas om det finns en nöd situation. Dessa konton används inte dagligen och bör ha långa och komplexa lösen ord. Bryt glas konton se till att du har åtkomst till tjänsten i nödfall. |
-| [Använd icke-globala administrativa roller där det är möjligt](../users-groups-roles/directory-assign-admin-roles.md) | Ge dina administratörer bara den åtkomst som de behöver för att komma åt de områden som de behöver åtkomst till. Alla administratörer behöver inte vara globala administratörer. |
+| [Ange mer än en global administratör](../roles/security-emergency-access.md) | Tilldela minst två permanenta globala administratörs konton för enbart molnet som ska användas om det finns en nöd situation. Dessa konton används inte dagligen och bör ha långa och komplexa lösen ord. Bryt glas konton se till att du har åtkomst till tjänsten i nödfall. |
+| [Använd icke-globala administrativa roller där det är möjligt](../roles/permissions-reference.md) | Ge dina administratörer bara den åtkomst som de behöver för att komma åt de områden som de behöver åtkomst till. Alla administratörer behöver inte vara globala administratörer. |
 | [Aktivera Microsofts lösen Ords vägledning](https://www.microsoft.com/research/publication/password-guidance/) | Sluta kräva att användarna ändrar sitt lösen ord enligt ett schema, inaktiverar komplexitets kraven och att användarna är mer Apta för att komma ihåg sina lösen ord och se till att de är säkra. |
 | [Skapa en plan för åtkomst till gäst användare](../external-identities/what-is-b2b.md) | Samar beta med gäst användare genom att låta dem logga in på dina appar och tjänster med sina egna arbets-, skol-eller sociala identiteter. |
 
@@ -103,7 +103,7 @@ Följande tabell är avsedd att markera viktiga åtgärder för följande licens
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (M365 E5, A5)
 
-| Rekommenderad åtgärd | Information |
+| Rekommenderad åtgärd | Detalj |
 | --- | --- |
 | [Aktivera kombinerad registrerings upplevelse för Azure MFA och SSPR för att förenkla användar registrerings upplevelsen](../authentication/howto-registration-mfa-sspr-combined.md) | Tillåt att användarna registrerar sig från en vanlig upplevelse för både Azure-Multi-Factor Authentication och lösen ords återställning via självbetjäning. |
 | [Konfigurera MFA-inställningar för din organisation](../authentication/howto-mfa-getstarted.md) | Se till att konton skyddas från att bli komprometterade med Multi-Factor Authentication |
@@ -122,8 +122,8 @@ Följande tabell är avsedd att markera viktiga åtgärder för följande licens
 | [Automatisera användar etablering och avetablering från SaaS program](../app-provisioning/user-provisioning.md) (om tillämpligt) | Skapa automatiskt användar identiteter och roller i molnet (SaaS) som användare behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roll förändringar, vilket ökar din organisations säkerhet. |
 | [Aktivera villkorlig åtkomst – enhet baserad](../conditional-access/require-managed-devices.md) | Förbättra säkerhets-och användar upplevelser med enhets-baserad villkorlig åtkomst. Det här steget ser till att användarna bara kan komma åt från enheter som uppfyller dina standarder för säkerhet och efterlevnad. Dessa enheter kallas även hanterade enheter. Hanterade enheter kan vara Intune-kompatibla eller hybrid Azure AD-anslutna enheter. |
 | [Aktivera lösen ords skydd](../authentication/howto-password-ban-bad-on-premises-deploy.md) | Skydda användare från att använda svaga och enkla att gissa lösen ord. |
-| [Ange mer än en global administratör](../users-groups-roles/directory-emergency-access.md) | Tilldela minst två permanenta globala administratörs konton för enbart molnet som ska användas om det finns en nöd situation. Dessa konton används inte dagligen och bör ha långa och komplexa lösen ord. Bryt glas konton se till att du har åtkomst till tjänsten i nödfall. |
-| [Använd icke-globala administrativa roller där det är möjligt](../users-groups-roles/directory-assign-admin-roles.md) | Ge dina administratörer bara den åtkomst som de behöver för att komma åt de områden som de behöver åtkomst till. Alla administratörer behöver inte vara globala administratörer. |
+| [Ange mer än en global administratör](../roles/security-emergency-access.md) | Tilldela minst två permanenta globala administratörs konton för enbart molnet som ska användas om det finns en nöd situation. Dessa konton används inte dagligen och bör ha långa och komplexa lösen ord. Bryt glas konton se till att du har åtkomst till tjänsten i nödfall. |
+| [Använd icke-globala administrativa roller där det är möjligt](../roles/permissions-reference.md) | Ge dina administratörer bara den åtkomst som de behöver för att komma åt de områden som de behöver åtkomst till. Alla administratörer behöver inte vara globala administratörer. |
 | [Aktivera Microsofts lösen Ords vägledning](https://www.microsoft.com/research/publication/password-guidance/) | Sluta kräva att användarna ändrar sitt lösen ord enligt ett schema, inaktiverar komplexitets kraven och att användarna är mer Apta för att komma ihåg sina lösen ord och se till att de är säkra. |
 | [Skapa en plan för åtkomst till gäst användare](../external-identities/what-is-b2b.md) | Samar beta med gäst användare genom att låta dem logga in på dina appar och tjänster med sina egna arbets-, skol-eller sociala identiteter. |
 | [Aktivera Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Med kan du hantera, kontrol lera och övervaka åtkomsten till viktiga resurser i din organisation, vilket garanterar att administratörer bara har åtkomst vid behov och med godkännande |

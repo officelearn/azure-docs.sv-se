@@ -3,17 +3,17 @@ title: Azure Storage exempel med Java Script | Microsoft Docs
 description: Visa, ladda ned och kör exempel kod och program för Azure Storage. Identifiera exempel på att komma igång med blobbar, köer, tabeller och filer med hjälp av Java Script/Node.js lagrings klient bibliotek.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/19/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-js
-ms.openlocfilehash: 208e06e9bd8fcf26674a11f79d2bd6878ca4f633
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21c92d6595d2db3f9fb01ee5ddc3669a0564bab
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331564"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359755"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Azure Storage exempel med V12 Java Script-klient bibliotek
 
@@ -428,4 +428,5 @@ Information om exempel för andra språk:
 * .NET: [Azure Storage exempel med .net](storage-samples-dotnet.md)
 * Java: [Azure Storage exempel med Java](storage-samples-java.md)
 * Python: [Azure Storage exempel med python](storage-samples-python.md)
+* C++: [Azure Storage exempel med hjälp av C++](storage-samples-c-plus-plus.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

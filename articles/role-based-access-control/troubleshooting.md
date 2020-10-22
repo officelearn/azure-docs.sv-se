@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 415af4d71365a88a5998f6a9356d5240bc5e2518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069c290de0278202b2e20d67f0ce792a0a79c345
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666001"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368238"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -61,7 +61,7 @@ $ras.Count
 
     Om du får fel meddelandet "otillräcklig behörighet för att slutföra åtgärden" är det troligt att Azure CLI försöker söka efter den tilldelas identiteten i Azure AD och tjänstens huvud namn kan inte läsa Azure AD som standard.
 
-    Det finns två sätt att eventuellt lösa det här felet. Det första sättet är att tilldela [katalog läsar](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) rollen till tjänstens huvud namn, så att den kan läsa data i katalogen.
+    Det finns två sätt att eventuellt lösa det här felet. Det första sättet är att tilldela [katalog läsar](../active-directory/roles/permissions-reference.md#directory-readers) rollen till tjänstens huvud namn, så att den kan läsa data i katalogen.
 
     Det andra sättet att lösa det här felet är att skapa roll tilldelningen med hjälp av- `--assignee-object-id` parametern i stället för `--assignee` . Genom `--assignee-object-id` att använda, hoppar Azure CLI över Azure AD-sökningen. Du måste hämta objekt-ID: t för den användare, grupp eller det program som du vill tilldela rollen till. Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 
@@ -184,7 +184,7 @@ Om du beviljar en användare skrivskyddad åtkomst till en enda webbapp inaktive
 * Kommandon (t. ex. Start, stopp osv.)
 * Ändra inställningar som allmän konfiguration, skalnings inställningar, säkerhets kopierings inställningar och övervaknings inställningar
 * Åtkomst till autentiseringsuppgifter för publicering och andra hemligheter som appinställningar och anslutnings strängar
-* Strömmande loggar
+* Direktuppspelningsloggar
 * Konfiguration av resurs loggar
 * Konsol (kommando tolk)
 * Aktiva och nya distributioner (för lokal git-kontinuerlig distribution)

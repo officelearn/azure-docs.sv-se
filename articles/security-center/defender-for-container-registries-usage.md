@@ -1,18 +1,18 @@
 ---
 title: Använda Azure Defender för behållar register
-description: Läs om hur du använder Azure Defender för behållar register för att skanna bilder i dina register
+description: Läs om hur du använder Azure Defender för behållar register för att söka igenom Linux-avbildningar i dina Linux-värdbaserade register
 author: memildin
 ms.author: memildin
-ms.date: 9/22/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 57e8b6f47c4166c4f8b9f5de0f3e03a7d757e100
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342084"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370550"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Använd Azure Defender för behållar register för att söka igenom dina avbildningar efter sårbarheter
 
@@ -28,7 +28,8 @@ När skannern rapporterar sårbarheter för att Security Center, Security Center
 |----|:----|
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|**Azure Defender för behållar register** faktureras enligt [pris sidan](security-center-pricing.md)|
-|Register och avbildningar som stöds:|![Ja ](./media/icons/yes-icon.png) -värdbaserade Linux-ACR register som är tillgängliga från det offentliga Internet och ger åtkomst till gränssnittet.<br>![Inga ](./media/icons/no-icon.png) Windows-värdbaserade ACR-register.<br>![Inga ](./media/icons/no-icon.png) privata register-Security Center kräver att dina register kan nås från det offentliga Internet. Security Center kan för närvarande inte ansluta till, eller skanna, register med begränsad åtkomst med en brand vägg, en tjänst slut punkt eller privata slut punkter som Azure Private Link.<br>![Det ](./media/icons/no-icon.png) finns inga super minimalist-bilder som [Docker](https://hub.docker.com/_/scratch/) -avbildningar, eller "Distroless"-avbildningar som bara innehåller ett program och dess körnings beroenden utan paket hanteraren, Shell eller OS.|
+|Register och avbildningar som stöds:|Linux-avbildningar i ACR-register som är tillgängliga från det offentliga Internet med shell-åtkomst|
+|Register och avbildningar som inte stöds:|Windows-avbildningar<br>Privata register<br>Register med begränsad åtkomst med en brand vägg, en tjänst slut punkt eller privata slut punkter som Azure Private-länk<br>Super-minimalist bilder, till exempel [Docker Scratch](https://hub.docker.com/_/scratch/) images, eller "Distroless"-avbildningar som bara innehåller ett program och dess körnings beroenden utan paket hanteraren, Shell eller OS|
 |Nödvändiga roller och behörigheter:|Rollen **säkerhets läsare** och [Azure Container Registry läsare](../container-registry/container-registry-roles.md)|
 |Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
@@ -36,14 +37,12 @@ När skannern rapporterar sårbarheter för att Security Center, Security Center
 
 ## <a name="identify-vulnerabilities-in-images-in-azure-container-registries"></a>Identifiera sårbarheter i avbildningar i Azure Container register 
 
-1. Aktivera sårbarhets ökningar av avbildningar som lagras i Azure Resource Manager-baserade Azure Container Registry:
+Aktivera sårbarhets ökningar av avbildningar som lagras i Azure Resource Manager-baserade Azure Container Registry:
 
-    1. Aktivera **Azure Defender för behållar register** för din prenumeration.
+1. Aktivera **Azure Defender för behållar register** för din prenumeration. Security Center är nu redo att skanna bilder i dina register.
 
-        Security Center är nu redo att skanna bilder i dina register.
-
-        >[!NOTE]
-        > Den här funktionen debiteras per avbildning.
+    >[!NOTE]
+    > Den här funktionen debiteras per avbildning.
 
 1. Avbildnings genomsökningar utlöses vid varje push-överföring eller import, och om avbildningen har tagits emot under de senaste 30 dagarna. 
 

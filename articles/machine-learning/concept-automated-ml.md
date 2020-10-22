@@ -1,5 +1,5 @@
 ---
-title: Vad är automatiserad ML/AutoML
+title: Vad är automatisk ML? AutoML
 titleSuffix: Azure Machine Learning
 description: Lär dig hur Azure Machine Learning automatiskt kan välja en algoritm åt dig och generera en modell från den för att spara tid genom att använda de parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 4908f66dbc699a449b7b94febac8133bacc9f669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760977"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367524"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -219,7 +219,7 @@ Med följande inställningar kan du konfigurera ditt automatiserade ML-experimen
 |**Dela upp data i tåg/verifierings uppsättningar**| ✓|✓
 |**Har stöd för ML-aktiviteter: klassificering, regression och Prognosticering**| ✓| ✓
 |**Optimerar baserat på primärt mått**| ✓| ✓
-|**Stöder AML Compute as Compute Target** | ✓|✓
+|**Stöder Azure ML Compute as Compute Target** | ✓|✓
 |**Konfigurera en prognos horisont, mål lags & rullande fönster**|✓|✓
 |**Ange avslutnings villkor** |✓|✓ 
 |**Ange samtidiga iterationer**| ✓|✓

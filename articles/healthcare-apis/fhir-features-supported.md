@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: cavoeg
-ms.openlocfilehash: ea9a47676b8294b2541c27d361b0dc2fa1ae3627
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 609bd01e8dcb0e9202d1d9dbe1d1fc1a01cac550
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339516"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368289"
 ---
 # <a name="features"></a>Funktioner
 
@@ -39,7 +39,7 @@ Tidigare versioner som också stöds är: `3.0.2`
 | ta bort (villkorligt)           | Nej        | Nej        | Nej        |                                                     |
 | historik                        | Ja       | Ja       | Ja       |                                                     |
 | skapa                         | Ja       | Ja       | Ja       | Stöd för både efter-och-placering                               |
-| Skapa (villkorlig)           | Ja       | Ja       | Ja       |                                                     |
+| Skapa (villkorlig)           | Ja       | Ja       | Ja       | Problem [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | sök                         | Delvis   | Delvis   | Delvis   | Se nedan                                           |
 | kedjad sökning                 | Nej        | Ja       | Nej        |                                           |
 | omvänd länkad sökning         | Nej        | Nej        | Nej        |                                            |

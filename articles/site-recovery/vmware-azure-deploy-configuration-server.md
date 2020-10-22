@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8ceb3df68ebe42f83c70ed62327bf59c0dfc225
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87287744"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359823"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -26,7 +26,7 @@ Du distribuerar en lokal konfigurations server när du använder [Azure Site Rec
 
 Konfigurations servern måste konfigureras som en virtuell VMware-dator med hög tillgänglighet och vissa minimi krav för maskin vara och storlek. För bekväm och enkel distribution tillhandahåller Site Recovery en hämtnings bar mall för öppen Virtualization-program (ägg) för att konfigurera konfigurations servern som uppfyller alla krav som anges här.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 De minsta maskin varu kraven för en konfigurations Server sammanfattas i följande avsnitt.
 
@@ -92,7 +92,7 @@ Du måste ha en användare med någon av följande behörigheter i Azure Active 
 Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger du till det innan du registrerar servern i valvet. Det går inte att lägga till fler adaptrar efter registreringen.
 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
-2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj **Nästa**.
+2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj sedan **Nästa**.
 3. Välj en adaptertyp och ett nätverk.
 4. Om du vill ansluta det virtuella NÄTVERKSKORTet när den virtuella datorn är aktive rad väljer du **Anslut vid start**. Välj sedan **Nästa**  >  **Slutför**  >  **OK**.
 
@@ -102,7 +102,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 2. Den virtuella datorn startas med en Windows Server 2016-installation. Godkänn licensavtalet och ange ett administratörslösenord.
 3. När installationen är klar loggar du in på den virtuella datorn som administratör.
 4. Första gången du loggar in, inom några sekunder startas konfigurations verktyget för Azure Site Recovery.
-5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj **Nästa**.
+5. Ange det namn som ska användas för att registrera konfigurationsservern med Site Recovery. Välj sedan **Nästa**.
 6. Verktyget kontrollerar att den virtuella datorn kan ansluta till Azure. När anslutningen har upprättats väljer du **Logga in** för att logga in i din Azure-prenumeration.</br>
     a. Autentiseringsuppgifterna måste ha åtkomst till det valv där du vill registrera konfigurationsservern.</br>
     b. Se till att det valda användar kontot har behörighet att skapa ett program i Azure. Om du vill aktivera de behörigheter som krävs följer du rikt linjerna i avsnittet [Azure Active Directory behörighets krav](#azure-active-directory-permission-requirements).
@@ -166,7 +166,7 @@ Se vår [fel söknings artikel](vmware-azure-troubleshoot-configuration-server.m
     Läs mer om konfigurations servern och dess funktioner i [VMware till Azure Replication Architecture](vmware-azure-architecture.md).
 * Var hittar jag den senaste versionen av konfigurations servern?
 
-    Anvisningar för hur du uppgraderar konfigurations servern via portalen finns i [Uppgradera konfigurations servern](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Instruktioner för hur du uppgraderar alla Site Recovery-komponenter finns i [tjänste uppdateringar i Site Recovery](https://aka.ms/asr_how_to_upgrade).
+    Anvisningar för hur du uppgraderar konfigurations servern via portalen finns i [Uppgradera konfigurations servern](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Instruktioner för hur du uppgraderar alla Site Recovery-komponenter finns i [tjänste uppdateringar i Site Recovery](./service-updates-how-to.md).
 * Var kan jag hämta lösen frasen för konfigurations servern?
 
     Information om hur du hämtar lösen frasen finns i [Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase).

@@ -3,12 +3,12 @@ title: Support mat ris för VMware/fysisk haveri beredskap i Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 8983923a6ccc3b5462c3e9f00337763b225ed9ac
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5b511eeb99b70fd64a5366b7b54900166f06b4d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330316"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369326"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -65,7 +65,7 @@ Site Recovery stöder replikering av alla arbets belastningar som körs på en d
 **Komponent** | **Detaljer**
 --- | ---
 Dator inställningar | Datorer som replikeras till Azure måste uppfylla [Azure-kraven](#azure-vm-requirements).
-Dator arbets belastning | Site Recovery stöder replikering av alla arbets belastningar som körs på en dator som stöds. [Läs mer](https://aka.ms/asr_workload).
+Dator arbets belastning | Site Recovery stöder replikering av alla arbets belastningar som körs på en dator som stöds. [Läs mer](./site-recovery-workload.md).
 Dator namn | Kontrol lera att visnings namnet på datorn inte hamnar i [reserverade resurs namn för Azure](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Logiska volym namn är inte Skift läges känsliga. Se till att det inte finns två volymer på en enhet med samma namn. Ex: volymer med namnen "voLUME1", "voLUME1" kan inte skyddas via Azure Site Recovery.
 
 ### <a name="for-windows"></a>För Windows
@@ -235,7 +235,7 @@ Gäst/Server – exkludera disk | Ja
 Multisökväg för gäst/Server (MPIO) | Nej
 GPT-partitioner för gäst/Server | Det finns stöd för fem partitioner från samlad [uppdatering 37](https://support.microsoft.com/help/4508614/) (version 9,25 av mobilitets tjänsten) och senare. Tidigare fyra stöddes.
 ReFS | Elastiskt fil system stöds med mobilitets tjänst version 9,23 eller senare
-Gäst/Server-EFI/UEFI-start | – Stöds för alla [UEFI-operativ system för Azure Marketplace](../virtual-machines/windows/generation-2.md#generation-2-vm-images-in-azure-marketplace) med Site Recovery Mobility agent version 9,30 och senare. <br/> -Start typen för säker UEFI stöds inte. [Läs mer.](../virtual-machines/windows/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Gäst/Server-EFI/UEFI-start | – Stöds för alla [UEFI-operativ system för Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) med Site Recovery Mobility agent version 9,30 och senare. <br/> -Start typen för säker UEFI stöds inte. [Läs mer.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Kanaler för replikering
 

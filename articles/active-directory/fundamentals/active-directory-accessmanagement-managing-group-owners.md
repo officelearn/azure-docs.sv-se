@@ -12,12 +12,12 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 788386dc3cbfb8b4252e8710d8ee1bfd9dbe4e66
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2847678c78aec4a287427463a9aeeb8bd82c6771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969922"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371944"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Lägg till eller ta bort grupp ägare i Azure Active Directory
 Azure Active Directory (Azure AD) grupper ägs och hanteras av grupp ägare. Grupp ägare kan vara användare eller tjänstens huvud namn och kan hantera gruppen inklusive medlemskap. Endast befintliga grupp ägare eller grupp hanterings administratörer kan tilldela grupp ägare. Grupp ägare måste inte vara medlemmar i gruppen.
@@ -63,10 +63,10 @@ Ta bort en ägare från en grupp med hjälp av Azure AD.
 ## <a name="next-steps"></a>Nästa steg
 - [Hantera åtkomst till resurser med Azure Active Directory grupper](active-directory-manage-groups.md)
 
-- [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md)
+- [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../enterprise-users/groups-settings-cmdlets.md)
 
-- [Använda grupper för att tilldela åtkomst till en integrerad SaaS-app](../users-groups-roles/groups-saasapps.md)
+- [Använda grupper för att tilldela åtkomst till en integrerad SaaS-app](../enterprise-users/groups-saasapps.md)
 
 - [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 
-- [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../enterprise-users/groups-settings-v2-cmdlets.md)

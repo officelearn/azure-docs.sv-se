@@ -1,64 +1,70 @@
 ---
-title: Använd BLOB-taggar för att hantera och hitta data i Azure Blob Storage
+title: Använd BLOB-taggar för att hantera och hitta data på Azure Blob Storage
 description: Se exempel på hur du använder BLOB-taggar för att kategorisera, hantera och fråga efter BLOB-objekt.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/24/2020
+ms.date: 10/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.reviewer: hux
+ms.reviewer: klaasl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 175c9efd02665bf0212d7078a2ec2767ed1be6b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 159252cf850fd59f40d1b59e592153f50d7cb813
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850990"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371978"
 ---
-# <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data i Azure Blob Storage
+# <a name="use-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data på Azure Blob Storage
 
-BLOB index-Taggar kategoriserar data i ditt lagrings konto med hjälp av attribut för nyckel värdes taggar. Taggarna indexeras automatiskt och exponeras som ett fråge bara flerdimensionellt index för att enkelt hitta data. Den här artikeln visar hur du ställer in, hämtar och hittar data med hjälp av BLOB-taggar.
-
-Mer information om funktionen BLOB-index finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
+BLOB index-Taggar kategoriserar data i ditt lagrings konto med hjälp av attribut för nyckel värdes kod. Taggarna indexeras automatiskt och exponeras som ett sökbart flerdimensionellt index för att enkelt hitta data. Den här artikeln visar hur du ställer in, hämtar och hittar data med hjälp av BLOB-taggar.
 
 > [!NOTE]
-> BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, Australien, **centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
+> BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Kanada**, **östra**, Australien, **centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta Azure blob-data med BLOB-Taggar (för hands version)](storage-manage-find-blobs.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-- Prenumeration registrerad och godkänd för åtkomst till för hands versionen av BLOB-index
+
+- En Azure-prenumeration har registrerats och godkänts för åtkomst till för hands versionen av BLOB-index
 - Åtkomst till [Azure Portal](https://portal.azure.com/)
 
 # <a name="net"></a>[.NET](#tab/net)
-Eftersom BLOB-indexet finns i en offentlig för hands version, släpps .NET Storage-paketet i NuGet-flödet för för hands versionen. Det här biblioteket kan ändras mellan nu och när det blir officiellt. 
 
-1. Skapa ett Visual Studio-projekt för att komma igång med Azure Blob Storage-V12 för .NET. Läs mer i [.net snabb start](storage-quickstart-blobs-dotnet.md)
+När BLOB-indexet är i för hands version, släpps .NET Storage-paketet i NuGet-flödet för för hands versionen. Det här biblioteket kan ändras under för hands versions perioden.
 
-2. I NuGet Package Manager letar du upp paketet **Azure. Storage. blobs** och installerar version **12.7.0 – Preview. 1** eller senare i projektet. Du kan också köra kommandot ```Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1```
+1. Skapa ett Visual Studio-projekt för att komma igång med Azure-Blob Storage klient bibliotek V12 för .NET. Läs mer i [.net snabb start](storage-quickstart-blobs-dotnet.md)
+
+2. I NuGet Package Manager letar du upp paketet **Azure. Storage. blobs** och installerar version **12.7.0 – Preview. 1** eller senare i projektet. Du kan också köra PowerShell-kommandot: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
    Mer information finns i [hitta och installera ett paket](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
 3. Lägg till följande using-uttryck högst upp i din kod fil.
-```csharp
-using Azure;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-using Azure.Storage.Blobs.Specialized;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-```
+
+    ```csharp
+    using Azure;
+    using Azure.Storage.Blobs;
+    using Azure.Storage.Blobs.Models;
+    using Azure.Storage.Blobs.Specialized;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    ```
+
 ---
 
 ## <a name="upload-a-new-blob-with-index-tags"></a>Ladda upp en ny BLOB med index-Taggar
+
+Överföring av en ny BLOB med index-taggar kan utföras av [ägaren av Storage BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Dessutom kan användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview) behörighet utföra den här åtgärden.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto 
 
 2. Navigera till alternativet **behållare** under **BLOB service**väljer du din behållare
 
-3. Välj knappen **överför** för att öppna bladet överför och bläddra i det lokala fil systemet för att hitta en fil som ska laddas upp som en Block-Blob.
+3. Välj knappen **överför** och bläddra i det lokala fil systemet för att hitta en fil som ska laddas upp som en Block-Blob.
 
 4. Expandera den **avancerade** List rutan och gå till avsnittet **blobb index Taggar**
 
@@ -66,7 +72,7 @@ using System.Threading.Tasks;
 
 6. Välj knappen **överför** för att överföra blobben
 
-![Ladda upp data med BLOB-Taggar](media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png)
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-upload-data-with-tags.png" alt-text="Skärm bild av Azure Portal som visar hur du laddar upp en blob med index-taggar.":::
 
 # <a name="net"></a>[.NET](#tab/net)
 
@@ -107,13 +113,18 @@ static async Task BlobIndexTagsOnCreate()
 ---
 
 ## <a name="get-set-and-update-blob-index-tags"></a>Hämta, ange och uppdatera BLOB-index Taggar
+
+Hämtning av BLOB-taggar kan utföras av [ägaren av Storage BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Dessutom kan användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview) behörighet utföra den här åtgärden.
+
+Att ange och uppdatera BLOB-index taggar kan utföras av [ägaren till Storage BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Dessutom kan användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview) behörighet utföra den här åtgärden.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto 
 
 2. Navigera till alternativet **behållare** under **BLOB service**, välj din behållare
 
-3. Välj önskad BLOB från listan över blobbar i den valda behållaren
+3. Välj din BLOB från listan över blobbar i den valda behållaren
 
 4. På fliken Översikt över BLOB visas din blobs egenskaper inklusive eventuella **BLOB-Taggar**
 
@@ -121,9 +132,10 @@ static async Task BlobIndexTagsOnCreate()
 
 6. Välj knappen **Spara** för att bekräfta eventuella uppdateringar av din BLOB
 
-![Hämta, ange, uppdatera och ta bort BLOB index-taggar på objekt](media/storage-blob-index-concepts/blob-index-get-set-tags.png)
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-get-set-tags.png" alt-text="Skärm bild av Azure Portal som visar hur du laddar upp en blob med index-taggar.":::
 
 # <a name="net"></a>[.NET](#tab/net)
+
 ```csharp
 static async Task BlobIndexTagsExample()
    {
@@ -181,9 +193,11 @@ static async Task BlobIndexTagsExample()
 
 ## <a name="filter-and-find-data-with-blob-index-tags"></a>Filtrera och hitta data med BLOB-Taggar
 
+Sökning och filtrering efter BLOB-taggar kan utföras av [ägaren av Storage BLOB-data](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). Dessutom kan användare med `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [rollbaserad åtkomst kontroll](/azure/role-based-access-control/overview) behörighet utföra den här åtgärden.
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-I Azure Portal tillämpar filtret BLOB index taggar automatiskt `@container` parametern för att ange den valda behållarens omfång. Om du vill filtrera och hitta taggade data över hela ditt lagrings konto kan du använda våra REST API, SDK: er eller verktyg.
+I Azure Portal tillämpar filtret BLOB index taggar automatiskt `@container` parametern för att ange den valda behållarens omfång. Om du vill filtrera och hitta taggade data över hela lagrings kontot använder du våra REST API, SDK: er eller verktyg.
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto. 
 
@@ -195,9 +209,10 @@ I Azure Portal tillämpar filtret BLOB index taggar automatiskt `@container` par
 
 5. Välj **filter knappen BLOB index Taggar** för att lägga till ytterligare tag filter (upp till 10)
 
-![Filtrera och hitta taggade objekt med BLOB-index Taggar](media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png)
+:::image type="content" source="media/storage-blob-index-concepts/blob-index-tag-filter-within-container.png" alt-text="Skärm bild av Azure Portal som visar hur du laddar upp en blob med index-taggar.":::
 
 # <a name="net"></a>[.NET](#tab/net)
+
 ```csharp
 static async Task FindBlobsByTagsExample()
    {
@@ -286,18 +301,23 @@ static async Task FindBlobsByTagsExample()
 
 3. Välj *Lägg till regel* och fyll sedan i formulär fälten för åtgärds uppsättning
 
-4. Välj **filter** uppsättning för att lägga till valfritt filter för prefix matchning och blob-index matcha ![ Lägg till BLOB index tag filter för livs cykel hantering](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Välj **filter** uppsättning för att lägga till valfritt filter för prefix matchning och blob-index matchning
 
-5. Välj **Granska + Lägg** till för att granska regel inställningarna ![ livs cykel hanterings regel med filter för BLOB index Taggar](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Skärm bild av Azure Portal som visar hur du laddar upp en blob med index-taggar.":::
+
+5. Välj **Granska + Lägg** till för att granska regel inställningarna
+
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png" alt-text="Skärm bild av Azure Portal som visar hur du laddar upp en blob med index-taggar.":::
 
 6. Välj **Lägg till** för att tillämpa den nya regeln i livs cykel hanterings principen
 
 # <a name="net"></a>[.NET](#tab/net)
-Policys för [livs cykel hantering](storage-lifecycle-management-concepts.md) tillämpas för varje lagrings konto på kontroll Plans nivån. För .NET installerar du [Microsoft Azure Management Storage Library version 16.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) eller högre för att dra nytta av matchnings filtret för BLOB-index i en hanterings regel för livs cykel.
+
+Policys för [livs cykel hantering](storage-lifecycle-management-concepts.md) tillämpas för varje lagrings konto på kontroll Plans nivån. För .NET installerar du [Microsoft Azure Management Storage Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 eller senare.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
- - Läs mer om BLOB-index i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md )
- - Läs mer om livs cykel hantering. Se [Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)
+ - Lär dig mer om BLOB-taggar för BLOB, se [Hantera och hitta Azure blob-data med BLOB-Taggar (för hands version)](storage-manage-find-blobs.md )
+ - Läs mer om livs cykel hantering i [Hantera Azure Blob Storage Lifecycle](storage-lifecycle-management-concepts.md)

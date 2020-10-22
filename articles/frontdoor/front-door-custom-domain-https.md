@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 6db01531a34e936c59e5aa01a5c37f3a2ccf7345
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277712"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368340"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Front Door-domän
 
@@ -44,7 +44,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i din Front Door](front-door-custom-domain.md).
 
@@ -134,6 +134,11 @@ Ge Azures frontend-behörighet för att komma åt certifikaten i ditt Azure Key 
     - Nyckelvalvskonton för ditt prenumerations-ID. 
     - Certifikaten (hemligheterna) i det valda nyckelvalvet. 
     - Tillgängliga certifikatversioner. 
+
+> [!NOTE]
+> Om du lämnar certifikat versionen som Tom leder det till:
+> - Den senaste versionen av certifikatet som har marker ATS.
+> - Automatisk rotation av certifikat till den senaste versionen när en nyare version av certifikatet är tillgänglig i din Key Vault.
  
 5. Domänverifiering krävs inte om du använder ett eget certifikat. Gå vidare till [Vänta på spridning](#wait-for-propagation).
 

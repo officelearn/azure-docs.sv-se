@@ -16,16 +16,16 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398db465a6cc383f8869c549761afc0947e7ed03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c0d98641f8e2040de8350b7dd0231c2e7c889c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87421169"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371621"
 ---
 # <a name="activate-an-azure-ad-custom-role-in-privileged-identity-management"></a>Aktivera en anpassad Azure AD-roll i Privileged Identity Management
 
-Privileged Identity Management i Azure Active Directory (Azure AD) har nu stöd för just-in-Time-och Time-Bound-tilldelning till anpassade roller som skapats för program hantering i den administrativa upplevelsen för identitets-och åtkomst hantering. Mer information om hur du skapar anpassade roller för att delegera program hantering i Azure AD finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../users-groups-roles/roles-custom-overview.md).
+Privileged Identity Management i Azure Active Directory (Azure AD) har nu stöd för just-in-Time-och Time-Bound-tilldelning till anpassade roller som skapats för program hantering i den administrativa upplevelsen för identitets-och åtkomst hantering. Mer information om hur du skapar anpassade roller för att delegera program hantering i Azure AD finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../roles/custom-overview.md).
 
 > [!NOTE]
 > Anpassade Azure AD-roller är inte integrerade med de inbyggda katalog rollerna under för hands versionen. När funktionen är allmänt tillgänglig, sker roll hanteringen i den inbyggda roll upplevelsen. Om du ser följande banderoll bör dessa roller hanteras [i den inbyggda roll upplevelsen](pim-how-to-activate-role.md) och den här artikeln gäller inte:
@@ -67,4 +67,4 @@ Om rollen kräver godkännande för att aktivera får du ett Azure-meddelande so
 - [Tilldela en anpassad Azure AD-roll](azure-ad-custom-roles-assign.md)
 - [Ta bort eller uppdatera en anpassad roll tilldelning för Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Konfigurera en anpassad roll tilldelning för Azure AD](azure-ad-custom-roles-configure.md)
-- [Roll definitioner i Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Roll definitioner i Azure AD](../roles/permissions-reference.md)

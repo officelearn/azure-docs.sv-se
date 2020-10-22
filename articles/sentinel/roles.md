@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: b48ff1043ae8128a5cbfdcbba0548d89b5af2624
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b680dbaead6e94aa955ebc0e0e720281a40389d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88565850"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369904"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Behörigheter i Azure Sentinel
 
-Azure Sentinel använder [Azures rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) för att tillhandahålla [inbyggda roller](../role-based-access-control/built-in-roles.md)   som kan tilldelas till användare, grupper och tjänster i Azure.
+Azure Sentinel använder [Azures rollbaserad åtkomst kontroll (Azure RBAC)](../role-based-access-control/role-assignments-portal.md) för att tillhandahålla [inbyggda roller](../role-based-access-control/built-in-roles.md) som kan tilldelas till användare, grupper och tjänster i Azure.
 
 Använd RBAC för att skapa och tilldela roller i din säkerhets åtgärds grupp för att ge lämplig åtkomst till Azure Sentinel. De olika rollerna ger dig detaljerad kontroll över vilka användare av Azure Sentinel som kan se och göra. Azure-roller kan tilldelas i Azure Sentinel-arbetsytan direkt (se OBS! nedan) eller i en prenumeration eller resurs grupp som arbets ytan tillhör, som Azure Sentinel ärver.
 
@@ -62,7 +62,7 @@ Användare med särskilda jobb krav kan behöva tilldelas ytterligare roller ell
 
 - Gäst användare som tilldelar incidenter
 
-    Om en gäst användare behöver kunna tilldela incidenter, kommer användaren också att behöva tilldelas rollen som [katalog läsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers), förutom rollen Azure Sentinel responder. Observera att den här rollen *inte* är en Azure RBAC-roll, men en **Azure Active Directory** roll och att vanliga (icke-gäst) användare har den här rollen som standard. 
+    Om en gäst användare behöver kunna tilldela incidenter, kommer användaren också att behöva tilldelas rollen som [katalog läsare](../active-directory/roles/permissions-reference.md#directory-readers), förutom rollen Azure Sentinel responder. Observera att den här rollen *inte* är en Azure RBAC-roll, men en **Azure Active Directory** roll och att vanliga (icke-gäst) användare har den här rollen som standard. 
 
 En jämförelse sida vid sida finns i [tabellen nedan](#roles-and-allowed-actions).
 
@@ -91,7 +91,7 @@ I följande tabell sammanfattas roller och tillåtna åtgärder i Azure Sentinel
 
 - Förutom, eller i stället för, med hjälp av inbyggda Azure-roller kan du skapa Azure-anpassade roller för Azure Sentinel. Azures anpassade roller för Azure Sentinel skapas på samma sätt som du skapar andra [anpassade Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) -roller, baserat på [vissa behörigheter för Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) och [Azure Log Analytics-resurser](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Du kan använda Log Analytics avancerad rollbaserad åtkomst kontroll över data i Azure Sentinel-arbetsytan. Detta inkluderar både datatyp-baserad RBAC och resurs-koncentrisk RBAC. Mer information om Log Analytics-roller finns [i hantera loggdata och arbets ytor i Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Du kan använda Log Analytics avancerad rollbaserad åtkomst kontroll över data i Azure Sentinel-arbetsytan. Detta inkluderar både datatyp-baserad RBAC och resurs-koncentrisk RBAC. Mer information om Log Analytics-roller finns [i hantera loggdata och arbets ytor i Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Nästa steg
 

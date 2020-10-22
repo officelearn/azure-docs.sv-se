@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 050874b301628348b513b8b5b0c2b878a1dcecaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1922ea9afd69366e534049f5a7a350cf39e52dee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84760209"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371587"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Länkar på sidan fungerar inte för ett Application Proxy-program
 
@@ -37,7 +37,7 @@ Det finns tre sätt att lösa det här problemet. Alternativen nedan visas i ök
     Om du ändrar den interna URL: en men inte vill ändra landnings sidan för användare ändrar du Start sidans URL till den tidigare publicerade interna URL: en. Detta kan göras genom att gå till "Azure Active Directory"- &gt; app-registreringar – &gt; Välj program &gt; varu anpassning. I avsnittet anpassning ser du fältet "hem sidans URL", som du kan anpassa till den önskade landnings sidan. Om du fortfarande använder den äldre Appregistreringar-upplevelsen visas information om start sidans webb adress i fliken Egenskaper. 
     
     > [!IMPORTANT]
-    > För att göra ovanstående ändringar måste du ha behörighet att ändra program objekt i Azure AD. Användaren måste tilldelas rollen [program administratör](../users-groups-roles/roles-delegate-app-roles.md#assign-built-in-application-admin-roles) som beviljar programmet modificaion-rättigheter i Azure AD till användaren.
+    > För att göra ovanstående ändringar måste du ha behörighet att ändra program objekt i Azure AD. Användaren måste tilldelas rollen [program administratör](../roles/delegate-app-roles.md#assign-built-in-application-admin-roles) som beviljar programmet modificaion-rättigheter i Azure AD till användaren.
     >
 
 2.  Om dina program använder fullständigt kvalificerade domän namn (FQDN) kan du använda [anpassade domäner](application-proxy-configure-custom-domain.md) för att publicera dina program. Den här funktionen tillåter att samma URL används både internt och externt.

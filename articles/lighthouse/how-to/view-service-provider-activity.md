@@ -3,19 +3,19 @@ title: Visa tjänstleverantörsaktivitet
 description: Kunder kan visa loggad aktivitet för att se åtgärder som utförs av tjänst leverantörer via Azure-delegerad resurs hantering.
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: 8ec9d49de953a0fed3a5afc669e9297148aadf32
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 56c8b88274909aa55e19a4b364aaa3ace2a0c26d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974319"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371094"
 ---
 # <a name="view-service-provider-activity"></a>Visa tjänstleverantörsaktivitet
 
 Kunder som har delegerade prenumerationer för [Azure Lighthouse](../overview.md) kan [Visa Azures aktivitets logg](../../azure-monitor/platform/platform-logs-overview.md) data för att se alla åtgärder som vidtagits. Detta ger kunderna full insyn i åtgärder som tjänst leverantörer utför via [Azures delegerade resurs hantering](../concepts/azure-delegated-resource-management.md), tillsammans med åtgärder som utförs av användare i kundens egna Azure Active Directory (Azure AD)-klient.
 
 > [!TIP]
-> Vi tillhandahåller också Azure Policy inbyggda princip definitioner för att [begränsa delegering till vissa hantera klienter](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json) och för att [Granska delegering av omfattningar till en hanterings klient](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Mer information finns i [Granska delegeringar i din miljö](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> Vi tillhandahåller också Azure Policy inbyggda princip definitioner för att [begränsa delegering till vissa hantera klienter](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json) och för att [Granska delegering av omfattningar till en hanterings klient](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Mer information finns i [Granska delegeringar i din miljö](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
 ## <a name="view-activity-log-data"></a>Visa aktivitetsloggdata
 

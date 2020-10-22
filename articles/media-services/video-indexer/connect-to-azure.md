@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 7e97dc6ad4c6591a470e19050d79230f9ea7fd43
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 24b41a77985cac13e829d69ff77a4bf14fb40389
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164813"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371383"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
 
@@ -33,7 +33,7 @@ Om du flyttar från en *utvärdering* till *betald* video Indexer konto kan du v
 
 * En Azure Active Directory-domän (Azure AD).
 
-    Om du inte har en Azure AD-domän skapar du den här domänen med din Azure-prenumeration. Mer information finns i [Hantera anpassade domän namn i Azure AD](../../active-directory/users-groups-roles/domains-manage.md)
+    Om du inte har en Azure AD-domän skapar du den här domänen med din Azure-prenumeration. Mer information finns i [Hantera anpassade domän namn i Azure AD](../../active-directory/enterprise-users/domains-manage.md)
 
 * En användare i din Azure AD-domän med rollen **program administratör** . Du använder den här medlemmen när du ansluter ditt Video Indexer-konto till Azure.
 

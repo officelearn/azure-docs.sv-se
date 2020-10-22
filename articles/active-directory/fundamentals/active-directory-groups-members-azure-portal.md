@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbb7b7da4ed5268e66260e48d6367bbe02f0845a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af5a85bad1e7b2a6bf645084d6b78f77e6c0d8b2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797584"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371842"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Lägg till eller ta bort grupp medlemmar med Azure Active Directory
 Med hjälp av Azure Active Directory kan du fortsätta att lägga till och ta bort grupp medlemmar.
@@ -61,6 +61,6 @@ Med hjälp av Azure Active Directory kan du fortsätta att lägga till och ta bo
 
 - [Hantera åtkomst till resurser med grupper](active-directory-manage-groups.md)
 
-- [Hantera dynamiska regler för användare i en grupp](../users-groups-roles/groups-create-rule.md)
+- [Hantera dynamiska regler för användare i en grupp](../enterprise-users/groups-create-rule.md)
 
 - [Associera eller lägg till en Azure-prenumeration till Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

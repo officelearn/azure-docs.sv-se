@@ -3,16 +3,16 @@ title: Azure Storage exempel med hjälp av .NET | Microsoft Docs
 description: Visa, ladda ned och kör exempel kod och program för Azure Storage. Identifiera exempel på att komma igång med blobbar, köer, tabeller och filer med hjälp av klient biblioteken för .NET-lagring.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: f02c08e752575dd1f57ce91dfc3145b69e3a2fd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760fedd94ef682b183eede1215186de973e9a216
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81010502"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359789"
 ---
 # <a name="azure-storage-samples-using-v12-net-client-libraries"></a>Azure Storage exempel med V12 .NET-klient bibliotek
 
@@ -336,4 +336,5 @@ Information om exempel för andra språk:
 * Java: [Azure Storage exempel med Java](storage-samples-java.md)
 * Python: [Azure Storage exempel med python](storage-samples-python.md)
 * Java Script/Node.js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
+* C++: [Azure Storage exempel med hjälp av C++](storage-samples-c-plus-plus.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

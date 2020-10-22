@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f1e861bf9c6cc2a485ac9f153a0c932ec2e6fbb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2b7e96934c96dd944e17a1ef1ffb51a6ee89bf4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318917"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360010"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory-exempel
 > [!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "85318917"
 | [Exempel på punkt net-aktivitet i Cross AppDomain](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Med det här exemplet kan du skapa en anpassad .NET-aktivitet som inte är begränsad till sammansättnings versioner som används av ADF-Start programmet (till exempel WindowsAzure. Storage v 4.3.0, Newtonsoft.Jspå v 6.0. x osv.). |
 | [Kör R-skriptet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample) |Det här exemplet innehåller Data Factory anpassad aktivitet som kan användas för att anropa RScript.exe. Det här exemplet fungerar bara med ditt eget HDInsight-kluster (inte på begäran) som redan har R installerat på det. |
 | [Anropa Spark-jobb på HDInsight Hadoop-kluster](https://docs.microsoft.com/azure/data-factory/tutorial-transform-data-spark-portal) |Det här exemplet visar hur du använder MapReduce-aktivitet för att anropa ett Spark-program. Spark-programmet kopierar bara data från en Azure Blob-behållare till en annan. |
-| [Twitter-analys med Azure Machine Learning batch-bedömnings aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Det här exemplet visar hur du använder AzureMLBatchScoringActivity för att anropa en Azure Machine Learning modell som utför Twitter-sentiment analys, poängsättning, förutsägelser osv. |
+| [Twitter-analys med Azure Machine Learning Studio (klassisk) batch-bedömnings aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-AzureMLBatchScoringActivity) |Det här exemplet visar hur du använder AzureMLBatchScoringActivity för att anropa en Azure Machine Learning modell som utför Twitter-sentiment analys, poängsättning, förutsägelser osv. |
 | [Twitter-analys med anpassad aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Det här exemplet visar hur du använder en anpassad .NET-aktivitet för att anropa en Azure Machine Learning modell som utför Twitter-sentiment analys, poängsättning, förutsägelser osv. |
 | [Parameterstyrda pipelines för Azure Machine Learning](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ParameterizedPipelinesForAzureML) |Exemplet innehåller en kod från slut punkt till slut punkt för att distribuera N pipelines för att kunna ta del av och träna om var och en med en annan region parameter där listan över regioner kommer från en parameters.txt-fil som ingår i det här exemplet. |
 | [Referens data uppdatering för Azure Stream Analytics jobb](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs) |Det här exemplet visar hur du använder Azure Data Factory och Azure Stream Analytics tillsammans för att köra frågorna med referens data och konfigurera uppdatering av referens data enligt ett schema. |

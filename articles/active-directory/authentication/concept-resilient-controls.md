@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6af2f65aa2e2052a79f4c5cffd7ff4a38a9fc838
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049578"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366572"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en elastisk strategi för hantering av åtkomst kontroll med Azure Active Directory
 
@@ -285,7 +285,7 @@ Om din organisation använder äldre MFA-principer per användare, kan du överv
 ## <a name="learn-more"></a>Läs mer
 
 * [Dokumentation om Azure AD-autentisering](./howto-mfaserver-iis.md)
-* [Hantera administrativa konton för katastrof åtkomst i Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Hantera administrativa konton för katastrof åtkomst i Azure AD](../roles/security-emergency-access.md)
 * [Konfigurera namngivna platser i Azure Active Directory](../reports-monitoring/quickstart-configure-named-locations.md)
   * [Set-MsolDomainFederationSettings](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Konfigurera hybrid Azure Active Directory anslutna enheter](../devices/hybrid-azuread-join-plan.md)

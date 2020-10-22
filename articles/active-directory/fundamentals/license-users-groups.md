@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 50e0fe1cf3bb628c40e774423e45ea88d6ab78a5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977022"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359721"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser i Azure Active Directorys portalen
 
@@ -144,10 +144,10 @@ Du kan ta bort en licens från en användares Azure AD-användare på sidan grup
 
 När du har tilldelat dina licenser kan du utföra följande processer:
 
-- [Identifiera och lösa problem med licens tilldelning](../users-groups-roles/licensing-groups-resolve-problems.md)
+- [Identifiera och lösa problem med licens tilldelning](../enterprise-users/licensing-groups-resolve-problems.md)
 
-- [Lägga till licensierade användare i en grupp för licensiering](../users-groups-roles/licensing-groups-migrate-users.md)
+- [Lägga till licensierade användare i en grupp för licensiering](../enterprise-users/licensing-groups-migrate-users.md)
 
-- [Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+- [Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
 
 - [Lägga till eller ändra profil information](active-directory-users-profile-azure-portal.md)

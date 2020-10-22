@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 41f570f93e95e9801b08c06cacc0423b1bf3b8e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e0d8a0c0ee5e5202c47acdd74b869181cfaf9e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252791"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371689"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformera data med Hive-aktivitet i Azure Data Factory 
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -26,8 +26,8 @@ ms.locfileid: "91252791"
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
 > * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
-> * [Machine Learning Batch-körningsaktivitet](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning-uppdateringsresursaktivitet](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (klassisk) batch execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 > * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
@@ -75,14 +75,14 @@ HDInsight Hive-aktiviteten i en Data Factory [pipelinen](data-factory-create-pip
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | name |Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Inga |
+| description |Text som beskriver vad aktiviteten används för |Nej |
 | typ |HDinsightHive |Ja |
-| tillför |Indata som används av Hive-aktiviteten |Inga |
+| tillför |Indata som används av Hive-aktiviteten |Nej |
 | utdata |Utdata som produceras av Hive-aktiviteten |Ja |
 | linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
-| skript |Ange Hive-skriptet infogat |Inga |
-| scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Inga |
-| definierar |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |Inga |
+| skript |Ange Hive-skriptet infogat |Nej |
+| scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Nej |
+| definierar |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |Nej |
 
 ## <a name="example"></a>Exempel
 Nu ska vi titta på ett exempel på spel loggar för att identifiera hur lång tid det tar för användare att spela spel som lanserats av ditt företag. 

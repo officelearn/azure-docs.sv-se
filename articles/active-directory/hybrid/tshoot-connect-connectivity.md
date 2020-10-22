@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: c46d977b6ce4eaa62aefc6874ce2b855a4711670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: efca190f3dad1c0a323aa56ffd68b8b2597b5862
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317520"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370227"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Felsöka Azure AD-anslutning
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker anslutnings problem. De här problemen visas förmodligen i en miljö med en proxyserver.
@@ -186,7 +186,7 @@ Autentiseringen lyckades, men det har uppstått ett autentiseringsfel i Azure AD
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Global administratörs roll för Azure AD krävs
-Användaren har autentiserats. Användaren är dock inte tilldelad global administratörs roll. Så här [kan du tilldela användaren rollen som global administratör](../users-groups-roles/directory-assign-admin-roles.md) .
+Användaren har autentiserats. Användaren är dock inte tilldelad global administratörs roll. Så här [kan du tilldela användaren rollen som global administratör](../roles/permissions-reference.md) .
 
 <div id="privileged-identity-management">
 <!--

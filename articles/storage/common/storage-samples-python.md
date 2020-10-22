@@ -3,17 +3,17 @@ title: Azure Storage exempel med python | Microsoft Docs
 description: Visa, ladda ned och kör exempel kod och program för Azure Storage. Upptäck exempel på att komma igång med blobbar, köer, tabeller och filer med hjälp av klient biblioteken python-lagring.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d1bfd146729a4a0ef94099a0ad79972517b4f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f57fa1b668cacdaaceb2026f9e5d7fff0cc56d7f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848194"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371366"
 ---
 # <a name="azure-storage-samples-using-v12-python-client-libraries"></a>Azure Storage exempel som använder V12 python-klient bibliotek
 
@@ -594,4 +594,5 @@ Information om exempel för andra språk:
 * .NET: [Azure Storage exempel med .net](storage-samples-dotnet.md)
 * Java: [Azure Storage exempel med Java](storage-samples-java.md)
 * Java Script/Node.js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
+* C++: [Azure Storage exempel med hjälp av C++](storage-samples-c-plus-plus.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

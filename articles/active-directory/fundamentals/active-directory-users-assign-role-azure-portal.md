@@ -13,25 +13,25 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7ab83bc9939d2f0b4b0ff0860ea97a0b07f12f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe0c7eec5c023fcba3152ad6329d318210a0c2ab
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321250"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370941"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Tilldela roller som administratör och icke-administratör till användare med Azure Active Directory
 
 Om en av dina användare behöver behörighet för att hantera Azure AD-resurser i Azure Active Directory (Azure AD) måste du tilldela dem till en roll som tillhandahåller de behörigheter som de behöver. Information om vilka roller som hanterar Azure-resurser och vilka roller som hanterar Azure AD-resurser finns i [klassisk prenumerations administratörs roller, Azure-roller och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-Mer information om tillgängliga Azure AD-roller finns [i tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Information om hur du lägger till användare finns i [lägga till nya användare i Azure Active Directory](add-users-azure-active-directory.md).
+Mer information om tillgängliga Azure AD-roller finns [i tilldela administratörs roller i Azure Active Directory](../roles/permissions-reference.md). Information om hur du lägger till användare finns i [lägga till nya användare i Azure Active Directory](add-users-azure-active-directory.md).
 
 ## <a name="assign-roles"></a>Tilldela roller
 
 Ett vanligt sätt att tilldela Azure AD-roller till en användare finns på sidan **tilldelade roller** för en användare. Du kan också konfigurera användar behörigheten så att den förhöjds just-in-Time i en roll med hjälp av Privileged Identity Management (PIM). Mer information om hur du använder PIM finns [Privileged Identity Management](../privileged-identity-management/index.yml).
 
 > [!Note]
-> Om du har en Azure AD Premium P2-licens plan och redan använder PIM utförs alla roll hanterings aktiviteter i [Privileged Identity Managements upplevelsen](../users-groups-roles/directory-manage-roles-portal.md). Den här funktionen är för närvarande begränsad till att bara tilldela en roll i taget. Du kan för närvarande inte välja flera roller och tilldela dem till en användare på samma gång.
+> Om du har en Azure AD Premium P2-licens plan och redan använder PIM utförs alla roll hanterings aktiviteter i [Privileged Identity Managements upplevelsen](../roles/manage-roles-portal.md). Den här funktionen är för närvarande begränsad till att bara tilldela en roll i taget. Du kan för närvarande inte välja flera roller och tilldela dem till en användare på samma gång.
 >
 > ![Azure AD-roller som hanteras i PIM för användare som redan använder PIM och har en Premium P2-licens](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 
@@ -81,4 +81,4 @@ Om du behöver ta bort roll tilldelningen från en användare kan du också gör
 
 - [Lägga till gästanvändare från annan katalog](../external-identities/what-is-b2b.md)
 
-Andra användar hanterings uppgifter som du kan checka ut finns i [Azure Active Directory User Management-dokumentation](../users-groups-roles/index.yml).
+Andra användar hanterings uppgifter som du kan checka ut finns i [Azure Active Directory User Management-dokumentation](../enterprise-users/index.yml).

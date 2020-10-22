@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93d741d22ac03c132954a48731451f891042d7b4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90562017"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371196"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 
@@ -56,7 +56,7 @@ Datatransformeringsaktivitet | Compute-miljö
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) | Azure VM
+[Azure Machine Learning Studio (klassisk) aktiviteter: batch-körning och uppdaterings resurs](transform-data-using-machine-learning.md) | Azure VM
 [Lagrad procedur](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics (tidigare SQL Data Warehouse) eller SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Anpassad aktivitet](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -109,11 +109,11 @@ Så här definieras en pipeline i JSON-format:
 Tagga | Beskrivning | Typ | Obligatorisk
 --- | ----------- | ---- | --------
 name | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | Sträng | Ja
-description | Ange texten som beskriver vad pipeline används till. | Sträng | Inga
+description | Ange texten som beskriver vad pipeline används till. | Sträng | Nej
 activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Matris | Ja
-parametrar | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Lista | Inga
-samtidighet | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidigheten uppnås placeras ytterligare pipeline-körningar i kö tills de tidigare är klara | Antal | Inga 
-anteckningar | En lista med taggar som är associerade med pipelinen | Matris | Inga
+parametrar | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | Lista | Nej
+samtidighet | Det maximala antalet samtidiga körningar som pipelinen kan ha. Som standard finns det inget maximum. Om samtidigheten uppnås placeras ytterligare pipeline-körningar i kö tills de tidigare är klara | Antal | Nej 
+anteckningar | En lista med taggar som är associerade med pipelinen | Matris | Nej
 
 ## <a name="activity-json"></a>Aktivitets-JSON
 Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Det finns två huvudtyper av aktiviteter: körnings- och kontrollaktiviteter.
@@ -146,10 +146,10 @@ Tagga | Beskrivning | Krävs
 name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Ja</li></ul>
 description | Text som beskriver vad aktiviteten används till | Ja
 typ | Typ av aktivitet. Se avsnittet [data förflyttnings](#data-movement-activities)aktiviteter, [data omvandling](#data-transformation-activities)och [kontroll av aktiviteter](#control-flow-activities) för olika typer av aktiviteter. | Ja
-linkedServiceName | Namnet på den länkade tjänst som används av aktiviteten.<br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. | Ja för HDInsight-aktivitet, Azure Machine Learning-batchbedömningsaktivitet, lagrad proceduraktivitet. <br/><br/>Nej för alla andra
-typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Inga
-policy | Principer som påverkar körningsbeteende för aktiviteten. Den här egenskapen innehåller en tids gräns och ett omprövnings beteende. Om inget värde anges används standardvärden. Mer information finns i avsnittet [Aktivitetsprincip](#activity-policy). | Inga
-dependsOn | Den här egenskapen används till att definiera aktivitetsberoenden och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [Aktivitetsberoende](#activity-dependency) | Inga
+linkedServiceName | Namnet på den länkade tjänst som används av aktiviteten.<br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. | Ja för HDInsight-aktivitet, Azure Machine Learning Studio (klassisk) kommando bedömnings aktivitet, lagrad procedur aktivitet. <br/><br/>Nej för alla andra
+typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej
+policy | Principer som påverkar körningsbeteende för aktiviteten. Den här egenskapen innehåller en tids gräns och ett omprövnings beteende. Om inget värde anges används standardvärden. Mer information finns i avsnittet [Aktivitetsprincip](#activity-policy). | Nej
+dependsOn | Den här egenskapen används till att definiera aktivitetsberoenden och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [Aktivitetsberoende](#activity-dependency) | Nej
 
 ### <a name="activity-policy"></a>Aktivitetsprincip
 Principer påverkar körningsbeteendet hos en aktivitet och ger konfigurationsalternativ. Aktivitetsprinciper är bar tillgängliga för körningsaktiviteter.
@@ -211,8 +211,8 @@ Tagga | Beskrivning | Krävs
 name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck ( \_ )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" | Ja</li><ul>
 description | Text som beskriver vad aktiviteten används till | Ja
 typ | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-flow-activities). | Ja
-typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Inga
-dependsOn | Den här egenskapen används till att definiera aktivitetsberoende och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [aktivitets beroende](#activity-dependency). | Inga
+typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej
+dependsOn | Den här egenskapen används till att definiera aktivitetsberoende och hur efterföljande aktiviteter beror på tidigare aktiviteter. Mer information finns i [aktivitets beroende](#activity-dependency). | Nej
 
 ### <a name="activity-dependency"></a>Aktivitetsberoende
 Aktivitets beroende definierar hur efterföljande aktiviteter beror på tidigare aktiviteter, vilket fastställer villkoret för om du vill fortsätta att köra nästa uppgift. En aktivitet kan vara beroende av en eller flera tidigare aktiviteter med olika beroendevillkor.

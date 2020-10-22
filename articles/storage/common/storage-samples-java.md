@@ -4,16 +4,16 @@ description: Visa, ladda ned och kör exempel kod och program för Azure Storage
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
-ms.date: 02/13/2020
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: b0e0588810fcac239a3647f9b750dd036341ab9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e3cd6be0da7c6d9401945293283de874c7cd866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322235"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359772"
 ---
 # <a name="azure-storage-samples-using-v12-java-client-libraries"></a>Azure Storage exempel med V12 Java-klient bibliotek
 
@@ -453,4 +453,5 @@ Information om exempel för andra språk:
 * .NET: [Azure Storage exempel med .net](storage-samples-dotnet.md)
 * Python: [Azure Storage exempel med python](storage-samples-python.md)
 * Java Script/Node.js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
+* C++: [Azure Storage exempel med hjälp av C++](storage-samples-c-plus-plus.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

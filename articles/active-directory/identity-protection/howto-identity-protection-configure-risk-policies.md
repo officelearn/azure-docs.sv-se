@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49f3e082969b7483601088cd976d8cc30d500017
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337457"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367473"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Gör så här: Konfigurera och aktivera risk principer
 
@@ -31,7 +31,7 @@ Båda principerna arbetar för att automatisera svaret på risk identifieringar 
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 
 Om din organisation vill tillåta användare att själv åtgärda när risker upptäcks måste användarna registreras för lösen ords återställning via självbetjäning och Azure Multi-Factor Authentication. Vi rekommenderar att [du aktiverar den kombinerade registrerings upplevelsen för säkerhets information](../authentication/howto-registration-mfa-sspr-combined.md) för bästa möjliga upplevelse. Genom att tillåta användare att själv reparera får de tillbaka ett produktivt tillstånd snabbare utan att kräva administratörs åtgärder. Administratörer kan fortfarande se dessa händelser och undersöka dem efter faktumet. 
 
@@ -45,7 +45,7 @@ Om du väljer ett **högt** tröskelvärde minskar antalet gånger som en princi
 
 ## <a name="exclusions"></a>Undantag
 
-Alla principer gör det möjligt att utesluta användare, till exempel ditt [nödfalls åtkomst-eller brytar-glas administratörs konton](../users-groups-roles/directory-emergency-access.md). Organisationer kan avgöra om de behöver utesluta andra konton från vissa principer baserat på hur kontona används. Alla undantag bör granskas regelbundet för att se om de fortfarande är tillämpliga.
+Alla principer gör det möjligt att utesluta användare, till exempel ditt [nödfalls åtkomst-eller brytar-glas administratörs konton](../roles/security-emergency-access.md). Organisationer kan avgöra om de behöver utesluta andra konton från vissa principer baserat på hur kontona används. Alla undantag bör granskas regelbundet för att se om de fortfarande är tillämpliga.
 
 Konfigurerade betrodda [nätverks platser](../conditional-access/location-condition.md) används av identitets skydd i vissa risk identifieringar för att minska antalet falska positiva identifieringar.
 

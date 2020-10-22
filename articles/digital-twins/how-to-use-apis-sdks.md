@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6aa8d08dde3cf2dbfb5cb1e819ba9941aea4e387
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5be746b73cef37826be36b13c6f491b8ef6ad809
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203712"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359024"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -58,12 +58,13 @@ Använda data Plans-API: er:
    - Du kan hitta SDK-källan, inklusive en mapp med exempel, i GitHub: [Azure IoT Digitals klient bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - Du kan visa [SDK Reference-dokumentationen](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview).
    - Du kan se detaljerade informations-och användnings exempel genom att gå vidare till avsnittet [.net (C#) SDK (data plan)](#net-c-sdk-data-plane) i den här artikeln.
-* Du kan använda **Java Script** SDK. För att använda JavaScript SDK...
-   - Du kan visa och installera paketet från NPM: [Azure Azure Digitals dubbla klient bibliotek för Java Script](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
-   - Du kan visa [SDK Reference-dokumentationen](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
 * Du kan använda **Java** SDK. För att använda Java SDK...
    - Du kan visa och installera paketet från maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
+   - Du kan hitta SDK-källan i GitHub: [Azure IoT Digitals klient bibliotek för Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - Du kan visa [SDK Reference-dokumentationen](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
+* Du kan använda **Java Script** SDK. För att använda JavaScript SDK...
+   - Du kan visa och installera paketet från NPM: [Azure Azure Digitals dubbla klient bibliotek för Java Script](https://www.npmjs.com/package/@azure/digital-twins).
+   - Du kan visa [SDK Reference-dokumentationen](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
 * Du kan skapa ett SDK för ett annat språk med hjälp av AutoRest. Följ instruktionerna i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 
 Du kan också utföra API: er för datum plan genom att interagera med Azure Digitals flätar via [CLI](how-to-use-cli.md).

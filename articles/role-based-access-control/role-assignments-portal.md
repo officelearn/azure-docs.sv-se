@@ -10,20 +10,20 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4e5c13c635091988f299d31c67795916e709d51a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1aebb80fcba6c21ccce63772195af80b94092bde
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597618"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368327"
 ---
 # <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Lägga till eller ta bort rolltilldelningar för Azure med hjälp av Azure-portalen
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] I den här artikeln beskrivs hur du tilldelar roller med hjälp av Azure Portal.
 
-Om du behöver tilldela administratörs roller i Azure Active Directory, se [Visa och tilldela administratörs roller i Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
+Om du behöver tilldela administratörs roller i Azure Active Directory, se [Visa och tilldela administratörs roller i Azure Active Directory](../active-directory/roles/manage-roles-portal.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 

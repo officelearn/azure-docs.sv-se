@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 59bbca9461ff174ebe2451a6c01d84dee404cf56
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 674ce347f929dd70e32537e9bde3139c5fafc7ea
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398314"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368017"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Felsök problem med Azure-till-Azure VM-nätverksanslutningar
 
@@ -60,7 +60,7 @@ Det går inte att upprätta en anslutning till Microsoft 365-slutpunkter för au
 #### <a name="resolution"></a>Lösning
 
 - Azure Site Recovery kräver åtkomst till Microsoft 365 IP-intervall för autentisering.
-- Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn, måste du se till att tillåta kommunikation till Microsoft 365 IP-intervall. Skapa en [Azure Active Directory (Azure AD) service tag-](../virtual-network/security-overview.md#service-tags) NSG regel som ger åtkomst till alla IP-adresser som motsvarar Azure AD.
+- Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn, måste du se till att tillåta kommunikation till Microsoft 365 IP-intervall. Skapa en [Azure Active Directory (Azure AD) service tag-](../virtual-network/network-security-groups-overview.md#service-tags) NSG regel som ger åtkomst till alla IP-adresser som motsvarar Azure AD.
 - Om nya adresser läggs till i Azure AD i framtiden måste du skapa nya NSG-regler.
 
 ### <a name="example-nsg-configuration"></a>Exempel på NSG-konfiguration

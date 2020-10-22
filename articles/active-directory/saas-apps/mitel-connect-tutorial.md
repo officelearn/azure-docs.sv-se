@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: dae9db6dd20ef4346050be73250c7a10f7a449ec
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 044ee51fb7ff675af0fb97224313c388c4cbeac1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940695"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Självstudie: Azure Active Directory integrering med MiCloud Connect eller CloudLink Platform
 
@@ -29,7 +29,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar integrera Azure AD med MiCloud Connect eller CloudLink-plattformen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill konfigurera Azure AD-integrering med MiCloud Connect behöver du följande objekt:
 
@@ -204,7 +204,7 @@ I det här avsnittet ska du aktivera Britta Simon för att använda enkel inlogg
 
 I det här avsnittet skapar du en användare med namnet Britta Simon på ditt MiCloud Connect-konto. Användare måste skapas och aktive ras innan enkel inloggning används.
 
-Mer information om hur du lägger till användare på den säga konto portalen finns i artikeln [lägga till en användare](https://oneview.mitel.com/s/article/Adding-a-User-092815) i den spetsa kunskaps basen.
+Mer information om hur du lägger till användare på den säga konto portalen finns i artikeln [lägga till en användare](https://shoretelcommunity.force.com/s/article/Adding-Users-092815) i den spetsa kunskaps basen.
 
 Skapa en användare på ditt MiCloud Connect-konto med följande information:
 

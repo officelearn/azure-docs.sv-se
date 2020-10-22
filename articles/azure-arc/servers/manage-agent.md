@@ -1,14 +1,14 @@
 ---
 title: Hantera Azure Arc-aktiverade servrar-agenten
 description: I den här artikeln beskrivs de olika hanterings aktiviteter som du vanligt vis utför under livs cykeln för Azure Arc-aktiverade servrar som är anslutna till dator agenten.
-ms.date: 09/09/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: af020d0ca586b950b444f2a3149ad207b5696050
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 184b0425b956232b4485047cafb00a7ced21c7dd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108940"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371434"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Hantera och underhålla den anslutna dator agenten
 
@@ -138,7 +138,7 @@ Du kan hämta det senaste agent paketet från Microsofts [paket lagrings plats](
     zypper update
     ```
 
-Åtgärder för kommandot [zypper](https://en.opensuse.org/Portal:Zypper) , till exempel installation och borttagning av paket, loggas i `/var/log/zypper.log` logg filen. 
+Åtgärder för kommandot [zypper](https://en.opensuse.org/Portal:Zypper) , till exempel installation och borttagning av paket, loggas i `/var/log/zypper.log` logg filen.
 
 ## <a name="about-the-azcmagent-tool"></a>Om verktyget Azcmagent
 
@@ -148,9 +148,11 @@ Azcmagent-verktyget (Azcmagent.exe) används för att konfigurera Azure Arc-akti
 
 * **Koppla** från-koppla bort datorn från Azure-bågen
 
-* **Återanslut** – för att återansluta en frånkopplad dator till Azure-bågen
+* **Visa** agent status och dess konfigurations egenskaper (resurs gruppens namn, PRENUMERATIONS-ID, version osv.), som kan hjälpa dig att felsöka ett problem med agenten. Inkludera `-j` parametern för att generera resultaten i JSON-format.
 
-* **Visa** agent status och dess konfigurations egenskaper (resurs gruppens namn, PRENUMERATIONS-ID, version osv.), som kan hjälpa dig att felsöka ett problem med agenten.
+* **Loggar** – skapar en zip-fil i den aktuella katalogen som innehåller loggar för att hjälpa dig vid fel sökning.
+
+* **Version** – visar den anslutna dator agent versionen.
 
 * **-h eller--help** – visar tillgängliga kommando rads parametrar
 
@@ -158,12 +160,12 @@ Azcmagent-verktyget (Azcmagent.exe) används för att konfigurera Azure Arc-akti
 
 * **-v eller--utförlig** -Aktivera utförlig loggning
 
-Du kan utföra en **anslutning**, koppla **från**och **återansluta** manuellt när du är inloggad interaktivt eller automatisera med samma tjänst huvud namn som du använde för att publicera flera agenter eller med en [åtkomsttoken för Microsoft Identity Platform.](../../active-directory/develop/access-tokens.md) Om du inte använde ett huvud namn för tjänsten för att registrera datorn med Azure Arc-aktiverade servrar, kan du läsa följande [artikel](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) för att skapa ett huvud namn för tjänsten.
+Du kan utföra en **anslutning** och koppla **från** manuellt när du är inloggad interaktivt eller automatisera med samma tjänst huvud namn som du använde för att publicera flera agenter eller med [en åtkomsttoken för Microsoft Identity Platform.](../../active-directory/develop/access-tokens.md) Om du inte använde ett huvud namn för tjänsten för att registrera datorn med Azure Arc-aktiverade servrar, kan du läsa följande [artikel](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) för att skapa ett huvud namn för tjänsten.
 
 >[!NOTE]
 >Du måste ha *rot* åtkomst behörighet på Linux-datorer för att kunna köra **azcmagent**.
 
-### <a name="connect"></a>Anslut
+### <a name="connect"></a>Ansluta
 
 Den här parametern anger en resurs i Azure Resource Manager som representerar datorn som skapas i Azure. Resursen är i den angivna prenumerations-och resurs gruppen och data om datorn lagras i den Azure-region som anges av `--location` inställningen. Standard resurs namnet är datorns värdnamn om inget anges.
 
@@ -198,28 +200,7 @@ Kör följande kommando för att koppla från med hjälp av en åtkomsttoken:
 
 Kör följande kommando för att koppla bort med dina förhöjda inloggade autentiseringsuppgifter (interaktiva):
 
-`azcmagent disconnect --tenant-id <tenantID>`
-
-### <a name="reconnect"></a>Återansluta
-
-> [!WARNING]
-> `reconnect`Kommandot är föråldrat och bör inte användas. Kommandot tas bort i en framtida agent version och befintliga agenter kommer inte att kunna slutföra begäran om åter anslutning. Koppla i stället [bort](#disconnect) datorn och [Anslut](#connect) den sedan igen.
-
-Den här parametern återansluter den redan registrerade eller anslutna datorn med Azure Arc-aktiverade servrar. Detta kan vara nödvändigt om datorn har inaktiverats, minst 45 dagar, för att certifikatet ska upphöra att gälla. Den här parametern använder de autentiseringsalternativ som finns för att hämta nya autentiseringsuppgifter som motsvarar den Azure Resource Manager resursen som representerar den här datorn.
-
-Det här kommandot kräver högre privilegier än den [Azure Connected Machine onboarding](agent-overview.md#required-permissions) -rollen.
-
-Kör följande kommando för att återansluta med ett huvud namn för tjänsten:
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-Kör följande kommando för att återansluta med hjälp av en åtkomsttoken:
-
-`azcmagent reconnect --access-token <accessToken>`
-
-Kör följande kommando för att återansluta med dina förhöjda inloggade autentiseringsuppgifter (interaktiva):
-
-`azcmagent reconnect --tenant-id <tenantID>`
+`azcmagent disconnect`
 
 ## <a name="remove-the-agent"></a>Ta bort agenten
 

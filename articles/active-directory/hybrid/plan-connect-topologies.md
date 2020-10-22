@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f8987a8daccc012f9d6da53e46fe7c4e8b43ad
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8d3f8e9441064a5d2d1372e3f177534b8dfefb93
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146355"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359840"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologier för Azure AD Connect
 I den här artikeln beskrivs olika lokala och Azure Active Directory (Azure AD)-topologier som använder Azure AD Connect Sync som lösning för nyckel integrering. Den här artikeln innehåller konfigurationer som stöds och som inte stöds.
@@ -142,7 +142,7 @@ Det är möjligt att ha fler än en uppsamlings server om du vill ha flera säke
 
 ## <a name="multiple-azure-ad-tenants"></a>Flera Azure AD-klienter
 Vi rekommenderar att du har en enda klient i Azure AD för en organisation.
-Innan du planerar att använda flera Azure AD-klienter kan du läsa artikeln [administrativ enhets hantering i Azure AD](../users-groups-roles/directory-administrative-units.md). Den täcker vanliga scenarier där du kan använda en enda klient.
+Innan du planerar att använda flera Azure AD-klienter kan du läsa artikeln [administrativ enhets hantering i Azure AD](../roles/administrative-units.md). Den täcker vanliga scenarier där du kan använda en enda klient.
 
 ![Topologi för flera skogar och flera klienter](./media/plan-connect-topologies/multiforestmultidirectory.png)
 
@@ -168,7 +168,7 @@ Den här topologin har följande begränsningar för andra scenarier som stöds:
 * Windows 10-enheter kan bara associeras med en Azure AD-klient.
 * Alternativet enkel inloggning (SSO) för lösen ords-hash-synkronisering och direktautentisering kan bara användas med en Azure AD-klient.
 
-Kravet för en ömsesidigt exklusiv uppsättning objekt gäller också för tillbakaskrivning. Vissa tillbakaskrivning-funktioner stöds inte med den här topologin eftersom de förutsätter en enda lokal konfiguration. Här är några av funktionerna:
+Kravet för en ömsesidigt exklusiv uppsättning objekt gäller också för tillbakaskrivning. Vissa tillbakaskrivning-funktioner stöds inte med den här topologin eftersom de förutsätter en enda lokal konfiguration. Dessa funktioner omfattar bland annat:
 
 * Tillbakaskrivning av grupp med standard konfiguration.
 * Tillbakaskrivning av enhet.

@@ -3,12 +3,12 @@ title: Översikt över funktioner – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om funktioner och terminologi i Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9e004b3a8a9dd454eae5a20564a1ab74a26b66d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ebf4e928cadfc87f52fc10b27f9c8419d11a8f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936239"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369649"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktioner och terminologi i Azure Event Hubs
 
@@ -33,7 +33,9 @@ En entitet som skickar data till en Event Hub är en händelse producent eller *
 
 ### <a name="publishing-an-event"></a>Publicera en händelse
 
-Du kan publicera en händelse via AMQP 1,0, Kafka 1,0 (och senare) eller HTTPS. Event Hubs tillhandahåller [klient bibliotek och klasser](./event-hubs-dotnet-framework-getstarted-send.md) för att publicera händelser till en händelsehubben från .net-klienter. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](https://qpid.apache.org/). Du kan publicera händelser individuellt eller i batchar. En enskild publikation (händelse data instans) har en gräns på 1 MB, oavsett om det är en enskild händelse eller en batch. Om du publicerar händelser som är större än det här tröskelvärdet uppstår ett fel. Det är en bra idé för utgivare att vara medveten om partitioner i händelsehubben och bara ange en *partitionsnyckel* (som introduceras i nästa avsnitt) eller deras identitet via sin SAS-token.
+Du kan publicera en händelse via AMQP 1,0, Kafka 1,0 (och senare) eller HTTPS. Event Hubs tjänsten tillhandahåller klient biblioteken [REST API](https://docs.microsoft.com/rest/api/eventhub/) och [.net](event-hubs-dotnet-standard-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [python](event-hubs-python-get-started-send.md), [Java Script](event-hubs-node-get-started-send.md)och [Go](event-hubs-go-get-started-send.md) för att publicera händelser till en Event Hub. För andra körningar och plattformar kan du använda alla AMQP 1.0-klienter, t.ex. [Apache Qpid](https://qpid.apache.org/). 
+
+Du kan publicera händelser individuellt eller i batchar. En enskild publikation (händelse data instans) har en gräns på 1 MB, oavsett om det är en enskild händelse eller en batch. Om du publicerar händelser som är större än det här tröskelvärdet uppstår ett fel. Det är en bra idé för utgivare att vara medveten om partitioner i händelsehubben och bara ange en *partitionsnyckel* (som introduceras i nästa avsnitt) eller deras identitet via sin SAS-token.
 
 Valet att använda AMQP eller HTTPS är specifikt för användningsscenariot. AMQP kräver en beständig dubbelriktad socket och dessutom säkerhet på transportnivå (TLS) eller SSL/TLS. AMQP har högre nätverks kostnader när sessionen initieras, men HTTPS kräver ytterligare TLS-kostnader för varje begäran. AMQP har högre prestanda för frekventa utfärdare.
 

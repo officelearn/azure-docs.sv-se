@@ -1,6 +1,6 @@
 ---
 title: Omvandla data
-description: Transformera data eller bearbeta data i Azure Data Factory att använda Hadoop, Machine Learning eller Azure Data Lake Analytics.
+description: Transformera data eller bearbeta data i Azure Data Factory att använda Hadoop, Azure Machine Learning Studio (klassisk) eller Azure Data Lake Analytics.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 19b4ee621a3918a49b524c5e4515bddd5962e0f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 039afdafdccbefe03b5b366a89256409fda482e9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442793"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368867"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformera data i Azure Data Factory
 
@@ -26,7 +26,7 @@ ms.locfileid: "89442793"
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
 > * [HDInsight-direktuppspelning](transform-data-using-hadoop-streaming.md)
 > * [HDInsight Spark](transform-data-using-spark.md)
-> * [Machine Learning](transform-data-using-machine-learning.md) 
+> * [Azure Machine Learning Studio (klassisk)](transform-data-using-machine-learning.md) 
 > * [Lagrad procedur](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Databricks Notebook](transform-data-databricks-notebook.md)
@@ -70,12 +70,12 @@ HDInsight streaming-aktiviteten i en Data Factory pipeline kör Hadoop streaming
 ### <a name="hdinsight-spark-activity"></a>HDInsight Spark-aktivitet
 HDInsight Spark-aktiviteten i en Data Factory pipeline kör Spark-program i ditt eget HDInsight-kluster. Mer information finns i [anropa Spark-program från Azure Data Factory](transform-data-using-spark.md). 
 
-### <a name="machine-learning-activities"></a>Machine Learning aktiviteter
-Med Azure Data Factory kan du enkelt skapa pipelines som använder en publicerad Azure Machine Learning webb tjänst för förutsägelse analys. Med hjälp av [aktiviteten kör batch-körning](transform-data-using-machine-learning.md) i en Azure Data Factory pipeline kan du anropa en Machine Learning webb tjänst för att göra förutsägelser av data i batch.
+### <a name="azure-machine-learning-studio-classic-activities"></a>Azure Machine Learning Studio (klassiska) aktiviteter
+Med Azure Data Factory kan du enkelt skapa pipelines som använder en publicerad Azure Machine Learning Studio (klassisk) webb tjänst för förutsägelse analys. Med hjälp av [aktiviteten kör batch-körning](transform-data-using-machine-learning.md) i en Azure Data Factory pipeline kan du anropa en Studio (klassisk) webb tjänst för att göra förutsägelser för data i batch.
 
-Med tiden måste förutsägande modeller i de Machine Learning bedömnings experimenten omtränas med nya data uppsättningar för indata. När du är färdig med omträningen vill du uppdatera bedömnings-webbtjänsten med den omarbetade Machine Learning modellen. Du kan använda [aktiviteten uppdatera resurs](update-machine-learning-models.md) för att uppdatera webb tjänsten med den nyligen utbildade modellen.  
+Med tiden måste förutsägande modeller i de Studio (klassiska) bedömnings experimenten omtränas med nya data uppsättningar för indata. När du är färdig med omträningen vill du uppdatera bedömnings-webbtjänsten med den omarbetade Machine Learning-modellen. Du kan använda [aktiviteten uppdatera resurs](update-machine-learning-models.md) för att uppdatera webb tjänsten med den nyligen utbildade modellen.  
 
-Se [använda Machine Learning aktiviteter](transform-data-using-machine-learning.md) för mer information om dessa Machine Learning-aktiviteter. 
+Se [använda Azure Machine Learning Studio (klassiska) aktiviteter](transform-data-using-machine-learning.md) för information om de här Studio-aktiviteterna (klassiska). 
 
 ### <a name="stored-procedure-activity"></a>Lagrad procedur aktivitet
 Du kan använda aktiviteten SQL Server lagrad procedur i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure Synapse Analytics (tidigare SQL Data Warehouse), SQL Server databas i ditt företag eller en virtuell Azure-dator. Mer information finns i artikeln om [lagrade procedur aktiviteter](transform-data-using-stored-procedure.md) .  

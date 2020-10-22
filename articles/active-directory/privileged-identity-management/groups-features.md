@@ -16,16 +16,16 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b6709d7589ebf4c82ec25c6b7a79fa31a305839
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 30724edafdee0c04f0c8b004ce335072b4ce0fd4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87506948"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367456"
 ---
 # <a name="management-capabilities-for-privileged-access-azure-ad-groups-preview"></a>Hanterings funktioner för privilegie rad åtkomst Azure AD-grupper (för hands version)
 
-I Privileged Identity Management (PIM) kan du nu tilldela behörighet för medlemskap eller ägarskap för privilegierade åtkomst grupper. Från och med den här för hands versionen kan du tilldela de inbyggda rollerna Azure Active Directory (Azure AD) till moln grupper och använda PIM för att hantera grupp medlemmar och ägarens berättigande och aktivering. Mer information om roll tilldelnings bara grupper i Azure AD finns i [använda moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)](../users-groups-roles/roles-groups-concept.md).
+I Privileged Identity Management (PIM) kan du nu tilldela behörighet för medlemskap eller ägarskap för privilegierade åtkomst grupper. Från och med den här för hands versionen kan du tilldela de inbyggda rollerna Azure Active Directory (Azure AD) till moln grupper och använda PIM för att hantera grupp medlemmar och ägarens berättigande och aktivering. Mer information om roll tilldelnings bara grupper i Azure AD finns i [använda moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)](../roles/groups-concept.md).
 
 ## <a name="require-different-policies-for-each-role-assignable-group"></a>Kräv olika principer för varje grupp som tilldelas roller
 

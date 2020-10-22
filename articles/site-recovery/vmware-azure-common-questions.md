@@ -3,12 +3,12 @@ title: Vanliga frågor om katastrof återställning i VMware med Azure Site Reco
 description: Få svar på vanliga frågor om haveri beredskap för lokala virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 421a96255e7dbbec723122fb3920dcc27da72670
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89054979"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359806"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om replikering av VMware till Azure
 
@@ -75,7 +75,7 @@ Site Recovery är certifierat för ISO 27001:2013 och 27018, HIPAA och DPA. Det 
 
 Använd [pris kalkylatorn](https://aka.ms/asr_pricing_calculator) för att beräkna kostnaderna när du använder Site Recovery.
 
-Om du vill ha en detaljerad uppskattning av kostnaderna kör du verktyget Deployment Planner för [VMware](https://aka.ms/siterecovery_deployment_planner) och använder [kostnads uppskattnings rapporten](https://aka.ms/asr_DP_costreport).
+Om du vill ha en detaljerad uppskattning av kostnaderna kör du verktyget Deployment Planner för [VMware](./site-recovery-deployment-planner.md) och använder [kostnads uppskattnings rapporten](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
 ### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Kostar det någon skillnad mellan att replikera till lagring eller direkt till hanterade diskar?
 
@@ -114,7 +114,7 @@ Site Recovery replikerar lokala virtuella VMware-datorer och fysiska servrar til
 
 Nej. Från och med mars 2019 kan du bara replikera till Azure Managed disks i Azure Portal.
 
-Det går bara att replikera nya virtuella datorer till ett lagrings konto med hjälp av PowerShell ([AZ. RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) eller REST API (version 2018-01-10 eller 2016-08-10). [Lär dig](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) att konfigurera replikering med hjälp av PowerShell-kommandon.
+Det går bara att replikera nya virtuella datorer till ett lagrings konto med hjälp av PowerShell ([AZ. RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) eller REST API (version 2018-01-10 eller 2016-08-10). [Lär dig](./vmware-azure-disaster-recovery-powershell.md) att konfigurera replikering med hjälp av PowerShell-kommandon.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Vilka är fördelarna med att replikera till Managed disks?
 
@@ -190,7 +190,7 @@ Site Recovery genererar kraschbaserade återställnings punkter var femte minut.
 
 ### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Min version av mobilitets tjänst agenten eller konfigurations servern är gammal och uppgraderingen misslyckades. Vad gör jag nu?
 
-Site Recovery följer support modellen för N-4. [Läs mer](https://aka.ms/asr_support_statement) om hur du uppgraderar från mycket gamla versioner.
+Site Recovery följer support modellen för N-4. [Läs mer](./service-updates-how-to.md#support-statement-for-azure-site-recovery) om hur du uppgraderar från mycket gamla versioner.
 
 ### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>Var hittar jag viktig information och Samlad uppdatering för Azure Site Recovery?
 
@@ -198,11 +198,11 @@ Site Recovery följer support modellen för N-4. [Läs mer](https://aka.ms/asr_s
 
 ### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>Var hittar jag uppgraderings information för haveri beredskap till Azure?
 
-[Lär dig mer om att uppgradera](https://aka.ms/asr_vmware_upgrades).
+[Lär dig mer om att uppgradera](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>Måste jag starta om käll datorerna för varje uppgradering?
 
-En omstart rekommenderas men är inte obligatorisk för varje uppgradering. [Läs mer](https://aka.ms/asr_vmware_upgrades).
+En omstart rekommenderas men är inte obligatorisk för varje uppgradering. [Läs mer](./service-updates-how-to.md#reboot-after-mobility-service-upgrade).
 
 ## <a name="configuration-server"></a>Konfigurationsserver
 
@@ -246,7 +246,7 @@ Nej. Om du vill replikera till mer än en region behöver du en konfigurations s
 
 - Du hittar den senaste uppdaterings informationen på [sidan med Azure-uppdateringar](https://azure.microsoft.com/updates/?product=site-recovery).
 - Du kan ladda ned den senaste versionen från portalen. Eller så kan du ladda ned den senaste versionen av konfigurations servern direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-- Om din version är mer än fyra versioner som är äldre än den aktuella versionen, se [support policyn](https://aka.ms/asr_support_statement) för uppgraderings vägledning.
+- Om din version är mer än fyra versioner som är äldre än den aktuella versionen, se [support policyn](./service-updates-how-to.md#support-statement-for-azure-site-recovery) för uppgraderings vägledning.
 
 ### <a name="should-i-back-up-the-configuration-server"></a>Bör jag säkerhetskopiera konfigurations servern?
 

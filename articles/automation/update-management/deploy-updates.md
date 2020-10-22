@@ -3,14 +3,14 @@ title: Så här skapar du uppdaterings distributioner för Azure Automation Uppd
 description: Den här artikeln beskriver hur du schemalägger uppdaterings distributioner och granskar deras status.
 services: automation
 ms.subservice: update-management
-ms.date: 10/14/2020
+ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8b9b3df024839007a349d3a412de4a70ff3a1cd2
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223009"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369715"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Så här distribuerar du uppdateringar och granskar resultat
 
@@ -54,12 +54,12 @@ Utför följande steg för att schemalägga en ny uppdaterings distribution. Ber
     > [!NOTE]
     > Det här alternativet är inte tillgängligt om du har valt en virtuell Azure-dator eller en ARC-aktiverad server. Operativ systemet identifieras automatiskt.
 
-5. I området **grupper att uppdatera (för hands version)** definierar du en fråga som kombinerar prenumeration, resurs grupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i distributionen. Läs mer i [använda dynamiska grupper med uppdateringshantering](configure-groups.md).
+5. I gruppen **grupper att uppdatera** definierar du en fråga som kombinerar prenumeration, resurs grupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i distributionen. Läs mer i [använda dynamiska grupper med uppdateringshantering](configure-groups.md).
 
     > [!NOTE]
     > Det här alternativet är inte tillgängligt om du har valt en virtuell Azure-dator eller en ARC-aktiverad server. Datorn är automatiskt avsedd för den schemalagda distributionen.
 
-6. I området **datorer att uppdatera** väljer du en sparad sökning, en importerad grupp eller väljer **datorer** från List menyn och väljer enskilda datorer. Med det här alternativet kan du se beredskap för Log Analytics agenten för varje dator. Om du vill veta mer om olika metoder för att skapa dator grupper i Azure Monitor loggar, se [dator grupper i Azure Monitor loggar](../../azure-monitor/platform/computer-groups.md). Du kan inkludera upp till högst 500 datorer i en schemalagd uppdaterings distribution.
+6. I området **datorer att uppdatera** väljer du en sparad sökning, en importerad grupp eller väljer **datorer** från List menyn och väljer enskilda datorer. Med det här alternativet kan du se beredskap för Log Analytics agenten för varje dator. Om du vill veta mer om olika metoder för att skapa dator grupper i Azure Monitor loggar, se [dator grupper i Azure Monitor loggar](../../azure-monitor/platform/computer-groups.md). Du kan inkludera upp till högst 1000 datorer i en schemalagd uppdaterings distribution.
 
     > [!NOTE]
     > Det här alternativet är inte tillgängligt om du har valt en virtuell Azure-dator eller en ARC-aktiverad server. Datorn är automatiskt avsedd för den schemalagda distributionen.
@@ -83,7 +83,7 @@ Utför följande steg för att schemalägga en ny uppdaterings distribution. Ber
 
 10. Använd **upprepningen** för att ange om distributionen ska ske en gång eller använder ett återkommande schema och välj sedan **OK**.
 
-11. I området **före skript + efter skript (för hands version)** väljer du de skript som ska köras före och efter distributionen. Läs mer i [Hantera för-skript och post-skript](pre-post-scripts.md).
+11. I området **för skript + efter skript** väljer du de skript som ska köras före och efter distributionen. Läs mer i [Hantera för-skript och post-skript](pre-post-scripts.md).
 
 12. Använd fältet **underhålls period (minuter)** för att ange hur lång tid som tillåts för uppdateringar som ska installeras. Tänk på följande när du anger en underhålls period:
 
@@ -111,7 +111,7 @@ Utför följande steg för att schemalägga en ny uppdaterings distribution. Ber
     > [!NOTE]
     > När du är klar med att konfigurera distributions schema för en vald Arc-aktiverad server väljer du **Granska + skapa**.
 
-15. Du kommer tillbaka till statusinstrumentpanelen. Välj **distributions scheman** om du vill visa det distributions schema som du har skapat.
+15. Du kommer tillbaka till statusinstrumentpanelen. Välj **distributions scheman** om du vill visa det distributions schema som du har skapat. Högst 500 scheman visas. Om du har fler än 500 scheman och du vill granska den fullständiga listan går du till [program uppdaterings konfiguration – lista](/rest/api/automation/softwareupdateconfigurations/list) REST API metod med version 2019-06-01 eller högre.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Schemalägga en uppdaterings distribution program mässigt
 

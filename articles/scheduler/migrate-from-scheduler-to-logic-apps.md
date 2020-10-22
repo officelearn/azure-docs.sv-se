@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e9ca2c7b5d15fcc6be451bbe215c8b85d5309eb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532161"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368272"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrera Azure Scheduler-jobb till Azure Logic Apps
 
@@ -116,7 +116,7 @@ Med Postman-appen kan du till exempel skapa en POST-begäran med inställningarn
 
 | Metod för begäran | URL | Brödtext | Rubriker |
 |----------------|-----|------|---------|
-| **EFTER** | <*slut punkt-URL*> | **outspädd** <p>**JSON (Application/JSON)** <p>I rutan **RAW** anger du den nytto last som du vill skicka i begäran. <p>**Obs!** den här inställningen konfigurerar automatiskt **headers** -värden. | **Nyckel**: innehålls typ <br>**Värde**: Application/JSON |
+| **POST** | <*slut punkt-URL*> | **outspädd** <p>**JSON (Application/JSON)** <p>I rutan **RAW** anger du den nytto last som du vill skicka i begäran. <p>**Obs!** den här inställningen konfigurerar automatiskt **headers** -värden. | **Nyckel**: innehålls typ <br>**Värde**: Application/JSON |
 |||||
 
 ![Skicka begäran om att utlösa din Logic app manuellt](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -133,7 +133,7 @@ När du har skickat samtalet visas svaret från din Logi Kap par under rutan **R
 
 ## <a name="cancel-a-one-time-job"></a>Avbryta ett engångs jobb
 
-I Logic Apps körs varje engångs jobb som en enda körnings instans för Logic app. Om du vill avbryta ett engångs jobb kan du använda [arbets flödes körning – Avbryt](https://docs.microsoft.com/rest/api/logic/workflowruns/cancel) i Logic Apps REST API. Ange [arbets flödets körnings-ID](#workflow-run-id)när du skickar ett anrop till utlösaren.
+I Logic Apps körs varje engångs jobb som en enda körnings instans för Logic app. Om du vill avbryta ett engångs jobb kan du använda [arbets flödes körning – Avbryt](/rest/api/logic/workflowruns/cancel) i Logic Apps REST API. Ange [arbets flödets körnings-ID](#workflow-run-id)när du skickar ett anrop till utlösaren.
 
 ## <a name="schedule-recurring-jobs"></a>Schemalägg återkommande jobb
 
@@ -220,7 +220,7 @@ Mer information om undantags hantering finns i avsnittet [hantera fel och undant
 **F**: var kan jag få support för att migrera mina jobb I Schemaläggaren? <br>
 **A**: här är några sätt att få support:
 
-**Azure Portal**
+**Azure-portalen**
 
 Om din Azure-prenumeration har en avgiftsbelagd Support plan kan du skapa en teknisk supportbegäran i Azure Portal. Annars kan du välja ett annat support alternativ.
 
@@ -239,7 +239,7 @@ Om din Azure-prenumeration har en avgiftsbelagd Support plan kan du skapa en tek
 
 **Community**
 
-* [Sidan Microsoft Q&en fråga för Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
+* [Sidan Microsoft Q&en fråga för Azure Logic Apps](/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>Nästa steg

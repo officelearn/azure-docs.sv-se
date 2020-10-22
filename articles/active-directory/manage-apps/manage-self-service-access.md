@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa1016307cc6e838e2e1136f6bbacd82d2f8c82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bd6ddf58b3a6e8eb8c618ded335c699fc93328c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88640760"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362373"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Så här konfigurerar du självbetjäning för program tilldelning
 
@@ -82,4 +82,4 @@ Följ stegen nedan om du vill aktivera självbetjänings program åtkomst till e
 När du har slutfört självbetjänings program konfigurationen kan användarna navigera till sina [appar](https://myapps.microsoft.com/) och klicka på knappen **Lägg till** självbetjänings program för att hitta de appar som är aktivera med självbetjänings åtkomst. Affärs god kännare ser också ett meddelande i sina [appar](https://myapps.microsoft.com/). Du kan aktivera ett e-postmeddelande som meddelar dem när en användare har begärt åtkomst till ett program som kräver godkännande.
 
 ## <a name="next-steps"></a>Nästa steg
-[Konfigurera Azure Active Directory för grupphantering via självbetjäning](../users-groups-roles/groups-self-service-management.md)
+[Konfigurera Azure Active Directory för grupphantering via självbetjäning](../enterprise-users/groups-self-service-management.md)

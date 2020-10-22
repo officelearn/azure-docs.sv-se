@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e02df83d4b7874a1d158aae45f1619eb543e0aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91306471"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362458"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD Identity Governance?
 
@@ -58,7 +58,7 @@ Organisationer behöver en process för att hantera åtkomst utöver vad som urs
 
 Vanligt vis delegerar den åtkomst till godkännande beslut till besluts fattare i företaget.  Dessutom kan de involvera själva användarna.  Till exempel behöver användare som har åtkomst till konfidentiell kund information i ett företags marknadsförings program i Europa känna till företagets principer. Gäst användare kan vara medvetna om hanterings kraven för data i en organisation som de har bjudits in till.
 
-Organisationer kan automatisera livs cykel processen för Access genom tekniker som [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md), tillsammans med användar etablering till [SaaS appar](../saas-apps/tutorial-list.md) eller appar som är [integrerade med scim](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organisationer kan också styra vilka [gäst användare som har åtkomst till lokala program](../external-identities/hybrid-cloud-to-on-premises.md).  Dessa behörigheter kan sedan regelbundet granskas med hjälp av återkommande [granskningar av Azure AD-åtkomst](access-reviews-overview.md).   [Hantering av Azure AD](entitlement-management-overview.md) -behörighet gör det också möjligt att definiera hur användare begär åtkomst över paket av grupp-och team medlemskap, program roller och SharePoint Online-roller.
+Organisationer kan automatisera livs cykel processen för Access genom tekniker som [dynamiska grupper](../enterprise-users/groups-dynamic-membership.md), tillsammans med användar etablering till [SaaS appar](../saas-apps/tutorial-list.md) eller appar som är [integrerade med scim](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Organisationer kan också styra vilka [gäst användare som har åtkomst till lokala program](../external-identities/hybrid-cloud-to-on-premises.md).  Dessa behörigheter kan sedan regelbundet granskas med hjälp av återkommande [granskningar av Azure AD-åtkomst](access-reviews-overview.md).   [Hantering av Azure AD](entitlement-management-overview.md) -behörighet gör det också möjligt att definiera hur användare begär åtkomst över paket av grupp-och team medlemskap, program roller och SharePoint Online-roller.
 
 När en användare försöker få åtkomst till program tvingar Azure AD sig att tillämpa principer för [villkorlig åtkomst](../conditional-access/index.yml) . Principer för villkorlig åtkomst kan till exempel innehålla ett [antal användnings villkor](../conditional-access/terms-of-use.md) och [Se till att användaren har godkänt dessa villkor innan de](../conditional-access/require-tou.md) kan komma åt ett program.
 
@@ -100,7 +100,7 @@ Om du har feedback om funktioner för identitets styrning klickar du på **feedb
 Även om det inte finns någon perfekt lösning eller rekommendation för varje kund, innehåller följande konfigurations guider även bas linje principer som Microsoft rekommenderar att du följer för att säkerställa en säkrare och produktiv personal.
 
 - [Konfigurationer för identitets- och enhetsåtkomst](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Säker privilegierad åtkomst](../users-groups-roles/directory-admin-roles-secure.md)
+- [Säker privilegierad åtkomst](../roles/security-planning.md)
 
 ## <a name="appendix---least-privileged-roles-for-managing-in-identity-governance-features"></a>Bilaga-minst privilegierade roller för hantering i identitets styrnings funktioner
 

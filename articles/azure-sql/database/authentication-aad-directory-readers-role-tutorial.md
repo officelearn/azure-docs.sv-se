@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: d6c447deedbdcc4f2439fc069f368db88b3560b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88483b29c8951f8e3f38f7cdc5bbdfb80eeca2b1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278047"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370142"
 ---
 # <a name="tutorial-assign-directory-readers-role-to-an-azure-ad-group-and-manage-role-assignments"></a>Självstudie: tilldela katalog läsare rollen till en Azure AD-grupp och hantera roll tilldelningar
 
@@ -23,9 +23,9 @@ ms.locfileid: "91278047"
 > [!NOTE]
 > Roll tilldelningen **katalog läsare** till en grupp i den här artikeln är i **offentlig för hands version**. 
 
-Den här artikeln vägleder dig genom att skapa en grupp i Azure Active Directory (Azure AD) och tilldela den gruppen rollen som [**katalog läsare**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) . Behörigheterna för katalog läsare gör det möjligt för grupp ägarna att lägga till ytterligare medlemmar till gruppen, till exempel en [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) för [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Detta kringgår behovet av att en [Global administratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) eller en [privilegie rad roll administratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) ska tilldela rollen katalog läsare direkt för varje Azure SQL-logisk server identitet i klienten.
+Den här artikeln vägleder dig genom att skapa en grupp i Azure Active Directory (Azure AD) och tilldela den gruppen rollen som [**katalog läsare**](../../active-directory/roles/permissions-reference.md#directory-readers) . Behörigheterna för katalog läsare gör det möjligt för grupp ägarna att lägga till ytterligare medlemmar till gruppen, till exempel en [hanterad identitet](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) för [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL-hanterad instans](../managed-instance/sql-managed-instance-paas-overview.md)och [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Detta kringgår behovet av att en [Global administratör](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) eller en [privilegie rad roll administratör](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) ska tilldela rollen katalog läsare direkt för varje Azure SQL-logisk server identitet i klienten.
 
-I den här självstudien används funktionen som introducerades i [använda moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)](../../active-directory/users-groups-roles/roles-groups-concept.md). 
+I den här självstudien används funktionen som introducerades i [använda moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)](../../active-directory/roles/groups-concept.md). 
 
 Mer information om fördelarna med att tilldela katalog läsaren rollen till en Azure AD-grupp för Azure SQL finns i [rollen katalog läsare i Azure Active Directory för Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -38,7 +38,7 @@ Mer information om fördelarna med att tilldela katalog läsaren rollen till en 
 
 ### <a name="create-a-new-group-and-assign-owners-and-role"></a>Skapa en ny grupp och tilldela ägare och roll
 
-1. En användare med administratörs behörighet som [Global administratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) eller [privilegie rad administratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) krävs för den här inledande installationen.
+1. En användare med administratörs behörighet som [Global administratör](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) eller [privilegie rad administratör](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) krävs för den här inledande installationen.
 1. Få den privilegierade användaren att logga in på [Azure Portal](https://portal.azure.com).
 1. Gå till **Azure Active Directory** resursen. Gå till **grupper**under **hanterad**. Välj **ny grupp** för att skapa en ny grupp.
 1. Välj **säkerhet** som grupptyp och fyll i resten av fälten. Kontrol lera att inställningen för **Azure AD-roller kan tilldelas gruppen (förhands granskning)** växlas till **Ja**. Tilldela sedan rollen Azure AD- **katalog läsare** till gruppen.
@@ -83,7 +83,7 @@ För efterföljande steg behövs inte längre den globala administratören eller
 > [!NOTE]
 > Det kan ta några minuter att sprida behörigheter för tjänstens huvud namn via Azure-systemet och tillåta åtkomst till Azure AD-Graph API. Du kan behöva vänta några minuter innan du etablerar en Azure AD-administratör för SQL-hanterad instans.
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
 För SQL Database och Azure-Synapse kan Server identiteten skapas när du skapar en logisk Azure SQL-Server eller när servern har skapats. Mer information om hur du skapar eller anger Server identitet i SQL Database eller Azure-Synapse finns i [Aktivera tjänstens huvud namn för att skapa Azure AD-användare](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 
@@ -94,7 +94,7 @@ Det krävs inte att tilldela rollen **katalog läsare** till Server identiteten 
 ## <a name="directory-readers-role-assignment-using-powershell"></a>Roll tilldelning för katalog läsare med PowerShell
 
 > [!IMPORTANT]
-> En [Global administratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) eller en [privilegie rad roll administratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) måste köra dessa inledande steg. Förutom PowerShell erbjuder Azure AD Microsoft Graph API för att [skapa en roll tilldelnings bara grupp i Azure AD](../../active-directory/users-groups-roles/roles-groups-create-eligible.md#using-microsoft-graph-api).
+> En [Global administratör](../../active-directory/roles/permissions-reference.md#global-administrator--company-administrator) eller en [privilegie rad roll administratör](../../active-directory/roles/permissions-reference.md#privileged-role-administrator) måste köra dessa inledande steg. Förutom PowerShell erbjuder Azure AD Microsoft Graph API för att [skapa en roll tilldelnings bara grupp i Azure AD](../../active-directory/roles/groups-create-eligible.md#using-microsoft-graph-api).
 
 1. Ladda ned Azure AD Preview PowerShell-modulen med hjälp av följande kommandon. Du kan behöva köra PowerShell som administratör.
 

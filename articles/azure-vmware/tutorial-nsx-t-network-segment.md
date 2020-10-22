@@ -3,16 +3,16 @@ title: Självstudie – Skapa ett NSX-T-nätverks segment i Azure VMware-lösnin
 description: Lär dig hur du skapar NSX-T-nätverksanslutningar som används för virtuella datorer i vCenter
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 780cac15efc043b9ae44b77af1234adca3fec5a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f88f186d2af10bcc114d64920a3ac489ef7be54f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254541"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367677"
 ---
 # <a name="tutorial-create-an-nsx-t-network-segment-in-azure-vmware-solution"></a>Självstudie: skapa ett NSX-T-nätverks segment i Azure VMware-lösningen
 
-Nätverks segment som skapats i NSX-T-hanteraren används som nätverk för virtuella datorer (VM: ar) i vCenter. De virtuella datorer som har skapats i vCenter placeras på de nätverks segment som skapats i NSX-T och visas i vCenter.
+De virtuella datorerna (VM) som har skapats i vCenter placeras på de nätverks segment som skapats i NSX-T och visas i vCenter.
 
 I den här guiden får du lära dig att:
 
@@ -23,7 +23,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Krav
 
-Det krävs ett privat moln i Azure VMware-lösningen som har åtkomst till hanterings gränssnitten vCenter och NSX-T Manager för att kunna slutföra den här självstudien. Mer information finns i själv studie kursen [Konfigurera nätverk för ditt privata VMware-moln i Azure](tutorial-configure-networking.md) .
+Du måste ha ett privat moln med Azure VMware-lösning med åtkomst till hanterings gränssnitten vCenter och NSX-T Manager. Mer information finns i själv studie kursen [Konfigurera nätverk](tutorial-configure-networking.md) .
 
 ## <a name="provision-a-network-segment-in-nsx-t"></a>Etablera ett nätverks segment i NSX-T
 
@@ -71,7 +71,7 @@ Det krävs ett privat moln i Azure VMware-lösningen som har åtkomst till hante
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien skapade du de NSX-T-datasegment som används för virtuella datorer i vCenter. Nu kan du [skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen](deploy-vm-content-library.md) och tillhandahålla en virtuell dator i nätverket som du skapade i den här självstudien.
+I den här självstudien skapade du de NSX-T-datasegment som används för virtuella datorer i vCenter. Nu kan du [skapa ett innehålls bibliotek för att distribuera virtuella datorer i Azure VMware-lösningen](deploy-vm-content-library.md). Du kan också etablera en virtuell dator i nätverket som du skapade i den här självstudien.
 
 Annars fortsätter du till nästa självstudie för att lära dig hur du skapar ExpressRoute Global Reach peering till ett privat moln i en Azure VMware-lösning.
 

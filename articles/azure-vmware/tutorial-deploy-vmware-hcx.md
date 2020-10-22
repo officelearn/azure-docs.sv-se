@@ -3,12 +3,12 @@ title: Självstudie – distribuera och konfigurera VMware HCX
 description: Lär dig hur du distribuerar och konfigurerar en VMware HCX-lösning för ditt privata moln i Azure VMware-lösningen.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 607ff3cb04002883b49b4c5bc37d312cbb83c8e5
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: c78eae11497702054bb54b5980228fd0a3962577
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173612"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367779"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Distribuera och konfigurera VMware HCX
 
@@ -58,13 +58,15 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 | NSX    | För HCX nätverks tillägg för logiska växlar vid källan: NSXv 6.2 + eller NSX-T 2.4 +.   | NSXv 6.2 + eller NSX-T 2.4 +<br/><br/>För HCX närhet: NSXv 6.4 +. (Närhet routning stöds inte med NSX-T.) |
 | vCloud-regissör   | Krävs inte. Det finns ingen samverkan med vCloud Director på käll platsen. | När du integrerar mål miljön med vCloud Director är minimivärdet 9.1.0.2.  |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="network-and-ports"></a>Nätverk och portar
 
 * Konfigurera [Azure ExpressRoute-Global Reach](tutorial-expressroute-global-reach-private-cloud.md) mellan lokala och Azure VMware-lösningar SDDC ExpressRoute-kretsar.
 
-* Alla portar som krävs måste vara öppna för kommunikation mellan lokala komponenter och Azure VMware-SDDC. Mer information finns i [VMware HCX-dokumentationen](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
+* [Alla portar som krävs](https://ports.vmware.com/home/VMware-HCX) måste vara öppna för kommunikation mellan lokala komponenter och Azure VMware-SDDC.
+
+Mer information finns i [VMware HCX-dokumentationen](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
 
 
 ### <a name="ip-addresses"></a>IP-adresser
@@ -73,13 +75,13 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
    
 ## <a name="deploy-the-vmware-hcx-connector-ova-on-premises"></a>Distribuera VMware HCX Connector-ägg lokalt
 
->[!NOTE]
->Innan du distribuerar den virtuella installationen till din lokala vCenter måste du ladda ned VMware HCX Connector-ägg. 
+> [!NOTE]
+> Innan du distribuerar den virtuella installationen till din lokala vCenter måste du ladda ned VMware HCX Connector-ägg. 
 
 1. Öppna ett webbläsarfönster och logga in på Azure VMware Solution HCX Manager på `https://x.x.x.9` port 443 med **cloudadmin** -användarautentiseringsuppgifter och gå sedan till **support**.
 
-   >[!TIP]
-   >Observera IP-adressen för HCX Cloud Manager i Azure VMware-lösningen. Identifiera IP-adressen genom att gå till **Hantera**anslutningar i fönstret Azure VMware-lösning  >  **Connectivity** och sedan välja fliken **HCX** . 
+   > [!TIP]
+   > Observera IP-adressen för HCX Cloud Manager i Azure VMware-lösningen. Identifiera IP-adressen genom att gå till **Hantera**anslutningar i fönstret Azure VMware-lösning  >  **Connectivity** och sedan välja fliken **HCX** . 
    >
    >VCenter-lösenordet definierades när du konfigurerade det privata molnet.
 
@@ -102,8 +104,8 @@ Infrastruktur komponenter måste köra den lägsta version som krävs.
 
 1. Välj **Nästa**, verifiera konfigurationen och välj sedan **Slutför** för att distribuera HCX Connector-ägg.
      
-   >[!NOTE]
-   >I allmänhet distribueras den VMware HCX-anslutning som du distribuerar nu till klustrets hanterings nätverk.  
+   > [!NOTE]
+   > I allmänhet distribueras den VMware HCX-anslutning som du distribuerar nu till klustrets hanterings nätverk.  
    
    > [!IMPORTANT]
    > Du kan behöva aktivera den virtuella enheten manuellt.  Om så är fallet väntar du 10-15 minuter innan du fortsätter till nästa steg.
@@ -171,7 +173,7 @@ Du kan ansluta (para ihop) VMware HCX Cloud Manager i Azure VMware-lösningen me
 1. Ange den fjärranslutna HCX-URL eller IP-adress som du noterade tidigare, Azure VMware-lösningens cloudadmin@vsphere.local användar namn och lösen ord. Välj **Anslut**.
 
    > [!NOTE]
-   > Den fjärranslutna HCX-URL: en är din Azure VMware-lösnings privata molns HCX Cloud Manager-IP-adress, som är adressen ". 9" för hanterings nätverket. Om din vCenter till exempel är 192.168.4.2, blir din HCX-URL 192.168.4.9.
+   > För att ett plats par ska kunna upprättas måste din HCX-anslutning kunna dirigera till din HCX Cloud Manager-IP via port 443.
    >
    > Lösen ordet är samma lösen ord som du använde för att logga in på vCenter. Du definierade det här lösen ordet på den första distributions skärmen.
 
@@ -272,6 +274,13 @@ En översikt över slut punkt till slut punkt av den här proceduren finns i [Az
 
 Nu är det dags att konfigurera ett service nät mellan lokala och Azure VMware-SDDC.
 
+   > [!NOTE]
+   > Så här upprättar du ett service nät med Azure VMware-lösningen:
+   >
+   > Portarna UDP 500/4500 är öppna mellan nätverks profil adresserna för den lokala HCX-anslutningen och det HCX molnets nätverks profil adresser i Azure VMware-lösningen.
+   >
+   > Se till att granska [HCX-portar som krävs](https://ports.vmware.com/home/VMware-HCX).
+
 1. Under **infrastruktur**väljer du **Interconnect**  >  **service-nät**  >  **skapa tjänst nät**.    
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-service-mesh.png" alt-text="Skärm bild av surfning till en OVF-mall." lightbox="media/tutorial-vmware-hcx/create-service-mesh.png":::
@@ -351,3 +360,4 @@ Mer information om hur du använder HCX finns i den tekniska dokumentationen fö
 
 * [VMware HCX-dokumentation](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Migrera Virtual Machines med VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
+* [HCX nödvändiga portar](https://ports.vmware.com/home/VMware-HCX)

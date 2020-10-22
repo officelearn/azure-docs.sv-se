@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcd232a3242b0341bfc81fa9785f76b0d3bd90cb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361491"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369462"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Hantera konfigurationsservern för haveriberedskap för virtuella VMWare-datorer/fysiska servrar
 
@@ -169,12 +169,12 @@ Du kör samlade uppdateringar för att uppdatera konfigurations servern. Uppdate
 - Om du kör 9,7, 9,8, 9,9 eller 9,10 kan du uppgradera direkt till 9,11.
 - Om du kör 9,6 eller tidigare och du vill uppgradera till 9,11 måste du först uppgradera till version 9,7. före 9,11.
 
-Detaljerad vägledning om support policyn för Azure Site Recovery-komponenter hittar du [här](https://aka.ms/asr_support_statement).
-Länkar till samlade uppdateringar för uppgradering till alla versioner av konfigurations servern finns [här](https://aka.ms/asr_update_rollups).
+Detaljerad vägledning om support policyn för Azure Site Recovery-komponenter hittar du [här](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
+Länkar till samlade uppdateringar för uppgradering till alla versioner av konfigurations servern finns [här](./service-updates-how-to.md#links-to-currently-supported-update-rollups).
 
 > [!IMPORTANT]
 > Med varje ny version av en Azure Site Recovery komponent som släpps anses alla versioner under "N-4" vara understödjande. Vi rekommenderar alltid att du uppgraderar till de senaste versionerna som är tillgängliga.</br>
-> Detaljerad vägledning om support policyn för Azure Site Recovery-komponenter hittar du [här](https://aka.ms/asr_support_statement).
+> Detaljerad vägledning om support policyn för Azure Site Recovery-komponenter hittar du [här](./service-updates-how-to.md#support-statement-for-azure-site-recovery).
 
 Uppgradera servern på följande sätt:
 
@@ -192,7 +192,7 @@ Uppgradera servern på följande sätt:
     ![Uppdatera](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Stäng installations programmet genom att klicka på **Slutför** .
-8. För att uppgradera resten av Site Recovery-komponenterna, se vår [uppgraderings vägledning](https://aka.ms/asr_vmware_upgrades).
+8. För att uppgradera resten av Site Recovery-komponenterna, se vår [uppgraderings vägledning](./service-updates-how-to.md#vmware-vmphysical-server-disaster-recovery-to-azure).
 
 ## <a name="upgrade-configuration-serverprocess-server-from-the-command-line"></a>Uppgradera konfigurations servern/processervern från kommando raden
 

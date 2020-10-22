@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 233645519a6a918e451c425971d2e2e16f788f3a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3781a87bde283de3b798f840274db1dd5ea3ac7e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145404"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366504"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory användnings villkor
 
@@ -44,7 +44,7 @@ Användnings villkoren för Azure AD har följande funktioner:
 - Kräv att medarbetare eller gäster accepterar dina användnings villkor innan säkerhets information registreras i Azure Multi-Factor Authentication (MFA).
 - Kräv att medarbetarna accepterar dina användnings villkor innan säkerhets information registreras i Azure AD självbetjäning för återställning av lösen ord (SSPR).
 - Visa allmänna användnings villkor för alla användare i din organisation.
-- Visa vissa användnings villkor baserat på ett användarattribut (t. ex. läkare jämfört med sjuksköterskor eller inhemska jämfört med internationella medarbetare, via [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md)).
+- Visa vissa användnings villkor baserat på ett användarattribut (t. ex. läkare jämfört med sjuksköterskor eller inhemska jämfört med internationella medarbetare, via [dynamiska grupper](../enterprise-users/groups-dynamic-membership.md)).
 - Visa specifika användnings villkor vid åtkomst till program med höga affärs effekter, till exempel Salesforce.
 - Nuvarande användnings villkor på olika språk.
 - Lista med eller har inte accepterat dina användnings villkor.
@@ -52,7 +52,7 @@ Användnings villkoren för Azure AD har följande funktioner:
 - Visa en logg med villkor för användnings aktivitet för efterlevnad och granskning.
 - Skapa och hantera användnings villkor med hjälp av [Microsoft Graph API: er](/graph/api/resources/agreement?view=graph-rest-beta) (för närvarande i för hands version).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda och konfigurera användnings villkor för Azure AD måste du ha:
 

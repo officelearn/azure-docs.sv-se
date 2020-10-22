@@ -3,12 +3,12 @@ title: Lär dig Azure Policy för Kubernetes
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster som kör Kubernetes i Azure eller lokalt.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 1747e770da420a3448e97628806733459fe07a49
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951544"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366997"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Förstå Azure Policy för Kubernetes-kluster
 
@@ -80,7 +80,7 @@ Följande rekommendation gäller endast för AKS och Azure Policy-tillägget:
 
 - Använd systemnode-poolen med en `CriticalAddonsOnly` utsmak för att schemalägga Gatekeeper-poddar. Mer information finns i [använda system Node Pools](../../../aks/use-system-pools.md#system-and-user-node-pools).
 - Skydda utgående trafik från AKS-kluster. Mer information finns i [kontroll av utgående trafik för klusternoder](../../../aks/limit-egress-traffic.md).
-- Om klustret har `aad-pod-identity` Aktiver ATS ändrar NMI-poddar noderna program varan iptables för att avlyssna anrop till Azure instance metadata-slutpunkten. Den här konfigurationen innebär att alla begär Anden som görs till metadata-slutpunkten fångas upp av NMI även om Pod inte använder `aad-pod-identity` . AzurePodIdentityException CRD kan konfigureras för att informera om `aad-pod-identity` att förfrågningar till slut punkten för metadata från en pod som matchar etiketter som definierats i CRD ska vara proxy utan bearbetning i NMI. Systemets poddar med `kubernetes.azure.com/managedby: aks` etikett i _Kube-systemets_ namnrymd ska undantas i `aad-pod-identity` genom att konfigurera AzurePodIdentityException-CRD. Mer information finns i [inaktivera AAD-Pod-Identity för en specifik POD eller ett program](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+- Om klustret har `aad-pod-identity` Aktiver ATS ändrar NMI-poddar noderna program varan iptables för att avlyssna anrop till Azure instance metadata-slutpunkten. Den här konfigurationen innebär att alla begär Anden som görs till metadata-slutpunkten fångas upp av NMI även om Pod inte använder `aad-pod-identity` . AzurePodIdentityException CRD kan konfigureras för att informera om `aad-pod-identity` att förfrågningar till slut punkten för metadata från en pod som matchar etiketter som definierats i CRD ska vara proxy utan bearbetning i NMI. Systemets poddar med `kubernetes.azure.com/managedby: aks` etikett i _Kube-systemets_ namnrymd ska undantas i `aad-pod-identity` genom att konfigurera AzurePodIdentityException-CRD. Mer information finns i [inaktivera AAD-Pod-Identity för en specifik POD eller ett program](https://azure.github.io/aad-pod-identity/docs/configure/application_exception).
   Om du vill konfigurera ett undantag installerar du [yaml MIC-Exception](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Installera Azure Policy tillägg för AKS

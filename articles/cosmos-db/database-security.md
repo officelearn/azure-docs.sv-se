@@ -4,14 +4,14 @@ description: Lär dig hur Azure Cosmos DB tillhandahåller databas skydd och dat
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 3658c621a5ac633bf42334df3e354c88afcf9b27
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6236b34c76ccd9e4688b97e7844cbadf9f515213
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278800"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372250"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Säkerhet i Azure Cosmos DB – översikt
 
@@ -60,7 +60,7 @@ Låt oss titta närmare på var och en.
 |Säkerhets krav|Azure Cosmos DB säkerhets metod|
 |---|---|
 |Nätverkssäkerhet|Att använda en IP-brandvägg är det första skydds lagret som skyddar din databas. Azure Cosmos DB stöder princip drivna IP-baserade åtkomst kontroller för inkommande brand Väggs stöd. IP-baserade åtkomst kontroller liknar de brand Väggs regler som används av traditionella databas system, men de expanderas så att ett Azure Cosmos Database-konto endast är tillgängligt från en godkänd uppsättning datorer eller moln tjänster. Läs mer i artikeln om [stöd för Azure Cosmos DB-brandvägg](how-to-configure-firewall.md) .<br><br>Med Azure Cosmos DB kan du aktivera en speciell IP-adress (168.61.48.0), ett IP-intervall (168.61.48.0/8) och kombinationer av IP-adresser och intervall. <br><br>Alla begär Anden som kommer från datorer utanför den här tillåtna listan blockeras av Azure Cosmos DB. Begär Anden från godkända datorer och moln tjänster måste sedan slutföra autentiseringsprocessen för att få åtkomst kontroll till resurserna.<br><br> Du kan använda [taggar för virtuella nätverks tjänster](../virtual-network/service-tags-overview.md) för att uppnå nätverks isolering och skydda dina Azure Cosmos DB resurser från det allmänna Internet. Använd tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (till exempel AzureCosmosDB) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst.|
-|Auktorisering|Azure Cosmos DB använder hash-baserad meddelande authentication code (HMAC) för auktorisering. <br><br>Varje begäran hashas med den hemliga konto nyckeln och den efterföljande bas-64-kodade hashen skickas med varje anrop till Azure Cosmos DB. För att verifiera begäran använder tjänsten Azure Cosmos DB rätt hemliga nyckel och egenskaper för att generera en hash. Därefter jämförs värdet med det som finns i begäran. Om de två värdena matchar, godkänns åtgärden korrekt och begäran bearbetas, annars uppstår ett auktoriseringsfel och begäran avvisas.<br><br>Du kan antingen använda en [primär nyckel](secure-access-to-data.md#primary-keys)eller en [resurs-token](secure-access-to-data.md#resource-tokens) som ger detaljerad åtkomst till en resurs, till exempel ett dokument.<br><br>Läs mer om hur [du skyddar åtkomsten till Azure Cosmos DB resurser](secure-access-to-data.md).|
+|Auktorisering|Azure Cosmos DB använder hash-baserad meddelande authentication code (HMAC) för auktorisering. <br><br>Varje begäran hashas med den hemliga konto nyckeln och den efterföljande bas-64-kodade hashen skickas med varje anrop till Azure Cosmos DB. För att verifiera begäran använder tjänsten Azure Cosmos DB rätt hemliga nyckel och egenskaper för att generera en hash. Därefter jämförs värdet med det som finns i begäran. Om de två värdena matchar, godkänns åtgärden korrekt och begäran bearbetas, annars uppstår ett auktoriseringsfel och begäran avvisas.<br><br>Du kan antingen använda en [primär nyckel](#primary-keys)eller en [resurs-token](secure-access-to-data.md#resource-tokens) som ger detaljerad åtkomst till en resurs, till exempel ett dokument.<br><br>Läs mer om hur [du skyddar åtkomsten till Azure Cosmos DB resurser](secure-access-to-data.md).|
 |Användare och behörigheter|Med hjälp av den primära nyckeln för kontot kan du skapa användar resurser och behörighets resurser per databas. En Resource-token är associerad med en behörighet i en databas och avgör om användaren har åtkomst (Read-Write, skrivskyddad eller ingen åtkomst) till en program resurs i databasen. Program resurser omfattar behållare, dokument, bilagor, lagrade procedurer, utlösare och UDF: er. Resurs-token används sedan vid autentisering för att ge eller neka åtkomst till resursen.<br><br>Läs mer om hur [du skyddar åtkomsten till Azure Cosmos DB resurser](secure-access-to-data.md).|
 |Active Directory-integrering (RBAC)| Du kan också ange eller begränsa åtkomsten till Cosmos-kontot, databasen, behållaren och erbjudandena (genom strömning) med åtkomst kontroll (IAM) i Azure Portal. IAM tillhandahåller rollbaserad åtkomst kontroll och kan integreras med Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper. Mer information finns i [Active Directory integrations](role-based-access-control.md) artikeln.|
 |Global replikering|Azure Cosmos DB erbjuder nyckel färdig global distribution, vilket gör att du kan replikera dina data till någon av Azures världs omfattande data Center med ett klick på en knapp. Med global replikering kan du skala globalt och ge låg latens åtkomst till dina data runtom i världen.<br><br>I säkerhets kontexten säkerställer global replikering data skydd mot regionala haverier.<br><br>Läs mer i [Distribuera data globalt](distribute-data-globally.md).|
@@ -80,6 +80,25 @@ Låt oss titta närmare på var och en.
 |Säkerhets-och data skydds certifieringar| Den senaste listan över certifieringar finns i den övergripande [Azure Compliance-webbplatsen](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) samt det senaste [Azure Compliance-dokumentet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) med alla certifieringar (Sök efter Cosmos). För en mer fokuserad läsning kolla den 25 april 2018 post [Azure #CosmosDB: säker, privat, kompatibel med SOCS 1/2 typ 2, HITRUST, PCI DSS nivå 1, ISO 27001, HIPAA, FedRAMP hög och många andra.
 
 Följande skärm bild visar hur du kan använda gransknings loggning och aktivitets loggar för att övervaka ditt konto: :::image type="content" source="./media/database-security/nosql-database-security-application-logging.png" alt-text="Kund-och databas leverantörs ansvar":::
+
+<a id="primary-keys"></a>
+
+## <a name="primary-keys"></a>Primära nycklar
+
+Primära nycklar ger åtkomst till alla administrativa resurser för databas kontot. Primär nycklar:
+
+- Ge åtkomst till konton, databaser, användare och behörigheter. 
+- Kan inte användas för att ge detaljerad åtkomst till behållare och dokument.
+- Skapas när ett konto skapas.
+- Kan återskapas när som helst.
+
+Varje konto består av två primär nycklar: en primär nyckel och en sekundär nyckel. Syftet med dubbla nycklar är att du kan skapa om eller registrera nycklar, vilket ger kontinuerlig åtkomst till ditt konto och dina data.
+
+Förutom de två primära nycklarna för det Cosmos DB kontot finns det två skrivskyddade nycklar. Dessa skrivskyddade nycklar tillåter bara Läs åtgärder på kontot. Skrivskyddade nycklar ger inte åtkomst till Läs behörighets resurser.
+
+Primära, sekundära, skrivskyddade och Läs-och skriv-och skrivbara primär nycklar kan hämtas och återskapas med hjälp av Azure Portal. Instruktioner finns i [Visa, kopiera och återskapa åtkomst nycklar](manage-with-cli.md#regenerate-account-key).
+
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Kund-och databas leverantörs ansvar":::
 
 ## <a name="next-steps"></a>Nästa steg
 

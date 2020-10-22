@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6b7d670f5e38968fa6592e323ede075abf687435
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939025"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359687"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Prestanda nivåer för Managed disks (för hands version)
 
@@ -52,9 +52,9 @@ Information om fakturering finns i [priser för Managed disks](https://azure.mic
 ## <a name="restrictions"></a>Begränsningar
 
 - Den här funktionen stöds för närvarande endast för Premium-SSD.
-- Du måste koppla från disken från en virtuell dator som körs innan du kan ändra diskens nivå.
+- Du måste antingen frigöra den virtuella datorn eller koppla från disken från en virtuell dator som körs innan du kan ändra diskens nivå.
 - Användningen av prestanda nivåerna P60, P70 och P80 är begränsad till diskar på 4 096 GiB eller högre.
-- En disks prestanda nivå kan bara ändras en gång var 24: e timme.
+- En disks prestanda nivå kan bara nedgraderas en gång var 24: e timme.
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 

@@ -13,15 +13,15 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dcbd8618dc0f2bae2eacc9ced67869d8209286a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e4533334204a3a1cfd46ff27b04ff0c05350dfc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565532"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371859"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Skapa en basgrupp och lägga till medlemmar med hjälp av Azure Active Directory
-Du kan skapa en basgrupp med hjälp av Azure Active Directory (Azure AD)-portalen. I den här artikeln läggs en basgrupp till i en enskild resurs av resursägaren (administratören) och innehåller specifika medlemmar (anställda) som behöver åtkomst till den här resursen. Mer komplicerade scenarier, inklusive dynamiskt medlemskap och regelskapande, finns i [dokumentationen för Azure Active Directory-användarhantering](../users-groups-roles/index.yml).
+Du kan skapa en basgrupp med hjälp av Azure Active Directory (Azure AD)-portalen. I den här artikeln läggs en basgrupp till i en enskild resurs av resursägaren (administratören) och innehåller specifika medlemmar (anställda) som behöver åtkomst till den här resursen. Mer komplicerade scenarier, inklusive dynamiskt medlemskap och regelskapande, finns i [dokumentationen för Azure Active Directory-användarhantering](../enterprise-users/index.yml).
 
 ## <a name="group-and-membership-types"></a>Grupp-och medlemskaps typer
 Det finns flera grupper och medlemskaps typer. Följande information förklarar varje grupp och medlemskaps typ och varför de används, för att hjälpa dig att avgöra vilka alternativ som ska användas när du skapar en grupp.
@@ -36,7 +36,7 @@ Det finns flera grupper och medlemskaps typer. Följande information förklarar 
 - **Dynamisk enhet.** Låter dig använda dynamiska gruppregler för att automatiskt lägga till och ta bort enheter. Om en enhets attribut ändras så tittar systemet på dina dynamiska gruppregler för katalogen för att se om enheten uppfyller regelkraven (läggs till) eller inte längre uppfyller regelkraven (tas bort).
 
     > [!IMPORTANT]
-    > Du kan skapa en dynamisk grupp för antingen enheter eller användare, men inte både och. Du kan inte heller skapa en enhetsgrupp baserat på enhetsägarens attribut. Medlemskapsregler för enheten kan bara referera till enhetens uppgifter. Mer information om hur du skapar en dynamisk grupp för användare och enheter finns i [skapa en dynamisk grupp och kontrol lera status](../users-groups-roles/groups-create-rule.md)
+    > Du kan skapa en dynamisk grupp för antingen enheter eller användare, men inte både och. Du kan inte heller skapa en enhetsgrupp baserat på enhetsägarens attribut. Medlemskapsregler för enheten kan bara referera till enhetens uppgifter. Mer information om hur du skapar en dynamisk grupp för användare och enheter finns i [skapa en dynamisk grupp och kontrol lera status](../enterprise-users/groups-create-rule.md)
 
 ## <a name="create-a-basic-group-and-add-members"></a>Skapa en basgrupp och lägg till medlemmar
 Du kan skapa en basgrupp och lägga till dina medlemmar på samma gång. Använd följande procedur för att skapa en grundläggande grupp och lägga till medlemmar:
@@ -81,5 +81,5 @@ När en ny Microsoft 365 grupp skapas, oavsett om det är ett dynamiskt eller st
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantera åtkomst till SaaS-appar med grupper](../users-groups-roles/groups-saasapps.md)
-- [Hantera grupper med PowerShell-kommandon](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Hantera åtkomst till SaaS-appar med grupper](../enterprise-users/groups-saasapps.md)
+- [Hantera grupper med PowerShell-kommandon](../enterprise-users/groups-settings-v2-cmdlets.md)

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 95d892bf7a0c0e395289d4a5535cd9b6b789b055
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62f78ed9063d4736e541dda2b1763ffded8eab5d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88565935"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371485"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autentisera åtkomst till Azure-resurser med hjälp av hanterade identiteter i Azure Logic Apps
 
@@ -31,11 +31,11 @@ Den här artikeln visar hur du konfigurerar båda typerna av hanterade identitet
 * [Begränsningar för hanterade identiteter för Logic Apps](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 * [Azure-tjänster som stöder Azure AD-autentisering med hanterade identiteter](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Både den hanterade identiteten och den Azure-resurs där du behöver åtkomst måste använda samma Azure-prenumeration.
 
-* Om du vill ge en hanterad identitets åtkomst till en Azure-resurs måste du lägga till en roll i mål resursen för den identiteten. Om du vill lägga till roller måste du ha [administratörs behörighet för Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md) som kan tilldela roller till identiteter i motsvarande Azure AD-klient.
+* Om du vill ge en hanterad identitets åtkomst till en Azure-resurs måste du lägga till en roll i mål resursen för den identiteten. Om du vill lägga till roller måste du ha [administratörs behörighet för Azure AD](../active-directory/roles/permissions-reference.md) som kan tilldela roller till identiteter i motsvarande Azure AD-klient.
 
 * Den Azure-resurs som du vill få åtkomst till. På den här resursen lägger du till en roll för den hanterade identiteten som hjälper Logic-appen att autentisera åtkomsten till mål resursen.
 
@@ -54,7 +54,7 @@ Om du vill ställa in den hanterade identitet som du vill använda följer du l�
 
 Till skillnad från användarens tilldelade identiteter behöver du inte skapa den systemtilldelade identiteten manuellt. För att ställa in den systemtilldelade identiteten för din Logi Kap par, är följande alternativ som du kan använda:
 
-* [Azure Portal](#azure-portal-system-logic-app)
+* [Azure-portalen](#azure-portal-system-logic-app)
 * [Azure Resource Manager-mallar](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
@@ -132,7 +132,7 @@ När Azure skapar din resurs definition för Logic app `identity` får objektet 
 
 Om du vill konfigurera en användardefinierad hanterad identitet för din Logic app måste du först skapa den identiteten som en separat fristående Azure-resurs. Här följer de alternativ som du kan använda:
 
-* [Azure Portal](#azure-portal-user-identity)
+* [Azure-portalen](#azure-portal-user-identity)
 * [Azure Resource Manager-mallar](#template-user-identity)
 * Azure PowerShell
   * [Skapa användare tilldelad identitet](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
@@ -284,7 +284,7 @@ Om din mall även omfattar resurs definitionen för den hanterade identiteten ka
 
 Innan du kan använda din Logic Apps-hanterade identitet för autentisering ska du konfigurera åtkomst för den identiteten på den Azure-resurs där du planerar att använda identiteten. För att slutföra den här uppgiften tilldelar du den aktuella rollen till den identiteten på Azure-resursen. Här följer de alternativ som du kan använda:
 
-* [Azure Portal](#azure-portal-assign-access)
+* [Azure-portalen](#azure-portal-assign-access)
 * [Azure Resource Manager-mall](../role-based-access-control/role-assignments-template.md)
 * Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) – mer information finns i [lägga till roll tilldelning med hjälp av Azure RBAC och Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Azure CLI ([AZ Role Assignment Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) – mer information finns i [lägga till roll tilldelning med hjälp av Azure RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md).
@@ -301,7 +301,7 @@ Innan du kan använda din Logic Apps-hanterade identitet för autentisering ska 
    ![Välj Lägg till > Lägg till roll tilldelning](./media/create-managed-service-identity/add-role-to-resource.png)
 
    > [!TIP]
-   > Om alternativet **Lägg till roll tilldelning** är inaktiverat har du förmodligen inte behörighet. Mer information om behörigheter som låter dig hantera roller för resurser finns i [Administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > Om alternativet **Lägg till roll tilldelning** är inaktiverat har du förmodligen inte behörighet. Mer information om behörigheter som låter dig hantera roller för resurser finns i [Administratörs roll behörigheter i Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 1. Under **Lägg till roll tilldelning**väljer du en **roll** som ger din identitet nödvändig åtkomst till mål resursen.
 
@@ -362,8 +362,8 @@ De här stegen visar hur du använder den hanterade identiteten med en utlösare
    |----------|----------|-------------|
    | **Metod** | Ja | HTTP-metoden som används av den åtgärd som du vill köra |
    | **URI** | Ja | Slut punkts-URL för åtkomst till Azure-resursen eller-entiteten. URI-syntaxen innehåller vanligt vis [resurs-ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) för Azure-resursen eller-tjänsten. |
-   | **Rubriker** | Inga | Eventuella rubrik värden som du behöver eller vill inkludera i den utgående begäran, till exempel innehålls typen |
-   | **Frågor** | Inga | Alla frågeparametrar som du behöver eller vill inkludera i begäran, till exempel parametern för en åtgärd eller API-versionen för den åtgärd som du vill köra |
+   | **Rubriker** | Nej | Eventuella rubrik värden som du behöver eller vill inkludera i den utgående begäran, till exempel innehålls typen |
+   | **Frågor** | Nej | Alla frågeparametrar som du behöver eller vill inkludera i begäran, till exempel parametern för en åtgärd eller API-versionen för den åtgärd som du vill köra |
    | **Autentisering** | Ja | Autentiseringstypen som används för att autentisera åtkomsten till mål resursen eller entiteten |
    ||||
 
@@ -431,7 +431,7 @@ De här stegen visar hur du använder den hanterade identiteten med en utlösare
 
 Om du vill sluta använda en hanterad identitet för din Logic app har du följande alternativ:
 
-* [Azure Portal](#azure-portal-disable)
+* [Azure-portalen](#azure-portal-disable)
 * [Azure Resource Manager-mallar](#template-disable)
 * Azure PowerShell
   * [Ta bort roll tilldelning](../role-based-access-control/role-assignments-powershell.md)
@@ -462,7 +462,7 @@ I Azure Portal tar du först bort identitetens åtkomst till [mål resursen](#di
 1. I listan Roller väljer du de hanterade identiteter som du vill ta bort. Välj **ta bort**i verktygsfältet.
 
    > [!TIP]
-   > Om alternativet **ta bort** är inaktiverat har du förmodligen inte behörighet. Mer information om behörigheter som låter dig hantera roller för resurser finns i [Administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+   > Om alternativet **ta bort** är inaktiverat har du förmodligen inte behörighet. Mer information om behörigheter som låter dig hantera roller för resurser finns i [Administratörs roll behörigheter i Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 Den hanterade identiteten tas nu bort och har inte längre åtkomst till mål resursen.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e7d966aa5aa4b5a498c80cab26686411dd586185
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5ac3d76d8c80947b820d195b9727d1fe50d32899
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044606"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372352"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
@@ -453,12 +453,6 @@ Med hjälp av [Azure Cloud Shell](https://shell.azure.com)kan du ta bort alla Az
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Ta sedan bort den Azure AD App-registrering som du skapade för din klient app med det här kommandot:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Slutligen tar du bort exempel mappen Project som du laddade ned till din lokala dator.

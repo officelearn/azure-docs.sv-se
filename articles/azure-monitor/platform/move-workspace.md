@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d59fb0dc39103119edbc4096b506c588c38cece4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282869"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372284"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp
 
@@ -40,11 +40,20 @@ Lösningar som måste tas bort innan du kan ta bort länken till ditt Automation
 
 >[!IMPORTANT]
 > **Azure Sentinel-kunder**
-> - När Azure Sentinel har distribuerats på en arbets yta **stöder den inte** flytten av arbets ytan till andra resurs grupper eller prenumerationer. 
-> - Om du redan har flyttat arbets ytan inaktiverar du alla aktiva regler under **analyser** och aktiverar dem igen efter fem minuter. Detta bör vara effektivt i de flesta fall, men för att kunna upprepas, stöds den inte och görs på egen risk.
+> - För närvarande stöds inte att flytta arbets ytan till en annan resurs grupp eller prenumeration efter att Azure Sentinel har distribuerats på en arbets yta. 
+> - Om du redan har flyttat arbets ytan inaktiverar du alla aktiva regler under **analyser** och aktiverar dem igen efter fem minuter. Detta bör vara en effektiv lösning i de flesta fall, men för att kunna upprepas, stöds den inte och görs på egen risk.
 > 
-> **Aviseringar**
-> - Alla aviseringar måste återskapas efter flytten, eftersom behörigheterna baseras på arbets ytans Azure-resurs-ID och ändringar i arbets ytan flyttas. 
+> **Återskapa aviseringar**
+> - Alla aviseringar måste återskapas efter en flyttning eftersom behörigheterna baseras på arbets ytans Azure-resurs-ID, som ändras när en arbets yta flyttas.
+>
+> **Uppdatera resurs Sök vägar**
+> - När en arbets yta flyttas måste alla Azure-eller externa resurser som pekar på arbets ytan granskas och uppdateras så att de pekar på den nya resurs mål Sök vägen.
+> 
+>   *Exempel:*
+>   - [Azure Monitor varnings regler](alerts-resource-move.md)
+>   - Program från tredje part
+>   - Anpassat skript
+>
 
 ### <a name="delete-solutions-in-azure-portal"></a>Ta bort lösningar i Azure Portal
 Använd följande procedur för att ta bort lösningarna med hjälp av Azure Portal:

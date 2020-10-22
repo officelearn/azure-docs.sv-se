@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: e2ab52120e2a5db6648caac61f0228cb0be7e67b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a0444483c382da7c54accf7dca49d097671771
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355048"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371995"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsöka fel vid redundansväxling av virtuell VMware-dator eller fysisk dator till Azure
 
@@ -55,7 +55,7 @@ Om du vill ändra start typen för driv rutiner manuellt för **Windows gäst op
     Det ger följande resultat om hydrering krävs:
 
     ```output
-    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
     This system doesn't meet no-hydration requirement.
     ```
@@ -168,7 +168,7 @@ Så här löser du problemet:
 
 2. Om utdata från föregående kommandon visar att antingen http_proxy-eller https_proxys inställningarna har definierats använder du någon av följande metoder för att avblockera kommunikationen mellan huvud målet med konfigurations servern:
    
-   - Ladda ned [PsExec-verktyget](https://aka.ms/PsExec).
+   - Ladda ned [PsExec-verktyget](/sysinternals/downloads/psexec).
    - Använd verktyget för att få åtkomst till system användar kontexten och ta reda på om proxyservern har kon figurer ATS. 
    - Om proxyservern har kon figurer ATS öppnar du IE i en system användar kontext med hjälp av PsExec-verktyget.
   

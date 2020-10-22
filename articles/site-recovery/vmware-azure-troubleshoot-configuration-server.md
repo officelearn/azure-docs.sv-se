@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: b60a53b05c0d2c80c36c94e27e4d00952b5af954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5fd014732fd4cdfaa52f971b5e4d2c74db580d2
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86113079"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371961"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka konfigurationsserverfel
 
@@ -63,7 +63,7 @@ Felet uppstår när tjänsten inte kan läsa data från transport anslutningen n
 
 Om du vill lösa vCenter-identifierings felen lägger du till vCenter-servern i listan över proxyinställningar. 
 
-- Hämta PsExec-verktyget [härifrån för att få åtkomst till innehåll](https://aka.ms/PsExec) i systemet.
+- Hämta PsExec-verktyget [härifrån för att få åtkomst till innehåll](/sysinternals/downloads/psexec) i systemet.
 - Öppna Internet Explorer i system användar innehåll genom att köra följande kommando rad PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
 - Lägg till proxyinställningar i IE och starta om tmanssvc-tjänsten.
 - Om du vill konfigurera inställningar för proxyserver kör du CD C:\Program\Microsoft Azure Site Recovery Provider
@@ -163,16 +163,16 @@ Uppgraderingen av konfigurations servern Miss lyckas när vissa tjänster inte s
 Identifiera problemet genom att navigera till C:\ProgramData\ASRSetupLogs\ CX_TP_InstallLogFile på konfigurations servern. Om du hittar följande fel kan du använda stegen nedan för att lösa problemet: 
 
 ```output
-2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
-2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
-2018-06-28 14:28:12.944   Stopping svagents service.
-2018-06-28 14:31:32.949   Unable to stop svagents service.
-2018-06-28 14:31:32.949   Stopping svagents service.
-2018-06-28 14:34:52.960   Unable to stop svagents service.
-2018-06-28 14:34:52.960   Stopping svagents service.
-2018-06-28 14:38:12.971   Unable to stop svagents service.
-2018-06-28 14:38:12.971   Rolling back the install changes.
-2018-06-28 14:38:12.971   Upgrade has failed.
+2018-06-28 14:28:12.943   Successfully copied php.ini to C:\Temp from C:\thirdparty\php5nts
+2018-06-28 14:28:12.943   svagents service status - SERVICE_RUNNING
+2018-06-28 14:28:12.944   Stopping svagents service.
+2018-06-28 14:31:32.949   Unable to stop svagents service.
+2018-06-28 14:31:32.949   Stopping svagents service.
+2018-06-28 14:34:52.960   Unable to stop svagents service.
+2018-06-28 14:34:52.960   Stopping svagents service.
+2018-06-28 14:38:12.971   Unable to stop svagents service.
+2018-06-28 14:38:12.971   Rolling back the install changes.
+2018-06-28 14:38:12.971   Upgrade has failed.
 ```
 
 Så här löser du problemet:
@@ -194,7 +194,7 @@ Du har inte behörighet att skapa ett program i Azure Active Directory (AAD) med
 
 Lös problemet genom att logga in på Azure Portal och gör något av följande:
 
-- Be rollen program utvecklare i AAD. Mer information om rollen programutvecklare finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+- Be rollen program utvecklare i AAD. Mer information om rollen programutvecklare finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/roles/permissions-reference.md).
 - Kontrol lera att flaggan **användare kan skapa program** har angetts till *True* i AAD. Mer information finns i [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>Processervern/huvud mål servern kan inte kommunicera med konfigurations servern 
@@ -258,4 +258,3 @@ Det här problemet kan inträffa när system tiden är felaktig.
 Så här löser du problemet:
 
 Ange rätt tid på datorn och försök sedan logga in igen. 
- 

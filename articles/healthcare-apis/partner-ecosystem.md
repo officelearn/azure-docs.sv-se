@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/22/2019
 ms.author: chrupa
-ms.openlocfilehash: edc337849b53cb8e818114d3dd100d30cf00b895
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 556cc7fb5f735346a35903840501cf8f8e1be033
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84872066"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372182"
 ---
 # <a name="partner-ecosystem-for-azure-api-for-fhir"></a>Partner eko system för Azure API för FHIR
 Vi är glada över att Azure API för FHIR har lanserats i allmänhet tillgänglig för alla Azure-kunder. Vi är ännu mer glada över de lösningar som du kommer att bygga med vår tjänst.  
@@ -25,7 +25,7 @@ När du skapar en lösning från slut punkt till slut punkt som bygger på Azure
 |------------------|--------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Tänd            | Avidentifiering, Legacy-FHIR-konvertering  | USA                         | [Kontakt](http://www.medal.com/)                                                                                           |
 | Rhapsody         | Legacy-FHIR-konvertering                     | USA, Australien, Nya Zeeland | [Kontakt](https://rhapsody.health/contact-us)                                                                                          |
-| Gränssnitt    | Legacy-FHIR-konvertering                     | USA, Kanada                 | [Kontakt](https://www.interfaceware.com/contact.html)                                                                                  |
+| Gränssnitt    | Legacy-FHIR-konvertering                     | USA, Kanada                 | [Kontakt](https://www.interfaceware.com/contact)                                                                                  |
 | Darena-lösningar | Program utveckling, system integrerare | USA                         | [Kontakt](https://www.darenasolutions.com/contact)                                                                                     |
 | NewWave          | Program utveckling, system integrerare | USA                         | [Kontakt](https://newwave.io/get-in-touch/)                                                                                            |
 | Dapasoft         | Program utveckling, system integrerare | USA, Kanada                 | [Kontakt](https://www.dapasoft.com/contact-us/)                                                                                        |

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79fa01e53b53f3066e55736c105d6489ccbd96e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b6b262765a361befeadd9b5a42d37ca5e66497
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019852"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372063"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Spara hemliga program inställningar för ett webb program på ett säkert sätt
 
@@ -56,14 +56,19 @@ Om du redan har skapat din webbapp ger du webbappen åtkomst till den Key Vault 
     > Före Visual Studio 2017 V-15,6 vi vi använde för att rekommendera att installera Azure-tjänstens autentiserings-tillägg för Visual Studio. Men det är föråldrat nu när funktionen är integrerad i Visual Studio. Om du använder en äldre version av Visual Studio 2017, rekommenderar vi att du uppdaterar till minst VS 2017 15,6 eller upp så att du kan använda den här funktionen internt och komma åt nyckel valvet från att använda Visual Studio-inloggning identiteten.
     >
 
-4. Lägg till följande NuGet-paket i projektet:
+4. Logga in på Azure med CLI kan du skriva:
+
+    ```azurecli
+    az login
+    ```
+
+5. Lägg till följande NuGet-paket i projektet:
 
     ```
-    Microsoft.Azure.KeyVault
-    Microsoft.Azure.Services.AppAuthentication
-    Microsoft.Extensions.Configuration.AzureKeyVault
+    Azure.Identity
+    Azure.Extensions.AspNetCore.Configuration.Secrets
     ```
-5. Lägg till följande kod i Program.cs-filen:
+6. Lägg till följande kod i Program.cs-filen:
 
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -73,12 +78,7 @@ Om du redan har skapat din webbapp ger du webbappen åtkomst till den Key Vault 
                     var keyVaultEndpoint = GetKeyVaultEndpoint();
                     if (!string.IsNullOrEmpty(keyVaultEndpoint))
                     {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                        builder.AddAzureKeyVault(new Uri(keyVaultEndpoint), new DefaultAzureCredential(), new KeyVaultSecretManager());
                     }
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -88,11 +88,12 @@ Om du redan har skapat din webbapp ger du webbappen åtkomst till den Key Vault 
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. Lägg till din Key Vault-URL i launchsettings.jspå filen. Miljö variabel namnet *KEYVAULT_ENDPOINT* definieras i den kod som du lade till i steg 6.
+
+7. Lägg till din Key Vault-URL i launchsettings.jspå filen. Miljö variabel namnet *KEYVAULT_ENDPOINT* definieras i den kod som du lade till i steg 7.
 
     ![Lägg till Key Vault URL som en projekt miljö variabel](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-7. Starta fel sökningen av projektet. Den bör kunna köras.
+8. Starta fel sökningen av projektet. Den bör kunna köras.
 
 ## <a name="aspnet-and-net-applications"></a>ASP.NET-och .NET-program
 

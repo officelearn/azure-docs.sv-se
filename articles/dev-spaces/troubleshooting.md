@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 5d8bf69d456bca2a88b8aa2031d5ef0ba20f7c30
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 42551443fb5af1bd3f783c33f708b231eea68907
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979129"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364175"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -52,13 +52,13 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>Styrenheten kunde inte skapas på grund av kontrollantens namn längd
 
-Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Till exempel:
+Ett namn på en Azure dev-enhet får inte vara längre än 31 tecken. Om namnet på din kontrollant överstiger 31 tecken när du aktiverar dev Spaces i ett AKS-kluster eller skapar en kontrollant får du ett fel meddelande. Exempel:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Till exempel:
+Åtgärda problemet genom att skapa en kontrollant med ett alternativt namn. Exempel:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -162,7 +162,7 @@ Anta till exempel att du använder ett Helm-kommando för att köra hela program
 
 Azure dev Spaces kan konfigureras så att de pekar på en viss _Dockerfile_ i ditt projekt. Om det verkar som om Azure dev Spaces inte använder den _Dockerfile_ som du förväntar dig att bygga dina behållare, kan du uttryckligen behöva berätta om Azure dev Spaces som Dockerfile ska använda. 
 
-Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Till exempel:
+Lös problemet genom att öppna den _azds. yaml_ -fil som Azure dev-utrymmen genererar i projektet. Uppdatera *konfigurationer: utveckla: skapa: Dockerfile* för att peka på den Dockerfile som du vill använda. Exempel:
 
 ```yaml
 ...
@@ -209,7 +209,7 @@ install:
 
 Du kanske ser det här felet när det inte går att starta en tjänst kod. Orsaken är ofta i användar kod. Om du vill ha mer diagnostikinformation aktiverar du mer detaljerad loggning när du startar tjänsten.
 
-På kommando raden använder `--verbose` du för att aktivera mer detaljerad loggning. Du kan också ange ett utdataformat med `--output` . Till exempel:
+På kommando raden använder `--verbose` du för att aktivera mer detaljerad loggning. Du kan också ange ett utdataformat med `--output` . Exempel:
 
 ```cmd
 azds up --verbose --output json
@@ -278,7 +278,7 @@ När du kör en tjänst med Azure dev Spaces i ett AKS-kluster med hanterade [id
 
 Tjänsterna för Azure dev-tjänster körs i klustret och använder klustrets hanterade identitet för att kommunicera med Server dels tjänsterna i Azure dev-tjänsten utanför klustret. När Pod-hanterad identitet installeras konfigureras nätverks regler på klustrets noder för att omdirigera alla anrop för autentiseringsuppgifter för hanterad identitet till en [NMI-DaemonSet () som är installerad på klustret](https://github.com/Azure/aad-pod-identity#node-managed-identity). Den här NMI-DaemonSet identifierar den anropande Pod och ser till att Pod har märkts korrekt för att få åtkomst till den begärda hanterade identiteten. Azure dev Spaces kan inte identifiera om ett kluster har Pod-hanterad identitet installerad och inte kan utföra den nödvändiga konfigurationen för att ge Azure dev Spaces-tjänster åtkomst till klustrets hanterade identitet. Eftersom Azure dev Spaces-tjänsterna inte har kon figurer ATS för åtkomst till klustrets hanterade identitet, tillåter inte NMI-DaemonSet att de får en Azure AD-token för den hanterade identiteten och kan inte kommunicera med Server dels tjänster för Azure dev Spaces.
 
-Du kan åtgärda det här problemet genom att använda en [AzurePodIdentityException](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md) för *azds-injektioner-webhook* och uppdatera poddar instrumenterad av Azure dev Spaces för att få åtkomst till den hanterade identiteten.
+Du kan åtgärda det här problemet genom att använda en [AzurePodIdentityException](https://azure.github.io/aad-pod-identity/docs/configure/application_exception) för *azds-injektioner-webhook* och uppdatera poddar instrumenterad av Azure dev Spaces för att få åtkomst till den hanterade identiteten.
 
 Skapa en fil med namnet *webhookException. yaml* och kopiera följande yaml-definition:
 
@@ -320,7 +320,7 @@ Om du vill visa information om den hanterade identiteten kör du följande komma
 az aks show -g <resourcegroup> -n <cluster> -o json --query "{clientId: identityProfile.kubeletidentity.clientId, resourceId: identityProfile.kubeletidentity.resourceId}"
 ```
 
-Kommandot ovan matar ut *clientId* och *resourceId* för den hanterade identiteten. Till exempel:
+Kommandot ovan matar ut *clientId* och *resourceId* för den hanterade identiteten. Exempel:
 
 ```json
 {
@@ -361,7 +361,7 @@ kubectl apply -f clusteridentity.yaml
 kubectl apply -f clusteridentitybinding.yaml
 ```
 
-När du har distribuerat *AzureIdentity* -och *AzureIdentityBinding* -objekten kan alla arbets belastningar med etiketten *aadpodidbinding: mitt-etikett-Value* komma åt klustrets hanterade identitet. Lägg till den här etiketten och distribuera om alla arbets belastningar som körs i ett dev-utrymme. Till exempel:
+När du har distribuerat *AzureIdentity* -och *AzureIdentityBinding* -objekten kan alla arbets belastningar med etiketten *aadpodidbinding: mitt-etikett-Value* komma åt klustrets hanterade identitet. Lägg till den här etiketten och distribuera om alla arbets belastningar som körs i ett dev-utrymme. Exempel:
 
 ```yaml
 apiVersion: apps/v1
@@ -445,7 +445,7 @@ Så här åtgärdar du problemet:
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>Auktoriseringsfel "Microsoft. DevSpaces/register/Action"
 
-Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Till exempel:
+Du behöver *ägar* -eller *deltagar* åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen kan du se ett auktoriseringsfel. Exempel:
 
 ```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.

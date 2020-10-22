@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6c2255fcba12b19f375e694a0494011aa09b0e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 019501eef0857c9dc7cd7f63a656eccf61608f1b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101870"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367830"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Vilka är standard användar behörigheterna i Azure Active Directory?
 Alla användare beviljas en uppsättning standardbehörigheter i Azure Active Directory (AD Azure). En användares åtkomst består av typen av användare, deras [roll tilldelningar](active-directory-users-assign-role-azure-portal.md)och deras ägarskap för enskilda objekt. Den här artikeln beskriver dessa standardbehörigheter och innehåller en jämförelse av standardinställningar för medlem och gäst. Standard användar behörigheter kan bara ändras i användar inställningar i Azure AD.
@@ -48,19 +48,18 @@ Standard behörigheter för medlems användare kan begränsas på följande sät
 Behörighet | Förklaring av inställning
 ---------- | ------------
 Användare kan registrera program | Om du ställer in det här alternativet på Nej förhindras användare från att skapa program registreringar. Möjligheten kan sedan ges tillbaka till specifika individer genom att lägga till dem i rollen programutvecklare.
-Tillåt att användare ansluter arbets-eller skol konton med LinkedIn | Om du ställer in det här alternativet på Nej förhindras användare från att ansluta sina arbets-eller skol konton till deras LinkedIn-konto. Mer information finns i [LinkedIn konto anslutningar data delning och medgivande](../users-groups-roles/linkedin-user-consent.md).
-Möjlighet att skapa säkerhetsgrupper | När den här inställningen är inställd på Nej kan användare inte skapa säkerhetsgrupper. Globala administratörer och användar administratörer kan fortfarande skapa säkerhets grupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
-Möjlighet att skapa Microsoft 365 grupper | Om du ställer in det här alternativet på Nej förhindras användare från att skapa Microsoft 365 grupper. Om du ställer in det här alternativet på vissa kan en Välj uppsättning användare skapa Microsoft 365 grupper. Globala administratörer och användar administratörer kommer fortfarande att kunna skapa Microsoft 365 grupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../users-groups-roles/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
+Tillåt att användare ansluter arbets-eller skol konton med LinkedIn | Om du ställer in det här alternativet på Nej förhindras användare från att ansluta sina arbets-eller skol konton till deras LinkedIn-konto. Mer information finns i [LinkedIn konto anslutningar data delning och medgivande](../enterprise-users/linkedin-user-consent.md).
+Möjlighet att skapa säkerhetsgrupper | När den här inställningen är inställd på Nej kan användare inte skapa säkerhetsgrupper. Globala administratörer och användar administratörer kan fortfarande skapa säkerhets grupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../enterprise-users/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
+Möjlighet att skapa Microsoft 365 grupper | Om du ställer in det här alternativet på Nej förhindras användare från att skapa Microsoft 365 grupper. Om du ställer in det här alternativet på vissa kan en Välj uppsättning användare skapa Microsoft 365 grupper. Globala administratörer och användar administratörer kommer fortfarande att kunna skapa Microsoft 365 grupper. Se [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](../enterprise-users/groups-settings-cmdlets.md) för att lära dig hur du ska gå tillväga.
 Begränsa åtkomst till Azure AD-administrationsportalen | Om du ställer in det här alternativet på Nej kan icke-administratörer använda Azure AD-administrationskonsolen för att läsa och hantera Azure AD-resurser. Ja, begränsar alla icke-administratörer från att komma åt Azure AD-data i administrations portalen.<p>**Obs!** den här inställningen begränsar inte åtkomsten till Azure AD-data med hjälp av PowerShell eller andra klienter, till exempel Visual Studio. När värdet är ja, för att ge en särskild icke-administratör möjlighet att använda Azure AD-administrationskonsolen tilldelar du en administrativ roll, till exempel rollen katalog läsare.<p>Med den här rollen kan du läsa grundläggande katalog information som medlems användare har som standard (gäster och tjänstens huvud namn).
 Möjlighet att läsa andra användare | Den här inställningen är endast tillgänglig i PowerShell. Om du ställer in den här flaggan på $false hindras alla icke-administratörer från att läsa användar information från katalogen. Den här flaggan förhindrar inte läsning av användar information i andra Microsoft-tjänster som Exchange Online. Den här inställningen är avsedd för särskilda omständigheter och vi rekommenderar att du inte anger den här flaggan till $false.
-
 
 ## <a name="restrict-guest-users-default-permissions"></a>Begränsa gäst användares standard behörigheter
 
 Standard behörigheter för gäst användare kan begränsas på följande sätt:
 
->[!NOTE] 
->Inställningen för **åtkomst begränsningar för gäster** som ersätter **gäst användarnas behörigheter är begränsad** . Vägledning om hur du använder den här funktionen finns i [begränsa åtkomst behörighet för gäst (för hands version) i Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+>[!NOTE]
+>Inställningen för åtkomst begränsningar för gäster som ersätter **gäst användarnas behörigheter är begränsad** . Vägledning om hur du använder den här funktionen finns i [begränsa åtkomst behörighet för gäst (för hands version) i Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 
 Behörighet | Förklaring av inställning
 ---------- | ------------
@@ -143,7 +142,7 @@ Användare kan utföra följande åtgärder i ägda grupper.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill veta mer om inställningen för användar åtkomst begränsningar för gäster, se [begränsa åtkomst behörighet för gäst (för hands version) i Azure Active Directory](../users-groups-roles/users-restrict-guest-permissions.md).
+* Om du vill veta mer om inställningen för användar åtkomst begränsningar för gäster, se [begränsa åtkomst behörighet för gäst (för hands version) i Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
 * Mer information om hur du tilldelar administratörs roller för Azure AD finns i [tilldela en användare till administratörs roller i Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Mer information om hur resursåtkomsten hanteras i Microsoft Azure finns i [Förstå resursåtkomst i Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Mer information om hur Azure Active Directory relaterar till din Azure-prenumeration finns i [Hur Azure-prenumerationer är associerade med Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

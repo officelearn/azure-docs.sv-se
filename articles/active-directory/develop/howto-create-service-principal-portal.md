@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46781edad6ad9290932216b9e9f23a359d25497a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265909"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366164"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser
 
@@ -45,7 +45,7 @@ Du måste ha behörighet att registrera ett program med din Azure AD-klient och 
 1. Välj **användar inställningar**i det vänstra fönstret.
 1. Kontrol lera inställningen för **Appregistreringar** . Det här värdet kan bara anges av en administratör. Om det är inställt på **Ja**kan alla användare i Azure AD-klienten registrera en app.
 
-Om inställningen för appens registrering är inställd på **Nej**kan endast användare med en administratörs roll registrera dessa typer av program. Se [tillgängliga roller](../users-groups-roles/directory-assign-admin-roles.md#available-roles) och [roll behörigheter](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) för att lära dig om tillgängliga administratörs roller och de särskilda behörigheter i Azure AD som ges till varje roll. Om ditt konto har tilldelats användar rollen, men appens registrerings inställning är begränsad till administratörs användare, be administratören att antingen tilldela dig en av administratörs rollerna som kan skapa och hantera alla aspekter av registrerade appar, eller för att låta användare registrera appar.
+Om inställningen för appens registrering är inställd på **Nej**kan endast användare med en administratörs roll registrera dessa typer av program. Se [tillgängliga roller](../roles/permissions-reference.md#available-roles) och [roll behörigheter](../roles/permissions-reference.md#role-permissions) för att lära dig om tillgängliga administratörs roller och de särskilda behörigheter i Azure AD som ges till varje roll. Om ditt konto har tilldelats användar rollen, men appens registrerings inställning är begränsad till administratörs användare, be administratören att antingen tilldela dig en av administratörs rollerna som kan skapa och hantera alla aspekter av registrerade appar, eller för att låta användare registrera appar.
 
 ### <a name="check-azure-subscription-permissions"></a>Kontrol lera behörigheter för Azure-prenumeration
 

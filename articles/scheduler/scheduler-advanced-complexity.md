@@ -9,12 +9,12 @@ ms.reviewer: klam, estfan
 ms.suite: infrastructure-services
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: b85932bf0d4fd080afadef2bc28d6a218b2d627a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a74240e3f116121c0aaddd11c186e6e674ea26a
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78898593"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368187"
 ---
 # <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Bygg avancerade scheman och upprepningar för jobb i Azure Scheduler
 
@@ -54,11 +54,11 @@ Den här artikeln beskriver senare de här scenarierna mer detaljerat.
 
 Följ dessa steg om du vill skapa ett grundläggande schema med [Azure scheduler REST API](/rest/api/scheduler):
 
-1. Registrera din Azure-prenumeration med en resurs leverantör genom att använda [REST API för register åtgärd – Resource Manager](https://docs.microsoft.com/rest/api/resources/providers). Leverantörs namnet för tjänsten Azure Scheduler är **Microsoft. Scheduler**. 
+1. Registrera din Azure-prenumeration med en resurs leverantör genom att använda [REST API för register åtgärd – Resource Manager](/rest/api/resources/providers). Leverantörs namnet för tjänsten Azure Scheduler är **Microsoft. Scheduler**. 
 
-1. Skapa en jobb samling med hjälp av [åtgärden Skapa eller uppdatera för jobb samlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections) i Scheduler REST API. 
+1. Skapa en jobb samling med hjälp av [åtgärden Skapa eller uppdatera för jobb samlingar](/rest/api/scheduler/jobcollections) i Scheduler REST API. 
 
-1. Skapa ett jobb med hjälp av [åtgärden Skapa eller uppdatera för jobb](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
+1. Skapa ett jobb med hjälp av [åtgärden Skapa eller uppdatera för jobb](/rest/api/scheduler/jobs/createorupdate). 
 
 ## <a name="job-schema-elements"></a>Jobb schema element
 
@@ -66,13 +66,13 @@ Den här tabellen ger en översikt på hög nivå för de viktigaste JSON-elemen
 
 | Element | Krävs | Beskrivning | 
 |---------|----------|-------------|
-| **/St** | Inga | Ett DateTime-sträng värde i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet först startar i ett Basic-schema. <p>För komplexa scheman startar jobbet ingen tidigare än **StartTime**. | 
-| **mönster** | Inga | Reglerna för upprepning för när jobbet körs. Objektet **upprepning** stöder följande element: **frekvens**, **intervall**, **schema**, **antal**och slut tid **.** <p>Om du använder **upprepnings** elementet måste du också använda **frekvens** elementet, medan andra **upprepnings** element är valfria. |
+| **/St** | Nej | Ett DateTime-sträng värde i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet först startar i ett Basic-schema. <p>För komplexa scheman startar jobbet ingen tidigare än **StartTime**. | 
+| **mönster** | Nej | Reglerna för upprepning för när jobbet körs. Objektet **upprepning** stöder följande element: **frekvens**, **intervall**, **schema**, **antal**och slut tid **.** <p>Om du använder **upprepnings** elementet måste du också använda **frekvens** elementet, medan andra **upprepnings** element är valfria. |
 | **frequency** | Ja, när du använder **upprepning** | Tidsenheten mellan förekomster och stöder dessa värden: "minut", "timme", "dag", "vecka", "månad" och "år" | 
-| **interval** | Inga | Ett positivt heltal som fastställer antalet tidsenheter mellan förekomster baserat på **frekvens**. <p>Om **intervallet** till exempel är 10 och **frekvensen** är "vecka", upprepas jobbet var 10: e vecka. <p>Här är det mest antal intervallen för varje frekvens: <p>– 18 månader <br>– 78 veckor <br>– 548 dagar <br>– I timmar och minuter är intervallet 1 <= <*intervall*> <= 1000. | 
-| **Ange** | Inga | Definierar ändringar i upprepningen baserat på angivna minuter, timmar, vecko dagar och dagar i månaden | 
-| **reparationer** | Inga | Ett positivt heltal som anger antalet gånger som jobbet körs innan det slutförs. <p>Om till exempel ett dagligt **jobb har värdet** 7 och start datumet är måndag, slutförs jobbet på söndag. Om start datumet redan har passerat beräknas den första körningen från skapande tiden. <p>Utan **slut** tid eller **antal**körs jobbet oändligt. Du kan inte använda både **antal** och slut **tid i samma** jobb, men regeln som slutförs först. | 
-| **endTime** | Inga | Ett datum-eller DateTime-sträng-värde i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet slutar köras. Du kan ange ett **värde för slut** tid som redan har infallit. <p>Utan **slut** tid eller **antal**körs jobbet oändligt. Du kan inte använda både **antal** och slut **tid i samma** jobb, men regeln som slutförs först. |
+| **interval** | Nej | Ett positivt heltal som fastställer antalet tidsenheter mellan förekomster baserat på **frekvens**. <p>Om **intervallet** till exempel är 10 och **frekvensen** är "vecka", upprepas jobbet var 10: e vecka. <p>Här är det mest antal intervallen för varje frekvens: <p>– 18 månader <br>– 78 veckor <br>– 548 dagar <br>– I timmar och minuter är intervallet 1 <= <*intervall*> <= 1000. | 
+| **Ange** | Nej | Definierar ändringar i upprepningen baserat på angivna minuter, timmar, vecko dagar och dagar i månaden | 
+| **reparationer** | Nej | Ett positivt heltal som anger antalet gånger som jobbet körs innan det slutförs. <p>Om till exempel ett dagligt **jobb har värdet** 7 och start datumet är måndag, slutförs jobbet på söndag. Om start datumet redan har passerat beräknas den första körningen från skapande tiden. <p>Utan **slut** tid eller **antal**körs jobbet oändligt. Du kan inte använda både **antal** och slut **tid i samma** jobb, men regeln som slutförs först. | 
+| **endTime** | Nej | Ett datum-eller DateTime-sträng-värde i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet slutar köras. Du kan ange ett **värde för slut** tid som redan har infallit. <p>Utan **slut** tid eller **antal**körs jobbet oändligt. Du kan inte använda både **antal** och slut **tid i samma** jobb, men regeln som slutförs först. |
 |||| 
 
 Detta JSON-schema beskriver till exempel ett grundläggande schema och upprepning för ett jobb: 

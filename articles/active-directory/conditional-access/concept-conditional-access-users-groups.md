@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710122ed4e5a02453f6f0c19a145af64f2c69178
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145417"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366368"
 ---
 # <a name="conditional-access-users-and-groups"></a>Villkorlig åtkomst: användare och grupper
 
@@ -30,7 +30,7 @@ Den här listan över användare inkluderar vanligt vis alla användare som en o
 
 Följande alternativ är tillgängliga för att ta med när du skapar en princip för villkorlig åtkomst.
 
-- Inga
+- Inget
    - Inga användare har valts
 - Alla användare
    - Alla användare som finns i katalogen, inklusive B2B-gäster.
@@ -46,13 +46,13 @@ Följande alternativ är tillgängliga för att ta med när du skapar en princip
 > Om användare eller grupper är medlem i över 2048 grupper kan deras åtkomst blockeras. Den här gränsen gäller både direkt och kapslad grupp medlemskap.
 
 > [!WARNING]
-> Principer för villkorlig åtkomst stöder inte användare som har tilldelats en katalog roll som är [begränsad till en administrativ enhet](../users-groups-roles/roles-admin-units-assign-roles.md) eller katalog roller som omfattas direkt till ett-objekt, t. ex. genom [anpassade roller](../users-groups-roles/roles-create-custom.md).
+> Principer för villkorlig åtkomst stöder inte användare som har tilldelats en katalog roll som är [begränsad till en administrativ enhet](../roles/admin-units-assign-roles.md) eller katalog roller som omfattas direkt till ett-objekt, t. ex. genom [anpassade roller](../roles/custom-create.md).
 
 ## <a name="exclude-users"></a>Exkludera användare
 
 När organisationer både inkluderar och exkluderar en användare eller grupp, undantas användaren eller gruppen från principen, eftersom en undantags åtgärd åsidosätter en inkludera i principen. Undantag används ofta för nöd åtkomst eller Bryt glass konton. Mer information om konton för nöd åtkomst och varför de är viktiga finns i följande artiklar: 
 
-* [Hantera konton för nöd åtkomst i Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Hantera konton för nöd åtkomst i Azure AD](../roles/security-emergency-access.md)
 * [Skapa en elastisk strategi för hantering av åtkomst kontroll med Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 Följande alternativ är tillgängliga för att undanta när du skapar en princip för villkorlig åtkomst.

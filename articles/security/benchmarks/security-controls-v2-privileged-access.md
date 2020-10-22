@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 68fdff9444286a7f304c3a3361ad33a02e87a282
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6676187f87cecb7f876150d1582cde9051dd251
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758378"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367490"
 ---
 # <a name="security-control-v2-privileged-access"></a>Säkerhets kontroll v2: privilegie rad åtkomst
 
@@ -34,11 +34,11 @@ Obs! Du kan ha andra viktiga roller som behöver regleras om du använder anpass
 
 Du kan aktivera just-in-Time (JIT) privilegie rad åtkomst till Azure-resurser och Azure AD med hjälp av Azure AD Privileged Identity Management (PIM). JIT beviljar temporära behörigheter för att utföra privilegierade uppgifter endast när användarna behöver det. PIM kan också generera säkerhets aviseringar när det finns misstänkt eller osäker aktivitet i din Azure AD-organisation.
 
-- [Administratörs roll behörigheter i Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Administratörs roll behörigheter i Azure AD](../../active-directory/roles/permissions-reference.md)
 
 - [Använd Azure Privileged Identity Management säkerhets aviseringar](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)
+- [Skydda privilegierad åtkomst för hybrid- och molndistributioner i Azure AD](../../active-directory/roles/security-planning.md)
 
 **Ansvar**: kund
 
@@ -114,7 +114,7 @@ Obs! vissa Azure-tjänster har stöd för lokala användare och roller som inte 
 För att förhindra oavsiktligt låst av din Azure AD-organisation konfigurerar du ett konto för nöd åtkomst för åtkomst när normala administrativa konton inte kan användas. Konton för nöd åtkomst är ofta mycket privilegierade och de bör inte tilldelas vissa individer. Konton för nöd åtkomst är begränsade till nöd situationer eller "Break glas"-scenarier där normala administrativa konton inte kan användas.
 Du bör se till att autentiseringsuppgifterna (till exempel lösen ord, certifikat eller smartkort) för konton för nöd åtkomst hålls skyddade och endast kända för personer som har behörighet att använda dem endast i nödfall.
 
-- [Hantera konton för nöd åtkomst i Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md)
+- [Hantera konton för nöd åtkomst i Azure AD](../../active-directory/roles/security-emergency-access.md)
 
 **Ansvar**: kund
 

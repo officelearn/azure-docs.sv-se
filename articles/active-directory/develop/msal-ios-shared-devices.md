@@ -13,12 +13,12 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: d5699c1d08df8364f33371f911ea3be892b4b285
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528136"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365921"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Läge för delad enhet för iOS-enheter
 
@@ -43,7 +43,7 @@ För att skapa en app för delad enhets läge fungerar utvecklare och moln enhet
 
 1. **Enhets administratörer** förbereder enheten för delning med hjälp av en MDM-Provider (Mobile Device Management) som Microsoft Intune för att hantera enheterna i organisationen. MDM push-överför Microsoft Authenticator-appen till enheterna och aktiverar "delat läge" för varje enhet genom en profil uppdatering till enheten. Den här inställningen för delat läge är det som ändrar beteendet för de appar som stöds på enheten. Den här konfigurationen från MDM-providern anger delad enhets läge för enheten och aktiverar [Microsoft Enterprise SSO-plugin-programmet för Apple-enheter](apple-sso-plugin.md) som krävs för delad enhets läge.
 
-1. [**Krävs endast under offentlig för hands version**] En användare med rollen som [moln enhets administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) måste sedan starta [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md) och ansluta sin enhet till organisationen.
+1. [**Krävs endast under offentlig för hands version**] En användare med rollen som [moln enhets administratör](../roles/permissions-reference.md#cloud-device-administrator) måste sedan starta [Microsoft Authenticator-appen](../user-help/user-help-auth-app-overview.md) och ansluta sin enhet till organisationen.
 
     Konfigurera medlemskap för organisations roller i Azure Portal: **Azure Active Directory**  >  **roller och administratörer**  >  **moln enhets administratör**
 

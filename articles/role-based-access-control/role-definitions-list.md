@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 06/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9819b90ba390e8601cc33a17338ce9b16bf3b3cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5421efc96b957f5ae96515bbcf17c8a773397c9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84982500"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368255"
 ---
 # <a name="list-azure-role-definitions"></a>Visa lista över Azure-roll definitioner
 
 En roll definition är en samling behörigheter som kan utföras, till exempel läsa, skriva och ta bort. Den brukar bara kallas en roll. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) har över 120 [inbyggda roller](built-in-roles.md) eller så kan du skapa dina egna anpassade roller. Den här artikeln beskriver hur du visar en lista över inbyggda och anpassade roller som du kan använda för att bevilja åtkomst till Azure-resurser.
 
-En lista över administratörs roller för Azure Active Directory finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+En lista över administratörs roller för Azure Active Directory finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -356,7 +356,7 @@ Om du vill lista roll definitioner använder du [roll definitionerna-list](/rest
 1. Ersätt *{filter}* med villkoret som du vill använda för att filtrera roll definitions listan.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrera | Beskrivning |
+    > | Filter | Beskrivning |
     > | --- | --- |
     > | `$filter=atScopeAndBelow()` | Visar en lista över roll definitioner för det angivna omfånget och eventuella under omfattningar. |
     > | `$filter=type+eq+'{type}'` | Visar en lista med roll definitioner av den angivna typen. Typ av roll kan vara `CustomRole` eller `BuiltInRole` . |

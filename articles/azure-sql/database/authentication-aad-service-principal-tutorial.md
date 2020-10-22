@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 453821e99f53a90a076ff13f010f2031a055cbf6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91444176"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367728"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Självstudie: Skapa Azure AD-användare med hjälp av Azure AD-program
 
@@ -65,7 +65,7 @@ I den här guiden får du lära dig att:
     Mer information finns i [set-AzSqlServer-](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) kommandot.
 
     > [!IMPORTANT]
-    > Om en Azure AD-identitet har kon figurer ATS för den logiska Azure SQL-servern, måste [**katalog läsar**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) behörigheten beviljas till identiteten. Vi går igenom det här steget i följande avsnitt. Hoppa **inte** över det här steget eftersom Azure AD-autentisering upphör att fungera.
+    > Om en Azure AD-identitet har kon figurer ATS för den logiska Azure SQL-servern, måste [**katalog läsar**](../../active-directory/roles/permissions-reference.md#directory-readers) behörigheten beviljas till identiteten. Vi går igenom det här steget i följande avsnitt. Hoppa **inte** över det här steget eftersom Azure AD-autentisering upphör att fungera.
 
     - Om du använde kommandot [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) med parametern för att `AssignIdentity` skapa en ny SQL Server tidigare, måste du köra kommandot [set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) efteråt som ett separat kommando för att aktivera den här egenskapen i Azure-infrastrukturen.
 
@@ -287,7 +287,7 @@ När du har skapat ett huvud namn för tjänsten i Azure AD skapar du användare
     GO
     ```
 
-    Du bör se liknande utdata:
+    Du bör se utdata som liknar följande:
 
     ```output
     name    type    type_desc   appId

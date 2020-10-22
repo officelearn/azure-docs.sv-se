@@ -4,12 +4,12 @@ description: Lär dig hur du aktiverar och visar loggarna för Kubernetes-huvudn
 services: container-service
 ms.topic: article
 ms.date: 10/14/2020
-ms.openlocfilehash: 79ed9308488725d9be0c839bbd04b6783bbbd85a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 1089cb4ea52efaa545478ced053a921728a894ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076393"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368459"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnodloggar i Azure Kubernetes Service (AKS)
 
@@ -37,9 +37,11 @@ Azure Monitor loggar aktive ras och hanteras i Azure Portal. Om du vill aktivera
 
 Förutom poster som skrivs av Kubernetes har projektets gransknings loggar också poster från AKS.
 
-Gransknings loggar registreras i två kategorier, *Kube-audit-admin* och *Kube-audit*. Kategorin *Kube-audit* innehåller alla Gransknings logg data för varje gransknings händelse, inklusive *Hämta*, *lista*, *skapa*, *Uppdatera*, *ta bort*, *korrigera*och *publicera*.
+Gransknings loggar registreras i tre kategorier: *Kube-audit*, *Kube-audit-admin*och *Guard*.
 
-Kategorin *Kube-audit-admin* är en del av *Kube-granskningens* logg kategori. *Kube-audit-admin* minskar antalet loggar avsevärt genom att exkludera gransknings händelserna *Get* och *list* från loggen.
+- Kategorin *Kube-audit* innehåller alla Gransknings logg data för varje gransknings händelse, inklusive *Hämta*, *lista*, *skapa*, *Uppdatera*, *ta bort*, *korrigera*och *publicera*.
+- Kategorin *Kube-audit-admin* är en del av *Kube-granskningens* logg kategori. *Kube-audit-admin* minskar antalet loggar avsevärt genom att exkludera gransknings händelserna *Get* och *list* från loggen.
+- *Skydds* kategorin är hanterad Azure AD-och Azure RBAC-granskningar. För hanterad Azure AD:-token i är användar information ut. För Azure RBAC: åtkomst granskningar in och ut.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Schemalägg en test-Pod på AKS-klustret
 
@@ -75,7 +77,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visa insamlade loggar
 
-Det kan ta några minuter innan diagnostikloggar är aktiverade och visas.
+Det kan ta upp till 10 minuter innan diagnostikloggar är aktiverade och visas.
 
 > [!NOTE]
 > Om du behöver alla Gransknings logg data för efterlevnad eller andra syfte kan du samla in och lagra den i ett billigt lagrings utrymme, till exempel Blob Storage. Använd logg kategorin *Kube-audit-admin* för att samla in och spara en meningsfull uppsättning Gransknings logg data för övervaknings-och aviserings syfte.

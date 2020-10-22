@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 5fdce791ba8848b93a8457f3738392b1f5f15508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801808"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366691"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -65,15 +65,15 @@ För utgående etablering från Azure AD till ett SaaS-program är det vanligast
 
 * **Användargrupp.** Med en Azure AD Premium licens plan kan du använda grupper för att tilldela åtkomst till ett SaaS-program. När etablerings omfånget är inställt på **Synkronisera endast tilldelade användare och grupper**, etablerar eller avetablerar Azure AD Provisioning-tjänsten användare baserat på om de är medlemmar i en grupp som är tilldelad till programmet. Själva gruppobjektet tillhandahålls inte om programmet inte stöder grupp objekt. Kontrol lera att de grupper som har tilldelats ditt program har egenskapen "SecurityEnabled" inställd på "true".
 
-* **Dynamiska grupper.** Azure AD-tjänsten för användar etablering kan läsa och etablera användare i [dynamiska grupper](../users-groups-roles/groups-create-rule.md). Tänk på dessa varningar och rekommendationer i åtanke:
+* **Dynamiska grupper.** Azure AD-tjänsten för användar etablering kan läsa och etablera användare i [dynamiska grupper](../enterprise-users/groups-create-rule.md). Tänk på dessa varningar och rekommendationer i åtanke:
 
   * Dynamiska grupper kan påverka prestanda för etablering från slut punkt till slut punkt från Azure AD till SaaS-program.
 
-  * Hur snabbt en användare i en dynamisk grupp etableras eller avetableras i ett SaaS-program beror på hur snabbt den dynamiska gruppen kan utvärdera medlemskaps ändringar. Information om hur du kontrollerar bearbetnings statusen för en dynamisk grupp finns i [kontrol lera bearbetnings status för en medlemskaps regel](../users-groups-roles/groups-create-rule.md).
+  * Hur snabbt en användare i en dynamisk grupp etableras eller avetableras i ett SaaS-program beror på hur snabbt den dynamiska gruppen kan utvärdera medlemskaps ändringar. Information om hur du kontrollerar bearbetnings statusen för en dynamisk grupp finns i [kontrol lera bearbetnings status för en medlemskaps regel](../enterprise-users/groups-create-rule.md).
 
   * När en användare förlorar medlemskap i den dynamiska gruppen betraktas den som en avetablerings händelse. Tänk på det här scenariot när du skapar regler för dynamiska grupper.
 
-* **Kapslade grupper.** Azure AD-tjänsten för användar etablering kan inte läsa eller etablera användare i kapslade grupper. Tjänsten kan bara läsa och etablera användare som är omedelbara medlemmar i en uttryckligen tilldelad grupp. Den här begränsningen av "gruppbaserade tilldelningar till program" påverkar också enkel inloggning (se [använda en grupp för att hantera åtkomst till SaaS-program](../users-groups-roles/groups-saasapps.md)). I stället kan du direkt tilldela eller ändra [omfång i](define-conditional-rules-for-provisioning-user-accounts.md) grupper som innehåller de användare som ska vara etablerade.
+* **Kapslade grupper.** Azure AD-tjänsten för användar etablering kan inte läsa eller etablera användare i kapslade grupper. Tjänsten kan bara läsa och etablera användare som är omedelbara medlemmar i en uttryckligen tilldelad grupp. Den här begränsningen av "gruppbaserade tilldelningar till program" påverkar också enkel inloggning (se [använda en grupp för att hantera åtkomst till SaaS-program](../enterprise-users/groups-saasapps.md)). I stället kan du direkt tilldela eller ändra [omfång i](define-conditional-rules-for-provisioning-user-accounts.md) grupper som innehåller de användare som ska vara etablerade.
 
 ### <a name="attribute-based-scoping"></a>Attribut-baserat omfång 
 
@@ -184,12 +184,12 @@ Se till att du har mappning för *aktiv* för ditt program. Om du använder ett 
 
 Följande scenarier utlöser en inaktivera eller ta bort: 
 * En användare är mjuk borttagen i Azure AD (skickas till pappers korgen/AccountEnabled-egenskapen inställt på falskt).
-    30 dagar efter att en användare har tagits bort i Azure AD kommer de att tas bort permanent från klienten. I det här läget skickar etablerings tjänsten en begäran om borttagning för att permanent ta bort användaren i programmet. Du kan när som helst under perioden på 30 dagar [manuellt ta bort en användare permanent](../fundamentals/active-directory-users-restore.md), som skickar en begäran om borttagning till programmet.
+    30 dagar efter att en användare har tagits bort i Azure AD kommer de att tas bort permanent från klienten. I det här läget skickar etablerings tjänsten en begäran om borttagning för att permanent ta bort användaren i programmet. Du kan när som helst under perioden på 30 dagar [manuellt ta bort en användare permanent](../fundamentals/active-directory-users-restore.md), som skickar en begäran om borttagning till programmet.
 * En användare tas bort permanent från pappers korgen i Azure AD.
 * En användare är inte tilldelad från en app.
 * En användare går från inom omfånget till out-of-scope (skickar inte ett definitions områdes filter längre).
     
-Som standard tar Azure AD Provisioning-tjänsten bort eller inaktiverar användare som omfattas av omfånget. Om du vill åsidosätta det här standard beteendet kan du ange en flagga som [hoppar över borttagningar utanför omfattning.](skip-out-of-scope-deletions.md)
+Som standard tar Azure AD Provisioning-tjänsten bort eller inaktiverar användare som omfattas av omfånget. Om du vill åsidosätta det här standard beteendet kan du ange en flagga som [hoppar över borttagningar utanför omfattning.](skip-out-of-scope-deletions.md)
 
 Om någon av ovanstående fyra händelser inträffar och mål programmet inte stöder mjuka borttagningar, skickar etablerings tjänsten en BORTTAGNINGs förfrågan för att permanent ta bort användaren från appen.
 
@@ -206,7 +206,7 @@ Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för 
 När du utvecklar ett program stöder du alltid både mjuka borttagningar och hårda borttagningar. Det gör det möjligt för kunder att återställa när en användare av misstag har inaktiverats.
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Planera en distribution med automatisk användaretablering](../app-provisioning/plan-auto-user-provisioning.md)
 

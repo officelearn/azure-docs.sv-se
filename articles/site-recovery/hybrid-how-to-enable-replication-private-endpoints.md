@@ -6,12 +6,12 @@ ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f23efa8d0439422fef685480ed270dce6e78a204
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658794"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366861"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Replikera lokala datorer med hjälp av privata slut punkter
 
@@ -123,7 +123,7 @@ Du kan använda en privat slut punkt för att Azure Storage. Att skapa privata s
 > [!NOTE]
 > Privata slut punkter för lagring kan bara skapas på Generell användning v2-lagrings konton. Information om priser finns i [priser för Azure Page blobbar](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
-Följ anvisningarna [för att skapa privat lagring](../private-link/create-private-endpoint-storage-portal.md#create-your-private-endpoint) för att skapa ett lagrings konto med en privat slut punkt. Se till att välja **Ja** under **integrera med privat DNS-zon**. Välj en befintlig DNS-zon eller skapa en ny.
+Följ anvisningarna [för att skapa privat lagring](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint) för att skapa ett lagrings konto med en privat slut punkt. Se till att välja **Ja** under **integrera med privat DNS-zon**. Välj en befintlig DNS-zon eller skapa en ny.
 
 ### <a name="grant-required-permissions-to-the-vault"></a>Bevilja de behörigheter som krävs för valvet
 

@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131555"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367660"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrera Azure Digitals dubbla med Azure SignalR-tjänsten
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du integrerar Azure Digitals dubbla me
 
 Lösningen som beskrivs i den här artikeln gör att du kan push-överföra digitala dubbla telemetridata till anslutna klienter, till exempel en enskild webb sida eller ett mobilt program. Det innebär att klienterna uppdateras med real tids mått och status från IoT-enheter, utan att behöva avsöka servern eller skicka nya HTTP-begäranden för uppdateringar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Här är de krav du måste utföra innan du fortsätter:
 
@@ -30,7 +30,7 @@ Här är de krav du måste utföra innan du fortsätter:
 
 Du kan också gå vidare och logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
 
-## <a name="solution-architecture"></a>Lösningsarkitektur
+## <a name="solution-architecture"></a>Lösningsarkitekturen
 
 Du kommer att ansluta Azure SignalR-tjänsten till Azure Digitals dubbla steg genom sökvägen nedan. Avsnitten A, B och C i diagrammet hämtas från arkitektur diagrammet för det krav som gäller från [slut punkt till slut punkt](tutorial-end-to-end.md). i den här instruktionen kommer du att bygga på detta genom att lägga till avsnitt D.
 
@@ -244,12 +244,6 @@ Med hjälp av Azure Cloud Shell eller lokalt Azure CLI kan du ta bort alla Azure
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Om du tar bort din Azure Digital-instansen kan du också ta bort den Azure AD App-registrering som du skapade för den i slut punkt till slut punkt, med hjälp av det här kommandot:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```
 
 Slutligen tar du bort de exempel mappar för Project som du laddade ned till din lokala dator (*Azure_Digital_Twins_end_to_end_samples.zip* och *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip*).

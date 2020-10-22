@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 83909fdc75ec09b9ddd1fa9452f9a77e5763f895
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331829"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367133"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduktion till etablerade data flöden i Azure Cosmos DB
 
@@ -43,9 +43,6 @@ Följande bild visar hur en fysisk partition är värd för en eller flera logis
 :::image type="content" source="./media/set-throughput/resource-partition.png" alt-text="Fysisk partition som är värd för en eller flera logiska partitioner i en behållare" border="false":::
 
 ## <a name="set-throughput-on-a-database"></a>Ange data flöde för en databas
-
-> [!NOTE]
-> Det går för närvarande inte att samla in data flöde i en Azure Cosmos-databas i konton där [Kundhanterade nycklar](how-to-setup-cmk.md) är aktiverade.
 
 När du etablerar data flöde i en Azure Cosmos-databas delas data flödet över alla behållare (kallas delade databas behållare) i databasen. Ett undantag är om du har angett ett etablerat dataflöde för specifika containrar i databasen. Att dela databas nivåns etablerade data flöde bland dess behållare är detsamma som att vara värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, kan du naturligt inte få förutsägbara prestanda för en viss behållare. Information om hur du konfigurerar tillhandahållet data flöde på en databas finns i [Konfigurera etablerade data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md). Information om hur du konfigurerar autoskalning av data flödet i en databas finns i [etablera autoskalning genom strömning](how-to-provision-autoscale-throughput.md).
 

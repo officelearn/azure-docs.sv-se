@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: a04f94f5ebc7c1fdaf7b95e71dc8549e19863b39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614170"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359007"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Självstudie: prioritering, undersöka och reagera på säkerhets aviseringar
-Security Center analyserar kontinuerligt dina hybridmolnarbetsbelastningar med avancerad analys och hotinformation för att varna dig om skadlig aktivitet. Du kan också integrera aviseringar från andra säkerhets produkter och tjänster i Security Center och skapa anpassade aviseringar baserat på dina egna indikatorer eller informations källor. När en varning har genererats krävs snabba åtgärder för att undersöka och åtgärda. 
+Security Center kontinuerligt analyserar dina hybrid moln arbets belastningar med avancerad analys och hot information för att varna dig om potentiellt skadliga aktiviteter i dina moln resurser. Du kan också integrera aviseringar från andra säkerhets produkter och tjänster i Security Center. När en avisering har Aktiver ATS krävs Swift-åtgärd för att undersöka och åtgärda potentiella säkerhets problem. 
 
 I den här självstudien får du lära dig hur man:
 
@@ -93,8 +93,8 @@ När du har undersökt en avisering och förstår dess omfattning kan du svara p
 
     Aviseringen tas bort från huvud aviserings listan. Du kan använda filtret från sidan aviserings lista om du vill visa alla aviseringar **med statusen** avvisad.
 
-1.  Alternativt kan du ge feedback om en avisering till Microsoft:
-    1. Markera aviseringen som **användbar** eller **inte användbar** och tillhandahålla
+1.  Vi rekommenderar att du ger feedback om aviseringen till Microsoft:
+    1. Markera aviseringen som **användbar** eller **inte användbar**.
     1. Välj en orsak och Lägg till en kommentar.
 
         :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Sidan säkerhets aviseringar":::
@@ -122,5 +122,5 @@ Om du inte planerar att fortsätta eller vill inaktivera någon av dessa funktio
 I den här självstudien har du lärt dig om Security Center funktioner som ska användas när du svarar på en säkerhets avisering. Information om relaterade material finns i:
 
 - [Svara på Azure Defender för Key Vault-aviseringar](defender-for-key-vault-usage.md)
-- [Säkerhets aviseringar – en referens guide](alerts-reference.md)
+- [Säkerhetsaviseringar – en referensguide](alerts-reference.md)
 - [Introduktion till Azure Defender](azure-defender.md)

@@ -9,12 +9,12 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b004bb4fbca768d782863f73d83ec5443bc66ae3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 405fa04a3b6af7f0c87888aa48aba9bdffeaf282
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320617"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366963"
 ---
 # <a name="configure-opc-publisher"></a>Konfigurera OPC Publisher
 
@@ -144,7 +144,7 @@ OPC Publisher implementerar följande IoT Hub direkta metod anrop:
 - ExitApplication
 - GetInfo
 
-Formatet på JSON-nyttolasten för metod begär Anden och svar definieras i [opcpublisher/HubMethodModel. cs](https://github.com/Azure/iot-edge-opc-publisher/blob/master/opcpublisher/HubMethodModel.cs).
+Formatet på JSON-nyttolasten för metod begär Anden och svar definieras i [opcpublisher/HubMethodModel. cs](https://github.com/Azure/iot-edge-opc-publisher/tree/master/opcpublisher).
 
 Om du anropar en okänd metod i modulen svarar den med en sträng som säger att metoden inte har implementerats. Du kan anropa en okänd metod som ett sätt att pinga modulen.
 

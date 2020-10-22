@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 598a16d25ba375b984a966cba190181edbda3d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98e352024ceea322f09947baf1bc759459a2af19
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74703153"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359976"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Anropa MapReduce-program från Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -26,8 +26,8 @@ ms.locfileid: "74703153"
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
 > * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
-> * [Machine Learning Batch-körningsaktivitet](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning-uppdateringsresursaktivitet](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (klassisk) batch execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 > * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
@@ -181,7 +181,7 @@ Pipelinen i det här exemplet tar inga indata. Du anger en utdata-datauppsättni
 ### <a name="pipeline"></a>Pipeline
 Pipelinen i det här exemplet har endast en aktivitet av typen: HDInsightMapReduce. Några av de viktiga egenskaperna i JSON är: 
 
-| Egenskap | Obs! |
+| Egenskap | Kommentarer |
 |:--- |:--- |
 | typ |Typen måste anges till **HDInsightMapReduce**. |
 | className |Namnet på klassen är: **WORDCOUNT** |

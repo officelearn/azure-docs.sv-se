@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd17e446766514fa90f8beaaab104bbbd2f389f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 239e49d287ebf6ad98d1a155219f0d59f6469292
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965037"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366521"
 ---
 # <a name="licensing-requirements-for-azure-active-directory-self-service-password-reset"></a>Licensierings krav för Azure Active Directory återställning av lösen ord för självbetjäning
 
@@ -49,7 +49,7 @@ För ytterligare licens information, inklusive kostnader, se följande sidor:
 
 ## <a name="enable-group-or-user-based-licensing"></a>Aktivera grupp-eller användar baserad licensiering
 
-Azure AD stöder gruppbaserad licensiering. Administratörer kan tilldela licenser i bulk till en grupp användare i stället för att tilldela dem en i taget. Mer information finns i [tilldela, verifiera och lösa problem med licenser](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Azure AD stöder gruppbaserad licensiering. Administratörer kan tilldela licenser i bulk till en grupp användare i stället för att tilldela dem en i taget. Mer information finns i [tilldela, verifiera och lösa problem med licenser](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en licens kan tilldelas en användare måste administratören ange egenskapen för **användnings plats** för användaren. Tilldelning av licenser kan göras i avsnittet **användar**  >  **profils**  >  **Inställningar** i Azure Portal. *När du använder grupp licens tilldelning ärver alla användare som saknar en användnings plats platsen för katalogen.*
 

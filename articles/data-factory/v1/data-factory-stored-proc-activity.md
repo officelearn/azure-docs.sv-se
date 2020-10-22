@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: c64c40e96c0ff5864e5b9c9d34bad896c0b03d91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55c884375372b3fea2ff3153aa936893cf668903
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441705"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359993"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server lagrad procedur aktivitet
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -26,8 +26,8 @@ ms.locfileid: "89441705"
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
 > * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
-> * [Machine Learning Batch-körningsaktivitet](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning-uppdateringsresursaktivitet](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (klassisk) batch execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 > * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
@@ -306,12 +306,12 @@ Följande tabell beskriver de här JSON-egenskaperna:
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | name | Namn på aktiviteten |Ja |
-| description |Text som beskriver vad aktiviteten används för |Inga |
+| description |Text som beskriver vad aktiviteten används för |Nej |
 | typ | Måste vara inställt på: **SqlServerStoredProcedure** | Ja |
-| tillför | Valfritt. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |Inga |
+| tillför | Valfritt. Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. |Nej |
 | utdata | Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet. Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). <br/><br/>Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller Azure Synapse Analytics eller en SQL Server databas där du vill att den lagrade proceduren ska köras. <br/><br/>Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. <br/><br/>I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten. |Ja |
 | storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL Database, Azure Synapse Analytics eller SQL Server som representeras av den länkade tjänsten som används i utdatatabellen. |Ja |
-| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |Inga |
+| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |Nej |
 
 ## <a name="passing-a-static-value"></a>Överför ett statiskt värde
 Nu ska vi överväga att lägga till en annan kolumn med namnet "scenario" i tabellen som innehåller ett statiskt värde med namnet "Document Sample".

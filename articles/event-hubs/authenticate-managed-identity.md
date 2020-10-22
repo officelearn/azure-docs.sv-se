@@ -4,12 +4,12 @@ description: Den här artikeln innehåller information om hur du autentiserar en
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b23fc0a59f9accc70c69c1096c1a15f1313ee2e0
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: c6b43cc48663be28d12fa788d92286be6f47ef08
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332458"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359891"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Event Hubs resurser
 Azure Event Hubs stöder Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). Hanterade identiteter för Azure-resurser kan ge åtkomst till Event Hubs resurser med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure Virtual Machines (VM), Function-appar, Virtual Machine Scale Sets och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet.
@@ -31,7 +31,7 @@ Om du vill auktorisera en begäran om att Event Hubs tjänst från en hanterad i
 Mer information om hur du tilldelar Azure-roller finns i [autentisera med Azure Active Directory för åtkomst till Event Hubs resurser](authorize-access-azure-active-directory.md).
 
 ## <a name="use-event-hubs-with-managed-identities"></a>Använd Event Hubs med hanterade identiteter
-Om du vill använda Event Hubs med hanterade identiteter måste du tilldela identiteten rollen och lämplig omfattning. I proceduren i det här avsnittet används ett enkelt program som körs under en hanterad identitet och som har åtkomst till Event Hubs resurser.
+Om du vill använda Event Hubs med hanterade identiteter måste du tilldela rollen och lämplig omfattning till identiteten. I proceduren i det här avsnittet används ett enkelt program som körs under en hanterad identitet och som har åtkomst till Event Hubs resurser.
 
 Här ska vi använda ett exempel på ett webb program som finns i [Azure App Service](https://azure.microsoft.com/services/app-service/). Stegvisa instruktioner för hur du skapar ett webb program finns i [skapa en ASP.net Core webbapp i Azure](../app-service/quickstart-dotnetcore.md)
 

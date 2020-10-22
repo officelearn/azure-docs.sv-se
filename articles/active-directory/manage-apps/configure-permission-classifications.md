@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: d5016dbff30eb054e413acc66b1b2dfee62a5873
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 448106b1c514762c101991f5f944d521f7ea6f75
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070681"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368527"
 ---
 # <a name="configure-permission-classifications"></a>Konfigurera behörighetsklassificeringar
 
@@ -33,7 +33,7 @@ För närvarande stöds inte behörighets klassificeringen "låg effekt". Endast
 
 Följ dessa steg om du vill klassificera behörigheter med hjälp av Azure Portal:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [program administratör](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)eller [moln program administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)
+1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../roles/permissions-reference.md#global-administrator--company-administrator), [program administratör](../roles/permissions-reference.md#application-administrator)eller [moln program administratör](../roles/permissions-reference.md#cloud-application-administrator)
 1. Välj **Azure Active Directory**  >  **företags program**  >  **medgivande-och behörighets**  >  **klassificering**.
 1. Välj **Lägg till behörigheter** för att klassificera en annan behörighet som "låg påverkan".
 1. Välj API och välj sedan de delegerade behörigheterna.

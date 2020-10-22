@@ -3,12 +3,12 @@ title: Visa och hantera tjänstleverantörer
 description: Kunder kan använda sidan tjänst leverantörer i Azure Portal för att visa information om tjänst leverantörer, Service Provider-erbjudanden och delegerade resurser.
 ms.date: 10/12/2020
 ms.topic: how-to
-ms.openlocfilehash: ecbeb7f5b6fccb7b66043cf57aa5f48674c6fe8b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e94a9fd6562a9fa8bc0f2d84cce477e7907a1e48
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974404"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371111"
 ---
 # <a name="view-and-manage-service-providers"></a>Visa och hantera tjänstleverantörer
 
@@ -78,7 +78,7 @@ Kunderna kanske vill få insyn i de prenumerationer och/eller resurs grupper som
 
 Vi tillhandahåller en [Azure policy inbyggd princip definition](../../governance/policy/samples/built-in-policies.md#lighthouse) för att [Granska delegering av omfattningar till en hanterings klient](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/Lighthouse_Delegations_Audit.json). Du kan tilldela den här principen till en hanterings grupp som innehåller alla prenumerationer som du vill granska. När du kontrollerar efterlevnaden av den här principen visas alla delegerade prenumerationer och/eller resurs grupper (i hanterings gruppen som principen är tilldelad) i ett tillstånd som inte är kompatibelt. Du kan sedan granska resultaten och bekräfta att det inte finns några oväntade delegeringar.
 
-Med en annan [inbyggd princip definition](../../governance/policy/samples/built-in-policies.md#lighthouse) kan du [begränsa delegeringar till vissa hanterings klienter](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Lighthouse/AllowCertainManagingTenantIds_Deny.json). Den här principen kan användas på samma sätt i en hanterings grupp som innehåller alla prenumerationer som du vill begränsa delegeringarna för. När principen har distribuerats kommer alla försök att delegera en prenumeration till en klient utanför de som du anger att nekas.
+Med en annan [inbyggd princip definition](../../governance/policy/samples/built-in-policies.md#lighthouse) kan du [begränsa delegeringar till vissa hanterings klienter](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Lighthouse/AllowCertainManagingTenantIds_Deny.json). Den här principen kan användas på samma sätt i en hanterings grupp som innehåller alla prenumerationer som du vill begränsa delegeringarna för. När principen har distribuerats kommer alla försök att delegera en prenumeration till en klient utanför de som du anger att nekas.
 
 Mer information om hur du tilldelar en princip och visar resultat för kompatibilitetstillstånd finns i [snabb start: skapa en princip tilldelning](../../governance/policy/assign-policy-portal.md).
 

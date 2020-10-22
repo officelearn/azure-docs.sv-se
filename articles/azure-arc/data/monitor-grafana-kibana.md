@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d876862d8f41ab8df646bef051629fd45c4d4601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3693c30a34601512770f5d9071f5d786410fb00e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941757"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92360385"
 ---
 # <a name="view-logs-and-metrics-using-kibana-and-grafana"></a>Visa loggar och mått med hjälp av Kibana och Grafana
 
@@ -30,7 +30,7 @@ För att få åtkomst till instrument panelerna måste du hämta klustrets IP-ad
 
 Använd följande kommando för att hämta den offentliga IP-adressen:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -66,7 +66,7 @@ Stegen nedan visar hur du skapar en NSG-regel för Kibana-och Grafana-slutpunkte
 
 ### <a name="find-the-name-of-the-nsg"></a>Hitta NSG-namnet
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -74,7 +74,7 @@ az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 
 När du har namnet på NSG kan du lägga till en regel med hjälp av följande kommando:
 
-```console
+```azurecli
 az network nsg rule create -n ports_30777 --nsg-name azurearcvmNSG --priority 600 -g azurearcvm-rg --access Allow --description 'Allow Kibana and Grafana ports' --destination-address-prefixes '*' --destination-port-ranges 30777 --direction Inbound --protocol Tcp --source-address-prefixes '*' --source-port-ranges '*'
 ```
 

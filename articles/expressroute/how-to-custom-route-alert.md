@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: b1b93110c3dba38dadf7079fc24ba12e81793c02
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a960150d68cf2f939e206321a20d98b0e4080313
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329857"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371502"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Konfigurera anpassade aviseringar för att övervaka annonserade vägar
 
@@ -70,7 +70,7 @@ Skapa ett Automation-konto med kör som-behörigheter. Instruktioner finns i [sk
 
 ### <a name="2-assign-the-run-as-account-a-role"></a><a name="about"></a>2. tilldela kör som-kontot en roll
 
-Som standard tilldelas **deltagar** rollen till tjänstens huvud namn som används av ditt **Kör som** -konto. Du kan behålla standard rollen som tilldelats tjänstens huvud namn, eller så kan du begränsa behörigheterna genom att tilldela en [inbyggd roll](../role-based-access-control/built-in-roles.md) (till exempel läsare) eller en [anpassad roll](../active-directory/users-groups-roles/roles-create-custom.md).
+Som standard tilldelas **deltagar** rollen till tjänstens huvud namn som används av ditt **Kör som** -konto. Du kan behålla standard rollen som tilldelats tjänstens huvud namn, eller så kan du begränsa behörigheterna genom att tilldela en [inbyggd roll](../role-based-access-control/built-in-roles.md) (till exempel läsare) eller en [anpassad roll](../active-directory/roles/custom-create.md).
 
  Använd följande steg för att fastställa vilken roll som ska tilldelas till tjänstens huvud namn som används av ditt kör som-konto:
 

@@ -2,13 +2,13 @@
 title: Autentisera ett program för att få åtkomst till Azure Event Hubs-resurser
 description: Den här artikeln innehåller information om hur du autentiserar ett program med Azure Active Directory för åtkomst till Azure Event Hubs-resurser
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: 50c697e5c430b72f8d5da393e90f1db7ff6d48a1
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.date: 10/21/2020
+ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332492"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92359942"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera ett program med Azure Active Directory för att få åtkomst till Event Hubs resurser
 Microsoft Azure ger integrerad åtkomst kontroll hantering för resurser och program baserat på Azure Active Directory (Azure AD). En viktig fördel med att använda Azure AD med Azure Event Hubs är att du inte behöver lagra dina autentiseringsuppgifter i koden längre. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform. Resurs namnet för att begära en token `https://eventhubs.azure.net/` (för Kafka-klienter är resursen att begära en token `https://<namespace>.servicebus.windows.net` ). Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD en åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begäran till Azure Event Hubs-resurser.
@@ -29,34 +29,6 @@ Inbyggda roller för schema register finns i [schema register roller](schema-reg
 
 > [!IMPORTANT]
 > Vår för hands version har stöd för att lägga till Event Hubs behörigheter för data åtkomst till ägaren eller deltagar rollen. Däremot går det inte längre att använda behörigheter för data åtkomst för rollen ägare och deltagare. Om du använder rollen ägare eller deltagare växlar du till att använda rollen Azure Event Hubs data Owner.
-
-## <a name="assign-azure-roles-using-the-azure-portal"></a>Tilldela Azure-roller med hjälp av Azure Portal  
-Mer information om hur du hanterar åtkomst till Azure-resurser med hjälp av Azure RBAC och Azure Portal finns i [den här artikeln](..//role-based-access-control/role-assignments-portal.md). 
-
-När du har bestämt lämplig omfattning för en roll tilldelning navigerar du till den resursen i Azure Portal. Visa inställningarna för åtkomst kontroll (IAM) för resursen och följ de här anvisningarna för att hantera roll tilldelningar:
-
-> [!NOTE]
-> I stegen nedan tilldelas en roll till händelsehubben under Event Hubs namnrum, men du kan följa samma steg för att tilldela en roll som är begränsad till en Event Hubs resurs.
-
-1. I [Azure Portal](https://portal.azure.com/)navigerar du till Event Hubs namn området.
-2. På sidan **Översikt** väljer du den händelsehubben som du vill tilldela en roll.
-
-    ![Välj händelsehubben](./media/authenticate-application/select-event-hub.png)
-1. Välj **Access Control (IAM)** om du vill visa inställningar för åtkomst kontroll för händelsehubben. 
-1. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar. Välj knappen **Lägg till** i verktygsfältet och välj sedan **Lägg till roll tilldelning**. 
-
-    ![Knappen Lägg till i verktygsfältet](./media/authenticate-application/role-assignments-add-button.png)
-1. Utför följande steg på sidan **Lägg till roll tilldelning** :
-    1. Välj den **Event Hubs roll** som du vill tilldela. 
-    1. Sök efter **säkerhets objekt** (användare, grupp, tjänstens huvud namn) som du vill tilldela rollen.
-    1. Spara roll tilldelningen genom att välja **Spara** . 
-
-        ![Tilldela en roll till en användare](./media/authenticate-application/assign-role-to-user.png)
-    4. Identiteten som du har tilldelat rollen visas i listan under den rollen. Följande bild visar till exempel att Azure-användare är i rollen Azure Event Hubs data Owner. 
-        
-        ![Användare i listan](./media/authenticate-application/user-in-list.png)
-
-Du kan följa liknande steg för att tilldela en roll som är begränsad till Event Hubs namnrymd, resurs grupp eller prenumeration. När du definierar rollen och dess omfattning kan du testa det här beteendet med exempel [på den här GitHub-platsen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac).
 
 
 ## <a name="authenticate-from-an-application"></a>Autentisera från ett program
@@ -93,6 +65,30 @@ Programmet behöver en klient hemlighet för att bevisa sin identitet när en to
 1. Kopiera omedelbart värdet för den nya hemligheten till en säker plats. Fill-värdet visas bara en gång.
 
     ![Klienthemlighet](./media/authenticate-application/client-secret.png)
+
+
+## <a name="assign-azure-roles-using-the-azure-portal"></a>Tilldela Azure-roller med hjälp av Azure Portal  
+När du har registrerat programmet tilldelar du programmets tjänst huvud namn till en Event Hubs Azure AD-roll som beskrivs i avsnittet [skapa roller för azure Event Hubs](#built-in-roles-for-azure-event-hubs) . 
+
+1. I [Azure Portal](https://portal.azure.com/)navigerar du till Event Hubs namn området.
+2. På sidan **Översikt** väljer du den händelsehubben som du vill tilldela en roll.
+
+    ![Välj händelsehubben](./media/authenticate-application/select-event-hub.png)
+1. Välj **Access Control (IAM)** om du vill visa inställningar för åtkomst kontroll för händelsehubben. 
+1. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar. Välj knappen **Lägg till** i verktygsfältet och välj sedan **Lägg till roll tilldelning**. 
+
+    ![Knappen Lägg till i verktygsfältet](./media/authenticate-application/role-assignments-add-button.png)
+1. Utför följande steg på sidan **Lägg till roll tilldelning** :
+    1. Välj den **Event Hubs roll** som du vill tilldela. 
+    1. Sök efter **säkerhets objekt** (användare, grupp, tjänstens huvud namn) som du vill tilldela rollen. Välj det **registrerade programmet** i listan. 
+    1. Spara roll tilldelningen genom att välja **Spara** . 
+
+        ![Tilldela en roll till en användare](./media/authenticate-application/assign-role-to-user.png)
+    4. Växla till fliken **roll tilldelningar** och bekräfta roll tilldelningen. Följande bild visar till exempel att min **webapp** är i rollen **Azure Event Hubs data Sender** . 
+        
+        ![Användare i listan](./media/authenticate-application/user-in-list.png)
+
+Du kan följa liknande steg för att tilldela en roll som är begränsad till Event Hubs namnrymd, resurs grupp eller prenumeration. När du definierar rollen och dess omfattning kan du testa det här beteendet med exempel [på den här GitHub-platsen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). Mer information om hur du hanterar åtkomst till Azure-resurser med hjälp av Azure RBAC och Azure Portal finns i [den här artikeln](..//role-based-access-control/role-assignments-portal.md). 
 
 
 ### <a name="client-libraries-for-token-acquisition"></a>Klient bibliotek för hämtning av token  

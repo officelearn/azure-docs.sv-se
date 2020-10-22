@@ -3,12 +3,12 @@ title: Replikera Azure Stack virtuella datorer till Azure med Azure Site Recover
 description: Lär dig hur du konfigurerar haveri beredskap till Azure för Azure Stack virtuella datorer med tjänsten Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: a7e58f5b24786169c9d0c989b79a14c4115acca8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36e11bfe5354644f9ef6603ffe20cb2e86074323
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448977"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370533"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replikera virtuella Azure Stack-datorer till Azure
 
@@ -38,7 +38,7 @@ Med de här stegen slutförda kan du köra en fullständig redundans till Azure 
 
 ![Diagrammet visar Recovery Services valv för två klienter i moln som är kopplade till klient prenumerationer både på en gemensam Azure Stack infrastruktur.](./media/azure-stack-site-recovery/architecture.png)
 
-**Plats** | **Komponent** |**Information**
+**Plats** | **Komponent** |**Detaljer**
 --- | --- | ---
 **Konfigurationsserver** | Körs på en enskild Azure Stack virtuell dator. | I varje prenumeration ställer du in en virtuell konfigurations Server. Den här virtuella datorn kör följande Site Recoverys komponenter:<br/><br/> – Konfigurations Server: samordnar kommunikationen mellan både lokalt och Azure och hanterar datareplikering. -Processerver: fungerar som en gateway för replikering. Den tar emot replikeringsdata, optimerar med cachelagring, komprimering och kryptering; och skickar den till Azure Storage.<br/><br/> Om de virtuella datorer som du vill replikera överskrider de gränser som anges nedan, kan du konfigurera en separat fristående processerver. [Läs mer](vmware-azure-set-up-process-server-scale.md).
 **Mobilitetstjänsten** | Installeras på varje virtuell dator som du vill replikera. | I stegen i den här artikeln förbereder vi ett konto så att mobilitets tjänsten installeras automatiskt på en virtuell dator när replikering är aktiverat. Om du inte vill installera tjänsten automatiskt finns det ett antal andra metoder som du kan använda. [Läs mer](vmware-azure-install-mobility-service.md).
@@ -56,11 +56,11 @@ Replikeringen fungerar på följande sätt:
 7. Replikerade datorer kommunicerar med konfigurations servern (port HTTPS 443 inkommande, för hantering av replikering. Datorer skickar replikeringsdata till processervern (port HTTPS 9443 inkommande – kan ändras).
 8. Trafik replikeras till offentliga Azure Storage-slutpunkter, över Internet. Du kan även använda Azure ExpressRoute offentlig peering. Replikering av trafik via en plats-till-plats-VPN från en lokal plats till Azure stöds inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det här är vad du behöver för att konfigurera det här scenariot.
 
-**Krav** | **Information**
+**Krav** | **Detaljer**
 --- | ---
 **Azure-prenumerations konto** | Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 **Behörigheter för Azure-konto** | Det Azure-konto du använder måste ha behörighet att:<br/><br/> -Skapa ett Recovery Service-valv<br/><br/> -Skapa en virtuell dator i resurs gruppen och det virtuella nätverk som du använder för scenariot<br/><br/> – Skriv till det lagrings konto som du anger<br/><br/> Tänk på följande:<br/><br/> – Om du skapar ett konto är du administratör för din prenumeration och kan utföra alla åtgärder.<br/><br/> – Om du använder en befintlig prenumeration och inte är administratör måste du arbeta med administratören för att tilldela behörigheter för ägare eller deltagare.<br/><br/> – Läs [den här artikeln](site-recovery-role-based-linked-access-control.md)om du behöver mer detaljerade behörigheter.
@@ -80,7 +80,7 @@ Det här är vad du behöver för att konfigurera det här scenariot.
 Se till att de virtuella datorerna kör ett av de operativ system som sammanfattas i tabellen.
 
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 **64-bitars Windows** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 (från SP1)
 **CentOS** | 5,2 till 5,11, 6,1 till 6,9, 7,0 till 7,3
@@ -186,7 +186,7 @@ Installera konfigurations servern nu:
 > [!NOTE]
 > Konfigurations servern kan också installeras från kommando raden. [Läs mer](physical-manage-configuration-server.md#install-from-the-command-line).
 >
-> Det kan ta 15 minuter eller mer innan kontonamnet visas i portalen. Om du vill uppdatera omedelbart väljer du **konfigurations servrar**  >  ***Server namn***  >  **Uppdatera server**.
+> Det kan ta 15 minuter eller mer innan kontonamnet visas i portalen. Om du vill uppdatera omedelbart väljer du **konfigurations servrar**  >  **_Server namn_*_ > _* uppdatera Server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Steg 4: Konfigurera mål miljön
 
@@ -314,7 +314,7 @@ Kör sedan en redundansväxling på följande sätt:
 
 ### <a name="fail-back-to-azure-stack"></a>Växla tillbaka till Azure Stack
 
-När den primära platsen är igång igen kan du växla tillbaka från Azure till Azure Stack. Det gör du genom att följa stegen som visas [här](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
+När den primära platsen är igång igen kan du växla tillbaka från Azure till Azure Stack. Det gör du genom att följa stegen som visas [här](/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## <a name="conclusion"></a>Slutsats
 
@@ -323,4 +323,3 @@ I den här artikeln replikerade vi Azure Stack virtuella datorer till Azure. Med
 ## <a name="next-steps"></a>Nästa steg
 
 När du har återställt igen kan du återställa den virtuella datorn och börja replikera den till Azure igen för att göra detta genom att upprepa stegen i den här artikeln.
-

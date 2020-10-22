@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d794716fe1f4717acbabfd90643b72c682e475bc
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400697"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370601"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Hantera ditt kommersiella Marketplace-konto i Partner Center
 
@@ -111,7 +111,7 @@ När du har angett statusen för din utbetalnings spärr till **på**, kommer al
 > [!NOTE]
 > Ditt val av **utbetalnings status** gäller för **alla** intäkts källor som betalas via Microsoft Partner Center, inklusive Azure Marketplace, AppSource, Microsoft Store, annonsering osv.). Du kan inte välja olika spärr status för varje intäkts källa.
 
-### <a name="devices"></a>Egenskaper
+### <a name="devices"></a>Enheter
 
 Inställningarna för enhets hantering gäller endast för UWP-publicering. [Läs mer](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
@@ -170,7 +170,7 @@ Så här lägger du till användare till ditt partner Center-konto som redan fin
 
 ### <a name="create-new-users"></a>Skapa nya användare
 
-För att skapa helt nya användar konton måste du ha ett konto med [**globala administratörs**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) behörigheter.
+För att skapa helt nya användar konton måste du ha ett konto med [**globala administratörs**](../../active-directory/roles/permissions-reference.md) behörigheter.
 
 1. Gå till **användare** (under **konto inställningar**), Välj **Lägg till användare**och välj sedan **skapa nya användare**.
 1. Ange förnamn, efter namn och användar namn för varje ny användare. 
@@ -184,7 +184,7 @@ När du skapar en ny användare i Partner Center skapas även ett konto för den
 
 ### <a name="invite-new-users-by-email"></a>Bjud in nya användare via e-post
 
-Om du vill bjuda in användare som för närvarande inte är en del av ditt företags arbets konto (Azure AD-klient) via e-post måste du ha ett konto med [**globala administratörs**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) behörigheter.
+Om du vill bjuda in användare som för närvarande inte är en del av ditt företags arbets konto (Azure AD-klient) via e-post måste du ha ett konto med [**globala administratörs**](../../active-directory/roles/permissions-reference.md) behörigheter.
 
 1. Gå till **användare** (under **konto inställningar**), Välj **Lägg till användare**och välj **Bjud in användare via e-post**.
 2. Ange en eller flera e-postadresser (upp till 10), avgränsade med kommatecken eller semikolon.
@@ -204,7 +204,7 @@ Om du vill ta bort en användare från ditt arbets konto (Azure AD-klient) går 
 
 ### <a name="change-a-user-password"></a>Ändra ett användar lösen ord
 
-Om en av dina användare behöver ändra sitt lösen ord kan de göra det själva om du har angett ett **e-postmeddelande för återställning av lösen ord** när du skapar användar kontot. Du kan också uppdatera en användares lösen ord genom att följa stegen nedan. Om du vill ändra en användares lösen ord på ditt företags arbets konto (Azure AD-klient) måste du vara inloggad på ett konto med [**globala administratörs**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md) behörigheter. Detta kommer att ändra användarens lösen ord i din Azure AD-klient, tillsammans med lösen ordet som de använder för att komma åt Partner Center.
+Om en av dina användare behöver ändra sitt lösen ord kan de göra det själva om du har angett ett **e-postmeddelande för återställning av lösen ord** när du skapar användar kontot. Du kan också uppdatera en användares lösen ord genom att följa stegen nedan. Om du vill ändra en användares lösen ord på ditt företags arbets konto (Azure AD-klient) måste du vara inloggad på ett konto med [**globala administratörs**](../../active-directory/roles/permissions-reference.md) behörigheter. Detta kommer att ändra användarens lösen ord i din Azure AD-klient, tillsammans med lösen ordet som de använder för att komma åt Partner Center.
 
 1. Från sidan **användare** (under **konto inställningar**) väljer du namnet på det användar konto som du vill redigera.
 2. Välj knappen **Återställ lösen ord** längst ned på sidan.
@@ -227,7 +227,7 @@ Om du väljer fler än en grupp som ska läggas till i ditt partner Center-konto
 
 När du lägger till en befintlig grupp kommer alla användare som är medlemmar i gruppen att kunna komma åt ditt partner Center-konto, med de behörigheter som är kopplade till gruppens tilldelade roll.
 
-### <a name="add-a-new-group"></a>Lägg till en ny grupp
+### <a name="add-a-new-group"></a>Lägga till en ny grupp
 
 Så här lägger du till en helt ny grupp till ditt partner Center-konto:
 

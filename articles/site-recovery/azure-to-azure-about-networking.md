@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 1189324cf0bb2731a100032058c7ba9ae4add758
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b9fdaf8a0791570ecee402442c5faefe2f70a22b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332050"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370448"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Om nätverk i haveri beredskap för virtuella Azure-datorer
 
@@ -62,9 +62,9 @@ login.microsoftonline.com | Krävs för auktorisering och autentisering till Sit
 När du använder NSG för att kontrol lera utgående anslutningar måste dessa service märken vara tillåtna.
 
 - För lagrings kontona i käll regionen:
-    - Skapa en NSG-regel för [lagrings tjänst](../virtual-network/security-overview.md#service-tags) som är baserad på käll regionen.
+    - Skapa en NSG-regel för [lagrings tjänst](../virtual-network/network-security-groups-overview.md#service-tags) som är baserad på käll regionen.
     - Tillåt dessa adresser så att data kan skrivas till cache-lagrings kontot från den virtuella datorn.
-- Skapa Azure Active Directory en NSG-baserad [(AAD) service tag](../virtual-network/security-overview.md#service-tags) -regel för att tillåta åtkomst till alla IP-adresser som motsvarar AAD
+- Skapa Azure Active Directory en NSG-baserad [(AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) -regel för att tillåta åtkomst till alla IP-adresser som motsvarar AAD
 - Skapa en EventsHub service tag-baserad NSG-regel för mål regionen, vilket ger åtkomst till Site Recovery övervakning.
 - Skapa en AzureSiteRecovery service tag-baserad NSG-regel för att tillåta åtkomst till Site Recovery tjänst i vilken region som helst.
 - Skapa en AzureKeyVault-baserad NSG-regel. Detta krävs endast för att aktivera replikering av ADE-aktiverade virtuella datorer via portalen.

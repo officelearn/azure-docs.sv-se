@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 800c1742b49fce7e1adf8c3ca22181cfb7d0a085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9aed5f282ff7b5d573a6f8511f2fc4dbfd27135d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565515"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371825"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Ta bort en grupp med Azure Active Directory
 Du kan ta bort en Azure Active Directory (Azure AD) grupp av valfritt antal orsaker, men vanligt vis är det att du:
@@ -48,4 +48,4 @@ Du kan ta bort en Azure Active Directory (Azure AD) grupp av valfritt antal orsa
 
 - Om du tar bort en grupp av misstag kan du skapa den igen. Mer information finns i [så här skapar du en grundläggande grupp och lägger till medlemmar](active-directory-groups-create-azure-portal.md).
 
-- Om du tar bort en Microsoft 365 grupp av misstag kan du kanske återställa den. Mer information finns i [återställa en borttagen Office 365-grupp](../users-groups-roles/groups-restore-deleted.md).
+- Om du tar bort en Microsoft 365 grupp av misstag kan du kanske återställa den. Mer information finns i [återställa en borttagen Office 365-grupp](../enterprise-users/groups-restore-deleted.md).

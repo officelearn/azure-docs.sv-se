@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2020
 ms.author: memildin
-ms.openlocfilehash: 88ab04eb69be0f9f765e6f95a0ea1194189d823a
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 575c139a3b417eb9429695d3ea6be26bf5625de5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341270"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371077"
 ---
 # <a name="monitor-identity-and-access"></a>Övervaka identitet och åtkomst
 
@@ -56,7 +56,7 @@ Det finns vissa begränsningar i Security Center identitets-och åtkomst skydd:
 
 ## <a name="multi-factor-authentication-mfa-and-azure-active-directory"></a>Multi-Factor Authentication (MFA) och Azure Active Directory 
 
-För att aktivera MFA krävs [Azure Active Directory (AD) klient behörighet](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+För att aktivera MFA krävs [Azure Active Directory (AD) klient behörighet](../active-directory/roles/permissions-reference.md).
 
 - Om du har en Premium-version av AD aktiverar du MFA med [villkorlig åtkomst](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 - Om du använder en kostnads fri version av AD, aktiverar du **säkerhets inställningarna** enligt beskrivningen i [Azure Active Directory-dokumentationen](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).

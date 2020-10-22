@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 5f43654b4ff7d0e1f73bd2d83df21d7277c570d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70234c9bf6be8b9c2fbb5750fa1dba718ac2690d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854565"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370482"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -217,7 +217,7 @@ Med lagrings klient biblioteket för .NET kan du samla in loggnings data på kli
 Du kan samla in trafiken mellan klienten och servern för att ge detaljerad information om de data som klienten och servern utbyter och underliggande nätverks förhållanden. Användbara verktyg för nätverks loggning är bland annat:
 
 * [Fiddler](https://www.telerik.com/fiddler) är en kostnads fri proxy för webb fel sökning som gör det möjligt att undersöka rubriker och nytto Last data för http-och https-begäran och svarsmeddelanden. Mer information finns i [bilaga 1: använda Fiddler för att avbilda HTTP-och HTTPS-trafik](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) och [wireshark](https://www.wireshark.org/) är kostnads fria analys verktyg för nätverks protokoll som gör att du kan visa detaljerad paket information för en mängd olika nätverks protokoll. Mer information om wireshark finns i "[tillägg 2: använda wireshark för att avbilda nätverks trafik](#appendix-2)".
+* [Microsoft Network Monitor (Netmon)](https://download.cnet.com/s/network-monitor/) och [wireshark](https://www.wireshark.org/) är kostnads fria analys verktyg för nätverks protokoll som gör att du kan visa detaljerad paket information för en mängd olika nätverks protokoll. Mer information om wireshark finns i "[tillägg 2: använda wireshark för att avbilda nätverks trafik](#appendix-2)".
 * Om du vill utföra ett grundläggande anslutnings test för att kontrol lera att klient datorn kan ansluta till Azure Storage-tjänsten via nätverket kan du inte göra detta med hjälp av standard- **ping** -verktyget på klienten. Du kan dock använda [verktyget **TCPing** ](https://www.elifulkerson.com/projects/tcping.php) för att kontrol lera anslutningen.
 
 I många fall räcker det att logga data från lagrings loggning och lagrings klient biblioteket för att diagnosticera ett problem, men i vissa fall kan du behöva mer detaljerad information som dessa verktyg för nätverks loggning kan tillhandahålla. Med hjälp av Fiddler för att Visa HTTP-och HTTPS-meddelanden kan du till exempel Visa huvud-och nytto Last data som skickas till och från lagrings tjänsterna, vilket gör att du kan kontrol lera hur ett klient program försöker utföra lagrings åtgärder igen. Protokoll analys verktyg som Wireshark används på paket nivå så att du kan visa TCP-data, vilket gör att du kan felsöka borttappade paket och anslutnings problem. 

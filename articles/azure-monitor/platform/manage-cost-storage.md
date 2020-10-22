@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 3783c3dea67ebb9a77486d18bf80e67b85292744
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6a14ef6f75d5939501c6bd8ca84620a7a5619a54
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144169"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369071"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor-loggar    
 
@@ -243,7 +243,7 @@ För att komma igång är det här de rekommenderade inställningarna för avise
 - Mål: Välj din Log Analytics-resurs
 - Villkoren 
    - Signal namn: anpassad loggs ökning
-   - Sök fråga: `_LogOperation | where Detail has 'OverQuota'`
+   - Sök fråga: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
    - Baserat på: antal resultat
    - Villkor: större än
    - Tröskel: 0
@@ -600,9 +600,9 @@ Följ dessa steg om du vill varna om den fakturerbara data volymen som matats in
 - **Definiera aviseringsvillkor** ange Log Analytics-arbetsytan som mål för resursen.
 - **Aviseringskriterier** ange följande:
    - **Signalnamn** välj **Anpassad loggsökning**
-   - **Sök fråga** till `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Om du vill ha en differetn 
+   - **Sök fråga** till `Usage | where IsBillable | summarize DataGB = sum(Quantity / 1000.) | where DataGB > 50` . Om du vill ha en annan 
    - **Aviseringslogik** är **Baserad på** *antal resultat* och **Villkor** som är *Större än* ett **Tröskelvärde** på *0*
-   - **Tids period** på *1440* minuter och **aviserings frekvens** till varje *1440* minutesto körs en gång om dagen.
+   - **Tids period** på *1440* minuter och **aviserings frekvens** till var *1440* minut att köras en gång om dagen.
 - **Definiera aviseringsinformation** ange följande:
    - **Namn** till *fakturerbar data volym större än 50 GB på 24 timmar*
    - **Allvarlighetsgrad** till *varning*

@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63b716aa22954af51a9eb53a0d04a8299d348c71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27896bac6f5436fb6717e4bc1ab0a1f9381904ad
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797245"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370924"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Lägga till eller uppdatera en användares profilinformation med hjälp av Azure Active Directory
 Lägg till användar profil information, inklusive en profil bild, datorspecifik information och vissa inställningar med hjälp av Azure Active Directory (Azure AD). Mer information om hur du lägger till nya användare finns i [så här lägger du till eller tar bort användare i Azure Active Directory](add-users-azure-active-directory.md).
@@ -66,4 +66,4 @@ När du har uppdaterat användarnas profiler kan du utföra följande grundlägg
 
 - [Skapa en basgrupp och lägg till medlemmar](active-directory-groups-create-azure-portal.md)
 
-Du kan också utföra andra användar hanterings uppgifter, till exempel tilldela ombud, använda principer och dela användar konton. Mer information om andra tillgängliga åtgärder finns i [Azure Active Directory User Management-dokumentation](../users-groups-roles/index.yml).
+Du kan också utföra andra användar hanterings uppgifter, till exempel tilldela ombud, använda principer och dela användar konton. Mer information om andra tillgängliga åtgärder finns i [Azure Active Directory User Management-dokumentation](../enterprise-users/index.yml).

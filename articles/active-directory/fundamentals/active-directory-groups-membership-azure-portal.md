@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbd7eecd80b528b1d20d016d51c985bc24d1301d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565472"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371808"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Lägg till eller ta bort en grupp från en annan grupp med hjälp av Azure Active Directory
 Den här artikeln hjälper dig att lägga till och ta bort en grupp från en annan grupp med hjälp av Azure Active Directory.
@@ -78,6 +78,6 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 - [Redigera dina gruppinställningar](active-directory-groups-settings-azure-portal.md)
 
-- [Använd en grupp för att hantera åtkomst till SaaS-program](../users-groups-roles/groups-saasapps.md)
+- [Använd en grupp för att hantera åtkomst till SaaS-program](../enterprise-users/groups-saasapps.md)
 
-- [Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)
+- [Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory](../enterprise-users/licensing-group-advanced.md#limitations-and-known-issues)

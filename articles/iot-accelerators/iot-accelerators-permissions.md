@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5d816b3d44a6fadd8dd462a14e62de4cdac2a00
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61447462"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370618"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Använd azureiotsolutions.com-webbplatsen för att distribuera din lösnings Accelerator
 
@@ -38,7 +38,7 @@ Innan du kan distribuera en lösnings Accelerator måste du logga in på AzureIo
 
 Dina behörigheter för att distribuera lösnings acceleratorer, hantera användare och hantera Azure-tjänster beror på din roll i den valda katalogen. Vanliga Azure AD-roller som är associerade med lösnings acceleratorerna är:
 
-* **Global administratör**: det kan finnas många [globala administratörer](../active-directory/users-groups-roles/directory-assign-admin-roles.md) per Azure AD-klient:
+* **Global administratör**: det kan finnas många [globala administratörer](../active-directory/roles/permissions-reference.md) per Azure AD-klient:
 
   * När du skapar en Azure AD-klient är du som standard den globala administratören för den klienten.
   * Den globala administratören kan distribuera standard acceleratorer för Basic-och standard-lösningar.

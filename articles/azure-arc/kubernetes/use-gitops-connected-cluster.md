@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använda GitOps för en Azure Arc-aktiverad kluster konfiguration (förhands granskning)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes service, containers
-ms.openlocfilehash: c00ed30c9a7424d083bf076c64cf008e0480bb2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8839c2463494ba0e165bf9e1a5d22245fac8df
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714180"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371264"
 ---
 # <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Distribuera konfigurationer med GitOps på Arc-aktiverade Kubernetes-kluster (för hands version)
 
@@ -98,17 +98,16 @@ Här följer de scenarier som stöds för värdet av--URL-parametern-URL.
 
 | Scenario | Format | Beskrivning |
 | ------------- | ------------- | ------------- |
-| Privat GitHub-lagrings platsen – SSH | git@github.com:username/repo | SSH-nyckelpar genererat av flöde.  Användaren måste lägga till den offentliga nyckeln i GitHub-kontot som distributions nyckel. |
-| Offentlig GitHub-lagrings platsen | `http://github.com/username/repo` eller git://github.com/username/repo   | Offentlig git-lagrings platsen  |
+| Offentlig git-lagrings platsen | http [s]://Server/repo.git eller git://server/repo.git   | Offentlig git-lagrings platsen  |
+| Privata git-lagrings platsen – SSH – flöden-skapade nycklar | SSH://[user@] Server/lagrings platsen. git eller [user@] Server: lagrings platsen. git | Den offentliga nyckeln som genereras av flöde måste läggas till i användar kontot eller lagrings platsen i din git-tjänstleverantör. [Här](#apply-configuration-from-a-private-git-repository) hittar du mer information |
 
-Dessa scenarier stöds av flöde, men inte av sourceControlConfiguration än. 
+Dessa scenarier stöds av flöde, men ännu inte av sourceControlConfiguration.
 
 | Scenario | Format | Beskrivning |
 | ------------- | ------------- | ------------- |
-| Privat GitHub lagrings platsen-HTTPS | `https://github.com/username/repo` | Flödet genererar inte SSH-nyckelpar.  [Instruktioner](https://docs.fluxcd.io/en/1.17.0/guides/use-git-https.html) |
-| Privat git-värd | user@githost:path/to/repo | [Instruktioner](https://docs.fluxcd.io/en/1.18.0/guides/use-private-git-host.html) |
-| Privat GitHub lagrings platsen – SSH (ta med din egen nyckel) | git@github.com:username/repo | [Använd ditt eget SSH-nyckelpar](https://docs.fluxcd.io/en/1.17.0/guides/provide-own-ssh-key.html) |
-
+| Privat git lagrings platsen-HTTPS | https://server/repo.git | Kommer snart (stöd för användar namn/lösen ord, användar namn/token, certifikat) |
+| Privata git-lagrings platsen – SSH – användarspecifika nycklar | SSH://[user@] Server/lagrings platsen. git eller [user@] Server: lagrings platsen. git | Kommer snart |
+| Privat git-värd – SSH – anpassad known_hosts | SSH://[user@] Server/lagrings platsen. git eller [user@] Server: lagrings platsen. git | Kommer snart |
 
 #### <a name="additional-parameters"></a>Ytterligare parametrar
 
@@ -225,7 +224,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 **Lägg till den offentliga nyckeln som en distributions nyckel till git-lagrings platsen**
 
-1. Öppna GitHub, navigera till din förgrening, till **Inställningar**, och **distribuera nycklar**
+1. Öppna GitHub, navigera till lagrings platsen, klicka på **Inställningar**och **distribuera nycklar**
 2. Klicka på  **Lägg till distributions nyckel**
 3. Ange en rubrik
 4. Kontrol lera **Tillåt skriv åtkomst**

@@ -2,13 +2,13 @@
 title: Noder och pooler i Azure Batch
 description: Lär dig mer om Compute-noder och pooler och hur de används i ett Azure Batch arbets flöde från en utvecklings synpunkt.
 ms.topic: conceptual
-ms.date: 06/16/2020
-ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87385763"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371451"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Noder och pooler i Azure Batch
 
@@ -26,7 +26,7 @@ Alla beräkningsnoder i Batch innehåller också:
 
 - En fördefinierad [mappstruktur](files-and-directories.md) och associerade [miljövariabler](jobs-and-tasks.md) som är tillgängliga som referens för aktiviteterna.
 - **Brandväggsinställningar** som konfigureras för att styra åtkomsten.
-- [Fjärråtkomst](error-handling.md#connect-to-compute-nodes) till både Windows-noder (RDP, Remote Desktop Protocol) och Linux-noder (SSH, Secure Shell).
+- [Fjärråtkomst](error-handling.md#connect-to-compute-nodes) till både Windows Remote Desktop Protocol (RDP)-och Linux-noder (Secure Shell) (om du inte [skapar poolen med fjärråtkomst inaktive rad](pool-endpoint-configuration.md)).
 
 Som standard kan noder kommunicera med varandra, men de kan inte kommunicera med virtuella datorer som inte ingår i samma pool. Om noderna ska kunna kommunicera säkert med andra virtuella datorer, eller med ett lokalt nätverk, kan du etablera poolen [i ett undernät för ett virtuellt Azure-nätverk (VNet)](batch-virtual-network.md). När du gör det kan noderna nås via offentliga IP-adresser. Dessa offentliga IP-adresser skapas av batch och kan ändras under poolens livstid. Du kan också [skapa en pool med statiska offentliga IP-adresser](create-pool-public-ip.md) som du kontrollerar, vilket säkerställer att de inte ändras.
 

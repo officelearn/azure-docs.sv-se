@@ -16,18 +16,18 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14023065005977334a9f399a61acfde3b6ba9f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75e004980ada23a616b57e3c7eb1afb241e09598
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87413161"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371655"
 ---
 # <a name="assign-an-azure-ad-custom-role-in-privileged-identity-management"></a>Tilldela en anpassad Azure AD-roll i Privileged Identity Management
 
 Den här artikeln beskriver hur du använder Privileged Identity Management (PIM) för att skapa just-in-Time-och Time-Bound-tilldelning till anpassade roller som skapats för att hantera program i den administrativa miljön för Azure Active Directory (Azure AD).
 
-- Mer information om hur du skapar anpassade roller för att delegera program hantering i Azure AD finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../users-groups-roles/roles-custom-overview.md).
+- Mer information om hur du skapar anpassade roller för att delegera program hantering i Azure AD finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../roles/custom-overview.md).
 - Om du inte har använt Privileged Identity Management ännu kan du få mer information när du [börjar använda Privileged Identity Management](pim-getting-started.md).
 - Information om hur du beviljar en annan administratörs åtkomst till att hantera Privileged Identity Management finns i [bevilja åtkomst till andra administratörer för att hantera Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
@@ -83,4 +83,4 @@ För att verifiera roll tilldelningen i en öppen roll väljer du **tilldelninga
 - [Aktivera en anpassad Azure AD-roll](azure-ad-custom-roles-assign.md)
 - [Ta bort eller uppdatera en anpassad roll tilldelning för Azure AD](azure-ad-custom-roles-update-remove.md)
 - [Konfigurera en anpassad roll tilldelning för Azure AD](azure-ad-custom-roles-configure.md)
-- [Roll definitioner i Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [Roll definitioner i Azure AD](../roles/permissions-reference.md)

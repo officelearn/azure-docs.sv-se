@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: bc8fd73b18e197c42e4750612320c1b15a6db020
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a7eabe35e501aa840693f6fad3803b73160a25
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83849220"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368901"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformera data med Spark-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -62,17 +62,17 @@ I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 | Egenskap              | Beskrivning                              | Krävs |
 | --------------------- | ---------------------------------------- | -------- |
 | name                  | Namnet på aktiviteten i pipelinen.    | Ja      |
-| description           | Text som beskriver vad aktiviteten gör.  | Inga       |
+| description           | Text som beskriver vad aktiviteten gör.  | Nej       |
 | typ                  | För Spark-aktivitet är aktivitets typen HDInsightSpark. | Ja      |
 | linkedServiceName     | Namnet på den länkade HDInsight Spark-tjänsten som Spark-programmet körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
-| SparkJobLinkedService | Den länkade tjänsten Azure Storage som innehåller Spark-jobbets fil, beroenden och loggar. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger något värde för den här egenskapen används det lagrings utrymme som är associerat med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en Azure Storage länkad tjänst. | Inga       |
+| SparkJobLinkedService | Den länkade tjänsten Azure Storage som innehåller Spark-jobbets fil, beroenden och loggar. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger något värde för den här egenskapen används det lagrings utrymme som är associerat med HDInsight-kluster. Värdet för den här egenskapen kan bara vara en Azure Storage länkad tjänst. | Nej       |
 | rootPath              | Azure Blob-behållaren och-mappen som innehåller Spark-filen. Fil namnet är Skift läges känsligt. Se avsnittet mappstruktur (nästa avsnitt) för information om den här mappens struktur. | Ja      |
 | entryFilePath         | Relativ sökväg till rotmappen för Spark-koden/-paketet. Post filen måste vara antingen en python-fil eller en. jar-fil. | Ja      |
-| className             | Programmets Java/Spark-huvud klass      | Inga       |
-| ogiltiga             | En lista med kommando rads argument för Spark-programmet. | Inga       |
-| proxyUser             | Användar kontot som ska personifieras för att köra Spark-programmet | Inga       |
-| sparkConfig           | Ange värden för konfigurations egenskaper för Spark som anges i avsnittet: [Spark-konfiguration – program egenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Inga       |
-| getDebugInfo          | Anger när Spark-loggfilerna ska kopieras till Azure-lagringen som används av HDInsight-kluster (eller) som anges av sparkJobLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Inga       |
+| className             | Programmets Java/Spark-huvud klass      | Nej       |
+| ogiltiga             | En lista med kommando rads argument för Spark-programmet. | Nej       |
+| proxyUser             | Användar kontot som ska personifieras för att köra Spark-programmet | Nej       |
+| sparkConfig           | Ange värden för konfigurations egenskaper för Spark som anges i avsnittet: [Spark-konfiguration – program egenskaper](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Nej       |
+| getDebugInfo          | Anger när Spark-loggfilerna ska kopieras till Azure-lagringen som används av HDInsight-kluster (eller) som anges av sparkJobLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
 
 ## <a name="folder-structure"></a>Mappstruktur
 Spark-jobb är mer utöknings bara av jobben i gris/Hive. För Spark-jobb kan du tillhandahålla flera beroenden, till exempel jar-paket (placerade i Java-CLASSPATH), python-filer (placeras på PYTHONPATH) och andra filer.
@@ -83,11 +83,11 @@ Skapa följande mappstruktur i Azure blob-lagringen som refereras av den länkad
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` skogen            | Spark-jobbets rot Sök väg i den länkade lagrings tjänsten | Ja      | Mapp |
 | &lt;användardefinierad &gt; | Sökvägen som pekar på post filen för Spark-jobbet | Ja      | Fil   |
-| ./jars                | Alla filer i den här mappen laddas upp och placeras i Java-classpath för klustret | Inga       | Mapp |
-| ./pyFiles             | Alla filer i den här mappen överförs och placeras i PYTHONPATH i klustret | Inga       | Mapp |
-| ./files               | Alla filer i den här mappen överförs och placeras i utförar arbets katalog | Inga       | Mapp |
-| ./archives            | Alla filer i den här mappen är okomprimerade | Inga       | Mapp |
-| ./logs                | Den mapp som innehåller loggar från Spark-klustret. | Inga       | Mapp |
+| ./jars                | Alla filer i den här mappen laddas upp och placeras i Java-classpath för klustret | Nej       | Mapp |
+| ./pyFiles             | Alla filer i den här mappen överförs och placeras i PYTHONPATH i klustret | Nej       | Mapp |
+| ./files               | Alla filer i den här mappen överförs och placeras i utförar arbets katalog | Nej       | Mapp |
+| ./archives            | Alla filer i den här mappen är okomprimerade | Nej       | Mapp |
+| ./logs                | Den mapp som innehåller loggar från Spark-klustret. | Nej       | Mapp |
 
 Här är ett exempel på ett lagrings utrymme som innehåller två Spark-jobbmallar i Azure-Blob Storage som refereras till av den länkade HDInsight-tjänsten.
 
@@ -119,5 +119,5 @@ Se följande artiklar som förklarar hur du omformar data på andra sätt:
 * [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning batch-körning, aktivitet](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (klassisk) batch execution Activity](transform-data-using-machine-learning.md)
 * [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

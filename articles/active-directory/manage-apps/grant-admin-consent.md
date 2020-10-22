@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9680c9bee6d0cf5c9605ce7b6009a500abd81ffb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069585"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369105"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Bevilja administratörsmedgivande för hela klientorganisationen till ett program
 
@@ -25,9 +25,9 @@ Lär dig hur du fören klar användar upplevelsen genom att bevilja en klients a
 
 Mer information om samtycker till program finns i [Azure Active Directory medgivande Framework](../develop/consent-framework.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att bevilja administratörs tillåtelse för hela klienten måste du logga in som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), en [program administratör](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)eller en [moln program administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+För att bevilja administratörs tillåtelse för hela klienten måste du logga in som [Global administratör](../roles/permissions-reference.md#global-administrator--company-administrator), en [program administratör](../roles/permissions-reference.md#application-administrator)eller en [moln program administratör](../roles/permissions-reference.md#cloud-application-administrator).
 
 > [!IMPORTANT]
 > När ett program har beviljats administratörs medgivande kan alla användare logga in på appen om den inte har kon figurer ATS för att kräva användar tilldelning. För att begränsa vilka användare som kan logga in i ett program, kräver användar tilldelning och tilldelar sedan användare eller grupper till programmet. Mer information finns i [metoder för att tilldela användare och grupper](methods-for-assigning-users-and-groups.md).
@@ -47,7 +47,7 @@ Du kan bevilja klient organisationens godkännande genom *företags program* om 
 
 Så här beviljar du ett administrativt medgivande till en app som anges i **företags program**:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [program administratör](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)eller en [moln program administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../roles/permissions-reference.md#global-administrator--company-administrator), [program administratör](../roles/permissions-reference.md#application-administrator)eller en [moln program administratör](../roles/permissions-reference.md#cloud-application-administrator).
 2. Välj **Azure Active Directory** sedan **företags program**.
 3. Välj det program som du vill bevilja klient organisationens administratörs medgivande till.
 4. Välj **behörigheter** och klicka sedan på **bevilja administrativt medgivande**.
@@ -63,7 +63,7 @@ För program som din organisation har utvecklat, eller som har registrerats dire
 
 Så här tilldelar du administratörs medgivande från klient organisationen från **Appregistreringar**:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator), [program administratör](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)eller en [moln program administratör](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator).
+1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../roles/permissions-reference.md#global-administrator--company-administrator), [program administratör](../roles/permissions-reference.md#application-administrator)eller en [moln program administratör](../roles/permissions-reference.md#cloud-application-administrator).
 2. Välj **Azure Active Directory** sedan **Appregistreringar**.
 3. Välj det program som du vill bevilja klient organisationens administratörs medgivande till.
 4. Välj **API-behörigheter** och klicka sedan på **bevilja administrativt medgivande**.

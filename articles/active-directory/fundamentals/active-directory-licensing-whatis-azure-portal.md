@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bb0c1773a08bc934eebc4f110cec43e4b07e49e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0490334c759da6ef7ba7ff2535f5f561cdb7a9bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565063"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369819"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Vad är gruppbaserad licensiering i Azure Active Directory?
 
@@ -65,9 +65,9 @@ Om du har feedback eller funktions förfrågningar kan du dela dem med oss med h
 
 Mer information om andra scenarier för licenshantering via gruppbaserad licensiering finns här:
 
-* [Tilldela licenser till en grupp i Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
-* [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
-* [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
-* [Så här migrerar du användare mellan produkt licenser med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
-* [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
-* [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)
+* [Tilldela licenser till en grupp i Azure Active Directory](../enterprise-users/licensing-groups-assign.md)
+* [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](../enterprise-users/licensing-groups-resolve-problems.md)
+* [Migrera enskilda licensierade användare till gruppbaserad licensiering i Azure Active Directory](../enterprise-users/licensing-groups-migrate-users.md)
+* [Så här migrerar du användare mellan produkt licenser med gruppbaserad licensiering i Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md)
+* [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
+* [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](../enterprise-users/licensing-ps-examples.md)

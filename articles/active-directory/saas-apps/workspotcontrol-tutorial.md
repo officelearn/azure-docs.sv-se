@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
 ms.openlocfilehash: bfbecc71638e6feaaf29809f09dda752dd29b2ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "88526643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Självstudie: Azure Active Directory integrering med Workspot-kontroll
@@ -103,20 +103,20 @@ Följ dessa steg för att konfigurera enkel inloggning för Azure AD med Workspo
     ![Workspot kontrol lera domän och URL-information för enkel inloggning](common/idp-intiated.png)
 
     1. I text rutan **identifierare** anger du en URL i följande mönster:<br/>
-    ***https://<<i></i> instans namn>-SAML.Workspot.com/SAML/metadata***
+    **_https://<<i></i> INSTANS namn>-saml.workspot.com/saml/metadata_*_
 
-    1. I text rutan **svars-URL** anger du en URL i följande mönster:<br/>
-    ***https://<<i></i> instans namn>-SAML.Workspot.com/SAML/Assertion***
+    1. I _text rutan *svars-URL** anger du en URL i följande mönster: <br/> 
+    * *_https://<<i></i> instans namn>-SAML.Workspot.com/SAML/Assertion_*_
 
-5. Om du vill konfigurera programmet i SP-initierat läge väljer du **Ange ytterligare URL: er**.
+5. Om du vill konfigurera programmet i SP-initierat läge väljer du _ * ange ytterligare URL: er * *.
 
     ![Workspot kontrol lera domän och URL-information för enkel inloggning](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** anger du en URL i följande mönster:<br/>
-    ***https://<<i></i> instans namn>-SAML.Workspot.com/***
+    **_https://<<i></i> INSTANS namn>-saml.workspot.com/_*_
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Ersätt värdena med den faktiska identifieraren, svars-URL: en och inloggnings-URL: en. Kontakta [support teamet för Workspot-kontroll](mailto:support@workspot.com) för att hämta dessa värden. Eller också kan du referera till mönstren i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+    > Dessa värden är inte verkliga. Ersätt värdena med den faktiska identifieraren, svars-URL: en och inloggnings-URL: en. Kontakta [support teamet för Workspot-kontroll](mailto:support@workspot.com) för att hämta dessa värden. Eller också kan du referera till mönstren i avsnittet _*grundläggande SAML-konfiguration** i Azure Portal.
 
 6. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Ladda ned** för att ladda ned **certifikat (base64)** från de tillgängliga alternativen enligt dina krav. Spara den på din dator.
 

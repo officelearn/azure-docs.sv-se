@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad1bec66edaa3fcc6049f4911684f6e6d6c3e366
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499763"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369411"
 ---
 # <a name="troubleshoot-the-process-server"></a>Felsöka processervern
 
@@ -32,7 +32,7 @@ Innan du påbörjar fel sökningen:
 
 För optimala prestanda för processervern har vi sammanfattat ett antal allmänna bästa metoder.
 
-**Bästa praxis** | **Information**
+**Bästa praxis** | **Detaljer**
 --- |---
 **Användning** | Kontrol lera att konfigurations servern/fristående processervern endast används för avsett syfte. Kör inte något annat på datorn.
 **IP-adress** | Kontrol lera att processervern har en statisk IPv4-adress och att NAT inte har kon figurer ATS.
@@ -54,11 +54,11 @@ Processervern genererar ett antal hälso aviseringar. De här aviseringarna och 
 ![Felfri][green] | Inget  | Processervern är ansluten och felfritt.
 ![Varning][yellow] | De angivna tjänsterna körs inte. | 1. kontrol lera att tjänsterna körs.<br/> 2. om tjänsterna körs som förväntat följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
 ![Varning][yellow]  | PROCESSOR användning > 80% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer.<br/>2. kontrol lera att antalet virtuella datorer som använder processervern motsvarar [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
-![Kritiskt][red] |  PROCESSOR användning > 95% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer.<br/>2. kontrol lera att antalet virtuella datorer som använder processervern motsvarar [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 4. om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för VMware/fysisk server-replikering.
+![Kritiskt][red] |  PROCESSOR användning > 95% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer.<br/>2. kontrol lera att antalet virtuella datorer som använder processervern motsvarar [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 4. om problemet kvarstår kör du [distributions planeraren](./site-recovery-deployment-planner.md) för VMware/fysisk server-replikering.
 ![Varning][yellow] | Minnes användning > 80% under de senaste 15 minuterna. |  1. Lägg inte till nya datorer.<br/>2. kontrol lera att antalet virtuella datorer som använder processervern motsvarar [definierade gränser](site-recovery-plan-capacity-vmware.md#capacity-considerations)och Överväg att konfigurera [ytterligare en processerver](vmware-azure-set-up-process-server-scale.md).<br/>3. Följ eventuella instruktioner som är associerade med varningen.<br/> 4. om problemet kvarstår följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
-![Kritiskt][red] | Minnes användning > 95% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer och fundera över att skapa en [ytterligare processerver](vmware-azure-set-up-process-server-scale.md).<br/> 2. Följ eventuella instruktioner som är associerade med varningen.<br/> 3.4. Om problemet kvarstår följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 4. om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för replikering av VMware/fysisk server.
+![Kritiskt][red] | Minnes användning > 95% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer och fundera över att skapa en [ytterligare processerver](vmware-azure-set-up-process-server-scale.md).<br/> 2. Följ eventuella instruktioner som är associerade med varningen.<br/> 3.4. Om problemet kvarstår följer du anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 4. om problemet kvarstår kör du [distributions planeraren](./site-recovery-deployment-planner.md) för replikering av VMware/fysisk server.
 ![Varning][yellow] | Ledigt utrymme i cache-mappen < 30% under de senaste 15 minuterna. | 1. Lägg inte till nya datorer och Överväg att konfigurera en [ytterligare processerver](vmware-azure-set-up-process-server-scale.md).<br/>2. kontrol lera att antalet virtuella datorer som använder processervern överensstämmer med [rikt linjerna](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
-![Kritiskt][red] |  Ledigt utrymme < 25% under de senaste 15 minuterna | 1. Följ instruktionerna som är kopplade till varningen för det här problemet.<br/> 2.3. Följ anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 3. om problemet kvarstår kör du [distributions planeraren](https://aka.ms/asr-v2a-deployment-planner) för VMware/fysisk server-replikering.
+![Kritiskt][red] |  Ledigt utrymme < 25% under de senaste 15 minuterna | 1. Följ instruktionerna som är kopplade till varningen för det här problemet.<br/> 2.3. Följ anvisningarna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).<br/> 3. om problemet kvarstår kör du [distributions planeraren](./site-recovery-deployment-planner.md) för VMware/fysisk server-replikering.
 ![Kritiskt][red] | Inget pulsslag från processervern i 15 minuter eller mer. Tmansvs-tjänsten kommunicerar inte med konfigurations servern. | 1) kontrol lera att processervern är igång.<br/> 2. kontrol lera att tmassvc körs på processervern.<br/> 3. Följ instruktionerna nedan för att [Felsöka problem med anslutningen och replikeringen](#check-connectivity-and-replication).
 
 
@@ -113,7 +113,7 @@ Kontrol lera att inget antivirus program på den replikerade datorn blockerar Si
 3. Kontrol lera om anslutningen lyckades.
 
 
-**Anslutning** | **Information** | **Åtgärd**
+**Anslutning** | **Detaljer** | **Åtgärd**
 --- | --- | ---
 **Lyckad** | Telnet visar en tom skärm och processervern kan komma åt den. | Ingen ytterligare åtgärd krävs.
 **Misslyckade** | Du kan inte ansluta | Kontrol lera att den inkommande port 9443 är tillåten på processervern. Om du till exempel har ett perimeternätverk eller ett skärmat undernät. Kontrol lera anslutningen igen.

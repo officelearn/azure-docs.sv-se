@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e9b38208526ba83e0a0e31e2e139e340a3ee511
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c346877d29c5fef03b45c895cbf8d462f90d0979
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797533"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369139"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Redigera din grupp information med Azure Active Directory
 
@@ -53,7 +53,7 @@ Med hjälp av Azure Active Directory (Azure AD) kan du redigera en grupps instä
     
     - **Medlemskaps typ.** Ändra medlemskaps typ. Mer information om de olika tillgängliga medlemskaps typerna finns i [så här gör du: skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory portalen](active-directory-groups-create-azure-portal.md).
     
-    - **Objekt-ID.** Du kan inte ändra objekt-ID: t, men du kan kopiera det så att det används i PowerShell-kommandon för gruppen. Mer information om hur du använder PowerShell-cmdlets finns i [Azure Active Directory-cmdletar för att konfigurera grupp inställningar](../users-groups-roles/groups-settings-v2-cmdlets.md).
+    - **Objekt-ID.** Du kan inte ändra objekt-ID: t, men du kan kopiera det så att det används i PowerShell-kommandon för gruppen. Mer information om hur du använder PowerShell-cmdlets finns i [Azure Active Directory-cmdletar för att konfigurera grupp inställningar](../enterprise-users/groups-settings-v2-cmdlets.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
@@ -64,7 +64,7 @@ Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
 - [Lägga till eller ta bort medlemmar från en grupp](active-directory-groups-members-azure-portal.md)
 
-- [Hantera dynamiska regler för användare i en grupp](../users-groups-roles/groups-create-rule.md)
+- [Hantera dynamiska regler för användare i en grupp](../enterprise-users/groups-create-rule.md)
 
 - [Hantera medlemskap i en grupp](active-directory-groups-membership-azure-portal.md)
 

@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cb101e415499150cd3d825fe5f42ce0dbc766fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662518"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369802"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Hur Azure AD levererar hantering av moln styrning för lokala arbets belastningar
 
@@ -107,7 +107,7 @@ Organisationer behöver en process för att hantera åtkomst som är skalbar. An
 
 Vanligt vis delegerar den åtkomst till godkännande beslut till besluts fattare i företaget. Dessutom kan de involvera själva användarna. Till exempel behöver användare som har åtkomst till konfidentiell kund information i ett företags marknadsförings program i Europa känna till företagets principer. Gäst användare kan också vara medvetna om hanterings kraven för data i en organisation som de har bjudits in till.
 
-Organisationer kan automatisera livs cykel processen för Access genom tekniker som [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md), tillsammans med användar etablering för SaaS- [program](../saas-apps/tutorial-list.md)eller program som [integreras med systemet för scim-standarden (Cross-Domain Identity Management](../app-provisioning/use-scim-to-provision-users-and-groups.md)). Organisationer kan också styra vilka [gäst användare som har åtkomst till lokala program](../external-identities/hybrid-cloud-to-on-premises.md). Dessa behörigheter kan sedan regelbundet granskas med hjälp av återkommande [granskningar av Azure AD-åtkomst](../governance/access-reviews-overview.md).
+Organisationer kan automatisera livs cykel processen för Access genom tekniker som [dynamiska grupper](../enterprise-users/groups-dynamic-membership.md), tillsammans med användar etablering för SaaS- [program](../saas-apps/tutorial-list.md)eller program som [integreras med systemet för scim-standarden (Cross-Domain Identity Management](../app-provisioning/use-scim-to-provision-users-and-groups.md)). Organisationer kan också styra vilka [gäst användare som har åtkomst till lokala program](../external-identities/hybrid-cloud-to-on-premises.md). Dessa behörigheter kan sedan regelbundet granskas med hjälp av återkommande [granskningar av Azure AD-åtkomst](../governance/access-reviews-overview.md).
 
 ## <a name="future-directions"></a>Framtida anvisningar
 

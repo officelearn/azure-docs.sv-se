@@ -11,19 +11,19 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6adf7e6c5abbba3c018f9a03b5167aec7537c704
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b21f14bc6f80445d1119f34d24281d764fff38c8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909950"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369173"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Dynamiska grupper och Azure Active Directory B2B-samarbete
 
 ## <a name="what-are-dynamic-groups"></a>Vad är dynamiska grupper?
 Dynamisk konfiguration av säkerhets grupp medlemskap för Azure Active Directory (Azure AD) finns i [Azure Portal](https://portal.azure.com). Administratörer kan ange regler för att fylla i grupper som skapas i Azure AD baserat på användarattribut (till exempel userType, avdelning eller land/region). Medlemmar kan läggas till eller tas bort automatiskt från en säkerhets grupp baserat på deras attribut. Dessa grupper kan ge åtkomst till program eller moln resurser (SharePoint-webbplatser, dokument) och tilldela licenser till medlemmar. Läs mer om dynamiska grupper i [dedikerade grupper i Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
 
-Lämplig [Azure AD Premium P1-eller P2-licens](https://azure.microsoft.com/pricing/details/active-directory/) krävs för att skapa och använda dynamiska grupper. Läs mer i artikeln [skapa attribut-baserade regler för dynamiska grupp medlemskap i Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
+Lämplig [Azure AD Premium P1-eller P2-licens](https://azure.microsoft.com/pricing/details/active-directory/) krävs för att skapa och använda dynamiska grupper. Läs mer i artikeln [skapa attribut-baserade regler för dynamiska grupp medlemskap i Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
 ## <a name="creating-an-all-users-dynamic-group"></a>Skapa en dynamisk grupp för alla användare
 Du kan skapa en grupp som innehåller alla användare i en klient som använder en medlemskaps regel. När användare läggs till eller tas bort från klienten i framtiden, justeras gruppens medlemskap automatiskt.

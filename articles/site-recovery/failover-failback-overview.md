@@ -3,12 +3,12 @@ title: Om redundans och återställning efter fel i Azure Site Recovery
 description: Läs om redundans och fel i Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/24/2019
-ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3617683200aa3ffba08061b70993613fd0cc7241
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089540"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369887"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Om återställning av redundans/återställning vid fel på plats
 
@@ -46,15 +46,15 @@ Det finns ett antal krav för att ansluta till virtuella Azure-datorer som skapa
 **Redundans** | **Plats** | **Åtgärder**
 --- | --- | ---
 **Virtuell Azure-dator (Windows (** | På den lokala datorn före redundans | **Åtkomst via Internet**: aktivera RDP. Kontrol lera att TCP-och UDP-regler har lagts till för **offentliga**och att RDP tillåts för alla profiler i **Windows-brandväggen**  >  **tillåtna appar**.<br/><br/> **Åtkomst över plats-till-plats-VPN**: aktivera RDP på datorn. Kontrol lera att RDP tillåts i **Windows-brandväggen**  ->  **tillåtna appar och funktioner**för **domän nätverk och privata** nätverk.<br/><br/>  Kontrol lera att SAN-principen för operativ systemet är inställd på **OnlineAll**. [Läs mer](https://support.microsoft.com/kb/3031135).<br/><br/> Se till att inga Windows-uppdateringar väntar på den virtuella datorn när du aktiverar en redundansväxling. Windows Update kan starta när du växlar över och du kan inte logga in på den virtuella datorn förrän uppdateringarna är klara.
-**Virtuell Azure-dator som kör Windows** | På den virtuella Azure-datorn efter redundans |  [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till RDP-porten.<br/><br/> Kontrol lera **startdiagnostik** för att verifiera en skärm bild av den virtuella datorn. Om du inte kan ansluta kontrollerar du att den virtuella datorn körs och granskar [fel söknings tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+**Virtuell Azure-dator som kör Windows** | På den virtuella Azure-datorn efter redundans |  [Lägg till en offentlig IP-adress](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) för den virtuella datorn.<br/><br/> Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till RDP-porten.<br/><br/> Kontrol lera **startdiagnostik** för att verifiera en skärm bild av den virtuella datorn. Om du inte kan ansluta kontrollerar du att den virtuella datorn körs och granskar [fel söknings tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 **Virtuell Azure-dator som kör Linux** | På den lokala datorn före redundans | Kontrol lera att Secure Shell-tjänsten på den virtuella datorn är inställd på att starta automatiskt vid system start.<br/><br/> Kontrollera att brandväggsreglerna tillåter en SSH-anslutning till tjänsten.
-**Virtuell Azure-dator som kör Linux** | På den virtuella Azure-datorn efter redundans | Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till SSH-porten.<br/><br/> [Lägg till en offentlig IP-adress](https://aka.ms/addpublicip) för den virtuella datorn.<br/><br/> Kontrol lera **startdiagnostiken** för en skärm bild av den virtuella datorn.<br/><br/>
+**Virtuell Azure-dator som kör Linux** | På den virtuella Azure-datorn efter redundans | Reglerna för nätverks säkerhets gruppen på den misslyckade virtuella datorn (och det Azure-undernät som den är ansluten till) måste tillåta inkommande anslutningar till SSH-porten.<br/><br/> [Lägg till en offentlig IP-adress](/archive/blogs/srinathv/how-to-add-a-public-ip-address-to-azure-vm-for-vm-failed-over-using-asr) för den virtuella datorn.<br/><br/> Kontrol lera **startdiagnostiken** för en skärm bild av den virtuella datorn.<br/><br/>
 
 ## <a name="types-of-failover"></a>Typer av redundans
 
 Site Recovery tillhandahåller olika alternativ för redundans.
 
-**Redundans** | **Information** | **Återställande** | **Workflow**
+**Redundans** | **Detaljer** | **Återställande** | **Workflow**
 --- | --- | --- | ---
 **Redundanstest** | Används för att köra en detalj granskning som validerar din BCDR-strategi utan data förlust eller stillestånds tid.| Skapar en kopia av den virtuella datorn i Azure, utan påverkan på pågående replikering eller i produktions miljön. | 1. kör ett redundanstest på en enskild virtuell dator eller flera virtuella datorer i en återställnings plan.<br/><br/> 2. Välj en återställnings punkt som ska användas för redundanstest.<br/><br/> 3. Välj ett Azure-nätverk där den virtuella Azure-datorn ska finnas när den har skapats efter redundansväxlingen. Nätverket används endast för redundanstest.<br/><br/> 4. kontrol lera att granskningen fungerade som förväntat. Site Recovery rensar automatiskt virtuella datorer som skapats i Azure under detalj nivån.
 **Planerad redundans-Hyper-V**  | Används vanligt vis för planerad stillestånds tid.<br/><br/> Virtuella käll datorer stängs av. Den senaste informationen synkroniseras innan redundansväxlingen initieras. | Ingen data förlust för det planerade arbets flödet. | 1. planera en underhålls period för drift stopp och meddela användarna.<br/><br/> 2. ta appar som riktas mot användare offline.<br/><br/> 3. Starta en planerad redundansväxling med den senaste återställnings punkten. Redundansväxlingen körs inte om datorn inte är avstängd eller om fel påträffas.<br/><br/> 4. efter redundansväxlingen kontrollerar du att repliken för den virtuella Azure-datorn är aktiv i Azure.<br/><br/> 5. genomför redundansväxlingen genom att slutföra. Åtgärden commit tar bort alla återställnings punkter.
@@ -76,7 +76,7 @@ I vissa fall kräver redundans ytterligare bearbetning som tar cirka 8 till 10 m
 
 Under redundans kan du välja ett antal alternativ för återställnings punkt.
 
-**Alternativ** | **Information**
+**Alternativ** | **Detaljer**
 --- | ---
 **Senaste (lägsta återställnings punkt)** | Det här alternativet ger lägsta återställnings punkt mål. Först bearbetar den alla data som har skickats till Site Recovery-tjänsten, för att skapa en återställnings punkt för varje virtuell dator, innan de växlar över till den. Den här återställnings punkten har alla data som repliker ATS till Site Recovery När redundansväxlingen utlöstes.
 **Senast bearbetade**  | Det här alternativet växlar över virtuella datorer till den senaste återställnings punkten som bearbetats av Site Recovery. Om du vill se den senaste återställnings punkten för en viss virtuell dator kontrollerar du de **senaste återställnings punkterna** i VM-inställningarna. Med det här alternativet läggs ingen tid på bearbetning av data, så den ger ett lågt mål för återställningstiden.
@@ -164,4 +164,3 @@ När du har växlat tillbaka till den lokala platsen aktiverar du **omvänd repl
 - Redundansväxla [virtuella datorer i en återställnings plan](site-recovery-failover.md).
 - [Förbered för](vmware-azure-failback.md) VMware-skydd och återställning efter fel.
 - Återställa [virtuella Hyper-V-datorer](hyper-v-azure-failback.md).
-

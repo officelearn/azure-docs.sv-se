@@ -3,12 +3,12 @@ title: Använda händelsehubben från Apache Kafka app – Azure Event Hubs | Mi
 description: Den här artikeln innehåller information om Apache Kafka support av Azure Event Hubs.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 2b101adf173f3d623bb85d811ba5832020313f14
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d9aa8af30d5ef5e1a985e4d73a9d4a8921ac7d45
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327305"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369598"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Använda Azure Event Hubs från Apache Kafka-program
 Event Hubs tillhandahåller en slut punkt som är kompatibel med Apache Kafka® tillverkare och konsument-API: er som kan användas av de flesta befintliga Apache Kafka klient program som ett alternativ till att köra ditt eget Apache Kafka-kluster. Event Hubs stöder Apache Kafkas tillverkare och klient-API-klienter i version 1,0 och senare.
@@ -62,7 +62,7 @@ Azure Event Hubs tillhandahåller flera alternativ för att ge åtkomst till din
 #### <a name="oauth-20"></a>OAuth 2.0
 Event Hubs integreras med Azure Active Directory (Azure AD), vilket ger en **OAuth 2,0** -kompatibel Central Authorization-Server. Med Azure AD kan du använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att ge detaljerade behörigheter till dina klient identiteter. Du kan använda den här funktionen med Kafka-klienter genom att ange **SASL_SSL** för protokollet och  **OAUTHBEARER** för mekanismen. Mer information om Azure-roller och-nivåer för omfångs åtkomst finns i [ge åtkomst till Azure AD](authorize-access-azure-active-directory.md).
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=OAUTHBEARER
@@ -73,15 +73,19 @@ sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
 #### <a name="shared-access-signature-sas"></a>Signatur för delad åtkomst (SAS)
 Event Hubs tillhandahåller även **signaturer för delad åtkomst (SAS)** för delegerad åtkomst till Event Hubs för Kafka-resurser. Att auktorisera åtkomst med OAuth 2,0-tokenbaserad mekanism ger överlägsen säkerhet och enkel användning över SAS. De inbyggda rollerna kan också eliminera behovet av ACL-baserad auktorisering, som måste underhållas och hanteras av användaren. Du kan använda den här funktionen med Kafka-klienter genom att ange **SASL_SSL** för protokollet och **plait** för mekanismen. 
 
-```xml
+```properties
 bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
 security.protocol=SASL_SSL
 sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
+> [!IMPORTANT]
+> Ersätt `{YOUR.EVENTHUBS.CONNECTION.STRING}` med anslutnings strängen för din Event Hubs-namnrymd. Anvisningar om hur du hämtar anslutnings strängen finns i [Hämta en Event Hubs anslutnings sträng](event-hubs-get-connection-string.md). Här är ett exempel på en konfiguration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
 > [!NOTE]
 > När du använder SAS-autentisering med Kafka-klienter kopplas inte etablerade anslutningar bort när SAS-nyckeln återskapas. 
+
 
 #### <a name="samples"></a>Exempel 
 En **själv studie kurs** med stegvisa instruktioner för att skapa en händelsehubben och komma åt den med SAS eller OAuth finns i [snabb start: Data strömning med Event Hubs med Kafka-protokollet](event-hubs-quickstart-kafka-enabled-event-hubs.md).

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 7b4a622de142fd44b64015c8238f44dafc34ce72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86133697"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369428"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveri beredskap för en distribution med flera nivåer av SAP NetWeaver-appar
 
@@ -39,11 +39,11 @@ Innan du börjar ska du se till att du vet hur du gör följande uppgifter:
 
 Du kan använda Site Recovery för att implementera en katastrof återställnings lösning i följande scenarier:
 * Du har SAP-system som körs i ett Azure-datacenter och du replikerar dem till ett annat Azure-datacenter (Azure-till-Azure haveri beredskap). 
-   Mer information finns i [arkitektur för Azure-till-Azure-replikering](https://aka.ms/asr-a2a-architecture).
+   Mer information finns i [arkitektur för Azure-till-Azure-replikering](./azure-to-azure-architecture.md).
 * Du har SAP-system som körs på VMware-servrar (eller fysiska) lokalt. Du replikerar också SAP-systemen till en katastrof återställnings plats i ett Azure-datacenter (haveri beredskap från VMware till Azure). 
-   Det här scenariot kräver vissa ytterligare komponenter. Mer information finns i [arkitektur för VMware-till-Azure-replikering](https://aka.ms/asr-v2a-architecture).
+   Det här scenariot kräver vissa ytterligare komponenter. Mer information finns i [arkitektur för VMware-till-Azure-replikering](./vmware-azure-architecture.md).
 * Du har SAP-system som körs på Hyper-V lokalt. Du replikerar också SAP-systemen till en katastrof återställnings plats i ett Azure-datacenter (haveri beredskap från Hyper-V till Azure).
-   Det här scenariot kräver vissa ytterligare komponenter. Mer information finns i [arkitektur för Hyper-V-till-Azure-replikering](https://aka.ms/asr-h2a-architecture).
+   Det här scenariot kräver vissa ytterligare komponenter. Mer information finns i [arkitektur för Hyper-V-till-Azure-replikering](./hyper-v-azure-architecture.md).
 
 I den här artikeln använder vi ett scenario för haveri beredskap i **Azure till Azure** . I scenariot visas funktionerna i SAP Disaster Recovery i Site Recovery. Eftersom Site Recovery replikering inte är programspecifikt förväntas den process som beskrivs även gälla för andra scenarier.
 

@@ -13,16 +13,16 @@ ms.subservice: pim
 ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f4d1e0d43758645d43843417eadf0ce21d43cb7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69884b9e07172e9b25f4c14884be8713da23cbdb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533850"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369836"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Tilldela Azure AD-roller i Privileged Identity Management
 
-Med Azure Active Directory (Azure AD) kan en global administratör göra **permanenta** Azure AD-administrativa roll tilldelningar. Roll tilldelningarna kan skapas med hjälp av [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) eller med [PowerShell-kommandon](/powershell/module/azuread#directory_roles).
+Med Azure Active Directory (Azure AD) kan en global administratör göra **permanenta** Azure AD-administrativa roll tilldelningar. Roll tilldelningarna kan skapas med hjälp av [Azure Portal](../roles/permissions-reference.md) eller med [PowerShell-kommandon](/powershell/module/azuread#directory_roles).
 
 Tjänsten Azure AD Privileged Identity Management (PIM) gör det också möjligt för privilegierade roll administratörer att göra permanenta administratörs roll tilldelningar. Dessutom kan administratörer med privilegierade roller göra användare **berättigade** till administratörs roller i Azure AD. En berättigad administratör kan aktivera rollen när de behöver den och sedan upphör deras behörigheter när de är klara.
 
@@ -30,7 +30,7 @@ Tjänsten Azure AD Privileged Identity Management (PIM) gör det också möjligt
 
 Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity Management till en ny version som matchar upplevelserna för Azures resurs roller. Detta skapar ytterligare funktioner samt [ändringar i det befintliga API: et](azure-ad-roles-features.md#api-changes). Även om den nya versionen publiceras, vilka procedurer som du följer i den här artikeln beror på vilken version av Privileged Identity Management du för närvarande har. Följ stegen i det här avsnittet för att ta reda på vilken version av Privileged Identity Management du har. När du känner till din version av Privileged Identity Management kan du välja de procedurer i den här artikeln som matchar den versionen.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som har rollen [privilegierad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som har rollen [privilegierad roll administratör](../roles/permissions-reference.md#privileged-role-administrator) .
 1. Öppna **Azure AD Privileged Identity Management**. Om du har en banderoll överst på sidan Översikt, följer du anvisningarna på fliken **ny version** i den här artikeln. Annars följer du anvisningarna på fliken **tidigare version** .
 
   [![Välj Azure AD-> Privileged Identity Management.](media/pim-how-to-add-role-to-user/pim-new-version.png)](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
@@ -41,7 +41,7 @@ Från och med november 2019 uppdateras Azure AD-rollerna i Privileged Identity M
 
 Följ dessa steg om du vill göra en användare tillgänglig för en administratörs roll för Azure AD.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som är medlem i rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare som är medlem i rollen [privilegie rad roll administratör](../roles/permissions-reference.md#privileged-role-administrator) .
 
     Information om hur du beviljar en annan administratörs åtkomst till att hantera Privileged Identity Management finns i [bevilja åtkomst till andra administratörer för att hantera Privileged Identity Management](pim-how-to-give-access-to-pim.md).
 
@@ -77,7 +77,7 @@ Följ dessa steg om du vill göra en användare tillgänglig för en administrat
 
 ## <a name="assign-a-role-with-restricted-scope"></a>Tilldela en roll med begränsad omfattning
 
-För vissa roller kan omfattningen av beviljade behörigheter begränsas till en enskild administratörs enhet, tjänstens huvud namn eller program. Den här proceduren är ett exempel på om du tilldelar en roll som har omfånget för en administrativ enhet. En lista över roller som stöder omfång via administrativ enhet finns i [tilldela begränsade roller till en administrativ enhet](../users-groups-roles/roles-admin-units-assign-roles.md). Den här funktionen är för närvarande distribuerad till Azure AD-organisationer.
+För vissa roller kan omfattningen av beviljade behörigheter begränsas till en enskild administratörs enhet, tjänstens huvud namn eller program. Den här proceduren är ett exempel på om du tilldelar en roll som har omfånget för en administrativ enhet. En lista över roller som stöder omfång via administrativ enhet finns i [tilldela begränsade roller till en administrativ enhet](../roles/admin-units-assign-roles.md). Den här funktionen är för närvarande distribuerad till Azure AD-organisationer.
 
 1. Logga in på [Azure Active Directory administrations Center](https://aad.portal.azure.com) med administratörs behörighet för privilegierade roller.
 
@@ -97,7 +97,7 @@ För vissa roller kan omfattningen av beviljade behörigheter begränsas till en
    - Välj roll omfång (i det här fallet administrativa enheter)
    - Välj en administrativ enhet för omfånget
 
-Mer information om hur du skapar administrativa enheter finns i [lägga till och ta bort administrativa enheter](../users-groups-roles/roles-admin-units-manage.md).
+Mer information om hur du skapar administrativa enheter finns i [lägga till och ta bort administrativa enheter](../roles/admin-units-manage.md).
 
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Uppdatera eller ta bort en befintlig roll tilldelning
 

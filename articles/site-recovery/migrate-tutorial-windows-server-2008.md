@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/27/2020
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d8cd8bf2e1a29b122fb4bac7a12454f102183fe3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cc0855d3a4540de780a566a4613b4dbc647cfc5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87845569"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369496"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
@@ -61,7 +61,7 @@ Om du vill migrera virtuella Hyper-V-datorer som kör Windows Server 2008 eller 
 
 Resten av den här självstudiekursen visar hur du kan migrera lokala virtuella VMware-datorer och fysiska servrar som kör Windows Server 2008 eller 2008 R2.
 > [!TIP]
-> Letar du efter ett agent effektivt sätt att migrera virtuella VMware-datorer till Azure? [Klicka här](https://aka.ms/migrateVMs-signup)
+> Letar du efter ett agent effektivt sätt att migrera virtuella VMware-datorer till Azure? [Klicka här](../migrate/tutorial-migrate-vmware.md)
 
 
 ### <a name="limitations-and-known-issues"></a>Begränsningar och kända problem

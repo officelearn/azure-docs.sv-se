@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600805"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369785"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Fyra steg till en stark identitets grund med Azure Active Directory
 
@@ -156,7 +156,7 @@ Att tilldela användare till program mappas bäst när du använder grupper, eft
 * Attribut-baserad med dynamiskt grupp medlemskap
 * Delegera till app-ägare
 
-Azure AD ger möjlighet att hantera åtkomst till resurser med hjälp av säkerhets grupper och Microsoft 365 grupper. Dessa grupper kan hanteras av en grupp ägare som kan godkänna eller avvisa medlemskaps begär Anden och delegera kontrollen av grupp medlemskap. Den här funktionen är känd som självbetjänings [grupp hantering](../users-groups-roles/groups-self-service-management.md)och sparar tid genom att tillåta grupp ägare som inte har tilldelats en administrativ roll för att skapa och hantera grupper utan att behöva förlita sig på att administratörer hanterar sina begär Anden.
+Azure AD ger möjlighet att hantera åtkomst till resurser med hjälp av säkerhets grupper och Microsoft 365 grupper. Dessa grupper kan hanteras av en grupp ägare som kan godkänna eller avvisa medlemskaps begär Anden och delegera kontrollen av grupp medlemskap. Den här funktionen är känd som självbetjänings [grupp hantering](../enterprise-users/groups-self-service-management.md)och sparar tid genom att tillåta grupp ägare som inte har tilldelats en administrativ roll för att skapa och hantera grupper utan att behöva förlita sig på att administratörer hanterar sina begär Anden.
 
 ## <a name="step-4---operationalize-your-insights"></a>Steg 4 – operationalisera dina insikter
 
@@ -172,9 +172,9 @@ Säkerhets loggar och-rapporter ger dig en elektronisk post med misstänkta akti
 
 När du funderar på hur du använder åtgärder finns det ett par olika administrations nivåer att tänka på. På den första nivån placeras administrations belastningen på dina globala administratörer. Använd alltid rollen global administratör, kan vara lämplig för mindre företag. Men för större organisationer med support personal och administratörer som ansvarar för vissa uppgifter, kan det vara en säkerhets risk att tilldela rollen global administratör eftersom den ger användarna möjlighet att hantera uppgifter som är över och utöver vad de ska kunna utföra.
 
-I detta fall bör du överväga nästa nivå av administration. Med hjälp av Azure AD kan du ange slutanvändare som "begränsade administratörer" som kan hantera uppgifter i roller med lägre privilegier. Du kan till exempel tilldela supportavdelningen rollen som [säkerhets läsare](../users-groups-roles/directory-assign-admin-roles.md#security-reader) för att ge dem möjlighet att hantera säkerhetsrelaterade funktioner med skrivskyddad åtkomst. Eller så kanske det är klokt att tilldela rollen som [Administratörs](../users-groups-roles/directory-assign-admin-roles.md#authentication-administrator) roll till enskilda användare för att ge dem möjlighet att återställa autentiseringsuppgifter som inte är lösen ord eller läsa och konfigurera Azure Service Health.
+I detta fall bör du överväga nästa nivå av administration. Med hjälp av Azure AD kan du ange slutanvändare som "begränsade administratörer" som kan hantera uppgifter i roller med lägre privilegier. Du kan till exempel tilldela supportavdelningen rollen som [säkerhets läsare](../roles/permissions-reference.md#security-reader) för att ge dem möjlighet att hantera säkerhetsrelaterade funktioner med skrivskyddad åtkomst. Eller så kanske det är klokt att tilldela rollen som [Administratörs](../roles/permissions-reference.md#authentication-administrator) roll till enskilda användare för att ge dem möjlighet att återställa autentiseringsuppgifter som inte är lösen ord eller läsa och konfigurera Azure Service Health.
 
-Mer information finns i [Administratörs roll behörigheter i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Mer information finns i [Administratörs roll behörigheter i Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Övervaka hybrid komponenter (Azure AD Connect Sync, AD FS) med Azure AD Connect Health
 

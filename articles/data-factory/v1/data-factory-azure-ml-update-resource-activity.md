@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: bed66ab8f3dc3db47b94070cbbeb64fb91163f8c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d0dd7f71c21e223203fb0e695ba3139eaea0aa81
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014468"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368833"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Uppdatera Azure Machine Learning Studio-modeller (klassiska) med uppdatering av resurs aktivitet
 
@@ -44,7 +44,7 @@ Med tiden måste förutsägande modeller i de Azure Machine Learning Studio (kla
 1. Skapa ett experiment i [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net).
 2. När du är nöjd med modellen använder du Azure Machine Learning Studio (klassisk) för att publicera webb tjänster för både **utbildnings experimentet** och poängsättningen/**förutsägande experiment**.
 
-I följande tabell beskrivs de webb tjänster som används i det här exemplet.  Mer information finns i avsnittet [omträna Machine Learning Studio (klassiska) modeller program mässigt](../../machine-learning/studio/retrain-machine-learning-model.md) .
+I följande tabell beskrivs de webb tjänster som används i det här exemplet.  Mer information finns i avsnittet [omträna Azure Machine Learning Studio (klassiska) modeller program mässigt](../../machine-learning/studio/retrain-machine-learning-model.md) .
 
 - **Utbildning-webbtjänst** – tar emot utbildnings data och genererar utbildade modeller. Resultatet av omträningen är en. ilearner-fil i en Azure Blob Storage. **Standard slut punkten** skapas automatiskt åt dig när du publicerar övnings experimentet som en webb tjänst. Du kan skapa fler slut punkter, men exemplet använder bara standard slut punkten.
 - **Bedömnings webb tjänst** – tar emot omärkta data exempel och gör förutsägelser. Resultatet av förutsägelsen kan ha olika former, till exempel en CSV-fil eller rader i Azure SQL Database, beroende på hur experimentet är. Standard slut punkten skapas automatiskt åt dig när du publicerar ett förutsägelse experiment som en webb tjänst. 

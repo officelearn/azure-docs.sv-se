@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: e590981fabcd20f23f25d12b4176b6730cb0fc3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4203c572ed040b37a377e8d4a6b1bc82c883ebd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804363"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368510"
 ---
 # <a name="configure-group-owner-consent-to-apps-accessing-group-data"></a>Konfigurera grupp ägare medgivande till appar som har åtkomst till grupp data
 
@@ -30,7 +30,7 @@ Du kan konfigurera vilka användare som tillåts att godkänna appar som har åt
 
 Följ de här stegen för att hantera grupp ägarens medgivande till appar som har åtkomst till grupp data:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Logga in på [Azure Portal](https://portal.azure.com) som [Global administratör](../roles/permissions-reference.md#global-administrator--company-administrator).
 2. Välj **Azure Active Directory**  >  **företags program**  >  **medgivande-och**  >  **användar**tillstånds inställningar.
 3. Under **grupp ägarens medgivande för appar som har åtkomst till data** väljer du det alternativ som du vill aktivera.
 4. Spara inställningarna genom att välja **Spara** .

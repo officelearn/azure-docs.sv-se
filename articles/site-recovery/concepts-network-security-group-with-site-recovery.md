@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: harshacs
-ms.openlocfilehash: 904bc63ed2a135cdcadad75e96acd6fe3ca39039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 367aba09f84da1e227c08721077aa1b2132a62bf
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90069687"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367982"
 ---
 # <a name="network-security-groups-with-azure-site-recovery"></a>Nätverkssäkerhetsgrupper med Azure Site Recovery
 
-Nätverks säkerhets grupper används för att begränsa nätverks trafiken till resurser i ett virtuellt nätverk. En [nätverks säkerhets grupp (NSG)](../virtual-network/security-overview.md#network-security-groups) innehåller en lista över säkerhets regler som tillåter eller nekar inkommande eller utgående nätverks trafik baserat på källans eller MÅLETs IP-adress, port och protokoll.
+Nätverks säkerhets grupper används för att begränsa nätverks trafiken till resurser i ett virtuellt nätverk. En [nätverks säkerhets grupp (NSG)](../virtual-network/network-security-groups-overview.md#network-security-groups) innehåller en lista över säkerhets regler som tillåter eller nekar inkommande eller utgående nätverks trafik baserat på källans eller MÅLETs IP-adress, port och protokoll.
 
 Under distributions modellen Resource Manager kan NSG: er associeras med undernät eller enskilda nätverks gränssnitt. När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. Trafiken kan begränsas ytterligare genom att även associera en NSG till enskilda nätverks gränssnitt i ett undernät som redan har en associerad NSG.
 
@@ -37,7 +37,7 @@ I det här exemplet utvärderas NSG för inkommande trafik först. All trafik so
 
 Detta möjliggör detaljerade säkerhets regel program. Du kanske till exempel vill tillåta inkommande Internet åtkomst till några program-VM: ar (t. ex. virtuella klient datorer) under ett undernät, men begränsa inkommande Internet åtkomst till andra virtuella datorer (till exempel databas och andra VM-datorer). I det här fallet kan du ha en mer flexibel-regel på under nätet NSG, tillåta Internet trafik och begränsa åtkomsten till vissa virtuella datorer genom att neka åtkomst på VM-NSG. Samma kan användas för utgående trafik.
 
-När du konfigurerar sådana NSG-konfigurationer bör du kontrol lera att rätt prioriteter tillämpas på [säkerhets reglerna](../virtual-network/security-overview.md#security-rules). Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.
+När du konfigurerar sådana NSG-konfigurationer bör du kontrol lera att rätt prioriteter tillämpas på [säkerhets reglerna](../virtual-network/network-security-groups-overview.md#security-rules). Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.
 
 Du kanske inte alltid är medveten om när nätverkssäkerhetsgrupper tillämpas för både ett nätverksgränssnitt och ett undernät. Du kan kontrol lera de sammanställda regler som tillämpas på ett nätverks gränssnitt genom att visa de [effektiva säkerhets reglerna](../virtual-network/virtual-network-network-interface.md#view-effective-security-rules) för ett nätverks gränssnitt. Du kan också använda funktionen [verifiera IP-flöde](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md) i [Azure Network Watcher](../network-watcher/network-watcher-monitoring-overview.md) för att avgöra om kommunikation tillåts till eller från ett nätverks gränssnitt. Verktyget visar om kommunikation tillåts, och om nätverkssäkerhetsregeln tillåter eller nekar trafik.
 
@@ -72,7 +72,7 @@ Som beaktar [exempel scenariot](concepts-network-security-group-with-site-recove
 När NSG: er har skapats och kon figurer ATS rekommenderar vi att du kör ett [redundanstest](azure-to-azure-tutorial-dr-drill.md) för att verifiera SKRIPTade NSG-associationer och VM-anslutning efter redundans.
 
 ## <a name="next-steps"></a>Nästa steg
--    Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md#network-security-groups).
--    Läs mer om [säkerhets regler](../virtual-network/security-overview.md#security-rules)för NSG.
+-    Läs mer om [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md#network-security-groups).
+-    Läs mer om [säkerhets regler](../virtual-network/network-security-groups-overview.md#security-rules)för NSG.
 -    Läs mer om [gällande säkerhets regler](../virtual-network/diagnose-network-traffic-filter-problem.md) för en NSG.
 -    Läs mer om [återställnings planer](site-recovery-create-recovery-plans.md) för att automatisera programredundans.

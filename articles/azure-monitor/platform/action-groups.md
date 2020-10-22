@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: ab76b4aafd73173077d5b2b9f29e6e2da24c1710
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104401"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367745"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure-portalen
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -157,7 +157,7 @@ Med åtgärden åtgärds grupper webhook kan du dra nytta av Azure Active Direct
 2. Aktivera åtgärds grupper för att använda Azure AD-programmet.
 
     > [!NOTE]
-    > Du måste vara medlem i [rollen Azure AD-programadministratör](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) för att köra det här skriptet.
+    > Du måste vara medlem i [rollen Azure AD-programadministratör](../../active-directory/roles/permissions-reference.md#available-roles) för att köra det här skriptet.
     
     - Ändra PowerShell-skriptets Connect-AzureAD anrop för att använda ditt Azure AD-klient-ID.
     - Ändra PowerShell-skriptets variabel $myAzureADApplicationObjectId att använda objekt-ID: t för ditt Azure AD-program.

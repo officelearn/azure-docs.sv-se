@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b71c6b834a6217007134b3be961a0ffa103e2706
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397971"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368051"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka problem med replikering av virtuella datorer i Azure till Azure-scenarier
 
@@ -202,7 +202,7 @@ Det går inte att upprätta en anslutning till Microsoft 365-slutpunkter för au
 #### <a name="fix-the-problem"></a>Åtgärda problemet
 
 Azure Site Recovery nödvändig åtkomst till Microsoft 365 IP-intervall för autentisering.
-Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn ska du kontrol lera att du använder [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) -baserad NSG-regel för att tillåta åtkomst till AAD. Vi stöder inte längre IP-adressbaserade NSG-regler.
+Om du använder Azure nätverks säkerhets grupp (NSG) regler/brand Väggs-proxy för att kontrol lera utgående nätverks anslutning på den virtuella datorn ska du kontrol lera att du använder [Azure Active Directory (AAD) service tag](../virtual-network/network-security-groups-overview.md#service-tags) -baserad NSG-regel för att tillåta åtkomst till AAD. Vi stöder inte längre IP-adressbaserade NSG-regler.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problem 3: Site Recovery konfiguration misslyckades (151197)
 

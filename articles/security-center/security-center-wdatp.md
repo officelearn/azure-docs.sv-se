@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 1574810de5b1a2df1b82ea9cc19c88be5c72fec6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 372ff1dc53f15a1338cad933fec64746b6736f40
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342152"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368101"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Skydda dina slut punkter med Security Center Integrated EDR-lösning: Microsoft Defender för slut punkt
 
@@ -85,7 +85,7 @@ När du har konfigurerat platsen kan du inte ändra den. Om du behöver flytta d
 1. Från Security Center menyn väljer du **pris & inställningar**.
 1. Välj den prenumeration som du vill ändra.
 1. Välj **hot identifiering**.
-1. Välj **Tillåt Windows Defender ATP för att komma åt mina data**och välj **Spara**.
+1. Välj **Tillåt Microsoft Defender för slut punkt för att komma åt mina data**och välj **Spara**.
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Microsoft Defender för slutpunktens egna Security Center":::
 

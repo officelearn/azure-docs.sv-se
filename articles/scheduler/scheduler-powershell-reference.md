@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 5b82dba923db16e96cc0884b629723c4e8496c3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccc9f709348d961e49bced00946658a6997837c0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080938"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368119"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>PowerShell-cmdlets-referens för Azure Scheduler
 
@@ -22,7 +22,7 @@ ms.locfileid: "87080938"
 >
 > Scheduler är inte längre tillgänglig i Azure Portal, men [PowerShell-cmdletarna](scheduler-powershell-reference.md) [REST API](/rest/api/scheduler) och Azure Scheduler är tillgängliga just nu så att du kan hantera jobb och jobb samlingar.
 
-Om du vill redigera skript för att skapa och hantera jobb i Schemaläggaren och jobb samlingar kan du använda PowerShell-cmdletar. Den här artikeln innehåller de viktigaste PowerShell-cmdletarna för Azure Scheduler med länkar till sina referens artiklar. Information om hur du installerar Azure PowerShell för din Azure-prenumeration finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/). Mer information om [Azure Resource Manager-cmdlets](/powershell/azure/)finns i [använda Azure PowerShell med Azure Resource Manager](../powershell-azure-resource-manager.md).
+Om du vill redigera skript för att skapa och hantera jobb i Schemaläggaren och jobb samlingar kan du använda PowerShell-cmdletar. Den här artikeln innehåller de viktigaste PowerShell-cmdletarna för Azure Scheduler med länkar till sina referens artiklar. Information om hur du installerar Azure PowerShell för din Azure-prenumeration finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/). Mer information om [Azure Resource Manager-cmdlets](/powershell/azure/)finns i [använda Azure PowerShell med Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2cbb9876d9e28b2cab8efb9ccdb2aa543fcc4b4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d3d03f46e3948d1134c442f93af2e8f274dcd256
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964476"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366487"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planera en Azure Multi-Factor Authentication-distribution
 
@@ -31,7 +31,7 @@ För att snabbt se Azure Multi-Factor Authentication i praktiken och återgå se
 > [!div class="nextstepaction"]
 > [Aktivera Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar en distribution av Azure Multi-Factor Authentication finns det nödvändiga objekt som bör övervägas.
 
@@ -226,7 +226,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 För att planera strategin för principer för villkorlig åtkomst som avgör när MFA och andra kontroller krävs, se [vanliga principer för villkorlig åtkomst](../conditional-access/concept-conditional-access-policy-common.md).
 
-Det är viktigt att du förhindrar oavsiktligt låst av din Azure AD-klient. Du kan minska effekten av denna oavsiktliga brist på administrativ åtkomst genom att [skapa två eller fler konton för nöd åtkomst i din klient organisation](../users-groups-roles/directory-emergency-access.md) och utesluta dem från din princip för villkorlig åtkomst.
+Det är viktigt att du förhindrar oavsiktligt låst av din Azure AD-klient. Du kan minska effekten av denna oavsiktliga brist på administrativ åtkomst genom att [skapa två eller fler konton för nöd åtkomst i din klient organisation](../roles/security-emergency-access.md) och utesluta dem från din princip för villkorlig åtkomst.
 
 ### <a name="create-conditional-access-policy"></a>Skapa princip för villkorlig åtkomst
 

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b90ca2812651e139fb62d86ba0bf4d181d5e9d76
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0e44cb38435ca86ad7cd4709d5e99f5cf41fcf91
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145288"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366334"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planera en distribution av villkorsstyrd åtkomst
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) analys av villkorlig åtkomst (CA) analyserar 
 
 Microsoft tillhandahåller standard villkors principer som kallas [säkerhets inställningar](../fundamentals/concept-fundamentals-security-defaults.md) som garanterar en grundläggande säkerhets nivå. Din organisation kan dock behöva större flexibilitet än erbjudandet om säkerhets standard. Du kan använda villkorlig åtkomst för att anpassa säkerhets standardvärden med mer detaljerad information och konfigurera nya principer som uppfyller dina krav.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Läs mer
 
 Innan du börjar ska du kontrol lera att du förstår hur [villkorlig åtkomst](overview.md) fungerar och när du ska använda det.
 
@@ -52,7 +52,7 @@ Se [licens krav för villkorlig åtkomst](overview.md).
 
 Om ytterligare funktioner krävs kan du också behöva relaterade licenser. Mer information finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * En fungerande Azure AD-klient med Azure AD Premium-eller utvärderings licens aktive rad. Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -220,7 +220,7 @@ Att skapa en princip för varje app är inte effektivt och leder till svårt adm
 
 ### <a name="set-up-emergency-access-accounts"></a>Konfigurera åtkomst konton för nöd situationer
 
-Om du konfigurerar en princip felaktigt kan den låsa organisationerna från Azure Portal. Minska effekten av oavsiktligt administratörs lås genom att skapa två eller fler [konton för nöd åtkomst](../users-groups-roles/directory-emergency-access.md) i din organisation.
+Om du konfigurerar en princip felaktigt kan den låsa organisationerna från Azure Portal. Minska effekten av oavsiktligt administratörs lås genom att skapa två eller fler [konton för nöd åtkomst](../roles/security-emergency-access.md) i din organisation.
 
 * Skapa ett användar konto dedikerat för princip administration och exkluderas från alla dina principer.
 

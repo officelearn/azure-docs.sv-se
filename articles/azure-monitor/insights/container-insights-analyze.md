@@ -3,12 +3,12 @@ title: Kubernetes-övervakning med Azure Monitor för behållare | Microsoft Doc
 description: Den här artikeln beskriver hur du kan visa och analysera prestanda för ett Kubernetes-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 5d267715ed9748c69c33bbd7bc5af0db7b118502
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: de61e8e5b2716a3ca212a0a830a4d48b8bd2c3ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994761"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368765"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Övervaka prestanda för Kubernetes-kluster med Azure Monitor för behållare
 
@@ -66,7 +66,7 @@ Hälso tillstånd beräknar övergripande kluster status som *sämsta av* de tre
 
 Följande tabell innehåller en analys av beräkningen som styr hälso tillståndet för ett övervakat kluster i vyn över flera kluster.
 
-| Övervakat kluster |Status |Tillgängligt |
+| Övervakat kluster |Status |Tillgänglighet |
 |-------|-------|-----------------|
 |**Användarens Pod**| | |
 | |Felfri |100 % |
@@ -75,7 +75,7 @@ Följande tabell innehåller en analys av beräkningen som styr hälso tillstån
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 |**Systemets Pod**| | |
 | |Felfri |100 % |
-| |Varning |Saknas |
+| |Varning |Ej tillämpligt |
 | |Kritiskt |<100% |
 | |Okänt |Om de inte har rapporter ATS under de senaste 30 minuterna |
 |**Node** | | |
@@ -191,7 +191,7 @@ Den information som visas när du visar fliken **noder** beskrivs i följande ta
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Name | Namnet på värden. |
+| Namn | Namnet på värden. |
 | Status | Kubernetes visar nodens status. |
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%  | Genomsnittlig nod i procent baserat på percentil under den valda varaktigheten. |
 | Min, AVG, 50, nittionde, 95, max | Genomsnittligt antal noders faktiska värde baserat på percentil under den valda tids perioden. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en nod. För poddar och behållare är det det genomsnittliga värdet som rapporteras av värden. |
@@ -234,7 +234,7 @@ Den information som visas när du visar kontrollanter beskrivs i följande tabel
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Name | Namnet på kontrollanten.|
+| Namn | Namnet på kontrollanten.|
 | Status | Sammanslagnings statusen för behållarna när den har slutförts med status, till exempel *OK*, *avslutad*, *misslyckad*, *stoppad*eller *pausad*. Om behållaren körs men status antingen inte visas korrekt eller inte har hämtats av agenten och inte har svarat i mer än 30 minuter, är statusen *okänd*. Ytterligare information om status ikonen finns i följande tabell.|
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;%| Beräknat medelvärde för den genomsnittliga procent andelen av varje enhet för det valda måttet och percentilen. |
 | Min, AVG, 50, nittionde, 95, max  | Sammanslagning av genomsnittlig CPU-Millicore eller minnes prestanda för den valda percentilen. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en pod. |
@@ -271,7 +271,7 @@ Den information som visas när du visar behållare beskrivs i följande tabell.
 
 | Kolumn | Beskrivning |
 |--------|-------------|
-| Name | Namnet på kontrollanten.|
+| Namn | Namnet på kontrollanten.|
 | Status | Status för behållarna, om det finns några. Ytterligare information om status ikonen finns i nästa tabell.|
 | Min &nbsp; %, AVG &nbsp; %, 50 &nbsp; %, 90 &nbsp; %, 95 &nbsp; %, max&nbsp;% | Sammanställning av den genomsnittliga procent andelen av varje enhet för det valda måttet och percentilen. |
 | Min, AVG, 50, nittionde, 95, max | Sammanslagning av genomsnittlig CPU-Millicore eller minnes prestanda för behållaren för den valda percentilen. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en pod. |
@@ -290,6 +290,10 @@ Ikonerna i fältet status anger online-status för poddar, enligt beskrivningen 
 | ![Ikon för senast rapporterad körnings status](./media/container-insights-analyze/containers-grey-icon.png) | Senast rapporterad, men har inte svarat på mer än 30 minuter|
 | ![Ikon för avslutat status](./media/container-insights-analyze/containers-terminated-icon.png) | Stoppades eller kunde inte stoppas|
 | ![Ikon för misslyckad status](./media/container-insights-analyze/containers-failed-icon.png) | Felaktigt tillstånd |
+
+## <a name="monitor-and-visualize-network-configurations"></a>Övervaka och visualisera nätverkskonfigurationer
+Azure Network Policy Manager innehåller informativa Prometheus-mått som gör att du kan övervaka och bättre förstå dina nätverkskonfigurationer. Den innehåller inbyggda visualiseringar i antingen Azure Portal-eller Grafana Labs. Mer information finns i [övervaka och visualisera nätverkskonfigurationer med Azure NPM](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
+
 
 ## <a name="workbooks"></a>Arbetsböcker
 

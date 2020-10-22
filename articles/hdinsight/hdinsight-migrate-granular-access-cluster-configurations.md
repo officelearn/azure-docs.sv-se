@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: e67d705f8e878cff6934c2e8a172148fab3f1d71
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 23811f379f8738e3fe9f162e23627d0c3c457621
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329006"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367507"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -136,12 +136,12 @@ Uppdatera till [version 1.0.0](https://search.maven.org/artifact/com.microsoft.a
 
 ### <a name="sdk-for-go"></a>SDK för go
 
-Uppdatera till [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight) eller senare av HDInsight SDK för go. Minimala kod ändringar kan krävas om du använder en metod som påverkas av dessa ändringar:
+Uppdatera till [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight) eller senare av HDInsight SDK för go. Minimala kod ändringar kan krävas om du använder en metod som påverkas av dessa ändringar:
 
-- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Get) kommer **inte längre att returnera känsliga parametrar** som lagrings nycklar (Core-site) eller http-autentiseringsuppgifter (Gateway).
-    - Om du vill hämta alla konfigurationer, inklusive känsliga parametrar, använder du [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List) framåt.Observera att användare med rollen läsare inte kommer att kunna använda den här metoden. Detta ger detaljerad kontroll över vilka användare som kan komma åt känslig information för ett kluster. 
-    - Använd för att hämta bara HTTP Gateway-autentiseringsuppgifter [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings) .
-- [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) är nu föråldrad och har ersatts av [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings) .
+- [`ConfigurationsClient.get`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Get) kommer **inte längre att returnera känsliga parametrar** som lagrings nycklar (Core-site) eller http-autentiseringsuppgifter (Gateway).
+    - Om du vill hämta alla konfigurationer, inklusive känsliga parametrar, använder du [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.List) framåt.Observera att användare med rollen läsare inte kommer att kunna använda den här metoden. Detta ger detaljerad kontroll över vilka användare som kan komma åt känslig information för ett kluster. 
+    - Använd för att hämta bara HTTP Gateway-autentiseringsuppgifter [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ClustersClient.GetGatewaySettings) .
+- [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ConfigurationsClient.Update) är nu föråldrad och har ersatts av [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings) .
 
 ### <a name="azhdinsight-powershell"></a>AZ. HDInsight PowerShell
 Uppdatera till [AZ PowerShell version 2.0.0](https://www.powershellgallery.com/packages/Az) eller senare för att undvika avbrott.  Minimala kod ändringar kan krävas om du använder en metod som påverkas av ändringarna.

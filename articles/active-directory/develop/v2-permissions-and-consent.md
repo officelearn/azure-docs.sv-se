@@ -12,12 +12,12 @@ ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur, marsma
 ms.custom: aaddev, fasttrack-edit, contperfq1, identityplatformtop40
-ms.openlocfilehash: 79475414f6785474596beae208fefae81a673dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c8a911bef5fb92f5bf9aa447e9e810a85317208
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842690"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365858"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i slutpunkten för Microsoft Identity Platform
 
@@ -54,13 +54,13 @@ En app begär oftast dessa behörigheter genom att ange omfattningarna i begär 
 
 Microsoft Identity Platform stöder två typer av behörigheter: **delegerade behörigheter** och **program behörigheter**.
 
-* **Delegerade behörigheter** används av appar där en inloggad användare finns. För dessa appar skickas användaren eller administratören till de behörigheter som appen begär, och appen är delegerad behörighet att fungera som den inloggade användaren när den gör anrop till mål resursen. Vissa delegerade behörigheter kan skickas till av icke-administratörer, men vissa högre privilegier kräver [Administratörs medgivande](#admin-restricted-permissions). Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegerade behörigheter** används av appar där en inloggad användare finns. För dessa appar skickas användaren eller administratören till de behörigheter som appen begär, och appen är delegerad behörighet att fungera som den inloggade användaren när den gör anrop till mål resursen. Vissa delegerade behörigheter kan skickas till av icke-administratörer, men vissa högre privilegier kräver [Administratörs medgivande](#admin-restricted-permissions). Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../roles/permissions-reference.md).
 
 * **Program behörigheter** används av appar som körs utan att en inloggad användare finns. till exempel appar som körs som bakgrunds tjänster eller daemon.  Program behörigheter kan bara godkännas [av en administratör](#requesting-consent-for-an-entire-tenant).
 
 _Gällande behörigheter_ är de behörigheter som appen kommer att ha när de gör förfrågningar till mål resursen. Det är viktigt att förstå skillnaden mellan de delegerade och program behörigheter som din app beviljas och dess gällande behörigheter när du gör anrop till mål resursen.
 
-- För delegerade behörigheter är den _effektiva behörigheten_ för din app den minst privilegierade skärnings punkten för de delegerade behörigheterna som appen har beviljats (via medgivande) och behörigheten för den för tillfället inloggade användaren. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+- För delegerade behörigheter är den _effektiva behörigheten_ för din app den minst privilegierade skärnings punkten för de delegerade behörigheterna som appen har beviljats (via medgivande) och behörigheten för den för tillfället inloggade användaren. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../roles/permissions-reference.md).
 
    Anta till exempel att din app har beviljats _User. readwrite. all_ delegerad behörighet. Den här behörigheten ger i princip din app behörighet att läsa och uppdatera profilen för alla användare i en organisation. Om den inloggade användaren är en global administratör, kommer din app att kunna uppdatera profilen för alla användare i organisationen. Men om den inloggade användaren inte har någon administratörs roll kan appen bara uppdatera profilen för den inloggade användaren. Den kommer inte att kunna uppdatera profilerna för andra användare i organisationen, eftersom den användare som den har behörighet att agera på uppdrag åt inte har den behörigheten.
 

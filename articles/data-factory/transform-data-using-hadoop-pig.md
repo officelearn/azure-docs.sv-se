@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 54eff77daa7e69c39e9ec5d6f326f2f64c9fcafb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b6f75204f64f892f80abb4890796551bffd22a7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83849237"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368969"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Transformera data med Hadoop gris-aktivitet i Azure Data Factory
 
@@ -62,13 +62,13 @@ Om du är nybörjare på Azure Data Factory läser du [Introduktion till Azure D
 | Egenskap            | Beskrivning                              | Krävs |
 | ------------------- | ---------------------------------------- | -------- |
 | name                | Namn på aktiviteten                     | Ja      |
-| description         | Text som beskriver vad aktiviteten används för | Inga       |
+| description         | Text som beskriver vad aktiviteten används för | Nej       |
 | typ                | För Hive-aktivitet är aktivitets typen HDinsightPig | Ja      |
 | linkedServiceName   | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
-| scriptLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra det gris-skript som ska köras. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Inga       |
-| scriptPath          | Ange sökvägen till skript filen som lagras i Azure Storage som refereras av scriptLinkedService. Fil namnet är Skift läges känsligt. | Inga       |
-| getDebugInfo        | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Inga       |
-| ogiltiga           | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Inga       |
+| scriptLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra det gris-skript som ska köras. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Nej       |
+| scriptPath          | Ange sökvägen till skript filen som lagras i Azure Storage som refereras av scriptLinkedService. Fil namnet är Skift läges känsligt. | Nej       |
+| getDebugInfo        | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
+| ogiltiga           | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
 | definierar             | Ange parametrar som nyckel/värde-par för referenser i gris-skriptet. | Nej       |
 
 ## <a name="next-steps"></a>Nästa steg
@@ -80,5 +80,5 @@ Se följande artiklar som förklarar hur du omformar data på andra sätt:
 * [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning batch-körning, aktivitet](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (klassisk) batch execution Activity](transform-data-using-machine-learning.md)
 * [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

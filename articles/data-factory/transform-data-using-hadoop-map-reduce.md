@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 48afff71d4b5241ede1783a270658e56e4b8c242
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab7bb96c6b367b3520676a36c3d52b49ba90eb26
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83849254"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368956"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformera data med Hadoop MapReduce-aktivitet i Azure Data Factory
 
@@ -65,16 +65,16 @@ Se [gris](transform-data-using-hadoop-pig.md) och [Hive](transform-data-using-ha
 | Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | Namn på aktiviteten                     | Ja      |
-| description       | Text som beskriver vad aktiviteten används för | Inga       |
+| description       | Text som beskriver vad aktiviteten används för | Nej       |
 | typ              | Aktivitets typen är HDinsightMapReduce för MapReduce-aktivitet | Ja      |
 | linkedServiceName | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
 | className         | Namnet på klassen som ska köras         | Ja      |
-| jarLinkedService  | Referens till en Azure Storage länkad tjänst som används för att lagra jar-filerna. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Inga       |
+| jarLinkedService  | Referens till en Azure Storage länkad tjänst som används för att lagra jar-filerna. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Nej       |
 | jarFilePath       | Ange sökvägen till jar-filerna som lagras i Azure Storage som refereras av jarLinkedService. Fil namnet är Skift läges känsligt. | Ja      |
-| jarlibs           | Sträng mat ris för sökvägen till jar-biblioteksfilerna som refereras av jobbet som lagras i Azure Storage som definierats i jarLinkedService. Fil namnet är Skift läges känsligt. | Inga       |
-| getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av jarLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Inga       |
-| ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Inga       |
-| definierar           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Inga       |
+| jarlibs           | Sträng mat ris för sökvägen till jar-biblioteksfilerna som refereras av jobbet som lagras i Azure Storage som definierats i jarLinkedService. Fil namnet är Skift läges känsligt. | Nej       |
+| getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av jarLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
+| ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
+| definierar           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       |
 
 
 
@@ -123,5 +123,5 @@ Se följande artiklar som förklarar hur du omformar data på andra sätt:
 * [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning batch-körning, aktivitet](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (klassisk) batch execution Activity](transform-data-using-machine-learning.md)
 * [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

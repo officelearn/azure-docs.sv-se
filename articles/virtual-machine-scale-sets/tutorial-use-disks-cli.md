@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 5dedee5e9ef4d036305a545201afc03d90750189
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7e9e1fa567ae282a4472fa728e53e720bf8ff6f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568326"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367932"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skapa och använd diskar med en VM-skalningsuppsättning med Azure CLI
 VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här guiden får du lära du dig hur man:
@@ -76,7 +76,7 @@ I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås ge
 ## <a name="create-and-attach-disks"></a>Skapa och koppla diskar
 Du kan skapa och ansluta diskar när du skapar en skalningsuppsättning eller med en befintlig skalningsuppsättning.
 
-Från och med API `2019-07-01` -versionen kan du ange storleken på OS-disken i en skalnings uppsättning för virtuella datorer med egenskapen [StorageProfile. OsDisk. diskSizeGb](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) . Efter etableringen kan du behöva expandera eller partitionera om disken för att kunna använda hela utrymmet. Lär dig mer om [att utöka disken här](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk#expand-the-volume-within-the-os).
+Från och med API `2019-07-01` -versionen kan du ange storleken på OS-disken i en skalnings uppsättning för virtuella datorer med egenskapen [StorageProfile. OsDisk. diskSizeGb](/rest/api/compute/virtualmachinescalesets/createorupdate#virtualmachinescalesetosdisk) . Efter etableringen kan du behöva expandera eller partitionera om disken för att kunna använda hela utrymmet. Lär dig mer om [att utöka disken här](../virtual-machines/windows/expand-os-disk.md#expand-the-volume-within-the-os).
 
 ### <a name="attach-disks-at-scale-set-creation"></a>Anslut diskarna när skalningsuppsättningen skapas
 Skapa först en resursgrupp med kommandot [az group create](/cli/azure/group). I det här exemplet skapas en resurs grupp med namnet *myResourceGroup* i regionen *östra* .

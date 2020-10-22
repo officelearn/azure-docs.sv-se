@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb64fb3c9e25e629a0bcb36fe60fd5ae2d7fc906
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249475"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368612"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Optimera Apache Spark jobb (för hands version) i Azure Synapse Analytics
 
@@ -52,7 +52,7 @@ Tidigare Spark-versioner använder RDD till abstrakta data, Spark 1,3 och 1,6 in
 
 Spark stöder många format, till exempel CSV, JSON, XML, Parquet, Orc och Avro. Spark kan utökas för att ge stöd för många fler format med externa data källor – mer information finns i [Apache Spark-paket](https://spark-packages.org).
 
-Det bästa formatet för prestanda är Parquet med *Fästnings komprimering*, vilket är standard i Spark 2. x. Parquet lagrar data i kolumn format och optimeras mycket i Spark. Även om *överfästnings komprimering* kan resultera i större filer än att säga gzip-komprimering. På grund av den fildelnings bara typen av filerna dekomprimeras de snabbare]
+Det bästa formatet för prestanda är Parquet med *Fästnings komprimering*, vilket är standard i Spark 2. x. Parquet lagrar data i kolumn format och optimeras mycket i Spark. Även om *överfästnings komprimering* kan resultera i större filer än att säga gzip-komprimering. På grund av den fildelnings bara typen av filerna kommer de att avkomprimeras snabbare.
 
 ## <a name="use-the-cache"></a>Använd cachen
 
@@ -77,7 +77,7 @@ Apache Spark i Azure Synapse använder garn [Apache HADOOP garn](https://hadoop.
 Prova följande om du vill ta bort meddelanden om slut på minne:
 
 * Läs om DAG hantering, blandade. Minska genom att minska från kopplings sidan, bucketiseras (eller) käll data, maximera enskilda blandade blandade och minska mängden data som skickas.
-* Föredra `ReduceByKey` med den fasta minnes gränsen till `GroupByKey` , som tillhandahåller agg regeringar, fönster och andra funktioner, men har den obegränsade minnes gränsen för Ann.
+* Föredra `ReduceByKey` med den fasta minnes gränsen till `GroupByKey` , som tillhandahåller agg regeringar, fönster och andra funktioner, men har en obegränsad minnes gräns.
 * Föredra `TreeReduce` , som fungerar mer i körnings-eller partitionerna, till `Reduce` , som gör allt arbete på driv rutinen.
 * Utnyttja DataFrames i stället för RDD-objekt på lägre nivå.
 * Skapa ComplexTypes som kapslar in åtgärder, till exempel "Top N", olika agg regeringar eller fönster åtgärder.
@@ -178,6 +178,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Justerings Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+- [Justerings Apache Spark](https://spark.apache.org/docs/2.4.5/tuning.html)
 - [Så här finjusterar du dina Apache Spark jobb så att de fungerar](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 - [Kryo-serialisering](https://github.com/EsotericSoftware/kryo)

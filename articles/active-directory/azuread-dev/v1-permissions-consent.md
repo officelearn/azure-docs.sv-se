@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jesakowi
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c600e1fddc0089a508ff0cfebbbb3476f3a90008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b85115d905cb6a7eb7c6aed64a4834425d2f1d7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88117625"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366402"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Behörigheter och medgivande i Azure Active Directory v 1.0-slutpunkten
 
@@ -38,7 +38,7 @@ Azure AD definierar två typer av behörigheter:
 
 Gällande behörigheter är de behörigheter som din app har vid begäranden till en API. 
 
-* För delegerade behörigheter blir de behörigheter som gäller för din app lägsta möjliga skärningspunkt för de delegerade behörigheter som appen har beviljats (via godkännande) och de behörigheter som den för tillfället inloggade användaren har. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* För delegerade behörigheter blir de behörigheter som gäller för din app lägsta möjliga skärningspunkt för de delegerade behörigheter som appen har beviljats (via godkännande) och de behörigheter som den för tillfället inloggade användaren har. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../roles/permissions-reference.md).
     Anta exempelvis att din app har beviljats den delegerade behörigheten `User.ReadWrite.All` i Microsoft Graph. Den här behörigheten ger i princip din app behörighet att läsa och uppdatera profilen för alla användare i en organisation. Om den inloggade användaren är en global administratör, kommer din app att kunna uppdatera profilen för alla användare i organisationen. Men om den inloggade användaren inte har någon administratörsroll, kommer appen endast kunna uppdatera profilen för den inloggade användaren. Den kommer inte att kunna uppdatera profilerna för andra användare i organisationen, eftersom den användare som den har behörighet att agera på uppdrag åt inte har den behörigheten.
 * För programbehörigheter är de gällande behörigheterna för din app den fullständiga behörighetsnivå som behörigheten ger. En app som exempelvis har programbehörigheten `User.ReadWrite.All` kan uppdatera profilen för alla användare i organisationen.
 

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: 5acfef94a98f105a7cc09c5b72b65e8c228ed87d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cc8e2e02aef9e323da9859ce6fd0bebea2ce036
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83844635"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368918"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med hjälp av Hadoop streaming-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -72,18 +72,18 @@ Om du är nybörjare på Azure Data Factory läser du [Introduktion till Azure D
 | Egenskap          | Beskrivning                              | Krävs |
 | ----------------- | ---------------------------------------- | -------- |
 | name              | Namn på aktiviteten                     | Ja      |
-| description       | Text som beskriver vad aktiviteten används för | Inga       |
+| description       | Text som beskriver vad aktiviteten används för | Nej       |
 | typ              | För Hadoop streaming-aktivitet är aktivitets typen HDInsightStreaming | Ja      |
 | linkedServiceName | Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
 | mappning            | Anger namnet på den körbara filen för mapper | Ja      |
 | minskning           | Anger namnet på den programbegränsande körbara filen | Ja      |
-| kombinations          | Anger namnet på den kombinerade program filen | Inga       |
-| fileLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra mapparna Mapper, kombinerare och minska program som ska köras. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Inga       |
+| kombinations          | Anger namnet på den kombinerade program filen | Nej       |
+| fileLinkedService | Referens till en Azure Storage länkad tjänst som används för att lagra mapparna Mapper, kombinerare och minska program som ska köras. Endast **[Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** -och **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** länkade tjänster stöds här. Om du inte anger den här länkade tjänsten används den Azure Storage länkade tjänsten som definierats i den länkade HDInsight-tjänsten. | Nej       |
 | filePath          | Ange en matris med sökvägen till mapparna Mapper, kombinerare och Minskare som lagras i Azure Storage som refereras av fileLinkedService. Sökvägen är skiftlägeskänslig. | Ja      |
 | indata             | Anger WASB-sökvägen till indatafilen för mapper. | Ja      |
 | utdata            | Anger WASB-sökvägen till utdatafilen för minsknings filen. | Ja      |
-| getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Inga       |
-| ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Inga       |
+| getDebugInfo      | Anger när loggfilerna kopieras till Azure Storage som används av HDInsight-kluster (eller) som anges av scriptLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Nej       |
+| ogiltiga         | Anger en matris med argument för ett Hadoop-jobb. Argumenten skickas som kommando rads argument till varje aktivitet. | Nej       |
 | definierar           | Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet. | Nej       | 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -95,5 +95,5 @@ Se följande artiklar som förklarar hur du omformar data på andra sätt:
 * [MapReduce-aktivitet](transform-data-using-hadoop-map-reduce.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning batch-körning, aktivitet](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (klassisk) batch execution Activity](transform-data-using-machine-learning.md)
 * [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

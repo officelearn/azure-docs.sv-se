@@ -10,16 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.openlocfilehash: ec2516010768eded939b0ffa44c197f102c7766b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/22/2020
 ms.locfileid: "89401205"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Lägga till en plats-till-plats-anslutning till ett VNet med en befintlig VPN gateway-anslutning
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure-portalen](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (klassisk)](vpn-gateway-multi-site.md)
 >
 > 
@@ -62,7 +62,7 @@ Verifiera följande objekt:
      ![Sidan Lägg till anslutning](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Sidan Lägg till anslutning")<br>
 
 ## <a name="part-2---add-a-local-network-gateway"></a><a name="part2"></a>Del 2 – lägga till en lokal nätverksgateway
-1. Klicka på **lokal** nätverksgateway ***Välj en lokal***nätverksgateway. Då öppnas sidan **Välj lokal nätverksgateway** .
+1. Klicka på **lokal** nätverksgateway ** _Välj en lokal_nätverksgateway *_. Då öppnas*sidan Välj lokal nätverksgateway** .
    
     ![Välj lokal nätverksgateway](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Välj lokal nätverksgateway")<br>
 2. Klicka på **Skapa ny** för att öppna sidan **skapa lokal** nätverksgateway.

@@ -3,12 +3,12 @@ title: Använd Apache Kafka MirrorMaker – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du använder Kafka-MirrorMaker för att spegla ett Kafka-kluster i AzureEvent-hubbar.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ab0f78adeeff34334c9800632fc58ab634b4fab6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d1ec20a32ef27856483492212608e20e82725f58
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308358"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369530"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Använd Kafka-MirrorMaker med Event Hubs för Apache Kafka
 
@@ -33,7 +33,7 @@ En stor övervägande för modern moln skalnings program är möjligheten att up
 
 Med en Azure Event Hubs Kafka-slutpunkt kan du ansluta till Azure Event Hubs med Kafka-protokollet (Kafka-klienter). Genom att göra minimala ändringar i ett Kafka-program kan du ansluta till Azure Event Hubs och dra nytta av fördelarna med Azure-eko systemet. Event Hubs stöder för närvarande Kafka-versionerna 1,0 och senare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa den här självstudien måste du ha:
 
@@ -100,6 +100,9 @@ sasl.mechanism=PLAIN
 security.protocol=SASL_SSL
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
+
+> [!IMPORTANT]
+> Ersätt `{YOUR.EVENTHUBS.CONNECTION.STRING}` med anslutnings strängen för din Event Hubs-namnrymd. Anvisningar om hur du hämtar anslutnings strängen finns i [Hämta en Event Hubs anslutnings sträng](event-hubs-get-connection-string.md). Här är ett exempel på en konfiguration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
 ## <a name="run-kafka-mirrormaker"></a>Kör Kafka-MirrorMaker
 

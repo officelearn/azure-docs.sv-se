@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8a86be8fa08b6fec7c401ad30165b590b3a6ccde
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 888e2287c869200434e198204881d5bd5014f87d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387685"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363869"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Hantera Azure AD B2C anpassade principer med Azure PowerShell
 
@@ -29,7 +29,7 @@ Azure PowerShell innehåller flera cmdletar för kommando rads-och skriptbaserad
 
 ## <a name="prerequisites"></a>Krav
 
-* [Azure AD B2C klient organisation](tutorial-create-tenant.md)och autentiseringsuppgifter för en användare i katalogen med rollen [B2C IEF princip administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Azure AD B2C klient organisation](tutorial-create-tenant.md)och autentiseringsuppgifter för en användare i katalogen med rollen [B2C IEF princip administratör](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Anpassade principer](custom-policy-get-started.md) har laddats upp till din klient
 * [Modul för för **hands version** av Azure AD PowerShell för diagram](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
 
@@ -37,7 +37,7 @@ Azure PowerShell innehåller flera cmdletar för kommando rads-och skriptbaserad
 
 Om du vill arbeta med anpassade principer i din Azure AD B2C-klient måste du först ansluta PowerShell-sessionen till klienten med hjälp av kommandot [Connect-AzureAD][Connect-AzureAD] .
 
-Kör följande kommando och Ersätt `{b2c-tenant-name}` med namnet på din Azure AD B2C-klient. Logga in med ett konto som har tilldelats rollen [B2C IEF-princip administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) i katalogen.
+Kör följande kommando och Ersätt `{b2c-tenant-name}` med namnet på din Azure AD B2C-klient. Logga in med ett konto som har tilldelats rollen [B2C IEF-princip administratör](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator) i katalogen.
 
 ```PowerShell
 Connect-AzureAD -Tenant "{b2c-tenant-name}.onmicrosoft.com"
@@ -131,7 +131,7 @@ Om du utfärdar `Set-AzureADMSTrustFrameworkPolicy` kommandot med ID: t för en 
 Set-AzureADMSTrustFrameworkPolicy [-Id <policyId>] -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]
 ```
 
-Exempelkommando:
+Exempel kommando:
 
 ```PowerShell
 # Update an existing policy from file
@@ -150,7 +150,7 @@ Använd kommandot [New-AzureADMSTrustFrameworkPolicy][New-AzureADMSTrustFramewor
 New-AzureADMSTrustFrameworkPolicy -InputFilePath <inputpolicyfilePath> [-OutputFilePath <outputFilePath>]
 ```
 
-Exempelkommando:
+Exempel kommando:
 
 ```PowerShell
 # Add new policy from file
@@ -167,7 +167,7 @@ Använd kommandot [Remove-AzureADMSTrustFrameworkPolicy][Remove-AzureADMSTrustFr
 Remove-AzureADMSTrustFrameworkPolicy -Id <policyId>
 ```
 
-Exempelkommando:
+Exempel kommando:
 
 ```PowerShell
 # Delete an existing policy

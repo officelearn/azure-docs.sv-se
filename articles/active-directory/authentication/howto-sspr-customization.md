@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abca66dbe80cecec2320256d8a736408de20b64f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4bef201cbd14a4de0c785b5f86d534f27bfedb31
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968301"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363716"
 ---
 # <a name="customize-the-user-experience-for-azure-active-directory-self-service-password-reset"></a>Anpassa användar upplevelsen för Azure Active Directory återställning av lösen ord för självbetjäning
 
@@ -50,7 +50,7 @@ E-postadressen till standard kontakten skickas till mottagarna i följande ordni
 
 I samtliga fall meddelas högst 100 mottagare.
 
-Läs mer om de olika administratörs rollerna och hur du tilldelar dem i [tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Läs mer om de olika administratörs rollerna och hur du tilldelar dem i [tilldela administratörs roller i Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="disable-contact-your-administrator-emails"></a>Inaktivera "kontakta administratören"-e-post
 

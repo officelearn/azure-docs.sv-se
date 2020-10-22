@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/14/2020
-ms.openlocfilehash: 114a0d6f97149baad0c9e76fb359c52996820575
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 7ce183595ed8e20c4b5cf4afe9ac1174882dc392
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207163"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370329"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Självstudie: använda Apache HBase i Azure HDInsight
 
 Den här självstudien visar hur du skapar ett Apache HBase-kluster i Azure HDInsight, skapar HBase-tabeller och frågetabeller med hjälp av Apache Hive.  Allmän HBase-information finns i [HDInsight HBase-översikt](./apache-hbase-overview.md).
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa Apache HBase-kluster
@@ -28,7 +28,7 @@ I de här självstudierna får du lära dig att
 > * Använd HBase REST API:er med Curl
 > * Kontrollera klusterstatus
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -227,6 +227,31 @@ HBase-data kan också frågas från Hive med hjälp av ESP-aktiverade HBase:
 ## <a name="use-hbase-rest-apis-using-curl"></a>Använd HBase REST API:er med Curl
 
 REST API skyddas via [grundläggande autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begäranden genom att använda säker HTTP (HTTPS) för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
+
+1. Om du vill aktivera HBase REST API: er i HDInsight-klustret lägger du till följande anpassade Start skript i avsnittet **skript åtgärd** . Du kan lägga till Start skriptet när du skapar klustret eller när klustret har skapats. För **nodtyp**väljer du **region servrar** för att säkerställa att skriptet bara körs i HBase regions servrar.
+
+
+    ```bash
+    #! /bin/bash
+
+    THIS_MACHINE=`hostname`
+
+    if [[ $THIS_MACHINE != wn* ]]
+    then
+        printf 'Script to be executed only on worker nodes'
+        exit 0
+    fi
+
+    RESULT=`pgrep -f RESTServer`
+    if [[ -z $RESULT ]]
+    then
+        echo "Applying mitigation; starting REST Server"
+        sudo python /usr/lib/python2.7/dist-packages/hdinsight_hbrest/HbaseRestAgent.py
+    else
+        echo "Rest server already running"
+        exit 0
+    fi
+    ```
 
 1. Ställ in miljö variabel för enkel användning. Redigera kommandona nedan genom `MYPASSWORD` att ersätta med lösen ordet för kluster inloggning. Ersätt `MYCLUSTERNAME` med namnet på ditt HBase-kluster. Ange sedan kommandona.
 

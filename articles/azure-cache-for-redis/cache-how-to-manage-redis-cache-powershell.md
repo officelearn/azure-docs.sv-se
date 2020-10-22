@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 327505dfbaf5f6f35b065f4f3941053c5114aa33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 478b53b78fb72a01ad028c7fb6b7683b34cbca14
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019223"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370805"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Det här avsnittet visar hur du utför vanliga uppgifter som att skapa, uppdater
 
 Mer information om den klassiska distributions modellen finns i [Azure Resource Manager vs. klassisk distribution: förstå distributions modeller och status för dina resurser](../azure-resource-manager/management/deployment-models.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du redan har installerat Azure PowerShell måste du ha Azure PowerShell version 1.0.0 eller senare. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med det här kommandot i Azure PowerShell kommando tolken.
 
 ```azurepowershell
@@ -853,5 +853,5 @@ Mer information om hur du använder Windows PowerShell med Azure finns i följan
 * [Använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/templates/deploy-portal.md): Lär dig hur du skapar och hanterar resurs grupper i Azure Portal.
 * [Azure-blogg](https://azure.microsoft.com/blog/): Lär dig om nya funktioner i Azure.
 * [Windows PowerShell-blogg](https://devblogs.microsoft.com/powershell/): Lär dig om nya funktioner i Windows PowerShell.
-* ["Hej, Scripting Guy!" Blogg](https://blogs.technet.microsoft.com/heyscriptingguy/author/the-scripting-guys/): få tips och knep från Windows PowerShell-communityn.
+* ["Hej, Scripting Guy!" Blogg](https://devblogs.microsoft.com/scripting/tag/hey-scripting-guy/): få tips och knep från Windows PowerShell-communityn.
 

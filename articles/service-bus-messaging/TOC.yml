@@ -15,7 +15,7 @@
       items:
         - name: Skapa en Service Bus-kö
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: service-bus-quickstart-portal.md
             - name: Azure PowerShell
               href: service-bus-quickstart-powershell.md
@@ -107,8 +107,6 @@
                   href: service-bus-managed-service-identity.md
                 - name: Autentisera från ett program
                   href: authenticate-application.md
-        - name: Inbyggda säkerhetskontroller
-          href: service-bus-messaging-security-controls.md
         - name: Säkerhetskontroller av Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258157"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363427"
 ---
 # <a name="publisher-verification"></a>Verifiering av utgivare
 
@@ -49,7 +49,7 @@ Det finns några krav för utgivar verifiering, varav vissa redan har slutförts
 
 -  Den användare som utför verifieringen måste ha behörighet att göra ändringar i både appens registrering i Azure AD och MPN-kontot i Partner Center. 
 
-    -  I Azure AD måste den här användaren vara medlem i någon av följande [roller](../users-groups-roles/directory-assign-admin-roles.md): program administratör, moln program administratör eller global administratör. 
+    -  I Azure AD måste den här användaren vara medlem i någon av följande [roller](../roles/permissions-reference.md): program administratör, moln program administratör eller global administratör. 
 
     -  Den här användaren måste ha följande [roller](/partner-center/permissions-overview)i Partner Center: MPN admin, Account admin eller global admin (detta är en delad roll som administreras i Azure AD).
     

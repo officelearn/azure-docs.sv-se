@@ -105,12 +105,22 @@
               href: partner-center-portal/create-azure-container-technical-assets.md
             - name: Skapa ett Azure Container-erbjudande
               href: partner-center-portal/create-azure-container-offer.md
-    - name: Erbjudande för virtuella Azure-datorer
+    - name: Erbjudanden om virtuell Azure-dator
       items:
         - name: Planera ett VM-erbjudande
           href: marketplace-virtual-machines.md
         - name: Skapa och publicera ett VM-erbjudande
           items:
+            - name: Skapa ett VM-erbjudande
+              href: azure-vm-create.md
+            - name: Konfigurera egenskaper för VM-erbjudande
+              href: azure-vm-create-properties.md
+            - name: Konfigurera visning av VM-erbjudande
+              href: azure-vm-create-listing.md
+            - name: Skapa VM-planer
+              href: azure-vm-create-plans.md
+            - name: Lägg till en målgrupp för förhandsversionen
+              href: azure-vm-create-preview.md
             - name: Skapa tekniska tillgångar för virtuella datorer
               items:
                 - name: Skapa virtuell dator från en godkänd bas
@@ -127,16 +137,6 @@
                   href: azure-vm-create-faq.md
                 - name: Felsökning av VM-certifiering
                   href: azure-vm-create-certification-faq.md
-            - name: Skapa ett VM-erbjudande
-              href: azure-vm-create.md
-            - name: Konfigurera egenskaper för VM-erbjudande
-              href: azure-vm-create-properties.md
-            - name: Konfigurera visning av VM-erbjudande
-              href: azure-vm-create-listing.md
-            - name: Skapa VM-planer
-              href: azure-vm-create-plans.md
-            - name: Lägg till en målgrupp för förhandsversionen
-              href: azure-vm-create-preview.md
     - name: Konsulttjänster
       items:
         - name: Planera ett erbjudande om konsulttjänster

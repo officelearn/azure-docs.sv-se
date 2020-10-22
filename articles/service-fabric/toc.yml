@@ -148,8 +148,6 @@
           href: service-fabric-application-and-service-security.md
         - name: Service Fabric-klustersäkerhet
           href: service-fabric-cluster-security.md
-        - name: Inbyggda säkerhetskontroller
-          href: service-fabric-security-controls.md
         - name: Certifikatbaserad autentisering i Service Fabric
           href: cluster-security-certificates.md
         - name: Certifikathantering i Service Fabric

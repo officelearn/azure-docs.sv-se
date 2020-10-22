@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: sharrai
-ms.openlocfilehash: 9e8a1246a2e48c3c569b82845c713ba25ee2467a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 721e09c2bc0562ba833115361cf33c3daaef380b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426130"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364039"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure-replikering och redundans
 
@@ -29,7 +29,7 @@ Om du får problem när du aktiverar skydd för virtuella Hyper-V-datorer kontro
 4. Sök efter problem som visas i Hyper-V-VMMS\Admin logga in på den virtuella datorn. Den här loggen finns i **program och tjänster loggar**  >  **Microsoft**  >  **Windows**.
 5. På den virtuella gäst datorn kontrollerar du att WMI är aktiverat och tillgängligt.
    - [Lär dig mer om](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) grundläggande WMI-testning.
-   - [Felsöka](https://aka.ms/WMiTshooting) Tjänst.
+   - [Felsöka](/windows/win32/wmisdk/wmi-troubleshooting) Tjänst.
    - [Felsök](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) problem med WMI-skript och-tjänster.
 6. Se till att den senaste versionen av Integration Services körs på den virtuella gäst datorn.
     - [Kontrol lera](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services) att du har den senaste versionen.
@@ -135,7 +135,7 @@ En programkonsekvent ögonblicks bild är en tidpunkts ögonblicks bild av progr
 
 ### <a name="common-errors"></a>Vanliga fel
 
-**Felkod** | **Meddelande** | **Information**
+**Felkod** | **Meddelande** | **Detaljer**
 --- | --- | ---
 **0x800700EA** | "Hyper-V kunde inte skapa en ögonblicks bild uppsättning för VSS för virtuell dator: mer data är tillgängliga. (0x800700EA). Generering av ögonblicks bild uppsättning för VSS kan inte utföras om säkerhets kopiering pågår.<br/><br/> Det gick inte att utföra replikering för den virtuella datorn: fler data är tillgängliga. | Kontrol lera om den virtuella datorn har dynamisk disk aktive rad. Det stöds inte.
 **0x80070032** | "Det gick inte att ansluta till den virtuella datorn <./VMname> eftersom versionen inte matchar den version som förväntas av Hyper-v-providern | Kontrol lera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.
@@ -157,7 +157,7 @@ All Hyper-V-replikering loggas i Hyper-V-VMMS\Admin-loggen som finns i **program
 
 ### <a name="event-log-locations"></a>Händelse logg platser
 
-**Händelse logg** | **Information** |
+**Händelse logg** | **Detaljer** |
 --- | ---
 **Program-och tjänst loggar/Microsoft/VirtualMachineManager/server/admin** (VMM-Server) | Loggar för att felsöka VMM-problem.
 **Program-och tjänst loggar/MicrosoftAzureRecoveryServices/replikering** (Hyper-V-värd) | Loggar för att felsöka problem med Microsoft Azure Recovery Services agent. 

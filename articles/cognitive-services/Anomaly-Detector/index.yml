@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: 26632aebbd6cddd1463064b397a2f42071a5d518
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 4bce0b354d1daffccfea108b5668f33fd429f075
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "81757295"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92371247"
 landingContent:
 - title: Om API:et för avvikelseidentifiering
   linkLists:
@@ -98,6 +98,12 @@ landingContent:
       url: https://aka.ms/adadvisorsjoin
     - text: Aktuellt användargenererat innehåll
       url: user-generated-content.md
+- title: Hjälp och feedback
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Alternativ för support och hjälp
+      url: ../cognitive-services-support-options.md?context=/azure/cognitive-services/anomaly-detector/context/context
 - title: Referens
   linkLists:
   - linkListType: reference

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: d888266ae13b500abc5b03fa6a699c9f34b782a6
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173558"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371759"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -81,7 +81,7 @@ Datasynkronisering är inte den bästa lösningen i följande scenarier:
 | | Datasynkronisering | Transaktionsreplikering |
 |---|---|---|
 | **Fördelar** | – Stöd för aktiv-aktiv<br/>– Dubbelriktad mellan lokala och Azure SQL Database | -Nedre latens<br/>– Transaktionell konsekvens<br/>-Återanvänd befintlig topologi efter migrering <br/>– Stöd för Azure SQL Managed instance |
-| **Nackdelar** | – 5 min eller mer svars tid<br/>– Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database <br/>– Kostnad för hög underhåll |
+| **Nackdelar** | – 5 min minsta frekvens mellan synkroniseringar<br/>– Ingen transaktionell konsekvens<br/>-Högre prestanda påverkan | -Det går inte att publicera från Azure SQL Database <br/>– Kostnad för hög underhåll |
 
 ## <a name="get-started"></a>Kom igång 
 
@@ -135,9 +135,9 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 - En primär nyckel kan inte ha följande data typer: sql_variant, Binary, varbinary, image, XML.
 - Var försiktig när du använder följande data typer som primär nyckel, eftersom den precision som stöds endast är för den andra: Time, DateTime, datetime2, DateTimeOffset.
 - Namn på objekt (databaser, tabeller och kolumner) får inte innehålla de utskrivbara tecken perioderna (.), vänster hak paren tes ([) eller höger hak paren tes (]).
+- Ett tabell namn får inte innehålla skrivbara tecken:! " # $ % ' ( ) * + -
 - Azure Active Directory autentisering stöds inte.
 - Om det finns tabeller med samma namn men olika schema (till exempel dbo. kunder och försäljning. kunder) kan endast en av tabellerna läggas till i Sync.
-- Ett tabell namn får inte innehålla tecken som har ett ASCII-värde som är mindre än eller lika med.
 - Kolumner med User-Defined data typer stöds inte
 - Det finns inte stöd för att flytta servrar mellan olika prenumerationer. 
 
@@ -166,7 +166,7 @@ Datasynkronisering kan inte synkronisera skrivskyddade eller systemgenererade ko
 | Tabeller i en Sync-grupp                                          | 500                    | Skapa flera Sync-grupper |
 | Kolumner i en tabell i en Sync-grupp                              | 1000                   |                             |
 | Data rad storlek för en tabell                                        | 24 MB                  |                             |
-| Minsta synkroniseringstillstånd                                           | 5 minuter              |                             |
+| Lägsta frekvens intervall för synkronisering                                 | 5 minuter              |                             |
 
 > [!NOTE]
 > Det kan finnas upp till 30 slut punkter i en enda Sync-grupp om det bara finns en Sync-grupp. Om det finns fler än en Sync-grupp får det totala antalet slut punkter i alla Sync-grupper inte överstiga 30. Om en databas tillhör flera Sync-grupper räknas den som flera slut punkter, inte en.

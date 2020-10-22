@@ -44,8 +44,6 @@
       href: quickstart-create-workspace-powershell.md
     - name: Distribuera med en mall
       href: quickstart-deployment-template-workspaces.md
-    - name: Använda Synapse Studio
-      href: quickstart-synapse-studio.md
     - name: Länka en Power BI-arbetsyta
       href: quickstart-power-bi.md
     - name: Skapa pooler

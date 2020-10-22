@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: eff512c9d050eb293391233848fcece83e845680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fceef1fa9f79ead0ffbbfd7de17b21b750659fc9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654199"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370244"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att skapa en virtuell Linux-dator (VM) från kommando raden eller från portalen. Den här självstudien visar hur du ser till att du har konfigurerat för att optimera prestandan på Microsoft Azures plattformen. I det här avsnittet används en virtuell Ubuntu-Server, men du kan också skapa en virtuell Linux-dator med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Det här avsnittet förutsätter att du redan har en fungerande Azure-prenumeration ([kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/)) och redan har etablerad en virtuell dator till din Azure-prenumeration. Kontrol lera att du har det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat i din Azure-prenumeration med [AZ-inloggning](/cli/azure/reference-index) innan du [skapar en virtuell dator](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure OS-disk
@@ -47,7 +47,38 @@ Som standard när du skapar en virtuell dator ger Azure dig en OS-disk (**/dev/S
 ## <a name="linux-swap-partition"></a>Linux-växlings partition
 Om din virtuella Azure-dator är från en Ubuntu-eller Core-avbildning kan du använda CustomData för att skicka en Cloud-config till Cloud-init. Om du har [överfört en anpassad Linux-avbildning](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) som använder Cloud-Init kan du också konfigurera växla partitioner med Cloud-init.
 
-I Ubuntu Cloud-avbildningar måste du använda Cloud-Init för att konfigurera växlings partition. Mer information finns i [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+Du kan inte använda **/etc/waagent.conf** -filen för att hantera växling för alla avbildningar som tillhandahålls och stöds av Cloud-init. En fullständig lista över avbildningar finns i [använda Cloud-Init](using-cloud-init.md). 
+
+Det enklaste sättet att hantera växling för de här avbildningarna är att slutföra de här stegen:
+
+1. I mappen **/var/lib/Cloud/scripts/per-Boot** skapar du en fil med namnet **create_swapfile. sh**:
+
+   **$ sudo touch/var/lib/Cloud/scripts/per-Boot/create_swapfile. sh**
+
+1. Lägg till följande rader i filen:
+
+   **$ sudo vi/var/lib/Cloud/scripts/per-Boot/create_swapfile. sh**
+
+   ```
+   #!/bin/sh
+   if [ ! -f '/mnt/swapfile' ]; then
+   fallocate --length 2GiB /mnt/swapfile
+   chmod 600 /mnt/swapfile
+   mkswap /mnt/swapfile
+   swapon /mnt/swapfile
+   swapon -a ; fi
+   ```
+
+   > [!NOTE]
+   > Du kan ändra värdet efter behov och utifrån det tillgängliga utrymmet på resurs disken, beroende på vilken VM-storlek som används.
+
+1. Gör filen körbar:
+
+   **$ sudo chmod + x/var/lib/Cloud/scripts/per-Boot/create_swapfile. sh**
+
+1. Skapa swapfile genom att köra skriptet direkt efter det sista steget:
+
+   **$ sudo/var/lib/Cloud/scripts/per-Boot/./create_swapfile. sh**
 
 För avbildningar utan stöd för Cloud-Init har VM-avbildningar som distribueras från Azure Marketplace en VM Linux-Agent integrerad med operativ systemet. Den här agenten gör det möjligt för den virtuella datorn att samverka med olika Azure-tjänster. Förutsatt att du har distribuerat en standard avbildning från Azure Marketplace måste du göra följande för att konfigurera inställningarna för Linux-växlings filen på rätt sätt:
 
@@ -123,7 +154,7 @@ Om dina arbets belastningar kräver mer IOps än en enskild disk kan du behöva 
 
 Som ett alternativ till en traditionell RAID-konfiguration kan du också välja att installera Logical Volume Manager (LVM) för att konfigurera ett antal fysiska diskar i en enda stripe-volym för logisk lagring. I den här konfigurationen distribueras läsningar och skrivningar till flera diskar som ingår i volym gruppen (liknar RAID0). Av prestanda skäl är det troligt att du vill ta bort dina logiska volymer så att läsningar och skrivningar använder alla dina anslutna data diskar.  Mer information om hur du konfigurerar en striped logisk volym på din virtuella Linux-dator i Azure finns i **[Konfigurera LVM på en virtuell Linux-dator i Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Kom ihåg, precis som med alla optimerings diskussioner, måste du utföra tester före och efter varje ändring för att mäta effekten av ändringen.  Optimering är en steg-för-steg-process som har olika resultat på olika datorer i din miljö.  Det som fungerar för en konfiguration kanske inte fungerar för andra.
 
 Några användbara länkar till ytterligare resurser:

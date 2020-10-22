@@ -3,17 +3,17 @@ title: Azure Storage kod exempel | Microsoft Docs
 description: Visa, ladda ned och kör exempel kod och program för Azure Storage. Upptäck kom igång-exempel för blobbar, köer, tabeller och filer med hjälp av lagrings klient biblioteken .NET, Java, python, Node.js, Azure CLI och C++.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/06/2019
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: edf30d628a73c879ce81f68bda7cd2d7daa6cde3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cf1b643caef515411842d6aaf668708e873e96d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503658"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367898"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage exempel
 
@@ -49,11 +49,11 @@ Om du vill utforska Node.jss exempel kan du hämta [ klient biblioteketNode.js S
 
 ## <a name="c-samples"></a>C++-exempel
 
-Om du vill utforska C++-exemplen kan du hämta [c++-lagrings klient biblioteket](https://www.nuget.org/packages/wastorage/) från NuGet.
+Om du vill utforska C++-exemplen hämtar du [Azure Storage klient biblioteket för c++](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage) från GitHub.
 
-* [Kom igång med blobbar](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)
-* [Kom igång med tabeller](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted.cpp)
-* [Kom igång med köer](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted.cpp)
+* [Kom igång med Azure-blobbar](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp)
+* [Kom igång med Azure Data Lake](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp)
+* [Kom igång med Azure Files](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp)
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -71,7 +71,7 @@ För att utforska Azure CLI-exemplen måste du först [Installera Azure CLI](/cl
 | Java | [Java-klient biblioteks referens](https://docs.microsoft.com/java/api/overview/azure/storage) | [Käll kod för Java Storage klient bibliotek](https://github.com/azure/azure-storage-java) |
 | Python | [Referens för python-klient bibliotek](https://azure-storage.readthedocs.io/) | [Käll kod för det python-lagrings klient biblioteket](https://github.com/Azure/azure-storage-python) |
 | Node.js | [ Referens förNode.js-klient bibliotek](https://azure.github.io/azure-storage-node) | [Käll kod för Node.js lagrings klient bibliotek](https://github.com/Azure/azure-storage-node) |
-| C++ | [C++-klient biblioteks referens](https://azure.github.io/azure-storage-cpp/) | [Käll kod för C++ lagrings klient bibliotek](https://github.com/Azure/azure-storage-cpp)|
+| C++ | [C++-klient biblioteks referens](https://azure.github.io/azure-sdk-for-cpp/) | [Käll kod för C++ lagrings klient bibliotek](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|
 | Azure CLI | [Biblioteks referens för Azure CLI](/cli/azure/storage) | [Käll kod för klient biblioteket för Azure CLI-lagring](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -82,4 +82,5 @@ Följande artiklar indexerar varje exempel efter tjänst (BLOB, fil, kö, tabell
 * [Azure Storage-exempel med Java](storage-samples-java.md)
 * [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * [Azure Storage exempel med python](storage-samples-python.md)
+* [Azure Storage exempel med hjälp av C++](storage-samples-c-plus-plus.md)
 * [Azure Storage exempel med hjälp av Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)

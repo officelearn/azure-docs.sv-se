@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: fa9f58f7d94396e3b26c6e05f52c210c980bc30a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c101cb4eca246ee68a30ba3499981c589c564f92
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149115"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368663"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Självstudie: Konfigurera och kör Azure Key Vault-providern för hemligheter Store CSI-drivrutinen på Kubernetes
 
@@ -20,7 +20,7 @@ ms.locfileid: "92149115"
 
 I den här självstudien får du åtkomst till och hämtar hemligheter från Azure Key Vault med hjälp av CSI-drivrutinen (hemligheter Store container Storage Interface) för att montera hemligheterna i Kubernetes poddar.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa ett huvud namn för tjänsten eller Använd hanterade identiteter.
@@ -185,6 +185,7 @@ Om du använder ett huvud namn för tjänsten ger du behörighet för det för a
 1. Ge behörighet till tjänstens huvud namn för att få hemligheter:
     ```azurecli
     az keyvault set-policy -n $KEYVAULT_NAME --secret-permissions get --spn $AZURE_CLIENT_ID
+    az keyvault set-policy -n $KEYVAULT_NAME --key-permissions get --spn $AZURE_CLIENT_ID
     ```
 
 1. Du har nu konfigurerat tjänstens huvud namn med behörighet att läsa hemligheter från nyckel valvet. **$AZURE _CLIENT_SECRET** är lösen ordet för tjänstens huvud namn. Lägg till dina autentiseringsuppgifter för tjänstens huvud namn som en Kubernetes-hemlighet som är tillgänglig för hemligheter Store CSI-drivrutinen:
@@ -237,6 +238,7 @@ Om du använder hanterade identiteter tilldelar du vissa roller till det AKS-klu
     az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
 
     az keyvault set-policy -n contosoKeyVault5 --secret-permissions get --spn $clientId
+    az keyvault set-policy -n contosoKeyVault5 --key-permissions get --spn $clientId
     ```
 
 ## <a name="deploy-your-pod-with-mounted-secrets-from-your-key-vault"></a>Distribuera din POD med monterade hemligheter från ditt nyckel valv
@@ -309,8 +311,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
-        nodePublishSecretRef:
-          name: secrets-store-creds 
+        nodePublishSecretRef:           # Only required when using service principal mode
+          name: secrets-store-creds     # Only required when using service principal mode
 ```
 
 Kör följande kommando för att distribuera din POD:

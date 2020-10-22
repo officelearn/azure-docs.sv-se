@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3308a72421b851402642f12daf56359c7e3c9216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449076"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370516"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introduktion till Azure Defender för Kubernetes
 
@@ -31,7 +31,7 @@ Hot identifiering på värdnivå för dina Linux AKS-noder är tillgängligt om 
 |Versions tillstånd:|Allmänt tillgänglig (GA)|
 |Priset|**Azure Defender for Kubernetes** faktureras så som det visas på [sidan med priser](security-center-pricing.md)|
 |Nödvändiga roller och behörigheter:|**Säkerhets administratören** kan stänga aviseringar.<br>**Säkerhets läsaren** kan visa resultat.|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Nej](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-kubernetes"></a>Vilka är fördelarna med Azure Defender för Kubernetes?
@@ -88,6 +88,23 @@ Som nämnts ovan ger de valfria **Azure Defender for Kubernetes** -planen skydd 
 Vi rekommenderar att du distribuerar båda, för det mest kompletta skyddet.
 
 Om du väljer att inte installera agenten på dina värdar får du bara en del av fördelarna med skydd mot hot och säkerhets aviseringar. Du får fortfarande aviseringar om nätverks analyser och kommunikation med skadliga servrar.
+
+
+### <a name="does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes"></a>Tillåter AKS att jag installerar anpassade VM-tillägg på mina AKS-noder?
+
+För att Azure Defender ska kunna övervaka dina AKS-noder måste de köra Log Analytics-agenten. 
+
+AKS är en hanterad tjänst och eftersom Log Analytics-agenten är ett Microsoft-hanterat tillägg, stöds det också i AKS-kluster.
+
+
+
+### <a name="if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too"></a>Behöver jag Log Analytics-agenten om mitt kluster redan kör en Azure Monitor för container agent?
+
+För att Azure Defender ska kunna övervaka dina AKS-noder måste de köra Log Analytics-agenten.
+
+Om dina kluster redan kör Azure Monitor för behållare agent kan du installera Log Analytics agenten för och de två agenterna kan arbeta tillsammans med varandra utan problem.
+
+[Läs mer om Azure Monitor for containers agent](../azure-monitor/insights/container-insights-manage-agent.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

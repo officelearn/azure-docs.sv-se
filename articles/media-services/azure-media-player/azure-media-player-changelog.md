@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 09/23/2020
-ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91315090"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370584"
 ---
 # <a name="changelog"></a>Ändringslogg
 
@@ -198,7 +198,7 @@ Returnera meningsfulla fel leverans fel för att anropa program
 
 ### <a name="changes"></a>Ändringar ###
 
-- Ändrade [Direkt textning] API-namnet för CEA-textning har ändrats från 608 till 708. Mer information finns i [Inställningar för CEA708-textning](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- Ändrade [Direkt textning] API-namnet för CEA-textning har ändrats från 608 till 708. Mer information finns i [Inställningar för CEA708-textning](/javascript/api/azuremediaplayer/cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (officiell utgåva) ##
 
@@ -447,7 +447,7 @@ Returnera meningsfulla fel leverans fel för att anropa program
 
 - Ändrade Uppdaterad spelare till aktuella Chrome EME-krav
 - Ändrade Standard techOrder ändrades till att rymma nya Tech-html5FairPlayHLS (se [skyddat innehåll](azure-media-player-protected-content.md) för mer information)
-- Ändrade [AzureHtml5JS] Aktive rad MPEG-streckad uppspelning i Safari
+- Ändrade [AzureHtml5JS] Aktive rad MPEG-Dash uppspelning i Safari
 - Ändrade Stickprov Flera DRM-exempel har ändrats för att hantera FairPlay
 
 ## <a name="174-official-hotfix-update"></a>1.7.4 (officiell snabb korrigerings uppdatering) ##

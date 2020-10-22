@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f91928812dd2f9f850b5e4c3af16ce5c82608e05
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90601372"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371060"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
 
@@ -42,13 +42,13 @@ Hantering av Azure Active Directory kräver kontinuerlig körning av viktiga ope
 | Prioritering och undersök användare som har flaggats för risk-och sårbarhets rapporter från Azure AD Identity Protection | Åtgärds team för informations säkerhet |
 
 > [!NOTE]
-> Azure AD Identity Protection kräver en Azure AD Premium P2-licens. Information om rätt licens för dina krav finns i [jämföra allmänt tillgängliga funktioner i Azure AD Free-och Azure AD Premium-versionerna](https://azure.microsoft.com/pricing/details/active-directory/).
+> Azure AD Identity Protection kräver en Azure AD Premium P2-licens. Information om rätt licens för dina krav finns i [jämföra allmänt tillgängliga funktioner i Azure AD Free-och Azure AD Premium-versionerna](https://azure.microsoft.com/pricing/details/active-directory/).
 
 När du granskar listan kanske du måste tilldela en ägare för aktiviteter som saknar ägare eller justera ägarskapet för aktiviteter med ägare som inte är justerade enligt rekommendationerna ovan.
 
 #### <a name="owner-recommended-reading"></a>Rekommenderad läsning av ägare
 
-- [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Tilldela administratörsroller i Azure Active Directory](../roles/permissions-reference.md)
 - [Styrning i Azure](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>Hantering av autentiseringsuppgifter
@@ -119,7 +119,7 @@ Federerad autentisering med integrerad Windows-autentisering (IWA) eller sömlö
 
 ### <a name="device-trust-access-policies"></a>Åtkomst principer för enhets förtroende
 
-Som en användare i din organisation är en enhet en kärn identitet som du vill skydda. Du kan använda en enhets identitet för att skydda dina resurser när du vill och var som helst.Att autentisera enheten och redovisningen för dess förtroende typ ökar din säkerhets position och användbarhet genom att:
+Som en användare i din organisation är en enhet en kärn identitet som du vill skydda. Du kan använda en enhets identitet för att skydda dina resurser när du vill och var som helst. Att autentisera enheten och redovisningen för dess förtroende typ ökar din säkerhets position och användbarhet genom att:
 
 - Undvika friktion, till exempel med MFA, när enheten är betrodd
 - Blockera åtkomst från ej betrodda enheter
@@ -128,7 +128,7 @@ Som en användare i din organisation är en enhet en kärn identitet som du vill
 Du kan utföra det här målet genom att sätta enhets identiteter och hantera dem i Azure AD genom att använda någon av följande metoder:
 
 - Organisationer kan använda [Microsoft Intune](/intune/what-is-intune) för att hantera enheten och genomdriva efterlevnadsprinciper, intyga enhetens hälsa och ange principer för villkorlig åtkomst baserat på om enheten är kompatibel. Microsoft Intune kan hantera iOS-enheter, Mac-datorer (via JAMF-integrering), Windows-skrivbord (internt med hantering av mobila enheter för Windows 10 och samhantering med Microsoft Endpoint Configuration Manager) och mobila Android-enheter.
-- [Hybrid Azure AD-anslutning](../devices/hybrid-azuread-join-managed-domains.md) ger hantering med grup principer eller Microsoft Endpoint Configuration Manager i en miljö med Active Directory domänanslutna dator enheter. Organisationer kan distribuera en hanterad miljö antingen via PHS eller PTA med sömlös SSO. Genom att ta med dina enheter till Azure AD kan du maximera användar produktiviteten via SSO i molnet och lokala resurser samtidigt som du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../conditional-access/overview.md)   på samma gång.
+- [Hybrid Azure AD-anslutning](../devices/hybrid-azuread-join-managed-domains.md) ger hantering med grup principer eller Microsoft Endpoint Configuration Manager i en miljö med Active Directory domänanslutna dator enheter. Organisationer kan distribuera en hanterad miljö antingen via PHS eller PTA med sömlös SSO. Genom att ta med dina enheter till Azure AD kan du maximera användar produktiviteten via SSO i molnet och lokala resurser samtidigt som du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../conditional-access/overview.md) på samma gång.
 
 Om du har domänanslutna Windows-enheter som inte är registrerade i molnet, eller domänanslutna Windows-enheter som är registrerade i molnet men utan principer för villkorlig åtkomst, bör du registrera de oregistrerade enheterna och i båda fallen [använda hybrid Azure AD Join som en kontroll](../conditional-access/require-managed-devices.md) i dina principer för villkorlig åtkomst.
 
@@ -177,7 +177,7 @@ Slutligen, om du har ett Azure AD App-galleri och använder program som har stö
 
 ### <a name="assign-users-to-applications"></a>Tilldela användare till program
 
-[Att tilldela användare till program](../manage-apps/assign-user-or-group-access-portal.md) mappas bäst med hjälp av grupper eftersom de ger större flexibilitet och möjlighet att hantera i hög skala. Fördelarna med att använda grupper är [attribut-baserat dynamiskt grupp medlemskap](../users-groups-roles/groups-dynamic-membership.md) och [delegering till app-ägare](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Om du redan använder och hanterar grupper rekommenderar vi därför att du vidtar följande åtgärder för att förbättra hanteringen i skala:
+[Att tilldela användare till program](../manage-apps/assign-user-or-group-access-portal.md) mappas bäst med hjälp av grupper eftersom de ger större flexibilitet och möjlighet att hantera i hög skala. Fördelarna med att använda grupper är [attribut-baserat dynamiskt grupp medlemskap](../enterprise-users/groups-dynamic-membership.md) och [delegering till app-ägare](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Om du redan använder och hanterar grupper rekommenderar vi därför att du vidtar följande åtgärder för att förbättra hanteringen i skala:
 
 - Delegera grupp hantering och styrning till program ägare.
 - Tillåt självbetjänings åtkomst till programmet.
@@ -189,8 +189,8 @@ Om du däremot hittar program som har tilldelning till enskilda användare ska d
 #### <a name="assign-users-to-applications-recommended-reading"></a>Tilldela användare till program som rekommenderas läsning
 
 - [Tilldela användare och grupper till ett program i Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
-- [Delegera registrerings behörigheter för app i Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
-- [Regler för dynamiskt medlemskap för grupper i Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+- [Delegera registrerings behörigheter för app i Azure Active Directory](../roles/delegate-app-roles.md)
+- [Regler för dynamiskt medlemskap för grupper i Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>Åtkomstprinciper
 
@@ -248,7 +248,7 @@ Villkorlig åtkomst är ett viktigt verktyg för att förbättra din organisatio
 - Använd principer för villkorlig åtkomst för att [implementera MFA](../conditional-access/plan-conditional-access.md)i stället för att använda **MFA per användare**
 - Ha en liten uppsättning kärn principer som kan tillämpas på flera program
 - Definiera tomma undantags grupper och Lägg till dem i principerna för att få en undantags strategi
-- Planera för [Bryt glas](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) konton utan MFA-kontroller
+- Planera för [Bryt glas](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency) konton utan MFA-kontroller
 - Få en konsekvent upplevelse för Microsoft 365 klient program, till exempel team, OneDrive, Outlook osv.) genom att implementera samma uppsättning kontroller för tjänster som Exchange Online och SharePoint Online
 - Tilldelning till principer bör implementeras genom grupper, inte individer
 - Gör regelbundna granskningar av undantags grupperna som används i principer för att begränsa den tid som användarna ligger utanför säkerhets position. Om du äger Azure AD P2 kan du använda åtkomst granskningar för att automatisera processen
@@ -347,7 +347,7 @@ Nedan visas de användar-och grupp inställningar som kan låsas ned om det inte
 - [Integrera program med Azure Active Directory](../develop/quickstart-register-app.md)
 - [Appar, behörigheter och medgivande i Azure Active Directory.](../develop/quickstart-register-app.md)
 - [Använd grupper för att hantera åtkomst till resurser i Azure Active Directory](./active-directory-manage-groups.md)
-- [Konfigurera åtkomst hantering för självbetjänings program i Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+- [Konfigurera åtkomst hantering för självbetjänings program i Azure Active Directory](../enterprise-users/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>Trafik från oväntade platser
 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: c17addc313954fbca5b81c4594d7317065350c09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be127d4214577e017522aec6a1b61b8f62638ed9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249577"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368748"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Självstudie: skapa ett Apache Spark program med IntelliJ med hjälp av en Synapse-arbetsyta
 
@@ -145,7 +145,7 @@ När du har skapat ett Scala-program kan du köra det på distans.
     |Huvud klass namn|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen (**...**) och välja en annan klass.|
     |Jobb konfiguration|Du kan ändra standard nyckel och standardvärden. Mer information finns i [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Kommando rads argument|Du kan ange argument avgränsade med blank steg för huvud klassen om det behövs.|
-    |Refererade jar v7 och refererade filer|Du kan ange sökvägar för refererade jar v7 och filer om det finns några. Du kan också bläddra i filer i det virtuella Azure-filsystemet, som för närvarande endast stöder ADLS Gen2 kluster. Mer information: [Apache Spark konfiguration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) och [hur du överför resurser till kluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
+    |Refererade jar v7 och refererade filer|Du kan ange sökvägar för refererade jar v7 och filer om det finns några. Du kan också bläddra i filer i det virtuella Azure-filsystemet, som för närvarande endast stöder ADLS Gen2 kluster. Mer information: [Apache Spark Configuration] https://spark.apache.org/docs/2.4.5/configuration.html#runtime-environment) och [hur du överför resurser till kluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Jobb överförings lagring|Expandera för att visa fler alternativ.|
     |Lagringstyp|Välj **Använd Azure Blob för att ladda upp** eller **använda klustrets standard lagrings konto för att ladda upp** från List rutan.|
     |Lagringskonto|Ange ditt lagrings konto.|

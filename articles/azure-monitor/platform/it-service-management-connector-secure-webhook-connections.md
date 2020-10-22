@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: bf68963515e1208868efb40c2d3fc56c9ab4e0df
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 447b781ec83a01a58e6af9e9e43f75b3fc56b10f
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107767"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370788"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ansluta Azure till ITSM-verktyg med säker export
 
@@ -36,18 +36,18 @@ Den säkra export arkitekturen introducerar följande nya funktioner:
 Stegen i data flödet för säker export är:
 
 1. Azure Monitor skickar en avisering som är konfigurerad för att använda säker export.
-1. Aviserings nytto lasten skickas via en säker webhook-åtgärd till ITSM-verktyget.
-1. ITSM-programmet kontrollerar med Azure AD om aviseringen har behörighet att ange ITSM-verktyget.
-1. Om aviseringen är auktoriserad kan programmet:
+2. Aviserings nytto lasten skickas via en säker webhook-åtgärd till ITSM-verktyget.
+3. ITSM-programmet kontrollerar med Azure AD om aviseringen har behörighet att ange ITSM-verktyget.
+4. Om aviseringen är auktoriserad kan programmet:
    
    1. Skapar ett arbets objekt (till exempel en incident) i ITSM-verktyget.
-   1. Binder ID: t för konfigurationsobjektet (CI) till Customer Management-databasen (CMDB).
+   2. Binder ID: t för konfigurationsobjektet (CI) till Customer Management-databasen (CMDB).
 
 ![Diagram som visar hur verktyget ITSM kommunicerar med Azure A D, Azure-aviseringar och en åtgärds grupp.](media/it-service-management-connector-secure-webhook-connections/secure-export-diagram.png)
 
-## <a name="connection-with-bmc-helix"></a>Anslutning med BMC-Helix
+## <a name="benefits-of-secure-export"></a>Fördelar med säker export
 
-Säker export stöder BMC-Helix. Några av fördelarna med integrationen är:
+De främsta fördelarna med integrationen är:
 
 * **Bättre autentisering**: Azure AD ger mer säker autentisering utan tids gränser som vanligt vis uppstår i ITSMC.
 * **Aviseringar som löses i ITSM-verktyget**: mått varningar implementerar "utlöst" och "löst" tillstånd. När villkoret är uppfyllt är aviserings tillståndet "utlöst". När villkoret inte uppfylls längre är aviserings tillståndet "löst". I ITSMC kan aviseringar inte lösas automatiskt. Med säker export flödar det lösta tillstånd till ITSM-verktyget och uppdateras automatiskt.
@@ -57,18 +57,18 @@ Börja använda ITSM-anslutningsprogram-verktyget med följande steg:
 
 1. Registrera appen med Azure AD.
 2. Skapa en säker webhook-åtgärds grupp.
-3. Konfigurera din partner miljö.
+3. Konfigurera din partner miljö. Idag stöder vi en leverantör som är BMC Helix.
 
 ## <a name="register-with-azure-active-directory"></a>Registrera dig för Azure Active Directory
 
 Följ de här stegen för att registrera programmet med Azure AD:
 
 1. Följ stegen i [Registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md).
-1. I Azure AD väljer du **exponera program**.
-1. Välj **set** för **program-ID-URI**.
+2. I Azure AD väljer du **exponera program**.
+3. Välj **set** för **program-ID-URI**.
 
    [![Skärm bild av alternativet för att ställa in U R i för programmet I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
-1. Välj **Spara**.
+4. Välj **Spara**.
 
 ## <a name="create-a-secure-webhook-action-group"></a>Skapa en säker webhook-åtgärds grupp
 
@@ -77,31 +77,27 @@ När programmet har registrerats med Azure AD kan du skapa arbets objekt i ITSM-
 Åtgärds grupper ger ett modulärt och återanvändbart sätt att utlösa åtgärder för Azure-aviseringar. Du kan använda åtgärds grupper med mått aviseringar, aktivitets logg aviseringar och Azure Log Analytics-aviseringar i Azure Portal.
 Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper i Azure Portal](./action-groups.md).
 
-Använd följande procedur i BMC Helix-miljön:
-
-1. Logga in på integration Studio.
-1. Sök efter **varnings flödet Skapa incident från Azure** .
-1. Kopiera webhook-URL: en.
-   
-   ![Skärm bild av webhooken U R L i integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
-
 Om du vill lägga till en webhook till en åtgärd, följer du dessa anvisningar för säker webhook:
 
 1. Sök efter och välj **övervaka**i [Azure Portal](https://portal.azure.com/). I **övervaknings** fönstret samlas alla övervaknings inställningar och data i en vy.
-1. Välj **aviseringar**  >  **Hantera åtgärder**.
-1. Välj [Lägg till åtgärds grupp](./action-groups.md#create-an-action-group-by-using-the-azure-portal)och fyll i fälten.
-1. Ange ett namn i rutan **Åtgärds grupp namn** och ange ett namn i rutan **kort namn** . Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
-1. Välj **säker webhook**.
-1. Välj följande information:
+2. Välj **aviseringar**  >  **Hantera åtgärder**.
+3. Välj [Lägg till åtgärds grupp](./action-groups.md#create-an-action-group-by-using-the-azure-portal)och fyll i fälten.
+4. Ange ett namn i rutan **Åtgärds grupp namn** och ange ett namn i rutan **kort namn** . Det korta namnet används i stället för ett fullständigt åtgärdsgruppnamn när meddelanden skickas med den här gruppen.
+5. Välj **säker webhook**.
+6. Välj följande information:
    1. Välj objekt-ID för den Azure Active Directory instans som du har registrerat.
-   1. För URI: n klistrar du in webhook-URL: en som du kopierade från BMC Helix-miljön.
-   1. Ange **aktivera det gemensamma aviserings schemat** till **Ja**. 
+   2. För URI: n klistrar du in den webhook-URL som du kopierade från leverantörs miljön.
+   3. Ange **aktivera det gemensamma aviserings schemat** till **Ja**. 
 
    Följande bild visar konfigurationen av en exempel säker webhook-åtgärd:
 
    ![Skärm bild som visar en säker webhook-åtgärd.](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
 
 ## <a name="configure-the-partner-environment"></a>Konfigurera partner miljön
+
+Konfigurationen innehåller två steg:
+1. Hämta URI: n för säker export definition.
+2. Definitioner enligt leverantörens flöde.
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Ansluta BMC-Helix till Azure Monitor
 
@@ -116,18 +112,26 @@ Se till att du uppfyller följande krav:
 
 ### <a name="configure-the-bmc-helix-connection"></a>Konfigurera BMC Helix-anslutningen
 
-1. Följ anvisningarna accoring till versionen:
+1. Använd följande procedur i BMC Helix-miljön för att hämta URI: n för säker export:
+
+   1. Logga in på integration Studio.
+   2. Sök efter **varnings flödet Skapa incident från Azure** .
+   3. Kopiera webhook-URL: en.
+   
+   ![Skärm bild av webhooken U R L i integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
+   
+2. Följ instruktionerna enligt versionen:
    * [Aktivera inbyggd integrering med Azure Monitor för version 20,02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
    * [Aktivera inbyggd integrering med Azure Monitor för version 19,11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
 
-1. Som en del av konfigurationen av anslutningen i BMC Helix, går du till integrations-BMC-instansen och följer de här anvisningarna:
+3. Som en del av konfigurationen av anslutningen i BMC Helix, går du till integrations-BMC-instansen och följer de här anvisningarna:
 
    1. Välj **katalog**.
-   1. Välj **Azure-aviseringar**.
-   1. Välj **kopplingar**.
-   1. Välj **konfiguration**.
-   1. Välj **Lägg till ny anslutnings** konfiguration.
-   1. Fyll i informationen för konfigurations avsnittet:
+   2. Välj **Azure-aviseringar**.
+   3. Välj **kopplingar**.
+   4. Välj **konfiguration**.
+   5. Välj **Lägg till ny anslutnings** konfiguration.
+   6. Fyll i informationen för konfigurations avsnittet:
       - **Namn**: skapa egna.
       - **Typ av auktorisering**: **ingen**
       - **Beskrivning**: skapa en egen.

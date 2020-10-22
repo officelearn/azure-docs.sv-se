@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 841bc3ae4fbddb376ea4da8141bf4df3f895c4dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a56cd23494f65b1c74e44868496855c6e4a32bf7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269564"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92365824"
 ---
 # <a name="deploy-a-secure-azure-managed-workstation"></a>Distribuera en säker, Azure-hanterad arbets Station
 
@@ -51,11 +51,11 @@ Välj en profil innan du distribuerar lösningen. Du kan använda flera profiler
 
 Begreppen som beskrivs i den här guiden förutsätter att du har Microsoft 365 Enterprise E5 eller motsvarande SKU. Några av rekommendationerna i den här hand boken kan implementeras med lägre SKU: er. Mer information finns i [Microsoft 365 Enterprise licensiering](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
 
-Om du vill automatisera licens etablering bör du överväga [gruppbaserad licensiering](../users-groups-roles/licensing-groups-assign.md) för dina användare.
+Om du vill automatisera licens etablering bör du överväga [gruppbaserad licensiering](../enterprise-users/licensing-groups-assign.md) för dina användare.
 
 ## <a name="azure-active-directory-configuration"></a>Azure Active Directory konfiguration
 
-Azure Active Directory (Azure AD) hanterar användare, grupper och enheter för administratörs arbets stationerna. Aktivera identitets tjänster och funktioner med ett [administratörs konto](../users-groups-roles/directory-assign-admin-roles.md).
+Azure Active Directory (Azure AD) hanterar användare, grupper och enheter för administratörs arbets stationerna. Aktivera identitets tjänster och funktioner med ett [administratörs konto](../roles/permissions-reference.md).
 
 När du skapar det skyddade administratörs kontot för arbets stationen exponerar du kontot för din aktuella arbets Station. Se till att du använder en känd säker enhet för att utföra den här inledande konfigurationen och all global konfiguration. Överväg att följa [rikt linjerna för att förhindra infektion av skadlig kod](/windows/security/threat-protection/intelligence/prevent-malware-infection)för att minska risken för angrepp vid första tiden.
 
@@ -65,7 +65,7 @@ Kräv Multi-Factor Authentication, minst för dina administratörer. Se [distrib
 
 1. Från Azure Portal bläddrar du till **Azure Active Directory**  >  **användare**  >  **ny användare**.
 1. Skapa din enhets administratör genom att följa stegen i [själv studie kursen skapa användare](/Intune/quickstart-create-user).
-1. Ange:
+1. Skriv:
 
    * **Namn** – säker arbets Stations administratör
    * **Användar namn** - `secure-ws-admin@identityitpro.com`
@@ -77,7 +77,7 @@ Därefter skapar du två grupper: arbets Stations användare och arbets Stations
 
 Från Azure Portal bläddrar du till **Azure Active Directory**  >  **grupper**  >  **ny grupp**.
 
-1. För gruppen användare av arbets stationer kan du vilja konfigurera [gruppbaserad licensiering](../users-groups-roles/licensing-groups-assign.md) för att automatisera etablering av licenser för användare.
+1. För gruppen användare av arbets stationer kan du vilja konfigurera [gruppbaserad licensiering](../enterprise-users/licensing-groups-assign.md) för att automatisera etablering av licenser för användare.
 1. För gruppen användare av arbets stationer anger du:
 
    * **Typ av grupp** – säkerhet
@@ -131,7 +131,7 @@ Med de här stegen kan du hantera alla enheter med Intune. Mer information finns
 
 #### <a name="azure-ad-conditional-access"></a>Villkorsstyrd åtkomst i Azure AD
 
-Villkorlig åtkomst i Azure AD kan hjälpa till att begränsa privilegierade administrativa uppgifter till kompatibla enheter. Fördefinierade medlemmar i gruppen **säker arbets Station användare** krävs för att utföra Multi-Factor Authentication vid inloggning till moln program. Ett bra tips är att undanta åtkomst konton för nöd situationer från principen. Mer information finns i [Hantera åtkomst konton för nöd situationer i Azure AD](../users-groups-roles/directory-emergency-access.md).
+Villkorlig åtkomst i Azure AD kan hjälpa till att begränsa privilegierade administrativa uppgifter till kompatibla enheter. Fördefinierade medlemmar i gruppen **säker arbets Station användare** krävs för att utföra Multi-Factor Authentication vid inloggning till moln program. Ett bra tips är att undanta åtkomst konton för nöd situationer från principen. Mer information finns i [Hantera åtkomst konton för nöd situationer i Azure AD](../roles/security-emergency-access.md).
 
 ## <a name="intune-configuration"></a>Intune-konfiguration
 
@@ -154,7 +154,7 @@ När du har skapat en enhets grupp måste du skapa en distributions profil för 
 I Intune i Azure Portal:
 
 1. Välj **enhets registrering**  >  **Windows-registrering**  >  **profiler**  >  **Skapa profil**.
-1. Ange:
+1. Skriv:
 
    * Namn – **distributions profil för säker arbets Station**.
    * Beskrivning – **distribution av säkra arbets stationer**.
@@ -186,7 +186,7 @@ Den här vägledningen rekommenderar att du skapar en ny uppdaterings ring och �
 I Azure-portalen:
 
 1. Gå till **Microsoft Intune**  >  **program uppdateringar**  >  **Windows 10 uppdaterings ringar**.
-1. Ange:
+1. Skriv:
 
    * Namn – **Azure-hanterade arbets Stations uppdateringar**
    * Service kanal – **Windows Insider – fast**
@@ -308,7 +308,7 @@ Du kan behöva installera Windows 32-bitars appar eller andra appar vars distrib
 
 ### <a name="conditional-access-only-allowing-secured-workstation-ability-to-access-azure-portal"></a>Villkorlig åtkomst tillåter endast säker arbets Stations möjlighet att komma åt Azure Portal
 
-Azure AD ger möjlighet att hantera och begränsa, vem och vad som har åtkomst till din Azure Cloud Management-Portal. Genom att aktivera [villkorlig åtkomst](../conditional-access/overview.md) garanterar du att endast din säkra arbets Station kan hantera eller ändra resurser. Det är viktigt att när du distribuerar den här funktionen bör du överväga om funktionen för [nödfalls åtkomst](../users-groups-roles/directory-emergency-access.md) kan eller bara ska användas för extrema fall och kontot som hanteras via principen.
+Azure AD ger möjlighet att hantera och begränsa, vem och vad som har åtkomst till din Azure Cloud Management-Portal. Genom att aktivera [villkorlig åtkomst](../conditional-access/overview.md) garanterar du att endast din säkra arbets Station kan hantera eller ändra resurser. Det är viktigt att när du distribuerar den här funktionen bör du överväga om funktionen för [nödfalls åtkomst](../roles/security-emergency-access.md) kan eller bara ska användas för extrema fall och kontot som hanteras via principen.
 
 > [!NOTE]
 > Du måste skapa en användar grupp och ta med din nödfalls användare som kan kringgå principen för villkorlig åtkomst. I vårt exempel har vi en säkerhets grupp med namnet **Emergency BreakGlass**
@@ -387,7 +387,7 @@ Kontroll övervakning kräver att anslutningar till dina data källor, till exem
 
 1. I **Azure Portal**går du till **Azure Sentinel (för hands version)** > Välj **Lägg till**
 1. I fönstret **Välj en arbets yta att lägga till i Azure Sentinel väljer du** **skapa en ny arbets yta**
-1. Ange:
+1. Skriv:
    * **Log Analytics arbets yta** -"säker arbets Stations övervakning"
    * **Prenumeration** – välj din aktiva prenumeration
    * **Resurs grupp** – Välj * * Skapa ny * * > säker arbets station RG > **OK**
@@ -438,7 +438,7 @@ Härnäst måste du konfigurera Log Analytics för att ta emot de nya loggarna
 1. I **Azure Portal**går du till **Log Analytics arbets yta** > Select-"säker arbets Stations övervakning"
 1. Välj **Avancerade inställningar**  >  **data**  >  **Windows händelse loggar**
 1. I **samla in händelser från följande händelse loggar** 
-1. Ange:
+1. Skriv:
    * "Microsoft-Windows-AppLocker/EXE och DLL" > avmarkerar **information**
    * "Microsoft-Windows-AppLocker/MSI och skript" > avmarkerar **information**
    * "Microsoft-Windows-AppLocker/paketerad app-Deployment" > avmarkerar **information**

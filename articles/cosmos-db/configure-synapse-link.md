@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: a634743441866c4f1a9f6d634efe0ff9e368b5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dee5a56f309dab8f09a598219f6302c88f4308e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757851"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370720"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
 
@@ -219,9 +219,6 @@ Följ anvisningarna i artikeln [fråga Azure Cosmos DB analys lager](../synapse-
 
 Synapse SQL Server utan (en förhands gransknings funktion som tidigare kallades **SQL på begäran**) gör att du kan fråga efter och analysera data i dina Azure Cosmos DB behållare som är aktiverade med Azure Synapse-länken. Du kan analysera data nästan i real tid utan att påverka prestandan för dina transaktions arbets belastningar. Den erbjuder en välkänd T-SQL-syntax för att fråga data från analys lagret och integrerad anslutning till en mängd olika BI-och ad hoc-frågemeddelanden via T-SQL-gränssnittet. Mer information finns i [fråga analys lagret med hjälp av SYNAPSE SQL Server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) -artikel.
 
-> [!NOTE]
-> Att använda Azure Cosmos DB analytiska lagrings platsen med Synapse SQL Server är för närvarande under överanvändning av gated. Kontakta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com)för att begära åtkomst.
-
 ## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Använd Synapse SQL Server lös för att analysera och visualisera data i Power BI
 
 Du kan bygga en Synapse SQL Server-databas och Visa vyer över Synapse-länken för Azure Cosmos DB. Senare kan du skicka frågor till Azure Cosmos-behållare och sedan bygga en modell med Power BI över dessa vyer för att återspegla den frågan. Mer information finns i så här använder du [SYNAPSE SQL Server lös för att analysera Azure Cosmos db data med Synapse Link](synapse-link-power-bi.md) -artikeln.
@@ -240,7 +237,7 @@ Mer information finns i följande dokument:
 
 * [Azure Synapse-länk för Azure Cosmos DB.](synapse-link.md)
 
-* [Översikt över Azure Cosmos DB-analysarkiv.](analytical-store-introduction.md)
+* [Översikt över Azure Cosmos DB analys lager.](analytical-store-introduction.md)
 
 * [Vanliga frågor om Synapse-länk för Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
 

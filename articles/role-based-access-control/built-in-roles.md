@@ -9,18 +9,18 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
-ms.openlocfilehash: f5d5b4f801dd406518a6ba516bf2e38e01cb96ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8db16ba415e609827f6b775840f153489702ecca
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275276"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370567"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda roller i Azure
 
 [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) har flera inbyggda Azure-roller som du kan tilldela till användare, grupper, tjänstens huvud namn och hanterade identiteter. Roll tilldelningar är hur du styr åtkomsten till Azure-resurser. Om de inbyggda rollerna inte uppfyller organisationens specifika behov kan du skapa egna [Azure-anpassade roller](custom-roles.md).
 
-Den här artikeln innehåller de inbyggda Azure-rollerna, som alltid utvecklas. För att få de senaste rollerna använder du [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list). Om du letar efter administratörs roller för Azure Active Directory (Azure AD) kan du läsa [behörigheter för administratörs roll i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Den här artikeln innehåller de inbyggda Azure-rollerna, som alltid utvecklas. För att få de senaste rollerna använder du [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list). Om du letar efter administratörs roller för Azure Active Directory (Azure AD) kan du läsa [behörigheter för administratörs roll i Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 Följande tabell innehåller en kort beskrivning och det unika ID: t för varje inbyggd roll. Klicka på roll namnet om du vill se en lista över `Actions` , `NotActions` , `DataActions` och `NotDataActions` för varje roll. Information om vad dessa åtgärder betyder och hur de tillämpas på hanterings-och data planen finns i [förstå definitioner av Azure-roller](role-definitions.md).
 
@@ -164,7 +164,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [Key Vault läsare (förhands granskning)](#key-vault-reader-preview) | Läs metadata för nyckel valv och dess certifikat, nycklar och hemligheter. Det går inte att läsa känsliga värden, till exempel hemligt innehåll eller nyckel material. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 21090545-7ca7-4776-b22c-e363652d74d2 |
 > | [Key Vault hemligheter (förhands granskning)](#key-vault-secrets-officer-preview) | Utföra alla åtgärder för ett nyckel valvs hemligheter, förutom hantera behörigheter. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 > | [Key Vault hemligheter, användare (förhands granskning)](#key-vault-secrets-user-preview) | Läsa hemligt innehåll. Fungerar bara för nyckel valv som använder behörighets modellen "Azure-rollbaserad åtkomst kontroll". | 4633458b-17de-408a-b874-0445c86b69e6 |
-> | [Säkerhets administratör](#security-admin) | Visa och uppdatera behörigheter för Security Center. Samma behörigheter som säkerhets läsar rollen och kan också uppdatera säkerhets principen och ignorera aviseringar och rekommendationer. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Säkerhetsadministratör](#security-admin) | Visa och uppdatera behörigheter för Security Center. Samma behörigheter som säkerhets läsar rollen och kan också uppdatera säkerhets principen och ignorera aviseringar och rekommendationer. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Säkerhets utvärderings deltagare](#security-assessment-contributor) | Gör att du kan skicka utvärderingar till Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Säkerhets hanterare (bakåtkompatibelt)](#security-manager-legacy) | Detta är en äldre roll. Använd säkerhets administratör i stället. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | [Säkerhetsläsare](#security-reader) | Visa behörigheter för Security Center. Kan visa rekommendationer, aviseringar, säkerhets principer och säkerhets tillstånd, men kan inte göra ändringar. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
@@ -2786,7 +2786,7 @@ Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till
 }
 ```
 
-## <a name="containers"></a>Containrar
+## <a name="containers"></a>Containers
 
 
 ### <a name="acrdelete"></a>AcrDelete

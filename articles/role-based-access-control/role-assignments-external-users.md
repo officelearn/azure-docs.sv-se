@@ -16,12 +16,12 @@ ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 870c9c91e285988cdc1fb294b3fc9b3270de7483
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a891830d876bfa99d29087278dd5b870ae7e2866
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361912"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368391"
 ---
 # <a name="add-or-remove-azure-role-assignments-for-external-guest-users-using-the-azure-portal"></a>Lägg till eller ta bort Azure Role-tilldelningar för externa gäst användare med hjälp av Azure Portal
 
@@ -183,7 +183,7 @@ Gäst användare har begränsad katalog behörighet. Gäst användare kan till e
 
 ![Gäst användare kan inte bläddra i användare i en katalog](./media/role-assignments-external-users/directory-no-users.png)
 
-Om en gäst användare behöver ytterligare behörighet i katalogen kan du tilldela gäst användaren en katalog roll. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
+Om en gäst användare behöver ytterligare behörighet i katalogen kan du tilldela gäst användaren en katalog roll. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/roles/permissions-reference.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
 
 ![Tilldela rollen katalog läsare](./media/role-assignments-external-users/directory-roles.png)
 
@@ -193,11 +193,11 @@ Gäst användare har begränsad katalog behörighet. Även om en gäst användar
 
 ![Gäst användare kan inte bläddra i säkerhets objekt för att tilldela roller](./media/role-assignments-external-users/directory-no-browse.png)
 
-Om gäst användaren känner till någons exakta inloggnings namn i katalogen kan de bevilja åtkomst. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
+Om gäst användaren känner till någons exakta inloggnings namn i katalogen kan de bevilja åtkomst. Om du verkligen vill att en gäst användare ska ha fullständig Läs behörighet till din katalog kan du lägga till gäst användaren i rollen [katalog läsare](../active-directory/roles/permissions-reference.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
 
 ### <a name="guest-user-cannot-register-applications-or-create-service-principals"></a>Gäst användare kan inte registrera program eller skapa tjänstens huvud namn
 
-Gäst användare har begränsad katalog behörighet. Om en gäst användare behöver kunna registrera program eller skapa tjänstens huvud namn kan du lägga till gäst användaren i rollen [programutvecklare](../active-directory/users-groups-roles/directory-assign-admin-roles.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
+Gäst användare har begränsad katalog behörighet. Om en gäst användare behöver kunna registrera program eller skapa tjänstens huvud namn kan du lägga till gäst användaren i rollen [programutvecklare](../active-directory/roles/permissions-reference.md) i Azure AD. Mer information finns i [bevilja behörigheter till användare från partner organisationer i din Azure Active Directory klient](../active-directory/b2b/add-guest-to-role.md).
 
 ![Gäst användare kan inte registrera program](./media/role-assignments-external-users/directory-access-denied.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 098cfa1784571856cbd80d55fec4e6232e882d17
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: ed4bd97dfe64a85785cf7805da2cf7f942baecd4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339857"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367557"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -33,6 +33,7 @@ Den här sidan uppdateras ofta, så du kan gå tillbaka den ofta.
 
 - [Sårbarhets bedömning för datorer på plats och flera moln (för hands version)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
 - [Azure Firewall-rekommendation har lagts till (för hands version)](#azure-firewall-recommendation-added-preview)
+- [Auktoriserade IP-intervall bör definieras i Kubernetes Services-rekommendationen med snabb korrigering](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
 - [Microsoft. Security/securityStatuses-tabellen har tagits bort från Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
 ### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Sårbarhets bedömning för datorer på plats och flera moln (för hands version)
@@ -64,6 +65,15 @@ Rekommendationen, **virtuella nätverk bör skyddas av Azure Firewall** och du f
 Läs mer om [Azure-brandväggen](https://azure.microsoft.com/services/azure-firewall/).
 
 
+### <a name="authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix"></a>Auktoriserade IP-intervall bör definieras i Kubernetes Services-rekommendationen med snabb korrigering
+
+Rekommendationen **för auktoriserade IP-adressintervall bör definieras på Kubernetes Services** nu med ett alternativ för snabb korrigering.
+
+Mer information om den här rekommendationen och alla andra Security Center rekommendationer finns i [säkerhets rekommendationer – en referens guide](recommendations-reference.md).
+
+:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="De auktoriserade IP-intervallen bör definieras i Kubernetes Services-rekommendation med alternativet för snabb korrigering":::
+
+
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Microsoft. Security/securityStatuses-tabellen har tagits bort från Azure Resource Graph (ARG)
 
 Azure Resource Graph är en tjänst i Azure som är utformad för att tillhandahålla effektiv resurs utforskning med möjlighet att fråga i skala över en specifik uppsättning prenumerationer så att du effektivt kan styra din miljö. 
@@ -75,33 +85,7 @@ För Azure Security Center kan du använda ARG och [KQL (Kusto Query Language)](
 
 I ARG finns det data tabeller som du kan använda i dina frågor.
 
-:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer och de tillgängliga tabellerna&quot;:::
-
-> [!TIP]
-> I ARG-dokumentationen visas en lista över alla tillgängliga tabeller i [Azures resurs diagram tabell och referens för resurs typ](../governance/resource-graph/reference/supported-tables-resources.md).
-
-Från den här uppdateringen har **Microsoft. Security/securityStatuses-** tabellen tagits bort. SecurityStatuses-API: et är fortfarande tillgängligt.
-
-Data ersättning kan användas av Microsoft. Security/assessments-tabellen.
-
-Den största skillnaden mellan Microsoft. Security/securityStatuses och Microsoft. Security/Assessment är att när den första visar agg regering av utvärderingar, innehåller sekunderna en enda post för varje.
-
-Till exempel, Microsoft. Security/securityStatuses skulle returnera ett resultat med en matris med två policyAssessments:
-
-```
-{
-id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
-name: &quot;mico-rg-vnet&quot;,
-type: &quot;Microsoft.Security/securityStatuses&quot;,
-properties:  {
-    policyAssessments: [
-        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
-        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
-    ],
-    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
-    name: &quot;GenericResourceHealthProperties&quot;,
-    type: &quot;VirtualNetwork&quot;,
-    securitystate: &quot;High"
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="De auktoriserade IP-intervallen bör definieras i Kubernetes Services-rekommendation med alternativet för snabb korrigering"
 }
 ```
 Microsoft. Security/bedömningar innehåller en post för varje sådan princip utvärdering enligt följande:
@@ -301,33 +285,7 @@ Security Center s verktyg för integrerad sårbarhets bedömning returnerar resu
 
 Säkerhets resultaten är nu tillgängliga för export genom löpande export när du väljer rekommendationer och aktiverar alternativet **Inkludera säkerhets resultat** .
 
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Azure Resource Graph Explorer och de tillgängliga tabellerna&quot;:::
-
-> [!TIP]
-> I ARG-dokumentationen visas en lista över alla tillgängliga tabeller i [Azures resurs diagram tabell och referens för resurs typ](../governance/resource-graph/reference/supported-tables-resources.md).
-
-Från den här uppdateringen har **Microsoft. Security/securityStatuses-** tabellen tagits bort. SecurityStatuses-API: et är fortfarande tillgängligt.
-
-Data ersättning kan användas av Microsoft. Security/assessments-tabellen.
-
-Den största skillnaden mellan Microsoft. Security/securityStatuses och Microsoft. Security/Assessment är att när den första visar agg regering av utvärderingar, innehåller sekunderna en enda post för varje.
-
-Till exempel, Microsoft. Security/securityStatuses skulle returnera ett resultat med en matris med två policyAssessments:
-
-```
-{
-id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
-name: &quot;mico-rg-vnet&quot;,
-type: &quot;Microsoft.Security/securityStatuses&quot;,
-properties:  {
-    policyAssessments: [
-        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
-        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
-    ],
-    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
-    name: &quot;GenericResourceHealthProperties&quot;,
-    type: &quot;VirtualNetwork&quot;,
-    securitystate: &quot;High" :::
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="De auktoriserade IP-intervallen bör definieras i Kubernetes Services-rekommendation med alternativet för snabb korrigering" :::
 
 Relaterade sidor:
 
@@ -392,33 +350,7 @@ För **hands versions** rekommendationer återges inte heller en resurs "ohälso
 
 Ett exempel på en förhands gransknings rekommendation:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Azure Resource Graph Explorer och de tillgängliga tabellerna&quot;:::
-
-> [!TIP]
-> I ARG-dokumentationen visas en lista över alla tillgängliga tabeller i [Azures resurs diagram tabell och referens för resurs typ](../governance/resource-graph/reference/supported-tables-resources.md).
-
-Från den här uppdateringen har **Microsoft. Security/securityStatuses-** tabellen tagits bort. SecurityStatuses-API: et är fortfarande tillgängligt.
-
-Data ersättning kan användas av Microsoft. Security/assessments-tabellen.
-
-Den största skillnaden mellan Microsoft. Security/securityStatuses och Microsoft. Security/Assessment är att när den första visar agg regering av utvärderingar, innehåller sekunderna en enda post för varje.
-
-Till exempel, Microsoft. Security/securityStatuses skulle returnera ett resultat med en matris med två policyAssessments:
-
-```
-{
-id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
-name: &quot;mico-rg-vnet&quot;,
-type: &quot;Microsoft.Security/securityStatuses&quot;,
-properties:  {
-    policyAssessments: [
-        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
-        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
-    ],
-    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
-    name: &quot;GenericResourceHealthProperties&quot;,
-    type: &quot;VirtualNetwork&quot;,
-    securitystate: &quot;High":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="De auktoriserade IP-intervallen bör definieras i Kubernetes Services-rekommendation med alternativet för snabb korrigering":::
 
 [Läs mer om säkra Poäng](secure-score-security-controls.md).
 
@@ -427,33 +359,7 @@ properties:  {
 
 På informations sidan för rekommendationer finns nu en indikator för aktualitets intervall (när det är relevant) och en tydlig visning av rekommendationens allvarlighets grad.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Azure Resource Graph Explorer och de tillgängliga tabellerna&quot;:::
-
-> [!TIP]
-> I ARG-dokumentationen visas en lista över alla tillgängliga tabeller i [Azures resurs diagram tabell och referens för resurs typ](../governance/resource-graph/reference/supported-tables-resources.md).
-
-Från den här uppdateringen har **Microsoft. Security/securityStatuses-** tabellen tagits bort. SecurityStatuses-API: et är fortfarande tillgängligt.
-
-Data ersättning kan användas av Microsoft. Security/assessments-tabellen.
-
-Den största skillnaden mellan Microsoft. Security/securityStatuses och Microsoft. Security/Assessment är att när den första visar agg regering av utvärderingar, innehåller sekunderna en enda post för varje.
-
-Till exempel, Microsoft. Security/securityStatuses skulle returnera ett resultat med en matris med två policyAssessments:
-
-```
-{
-id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
-name: &quot;mico-rg-vnet&quot;,
-type: &quot;Microsoft.Security/securityStatuses&quot;,
-properties:  {
-    policyAssessments: [
-        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
-        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
-    ],
-    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
-    name: &quot;GenericResourceHealthProperties&quot;,
-    type: &quot;VirtualNetwork&quot;,
-    securitystate: &quot;High":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="De auktoriserade IP-intervallen bör definieras i Kubernetes Services-rekommendation med alternativet för snabb korrigering":::
 
 
 
@@ -877,33 +783,7 @@ Säkerhets kontrollerna – och den här växlingen är en del av den nya säkra
 
 Läs mer om säkerhets kontroller i [förbättrade säkra poäng (för hands version) i Azure Security Center](secure-score-security-controls.md).
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Azure Resource Graph Explorer och de tillgängliga tabellerna&quot;:::
-
-> [!TIP]
-> I ARG-dokumentationen visas en lista över alla tillgängliga tabeller i [Azures resurs diagram tabell och referens för resurs typ](../governance/resource-graph/reference/supported-tables-resources.md).
-
-Från den här uppdateringen har **Microsoft. Security/securityStatuses-** tabellen tagits bort. SecurityStatuses-API: et är fortfarande tillgängligt.
-
-Data ersättning kan användas av Microsoft. Security/assessments-tabellen.
-
-Den största skillnaden mellan Microsoft. Security/securityStatuses och Microsoft. Security/Assessment är att när den första visar agg regering av utvärderingar, innehåller sekunderna en enda post för varje.
-
-Till exempel, Microsoft. Security/securityStatuses skulle returnera ett resultat med en matris med två policyAssessments:
-
-```
-{
-id: &quot;/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet&quot;,
-name: &quot;mico-rg-vnet&quot;,
-type: &quot;Microsoft.Security/securityStatuses&quot;,
-properties:  {
-    policyAssessments: [
-        {assessmentKey: &quot;e3deicce-f4dd-3b34-e496-8b5381bazd7e&quot;, category: &quot;Networking&quot;, policyName: &quot;Azure DDOS Protection Standard should be enabled&quot;,...},
-        {assessmentKey: &quot;sefac66a-1ec5-b063-a824-eb28671dc527&quot;, category: &quot;Compute&quot;, policyName: &quot;&quot;,...}
-    ],
-    securitystateByCategory: [{category: &quot;Networking&quot;, securityState: &quot;None&quot; }, {category: &quot;Compute&quot;,...],
-    name: &quot;GenericResourceHealthProperties&quot;,
-    type: &quot;VirtualNetwork&quot;,
-    securitystate: &quot;High":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="De auktoriserade IP-intervallen bör definieras i Kubernetes Services-rekommendation med alternativet för snabb korrigering":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Utökad säkerhets kontroll "implementera säkerhets metod tips" 
 

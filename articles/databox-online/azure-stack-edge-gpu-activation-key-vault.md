@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 10/10/2020
 ms.author: alkohli
-ms.openlocfilehash: c841c96326f636e16f3b4f86fcb88a0962011c0f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8957d8982a3bfe1da2811dc10d0c3e77a72fc288
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976839"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367609"
 ---
 # <a name="azure-key-vault-integration-with-azure-stack-edge"></a>Azure Key Vault integration med Azure Stack Edge 
 
@@ -22,7 +22,7 @@ Azure Key Vault är integrerat med Azure Stack Edge-resurs för hemlig hantering
 
 ## <a name="about-key-vault-and-azure-stack-edge"></a>Om Key Vault och Azure Stack Edge
 
-Azure Key Vault moln tjänst används för säker lagring och kontroll av åtkomst till token, lösen ord, certifikat, API-nycklar och andra hemligheter. Key Vault gör det också enkelt att skapa och kontrol lera de krypterings nycklar som används för att kryptera dina data. 
+Azure Key Vault moln tjänst används för säker lagring och kontroll av åtkomst till token, lösen ord, certifikat, API-nycklar och andra hemligheter. Key Vault gör det också enkelt att skapa och kontrol lera de krypterings nycklar som används för att kryptera dina data. Mer information om tillåtna transaktioner och motsvarande kostnader finns i [prissättning för Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
 
 En av de hemligheter som används för tjänsten Azure Stack Edge är kanal integritets nyckel (CIK). Med den här nyckeln kan du kryptera dina hemligheter. Med integreringen av Key Vault lagras CIK säkert i nyckel valvet. Mer information finns i [säker lagring av hemligheter och nycklar](../key-vault/general/overview.md#securely-store-secrets-and-keys).
 
@@ -44,6 +44,8 @@ Ett nyckel valv skapas för Azure Stack Edge-resurs under genereringen av aktive
 - Du kan välja att godkänna standard nyckel namnet eller ange ett eget namn för nyckel valvet. Nyckel valvets namn måste vara mellan 3 och 24 tecken långt. Det går inte att använda ett nyckel valv som redan används. <!--The MSI is then used to authenticate to key vault to retrieve secrets.--> 
 
     ![MSI skapade när Azure Stack Edge-resurs skapas](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
+
+- Om du vill bläddra till Azure Key Vault går du till **egenskaperna** i Azure Stack Edge-resursen och väljer nyckel valvets namn. 
 
 - För att förhindra oavsiktlig borttagning är ett resurs lås aktiverat i nyckel valvet. En mjuk borttagning är också aktive rad i nyckel valvet som gör att nyckel valvet kan återställas inom 90 dagar om det uppstår en oavsiktlig borttagning. Mer information finns i [Azure Key Vault översikt över mjuk borttagning](../key-vault/general/soft-delete-overview.md)
 

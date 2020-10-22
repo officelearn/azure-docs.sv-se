@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: d333972ea5f74d1676e5e4b4e1417c6bf5d87b79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a8471305af93194ccae7b0928685e10d4d64726
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135346"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366672"
 ---
 # <a name="troubleshoot-vcenter-server-discovery-failures"></a>Felsöka vCenter Server identifierings fel
 
@@ -54,7 +54,7 @@ Följande situationer inträffar när det här problemet uppstår:
 
 Så här löser du problemet:
 
-Ladda ned [PsExec-verktyget](https://aka.ms/PsExec). 
+Ladda ned [PsExec-verktyget](/sysinternals/downloads/psexec). 
 
 Använd PsExec-verktyget för att få åtkomst till system användar kontexten och ta reda på om proxyservern har kon figurer ATS. Du kan sedan lägga till vCenter i listan över undantag med följande procedurer.
 
@@ -81,4 +81,4 @@ För att DRA en konfiguration:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer](./vmware-azure-manage-configuration-server.md#refresh-configuration-server) 
+[Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer](./vmware-azure-manage-configuration-server.md#refresh-configuration-server)

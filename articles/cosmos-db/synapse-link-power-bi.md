@@ -6,23 +6,20 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 26a6ddf3ea3009c1463f40403c9d1860a7cb81f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1157ca31a66e5df92ff28f5d7190993e51d7dd65
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126011"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367643"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Använd Power BI-och Server lös Synapse SQL-pool för att analysera Azure Cosmos DB data med Synapse-länk (för hands version) 
 
 I den här artikeln får du lära dig hur du skapar en server lös Synapse SQL-pool (som tidigare kallades som **SQL på begäran**)-databas och vyer över Synapse-länken för Azure Cosmos dB. Du kommer att fråga Azure Cosmos-behållare och sedan bygga en modell med Power BI över dessa vyer för att återspegla den frågan.
 
-> [!NOTE]
-> Det finns för närvarande en för hands version av den Azure Cosmos DB analys lagringen med en server lös SQL-pool. Kontakta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com)för att begära åtkomst.
-
 I det här scenariot ska du använda dummy-data om produkt försäljning i en partner butik. Du analyserar intäkterna per butik baserat på närhet till stora hushåll och effekten av annonsering under en viss vecka. I den här artikeln skapar du två vyer med namnet **RetailSales** och **StoreDemographics** och en fråga mellan dem. Du kan hämta exempel produkt data från den här [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) -lagrings platsen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se till att skapa följande resurser innan du börjar:
 

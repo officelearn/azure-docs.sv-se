@@ -3,12 +3,12 @@ title: 'Snabb start: data strömning med Azure Event Hubs med Kafka-protokollet'
 description: 'Snabb start: den här artikeln innehåller information om hur du strömmar till Azure Event Hubs med hjälp av Kafka-protokollet och API: erna.'
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: e87d9b1e4a444695d64dc6acfa0e29f7b72e37f2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2020534a3984453bcd6eff7ad0f5c02d9e7a29ff
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319356"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368357"
 ---
 # <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Snabb start: data strömning med Event Hubs med Kafka-protokollet
 Den här snabb starten visar hur du strömmar till Event Hubs utan att ändra protokoll klienter eller köra egna kluster. Du lär dig hur du använder dina producenter och användare för att prata med Event Hubs med bara en konfigurations ändring i dina program. 
@@ -16,7 +16,7 @@ Den här snabb starten visar hur du strömmar till Event Hubs utan att ändra pr
 > [!NOTE]
 > Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här snabbstarten behöver du följande:
 
@@ -49,6 +49,10 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
+    
+    > [!IMPORTANT]
+    > Ersätt `{YOUR.EVENTHUBS.CONNECTION.STRING}` med anslutnings strängen för din Event Hubs-namnrymd. Anvisningar om hur du hämtar anslutnings strängen finns i [Hämta en Event Hubs anslutnings sträng](event-hubs-get-connection-string.md). Här är ett exempel på en konfiguration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
+
     **Arbeta**
 
     ```xml
@@ -79,6 +83,9 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
+
+    > [!IMPORTANT]
+    > Ersätt `{YOUR.EVENTHUBS.CONNECTION.STRING}` med anslutnings strängen för din Event Hubs-namnrymd. Anvisningar om hur du hämtar anslutnings strängen finns i [Hämta en Event Hubs anslutnings sträng](event-hubs-get-connection-string.md). Här är ett exempel på en konfiguration: `sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://mynamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXX";`
 
     **Arbeta**
 

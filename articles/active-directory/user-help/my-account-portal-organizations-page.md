@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: end-user-help
 ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbe0c2047b3ed52fdd69295fd0fd867cb3a5f0ef
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90005079"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370346"
 ---
 # <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Hantera organisationer som du har åtkomst till i mitt konto Portal
 
@@ -30,7 +30,7 @@ Sidan **organisationer** i portalen **My-Account** hjälper dig att hantera orga
 - **Andra organisationer.** De andra organisationerna är alla grupper som du har loggat in på tidigare med ditt arbets-eller skol konto. Du kan när som helst lämna någon av dessa organisationer.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker uppdatera organisations informationen som används av ett arbets-eller skol konto. Om du är administratör för att söka efter information om grupp-och användar hantering för dina anställda och andra användnings områden, se [dokumentationen för Enterprise User Management](../users-groups-roles/index.yml).
+>Den här artikeln är avsedd för användare som försöker uppdatera organisations informationen som används av ett arbets-eller skol konto. Om du är administratör för att söka efter information om grupp-och användar hantering för dina anställda och andra användnings områden, se [dokumentationen för Enterprise User Management](../enterprise-users/index.yml).
 
 ## <a name="view-your-organizations"></a>Visa dina organisationer
 

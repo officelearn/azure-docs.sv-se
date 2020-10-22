@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de529a8ffb0c72854904717c71dbc322c919f1a8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89321097"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370822"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare med hjälp av Azure Active Directory
 
@@ -103,6 +103,6 @@ När du har lagt till dina användare kan du göra följande grundläggande proc
 
 - [Skapa en basgrupp och lägg till medlemmar](active-directory-groups-create-azure-portal.md)
 
-- [Arbeta med dynamiska grupper och användare](../users-groups-roles/groups-create-rule.md)
+- [Arbeta med dynamiska grupper och användare](../enterprise-users/groups-create-rule.md)
 
-Eller så kan du utföra andra användar hanterings uppgifter, till exempel [lägga till gäst användare från en annan katalog](../external-identities/what-is-b2b.md) eller [återställa en borttagen användare](active-directory-users-restore.md). Mer information om andra tillgängliga åtgärder finns i [Azure Active Directory User Management-dokumentation](../users-groups-roles/index.yml).
+Eller så kan du utföra andra användar hanterings uppgifter, till exempel [lägga till gäst användare från en annan katalog](../external-identities/what-is-b2b.md) eller [återställa en borttagen användare](active-directory-users-restore.md). Mer information om andra tillgängliga åtgärder finns i [Azure Active Directory User Management-dokumentation](../enterprise-users/index.yml).

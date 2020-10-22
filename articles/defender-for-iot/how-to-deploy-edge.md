@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 06836673f1a567f64217d49cf8e0ca82e132111f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd68fd79d25e839876180ff25cacfa1ddf64eb2b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941253"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92368816"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en säkerhetsmodul på din IoT Edge-enhet
 
@@ -32,9 +32,9 @@ I den här artikeln får du lära dig hur du distribuerar en säkerhetsmodul på
 
 Använd följande steg för att distribuera en Defender for IoT-säkerhetsmodul för IoT Edge.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
-1. Kontrol lera att enheten är [registrerad som en IoT Edge enhet](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)i IoT Hub.
+1. Kontrol lera att enheten är [registrerad som en IoT Edge enhet](https://docs.microsoft.com/azure/iot-edge/how-to-manual-provision-symmetric-key#register-a-new-device)i IoT Hub.
 
 1. Defender för IoT Edge modul kräver att det [granskade ramverket](https://linux.die.net/man/8/auditd) är installerat på IoT Edges enheten.
 

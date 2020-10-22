@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0332b9aab0db456ed4517c09e541bee1b9884d04
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276514"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369003"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 
@@ -103,15 +103,15 @@ I följande tabell beskrivs namn och beskrivningar av egenskaper som är unika f
 | Egenskap              | Beskrivning                              | Krävs |
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Namn på aktiviteten i pipelinen     | Ja      |
-| description           | Text som beskriver vad aktiviteten gör.  | Inga       |
+| description           | Text som beskriver vad aktiviteten gör.  | Nej       |
 | typ                  | För anpassad aktivitet är aktivitets typen **anpassad**. | Ja      |
 | linkedServiceName     | Länkad tjänst till Azure Batch. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) .  | Ja      |
 | command               | Kommando för det anpassade program som ska köras. Om programmet redan är tillgängligt i noden Azure Batch pool kan resourceLinkedService och folderPath hoppas över. Du kan till exempel ange kommandot som `cmd /c dir` är inbyggt i Windows batch pool-noden. | Ja      |
 | resourceLinkedService | Azure Storage länkad tjänst till lagrings kontot där det anpassade programmet lagras | Inga &#42;       |
 | folderPath            | Sökväg till mappen för det anpassade programmet och alla dess beroenden<br/><br/>Om du har beroenden lagrade i undermappar – det vill säga i en hierarkisk mappstruktur under *folderPath* , är mappstrukturen för närvarande utplattad när filerna kopieras till Azure Batch. Det innebär att alla filer kopieras till en enda mapp utan undermappar. Undvik problemet genom att komprimera filerna, kopiera den komprimerade filen och packa upp den med anpassad kod på önskad plats. | Inga &#42;       |
-| referenceObjects      | En matris med befintliga länkade tjänster och data uppsättningar. Refererade länkade tjänster och data uppsättningar skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till resurser i Data Factory | Inga       |
-| extendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Inga       |
-| retentionTimeInDays | Retentions tiden för de filer som skickas för den anpassade aktiviteten. Standardvärdet är 30 dagar. | Inga |
+| referenceObjects      | En matris med befintliga länkade tjänster och data uppsättningar. Refererade länkade tjänster och data uppsättningar skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till resurser i Data Factory | Nej       |
+| extendedProperties    | Användardefinierade egenskaper som kan skickas till det anpassade programmet i JSON-format så att din anpassade kod kan referera till ytterligare egenskaper | Nej       |
+| retentionTimeInDays | Retentions tiden för de filer som skickas för den anpassade aktiviteten. Standardvärdet är 30 dagar. | Nej |
 
 &#42; egenskaperna `resourceLinkedService` och `folderPath` måste antingen anges eller båda utelämnas.
 
@@ -387,5 +387,5 @@ Se följande artiklar som förklarar hur du omformar data på andra sätt:
 * [MapReduce-aktivitet](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
-* [Machine Learning batch-körning, aktivitet](transform-data-using-machine-learning.md)
+* [Azure Machine Learning Studio (klassisk) batch execution Activity](transform-data-using-machine-learning.md)
 * [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

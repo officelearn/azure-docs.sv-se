@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
-ms.openlocfilehash: a5e53c29c41b3c4a5a2dd1f421e128231aa5eec3
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 74321bc75fa760727e7896f47cdfc5b2929047e5
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327557"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92366096"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverk för Azure Active Directory-medgivande
 
@@ -49,7 +49,7 @@ Följande steg visar hur medgivande upplevelsen fungerar för både programutvec
 
 1. När användaren har gett sitt medgivande returneras en auktoriseringskod till ditt program, som har lösts för att erhålla en åtkomsttoken och en uppdaterad token. Mer information om det här flödet finns i [OAuth 2,0 Authorization Code Flow](v2-oauth2-auth-code-flow.md).
 
-1. Som administratör kan du även samtycka till ett programs delegerade behörigheter för samtliga användare i klienten. Administrativt medgivande förhindrar att dialog rutan för medgivande visas för alla användare i klient organisationen och kan göras i [Azure Portal](https://portal.azure.com) av användare med rollen administratör. Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+1. Som administratör kan du även samtycka till ett programs delegerade behörigheter för samtliga användare i klienten. Administrativt medgivande förhindrar att dialog rutan för medgivande visas för alla användare i klient organisationen och kan göras i [Azure Portal](https://portal.azure.com) av användare med rollen administratör. Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../roles/permissions-reference.md).
 
     **Godkänna till en Apps delegerade behörigheter**
 

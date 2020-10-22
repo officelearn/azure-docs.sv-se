@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 411fa207323a9bff6cfcc3b17769203c444dd844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dba5f96d90304418d7ebd297419c1f36244f868
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85388688"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363937"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Distribuera anpassade principer med Azure-pipeliner
 
@@ -33,7 +33,7 @@ Det finns tre primära steg som krävs för att aktivera Azure-pipelines för at
 
 ## <a name="prerequisites"></a>Krav
 
-* [Azure AD B2C klient organisation](tutorial-create-tenant.md)och autentiseringsuppgifter för en användare i katalogen med rollen [B2C IEF princip administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator)
+* [Azure AD B2C klient organisation](tutorial-create-tenant.md)och autentiseringsuppgifter för en användare i katalogen med rollen [B2C IEF princip administratör](../active-directory/roles/permissions-reference.md#b2c-ief-policy-administrator)
 * [Anpassade principer](custom-policy-get-started.md) har laddats upp till din klient
 * [Hanterings appen](microsoft-graph-get-started.md) som registrerats i din klient organisation med behörighets principen Microsoft Graph-API *. readwrite. TrustFramework*
 * [Azure pipeline](https://azure.microsoft.com/services/devops/pipelines/)och åtkomst till ett [Azure DevOps Services-projekt][devops-create-project]
@@ -131,7 +131,7 @@ När du har initierat och fyllt i din databas med dina anpassade principfiler, �
 1. Välj fliken **variabler** .
 1. Lägg till följande variabler under **pipeline-variabler** och ange deras värden enligt vad som anges:
 
-    | Name | Värde |
+    | Namn | Värde |
     | ---- | ----- |
     | `clientId` | **Program (klient) ID** för det program som du registrerade tidigare. |
     | `clientSecret` | Värdet för **klient hemligheten** som du skapade tidigare. <br /> Ändra variabel typen till **hemlighet** (Välj Lås ikonen). |
@@ -151,7 +151,7 @@ Lägg sedan till en aktivitet för att distribuera en princip fil.
     * **Uppgifts version**: 2. *
     * **Visnings namn**: namnet på den princip som den här aktiviteten ska överföra. Till exempel *B2C_1A_TrustFrameworkBase*.
     * **Typ**: fil Sök väg
-    * **Skript Sök väg**: Välj ellipsen (***...***), navigera till mappen *skript* och välj sedan filen *DeployToB2C.ps1* .
+    * **Skript Sök väg**: Välj ellipsen (**_..._* _), navigera till mappen _Scripts * och välj sedan *DeployToB2C.ps1* filen.
     * **Ogiltiga**
 
         Ange följande värden för **argument**. Ersätt `{alias-name}` med det alias som du angav i föregående avsnitt.

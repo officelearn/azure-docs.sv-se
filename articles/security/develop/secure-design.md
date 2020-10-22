@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: d0cffbd1fa09abef9853e0ef853696c3c8ed353c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22f74d3135597e8627cf7af933f8c6f4fbebc990
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86246817"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364056"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
@@ -226,7 +226,7 @@ Se till att ditt program har [minst behörighet](https://docs.microsoft.com/wind
 
 #### <a name="implement-just-in-time-access"></a>Implementera just-in-Time-åtkomst
 
-Implementera JIT-åtkomst ( *just-in-Time* ) för att ytterligare minska exponerings tiden för privilegier. Använd [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) för att:
+Implementera JIT-åtkomst ( *just-in-Time* ) för att ytterligare minska exponerings tiden för privilegier. Använd [Azure AD Privileged Identity Management](../../active-directory/roles/security-planning.md#stage-3-take-control-of-admin-activity) för att:
 
 - Ge användarna de behörigheter de behöver endast för JIT.
 - Tilldela roller för kortare varaktighet med förtroende för att privilegierna återkallas automatiskt.

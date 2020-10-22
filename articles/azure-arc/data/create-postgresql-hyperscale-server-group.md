@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 7fdc367e3db298b60dc9a15453d58a738c13274a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d2eef20b4c5648b1b11f16d8e46b956fc1497181
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108311"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364430"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Skapa en Azure-Arc-aktiverad PostgreSQL Hyperskala-servergrupp
 
@@ -138,7 +138,7 @@ Följ instruktionerna nedan om du använder en virtuell Azure-dator för att tes
 
 När du använder en virtuell Azure-dator visas inte den _offentliga_ IP-adressen i slut PUNKTens IP-adress. Använd följande kommando för att hitta den offentliga IP-adressen:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -148,7 +148,7 @@ Du kan också behöva exponera porten för PostgreSQL-Server gruppen via Network
 
 Om du vill ange en regel måste du känna till namnet på din NSG. Du fastställer NSG med kommandot nedan:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -156,7 +156,7 @@ När du har namnet på NSG kan du lägga till en brand Väggs regel med hjälp a
 
 Ersätt värdet för parametern--destination-port-Ranges nedan med det port nummer som du fick från kommandot "azdata Arc postgres Server List" ovan.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30655 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 
@@ -169,7 +169,7 @@ az network nsg rule create -n db_port --destination-port-ranges 30655 --source-a
 
 Kom ihåg att om du använder en virtuell Azure-dator behöver du den _offentliga_ IP-adress som kan nås via följande kommando:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 

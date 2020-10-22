@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.date: 01/01/2020
-  ms.openlocfilehash: 66d082c844e3c9c78bf8dbec09e52f8efaf1ee57
-  ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+  ms.date: 11/21/2020
+  ms.openlocfilehash: 4b3308b7475d9f1adc5446907e19d363fc4faca0
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/16/2020
-  ms.locfileid: "92132286"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92367031"
 landingContent:
 - title: Analysera dina kostnader
   linkLists:
@@ -72,14 +72,10 @@ landingContent:
     links:
     - text: Använda kostnadsaviseringar
       url: costs/cost-mgt-alerts-monitor-usage-spending.md
-    - text: Tilldela kostnader
-      url: costs/allocate-costs.md
     - text: Visa och ladda ned din Azure-faktura
       url: understand/download-azure-invoice.md
     - text: Visa och ladda ned information om din användning och dina avgifter i Azure
       url: understand/download-azure-daily-usage.md
-    - text: Visa externa tjänstavgifter
-      url: understand/understand-azure-marketplace-charges.md
 - title: Optimera dina kostnader
   linkLists:
   - linkListType: concept
@@ -142,23 +138,3 @@ landingContent:
       url: understand/mca-download-tax-document.md
     - text: Betala din faktura för Microsoft-kundavtal
       url: understand/pay-bill.md
-- title: Köp reservationer
-  linkLists:
-  - linkListType: concept
-    links:
-    - text: Välja och köpa en reservation
-      url: reservations/determine-reservation-purchase.md
-    - text: Utbyten och återbetalningar för reservationer
-      url: reservations/exchange-and-refund-azure-reservations.md
-  - linkListType: how-to-guide
-    links:
-    - text: Köpa en reservation
-      url: reservations/prepare-buy-reservation.md
-    - text: Hantera reservationer
-      url: reservations/manage-reserved-vm-instance.md
-    - text: Visa reservationsköp
-      url: reservations/view-purchase-refunds.md
-    - text: Återbetalning av reservationer
-      url: reservations/charge-back-usage.md
-    - text: Förnya reservationer
-      url: reservations/reservation-renew.md

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 30444523bfc26fc0f4eb410957bcc9ee46aff725
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574592d4434b9d8c49086b82bab0b8775fb67e03
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760877"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371740"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Säker åtkomst till data i Azure Cosmos DB
 
@@ -29,20 +29,7 @@ Azure Cosmos DB använder två typer av nycklar för att autentisera användare 
 
 ## <a name="primary-keys"></a>Primära nycklar
 
-Primära nycklar ger åtkomst till alla administrativa resurser för databas kontot. Primär nycklar:
-
-- Ge åtkomst till konton, databaser, användare och behörigheter. 
-- Kan inte användas för att ge detaljerad åtkomst till behållare och dokument.
-- Skapas när ett konto skapas.
-- Kan återskapas när som helst.
-
-Varje konto består av två primär nycklar: en primär nyckel och en sekundär nyckel. Syftet med dubbla nycklar är att du kan skapa om eller registrera nycklar, vilket ger kontinuerlig åtkomst till ditt konto och dina data.
-
-Förutom de två primära nycklarna för det Cosmos DB kontot finns det två skrivskyddade nycklar. Dessa skrivskyddade nycklar tillåter bara Läs åtgärder på kontot. Skrivskyddade nycklar ger inte åtkomst till Läs behörighets resurser.
-
-Primära, sekundära, skrivskyddade och Läs-och skriv-och skrivbara primär nycklar kan hämtas och återskapas med hjälp av Azure Portal. Instruktioner finns i [Visa, kopiera och återskapa åtkomst nycklar](manage-with-cli.md#regenerate-account-key).
-
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-portal.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera NoSQL Database-säkerhet":::
+Primära nycklar ger åtkomst till alla administrativa resurser för databas kontot. Varje konto består av två primär nycklar: en primär nyckel och en sekundär nyckel. Syftet med dubbla nycklar är att du kan skapa om eller registrera nycklar, vilket ger kontinuerlig åtkomst till ditt konto och dina data. Läs mer om primär nycklar i artikeln [databas säkerhet](database-security.md#primary-keys) .
 
 ### <a name="key-rotation"></a>Nyckel rotation<a id="key-rotation"></a>
 
@@ -51,10 +38,10 @@ Processen med att rotera primär nyckeln är enkel.
 1. Navigera till Azure Portal för att hämta den sekundära nyckeln.
 2. Ersätt din primära nyckel med din sekundära nyckel i ditt program. Se till att alla Cosmos DB-klienter i alla distributioner startas om och kommer att börja använda den uppdaterade nyckeln.
 3. Rotera primär nyckeln i Azure Portal.
-4. Verifiera att den nya primär nyckeln fungerar mot alla resurser. Nyckel rotations processen kan ta var som helst om från mindre än en minut till timmar beroende på storleken på Cosmos DB kontot.
+4. Verifiera att den nya primär nyckeln fungerar mot alla resurser. Nyckel rotations processen kan ta var som helst från mindre än en minut till timmar beroende på Cosmos DB kontots storlek.
 5. Ersätt den sekundära nyckeln med den nya primära nyckeln.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Primär nyckel rotation i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
 
 ### <a name="code-sample-to-use-a-primary-key"></a>Kod exempel för att använda en primär nyckel
 
@@ -102,7 +89,7 @@ Här är ett typiskt design mönster där du kan begära, generera och leverera 
 7. Phone-appen kan fortsätta att använda resurs-token för att direkt komma åt Cosmos DB resurser med behörigheterna som definierats av resurs-token och för intervallet som tillåts av resurs-token.
 8. När resursens token upphör att gälla får efterföljande begär Anden ett 401 obehörigt undantag.  I det här läget upprättar Phone-appen identiteten igen och begär en ny resurs-token.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Åtkomst kontroll (IAM) i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Primär nyckel rotation i Azure Portal – demonstrera NoSQL Database-säkerhet" border="false":::
 
 Generering och hantering av resurs-token hanteras av de interna Cosmos DB klient biblioteken. men om du använder REST måste du skapa huvudena för begäran/autentisering. Mer information om hur du skapar autentiseringsscheman för REST finns i [Access Control på Cosmos DB resurser](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) eller käll koden för vår [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) eller [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 

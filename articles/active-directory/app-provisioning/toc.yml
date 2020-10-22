@@ -5,6 +5,8 @@
   items:
     - name: Vad är programetablering?
       href: user-provisioning.md
+    - name: Nyheter i Docs
+      href: whats-new-docs.md
 - name: Självstudier
   expanded: true
   items:

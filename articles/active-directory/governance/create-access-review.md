@@ -15,12 +15,12 @@ ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87af4a08c5a796d96d853ca63e50e335b9731fb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602939"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362781"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
@@ -32,7 +32,7 @@ Du kan se en snabb video som talar om hur du aktiverar åtkomst granskningar:
 
 Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar för grupp medlemmar eller program åtkomst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure AD Premium P2
 - Global administratör eller användar administratör
@@ -164,6 +164,7 @@ Om du har tilldelat gäster som granskare och de inte har accepterat inbjudan f�
 |Automatiskt granskad | Beslut har registrerats av systemet för alla användare som inte har granskats. Granskning är redo att fortsätta att **tillämpa** om Auto-Apply har Aktiver ATS. |
 |Lägger | Det kommer inte att gå att komma åt användare som har godkänts. |
 |Tillämpat | Nekade användare, om sådana finns, har tagits bort från resursen eller katalogen. |
+|Misslyckades | Granskningen kunde inte fortsätta. Det här felet kan bero på borttagning av klienten, en ändring i licenser eller andra interna klient ändringar. |
 
 ## <a name="create-reviews-via-apis"></a>Skapa recensioner via API: er
 

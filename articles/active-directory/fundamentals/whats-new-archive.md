@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e13fe634db49dcc3f015eb90410c3b7753c8363
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: df1285145d0e8b04bf743a3967099d27d1195269
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318066"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362798"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -183,7 +183,7 @@ Nu kan kunder som har kostnads fria klient organisationer komma åt [inloggnings
 **Tjänste kategori:** Grupp hantering  
 **Produkt kapacitet:** Samarbete
 
-För att ge kunderna ett mer flexibelt sätt att skapa katalog grupper som bäst uppfyller deras behov har vi ersatt alternativet för **katalog grupper** **från gruppen**  >  **allmänna** inställningar i Azure Portal med en länk till [dynamisk grupp dokumentation](../users-groups-roles/groups-dynamic-membership.md). Vi har förbättrat vår dokumentation för att inkludera fler instruktioner så att administratörer kan skapa grupper med alla användare som inkluderar eller undantar gäst användare.
+För att ge kunderna ett mer flexibelt sätt att skapa katalog grupper som bäst uppfyller deras behov har vi ersatt alternativet för **katalog grupper** **från gruppen**  >  **allmänna** inställningar i Azure Portal med en länk till [dynamisk grupp dokumentation](../enterprise-users/groups-dynamic-membership.md). Vi har förbättrat vår dokumentation för att inkludera fler instruktioner så att administratörer kan skapa grupper med alla användare som inkluderar eller undantar gäst användare.
 
 ---
 
@@ -739,7 +739,7 @@ Mer information finns i [Uppgradera till månatliga aktiva användares faktureri
 
 I oktober 2019 har vi lagt till dessa 35 nya appar med stöd för federation i app-galleriet:
 
-[I händelse av kris – mobil](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno resa](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact](https://tact.ai/assistant/), [OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://prd.salestim.io/forms), [Learnster](../saas-apps/learnster-tutorial.md), [dynaTrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks, eCornell](../saas-apps/freshworks-tutorial.md) [, ShipHazmat](../saas-apps/ecornell-tutorial.md), Netskope, Bindtuning, HireVue,,,,, [,](../saas-apps/shiphazmat-tutorial.md) [Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [contentable](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [e](https://www.hirevue.com/) [HireVue koordinat-USOnly](https://www.hirevue.com/), [HireVue-koordinat – US](https://www.hirevue.com/), [WittyParrot](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md) [, Visit.org, Cambium](../saas-apps/visitorg-tutorial.md)Xirrus [EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](../saas-apps/paylocity-tutorial.md), [Maile!](../saas-apps/mail-luck-tutorial.md), [team](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login) [, SIGNL4, EAB](https://account.signl4.com/manage) [navigera implementering](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), [Speak e-mail for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [talad e-post för Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), iHealthHome [Care navigerings system](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
+[I händelse av kris – mobil](../saas-apps/in-case-of-crisis-mobile-tutorial.md), [Juno resa](../saas-apps/juno-journey-tutorial.md), [ExponentHR](../saas-apps/exponenthr-tutorial.md), [Tact](https://tact.ai/assistant/), [OpusCapita Cash Management](http://cm1.opuscapita.com/tenantname), [Salestim](https://www.salestim.com/), [Learnster](../saas-apps/learnster-tutorial.md), [dynaTrace](../saas-apps/dynatrace-tutorial.md), [HunchBuzz](https://login.hunchbuzz.com/integrations/azure/process), [Freshworks, eCornell](../saas-apps/freshworks-tutorial.md) [, ShipHazmat](../saas-apps/ecornell-tutorial.md), Netskope, Bindtuning, HireVue,,,,, [,](../saas-apps/shiphazmat-tutorial.md) [Cloud Security](../saas-apps/netskope-cloud-security-tutorial.md), [contentable](../saas-apps/contentful-tutorial.md), [Bindtuning](https://bindtuning.com/login), [e](https://www.hirevue.com/) [HireVue koordinat-USOnly](https://www.hirevue.com/), [HireVue-koordinat – US](https://www.hirevue.com/), [WittyParrot](https://wittyapi.wittyparrot.com/wittyparrot/api/provision/trail/signup), [Cloudmore](../saas-apps/cloudmore-tutorial.md) [, Visit.org, Cambium](../saas-apps/visitorg-tutorial.md)Xirrus [EasyPass Portal](https://login.xirrus.com/azure-signup), [Paylocity](../saas-apps/paylocity-tutorial.md), [Maile!](../saas-apps/mail-luck-tutorial.md), [team](https://theteamie.com/), [Velocity for Teams](https://velocity.peakup.org/teams/login) [, SIGNL4, EAB](https://account.signl4.com/manage) [navigera implementering](../saas-apps/eab-navigate-impl-tutorial.md), [ScreenMeet](https://console.screenmeet.com/), [Omega Point](https://pi.ompnt.com/), [Speak e-mail for Intune (iPhone)](https://speaking.email/FAQ/98/email-access-via-microsoft-intune), [talad e-post för Office 365 Direct (iPhone/Android)](https://speaking.email/FAQ/126/email-access-via-microsoft-office-365-direct), [ExactCare SSO](../saas-apps/exactcare-sso-tutorial.md), iHealthHome [Care navigerings system](https://ihealthnav.com/account/signin), [Qubie](https://qubie.azurewebsites.net/static/adminTab/authorize.html)
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](../saas-apps/tutorial-list.md). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md).
 
@@ -774,7 +774,7 @@ Utgångs principen för Office 365-grupper har förbättrats för att automatisk
 
 Den här förbättringen hjälper till att minska antalet aviseringar för din grupp och hjälper till att se till att aktiva grupper fortfarande är tillgängliga. Om du redan har en aktiv utgångs princip för dina Office 365-grupper behöver du inte göra något för att aktivera den här nya funktionen.
 
-Mer information finns i [Konfigurera förfallo principen för Office 365-grupper](../users-groups-roles/groups-lifecycle.md).
+Mer information finns i [Konfigurera förfallo principen för Office 365-grupper](../enterprise-users/groups-lifecycle.md).
 
 ---
 
@@ -822,7 +822,7 @@ Vi är glada över att kunna meddela den offentliga för hands versionen av hant
 
 - Hämtar listan över grupp medlemmar för en speciell grupp.
 
-Mer information finns i avsnittet [Lägg till medlemmar](../users-groups-roles/groups-bulk-import-members.md), [Mass borttagnings medlemmar](../users-groups-roles/groups-bulk-remove-members.md), lista över grupp [medlemmar](../users-groups-roles/groups-bulk-download-members.md)och [grupper med hämtnings grupper](../users-groups-roles/groups-bulk-download.md)för grupp.
+Mer information finns i avsnittet [Lägg till medlemmar](../enterprise-users/groups-bulk-import-members.md), [Mass borttagnings medlemmar](../enterprise-users/groups-bulk-remove-members.md), lista över grupp [medlemmar](../enterprise-users/groups-bulk-download-members.md)och [grupper med hämtnings grupper](../enterprise-users/groups-bulk-download.md)för grupp.
 
 ---
 
@@ -861,7 +861,7 @@ Rollen global läsare fungerar med de nya Microsoft 365 administrations centret,
 >[!NOTE]
 > I början av den offentliga för hands versionen fungerar inte den globala läsar rollen med: SharePoint, Privileged Access Management, Customer Lockbox, känslighets etiketter, teams livs cykel, team rapportering & samtals analys, team hantering av IP-telefonen och Teams-katalogen.
 
-Mer information finns i [Administratörs roll behörigheter i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Mer information finns i [Administratörs roll behörigheter i Azure Active Directory](../roles/permissions-reference.md).
 
 ---
 
@@ -941,7 +941,7 @@ Mer information finns i [hantera grupper i Azure Portal](./active-directory-grou
 
 **Typ:** Ny funktions **tjänst kategori:** **produkt kapacitet** för Azure AD-roller: Access Control
 
-Anpassade roller (tillgängliga med en Azure AD P1-eller P2-prenumeration) kan nu hjälpa dig att ge dig detaljerad åtkomst, genom att låta dig skapa roll definitioner med särskilda behörigheter och sedan tilldela rollerna till särskilda resurser. För närvarande kan du skapa anpassade roller genom att använda behörigheter för att hantera app-registreringar och sedan tilldela rollen till en speciell app. Mer information om anpassade roller finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../users-groups-roles/roles-custom-overview.md).
+Anpassade roller (tillgängliga med en Azure AD P1-eller P2-prenumeration) kan nu hjälpa dig att ge dig detaljerad åtkomst, genom att låta dig skapa roll definitioner med särskilda behörigheter och sedan tilldela rollerna till särskilda resurser. För närvarande kan du skapa anpassade roller genom att använda behörigheter för att hantera app-registreringar och sedan tilldela rollen till en speciell app. Mer information om anpassade roller finns i [anpassade administratörs roller i Azure Active Directory (för hands version)](../roles/custom-overview.md).
 
 Om du behöver ytterligare behörigheter eller resurser som stöds, som du för närvarande inte ser, kan du skicka feedback till vår [Azure feedback-webbplats](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032) så lägger vi till din begäran till vår uppdatering av väg kartan.
 
@@ -1044,7 +1044,7 @@ Nya uppdateringar av AzureAD-och AzureAD Preview PowerShell-modulerna är tillg�
 
 Vi har gjort några förbättringar av användar gränssnittet för dynamisk grupp regel verktyget, som är tillgängliga i Azure Portal, för att hjälpa dig att enkelt konfigurera en ny regel eller ändra befintliga regler. Med den här design förbättringen kan du skapa regler med upp till fem uttryck i stället för bara en. Vi har också uppdaterat enhets egenskaps listan för att ta bort föråldrade enhets egenskaper.
 
-Mer information finns i [Hantera dynamiska medlemskaps regler](../users-groups-roles/groups-dynamic-membership.md).
+Mer information finns i [Hantera dynamiska medlemskaps regler](../enterprise-users/groups-dynamic-membership.md).
 
 ---
 
@@ -1530,7 +1530,7 @@ Du kan konfigurera namngivnings principen för Office 365-grupper på två olika
 
 - Ladda upp en anpassad uppsättning blockerade ord för din organisation, vilket inte är tillåtet i grupp namn (till exempel "VD, löner, HR").
 
-Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](../users-groups-roles/groups-naming-policy.md).
+Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1594,7 +1594,7 @@ Du kan konfigurera namngivnings principen för Office 365-grupper på två olika
 
 - Ladda upp en anpassad uppsättning blockerade ord för din organisation, vilket inte är tillåtet i grupp namn (till exempel "VD, löner, HR").
 
-Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](../users-groups-roles/groups-naming-policy.md).
+Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1740,7 +1740,7 @@ Mer information om hur du bättre skyddar din organisation genom att tillhandah�
 
 Nu kan du Visa och hantera dina borttagna Office 365-grupper från Azure AD-portalen. Den här ändringen hjälper dig att se vilka grupper som är tillgängliga för återställning, tillsammans med att låta dig ta bort alla grupper som inte behövs i din organisation Permanent.
 
-Mer information finns i [återställa inaktuella eller borttagna grupper](../users-groups-roles/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
+Mer information finns i [återställa inaktuella eller borttagna grupper](../enterprise-users/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
 
 ---
 
@@ -2097,7 +2097,7 @@ Mer information om hur du använder Microsoft Authenticator-appen för att åter
 
 Administratörer kan tilldela användare till den nya rollen som administratör för moln enhet för att utföra administrativa uppgifter. Användare som tilldelats rollen som moln enhets administratörer kan aktivera, inaktivera och ta bort enheter i Azure AD, tillsammans med att kunna läsa Windows 10 BitLocker-nycklar (om de finns) i Azure Portal.
 
-Mer information om roller och behörigheter finns [i tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+Mer information om roller och behörigheter finns [i tilldela administratörs roller i Azure Active Directory](../roles/permissions-reference.md)
 
 ---
 
@@ -2226,7 +2226,7 @@ Vi är glada över att kunna meddela att du nu kan använda ForceDelete-domän-A
 
 Den här ändringen hjälper dig att snabbt ta bort dina anpassade domän namn om organisationen inte längre använder namnet eller om du behöver använda domän namnet med en annan Azure AD.
 
-Mer information finns i [ta bort ett anpassat domän namn](../users-groups-roles/domains-manage.md#delete-a-custom-domain-name).
+Mer information finns i [ta bort ett anpassat domän namn](../enterprise-users/domains-manage.md#delete-a-custom-domain-name).
 
 ---
 
@@ -2246,7 +2246,7 @@ Rollerna är:
 
 - Användaradministratör
 
-Mer information finns i [skapa en dynamisk grupp och kontrol lera status](../users-groups-roles/groups-create-rule.md)
+Mer information finns i [skapa en dynamisk grupp och kontrol lera status](../enterprise-users/groups-create-rule.md)
 
 ---
 
@@ -2303,7 +2303,7 @@ Fliken ny **fel sökning och support** på sidan **inloggningar** i Azure Portal
 
 Med den här uppdateringen kan du nu Klicka på länken **Hämta anpassade tilläggs egenskaper** från regel verktyget för dynamisk användar grupp, ange ditt unika app-ID och ta emot den fullständiga listan med anpassade tilläggs egenskaper som ska användas när du skapar en regel för dynamiskt medlemskap för användare. Den här listan kan också uppdateras för att få nya anpassade tilläggs egenskaper för appen.
 
-Mer information om hur du använder anpassade tilläggs egenskaper för dynamiska medlemskaps regler finns i [tilläggs egenskaper och anpassade tilläggs egenskaper](../users-groups-roles/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
+Mer information om hur du använder anpassade tilläggs egenskaper för dynamiska medlemskaps regler finns i [tilläggs egenskaper och anpassade tilläggs egenskaper](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
 
 ---
 
@@ -2807,7 +2807,7 @@ Administratörer kan nu delegera program hanterings uppgifter utan att tilldela 
 
     - **Ägare av företags program.** Ger möjlighet att hantera många aspekter av ägda företags program, inklusive SSO-inställningar, app-tilldelningar och medgivande (förutom för Azure AD-resurser).
 
-Mer information om den offentliga för hands versionen finns [i Azure AD-delegerade program hanterings roller finns i offentlig för hands version!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blogg. Mer information om roller och behörigheter finns [i tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Mer information om den offentliga för hands versionen finns [i Azure AD-delegerade program hanterings roller finns i offentlig för hands version!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blogg. Mer information om roller och behörigheter finns [i tilldela administratörs roller i Azure Active Directory](../roles/permissions-reference.md).
 
 ---
 
@@ -3254,7 +3254,7 @@ Mer information finns i: [Anpassa listan över användar egenskaper för arbets 
 Det går att ändra hur medlemskap hanteras i en grupp. Detta är användbart om du vill behålla samma grupp namn och ID i systemet, så att alla befintliga referenser till gruppen fortfarande är giltiga. att skapa en ny grupp kräver uppdatering av dessa referenser.
 Azure AD Admin Center har uppdaterats för att stödja den här funktionen. Kunder kan nu konvertera befintliga grupper från dynamiskt medlemskap till tilldelat medlemskap och vice versa. De befintliga PowerShell-cmdletarna är också fortfarande tillgängliga.
 
-Mer information finns i [regler för dynamiska medlemskap för grupper i Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+Mer information finns i [regler för dynamiska medlemskap för grupper i Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ---
 

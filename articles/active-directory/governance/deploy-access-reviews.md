@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b218f4c94e33d4a91b3981c66d3ac052c6caf7e2
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2f3e825f908ffe475b05a5e6748d9505e7283b50
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318134"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362707"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planera distribution av Azure Active Directory åtkomst granskningar
 
@@ -198,7 +198,7 @@ Den administrativa roll som krävs för att skapa, hantera eller läsa en åtkom
 | Åtkomst paket| Global administratör<p>Skapare av Access-paket| Endast global administratör |
 
 
-Mer information finns i [Administratörs roll behörigheter i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Mer information finns i [Administratörs roll behörigheter i Azure Active Directory](../roles/permissions-reference.md).
 
 ### <a name="who-will-review-the-access-to-the-resource"></a>Vem kommer att granska åtkomsten till resursen?
 
@@ -343,7 +343,7 @@ Du kan [använda åtkomst granskningar i Azure AD för att hantera användare so
 
 ### <a name="review-external-users-group-memberships"></a>Granska externa användares grupp medlemskap
 
-Överväg att använda [dynamiska grupper](../users-groups-roles/groups-create-rule.md) för att tilldela grupp medlemskap baserat på en användares attribut för att minimera manuellt arbete och relaterade möjliga fel. Du kanske vill skapa en eller flera dynamiska grupper för externa användare. Den interna sponsorn kan fungera som en granskare för medlemskap i gruppen. 
+Överväg att använda [dynamiska grupper](../enterprise-users/groups-create-rule.md) för att tilldela grupp medlemskap baserat på en användares attribut för att minimera manuellt arbete och relaterade möjliga fel. Du kanske vill skapa en eller flera dynamiska grupper för externa användare. Den interna sponsorn kan fungera som en granskare för medlemskap i gruppen. 
 
 Obs! externa användare som tas bort från en grupp som resultat av en åtkomst granskning tas inte bort från klienten. 
 
@@ -389,7 +389,7 @@ Du måste sedan [tilldela de användare och grupper](../manage-apps/assign-user-
 
 ## <a name="plan-review-of-azure-ad-and-azure-resource-roles"></a>Planera granskning av Azure AD och Azures resurs roller
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) fören klar hur företag hanterar privilegie rad åtkomst till resurser i Azure AD. Detta bevarar listan över privilegierade roller, både i [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) och [Azure-resurser](../../role-based-access-control/built-in-roles.md) mycket mindre och ökar den övergripande säkerheten för katalogen.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) fören klar hur företag hanterar privilegie rad åtkomst till resurser i Azure AD. Detta bevarar listan över privilegierade roller, både i [Azure AD](../roles/permissions-reference.md) och [Azure-resurser](../../role-based-access-control/built-in-roles.md) mycket mindre och ökar den övergripande säkerheten för katalogen.
 
 Med åtkomst granskningar kan granskare intyga om användarna fortfarande måste vara i en roll. Precis som åtkomst granskningar för åtkomst paket integreras granskningar för Azure AD-roller och Azure-resurser i användar upplevelsen för PIM-administratören. Vi rekommenderar att du granskar följande roll tilldelningar regelbundet:
 

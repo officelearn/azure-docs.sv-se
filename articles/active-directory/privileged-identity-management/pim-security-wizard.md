@@ -14,12 +14,12 @@ ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5d15ef66b597fdf56fefe90f35cbf122bb093f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4662e9fb537a93cb87c554e319256e2eca40d2e7
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534445"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372437"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Identifiering och insikter (för hands version) för Azure AD-roller (tidigare säkerhets guide)
 
@@ -29,7 +29,7 @@ Om du börjar med Privileged Identity Management (PIM) i din Azure Active Direct
 
 Innan organisationen börjar använda Privileged Identity Management, är alla roll tilldelningar permanenta. Användarna är alltid i tilldelade roller även om de inte behöver sina privilegier. Identifiering och insikter (för hands version), som ersätter den tidigare säkerhets guiden, visar en lista över privilegierade roller och hur många användare som för närvarande finns i dessa roller. Du kan lista ut tilldelningar för en roll för att lära dig mer om de tilldelade användarna om en eller flera av dem är okända.
 
-: heavy_check_mark: **Microsoft rekommenderar** att du behåller två rast glas konton som är permanent tilldelade till den globala administratörs rollen. Se till att dessa konton inte kräver samma Multi-Factor Authentication-mekanism som dina vanliga administrativa konton för att logga in, enligt beskrivningen i [Hantera åtkomst konton för nöd situationer i Azure AD](../users-groups-roles/directory-emergency-access.md).
+: heavy_check_mark: **Microsoft rekommenderar** att du behåller två rast glas konton som är permanent tilldelade till den globala administratörs rollen. Se till att dessa konton inte kräver samma Multi-Factor Authentication-mekanism som dina vanliga administrativa konton för att logga in, enligt beskrivningen i [Hantera åtkomst konton för nöd situationer i Azure AD](../roles/security-emergency-access.md).
 
 Håll också roll tilldelningar permanenta om en användare har en Microsoft-konto (med andra ord, ett konto som de använder för att logga in på Microsoft-tjänster som Skype eller Outlook.com). Om du behöver Multi-Factor Authentication för en användare med en Microsoft-konto för att aktivera en roll tilldelning kommer användaren att låsas upp.
 

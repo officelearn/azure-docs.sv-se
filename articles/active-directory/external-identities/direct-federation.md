@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ad8761d3a4ff3e3cdab9dee5f50b469ff840fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87910195"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362900"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direkt Federation med AD FS och tredje parts leverantörer för gäst användare (för hands version)
 
@@ -45,7 +45,7 @@ Med direkt Federation loggar gäst användare in på din Azure AD-klient med hj�
 ## <a name="limitations"></a>Begränsningar
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>DNS-verifierade domäner i Azure AD
-Den domän som du vill federera med får ***inte*** vara DNS-verifierad i Azure AD. Du kan konfigurera direkt Federation med ohanterad (e-postverifierad eller "viral") Azure AD-klienter eftersom de inte är DNS-verifierade.
+Den domän som du vill federera med måste vara**not**av DNS-verifierad i Azure AD. Du kan konfigurera direkt Federation med ohanterad (e-postverifierad eller "viral") Azure AD-klienter eftersom de inte är DNS-verifierade.
 
 ### <a name="authentication-url"></a>URL för autentisering
 Direkt Federation tillåts bara för principer där autentiserings-URL: en domän matchar mål domänen, eller där autentiserings-URL: en är en av dessa tillåtna identitets leverantörer (den här listan kan ändras):
@@ -60,7 +60,7 @@ Direkt Federation tillåts bara för principer där autentiserings-URL: en domä
 -   federation.exostar.com
 -   federation.exostartest.com
 
-När du till exempel ställer in direkt Federation för **fabrikam.com**, kommer URL: en för autentisering att `https://fabrikam.com/adfs` klara verifieringen. En värd i samma domän kommer också att skickas till exempel `https://sts.fabrikam.com/adfs` . Men autentiserings-URL: en `https://fabrikamconglomerate.com/adfs` eller `https://fabrikam.com.uk/adfs` för samma domän godkänns inte.
+När du till exempel ställer in direkt Federation för _ * fabrikam. com * *, `https://fabrikam.com/adfs` godkänns verifierings-URL: en. En värd i samma domän kommer också att skickas till exempel `https://sts.fabrikam.com/adfs` . Men autentiserings-URL: en `https://fabrikamconglomerate.com/adfs` eller `https://fabrikam.com.uk/adfs` för samma domän godkänns inte.
 
 ### <a name="signing-certificate-renewal"></a>Förnyelse av signerings certifikat
 Om du anger URL: en för metadata i inställningarna för identitetsprovider förnyar Azure AD automatiskt signerings certifikatet när det upphör att gälla. Men om certifikatet roteras av någon anledning innan förfallo tiden, eller om du inte anger en URL för metadata, kan inte Azure AD förnya det. I så fall måste du uppdatera signerings certifikatet manuellt.
@@ -73,7 +73,7 @@ Vi stöder för närvarande inte direkt Federation med flera domäner från samm
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Kan jag konfigurera direkt Federation med en domän för vilken en ohanterad (e-autentiserad) klient organisation finns? 
-Ja. Om domänen inte har verifierats och klienten inte har genomgått någon [Administratörs övertag](../users-groups-roles/domains-admin-takeover.md)Ande kan du konfigurera direkt Federation med domänen. Ohanterad eller e-postverifierad skapas klienter när en användare löser in en B2B-inbjudan eller utför en självbetjänings registrering för Azure AD med en domän som inte finns för närvarande. Du kan konfigurera direkt Federation med dessa domäner. Om du försöker konfigurera direkt Federation med en DNS-verifierad domän, antingen i Azure Portal eller via PowerShell, visas ett fel meddelande.
+Ja. Om domänen inte har verifierats och klienten inte har genomgått någon [Administratörs övertag](../enterprise-users/domains-admin-takeover.md)Ande kan du konfigurera direkt Federation med domänen. Ohanterad eller e-postverifierad skapas klienter när en användare löser in en B2B-inbjudan eller utför en självbetjänings registrering för Azure AD med en domän som inte finns för närvarande. Du kan konfigurera direkt Federation med dessa domäner. Om du försöker konfigurera direkt Federation med en DNS-verifierad domän, antingen i Azure Portal eller via PowerShell, visas ett fel meddelande.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Om direkt Federation och e-postautentisering med eng ång slö sen ord är båda aktiverade, vilken metod har företräde?
 När direkt Federation upprättas med en partner organisation har den företräde framför e-postautentisering med eng ång slö sen ord för nya gäst användare från organisationen. Om en gäst användare har löst en inbjudan med autentisering med eng ång slö sen ord innan du konfigurerar direkt Federation, fortsätter de att använda autentisering med eng ång slö sen ord. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>Är direkta Federations adress inloggnings problem på grund av ett delvis synkroniserat innehav?

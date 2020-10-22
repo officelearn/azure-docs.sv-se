@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: mayg
-ms.openlocfilehash: 901f4a9d4fd53f665c3d078f5e463dcde2af1882
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef4baa4be7f6058ca704f8f499c47099de7c1a85
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654879"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372097"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analysera distributions planerings rapporten för VMware haveri beredskap till Azure
 
@@ -102,7 +102,7 @@ Resultatet är det totala antalet kärnor som ska konfigureras före redundansv�
 ![Nödvändigt antal Azure-kärnor i kapacitetsplaneraren](media/site-recovery-vmware-deployment-planner-analyze-report/required-cores-v2a.png)
 
 ### <a name="required-on-premises-infrastructure"></a>Krav på lokal infrastruktur
-Det här är det totala antalet konfigurationsservrar och ytterligare processervrar som måste konfigureras för att skydda alla kompatibla virtuella datorer. Beroende på vilka [storleksrekommendationer för konfigurationsservern som stöds](https://aka.ms/asr-v2a-on-prem-components), kan verktyget rekommendera ytterligare servrar. Rekommendationen bygger på det största värdet för antingen dataomsättning per dag eller det största antal skyddade virtuella datorer (förutsatt i genomsnitt tre diskar per virtuell dator), beroende på vilken gräns som uppnås först på konfigurationsservern eller den kompletterande processervern. Du hittar detaljerad information om den totala dataomsättningen per dag och det totala antalet skyddade diskar i avsnittet ”Lokal sammanfattning”.
+Det här är det totala antalet konfigurationsservrar och ytterligare processervrar som måste konfigureras för att skydda alla kompatibla virtuella datorer. Beroende på vilka [storleksrekommendationer för konfigurationsservern som stöds](/en-in/azure/site-recovery/site-recovery-plan-capacity-vmware#size-recommendations-for-the-configuration-server), kan verktyget rekommendera ytterligare servrar. Rekommendationen bygger på det största värdet för antingen dataomsättning per dag eller det största antal skyddade virtuella datorer (förutsatt i genomsnitt tre diskar per virtuell dator), beroende på vilken gräns som uppnås först på konfigurationsservern eller den kompletterande processervern. Du hittar detaljerad information om den totala dataomsättningen per dag och det totala antalet skyddade diskar i avsnittet ”Lokal sammanfattning”.
 
 ![Lokal infrastruktur som krävs för kapacitetsplaneraren](media/site-recovery-vmware-deployment-planner-analyze-report/required-on-premises-components-v2a.png)
 
@@ -165,7 +165,7 @@ Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än
 
 **Logg lagrings konto typ**: alla loggar lagras på ett standard lagrings konto.
 
-**Föreslaget prefix för lagrings konto**: det föreslagna tre-Character-prefix som kan användas för att namnge cache-kontot. Du kan använda ditt eget prefix, men verktygets förslag följer [namngivningskonventionen för partitioner av lagringskonton](https://aka.ms/storage-performance-checklist).
+**Föreslaget prefix för lagrings konto**: det föreslagna tre-Character-prefix som kan användas för att namnge cache-kontot. Du kan använda ditt eget prefix, men verktygets förslag följer [namngivningskonventionen för partitioner av lagringskonton](/en-in/azure/storage/blobs/storage-performance-checklist).
 
 **Föreslaget logg konto namn**: namnet på lagrings kontot när du har inkluderat det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
 
@@ -178,7 +178,7 @@ Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än
 
 **VM Name** (Namn på virtuell dator): Den virtuella datorns namn eller den IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
 
-**VM-kompatibilitet**: Värdena är **Ja** och **Ja\***. **Ja** \* är för instanser där den virtuella datorn är anpassad för [Premium-SSD](../virtual-machines/disks-types.md). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Exempel:
+**VM-kompatibilitet**: värdena är **Yes** och **Yes \* *_. _* Ja** \* är för instanser där den virtuella datorn är anpassad för [Premium-SSD](../virtual-machines/disks-types.md). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Exempel:
 * < 128 GB är en P10.
 * 128 GB till 256 GB är en P15
 * 256 till 512 GB är en P20.
@@ -219,7 +219,7 @@ Exempel: om arbets belastnings egenskaperna för en disk placerar den i kategori
 
 **VM Name** (Namn på virtuell dator): Den virtuella datorns namn eller den IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
 
-**VM Compatibility** (VM-kompatibilitet): Anger varför den här virtuella datorn inte kan skyddas med Site Recovery. Anledningarna beskrivs för varje inkompatibel disk av den virtuella datorn och kan, baserat på publicerade [lagringsgränser](https://aka.ms/azure-storage-scalbility-performance), vara något av följande:
+**VM Compatibility** (VM-kompatibilitet): Anger varför den här virtuella datorn inte kan skyddas med Site Recovery. Anledningarna beskrivs för varje inkompatibel disk av den virtuella datorn och kan, baserat på publicerade [lagringsgränser](/en-in/azure/storage/common/scalability-targets-standard-account), vara något av följande:
 
 * Felaktig data disk storlek eller felaktig storlek på operativ system disk. [Granska](vmware-physical-azure-support-matrix.md#azure-vm-requirements) support gränserna. 
 * Total storlek för den virtuella datorn (replikering + TFO) överskrider den gräns för lagringskontostorlek som stöds (35 TB). Den här inkompatibiliteten uppstår vanligen när en enskild disk i den virtuella datorn har en prestandaegenskap som överskrider den maxgräns som stöds av Azure- eller Site Recovery-gränserna för standardlagring. Denna instans skickar den virtuella datorn till Premium Storage-zonen. Maxgränsen för ett lagringskonto av premiumtyp är däremot 35 TB, och det går inte att skydda en enda virtuell dator över flera lagringskonton. Tänk också på att när ett redundanstest körs på en skyddad virtuell dator körs det på samma lagringskonto där replikeringen körs. I den här instansen ställer du in 2 ggr storleken på disken för att replikeringen ska fortskrida samtidigt som redundanstestningen genomförs.

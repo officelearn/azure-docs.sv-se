@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: a7f07365da699a40f5b51917104a68a62affa3d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c6661a762886140997b9305f88f5c4e25476e57
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74703372"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371706"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformera data med hjälp av Hadoop streaming-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
@@ -26,8 +26,8 @@ ms.locfileid: "74703372"
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
 > * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
-> * [Machine Learning Batch-körningsaktivitet](data-factory-azure-ml-batch-execution-activity.md)
-> * [Machine Learning-uppdateringsresursaktivitet](data-factory-azure-ml-update-resource-activity.md)
+> * [Azure Machine Learning Studio (klassisk) batch execution Activity](data-factory-azure-ml-batch-execution-activity.md)
+> * [Azure Machine Learning Studio (klassisk) uppdatera resurs aktivitet](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
 > * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)

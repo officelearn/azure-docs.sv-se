@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7dd1234e13f77f1ea95327a0a489e9a97cdc0ffd
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447079"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362509"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Styra åtkomsten för externa användare i hantering av Azure AD-rättigheter
 
@@ -109,7 +109,7 @@ För att säkerställa att personer utanför organisationen kan begära åtkomst
 
 - Om du vill att externa användare ska kunna komma åt SharePoint Online-webbplatsen och resurser som är associerade med en Microsoft 365 grupp, se till att aktivera extern SharePoint Online-delning. Mer information finns i [Aktivera eller inaktivera extern delning](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 
-- Information om hur du anger gäst principen för Microsoft 365 grupper på katalog nivå i PowerShell finns i [exempel: Konfigurera gäst princip för grupper på katalog nivå](../users-groups-roles/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
+- Information om hur du anger gäst principen för Microsoft 365 grupper på katalog nivå i PowerShell finns i [exempel: Konfigurera gäst princip för grupper på katalog nivå](../enterprise-users/groups-settings-cmdlets.md#example-configure-guest-policy-for-groups-at-the-directory-level).
 
 ### <a name="review-your-teams-sharing-settings"></a>Granska dina team delnings inställningar
 

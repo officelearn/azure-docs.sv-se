@@ -14,16 +14,16 @@ ms.date: 05/11/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0403fe3cf0bf8cfaf9c722edadbecd2fee61cb46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c72587c5486ed61215fd20c215a1dd194f4b7bc4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056293"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372420"
 ---
 # <a name="roles-you-cant-manage-in-privileged-identity-management"></a>Roller som du inte kan hantera i Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gör att du kan hantera alla [Azure AD-roller](../users-groups-roles/directory-assign-admin-roles.md) och [Azure-roller](../../role-based-access-control/built-in-roles.md). Azure-roller kan också innehålla dina anpassade roller som är kopplade till dina hanterings grupper, prenumerationer, resurs grupper och resurser. Det finns dock några roller som du inte kan hantera. Den här artikeln beskriver de roller som du inte kan hantera i Privileged Identity Management.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gör att du kan hantera alla [Azure AD-roller](../roles/permissions-reference.md) och [Azure-roller](../../role-based-access-control/built-in-roles.md). Azure-roller kan också innehålla dina anpassade roller som är kopplade till dina hanterings grupper, prenumerationer, resurs grupper och resurser. Det finns dock några roller som du inte kan hantera. Den här artikeln beskriver de roller som du inte kan hantera i Privileged Identity Management.
 
 ## <a name="classic-subscription-administrator-roles"></a>Administratörsroller för klassiska prenumerationer
 

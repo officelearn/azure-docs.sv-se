@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: b899485589f19a5b74d6d22b4e5dae5fbf3ff604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f3dd5898518a9788a7079ab903b6f88b9f82989
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827522"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371213"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory 
 
@@ -56,7 +56,7 @@ En Azure integration runtime kan:
 
 - Köra data flöden i Azure 
 - Kör kopierings aktivitet mellan moln data lager
-- Skicka följande transformerings aktiviteter i det offentliga nätverket: Databricks Notebook/jar/python Activity, HDInsight Hive-aktivitet, HDInsight gris-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight streaming-aktivitet, Machine Learning batch-körning, Machine Learning uppdatera resurs aktiviteter, aktivitet för lagrade procedurer, Data Lake Analytics U-SQL-aktivitet, .NET anpassad aktivitet, webb aktivitet, söknings aktivitet och hämta metadata.
+- Skicka följande transformerings aktiviteter i det offentliga nätverket: Databricks Notebook/jar/python Activity, HDInsight Hive-aktivitet, HDInsight gris-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight streaming-aktivitet, Azure Machine Learning Studio (klassisk) batch execution Activity, Azure Machine Learning Studio (klassisk) uppdatera resurs aktiviteter, aktivitet för lagrade procedurer, Data Lake Analytics U-SQL-aktivitet, .NET anpassad aktivitet, webb aktivitet, söknings
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-nätverksmiljö
 
@@ -79,7 +79,7 @@ Information om hur du skapar och konfigurerar en Azure IR finns i [så här skap
 En IR med egen värd kan:
 
 - Köra kopieringsaktivitet mellan molndatalager och ett datalager i privat nätverk.
-- Skickar följande Transform-aktiviteter mot beräknings resurser i lokala eller Azure-Virtual Network: HDInsight Hive-aktivitet (BYOC-ta med ditt eget kluster), HDInsight gris-aktivitet (BYOC), HDInsight MapReduce Activity (BYOC), HDInsight Spark-aktivitet (BYOC), HDInsight streaming-aktivitet (BYOC), Machine Learning batch-körning, Machine Learning uppdatera resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet, anpassad aktivitet (körs på Azure Batch) , Lookup-aktivitet och hämta metadata-aktivitet.
+- Skickar följande Transform-aktiviteter mot beräknings resurser i lokala eller Azure-Virtual Network: HDInsight Hive-aktivitet (BYOC-ta med ditt eget kluster), HDInsight gris-aktivitet (BYOC), HDInsight MapReduce Activity (BYOC), HDInsight Spark-aktivitet (BYOC), HDInsight streaming Activity (BYOC), Azure Machine Learning Studio (klassisk) batch execution Activity, Azure Machine Learning Studio (klassisk) uppdatera resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet , Anpassad aktivitet (körs på Azure Batch), lookup-aktivitet och hämta metadata-aktivitet.
 
 > [!NOTE] 
 > Använd integration runtime med egen värd för att få stöd för data lager som kräver en egen driv rutin som SAP HANA, MySQL osv.  Mer information finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

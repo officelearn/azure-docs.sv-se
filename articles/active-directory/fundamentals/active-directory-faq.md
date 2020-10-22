@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de7395f42021144eab3dd400bf9a953d57b5a6ee
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: db8774d6868d55c7d040b1894c4a14d989cb2702
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312591"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371876"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Vanliga frågor och svar om Azure Active Directory
 Azure Active Directory (Azure AD) är en omfattande IDaaS-lösning (Identity as a Service) som omfattar alla aspekter relaterade till identiteter, åtkomsthantering och säkerhet.
@@ -53,7 +53,7 @@ Azure AD-betalda tjänster som Enterprise Mobility + Security kompletterar andra
 
 Om andra behöver logga in och få åtkomst till tjänster med samma prenumeration kan du tilldela dem lämplig [inbyggd roll](../../role-based-access-control/built-in-roles.md). Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../../role-based-access-control/role-assignments-portal.md).
 
-Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som global administratör för katalogen. Den globala administratören har åtkomst till alla funktioner i Azure AD-katalogen. Azure AD har en annan uppsättning administratörs roller för att hantera katalog-och Identity-relaterade funktioner. Dessa administratörer kommer att ha åtkomst till olika funktioner i Azure Portal. Administratörens roll bestämmer vad de kan göra, t. ex. skapa eller redigera användare, tilldela administrativa roller till andra, återställa användar lösen ord, hantera användar licenser eller hantera domäner.  Mer information om Azure AD Directory-administratörer och deras roller finns i [tilldela en användare till administratörs roller i Azure Active Directory](active-directory-users-assign-role-azure-portal.md) och [tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som global administratör för katalogen. Den globala administratören har åtkomst till alla funktioner i Azure AD-katalogen. Azure AD har en annan uppsättning administratörs roller för att hantera katalog-och Identity-relaterade funktioner. Dessa administratörer kommer att ha åtkomst till olika funktioner i Azure Portal. Administratörens roll bestämmer vad de kan göra, t. ex. skapa eller redigera användare, tilldela administrativa roller till andra, återställa användar lösen ord, hantera användar licenser eller hantera domäner.  Mer information om Azure AD Directory-administratörer och deras roller finns i [tilldela en användare till administratörs roller i Azure Active Directory](active-directory-users-assign-role-azure-portal.md) och [tilldela administratörs roller i Azure Active Directory](../roles/permissions-reference.md).
 
 Dessutom har Azure AD-betal tjänster som Enterprise Mobility + Security kompletterar andra webb tjänster, till exempel Microsoft 365 och Microsoft Azure, med omfattande hanterings-och säkerhetslösningar i företags skala.
 

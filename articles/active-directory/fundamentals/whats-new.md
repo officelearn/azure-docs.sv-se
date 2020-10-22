@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b076c757c8f86941c79da4f0be598aaa5ea6761
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 37dc60fd14eb26ab4c8f5a867b97369a066b743b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317965"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362764"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -94,7 +94,7 @@ Slutanvändare kan [komma åt sina återställnings nycklar via mitt konto](../u
 **Tjänste kategori:** RBAC  
 **Produkt kapacitet:** Access Control
  
-Användare med rollen [team enheter administratör](../users-groups-roles/directory-assign-admin-roles.md#teams-devices-administrator) kan hantera [team-certifierade enheter](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) från Team administrations centret. 
+Användare med rollen [team enheter administratör](../roles/permissions-reference.md#teams-devices-administrator) kan hantera [team-certifierade enheter](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) från Team administrations centret. 
 
 Med den här rollen kan användaren Visa alla enheter på ett enkelt sätt, med möjlighet att söka efter och filtrera enheter. Användaren kan också kontrol lera information om varje enhet, inklusive inloggat konto och enhetens märke och modell. Användaren kan ändra inställningarna på enheten och uppdatera program varu versionerna. Den här rollen beviljar inte behörigheter för att kontrol lera team aktiviteter och enhetens kvalitet.
  
@@ -146,7 +146,7 @@ Azure AD-portalen har uppdaterats för att göra det enklare att hitta användar
 - Nya sorterings funktioner för egenskaper som namn, User Principal Name och borttagnings datum.
 - Ett nytt totalt antal användare som uppdaterar med eventuella sökningar eller filter.
 
-Mer information finns i avsnittet om [förbättringar av användar hantering (för hands version) i Azure Active Directory](../users-groups-roles/users-search-enhanced.md).
+Mer information finns i avsnittet om [förbättringar av användar hantering (för hands version) i Azure Active Directory](../enterprise-users/users-search-enhanced.md).
 
 ---
 
@@ -255,7 +255,7 @@ I den här för hands versionen kan kunderna växla mellan den befintliga upplev
 
 Vi har uppdaterat katalog nivå behörigheter för gäst användare. Med dessa behörigheter kan administratörer kräva ytterligare begränsningar och kontroller av åtkomst till externa gäst användare. Administratörer kan nu lägga till ytterligare begränsningar för externa gästers åtkomst till användar-och grupp profil-och medlemskaps information. Med den här offentliga för hands versionen kan kunder hantera externa användares åtkomst i skala genom dölja grupp medlemskap, inklusive att begränsa gäst användare från att se medlemskap i de grupper som de finns i.
 
-Läs mer i [begränsade gäst åtkomst behörigheter](../users-groups-roles/users-restrict-guest-permissions.md) och [användares standard behörigheter](./users-default-permissions.md).
+Läs mer i [begränsade gäst åtkomst behörigheter](../enterprise-users/users-restrict-guest-permissions.md) och [användares standard behörigheter](./users-default-permissions.md).
  
 ---
 
@@ -358,7 +358,7 @@ Tidigare kunde anpassade öppen ID Connect-providrar endast läggas till eller h
 **Tjänste kategori:** Azure AD-roller  
 **Produkt kapacitet:** Access Control
 
-Nu kan du tilldela inbyggda Azure AD-roller till moln grupper med den här nya funktionen. Du kan till exempel tilldela rollen SharePoint-administratör till Contoso_SharePoint_Admins grupp. Du kan också använda PIM för att göra gruppen till en behörig medlem i rollen, i stället för att bevilja ständig åtkomst. Information om hur du konfigurerar den här funktionen finns i [använda moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)](../users-groups-roles/roles-groups-concept.md).
+Nu kan du tilldela inbyggda Azure AD-roller till moln grupper med den här nya funktionen. Du kan till exempel tilldela rollen SharePoint-administratör till Contoso_SharePoint_Admins grupp. Du kan också använda PIM för att göra gruppen till en behörig medlem i rollen, i stället för att bevilja ständig åtkomst. Information om hur du konfigurerar den här funktionen finns i [använda moln grupper för att hantera roll tilldelningar i Azure Active Directory (för hands version)](../roles/groups-concept.md).
  
 ---
 
@@ -368,7 +368,7 @@ Nu kan du tilldela inbyggda Azure AD-roller till moln grupper med den här nya f
 **Tjänste kategori:** Azure AD-roller  
 **Produkt kapacitet:** Access Control
  
-Användare i rollen insikter affärs ledare kan komma åt en uppsättning instrument paneler och insikter via [M365 Insights-programmet](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Detta omfattar fullständig åtkomst till alla instrument paneler och visade insikter och data utforsknings funktioner. Användare i den här rollen har dock inte åtkomst till produkt konfigurations inställningar, vilket är ansvaret för rollen insikter-administratör. Mer information om den här rollen finns [i administratörs roll behörigheter i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#insights-business-leader)
+Användare i rollen insikter affärs ledare kan komma åt en uppsättning instrument paneler och insikter via [M365 Insights-programmet](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). Detta omfattar fullständig åtkomst till alla instrument paneler och visade insikter och data utforsknings funktioner. Användare i den här rollen har dock inte åtkomst till produkt konfigurations inställningar, vilket är ansvaret för rollen insikter-administratör. Mer information om den här rollen finns [i administratörs roll behörigheter i Azure Active Directory](../roles/permissions-reference.md#insights-business-leader)
  
 ---
 
@@ -378,7 +378,7 @@ Användare i rollen insikter affärs ledare kan komma åt en uppsättning instru
 **Tjänste kategori:** Azure AD-roller  
 **Produkt kapacitet:** Access Control
  
-Användare i rollen insikter-administratör kan komma åt fullständig uppsättning administrativa funktioner i [M365 Insights-programmet](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). En användare med den här rollen kan läsa katalog information, övervaka tjänstens hälsa, stöd för fil support och få åtkomst till inställningarna för Insights-administratörer. Mer information om den här rollen finns [i administratörs roll behörigheter i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#insights-administrator)
+Användare i rollen insikter-administratör kan komma åt fullständig uppsättning administrativa funktioner i [M365 Insights-programmet](https://www.microsoft.com/microsoft-365/partners/workplaceanalytics). En användare med den här rollen kan läsa katalog information, övervaka tjänstens hälsa, stöd för fil support och få åtkomst till inställningarna för Insights-administratörer. Mer information om den här rollen finns [i administratörs roll behörigheter i Azure Active Directory](../roles/permissions-reference.md#insights-administrator)
  
 --- 
 
@@ -528,7 +528,7 @@ Mer information om användare flöden finns [i användar flödes versioner i Azu
  
 I juli 2020 har vi lagt till följande 55 nya program i vårt app-galleri med stöd för federation:
 
-[Clap Your händerna](http://www.rmit.com.ar/), [Appreiz](https://microsoftteams.appreiz.com/), [Inextor-valvet](https://inexto.com/inexto-suite/inextor), [Beekast](https://my.beekast.com/), [Templafy OpenID Connect](https://app.templafy.com/), [PeterConnects receptionist](https://msteams.peterconnects.com/), [AlohaCloud](https://appfusions.alohacloud.com/auth), [Control Tower](https://bpm.tnxcorp.com/sso/microsoft), [Cocoom](https://start.cocoom.com/), [mynt konstruktion](https://sso.coinsconstructioncloud.com/#login/), [Medxnote MT](https://task.teamsmain.medx.im/authorization), [Reflekt](https://reflekt.konsolute.com/login), [Reback](https://app.reverscore.net/access), [MyCompanyArchive](https://login.mycompanyarchive.com/), [GReminders](https://app.greminders.com/o365-oauth), [Titanfile](../saas-apps/titanfile-tutorial.md), [Wootric](../saas-apps/wootric-tutorial.md), [SolarWinds Orion](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US), [OpenText Directory Services](../saas-apps/opentext-directory-services-tutorial.md), [DataSite](../saas-apps/datasite-tutorial.md), [bloggi](../saas-apps/blogin-tutorial.md), [IntSights](../saas-apps/intsights-tutorial.md) [, kpifire](../saas-apps/kpifire-tutorial.md), [TextLine](../saas-apps/textline-tutorial.md), [Cloud Academy-SSO](../saas-apps/cloud-academy-sso-tutorial.md), [Community Spark](../saas-apps/community-spark-tutorial.md), [ChatWork](../saas-apps/chatwork-tutorial.md), [CloudSign](../saas-apps/cloudsign-tutorial.md), [C3M Cloud control](../saas-apps/c3m-cloud-control-tutorial.md), [SmartHR](https://smarthr.jp/), [NumlyEngage™](../saas-apps/numlyengage-tutorial.md), [Michigan data hubb enkel inloggning](../saas-apps/michigan-data-hub-single-sign-on-tutorial.md), [utgående](../saas-apps/egress-tutorial.md), [SendSafely](../saas-apps/sendsafely-tutorial.md), [Eletive](https://app.eletive.com/), [Right cybersäkerhet ADI](https://right-hand.ai/), [Fyde Enterprise Authentication](https://enterprise.fyde.com/), [Verme](../saas-apps/verme-tutorial.md), [lenses.io](../saas-apps/lensesio-tutorial.md), [taga](../saas-apps/momenta-tutorial.md), [öka](https://app.uprise.co/sign-in), [Q](https://q.moduleq.com/login), [CloudCords](../saas-apps/cloudcords-tutorial.md), [TellMe bot](https://tellme365liteweb.azurewebsites.net/), [inspirera](https://app.inspiresoftware.com/), [Maverics Identity Orchestrator SAML Connector](https://www.strata.io/identity-fabric/), [Smartschool (skol Management System)](https://smart-schoolapp.com/frmLoginForm), [Zepto-intelligent timekeeping](https://user.zepto-ai.com/signin), [Studi.ly](https://studi.ly/), Trackplan, [skedda](http://www.trackplanfm.com/), [WhosOnLocation](../saas-apps/skedda-tutorial.md), [Coggle](../saas-apps/whos-on-location-tutorial.md), [Kemp: LoadMaster](https://kemptechnologies.com/cloud-load-balancer/), BrowserStack [enkel inloggning](../saas-apps/browserstack-single-sign-on-tutorial.md) [Coggle](../saas-apps/coggle-tutorial.md)
+[Clap Your händerna](http://www.rmit.com.ar/), [Appreiz](https://microsoftteams.appreiz.com/), [Inextor-valvet](https://inexto.com/inexto-suite/inextor), [Beekast](https://my.beekast.com/), [Templafy OpenID Connect](https://app.templafy.com/), [PeterConnects receptionist](https://msteams.peterconnects.com/), [AlohaCloud](https://appfusions.alohacloud.com/auth), [Control Tower](https://bpm.tnxcorp.com/sso/microsoft), [Cocoom](https://start.cocoom.com/), [mynt konstruktion](https://sso.coinsconstructioncloud.com/#login/), [Medxnote MT](https://task.teamsmain.medx.im/authorization), [Reflekt](https://reflekt.konsolute.com/login), [Reback](https://app.reverscore.net/access), [MyCompanyArchive](https://login.mycompanyarchive.com/), [GReminders](https://app.greminders.com/o365-oauth), [Titanfile](../saas-apps/titanfile-tutorial.md), [Wootric](../saas-apps/wootric-tutorial.md), [SolarWinds Orion](https://support.solarwinds.com/SuccessCenter/s/orion-platform?language=en_US), [OpenText Directory Services](../saas-apps/opentext-directory-services-tutorial.md), [DataSite](../saas-apps/datasite-tutorial.md), [bloggi](../saas-apps/blogin-tutorial.md), [IntSights](../saas-apps/intsights-tutorial.md) [, kpifire](../saas-apps/kpifire-tutorial.md), [TextLine](../saas-apps/textline-tutorial.md), [Cloud Academy-SSO](../saas-apps/cloud-academy-sso-tutorial.md), [Community Spark](../saas-apps/community-spark-tutorial.md), [ChatWork](../saas-apps/chatwork-tutorial.md), [CloudSign](../saas-apps/cloudsign-tutorial.md), [C3M Cloud control](../saas-apps/c3m-cloud-control-tutorial.md), [SmartHR](https://smarthr.jp/), [NumlyEngage™](../saas-apps/numlyengage-tutorial.md), [Michigan data hubb enkel inloggning](../saas-apps/michigan-data-hub-single-sign-on-tutorial.md), [utgående](../saas-apps/egress-tutorial.md), [SendSafely](../saas-apps/sendsafely-tutorial.md), [Eletive](https://app.eletive.com/), [Right cybersäkerhet ADI](https://right-hand.ai/), [Fyde Enterprise Authentication](https://enterprise.fyde.com/), [Verme](../saas-apps/verme-tutorial.md), [lenses.io](../saas-apps/lensesio-tutorial.md), [taga](../saas-apps/momenta-tutorial.md), [öka](https://app.uprise.co/sign-in), [Q](https://q.moduleq.com/login), [CloudCords](../saas-apps/cloudcords-tutorial.md), [TellMe bot](https://tellme365liteweb.azurewebsites.net/), [inspirera](https://app.inspiresoftware.com/), [Maverics Identity Orchestrator SAML Connector](https://www.strata.io/identity-fabric/), [Smartschool (skol Management System)](https://smartschoolz.com/login), [Zepto-intelligent timekeeping](https://user.zepto-ai.com/signin), [Studi.ly](https://studi.ly/), Trackplan, [skedda](http://www.trackplanfm.com/), [WhosOnLocation](../saas-apps/skedda-tutorial.md), [Coggle](../saas-apps/whos-on-location-tutorial.md), [Kemp: LoadMaster](https://kemptechnologies.com/cloud-load-balancer/), BrowserStack [enkel inloggning](../saas-apps/browserstack-single-sign-on-tutorial.md) [Coggle](../saas-apps/coggle-tutorial.md)
 
 Du kan också hitta dokumentationen för alla program härifrån https://aka.ms/AppsTutorial
 
@@ -554,7 +554,7 @@ Mer information om hur du bättre skyddar din organisation med hjälp av automat
 **Tjänste kategori:** Azure AD-roller  
 **Produkt kapacitet:** Access Control
  
-Nu kan du Visa roll tilldelningar för alla omfattningar för en roll på fliken "roller och administratörer" i Azure AD-portalen. Du kan också hämta roll tilldelningarna för varje roll till en CSV-fil. Vägledning om hur du visar och lägger till roll tilldelningar finns i [Visa och tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-manage-roles-portal.md).
+Nu kan du Visa roll tilldelningar för alla omfattningar för en roll på fliken "roller och administratörer" i Azure AD-portalen. Du kan också hämta roll tilldelningarna för varje roll till en CSV-fil. Vägledning om hur du visar och lägger till roll tilldelningar finns i [Visa och tilldela administratörs roller i Azure Active Directory](../roles/manage-roles-portal.md).
  
 ---
 
@@ -703,7 +703,7 @@ RiskyUsers-och riskDetections-Microsoft Graph-API: er är nu allmänt tillgängl
 
 Nu kan du skapa känslighets etiketter och använda etikett inställningar för att tillämpa principer på Microsoft 365 grupper, inklusive sekretess (offentlig eller privat) och åtkomst princip för externa användare. Du kan skapa en etikett med sekretess policyn som privat och extern användar åtkomst princip för att inte tillåta att gäst användare läggs till. När en användare använder den här etiketten i en grupp, kommer gruppen att vara privat och inga gäst användare får läggas till i gruppen. 
 
-Känslighets etiketter är viktiga för att skydda affärs kritiska data och gör att du kan hantera grupper i skala på ett kompatibelt och säkert sätt. Vägledning om hur du använder känslighets etiketter finns i [tilldela känslighets etiketter till Microsoft 365 grupper i Azure Active Directory (för hands version)](../users-groups-roles/groups-assign-sensitivity-labels.md).
+Känslighets etiketter är viktiga för att skydda affärs kritiska data och gör att du kan hantera grupper i skala på ett kompatibelt och säkert sätt. Vägledning om hur du använder känslighets etiketter finns i [tilldela känslighets etiketter till Microsoft 365 grupper i Azure Active Directory (för hands version)](../enterprise-users/groups-assign-sensitivity-labels.md).
  
 ---
 
@@ -805,7 +805,7 @@ E-postaviseringar kommer att skickas från följande adress: azure-noreply@micro
 **Produkt kapacitet:** Användarautentisering
  
 
-För närvarande kan användare som finns i domäner federerade i Azure AD, men som inte har synkroniserats till klienten, inte komma åt team. Med början i slutet av juni gör den här nya funktionen att de kan göra det genom att utöka den befintliga e-postverifierade inloggnings funktionen. Detta gör det möjligt för användare som kan logga in till en federerad IdP, men som ännu inte har ett användar objekt i Azure-ID, för att skapa ett användar objekt automatiskt och autentiseras för team. Deras användar objekt kommer att markeras som "självbetjänings registrering". Det här är en utökning av den befintliga funktionen för att verifiera e-postverifiering som användare i hanterade domäner kan göra och kan kontrol leras med hjälp av samma flagga. Den här ändringen kommer att slutföras under följande två månader. Titta efter dokumentations uppdateringar [här](../users-groups-roles/directory-self-service-signup.md).
+För närvarande kan användare som finns i domäner federerade i Azure AD, men som inte har synkroniserats till klienten, inte komma åt team. Med början i slutet av juni gör den här nya funktionen att de kan göra det genom att utöka den befintliga e-postverifierade inloggnings funktionen. Detta gör det möjligt för användare som kan logga in till en federerad IdP, men som ännu inte har ett användar objekt i Azure-ID, för att skapa ett användar objekt automatiskt och autentiseras för team. Deras användar objekt kommer att markeras som "självbetjänings registrering". Det här är en utökning av den befintliga funktionen för att verifiera e-postverifiering som användare i hanterade domäner kan göra och kan kontrol leras med hjälp av samma flagga. Den här ändringen kommer att slutföras under följande två månader. Titta efter dokumentations uppdateringar [här](../enterprise-users/directory-self-service-signup.md).
  
 ---
 
@@ -853,7 +853,7 @@ Om den ursprungliga SAML-inloggningens token använder ett annat format för Nam
 **Tjänste kategori:** Azure AD Cloud-etablering  
 **Produkt kapacitet:** Hantering av identitets livs cykel
  
-IT-administratörer kan börja använda den nya rollen "hybrid administratör" som den minst privilegierade rollen för att konfigurera Azure ADConnect Cloud-etablering. Med den nya rollen behöver du inte längre använda den globala administratörs rollen för att konfigurera och konfigurera moln etablering. [Läs mer](../users-groups-roles/roles-delegate-by-task.md#connect).
+IT-administratörer kan börja använda den nya rollen "hybrid administratör" som den minst privilegierade rollen för att konfigurera Azure ADConnect Cloud-etablering. Med den nya rollen behöver du inte längre använda den globala administratörs rollen för att konfigurera och konfigurera moln etablering. [Läs mer](../roles/delegate-by-task.md#connect).
  
 ---
 
@@ -1225,7 +1225,7 @@ Mer information finns i [hantering av administrativa enheter i Azure Active Dire
 
 **Skrivar administratör**: användare med den här rollen kan registrera skrivare och hantera alla aspekter av alla skrivar konfigurationer i Microsofts Universal Print-lösning, inklusive inställningar för Universal Print Connector. De kan godkänna alla delegerade utskrifts behörighets begär Anden. Skrivar administratörer har även åtkomst till utskrifts rapporter. 
 
-**Skrivar tekniker**: användare med den här rollen kan registrera skrivare och hantera skrivar status i Microsoft Universal Print-lösningen. De kan också läsa all anslutnings information. Viktiga aktiviteter en skrivare tekniker kan inte ange användar behörigheter för skrivare och dela skrivare. [Läs mer.](../users-groups-roles/directory-assign-admin-roles.md#printer-administrator)
+**Skrivar tekniker**: användare med den här rollen kan registrera skrivare och hantera skrivar status i Microsoft Universal Print-lösningen. De kan också läsa all anslutnings information. Viktiga aktiviteter en skrivare tekniker kan inte ange användar behörigheter för skrivare och dela skrivare. [Läs mer.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 
@@ -1237,7 +1237,7 @@ Mer information finns i [hantering av administrativa enheter i Azure Active Dire
 
 **Produkt kapacitet:** Access Control
 
-Användare med den här rollen kan aktivera, konfigurera och hantera tjänster och inställningar för att aktivera hybrid identitet i Azure AD. Den här rollen ger möjlighet att konfigurera Azure AD till någon av de tre autentiseringsmetoder som stöds&#8212;(PHS), direktautentisering (PTA) eller Federation (AD FS eller tredjepartsleverantörer) &#8212;och för att distribuera relaterad lokal infrastruktur för att aktivera dem. Lokal infrastruktur innehåller etablerings-och PTA-agenter. Den här rollen ger möjlighet att aktivera sömlös enkel Sign-On (S-SSO) för att möjliggöra sömlös autentisering på icke-Windows 10-enheter eller datorer som inte är Windows Server 2016. Dessutom ger den här rollen möjlighet att se inloggnings loggar och för att få åtkomst till hälso-och analys funktioner för övervakning och fel sökning. [Läs mer.](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)
+Användare med den här rollen kan aktivera, konfigurera och hantera tjänster och inställningar för att aktivera hybrid identitet i Azure AD. Den här rollen ger möjlighet att konfigurera Azure AD till någon av de tre autentiseringsmetoder som stöds&#8212;(PHS), direktautentisering (PTA) eller Federation (AD FS eller tredjepartsleverantörer) &#8212;och för att distribuera relaterad lokal infrastruktur för att aktivera dem. Lokal infrastruktur innehåller etablerings-och PTA-agenter. Den här rollen ger möjlighet att aktivera sömlös enkel Sign-On (S-SSO) för att möjliggöra sömlös autentisering på icke-Windows 10-enheter eller datorer som inte är Windows Server 2016. Dessutom ger den här rollen möjlighet att se inloggnings loggar och för att få åtkomst till hälso-och analys funktioner för övervakning och fel sökning. [Läs mer.](../roles/permissions-reference.md#hybrid-identity-administrator)
 
 ---
 
@@ -1249,7 +1249,7 @@ Användare med den här rollen kan aktivera, konfigurera och hantera tjänster o
 
 **Produkt kapacitet:** Access Control
 
-Användare med den här rollen kan granska rekommendationer för nätverks perimeter arkitektur från Microsoft som baseras på telemetri från användarens platser. Nätverks prestanda för Microsoft 365 är beroende av en noggrann nätverks gräns arkitektur för företags nätverk, vilket vanligt vis är specifika för användare. Med den här rollen kan du redigera identifierade användar platser och konfigurera nätverks parametrar för de platserna för att under lätta förbättrad telemetri och bättre design rekommendationer. [Läs mer.](../users-groups-roles/directory-assign-admin-roles.md#network-administrator)
+Användare med den här rollen kan granska rekommendationer för nätverks perimeter arkitektur från Microsoft som baseras på telemetri från användarens platser. Nätverks prestanda för Microsoft 365 är beroende av en noggrann nätverks gräns arkitektur för företags nätverk, vilket vanligt vis är specifika för användare. Med den här rollen kan du redigera identifierade användar platser och konfigurera nätverks parametrar för de platserna för att under lätta förbättrad telemetri och bättre design rekommendationer. [Läs mer.](../roles/permissions-reference.md#network-administrator)
 
 ---
 
@@ -1267,10 +1267,10 @@ Du kan också hämta listor över Azure AD-resurser från Azure AD Admin Portal-
 
 Om du vill ha mer information kan du läsa följande:
 
-- [Skapa användare](../users-groups-roles/users-bulk-add.md) eller [Bjud in gäst användare](../external-identities/tutorial-bulk-invite.md)
-- [Ta bort användare](../users-groups-roles/users-bulk-delete.md) eller [Återställ borttagna användare](../users-groups-roles/users-bulk-restore.md)
-- [Hämta lista över användare](../users-groups-roles/users-bulk-download.md) eller [Hämta lista över grupper](../users-groups-roles/groups-bulk-download.md)
-- [Lägg till (importera) medlemmar](../users-groups-roles/groups-bulk-import-members.md) eller [ta bort medlemmar](../users-groups-roles/groups-bulk-remove-members.md) eller [Hämta en lista över medlemmar](../users-groups-roles/groups-bulk-download-members.md) för en grupp
+- [Skapa användare](../enterprise-users/users-bulk-add.md) eller [Bjud in gäst användare](../external-identities/tutorial-bulk-invite.md)
+- [Ta bort användare](../enterprise-users/users-bulk-delete.md) eller [Återställ borttagna användare](../enterprise-users/users-bulk-restore.md)
+- [Hämta lista över användare](../enterprise-users/users-bulk-download.md) eller [Hämta lista över grupper](../enterprise-users/groups-bulk-download.md)
+- [Lägg till (importera) medlemmar](../enterprise-users/groups-bulk-import-members.md) eller [ta bort medlemmar](../enterprise-users/groups-bulk-remove-members.md) eller [Hämta en lista över medlemmar](../enterprise-users/groups-bulk-download-members.md) för en grupp
 
 ---
 
@@ -1350,7 +1350,7 @@ Vi har uppdaterat vår etablerings upplevelse för att skapa en mer fokuserad ha
 
 Azure Active Directory (Azure AD) ger nu möjlighet att verifiera dynamiska grupp regler. På fliken **validera regler** kan du verifiera din dynamiska regel mot exempel grupp medlemmar för att bekräfta att regeln fungerar som förväntat. När du skapar eller uppdaterar dynamiska grupp regler vill administratörer veta om en användare eller enhet kommer att vara medlem i gruppen. Detta hjälper till att utvärdera om en användare eller enhet uppfyller regel villkoren och hjälper till med fel sökning när medlemskap inte förväntas.
 
-Mer information finns i [Validera en regel för dynamisk grupp medlemskap (för hands version)](../users-groups-roles/groups-dynamic-rule-validation.md).
+Mer information finns i [Validera en regel för dynamisk grupp medlemskap (för hands version)](../enterprise-users/groups-dynamic-rule-validation.md).
 
 ---
 

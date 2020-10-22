@@ -9,12 +9,12 @@ ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3277dc4d9c4485b117bfcfd1d6e130e7370cd8c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abd27e15ccf5b421e69e78b2b726d192ffdecacb
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941592"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372369"
 ---
 # <a name="connect-to-azure-arc-enabled-sql-managed-instance"></a>Ansluta till Azure Arc-aktiverad SQL-hanterad instans
 
@@ -68,7 +68,7 @@ sqlcmd -S 52.229.9.30,30913 -U sa
 
 Om du använder en virtuell Azure-dator visas inte den offentliga IP-adressen i slut punktens IP-adress. Använd följande kommando för att hitta den externa IP-adressen:
 
-```console
+```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
 
@@ -78,7 +78,7 @@ Du kan också behöva exponera porten för SQL-instansen via NSG (Network Securi
 
 Om du vill ange en regel måste du känna till namnet på din NSG som du kan ta reda på med hjälp av kommandot nedan:
 
-```console
+```azurecli
 az network nsg list -g azurearcvm-rg --query "[].{NSGName:name}" -o table
 ```
 
@@ -86,7 +86,7 @@ När du har namnet på NSG kan du lägga till en brand Väggs regel med hjälp a
 
 Ersätt värdet för `--destination-port-ranges` parametern nedan med det port nummer som du fick från `azdata sql instance list` kommandot F ovan.
 
-```console
+```azurecli
 az network nsg rule create -n db_port --destination-port-ranges 30913 --source-address-prefixes '*' --nsg-name azurearcvmNSG --priority 500 -g azurearcvm-rg --access Allow --description 'Allow port through for db access' --destination-address-prefixes '*' --direction Inbound --protocol Tcp --source-port-ranges '*'
 ```
 

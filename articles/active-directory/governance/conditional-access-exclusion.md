@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: def74cccb3ad2c45a18210cc9d5a0d7ff0ba76f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4a18ad04064ef8356e21d106843d6c946f50741
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783696"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362730"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Använd åtkomst granskningar i Azure AD för att hantera användare som uteslutits från principer för villkorlig åtkomst
 
@@ -38,7 +38,7 @@ Ett annat exempel är om du använder [namngivna platser](../conditional-access/
 
 ![Namngivna platser i villkorlig åtkomst](./media/conditional-access-exclusion/named-locations.png)
 
-Vissa användare kan tyvärr fortfarande ha en giltig anledning att logga in från dessa blockerade länder/regioner. Användare kan till exempel vara resande om arbete och behöver åtkomst till företags resurser. I det här fallet kan principen för villkorlig åtkomst för att blockera dessa länder/regioner använda en moln säkerhets grupp för de exkluderade användarna från principen. Användare som behöver åtkomst under resor kan lägga till sig själva i gruppen med hjälp av [Azure AD-](../users-groups-roles/groups-self-service-management.md)självbetjänings grupp hantering.
+Vissa användare kan tyvärr fortfarande ha en giltig anledning att logga in från dessa blockerade länder/regioner. Användare kan till exempel vara resande om arbete och behöver åtkomst till företags resurser. I det här fallet kan principen för villkorlig åtkomst för att blockera dessa länder/regioner använda en moln säkerhets grupp för de exkluderade användarna från principen. Användare som behöver åtkomst under resor kan lägga till sig själva i gruppen med hjälp av [Azure AD-](../enterprise-users/groups-self-service-management.md)självbetjänings grupp hantering.
 
 Ett annat exempel är att du har en princip för villkorlig åtkomst som [blockerar äldre autentisering för de flesta användare](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Men om du har vissa användare som behöver använda äldre autentiseringsmetoder för att komma åt dina resurser via Office 2010 eller IMAP/SMTP/POP-baserade klienter kan du undanta dessa användare från principen som blockerar äldre autentiseringsmetoder.
 

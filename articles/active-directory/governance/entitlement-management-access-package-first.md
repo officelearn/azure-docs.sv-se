@@ -16,12 +16,12 @@ ms.date: 09/30/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c578d9df8c008d73460801547e6b9361e60baa8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b4030dedfb0d7308bb5a0f7a86bc49ee168e6d0c
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318005"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362815"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Självstudie: skapa ditt första Access-paket i Azure AD-hantering av rättigheter
 
@@ -44,7 +44,7 @@ En steg-för-steg-demonstration av processen att distribuera Azure Active Direct
 
 Du kan också skapa ett Access-paket program mässigt med hjälp av Microsoft Graph. En själv studie kurs som visar hur du skapar ett Access-paket program mässigt finns i [API för hantering av rättigheter](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda hantering av Azure AD-rättigheter måste du ha en av följande licenser:
 
@@ -118,10 +118,10 @@ Ett *Access-paket* är ett paket med resurser som ett team eller projekt behöve
 
     ![Nytt Access-paket – fliken resurs roller](./media/entitlement-management-access-package-first/resource-roles.png)
     >[!IMPORTANT]
-    >De roll tilldelnings grupper som läggs till i ett Access-paket anges med hjälp av den under typ **som kan tilldelas roller**. Se [skapa en roll tilldelnings bara grupp](../users-groups-roles/roles-groups-create-eligible.md) i Azure Active Directory för mer information om grupper som kan tilldelas till Azure AD-roller. Om du inte ser en roll tilldelnings bara grupp som du vill lägga till, eller om du inte kan lägga till den, kontrollerar du att du har den nödvändiga rollen för Azure AD-rollen och rättighets hanterings rollen för att utföra den här åtgärden. Du kan behöva be någon med de roller som krävs lägga till resursen i katalogen. Mer information finns i de [roller som krävs för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    >De roll tilldelnings grupper som läggs till i ett Access-paket anges med hjälp av den under typ **som kan tilldelas roller**. Se [skapa en roll tilldelnings bara grupp](../roles/groups-create-eligible.md) i Azure Active Directory för mer information om grupper som kan tilldelas till Azure AD-roller. Om du inte ser en roll tilldelnings bara grupp som du vill lägga till, eller om du inte kan lägga till den, kontrollerar du att du har den nödvändiga rollen för Azure AD-rollen och rättighets hanterings rollen för att utföra den här åtgärden. Du kan behöva be någon med de roller som krävs lägga till resursen i katalogen. Mer information finns i de [roller som krävs för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
     >[!NOTE]
-    > När du använder [dynamiska grupper](../users-groups-roles/groups-create-rule.md) kan du inte se andra roller som är tillgängliga förutom ägare. Det här är avsiktligt.
+    > När du använder [dynamiska grupper](../enterprise-users/groups-create-rule.md) kan du inte se andra roller som är tillgängliga förutom ägare. Det här är avsiktligt.
     > ![Översikt över scenario](./media/entitlement-management-access-package-first/dynamic-group-warning.png)
     
 

@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c761be04c7d31567e727e93b84c98a1b3510e3d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75965fc9719c9ba16ee7fe24a23dfd4693f8afe0
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979883"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92362560"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegering och roller i hantering av Azure AD-rättigheter
 
@@ -124,20 +124,20 @@ För en användare som inte är en global administratör eller en användar admi
 
 | Azure AD-katalog roll | Rättighets hanterings roll | Kan lägga till säkerhets grupp | Kan lägga till Microsoft 365 grupp | Kan lägga till app | Kan lägga till SharePoint Online-webbplats |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Global administratör](../users-groups-roles/directory-assign-admin-roles.md) | Saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Användar administratör](../users-groups-roles/directory-assign-admin-roles.md) | Saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Intune-administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Exchange-administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  | :heavy_check_mark: |  |  |
-| [Team tjänst administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  | :heavy_check_mark: |  |  |
-| [SharePoint-administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  | :heavy_check_mark: |  | :heavy_check_mark: |
-| [Program administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  |  | :heavy_check_mark: |  |
-| [Moln program administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  |  | :heavy_check_mark: |  |
+| [Global administratör](../roles/permissions-reference.md) | Saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Användar administratör](../roles/permissions-reference.md) | Saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Intune-administratör](../roles/permissions-reference.md) | Katalog ägare | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Exchange-administratör](../roles/permissions-reference.md) | Katalog ägare |  | :heavy_check_mark: |  |  |
+| [Team tjänst administratör](../roles/permissions-reference.md) | Katalog ägare |  | :heavy_check_mark: |  |  |
+| [SharePoint-administratör](../roles/permissions-reference.md) | Katalog ägare |  | :heavy_check_mark: |  | :heavy_check_mark: |
+| [Program administratör](../roles/permissions-reference.md) | Katalog ägare |  |  | :heavy_check_mark: |  |
+| [Moln program administratör](../roles/permissions-reference.md) | Katalog ägare |  |  | :heavy_check_mark: |  |
 | Användare | Katalog ägare | Endast om grupp ägare | Endast om grupp ägare | Endast om app-ägare |  |
 
 > [!NOTE]
-> Om en användare lägger till en säkerhets grupp eller Microsoft 365 grupp kan gruppen inte vara roll tilldelnings bara. Om användaren lägger till en grupp som är roll tilldelnings bara när de skapar åtkomst paketet måste de också vara ägare till den roll tilldelnings bara gruppen. Om du vill ha mer information [skapar du en roll tilldelnings grupp i Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
+> Om en användare lägger till en säkerhets grupp eller Microsoft 365 grupp kan gruppen inte vara roll tilldelnings bara. Om användaren lägger till en grupp som är roll tilldelnings bara när de skapar åtkomst paketet måste de också vara ägare till den roll tilldelnings bara gruppen. Om du vill ha mer information [skapar du en roll tilldelnings grupp i Azure Active Directory](../roles/groups-create-eligible.md).
 
-Om du vill fastställa den lägsta privilegierade rollen för en aktivitet kan du också referera till [Administratörs roller efter administratörs uppgift i Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
+Om du vill fastställa den lägsta privilegierade rollen för en aktivitet kan du också referera till [Administratörs roller efter administratörs uppgift i Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
 ## <a name="next-steps"></a>Nästa steg
 

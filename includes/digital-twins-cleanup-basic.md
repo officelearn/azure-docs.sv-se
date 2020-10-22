@@ -1,16 +1,16 @@
 ---
 author: baanders
-description: ta med fil för att rensa en enkel Azure Digital-förekomst och app-registrering
+description: inkludera fil för att rensa en enkel Azure Digital-instans
 ms.service: digital-twins
 ms.topic: include
 ms.date: 8/13/2020
 ms.author: baanders
-ms.openlocfilehash: e8f167555434338416381aaf8978a3d551686fb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e095a7b286a8860535d6b58fa93098735b30c87
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606388"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92372333"
 ---
 Om du inte längre behöver resurserna som skapas i den här självstudien kan du ta bort dem genom att följa stegen nedan.
 
@@ -23,10 +23,4 @@ Med hjälp av [Azure Cloud Shell](https://shell.azure.com)kan du ta bort alla Az
 
 ```azurecli
 az group delete --name <your-resource-group>
-```
-
-Ta sedan bort den Azure Active Directory app-registrering som du skapade för din klient app med det här kommandot:
-
-```azurecli
-az ad app delete --id <your-application-ID>
 ```

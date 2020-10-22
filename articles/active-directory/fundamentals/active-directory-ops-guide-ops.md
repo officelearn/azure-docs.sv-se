@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 74ebd25cb48276f76cdf379eaa596f4ec1f3a2b9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 2de3f78b58e10a4fbf65bb00d516448a089f85b6
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312596"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92370958"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referens för Azure Active Directory General Operations Guide
 
@@ -49,7 +49,7 @@ När du granskar listan kanske du måste tilldela en ägare för aktiviteter som
 
 #### <a name="owners-recommended-reading"></a>Ägare, Rekommenderad läsning
 
-- [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Tilldela administratörsroller i Azure Active Directory](../roles/permissions-reference.md)
 - [Styrning i Azure](../../governance/index.yml)
 
 ## <a name="hybrid-management"></a>Hybrid hantering
@@ -154,7 +154,7 @@ Se följande tabell för att lära dig vilken typ av meddelanden som skickas och
 
 ### <a name="ad-fs-lockdown"></a>AD FS låsning
 
-Organisationer, som konfigurerar program att autentisera direkt till Azure AD-förmånen från [Azure AD Smart utelåsning](../authentication/concept-sspr-howitworks.md). Om du använder AD FS i Windows Server 2012 R2 implementerar du AD FS [extra näts utelåsning-skydd](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Om du använder AD FS på Windows Server 2016 eller senare implementerar du [Smart utelåsning för extra nät](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Vi rekommenderar minst att du aktiverar extra näts utelåsning för att kunna innehålla risken för angrepp mot lokala Active Directory. Men om du har AD FS i Windows 2016 eller högre bör du även aktivera Smart utelåsning för extra nät som hjälper till att minimera angrepp vid [lösen ords spridning](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
+Organisationer, som konfigurerar program att autentisera direkt till Azure AD-förmånen från [Azure AD Smart utelåsning](../authentication/concept-sspr-howitworks.md). Om du använder AD FS i Windows Server 2012 R2 implementerar du AD FS [extra näts utelåsning-skydd](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). Om du använder AD FS på Windows Server 2016 eller senare implementerar du [Smart utelåsning för extra nät](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). Vi rekommenderar minst att du aktiverar extra näts utelåsning för att kunna innehålla risken för angrepp mot lokala Active Directory. Men om du har AD FS i Windows 2016 eller högre bör du även aktivera Smart utelåsning för extra nät som hjälper till att minimera angrepp vid [lösen ords spridning](https://www.microsoft.com/microsoft-365/blog/2018/03/05/azure-ad-and-adfs-best-practices-defending-against-password-spray-attacks/) .
 
 Om AD FS bara används för Azure AD Federation finns det några slut punkter som kan stängas av för att minimera attack ytan. Om AD FS till exempel bara används för Azure AD bör du inaktivera WS-Trust andra slut punkter än de slut punkter som är aktiverade för **usernamemixed** och **windowstransport**.
 
@@ -166,9 +166,9 @@ Active Directory administrativ nivå modell har utformats för att skydda identi
 
 [Nivå modellen](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) består av tre nivåer och inkluderar bara administrativa konton, inte standard användar konton.
 
-- **Nivå 0**   – Direkt kontroll över företags identiteter i miljön. Nivå 0 innehåller konton, grupper och andra resurser som har direkt eller indirekt administrativ kontroll över Active Directory-skogen, domäner eller domänkontrollanter och alla tillgångar i den. Säkerhetskänsligheten för alla tillgångar i nivå 0 är motsvarande eftersom de alla har effektiv kontroll av varandra.
-- **Nivå 1**   – Kontroll över företags servrar och program. Nivå 1-material inkluderar serveroperativsystem, molntjänster och företagsprogram. Nivå 1-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa tillgångar är värdar för. En vanlig exempelroll är serveradministratörer som hanterar de här operativsystemen med möjlighet att påverka alla företagstjänster.
-- **Nivå 2**   – Kontroll över användar arbets stationer och enheter. Nivå 2-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa arbetsstationer och enheter är värdar för. Exempel innefattar administratörer för supportavdelningen och datorsupport eftersom de kan påverka integriteten för nästan alla användardata.
+- **Nivå 0** – Direkt kontroll av företagsidentiteter i miljön. Nivå 0 innehåller konton, grupper och andra resurser som har direkt eller indirekt administrativ kontroll över Active Directory-skogen, domäner eller domänkontrollanter och alla tillgångar i den. Säkerhetskänsligheten för alla tillgångar i nivå 0 är motsvarande eftersom de alla har effektiv kontroll av varandra.
+- **Nivå 1** – Kontroll av företagsservrar och program. Nivå 1-material inkluderar serveroperativsystem, molntjänster och företagsprogram. Nivå 1-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa tillgångar är värdar för. En vanlig exempelroll är serveradministratörer som hanterar de här operativsystemen med möjlighet att påverka alla företagstjänster.
+- **Nivå 2** – Kontroll över användararbetsstationer och enheter. Nivå 2-administratörskonton har administrativ kontroll över en betydande mängd affärsvärden som dessa arbetsstationer och enheter är värdar för. Exempel innefattar administratörer för supportavdelningen och datorsupport eftersom de kan påverka integriteten för nästan alla användardata.
 
 Lås åtkomst till lokala identitets komponenter som Azure AD Connect, AD FS och SQL-tjänster på samma sätt som du gör för domänkontrollanter.
 

@@ -12,14 +12,14 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75081c218536d17798d1ffa788f79130211f72d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acd2f49f009a8bd71d8cfc9f442e579bb1ad396b
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89318435"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371893"
 ---
-# <a name="azure-active-directory-deployment-plans"></a>Distributionsplaner för Azure Active Directory
+# <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
 
 Från någon av plan sidorna använder du webbläsarens utskrifts-till-PDF-funktion för att skapa en uppdaterad offline-version av dokumentationen.
@@ -54,7 +54,7 @@ Med en pilot kan du testa med en liten grupp innan du aktiverar en funktion för
 
 I din första Wave, rikta in dig på den, användbarhet och andra lämpliga användare som kan testa och ge feedback. Den här feedbacken bör användas för att ytterligare utveckla kommunikationen och anvisningarna som du skickar till användarna och ger insikter om vilka typer av problem som support Personalen kan se. 
 
-Att utöka distributionen till större grupper av användare bör utföras genom att utöka omfånget för de grupper som är riktade till varandra. Detta kan göras via [dynamiskt grupp medlemskap](../users-groups-roles/groups-dynamic-membership.md)eller genom att manuellt lägga till användare till mål grupperna.
+Att utöka distributionen till större grupper av användare bör utföras genom att utöka omfånget för de grupper som är riktade till varandra. Detta kan göras via [dynamiskt grupp medlemskap](../enterprise-users/groups-dynamic-membership.md)eller genom att manuellt lägga till användare till mål grupperna.
 
 
 ## <a name="deploy-authentication"></a>Distribuera autentisering
@@ -81,7 +81,7 @@ Att utöka distributionen till större grupper av användare bör utföras genom
 | -| -|
 | [ADFS till hash-synkronisering av lösenord](../hybrid/plan-migrate-adfs-password-hash-sync.md)| Med hash-synkronisering av lösen ord synkroniseras hashar av användar lösen ord från lokala Active Directory till Azure AD, vilket gör att Azure AD kan autentisera användare utan interaktion med den lokala Active Directory |
 | [ADFS till Pass Through Authentication](../hybrid/plan-migrate-adfs-pass-through-authentication.md) (Passeringsautentisering)| Med Azure AD-direktautentisering kan användarna logga in i både lokala och molnbaserade program med samma lösen ord. Den här funktionen ger användarna en bättre upplevelse – ett mindre lösen ord att komma ihåg – och minskar kostnaderna för IT-supportavdelningen eftersom det är mindre troligt att de glömmer att logga in. När användare loggar in med Azure AD verifierar den här funktionen användarnas lösenord direkt mot din lokala Active Directory. |
-| [Azure-AD-programproxy](../manage-apps/application-proxy-deployment-plan.md) |I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De behöver åtkomst till SaaS-appar i molnet och i företags program lokalt. Azure AD Application Proxy ger denna robust åtkomst utan kostsamma och komplexa virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZs). |
+| [Azure AD Programproxy](../manage-apps/application-proxy-deployment-plan.md) |I dag vill anställda vara produktiva var som helst, när som helst och från valfri enhet. De behöver åtkomst till SaaS-appar i molnet och i företags program lokalt. Azure AD Application Proxy ger denna robust åtkomst utan kostsamma och komplexa virtuella privata nätverk (VPN) eller demilitariserad zoner (DMZs). |
 | [Sömlös enkel inloggning](../hybrid/how-to-connect-sso-quick-start.md)| Sömlös enkel inloggning med Azure Active Directory (sömlös SSO med Azure AD) loggar automatiskt in användare när de är på sina företagsenheter som är anslutna till företagsnätverket. Med den här funktionen behöver användarna inte ange sina lösen ord för att logga in på Azure AD och behöver vanligt vis inte ange sina användar namn. Den här funktionen ger auktoriserade användare enkel åtkomst till dina molnbaserade program utan att behöva ytterligare lokala komponenter. |
 
 ## <a name="deploy-user-provisioning"></a>Distribuera användar etablering

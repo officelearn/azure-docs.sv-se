@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b7d05cd394453ff7c3a40b80a4cd6c850b86ee21
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070375"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363699"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) automatisk användar etablering fören klar pr
 
 Se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md) för att bättre förstå funktionerna.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Läs mer
 
 Användar etablering skapar en grund för pågående identitets styrning och förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -69,11 +69,11 @@ I den här artikeln används följande villkor:
 | Resurser| Länk och beskrivning |
 | - | - |
 | Webbseminarier på begäran| [Hantera dina företags program med Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Lär dig hur Azure AD kan hjälpa dig att få SSO till dina företags SaaS-program och bästa praxis för att kontrol lera åtkomst. |
-| Video| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Videoklipp| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Onlinekurser| SkillUp online:  [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
 | Böcker| [Modern autentisering med Azure Active Directory för webb program (referens för utvecklare) 1: a utgåvan](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Det här är en auktoritativ och djupgående guide för att skapa Active Directory-autentiseringsbegäranden för de här nya miljöerna. |
 | Självstudier| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md). |
-| Vanliga frågor| [Vanliga frågor](../app-provisioning/user-provisioning.md) om automatisk användar etablering |
+| VANLIGA FRÅGOR OCH SVAR| [Vanliga frågor](../app-provisioning/user-provisioning.md) om automatisk användar etablering |
 
 ### <a name="solution-architectures"></a>Lösningsarkitekturer
 
@@ -139,13 +139,13 @@ Kommunikationen är nödvändig för att en ny tjänst ska lyckas. Kommunicera p
 
 Vi rekommenderar att den inledande konfigurationen av automatisk användar etablering är i en test miljö med en liten del av användarna innan de skalas till alla användare i produktionen. Se [metod tips](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) för att köra en pilot.
 
-#### <a name="best-practices-for-a-pilot"></a>Metod tips för en pilot  
+#### <a name="best-practices-for-a-pilot"></a>Metod tips för en pilot  
 
 Med en pilot kan du testa med en liten grupp innan du distribuerar en funktion för alla. Se till att varje användnings fall i din organisation testas grundligt under testningen.
 
 I din första Wave, rikta in dig på den, användbarhet och andra lämpliga användare som kan testa och ge feedback. Använd den här feedbacken för att ytterligare utveckla kommunikation och anvisningar som du skickar till användarna och ger insikter om vilka typer av problem som support Personalen kan se.
 
-Utöka distributionen till större grupper av användare genom att öka omfånget för de grupper som är riktade till varandra. Detta kan göras via [dynamiskt grupp medlemskap](../users-groups-roles/groups-dynamic-membership.md)eller genom att manuellt lägga till användare till mål grupperna.
+Utöka distributionen till större grupper av användare genom att öka omfånget för de grupper som är riktade till varandra. Detta kan göras via [dynamiskt grupp medlemskap](../enterprise-users/groups-dynamic-membership.md)eller genom att manuellt lägga till användare till mål grupperna.
 
 ## <a name="plan-application-connections-and-administration"></a>Planera program anslutningar och administration
 

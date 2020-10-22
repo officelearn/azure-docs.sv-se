@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a4e540ff6a81be8afa769d93b0649e0fce49882
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 8fa1c2627917bfe386c488470f6a78db4c51f2ec
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965105"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363682"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Självbetjäning av lösenordsåterställning i Azure AD
 
@@ -227,7 +227,7 @@ SSPR utför motsvarigheten till en administratörs initierad lösen ords återst
 Återställning av lösen ord och ändringar stöds helt och hållet i alla konfigurationer för Business-to-Business (B2B). B2B-återställning av användar lösen ord stöds i följande tre fall:
 
 * **Användare från en partner organisation med en befintlig Azure AD-klient**: om organisationen som du samarbetar med har en befintlig Azure AD-klient ser vi hur principerna för återställning av lösen ord är aktiverade på klienten. För att lösen ords återställning ska fungera måste partner organisationen bara se till att Azure AD SSPR har Aktiver ATS. Det kostar inget extra att Microsoft 365 kunder.
-* **Användare som registrerar sig via** självbetjänings registrering: om den organisation som du samarbetar med använde funktionen för [självbetjänings registrering](../users-groups-roles/directory-self-service-signup.md) för att ansluta till en klient kan vi återställa lösen ordet med det e-postmeddelande som de har registrerat.
+* **Användare som registrerar sig via** självbetjänings registrering: om den organisation som du samarbetar med använde funktionen för [självbetjänings registrering](../enterprise-users/directory-self-service-signup.md) för att ansluta till en klient kan vi återställa lösen ordet med det e-postmeddelande som de har registrerat.
 * **B2B-användare**: alla nya B2B-användare som skapats med hjälp av de nya [Azure AD B2B-funktionerna](../external-identities/what-is-b2b.md) kan också återställa sina lösen ord med det e-postmeddelande som de registrerade under den inbjudna processen.
 
 För att testa det här scenariot går du till https://passwordreset.microsoftonline.com med någon av dessa partner användare. Om en annan e-postadress eller ett e-postmeddelande har definierats fungerar lösen ords återställning som förväntat.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92b9d3c51a9240b7dfc0f8e815735f0e1ecd4dd3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c6aa31d0b8c68f38d2b4fc41a6bbaaeab8a3ffac
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968318"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363614"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapporteringsalternativ för Azure AD-lösenordshantering
 
@@ -27,7 +27,7 @@ Efter distributionen vill många organisationer veta hur eller om självbetjäni
 Följande frågor kan besvaras av de rapporter som finns i [Azure Portal](https://portal.azure.com/):
 
 > [!NOTE]
-> Du måste vara [Global administratör](../users-groups-roles/directory-assign-admin-roles.md)och du måste säga att dessa data ska samlas in på uppdrag av din organisation. Om du vill välja måste du gå till fliken **rapportering** eller gransknings loggarna minst en gång. Fram till dess har data inte samlats in för din organisation.
+> Du måste vara [Global administratör](../roles/permissions-reference.md)och du måste säga att dessa data ska samlas in på uppdrag av din organisation. Om du vill välja måste du gå till fliken **rapportering** eller gransknings loggarna minst en gång. Fram till dess har data inte samlats in för din organisation.
 >
 
 * Hur många personer har registrerat sig för lösen ords återställning?

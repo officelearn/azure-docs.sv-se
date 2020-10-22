@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ef46cf0947f1ea31c74a6d189b5bdf00fea44fc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9e661bd24acbb15ced9f5bb0a0fba7eec51eae06
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963830"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363546"
 ---
 # <a name="troubleshoot-self-service-password-reset-in-azure-active-directory"></a>Felsöka lösen ords återställning via självbetjäning i Azure Active Directory
 
@@ -32,7 +32,7 @@ Om du har problem med att se eller konfigurera SSPR alternativ i Azure Portal ka
 
 Du ser inte meny alternativet om **lösen ords återställning** om du inte har en Azure AD-licens tilldelad till administratören som utför åtgärden.
 
-Om du vill tilldela en licens till administratörs kontot i fråga, följer du stegen för att [tilldela, verifiera och lösa problem med licenser](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Om du vill tilldela en licens till administratörs kontot i fråga, följer du stegen för att [tilldela, verifiera och lösa problem med licenser](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="i-dont-see-a-particular-configuration-option"></a>Jag kan inte se ett visst konfigurations alternativ.
 
@@ -52,7 +52,7 @@ Om du har problem med SSPR-rapportering i Azure Portal kan du läsa följande fe
 
 Detta kan inträffa om du inte har en Azure AD-licens som tilldelats administratören att utföra åtgärden.
 
-Om du vill tilldela en licens till administratörs kontot i fråga, följer du stegen för att [tilldela, verifiera och lösa problem med licenser](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Om du vill tilldela en licens till administratörs kontot i fråga, följer du stegen för att [tilldela, verifiera och lösa problem med licenser](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="user-registrations-show-multiple-times"></a>Användar registreringar visas flera gånger.
 
@@ -74,7 +74,7 @@ I Azure Portal ändrar du konfigurationen för **lösen ords återställning via
 
 Endast en Azure AD-grupp kan för närvarande aktive ras för SSPR med hjälp av Azure Portal. Som en del av en större distribution av SSPR stöds kapslade grupper. Se till att de användare i gruppen som du väljer har rätt tilldelade licenser. Granska föregående fel söknings steg för att aktivera SSPR efter behov.
 
-Granska också fel söknings stegen för att se till att administratören som utför konfigurations alternativen har en tilldelad licens. Om du vill tilldela en licens till administratörs kontot i fråga, följer du stegen för att [tilldela, verifiera och lösa problem med licenser](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Granska också fel söknings stegen för att se till att administratören som utför konfigurations alternativen har en tilldelad licens. Om du vill tilldela en licens till administratörs kontot i fråga, följer du stegen för att [tilldela, verifiera och lösa problem med licenser](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
 ### <a name="theres-an-error-processing-the-request"></a>Ett fel uppstod när begäran bearbetades.
 
@@ -87,7 +87,7 @@ Om du eller dina användare har problem med att använda SSPR kan du läsa följ
 | Fel | Lösning |
 | --- | --- |
 | Katalogen är inte aktive rad för lösen ords återställning. | I Azure Portal ändrar du konfigurationen för **lösen ords återställning via självbetjäning** till *markerad* eller *alla* och väljer sedan **Spara**. |
-| Användaren har ingen tilldelad Azure AD-licens. | Detta kan inträffa om du inte har en Azure AD-licens tilldelad till önskad användare. Om du vill tilldela en licens till administratörs kontot i fråga, följer du stegen för att [tilldela, verifiera och lösa problem med licenser](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
+| Användaren har ingen tilldelad Azure AD-licens. | Detta kan inträffa om du inte har en Azure AD-licens tilldelad till önskad användare. Om du vill tilldela en licens till administratörs kontot i fråga, följer du stegen för att [tilldela, verifiera och lösa problem med licenser](../enterprise-users/licensing-groups-assign.md#step-1-assign-the-required-licenses). |
 | Katalogen är aktive rad för lösen ords återställning, men användaren saknar eller har en felaktig autentiseringsinformation. | Se till att användaren har korrekt formulerad kontakt information på filen i katalogen. Mer information finns i [data som används av lösen ords återställning via](howto-sspr-authenticationdata.md)självbetjäning i Azure AD. |
 | Katalogen är aktive rad för lösen ords återställning, men användaren har bara en kontakt persons information på filen när principen är inställd på att kräva två verifierings metoder. | Se till att användaren har minst två korrekt konfigurerade kontakt metoder. Ett exempel är att ha både ett mobiltelefon nummer *och* ett telefonnummer till ett kontor. |
 | Katalogen är aktive rad för lösen ords återställning och användaren är korrekt konfigurerad, men användaren kan inte kontaktas. | Detta kan bero på ett tillfälligt tjänst fel eller om det finns felaktiga kontakt data som inte kan identifieras korrekt. <br> <br> Om användaren väntar 10 sekunder visas en länk för att "försök igen" och "kontakta administratören". Om användaren väljer "försök igen" försöker den igen. Om användaren väljer "kontakta administratören" skickar den ett formulär-e-postmeddelande till de administratörer som begär att en lösen ords återställning ska utföras för det användar kontot. |

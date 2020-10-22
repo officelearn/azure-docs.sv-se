@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 06/25/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 91157f625b328dfc03927cf0036aea1b6040cdbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c93f8e50b0437f9ac1569b8abe19bd0b5174ea8d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783730"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363971"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -43,7 +43,7 @@ Azure accelererat nätverk förbättrar nätverkets prestanda genom att aktivera
 ```
 
 ## <a name="azure-virtual-machine-scale-sets-with-azure-load-balancer"></a>Skalnings uppsättningar för virtuella Azure-datorer med Azure Load Balancer
-Se [Azure Load Balancer och Virtual Machine Scale Sets](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-virtual-machine-scale-sets) för mer information om hur du konfigurerar din Standard Load Balancer med Virtual Machine Scale Sets baserat på ditt scenario.
+Se [Azure Load Balancer och Virtual Machine Scale Sets](../load-balancer/load-balancer-standard-virtual-machine-scale-sets.md) för mer information om hur du konfigurerar din Standard Load Balancer med Virtual Machine Scale Sets baserat på ditt scenario.
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Skapa en skalningsuppsättning som refererar till en programgateway
 Om du vill skapa en skalningsuppsättning som använder en programgateway refererar du till programgatewayens backend-adresspool i avsnittet ipConfigurations i skaluppsättningen, som i den här ARM-mallkonfigurationen:
@@ -299,7 +299,7 @@ Följande exempel är en nätverksprofil för skalningsuppsättningar som visar 
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>NSG och ASG:er per skalningsuppsättning
-Med [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) kan du filtrera trafik till och från Azure-resurser i en virtuellt Azure-nätverk med hjälp av säkerhetsregler. Med [programsäkerhetsgrupper](../virtual-network/security-overview.md#application-security-groups) kan du hantera nätverkssäkerhet för Azure-resurser och gruppera dem som ett tillägg i programmets struktur.
+Med [nätverkssäkerhetsgrupper](../virtual-network/network-security-groups-overview.md) kan du filtrera trafik till och från Azure-resurser i en virtuellt Azure-nätverk med hjälp av säkerhetsregler. Med [programsäkerhetsgrupper](../virtual-network/network-security-groups-overview.md#application-security-groups) kan du hantera nätverkssäkerhet för Azure-resurser och gruppera dem som ett tillägg i programmets struktur.
 
 Nätverkssäkerhetsgrupper kan tillämpas direkt på en skalningsuppsättning genom att lägga till en referens till konfigurationsavsnittet för nätverksgränssnittet i egenskaperna för skalningsuppsättningen för virtuella datorer.
 

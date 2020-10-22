@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107818"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364124"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -135,7 +135,7 @@ En annan effekt av "antagen intrång" är behovet av att minimera sannolikheten 
 
 Aktivera Azure AD PIM och Visa sedan de användare som har tilldelats administrativa roller och ta bort onödiga konton i dessa roller. För återstående privilegierade användare flyttar du dem från permanent till berättigade. Upprätta sedan lämpliga principer för att se till att när de behöver få åtkomst till dessa privilegierade roller, kan de göra detta på ett säkert sätt med nödvändig ändrings kontroll.
 
-Som en del av processen för att distribuera ditt privilegierat konto bör du följa [bästa praxis för att skapa minst två nöd konton](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) för att se till att du fortfarande har åtkomst till Azure AD om du låser dig.
+Som en del av processen för att distribuera ditt privilegierat konto bör du följa [bästa praxis för att skapa minst två nöd konton](../../active-directory/roles/security-planning.md) för att se till att du fortfarande har åtkomst till Azure AD om du låser dig.
 
 ## <a name="step-3---automate-threat-response"></a>Steg 3 – automatisera hot svar
 
@@ -193,7 +193,7 @@ Azure ADs självbetjäning för [återställning av lösen ord (SSPR)](../../act
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementera självbetjänings grupp-och program åtkomst
 
-Azure AD ger möjlighet till icke-administratörer att hantera åtkomst till resurser, använda säkerhets grupper, Microsoft 365 grupper, program roller och åtkomst till paket kataloger.  [Grupp hantering via självbetjäning](../../active-directory/users-groups-roles/groups-self-service-management.md) gör det möjligt för grupp ägare att hantera sina egna grupper, utan att behöva tilldelas en administrativ roll. Användare kan också skapa och hantera Microsoft 365 grupper utan att behöva förlita sig på administratörer för att hantera sina förfrågningar, och oanvända grupper upphör automatiskt att gälla.  [Hantering av Azure AD](../../active-directory/governance/entitlement-management-overview.md) -behörighet ger ytterligare delegering och synlighet, med omfattande åtkomst begär ande arbets flöden och automatiskt upphör Ande.  Du kan delegera till icke-administratörer möjligheten att konfigurera sina egna åtkomst paket för grupper, grupper, program och SharePoint Online-webbplatser som de äger, med anpassade principer för vem som krävs för att godkänna åtkomst, inklusive konfiguration av medarbetares chefer och affärs partner sponsorer som god kännare.
+Azure AD ger möjlighet till icke-administratörer att hantera åtkomst till resurser, använda säkerhets grupper, Microsoft 365 grupper, program roller och åtkomst till paket kataloger.  [Grupp hantering via självbetjäning](../../active-directory/enterprise-users/groups-self-service-management.md) gör det möjligt för grupp ägare att hantera sina egna grupper, utan att behöva tilldelas en administrativ roll. Användare kan också skapa och hantera Microsoft 365 grupper utan att behöva förlita sig på administratörer för att hantera sina förfrågningar, och oanvända grupper upphör automatiskt att gälla.  [Hantering av Azure AD](../../active-directory/governance/entitlement-management-overview.md) -behörighet ger ytterligare delegering och synlighet, med omfattande åtkomst begär ande arbets flöden och automatiskt upphör Ande.  Du kan delegera till icke-administratörer möjligheten att konfigurera sina egna åtkomst paket för grupper, grupper, program och SharePoint Online-webbplatser som de äger, med anpassade principer för vem som krävs för att godkänna åtkomst, inklusive konfiguration av medarbetares chefer och affärs partner sponsorer som god kännare.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementera åtkomst granskningar för Azure AD
 

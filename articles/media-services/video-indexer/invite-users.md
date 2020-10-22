@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: e9a4575ce2f353d61654263aea8d968c650a689e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79499758"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364156"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Snabb start: Bjud in användare till Video Indexer
 
@@ -27,10 +27,9 @@ Om du vill samar beta med dina kollegor kan du bjuda in dem till ditt Video Inde
 ## <a name="invite-new-users"></a>Bjud in nya användare
 
 1. Logga in på [Video Indexer](https://www.videoindexer.ai/)-webbplatsen. Se till att du är ansluten till ett administratörs konto.
-1. Klicka på knappen **Bjud in andra** på översta menyn:
+1. Om du är administratör visas knappen **dela konto** i det övre högra hörnet. Klicka på knappen och du kan bjuda in användare. 
 
-   ![Bjud in nya användare](./media/invite-users/invite-users.png)
-
+   ![Bjud in nya användare](./media/invite-users/share-account.png)
 1. Lägg till e-postadresserna till de personer som du vill lägga till i ditt Video Indexer-konto:
 
     ![Bjud in användare till det här kontot](./media/invite-users/invite-to-account.png)

@@ -51,8 +51,6 @@
               href: ./database/security-controls-policy.md
             - name: Säkerhetsbaslinje
               href: database/security-baseline.md
-            - name: Säkerhetsattribut
-              href: database/security-controls.md
             - name: Azure Defender för SQL
               href: database/azure-defender-for-sql.md
             - name: Advanced Threat Protection

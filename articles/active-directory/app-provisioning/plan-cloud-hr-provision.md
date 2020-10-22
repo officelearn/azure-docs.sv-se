@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: cb36366143286c05603a8d14b5ad56ebb6544bda
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ce8b792beb8652bedfddff470444240bc3edf148
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070392"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363665"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planera molnet HR Application för att Azure Active Directory användar etablering
 
@@ -52,7 +52,7 @@ Cloud HR app-integrering med Azure AD-användar etablering passar utmärkt för 
 - Kräv anslutning till, flytta och lämna användare för att synkroniseras till en eller flera Active Directory skogar, domäner och organisationsenheter enbart baserat på ändrings information som identifieras i Cloud HR-appen.
 - Använd Microsoft 365 för e-post.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Läs mer
 
 Användar etablering skapar en grund för pågående identitets styrning. Det förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -79,10 +79,10 @@ Om du vill konfigurera Cloud HR-appen till Azure AD-integrering av användar eta
 
 Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations licens för varje användare som kommer att skickas från Cloud HR-appen och tillhandahålls till antingen Active Directory eller Azure AD. Ett felaktigt antal licenser som ägs i Cloud HR-appen kan leda till fel vid användar etablering.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
-- Azure AD [hybrid Identity-administratör](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator)  för att konfigurera Azure AD Connect etablerings agenten.
-- Azure AD- [programadministratörs](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) roll för att konfigurera etablerings appen i Azure Portal
+- Azure AD [hybrid Identity-administratör](../roles/permissions-reference.md#hybrid-identity-administrator)  för att konfigurera Azure AD Connect etablerings agenten.
+- Azure AD- [programadministratörs](../roles/permissions-reference.md#application-administrator) roll för att konfigurera etablerings appen i Azure Portal
 - En test-och produktions instans av Cloud HR-appen.
 - Administratörs behörighet i Cloud HR-appen för att skapa en system integrations användare och göra ändringar för att testa medarbetar data i test syfte.
 - För att användar etablering ska kunna Active Directory krävs en server som kör Windows Server 2012 eller senare med .NET 4.7.1 + runtime för att vara värd för Azure AD Connect etablerings agenten
@@ -92,14 +92,14 @@ Du måste också ha en giltig Azure AD Premium P1 eller högre prenumerations li
 
 | **Resurser** | **Länk och beskrivning** |
 |:-|:-|
-| Video | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
+| Videoklipp | [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) |
 | | [Så här distribuerar du användar etablering i Active Azure-katalogen](https://youtu.be/pKzyts6kfrw) |
 | Självstudier | [Lista över självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md) |
 | | [Självstudie: Konfigurera arbets dag för automatisk användar etablering](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
-| Vanliga frågor | [Automatiserad användar etablering](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| VANLIGA FRÅGOR OCH SVAR | [Automatiserad användar etablering](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Etablering från Workday till Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
-### <a name="solution-architecture"></a>Lösningsarkitektur
+### <a name="solution-architecture"></a>Lösningsarkitekturen
 
 I följande exempel beskrivs den kompletta lösningen för användar etablerings lösningen för vanliga hybrid miljöer och inkluderar:
 
@@ -110,7 +110,7 @@ I följande exempel beskrivs den kompletta lösningen för användar etablerings
 
 #### <a name="description-of-workflow"></a>Beskrivning av arbets flöde
 
-Följande viktiga steg visas i diagrammet:  
+Följande viktiga steg visas i diagrammet:  
 
 1. **HR team** utför transaktionerna i Cloud HR App-klienten.
 2. **Azure AD Provisioning-tjänsten** kör de schemalagda cyklerna från Cloud HR App-klienten och identifierar ändringar som behöver bearbetas för synkronisering med Active Directory.

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d4e709b2a844db9d0be55de2630ce799edb01ff
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 80ae79f73a55d5feb1aede7ccc7d3b2b64682a24
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87921681"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364090"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Teknisk och funktions översikt över Azure Active Directory B2C
 
@@ -115,7 +115,7 @@ Lär dig mer om användar flöden i [användar flöden i Azure Active Directory 
 
 Anpassade principer låser upp åtkomst till den fulla kraften i IEF-Orchestration-motorn (Identity Experience Framework). Med anpassade principer kan du använda IEF för att bygga nästan all autentisering, användar registrering eller profil redigerings upplevelse som du kan föreställa dig.
 
-Med Identity Experience Framework kan du skapa användar resor med valfri kombination av steg. Till exempel:
+Med Identity Experience Framework kan du skapa användar resor med valfri kombination av steg. Exempel:
 
 * Federera med andra identitets leverantörer
 * Krav för MFA (Multi-Factor Authentication) för första och tredje part
@@ -215,7 +215,7 @@ Du kan tilldela roller för att kontrol lera vem som kan utföra vissa administr
 * Skapa och hantera förtroende Ramverks principer i Identity Experience Framework (anpassade principer)
 * Hantera hemligheter för Federation och kryptering i Identity Experience Framework (anpassade principer)
 
-Mer information om Azure AD-roller, inklusive Azure AD B2C administrations roll stöd, finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Mer information om Azure AD-roller, inklusive Azure AD B2C administrations roll stöd, finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/roles/permissions-reference.md).
 
 ### <a name="multi-factor-authentication-mfa"></a>Multi-Factor Authentication (MFA)
 

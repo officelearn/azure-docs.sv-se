@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a8f572189afaa726f7e01f5e0bbb73340face8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee0c5093fc1dab69e0502b8ed1efe42fa63f1eb9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657225"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92363733"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planera en Azure Active Directory distribution av lösen ords återställning via självbetjäning
 
@@ -64,7 +64,7 @@ Information om hur du jämför versioner och funktioner och aktiverar grupp-elle
 
 Mer information om priser finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens. Om det behövs kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -89,7 +89,7 @@ Mer information om priser finns i [Azure Active Directory prissättning](https:/
 | VANLIGA FRÅGOR OCH SVAR|[Vanliga frågor och svar om lösen ords hantering](./active-directory-passwords-faq.md) |
 
 
-### <a name="solution-architecture"></a>Lösningsarkitektur
+### <a name="solution-architecture"></a>Lösningsarkitekturen
 
 I följande exempel beskrivs lösnings arkitekturen för lösen ords återställning för vanliga hybrid miljöer.
 
@@ -313,7 +313,7 @@ Azure AD kan ge ytterligare information om SSPR-prestanda via granskningar och r
 Du kan använda färdiga rapporter på Azure Portal för att mäta SSPR prestanda. Om du är korrekt licensierad kan du också skapa anpassade frågor. Mer information finns i [rapporterings alternativ för lösen ords hantering i Azure AD](./howto-sspr-reporting.md)
 
 > [!NOTE]
->  Du måste vara [Global administratör](../users-groups-roles/directory-assign-admin-roles.md)och du måste säga att dessa data ska samlas in för din organisation. Om du vill välja måste du gå till fliken rapportering eller gransknings loggarna på Azure Portal minst en gång. Till dess kommer data inte att samlas in för din organisation.
+>  Du måste vara [Global administratör](../roles/permissions-reference.md)och du måste säga att dessa data ska samlas in för din organisation. Om du vill välja måste du gå till fliken rapportering eller gransknings loggarna på Azure Portal minst en gång. Till dess kommer data inte att samlas in för din organisation.
 
 Gransknings loggar för registrering och återställning av lösen ord är tillgängliga i 30 dagar. Om säkerhets granskning i företaget kräver längre kvarhållning måste loggarna exporteras och förbrukas i ett SIEM-verktyg, till exempel [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk eller ArcSight.
 

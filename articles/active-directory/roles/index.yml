@@ -1,0 +1,85 @@
+### YamlMime:Landing
+title: Dokumentation om Azure AD-roller – Azure AD
+summary: Rollbaserad åtkomstkontroll i Azure AD hanterar åtkomst till Azure AD-resurser. Skapa anpassade roller, tilldela roller som använder administrativa enheter för att begränsa kontrollens omfång, tilldela programåtkomst till grupper eller användare, hantera berättigande med Privileged Identity Management (PIM) eller delegera behörigheter för att distribuera identitetshanteringsuppgifter.
+metadata:
+  title: Dokumentation om Azure Active Directory-roller
+  description: Lär dig hur du använder Azure AD-roller för att hantera åtkomst i din organisation.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: roles
+  manager: daveba
+  ms.topic: landing-page
+  ms.date: 10/19/2020
+  author: curtand
+  ms.author: curtand
+  ms.openlocfilehash: 16a64fd66ab391436f991b5f92f306f7ecf2eb58
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372833"
+landingContent:
+- title: Om Azure AD-roller
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt över anpassade roller
+      url: custom-overview.md
+  - linkListType: concept
+    links:
+    - text: Delegera administration
+      url: concept-delegation.md
+    - text: Förstå administrativa enheter i Azure AD
+      url: administrative-units.md
+    - text: Använda molngrupper för att hantera rolltilldelningar
+      url: groups-concept.md
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Bevilja behörighet att skapa obegränsade appregistreringar
+      url: quickstart-app-registration-limits.md
+- title: Delegera roller
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Delegera roller efter uppgift
+      url: delegate-by-task.md
+    - text: Delegera programhantering
+      url: delegate-app-roles.md
+- title: Tilldela roller till användare
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa anpassade roller
+      url: custom-create.md
+    - text: Tilldela roller med hjälp av Graph API
+      url: custom-assign-graph.md
+    - text: Tilldela med hjälp av PowerShell
+      url: custom-assign-powershell.md
+    - text: Tilldela roller med hjälp av Graph API
+      url: custom-assign-graph.md
+- title: Tilldela roller till grupper
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa rolltilldelningsbara grupper
+      url: groups-create-eligible.md
+    - text: Tilldela en roll till en molngrupp
+      url: groups-assign-role.md
+    - text: Göra en grupp berättigad för PIM
+      url: groups-pim-eligible.md
+    - text: Visa tilldelningar för en grupp
+      url: groups-view-assignments.md
+- title: Hantera omfång med administrativa enheter
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Lägga till och ta bort administrativa enheter
+      url: admin-units-manage.md
+    - text: Tilldela användare till enheter
+      url: admin-units-add-manage-users.md
+    - text: Tilldela grupper till enheter
+      url: admin-units-add-manage-groups.md
+    - text: Tilldela grupper med omfång
+      url: admin-units-assign-roles.md

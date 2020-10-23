@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92323426"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470704"
 ---
 ## <a name="download-and-install"></a>Hämta och installera
 
@@ -107,7 +107,8 @@ I Windows anger det här kommandot till exempel din nyckel:
 
 ## <a name="create-subscription-config"></a>Skapa prenumerations konfiguration
 
-För att börja använda tal-CLI måste du först ange din prenumerations nyckel och region information. Se sidan [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regions-ID. När du har en prenumerations nyckel och region-ID (t. ex. `eastus`, `westus` ), kör följande kommandon.
+Om du vill börja använda tal-CLI måste du ange din röst prenumerations nyckel och regions-ID. Hämta dessa autentiseringsuppgifter genom att följa stegen i [testa tal tjänsten kostnads fritt](../overview.md#try-the-speech-service-for-free).
+När du har en prenumerations nyckel och region-ID (t. ex. `eastus`, `westus` ), kör följande kommandon.
 
 ```shell
 spx config @key --set SUBSCRIPTION-KEY

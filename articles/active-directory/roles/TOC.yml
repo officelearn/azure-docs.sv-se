@@ -1,0 +1,128 @@
+- name: Dokumentation om Azure AD-roller
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Azure AD-roller
+      href: custom-overview.md
+- name: Snabbstarter
+  items:
+    - name: Skapa obegränsade appregistreringar
+      href: quickstart-app-registration-limits.md
+- name: Självstudier
+  items:
+    - name: Skapa en dynamisk grupp
+      href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+- name: Begrepp
+  expanded: true
+  items:
+    - name: Delegera administratörsroller i Azure AD
+      href: concept-delegation.md
+    - name: Jämföra standardbehörigheter för användare
+      href: /azure/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Jämför roller i Azure och Azure AD
+      href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+    - name: Förstå administrativa enheter i Azure AD
+      href: administrative-units.md
+- name: Anvisningar
+  expanded: true
+  items:
+    - name: Användare och roller
+      items:
+        - name: Tilldela användare administrativa roller
+          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: Återkalla en användares åtkomst
+          href: /azure/active-directory/enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: Tilldela en roll till en gästanvändare
+          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/roles/context/ugr-context
+        - name: Begränsa gästanvändares åtkomst
+          href: /azure/active-directory/enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: Dynamiska grupper och gäster
+          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/roles/context/ugr-context
+    - name: Roller och behörigheter
+      expanded: true
+      items:
+        - name: Roller och behörigheter
+          href: permissions-reference.md
+        - name: Visa och tilldela roller
+          href: manage-roles-portal.md
+        - name: Min personal-delegering
+          href: my-staff-configure.md
+    - name: Anpassade roller
+      expanded: true
+      items:
+        - name: Översikt över anpassade roller
+          href: custom-overview.md
+        - name: Skapa en anpassad roll
+          href: custom-create.md
+        - name: Visa anpassade rolltilldelningar
+          href: custom-view-assignments.md
+        - name: Tilldela anpassade roller i Azure-portalen
+          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+        - name: Tilldela anpassade roller i PowerShell
+          href: custom-assign-powershell.md
+        - name: Tilldela anpassade roller för företagsappar
+          href: custom-enterprise-apps.md
+        - name: Anpassade rollbehörigheter
+          items:
+            - name: Behörigheter för appregistrering
+              href: custom-available-permissions.md
+            - name: Behörigheter för företagsappar
+              href: custom-enterprise-app-permissions.md
+            - name: Behörigheter för appmedgivande
+              href: custom-consent-permissions.md
+        - name: Delegera appadministratörsroll
+          href: delegate-app-roles.md
+    - name: Tilldela roller till grupper
+      items:
+        - name: Förhandsgranskning av gruppbaserad rolltilldelning
+          href: groups-concept.md
+        - name: Skapa en rolltilldelningsbar grupp
+          href: groups-create-eligible.md
+        - name: Tilldela roller till en grupp
+          href: groups-assign-role.md
+        - name: Ta bort rolltilldelningar från en grupp
+          href: groups-remove-assignment.md
+        - name: Visa en grupps rolltilldelningar
+          href: groups-view-assignments.md
+        - name: Göra en grupp tilldelningsbar för en roll i PIM
+          href: groups-pim-eligible.md
+        - name: Vanliga frågor och felsökning
+          href: groups-faq-troubleshooting.md
+    - name: Skydda dina roller
+      items:
+        - name: Planering av rollsäkerhet
+          href: security-planning.md
+        - name: Skapa nödkonton
+          href: security-emergency-access.md
+    - name: Administrativa enheter
+      items:
+        - name: Administrativa enheter – översikt
+          href: administrative-units.md
+        - name: Lägga till och hantera
+          href: admin-units-manage.md
+        - name: Lägga till och hantera användare
+          href: admin-units-add-manage-users.md
+        - name: Lägga till och hantera grupper
+          href: admin-units-add-manage-groups.md
+        - name: Tilldela en roll med omfång
+          href: admin-units-assign-roles.md
+        - name: Vanliga frågor och felsökning
+          href: admin-units-faq-troubleshoot.md
+    - name: Felsöka
+      items:
+        - name: Få support för Azure AD
+          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+- name: Referens
+  items:
+    - name: Lägsta behörighetsroller efter uppgift
+      href: delegate-by-task.md
+    - name: Dokumentation om Microsoft 365-roll
+      href: m365-workload-docs.md
+    - name: Graph API
+      href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
+    - name: Azure AD CLI
+      href: /cli/azure/ad
+    - name: Azure AD PowerShell för Graph
+      href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+    - name: Begränsningar för Azure AD-tjänsten
+      href: /azure/active-directory/fundamentals/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context

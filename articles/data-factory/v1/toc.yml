@@ -139,9 +139,9 @@
           href: data-factory-hadoop-streaming-activity.md
         - name: HDInsight Apache Spark-aktivitet
           href: data-factory-spark.md
-        - name: Machine Learning Batch-körningsaktivitet
+        - name: Batch-körningsaktivitet i Azure Machine Learning Studio (klassisk)
           href: data-factory-azure-ml-batch-execution-activity.md
-        - name: Machine Learning-uppdateringsresursaktivitet
+        - name: Uppdateringsresursaktivitet i Azure Machine Learning Studio (klassisk)
           href: data-factory-azure-ml-update-resource-activity.md
         - name: Lagrad proceduraktivitet
           href: data-factory-stored-proc-activity.md

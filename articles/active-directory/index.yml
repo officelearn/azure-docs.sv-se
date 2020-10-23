@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 05/29/2020
-  ms.openlocfilehash: 13e69e5f45244be79d06b0014d32e5c8192c777c
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 33bba82d473d6c9c39e78e2e3587fc4f886fd1ba
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "86038080"
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92359551"
 highlightedContent:
   items:
   - title: Vad är Azure AD?
@@ -140,17 +140,17 @@ conceptualContent:
       text: Mer information
   - title: Företagsanvändare
     links:
-    - url: ./users-groups-roles/groups-create-rule.md
+    - url: ./enterprise-users/groups-create-rule.md
       itemType: how-to-guide
       text: Skapa en dynamisk grupp
-    - url: ./users-groups-roles/groups-settings-v2-cmdlets.md
+    - url: ./enterprise-users/groups-settings-v2-cmdlets.md
       itemType: how-to-guide
       text: PowerShell för Azure AD-grupper
-    - url: ./users-groups-roles/directory-service-limits-restrictions.md
+    - url: ./enterprise-users/directory-service-limits-restrictions.md
       itemType: reference
       text: Azure AD-tjänstens begränsningar
     footerLink:
-      url: ./users-groups-roles/index.yml
+      url: ./enterprise-users/index.yml
       text: Mer information
   - title: Externa identiteter
     links:
@@ -263,6 +263,20 @@ conceptualContent:
       text: Referens för felkoder för inloggning
     footerLink:
       url: ./reports-monitoring/index.yml
+      text: Mer information
+  - title: Roller
+    links:
+    - url: ./roles/groups-assign-role.md
+      itemType: how-to-guide
+      text: Tilldela en roll till en molngrupp
+    - url: ./roles/custom-create.md
+      itemType: how-to-guide
+      text: Skapa en anpassad roll
+    - url: ./roles/groups-view-assignments.md
+      itemType: reference
+      text: Visa roller som har tilldelats till en grupp
+    footerLink:
+      url: ./roles/index.yml
       text: Mer information
 additionalContent:
   sections:

@@ -286,7 +286,7 @@
               href: platform/design-logs-deployment.md
             - name: Skapa en arbetsyta
               items:
-                - name: Azure Portal
+                - name: Azure-portalen
                   href: learn/quick-create-workspace.md
                 - name: Azure CLI
                   href: learn/quick-create-workspace-cli.md
@@ -1022,6 +1022,8 @@
           href: insights/container-insights-analyze.md
         - name: Övervaka GPU-prestanda
           href: insights/container-insights-gpu-monitoring.md
+        - name: Övervaka nätverkskonfiguration
+          href: ../virtual-network/kubernetes-network-policies.md?toc=/azure/azure-monitor/toc.json#monitor-and-visualize-network-configurations-with-azure-npm
         - name: 'Övervaka distributioner och HPA:er'
           href: insights/container-insights-deployment-hpa-metrics.md
         - name: Visa livedata

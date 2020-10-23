@@ -4,93 +4,13 @@
   items:
     - name: Välkommen till Azure Cosmos DB
       href: introduction.md
-- name: Snabbstarter
-  expanded: true
-  items:
-    - name: Skapa Cosmos DB-resurser
-      expanded: true
-      items:
-        - name: Azure Portal
-          href: create-cosmosdb-resources-portal.md
-        - name: ARM-mall
-          displayName: Resource Manager
-          href: quick-create-template.md
-        - name: .NET-app – V4 SDK
-          href: create-sql-api-dotnet-v4.md
-        - name: .NET-app – V3 SDK
-          href: create-sql-api-dotnet.md
-        - name: Java-app
-          href: create-sql-api-java.md
-        - name: Spring Data-app
-          href: create-sql-api-spring-data.md
-        - name: Node.js-app
-          href: create-sql-api-nodejs.md
-        - name: Python-app
-          href: create-sql-api-python.md
-        - name: Xamarin-app
-          href: create-sql-api-xamarin-dotnet.md
-- name: Självstudier
-  items:
-    - name: 1 – Skapa och hantera data
-      items:
-        - name: Skapa en konsolapp
-          items:
-            - name: .NET
-              href: sql-api-get-started.md
-            - name: Java
-              href: sql-api-java-get-started.md
-            - name: Async Java
-              href: sql-api-async-java-get-started.md
-            - name: Node.js
-              href: sql-api-nodejs-get-started.md
-        - name: Bygga en webbapp
-          items:
-            - name: .NET
-              href: sql-api-dotnet-application.md
-            - name: Java
-              href: sql-api-java-application.md
-            - name: Node.js
-              href: sql-api-nodejs-application.md
-        - name: Skapa en mobilapp
-          items:
-            - name: Xamarin
-              href: mobile-apps-with-xamarin.md
-    - name: 2 – Migrera data
-      items:
-        - name: Använda datamigreringsverktyget
-          href: import-data.md
-        - name: Använda .NET-masstöd
-          href: tutorial-sql-api-dotnet-bulk-import.md
-    - name: 3 – Frågedata
-      href: tutorial-query-sql-api.md
-    - name: 4 – Skapa en notebook-fil
-      href: create-notebook-visualize-data.md
-    - name: 5 – Distribuera data globalt
-      href: tutorial-global-distribution-sql-api.md
-- name: Exempel
-  items:
-    - name: .NET V2 SDK-exempel
-      href: sql-api-dotnet-samples.md
-    - name: .NET V3 SDK-exempel
-      href: sql-api-dotnet-v3sdk-samples.md
-    - name: Java SDK v4-exempel
-      href: sql-api-java-sdk-samples.md
-    - name: Spring Data v3-exempel
-      href: sql-api-spring-data-sdk-samples.md
-    - name: Node.js-exempel
-      href: sql-api-nodejs-samples.md
-    - name: Python-exempel
-      href: sql-api-python-samples.md
-    - name: PowerShell
-      href: powershell-samples.md
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure Resource Manager
-      href: templates-samples-sql.md
-- name: Begrepp
-  items:
     - name: NoSQL jämfört med relationsdatabaser
       href: relational-nosql.md
+- name: Begrepp
+  items:
+    - name: Resursmodell för Azure Cosmos DB
+      displayName: 'collection, document'
+      href: account-databases-containers-items.md
     - name: Global distribution
       items:
         - name: Översikt av global distribution
@@ -106,415 +26,46 @@
           href: conflict-resolution-policies.md
         - name: Global distribution
           href: global-dist-under-the-hood.md
-    - name: Partitionering
-      items:
-        - name: Partitionering och horisontell skalning
-          href: partitioning-overview.md
-        - name: Syntetisk partitionsnyckel
-          href: synthetic-partition-keys.md
+    - name: Partitionering och horisontell skalning
+      href: partitioning-overview.md
     - name: Kapacitet
       items:
         - name: Enheter för programbegäran
           displayName: 'RUs, RU'
           href: request-units.md
         - name: Etablerat dataflöde
+          displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
+          href: set-throughput.md
+        - name: Dataflöde för autoskalning
           items:
-            - name: Etablerat dataflöde – introduktion
-              displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
-              href: set-throughput.md
-            - name: Etablera dataflöde för autoskalning
+            - name: Introduktion till autoskalning
               href: provision-throughput-autoscale.md
-            - name: Välj mellan autoskalning och standard (manuellt) för dataflöde
-              href: how-to-choose-offer.md
             - name: Autoscale FAQ
               href: autoscale-faq.md
         - name: Utan server
           href: serverless.md
+        - name: Välj mellan autoskalning och standard (manuellt) för dataflöde
+          href: how-to-choose-offer.md
         - name: Välj mellan etablerat dataflöde och serverlöst
           href: throughput-serverless.md
-    - name: SQL-fråga
+    - name: Säkerhet
       items:
-        - name: Komma igång
-          displayName: 'sql query, query basics'
-          href: sql-query-getting-started.md
-        - name: Satser
-          items:
-            - name: VÄLJ
-              displayName: 'select, select clause'
-              href: sql-query-select.md
-            - name: FROM
-              displayName: 'from, from clause'
-              href: sql-query-from.md
-            - name: WHERE
-              displayName: 'where, where clause'
-              href: sql-query-where.md
-            - name: ORDNA EFTER
-              displayName: 'order by, order by clause'
-              href: sql-query-order-by.md
-            - name: GROUP BY
-              displayName: group by clause
-              href: sql-query-group-by.md
-            - name: FÖRSKJUTNINGSGRÄNS
-              displayName: offset limit
-              href: sql-query-offset-limit.md
-        - name: Arbeta med JSON
-          displayName: 'alias, JSON, projection'
-          href: sql-query-working-with-json.md
-        - name: Underfråga
-          displayName: 'subquery, exists'
-          href: sql-query-subquery.md
-        - name: Kopplingar
-          displayName: join
-          href: sql-query-join.md
-        - name: Matriser och objekt
-          displayName: 'object and array creation, object and array'
-          href: sql-query-object-array.md
-        - name: Nyckelord
-          displayName: 'keywords, distinct, between, in, top'
-          href: sql-query-keywords.md
-        - name: Konstanter
-          displayName: 'object, number,array'
-          href: sql-query-constants.md
-        - name: Operatorer
-          displayName: 'operators, operator, logical operators, equality, comparison'
-          href: sql-query-operators.md
-        - name: Skalära uttryck
-          displayName: 'scalar expressions, scalar'
-          href: sql-query-scalar-expressions.md
-        - name: Functions
-          items:
-            - name: Användardefinierade funktioner
-              displayName: 'functions, udf'
-              href: sql-query-udfs.md
-            - name: Samlingar
-              displayName: 'functions, aggregate, count, sum, min, minimum, max, maximum, avg, average'
-              href: sql-query-aggregates.md
-            - name: Systemfunktioner
-              items:
-                - name: Systemfunktioner
-                  displayName: 'functions, system functions, built-in functions'
-                  href: sql-query-system-functions.md
-                - name: Matrisfunktioner
-                  items:
-                    - name: Matrisfunktioner
-                      displayName: 'array functions, array, system functions, built-in functions'
-                      href: sql-query-array-functions.md
-                    - name: ARRAY_CONCAT
-                      displayName: 'ARRAY_CONCAT, array concat, array functions'
-                      href: sql-query-array-concat.md
-                    - name: ARRAY_CONTAINS
-                      displayName: 'ARRAY_CONTAINS, array contains, array functions'
-                      href: sql-query-array-contains.md
-                    - name: ARRAY_LENGTH
-                      displayName: 'ARRAY_LENGTH, array length, array functions'
-                      href: sql-query-array-length.md
-                    - name: ARRAY_SLICE
-                      displayName: 'ARRAY_SLICE, array slice, array functions'
-                      href: sql-query-array-slice.md
-                - name: Datum- och tidsfunktioner
-                  items:
-                    - name: Datum- och tidsfunktioner
-                      displayName: 'date and time functions, date and time, datetime, system functions, built-in functions'
-                      href: sql-query-date-time-functions.md
-                    - name: DateTimeAdd
-                      displayName: 'DateTimeAdd, date time add, timestamp, date and time functions, datetime'
-                      href: sql-query-datetimeadd.md
-                    - name: DateTimeDiff
-                      displayName: 'DateTimeDiff, date time diff, date and time functions, datetime'
-                      href: sql-query-datetimediff.md
-                    - name: DateTimeFromParts
-                      displayName: 'DateTimeFromParts, date time from parts, date and time functions, datetime'
-                      href: sql-query-datetimefromparts.md
-                    - name: DateTimePart
-                      displayName: 'DateTimePart, date time part, date and time functions, datetime'
-                      href: sql-query-datetimepart.md
-                    - name: DateTimeToTicks
-                      displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
-                      href: sql-query-datetimetoticks.md
-                    - name: DateTimeToTimestamp
-                      displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
-                      href: sql-query-datetimetotimestamp.md
-                    - name: GetCurrentDateTime
-                      displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
-                      href: sql-query-getcurrentdatetime.md
-                    - name: GetCurrentTicks
-                      displayName: 'GetCurrentTicks, get current ticks, date and time functions, datetime, ticks'
-                      href: sql-query-getcurrentticks.md
-                    - name: GetCurrentTimestamp
-                      displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
-                      href: sql-query-getcurrenttimestamp.md
-                    - name: TicksToDateTime
-                      displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
-                      href: sql-query-tickstodatetime.md
-                    - name: TimestampToDateTime
-                      displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
-                      href: sql-query-timestamptodatetime.md
-                - name: Matematiska funktioner
-                  items:
-                    - name: Matematiska funktioner
-                      displayName: 'mathematical, mathematical functions, system functions, built-in functions'
-                      href: sql-query-mathematical-functions.md
-                    - name: ABS
-                      displayName: 'ABS, absolute value, built-in functions'
-                      href: sql-query-abs.md
-                    - name: ACOS
-                      displayName: 'ACOS, arccosine, built-in functions'
-                      href: sql-query-acos.md
-                    - name: ASIN
-                      displayName: 'ASIN, asine, built-in functions'
-                      href: sql-query-asin.md
-                    - name: ATAN
-                      displayName: 'ATAN, arctangent, built-in functions'
-                      href: sql-query-atan.md
-                    - name: ATN2
-                      displayName: 'ATN2, built-in functions'
-                      href: sql-query-atn2.md
-                    - name: CEILING
-                      displayName: 'CEILING, built-in functions'
-                      href: sql-query-ceiling.md
-                    - name: COS
-                      displayName: 'COS, cosine, built-in functions'
-                      href: sql-query-cos.md
-                    - name: COT
-                      displayName: 'COT, cotangent, built-in functions'
-                      href: sql-query-cot.md
-                    - name: DEGREES
-                      displayName: 'DEGREES, built-in functions'
-                      href: sql-query-degrees.md
-                    - name: EXP
-                      displayName: 'EXP, exponential value, built-in functions'
-                      href: sql-query-exp.md
-                    - name: FLOOR
-                      displayName: 'FLOOR, built-in functions'
-                      href: sql-query-floor.md
-                    - name: LOG
-                      displayName: 'LOG, logarithm, built-in functions'
-                      href: sql-query-log.md
-                    - name: LOG10
-                      displayName: 'LOG10, log base 10, built-in functions'
-                      href: sql-query-log10.md
-                    - name: PI
-                      displayName: 'PI, built-in functions'
-                      href: sql-query-pi.md
-                    - name: POWER
-                      displayName: 'POWER, exponent, built-in functions'
-                      href: sql-query-power.md
-                    - name: RADIANS
-                      displayName: 'RADIANS, built-in functions'
-                      href: sql-query-radians.md
-                    - name: RAND
-                      displayName: 'RAND, random, built-in functions'
-                      href: sql-query-rand.md
-                    - name: ROUND
-                      displayName: 'ROUND, built-in functions'
-                      href: sql-query-round.md
-                    - name: SIGN
-                      displayName: 'SIGN, built-in functions'
-                      href: sql-query-sign.md
-                    - name: SIN
-                      displayName: 'SIN, sine, built-in functions'
-                      href: sql-query-sin.md
-                    - name: SQRT
-                      displayName: 'SQRT, square root, built-in functions'
-                      href: sql-query-sqrt.md
-                    - name: SQUARE
-                      displayName: 'SQUARE, built-in functions'
-                      href: sql-query-square.md
-                    - name: TAN
-                      displayName: 'TAN, built-in functions'
-                      href: sql-query-tan.md
-                    - name: TRUNC
-                      displayName: 'TRUNC, truncate, built-in functions'
-                      href: sql-query-trunc.md
-                - name: Spatiella funktioner
-                  items:
-                    - name: Spatiella funktioner
-                      displayName: 'spatial functions, spatial, system functions, built-in functions'
-                      href: sql-query-spatial-functions.md
-                    - name: ST_DISTANCE
-                      displayName: 'ST_DISTANCE, st distance, distance, built-in functions'
-                      href: sql-query-st-distance.md
-                    - name: ST_WITHIN
-                      displayName: 'ST_WITHIN, st within, within, built-in functions'
-                      href: sql-query-st-within.md
-                    - name: ST_INTERSECTS
-                      displayName: 'ST_INTERSECTS, st intersects, intersects, built-in functions'
-                      href: sql-query-st-intersects.md
-                    - name: ST_ISVALID
-                      displayName: 'ST_ISVALID, st isvalid, is valid, built-in functions'
-                      href: sql-query-st-isvalid.md
-                    - name: ST_ISVALIDDETAILED
-                      displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
-                      href: sql-query-st-isvaliddetailed.md
-                - name: Strängfunktioner
-                  items:
-                    - name: Strängfunktioner
-                      displayName: 'string functions, string, system functions, built-in functions'
-                      href: sql-query-string-functions.md
-                    - name: CONCAT
-                      displayName: 'CONCAT, concatenate, built-in functions'
-                      href: sql-query-concat.md
-                    - name: CONTAINS
-                      displayName: 'CONTAINS, built-in functions'
-                      href: sql-query-contains.md
-                    - name: ENDSWITH
-                      displayName: 'ENDSWITH, built-in functions'
-                      href: sql-query-endswith.md
-                    - name: INDEX_OF
-                      displayName: 'INDEX_OF, index of, built-in functions'
-                      href: sql-query-index-of.md
-                    - name: LEFT
-                      displayName: 'LEFT, built-in functions'
-                      href: sql-query-left.md
-                    - name: LENGTH
-                      displayName: 'LENGTH, built-in functions'
-                      href: sql-query-length.md
-                    - name: LOWER
-                      displayName: 'LOWER, built-in functions'
-                      href: sql-query-lower.md
-                    - name: LTRIM
-                      displayName: 'LTRIM, left trim, built-in functions'
-                      href: sql-query-ltrim.md
-                    - name: REGEXMATCH
-                      displayName: 'REGEXMATCH, built-in functions'
-                      href: sql-query-regexmatch.md
-                    - name: REPLACE
-                      displayName: 'REPLACE, built-in functions'
-                      href: sql-query-replace.md
-                    - name: REPLIKERA
-                      displayName: 'REPLICATE, built-in functions'
-                      href: sql-query-replicate.md
-                    - name: REVERSE
-                      displayName: 'REVERSE, built-in functions'
-                      href: sql-query-reverse.md
-                    - name: RIGHT
-                      displayName: 'RIGHT, built-in functions'
-                      href: sql-query-right.md
-                    - name: RTRIM
-                      displayName: 'RTRIM, right trim, built-in functions'
-                      href: sql-query-rtrim.md
-                    - name: STARTSWITH
-                      displayName: 'STARTSWITH, starts with, built-in functions'
-                      href: sql-query-startswith.md
-                    - name: STRINGEQUALS
-                      displayName: 'STRINGEQUALS, equals, case-insensitive'
-                      href: sql-query-stringequals.md
-                    - name: StringToArray
-                      displayName: 'StringToArray, string to array, built-in functions'
-                      href: sql-query-stringtoarray.md
-                    - name: StringToBoolean
-                      displayName: 'StringToBoolean, string to boolean, built-in functions'
-                      href: sql-query-stringtoboolean.md
-                    - name: StringToNull
-                      displayName: 'StringToNull, string to null, built-in functions'
-                      href: sql-query-stringtonull.md
-                    - name: StringToNumber
-                      displayName: 'StringToNumber, string to number, built-in functions'
-                      href: sql-query-stringtonumber.md
-                    - name: StringToObject
-                      displayName: 'StringToObject, string to object, built-in functions'
-                      href: sql-query-stringtoobject.md
-                    - name: SUBSTRING
-                      displayName: 'SUBSTRING, built-in functions'
-                      href: sql-query-substring.md
-                    - name: ToString
-                      displayName: 'ToString, to sting, built-in functions'
-                      href: sql-query-tostring.md
-                    - name: TRIM
-                      displayName: 'TRIM, built-in functions'
-                      href: sql-query-trim.md
-                    - name: UPPER
-                      displayName: 'UPPER, built-in functions'
-                      href: sql-query-upper.md
-                - name: Funktioner för typkontroll
-                  items:
-                    - name: Funktioner för typkontroll
-                      displayName: 'type checking functions, type checking, type, system functions, built-in functions'
-                      href: sql-query-type-checking-functions.md
-                    - name: IS_ARRAY
-                      displayName: 'IS_ARRAY, is array, built-in functions'
-                      href: sql-query-is-array.md
-                    - name: IS_BOOL
-                      displayName: 'IS_BOOL, IsBool, is bool, built-in functions'
-                      href: sql-query-is-bool.md
-                    - name: IS_DEFINED
-                      displayName: 'IS_DEFINED, IsDefined, is defined, built-in functions'
-                      href: sql-query-is-defined.md
-                    - name: IS_NULL
-                      displayName: 'IS_NULL, IsNull, is null, built-in functions'
-                      href: sql-query-is-null.md
-                    - name: IS_NUMBER
-                      displayName: 'IS_NUMBER, IsNumber, is number, built-in functions'
-                      href: sql-query-is-number.md
-                    - name: IS_OBJECT
-                      displayName: 'IS_OBJECT, IsObject, is object, built-in functions'
-                      href: sql-query-is-object.md
-                    - name: IS_PRIMITIVE
-                      displayName: 'IS_PRIMITIVE, IsPrimitive, is primitive, built-in functions'
-                      href: sql-query-is-primitive.md
-                    - name: IS_STRING
-                      displayName: 'IS_STRING, IsString, is string, built-in functions'
-                      href: sql-query-is-string.md
-        - name: Geospatiala data
-          items:
-            - name: Geospatial översikt
-              displayName: 'geospatial, spatial'
-              href: sql-query-geospatial-intro.md
-            - name: Fråga geospatiala data
-              displayName: 'geospatial, spatial, query'
-              href: sql-query-geospatial-query.md
-            - name: Indexera geospatiala data
-              displayName: 'geospatial, spatial, index'
-              href: sql-query-geospatial-index.md
-        - name: DateTime
-          displayName: 'datetime, date, time'
-          href: working-with-dates.md
-        - name: Parametriserad fråga
-          displayName: 'parameterized query, parameterized, parameter, parameters'
-          href: sql-query-parameterized-queries.md
-        - name: LINQ till SQL
-          displayName: 'linq, .NET'
-          href: sql-query-linq-to-sql.md
-    - name: Resursmodell för Azure Cosmos DB
-      displayName: 'collection, document'
-      href: account-databases-containers-items.md
-    - name: Containrar och objekt
-      items:
-        - name: Modelldokumentdata
-          displayName: document
-          href: modeling-data.md
-        - name: Indexering
-          items:
-            - name: Indexeringsöversikt
-              displayName: 'range, spatial'
-              href: index-overview.md
-            - name: Indexeringsprinciper
-              displayName: 'consistent, none'
-              href: index-policy.md
-        - name: Time to live
-          displayName: 'delete, delete data, ttl'
-          href: time-to-live.md
-        - name: Unika nyckelvillkor
-          href: unique-keys.md
-        - name: Kontroll över transaktioner och optimistisk samtidighet
-          href: database-transactions-optimistic-concurrency.md
-        - name: Bilagor
-          href: attachments.md
-    - name: Ändringsfeed
-      items:
-        - name: Översikt över ändringsflöde
-          href: change-feed.md
-        - name: Designmönster för ändringsflöde
-          href: change-feed-design-patterns.md
-        - name: Läsning av ändringsflöde
-          href: read-change-feed.md
-        - name: Ändringsflödesprocessor
-          href: change-feed-processor.md
-        - name: Utlösa Azure Functions
-          displayName: change feed
-          href: change-feed-functions.md
-        - name: Hämtningsmodell för ändringsflöde
-          href: change-feed-pull-model.md
+        - name: Säkerhetsöversikt
+          href: database-security.md
+        - name: Datakryptering
+          href: database-encryption-at-rest.md
+        - name: Tjänsttaggar
+          href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Rollbaserad åtkomstkontroll
+          displayName: rbac
+          href: role-based-access-control.md
+        - name: Säkerhetskontroller av Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
+        - name: Stöd för Azure-princip
+          href: policy.md
     - name: Analys med Azure Synapse Link
       items:
         - name: Azure Synapse Link för Cosmos DB
@@ -527,16 +78,6 @@
           href: synapse-link-use-cases.md
         - name: Vanliga frågor och svar om Synapse Link
           href: synapse-link-frequently-asked-questions.md
-    - name: Inbyggda Jupyter Notebooks
-      items:
-        - name: Översikt över Jupyter Notebooks
-          href: cosmosdb-jupyter-notebooks.md
-    - name: Programmering på serversidan
-      items:
-        - name: 'Lagrade procedurer, utlösare och UDF:er'
-          href: stored-procedures-triggers-udfs.md
-        - name: API för JavaScript-fråga
-          href: javascript-query-api.md
     - name: Optimera dina kostnader för Azure Cosmos DB
       items:
         - name: Planera och hantera kostnader
@@ -563,577 +104,1191 @@
           href: optimize-dev-test.md
         - name: Optimera kostnader för reserverad kapacitet
           href: cosmos-db-reserved-capacity.md
-    - name: Säkerhet
-      items:
-        - name: Säkerhetsöversikt
-          href: database-security.md
-        - name: Datakryptering
-          href: database-encryption-at-rest.md
-        - name: Säker åtkomst till data
-          displayName: 'primary key, resource token, users, roles'
-          href: secure-access-to-data.md
-        - name: Tjänsttaggar
-          href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Rollbaserad åtkomstkontroll
-          displayName: rbac
-          href: role-based-access-control.md
-        - href: cosmos-db-advanced-threat-protection.md
-          name: Advanced Threat Protection
-        - name: Säkerhetskontroller av Azure Policy
-          displayName: 'regulatory, compliance, standards, domains'
-          href: ./security-controls-policy.md
-        - name: Säkerhetsbaslinje
-          href: security-baseline.md
-    - name: Företagsberedskap
-      items:
-        - name: Efterlevnad
-          href: compliance.md
-        - name: Stöd för Azure-princip
-          href: policy.md
+    - name: Översikt över ändringsflöde
+      href: change-feed.md
+    - name: Inbyggda Jupyter Notebooks
+      href: cosmosdb-jupyter-notebooks.md
     - name: Tjänstkvoter
       href: concepts-limits.md
+    - name: Företagsberedskap – efterlevnad
+      href: compliance.md
     - name: Automatiska rekommendationer
       href: automated-recommendations.md
-- name: 'Cassandra, MongoDB och andra API:er'
+- name: SQL/Core API
   expanded: true
   items:
-    - name: Cassandra-API
+    - name: Snabbstarter
+      expanded: true
       items:
-        - name: Översikt
+        - name: Skapa Cosmos DB-resurser
+          expanded: true
           items:
-            - name: Vad är API för Apache Cassandra i Cosmos DB?
-              href: cassandra-introduction.md
-            - name: Protokollstöd för Wire
-              href: cassandra-support.md
-        - name: Snabbstarter
-          items:
-            - name: .NET
-              href: create-cassandra-dotnet.md
-            - name: .NET Core
-              href: create-cassandra-dotnet-core.md
-            - name: Java v3
-              href: create-cassandra-java.md
-            - name: Java v4
-              href: create-cassandra-java-v4.md
-            - name: Node.js
-              href: create-cassandra-nodejs.md
-            - name: Python
-              href: create-cassandra-python.md
-            - name: Golang
-              href: create-cassandra-go.md
-        - name: Självstudier
-          items:
-            - name: 1 – Skapa och hantera data
-              href: create-cassandra-api-account-java.md
-            - name: 2 – Läsa in data
-              href: cassandra-api-load-data.md
-            - name: 3 – Frågedata
-              href: cassandra-api-query-data.md
-            - name: 4 – Migrera data
-              displayName: import
-              href: cassandra-import-data.md
-        - name: Begrepp
-          items:
-            - name: VANLIGA FRÅGOR OCH SVAR
-              href: cassandra-faq.md
-            - name: Elastisk skalning
-              href: manage-scale-cassandra.md
-            - name: Partitionering
-              href: cassandra-partitioning.md
-            - name: Sekundära index
-              href: cassandra-secondary-index.md
-            - name: Mappning av konsekvensnivåer
-              href: cassandra-consistency.md
-        - name: Anvisningar
-          items:
-            - name: Migrera till API för Cassandra
-              items:
-                - name: Migrera – Oracle DB till API för Cassandra med Striim
-                  href: cosmosdb-cassandra-api-migrate-data-striim.md
-                - name: Migrera – Oracle DB till API för Cassandra med Blitzz
-                  href: oracle-migrate-cosmos-db-blitzz.md
-                - name: Migrera – Apache Cassandra till Cassandra API med Blitzz
-                  href: cassandra-migrate-cosmos-db-blitzz.md
-            - name: Ändringsfeed
-              href: cassandra-change-feed.md
-            - name: Skapa en container – API för Cassandra
-              href: how-to-create-container-cassandra.md
-            - name: Etablera dataflöde – API för Cassandra
-              displayName: 'request units, RUs, RU, collection level'
-              href: how-to-provision-throughput-cassandra.md
-            - name: Hitta avgifter för begäransenheter
-              displayName: 'request units, RUs, RU, charge, consumption'
-              href: find-request-unit-charge-cassandra.md
-            - name: Lagra och hantera Spring Data
-              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
-            - name: Cassandra och Spark
-              items:
-                - name: Introduktion
-                  href: cassandra-spark-generic.md
-                - name: Ansluta med Databricks
-                  href: cassandra-spark-databricks.md
-                - name: Ansluta med HDInsight
-                  href: cassandra-spark-hdinsight.md
-                - name: Skapa nyckelutrymme och tabell
-                  href: cassandra-spark-ddl-ops.md
-                - name: Infoga data
-                  href: cassandra-spark-create-ops.md
-                - name: Läsa data
-                  href: cassandra-spark-read-ops.md
-                - name: Upserta data
-                  href: cassandra-spark-upsert-ops.md
-                - name: Ta bort data
-                  href: cassandra-spark-delete-ops.md
-                - name: Sammansättningsåtgärder
-                  href: cassandra-spark-aggregation-ops.md
-                - name: Kopiera tabelldata
-                  href: cassandra-spark-table-copy-ops.md
-            - name: Hantera med Resource Manager-mallar
-              href: templates-samples-cassandra.md
-              displayName: ARM
-            - name: Hantera med hjälp av PowerShell
-              href: powershell-samples-cassandra.md
-            - name: Hantera med hjälp av Azure CLI
-              href: cli-samples-cassandra.md
-    - name: MongoDB-API
+            - name: Azure Portal
+              href: create-cosmosdb-resources-portal.md
+            - name: ARM-mall
+              displayName: Resource Manager
+              href: quick-create-template.md
+            - name: .NET-app – V4 SDK
+              href: create-sql-api-dotnet-v4.md
+            - name: .NET-app – V3 SDK
+              href: create-sql-api-dotnet.md
+            - name: Java-app
+              href: create-sql-api-java.md
+            - name: Spring Data-app
+              href: create-sql-api-spring-data.md
+            - name: Node.js-app
+              href: create-sql-api-nodejs.md
+            - name: Python-app
+              href: create-sql-api-python.md
+            - name: Xamarin-app
+              href: create-sql-api-xamarin-dotnet.md
+    - name: Självstudier
       items:
-        - name: Översikt
+        - name: 1 – Skapa och hantera data
           items:
-            - name: Vad är MongoDB API i Cosmos DB?
-              href: mongodb-introduction.md
-        - name: Snabbstarter
-          items:
-            - name: .NET
-              href: create-mongodb-dotnet.md
-            - name: Java
-              href: create-mongodb-java.md
-            - name: Node.js
-              href: create-mongodb-nodejs.md
-            - name: Python
-              href: create-mongodb-flask.md
-            - name: Xamarin
-              href: create-mongodb-xamarin.md
-            - name: Golang
-              href: create-mongodb-go.md
-        - name: Självstudier
-          items:
-            - name: 1 – Skapa och hantera data
+            - name: Skapa en konsolapp
               items:
-                - name: Node.js-konsolapp
-                  href: mongodb-samples.md
-                - name: Node.js och Angular-app
+                - name: .NET
+                  href: sql-api-get-started.md
+                - name: Java
+                  href: sql-api-java-get-started.md
+                - name: Async Java
+                  href: sql-api-async-java-get-started.md
+                - name: Node.js
+                  href: sql-api-nodejs-get-started.md
+            - name: Bygga en webbapp
+              items:
+                - name: .NET
+                  href: sql-api-dotnet-application.md
+                - name: Java
+                  href: sql-api-java-application.md
+                - name: Node.js
+                  href: sql-api-nodejs-application.md
+            - name: Skapa en mobilapp
+              items:
+                - name: Xamarin
+                  href: mobile-apps-with-xamarin.md
+        - name: 2 – Migrera data
+          items:
+            - name: Använda datamigreringsverktyget
+              href: import-data.md
+            - name: Använda .NET-masstöd
+              href: tutorial-sql-api-dotnet-bulk-import.md
+        - name: 3 – Frågedata
+          href: tutorial-query-sql-api.md
+        - name: 4 – Skapa en notebook-fil
+          href: create-notebook-visualize-data.md
+        - name: 5 – Distribuera data globalt
+          href: tutorial-global-distribution-sql-api.md
+    - name: Exempel
+      items:
+        - name: .NET V2 SDK-exempel
+          href: sql-api-dotnet-samples.md
+        - name: .NET V3 SDK-exempel
+          href: sql-api-dotnet-v3sdk-samples.md
+        - name: Java SDK v4-exempel
+          href: sql-api-java-sdk-samples.md
+        - name: Spring Data v3-exempel
+          href: sql-api-spring-data-sdk-samples.md
+        - name: Node.js-exempel
+          href: sql-api-nodejs-samples.md
+        - name: Python-exempel
+          href: sql-api-python-samples.md
+        - name: PowerShell
+          href: powershell-samples.md
+        - name: Azure CLI
+          href: cli-samples.md
+        - name: Azure Resource Manager
+          href: templates-samples-sql.md
+    - name: Begrepp
+      items:
+        - name: Modelldokumentdata
+          displayName: document
+          href: modeling-data.md
+        - name: Partitionering
+          items:
+            - name: Syntetisk partitionsnyckel
+              href: synthetic-partition-keys.md
+        - name: SQL-fråga
+          items:
+            - name: Komma igång
+              displayName: 'sql query, query basics'
+              href: sql-query-getting-started.md
+            - name: Satser
+              items:
+                - name: VÄLJ
+                  displayName: 'select, select clause'
+                  href: sql-query-select.md
+                - name: FROM
+                  displayName: 'from, from clause'
+                  href: sql-query-from.md
+                - name: WHERE
+                  displayName: 'where, where clause'
+                  href: sql-query-where.md
+                - name: ORDNA EFTER
+                  displayName: 'order by, order by clause'
+                  href: sql-query-order-by.md
+                - name: GROUP BY
+                  displayName: group by clause
+                  href: sql-query-group-by.md
+                - name: FÖRSKJUTNINGSGRÄNS
+                  displayName: offset limit
+                  href: sql-query-offset-limit.md
+            - name: Arbeta med JSON
+              displayName: 'alias, JSON, projection'
+              href: sql-query-working-with-json.md
+            - name: Underfråga
+              displayName: 'subquery, exists'
+              href: sql-query-subquery.md
+            - name: Kopplingar
+              displayName: join
+              href: sql-query-join.md
+            - name: Matriser och objekt
+              displayName: 'object and array creation, object and array'
+              href: sql-query-object-array.md
+            - name: Nyckelord
+              displayName: 'keywords, distinct, between, in, top'
+              href: sql-query-keywords.md
+            - name: Konstanter
+              displayName: 'object, number,array'
+              href: sql-query-constants.md
+            - name: Operatorer
+              displayName: 'operators, operator, logical operators, equality, comparison'
+              href: sql-query-operators.md
+            - name: Skalära uttryck
+              displayName: 'scalar expressions, scalar'
+              href: sql-query-scalar-expressions.md
+            - name: Functions
+              items:
+                - name: Användardefinierade funktioner
+                  displayName: 'functions, udf'
+                  href: sql-query-udfs.md
+                - name: Samlingar
+                  displayName: 'functions, aggregate, count, sum, min, minimum, max, maximum, avg, average'
+                  href: sql-query-aggregates.md
+                - name: Systemfunktioner
                   items:
-                    - name: Del 1 – Introduktion
-                      href: tutorial-develop-mongodb-nodejs.md
-                    - name: Del 2 – Skapa Node-app
-                      href: tutorial-develop-mongodb-nodejs-part2.md
-                    - name: Del 3 – Lägg till användargränssnitt med Angular
-                      href: tutorial-develop-mongodb-nodejs-part3.md
-                    - name: Del 4 – Skapa ett konto
-                      href: tutorial-develop-mongodb-nodejs-part4.md
-                    - name: Del 5 – Anslut till Cosmos DB
-                      href: tutorial-develop-mongodb-nodejs-part5.md
-                    - name: Del 6 – Utför CRUD-åtgärder
-                      href: tutorial-develop-mongodb-nodejs-part6.md
-                - name: Node.js och React-app
-                  href: tutorial-develop-mongodb-react.md
-            - name: 2 – Frågedata
-              href: tutorial-query-mongodb.md
-            - name: 3 – Distribuera data globalt
-              href: tutorial-global-distribution-mongodb.md
-        - name: Begrepp
-          items:
-            - name: Protokollstöd för Wire (3.6)
-              href: mongodb-feature-support-36.md
-            - name: Protokollstöd för Wire (3.2)
-              href: mongodb-feature-support.md
-            - name: VANLIGA FRÅGOR OCH SVAR
-              href: mongodb-api-faq.md
-            - name: Mappning av konsekvensnivåer
-              href: mongodb-consistency.md
-        - name: Anvisningar
-          items:
-            - name: Migrera till MongoDB-API
+                    - name: Systemfunktioner
+                      displayName: 'functions, system functions, built-in functions'
+                      href: sql-query-system-functions.md
+                    - name: Matrisfunktioner
+                      items:
+                        - name: Matrisfunktioner
+                          displayName: 'array functions, array, system functions, built-in functions'
+                          href: sql-query-array-functions.md
+                        - name: ARRAY_CONCAT
+                          displayName: 'ARRAY_CONCAT, array concat, array functions'
+                          href: sql-query-array-concat.md
+                        - name: ARRAY_CONTAINS
+                          displayName: 'ARRAY_CONTAINS, array contains, array functions'
+                          href: sql-query-array-contains.md
+                        - name: ARRAY_LENGTH
+                          displayName: 'ARRAY_LENGTH, array length, array functions'
+                          href: sql-query-array-length.md
+                        - name: ARRAY_SLICE
+                          displayName: 'ARRAY_SLICE, array slice, array functions'
+                          href: sql-query-array-slice.md
+                    - name: Datum- och tidsfunktioner
+                      items:
+                        - name: Datum- och tidsfunktioner
+                          displayName: 'date and time functions, date and time, datetime, system functions, built-in functions'
+                          href: sql-query-date-time-functions.md
+                        - name: DateTimeAdd
+                          displayName: 'DateTimeAdd, date time add, timestamp, date and time functions, datetime'
+                          href: sql-query-datetimeadd.md
+                        - name: DateTimeDiff
+                          displayName: 'DateTimeDiff, date time diff, date and time functions, datetime'
+                          href: sql-query-datetimediff.md
+                        - name: DateTimeFromParts
+                          displayName: 'DateTimeFromParts, date time from parts, date and time functions, datetime'
+                          href: sql-query-datetimefromparts.md
+                        - name: DateTimePart
+                          displayName: 'DateTimePart, date time part, date and time functions, datetime'
+                          href: sql-query-datetimepart.md
+                        - name: DateTimeToTicks
+                          displayName: 'DateTimeToTicks, date time to ticks, date and time functions, datetime, ticks'
+                          href: sql-query-datetimetoticks.md
+                        - name: DateTimeToTimestamp
+                          displayName: 'DateTimeToTimestamp, date time to timestamp, date and time functions, datetime, timestamp'
+                          href: sql-query-datetimetotimestamp.md
+                        - name: GetCurrentDateTime
+                          displayName: 'GetCurrentDateTime, get current date time, date and time functions, datetime'
+                          href: sql-query-getcurrentdatetime.md
+                        - name: GetCurrentTicks
+                          displayName: 'GetCurrentTicks, get current ticks, date and time functions, datetime, ticks'
+                          href: sql-query-getcurrentticks.md
+                        - name: GetCurrentTimestamp
+                          displayName: 'GetCurrentTimestamp, get current timestamp, timestamp, date and time functions, datetime'
+                          href: sql-query-getcurrenttimestamp.md
+                        - name: TicksToDateTime
+                          displayName: 'TicksToDateTime, ticks to date time, date and time functions, datetime, ticks'
+                          href: sql-query-tickstodatetime.md
+                        - name: TimestampToDateTime
+                          displayName: 'TimestampToDateTime, timestamp to date time, date and time functions, datetime, timestamp'
+                          href: sql-query-timestamptodatetime.md
+                    - name: Matematiska funktioner
+                      items:
+                        - name: Matematiska funktioner
+                          displayName: 'mathematical, mathematical functions, system functions, built-in functions'
+                          href: sql-query-mathematical-functions.md
+                        - name: ABS
+                          displayName: 'ABS, absolute value, built-in functions'
+                          href: sql-query-abs.md
+                        - name: ACOS
+                          displayName: 'ACOS, arccosine, built-in functions'
+                          href: sql-query-acos.md
+                        - name: ASIN
+                          displayName: 'ASIN, asine, built-in functions'
+                          href: sql-query-asin.md
+                        - name: ATAN
+                          displayName: 'ATAN, arctangent, built-in functions'
+                          href: sql-query-atan.md
+                        - name: ATN2
+                          displayName: 'ATN2, built-in functions'
+                          href: sql-query-atn2.md
+                        - name: CEILING
+                          displayName: 'CEILING, built-in functions'
+                          href: sql-query-ceiling.md
+                        - name: COS
+                          displayName: 'COS, cosine, built-in functions'
+                          href: sql-query-cos.md
+                        - name: COT
+                          displayName: 'COT, cotangent, built-in functions'
+                          href: sql-query-cot.md
+                        - name: DEGREES
+                          displayName: 'DEGREES, built-in functions'
+                          href: sql-query-degrees.md
+                        - name: EXP
+                          displayName: 'EXP, exponential value, built-in functions'
+                          href: sql-query-exp.md
+                        - name: FLOOR
+                          displayName: 'FLOOR, built-in functions'
+                          href: sql-query-floor.md
+                        - name: LOG
+                          displayName: 'LOG, logarithm, built-in functions'
+                          href: sql-query-log.md
+                        - name: LOG10
+                          displayName: 'LOG10, log base 10, built-in functions'
+                          href: sql-query-log10.md
+                        - name: PI
+                          displayName: 'PI, built-in functions'
+                          href: sql-query-pi.md
+                        - name: POWER
+                          displayName: 'POWER, exponent, built-in functions'
+                          href: sql-query-power.md
+                        - name: RADIANS
+                          displayName: 'RADIANS, built-in functions'
+                          href: sql-query-radians.md
+                        - name: RAND
+                          displayName: 'RAND, random, built-in functions'
+                          href: sql-query-rand.md
+                        - name: ROUND
+                          displayName: 'ROUND, built-in functions'
+                          href: sql-query-round.md
+                        - name: SIGN
+                          displayName: 'SIGN, built-in functions'
+                          href: sql-query-sign.md
+                        - name: SIN
+                          displayName: 'SIN, sine, built-in functions'
+                          href: sql-query-sin.md
+                        - name: SQRT
+                          displayName: 'SQRT, square root, built-in functions'
+                          href: sql-query-sqrt.md
+                        - name: SQUARE
+                          displayName: 'SQUARE, built-in functions'
+                          href: sql-query-square.md
+                        - name: TAN
+                          displayName: 'TAN, built-in functions'
+                          href: sql-query-tan.md
+                        - name: TRUNC
+                          displayName: 'TRUNC, truncate, built-in functions'
+                          href: sql-query-trunc.md
+                    - name: Spatiella funktioner
+                      items:
+                        - name: Spatiella funktioner
+                          displayName: 'spatial functions, spatial, system functions, built-in functions'
+                          href: sql-query-spatial-functions.md
+                        - name: ST_DISTANCE
+                          displayName: 'ST_DISTANCE, st distance, distance, built-in functions'
+                          href: sql-query-st-distance.md
+                        - name: ST_WITHIN
+                          displayName: 'ST_WITHIN, st within, within, built-in functions'
+                          href: sql-query-st-within.md
+                        - name: ST_INTERSECTS
+                          displayName: 'ST_INTERSECTS, st intersects, intersects, built-in functions'
+                          href: sql-query-st-intersects.md
+                        - name: ST_ISVALID
+                          displayName: 'ST_ISVALID, st isvalid, is valid, built-in functions'
+                          href: sql-query-st-isvalid.md
+                        - name: ST_ISVALIDDETAILED
+                          displayName: 'ST_ISVALIDDETAILED, st isvaliddetailed, is valid detailed, built-in functions'
+                          href: sql-query-st-isvaliddetailed.md
+                    - name: Strängfunktioner
+                      items:
+                        - name: Strängfunktioner
+                          displayName: 'string functions, string, system functions, built-in functions'
+                          href: sql-query-string-functions.md
+                        - name: CONCAT
+                          displayName: 'CONCAT, concatenate, built-in functions'
+                          href: sql-query-concat.md
+                        - name: CONTAINS
+                          displayName: 'CONTAINS, built-in functions'
+                          href: sql-query-contains.md
+                        - name: ENDSWITH
+                          displayName: 'ENDSWITH, built-in functions'
+                          href: sql-query-endswith.md
+                        - name: INDEX_OF
+                          displayName: 'INDEX_OF, index of, built-in functions'
+                          href: sql-query-index-of.md
+                        - name: LEFT
+                          displayName: 'LEFT, built-in functions'
+                          href: sql-query-left.md
+                        - name: LENGTH
+                          displayName: 'LENGTH, built-in functions'
+                          href: sql-query-length.md
+                        - name: LOWER
+                          displayName: 'LOWER, built-in functions'
+                          href: sql-query-lower.md
+                        - name: LTRIM
+                          displayName: 'LTRIM, left trim, built-in functions'
+                          href: sql-query-ltrim.md
+                        - name: REGEXMATCH
+                          displayName: 'REGEXMATCH, built-in functions'
+                          href: sql-query-regexmatch.md
+                        - name: REPLACE
+                          displayName: 'REPLACE, built-in functions'
+                          href: sql-query-replace.md
+                        - name: REPLIKERA
+                          displayName: 'REPLICATE, built-in functions'
+                          href: sql-query-replicate.md
+                        - name: REVERSE
+                          displayName: 'REVERSE, built-in functions'
+                          href: sql-query-reverse.md
+                        - name: RIGHT
+                          displayName: 'RIGHT, built-in functions'
+                          href: sql-query-right.md
+                        - name: RTRIM
+                          displayName: 'RTRIM, right trim, built-in functions'
+                          href: sql-query-rtrim.md
+                        - name: STARTSWITH
+                          displayName: 'STARTSWITH, starts with, built-in functions'
+                          href: sql-query-startswith.md
+                        - name: STRINGEQUALS
+                          displayName: 'STRINGEQUALS, equals, case-insensitive'
+                          href: sql-query-stringequals.md
+                        - name: StringToArray
+                          displayName: 'StringToArray, string to array, built-in functions'
+                          href: sql-query-stringtoarray.md
+                        - name: StringToBoolean
+                          displayName: 'StringToBoolean, string to boolean, built-in functions'
+                          href: sql-query-stringtoboolean.md
+                        - name: StringToNull
+                          displayName: 'StringToNull, string to null, built-in functions'
+                          href: sql-query-stringtonull.md
+                        - name: StringToNumber
+                          displayName: 'StringToNumber, string to number, built-in functions'
+                          href: sql-query-stringtonumber.md
+                        - name: StringToObject
+                          displayName: 'StringToObject, string to object, built-in functions'
+                          href: sql-query-stringtoobject.md
+                        - name: SUBSTRING
+                          displayName: 'SUBSTRING, built-in functions'
+                          href: sql-query-substring.md
+                        - name: ToString
+                          displayName: 'ToString, to sting, built-in functions'
+                          href: sql-query-tostring.md
+                        - name: TRIM
+                          displayName: 'TRIM, built-in functions'
+                          href: sql-query-trim.md
+                        - name: UPPER
+                          displayName: 'UPPER, built-in functions'
+                          href: sql-query-upper.md
+                    - name: Funktioner för typkontroll
+                      items:
+                        - name: Funktioner för typkontroll
+                          displayName: 'type checking functions, type checking, type, system functions, built-in functions'
+                          href: sql-query-type-checking-functions.md
+                        - name: IS_ARRAY
+                          displayName: 'IS_ARRAY, is array, built-in functions'
+                          href: sql-query-is-array.md
+                        - name: IS_BOOL
+                          displayName: 'IS_BOOL, IsBool, is bool, built-in functions'
+                          href: sql-query-is-bool.md
+                        - name: IS_DEFINED
+                          displayName: 'IS_DEFINED, IsDefined, is defined, built-in functions'
+                          href: sql-query-is-defined.md
+                        - name: IS_NULL
+                          displayName: 'IS_NULL, IsNull, is null, built-in functions'
+                          href: sql-query-is-null.md
+                        - name: IS_NUMBER
+                          displayName: 'IS_NUMBER, IsNumber, is number, built-in functions'
+                          href: sql-query-is-number.md
+                        - name: IS_OBJECT
+                          displayName: 'IS_OBJECT, IsObject, is object, built-in functions'
+                          href: sql-query-is-object.md
+                        - name: IS_PRIMITIVE
+                          displayName: 'IS_PRIMITIVE, IsPrimitive, is primitive, built-in functions'
+                          href: sql-query-is-primitive.md
+                        - name: IS_STRING
+                          displayName: 'IS_STRING, IsString, is string, built-in functions'
+                          href: sql-query-is-string.md
+            - name: Geospatiala data
               items:
-                - name: Guide före migrering
-                  href: mongodb-pre-migration.md
-                - name: Database Migration Service (online)
-                  href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-                - name: Database Migration Service (offline)
-                  href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-                - name: Guide efter migrering
-                  href: mongodb-post-migration.md
-            - name: Uppgradera från MongoDB 3.2 till 3.6
-              href: mongodb-version-upgrade.md
-            - name: Hämta anslutningssträngen
-              href: connect-mongodb-account.md
-            - name: Ansluta med Studio 3T
-              href: mongodb-mongochef.md
-            - name: Ansluta med Compass
-              href: mongodb-compass.md
-            - name: Ansluta med Robo 3T
-              href: mongodb-robomongo.md
-            - name: Ansluta med Mongoose
-              href: mongodb-mongoose.md
-            - name: Distribuera läsningar globalt
-              displayName: read preference
-              href: mongodb-readpreference.md
-            - name: TTL-värde – MongoDB
-              href: mongodb-time-to-live.md
-            - name: Ändra dataströmmar
-              href: mongodb-change-streams.md
-            - name: Hantera dataindexering
-              href: mongodb-indexing.md
-            - name: Skapa en container – MongoDB API
-              href: how-to-create-container-mongodb.md
-            - name: Etablera dataflöde – MongoDB API
-              displayName: 'request units, RUs, RU, collection level'
-              href: how-to-provision-throughput-mongodb.md
-            - name: Hitta avgifter för begäransenheter
-              displayName: 'request units, RUs, RU, charge, consumption'
-              href: find-request-unit-charge-mongodb.md
-            - name: Felsöka frågeprestanda
-              href: mongodb-troubleshoot-query.md
-            - name: Lagra och hantera Spring Data
-              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
-            - name: Kommandon för MongoDB-tillägg
-              href: mongodb-custom-commands.md
-              displayName: custom commands
-            - name: Hantera med Resource Manager-mallar
-              href: templates-samples-mongodb.md
-              displayName: ARM
-            - name: Hantera med hjälp av PowerShell
-              href: powershell-samples-mongodb.md
-            - name: Hantera med hjälp av Azure CLI
-              href: cli-samples-mongodb.md
-            - name: Felsök vanliga problem
-              href: mongodb-troubleshoot.md
-    - name: Gremlin-API
-      displayName: 'graph, graph database'
-      items:
-        - name: Översikt
+                - name: Geospatial översikt
+                  displayName: 'geospatial, spatial'
+                  href: sql-query-geospatial-intro.md
+                - name: Fråga geospatiala data
+                  displayName: 'geospatial, spatial, query'
+                  href: sql-query-geospatial-query.md
+                - name: Indexera geospatiala data
+                  displayName: 'geospatial, spatial, index'
+                  href: sql-query-geospatial-index.md
+            - name: DateTime
+              displayName: 'datetime, date, time'
+              href: working-with-dates.md
+            - name: Parametriserad fråga
+              displayName: 'parameterized query, parameterized, parameter, parameters'
+              href: sql-query-parameterized-queries.md
+            - name: LINQ till SQL
+              displayName: 'linq, .NET'
+              href: sql-query-linq-to-sql.md
+        - name: Containrar och objekt
           items:
-            - name: Vad är Gremlin API i Cosmos DB?
-              href: graph-introduction.md
-            - name: Protokollstöd för Wire
-              href: gremlin-support.md
-        - name: Snabbstarter
+            - name: Indexering
+              items:
+                - name: Indexeringsöversikt
+                  displayName: 'range, spatial'
+                  href: index-overview.md
+                - name: Indexeringsprinciper
+                  displayName: 'consistent, none'
+                  href: index-policy.md
+            - name: Time to live
+              displayName: 'delete, delete data, ttl'
+              href: time-to-live.md
+            - name: Unika nyckelvillkor
+              href: unique-keys.md
+            - name: Kontroll över transaktioner och optimistisk samtidighet
+              href: database-transactions-optimistic-concurrency.md
+            - name: Bilagor
+              href: attachments.md
+        - name: Ändringsfeed
           items:
-            - name: Gremlin-konsol
-              href: create-graph-gremlin-console.md
-            - name: .NET
-              href: create-graph-dotnet.md
-            - name: Java
-              href: create-graph-java.md
-            - name: Node.js
-              href: create-graph-nodejs.md
-            - name: Python
-              href: create-graph-python.md
-            - name: PHP
-              href: create-graph-php.md
-        - name: Självstudier
+            - name: Designmönster för ändringsflöde
+              href: change-feed-design-patterns.md
+            - name: Läsning av ändringsflöde
+              href: read-change-feed.md
+            - name: Ändringsflödesprocessor
+              href: change-feed-processor.md
+            - name: Utlösa Azure Functions
+              displayName: change feed
+              href: change-feed-functions.md
+            - name: Hämtningsmodell för ändringsflöde
+              href: change-feed-pull-model.md
+        - name: Programmering på serversidan
           items:
-            - name: 1– Frågedata
-              href: tutorial-query-graph.md
-        - name: Begrepp
+            - name: 'Lagrade procedurer, utlösare och UDF:er'
+              href: stored-procedures-triggers-udfs.md
+            - name: API för JavaScript-fråga
+              href: javascript-query-api.md
+        - name: Säkerhet
           items:
-            - name: VANLIGA FRÅGOR OCH SVAR
-              href: gremlin-api-faq.md
-            - name: Svarshuvuden
-              href: gremlin-headers.md
-            - name: Begränsningar
-              href: gremlin-limits.md
-        - name: Anvisningar
-          items:
-            - name: Diagramdatamodellering
-              href: graph-modeling.md
-            - name: Partitionering av diagramdata
-              href: graph-partitioning.md
-            - name: Importera diagramdata
-              href: bulk-executor-graph-dotnet.md
-            - name: Optimera Gremlin-frågor
-              href: graph-execution-profile.md
-            - name: Skapa en container – Gremlin API
-              href: how-to-create-container-gremlin.md
-            - name: Etablera dataflöde – Gremlin API
-              displayName: 'request units, RUs, RU, collection level'
-              href: how-to-provision-throughput-gremlin.md
-            - name: Hitta avgifter för begäransenheter
-              displayName: 'request units, RUs, RU, charge, consumption'
-              href: find-request-unit-charge-gremlin.md
-            - name: Använda resurstoken
-              href: how-to-use-resource-tokens-gremlin.md
-            - name: Använda regionala slutpunkter
-              href: how-to-use-regional-gremlin.md
-            - name: Åtkomst till egenskaper för systemdokument
-              href: how-to-access-system-properties-gremlin.md
-            - name: Visualisera diagramdata
-              href: graph-visualization.md
-            - name: Lagra och hantera Spring Data
-              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
-            - name: Hantera med Resource Manager-mallar
-              href: templates-samples-gremlin.md
-              displayName: ARM
-            - name: Hantera med hjälp av PowerShell
-              href: powershell-samples-gremlin.md
-            - name: Hantera med hjälp av Azure CLI
-              href: cli-samples-gremlin.md
-        - name: Referens
-          items:
-            - name: Svarsrubriker
-              href: gremlin-headers.md
-            - name: Begränsningar
-              href: gremlin-limits.md
-            - name: Kompatibilitet
-              href: gremlin-compatibility.md
-    - name: Tabell-API
-      items:
-        - name: Översikt
-          items:
-            - name: Vad är Tabell-API i Cosmos DB?
-              href: table-introduction.md
-        - name: Snabbstarter
-          items:
-            - name: .NET
-              href: create-table-dotnet.md
-            - name: Java
-              href: create-table-java.md
-            - name: Node.js
-              href: create-table-nodejs.md
-            - name: Python
-              href: create-table-python.md
-        - name: Självstudier
-          items:
-            - name: 1 – Skapa och hantera data
-              href: tutorial-develop-table-dotnet.md
-            - name: 2 – Migrera data
-              displayName: import
-              href: table-import.md
-            - name: 3 – Frågedata
-              href: tutorial-query-table.md
-            - name: 4 – Distribuera data lokalt
-              href: tutorial-global-distribution-table.md
-        - name: Exempel
-          items:
-            - name: .NET
-              href: table-storage-how-to-use-dotnet.md
-            - name: Java
-              href: table-storage-how-to-use-java.md
-            - name: Node.js
-              href: table-storage-how-to-use-nodejs.md
-            - name: Python
-              href: table-storage-how-to-use-python.md
-            - name: PHP
-              href: table-storage-how-to-use-php.md
-            - name: C++
-              href: table-storage-how-to-use-c-plus.md
-            - name: Ruby
-              href: table-storage-how-to-use-ruby.md
-            - name: F#
-              href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-              maintainContext: true
-        - name: Begrepp
-          items:
-            - name: VANLIGA FRÅGOR OCH SVAR
-              href: table-api-faq.md
-        - name: Anvisningar
-          items:
-            - name: Skapa appar med tabell-API
-              href: table-support.md
-            - name: Skapa en container – Tabell-API
-              href: how-to-create-container-table.md
-            - name: Hitta avgifter för begäransenheter
-              displayName: 'request units, RUs, RU, charge, consumption'
-              href: find-request-unit-charge-table.md
-            - name: Designguide för tabellagring
-              href: table-storage-design-guide.md
-            - name: Hantera med Resource Manager-mallar
-              href: templates-samples-table.md
-              displayName: ARM
-            - name: Hantera med hjälp av PowerShell
-              href: powershell-samples-table.md
-            - name: Hantera med hjälp av Azure CLI
-              href: cli-samples-table.md
-        - name: Referens
-          items:
-            - name: .NET
-              href: table-sdk-dotnet.md
-            - name: .NET Standard
-              href: table-sdk-dotnet-standard.md
-            - name: Java
-              href: table-sdk-java.md
-            - name: Node.js
-              href: table-sdk-nodejs.md
-            - name: Python
-              href: table-sdk-python.md
-            - name: 'REST-API:er för tabellagring'
-              href: /rest/api/storageservices/table-service-rest-api
-    - name: etcd-API
-      items:
-        - name: Översikt
-          items:
-            - name: Vad är Etcd API i Cosmos DB?
-              href: etcd-api-introduction.md
-        - name: Anvisningar
-          items:
-            - name: Azure Kubernetes med Azure Cosmos DB
-              href: bootstrap-kubernetes-cluster.md
-- name: Anvisningar
-  items:
-    - name: Arbeta med ett Azure Cosmos-konto
-      href: how-to-manage-database-account.md
-    - name: Arbeta med Azure Cosmos DB-resurser
-      items:
-        - name: Använda PowerShell
-          href: manage-with-powershell.md
-        - name: Använda Azure CLI
-          href: manage-with-cli.md
-        - name: Använda Resource Manager-mallar
-          href: manage-with-templates.md
-          displayName: ARM
-        - name: Flytta mellan regioner
-          href: how-to-move-regions.md
-        - name: Förhindra ändringar eller borttagning
-          href: resource-locks.md
-    - name: Global distribution
-      items:
-        - name: Konfigurera skrivningar i flera regioner
-          href: how-to-multi-master.md
-        - name: Hantera konsekvensnivåer
-          displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
-          href: how-to-manage-consistency.md
-        - name: Konfigurera konfliktlösningsprinciper
-          href: how-to-manage-conflicts.md
-        - name: Konvertera tokenformat för session
-          href: how-to-convert-session-token.md
-    - name: Kapacitet
-      items:
-        - name: Hitta avgifter för begäransenheter
-          displayName: 'request units, RUs, RU, charge, consumption'
-          href: find-request-unit-charge.md
-        - name: Etablerat dataflöde
-          items:
-            - name: Etablera standarddataflöde (manuellt) på en container
-              displayName: 'request units, RUs, RU, collection level'
-              href: how-to-provision-container-throughput.md
-            - name: Etablera standarddataflöde (manuellt) på en databas
-              displayName: 'request units, RUs, RU, shared throughput, database level'
-              href: how-to-provision-database-throughput.md
-            - name: Etablera dataflöde med autoskalning på en databas eller container
-              displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
-              href: how-to-provision-autoscale-throughput.md
-            - name: Beräkna RU/s med Cosmos Capacity Planner
-              displayName: 'request units, RUs, RU, capacity'
-              href: estimate-ru-with-capacity-planner.md
-            - name: Skala med Azure Functions-timer
-              displayName: 'request units, RUs, RU, timer'
-              href: scale-on-schedule.md
-    - name: Arbeta med containrar och objekt
-      items:
-        - name: Arbeta med Cosmos DB-data
-          items:
-            - name: Arbeta med data med hjälp av Azure Storage Explorer
-              href: storage-explorer.md
-            - name: Arbeta med data med hjälp av Azure Cosmos Explorer
-              href: data-explorer.md
-        - name: Skapa en container – SQL API
-          href: how-to-create-container.md
-        - name: Skapa en container med en stor partitionsnyckel
-          href: large-partition-keys.md
-        - name: Fråga en container
-          href: how-to-query-container.md
-        - name: Datamodellering och partitionering – ett verkligt exempel
-          displayName: 'model, partition, example'
-          href: how-to-model-partition-example.md
-        - name: Migrera till partitionerade containrar
-          href: migrate-containers-partitioned-to-nonpartitioned.md
-        - name: Ställ in TTL (Time To Live)
-          displayName: 'delete, delete data, ttl'
-          href: how-to-time-to-live.md
-        - name: Hantera indexeringsprinciper
-          href: how-to-manage-indexing-policy.md
-        - name: Definiera unika nycklar
-          href: how-to-define-unique-keys.md
-    - name: Prestanda
-      items:
+            - name: Säker åtkomst till data
+              displayName: 'primary key, resource token, users, roles'
+              href: secure-access-to-data.md
+            - name: Advanced Threat Protection
+              href: cosmos-db-advanced-threat-protection.md
         - name: Anslutningslägen
           href: sql-sdk-connection-modes.md
-        - name: Söka i data
+    - name: Anvisningar
+      items:
+        - name: Hantera Azure Cosmos DB-resurser
           items:
-            - name: Hämta mått för frågekörning
-              href: profile-sql-api-query.md
-            - name: Justera prestanda för frågor
-              href: sql-api-query-metrics.md
-        - name: .NET
+            - name: Hantera ett Azure Cosmos-konto
+              href: how-to-manage-database-account.md
+            - name: Använda PowerShell
+              href: manage-with-powershell.md
+            - name: Använda Azure CLI
+              href: manage-with-cli.md
+            - name: Använda Resource Manager-mallar
+              href: manage-with-templates.md
+              displayName: ARM
+            - name: Flytta mellan regioner
+              href: how-to-move-regions.md
+            - name: Förhindra ändringar eller borttagning
+              href: resource-locks.md
+        - name: Global distribution
           items:
-            - name: Prestandatips för .NET SDK v3
-              href: performance-tips-dotnet-sdk-v3-sql.md
-            - name: Prestandatips för .NET SDK v2
-              href: performance-tips.md
-        - name: Java
+            - name: Konfigurera skrivningar i flera regioner
+              href: how-to-multi-master.md
+            - name: Hantera konsekvensnivåer
+              displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
+              href: how-to-manage-consistency.md
+            - name: Konfigurera konfliktlösningsprinciper
+              href: how-to-manage-conflicts.md
+            - name: Konvertera tokenformat för session
+              href: how-to-convert-session-token.md
+        - name: Kapacitet
           items:
-            - name: Prestandatips för Java SDK v4
-              href: performance-tips-java-sdk-v4-sql.md
+            - name: Etablerat dataflöde
+              items:
+                - name: Etablera standarddataflöde (manuellt) på en container
+                  displayName: 'request units, RUs, RU, collection level'
+                  href: how-to-provision-container-throughput.md
+                - name: Etablera standarddataflöde (manuellt) på en databas
+                  displayName: 'request units, RUs, RU, shared throughput, database level'
+                  href: how-to-provision-database-throughput.md
+                - name: Etablera dataflöde med autoskalning på en databas eller container
+                  displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+                  href: how-to-provision-autoscale-throughput.md
+                - name: Beräkna RU/s med Cosmos Capacity Planner
+                  displayName: 'request units, RUs, RU, capacity'
+                  href: estimate-ru-with-capacity-planner.md
+                - name: Skala med Azure Functions-timer
+                  displayName: 'request units, RUs, RU, timer'
+                  href: scale-on-schedule.md
+            - name: Hitta avgifter för begäransenheter
+              displayName: 'request units, RUs, RU, charge, consumption'
+              href: find-request-unit-charge.md
+        - name: Åtgärder på containrar och objekt
+          items:
+            - name: Skapa en container – SQL API
+              href: how-to-create-container.md
+            - name: Skapa en container med en stor partitionsnyckel
+              href: large-partition-keys.md
+            - name: Fråga en container
+              href: how-to-query-container.md
+            - name: Datamodellering och partitionering – ett verkligt exempel
+              displayName: 'model, partition, example'
+              href: how-to-model-partition-example.md
+            - name: Migrera till partitionerade containrar
+              href: migrate-containers-partitioned-to-nonpartitioned.md
+            - name: Ställ in TTL (Time To Live)
+              displayName: 'delete, delete data, ttl'
+              href: how-to-time-to-live.md
+            - name: Hantera indexeringsprinciper
+              href: how-to-manage-indexing-policy.md
+            - name: Definiera unika nycklar
+              href: how-to-define-unique-keys.md
+        - name: Prestanda
+          items:
+            - name: Söka i data
+              items:
+                - name: Hämta mått för frågekörning
+                  href: profile-sql-api-query.md
+                - name: Justera prestanda för frågor
+                  href: sql-api-query-metrics.md
+            - name: .NET
+              items:
+                - name: Prestandatips för .NET SDK v3
+                  href: performance-tips-dotnet-sdk-v3-sql.md
+                - name: Prestandatips för .NET SDK v2
+                  href: performance-tips.md
+            - name: Java
+              items:
+                - name: Prestandatips för Java SDK v4
+                  href: performance-tips-java-sdk-v4-sql.md
+                - name: Asynkron Java-SDK v2
+                  href: performance-tips-async-java.md
+                - name: Synkron Java-SDK v2
+                  href: performance-tips-java.md
+            - name: Prestandatest – exempelapp
+              href: performance-testing.md
+            - name: Kostnadseffektiva läsningar och skrivningar
+              href: key-value-store-cost.md
+        - name: 'Migrera till nyare SDK:er'
+          items:
+            - name: Migrera till Java V4-SDK
+              href: migrate-java-v4-sdk.md
+            - name: Migrera till .NET V3 SDK
+              href: migrate-dotnet-v3.md
+        - name: Felsökning
+          items:
+            - name: Vanliga fel
+              items:
+                - name: Felsöka frågeprestanda
+                  href: troubleshoot-query-performance.md
+                - name: Felsöka timeout för tjänstbegäran
+                  href: troubleshoot-request-timeout.md
+                - name: Felsöka för hög begärandefrekvens
+                  href: troubleshoot-request-rate-too-large.md
+                - name: Felsöka hittades inte
+                  href: troubleshoot-not-found.md
+                - name: Felsöka behörighet saknas
+                  href: troubleshoot-unauthorized.md
+                - name: Tillgänglighetsproblem i miljöer med flera regioner
+                  href: troubleshoot-sdk-availability.md
+            - name: .NET
+              items:
+                - name: Allmän felsökning av .NET SDK
+                  href: troubleshoot-dot-net-sdk.md
+                - name: Felsöka för stort begärandehuvud
+                  href: troubleshoot-dot-net-sdk-request-header-too-large.md
+                - name: Felsöka timeout för begäran
+                  href: troubleshoot-dot-net-sdk-request-timeout.md
+                - name: Felsöka tjänsten är inte tillgänglig
+                  href: troubleshoot-service-unavailable.md
+            - name: .Java
+              items:
+                - name: Felsöka Java-SDK v4
+                  href: troubleshoot-java-sdk-v4-sql.md
+                - name: Felsöka – asynkron Java SDK v2
+                  href: troubleshoot-java-async-sdk.md
+        - name: Ändringsfeed
+          items:
+            - name: Azure Cosmos DB – Utlösa avancerad konfiguration
+              href: how-to-configure-cosmos-db-trigger.md
+            - name: Flera Azure Cosmos DB-utlösare
+              href: how-to-create-multiple-cosmos-db-triggers.md
+            - name: Felsöka Azure Cosmos DB-utlösare
+              href: troubleshoot-changefeed-functions.md
+            - name: Använda ändringsflödesövervakaren
+              href: how-to-use-change-feed-estimator.md
+            - name: Migrera från Change Feed Processor-biblioteket
+              href: how-to-migrate-from-change-feed-library.md
+            - name: Ändringsflöde – Async Java-exempel
+              href: create-sql-api-java-changefeed.md
+        - name: Programmering på serversidan
+          items:
+            - name: 'Skriva lagrade procedurer, utlösare och UDF:er'
+              href: how-to-write-stored-procedures-triggers-udfs.md
+            - name: Skriva lagrade procedurer och utlösare med fråge-API för JavaScript
+              href: how-to-write-javascript-query-api.md
+            - name: 'Använda lagrade procedurer, utlösare och UDF:er'
+              href: how-to-use-stored-procedures-triggers-udfs.md
+        - name: Inbyggda Jupyter Notebooks
+          items:
+            - name: Aktivera notebook-filer
+              href: enable-notebooks.md
+            - name: Importera anteckningsböcker från GitHub
+              href: import-github-notebooks.md
+            - name: Använd inbyggda Python notebook-kommandon
+              href: use-python-notebook-features-and-commands.md
+            - name: Använda inbyggda C# notebook-kommandon
+              href: use-csharp-notebook-features-and-commands.md
+        - name: Massexecutor-bibliotek
+          items:
+            - name: Om bibliotek för massexecutor
+              href: bulk-executor-overview.md
+            - name: Massexecutor – .NET-bibliotek
+              href: bulk-executor-dot-net.md
+            - name: Migrera från bulk executor till .NET SDK
+              href: how-to-migrate-from-bulk-executor-library.md
+            - name: Massexecutor – Java-bibliotek
+              href: bulk-executor-java.md
+        - name: Visualisera Cosmos DB-data
+          items:
+            - name: Använda Power BI
+              href: powerbi-visualize.md
+            - name: Skapa en live-instrumentpanel för vädret
+              href: create-real-time-weather-dashboard-powerbi.md
+            - name: Använda Qlik Sense
+              href: visualize-qlik-sense.md
+        - name: Inbyggd analys med Apache Spark
+          items:
+            - name: Azure Databricks Spark-anslutningsapp
+              href: spark-connector.md
+            - name: Direktuppspelning med Apache Kafka och Cosmos DB
+              href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Migrera data till Azure Cosmos DB
+          items:
+            - name: Migrera till SQL API med Striim
+              href: cosmosdb-sql-api-migrate-data-striim.md
+            - name: Migrera få relationsdata
+              href: migrate-relational-to-cosmos-db-sql-api.md
+            - name: Migrera – Couchbase till SQL-API
+              href: couchbase-cosmos-migration.md
+            - name: Migrera – DynamoDB till SQL API
+              href: dynamo-to-cosmos.md
+        - name: Säkerhet
+          items:
+            - name: Konfigurera resursdelning för korsande ursprung (CORS)
+              href: how-to-configure-cross-origin-resource-sharing.md
+            - name: Använda hanterade identiteter för att komma åt data
+              href: managed-identity-based-authentication.md
+              displayName: 'msi, managed service identity, aad, azure active directory, identity'
+            - name: Använda certifikat för att komma åt data
+              href: certificate-based-authentication.md
+        - name: Integrera med andra Azure-tjänster
+          items:
+            - name: Näthandelslösning för ändringsflöde
+              href: changefeed-ecommerce-solution.md
+            - name: Azure App Service
+              href: create-website.md
+            - name: Azure Cognitive Search-indexerare
+              href: ../search/search-howto-index-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Functions
+              items:
+                - name: Serverlös databehandling
+                  href: serverless-computing-database.md
+                - name: Azure Function-bindningar
+                  href: ../azure-functions/functions-bindings-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Data Factory
+              href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure Stream Analytics
+              href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Azure-datautforskaren
+              href: 'https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration'
+            - name: Azure Event Hubs och Azure Storage
+              href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
+            - name: Använd Spring Boot Starter
+              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
+            - name: Utvecklarguide för Spring Data
+              href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context'
+            - name: ODBC-drivrutin
+              href: odbc-driver.md
+    - name: Referens
+      items:
+        - name: '.NET-SDK:er'
+          items:
+            - name: .NET SDK v3
+              href: sql-api-sdk-dotnet-standard.md
+            - name: .NET SDK v2
+              href: sql-api-sdk-dotnet.md
+            - name: .NET Core SDK v2
+              href: sql-api-sdk-dotnet-core.md
+            - name: .NET-ändringsflödesbibliotek v2
+              href: sql-api-sdk-dotnet-changefeed.md
+            - name: .NET-masskörningsbibliotek v2
+              href: sql-api-sdk-bulk-executor-dot-net.md
+        - name: 'Java SDK:er och anslutningsprogram'
+          items:
+            - name: Java SDK v4
+              href: sql-api-sdk-java-v4.md
             - name: Asynkron Java-SDK v2
-              href: performance-tips-async-java.md
+              href: sql-api-sdk-async-java.md
             - name: Synkron Java-SDK v2
-              href: performance-tips-java.md
-        - name: Prestandatest – exempelapp
-          href: performance-testing.md
-        - name: Kostnadseffektiva läsningar och skrivningar
-          href: key-value-store-cost.md
-    - name: 'Migrera till nyare SDK:er'
+              href: sql-api-sdk-java.md
+            - name: Spring-dataanslutningsprogram v2
+              href: sql-api-sdk-java-spring-v2.md
+            - name: Spring-dataanslutningsprogram v3
+              href: sql-api-sdk-java-spring-v3.md
+            - name: Spark-anslutningsprogram
+              href: sql-api-sdk-java-spark.md
+            - name: Java-masskörningsbibliotek v2
+              href: sql-api-sdk-bulk-executor-java.md
+        - name: Node.js
+          href: sql-api-sdk-node.md
+        - name: Python
+          href: sql-api-sdk-python.md
+        - name: REST (dataplan)
+          href: /rest/api/cosmos-db/
+        - name: REST (hanteringsplan)
+          href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
+        - name: Resource Manager-mall
+          href: /azure/templates/microsoft.documentdb/allversions
+          displayName: ARM
+        - name: Publiceringsinformation om emulatorn
+          href: local-emulator-release-notes.md
+        - name: Inbyggda Azure Policy-program
+          displayName: 'samples, policies, definitions'
+          href: ./policy-reference.md
+- name: Cassandra-API
+  items:
+    - name: Översikt
       items:
-        - name: Migrera till Java V4-SDK
-          href: migrate-java-v4-sdk.md
-        - name: Migrera till .NET V3 SDK
-          href: migrate-dotnet-v3.md
-    - name: Felsökning
+        - name: Vad är API för Apache Cassandra i Cosmos DB?
+          href: cassandra-introduction.md
+        - name: Protokollstöd för Wire
+          href: cassandra-support.md
+    - name: Snabbstarter
       items:
-        - name: Vanliga fel
-          items:
-            - name: Felsöka frågeprestanda
-              href: troubleshoot-query-performance.md
-            - name: Felsöka timeout för tjänstbegäran
-              href: troubleshoot-request-timeout.md
-            - name: Felsöka för hög begärandefrekvens
-              href: troubleshoot-request-rate-too-large.md
-            - name: Felsöka hittades inte
-              href: troubleshoot-not-found.md
-            - name: Felsöka behörighet saknas
-              href: troubleshoot-unauthorized.md
-            - name: Tillgänglighetsproblem i miljöer med flera regioner
-              href: troubleshoot-sdk-availability.md
         - name: .NET
-          items:
-            - name: Allmän felsökning av .NET SDK
-              href: troubleshoot-dot-net-sdk.md
-            - name: Felsöka för stort begärandehuvud
-              href: troubleshoot-dot-net-sdk-request-header-too-large.md
-            - name: Felsöka timeout för begäran
-              href: troubleshoot-dot-net-sdk-request-timeout.md
-            - name: Felsöka tjänsten är inte tillgänglig
-              href: troubleshoot-service-unavailable.md
-        - name: .Java
-          items:
-            - name: Felsöka Java-SDK v4
-              href: troubleshoot-java-sdk-v4-sql.md
-            - name: Felsöka – asynkron Java SDK v2
-              href: troubleshoot-java-async-sdk.md
-    - name: Ändringsflöde
+          href: create-cassandra-dotnet.md
+        - name: .NET Core
+          href: create-cassandra-dotnet-core.md
+        - name: Java v3
+          href: create-cassandra-java.md
+        - name: Java v4
+          href: create-cassandra-java-v4.md
+        - name: Node.js
+          href: create-cassandra-nodejs.md
+        - name: Python
+          href: create-cassandra-python.md
+        - name: Golang
+          href: create-cassandra-go.md
+    - name: Självstudier
       items:
-        - name: Azure Cosmos DB – Utlösa avancerad konfiguration
-          href: how-to-configure-cosmos-db-trigger.md
-        - name: Flera Azure Cosmos DB-utlösare
-          href: how-to-create-multiple-cosmos-db-triggers.md
-        - name: Felsöka Azure Cosmos DB-utlösare
-          href: troubleshoot-changefeed-functions.md
-        - name: Använda ändringsflödesövervakaren
-          href: how-to-use-change-feed-estimator.md
-        - name: Migrera från Change Feed Processor-biblioteket
-          href: how-to-migrate-from-change-feed-library.md
-        - name: Ändringsflöde – Async Java-exempel
-          href: create-sql-api-java-changefeed.md
+        - name: 1 – Skapa och hantera data
+          href: create-cassandra-api-account-java.md
+        - name: 2 – Läsa in data
+          href: cassandra-api-load-data.md
+        - name: 3 – Frågedata
+          href: cassandra-api-query-data.md
+        - name: 4 – Migrera data
+          displayName: import
+          href: cassandra-import-data.md
+    - name: Begrepp
+      items:
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: cassandra-faq.md
+        - name: Elastisk skalning
+          href: manage-scale-cassandra.md
+        - name: Partitionering
+          href: cassandra-partitioning.md
+        - name: Sekundära index
+          href: cassandra-secondary-index.md
+        - name: Mappning av konsekvensnivåer
+          href: cassandra-consistency.md
+    - name: Anvisningar
+      items:
+        - name: Migrera till API för Cassandra
+          items:
+            - name: Migrera – Oracle DB till API för Cassandra med Striim
+              href: cosmosdb-cassandra-api-migrate-data-striim.md
+            - name: Migrera – Oracle DB till API för Cassandra med Blitzz
+              href: oracle-migrate-cosmos-db-blitzz.md
+            - name: Migrera – Apache Cassandra till Cassandra API med Blitzz
+              href: cassandra-migrate-cosmos-db-blitzz.md
+        - name: Ändringsfeed
+          href: cassandra-change-feed.md
+        - name: Skapa en container – API för Cassandra
+          href: how-to-create-container-cassandra.md
+        - name: Etablera dataflöde – API för Cassandra
+          displayName: 'request units, RUs, RU, collection level'
+          href: how-to-provision-throughput-cassandra.md
+        - name: Hitta avgifter för begäransenheter
+          displayName: 'request units, RUs, RU, charge, consumption'
+          href: find-request-unit-charge-cassandra.md
+        - name: Lagra och hantera Spring Data
+          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context'
+        - name: Cassandra och Spark
+          items:
+            - name: Introduktion
+              href: cassandra-spark-generic.md
+            - name: Ansluta med Databricks
+              href: cassandra-spark-databricks.md
+            - name: Ansluta med HDInsight
+              href: cassandra-spark-hdinsight.md
+            - name: Skapa nyckelutrymme och tabell
+              href: cassandra-spark-ddl-ops.md
+            - name: Infoga data
+              href: cassandra-spark-create-ops.md
+            - name: Läsa data
+              href: cassandra-spark-read-ops.md
+            - name: Upserta data
+              href: cassandra-spark-upsert-ops.md
+            - name: Ta bort data
+              href: cassandra-spark-delete-ops.md
+            - name: Sammansättningsåtgärder
+              href: cassandra-spark-aggregation-ops.md
+            - name: Kopiera tabelldata
+              href: cassandra-spark-table-copy-ops.md
+        - name: Hantera med Resource Manager-mallar
+          href: templates-samples-cassandra.md
+          displayName: ARM
+        - name: Hantera med hjälp av PowerShell
+          href: powershell-samples-cassandra.md
+        - name: Hantera med hjälp av Azure CLI
+          href: cli-samples-cassandra.md
+    - name: Referens
+      items:
+        - name: REST-resursprovider
+          href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
+        - name: Resource Manager-mall
+          href: /azure/templates/microsoft.documentdb/allversions
+- name: MongoDB-API
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är MongoDB API i Cosmos DB?
+          href: mongodb-introduction.md
+    - name: Snabbstarter
+      items:
+        - name: .NET
+          href: create-mongodb-dotnet.md
+        - name: Java
+          href: create-mongodb-java.md
+        - name: Node.js
+          href: create-mongodb-nodejs.md
+        - name: Python
+          href: create-mongodb-flask.md
+        - name: Xamarin
+          href: create-mongodb-xamarin.md
+        - name: Golang
+          href: create-mongodb-go.md
+    - name: Självstudier
+      items:
+        - name: 1 – Skapa och hantera data
+          items:
+            - name: Node.js-konsolapp
+              href: mongodb-samples.md
+            - name: Node.js och Angular-app
+              items:
+                - name: Del 1 – Introduktion
+                  href: tutorial-develop-mongodb-nodejs.md
+                - name: Del 2 – Skapa Node-app
+                  href: tutorial-develop-mongodb-nodejs-part2.md
+                - name: Del 3 – Lägg till användargränssnitt med Angular
+                  href: tutorial-develop-mongodb-nodejs-part3.md
+                - name: Del 4 – Skapa ett konto
+                  href: tutorial-develop-mongodb-nodejs-part4.md
+                - name: Del 5 – Anslut till Cosmos DB
+                  href: tutorial-develop-mongodb-nodejs-part5.md
+                - name: Del 6 – Utför CRUD-åtgärder
+                  href: tutorial-develop-mongodb-nodejs-part6.md
+            - name: Node.js och React-app
+              href: tutorial-develop-mongodb-react.md
+        - name: 2 – Frågedata
+          href: tutorial-query-mongodb.md
+        - name: 3 – Distribuera data globalt
+          href: tutorial-global-distribution-mongodb.md
+    - name: Begrepp
+      items:
+        - name: Protokollstöd för Wire (3.6)
+          href: mongodb-feature-support-36.md
+        - name: Protokollstöd för Wire (3.2)
+          href: mongodb-feature-support.md
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: mongodb-api-faq.md
+        - name: Mappning av konsekvensnivåer
+          href: mongodb-consistency.md
+    - name: Anvisningar
+      items:
+        - name: Migrera till MongoDB-API
+          items:
+            - name: Guide före migrering
+              href: mongodb-pre-migration.md
+            - name: Database Migration Service (online)
+              href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Database Migration Service (offline)
+              href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Guide efter migrering
+              href: mongodb-post-migration.md
+        - name: Uppgradera från MongoDB 3.2 till 3.6
+          href: mongodb-version-upgrade.md
+        - name: Hämta anslutningssträngen
+          href: connect-mongodb-account.md
+        - name: Ansluta med Studio 3T
+          href: mongodb-mongochef.md
+        - name: Ansluta med Compass
+          href: mongodb-compass.md
+        - name: Ansluta med Robo 3T
+          href: mongodb-robomongo.md
+        - name: Ansluta med Mongoose
+          href: mongodb-mongoose.md
+        - name: Distribuera läsningar globalt
+          displayName: read preference
+          href: mongodb-readpreference.md
+        - name: TTL-värde – MongoDB
+          href: mongodb-time-to-live.md
+        - name: Ändra dataströmmar
+          href: mongodb-change-streams.md
+        - name: Hantera dataindexering
+          href: mongodb-indexing.md
+        - name: Skapa en container – MongoDB API
+          href: how-to-create-container-mongodb.md
+        - name: Etablera dataflöde – MongoDB API
+          displayName: 'request units, RUs, RU, collection level'
+          href: how-to-provision-throughput-mongodb.md
+        - name: Hitta avgifter för begäransenheter
+          displayName: 'request units, RUs, RU, charge, consumption'
+          href: find-request-unit-charge-mongodb.md
+        - name: Felsöka frågeprestanda
+          href: mongodb-troubleshoot-query.md
+        - name: Lagra och hantera Spring Data
+          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context'
+        - name: Kommandon för MongoDB-tillägg
+          href: mongodb-custom-commands.md
+          displayName: custom commands
+        - name: Hantera med Resource Manager-mallar
+          href: templates-samples-mongodb.md
+          displayName: ARM
+        - name: Hantera med hjälp av PowerShell
+          href: powershell-samples-mongodb.md
+        - name: Hantera med hjälp av Azure CLI
+          href: cli-samples-mongodb.md
+        - name: Felsök vanliga problem
+          href: mongodb-troubleshoot.md
+    - name: Referens
+      items:
+        - name: REST-resursprovider
+          href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
+        - name: Resource Manager-mall
+          href: /azure/templates/microsoft.documentdb/allversions
+- name: Gremlin-API
+  displayName: 'graph, graph database'
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Gremlin API i Cosmos DB?
+          href: graph-introduction.md
+        - name: Protokollstöd för Wire
+          href: gremlin-support.md
+    - name: Snabbstarter
+      items:
+        - name: Gremlin-konsol
+          href: create-graph-gremlin-console.md
+        - name: .NET
+          href: create-graph-dotnet.md
+        - name: Java
+          href: create-graph-java.md
+        - name: Node.js
+          href: create-graph-nodejs.md
+        - name: Python
+          href: create-graph-python.md
+        - name: PHP
+          href: create-graph-php.md
+    - name: Självstudier
+      items:
+        - name: 1– Frågedata
+          href: tutorial-query-graph.md
+    - name: Begrepp
+      items:
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: gremlin-api-faq.md
+        - name: Svarshuvuden
+          href: gremlin-headers.md
+        - name: Begränsningar
+          href: gremlin-limits.md
+    - name: Anvisningar
+      items:
+        - name: Diagramdatamodellering
+          href: graph-modeling.md
+        - name: Partitionering av diagramdata
+          href: graph-partitioning.md
+        - name: Importera diagramdata
+          href: bulk-executor-graph-dotnet.md
+        - name: Optimera Gremlin-frågor
+          href: graph-execution-profile.md
+        - name: Skapa en container – Gremlin API
+          href: how-to-create-container-gremlin.md
+        - name: Etablera dataflöde – Gremlin API
+          displayName: 'request units, RUs, RU, collection level'
+          href: how-to-provision-throughput-gremlin.md
+        - name: Hitta avgifter för begäransenheter
+          displayName: 'request units, RUs, RU, charge, consumption'
+          href: find-request-unit-charge-gremlin.md
+        - name: Använda resurstoken
+          href: how-to-use-resource-tokens-gremlin.md
+        - name: Använda regionala slutpunkter
+          href: how-to-use-regional-gremlin.md
+        - name: Åtkomst till egenskaper för systemdokument
+          href: how-to-access-system-properties-gremlin.md
+        - name: Visualisera diagramdata
+          href: graph-visualization.md
+        - name: Lagra och hantera Spring Data
+          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
+        - name: Hantera med Resource Manager-mallar
+          href: templates-samples-gremlin.md
+          displayName: ARM
+        - name: Hantera med hjälp av PowerShell
+          href: powershell-samples-gremlin.md
+        - name: Hantera med hjälp av Azure CLI
+          href: cli-samples-gremlin.md
+    - name: Referens
+      items:
+        - name: Svarsrubriker
+          href: gremlin-headers.md
+        - name: Begränsningar
+          href: gremlin-limits.md
+        - name: REST-resursprovider
+          href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
+        - name: Resource Manager-mall
+          href: /azure/templates/microsoft.documentdb/allversions
+- name: Tabell-API
+  items:
+    - name: Översikt
+      items:
+        - name: Vad är Tabell-API i Cosmos DB?
+          href: table-introduction.md
+    - name: Snabbstarter
+      items:
+        - name: .NET
+          href: create-table-dotnet.md
+        - name: Java
+          href: create-table-java.md
+        - name: Node.js
+          href: create-table-nodejs.md
+        - name: Python
+          href: create-table-python.md
+    - name: Självstudier
+      items:
+        - name: 1 – Skapa och hantera data
+          href: tutorial-develop-table-dotnet.md
+        - name: 2 – Migrera data
+          displayName: import
+          href: table-import.md
+        - name: 3 – Frågedata
+          href: tutorial-query-table.md
+        - name: 4 – Distribuera data lokalt
+          href: tutorial-global-distribution-table.md
+    - name: Exempel
+      items:
+        - name: .NET
+          href: table-storage-how-to-use-dotnet.md
+        - name: Java
+          href: table-storage-how-to-use-java.md
+        - name: Node.js
+          href: table-storage-how-to-use-nodejs.md
+        - name: Python
+          href: table-storage-how-to-use-python.md
+        - name: PHP
+          href: table-storage-how-to-use-php.md
+        - name: C++
+          href: table-storage-how-to-use-c-plus.md
+        - name: Ruby
+          href: table-storage-how-to-use-ruby.md
+        - name: F#
+          href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+          maintainContext: true
+    - name: Begrepp
+      items:
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: table-api-faq.md
+    - name: Anvisningar
+      items:
+        - name: Skapa appar med tabell-API
+          href: table-support.md
+        - name: Skapa en container – Tabell-API
+          href: how-to-create-container-table.md
+        - name: Hitta avgifter för begäransenheter
+          displayName: 'request units, RUs, RU, charge, consumption'
+          href: find-request-unit-charge-table.md
+        - name: Designguide för tabellagring
+          href: table-storage-design-guide.md
+        - name: Hantera med Resource Manager-mallar
+          href: templates-samples-table.md
+          displayName: ARM
+        - name: Hantera med hjälp av PowerShell
+          href: powershell-samples-table.md
+        - name: Hantera med hjälp av Azure CLI
+          href: cli-samples-table.md
+    - name: Referens
+      items:
+        - name: .NET
+          href: table-sdk-dotnet.md
+        - name: .NET Standard
+          href: table-sdk-dotnet-standard.md
+        - name: Java
+          href: table-sdk-java.md
+        - name: Node.js
+          href: table-sdk-nodejs.md
+        - name: Python
+          href: table-sdk-python.md
+        - name: 'REST-API:er för tabellagring'
+          href: /rest/api/storageservices/table-service-rest-api
+- name: Anvisningar
+  items:
+    - name: Använda utvecklarverktyg
+      items:
+        - name: Utveckla lokalt med emulator
+          items:
+            - name: Installera och använda emulatorn
+              href: local-emulator.md
+            - name: Exportera emulatorcertifikat
+              href: local-emulator-export-ssl-certificates.md
+            - name: Kommandoradsparametrar för emulatorn
+              href: emulator-command-line-parameters.md
+            - name: Felsökning för emulatorn
+              href: troubleshoot-local-emulator.md
+            - name: Visual Studio Code-tillägg
+              href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
+        - name: Konfigurera pipeline för Azure DevOps CI/CD
+          href: tutorial-setup-ci-cd.md
+        - name: Använda Azure Storage Explorer
+          href: storage-explorer.md
+        - name: Använda Azure Cosmos Explorer
+          href: data-explorer.md
     - name: Analys och BI med Azure Synapse Link
       items:
         - name: Konfigurera Azure Synapse Link
@@ -1146,30 +1301,6 @@
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Använda Power BI med Synapse Link
           href: synapse-link-power-bi.md
-    - name: Inbyggd analys med Apache Spark
-      items:
-        - name: Azure Databricks Spark-anslutningsapp
-          href: spark-connector.md
-        - name: Direktuppspelning med Apache Kafka och Cosmos DB
-          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-    - name: Inbyggda Jupyter Notebooks
-      items:
-        - name: Aktivera notebook-filer
-          href: enable-notebooks.md
-        - name: Importera anteckningsböcker från GitHub
-          href: import-github-notebooks.md
-        - name: Använd inbyggda Python notebook-kommandon
-          href: use-python-notebook-features-and-commands.md
-        - name: Använda inbyggda C# notebook-kommandon
-          href: use-csharp-notebook-features-and-commands.md
-    - name: Programmering på serversidan
-      items:
-        - name: 'Skriva lagrade procedurer, utlösare och UDF:er'
-          href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: Skriva lagrade procedurer och utlösare med fråge-API för JavaScript
-          href: how-to-write-javascript-query-api.md
-        - name: 'Använda lagrade procedurer, utlösare och UDF:er'
-          href: how-to-use-stored-procedures-triggers-udfs.md
     - name: Säkerhet
       items:
         - name: Konfigurera IP-brandvägg
@@ -1181,13 +1312,6 @@
           href: how-to-configure-private-endpoints.md
         - name: Ansluta privat till ett Cosmos DB-konto
           href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Konfigurera resursdelning för korsande ursprung (CORS)
-          href: how-to-configure-cross-origin-resource-sharing.md
-        - name: Använda hanterade identiteter för att komma åt data
-          href: managed-identity-based-authentication.md
-          displayName: 'msi, managed service identity, aad, azure active directory, identity'
-        - name: Använda certifikat för att komma åt data
-          href: certificate-based-authentication.md
         - name: Använda Azure Key Vault för att komma åt data
           href: access-secrets-from-keyvault.md
         - name: Begränsa användaråtkomst till endast dataåtgärder
@@ -1228,128 +1352,12 @@
           href: monitor-cosmos-db-reference.md
         - name: Programloggning med Logic Apps
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-    - name: Utveckla lokalt med emulator
-      items:
-        - name: Installera och använda emulatorn
-          href: local-emulator.md
-        - name: Exportera emulatorcertifikat
-          href: local-emulator-export-ssl-certificates.md
-        - name: Kommandoradsparametrar för emulatorn
-          href: emulator-command-line-parameters.md
-        - name: Felsökning för emulatorn
-          href: troubleshoot-local-emulator.md
-        - name: Visual Studio Code-tillägg
-          href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
-    - name: Konfigurera pipeline för Azure DevOps CI/CD
-      href: tutorial-setup-ci-cd.md
-    - name: Visualisera Cosmos DB-data
-      items:
-        - name: Använda Power BI
-          href: powerbi-visualize.md
-        - name: Skapa en live-instrumentpanel för vädret
-          href: create-real-time-weather-dashboard-powerbi.md
-        - name: Använda Qlik Sense
-          href: visualize-qlik-sense.md
-    - name: Integrera med andra Azure-tjänster
-      items:
-        - name: Näthandelslösning för ändringsflöde
-          href: changefeed-ecommerce-solution.md
-        - name: Azure App Service
-          href: create-website.md
-        - name: Azure Cognitive Search-indexerare
-          href: ../search/search-howto-index-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure Functions
-          items:
-            - name: Serverlös databehandling
-              href: serverless-computing-database.md
-            - name: Azure Function-bindningar
-              href: ../azure-functions/functions-bindings-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure Data Factory
-          href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure Stream Analytics
-          href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Azure-datautforskaren
-          href: 'https://github.com/Azure/azure-kusto-labs/tree/master/cosmosdb-adx-integration'
-        - name: Azure Event Hubs och Azure Storage
-          href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
-        - name: Använd Spring Boot Starter
-          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context'
-        - name: Utvecklarguide för Spring Data
-          href: 'https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb?context=/azure/cosmos-db/context/context'
-        - name: ODBC-drivrutin
-          href: odbc-driver.md
     - name: Migrera data till Azure Cosmos DB
       items:
         - name: Alternativ för att migrera data till Cosmos DB
           href: cosmosdb-migrationchoices.md
-        - name: Migrera till SQL API med Striim
-          href: cosmosdb-sql-api-migrate-data-striim.md
         - name: Migrera hundratals terabyte data till Azure Cosmos DB
           href: migrate-cosmosdb-data.md
-        - name: Migrera få relationsdata
-          href: migrate-relational-to-cosmos-db-sql-api.md
-        - name: Migrera – Couchbase till SQL-API
-          href: couchbase-cosmos-migration.md
-        - name: Migrera – DynamoDB till SQL API
-          href: dynamo-to-cosmos.md
-    - name: Massexecutor-bibliotek
-      items:
-        - name: Om bibliotek för massexecutor
-          href: bulk-executor-overview.md
-        - name: Massexecutor – .NET-bibliotek
-          href: bulk-executor-dot-net.md
-        - name: Migrera från bulk executor till .NET SDK
-          href: how-to-migrate-from-bulk-executor-library.md
-        - name: Massexecutor – Java-bibliotek
-          href: bulk-executor-java.md
-- name: 'Referenser för SQL API-SDK:er'
-  items:
-    - name: '.NET-SDK:er'
-      items:
-        - name: .NET SDK v3
-          href: sql-api-sdk-dotnet-standard.md
-        - name: .NET SDK v2
-          href: sql-api-sdk-dotnet.md
-        - name: .NET Core SDK v2
-          href: sql-api-sdk-dotnet-core.md
-        - name: .NET-ändringsflödesbibliotek v2
-          href: sql-api-sdk-dotnet-changefeed.md
-        - name: .NET-masskörningsbibliotek v2
-          href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: 'Java SDK:er och anslutningsprogram'
-      items:
-        - name: Java SDK v4
-          href: sql-api-sdk-java-v4.md
-        - name: Asynkron Java-SDK v2
-          href: sql-api-sdk-async-java.md
-        - name: Synkron Java-SDK v2
-          href: sql-api-sdk-java.md
-        - name: Spring-dataanslutningsprogram v2
-          href: sql-api-sdk-java-spring-v2.md
-        - name: Spring-dataanslutningsprogram v3
-          href: sql-api-sdk-java-spring-v3.md
-        - name: Spark-anslutningsprogram
-          href: sql-api-sdk-java-spark.md
-        - name: Java-masskörningsbibliotek v2
-          href: sql-api-sdk-bulk-executor-java.md
-    - name: Node.js
-      href: sql-api-sdk-node.md
-    - name: Python
-      href: sql-api-sdk-python.md
-    - name: REST
-      href: /rest/api/cosmos-db/
-    - name: REST-resursprovider
-      href: /rest/api/cosmos-db-resource-provider/
-    - name: Resource Manager-mall
-      href: /azure/templates/microsoft.documentdb/allversions
-      displayName: ARM
-    - name: Publiceringsinformation om emulatorn
-      href: local-emulator-release-notes.md
-- name: Referens
-  items:
-    - name: Inbyggda Azure Policy-program
-      displayName: 'samples, policies, definitions'
-      href: ./policy-reference.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn
@@ -1369,7 +1377,7 @@
     - name: Videoklipp
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
     - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: 'https://azure.microsoft.com/updates/?query=Cosmos%20DB'
     - name: Testa Azure Cosmos DB kostnadsfritt
       href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: Prissättning

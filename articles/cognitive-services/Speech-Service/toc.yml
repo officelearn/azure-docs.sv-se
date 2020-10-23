@@ -401,6 +401,8 @@
                       href: how-to-custom-commands-send-activity-to-client.md
                     - name: Konfigurera webbslutpunkter
                       href: how-to-custom-commands-setup-web-endpoints.md
+                    - name: Exportera din Anpassade kommandon-app som en färdighet
+                      href: how-to-custom-commands-integrate-remote-skills.md
                 - name: Distribuera
                   items:
                     - name: Kontinuerlig distribution med Azure DevOps

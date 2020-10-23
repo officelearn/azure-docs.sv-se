@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 65340bfcab76bd35901d1b3a9f3b4a8736205706
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 420a8ab9a36cdabc3a4565d18f4dbee1d84ec39e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376906"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470794"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -43,7 +43,7 @@ Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.micr
 * Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
 * Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
 
-Låt oss ta en titt på hur en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) har skapats med hjälp av en nyckel och region. Se sidan [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regions-ID.
+Låt oss ta en titt på hur en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) har skapats med hjälp av en nyckel och region. Hämta dessa autentiseringsuppgifter genom att följa stegen i [testa tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
 
 ```cpp
 auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");

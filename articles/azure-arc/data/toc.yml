@@ -66,8 +66,16 @@
       items:
         - name: Övervaka med Grafana och Kibana
           href: monitor-grafana-kibana.md
-        - name: Ladda upp mått och loggar
-          href: upload-metrics-and-logs-to-azure-monitor.md
+        - name: Ladda upp till Azure Monitor
+          items:
+            - name: Ladda upp förutsättningar
+              href: upload-metrics-and-logs-to-azure-monitor.md
+            - name: Ladda upp loggar
+              href: upload-logs.md
+            - name: Ladda upp mått
+              href: upload-metrics.md
+            - name: Ladda upp användningsdata
+              href: upload-usage-data.md
         - name: Databasinstanslager
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Hämta användarnamn och lösenord för datakontrollant

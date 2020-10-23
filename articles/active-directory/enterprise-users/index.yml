@@ -1,0 +1,71 @@
+### YamlMime:Landing
+title: Dokumentation om Enterprise-användarhantering – Azure AD
+summary: Azure AD tillhandahåller användarhanteringstjänster för sådana grupper och licenser, som hjälper dig att snabbt utföra dina vanligaste användarhanteringsuppgifter. Tilldela licenser, tilldela programåtkomst till grupper eller användare och lägg till eller hantera domännamn.
+metadata:
+  title: Dokumentation för användare, grupper, licenser och domäner i Azure Active Directory
+  description: Lär dig hur du använder grupper, domännamn och licenser för att hantera användarautentisering i din Azure AD-organisation.
+  services: active-directory
+  ms.service: active-directory
+  ms.subservice: enterprise-users
+  manager: daveba
+  ms.topic: landing-page
+  ms.date: 10/19/2020
+  author: curtand
+  ms.author: curtand
+  ms.openlocfilehash: 3918c28d9657b077eefd5226be656ab6ad5a7dbf
+  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/22/2020
+  ms.locfileid: "92372797"
+landingContent:
+- title: Om hantering av Enterprise-användare
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Användare, grupper, domäner och licenser
+      url: directory-overview-user-model.md
+    - text: Översikt över anpassade roller
+      url: ../roles/custom-overview.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+  - linkListType: concept
+    links:
+    - text: Organisationsoberoende för Azure AD
+      url: licensing-directory-independence.md
+    - text: Hantera åtkomst med hjälp av grupper
+      url: ../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Lägga till en användare
+      url: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - text: Ange förfalloprincip för grupper
+      url: groups-quickstart-expiration.md
+    - text: Tilldela licenser till användare
+      url: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+- title: Hantera Azure AD-domännamn
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Lägga till ditt anpassade domännamn
+      url: ../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - text: Hantera anpassade domännamn
+      url: domains-manage.md
+- title: Hantera grupper
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en dynamisk grupp
+      url: groups-create-rule.md
+    - text: Gruppinställningar i PowerShell
+      url: groups-settings-v2-cmdlets.md
+    - text: Ange namngivningsprincip för grupper
+      url: groups-naming-policy.md
+- title: Lägga till domäner
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Lägg till ett anpassat domännamn
+      url: ../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
+    - text: Hantera anpassade domännamn
+      url: domains-manage.md

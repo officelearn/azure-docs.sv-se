@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 9fc3677a1b1aa5496bbf9e90ccd5bea9661b5a05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1a203824eabaf9e3be73a68350f58c0e20a1449
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550194"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92451980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Självstudie: Azure Active Directory integrering med Form.com
 
@@ -27,7 +27,7 @@ När du integrerar Form.com med Azure AD får du följande fördelar:
 * Du kan låta dina användare loggas in automatiskt på Form.com (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
@@ -186,19 +186,18 @@ I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure ge
 
 ### <a name="create-formcom-test-user"></a>Skapa Form.com-testanvändare
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i Form.com. Kontakta  [Form.com-supportteamet](https://form.com/about/company/contact-us/) för att lägga till användarna på Form.com-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Form.com. Arbeta med [form.com support team](https://form.com/about/company/contact-us/) för att lägga till användare i form.com-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Form.com-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Form.com som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Form.com-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Form.com som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

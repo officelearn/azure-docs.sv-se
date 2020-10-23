@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
-ms.openlocfilehash: def6ceb1d455a0a438235877acdb38313f862e50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff5c3d09adaba34672a4c934411a6e12b7b65be2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544442"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455379"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-consent2go"></a>Självstudie: Azure Active Directory integrering med Consent2Go
 
@@ -27,10 +27,10 @@ När du integrerar Consent2Go med Azure AD får du följande fördelar:
 * Du kan låta dina användare automatiskt loggas in på Consent2Go (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 När du ska konfigurera Azure AD-integreringen med Consent2Go behöver du det här:
 
@@ -164,19 +164,18 @@ I det här avsnittet gör du så att Britta Simon kan använda enkel inloggning 
 
 ### <a name="create-consent2go-test-user"></a>Skapa Consent2Go-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Consent2Go. Arbeta med  [Consent2Go-supportteamet](mailto:support@consent2go.com) för att lägga till användare på Consent2Go-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Consent2Go. Arbeta med [Consent2Go support team](mailto:support@consent2go.com) för att lägga till användare i Consent2Go-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Consent2Go-panelen i åtkomstpanelen ska du automatiskt loggas in på det Consent2Go du konfigurerade enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Consent2Go-panelen i åtkomstpanelen ska du automatiskt loggas in på det Consent2Go du konfigurerade enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

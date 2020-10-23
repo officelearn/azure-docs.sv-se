@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: ce70a4df50be9004182e80711de449bab146a800
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa377dae5d80da39faf6ac2e70926301004024e8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360913"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455688"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Självstudie: Konfigurera CODA för automatisk användar etablering
 
-I den här självstudien beskrivs de steg som du måste utföra i både CODA och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare i [CODA](https://coda.io/) med Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+I den här självstudien beskrivs de steg som du måste utföra i både CODA och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare i [CODA](https://coda.io/) med Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
@@ -32,20 +32,20 @@ I den här självstudien beskrivs de steg som du måste utföra i både CODA och
 > * Skapa användare i CODA
 > * Ta bort användare i CODA när de inte behöver åtkomst längre
 > * Behåll användarattribut synkroniserade mellan Azure AD och CODA
-> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/coda-tutorial) till CODA (rekommenderas)
+> * [Enkel inloggning](./coda-tutorial.md) till CODA (rekommenderas)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-* [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
-* Ett användarkonto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
+* [En Azure AD-klient](../develop/quickstart-create-new-tenant.md)
+* Ett användarkonto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
 * Ett [CODA företags](https://help.coda.io/en/articles/3520174-getting-started-with-sso) administratörs konto.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
-1. Lär dig mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Ta reda på vem som finns i [etableringsomfånget](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Ta reda på vilka data som ska [mappas mellan Azure AD och CODA](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+1. Lär dig mer om [hur etableringstjänsten fungerar](../app-provisioning/user-provisioning.md).
+2. Ta reda på vem som finns i [etableringsomfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Ta reda på vilka data som ska [mappas mellan Azure AD och CODA](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-coda-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera CODA för att stödja etablering med Azure AD
 
@@ -58,15 +58,15 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="step-3-add-coda-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till CODA från Azure AD-programgalleriet
 
-Lägg till CODA från Azure AD-programgalleriet för att börja hantera etablering till CODA. Om du tidigare har konfigurerat CODA för enkel inloggning kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Lägg till CODA från Azure AD-programgalleriet för att börja hantera etablering till CODA. Om du tidigare har konfigurerat CODA för enkel inloggning kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas i etableringsomfånget
 
-Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandahållas baserat på tilldelning till programmet och eller baserat på användarens attribut. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på användarens attribut kan du använda ett omfångs filter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandahållas baserat på tilldelning till programmet och eller baserat på användarens attribut. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på användarens attribut kan du använda ett omfångs filter enligt beskrivningen [här](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-* När du tilldelar användare till CODA måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller.
+* När du tilldelar användare till CODA måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller.
 
-* Starta i liten skala. Testa med en liten uppsättning användare innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare kan du kontrol lera detta genom att tilldela en eller två användare till appen. När omfång är inställt på alla användare kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* Starta i liten skala. Testa med en liten uppsättning användare innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare kan du kontrol lera detta genom att tilldela en eller två användare till appen. När omfång är inställt på alla användare kan du ange ett [omfångs filter för attribut](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-coda"></a>Steg 5. Konfigurera automatisk användar etablering till CODA
@@ -103,7 +103,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till CODA**.
 
-9. Granska de användarattribut som synkroniseras från Azure AD till CODA i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i CODA för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att CODA-API: et stöder filtrering av användare baserat på detta attribut. Välj knappen **Spara** för att spara ändringarna.
+9. Granska de användarattribut som synkroniseras från Azure AD till CODA i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i CODA för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](../app-provisioning/customize-application-attributes.md)måste du se till att CODA-API: et stöder filtrering av användare baserat på detta attribut. Välj knappen **Spara** för att spara ändringarna.
 
    |Attribut|Typ|
    |---|---|
@@ -113,7 +113,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |name.familyName|Sträng|
 
 
-10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Om du vill aktivera Azure AD Provisioning-tjänsten för CODA ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -132,15 +132,15 @@ Den här åtgärden startar den första synkroniseringen av alla användare som 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:
 
-1. Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att se vilka användare som har etablerats och vilka som har misslyckats
-2. Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är att slutföras
-3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Använd [etableringsloggarna](../reports-monitoring/concept-provisioning-logs.md) för att se vilka användare som har etablerats och vilka som har misslyckats
+2. Kontrollera [förloppsindikatorn](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) för att se status för etableringscykeln och hur nära den är att slutföras
+3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användarkontoetablering för Enterprise-appar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

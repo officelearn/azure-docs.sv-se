@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 931a8463578468ec3a028d17b3f96d317c6fbe02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94b152c842845433a55c8c1e285adabda1591260
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826414"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Självstudie: Azure Active Directory integration med HR2day av Merces
 
@@ -27,7 +27,7 @@ Genom att integrera HR2day från Merces med Azure AD får du följande fördelar
 * Du kan göra det möjligt för användarna att logga in automatiskt till HR2day av Merces (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
@@ -223,12 +223,12 @@ I det här avsnittet skapar du en användare som heter Britta Simon i HR2day av 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen HR2day av Merces på åtkomst panelen, bör du loggas in automatiskt på HR2day av Merces som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen HR2day av Merces på åtkomst panelen, bör du loggas in automatiskt på HR2day av Merces som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

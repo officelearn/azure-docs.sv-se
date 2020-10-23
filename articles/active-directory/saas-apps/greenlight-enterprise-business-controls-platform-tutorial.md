@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: b8e366438e63ec7e4bd33032cea7162d249ff7c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1e15c3fdf9900d016581f848fdfdba5d91b0997
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551475"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92447129"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-greenlight-enterprise-business-controls-platform"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GreenLight Enterprise Business Controls Platform
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig att integrera GreenLight Enterprise B
 * Gör det möjligt för användarna att logga in automatiskt till GreenLight Enterprise Business Controls Platform med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -41,7 +41,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * GreenLight Enterprise Business Controls Platform stöder **SP-och IDP** -INITIERAd SSO
 
-* När du har konfigurerat GreenLight Enterprise Business Controls Platform kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat GreenLight Enterprise Business Controls Platform kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-greenlight-enterprise-business-controls-platform-from-the-gallery"></a>Lägga till GreenLight Enterprise Business Controls Platform från galleriet
 
@@ -107,7 +107,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -135,24 +135,24 @@ Om du vill konfigurera enkel inloggning på **GreenLight företags affärs kontr
 
 ### <a name="create-greenlight-enterprise-business-controls-platform-test-user"></a>Skapa GreenLight Enterprise Business Controls Platform test User
 
-I det här avsnittet skapar du en användare som heter B. Simon i GreenLight Enterprise Business Controls Platform. Arbeta med [GreenLight Enterprise Business Controls Platform support team](mailto:support@greenlightcorp.com) för att lägga till användare i GreenLight Enterprise Business Controls Platform Platform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i GreenLight Enterprise Business Controls Platform. Arbeta med [GreenLight Enterprise Business Controls Platform support team](mailto:support@greenlightcorp.com) för att lägga till användare i GreenLight Enterprise Business Controls Platform Platform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på GreenLight Enterprise Business Controls Platform panel på åtkomst panelen, bör du loggas in automatiskt på den GreenLight Enterprise Business Controls-plattform som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på GreenLight Enterprise Business Controls Platform panel på åtkomst panelen, bör du loggas in automatiskt på den GreenLight Enterprise Business Controls-plattform som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova GreenLight Enterprise Business Controls Platform med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Skydda GreenLight Enterprise Business Controls Platform med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Skydda GreenLight Enterprise Business Controls Platform med avancerad synlighet och kontroller](/cloud-app-security/proxy-intro-aad)

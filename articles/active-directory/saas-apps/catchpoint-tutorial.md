@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 649396b81402e9229eb9ea2c627b60f249f8c601
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ff7f6468b5556b56c5c2aeaba6107cac48d1ed4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88530315"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456457"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-catchpoint"></a>Självstudie: Azure Active Directory integration med enkel inloggning med Catchpoint
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar Catchpoint med Azur
 * Aktivera automatisk Catchpoint-inloggning för användare med Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -41,7 +41,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * Catchpoint stöder SP-initierad och IDP-initierad SSO.
 * Catchpoint stöder just-in-Time (JIT)-användar etablering.
-* När du har konfigurerat Catchpoint kan du framtvinga kontroll av sessionen. Den här försiktighets åtgärden skyddar mot exfiltrering och intrånget av organisationens känsliga data i real tid. Session Control är en utökning av villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat Catchpoint kan du framtvinga kontroll av sessionen. Den här försiktighets åtgärden skyddar mot exfiltrering och intrånget av organisationens känsliga data i real tid. Session Control är en utökning av villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-catchpoint-from-the-gallery"></a>Lägg till Catchpoint från galleriet
 
@@ -71,7 +71,7 @@ Slutför följande avsnitt:
 
 Följ de här stegen i Azure Portal för att aktivera Azure AD SSO:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 1. På sidan **Catchpoint** program integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera en enskild Sign-On med SAML** väljer du Penn ikonen för att redigera de grundläggande inställningarna för **SAML-konfigurationen** .
@@ -104,7 +104,7 @@ Följ de här stegen i Azure Portal för att aktivera Azure AD SSO:
     | namnområde | user.assignedrole |
 
     > [!NOTE]
-    > `namespace`Anspråket måste mappas med konto namnet. Det här konto namnet måste konfigureras med en roll i Azure AD för att kunna skickas tillbaka i SAML-svar. Mer information om roller i Azure AD finns i [Konfigurera roll anspråk som utfärdats i SAML-token för företags program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+    > `namespace`Anspråket måste mappas med konto namnet. Det här konto namnet måste konfigureras med en roll i Azure AD för att kunna skickas tillbaka i SAML-svar. Mer information om roller i Azure AD finns i [Konfigurera roll anspråk som utfärdats i SAML-token för företags program](../develop/active-directory-enterprise-app-role-management.md).
 
 1. Gå till sidan **Konfigurera enkla Sign-On med SAML** . I avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)**. Välj **Ladda ned** för att spara certifikatet på din dator.
 
@@ -156,7 +156,7 @@ I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning me
 
    ![Skärm bild av Catchpoint enkel inloggning](./media/catchpoint-tutorial/configuration2.png)
 
-   Field | Värde
+   Fält | Värde
    ----- | ----- 
    **Namnområde** | Ett giltigt namn områdes värde.
    **Utfärdare av identitets leverantör** | `Azure AD Identifier`Värdet från Azure Portal.
@@ -175,7 +175,7 @@ Catchpoint stöder just-in-Time-etablering, som är aktiverat som standard. Du h
 
 I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av portalen Mina appar.
 
-När du väljer panelen Catchpoint i portalen Mina appar, bör du loggas in automatiskt till Catchpoint-appen med SSO konfigurerat. Mer information om mina apps-portalen finns i [Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+När du väljer panelen Catchpoint i portalen Mina appar, bör du loggas in automatiskt till Catchpoint-appen med SSO konfigurerat. Mer information om mina apps-portalen finns i [Logga in och starta appar från portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 > [!NOTE]
 > När du är inloggad på Catchpoint-programmet via inloggnings sidan anger du det giltiga **namn område** svärdet i fältet **företagets autentiseringsuppgifter (SSO)** efter att ha angett **Catchpoint-autentiseringsuppgifter**och väljer **Logga in**.
@@ -184,12 +184,12 @@ När du väljer panelen Catchpoint i portalen Mina appar, bör du loggas in auto
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova Catchpoint med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

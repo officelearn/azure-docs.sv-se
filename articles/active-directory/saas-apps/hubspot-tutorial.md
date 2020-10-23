@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 51e27526b10bcdd74d6e2bffb8bf620d7b022aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c53b7fed17ba4ef2000b905b202286338cd461ed
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551480"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442988"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Självstudie: Azure Active Directory integrering med HubSpot
 
@@ -28,7 +28,7 @@ Genom att integrera HubSpot med Azure AD får du följande fördelar:
 * Användare kan loggas in automatiskt på HubSpot med sina Azure AD-konton (enkel inloggning).
 * Du kan hantera dina konton på en central plats, Azure-portalen.
 
-Mer information om program vara som en tjänst (SaaS) för att integrera appar med Azure AD finns i [enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om program vara som en tjänst (SaaS) för att integrera appar med Azure AD finns i [enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -50,7 +50,7 @@ HubSpot stöder följande funktioner:
 
 Om du vill integrera HubSpot med Azure AD måste du lägga till HubSpot i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. På den vänstra menyn väljer du **Azure Active Directory**.
 
@@ -257,6 +257,6 @@ När du har konfigurerat enkel inloggning när du väljer **HubSpot** i portalen
 
 Läs mer i de här artiklarna:
 
-- [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Lista över självstudier för att integrera SaaS-appar med Azure Active Directory](./tutorial-list.md)
+- [Enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

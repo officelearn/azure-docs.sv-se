@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
-ms.openlocfilehash: e212b8c72a8cf7000a2789034f3ee83a5a0c9cda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91d48e42dc1c92e05e963b4c8b53e44daa403378
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542793"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Självstudie: Azure Active Directory integration med Brightspace av Desire2Learn
 
@@ -27,7 +27,7 @@ Genom att integrera Brightspace by Desire2Learn med Azure AD får du följande f
 * Du kan låta dina användare loggas in automatiskt på Brightspace by Desire2Learn (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
@@ -187,7 +187,7 @@ I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure ge
 
 ### <a name="create-brightspace-by-desire2learn-test-user"></a>Skapa Brightspace by Desire2Learn-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Brightspace by Desire2Learn. Kontakta  [Brightspace av Desire2Learn-supportteamet](https://www.d2l.com/contact/) för att lägga till användarna i Brightspace av Desire2Learn-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Brightspace by Desire2Learn. Arbeta med [Brightspace av Desire2Learn support team](https://www.d2l.com/contact/) för att lägga till användarna på Brightspace av Desire2Learn-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 > [!NOTE]
 > Du kan använda andra verktyg eller API:er för Brightspace by Desire2Learn-kontoskapande som tillhandahålls av Brightspace by Desire2Learn när du etablerar Azure Active Directory-användarkonton.
@@ -196,12 +196,12 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i Brightspa
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Brightspace by Desire2Learn-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Brightspace by Desire2Learn som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Brightspace by Desire2Learn-ikonen i åtkomstpanelen bör du automatiskt loggas in på den Brightspace by Desire2Learn som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 49fe4f2d0a31918dec94163b4ebb5c45af53cfe7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282252"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440815"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Dirigera händelser inom och utanför Azures digitala dubbla
 
@@ -73,7 +73,7 @@ Slut punkts-API: erna som är tillgängliga i kontroll planet är:
  
 Om du vill skapa en händelse väg kan du använda Azure Digitals dubbla [**data Plans-API: er**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI-kommandon**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)eller [**Azure Portal**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Här är ett exempel på hur du skapar en händelse väg i ett klient program med hjälp av `CreateEventRoute` [.net (C#) SDK-](how-to-use-apis-sdks.md) anropet: 
+Här är ett exempel på hur du skapar en händelse väg i ett klient program med hjälp av `CreateEventRoute` [.net (C#) SDK-](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview) anropet: 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 1da2fd879dbeac1836469d46567566769f6163a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732362ef7099e93697320d8e47180c1207e8cb32
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555407"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453866"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Självstudie: Azure Active Directory integrering med EverBridge
 
@@ -26,10 +26,10 @@ När du integrerar EverBridge med Azure AD kan du:
 * Kontroll i Azure AD som har åtkomst till EverBridge.
 * Tillåt att användarna loggas in automatiskt på EverBridge med sina Azure AD-konton. Den här åtkomst kontrollen kallas enkel inloggning (SSO).
 * Hantera dina konton på en central plats med hjälp av Azure Portal.
-Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med EverBridge behöver du följande objekt:
 
@@ -228,11 +228,10 @@ I det här avsnittet skapar du test User Britta Simon i EverBridge. Om du vill l
 
 Testa konfigurationen för enkel inloggning med Azure AD med hjälp av åtkomst panelen.
 
-När du väljer panelen EverBridge på åtkomst panelen, bör du loggas in automatiskt på det EverBridge-konto som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen EverBridge på åtkomst panelen, bör du loggas in automatiskt på det EverBridge-konto som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

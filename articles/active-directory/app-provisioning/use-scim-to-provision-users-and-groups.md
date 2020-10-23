@@ -11,12 +11,13 @@ ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: bfd9e08387a4de2220ef56afdd0ef79bd837ed4c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: contperfq2
+ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070205"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424585"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Självstudie – Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
@@ -335,7 +336,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 *Hämta/Users? filter = userName EQ "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
-##### <a name="response"></a><a name="response-2"></a>Svarade
+##### <a name="response"></a><a name="response-2"></a>Svarsåtgärder
 
 *HTTP/1.1 200 OK*
 ```json
@@ -376,7 +377,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 *Hämta/Users? filter = userName EQ "obefintlig användare"*
 
-##### <a name="response"></a><a name="response-3"></a>Svarade
+##### <a name="response"></a><a name="response-3"></a>Svarsåtgärder
 
 *HTTP/1.1 200 OK*
 ```json
@@ -413,7 +414,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-4"></a>Svarade
+##### <a name="response"></a><a name="response-4"></a>Svarsåtgärder
 
 *HTTP/1.1 200 OK*
 ```json
@@ -457,7 +458,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-5"></a>Svarade
+##### <a name="response"></a><a name="response-5"></a>Svarsåtgärder
 
 *HTTP/1.1 200 OK*
 ```json
@@ -506,7 +507,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-14"></a>Svarade
+##### <a name="response"></a><a name="response-14"></a>Svarsåtgärder
 
 ```json
 {
@@ -546,7 +547,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 *TA bort/users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-6"></a>Svarade
+##### <a name="response"></a><a name="response-6"></a>Svarsåtgärder
 
 *HTTP/1.1 204 inget innehåll*
 
@@ -573,7 +574,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-7"></a>Svarade
+##### <a name="response"></a><a name="response-7"></a>Svarsåtgärder
 
 *HTTP/1.1 201 har skapats*
 ```json
@@ -598,7 +599,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 *Hämta/Groups/40734ae655284ad3abcc? excludedAttributes = medlemmar HTTP/1.1*
 
-##### <a name="response"></a><a name="response-8"></a>Svarade
+##### <a name="response"></a><a name="response-8"></a>Svarsåtgärder
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -619,7 +620,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 ##### <a name="request"></a><a name="request-9"></a>Förfrågan
 *Hämta/Groups? excludedAttributes = members&filter = displayName EQ "HTTP/1.1*
 
-##### <a name="response"></a><a name="response-9"></a>Svarade
+##### <a name="response"></a><a name="response-9"></a>Svarsåtgärder
 
 *HTTP/1.1 200 OK*
 ```json
@@ -659,7 +660,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-10"></a>Svarade
+##### <a name="response"></a><a name="response-10"></a>Svarsåtgärder
 
 *HTTP/1.1 204 inget innehåll*
 
@@ -682,7 +683,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-11"></a>Svarade
+##### <a name="response"></a><a name="response-11"></a>Svarsåtgärder
 
 *HTTP/1.1 204 inget innehåll*
 
@@ -705,7 +706,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 }
 ```
 
-##### <a name="response"></a><a name="response-12"></a>Svarade
+##### <a name="response"></a><a name="response-12"></a>Svarsåtgärder
 
 *HTTP/1.1 204 inget innehåll*
 
@@ -715,7 +716,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 *TA bort/Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a><a name="response-13"></a>Svarade
+##### <a name="response"></a><a name="response-13"></a>Svarsåtgärder
 
 *HTTP/1.1 204 inget innehåll*
 
@@ -915,7 +916,7 @@ Skicka en GET-begäran till token-styrenheten för att få en giltig Bearer-toke
 
 ### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Hantera etablering och avetablering av användare
 
-***Exempel 1. Fråga tjänsten om en matchande användare***
+***Exempel 1. Fråga tjänsten om matchande användare**_
 
 Azure Active Directory skickar en fråga till tjänsten för en användare med ett `externalId` attributvärde som matchar värdet för attributet smek namn för en användare i Azure AD. Frågan uttrycks som en Hypertext Transfer Protocol (HTTP)-begäran, till exempel det här exemplet, där jyoung är ett exempel på ett smek namn för en användare i Azure Active Directory.
 
@@ -943,12 +944,12 @@ I exempel koden översätts begäran till ett anrop till QueryAsync-metoden för
 
 I exempel frågan, för en användare med ett angivet värde för `externalId` attributet, är värdena för argumenten som skickas till metoden QueryAsync:
 
-* komponentparametrar. AlternateFilters. Count: 1
+komponentparametrar. AlternateFilters. Count: 1
 * komponentparametrar. AlternateFilters. ElementAt (0). AttributePath: "externalId"
 * komponentparametrar. AlternateFilters. ElementAt (0). ComparisonOperator: ComparisonOperator. equals
 * komponentparametrar. AlternateFilter. ElementAt (0). ComparisonValue: "jyoung"
 
-***Exempel 2. Etablera en användare***
+***Exempel 2. Etablera en användare**_
 
 Om svaret på en fråga till webb tjänsten för en användare med ett `externalId` attributvärde som matchar värdet för ett värde för en användare inte returnerar några användare, kommer Azure Active Directory begär Anden som tjänsten etablerar en användare som motsvarar den som finns i Azure Active Directory.  Här är ett exempel på en sådan begäran: 
 
@@ -997,7 +998,7 @@ I exempel koden översätts begäran till ett anrop till CreateAsync-metoden fö
 
 I en begäran om att etablera en användare är värdet för resurs argumentet en instans av klassen Microsoft. SCIM. Core2EnterpriseUser som definieras i biblioteket Microsoft. SCIM. schemas.  Om begäran att etablera användaren lyckas förväntas implementeringen av metoden returnera en instans av klassen Microsoft. SCIM. Core2EnterpriseUser med värdet för egenskapen Identifier inställd på den unika identifieraren för den nyligen etablerade användaren.  
 
-***Exempel 3. Fråga efter användarens aktuella tillstånd*** 
+_*_Exempel 3. Fråga efter användarens aktuella tillstånd_*_ 
 
 Om du vill uppdatera en användare som är känd att finnas i ett identitets lager som har en SCIM, kan Azure Active Directory fortsätta genom att begära det aktuella status för användaren från tjänsten med en begäran, till exempel: 
 
@@ -1021,14 +1022,14 @@ I exempel koden översätts begäran till ett anrop till RetrieveAsync-metoden f
 
 I exemplet på en begäran om att hämta det aktuella status för en användare är värdena för egenskaperna för objektet som anges som värde för argumentet Parameters följande: 
   
-* Identifierare: "54D382A4-2050-4C03-94D1-E769F1D15682"
+_ Identifierare: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: User"
 
-***Exempel 4. Fråga värdet för ett referens-attribut som ska uppdateras*** 
+***Exempel 4. Fråga värdet för ett referens-attribut som ska uppdateras**_ 
 
 Om ett referens-attribut ska uppdateras, så Azure Active Directory frågar tjänsten om det aktuella värdet för referens-attributet i identitets arkivet som är baserat på tjänsten redan matchar värdet för attributet i Azure Active Directory. För användare är det enda attributet där det aktuella värdet frågas på det här sättet är attributet Manager. Här är ett exempel på en begäran om att avgöra om attributet Manager för ett användar objekt har ett visst värde: i exempel koden översätts begäran till ett anrop till QueryAsync-metoden för tjänstens Provider. Värdet för egenskaperna för objektet som anges som värde för parameter argumentet är följande: 
   
-* komponentparametrar. AlternateFilters. Count: 2
+komponentparametrar. AlternateFilters. Count: 2
 * komponentparametrar. AlternateFilters. ElementAt (x). AttributePath: "ID"
 * komponentparametrar. AlternateFilters. ElementAt (x). ComparisonOperator: ComparisonOperator. equals
 * komponentparametrar. AlternateFilter. ElementAt (x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
@@ -1040,7 +1041,7 @@ Om ett referens-attribut ska uppdateras, så Azure Active Directory frågar tjä
 
 Här kan värdet för index x vara 0 och värdet för indexet y kan vara 1 eller värdet för x kan vara 1 och värdet för y kan vara 0, beroende på ordningen på uttrycken för filter fråge parametern.   
 
-***Exempel 5. Begär från Azure AD till en SCIM-tjänst för att uppdatera en användare*** 
+***Exempel 5. Begär från Azure AD till en SCIM-tjänst för att uppdatera en användare**_ 
 
 Här är ett exempel på en begäran från Azure Active Directory till en SCIM-tjänst för att uppdatera en användare: 
 
@@ -1079,7 +1080,7 @@ I exempel koden översätts begäran till ett anrop till UpdateAsync-metoden fö
 
 I exemplet på en begäran om att uppdatera en användare har det objekt som angavs som värde för argumentet patch följande egenskaps värden: 
   
-* ResourceIdentifier. Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+_ ResourceIdentifier. Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier. SchemaIdentifier: "urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: User"
 * (PatchRequest som PatchRequest2). Åtgärder. Count: 1
 * (PatchRequest som PatchRequest2). Operations. ElementAt (0). OperationName: OperationName. Add
@@ -1088,7 +1089,7 @@ I exemplet på en begäran om att uppdatera en användare har det objekt som ang
 * (PatchRequest som PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Referens: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest som PatchRequest2). Operations. ElementAt (0). Value. ElementAt (0). Värde: 2819c223-7f76-453A-919d-413861904646
 
-***Exempel 6. Avetablera en användare***
+***Exempel 6. Avetablera en användare**_
 
 För att avetablera en användare från ett identitets lager med en SCIM-tjänst skickar Azure AD en begäran som:
 
@@ -1111,7 +1112,7 @@ I exempel koden översätts begäran till ett anrop till DeleteAsync-metoden fö
 
 Det tillhandahållna objektet som värde för argumentet resourceIdentifier har följande egenskaps värden i exemplet på en begäran om att avetablera en användare: 
 
-* ResourceIdentifier. Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
+_ ResourceIdentifier. Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * ResourceIdentifier. SchemaIdentifier: "urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: User"
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>Steg 4: integrera din SCIM-slutpunkt med Azure AD SCIM-klienten
@@ -1146,8 +1147,8 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
 7. I fältet **klient-URL** anger du URL: en för programmets scim-slutpunkt. Exempel: `https://api.contoso.com/scim/`
 8. Om SCIM-slutpunkten kräver en OAuth Bearer-token från en annan utfärdare än Azure AD kopierar du den obligatoriska OAuth Bearer-token till fältet valfritt **hemligt token** . Om det här fältet lämnas tomt innehåller Azure AD en OAuth Bearer-token som utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som en identitetsprovider kan verifiera den här Azure AD-utfärdade token. 
    > [!NOTE]
-   > Vi rekommenderar ***inte*** att du lämnar det här fältet tomt och förlitar sig på en token som genereras av Azure AD. Det här alternativet är i första hand tillgängligt i test syfte.
-9. Välj **test anslutning** för att Azure Active Directory försöka ansluta till scim-slutpunkten. Om försöket Miss lyckas visas fel information.  
+   > Det är **_inte_*_ rekommenderat att lämna det här fältet tomt och förlita sig på en token som genereras av Azure AD. Det här alternativet är i första hand tillgängligt i test syfte.
+9. Välj _*Testa anslutning** för att Azure Active Directory försöka ansluta till scim-slutpunkten. Om försöket Miss lyckas visas fel information.  
 
     > [!NOTE]
     > **Test anslutning** frågar scim-slutpunkten för en användare som inte finns med ett slumpmässigt GUID som den matchande egenskap som valts i Azure AD-konfigurationen. Det förväntade korrekta svaret är HTTP 200 OK med ett tomt SCIM ListResponse-meddelande.

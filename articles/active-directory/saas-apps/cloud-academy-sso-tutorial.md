@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 37ed9bb09b6b15af0c32f489cbc3c02ec27c2827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 822e28402d0b7829b835ad03a3b3cf7d05c3d343
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461981"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455818"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-cloud-academy---sso"></a>Självstudie: Azure Active Directory integration med enkel inloggning med Cloud Academy – SSO
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar Cloud Academy-SSO m
 * Gör det möjligt för användarna att logga in automatiskt till Cloud Academy-SSO med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är enkel inloggning?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är enkel inloggning?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -41,7 +41,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 Cloud Academy – SSO stöder SP-initierad SSO.
 
-När du har konfigurerat Cloud Academy-SSO kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+När du har konfigurerat Cloud Academy-SSO kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-cloud-academy---sso-from-the-gallery"></a>Lägg till Cloud Academy – SSO från galleriet
 
@@ -92,7 +92,7 @@ I det här avsnittet ska du skapa en test användare som heter B. Simon i Azure 
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna slutför du de här stegen:
    1. I rutan **namn** anger du **B. Simon**.  
-   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Exempelvis `B.Simon@contoso.com`.
+   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Till exempel `B.Simon@contoso.com`.
    1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -163,18 +163,18 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 Nu ska du testa din Azure AD SSO-konfiguration med hjälp av åtkomst panelen.
 
-När du väljer panelen Cloud Academy-SSO i åtkomst panelen, bör du loggas in automatiskt på den moln Academy-SSO-instans som du ställer in SSO för. Mer information finns i [Introduktion till åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Cloud Academy-SSO i åtkomst panelen, bör du loggas in automatiskt på den moln Academy-SSO-instans som du ställer in SSO för. Mer information finns i [Introduktion till åtkomst panelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Testa Cloud Academy – SSO med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Skydda Cloud Academy-SSO med hjälp av avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Skydda Cloud Academy-SSO med hjälp av avancerad synlighet och kontroller](/cloud-app-security/proxy-intro-aad)

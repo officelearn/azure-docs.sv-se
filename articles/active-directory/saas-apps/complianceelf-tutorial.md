@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: jeedes
-ms.openlocfilehash: b87e7a6ef4b4ba24e6a7d7b71ba6602ed76e0036
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ecd4dd41c0da57770c248f1f71193af8f1daa6d4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551278"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Självstudie: Azure Active Directory integration med ELF för regelefterlevnad
 
@@ -27,10 +27,10 @@ När du integrerar Compliance ELF med Azure AD får du följande fördelar:
 * Du kan se till att dina användare loggas in automatiskt på Compliance ELF (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Compliance ELF, behöver du följande objekt:
 
@@ -173,19 +173,18 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-compliance-elf-test-user"></a>Skapa testanvändare för Compliance ELF
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i Compliance ELF. Samarbeta med [supportteamet för Compliance ELF](mailto:support@complianceelf.com) när du ska lägga till användare i plattformen för Compliance ELF. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i Compliance ELF. Arbeta med [Elf support team för regelefterlevnad](mailto:support@complianceelf.com) för att lägga till användare på Elf-plattformen för regelefterlevnad. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Compliance ELF-ikonen i åtkomstpanelen bör du loggas in automatiskt på den Compliance ELF som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Compliance ELF-ikonen i åtkomstpanelen bör du loggas in automatiskt på den Compliance ELF som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

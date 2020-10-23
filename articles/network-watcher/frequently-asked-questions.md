@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: fd23dff3f60ab52a82633b9876b67c628a8e2dc7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 4ba35d91d286cb43a763887d104e21ae0d537c8e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123535"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424128"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Vanliga frågor och svar om Azure Network Watcher
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -tjänsten innehåller en uppsättning verktyg för att övervaka, diagnostisera, Visa mått och aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. I den här artikeln besvaras vanliga frågor om tjänsten.
@@ -55,7 +55,7 @@ Besök [sidan med priser](https://azure.microsoft.com/pricing/details/network-wa
 Du kan visa den senaste regionala tillgängligheten på [sidan tillgänglighet för Azure-tjänsten](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
 ### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Vilka behörigheter krävs för att använda Network Watcher?
-Se listan över [RBAC-behörigheter som krävs för att använda Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). För att distribuera resurser måste du ha deltagar behörighet till NetworkWatcherRG (se nedan).
+Se listan med [Azure RBAC-behörigheter som krävs för att använda Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). För att distribuera resurser måste du ha deltagar behörighet till NetworkWatcherRG (se nedan).
 
 ### <a name="how-do-i-enable-network-watcher"></a>Hur gör jag för att välja Network Watcher?
 Tjänsten Network Watcher [aktive ras automatiskt](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) för varje prenumeration.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 236c24ac63aef6b802edf53f9c414a522c2308e4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2fd21731513d0b32a96a74a822e38075ad1d8eb2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015165"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454978"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cylanceprotect"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med CylancePROTECT
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar CylancePROTECT med 
 * Gör det möjligt för användarna att logga in automatiskt till CylancePROTECT med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -120,7 +120,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -154,14 +154,14 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i CylancePR
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på CylancePROTECT-panelen i åtkomstpanelen bör du automatiskt loggas in på CylancePROTECT som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på CylancePROTECT-panelen i åtkomstpanelen bör du automatiskt loggas in på CylancePROTECT som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova CylancePROTECT med Azure AD](https://aad.portal.azure.com/)

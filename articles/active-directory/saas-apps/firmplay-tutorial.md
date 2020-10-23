@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 522de4f3e9d82be91290fef7ea900998cb4d1d8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2230958fb41d8e42967beeca57cf10ea048d1ef9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555055"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Självstudie: Azure Active Directory integration med FirmPlay-anställda rådgivnings för rekrytering
 
@@ -27,7 +27,7 @@ Att integrera FirmPlay – anställda rådgivnings för rekrytering med Azure AD
 * Du kan göra det möjligt för användarna att logga in automatiskt till FirmPlay-anställda rådgivnings för rekrytering (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
@@ -176,19 +176,18 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-firmplay---employee-advocacy-for-recruiting-test-user"></a>Skapa FirmPlay – anställda rådgivnings för rekrytering av test användare
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i FirmPlay-Employee rådgivnings för rekrytering. Arbeta med [FirmPlay-anställda rådgivnings för rekryterings support teamet](mailto:engineering@firmplay.com) för att lägga till användarna i FirmPlay-anställda rådgivnings för rekryterings plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i FirmPlay-Employee rådgivnings för rekrytering. Arbeta med [FirmPlay-anställda rådgivnings för rekryterings support teamet](mailto:engineering@firmplay.com) för att lägga till användarna i FirmPlay-anställda rådgivnings för rekryterings plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen FirmPlay – personal rådgivnings för rekrytering på åtkomst panelen, bör du loggas in automatiskt till FirmPlay-anställda rådgivnings för rekrytering som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen FirmPlay – personal rådgivnings för rekrytering på åtkomst panelen, bör du loggas in automatiskt till FirmPlay-anställda rådgivnings för rekrytering som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

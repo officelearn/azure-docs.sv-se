@@ -11,12 +11,12 @@ ms.date: 06/16/2020
 ms.author: mimart
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a186b682a3a506f0f373776dd66e6592bc6036ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64ab70fed13d4ca907b2bfb3aa448acdedc39e9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87909941"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441461"
 ---
 # <a name="define-custom-attributes-for-user-flows-preview"></a>Definiera anpassade attribut för användar flöden (förhands granskning)
 
@@ -25,7 +25,7 @@ ms.locfileid: "87909941"
 
 För varje program kan du ha olika krav för den information som du vill samla in under registreringen. Azure AD levereras med en inbyggd uppsättning information som lagras i attribut, till exempel namn, efter namn, stad och post nummer. Med Azure AD kan du utöka uppsättningen med attribut som lagras på ett gäst konto när den externa användaren loggar in via ett användar flöde.
 
-Du kan skapa anpassade attribut i Azure Portal och använda dem i dina användar flöden för självbetjänings registrering. Du kan också läsa och skriva attributen med hjälp av [Microsoft Graph-API: et](https://docs.microsoft.com/azure/active-directory-b2c/manage-user-accounts-graph-api). Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_<extensions-app-id>_attributename` . Exempel:
+Du kan skapa anpassade attribut i Azure Portal och använda dem i dina användar flöden för självbetjänings registrering. Du kan också läsa och skriva attributen med hjälp av [Microsoft Graph-API: et](../../active-directory-b2c/manage-user-accounts-graph-api.md). Microsoft Graph API har stöd för att skapa och uppdatera en användare med attribut för tillägg. Attribut för tillägg i Graph API namnges med hjälp av konventionen `extension_<extensions-app-id>_attributename` . Exempel:
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

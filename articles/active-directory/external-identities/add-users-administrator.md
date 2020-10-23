@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 969294f264e6744e893322864eed85e02c615126
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b503c7494d1b5e1821718fab5577bca88be65169
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87910327"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442294"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal
 
@@ -25,7 +25,7 @@ Som en användare som har tilldelats någon av de begränsade administratörs ka
 När du har lagt till en gäst användare i katalogen kan du antingen skicka gäst användaren en direkt länk till en delad app, eller gäst användaren kan klicka på inlösnings-URL: en i inbjudan via e-post. Mer information om inlösnings processen finns i [B2B-samverkan med inbjudan](redemption-experience.md).
 
 > [!IMPORTANT]
-> Följ stegen i [så här: Lägg till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement) för att lägga till URL: en för din organisations sekretess policy. Som en del av den första gången inlösnings processen för inbjudan måste en inbjuden användare godkänna dina sekretess villkor för att kunna fortsätta. 
+> Följ stegen i [så här: Lägg till din organisations sekretess information i Azure Active Directory](../fundamentals/active-directory-properties-area.md) för att lägga till URL: en för din organisations sekretess policy. Som en del av den första gången inlösnings processen för inbjudan måste en inbjuden användare godkänna dina sekretess villkor för att kunna fortsätta. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -124,4 +124,3 @@ Om en gäst användare ännu inte har löst in sin inbjudan kan du skicka e-post
 
 - Information om hur icke-Azure AD-administratörer kan lägga till B2B-gäst användare finns i [Hur kan informations arbetare lägga till B2B-samarbets användare?](add-users-information-worker.md)
 - Information om e-postinbjudan finns i [elementen i e-postinbjudan e-inbjudan](invitation-email-elements.md).
-

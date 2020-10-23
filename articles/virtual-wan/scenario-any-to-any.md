@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09dddad24794491b53a11f7b0e4347f43f11598b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267745"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440492"
 ---
 # <a name="scenario-any-to-any"></a>Scenario: alla-till-alla
 
@@ -22,14 +22,14 @@ När du arbetar med virtuell WAN-routning för virtuella WAN finns det några ti
 
 ## <a name="design"></a><a name="design"></a>Design
 
-För att ta reda på hur många väg tabeller som behövs i ett virtuellt WAN-scenario kan du bygga en anslutnings mat ris där varje cell representerar om en källa (rad) kan kommunicera med ett mål (kolumn). Anslutnings matrisen i det här scenariot är trivial, men vi har inkluderat den för att vara konsekvent med andra scenarier.
+För att ta reda på hur många väg tabeller som behövs i ett virtuellt WAN-scenario kan du bygga en anslutnings mat ris där varje cell representerar om en källa (rad) kan kommunicera med ett mål (kolumn).
 
 | Från |   Om du vill |  *Virtuella nätverk* | *Grenar* |
 | -------------- | -------- | ---------- | ---|
-| Virtuella nätverk     | &#8594;|      X     |     X    |
-| Grenar   | &#8594;|    X     |     X    |
+| Virtuella nätverk     | &#8594;| Direct | Direct |
+| Grenar   | &#8594;| Direct  | Direct |
 
-Var och en av cellerna i den föregående tabellen beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) får ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde, där ett "X" innebär att anslutningen tillhandahålls av Virtual WAN.
+Var och en av cellerna i föregående tabell beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna) kommunicerar med ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil). I det här scenariot finns det inga brand väggar eller virtuella nätverks enheter, så kommunikationen flödar direkt över det virtuella WAN-nätverket (och därför ordet "Direct" i tabellen).
 
 Eftersom alla anslutningar från både virtuella nätverk och grenar (VPN, ExpressRoute och User VPN) har samma anslutnings krav krävs en enda väg tabell. Därför kommer alla anslutningar att associeras och spridas till samma routningstabell, standard väg tabellen:
 

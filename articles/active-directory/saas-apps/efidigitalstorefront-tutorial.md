@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 336e6cf5e9538dd9e95116d20e285e0443ad0540
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a07d676f1cb0f47d1eff1dd8e0321bbd407092
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544357"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454260"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-efi-digital-storefront"></a>Självstudie: Azure Active Directory integrering med en digital EFI-butik
 
@@ -27,10 +27,10 @@ Integreringen av EFI Digital StoreFront med Azure AD medför följande fördelar
 * Du kan göra så att dina användare loggas in automatiskt i EFI Digital StoreFront (enkel inloggning) med deras Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med EFI Digital StoreFront behöver du följande:
 
@@ -179,19 +179,18 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-efi-digital-storefront-test-user"></a>Skapa en testanvändare för EFI Digital StoreFront
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i EFI Digital StoreFront. Arbeta med  [EFI Digital StoreFront-supportteamet](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) när du lägger till användare till EFI Digital StoreFront-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i EFI Digital StoreFront. Arbeta med [EFI digital butik support-teamet](https://www.efi.com/products/productivity-software/ecommerce-web-to-print/efi-digital-storefront/support/) för att lägga till användare i EFI-plattformen digital butik. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på EFI Digital StoreFront-panelen på åtkomstpanelen bör du loggas in automatiskt i EFI Digital StoreFront som du konfigurerar enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på EFI Digital StoreFront-panelen på åtkomstpanelen bör du loggas in automatiskt i EFI Digital StoreFront som du konfigurerar enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

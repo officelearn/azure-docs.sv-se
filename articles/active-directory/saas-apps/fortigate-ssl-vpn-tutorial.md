@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 187903bfbf75ada45b9a539acd1157dfe730747a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: acb08d5430f13ad9a339b2cdd072fce9c196d05f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331135"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92451494"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortigate-ssl-vpn"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med FortiGate SSL VPN
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig hur du integrerar FortiGate SSL VPN m
 * Gör det möjligt för användarna att logga in automatiskt till FortiGate SSL VPN med deras Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -45,7 +45,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 FortiGate SSL VPN stöder SP-initierad SSO.
 
-När du har konfigurerat FortiGate SSL VPN kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+När du har konfigurerat FortiGate SSL VPN kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-fortigate-ssl-vpn-from-the-gallery"></a>Lägg till FortiGate SSL VPN från galleriet
 
@@ -134,7 +134,7 @@ I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna slutför du de här stegen:
    1. I rutan **namn** anger du **B. Simon**.  
-   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Exempelvis `B.Simon@contoso.com`.
+   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Till exempel `B.Simon@contoso.com`.
    1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -254,24 +254,24 @@ För att utföra de här stegen behöver du objekt-ID för FortiGateAccess-säke
 
 I det här avsnittet ska du konfigurera en FortiGate VPN-Portal och brand Väggs princip som ger åtkomst till FortiGateAccess-säkerhetsgruppen som du skapade tidigare i den här självstudien.
 
-Arbeta med [Fortigate support-teamet](mailto:tac_amer@fortinet.com) för att lägga till VPN-portaler och brand Väggs principen till Fortigate VPN-plattformen. Du måste utföra det här steget innan du använder enkel inloggning.
+Arbeta med [Fortigate support-teamet](mailto:tac_amer@fortinet.com) för att lägga till VPN-portaler och brand Väggs principen till Fortigate VPN-plattformen. Du måste utföra det här steget innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska du testa konfigurationen för enkel inloggning med Azure AD med hjälp av åtkomst panelen.
 
-När du väljer FortiGate SSL VPN-panelen i åtkomst panelen, bör du loggas in automatiskt på den FortiGate SSL VPN som du ställer in SSO för. Mer information om åtkomst panelen finns i [Introduktion till åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer FortiGate SSL VPN-panelen i åtkomst panelen, bör du loggas in automatiskt på den FortiGate SSL VPN som du ställer in SSO för. Mer information om åtkomst panelen finns i [Introduktion till åtkomst panelen](../user-help/my-apps-portal-end-user-access.md).
 
 Microsoft och FortiGate rekommenderar att du använder Fortinet VPN-klienten, FortiClient, för bästa slut användar upplevelse.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova FortiGate SSL VPN med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

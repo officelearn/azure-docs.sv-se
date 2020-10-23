@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: aa45494e9870daee079eed4fe92867f64c3c791e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a1bed217f12646687654f37145a4a796d0487a1
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90057384"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455008"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cybersolutions-mailbasecmss"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med CyberSolutions MAILBASEΣ \ CMSS
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig att integrera CyberSolutions MAILBASE
 * Gör det möjligt för användarna att logga in automatiskt till CyberSolutions MAILBASEΣ \ CMSS med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -103,7 +103,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -125,7 +125,7 @@ Om du vill konfigurera enkel inloggning på **CYBERSOLUTIONS MAILBASEΣ \ CMSS**
 
 ### <a name="create-cybersolutions-mailbase-test-user"></a>Skapa CyberSolutions-test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i CyberSolutions MAILBASEΣ \ CMSS. Arbeta med [CYBERSOLUTIONS MAILBASEΣ \ CMSS support team](mailto:tech@cybersolutions.co.jp) för att lägga till användarna på CYBERSOLUTIONS-MAILBASEΣ \ CMSS-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i CyberSolutions MAILBASEΣ \ CMSS. Arbeta med [CYBERSOLUTIONS MAILBASEΣ \ CMSS support team](mailto:tech@cybersolutions.co.jp) för att lägga till användarna på CYBERSOLUTIONS-MAILBASEΣ \ CMSS-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -141,9 +141,8 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 * Klicka på **testa det här programmet** i Azure Portal så bör du loggas in automatiskt till CYBERSOLUTIONS-MAILBASEΣ \ CMSS som du ställer in SSO för. 
 
-Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på panelen CyberSolutions MAILBASEΣ \ CMSS i åtkomst panelen, om det kon figurer ATS i SP-läge, omdirigeras du till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du logga in automatiskt på CyberSolutions MAILBASEΣ \ CMSS som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på panelen CyberSolutions MAILBASEΣ \ CMSS i åtkomst panelen, om det kon figurer ATS i SP-läge, omdirigeras du till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du logga in automatiskt på CyberSolutions MAILBASEΣ \ CMSS som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-När du har konfigurerat CyberSolutions MAILBASEΣ \ CMSS kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
+När du har konfigurerat CyberSolutions MAILBASEΣ \ CMSS kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10c396c4e4b4eac83f08ae0cbbe565f8621688a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 646bd2b6a8e22698e6fbcb44d2442e921c7850a5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354980"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441513"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsöka Azure Active Directory B2B-samarbete
 
@@ -93,11 +93,11 @@ En användare som har ett gäst konto kan inte logga in och får följande fel m
 
 Användaren har ett Azure-användarkonto och är en viral-klient som har övergivits eller inte hanteras. Det finns dessutom inga globala administratörer eller företags administratörer i klient organisationen.
 
-För att lösa det här problemet måste du ta över den övergivna klienten. Se  [ta över en ohanterad katalog som administratör i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Du måste också ha åtkomst till Internet-riktad DNS för domänsuffix i fråga för att kunna tillhandahålla direkt bevis som du styr av namn området. När klienten har returnerats till ett hanterat tillstånd kan du diskutera med kunden om du lämnar användarna och det verifierade domän namnet är det bästa alternativet för deras organisation.
+För att lösa det här problemet måste du ta över den övergivna klienten. Se  [ta över en ohanterad katalog som administratör i Azure Active Directory](../users-groups-roles/domains-admin-takeover.md). Du måste också ha åtkomst till Internet-riktad DNS för domänsuffix i fråga för att kunna tillhandahålla direkt bevis som du styr av namn området. När klienten har returnerats till ett hanterat tillstånd kan du diskutera med kunden om du lämnar användarna och det verifierade domän namnet är det bästa alternativet för deras organisation.
 
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>En gäst användare med en just-in-Time-eller "viral"-klient kan inte återställa sina lösen ord
 
-Om identitets klienten är en just-in-Time (JIT) eller virus klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
+Om identitets klienten är en just-in-Time (JIT) eller virus klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](../users-groups-roles/domains-admin-takeover.md) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
 
 ## <a name="a-guest-user-is-unable-to-use-the-azuread-powershell-v1-module"></a>En gäst användare kan inte använda AzureAD PowerShell v1-modulen
 
@@ -105,7 +105,7 @@ Från och med 18 november 2019 blockeras gäst användare i din katalog (definie
 
 ## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Jag kan inte bjuda in gäst användare för B2B-samarbete i en Azure-klient för amerikanska myndigheter
 
-I Azure-molnet för amerikanska myndigheter stöds för närvarande inte B2B-samarbete mellan klienter som båda är i Azures offentliga moln för amerikanska myndigheter och som båda stöder B2B-samarbete. Om du bjuder in en användare i en klient som inte är en del av Azure-molnet för amerikanska myndigheter eller som ännu inte stöder B2B-samarbete får du ett fel meddelande. Mer information och begränsningar finns i [Azure Active Directory Premium P1-och P2-variationer](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2).
+I Azure-molnet för amerikanska myndigheter stöds för närvarande inte B2B-samarbete mellan klienter som båda är i Azures offentliga moln för amerikanska myndigheter och som båda stöder B2B-samarbete. Om du bjuder in en användare i en klient som inte är en del av Azure-molnet för amerikanska myndigheter eller som ännu inte stöder B2B-samarbete får du ett fel meddelande. Mer information och begränsningar finns i [Azure Active Directory Premium P1-och P2-variationer](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
 
 ## <a name="i-receive-the-error-that-azure-ad-cannot-find-the-aad-extensions-app-in-my-tenant"></a>Jag får ett fel meddelande om att Azure AD inte kan hitta AAD-Extensions-appen i min klient organisation
 
@@ -123,4 +123,4 @@ Du bör nu se den återställda appen i Azure Portal.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Få stöd för B2B-samarbete](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto)
+[Få stöd för B2B-samarbete](../fundamentals/active-directory-troubleshooting-support-howto.md)

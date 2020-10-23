@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 7d5dd7d2d0aa3d10f439b5cf3604e2d595456f86
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 6f484277ee940c63888fff068739598dd553b515
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172257"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440901"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -142,7 +142,7 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 | `ar-SA` | Arabiska (Saudiarabien) | Kvinna | `ar-SA-ZariyahNeural` | Allmänt |
 | `bg-BG` <sup>Nytt</sup> | Bulgariska (Bulgary) | Kvinna | `bg-BG-KalinaNeural` | Allmänt |
 | `ca-ES` | Katalanska (Spanien) | Kvinna | `ca-ES-AlbaNeural` | Allmänt |
-| `cs-CZ` <sup>Nytt</sup> | Tjeckiska (Tjeckien)  | Kvinna | `cs-CZ-VlastaNeural` | Allmänt |
+| `cs-CZ` <sup>Nytt</sup> | Tjeckiska (Tjeckien) | Kvinna | `cs-CZ-VlastaNeural` | Allmänt |
 | `da-DK` | Danska (Danmark) | Kvinna | `da-DK-ChristelNeural` | Allmänt |
 | `de-AT` <sup>Nytt</sup> | Tyska (Österrike) | Kvinna | `de-AT-IngridNeural` | Allmänt |
 | `de-CH` <sup>Nytt</sup> | Tyska (Schweiz) | Kvinna | `de-CH-LeniNeural` | Allmänt |
@@ -150,12 +150,12 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 | `de-DE` <sup>Nytt</sup> | Tyska (Tyskland) | Man | `de-DE-ConradNeural` | Allmänt |
 | `el-GR` <sup>Nytt</sup> | Grekiska (Grekland) | Kvinna | `el-GR-AthinaNeural` | Allmänt |
 | `en-AU` | Engelska (Australien) | Kvinna | `en-AU-NatashaNeural` | Allmänt |
-| `en-AU` <sup>Nytt</sup> | Australien (Australien) | Man | `en-AU-WilliamNeural` | Allmänt |
+| `en-AU` <sup>Nytt</sup> | Engelska (Australien) | Man | `en-AU-WilliamNeural` | Allmänt |
 | `en-CA` | Engelska (Kanada) | Kvinna | `en-CA-ClaraNeural` | Allmänt |
 | `en-GB` | Engelska (Storbritannien) | Kvinna | `en-GB-LibbyNeural` | Allmänt |
 | `en-GB` | Engelska (Storbritannien) | Kvinna | `en-GB-MiaNeural` | Allmänt |
 | `en-GB` <sup>Nytt</sup> | Engelska (Storbritannien) | Man | `en-GB-RyanNeural` | Allmänt |
-| `en-IE` <sup>Nytt</sup> | Irländsk engelska (Irland) | Kvinna | `en-IE-EmilyNeural` | Allmänt |
+| `en-IE` <sup>Nytt</sup> | Engelska (Irland) | Kvinna | `en-IE-EmilyNeural` | Allmänt |
 | `en-IN` | Engelska (Indien) | Kvinna | `en-IN-NeerjaNeural` | Allmänt |
 | `en-US` | Engelska (USA) | Kvinna | `en-US-AriaNeural` | Allmänt, flera röst format är tillgängliga |
 | `en-US` | Engelska (USA) | Man | `en-US-GuyNeural` | Allmänt |
@@ -174,7 +174,7 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 | `hi-IN` | Hindi (Indien) | Kvinna | `hi-IN-SwaraNeural` | Allmänt |
 | `hr-HR` <sup>Nytt</sup> | Kroatiska (Kroatien) | Kvinna | `hr-HR-GabrijelaNeural` | Allmänt |
 | `hu-HU` <sup>Nytt</sup> | Ungerska (Ungern) | Kvinna | `hu-HU-NoemiNeural` | Allmänt |
-| `id-ID` <sup>Nytt</sup> | Bahasa Indonesiska (Indonesien) | Man | `id-ID-ArdiNeural` | Allmänt |
+| `id-ID` <sup>Nytt</sup> | Indonesiska (Indonesien) | Man | `id-ID-ArdiNeural` | Allmänt |
 | `it-IT` | Italienska (Italien) | Kvinna | `it-IT-ElsaNeural` | Allmänt |
 | `it-IT` <sup>Nytt</sup> | Italienska (Italien) | Kvinna | `it-IT-IsabellaNeural` | Allmänt |
 | `it-IT` <sup>Nytt</sup> | Italienska (Italien) | Man | `it-IT-DiegoNeural` | Allmänt |
@@ -206,7 +206,6 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 | `zh-CN` | Mandariner (förenklad kinesiska, Kina) | Man | `zh-CN-YunyeNeural` | Optimerad för artikel-berättarröst |
 | `zh-HK` | Kantonesiska (traditionell kinesiska, Hongkong) | Kvinna | `zh-HK-HiuGaaiNeural` | Allmänt |
 | `zh-TW` | Mandariner (traditionell kinesiska, Taiwan) | Kvinna | `zh-TW-HsiaoYuNeural` | Allmänt |
-
 
 > [!IMPORTANT]
 > `en-US-JessaNeural`Rösten har ändrats till `en-US-AriaNeural` . Om du använde "Jessa" tidigare, konvertera till "Aria".

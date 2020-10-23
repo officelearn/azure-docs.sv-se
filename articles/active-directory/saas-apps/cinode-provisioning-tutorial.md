@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: ce4b93bc8f44e7bec490466fc42be829f942ae07
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: f60d73766d2f992faddd7d944436d9179ef18e19
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940930"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456147"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Cinode för automatisk användar etablering
 
-I den här självstudien beskrivs de steg du behöver utföra i både Cinode och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [Cinode](https://cinode.com/) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+I den här självstudien beskrivs de steg du behöver utföra i både Cinode och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [Cinode](https://cinode.com/) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
@@ -34,18 +34,18 @@ I den här självstudien beskrivs de steg du behöver utföra i både Cinode och
 > * Behåll användarattribut synkroniserade mellan Azure AD och Cinode
 > * Etablera grupper och grupp medlemskap i Cinode
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-* [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (till exempel program administratör, moln program administratör, program ägare eller global administratör). 
+* [En Azure AD-klient](../develop/quickstart-create-new-tenant.md) 
+* Ett användar konto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (till exempel program administratör, moln program administratör, program ägare eller global administratör). 
 * Ett användar konto i Cinode med administratörs behörighet.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
-1. Lär dig mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Ta reda på vem som finns i [etableringsomfånget](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Ta reda på vilka data som ska [mappas mellan Azure AD och Cinode](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+1. Lär dig mer om [hur etableringstjänsten fungerar](../app-provisioning/user-provisioning.md).
+2. Ta reda på vem som finns i [etableringsomfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Ta reda på vilka data som ska [mappas mellan Azure AD och Cinode](../app-provisioning/customize-application-attributes.md).
 
 ## <a name="step-2-configure-cinode-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Cinode för att ge stöd för etablering med Azure AD
 
@@ -65,15 +65,15 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="step-3-add-cinode-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till Cinode från Azure AD-programgalleriet
 
-Lägg till Cinode från Azure AD-programgalleriet för att börja hantera etablering till Cinode. Om du tidigare har konfigurerat Cinode för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Lägg till Cinode från Azure AD-programgalleriet för att börja hantera etablering till Cinode. Om du tidigare har konfigurerat Cinode för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas i etableringsomfånget 
 
-Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* När du tilldelar användare och grupper till Cinode måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller. 
+* När du tilldelar användare och grupper till Cinode måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
 
-* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-cinode"></a>Steg 5. Konfigurera automatisk användar etablering till Cinode 
@@ -110,7 +110,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Cinode**.
 
-9. Granska de användarattribut som synkroniseras från Azure AD till Cinode i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Cinode för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att Cinode-API: et stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
+9. Granska de användarattribut som synkroniseras från Azure AD till Cinode i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Cinode för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](../app-provisioning/customize-application-attributes.md)måste du se till att Cinode-API: et stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
    |Attribut|Typ|
    |---|---|
@@ -132,7 +132,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
       |externalId|Sträng|
       |medlemmar|Referens|
 
-12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Om du vill aktivera Azure AD Provisioning-tjänsten för Cinode ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -151,15 +151,15 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:
 
-1. Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att se vilka användare som har etablerats och vilka som har misslyckats
-2. Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är att slutföras
-3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+1. Använd [etableringsloggarna](../reports-monitoring/concept-provisioning-logs.md) för att se vilka användare som har etablerats och vilka som har misslyckats
+2. Kontrollera [förloppsindikatorn](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) för att se status för etableringscykeln och hur nära den är att slutföras
+3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användarkontoetablering för Enterprise-appar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: jeedes
-ms.openlocfilehash: 03b31f80ecd5cc388b66c6eae54db83be300cd95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e18cd80c0232c4552c0e3dc57a23477d410c5395
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91348729"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442583"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-hoxhunt"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Hoxhunt
 
@@ -100,7 +100,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -122,7 +122,7 @@ Om du vill konfigurera enkel inloggning på **Hoxhunt** sida måste du skicka de
 
 ### <a name="create-hoxhunt-test-user"></a>Skapa Hoxhunt test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Hoxhunt. Arbeta med [Hoxhunt support team](mailto:support@hoxhunt.com) för att lägga till användare i Hoxhunt-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Hoxhunt. Arbeta med [Hoxhunt support team](mailto:support@hoxhunt.com) för att lägga till användare i Hoxhunt-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -132,10 +132,8 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 2. Gå till Hoxhunt-inloggnings-URL: en direkt och starta inloggnings flödet därifrån.
 
-3. Du kan använda Microsoft Access-panelen. När du klickar på panelen Hoxhunt i åtkomst panelen omdirigeras den till Hoxhunt-inloggnings-URL. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Du kan använda Microsoft Access-panelen. När du klickar på panelen Hoxhunt i åtkomst panelen omdirigeras den till Hoxhunt-inloggnings-URL. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har konfigurerat Hoxhunt kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+När du har konfigurerat Hoxhunt kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

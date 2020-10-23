@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 60aa6ed3f1b66d88d05751fdee2444120705f8d2
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9942056e59a46c61b4e9da32aab191d4b72db968
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047700"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461767"
 ---
 # <a name="azure-digital-twins-customer-data-request-features"></a>Azure Digitals dubbla funktioner för förfrågan om kund information
 
@@ -25,7 +25,7 @@ Digitala representationer som kallas *digitala dubbla* , i Azure Digitals, repre
 
 Många av de digitala dubblarna i Azures digitala dubbla är inte direkt representerade personliga entiteter – typiska objekt som representeras kan vara ett kontors mötesrum eller ett fabriks lager. Användare kan dock anse att vissa entiteter är personligt identifierbara och att de kan behålla sina egna till gångar eller inventerings spårnings metoder som knyter digitala delar till individer. Azure Digitals, som hanterar och lagrar alla data som är kopplade till digitala dubbla, som om de var personliga data.
 
-Om du vill visa, exportera och ta bort personliga data som kan refereras till i en begäran om data subjekt, kan en Azure Digital-administratör använda [**Azure Portal**](https://portal.azure.com/) för användare och roller eller [**Azure Digitals REST-API: er**](how-to-use-apis-sdks.md) för digitala dubbla. Azure Portal-och REST-API: erna tillhandahåller olika metoder för att användarna ska kunna betjäna sådana data ämnes förfrågningar.
+Om du vill visa, exportera och ta bort personliga data som kan refereras till i en begäran om data subjekt, kan en Azure Digital-administratör använda [**Azure Portal**](https://portal.azure.com/) för användare och roller eller [**Azure Digitals REST-API: er**](/rest/api/azure-digitaltwins/) för digitala dubbla. Azure Portal-och REST-API: erna tillhandahåller olika metoder för att användarna ska kunna betjäna sådana data ämnes förfrågningar.
 
 ## <a name="identifying-customer-data"></a>Identifiera kund information
 

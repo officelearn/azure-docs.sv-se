@@ -1,25 +1,28 @@
 ---
-title: Konfigurera agent data källor i Azure Monitor | Microsoft Docs
+title: Log Analytics agent data källor i Azure Monitor
 description: Data källor definierar de loggdata som Azure Monitor samlar in från agenter och andra anslutna källor.  I den här artikeln beskrivs hur Azure Monitor använder data källor, förklarar hur du konfigurerar dem och ger en översikt över de olika data källor som är tillgängliga.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: a183589c3e5274cf747164cdc33d46044f95e716
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: a52f10c7081875113a0ad22bd687776e71d238e2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073686"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460809"
 ---
-# <a name="agent-data-sources-in-azure-monitor"></a>Agent data källor i Azure Monitor
-De data som Azure Monitor samlar in från agenter definieras av de data källor som du konfigurerar.  Data från agenter lagras som [loggdata](data-platform-logs.md) med en uppsättning poster.  Varje data källa skapar poster av en viss typ med varje typ som har en egen uppsättning egenskaper.
+# <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Log Analytics agent data källor i Azure Monitor
+De data som Azure Monitor samlar in från virtuella datorer med [Log Analytics](log-analytics-agent.md) agent definieras av de data källor som du konfigurerar på [arbets ytan Log Analytics](data-platform-logs.md).   Varje data källa skapar poster av en viss typ med varje typ som har en egen uppsättning egenskaper.
+
+> [!IMPORTANT]
+> Den här artikeln beskriver data källor för [Log Analytics agent](log-analytics-agent.md) som är en av de agenter som används av Azure Monitor. Andra agenter samlar in olika data och konfigureras på olika sätt. Se [Översikt över Azure Monitor agenter](agents-overview.md) för en lista över tillgängliga agenter och de data som de kan samla in.
 
 ![Logg data insamling](media/agent-data-sources/overview.png)
 
 ## <a name="summary-of-data-sources"></a>Sammanfattning av data källor
-I följande tabell visas de agent data källor som för närvarande är tillgängliga i Azure Monitor.  Varje har en länk till en separat artikel som innehåller information om data källan.   Den innehåller också information om deras metod och frekvens för insamling. 
+I följande tabell visas de agent data källor som för närvarande är tillgängliga med Log Analytics-agenten.  Varje har en länk till en separat artikel som innehåller information om data källan.   Den innehåller också information om deras metod och frekvens för insamling. 
 
 
 | Datakälla | Plattform | Log Analytics-agent | Operations Manager-agent | Azure-lagring | Operations Manager krävs. | Operations Manager agent data som skickas via hanterings gruppen | Insamlingsfrekvens |
@@ -34,14 +37,12 @@ I följande tabell visas de agent data källor som för närvarande är tillgän
 
 
 ## <a name="configuring-data-sources"></a>Konfigurera data källor
-Du konfigurerar data källor från **data** -menyn i **Avancerade inställningar** för arbets ytan.  Alla konfigurationer levereras till alla anslutna källor i din arbets yta.  Du kan för närvarande inte undanta några agenter från den här konfigurationen.
+Om du vill konfigurera data källor för Log Analytics agenter går du till menyn **Log Analytics arbets ytor** i Azure Portal och väljer en arbets yta. Klicka på **Avancerade inställningar** och sedan på **data**. Välj den data källa som du vill konfigurera. Du kan följa länkarna i tabellen ovan för dokumentation för varje data källa och information om deras konfiguration.
+
+Alla konfigurationer levereras till alla agenter som är anslutna till arbets ytan.  Du kan inte utesluta anslutna agenter från den här konfigurationen.
 
 ![Konfigurera Windows-händelser](media/agent-data-sources/configure-events.png)
 
-1. I Azure Portal väljer du **Log Analytics arbets ytor** > din arbets yta > **Avancerade inställningar**.
-2. Välj **data**.
-3. Klicka på den data källa som du vill konfigurera.
-4. Följ länken till dokumentationen för varje data källa i tabellen ovan om du vill ha mer information om deras konfiguration.
 
 
 ## <a name="data-collection"></a>Datainsamling

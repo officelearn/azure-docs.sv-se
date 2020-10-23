@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad03942a2200c57475cf8a81d0fb08d475ec6964
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306403"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458040"
 ---
 # <a name="risky-ip-report-public-preview"></a>Riskfylld IP-rapport (offentlig för hands version)
 AD FS kunder kan exponera slut punkter för autentisering av lösen ord till Internet för att tillhandahålla autentiseringstjänster för slutanvändare att få åtkomst till SaaS-program som Microsoft 365. I det här fallet är det möjligt för någon obehörig att försöka logga in på ditt AD FS-system genom att gissa slutanvändarens lösenord och få åtkomst till programresurser. AD FS har innehållit en utelåsningsfunktion för extranätskonton som förhindrar dessa typer av angrepp sedan AD FS i Windows Server 2012 R2. Om du har en lägre version rekommenderar vi starkt att du uppgraderar ditt AD FS-system till Windows Server 2016. <br />
@@ -35,13 +35,13 @@ Dessutom är det möjligt att en enskild IP-adress kan försöka utföra flera i
 
 > [!NOTE]
 > Om du ska kunna använda rapporten måste AD FS-granskning vara aktiverat. Mer information finns i [Aktivera granskning för AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Om du vill ha åtkomst till förhandsversionen måste du ha behörighet som global administratör eller [säkerhetsläsare](../../role-based-access-control/built-in-roles.md#security-reader).  
+> Om du vill ha åtkomst till förhandsversionen måste du ha behörighet som global administratör eller [säkerhetsläsare](../../role-based-access-control/built-in-roles.md#security-reader).  
 > 
 
 ## <a name="what-is-in-the-report"></a>Vad finns i rapporten?
 Klientens IP-adresser för inloggning med misslyckade inloggningar sammanställs via Web Application Proxy-servrar. Varje objekt i rapporten för riskfyllda IP-adresser visar sammanställd information om misslyckade AD FS-inloggningsaktiviteter där angivet tröskelvärde har överskridits. Det innehåller följande information: ![ skärm bild som visar en riskfylld IP-rapport med kolumn rubriker markerad.](./media/how-to-connect-health-adfs/report4a.png)
 
-| Rapportobjekt | Beskrivning |
+| Rapportobjekt | Description |
 | ------- | ----------- |
 | Tidsstämpel | Visar tidsstämpeln baserat på Azure-portalens lokala tid när tidsperioden för identifiering startar.<br /> Alla dagliga händelser genereras vid midnatt UTC-tid. <br />Varje timhändelse har en tidsstämpel som är avrundad till timmens början. Första aktivitetens starttid från ”firstAuditTimestamp” hittar du i den exporterade filen. |
 | Utlösartyp | Visar tidsperiod för identifieringstypen. De sammanställda utlösartyperna visas per timme eller per dag. Det här är användbart vid identifiering av en råstyrkeattack med hög frekvens, jämfört med en långsam attack där antalet försök är fördelade över hela dagen. |
@@ -68,7 +68,7 @@ Sammanställning av lastbalanserarens misslyckade inloggningar aktiviteter och u
 ## <a name="download-risky-ip-report"></a>Hämta riskbaserade IP-rapporter 
 Med hjälp av funktionen **Ladda ned** kan listan med riskfyllda IP-adresser under de senaste 30 dagarna exporteras från Connect Health-portalen. Exportresultatet inkluderar alla misslyckade AD FS-inloggningar i varje tidsfönster, så du kan anpassa filtreringen efter exporten. Förutom markerade sammanställningar i portalen visar exportresultatet också mer information om misslyckade inloggningar per IP-adress:
 
-|  Rapportobjekt  |  Beskrivning  | 
+|  Rapportobjekt  |  Description  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | Visar den första tidstämpel då misslyckade aktiviteter startades under tidsperioden för identifieringen.  | 
 | lastAuditTimestamp | Visar den sista tidstämpel då misslyckade aktiviteter avslutades under tidsperioden för identifieringen.  | 
@@ -79,16 +79,16 @@ Med hjälp av funktionen **Ladda ned** kan listan med riskfyllda IP-adresser und
 Administratörskontakter i rapporten kan uppdateras i **Meddelandeinställningar**. Som standard är aviseringar om riskfyllda IP-adresser inaktiverade. Du kan aktivera meddelanden genom att visa/dölja knappen under ”Get email notifications for IP addresses exceeding failed activity threshold report” (Hämta e-postmeddelanden för IP-adresser som överstiger tröskelvärdet för misslyckade aktiviteter). Precis som i inställningar av allmänna aviseringar i Connect Health, kan du anpassa vilka mottagare som ska få meddelanden om riskfyllda IP-adresser härifrån. Du kan även meddela alla globala administratörer när ändringen är gjord. 
 
 ## <a name="configure-threshold-settings"></a>Konfigurera tröskelvärdes inställningar
-Aviseringströskelvärdet kan uppdateras i Tröskelinställningar. Systemet har tröskelvärdet inställt som standard. Det finns fyra kategorier i tröskelinställningarna för rapporten om riskfyllda IP-adresser:
+Aviseringströskelvärdet kan uppdateras i Tröskelinställningar. Systemet har tröskelvärdet inställt som standard. Standardvärdena anges nedan. Det finns fyra kategorier i tröskelinställningarna för rapporten om riskfyllda IP-adresser:
 
 ![Azure AD Connect Health-portalen](./media/how-to-connect-health-adfs/report4d.png)
 
-| Tröskelobjekt | Beskrivning |
+| Tröskelobjekt | Description |
 | --- | --- |
-| (Felaktig U/P + extranätsutelåsning)/dag  | Tröskelinställningen rapporterar aktivitet och utlöser en varningsavisering när antalet felaktiga lösenord plus antalet extranätsutelåsningar överskrider den per **dag**. |
-| (Felaktig U/P + extranätsutelåsning)/timme | Tröskelinställningen rapporterar aktivitet och utlöser en varningsavisering när antalet felaktiga lösenord plus antalet extranätsutelåsningar överskrider den per **timme**. |
-| Extranätsutelåsning/dag | Tröskelinställningen rapporterar aktivitet och utlöser en varningsavisering när antalet extranätsutelåsningar överskrider den per **dag**. |
-| Extranätsutelåsning/timme| Tröskelinställningen rapporterar aktivitet och utlöser en varningsavisering när antalet extranätsutelåsningar överskrider den per **timme**. |
+| (Felaktig U/P + extranätsutelåsning)/dag  | Tröskelinställningen rapporterar aktivitet och utlöser en varningsavisering när antalet felaktiga lösenord plus antalet extranätsutelåsningar överskrider den per **dag**. Standardvärdet är 100.|
+| (Felaktig U/P + extranätsutelåsning)/timme | Tröskelinställningen rapporterar aktivitet och utlöser en varningsavisering när antalet felaktiga lösenord plus antalet extranätsutelåsningar överskrider den per **timme**. Standardvärdet är 50.|
+| Extranätsutelåsning/dag | Tröskelinställningen rapporterar aktivitet och utlöser en varningsavisering när antalet extranätsutelåsningar överskrider den per **dag**. Standardvärdet är 50.|
+| Extranätsutelåsning/timme| Tröskelinställningen rapporterar aktivitet och utlöser en varningsavisering när antalet extranätsutelåsningar överskrider den per **timme**. Standardvärdet är 25|
 
 > [!NOTE]
 > - Ändringar av rapportens tröskelvärde tillämpas en timme efter ändringen. 

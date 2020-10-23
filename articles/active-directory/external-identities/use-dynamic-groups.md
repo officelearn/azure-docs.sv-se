@@ -11,17 +11,17 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f14bc6f80445d1119f34d24281d764fff38c8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5b820b8b9606795709d03414fa14ec29a1b5c519
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369173"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441563"
 ---
 # <a name="dynamic-groups-and-azure-active-directory-b2b-collaboration"></a>Dynamiska grupper och Azure Active Directory B2B-samarbete
 
 ## <a name="what-are-dynamic-groups"></a>Vad är dynamiska grupper?
-Dynamisk konfiguration av säkerhets grupp medlemskap för Azure Active Directory (Azure AD) finns i [Azure Portal](https://portal.azure.com). Administratörer kan ange regler för att fylla i grupper som skapas i Azure AD baserat på användarattribut (till exempel userType, avdelning eller land/region). Medlemmar kan läggas till eller tas bort automatiskt från en säkerhets grupp baserat på deras attribut. Dessa grupper kan ge åtkomst till program eller moln resurser (SharePoint-webbplatser, dokument) och tilldela licenser till medlemmar. Läs mer om dynamiska grupper i [dedikerade grupper i Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
+Dynamisk konfiguration av säkerhets grupp medlemskap för Azure Active Directory (Azure AD) finns i [Azure Portal](https://portal.azure.com). Administratörer kan ange regler för att fylla i grupper som skapas i Azure AD baserat på användarattribut (till exempel userType, avdelning eller land/region). Medlemmar kan läggas till eller tas bort automatiskt från en säkerhets grupp baserat på deras attribut. Dessa grupper kan ge åtkomst till program eller moln resurser (SharePoint-webbplatser, dokument) och tilldela licenser till medlemmar. Läs mer om dynamiska grupper i [dedikerade grupper i Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 Lämplig [Azure AD Premium P1-eller P2-licens](https://azure.microsoft.com/pricing/details/active-directory/) krävs för att skapa och använda dynamiska grupper. Läs mer i artikeln [skapa attribut-baserade regler för dynamiska grupp medlemskap i Azure Active Directory](../enterprise-users/groups-dynamic-membership.md).
 
@@ -76,4 +76,3 @@ Följande bild visar regel syntaxen för en dynamisk grupp som har ändrats för
 - [Användaregenskaper för B2B-samarbete](user-properties.md)
 - [Lägga till en B2B-samarbets användare till en roll](add-guest-to-role.md)
 - [Villkorlig åtkomst för B2B-samarbets användare](conditional-access.md)
-

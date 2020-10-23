@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 85b42c6a3c3c59bd8c22bcdc8954b8dd3399c454
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313152"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460979"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Självstudie: Migrera Azure DB för PostgreSQL – en server till Azure DB för PostgreSQL – en server online med DMS via Azure Portal
+# <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Självstudie: Migrera/uppgradera Azure DB för PostgreSQL – en server till Azure DB för PostgreSQL – en server online med DMS via Azure Portal
 
 Du kan använda Azure Database Migration Service för att migrera databaserna från en [Azure Database for PostgreSQL-enskild server](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) instans till samma eller en annan version av Azure Database for PostgreSQL-enskild Server instans eller Azure Database for PostgreSQL-flexibel server med minimal stillestånds tid. I den här självstudien migrerar du exempel databasen för **DVD-hyra** från en Azure Database for PostgreSQL v10 till Azure Database for PostgreSQL-en server med hjälp av aktiviteten online-migrering i Azure Database migration service.
 
@@ -42,12 +42,12 @@ I den här guiden får du lära dig att:
 > [!IMPORTANT]
 > Migrering från Azure Database for PostgreSQL stöds för PostgreSQL version 10 och senare. Du kan också använda den här självstudien för att migrera från en Azure Database for PostgreSQL instans till en annan Azure Database for PostgreSQL instans eller citus-instans.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
 * Kontrol lera [status för migrerings scenarier som stöds av Azure Database migration service](https://docs.microsoft.com/azure/dms/resource-scenario-status) för kombinationer av migrering och version som stöds. 
-* En befintlig [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) version 10 och senare instans med **DVD-hyres-** databasen. Azure Database Migration Service stöder inte migrering från Azure DB för PostgreSQL 9,5 eller 9,6.
+* En befintlig [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) version 10 och senare instans med **DVD-hyres-** databasen. 
 
     Observera också att mål Azure Database for PostgreSQL versionen måste vara lika med eller senare än den lokala PostgreSQL-versionen. Till exempel kan PostgreSQL 10 migrera till Azure Database for PostgreSQL 10 eller 11, men inte Azure Database for PostgreSQL 9,6.
 

@@ -2,25 +2,22 @@
 title: Använda moduler i Azure Automation
 description: Den här artikeln beskriver hur du använder PowerShell-moduler för att aktivera cmdletar i Runbooks och DSC-resurser i DSC-konfigurationer.
 services: automation
-ms.service: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/31/2020
+ms.subservice: shared-capabilities
+ms.date: 10/22/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 2bf3dda6e3d99b5ed67298343f5238d304df7e2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c940ede63e2a467a29ae56308893d573925d0039
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187378"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458157"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Använda moduler i Azure Automation
 
 Azure Automation använder ett antal PowerShell-moduler för att aktivera cmdletar i Runbooks och DSC-resurser i DSC-konfigurationer. Moduler som stöds är:
 
-* [Azure PowerShell AZ. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
-* [Azure PowerShell AzureRM. Automation](/powershell/module/azurerm.automation/?view=azurermps-6.13.0).
+* [Azure PowerShell AZ. Automation](/powershell/azure/new-azureps-module-az).
+* [Azure PowerShell AzureRM. Automation](/powershell/module/azurerm.automation/).
 * Andra PowerShell-moduler.
 * Intern `Orchestrator.AssetManagement.Cmdlets` modul.
 * Python 2-moduler.
@@ -106,9 +103,9 @@ Azure Automation kan importera en anpassad modul så att dess cmdlets är tillg�
 
 ## <a name="migrate-to-az-modules"></a>Migrera till AZ-moduler
 
-Det här avsnittet beskriver hur du migrerar till AZ-modulerna i Automation. Mer information finns i [migrera Azure PowerShell från AzureRM till AZ](/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0). 
+Det här avsnittet beskriver hur du migrerar till AZ-modulerna i Automation. Mer information finns i [migrera Azure PowerShell från AzureRM till AZ](/powershell/azure/migrate-from-azurerm-to-az).
 
-Vi rekommenderar inte att du kör AzureRM-moduler och AZ-moduler i samma Automation-konto. När du är säker på att du vill migrera från AzureRM till AZ, är det bäst att fullständigt genomföra en fullständig migrering. Automation återanvänder ofta sandbox i Automation-kontot för att spara vid start tider. Om du inte gör en fullständig flyttning av modulen kan du starta ett jobb som bara använder AzureRM-moduler och sedan starta ett annat jobb som bara använder AZ-moduler. Sand boxen kraschar snart och du får ett fel meddelande om att modulerna inte är kompatibla. I den här situationen uppstår slumpmässiga krascher för en viss Runbook eller konfiguration. 
+Vi rekommenderar inte att du kör AzureRM-moduler och AZ-moduler i samma Automation-konto. När du är säker på att du vill migrera från AzureRM till AZ, är det bäst att fullständigt genomföra en fullständig migrering. Automation återanvänder ofta sandbox i Automation-kontot för att spara vid start tider. Om du inte gör en fullständig flyttning av modulen kan du starta ett jobb som bara använder AzureRM-moduler och sedan starta ett annat jobb som bara använder AZ-moduler. Sand boxen kraschar snart och du får ett fel meddelande om att modulerna inte är kompatibla. I den här situationen uppstår slumpmässiga krascher för en viss Runbook eller konfiguration.
 
 >[!NOTE]
 >När du skapar ett nytt Automation-konto, även efter migrering till AZ-moduler, installerar Automation AzureRM-modulerna som standard. Du kan fortfarande uppdatera självstudiernas Runbooks med AzureRM-cmdletarna. Du bör dock inte köra dessa Runbooks.
@@ -119,27 +116,27 @@ Se till att testa alla Runbooks och DSC-konfigurationer noggrant, i ett separat 
 
 ### <a name="stop-and-unschedule-all-runbooks-that-use-azurerm-modules"></a>Stoppa och ta bort schemat för alla Runbooks som använder AzureRM-moduler
 
-För att se till att du inte kör några befintliga Runbooks eller DSC-konfigurationer som använder AzureRM-moduler måste du stoppa och ta bort schema för alla påverkade Runbooks och konfigurationer. Kontrol lera först att du granskar varje Runbook-eller DSC-konfiguration och dess scheman separat, för att säkerställa att du kan schemalägga om objektet i framtiden om det behövs. 
+För att se till att du inte kör några befintliga Runbooks eller DSC-konfigurationer som använder AzureRM-moduler måste du stoppa och ta bort schema för alla påverkade Runbooks och konfigurationer. Kontrol lera först att du granskar varje Runbook-eller DSC-konfiguration och dess scheman separat, för att säkerställa att du kan schemalägga om objektet i framtiden om det behövs.
 
-När du är redo att ta bort dina scheman kan du antingen använda Azure Portal eller cmdleten [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) . Se [ta bort ett schema](schedules.md#remove-a-schedule).
+När du är redo att ta bort dina scheman kan du antingen använda Azure Portal eller cmdleten [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) . Se [ta bort ett schema](schedules.md#remove-a-schedule).
 
 ### <a name="remove-azurerm-modules"></a>Ta bort AzureRM-moduler
 
-Det är möjligt att ta bort AzureRM-modulerna innan du importerar AZ-modulerna. Men om du gör det kan du avbryta synkronisering av käll kontroll och köra skript som fortfarande är schemalagda att fungera. Om du bestämmer dig för att ta bort modulerna, se [Avinstallera AzureRM](/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.8.0#uninstall-azurerm).
+Det är möjligt att ta bort AzureRM-modulerna innan du importerar AZ-modulerna. Men om du gör det kan du avbryta synkronisering av käll kontroll och köra skript som fortfarande är schemalagda att fungera. Om du bestämmer dig för att ta bort modulerna, se [Avinstallera AzureRM](/powershell/azure/migrate-from-azurerm-to-az#uninstall-azurerm).
 
 ### <a name="import-az-modules"></a>Importera AZ-moduler
 
 Om du importerar en AZ-modul till ditt Automation-konto importeras modulen inte automatiskt till PowerShell-sessionen som används av Runbooks. Moduler importeras till PowerShell-sessionen i följande situationer:
 
 * När en Runbook anropar en cmdlet från en modul.
-* När en Runbook importerar modulen explicit med cmdleten [import-module](/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) .
+* När en Runbook importerar modulen explicit med cmdleten [import-module](/powershell/module/microsoft.powershell.core/import-module) .
 * När en Runbook importerar en annan beroende modul.
 
 Du kan importera AZ-modulerna i Azure Portal. Kom ihåg att endast importera de AZ-moduler som du behöver, inte hela AZ. Automation-modulen. Eftersom [AZ. Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) är ett beroende för de andra AZ-modulerna måste du importera den här modulen innan andra.
 
-1. Från ditt Automation-konto, under **delade resurser**, väljer du **moduler**. 
+1. Från ditt Automation-konto, under **delade resurser**, väljer du **moduler**.
 2. Välj **Bläddra i galleriet**.  
-3. I Sök fältet anger du modulnamnet (till exempel `Az.Accounts` ). 
+3. I Sök fältet anger du modulnamnet (till exempel `Az.Accounts` ).
 4. På sidan PowerShell-modul väljer du **Importera** för att importera modulen till ditt Automation-konto.
 
     ![Skärm bild av importera moduler till ditt Automation-konto](../media/modules/import-module.png)
@@ -150,25 +147,36 @@ Du kan också göra den här importen via [PowerShell-galleriet](https://www.pow
 
 ### <a name="test-your-runbooks"></a>Testa dina runbooks
 
-När du har importerat AZ-modulerna till Automation-kontot kan du börja redigera dina runbooks och DSC-konfigurationer för att använda de nya modulerna. Ett sätt att testa ändringen av en Runbook att använda de nya cmdletarna är genom att använda `Enable-AzureRmAlias -Scope Process` kommandot i början av runbooken. Genom att lägga till det här kommandot i din Runbook kan skriptet köras utan ändringar. 
+När du har importerat AZ-modulerna till Automation-kontot kan du börja redigera dina runbooks och DSC-konfigurationer för att använda de nya modulerna. Ett sätt att testa ändringen av en Runbook att använda de nya cmdletarna är genom att använda `Enable-AzureRmAlias -Scope Process` kommandot i början av runbooken. Genom att lägga till det här kommandot i din Runbook kan skriptet köras utan ändringar.
 
 ## <a name="author-modules"></a>Author-moduler
 
-Vi rekommenderar att du följer de överväganden som beskrivs i det här avsnittet när du skapar en anpassad PowerShell-modul för användning i Azure Automation. För att förbereda modulen för import måste du skapa minst en psd1-, psm1-eller PowerShell-modul **. dll** -fil med samma namn som mappen modul. Sedan registrerar du mappen module så att Azure Automation kan importera den som en enda fil. **Zip** -paketet ska ha samma namn som mappen för den inneslutna modulen. 
+Vi rekommenderar att du följer de överväganden som beskrivs i det här avsnittet när du skapar en anpassad PowerShell-modul för användning i Azure Automation. För att förbereda modulen för import måste du skapa minst en. psd1-,. psm1-eller PowerShell-modul **. dll** -fil med samma namn som module-mappen. Sedan registrerar du mappen module så att Azure Automation kan importera den som en enda fil. **Zip** -paketet ska ha samma namn som mappen för den inneslutna modulen.
 
-Mer information om hur du redigerar en PowerShell-modul finns i [så här skriver du en PowerShell-modul för skript](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module?view=powershell-7).
+Mer information om hur du redigerar en PowerShell-modul finns i [så här skriver du en PowerShell-modul för skript](/powershell/scripting/developer/module/how-to-write-a-powershell-script-module).
 
 ### <a name="version-folder"></a>Versions mapp
 
-Ta inte med en versions-mapp i **. zip** -paketet för modulen. Det här problemet är mindre viktigt för Runbooks, men orsakar ett problem med tjänsten för tillstånds konfiguration (DSC). Azure Automation skapar automatiskt mappen version när modulen distribueras till noder som hanteras av tillstånds konfiguration. Om det finns en versions-mapp, slutar du med två instanser. Här är ett exempel på en mappstruktur för en DSC-modul:
+Med PowerShell-versioner sida-vid-sida-modul kan du använda mer än en version av en modul i PowerShell. Detta kan vara användbart om du har äldre skript som har testats och endast fungerar med en viss version av en PowerShell-modul, men andra skript kräver en nyare version av samma PowerShell-modul.
+
+Om du vill konstruera PowerShell-moduler så att de innehåller flera versioner skapar du mappen module och skapar sedan en mapp i den här modulen för varje version av modulen som du vill använda. I följande exempel tillhandahåller en modul som heter *TestModule* två versioner, 1.0.0 och 2.0.0.
+
+```dos
+TestModule
+   1.0.0
+   2.0.0
+```
+
+I var och en av versions mapparna kopierar du PowerShell. psm1-,. psd1-eller PowerShell-modulens **DLL** -filer som utgör en modul till respektive version-mapp. Zippa upp mappen modul så att Azure Automation kan importera den som en enda. zip-fil. Även om Automation endast visar den högsta versionen av modulen som importer ATS, om modulfönstret innehåller versioner sida vid sida av modulen, är de tillgängliga för användning i dina runbooks-eller DSC-konfigurationer.  
+
+Automation stöder moduler som innehåller sida-vid-sida-versioner i samma paket, men har inte stöd för användning av flera versioner av en modul i en moduls paket import. Du kan till exempel importera **modul A**, som innehåller version 1 och 2 till ditt Automation-konto. Senare uppdaterar du **modul A** för att inkludera version 3 och 4, när du importerar till ditt Automation-konto, är det bara version 3 och 4 som kan användas i alla RUNBOOKS och DSC-konfigurationer. Om du vill att alla versioner – 1, 2, 3 och 4 ska vara tillgängliga kan du använda. zip-filen som importen ska innehålla version 1, 2, 3 och 4.
+
+Om du ska använda olika versioner av samma modul mellan Runbooks, bör du alltid deklarera den version som du vill använda i din Runbook med hjälp av `Import-Module` cmdleten och inkludera parametern `-RequiredVersion <version>` . Även om den version som du vill använda är den senaste versionen. Detta beror på att Runbook-jobb kan köras i samma sandbox. Om sandbox redan har läst in en modul med ett visst versions nummer, eftersom ett tidigare jobb i sand boxen har nämnts, läser inte framtida jobb i sand Box automatiskt den senaste versionen av modulen. Det beror på att en viss version av den redan har lästs in i sand boxen.
+
+För en DSC-resurs använder du följande kommando för att ange en viss version:
 
 ```powershell
-myModule
-  - DSCResources
-    - myResourceFolder
-      myResourceModule.psm1
-      myResourceSchema.mof
-  myModuleManifest.psd1
+Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
 ```
 
 ### <a name="help-information"></a>Hjälp information
@@ -219,7 +227,7 @@ Ta med en sammanfattning, beskrivning och hjälp-URI för varje cmdlet i modulen
 
 ### <a name="connection-type"></a>Anslutningstyp
 
-Om modulen ansluter till en extern tjänst definierar du en Anslutnings typ med hjälp av en [anpassad integrerings modul](#custom-modules). Varje cmdlet i modulen bör godkänna en instans av anslutnings typen (anslutnings objekt) som en parameter. Användarna mappar parametrarna för anslutnings till gången till cmdletens motsvarande parametrar varje gång de anropar en cmdlet. 
+Om modulen ansluter till en extern tjänst definierar du en Anslutnings typ med hjälp av en [anpassad integrerings modul](#custom-modules). Varje cmdlet i modulen bör godkänna en instans av anslutnings typen (anslutnings objekt) som en parameter. Användarna mappar parametrarna för anslutnings till gången till cmdletens motsvarande parametrar varje gång de anropar en cmdlet.
 
 ![Använd en anpassad anslutning i Azure Portal](../media/modules/connection-create-new.png)
 
@@ -289,11 +297,11 @@ Gör alla cmdlets i modulen tillstånds lösa. Flera Runbook-jobb kan samtidigt 
 
 ### <a name="module-dependency"></a>Modul-beroende
 
-Se till att modulen är helt i ett paket som kan kopieras med hjälp av XCOPY. Automation-moduler distribueras till Automation-sandbox när Runbooks körs. Modulerna måste fungera oberoende av den värd som kör dem. 
+Se till att modulen är helt i ett paket som kan kopieras med hjälp av XCOPY. Automation-moduler distribueras till Automation-sandbox när Runbooks körs. Modulerna måste fungera oberoende av den värd som kör dem.
 
-Du bör kunna lägga upp och flytta ett modul-paket och få det att fungera som vanligt när det importeras till en annan värds PowerShell-miljö. För att detta ska ske kontrollerar du att modulen inte är beroende av filer utanför modulen modul som är zippande när modulen importeras till Automation. 
+Du bör kunna lägga upp och flytta ett modul-paket och få det att fungera som vanligt när det importeras till en annan värds PowerShell-miljö. För att detta ska ske kontrollerar du att modulen inte är beroende av filer utanför modulen modul som är zippande när modulen importeras till Automation.
 
-Modulen bör inte vara beroende av unika register inställningar på en värd. Exempel är de inställningar som görs när en produkt installeras. 
+Modulen bör inte vara beroende av unika register inställningar på en värd. Exempel är de inställningar som görs när en produkt installeras.
 
 ### <a name="module-file-paths"></a>Fil Sök vägar för modul
 
@@ -301,7 +309,7 @@ Se till att alla filer i modulen har sökvägar med färre än 140 tecken. Alla 
 
 ## <a name="import-modules"></a>Importera moduler
 
-I det här avsnittet definieras flera sätt att importera en modul till ditt Automation-konto. 
+I det här avsnittet definieras flera sätt att importera en modul till ditt Automation-konto.
 
 ### <a name="import-modules-in-the-azure-portal"></a>Importera moduler i Azure Portal
 
@@ -309,13 +317,13 @@ Så här importerar du en modul i Azure Portal:
 
 1. Gå till ditt Automation-konto.
 2. Under **delade resurser**väljer du **moduler**.
-3. Välj **Lägg till en modul**. 
+3. Välj **Lägg till en modul**.
 4. Välj den **. zip** -fil som innehåller modulen.
 5. Välj **OK** för att börja importera processen.
 
 ### <a name="import-modules-by-using-powershell"></a>Importera moduler med hjälp av PowerShell
 
-Du kan använda cmdleten [New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule?view=azps-3.7.0) för att importera en modul till ditt Automation-konto. Cmdleten tar en URL för en module. zip-paket.
+Du kan använda cmdleten [New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule) för att importera en modul till ditt Automation-konto. Cmdleten tar en URL för en module. zip-paket.
 
 ```azurepowershell-interactive
 New-AzAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
@@ -358,8 +366,8 @@ Om du har problem med en modul eller om du behöver återställa till en tidigar
 
 Så här tar du bort en modul i Azure Portal:
 
-1. Gå till ditt Automation-konto. Under **delade resurser**väljer du **moduler**. 
-2. Välj den modul som du vill ta bort. 
+1. Gå till ditt Automation-konto. Under **delade resurser**väljer du **moduler**.
+2. Välj den modul som du vill ta bort.
 3. På sidan modul väljer du **ta bort**. Om den här modulen är en av [standardmodulerna](#default-modules)återställs den till den version som fanns när Automation-kontot skapades.
 
 ### <a name="delete-modules-by-using-powershell"></a>Ta bort moduler med PowerShell
@@ -372,5 +380,6 @@ Remove-AzAutomationModule -Name <moduleName> -AutomationAccountName <automationA
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du använder Azure PowerShell moduler finns i [Kom igång med Azure PowerShell](/powershell/azure/get-started-azureps?view=azps-3.7.0).
-* Mer information om hur du skapar PowerShell-moduler finns i [skriva en Windows PowerShell-modul](/powershell/scripting/developer/module/writing-a-windows-powershell-module?view=powershell-7).
+* Mer information om hur du använder Azure PowerShell moduler finns i [Kom igång med Azure PowerShell](/powershell/azure/get-started-azureps).
+
+* Mer information om hur du skapar PowerShell-moduler finns i [skriva en Windows PowerShell-modul](/powershell/scripting/developer/module/writing-a-windows-powershell-module).

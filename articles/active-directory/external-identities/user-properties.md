@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90705477"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441376"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en Azure Active Directory B2B-samarbets användare
 
@@ -104,11 +104,11 @@ Det går att inaktivera standard begränsningarna så att en gäst användare i 
 ![Skärm bild som visar alternativet externa användare i användar inställningarna](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Kan jag göra gäst användare synliga i den globala adress listan i Exchange?
-Ja. Gäst objekt visas som standard inte i din organisations globala adress lista, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Mer information finns i **kan jag göra gäst objekt synliga i den globala adress listan?** i [Hantera gäst åtkomst i Microsoft 365 grupper](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups).
+Ja. Gäst objekt visas som standard inte i din organisations globala adress lista, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Mer information finns i **kan jag göra gäst objekt synliga i den globala adress listan?** i [Hantera gäst åtkomst i Microsoft 365 grupper](/office365/admin/create-groups/manage-guest-access-in-groups).
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Kan jag uppdatera en gäst användares e-postadress?
 
-Om en gäst användare accepterar din inbjudan och senare ändrar sin e-postadress, synkroniseras inte den nya e-postadressen automatiskt med gäst användar objekt i din katalog. E-postegenskapen skapas via [Microsoft Graph-API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Du kan uppdatera e-postegenskapen via Microsoft Graph API, administrations Center för Exchange eller [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). Ändringen visas i Azure AD-objektet gäst användare.
+Om en gäst användare accepterar din inbjudan och senare ändrar sin e-postadress, synkroniseras inte den nya e-postadressen automatiskt med gäst användar objekt i din katalog. E-postegenskapen skapas via [Microsoft Graph-API](/graph/api/resources/user?view=graph-rest-1.0). Du kan uppdatera e-postegenskapen via Microsoft Graph API, administrations Center för Exchange eller [Exchange Online PowerShell](/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). Ändringen visas i Azure AD-objektet gäst användare.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,22 +3,28 @@ title: Koncept – rollbaserad åtkomst kontroll (RBAC)
 description: Lär dig mer om de viktigaste funktionerna i rollbaserad åtkomst kontroll för Azure VMware-lösning
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: a863f44dd5fdd485f8d5ebfcfbacee994e6b63a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fbda24ec6a8c1d08570d7f64270a954eb3d8a35
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580612"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440951"
 ---
 # <a name="role-based-access-control-rbac-for-azure-vmware-solution"></a>Rollbaserad åtkomst kontroll (RBAC) för Azure VMware-lösning
 
-I en vCenter-och ESXi lokal distribution har administratören åtkomst till vCenter- administrator@vsphere.local kontot och kan ha ytterligare Active Directory (AD) användare/grupper tilldelade. Men i en Azure VMware-distribution har administratören inte åtkomst till administratörs användar kontot, men kan tilldela AD-användare och-grupper till CloudAdmin-rollen på vCenter.  Dessutom har Azure VMware-lösningen privat moln användare inte behörighet att komma åt eller konfigurera vissa hanterings komponenter som stöds och hanteras av Microsoft, till exempel kluster, värdar, data lager och distribuerade virtuella växlar.
-
-
-I Azure VMware-lösningen har vCenter en inbyggd lokal användare som heter cloudadmin som är tilldelad den inbyggda CloudAdmin-rollen. Den lokala cloudadmin-användaren används för att konfigurera ytterligare användare i AD. CloudAdmin-rollen i allmänhet har behörighet att skapa och hantera arbets belastningar i ditt privata moln (Virtual Machines, resurspooler, data lager och nätverk). CloudAdmin-rollen i Azure VMware-lösningen har en angiven uppsättning vCenter-behörigheter som skiljer sig från andra VMware Cloud-lösningar.   
+I Azure VMware-lösningen har vCenter en inbyggd lokal användare som kallas cloudadmin och tilldelad den inbyggda CloudAdmin-rollen. Den lokala cloudadmin-användaren används för att konfigurera användare i AD. I allmänhet skapar och hanterar CloudAdmin-rollen arbets belastningar i ditt privata moln. I Azure VMware-lösningen har CloudAdmin-rollen vCenter-behörigheter som skiljer sig från andra VMware Cloud-lösningar.     
 
 > [!NOTE]
 > Azure VMware-lösningen erbjuder för närvarande inte anpassade roller på vCenter eller Azure VMware Solution Portal. 
+
+I en vCenter-och ESXi lokal distribution har administratören åtkomst till vCenter- administrator@vsphere.local kontot. De kan också ha ytterligare Active Directory (AD) användare/grupper tilldelade. 
+
+I en distribution av Azure VMware-lösningar har administratören inte åtkomst till administratörs användar kontot. Men de kan tilldela AD-användare och-grupper till CloudAdmin-rollen på vCenter.  
+
+Det privata molnets användare har inte åtkomst till och kan inte konfigurera vissa hanterings komponenter som stöds och hanteras av Microsoft. Till exempel kluster, värdar, data lager och distribuerade virtuella växlar.
+
+
+
 
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>CloudAdmin-rollen för Azure VMware-lösningen på vCenter
 

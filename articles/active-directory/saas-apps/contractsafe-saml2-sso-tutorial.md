@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 9459d13e8943f7e9177d2ad493873257f46f6649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d236b9910e2eda8e574d020544d625a68aefb81
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544407"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455329"
 ---
 # <a name="tutorial-integrate-azure-active-directory-single-sign-on-sso-with-contractsafe-saml2-sso"></a>Självstudie: integrera Azure Active Directory enkel inloggning (SSO) med ContractSafe Saml2 SSO
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig att integrera ContractSafe Saml2 SSO 
 * Gör det möjligt för användarna att automatiskt logga in på ContractSafe Saml2 SSO med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om SaaS-appar (Software as a Service) med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS-appar (Software as a Service) med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att komma igång:
 
@@ -142,14 +142,14 @@ Skapa en användare som kallas B. Simon i ContractSafe Saml2 SSO. Arbeta med [Co
 
 ## <a name="test-sso"></a>Testa SSO
 
-Testa din Azure AD SSO-konfiguration med hjälp av åtkomst panelen. När du väljer ContractSafe Saml2 SSO-panelen på åtkomst panelen, bör du loggas in automatiskt till ContractSafe Saml2 SSO som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Testa din Azure AD SSO-konfiguration med hjälp av åtkomst panelen. När du väljer ContractSafe Saml2 SSO-panelen på åtkomst panelen, bör du loggas in automatiskt till ContractSafe Saml2 SSO som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova ContractSafe Saml2 SSO med Azure AD](https://aad.portal.azure.com/)

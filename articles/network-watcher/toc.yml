@@ -45,7 +45,7 @@
       href: network-watcher-nsg-flow-logging-overview.md
     - name: Vy för nätverkssäkerhetsgrupp
       href: network-watcher-security-group-view-overview.md
-    - name: Behörigheter för rollbaserad åtkomstkontroll
+    - name: Behörigheter för rollbaserad åtkomstkontroll i Azure
       href: required-rbac-permissions.md
     - name: Säkerhet
       items:
@@ -85,7 +85,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnosticera problem med utgående anslutningar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md

@@ -49,7 +49,7 @@
       href: tutorial-use-mqtt.md
     - name: Interagera med en MXChip-enhet (exempel)
       href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
-    - name: Migrera en enhet till en modul
+    - name: Ansluta en enhetsmodul
       href: tutorial-migrate-device-to-module.md
 - name: Begrepp
   items:
@@ -85,8 +85,6 @@
       href: concepts-model-discovery.md
     - name: Modellparser
       href: concepts-model-parser.md
-    - name: Begränsningar och kvoter
-      href: concepts-limits-quotas.md
     - name: Ordlista
       href: iot-plug-and-play-glossary.md
 - name: Anvisningar

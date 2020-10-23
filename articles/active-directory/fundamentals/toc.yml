@@ -69,6 +69,8 @@
               href: auth-remote-desktop-gateway.md
             - name: SAML-autentisering
               href: auth-saml.md
+            - name: SSH-autentisering
+              href: auth-ssh.md
             - name: Windows-autentisering – KCD
               href: auth-kcd.md
             - name: Katalogsynkronisering

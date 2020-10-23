@@ -18,6 +18,8 @@
   items:
     - name: Skapa ett privat Azure Red Hat OpenShift 4-kluster
       href: howto-create-private-cluster-4x.md
+    - name: Skapa en Azure Files StorageClass på Azure Red Hat OpenShift 4
+      href: howto-create-a-storageclass.md
     - name: Uppdatera pull-hemlighet för ett Azure Red Hat OpenShift 4-kluster
       href: howto-add-update-pull-secret.md
     - name: Konfigurera DNS-vidarebefordring för ett Azure Red Hat OpenShift 4-kluster

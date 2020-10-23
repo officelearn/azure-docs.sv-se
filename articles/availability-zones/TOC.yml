@@ -61,8 +61,10 @@
           href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: SQL Database
           items:
-            - name: Tillgänglighetszoner med SQL Database
-              href: ../azure-sql/database/high-availability-sla.md#zone-redundant-configuration
+            - name: Tillgänglighetszoner med SQL Database-nivå för generell användning
+              href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview
+            - name: Tillgänglighetszoner med SQL Database-nivåerna Premium och Affärskritisk
+              href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
         - name: Storage
           items:
             - name: Zonredundant lagring

@@ -248,13 +248,13 @@
           href: move-partner-namespaces-across-regions.md
     - name: Skydda
       items:
-        - name: Konfigurera privata slutpunkter
+        - name: Publicera händelser säkert över en privat länk
           href: configure-private-endpoints.md
         - name: Konfigurera IP-brandvägg
           href: configure-firewall.md
         - name: Skydda en webhook med Azure Active Directory
           href: secure-webhook-delivery.md
-        - name: Händelseleverans med hanterad identitet
+        - name: 'Händelseleverans, hanterad identitet och privat länk'
           href: managed-service-identity.md
     - name: Felsöka
       items:

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 12bc99d24472780f87a6b2a83befdbbf12944860
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca1ee8418bc08d70a031d81a15dc1b4ace2f1a3a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267728"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461829"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenario: anpassad isolering för virtuella nätverk
 
@@ -25,11 +25,11 @@ För att ta reda på hur många väg tabeller som behövs kan du bygga en anslut
 
 | Från | Till:| *Blå virtuella nätverk* | *Röd virtuella nätverk* | *Grenar*|
 |---|---|---|---|---|
-| **Blå virtuella nätverk** |   &#8594;|      X        |               |       X      |
-| **Röd virtuella nätverk**  |   &#8594;|              |       X       |       X      |
-| **Grenar**   |   &#8594;|     X        |       X       |       X      |
+| **Blå virtuella nätverk** |   &#8594;|   Direct     |           |  Direct |
+| **Röd virtuella nätverk**  |   &#8594;|              |   Direct  |  Direct |
+| **Grenar**   |   &#8594;|   Direct     |   Direct  |  Direct |
 
-Var och en av cellerna i den föregående tabellen beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) får ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde, där ett "X" innebär att anslutningen tillhandahålls av Virtual WAN.
+Var och en av cellerna i föregående tabell beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna) kommunicerar med ett mål ("till"-sidan av flödet, kolumn rubrikerna i kursiv stil). I det här scenariot finns det inga brand väggar eller virtuella nätverks enheter, så kommunikationen flödar direkt över det virtuella WAN-nätverket (och därför ordet "Direct" i tabellen).
 
 Antalet olika rad mönster är antalet väg tabeller som vi behöver i det här scenariot. I det här fallet kommer tre väg tabeller att anropa **RT_BLUE** och **RT_RED** för de virtuella nätverken och som **standard** för grenarna. Kom ihåg att grenar alltid måste kopplas till standard routningstabellen.
 

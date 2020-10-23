@@ -10,22 +10,22 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: f2859ddb6ddf7d1041509c47adfe7bf3a1ce99b8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377046"
+ms.locfileid: "92424562"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Azure Active Directory applikations etablering: Nyheter
 
-Välkommen till nyheter i Azure Active Directory Application Provisioning-dokumentationen. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna.
+Välkommen till nyheter i Azure Active Directory Application Provisioning-dokumentationen. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna. Information om vad som är nytt med etablerings tjänsten finns i [Nyheter i Azure Active Directory](../fundamentals/whats-new.md).
 
 ## <a name="september-2020"></a>September 2020
 
 ### <a name="new-articles"></a>Nya artiklar
 
-- [Nyheter](whats-new-docs.md)
+- [Vad är nytt i dokumenten?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar
 - [Program etablering i karantän status](application-provisioning-quarantine-status.md)

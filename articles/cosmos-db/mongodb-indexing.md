@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: c8816d4db6ee054df574263f90522f08f7dcd058
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282367"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425038"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Hantera indexering i Azure Cosmos DBs API för MongoDB
 
@@ -40,7 +40,10 @@ En fråga använder flera enstaka fält index där det är tillgängligt. Du kan
 
 ### <a name="compound-indexes-mongodb-server-version-36"></a>Sammansatta index (MongoDB Server version 3,6)
 
-Azure Cosmos DBs API för MongoDB stöder sammansatta index för konton som använder version 3,6 Wire-protokollet. Du kan inkludera upp till åtta fält i ett sammansatt index. **Till skillnad från MongoDB bör du endast skapa ett sammansatt index om frågan behöver sortera effektivt på flera fält samtidigt.** För frågor med flera filter som inte behöver sorteras, skapar du flera fält index i stället för ett enda sammansatt index.
+Azure Cosmos DBs API för MongoDB stöder sammansatta index för konton som använder version 3,6 Wire-protokollet. Du kan inkludera upp till åtta fält i ett sammansatt index. Till skillnad från MongoDB bör du endast skapa ett sammansatt index om frågan behöver sortera effektivt på flera fält samtidigt. För frågor med flera filter som inte behöver sorteras, skapar du flera fält index i stället för ett enda sammansatt index. 
+
+> [!NOTE]
+> Du kan inte skapa sammansatta index för kapslade egenskaper eller matriser.
 
 Följande kommando skapar ett sammansatt index för fälten `name` och `age` :
 
@@ -59,7 +62,7 @@ Sekvensen för Sök vägarna i det sammansatta indexet måste dock exakt matcha 
 `db.coll.find().sort({age:1,name:1})`
 
 > [!NOTE]
-> Du kan inte skapa sammansatta index för kapslade egenskaper eller matriser.
+> Sammansatta index används endast i frågor som sorterar resultat. För frågor som har flera filter som inte behöver sorteras skapar du Multipe enstaka fält index.
 
 ### <a name="multikey-indexes"></a>MultiKey-index
 
@@ -75,7 +78,7 @@ Här är ett exempel på hur du skapar ett geospatialt index i `location` fälte
 
 ### <a name="text-indexes"></a>Text index
 
-Azure Cosmos DBs API för MongoDB stöder för närvarande inte text index. För texts öknings frågor på strängar bör du använda [Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration med Azure Cosmos dB.
+Azure Cosmos DBs API för MongoDB stöder för närvarande inte text index. För texts öknings frågor på strängar bör du använda [Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration med Azure Cosmos dB. 
 
 ## <a name="wildcard-indexes"></a>Jokertecken index
 
@@ -131,7 +134,10 @@ Så här kan du skapa ett Wildcard-index i alla fält:
 
 `db.coll.createIndex( { "$**" : 1 } )`
 
-När du börjar utveckla kan det vara praktiskt att skapa ett Wildcard-index i alla fält. I takt med att fler egenskaper indexeras i ett dokument ökar enhets avgiften för begäran (RU) för skrivning och uppdatering av dokumentet. Om du har en Skriv intensiv arbets belastning bör du därför välja enskilda index Sök vägar i stället för att använda index med jokertecken.
+> [!NOTE]
+> Om du bara börjar utveckla **rekommenderar vi att du startar** med ett Wildcard-index i alla fält. Detta kan förenkla utvecklingen och göra det enklare att optimera frågor.
+
+Dokument med många fält kan ha en RU-avgift (High Request Unit) för skrivningar och uppdateringar. Om du har en Skriv intensiv arbets belastning bör du därför välja enskilda index Sök vägar i stället för att använda index med jokertecken.
 
 ### <a name="limitations"></a>Begränsningar
 
@@ -335,7 +341,7 @@ För närvarande kan du bara skapa unika index när samlingen inte innehåller n
 
 ## <a name="indexing-for-mongodb-version-32"></a>Indexering för MongoDB-version 3,2
 
-Tillgängliga indexerings funktioner och standardvärden skiljer sig åt för Azure Cosmos-konton som är kompatibla med version 3,2 av MongoDB-Wire-protokollet. Du kan [kontrol lera kontots version](mongodb-feature-support-36.md#protocol-support). Du kan uppgradera till 3,6-versionen genom att skicka en [support förfrågan](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Tillgängliga indexerings funktioner och standardvärden skiljer sig åt för Azure Cosmos-konton som är kompatibla med version 3,2 av MongoDB-Wire-protokollet. Du kan [kontrol lera kontots version](mongodb-feature-support-36.md#protocol-support) och [uppgradera till version 3,6](mongodb-version-upgrade.md).
 
 Om du använder version 3,2 beskriver det här avsnittet viktiga skillnader med version 3,6.
 
@@ -352,11 +358,11 @@ När du har släppt standard indexen kan du lägga till fler index som du skulle
 
 ### <a name="compound-indexes-version-32"></a>Sammansatta index (version 3,2)
 
-Sammansatta index innehåller referenser till flera fält i ett dokument. Om du vill skapa ett sammansatt index uppgraderar du till version 3,6 genom att skicka en [support förfrågan](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Sammansatta index innehåller referenser till flera fält i ett dokument. Om du vill skapa ett sammansatt index [uppgraderar du till version 3,6](mongodb-version-upgrade.md).
 
 ### <a name="wildcard-indexes-version-32"></a>Jokertecken index (version 3,2)
 
-Om du vill skapa ett Wildcard-index uppgraderar du till version 3,6 genom att skicka in en [supportbegäran](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Om du vill skapa ett Wildcard-index [uppgraderar du till version 3,6](mongodb-version-upgrade.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

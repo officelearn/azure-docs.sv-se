@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: df7c27fb0aca6a9b903d29ea4414832fb677b3eb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 086f680a0674d5d79d9d039d9ad47e542856ac5d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705270"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92420079"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Snabb start: skapa en Azure Database for PostgreSQL-server med hjälp av Azure CLI
 
@@ -24,10 +24,10 @@ Den här snabb starten visar hur du använder [Azure CLI](https://docs.microsoft
 > [!TIP]
 > Överväg att använda det enklare [AZ postgres](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-kommandot som för närvarande finns som för hands version. Prova [snabb](./quickstart-create-server-up-azure-cli.md)starten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Du måste logga in på ditt konto med hjälp av kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login) . Observera egenskapen **ID** som refererar till **prenumerations-ID** för ditt Azure-konto. 
+Du måste logga in på ditt konto med hjälp av kommandot [AZ login](/cli/azure/reference-index#az-login) . Observera egenskapen **ID** som refererar till **prenumerations-ID** för ditt Azure-konto. 
 
 ```azurecli-interactive
 az login
@@ -39,11 +39,11 @@ Välj det aktuella prenumerations-ID: t under ditt konto med hjälp av kommandot
 az account set --subscription <subscription id>
 ```
 
-Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Använd [AZ Account List](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list)för att hämta alla dina prenumerationer.
+Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Använd [AZ Account List](/cli/azure/account#az-account-list)för att hämta alla dina prenumerationer.
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Skapa en Azure Database for PostgreSQL-server
 
-Skapa en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) med kommandot [AZ Group Create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) och skapa sedan din postgresql-server i den här resurs gruppen. Du bör ange ett unikt namn. I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
+Skapa en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) med kommandot [AZ Group Create](/cli/azure/group#az-group-create) och skapa sedan din postgresql-server i den här resurs gruppen. Du bör ange ett unikt namn. I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -58,7 +58,7 @@ Här följer information om föregående argument:
 
 **Inställning** | **Exempelvärde** | **Beskrivning**
 ---|---|---
-name | mydemoserver | Unikt namn som identifierar din Azure Database for PostgreSQL-Server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
+name | mydemoserver | Unikt namn som identifierar din Azure Database for PostgreSQL-Server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken. Mer information finns i [Azure Database for PostgreSQL namngivnings regler](/azure/azure-resource-manager/management/resource-name-rules#microsoftdbforpostgresql).
 resource-group | myresourcegroup | Namnet på Azure-resurs gruppen.
 location | westus | Azure-plats för servern.
 admin-user | myadmin | Användar namn för Administratörs inloggning. Det kan inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig**.
@@ -67,7 +67,7 @@ sku-name|GP_Gen5_2| Namnet på pris nivån och beräknings konfigurationen. Föl
 
 >[!IMPORTANT] 
 >- Standard versionen av PostgreSQL på servern är 9,6. Om du vill se alla versioner som stöds, se [postgresql-versioner som stöds](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
->- Se [det här referens dokumentet](https://docs.microsoft.com/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create)om du vill visa alla argument för kommandot **AZ postgres Server Create** .
+>- Se [det här referens dokumentet](/cli/azure/postgres/server#az-postgres-server-create)om du vill visa alla argument för kommandot **AZ postgres Server Create** .
 >- SSL är aktiverat som standard på servern. Mer information om SSL finns i [Konfigurera SSL-anslutning](./concepts-ssl-connection-security.md).
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurera en brandväggsregel på servernivå 

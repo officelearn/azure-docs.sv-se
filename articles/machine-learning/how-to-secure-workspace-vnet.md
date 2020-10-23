@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 5d34fe403e0af4bc871ba176d0fa755650c26292
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef1e3c886cfd30db4c6a550d0ecabe7d41fab55c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776058"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425004"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Skydda en Azure Machine Learning arbets yta med virtuella nätverk
 
@@ -37,18 +37,18 @@ I den här artikeln får du lära dig hur du aktiverar följande arbets ytor res
 > - Azure Key Vault
 > - Azure Container Registry
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
 + Ett befintligt virtuellt nätverk och undernät som ska användas med dina beräknings resurser.
 
-+ För att distribuera resurser till ett virtuellt nätverk eller undernät måste ditt användar konto ha behörighet till följande åtgärder i Azure-rollbaserade åtkomst kontroller (RBAC):
++ För att distribuera resurser till ett virtuellt nätverk eller undernät måste ditt användar konto ha behörighet till följande åtgärder i rollbaserad åtkomst kontroll i Azure (Azure RBAC):
 
     - "Microsoft. Network/virtualNetworks/Join/Action" på den virtuella nätverks resursen.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" på under näts resursen.
 
-    Mer information om RBAC med nätverk finns i [inbyggda nätverks roller](/azure/role-based-access-control/built-in-roles#networking)
+    Mer information om Azure RBAC med nätverk finns i [inbyggda nätverks roller](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## <a name="secure-the-workspace-with-private-endpoint"></a>Skydda arbets ytan med privat slut punkt
@@ -197,7 +197,7 @@ När dessa krav är uppfyllda använder du följande steg för att aktivera Azur
 
 1. Hitta namnet på Azure Container Registry för din arbets yta med någon av följande metoder:
 
-    __Azure Portal__
+    __Azure-portalen__
 
     I översikts avsnittet på arbets ytan länkar __registervärdet__ till Azure Container Registry.
 

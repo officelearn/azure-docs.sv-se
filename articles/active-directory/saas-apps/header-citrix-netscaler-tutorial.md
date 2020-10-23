@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: de02e8ea995482b815734565f839c4cb1c348782
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944238"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445676"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Självstudie: Azure Active Directory enkel inloggning med Citrix NetScaler (huvud-baserad autentisering)
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig att integrera Citrix NetScaler med Az
 * Gör det möjligt för användarna att logga in automatiskt till Citrix NetScaler med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -117,7 +117,7 @@ Slutför de här stegen för att aktivera Azure AD SSO med hjälp av Azure Porta
 
 1. Citrix NetScaler-programmet förväntar sig också några fler attribut som ska skickas tillbaka i SAML-svaret. I dialog rutan **användarattribut** under **användar anspråk**utför du följande steg för att lägga till SAML-token-attributen som visas i tabellen:
 
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | ---------------| --------------- |
     | mySecretID  | user.userprincipalname |
     
@@ -151,7 +151,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
    1. Som **namn**anger du `B.Simon` .  
 
-   1. För **användar namn**anger du _username@companydomain.extension_ . Exempelvis `B.Simon@contoso.com`.
+   1. För **användar namn**anger du _username@companydomain.extension_ . Till exempel `B.Simon@contoso.com`.
 
    1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned eller kopiera värdet som visas i **lösen ordet**.
 
@@ -437,15 +437,15 @@ I det här avsnittet skapas en användare som heter B. Simon i Citrix NetScaler.
 
 I det här avsnittet ska du testa din Azure AD SSO-konfiguration med hjälp av åtkomst panelen.
 
-När du väljer panelen för att skapa en netscaleor-panel i åtkomst panelen, bör du loggas in automatiskt på den Citrix netscaleer som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen för att skapa en netscaleor-panel i åtkomst panelen, bör du loggas in automatiskt på den Citrix netscaleer som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova Citrix NetScaler med Azure AD](https://aad.portal.azure.com/)
 

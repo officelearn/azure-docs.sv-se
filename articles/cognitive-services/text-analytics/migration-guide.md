@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 06/25/2020
+ms.date: 10/19/2020
 ms.author: aahi
-ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 172e684c6edbab4d7d47c8cf78e35ae38de3a0af
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85412591"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461795"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrera till version 3. x av API för textanalys
 
@@ -31,9 +31,14 @@ Attitydanalys i version 2,1 returnerar sentiment resultat mellan 0 och 1 för va
 
 ## <a name="steps-to-migrate"></a>Steg för att migrera
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
-Om programmet använder REST API uppdaterar du slut punkten för begäran till v3-slutpunkten för sentiment-analys. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . Du måste också uppdatera programmet så att det använder sentiment-etiketter som returneras i [JSON-svaret](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+Om programmet använder REST API uppdaterar du slut punkten för begäran till v3-slutpunkten för sentiment-analys. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment` . Du måste också uppdatera programmet så att det använder sentiment-etiketter som returneras i [API: et svar](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+
+I referens dokumentationen finns exempel på JSON-svaret.
+* [Version 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
+* [Version 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment) 
+* [Version 3,1 – för hands version](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
 
 ### <a name="client-libraries"></a>Klientbibliotek
 
@@ -50,7 +55,7 @@ I version 2,1 använder API för textanalys en slut punkt för namngiven entitet
 
 ## <a name="steps-to-migrate"></a>Steg för att migrera
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
 Om programmet använder REST API uppdaterar du slut punkten för begäran till v3-slutpunkterna för NER och/eller enhets länkning.
 
@@ -60,14 +65,19 @@ Entity Linking
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-Du måste också uppdatera ditt program för att använda [enhets kategorierna](named-entity-types.md) som returneras i [JSON-svaret](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+Du måste också uppdatera ditt program för att använda [enhets kategorierna](named-entity-types.md) som returneras i [API: et svar](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+
+I referens dokumentationen finns exempel på JSON-svaret.
+* [Version 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+* [Version 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral) 
+* [Version 3,1 – för hands version](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/EntitiesRecognitionGeneral)
 
 ### <a name="client-libraries"></a>Klientbibliotek
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 
-#### <a name="language-detection"></a>[Språk identifiering](#tab/language-detection)
+#### <a name="language-detection"></a>[Språkidentifiering](#tab/language-detection)
 
 ## <a name="feature-changes"></a>Funktions ändringar 
 
@@ -75,16 +85,21 @@ Funktionen för språk identifiering har inte ändrats i v3 utanför slut punkts
 
 ## <a name="steps-to-migrate"></a>Steg för att migrera
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
-Om programmet använder REST API uppdaterar du slut punkten för begäran till v3-slutpunkten för språk identifiering. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . Du måste också uppdatera det program som ska användas i `ConfidenceScore` stället för `score` i [JSON-svaret](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+Om programmet använder REST API uppdaterar du slut punkten för begäran till v3-slutpunkten för språk identifiering. Till exempel: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages` . Du måste också uppdatera det program som ska användas i `ConfidenceScore` stället för `score` i [API: et svar](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+
+I referens dokumentationen finns exempel på JSON-svaret.
+* [Version 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
+* [Version 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Languages) 
+* [Version 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Languages)
 
 ### <a name="client-libraries"></a>Klientbibliotek
 
 [!INCLUDE [Client library migration information](includes/client-library-migration-section.md)]
 
 
-#### <a name="key-phrase-extraction"></a>[Extrahering av nyckel fraser](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extrahering av nyckelfraser](#tab/key-phrase-extraction)
 
 ## <a name="feature-changes"></a>Funktions ändringar 
 
@@ -92,9 +107,14 @@ Extraherings funktionen för nyckel fraser har inte ändrats i v3 utanför slut 
 
 ## <a name="steps-to-migrate"></a>Steg för att migrera
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
 Om programmet använder REST API uppdaterar du slut punkten för begäran till v3-slutpunkten för extrahering av nyckel fraser. Exempelvis: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v3.0/keyPhrases`
+
+I referens dokumentationen finns exempel på JSON-svaret.
+* [Version 2,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
+* [Version 3,0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/KeyPhrases) 
+* [Version 3,1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/KeyPhrases)
 
 ### <a name="client-libraries"></a>Klientbibliotek
 
@@ -105,7 +125,6 @@ Om programmet använder REST API uppdaterar du slut punkten för begäran till v
 
 ## <a name="see-also"></a>Se även
 
-* [Referens för API för textanalys v2](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [Vad är API för textanalys](overview.md)
 * [Stöd för språk](language-support.md)
 * [Versionshantering för modell](concepts/model-versioning.md)

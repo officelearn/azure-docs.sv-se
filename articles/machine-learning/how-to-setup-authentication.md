@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js
-ms.openlocfilehash: 486f026f0d9b325f8e17a040c69f9d3e1da9b359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1d89def944529235a0141d7e700049f15d1d0a7
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729040"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424975"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 
@@ -28,9 +28,9 @@ I allmänhet finns det två typer av autentisering som du kan använda med Azure
 * __Interaktiv__: du använder ditt konto i Azure Active Directory för att antingen autentisera dig direkt eller hämta en token som används för autentisering. Interaktiv autentisering används vid experimentering och iterativ utveckling. Eller var du vill kontrol lera åtkomsten till resurser (till exempel en webb tjänst) per användare.
 * __Tjänstens huvud namn__: du skapar ett tjänst huvud namns konto i Azure Active Directory och använder det för att autentisera eller hämta en token. Ett huvud namn för tjänsten används när du behöver en automatiserad process för att autentisera till tjänsten utan att det krävs några åtgärder från användaren. Till exempel ett kontinuerligt integrerings-och distributions skript som tågen och testar en modell varje gång inlärnings koden ändras. Du kan också använda ett huvud namn för tjänsten för att hämta en token för att autentisera till en webb tjänst, om du inte vill kräva att slutanvändaren av tjänsten kan autentisera sig. Eller där autentiseringen av slutanvändare inte utförs direkt med Azure Active Directory.
 
-Oavsett vilken autentiseringstyp som används används rollbaserad åtkomst kontroll (RBAC) för att begränsa den åtkomst nivå som tillåts för resurserna. Till exempel behöver ett konto som används för att hämta åtkomsttoken för en distribuerad modell bara Läs behörighet till arbets ytan. Mer information om RBAC finns i [Hantera åtkomst till Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
+Oavsett vilken autentiseringstyp som används, används Azure rollbaserad åtkomst kontroll (Azure RBAC) för att begränsa den åtkomst nivå som tillåts för resurserna. Till exempel behöver ett konto som används för att hämta åtkomsttoken för en distribuerad modell bara Läs behörighet till arbets ytan. Mer information om Azure RBAC finns i [Hantera åtkomst till Azure Machine Learning-arbetsyta](how-to-assign-roles.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Skapa en [Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 * [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning Notebook VM](concept-azure-machine-learning-architecture.md#compute-instance) med SDK redan installerad.

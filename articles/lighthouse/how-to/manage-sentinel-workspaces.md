@@ -3,12 +3,12 @@ title: Hantera Azure Sentinel-arbetsytor i skala
 description: Lär dig hur du effektivt hanterar Azure Sentinel på delegerade kund resurser.
 ms.date: 09/30/2020
 ms.topic: how-to
-ms.openlocfilehash: d1ab392ee946e09a5f9e32ddf01ec2cd1e8bd41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596947"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424091"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Hantera Azure Sentinel-arbetsytor i skala
 
@@ -39,7 +39,7 @@ Den här centraliserade distributions modellen har följande fördelar:
 > [!NOTE]
 > Du kan hantera delegerade resurser som finns i olika [regioner](../../availability-zones/az-overview.md#regions). Delegering av prenumerationer i ett [nationellt moln](../../active-directory/develop/authentication-national-cloud.md) och det offentliga Azure-molnet, eller över två separata nationella moln, stöds dock inte.
 
-## <a name="granular-role-based-access-control-rbac"></a>Detaljerad rollbaserad åtkomst kontroll (RBAC)
+## <a name="granular-azure-role-based-access-control-azure-rbac"></a>Detaljerad Azure rollbaserad åtkomst kontroll (Azure RBAC)
 
 Varje kund prenumeration som en MSSP ska hantera måste registreras [på Azure Lighthouse](onboard-customer.md). Detta gör det möjligt för utvalda användare i hanterings klienten att komma åt och utföra hanterings åtgärder på Azure Sentinel-arbetsytor som distribueras i kund klienter.
 

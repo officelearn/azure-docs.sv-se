@@ -8,15 +8,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: 891cd651278906c6ff4b24d91342c612c67604de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b28d75e6526f27fd0076244ec32848dbf20e91e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596563"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424773"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics utdata till Azure Cosmos DB  
-Azure Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) för JSON-utdata, aktivera dataarkivering och frågor med låg latens i OSTRUKTURERAde JSON-data. Det här dokumentet beskriver några metod tips för att implementera den här konfigurationen.
+Azure Stream Analytics kan rikta [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) för JSON-utdata, aktivera dataarkivering och frågor med låg latens i OSTRUKTURERAde JSON-data. Det här dokumentet beskriver några metod tips för att implementera den här konfigurationen. Vi rekommenderar att du ställer in jobbet på kompatibilitetsnivå nivå 1,2 när du använder Azure Cosmos DB som utdata.
 
 Om du inte känner till Azure Cosmos DB kan du gå till [Azure Cosmos DB-dokumentationen](https://docs.microsoft.com/azure/cosmos-db/) för att komma igång. 
 
@@ -107,7 +107,7 @@ Om du använder Azure Cosmos DB som utdata i Stream Analytics genereras följand
 
 ![Informations fält för en Azure Cosmos DB-utdataström](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-|Field           | Beskrivning|
+|Fält           | Beskrivning|
 |-------------   | -------------|
 |Utdataalias    | Ett alias som refererar till utdata i din Stream Analytics fråga.|
 |Prenumeration    | Azure-prenumerationen.|
@@ -137,3 +137,17 @@ Om ett tillfälligt fel, tjänsten inte är tillgänglig eller om begränsningen
 - NotFound (HTTP-felkod 404)
 - Tillåts inte (HTTP-felkod 403)
 - BadRequest (HTTP-felkod 400)
+
+## <a name="common-issues"></a>Vanliga problem
+
+1. En unik index begränsning läggs till i samlingen och utgående data från Stream Analytics bryter mot den här begränsningen. Se till att utdata från Stream Analytics inte bryter mot unika begränsningar eller ta bort begränsningar. Mer information finns i [unika nyckel begränsningar i Azure Cosmos DB](../cosmos-db/unique-keys.md).
+
+2. `PartitionKey`Kolumnen finns inte.
+
+3. `Id`Kolumnen finns inte.
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Förstå utdata från Azure Stream Analytics](stream-analytics-define-outputs.md) 
+* [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md)
+* [Azure Stream Analytics partitionering av anpassad BLOB-utdata](stream-analytics-custom-path-patterns-blob-storage-output.md)

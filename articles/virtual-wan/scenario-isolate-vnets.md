@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e2ce17be6d8a1fa82d8a92b9b788f0bd2a37b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267643"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424741"
 ---
 # <a name="scenario-isolating-vnets"></a>Scenario: isolera virtuella nätverk
 
@@ -26,10 +26,10 @@ I det här scenariot förblir arbets belastningen i ett visst VNet isolerad och 
 
 | Från |   Om du vill |  *Virtuella nätverk* | *Grenar* |
 | -------------- | -------- | ---------- | ---|
-| Virtuella nätverk     | &#8594;|           |     X    |
-| Grenar   | &#8594;|    X     |     X    |
+| Virtuella nätverk     | &#8594;| Direct |   Direct    |
+| Grenar   | &#8594;|  Direct  |   Direct    |
 
-Var och en av cellerna i föregående tabell beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna) lär sig ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil) för ett särskilt trafikflöde, där ett "X" innebär att anslutningen tillhandahålls av Virtual WAN.
+Var och en av cellerna i föregående tabell beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna) kommunicerar med ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil). I det här scenariot finns det inga brand väggar eller virtuella nätverks enheter, så kommunikationen flödar direkt över det virtuella WAN-nätverket (och därför ordet "Direct" i tabellen).
 
 Den här anslutnings matrisen ger oss två olika rad mönster, som översätts till två väg tabeller. Det virtuella WAN-nätverket har redan en standard väg tabell, så vi behöver en annan routningstabell. I det här exemplet namnger vi routningstabellen **RT_VNET**.
 

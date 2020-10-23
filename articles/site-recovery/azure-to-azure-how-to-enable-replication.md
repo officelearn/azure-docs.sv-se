@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 3a1ac6dd940ea5d31adae45a435c5425497362b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe5feed4bb6f9b84a3f161692310922f7a6d2f00
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135780"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424791"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 
@@ -36,10 +36,10 @@ Aktivera replikering. Den här proceduren förutsätter att den primära Azure-r
    - **Käll prenumeration**: den prenumeration som de virtuella käll datorerna tillhör. Detta kan vara en prenumeration i samma Azure Active Directory-klientorganisation som dina valv i återställningstjänsten finns i.
    - **Resurs grupp**: resurs gruppen som de virtuella käll datorerna tillhör. Alla virtuella datorer under den valda resurs gruppen visas som skydd i nästa steg.
 
-     ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
+     ![Skärm bild som visar de fält som behövs för att konfigurera replikering.](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
 3. I **Virtual Machines > Välj virtuella datorer**klickar du på och väljer varje virtuell dator som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**.
-    ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
+    ![Skärm bild som visar var du väljer virtuella datorer.](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 4. I **Inställningar**kan du välja att konfigurera mål plats inställningar:
 
@@ -101,7 +101,7 @@ Du kan ändra inställningarna för standard mål som används av Site Recovery.
     - I **tillgänglighets uppsättning**kan du lägga till inställningar för tillgänglighets uppsättningar på den virtuella datorn, om de är en del av en tillgänglighets uppsättning i käll regionen.
     - I **mål lagrings konton**väljer du det konto som du vill använda.
 
-        ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
+        ![Skärm bild som visar hur du anpassar inställningarna för mål prenumerationen.](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
 3. Klicka på **Anpassa:** om du vill ändra inställningarna för replikering.
 4. I **konsekvens för flera virtuella datorer**väljer du de virtuella datorer som du vill replikera tillsammans.
     - Alla maskiner i en replikeringsgrupp har delade kraschkonsekventa och appkonsekventa återställningspunkter när de redundansväxlas.
@@ -111,7 +111,7 @@ Du kan ändra inställningarna för standard mål som används av Site Recovery.
     - Om du aktiverar konsekvens för flera virtuella datorer kommunicerar datorer i replikeringsgruppen med varandra på port 20004.
     - Se till att det inte finns någon brand Väggs utrustning som blockerar den interna kommunikationen mellan de virtuella datorerna via port 20004.
     - Om du vill att virtuella Linux-datorer ska ingå i en replikeringsgrupp ser du till att utgående trafik på port 20004 öppnas manuellt enligt vägledning för den aktuella Linux-versionen.
-![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+![Skärm bild som visar konsekvens inställningar för flera virtuella datorer.](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
 5. Klicka på **skapa mål resurs**  >  **Aktivera replikering**.
 6. När de virtuella datorerna har Aktiver ATS för replikering kan du kontrol lera statusen för VM-hälsa under **replikerade objekt**

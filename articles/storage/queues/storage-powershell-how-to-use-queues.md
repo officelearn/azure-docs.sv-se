@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8f45a4de2e13f936556f8dd99aa107110edc6e91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1f758390a270f072bc08e13d1d542e08e4df553
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077933"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425547"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utför Azure Queue Storage-åtgärder med Azure PowerShell
 
@@ -104,7 +104,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## <a name="add-a-message-to-a-queue"></a>Lägga till ett meddelande i en kö
 
-Åtgärder som påverkar faktiska meddelanden i kön använder klient biblioteket för .NET-lagring som det visas i PowerShell. Om du vill lägga till ett meddelande i en kö skapar du en ny instans av klassen meddelande objekt, [Microsoft. Azure. Storage. Queue. CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) . Därefter anropar du [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage)-metoden. Du kan skapa ett CloudQueueMessage antingen från en sträng (i UTF-8-format) eller från en byte-matris.
+Åtgärder som påverkar faktiska meddelanden i kön använder klient biblioteket för .NET-lagring som det visas i PowerShell. Om du vill lägga till ett meddelande i en kö skapar du en ny instans av klassen meddelande objekt, [Microsoft. Azure. Storage. Queue. CloudQueueMessage](/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) . Därefter anropar du [AddMessage](/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage)-metoden. Du kan skapa ett CloudQueueMessage antingen från en sträng (i UTF-8-format) eller från en byte-matris.
 
 Följande exempel visar hur du lägger till ett meddelande i kön.
 

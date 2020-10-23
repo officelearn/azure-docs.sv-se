@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 031cbb48a7e0c572866dc591d26fb1e6b6b12dba
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267507"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424719"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenario: dirigera trafik genom NVA – anpassad (för hands version)
 
@@ -24,25 +24,24 @@ När du arbetar med virtuell WAN-routning för virtuella WAN finns det några ti
 
 I det här scenariot använder vi namngivnings konventionen:
 
-* "Tjänstens VNet" för virtuella nätverk där användare har distribuerat en NVA (VNet 4 i **bild 1**) för att inspektera trafik som inte är Internet.
+* "Ekrar" för virtuella nätverk som är anslutna till den virtuella hubben (VNet 1, VNet 2 och VNet 3 i **bild 1**).
+* "VNet-VNet" för virtuella nätverk där användare har distribuerat en NVA (VNet 4 i **bild 1**) för att inspektera trafik som inte är Internet och eventuellt med gemensamma tjänster som används av ekrar.
 * "DMZ VNet" för virtuella nätverk där användare har distribuerat en NVA som ska användas för att kontrol lera Internet-bundit trafik (VNet 5 i **bild 1**).
-* "NVA ekrar" för virtuella nätverk som är anslutna till ett NVA VNet (VNet 1, VNet 2 och VNet 3 i **bild 1**).
 * "Hubbar" för Microsoft-hanterade virtuella WAN-nav.
 
 Följande anslutnings mat ris sammanfattar de flöden som stöds i det här scenariot:
 
 **Anslutnings mat ris**
 
-| Från          | Till:|*NVA pinnar*|*Service VNet*|*DMZ VNet*|*Grenar statiska*|
-|---|---|---|---|---|---|
-| **NVA pinnar**| &#8594;|      X |            X |   Peering |    Statisk    |
-| **Service VNet**| &#8594;|    X |            X |      X    |      X       |
-| **DMZ VNet** | &#8594;|       X |            X |      X    |      X       |
-| **Grenar** | &#8594;|  Statisk |            X |      X    |      X       |
+| Från          | Till:|*Spokes (ekrar)*|*Service VNet*|*Grenar*|*Internet*|
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Spokes (ekrar)**| &#8594;| Direkt |Direkt | Via tjänstens VNet |Via DMZ VNet |
+| **Service VNet**| &#8594;| Direkt |Saknas| Direkt | |
+| **Grenar** | &#8594;| Via tjänstens VNet |Direkt| Direkt |  |
 
-Var och en av cellerna i anslutnings matrisen beskriver om en virtuell WAN-anslutning ("från"-sidan av flödet, rad rubrikerna) lär sig ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil) för ett särskilt trafikflöde. Ett "X" innebär att anslutningen tillhandahålls internt av Virtual WAN och "static" innebär att anslutningen tillhandahålls av Virtual WAN med statiska vägar. Vi går igenom detalj över de olika raderna:
+Var och en av cellerna i anslutnings matrisen beskriver huruvida anslutningen flödar direkt över det virtuella WAN-nätverket eller över en av virtuella nätverk med en NVA. Vi går igenom detalj över de olika raderna:
 
-* NVA pinnar:
+* Ekrar
   * Ekrar kommer att komma åt andra ekrar direkt över virtuella WAN-hubbar.
   * Ekrar får anslutning till grenar via en statisk väg som pekar på tjänstens VNet. De bör inte lära sig vissa prefix från grenarna (annars skulle de vara mer exakta och åsidosätta sammanfattningen).
   * Ekrar kommer att skicka Internet trafik till DMZ VNet via en direkt VNet-peering.
@@ -51,12 +50,12 @@ Var och en av cellerna i anslutnings matrisen beskriver om en virtuell WAN-anslu
 * Tjänstens VNet kommer att likna ett VNet för delade tjänster som behöver kunna bli tillgängligt från varje VNet och varje gren.
 * DMZ VNet behöver inte ha någon anslutning via det virtuella WAN-nätverket eftersom den enda trafik som stöds kommer att komma över direkta VNet-peering. Vi kommer dock att använda samma anslutnings modell som för DMZ VNet för att förenkla konfigurationen.
 
-Därför ger vår anslutnings mat ris tre distinkta anslutnings mönster, som översätts till tre väg tabeller. Associationerna till de olika virtuella nätverk är följande:
+Vår anslutning mat ris ger oss tre distinkta anslutnings mönster, som översätts till tre väg tabeller. Associationerna till de olika virtuella nätverk är följande:
 
-* NVA pinnar:
+* Ekrar
   * Associerad routningstabell: **RT_V2B**
   * Sprider till routningstabeller: **RT_V2B** och **RT_SHARED**
-* NVA virtuella nätverk (internt och Internet):
+* NVA virtuella nätverk (service VNet och DMZ VNet):
   * Associerad routningstabell: **RT_SHARED**
   * Sprider till routningstabeller: **RT_SHARED**
 * Delar
@@ -65,14 +64,14 @@ Därför ger vår anslutnings mat ris tre distinkta anslutnings mönster, som ö
 
 Vi behöver dessa statiska vägar för att säkerställa att VNet-till-gren-och gren-till-VNet-trafik går genom NVA i tjänstens VNet (VNet 4):
 
-| Beskrivning | Routningstabell | Statisk väg              |
+| Description | Routningstabell | Statisk väg              |
 | ----------- | ----------- | ------------------------- |
 | Grenar    | RT_V2B      | 10.2.0.0/16-> vnet4conn  |
-| NVA pinnar  | Default     | 10.1.0.0/16-> vnet4conn  |
+| NVA pinnar  | Standard     | 10.1.0.0/16-> vnet4conn  |
 
 Nu vet Virtual WAN vilken anslutning som ska skicka paketen till, men anslutningen måste veta vad du ska göra när du tar emot dessa paket: det är här som anslutnings väg tabellerna används.
 
-| Beskrivning | Anslutning | Statisk väg            |
+| Description | Anslutning | Statisk väg            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16-> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16-> 10.4.0.5 |

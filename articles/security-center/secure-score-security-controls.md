@@ -11,49 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 24e10dad6a4b9a6232ce74b5365d9a9df7860079
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339942"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425356"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Säkerhetspoäng i Azure Security Center
 
 ## <a name="introduction-to-secure-score"></a>Introduktion till säkra Poäng
 
-Azure Security Center har två huvudsakliga mål: för att hjälpa dig att förstå den aktuella säkerhets situationen och för att hjälpa dig att effektivt och effektivt förbättra säkerheten. Den centrala aspekten av Security Center som gör att du kan uppnå dessa mål är säkra poäng.
+Azure Security Center har två huvudsakliga mål: 
+
+- för att hjälpa dig att förstå den aktuella säkerhets situationen
+- för att hjälpa dig att effektivt och effektivt förbättra din säkerhet
+
+Den centrala funktionen i Security Center som gör att du kan uppnå dessa mål är **säkra Poäng**.
 
 Security Center utvärderar kontinuerligt dina resurser, prenumerationer och din organisation efter säkerhets problem. Den sammanställer sedan alla resultat i en enda poäng så att du snabbt kan tala om din aktuella säkerhets situation: ju högre poäng, desto lägre är den identifierade risk nivån.
 
-På sidan säker Poäng för Security Center ingår:
+De säkra poängen visas på Azure Portal sidor som ett procent värde, men de underliggande värdena visas också tydligt:
 
-- **Poängen** – den säkra poängen visas som ett procent värde, men de underliggande värdena är också tydliga:
+:::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Övergripande säkra poäng som visas i portalen":::
 
-    [![Säkra poäng som visas som ett procent värde med underliggande tal rensa för](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
+Du kan öka säkerheten genom att granska Security Centerens rekommendationer-sida för de utestående åtgärder som krävs för att öka dina poäng. Varje rekommendation innehåller anvisningar som hjälper dig att åtgärda det aktuella problemet.
 
-- **Säkerhets kontroller** – varje kontroll är en logisk grupp relaterade säkerhets rekommendationer och återspeglar dina sårbara angrepps ytor. En kontroll är en uppsättning säkerhets rekommendationer med anvisningar som hjälper dig att implementera dessa rekommendationer. Poängen ökar bara när du reparerar *alla* rekommendationer för en enskild resurs i en kontroll.
+Rekommendationerna är grupperade i **säkerhets kontroller**. Varje kontroll är en logisk grupp relaterade säkerhets rekommendationer och återspeglar dina sårbara angrepps ytor. Poängen ökar bara när du reparerar *alla* rekommendationer för en enskild resurs i en kontroll. Om du vill se hur väl din organisation skyddar varje enskild attack yta granskar du poängen för varje säkerhets kontroll.
 
-    Om du vill se hur väl din organisation skyddar varje enskild attack yta granskar du poängen för varje säkerhets kontroll.
-
-    Mer information finns i [så här beräknas din säkra Poäng](secure-score-security-controls.md#how-your-secure-score-is-calculated) nedan. 
-
-
->[!TIP]
-> Tidigare versioner av Security Center tilldelade punkter på rekommendations nivå: när du har reparerat en rekommendation för en enskild resurs, förbättras dina säkra poäng. Idag ökar poängen bara om du reparerar *alla* rekommendationer för en enskild resurs i en kontroll. Det innebär att poängen bara ökar när du har förbättrat säkerheten för en resurs.
+Mer information finns i [så här beräknas din säkra Poäng](secure-score-security-controls.md#how-your-secure-score-is-calculated) nedan. 
 
 
 ## <a name="access-your-secure-score"></a>Få åtkomst till dina säkra Poäng
 
-Du hittar den övergripande säkra poängen, samt poängen per prenumeration, via Azure Portal eller program mässigt med Azure Security Center REST API.
+Du hittar den övergripande säkra poängen, samt poängen per prenumeration, via Azure Portal eller program mässigt enligt beskrivningen i följande avsnitt:
+
+- [Få dina säkra Poäng från portalen](#get-your-secure-score-from-the-portal)
+- [Få dina säkra Poäng från REST API](#get-your-secure-score-from-the-rest-api)
+- [Få dina säkra Poäng från Azure Resource Graph (ARG)](#get-your-secure-score-from-azure-resource-graph-arg)
 
 ### <a name="get-your-secure-score-from-the-portal"></a>Få dina säkra Poäng från portalen
 
-Security Center visar ditt resultat på en framträdande plats i portalen: det är det första som visas på sidan Översikt. Om du klickar till sidan för dedikerade säkra poäng visas poängen uppdelad efter prenumeration. Klicka på en enskild prenumeration om du vill se en detaljerad lista över prioriterade rekommendationer och den potentiella påverkan som åtgärdas i prenumerationens resultat.
+Security Center visar ditt resultat på en framträdande plats i portalen: det är den första huvud panelen på översikts sidan för Security Center. När du väljer den här panelen går du till sidan dedikerade säker poäng där du ser poängen uppdelad efter prenumeration. Välj en enskild prenumeration om du vill se en detaljerad lista över prioriterade rekommendationer och den potentiella påverkan som åtgärdas i prenumerationens resultat.
 
-![Övergripande säkra poäng som visas i portalen](media/secure-score-security-controls/single-secure-score-via-ui.png)
+I Sammanfattning visas dina säkra poäng på följande platser i Security Center Portal sidor.
+
+- I en panel på Security Center **Översikt** (huvud instrument panel):
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="Övergripande säkra poäng som visas i portalen":::
+
+- På sidan dedikerad **säker Poäng** :
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="Övergripande säkra poäng som visas i portalen":::
+
+- Överst på sidan **rekommendationer** :
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-recommendations-page.png" alt-text="Övergripande säkra poäng som visas i portalen":::
+
+
 
 ### <a name="get-your-secure-score-from-the-rest-api"></a>Få dina säkra Poäng från REST API
 
@@ -62,6 +79,40 @@ Du kan komma åt dina poäng via Secure score-API: t (för närvarande i för ha
 ![Hämta en enskild säker Poäng via API: et](media/secure-score-security-controls/single-secure-score-via-api.png)
 
 Exempel på verktyg som byggts ovanpå Secure score-API: et finns i avsnittet [Secure Scores i vår GitHub-community](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score). 
+
+
+
+### <a name="get-your-secure-score-from-azure-resource-graph-arg"></a>Få dina säkra Poäng från Azure Resource Graph (ARG)
+
+Azure Resource Graph ger direkt åtkomst till resursinformation i dina moln miljöer med robusta funktioner för filtrering, gruppering och sortering. Det är ett snabbt och effektivt sätt att fråga information i Azure-prenumerationer program mässigt eller inifrån Azure Portal. [Lär dig mer om Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/).
+
+För att komma åt säkra Poäng för flera prenumerationer med ARG:
+
+1. Öppna **Azure Resource Graph Explorer**från Azure Portal.
+
+    :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Övergripande säkra poäng som visas i portalen" :::
+
+1. Ange din Kusto-fråga (med hjälp av exemplen nedan för vägledning).
+
+    - Den här frågan returnerar prenumerations-ID, den aktuella poängen i punkter och i procent och det högsta antalet poäng för prenumerationen. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores' 
+        | extend current = properties.score.current, max = todouble(properties.score.max)
+        | project subscriptionId, current, max, percentage = ((current / max)*100)
+        ```
+
+    - Den här frågan returnerar status för alla säkerhets kontroller. För varje kontroll får du antalet resurser som inte är felfria, den aktuella poängen och den högsta poängen. 
+
+        ```kusto
+        SecurityResources 
+        | where type == 'microsoft.security/securescores/securescorecontrols'
+        | extend SecureControl = properties.displayName, unhealthy = properties.unhealthyResourceCount, currentscore = properties.score.current, maxscore = properties.score.max
+        | project SecureControl , unhealthy, currentscore, maxscore
+        ```
+
+1. Välj **Kör fråga**.
 
 ## <a name="how-your-secure-score-is-calculated"></a>Så här beräknas din säkra Poäng 
 
@@ -99,7 +150,7 @@ Rekommendationer som har flaggats som **förhands granskning** ingår inte i ber
 
 Ett exempel på en förhands gransknings rekommendation:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Rekommendation med förhands gransknings flaggan":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Övergripande säkra poäng som visas i portalen":::
 
 ## <a name="improve-your-secure-score"></a>Förbättra dina säkerhetspoäng
 

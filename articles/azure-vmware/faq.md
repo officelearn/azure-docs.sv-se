@@ -4,12 +4,12 @@ description: Innehåller svar på några vanliga frågor om Azure VMware-lösnin
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: bdc0bdb5966445fe98b2f65bce552fe6dca493ea
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 816f64f9987abbdcd49de93b3bc218ec1606d9f3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368986"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461659"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Vanliga frågor och svar om Azure VMware-lösningen
 
@@ -65,10 +65,10 @@ Microsoft och Red Hat delar ett integrerat, Samplacerat support team som tillhan
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>Är VMware HCX Enterprise Edition tillgänglig och hur mycket kostar det?
 
-VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Medan VMware HCX EE för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX EE-tjänsten går till GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan också välja att stänga av eller välja bort tjänsten.
+VMware HCX Enterprise Edition (EE) är tillgänglig med Azure VMware-lösningen som en *förhands gransknings* funktion/tjänst. Även om VMware HCX EE för Azure VMware-lösningen är i för hands version, är det en kostnads fri funktion/tjänst och omfattas av förhands gransknings tjänstens allmänna villkor. När VMware HCX EE-tjänsten går till GA får du ett meddelande om 30 dagar på att faktureringen ska växlas över. Du kan stänga av eller avanmäla tjänsten.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Kan virtuella datorer i Azure VMware-lösningen hanteras av VMRC?
-Ja, förutsatt att det system som är installerat på kan komma åt det privata molnet vCenter och att det använder offentliga DNS (så att det kan matcha ESXi-värdnamn).
+Ja, förutsatt att det system som är installerat på kan komma åt det privata molnet vCenter och använder offentliga DNS (så att det kan matcha ESXi-värdnamn).
 
 #### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Finns det särskilda instruktioner för att installera och använda VMRC med virtuella Azure VMware-lösningar?
 Nej, Använd de [instruktioner som tillhandahålls av VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) och uppfylla de VM-krav som anges i dessa instruktioner. 
@@ -116,7 +116,7 @@ Så långt vi vet så bör alla säkerhets kopierings lösningar som använder V
 
 Som de här säkerhets kopierings lösningarna installeras och hanteras av kunderna kan de kontakta respektive ISV för support. 
 
-#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Vad är rätt lagrings princip för Deduplicerings inställningen?
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-setup"></a>Vad är rätt lagrings princip för Deduplicerings konfigurationen?
 
 Använd *thin_provision* lagrings princip för din VM-mall.  Standardvärdet är *thick_provision*.
 
@@ -239,7 +239,7 @@ Du behöver ett Azure-konto i en Azure-prenumeration.
 * Du behöver ett [Azure-Enterprise-avtal (EA)](../cost-management-billing/manage/ea-portal-agreements.md) med Microsoft.
 * Du behöver ett Azure-konto i en Azure-prenumeration.
 
-Innan du skapar din Azure VMware-lösnings resurs måste du skicka in ett support ärende om du vill att dina noder ska tilldelas. När support teamet har tagit emot din begäran tar det upp till fem arbets dagar för att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
+Innan du skapar en Azure VMware-lösnings resurs måste du skicka in ett support ärende om du vill att dina noder ska tilldelas. Det tar upp till fem arbets dagar att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process.
 
 
 1. I Azure Portal, under **Hjälp + Support**, skapa en **[ny supportbegäran](https://rc.portal.azure.com/#create/Microsoft.Support)** och ange följande information för biljetten:

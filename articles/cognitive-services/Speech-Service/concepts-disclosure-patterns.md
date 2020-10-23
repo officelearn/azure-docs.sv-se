@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
-ms.openlocfilehash: fe4f0cdcdb863582560b0eba3a22e95b93ff858b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7df082cd5044f142d8d5900ec1fff6c182262bd9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150943"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425117"
 ---
 # <a name="disclosure-design-patterns"></a>Utlämnande av designmönster
 Nu när du&#39;ve fastställt rätt [nivå för utlämnande](concepts-disclosure-guidelines.md#disclosure-assessment) av den syntetiska röst upplevelsen,&#39;vi en lämplig tid att utforska potentiella design mönster.
@@ -184,7 +184,7 @@ Anthropomorphism kan manifesta på olika sätt, från den faktiska visuella repr
 
 Utlämnande kan uppnås implicit genom att ställa in exakta förväntningar för vad den digitala assistenten kan hantera. Tillhandahåll exempel kommandon så att användarna kan lära sig att interagera med den digitala assistenten och erbjuda Sammanhangs beroende hjälp för att lära sig mer om den syntetiska rösten under de tidiga stegen i upplevelsen.
 
-![Visuella ikoner och feedback](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
+![Exempel på standard svar på en konversation som du kan hantverka.](media/responsible-ai/disclosure-patterns/capability-disclosure.png)<br/>
 
 ### <a name="conversational-transparency"></a>Konversations genomskinlighet
 

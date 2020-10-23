@@ -17,12 +17,12 @@ ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: 51a827b0bc80d7eec5b480d3e5efc49e5e1cc974
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 95e244f956940f9d75df50243714f0fb8f8d0654
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318258"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424159"
 ---
 # <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Självstudie: skicka push-meddelanden till Xamarin. Android-appar med hjälp av Notification Hubs
 
@@ -40,7 +40,7 @@ I den här självstudien gör du följande:
 > * Skapa en Xamarin.Android-app och anslut den till meddelandehubben
 > * Skicka testmeddelanden från Azure Portal
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * [Visual Studio med Xamarin] på Windows eller [Visual Studio för Mac] på OS X.
@@ -81,7 +81,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
         ![Dialogrutan Nytt projekt](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)
 2. I dialog rutan **ny Android-app** väljer du **Tom app**och väljer **OK**.
 
-    ![Dialogrutan Nytt projekt](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
+    ![Skärm bild som markerar den tomma app-mallen.](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
 3. Utvidga **Egenskaper** i fönstret **Solution Explorer** och klicka på **AndroidManifest.xml**. Uppdatera paketnamnet så att det matchar paketnamnet som du angav när du lade till Firebase Cloud Messaging till ditt projekt i Google Firebase-konsolen.
 
     ![Paketnamn i GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)

@@ -220,6 +220,8 @@
           href: troubleshoot-password-based-sso.md
         - name: Felsöka SAML-baserad enkel inloggning
           href: troubleshoot-saml-based-sso.md
+        - name: Felsöka SAML-baserad enkel inloggning
+          href: debug-saml-sso-issues.md
         - name: Felsöka användarinloggning
           items:
             - name: Oväntad fråga om medgivande

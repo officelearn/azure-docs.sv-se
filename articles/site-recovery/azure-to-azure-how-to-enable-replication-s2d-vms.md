@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 0b4f18c32639ceb2084febe210a8cfd4c423a0cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f438fadb73f7e3bd25cd7ab9aef0bc46285e30e2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86135754"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424834"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replikera virtuella Azure-datorer som kör Lagringsdirigering till en annan region
 
@@ -49,12 +49,12 @@ I diagrammet nedan visas ett Azure VM-redundanskluster med två noder som använ
 1. Välj replikeringsprincip med Application konsekvens av * (det finns bara stöd för krasch konsekvens)
 1. Aktivera replikering
 
-   ![storagespacesdirect skydd](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
+   ![Skärm bild som visar var du konfigurerar replikeringsinställningar.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
 2. Gå till replikerade objekt så kan du se både statusen för den virtuella datorn.
 3. Båda de virtuella datorerna skyddas och visas också som en del av konsekvens gruppen för flera virtuella datorer.
 
-   ![storagespacesdirect skydd](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
+   ![Skärm bild som visar att de virtuella datorerna är skyddade och en del av en konsekvens grupp för flera virtuella datorer.](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
 
 ## <a name="creating-a-recovery-plan"></a>Skapa en återställnings plan
 En återställnings plan stöder sekvenseringen av olika nivåer i ett program med flera nivåer under en redundansväxling. Sekvenseringen bidrar till att upprätthålla programmets konsekvens. När du skapar en återställnings plan för ett webb program med flera nivåer slutför du stegen som beskrivs i [skapa en återställnings plan med hjälp av Site Recovery](site-recovery-create-recovery-plans.md).

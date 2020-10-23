@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: d8c4eea10b0c2230e50b5ded710b3455539f6493
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 1681217c9e55b67ee2a6737aeece5303256bc1e6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206041"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461812"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -58,117 +58,130 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 | Tjänst | Mått | Loggar | Insight | Kommentarer |
 |:---|:---|:---|:---|:---|
 |Active Directory | Nej | Ja | [Ja](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
-|Active Directory B2C | Inga | Inga | Inga |  |
-|Active Directory Domain Services | Inga | Ja | Inga |  |
-|Aktivitetslogg | Inga | Ja | Inga | |
-|Advanced Threat Protection | Inga | Inga | Inga |  |
-|Advisor | Inga | Inga | Inga |  |
-|AI Builder | Inga | Inga | Inga |  |
-|Analysis Services | Ja | Ja | Inga |  |
-|API för FHIR | Inga | Inga | Inga |  |
-|API Management | Ja | Ja | Inga |  |
-|App Service | Ja | Ja | Inga |  |
-|AppConfig | Inga | Inga | Inga |  |
-|Application Gateway | Ja | Ja | Inga |  |
-|Attesterings tjänst | Inga | Inga | Inga |  |
-|Automation | Ja | Ja | Inga |  |
-|Azure Service Manager (RDFE) | Inga | Inga | Inga |  |
-|Backup | Inga | Ja | Inga |  |
-|Bastion | Inga | Inga | Inga |  |
-|Batch | Ja | Ja | Inga |  |
-|Batch AI | Inga | Inga | Inga |  |
-|Blockchain Service | Inga | Ja | Inga |  |
-|Skisser | Inga | Inga | Inga |  |
-|Robottjänst | Inga | Inga | Inga |  |
-|Cloud Services | Ja | Ja | Inga | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
-|Cloud Shell | Inga | Inga | Inga |  |
-|Cognitive Services | Ja | Ja | Inga |  |
-|Container Instances | Ja | Inga | Inga |  |
-|Container Registry | Ja | Ja | Inga |  |
-|Innehållsleverantörsnätverk (CDN) | Inga | Ja | Inga |  |
+|Active Directory B2C | Nej | Nej | Nej |  |
+|Active Directory Domain Services | Nej | Ja | Nej |  |
+|Aktivitetslogg | Nej | Ja | Nej | |
+|Advanced Threat Protection | Nej | Nej | Nej |  |
+|Advisor | Nej | Nej | Nej |  |
+|AI Builder | Nej | Nej | Nej |  |
+|Analysis Services | Ja | Ja | Nej |  |
+|API för FHIR | Nej | Nej | Nej |  |
+|API Management | Ja | Ja | Nej |  |
+|App Service | Ja | Ja | Nej |  |
+|AppConfig | Nej | Nej | Nej |  |
+|Application Gateway | Ja | Ja | Nej |  |
+|Attesterings tjänst | Nej | Nej | Nej |  |
+|Automation | Ja | Ja | Nej |  |
+|Azure Service Manager (RDFE) | Nej | Nej | Nej |  |
+|Backup | Nej | Ja | Nej |  |
+|Bastion | Nej | Nej | Nej |  |
+|Batch | Ja | Ja | Nej |  |
+|Batch AI | Nej | Nej | Nej |  |
+|Blockchain Service | Nej | Ja | Nej |  |
+|Skisser | Nej | Nej | Nej |  |
+|Bot Service | Nej | Nej | Nej |  |
+|Cloud Services | Ja | Ja | Nej | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
+|Cloud Shell | Nej | Nej | Nej |  |
+|Cognitive Services | Ja | Ja | Nej |  |
+|Container Instances | Ja | Nej | Nej |  |
+|Container Registry | Ja | Ja | Nej |  |
+|Innehållsleverantörsnätverk (CDN) | Nej | Ja | Nej |  |
 |Cosmos DB | Ja | Ja | [Ja](insights/cosmosdb-insights-overview.md) |  |
-|Cost Management | Inga | Inga | Inga |  |
-|Data Box | Inga | Inga | Inga |  |
-|Data Catalog Gen2 | Inga | Inga | Inga |  |
-|Data Explorer | Ja | Ja | Inga |  |
-|Data Factory | Ja | Ja | Inga |  |
-|Data Factory v2 | Inga | Ja | Inga |  |
-|Data Share | Inga | Inga | Inga |  |
-|Database for MariaDB | Ja | Ja | Inga |  |
-|Database for MySQL | Ja | Ja | Inga |  |
-|Database for PostgreSQL | Ja | Ja | Inga |  |
-|Database Migration Service | Inga | Inga | Inga |  |
-|Databricks | Inga | Ja | Inga |  |
-|DDoS Protection | Ja | Ja | Inga |  |
-|DevOps | Inga | Inga | Inga |  |
-|DNS | Ja | Inga | Inga |  |
-|Domännamn | Inga | Inga | Inga |  |
-|– | Inga | Inga | Inga |  |
-|Dynamics 365 kund engagemang | Inga | Inga | Inga |  |
-|Dynamics 365-ekonomi och-åtgärder | Inga | Inga | Inga |  |
-|Event Grid | Ja | Inga | Inga |  |
-|Event Hubs | Ja | Ja | Inga |  |
-|ExpressRoute | Ja | Ja | Inga |  |
-|Brandvägg | Ja | Ja | Inga |  |
-|Front Door | Ja | Ja | Inga |  |
-|Functions | Ja | Ja | Inga |  |
-|HDInsight | Inga | Ja | Inga |  |
-|HPC Cache | Inga | Inga | Inga |  |
-|Information Protection | Inga | Ja | Inga |  |
-|Intune | Inga | Ja | Inga |  |
-|IoT Central | Inga | Inga | Inga |  |
-|IoT Hub | Ja | Ja | Inga |  |
+|Cost Management | Nej | Nej | Nej |  |
+|Data Box | Nej | Nej | Nej |  |
+|Data Catalog Gen2 | Nej | Nej | Nej |  |
+|Data Explorer | Ja | Ja | Nej |  |
+|Data Factory | Ja | Ja | Nej |  |
+|Data Factory v2 | Nej | Ja | Nej |  |
+|Data Share | Nej | Nej | Nej |  |
+|Database for MariaDB | Ja | Ja | Nej |  |
+|Database for MySQL | Ja | Ja | Nej |  |
+|Database for PostgreSQL | Ja | Ja | Nej |  |
+|Database Migration Service | Nej | Nej | Nej |  |
+|Databricks | Nej | Ja | Nej |  |
+|DDoS Protection | Ja | Ja | Nej |  |
+|DevOps | Nej | Nej | Nej |  |
+|DNS | Ja | Nej | Nej |  |
+|Domännamn | Nej | Nej | Nej |  |
+|– | Nej | Nej | Nej |  |
+|Dynamics 365 kund engagemang | Nej | Nej | Nej |  |
+|Dynamics 365-ekonomi och-åtgärder | Nej | Nej | Nej |  |
+|Event Grid | Ja | Nej | Nej |  |
+|Event Hubs | Ja | Ja | Nej |  |
+|ExpressRoute | Ja | Ja | Nej |  |
+|Brandvägg | Ja | Ja | Nej |  |
+|Front Door | Ja | Ja | Nej |  |
+|Functions | Ja | Ja | Nej |  |
+|HDInsight | Nej | Ja | Nej |  |
+|HPC Cache | Nej | Nej | Nej |  |
+|Information Protection | Nej | Ja | Nej |  |
+|Intune | Nej | Ja | Nej |  |
+|IoT Central | Nej | Nej | Nej |  |
+|IoT Hub | Ja | Ja | Nej |  |
 |Key Vault | Ja | Ja | [Ja](./insights/key-vault-insights-overview.md) |  |
-|Kubernetes Service (AKS) | Inga | Inga | [Ja](insights/container-insights-overview.md)  |  |
-|Lastbalanserare | Ja | Inga | Inga |  |
-|Logic Apps | Ja | Ja | Inga |  |
-|Machine Learning Service | Inga | Inga | Inga |  |
-|Managed Applications  | Inga | Inga | Inga |  |
-|Maps  | Inga | Inga | Inga |  |
-|Media Services | Ja | Ja | Inga |  |
-|Microsoft Flow | Inga | Inga | Inga |  |
-|Microsoft Hanterat skrivbord | Inga | Inga | Inga |  |
-|Microsoft PowerApps | Inga | Inga | Inga |  |
-|Microsoft Social Engagement | Inga | Inga | Inga |  |
-|Microsoft Stream | Ja | Ja | Inga |  |
-|Migrera | Inga | Inga | Inga |  |
-|Multi-Factor Authentication | Inga | Ja | Inga |  |
-|Network Watcher | Ja | Ja | Inga |  |
-|Notification Hubs | Ja | Inga | Inga |  |
-|Open Datasets | Inga | Inga | Inga |  |
-|Princip | Inga | Inga | Nej |  |
-|Power BI Embedded | Ja | Ja | Inga |  |
-|Private Link | Inga | Inga | Inga |  |
-|Kommunikations plattform för bufferthanterare | Inga | Inga | Inga |  |
-|Red Hat OpenShift | Inga | Inga | Inga |  |
+|Kubernetes Service (AKS) | Nej | Nej | [Ja](insights/container-insights-overview.md)  |  |
+|Load Balancer | Ja | Nej | Nej |  |
+|Logic Apps | Ja | Ja | Nej |  |
+|Machine Learning Service | Nej | Nej | Nej |  |
+|Managed Applications  | Nej | Nej | Nej |  |
+|Maps  | Nej | Nej | Nej |  |
+|Media Services | Ja | Ja | Nej |  |
+|Microsoft Flow | Nej | Nej | Nej |  |
+|Microsoft Hanterat skrivbord | Nej | Nej | Nej |  |
+|Microsoft PowerApps | Nej | Nej | Nej |  |
+|Microsoft Social Engagement | Nej | Nej | Nej |  |
+|Microsoft Stream | Ja | Ja | Nej |  |
+|Migrera | Nej | Nej | Nej |  |
+|Multi-Factor Authentication | Nej | Ja | Nej |  |
+|Network Watcher | Ja | Ja | Nej |  |
+|Notification Hubs | Ja | Nej | Nej |  |
+|Open Datasets | Nej | Nej | Nej |  |
+|Policy | Nej | Nej | Nej |  |
+|Power BI Embedded | Ja | Ja | Nej |  |
+|Private Link | Nej | Nej | Nej |  |
+|Kommunikations plattform för bufferthanterare | Nej | Nej | Nej |  |
+|Red Hat OpenShift | Nej | Nej | Nej |  |
 |Redis Cache | Ja | Ja | [Ja](insights/redis-cache-insights-overview.md) | |
-|Resursdiagram | Inga | Inga | Inga |  |
-|Resource Manager | Inga | Inga | Inga |  |
-|Butiks sökning – efter Bing | Inga | Inga | Inga |  |
-|Search | Ja | Ja | Inga |  |
-|Service Bus | Ja | Ja | Inga |  |
-|Service Fabric | Inga | Ja | Inga | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
-|Registrerings Portal | Inga | Inga | Inga |  |
-|Site Recovery | Inga | Ja | Inga |  |
-|Vår moln tjänst | Inga | Inga | Inga |  |
-|Azure Synapse Analytics | Ja | Ja | Inga |  |
-|SQL Database | Ja | Ja | Inga |  |
-|SQL Server Stretch Database | Ja | Ja | Inga |  |
-|Stack | Inga | Inga | Inga |  |
-|Storage | Ja | Inga | [Ja](insights/storage-insights-overview.md) |  |
-|Storage cache | Inga | Inga | Inga |  |
-|Tjänster för synkronisering av lagring | Inga | Inga | Inga |  |
-|Stream Analytics | Ja | Ja | Inga |  |
-|Time Series Insights | Ja | Ja | Inga |  |
-|TINA | Inga | Inga | Inga |  |
-|Traffic Manager | Ja | Ja | Inga |  |
-|Universell utskrift | Inga | Inga | Inga |  |
-|Virtual Machine Scale Sets | Inga | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
-|Virtuella datorer | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
+|Resource Graph | Nej | Nej | Nej |  |
+|Resource Manager | Nej | Nej | Nej |  |
+|Butiks sökning – efter Bing | Nej | Nej | Nej |  |
+|Sök | Ja | Ja | Nej |  |
+|Service Bus | Ja | Ja | Nej |  |
+|Service Fabric | Nej | Ja | Nej | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
+|Registrerings Portal | Nej | Nej | Nej |  |
+|Site Recovery | Nej | Ja | Nej |  |
+|Vår moln tjänst | Nej | Nej | Nej |  |
+|Azure Synapse Analytics | Ja | Ja | Nej |  |
+|SQL Database | Ja | Ja | Nej |  |
+|SQL Server Stretch Database | Ja | Ja | Nej |  |
+|Stack | Nej | Nej | Nej |  |
+|Storage | Ja | Nej | [Ja](insights/storage-insights-overview.md) |  |
+|Storage cache | Nej | Nej | Nej |  |
+|Tjänster för synkronisering av lagring | Nej | Nej | Nej |  |
+|Stream Analytics | Ja | Ja | Nej |  |
+|Time Series Insights | Ja | Ja | Nej |  |
+|TINA | Nej | Nej | Nej |  |
+|Traffic Manager | Ja | Ja | Nej |  |
+|Universell utskrift | Nej | Nej | Nej |  |
+|Virtual Machine Scale Sets | Nej | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
+|Virtual Machines | Ja | Ja | [Ja](insights/vminsights-overview.md) | Agent som krävs för att övervaka gäst operativ system och arbets flöden. |
 |Virtual Network | Ja | Ja | [Ja](insights/network-insights-overview.md) |  |
-|Virtual Network NSG flödes loggar | Inga | Ja | Inga |  |
-|VPN Gateway | Ja | Ja | Inga |  |
-|Windows Virtual Desktop | Inga | Inga | Inga |  |
+|Virtual Network NSG flödes loggar | Nej | Ja | Nej |  |
+|VPN Gateway | Ja | Ja | Nej |  |
+|Windows Virtual Desktop | Nej | Nej | Nej |  |
+
+## <a name="virtual-machine-agents"></a>Agenter för virtuella datorer
+I följande tabell visas de agenter som kan samla in data från gäst operativ systemet på virtuella datorer och skicka data som ska övervakas. Varje agent kan samla in olika data och skicka dem till antingen mått eller loggar i Azure Monitor. 
+
+Se [Översikt över Azure Monitor agenter](platform/agents-overview.md) för information om de data som varje agent kan samla in.
+
+| Agent |  Mått | Loggar |
+|:---|:---|:---|:---|
+| [Azure Monitor Agent (förhands granskning)](platform/azure-monitor-agent-overview.md) | Ja | Ja |
+| [Log Analytics-agent](platform/log-analytics-agent.md) | Nej | Ja|
+| [Diagnostiskt tillägg](platform/diagnostics-extension-overview.md) | Ja | Nej |
+| [Teleympkvistar-agent](platform/collect-custom-metrics-linux-telegraf.md) | Ja | Nej |
+| [Beroendeagent](insights/vminsights-enable-overview.md) | Nej | Ja |
 
 
 ## <a name="product-integrations"></a>Produkt integreringar

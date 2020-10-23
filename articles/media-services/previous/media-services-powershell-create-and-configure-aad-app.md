@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7e54c89a609b39a88d2a34078aadd6bbe9308e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f9568d175d564547e58bc3584174cb0f239dd49
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89268374"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425219"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Använd PowerShell för att skapa en Azure AD-app som ska användas med Azure Media Services-API: et
 
@@ -29,7 +29,7 @@ ms.locfileid: "89268374"
 
 Lär dig hur du använder ett PowerShell-skript för att skapa ett Azure Active Directory (Azure AD)-program och tjänstens huvud namn för att få åtkomst till Azure Media Services resurser.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto. Om du inte har ett konto börjar du med en [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services konto i Azure Portal](media-services-portal-create-account.md).
@@ -63,7 +63,7 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 Mer information finns i följande artiklar:
 
 - [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
-- [Hantera Role-Based Access Control med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Konfigurera daemon-appar manuellt med hjälp av certifikat](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,14 +1,14 @@
 ---
 title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
-ms.date: 10/20/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424151"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460673"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -81,6 +81,10 @@ De flesta uppgifter och tjänster kan utföras på delegerade resurser över han
 [Azure Kubernetes service (AKS)](../../aks/index.yml):
 
 - Hantera värdbaserade Kubernetes-miljöer och distribuera och hantera program i behållare inom kund klienter
+
+[Azure Migrate](../../migrate/index.yml):
+
+- Skapa migreringsjobb i kund klienten och migrera virtuella datorer
 
 [Azure Monitor](../../azure-monitor/index.yml):
 

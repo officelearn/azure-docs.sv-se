@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 10/21/2020
 ms.author: jeedes
-ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a0a69784be3b03b030ef599037b57c2c20ea2c6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317437"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454685"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudie: Konfigurera DocuSign för automatisk användar etablering
 
@@ -35,7 +35,7 @@ Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att
 
 Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till DocuSign-appen. När du har bestämt dig kan du tilldela dessa användare till DocuSign-appen genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>Viktiga tips för att tilldela användare till DocuSign
 
@@ -93,6 +93,12 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 Den första synkroniseringen av alla användare som tilldelats DocuSign i avsnittet användare och grupper startas. Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i DocuSign-appen.
 
 Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+
+## <a name="troubleshooting-tips"></a>Felsökningstips
+* Etablering av en roll-eller behörighets profil för en användare i DocuSign kan utföras med hjälp av ett uttryck i dina mappningar av attribut med hjälp av funktionerna [switch](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#switch) och [singleAppRoleAssignment](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#singleapproleassignment) . Uttrycket nedan etablerar till exempel ID "8032066" när en användare har rollen "DS-administratör" tilldelad i Azure AD. Ingen behörighets profil etableras om användaren inte har tilldelats någon roll på Azure AD-sidan. ID: t kan hämtas från DocuSign- [portalen](https://support.docusign.com/articles/Default-settings-for-out-of-the-box-DocuSign-Permission-Profiles).
+
+Switch (SingleAppRoleAssignment ([appRoleAssignments]), "", "8032066", "DS-administratör")
+
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

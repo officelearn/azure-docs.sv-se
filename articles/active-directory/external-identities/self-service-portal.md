@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62805564f716d255f38c9312da5c5c986fba944c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f72c255ddac1889131234fefd7d6b014b453d417
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265552"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441733"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Registrera dig för Azure AD B2B-samarbete via självbetjäning
 
@@ -24,11 +24,11 @@ Kunder kan göra mycket med de inbyggda funktionerna som finns tillgängliga via
 
 ## <a name="azure-ad-entitlement-management-for-b2b-guest-user-sign-up"></a>Hantering av Azure AD-rättighets hantering för B2B-gäst användar registrering
 
-Som bjudande organisation kanske du inte vet i förväg vilka enskilda externa medarbetare är som behöver åtkomst till dina resurser. Du behöver ett sätt för användare från partner företag att logga in med principer som du styr. Om du vill göra det möjligt för användare från andra organisationer att begära åtkomst och godkännas med gäst konton och tilldelas till grupper, appar och SharePoint Online-webbplatser kan du använda [Azure AD-hantering](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) för att konfigurera principer som [hanterar åtkomst för externa användare](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
+Som bjudande organisation kanske du inte vet i förväg vilka enskilda externa medarbetare är som behöver åtkomst till dina resurser. Du behöver ett sätt för användare från partner företag att logga in med principer som du styr. Om du vill göra det möjligt för användare från andra organisationer att begära åtkomst och godkännas med gäst konton och tilldelas till grupper, appar och SharePoint Online-webbplatser kan du använda [Azure AD-hantering](../governance/entitlement-management-overview.md) för att konfigurera principer som [hanterar åtkomst för externa användare](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
 
 ## <a name="azure-active-directory-b2b-invitation-api"></a>API för inbjudan till Azure Active Directory B2B
 
-Organisationer kan använda [API: et Microsoft Graph Inbjudnings hanteraren](https://docs.microsoft.com/graph/api/resources/invitation?view=graph-rest-1.0) för att bygga sina egna onboarding-upplevelser för B2B-gäst användare. När du vill erbjuda självbetjäning B2B gäst användar registrering rekommenderar vi att du använder [hantering av Azure AD-rättigheter](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview). Men om du vill skapa en egen upplevelse kan du använda [API: et för att skapa inbjudan](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) för att automatiskt skicka den anpassade e-postinbjudan direkt till B2B-användaren, till exempel. Eller så kan din app använda inviteRedeemUrl som returnerades i ett svar för att skapa en egen inbjudan (via din kommunikations mekanism) till den inbjudna användaren.
+Organisationer kan använda [API: et Microsoft Graph Inbjudnings hanteraren](/graph/api/resources/invitation?view=graph-rest-1.0) för att bygga sina egna onboarding-upplevelser för B2B-gäst användare. När du vill erbjuda självbetjäning B2B gäst användar registrering rekommenderar vi att du använder [hantering av Azure AD-rättigheter](../governance/entitlement-management-overview.md). Men om du vill skapa en egen upplevelse kan du använda [API: et för att skapa inbjudan](/graph/api/invitation-post?tabs=http&view=graph-rest-1.0) för att automatiskt skicka den anpassade e-postinbjudan direkt till B2B-användaren, till exempel. Eller så kan din app använda inviteRedeemUrl som returnerades i ett svar för att skapa en egen inbjudan (via din kommunikations mekanism) till den inbjudna användaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

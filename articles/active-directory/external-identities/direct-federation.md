@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b7350d793ea42a46d52d881f1399174a3bb5d0e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7cb0223b338457ad5eeea0b0bb40593f57a0d3aa
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362900"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442090"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direkt Federation med AD FS och tredje parts leverantörer för gäst användare (för hands version)
 
@@ -66,7 +66,7 @@ När du till exempel ställer in direkt Federation för _ * fabrikam. com * *, `
 Om du anger URL: en för metadata i inställningarna för identitetsprovider förnyar Azure AD automatiskt signerings certifikatet när det upphör att gälla. Men om certifikatet roteras av någon anledning innan förfallo tiden, eller om du inte anger en URL för metadata, kan inte Azure AD förnya det. I så fall måste du uppdatera signerings certifikatet manuellt.
 
 ### <a name="limit-on-federation-relationships"></a>Gräns för Federations relationer
-För närvarande stöds högst 1 000 Federations relationer. Den här gränsen omfattar både [interna federationar](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) och direkta federationer.
+För närvarande stöds högst 1 000 Federations relationer. Den här gränsen omfattar både [interna federationar](/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) och direkta federationer.
 
 ### <a name="limit-on-multiple-domains"></a>Begränsa för flera domäner
 Vi stöder för närvarande inte direkt Federation med flera domäner från samma klient organisation.
@@ -87,7 +87,7 @@ Först måste partner organisationen konfigurera sin identitets leverantör med 
 
 ### <a name="saml-20-configuration"></a>SAML 2,0-konfiguration
 
-Azure AD B2B kan konfigureras för att federera med identitets leverantörer som använder SAML-protokollet med särskilda krav som anges nedan. Mer information om hur du konfigurerar ett förtroende mellan SAML Identity Provider och Azure AD finns i  [använda en SAML 2,0 Identity Provider (IdP) för enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-saml-idp).  
+Azure AD B2B kan konfigureras för att federera med identitets leverantörer som använder SAML-protokollet med särskilda krav som anges nedan. Mer information om hur du konfigurerar ett förtroende mellan SAML Identity Provider och Azure AD finns i  [använda en SAML 2,0 Identity Provider (IdP) för enkel inloggning](../hybrid/how-to-connect-fed-saml-idp.md).  
 
 > [!NOTE]
 > Mål domänen för direkt Federation får inte vara DNS-verifierad i Azure AD. Autentiserings-URL: en måste matcha mål domänen eller så måste den vara en tillåten identitets leverantörs domän. Mer information finns i avsnittet [begränsningar](#limitations) . 

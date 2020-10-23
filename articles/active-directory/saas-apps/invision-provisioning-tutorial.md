@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2020
 ms.author: Zhchia
-ms.openlocfilehash: 7fde4a82ff3a9e0cfa67e8ce5afeebc000757b7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c58a3d9f07b62e92d1e71096ae9dd3fc85515843
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462062"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459891"
 ---
 # <a name="tutorial-configure-invision-for-automatic-user-provisioning"></a>Självstudie: Konfigurera insikter för automatisk användar etablering
 
-I den här självstudien beskrivs de steg som du måste utföra i både insikter och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD har kon figurer ATS etablerar och avetablerar Azure AD automatiskt användare och grupper till [insikter](https://www.invisionapp.com/) med Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+I den här självstudien beskrivs de steg som du måste utföra i både insikter och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD har kon figurer ATS etablerar och avetablerar Azure AD automatiskt användare och grupper till [insikter](https://www.invisionapp.com/) med Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
@@ -32,21 +32,21 @@ I den här självstudien beskrivs de steg som du måste utföra i både insikter
 > * Skapa användare i insikter
 > * Ta bort användare i insikter när de inte behöver åtkomst längre
 > * Behåll användarattribut synkroniserade mellan Azure AD och insikter
-> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/invision-tutorial) till insikt (krävs)
+> * [Enkel inloggning](./invision-tutorial.md) till insikt (krävs)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-* [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Ett användarkonto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
+* [En Azure AD-klient](../develop/quickstart-create-new-tenant.md) 
+* Ett användarkonto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
 * Ett [insikt företags konto](https://www.invisionapp.com/enterprise) med SSO aktiverat.
 * Ett användar konto i insikter med administratörs behörighet.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
-1. Lär dig mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Ta reda på vem som finns i [etableringsomfånget](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Ta reda på vilka data som ska [mappas mellan Azure AD och insikter](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Lär dig mer om [hur etableringstjänsten fungerar](../app-provisioning/user-provisioning.md).
+2. Ta reda på vem som finns i [etableringsomfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Ta reda på vilka data som ska [mappas mellan Azure AD och insikter](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-invision-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera insikter för att ge stöd åt etablering med Azure AD
 
@@ -69,15 +69,15 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="step-3-add-invision-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till insikt från Azure AD-programgalleriet
 
-Lägg till insikt från Azure AD-programgalleriet för att börja hantera etablering till insikter. Om du tidigare har konfigurerat insikten för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Lägg till insikt från Azure AD-programgalleriet för att börja hantera etablering till insikter. Om du tidigare har konfigurerat insikten för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas i etableringsomfånget 
 
-Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* När du tilldelar användare och grupper till insikter måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller. 
+* När du tilldelar användare och grupper till insikter måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
 
-* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-invision"></a>Steg 5. Konfigurera automatisk användar etablering till insikt 
@@ -114,7 +114,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 8. Under avsnittet **mappningar** väljer du **etablera Azure Active Directory användare**.
 
-9. Granska de användarattribut som synkroniseras från Azure AD till insikt i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i insikten för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att API: et för insikt stöder filtrering av användare baserat på attributet. Välj knappen **Spara** för att spara ändringarna.
+9. Granska de användarattribut som synkroniseras från Azure AD till insikt i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i insikten för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](../app-provisioning/customize-application-attributes.md)måste du se till att API: et för insikt stöder filtrering av användare baserat på attributet. Välj knappen **Spara** för att spara ändringarna.
 
    |Attribut|Typ|Stöds för filtrering|
    |---|---|---|
@@ -124,7 +124,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |name.givenName|Sträng|
    |name.familyName|Sträng|
 
-10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Om du vill aktivera Azure AD Provisioning-tjänsten för insikt ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
@@ -143,15 +143,15 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:
 
-1. Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att se vilka användare som har etablerats och vilka som har misslyckats
-2. Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är att slutföras
-3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Använd [etableringsloggarna](../reports-monitoring/concept-provisioning-logs.md) för att se vilka användare som har etablerats och vilka som har misslyckats
+2. Kontrollera [förloppsindikatorn](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) för att se status för etableringscykeln och hur nära den är att slutföras
+3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användarkontoetablering för Enterprise-appar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

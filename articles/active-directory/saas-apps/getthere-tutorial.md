@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 3f7941b3cd9d4a439e1290041c689e446bdcdb1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78cd72b8bdc51d26f7f57511e620d9da8e14880d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550800"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92449429"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-getthere"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med GetThere
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar GetThere med Azure 
 * Gör det möjligt för användarna att logga in automatiskt till GetThere med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -112,7 +112,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -140,20 +140,20 @@ Om du vill konfigurera enkel inloggning på **GetThere** sida måste du skicka d
 
 ### <a name="create-getthere-test-user"></a>Skapa GetThere test användare
 
-I det här avsnittet skapar du en användare som heter B. Simon i GetThere. Arbeta med [GetThere support team](mailto:dataintegration@sabre.com) för att lägga till användare i GetThere-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i GetThere. Arbeta med [GetThere support team](mailto:dataintegration@sabre.com) för att lägga till användare i GetThere-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen GetThere på åtkomst panelen, bör du loggas in automatiskt på den GetThere som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen GetThere på åtkomst panelen, bör du loggas in automatiskt på den GetThere som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova GetThere med Azure AD](https://aad.portal.azure.com/)

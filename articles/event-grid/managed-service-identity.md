@@ -1,14 +1,14 @@
 ---
-title: Händelse leverans med hanterad tjänst identitet
+title: Händelse leverans, hanterad tjänst identitet och privat länk
 description: I den här artikeln beskrivs hur du aktiverar hanterad tjänst identitet för ett Azure Event Grid-ämne. Använd den för att vidarebefordra händelser till destinationer som stöds.
 ms.topic: how-to
-ms.date: 07/07/2020
-ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/22/2020
+ms.openlocfilehash: 434a2e36ead0d210b7edf64d104243f6643ac019
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534251"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460928"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Händelse leverans med en hanterad identitet
 I den här artikeln beskrivs hur du aktiverar en [hanterad tjänst identitet](../active-directory/managed-identities-azure-resources/overview.md) för Azure Event Grid-ämnen eller-domäner. Använd den för att vidarebefordra händelser till stödda destinationer som Service Bus köer och ämnen, Event Hub och lagrings konton.
@@ -17,6 +17,9 @@ Här följer de steg som beskrivs i detalj i den här artikeln:
 1. Skapa ett ämne eller en domän med en tilldelad identitet eller uppdatera ett befintligt ämne eller en befintlig domän för att aktivera identitet. 
 1. Lägg till identiteten i en lämplig roll (till exempel Service Bus data avsändare) på målet (till exempel en Service Bus kö).
 1. När du skapar händelse prenumerationer kan du aktivera användningen av identiteten för att leverera händelser till målet. 
+
+> [!NOTE]
+> För närvarande går det inte att leverera händelser med [privata slut punkter](../private-link/private-endpoint-overview.md). Mer information finns i avsnittet [privata slut punkter](#private-endpoints) i slutet av den här artikeln. 
 
 ## <a name="create-a-topic-or-domain-with-an-identity"></a>Skapa ett ämne eller en domän med en identitet
 Först ska vi titta på hur du skapar ett ämne eller en domän med en Systemhanterad identitet.
@@ -279,6 +282,12 @@ az eventgrid event-subscription create
     -n $sa_esname 
 ```
 
+## <a name="private-endpoints"></a>Privata slut punkter
+För närvarande går det inte att leverera händelser med [privata slut punkter](../private-link/private-endpoint-overview.md). Det finns inget stöd om du har strikta krav på nätverks isolering där dina levererade händelse trafik inte får lämna det privata IP-utrymmet. 
+
+Men om dina krav kräver ett säkert sätt att skicka händelser med hjälp av en krypterad kanal och en känd identitet på avsändaren (i det här fallet Event Grid) med hjälp av offentligt IP-utrymme kan du leverera händelser till Event Hubs, Service Bus eller Azure Storage tjänsten med hjälp av ett Azure Event Grid-ämne eller en domän med Systemhanterad identitet som du ser i den här artikeln. Sedan kan du använda en privat länk som kon figurer ATS i Azure Functions eller webhooken som distribueras i det virtuella nätverket för att hämta händelser. Se exemplet: [Anslut till privata slut punkter med Azure Functions.](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
+
+Observera att under den här konfigurationen går trafiken över den offentliga IP/Internet från Event Grid till Event Hubs, Service Bus eller Azure Storage, men kanalen kan krypteras och en hanterad identitet för Event Grid används. Om du konfigurerar Azure Functions eller webhook som har distribuerats till det virtuella nätverket för att använda en Event Hubs, Service Bus eller Azure Storage via privat länk kommer det att finnas kvar i Azure i den här delen av trafiken.
 
 
 ## <a name="next-steps"></a>Nästa steg

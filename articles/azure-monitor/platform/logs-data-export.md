@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6b94b6d66046c29de99339887d5c5c87d6c5bb5f
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7183a9c75c78a973b53a9c8c065d62c592b13151
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055944"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441116"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics arbets ytans data export i Azure Monitor (förhands granskning)
 Med Log Analytics data export för arbets yta i Azure Monitor kan du kontinuerligt exportera data från valda tabeller i din Log Analytics arbets yta till ett Azure Storage-konto eller Azure-Event Hubs som det samlas in. Den här artikeln innehåller information om den här funktionen och hur du konfigurerar data export i dina arbets ytor.
@@ -36,7 +36,7 @@ Log Analytics data export för arbets ytan exporterar kontinuerligt data från e
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 - Konfigurationen kan för närvarande endast utföras med CLI-eller REST-begäranden. Du kan inte använda Azure Portal eller PowerShell.
-- Tabeller som stöds är för närvarande begränsade i avsnittet (#supported-tabes) nedan. Om data export regeln innehåller en tabell som inte stöds kommer åtgärden att lyckas, men inga data exporteras för tabellen. Om data export regeln innehåller en tabell som inte finns kommer den inte att fungera, men fel *tabellen <tableName> finns inte i arbets ytan.*
+- Tabeller som stöds är för närvarande begränsade i avsnittet [tabeller som stöds](#supported-tables) nedan. Om data export regeln innehåller en tabell som inte stöds kommer åtgärden att lyckas, men inga data exporteras för tabellen. Om data export regeln innehåller en tabell som inte finns, kommer den inte att fungera med felet ```Table <tableName> does not exist in the workspace.```
 - Din Log Analytics arbets yta kan finnas i vilken region som helst, förutom följande:
   - Schweiz, norra
   - Schweiz, västra
@@ -57,7 +57,7 @@ Log Analytics data export för arbets ytan exporterar kontinuerligt data från e
 ## <a name="data-completeness"></a>Data fullständighet
 Data exporten kommer att fortsätta att försöka skicka data i upp till 30 minuter om målet inte är tillgängligt. Om det fortfarande inte är tillgängligt efter 30 minuter tas data bort tills målet blir tillgängligt.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Kostnad
 Det finns för närvarande inga ytterligare avgifter för data export funktionen. Prissättningen för data export kommer att meddelas i framtiden och ett meddelande som tillhandahålls innan faktureringen påbörjas. Om du väljer att fortsätta använda data export efter meddelande perioden debiteras du enligt tillämplig taxa.
 
 ## <a name="export-destinations"></a>Exportera mål
@@ -239,14 +239,14 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 ## <a name="unsupported-tables"></a>Tabeller som inte stöds
 Om data export regeln innehåller en tabell som inte stöds kommer konfigurationen att lyckas, men inga data exporteras för tabellen. Om tabellen senare stöds, kommer dess data att exporteras vid denna tidpunkt.
 
-Om data export regeln innehåller en tabell som inte finns kommer den inte att fungera, men fel *tabellen <tableName> finns inte i arbets ytan*.
+Om data export regeln innehåller en tabell som inte finns, kommer den inte att fungera med felet ```Table <tableName> does not exist in the workspace.```
 
 
 ## <a name="supported-tables"></a>Tabeller som stöds
 Tabeller som stöds är för närvarande begränsade till dem som anges nedan. Alla data från tabellen exporteras om inte begränsningar anges. Den här listan kommer att uppdateras när stöd för ytterligare tabeller läggs till.
 
 
-| Tabell | Begränsningar |
+| Tabeller | Begränsningar |
 |:---|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |

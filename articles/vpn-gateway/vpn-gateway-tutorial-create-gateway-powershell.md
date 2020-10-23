@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 119e27d381ff40a21ca03b5f3ccd8d1fcb68b5f7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 91004b9cb545275746f75dbd6ad46981fe4b04d5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425063"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461166"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Självstudie: skapa och hantera en VPN-gateway med PowerShell
 
@@ -187,4 +187,4 @@ I den här självstudien har du lärt dig om grundläggande skapande av VPN-gate
 Fortsätt sedan med följande självstudie:
 
 > [!div class="nextstepaction"]
-> * [Skapa en anslutning](vpn-gateway-tutorial-vpnconnection-powershell.md)
+> * [Skapa en S2S-anslutning](vpn-gateway-create-site-to-site-rm-powershell.md)

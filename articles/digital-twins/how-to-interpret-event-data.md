@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10b74f7b795df2cf8c19d044fce44da3f798af7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22bedcf7921e3c8d4f2566a70515eef3e3b136b6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587641"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461030"
 ---
 # <a name="understand-event-data"></a>Förstå händelse data
 
@@ -103,7 +103,7 @@ Meddelanden om livs cykel utlöses när:
 
 Här är fälten i bröd texten i ett meddelande om livs cykel.
 
-| Namn | Värde |
+| Name | Värde |
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id` är unikt för varje distinkt händelse. |
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -189,7 +189,7 @@ Här är ett annat exempel på en digital, dubbel. Den här baseras på en [mode
 
 Här är fälten i bröd texten för en Edge Change-avisering.
 
-| Namn    | Värde |
+| Name    | Värde |
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id` är unikt för varje distinkt händelse |
 | `source` | Namnet på den digitala Azure-instansen, till exempel *mydigitaltwins.westus2.azuredigitaltwins.net* |
@@ -202,7 +202,7 @@ Här är fälten i bröd texten för en Edge Change-avisering.
 
 #### <a name="body-details"></a>Information om brödtext
 
-Texten är nytto lasten i en relation, även i JSON-format. Den använder samma format som en `GET` begäran om en relation via DigitalTwins- [API: et](how-to-use-apis-sdks.md). 
+Texten är nytto lasten i en relation, även i JSON-format. Den använder samma format som en `GET` begäran om en relation via DigitalTwins- [API: et](/rest/api/digital-twins/dataplane/twins). 
 
 "Uppdatering av en relation" innebär att egenskaper för relationen har ändrats. 
 
@@ -245,7 +245,7 @@ Här är ett exempel på ett meddelande om att skapa eller ta bort relationer:
 
 Här är fälten i bröd texten i ett digitalt meddelande om ändring av dubbla meddelanden.
 
-| Namn    | Värde |
+| Name    | Värde |
 | --- | --- |
 | `id` | Identifierare för meddelandet, till exempel ett UUID eller en räknare som underhålls av tjänsten. `source` + `id` är unikt för varje distinkt händelse |
 | `source` | Namnet på IoT Hub-eller Azure Digital-instansen, t. ex. *myhub.Azure-Devices.net* eller *mydigitaltwins.westus2.azuredigitaltwins.net*

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 5d4f61afcf90ff8443010987b188c02de57eeb35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f714d9a24ad40d39c11b185fa9067d6aef4b558a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542647"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455093"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-curricula-saml"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med kurs utbud SAML
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig hur du integrerar kurs utbud SAML med
 * Gör det möjligt för användarna att logga in automatiskt för att kurs utbud SAML med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -40,7 +40,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Kurs utbud SAML stöder **SP-och IDP** -INITIERAd SSO
-* När du har konfigurerat kurs utbud SAML kan du framtvinga kontroll av sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat kurs utbud SAML kan du framtvinga kontroll av sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-curricula-saml-from-the-gallery"></a>Lägga till kurs utbud SAML från galleriet
 
@@ -105,7 +105,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -133,24 +133,24 @@ Om du vill konfigurera enkel inloggning på **kurs utbud SAML** -sida måste du 
 
 ### <a name="create-curricula-saml-test-user"></a>Skapa kurs utbud SAML test User
 
-I det här avsnittet skapar du en användare som heter Britta Simon i kurs utbud SAML. Arbeta med [kurs utbud SAML support team](mailto:engineering@getcurricula.com) för att lägga till användare i kurs utbud SAML-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i kurs utbud SAML. Arbeta med [kurs utbud SAML support team](mailto:engineering@getcurricula.com) för att lägga till användare i kurs utbud SAML-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen kurs utbud SAML på åtkomst panelen, bör du loggas in automatiskt till kurs utbud SAML som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen kurs utbud SAML på åtkomst panelen, bör du loggas in automatiskt till kurs utbud SAML som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Testa kurs utbud SAML med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Så här skyddar du kurs utbud SAML med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Så här skyddar du kurs utbud SAML med avancerad synlighet och kontroller](/cloud-app-security/proxy-intro-aad)

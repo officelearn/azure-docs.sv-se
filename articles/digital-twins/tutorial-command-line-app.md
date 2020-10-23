@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d7c95317667999ac17803f08575e68641100b967
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048499"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460792"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Självstudie: utforska digitala Azure-enheter med ett exempel på en klient
 
@@ -242,7 +242,7 @@ En huvud funktion i Azure Digitals flätas är möjligheten att [fråga](concept
     :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Redige rad Room.jsmed uppdaterade versions nummer, HumidityLevel och RoomName egenskaper och innehåller relation":::
 
     >[!NOTE]
-    >Kommandot `Query` utan några ytterligare argument är detsamma som i exempelprojektet `Query SELECT * FROM DIGITALTWINS` . Om du vill fråga alla dubbla i din instans med hjälp av [fråge-API: erna](how-to-use-apis-sdks.md) eller [CLI-kommandona](how-to-use-cli.md)använder du frågan längre (slutförd).
+    >Kommandot `Query` utan några ytterligare argument är detsamma som i exempelprojektet `Query SELECT * FROM DIGITALTWINS` . Om du vill fråga alla dubbla i din instans med hjälp av [fråge-API: erna](/rest/api/digital-twins/dataplane/query) eller [CLI-kommandona](how-to-use-cli.md)använder du frågan längre (slutförd).
 
 * **Vad är alla rum i min miljö?** (fråga efter modell)
 

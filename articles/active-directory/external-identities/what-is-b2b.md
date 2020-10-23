@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfce0031d912b1611b6810310e56241857821579
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7104040e73679b6563b02aba47698b8eac2b7a56
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87926730"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441393"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Vad är gästanvändaråtkomst i Azure Active Directory B2B?
 
@@ -74,8 +74,8 @@ Du kan delegera hanteringen av gästanvändarna till programägarna, så att de 
 
 Ta med dina externa partner på ett sätt som anpassas efter din organisations behov.
 
-- Använd [hantering av Azure AD-rättighet](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) för att konfigurera principer som [hanterar åtkomst för externa användare](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
-- Använd [API: er för inbjudan med B2B-samarbete](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) för att anpassa dina onboarding-upplevelser.
+- Använd [hantering av Azure AD-rättighet](../governance/entitlement-management-overview.md) för att konfigurera principer som [hanterar åtkomst för externa användare](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
+- Använd [API: er för inbjudan med B2B-samarbete](/graph/api/resources/invitation) för att anpassa dina onboarding-upplevelser.
 
 ## <a name="integrate-with-identity-providers"></a>Integrera med identitets leverantörer
 

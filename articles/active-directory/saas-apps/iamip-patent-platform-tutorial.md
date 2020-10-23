@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1a2139b7a0f7d51b6c759a98c93c5250666f15a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc9be41cd7975610f2779da09b94066c70a91652
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525164"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460537"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med IamIP patent plattform
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig att integrera IamIP patent plattform 
 * Gör det möjligt för användarna att logga in automatiskt till IamIP patent plattform med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -41,7 +41,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 IamIP patent Platform stöder SP-initierad och IDP-initierad SSO.
 
-När du har konfigurerat patent plattformen IamIP kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+När du har konfigurerat patent plattformen IamIP kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 
 ## <a name="add-iamip-patent-platform-from-the-gallery"></a>Lägg till IamIP patent plattform från galleriet
@@ -117,7 +117,7 @@ I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna slutför du de här stegen:
    1. I rutan **namn** anger du **B. Simon**.  
-   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Exempelvis `B.Simon@contoso.com`.
+   1. I rutan **användar namn** anger du \<username> @ \<companydomain> . \<extension> . Till exempel `B.Simon@contoso.com`.
    1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -151,16 +151,16 @@ Arbeta med [IamIP patent Platform support team](mailto:info@iamip.com) för att 
 
 I det här avsnittet ska du testa din Azure AD SSO-konfiguration med hjälp av åtkomst panelen.
 
-När du väljer den IamIP patent plattforms panelen på åtkomst panelen, bör du loggas in automatiskt på den IamIP patent plattforms instans som du ställer in SSO för. Mer information om åtkomst panelen finns i [Introduktion till åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer den IamIP patent plattforms panelen på åtkomst panelen, bör du loggas in automatiskt på den IamIP patent plattforms instans som du ställer in SSO för. Mer information om åtkomst panelen finns i [Introduktion till åtkomst panelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova IamIP patent Platform med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

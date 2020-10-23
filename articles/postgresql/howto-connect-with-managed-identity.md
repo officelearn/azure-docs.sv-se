@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1b9603e43541ec1a364e4653caeeafc751f7e4f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d801499360bd05cee4c01aefd873337303017f3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012100"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427512"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Ansluta med hanterad identitet till Azure Database for PostgreSQL
 
@@ -24,10 +24,10 @@ Lär dig att:
 - Hämta en åtkomsttoken med den virtuella dator identiteten och Använd den för att fråga en Azure Database for PostgreSQL Server
 - Implementera hämtning av token i ett exempel program i C#
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Om du inte känner till funktionen för hanterade identiteter för Azure-resurser kan du läsa igenom den här [översikten](../../articles/active-directory/managed-identities-azure-resources/overview.md). Om du inte har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- För att kunna utföra den nödvändiga resurs skapande och roll hantering måste ditt konto ha behörigheten "ägare" i lämpligt omfång (din prenumeration eller resurs grupp). Information om rolltilldelning finns i [Använda rollbaserad åtkomstkontroll för att hantera åtkomsten till dina Azure-prenumerationsresurser](../../articles/role-based-access-control/role-assignments-portal.md).
+- För att kunna utföra den nödvändiga resurs skapande och roll hantering måste ditt konto ha behörigheten "ägare" i lämpligt omfång (din prenumeration eller resurs grupp). Om du behöver hjälp med roll tilldelning kan du läsa mer i [använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att hantera åtkomst till dina Azure-prenumerations resurser](../../articles/role-based-access-control/role-assignments-portal.md).
 - Du behöver en virtuell Azure-dator (till exempel köra Ubuntu Linux) som du vill använda för att komma åt din databas med hanterad identitet
 - Du behöver en Azure Database for PostgreSQL databas server där [Azure AD-autentisering](howto-configure-sign-in-aad-authentication.md) har kon figurer ATS
 - Om du vill följa C#-exemplet måste du först slutföra guiden så här ansluter du till [c#](connect-csharp.md)

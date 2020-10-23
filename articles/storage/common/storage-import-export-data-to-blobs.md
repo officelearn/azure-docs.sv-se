@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6d12c0ce0df44c37f4e7df49df2c11301513917c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3be13dade9cae45994b5f7a9d6f7479e2de6256
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514213"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460741"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använd Azure import/export-tjänsten för att importera data till Azure Blob Storage
 
@@ -33,13 +33,13 @@ Du måste:
 * Aktivera BitLocker på Windows-systemet. Se [hur du aktiverar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 * [Ladda ned den senaste WAImportExport-versionen 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet. Den senaste versionen av verktyget har säkerhets uppdateringar för att tillåta en extern skydds funktion för BitLocker-nyckeln och den uppdaterade funktionen för upplåsnings läge.
 
-  * Zippa upp till standardmappen `waimportexportv1` . Exempelvis `C:\WaImportExportV1`.
+  * Zippa upp till standardmappen `waimportexportv1` . Till exempel `C:\WaImportExportV1`.
 * Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box drifts team på `adbops@microsoft.com` .  
   * Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
   * Generera ett spårnings nummer för export jobbet.
   * Varje jobb ska ha ett separat spårningsnummer. Det finns inte stöd för flera jobb med samma spårningsnummer.
   * Om du inte har ett transport företags konto går du till:
-    * [Skapa ett FedEX-konto](https://www.fedex.com/en-us/create-account.html)eller
+    * [Skapa ett FedEx-konto](https://www.fedex.com/en-us/create-account.html)eller
     * [Skapa ett DHL-konto](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-prepare-the-drives"></a>Steg 1: Förbered enheterna
@@ -83,7 +83,7 @@ Utför följande steg för att förbereda enheterna.
     |/ID     |Sessions-ID. Använd ett unikt sessions nummer för varje instans av kommandot.      |
     |/t:     |Enhets beteckningen för den disk som ska levereras. Till exempel enhet `D` .         |
     |/bk:     |Enhetens BitLocker-nyckel. Det numeriska lösen ordet från utdata från `manage-bde -protectors -get D:`      |
-    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\` . Exempelvis `D:\`.         |
+    |/srcdir:     |Enhets beteckningen för den disk som ska levereras följt av `:\` . Till exempel `D:\`.         |
     |/dstdir:     |Namnet på mål behållaren i Azure Storage.         |
     |/blobtype:     |Det här alternativet anger vilken typ av blobbar som du vill importera data till. För block-blobbar är detta `BlockBlob` och för sid blobbar `PageBlob` .         |
     |/skipwrite:     |Alternativet som anger att det inte finns några nya data som behöver kopieras och befintliga data på disken måste förberedas.          |
@@ -94,6 +94,8 @@ Utför följande steg för att förbereda enheterna.
     > * Tillsammans med journal filen `<Journal file name>_DriveInfo_<Drive serial ID>.xml` skapas även en fil i samma mapp som verktyget finns i. XML-filen används i stället för journal filen när du skapar ett jobb om journal filen är för stor.
 
 ## <a name="step-2-create-an-import-job"></a>Steg 2: skapa ett import jobb
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Utför följande steg för att skapa ett import jobb i Azure Portal.
 
@@ -142,6 +144,85 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
    * Skapa import jobbet genom att klicka på **OK** .
 
      ![Skapa import jobb – steg 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Använd följande steg för att skapa ett import jobb i Azure CLI.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>Skapa ett jobb
+
+1. Använd kommandot [AZ Extension Add](/cli/azure/extension#az_extension_add) för att lägga till [AZ import-export-](/cli/azure/ext/import-export/import-export) tillägget:
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. Du kan använda en befintlig resurs grupp eller skapa en. Skapa en resurs grupp genom att köra kommandot [AZ Group Create](/cli/azure/group#az_group_create) :
+
+    ```azurecli
+    az group create --name myierg --location "West US"
+    ```
+
+1. Du kan använda ett befintligt lagrings konto eller skapa ett. Skapa ett lagrings konto genom att köra kommandot [AZ Storage Account Create](/cli/azure/storage/account#az_storage_account_create) :
+
+    ```azurecli
+    az storage account create --resource-group myierg --name myssdocsstorage --https-only
+    ```
+
+1. Om du vill hämta en lista över platser som du kan leverera diskar till använder du kommandot [AZ import-export location location List](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Använd kommandot [AZ import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) för att hämta platser för din region:
+
+    ```azurecli
+    az import-export location show --location "West US"
+    ```
+
+1. Kör följande [AZ import-export Create-](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) kommando för att skapa ett import jobb:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name MyIEjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
+            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
+            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --type Import \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --return-shipping carrier-name=FedEx carrier-account-number=123456789 \
+        --storage-account myssdocsstorage
+    ```
+
+   > [!TIP]
+   > Ange en grupp-e-postadress i stället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar.
+
+1. Använd kommandot [AZ import-export List](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) för att visa alla jobb för resurs gruppen myierg:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. Om du vill uppdatera jobbet eller avbryta jobbet kör du kommandot [AZ import-export Update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>Steg 3 (valfritt): Konfigurera kundens hanterad nyckel
 

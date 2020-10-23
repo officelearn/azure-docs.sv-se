@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfbef5ce3ba7675aff88df654a5ba6572c38adbe
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441877"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440746"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten till att exportera data från Azure Blob Storage
 
@@ -36,6 +36,8 @@ Du måste:
     - [Skapa ett DHL-konto](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Steg 1: skapa ett export jobb
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Utför följande steg för att skapa ett export jobb i Azure Portal.
 
@@ -100,6 +102,83 @@ Utför följande steg för att skapa ett export jobb i Azure Portal.
 
     - Klicka på **OK** för att slutföra genereringen av export jobb.
 
+### <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+Använd följande steg för att skapa ett export jobb i Azure Portal.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="create-a-job"></a>Skapa ett jobb
+
+1. Använd kommandot [AZ Extension Add](/cli/azure/extension#az_extension_add) för att lägga till [AZ import-export-](/cli/azure/ext/import-export/import-export) tillägget:
+
+    ```azurecli
+    az extension add --name import-export
+    ```
+
+1. Om du vill hämta en lista över de platser som du kan ta emot diskar från, använder du kommandot [AZ import-export location List](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) :
+
+    ```azurecli
+    az import-export location list
+    ```
+
+1. Kör följande [AZ import-export Create-](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) kommando för att skapa ett export jobb som använder ditt befintliga lagrings konto:
+
+    ```azurecli
+    az import-export create \
+        --resource-group myierg \
+        --name Myexportjob1 \
+        --location "West US" \
+        --backup-drive-manifest true \
+        --diagnostics-path waimportexport \
+        --export blob-path=/ \
+        --type Export \
+        --log-level Verbose \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --storage-account myssdocsstorage
+    ```
+
+    > [!TIP]
+    > Ange en grupp-e-postadress i stället för att ange en e-postadress för en enskild användare. Detta säkerställer att du får meddelanden även om en administratör lämnar.
+
+   Det här jobbet exporterar alla blobbar i ditt lagrings konto. Du kan ange en BLOB för export genom att ersätta det här värdet för **--export**:
+
+    ```azurecli
+    --export blob-path=$root/logo.bmp
+    ```
+
+   Detta parameter värde exporterar blobben som heter *logo.bmp* i rot behållaren.
+
+   Du kan också välja att välja alla blobbar i en behållare med hjälp av ett prefix. Ersätt detta värde för **--export**:
+
+    ```azurecli
+    blob-path-prefix=/myiecontainer
+    ```
+
+   Mer information finns i [exempel på giltiga BLOB-sökvägar](#examples-of-valid-blob-paths).
+
+   > [!NOTE]
+   > Om blobben som ska exporteras används under data kopieringen tar Azure import/export-tjänsten en ögonblicks bild av blobben och kopierar ögonblicks bilden.
+
+1. Använd kommandot [AZ import-export List](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) för att se alla jobb för resurs gruppen myierg:
+
+    ```azurecli
+    az import-export list --resource-group myierg
+    ```
+
+1. Om du vill uppdatera jobbet eller avbryta jobbet kör du kommandot [AZ import-export Update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) :
+
+    ```azurecli
+    az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
+    ```
+
+---
+
 <!--## (Optional) Step 2: -->
 
 ## <a name="step-2-ship-the-drives"></a>Steg 2: leverera enheterna
@@ -142,7 +221,7 @@ För tillfället kan du ta bort jobbet eller lämna det. Jobb tas automatiskt bo
 Det här *valfria* steget hjälper dig att avgöra hur många enheter som krävs för export jobbet. Utför det här steget på ett Windows-system som kör en [operativ system version som stöds](storage-import-export-requirements.md#supported-operating-systems).
 
 1. [Ladda ned WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet.
-2. Zippa upp till standardmappen `waimportexportv1` . Exempelvis `C:\WaImportExportV1`.
+2. Zippa upp till standardmappen `waimportexportv1` . Till exempel `C:\WaImportExportV1`.
 3. Öppna ett PowerShell-eller kommando rads fönster med administratörs behörighet. Kör följande kommando för att ändra katalogen till den zippade mappen:
 
    `cd C:\WaImportExportV1`

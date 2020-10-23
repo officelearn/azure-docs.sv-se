@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 595cf2c1dbc105634d33b426c67e5123b9751e6e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319987"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457970"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Genom att använda filtrering kan du styra vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standard konfigurationen tar alla objekt i alla domäner i de konfigurerade skogarna. I allmänhet är detta den rekommenderade konfigurationen. Användare som använder Microsoft 365 arbets belastningar, till exempel Exchange Online och Skype för företag, drar nytta av en fullständig global adress lista så att de kan skicka e-post och ringa alla. Med standard konfigurationen har de samma erfarenhet som de skulle ha med en lokal implementering av Exchange eller Lync.
@@ -127,7 +127,7 @@ Gör så här om du vill ange ett domän filter:
 3.  Välj **Anpassa alternativ för synkronisering** och klicka på **Nästa**.
 4.  Ange dina autentiseringsuppgifter för Azure AD
 5.  Klicka på **Nästa**på sidan **anslutna kataloger** .
-6.  På **sidan domän-och OU-filtrering** klickar du på **Uppdatera**.  Nya domäner visas dåligt och borttagna domäner försvinner.
+6.  På **sidan domän-och OU-filtrering** klickar du på **Uppdatera**.  Nya domäner kommer nu att visas och borttagna domäner försvinner.
    ![Partitioner](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>Uppdatera körnings profilerna

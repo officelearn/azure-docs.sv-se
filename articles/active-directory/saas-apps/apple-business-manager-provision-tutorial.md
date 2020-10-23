@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: ff017671496816f0142bd3b71c3df1a3769b274b
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 1ad5b40ea4afa35948c26bfd55e4f2b5696bf514
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91941100"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457910"
 ---
 # <a name="tutorial-configure-apple-business-manager-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Apple Business Manager för automatisk användar etablering
 
 
 
-I den här självstudien beskrivs de steg du behöver utföra i både Apple Business Manager och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare till [Apple Business Manager](https://business.apple.com/) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+I den här självstudien beskrivs de steg du behöver utföra i både Apple Business Manager och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare till [Apple Business Manager](https://business.apple.com/) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]
@@ -34,21 +34,21 @@ I den här självstudien beskrivs de steg du behöver utföra i både Apple Busi
 > * Ta bort användare i Apple Business Manager när de inte behöver åtkomst längre
 > * Behåll användarattribut synkroniserade mellan Azure AD och Apple Business Manager
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-* [En Azure AD-klientorganisation](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (till exempel program administratör, moln program administratör, program ägare eller global administratör).
+* [En Azure AD-klientorganisation](../develop/quickstart-create-new-tenant.md).
+* Ett användar konto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (till exempel program administratör, moln program administratör, program ägare eller global administratör).
 * Ett Apple Business Manager-konto med rollen som administratör eller personal Manager.
 
 > [!NOTE]
 > Att överföra token till Azure AD och upprätta en lyckad anslutning måste slutföras inom 4 Kalender dagar eller så måste processen startas igen.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
-1. Lär dig mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Ta reda på vem som finns i [etableringsomfånget](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Ta reda på vilka data som ska [mappas mellan Azure AD och Apple Business Manager](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Lär dig mer om [hur etableringstjänsten fungerar](../app-provisioning/user-provisioning.md).
+2. Ta reda på vem som finns i [etableringsomfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Ta reda på vilka data som ska [mappas mellan Azure AD och Apple Business Manager](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-configure-apple-business-manager-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Apple Business Manager för att ge stöd för etablering med Azure AD
 
@@ -64,15 +64,15 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="step-3-add-apple-business-manager-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till Apple Business Manager från Azure AD-programgalleriet
 
-Lägg till Apple Business Manager från Azure AD-programgalleriet för att börja hantera etablering till Apple Business Manager. Om du tidigare har installerat Apple Business Manager för enkel inloggning kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Lägg till Apple Business Manager från Azure AD-programgalleriet för att börja hantera etablering till Apple Business Manager. Om du tidigare har installerat Apple Business Manager för enkel inloggning kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](../manage-apps/add-application-portal.md).
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas i etableringsomfånget 
 
-Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* När du tilldelar användare till Apple Business Manager måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller. 
+* När du tilldelar användare till Apple Business Manager måste du välja en annan roll än **standard åtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
 
-* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-apple-business-manager"></a>Steg 5. Konfigurera automatisk användar etablering till Apple Business Manager
 
@@ -143,13 +143,13 @@ Den här åtgärden startar den första synkroniseringen av alla användare och/
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:
 
-1. Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att se vilka användare som har etablerats och vilka som har misslyckats
-2. Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är att slutföras
-3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+1. Använd [etableringsloggarna](../reports-monitoring/concept-provisioning-logs.md) för att se vilka användare som har etablerats och vilka som har misslyckats
+2. Kontrollera [förloppsindikatorn](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) för att se status för etableringscykeln och hur nära den är att slutföras
+3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användarkontoetablering för Enterprise-appar](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera användarkontoetablering för Enterprise-appar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Granska SCIM-krav för Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdd88331cd6)
 * [Hur ett person-ID används i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd69e1e48e9)
@@ -159,10 +159,8 @@ När du har konfigurerat etableringen använder du följande resurser till att �
 * [Visa SCIM-aktivitet i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd1bfd8dfde)
 * [Hantera befintliga SCIM-token och anslutningar i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a823611)
 * [Koppla från SCIM-anslutningen i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd609be3a61)
-* [Hantera befintliga SCIM-token och anslutningar i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apdc9a8236e9)
 * [Felsöka SCIM-anslutningen i Apple Business Manager](https://support.apple.com/guide/apple-business-manager/apd403a0f3bd/web)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)
-
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

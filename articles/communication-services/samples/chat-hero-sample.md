@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9be94183fc34c2dbee3503d21e2e643d5296a82b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124593"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461132"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Kom igång med hjälte-exemplet för grupp Chat
 
@@ -25,12 +25,14 @@ ms.locfileid: "92124593"
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Det här exemplet finns på GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
 Hjälte exemplet Azure Communication Services **Group Chat** visar hur kommunikations tjänsternas webb klient bibliotek kan användas för att bygga en grupp som anropar.
 
 I den här snabb starten ska vi lära dig hur exemplet fungerar innan vi kör exemplet på den lokala datorn. Vi distribuerar sedan exemplet till Azure med dina egna Azure Communication Services-resurser.
 
-> [!IMPORTANT]
-> [Hämta exemplet från GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>Översikt
 
@@ -60,7 +62,7 @@ Komponenter för den huvudsakliga Chat-skärmen:
 
 Nedan hittar du mer information om förutsättningar och steg för att konfigurera exemplet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Skapa ett Azure-konto med en aktiv prenumeration. Mer information finns i [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js (8.11.2 och senare)](https://nodejs.org/en/download/)

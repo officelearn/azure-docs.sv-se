@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: c032d8a5dc6cbfe181dccc6c7b4fd1db35a9a3a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24b7eabbf992672d308881bf684896befea252ff
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91741566"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457307"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Självstudie: Azure Active Directory integrering med Bersin
 
@@ -27,7 +27,7 @@ Genom att integrera Bersin med Azure AD får du följande fördelar:
 * Du kan göra det möjligt för användarna att logga in automatiskt till Bersin (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
@@ -183,18 +183,18 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-bersin-test-user"></a>Skapa Bersin test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Bersin. Arbeta med [Bersin support team](mailto:USBersinServiceClient@deloitte.com) för att lägga till användare i Bersin-plattformen eller domänen som måste läggas till i en lista över tillåtna för Bersin-plattformen. Om domänen läggs till av teamet, kommer användarna automatiskt att tillhandahålla Bersin-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Bersin. Arbeta med [Bersin support team](mailto:USBersinServiceClient@deloitte.com) för att lägga till användare i Bersin-plattformen eller domänen som måste läggas till i en lista över tillåtna för Bersin-plattformen. Om domänen läggs till av teamet, kommer användarna automatiskt att tillhandahålla Bersin-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Bersin på åtkomst panelen, bör du loggas in automatiskt på den Bersin som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Bersin på åtkomst panelen, bör du loggas in automatiskt på den Bersin som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

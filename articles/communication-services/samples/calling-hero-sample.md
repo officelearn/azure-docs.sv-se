@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126334"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461149"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Kom igång med en grupp som anropar ett hjälte exempel
 
@@ -25,12 +25,12 @@ ms.locfileid: "92126334"
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Det här exemplet finns på GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
 Azure Communication Services- **gruppen som anropar ett hjältes exempel** visar hur kommunikations tjänsterna som anropar webb klient biblioteket kan användas för att bygga en grupp anrops upplevelse.
 
 I den här snabb starten ska vi lära dig hur exemplet fungerar innan vi kör exemplet på den lokala datorn. Vi distribuerar sedan exemplet till Azure med dina egna Azure Communication Services-resurser.
-
-> [!IMPORTANT]
-> [Hämta exemplet från GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 ## <a name="overview"></a>Översikt
 
@@ -60,7 +60,7 @@ Komponenter för den huvudsakliga uppringnings skärmen:
 
 Nedan hittar du mer information om förutsättningar och steg för att konfigurera exemplet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Skapa ett Azure-konto med en aktiv prenumeration. Mer information finns i [skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 och senare)](https://nodejs.org/en/download/)
@@ -112,7 +112,6 @@ Om du vill rensa och ta bort en kommunikations tjänst prenumeration kan du ta b
 Mer information finns i följande artiklar:
 
 - Bekanta dig med [att använda det anropande klient biblioteket](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Läs om hur du [anropar klient biblioteks funktioner](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Läs mer om [hur du anropar Works](../concepts/voice-video-calling/about-call-types.md)
 
 ## <a name="additional-reading"></a>Mer att läsa

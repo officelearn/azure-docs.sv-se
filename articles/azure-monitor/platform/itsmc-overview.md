@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 41aabeeeb151a6e2cf3c52dbfa2075c55f86989f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c163b7325cb4e039ddcfee95a39b82b4cb258b3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427305"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461302"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 
@@ -107,10 +107,9 @@ När du har beredd dina ITSM-verktyg följer du stegen nedan för att skapa en a
    Genom att använda ITSM-anslutningsprogram lösning kan du skapa arbets objekt från Azure-aviseringar, Log Analytics aviseringar och Log Analytics logg poster.
 
 ## <a name="template-definitions"></a>Mall definitioner
-   Det finns typer av **arbets objekt** som kan använda mallar som definieras av ITSM-verktyget.
-Med hjälp av mallar kan kunden definiera fält som fylls i automatiskt enligt fasta värden som definieras som en del av åtgärds gruppen. Den här definitionen görs i ITSM-verktyget.
-I dessa fall kan du med kryss rutan "använda anpassad mall" tillåta kunden att fylla i fält som fylls i automatiskt enligt fasta värden som definieras som en del av åtgärds gruppen.
-   
+   Det finns typer av arbets objekt som kan använda mallar som definieras av ITSM-verktyget.
+Med hjälp av mallar kan kunden definiera fält som fylls i automatiskt enligt fasta värden som definieras som en del av åtgärds gruppen. Definitionen av mallarna görs i ITSM-verktyget.
+      
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Skapa ITSM arbets objekt från Azure-aviseringar
 
 När du har skapat din ITSM-anslutning kan du skapa arbets objekt i ITSM-verktyget baserat på Azure-aviseringar med hjälp av **åtgärden ITSM** i **Åtgärds grupper**.
@@ -139,7 +138,7 @@ Följ dessa steg:
 
 6. Välj typ av **arbets objekt** på den nedrullningsbara menyn.
 
-7. Välj att använda en befintlig mall eller Använd en gemensam mall och fyll i fälten som krävs av din ITSM-produkt.
+7. Om du vill fylla i fält fälten med fasta värden bör du markera kryss rutan för Använd anpassad mall. annars väljer du att använda en befintlig [mall](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) i list rutan och fyller i mal fälten med fasta värden.
 
 8. Klicka på **OK**.
 

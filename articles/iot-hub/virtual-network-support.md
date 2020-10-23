@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: 3deffe6f1dbffcaae5676b8ddf3c0fc2dc934401
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149092"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427858"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>IoT Hub stöd för virtuella nätverk med privat länk och hanterad identitet
 
@@ -170,7 +170,7 @@ Den betrodda Microsoft First parts Services-funktionen är kostnads fri. Avgifte
 
 ### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Utgående anslutning till lagrings konto slut punkter för routning
 
-IoT Hub kan dirigera meddelanden till ett kundägda lagrings konto. För att routnings funktionen ska kunna komma åt ett lagrings konto medan brand Väggs begränsningarna är på plats måste IoT Hub ha en [hanterad identitet](#turn-on-managed-identity-for-iot-hub). När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att komma åt ditt lagrings konto.
+IoT Hub kan dirigera meddelanden till ett kundägda lagrings konto. För att routnings funktionen ska kunna komma åt ett lagrings konto medan brand Väggs begränsningarna är på plats måste IoT Hub ha en [hanterad identitet](#turn-on-managed-identity-for-iot-hub). När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge Azure RBAC-behörighet till navets resurs identitet för åtkomst till ditt lagrings konto.
 
 1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
@@ -188,7 +188,7 @@ Nu är din anpassade lagrings slut punkt inställd på att använda navets tilld
 
 ### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Utgående anslutning till Event Hub-slutpunkter för routning
 
-IoT Hub kan konfigureras för att dirigera meddelanden till en kundägda Event Hub-namnrymd. För att routnings funktionen ska kunna komma åt en resurs för händelse hubbar medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad identitet. När en hanterad identitet har skapats följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att få åtkomst till dina händelse nav.
+IoT Hub kan konfigureras för att dirigera meddelanden till en kundägda Event Hub-namnrymd. För att routnings funktionen ska kunna komma åt en resurs för händelse hubbar medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad identitet. När en hanterad identitet har skapats följer du stegen nedan för att ge Azure RBAC-behörighet till navets resurs identitet för att få åtkomst till dina händelse nav.
 
 1. I Azure Portal navigerar du till fliken för Event Hub- **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
@@ -206,7 +206,7 @@ Nu konfigureras slut punkten för anpassade händelse nav till att använda nave
 
 ### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Utgående anslutning till Service Bus-slutpunkter för routning
 
-IoT Hub kan konfigureras för att dirigera meddelanden till ett kundägda Service Bus-namnområde. För att routnings funktionen ska kunna få åtkomst till en Service Bus-resurs medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad identitet. När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att få åtkomst till din Service Bus.
+IoT Hub kan konfigureras för att dirigera meddelanden till ett kundägda Service Bus-namnområde. För att routnings funktionen ska kunna få åtkomst till en Service Bus-resurs medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad identitet. När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge Azure RBAC-behörighet till navets resurs identitet för att få åtkomst till din Service Bus.
 
 1. I Azure Portal navigerar du till fliken åtkomst kontroll för Service Bus **(IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 
@@ -224,7 +224,7 @@ Nu är din anpassade Service Bus-slutpunkt konfigurerad att använda navets till
 
 ### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Utgående anslutning till lagrings konton för fil uppladdning
 
-Med IoT Hub fil överförings funktionen kan enheter Ladda upp filer till ett kundägda lagrings konto. För att tillåta fil uppladdning att fungera måste både enheter och IoT Hub ha anslutning till lagrings kontot. Om brand Väggs begränsningar finns på lagrings kontot, måste enheterna använda något av de lagrings konto funktioner som stöds (inklusive [privata slut punkter](../private-link/tutorial-private-endpoint-storage-portal.md), [tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md)eller [konfiguration av direkt brand vägg](../storage/common/storage-network-security.md)) för att få anslutning. Om brand Väggs begränsningarna finns på lagrings kontot måste IoT Hub konfigureras för åtkomst till lagrings resursen via det betrodda Microsoft Services-undantaget. För det här ändamålet måste IoT Hub ha en hanterad identitet. När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att komma åt ditt lagrings konto.
+Med IoT Hub fil överförings funktionen kan enheter Ladda upp filer till ett kundägda lagrings konto. För att tillåta fil uppladdning att fungera måste både enheter och IoT Hub ha anslutning till lagrings kontot. Om brand Väggs begränsningar finns på lagrings kontot, måste enheterna använda något av de lagrings konto funktioner som stöds (inklusive [privata slut punkter](../private-link/tutorial-private-endpoint-storage-portal.md), [tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md)eller [konfiguration av direkt brand vägg](../storage/common/storage-network-security.md)) för att få anslutning. Om brand Väggs begränsningarna finns på lagrings kontot måste IoT Hub konfigureras för åtkomst till lagrings resursen via det betrodda Microsoft Services-undantaget. För det här ändamålet måste IoT Hub ha en hanterad identitet. När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge Azure RBAC-behörighet till navets resurs identitet för åtkomst till ditt lagrings konto.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
@@ -244,7 +244,7 @@ Nu har din lagrings slut punkt för fil uppladdning kon figurer ATS för att anv
 
 IoT Hub stöder funktionerna för att [Importera/exportera](./iot-hub-bulk-identity-mgmt.md) enheters information i bulk från/till en lagrings-BLOB för kunden. För att tillåta Mass import/export-funktionen att fungera måste både enheter och IoT Hub ha anslutning till lagrings kontot.
 
-Den här funktionen kräver anslutning från IoT Hub till lagrings kontot. För att få åtkomst till en Service Bus-resurs medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad identitet. När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att få åtkomst till din Service Bus.
+Den här funktionen kräver anslutning från IoT Hub till lagrings kontot. För att få åtkomst till en Service Bus-resurs medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad identitet. När en hanterad identitet har tillhandahållits följer du stegen nedan för att ge Azure RBAC-behörighet till navets resurs identitet för att få åtkomst till din Service Bus.
 
 1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
 

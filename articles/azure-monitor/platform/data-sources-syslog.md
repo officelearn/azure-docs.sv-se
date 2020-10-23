@@ -1,20 +1,23 @@
 ---
-title: Samla in och analysera syslog-meddelanden i Azure Monitor | Microsoft Docs
+title: Samla in syslog-datakällor med Log Analytics agent i Azure Monitor
 description: Syslog är ett händelse loggnings protokoll som är gemensamt för Linux. Den här artikeln beskriver hur du konfigurerar insamling av syslog-meddelanden i Log Analytics och information om de poster som de skapar.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/22/2019
-ms.openlocfilehash: d9efdb11ffd30c68a0ac8ea8e8156fe707f188de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 2d86983c8ed6c738e4b4e96d8d291dee4dc4d87d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322320"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440628"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Syslog-datakällor i Azure Monitor
+# <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Samla in syslog-datakällor med Log Analytics agent
 Syslog är ett händelse loggnings protokoll som är gemensamt för Linux. Program kommer att skicka meddelanden som kan lagras på den lokala datorn eller levereras till en syslog-insamlare. När Log Analytics-agenten för Linux installeras konfigureras den lokala syslog-daemonen för att vidarebefordra meddelanden till agenten. Agenten skickar sedan meddelandet till Azure Monitor där en motsvarande post skapas.  
+
+> [!IMPORTANT]
+> Den här artikeln beskriver hur du samlar in Syslog-händelser med [Log Analytics agent](log-analytics-agent.md) som är en av de agenter som används av Azure Monitor. Andra agenter samlar in olika data och konfigureras på olika sätt. Se [Översikt över Azure Monitor agenter](agents-overview.md) för en lista över tillgängliga agenter och de data som de kan samla in.
 
 > [!NOTE]
 > Azure Monitor stöder insamling av meddelanden som skickats av rsyslog eller syslog-ng, där rsyslog är standard-daemon. Standard syslog-daemonen på version 5 av Red Hat Enterprise Linux, CentOS och Oracle Linux-version (sysklog) stöds inte för händelse insamling i syslog. Om du vill samla in syslog-data från den här versionen av dessa distributioner ska [rsyslog daemon](http://rsyslog.com) installeras och konfigureras för att ersätta sysklog.
@@ -45,7 +48,7 @@ Följande anläggningar stöds med syslog-insamlaren:
 Log Analytics agent för Linux samlar endast in händelser med de funktioner och allvarlighets grader som anges i konfigurationen. Du kan konfigurera syslog genom Azure Portal eller genom att hantera konfigurationsfiler på Linux-agenterna.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Konfigurera syslog i Azure Portal
-Konfigurera syslog från [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources). Den här konfigurationen skickas till konfigurations filen på varje Linux-Agent.
+Konfigurera syslog från [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources) för arbets ytan Log Analytics. Den här konfigurationen skickas till konfigurations filen på varje Linux-Agent.
 
 Du kan lägga till en ny anläggning genom att först välja alternativet **Använd konfigurationen nedan för mina datorer** och sedan skriva in dess namn och klicka på **+** . För varje funktion samlas endast meddelanden med de valda allvarlighets graderna in.  Kontrol lera allvarlighets graderna för den specifika funktionen som du vill samla in. Du kan inte ange några ytterligare kriterier för att filtrera meddelanden.
 
@@ -219,7 +222,7 @@ Syslog-poster har en typ av **syslog** och har egenskaperna i följande tabell.
 ## <a name="log-queries-with-syslog-records"></a>Logga frågor med syslog-poster
 Följande tabell innehåller olika exempel på logg frågor som hämtar syslog-poster.
 
-| Söka i data | Beskrivning |
+| Söka i data | Description |
 |:--- |:--- |
 | Syslog |Alla Syslogs. |
 | Syslog-&#124; där SeverityLevel = = "Error" |Alla syslog-poster med allvarlighets graden fel. |

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f76d6a5c4c891abf92b67cc51ffffab5f2a81d6b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f0d28a71e2bd6fc2006bda81fba7d7e6336c5b1c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427706"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460843"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
@@ -48,7 +48,7 @@ Om du vill arbeta igenom scenariot interagerar du med komponenterna i den förde
 
 Här följer de komponenter som implementeras av *AdtSampleApp* -exempel appen för bygg scenariot:
 * Enhetsautentisering 
-* Användnings exempel för [.net (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core) (hittades i *CommandLoop.cs*)
+* Användnings exempel för [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) (hittades i *CommandLoop.cs*)
 * Konsol gränssnitt för att anropa Azure Digitals dubbla API: er
 * *SampleClientApp* – ett exempel på Azure Digitals dubbla lösningar
 * *SampleFunctionsApp* – en Azure Functions app som uppdaterar ditt Azure Digitals-diagram till följd av telemetri från IoT Hub och Azures digitala dubbla händelser
@@ -87,7 +87,7 @@ Query
 ```
 
 >[!TIP]
-> Den här förenklade metoden tillhandahålls som en del av _**AdtE2ESample**_ -projektet. Utanför kontexten för den här exempel koden kan du när som helst fråga efter alla dubbla i din instans med hjälp av API: [er för frågor](how-to-use-apis-sdks.md) eller [CLI-kommandon](how-to-use-cli.md).
+> Den här förenklade metoden tillhandahålls som en del av _**AdtE2ESample**_ -projektet. Utanför kontexten för den här exempel koden kan du när som helst fråga efter alla dubbla i din instans med hjälp av API: [er för frågor](/rest/api/digital-twins/dataplane/query) eller [CLI-kommandon](how-to-use-cli.md).
 >
 > Här är hela fråge texten för att hämta alla digitala enheter i din instans:
 > 

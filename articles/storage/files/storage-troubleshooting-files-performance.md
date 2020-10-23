@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 7afaa057ecc94cf67d4fd5b041d95210fcf26717
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52615a968ce831a9a5a487f7422ad13bc58ecf6d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90707602"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426473"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Felsöka Azure Files prestanda problem
 
@@ -26,7 +26,7 @@ Begär Anden begränsas när IOPS, ingress eller utgående gräns för en fil re
 
 Du kan använda Azures mått i portalen för att kontrol lera om din resurs är begränsad.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **alla tjänster** och Sök sedan efter **mått**.
 
@@ -84,7 +84,7 @@ Den virtuella klient datorn kan finnas i en annan region än fil resursen.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Klienten kunde inte uppnå maximalt data flöde som stöds av nätverket
 
-En möjlig orsak till detta är ett saknat SMB-stöd för flera kanaler. Azure-filresurser stöder för närvarande bara en kanal, så det finns bara en anslutning från den virtuella klient datorn till servern. Den här enskilda anslutningen peggas till en enda kärna på den virtuella klient datorn, så det maximala data flödet som kan nås från en virtuell dator binds till en enda kärna.
+En möjlig orsak till detta är att det inte finns stöd för SMB-stöd för flera kanaler. Azure-filresurser stöder för närvarande bara en kanal, så det finns bara en anslutning från den virtuella klient datorn till servern. Den här enskilda anslutningen peggas till en enda kärna på den virtuella klient datorn, så det maximala data flödet som kan nås från en virtuell dator binds till en enda kärna.
 
 ### <a name="workaround"></a>Lösning
 

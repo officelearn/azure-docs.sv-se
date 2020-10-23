@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 73028c10c7e7308ee16bd8fb27ca6c3a6661c411
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145946"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440848"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Förstå digitala sammanflätade och deras dubbla diagram
 
@@ -39,11 +39,11 @@ Resultatet av den här processen är en uppsättning noder (de digitala dubbla) 
 
 ## <a name="create-with-the-apis"></a>Skapa med API: er
 
-Det här avsnittet visar hur det ser ut för att skapa digitala dubbla objekt och relationer från ett klient program. Den innehåller exempel på .NET-kod som använder [DigitalTwins-API: er](how-to-use-apis-sdks.md)för att ge ytterligare kontext för vad som händer i var och en av dessa begrepp.
+Det här avsnittet visar hur det ser ut för att skapa digitala dubbla objekt och relationer från ett klient program. Den innehåller exempel på .NET-kod som använder [DigitalTwins-API: er](/rest/api/digital-twins/dataplane/twins)för att ge ytterligare kontext för vad som händer i var och en av dessa begrepp.
 
 ### <a name="create-digital-twins"></a>Skapa digitala dubbla
 
-Nedan visas ett fragment med klient koden som använder [DigitalTwins-API: er](how-to-use-apis-sdks.md) för att instansiera ett garn av typen *Room*.
+Nedan visas ett fragment med klient koden som använder [DigitalTwins-API: er](/rest/api/digital-twins/dataplane/twins) för att instansiera ett garn av typen *Room*.
 
 I den aktuella för hands versionen av Azure Digitals, måste alla egenskaper för en, initieras innan den dubbla kan skapas. Detta görs genom att skapa ett JSON-dokument som innehåller de nödvändiga initierings värdena.
 
@@ -53,7 +53,7 @@ Du kan också använda en hjälp klass som kallas `BasicDigitalTwin` för att la
 
 ### <a name="create-relationships"></a>Skapa relationer
 
-Här är ett exempel på en klient kod som använder [DigitalTwins-API: er](how-to-use-apis-sdks.md) för att bygga en relation mellan en *vånings*typ, Digital, som kallas *GroundFloor* och en av *rums*typen digital, som kallas *Cafe*.
+Här är ett exempel på en klient kod som använder [DigitalTwins-API: er](/rest/api/digital-twins/dataplane/twins) för att bygga en relation mellan en *vånings*typ, Digital, som kallas *GroundFloor* och en av *rums*typen digital, som kallas *Cafe*.
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
@@ -81,7 +81,7 @@ Digitala dubbla data och Relations data lagras både i JSON-format. Det innebär
 
 När ett digitalt objekt visas som ett JSON-objekt visas följande fält:
 
-| Fältnamn | Beskrivning |
+| Fältnamn | Description |
 | --- | --- |
 | `$dtId` | En användardefinierad sträng som representerar ID: t för den digitala dubbla |
 | `$etag` | Standard-HTTP-fält som tilldelas av webb servern |
@@ -148,7 +148,7 @@ Här är ett exempel på en digital, dubbels formaterad som ett JSON-objekt:
 
 När den visas som ett JSON-objekt, visas följande fält i en relation från en digital:
 
-| Fältnamn | Beskrivning |
+| Fältnamn | Description |
 | --- | --- |
 | `$relationshipId` | En användardefinierad sträng som representerar ID: t för den här relationen. Den här strängen är unik i kontexten för källan Digital, som också innebär att `sourceId`  +  `relationshipId` är unik i kontexten för Azure Digitals-instansen. |
 | `$etag` | Standard-HTTP-fält som tilldelas av webb servern |

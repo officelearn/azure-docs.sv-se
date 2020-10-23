@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/11/2020
 ms.author: jeedes
-ms.openlocfilehash: 780421d93916c7da7897dfa15d09dc895cf56280
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48818c300f1ac9ff41f78f39f08e41f95b379b31
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552670"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459579"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>Självstudie: Azure Active Directory SSO-integrering med JAMF Pro
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig att integrera JAMF Pro med Azure Acti
 * Logga in användarna automatiskt till JAMF Pro med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS app integration med Azure AD finns i [enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -40,7 +40,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. 
 
 * JAMF Pro stöder **SP-initierad** och **IDP-initierad** SSO.
-* När du har konfigurerat JAMF Pro kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat JAMF Pro kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="add-jamf-pro-from-the-gallery"></a>Lägg till JAMF Pro från galleriet
 
@@ -99,7 +99,7 @@ I det här avsnittet skapar du en test användare i Azure Portal som kallas B. S
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.
-   1. I fältet **användar namn** anger du [Name] @ [companydomain]. [Extension]. Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du [Name] @ [companydomain]. [Extension]. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Välj **Skapa**.
 
@@ -220,14 +220,14 @@ Gör så här för att etablera ett användar konto:
 
 I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av Åtkomstpanelen.
 
-När du väljer JAMF Pro-panelen på åtkomst panelen, bör du loggas in automatiskt på det JAMF Pro-konto som du har konfigurerat SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer JAMF Pro-panelen på åtkomst panelen, bör du loggas in automatiskt på det JAMF Pro-konto som du har konfigurerat SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-program med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-program med Azure Active Directory ](./tutorial-list.md)
 
-- [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 - [Testa JAMF Pro med Azure AD](https://aad.portal.azure.com/)

@@ -1,6 +1,6 @@
 ---
 title: SAML-autentisering med Azure Active Directory
-description: Arkitektur vägledning för att uppnå detta autentiserings mönster
+description: Arkitektur vägledning för att uppnå SAML-autentisering med Azure Active Directory
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05b13e04db8e83a8a10c2d7fe0aea202dfa3b69c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 1ab14413de1f999747e5b3fb58b505e0a9258a55
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114506"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441223"
 ---
 # <a name="saml-authentication-with-azure-active-directory"></a>SAML-autentisering med Azure Active Directory
 
@@ -37,7 +37,7 @@ Det finns ett behov av att tillhandahålla enkel inloggning (SSO) för ett Enter
 
 En av de viktigaste användnings fallen är att SAML-adresser är SSO, särskilt genom att utöka SSO över säkerhets domäner, men det finns även andra användnings fall (kallas profiler). 
 
-![arkitektur diagram](./media/authentication-patterns/saml-auth.png)
+![arkitektur diagram för SAML](./media/authentication-patterns/saml-auth.png)
 
 ## <a name="components-of-system"></a>System komponenter
 

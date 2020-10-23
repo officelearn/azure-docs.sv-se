@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7c81c6145aed5f45849f6f08fdd1136862c3b7d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 171a96f37d4c1e740e23cc766566d3c1756b6d08
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850919"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460195"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera information CloudSuite för automatisk användar etablering
 
@@ -103,7 +103,7 @@ Innan du konfigurerar information CloudSuite för automatisk användar etablerin
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i information CloudSuite baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för information CloudSuite, enligt anvisningarna i [självstudien om information CloudSuite för enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för information CloudSuite, enligt anvisningarna i [självstudien om information CloudSuite för enkel inloggning](./infor-cloud-suite-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 > [!NOTE]
 > Om du vill veta mer om SCIM-slutpunkten för infor CloudSuite, se [detta](https://docs.infor.com/mingle/12.0.x/en-us/minceolh/jho1449382121585.html#).

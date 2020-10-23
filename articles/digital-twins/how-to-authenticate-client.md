@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d71a7535c40d240b6c9bf53cff906f12b4b8b5df
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d4e150eddee947aa4ed6f88c122c0fa6d01a0bae
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204307"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460656"
 ---
 # <a name="write-client-app-authentication-code"></a>Skriv kod för klientautentisering för klient program
 
@@ -20,7 +20,7 @@ När du [har konfigurerat en Azure Digital-instans och-autentisering](how-to-set
 
 Azure Digitals dubblare utför autentisering med [Azure AD-säkerhetstoken baserat på OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). För att kunna autentisera ditt SDK måste du skaffa en Bearer-token med rätt behörigheter till digitala Azure-meddelanden och skicka dem tillsammans med dina API-anrop. 
 
-I den här artikeln beskrivs hur du hämtar autentiseringsuppgifter med hjälp av `Azure.Identity` klient biblioteket. Även om den här artikeln visar kod exempel i C#, till exempel vad du skriver för [.net (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core), kan du använda en version av `Azure.Identity` oavsett vilken SDK du använder (mer information om SDK: er som är tillgängliga för Azure Digitals finns i [*How-to: använda Azures digitala dubbla API: er och SDK: er*](how-to-use-apis-sdks.md)).
+I den här artikeln beskrivs hur du hämtar autentiseringsuppgifter med hjälp av `Azure.Identity` klient biblioteket. Även om den här artikeln visar kod exempel i C#, till exempel vad du skriver för [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), kan du använda en version av `Azure.Identity` oavsett vilken SDK du använder (mer information om SDK: er som är tillgängliga för Azure Digitals finns i [*How-to: använda Azures digitala dubbla API: er och SDK: er*](how-to-use-apis-sdks.md)).
 
 ## <a name="prerequisites"></a>Förutsättningar
 

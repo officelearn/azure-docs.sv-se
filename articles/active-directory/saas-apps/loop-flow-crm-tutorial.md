@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 4251a51a8b967d5833fd509cd79c71ce81022e96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eccc10cc50bac2eb2dde0bf9f77ab1ba656d5eb8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451140"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458376"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-loop-flow-crm"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med loop-flöde CRM
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar loop-flöden i CRM 
 * Gör det möjligt för användarna att bli inloggade automatiskt så att de kan använda Azure AD-konton automatiskt.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -98,7 +98,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -120,7 +120,7 @@ Om du vill konfigurera enkel inloggning på **loopback Flow CRM** -sidan måste 
 
 ### <a name="create-loop-flow-crm-test-user"></a>Skapa loop-flöde CRM-test användare
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i loop Flow CRM. Arbeta med [support teamet för loop Flow](mailto:support@loopworks.com) för att lägga till användare i slingan FLOWs CRM-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i loop Flow CRM. Arbeta med [support teamet för loop Flow](mailto:support@loopworks.com) för att lägga till användare i slingan FLOWs CRM-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -136,11 +136,9 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 * Klicka på **testa det här programmet** i Azure Portal så bör du loggas in automatiskt till det loop-flöde som du ställer in SSO för. 
 
-Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på panelen för loopback Flow-fönstret i åtkomst panelen, om det kon figurer ATS i SP-läge, kommer du att omdirigeras till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du logga in automatiskt på det loop-flöde i CRM som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Du kan också använda Microsoft Access-panelen för att testa programmet i vilket läge som helst. När du klickar på panelen för loopback Flow-fönstret i åtkomst panelen, om det kon figurer ATS i SP-läge, kommer du att omdirigeras till programmets inloggnings sida för att initiera inloggnings flödet och om det kon figurer ATS i IDP-läge, bör du logga in automatiskt på det loop-flöde i CRM som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har konfigurerat loop-flöde CRM kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+När du har konfigurerat loop-flöde CRM kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

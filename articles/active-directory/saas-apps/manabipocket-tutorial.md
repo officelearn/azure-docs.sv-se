@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 441c9db16550ef2b1e1c51828a4fd37068678af6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3274b19f350c8e7d3390456c94fb4789f4505d99
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554840"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458277"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Självstudie: Azure Active Directory-integrering med Manabi Pocket
 
@@ -27,7 +27,7 @@ Att integrera Manabi Pocket med Azure AD ger följande fördelar:
 * Du kan göra det möjligt för användarna att logga in automatiskt till Manabi Pocket (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
@@ -178,19 +178,18 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-manabi-pocket-test-user"></a>Skapa Manabi Pocket test User
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Manabi Pocket. Arbeta med [Manabi Pocket support-teamet](mailto:info-ed-cl@ntt.com) för att lägga till användare i Manabi-Pocket-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Manabi Pocket. Arbeta med [Manabi Pocket support-teamet](mailto:info-ed-cl@ntt.com) för att lägga till användare i Manabi-Pocket-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Manabi Pocket på åtkomst panelen, bör du loggas in automatiskt på den Manabi-Pocket som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Manabi Pocket på åtkomst panelen, bör du loggas in automatiskt på den Manabi-Pocket som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

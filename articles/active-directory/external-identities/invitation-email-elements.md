@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90c70dd626ea093b9dfe2fd71e39b53c81ac5d5f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e1e1bbdfe1cb83f9b479861840081cd0bb138957
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340639"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441886"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Elementen i e-postinbjudanen B2B – Azure Active Directory
 
@@ -63,7 +63,7 @@ Nästa avsnitt i e-postmeddelandet innehåller information om var inbjudan ska t
 
 ### <a name="footer-section"></a>Fot nots avsnitt
 
-Sidfoten innehåller mer information om den inbjudan som skickas. Det finns alltid ett alternativ för inbjudan att blockera framtida inbjudningar. Om organisationen har [angett en sekretess policy](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area)visas länken till instruktionen här.  Annars visar en anteckning att organisationen inte har angett en sekretess policy.
+Sidfoten innehåller mer information om den inbjudan som skickas. Det finns alltid ett alternativ för inbjudan att blockera framtida inbjudningar. Om organisationen har [angett en sekretess policy](../fundamentals/active-directory-properties-area.md)visas länken till instruktionen här.  Annars visar en anteckning att organisationen inte har angett en sekretess policy.
 
 ![Bild av avsnittet sidfot i e-postmeddelandet](media/invitation-email-elements/footer-section.png)
 
@@ -85,8 +85,8 @@ En gäst användare kan följa de här stegen för att visa eller exportera de o
 
 Det språk som visas för gäst användaren i e-postinbjudan avgörs av följande inställningar. De här inställningarna visas i prioritetsordning. Om en inställning inte är konfigurerad, bestämmer nästa inställning i listan språket.
 
-- Egenskapen **messageLanguage** för objektet [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) om API för att skapa inbjudan används
--   Egenskapen **preferredLanguage** som angetts i gästens [användar objekt](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
+- Egenskapen **messageLanguage** för objektet [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) om API för att skapa inbjudan används
+-   Egenskapen **preferredLanguage** som angetts i gästens [användar objekt](/graph/api/resources/user?view=graph-rest-1.0)
 -   **Meddelande språket** som anges i egenskaperna för gäst användarens hem klient organisation (endast för Azure AD-klienter)
 -   **Meddelande språket** som anges i egenskaperna för resurs klienten
 

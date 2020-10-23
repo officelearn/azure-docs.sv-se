@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7289fe2ec1f39679dcec95f1f48a6efa9ed0cdfc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826351"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460350"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Självstudie: integrera iLMS med Azure Active Directory
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig hur du integrerar iLMS med Azure Acti
 * Gör det möjligt för användarna att logga in automatiskt till iLMS med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -164,7 +164,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 7. Klicka på knappen **Spara** för att spara inställningarna.
 
-    ![Skärm bild som visar knappen Spara.](./media/ilms-tutorial/save.png)
+    ![Skärmbild som visar knappen Spara.](./media/ilms-tutorial/save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -174,7 +174,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `Britta Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `BrittaSimon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `BrittaSimon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -231,12 +231,12 @@ Om du behöver skapa en användare manuellt följer du stegen nedan:
 
 ### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen iLMS på åtkomst panelen, bör du loggas in automatiskt på den iLMS som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen iLMS på åtkomst panelen, bör du loggas in automatiskt på den iLMS som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

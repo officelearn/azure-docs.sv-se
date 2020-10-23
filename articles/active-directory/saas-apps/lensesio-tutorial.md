@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 48a1e50d451abb429e9bc33308909b368283644f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 181d58baf128c4848a538e776aea0e43213994dc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88661460"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458616"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-the-lensesio-dataops-portal"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Lenses.io DataOps-portalen
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig att integrera [lenses.io](https://len
 * Gör det möjligt för användarna att logga in automatiskt till linser med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure AD](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -42,7 +42,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * Lenses.io stöder Service Provider (SP) initierad SSO.
 
-* Du kan framtvinga kontroll av sessionen när du har konfigurerat Lenses.io. Session Control skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Du kan framtvinga kontroll av sessionen när du har konfigurerat Lenses.io. Session Control skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-lensesio-from-the-gallery"></a>Lägg till Lenses.io från galleriet
 
@@ -107,7 +107,7 @@ Du kan ta reda på hur linser använder mappning av grupp medlemskap för auktor
 1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I rutan **namn** anger du **B. Simon**.  
-   1. I rutan **användar namn** anger du username@companydomain.extension . Exempelvis B.Simon@contoso.com.
+   1. I rutan **användar namn** anger du username@companydomain.extension . Till exempel B.Simon@contoso.com.
    1. Markera kryss rutan **Visa lösen ord** . Skriv ned lösen ordet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -164,20 +164,20 @@ Mer information finns i [grupp mappning för Azure-linser](https://docs.lenses.i
 
 I det här avsnittet ska du testa din Azure AD SSO-konfiguration med hjälp av åtkomst panelen.
 
-När du väljer panelen Lenses.io på åtkomst panelen, bör du loggas in automatiskt på Lenses.io-portalen. Mer information finns i [Introduktion till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Lenses.io på åtkomst panelen, bör du loggas in automatiskt på Lenses.io-portalen. Mer information finns i [Introduktion till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Konfigurera SSO i din Lenses.io-instans](https://docs.lenses.io/install_setup/configuration/security.html#single-sign-on-sso-saml-2-0)
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure AD](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure AD?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure AD?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure AD?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure AD?](../conditional-access/overview.md)
 
 - [Prova Lenses.io med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Så här skyddar du Lenses.io med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Så här skyddar du Lenses.io med avancerad synlighet och kontroller](/cloud-app-security/proxy-intro-aad)

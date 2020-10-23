@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317454"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455428"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Concur för automatisk användar etablering
 
@@ -35,7 +35,7 @@ Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att
 
 Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till Concur-appen. När du har bestämt dig kan du tilldela dessa användare till Concur-appen genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-concur"></a>Viktiga tips för att tilldela användare till Concur
 
@@ -121,4 +121,3 @@ Nu kan du skapa ett test konto. Vänta i upp till 20 minuter för att kontrol le
 * [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](concur-tutorial.md)
-

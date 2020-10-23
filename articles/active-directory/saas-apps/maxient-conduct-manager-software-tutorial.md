@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.openlocfilehash: dd6872fd8dca3f29b61c6f1dffb5f219abac5cb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b57b3fbb338774eb8d66fc4d3c0c817e19aff4c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518918"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458208"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Maxient utföra Manager-programvara
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar Maxient med program
 * Gör det möjligt för användarna att logga in automatiskt till Maxient utföra Manager-programvara med sina Azure AD-konton.
 
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -77,7 +77,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration**   är programmet förkonfigurerat i **IDP**   initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara**   .
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -112,11 +112,10 @@ Om ett support ärende inte redan har öppnats med en Maxient implementering/sup
     
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova Maxient Driver Manager-programvara med Azure AD](https://aad.portal.azure.com/)
-

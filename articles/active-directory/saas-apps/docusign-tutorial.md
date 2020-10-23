@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 51ad28319a372cd791575b5a3e67cc0fd6934be2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00d4381c7af7fdf82ee1e895072d92d1e641f8c4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981643"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454702"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med DocuSign
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar DocuSign med Micros
 * Aktivera automatisk inloggning till DocuSign för dina användare via deras Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -44,9 +44,9 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * DocuSign stöder **just-in-Time-** etablering av användare.
 
-* DocuSign stöder [Automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+* DocuSign stöder [Automatisk användar etablering](./docusign-provisioning-tutorial.md).
 
-* När du har konfigurerat DocuSign kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat DocuSign kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Lägga till DocuSign från galleriet
 
@@ -119,7 +119,7 @@ I det här avsnittet ska du skapa en test användare med namnet B. Simon i Azure
 1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I fältet **namn** anger du **B. Simon**.  
-   1. I fältet **användar namn** anger du `<username>@<companydomain>.<extension>` . Exempel: `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du `<username>@<companydomain>.<extension>` . Till exempel: `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och anteckna värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -235,12 +235,12 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 2. Gå till DocuSign-inloggnings-URL: en direkt och starta inloggnings flödet därifrån.
 
-3. Du kan använda Microsoft Access-panelen. När du klickar på panelen DocuSign på åtkomst panelen, bör du loggas in automatiskt på den DocuSign som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Du kan använda Microsoft Access-panelen. När du klickar på panelen DocuSign på åtkomst panelen, bör du loggas in automatiskt på den DocuSign som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-När du har konfigurerat DocuSign kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+När du har konfigurerat DocuSign kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 

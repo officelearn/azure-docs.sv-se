@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e87331cb2bbfb11a9d49888462b8be3b55e18118
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531198"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460877"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Felsöka problem med Log Analytics-agenten för Linux 
 
@@ -23,7 +23,37 @@ Om inget av dessa steg fungerar för dig, är följande Support kanaler också t
 * Kunder med support avtal för Azure kan öppna en support förfrågan [i Azure Portal](https://manage.windowsazure.com/?getsupport=true).
 * Diagnostisera OMI-problem med [fel söknings guiden för OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Fil a [GitHub problem](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Besök sidan Log Analytics feedback och granska skickade idéer och buggar [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) eller skicka en ny fil.  
+* Besök sidan Log Analytics feedback och granska skickade idéer och buggar [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) eller skicka en ny fil. 
+
+## <a name="log-analytics-troubleshooting-tool"></a>Log Analytics fel söknings verktyg
+
+Fel söknings verktyget Log Analytics agent Linux är ett skript som har utformats för att hjälpa till att hitta och diagnostisera problem med Log Analytics-agenten. Den medföljer automatiskt med agenten vid installationen. Att köra verktyget bör vara det första steget när du diagnostiserar ett problem.
+
+### <a name="how-to-use"></a>Använda
+Du kan köra fel söknings verktyget genom att klistra in följande kommando i ett terminalfönster på en dator med Log Analytics agent: `sudo /opt/microsoft/omsagent/bin/troubleshooter`
+
+### <a name="manual-installation"></a>Manuell installation
+Fel söknings verktyget ingår automatiskt när du installerar Log Analytics agenten. Men om installationen Miss lyckas på något sätt kan den också installeras manuellt genom att följa stegen nedan.
+
+1. Kopiera fel söknings paketet till datorn: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+2. Packa upp paketet: `tar -xzvf omsagent_tst.tar.gz`
+3. Kör den manuella installationen: `sudo ./install_tst`
+
+### <a name="scenarios-covered"></a>Scenarier som omfattas
+Nedan visas en lista över scenarier som kontrol leras av fel söknings verktyget:
+
+1. Agenten är inte felfri, pulsslag fungerar inte korrekt
+2. Agenten startar inte, det går inte att ansluta till logg analys tjänster
+3. Syslog-agenten fungerar inte
+4. Agenten har hög processor-/minnes användning
+5. Agent som har installations problem
+6. Anpassade loggar för agent fungerar inte
+7. Samla in agent loggar
+
+Se vår [GitHub-dokumentation](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting-Tool.md)för mer information.
+
+ >[!NOTE]
+ >Kör verktyget för logg insamlaren när ett problem uppstår. Om loggarna inlednings vis hjälper vårt support team att felsöka problemet snabbare.
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Viktiga logg platser och logg insamlings verktyg
 

@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d664d7cd169593924917bb02a0220e4047eb0cdb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88165264"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441631"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Lägg till ett anpassat godkännande arbets flöde till självbetjänings registrering
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller ett exempel på hur du integrerar med ett godkänn
 
 ## <a name="register-an-application-for-your-approval-system"></a>Registrera ett program för ditt godkännande system
 
-Du måste registrera ditt godkännande system som ett program i din Azure AD-klient så att det kan autentiseras med Azure AD och ha behörighet att skapa användare. Lär dig mer om [grunderna för autentisering och auktorisering för Microsoft Graph](https://docs.microsoft.com/graph/auth/auth-concepts).
+Du måste registrera ditt godkännande system som ett program i din Azure AD-klient så att det kan autentiseras med Azure AD och ha behörighet att skapa användare. Lär dig mer om [grunderna för autentisering och auktorisering för Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Logga in till [Azure-portalen](https://portal.azure.com) som Azure AD-administratör.
 2. Under **Azure-tjänster**väljer du **Azure Active Directory**.
@@ -263,14 +263,14 @@ Content-type: application/json
 
 ## <a name="user-account-creation-after-manual-approval"></a>Skapa användar konto efter manuellt godkännande
 
-När du har fått manuellt godkännande skapar det anpassade godkännande systemet ett [användar](https://docs.microsoft.com/graph/azuread-users-concept-overview) konto med hjälp av [Microsoft Graph](https://docs.microsoft.com/graph/use-the-api). Hur ditt godkännande system etablerar användar kontot beror på vilken identitets leverantör som användes av användaren.
+När du har fått manuellt godkännande skapar det anpassade godkännande systemet ett [användar](/graph/azuread-users-concept-overview) konto med hjälp av [Microsoft Graph](/graph/use-the-api). Hur ditt godkännande system etablerar användar kontot beror på vilken identitets leverantör som användes av användaren.
 
 ### <a name="for-a-federated-google-or-facebook-user"></a>För en federerad Google-eller Facebook-användare
 
 > [!IMPORTANT]
 > Godkännande systemet bör uttryckligen kontrol lera att `identities` `identities[0]` och `identities[0].issuer` är närvarande och att det är `identities[0].issuer` lika med "Facebook" eller "Google" för att använda den här metoden.
 
-Om användaren har loggat in med ett Google-eller Facebook-konto kan du använda API: et för att [skapa användare](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0&tabs=http).
+Om användaren har loggat in med ett Google-eller Facebook-konto kan du använda API: et för att [skapa användare](/graph/api/user-post-users?tabs=http&view=graph-rest-1.0).
 
 1. Godkännande systemet använder tar emot HTTP-begäran från användar flödet.
 
@@ -320,17 +320,17 @@ Content-type: application/json
 
 | Parameter                                           | Krävs | Beskrivning                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| userPrincipalName                                   | Ja      | Kan genereras genom att ta emot `email` anspråket som skickas till API: et, ersätta det `@` med `_` och vänta det `#EXT@<tenant-name>.onmicrosoft.com` . |
-| accountEnabled                                      | Ja      | Måste anges till `true` .                                                                                                                                                 |
-| e-post                                                | Ja      | Motsvarar det `email` anspråk som skickas till API: et.                                                                                                               |
-| userType                                            | Ja      | Måste vara `Guest` . Utser den här användaren som gäst användare.                                                                                                                 |
-| identiteter                                          | Ja      | Federerad identitets information.                                                                                                                                    |
-| \<otherBuiltInAttribute>                            | Inga       | Andra inbyggda attribut som `displayName` , `city` och andra. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                            |
-| \<extension\_\{extensions-app-id}\_CustomAttribute> | Inga       | Anpassade attribut för användaren. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                                                            |
+| userPrincipalName                                   | Yes      | Kan genereras genom att ta emot `email` anspråket som skickas till API: et, ersätta det `@` med `_` och vänta det `#EXT@<tenant-name>.onmicrosoft.com` . |
+| accountEnabled                                      | Yes      | Måste anges till `true` .                                                                                                                                                 |
+| e-post                                                | Yes      | Motsvarar det `email` anspråk som skickas till API: et.                                                                                                               |
+| userType                                            | Yes      | Måste vara `Guest` . Utser den här användaren som gäst användare.                                                                                                                 |
+| identiteter                                          | Yes      | Federerad identitets information.                                                                                                                                    |
+| \<otherBuiltInAttribute>                            | No       | Andra inbyggda attribut som `displayName` , `city` och andra. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                            |
+| \<extension\_\{extensions-app-id}\_CustomAttribute> | No       | Anpassade attribut för användaren. Parameter namn är desamma som de parametrar som skickas av API-anslutningen.                                                            |
 
 ### <a name="for-a-federated-azure-active-directory-user"></a>För en federerad Azure Active Directory användare
 
-Om en användare loggar in med ett federerat Azure Active Directory-konto måste du använda [Inbjudnings-API: et](https://docs.microsoft.com/graph/api/invitation-post?view=graph-rest-1.0) för att skapa användaren och sedan välja [användar uppdaterings-API](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0) för att tilldela fler attribut till användaren.
+Om en användare loggar in med ett federerat Azure Active Directory-konto måste du använda [Inbjudnings-API: et](/graph/api/invitation-post?view=graph-rest-1.0) för att skapa användaren och sedan välja [användar uppdaterings-API](/graph/api/user-update?view=graph-rest-1.0) för att tilldela fler attribut till användaren.
 
 1. Godkännande systemet tar emot HTTP-begäran från användar flödet.
 
@@ -389,4 +389,4 @@ Content-type: application/json
 ## <a name="next-steps"></a>Nästa steg
 
 - Kom igång med våra [snabb starts exempel för Azure Function](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts).
-- Checka ut självbetjänings [registreringen för gäst användare med ett manuellt godkännande exempel](code-samples-self-service-sign-up.md#custom-approval-workflows). 
+- Checka ut självbetjänings [registreringen för gäst användare med ett manuellt godkännande exempel](code-samples-self-service-sign-up.md#custom-approval-workflows).

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4abd16d6b5c9593cb1a4df52a7135a658c513410
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299705"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455945"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Självstudie: Konfigurera GoToMeeting för automatisk användar etablering
 
@@ -35,7 +35,7 @@ Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att
 
 Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till GoToMeeting-appen. När du har bestämt dig kan du tilldela dessa användare till GoToMeeting-appen genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-gotomeeting"></a>Viktiga tips för att tilldela användare till GoToMeeting
 
@@ -90,6 +90,4 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 
 * [Hantera användarkontoetablering för Enterprise-appar](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
-
-
+* [Konfigurera enkel inloggning](./citrix-gotomeeting-tutorial.md)

@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b89b8cc58cb48770b9b42036f8b834cc1bf11b8b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602677"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441138"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent datakryptering i Azure SQL med kundhanterad nyckel
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ För Azure SQL Database och Azure Synapse Analytics anges TDE-skyddet på server
 > För de som använder tjänstehanterade TDE som vill börja använda Kundhanterade TDE-data förblir data krypterade under växlings processen och det finns ingen nedtid eller Omkryptering av databasfilerna. Om du växlar från en tjänst-hanterad nyckel till en kundhanterad nyckel krävs bara Omkryptering av DEK, vilket är en snabb och online-åtgärd.
 
 > [!NOTE]
-> För att ge Azure SQL-kunder två lager av kryptering av data i vila, kommer infrastruktur kryptering (med AES-256 krypteringsalgoritm) med plattforms hanterade nycklar att distribueras. Detta ger en tilläggs nivå av kryptering i vila tillsammans med TDE med Kundhanterade nycklar som redan är tillgänglig. För närvarande måste kunderna begära åtkomst till den här funktionen. Om du är intresse rad av den här funktionen kan du kontakta AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
+> För att ge Azure SQL-kunder två lager av kryptering av data i vila, kommer infrastruktur kryptering (med AES-256 krypteringsalgoritm) med plattforms hanterade nycklar att distribueras. Detta ger en tilläggs nivå av kryptering i vila tillsammans med TDE med Kundhanterade nycklar som redan är tillgänglig. För Azure SQL Database och hanterad instans kommer alla databaser, inklusive huvud databasen och andra system databaser, att krypteras när infrastruktur kryptering aktive ras. För närvarande måste kunderna begära åtkomst till den här funktionen. Om du är intresse rad av den här funktionen kan du kontakta AzureSQLDoubleEncryptionAtRest@service.microsoft.com .
 
 ## <a name="benefits-of-the-customer-managed-tde"></a>Fördelar med kund hanterade TDE
 

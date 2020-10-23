@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 9d3463e04f06e02f8d27e633a10c22069ad9b57f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cd781358a8dea740a7e89203c61b7112acb9efd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550426"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460078"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Självstudie: Azure Active Directory integrering med Insignia SAML SSO
 
@@ -27,10 +27,10 @@ Genom att integrera Insignia SAML SSO med Azure AD får du följande fördelar:
 * Du kan göra det möjligt för användarna att logga in automatiskt till Insignia SAML SSO (enkel inloggning) med deras Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Insignia SAML SSO behöver du följande objekt:
 
@@ -185,18 +185,18 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-insignia-saml-sso-test-user"></a>Skapa Insignia SAML SSO test User
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Insignia SAML SSO. Arbeta med [Insignia SAML SSO support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx) för att lägga till användare i Insignia SAML SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Insignia SAML SSO. Arbeta med [Insignia SAML SSO support team](http://www.insigniasoftware.com/insignia/Techsupport.aspx) för att lägga till användare i Insignia SAML SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Insignia SAML SSO-panelen på åtkomst panelen, bör du loggas in automatiskt på den Insignia SAML SSO som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Insignia SAML SSO-panelen på åtkomst panelen, bör du loggas in automatiskt på den Insignia SAML SSO som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

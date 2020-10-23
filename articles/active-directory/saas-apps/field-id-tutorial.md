@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/28/2020
 ms.author: jeedes
-ms.openlocfilehash: a9ace754a75d63bc24bea91dd6c88a3d004fd0eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55a66f3f287ffb50d932263e407772efffa839ba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555104"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92453543"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-field-id"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med fält-iD
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig hur du integrerar fält-iD med Azure 
 * Gör det möjligt för användarna att logga in automatiskt till fält-iD med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande för att komma igång:
 
@@ -40,7 +40,7 @@ Du behöver följande för att komma igång:
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 * Fält-iD stöder IDP initierad SSO.
-* När du har konfigurerat fält-iD kan du framtvinga kontroll av sessioner. Detta skyddar mot exfiltrering och intrånget av organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat fält-iD kan du framtvinga kontroll av sessioner. Detta skyddar mot exfiltrering och intrånget av organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-field-id-from-the-gallery"></a>Lägg till fält-iD från galleriet
 
@@ -131,19 +131,18 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i fält-iD.
 
 I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av åtkomst panelen.
 
-När du väljer panelen fält-iD i åtkomst panelen, bör du loggas in automatiskt till det fält-iD som du ställer in SSO för. Mer information finns i [Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen fält-iD i åtkomst panelen, bör du loggas in automatiskt till det fält-iD som du ställer in SSO för. Mer information finns i [Logga in och starta appar från portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova fält-iD med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Så här skyddar du fält-iD med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Så här skyddar du fält-iD med avancerad synlighet och kontroller](/cloud-app-security/proxy-intro-aad)

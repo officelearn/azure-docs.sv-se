@@ -9,13 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 10/08/2020
-ms.openlocfilehash: 6bcc4ac5561a8bdb721018aa05bf2376579b627b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.date: 10/22/2020
+ms.openlocfilehash: c4ea7609c343532f17144e388be7583eab427eee
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079677"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440458"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Använda hanterade identiteter med Azure Machine Learning (förhands granskning)
 
@@ -29,12 +29,11 @@ I den här artikeln får du lära dig hur du använder hanterade identiteter fö
 
  * Konfigurera och Använd ACR för din Azure Machine Learning-arbetsyta utan att behöva aktivera administratörs användarens åtkomst till ACR.
  * Få åtkomst till en privat ACR extern till din arbets yta, för att hämta bas avbildningar för utbildning eller härledning.
- * Få åtkomst till data uppsättningar för utbildning genom att använda hanterade identiteter i stället för lagrings åtkomst nycklar.
 
 > [!IMPORTANT]
 > Att använda hanterade identiteter för att kontrol lera åtkomst till resurser med Azure Machine Learning för närvarande finns som för hands version. Förhands gransknings funktionerna tillhandahålls "i befintligt skick", utan garanti av support eller service nivå avtal. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
  
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure Machine Learning-arbetsyta. Mer information finns i [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 - [Azure CLI-tillägget för Machine Learning tjänst](reference-azure-machine-learning-cli.md)
@@ -222,31 +221,6 @@ identity.client_id="<UAI client ID>”
 env.docker.base_image_registry.registry_identity=identity
 env.docker.base_image = "my-acr.azurecr.io/my-repo/my-image:latest"
 ```
-
-## <a name="access-training-data"></a>Åtkomst till tränings data
-
-När du har skapat ett beräknings kluster för maskin inlärning med hanterad identitet enligt beskrivningen ovan kan du använda den identiteten för att få åtkomst till tränings data utan lagrings konto nycklar. Du kan använda antingen system-eller User-tilldelade hanterade identiteter för det här scenariot.
-
-### <a name="grant-compute-managed-identity-access-to-storage-account"></a>Bevilja beräkning hanterad identitets åtkomst till lagrings kontot
-
-[Ge den hanterade identiteten en läsar roll](https://docs.microsoft.com/azure/storage/common/storage-auth-aad#assign-azure-roles-for-access-rights) på det lagrings konto där du lagrar dina tränings data.
-
-### <a name="register-data-store-with-workspace"></a>Registrera data lager med arbets yta
-
-När du har tilldelat den hanterade identiteten kan du skapa ett data lager utan att behöva ange autentiseringsuppgifter för lagring.
-
-```python
-from azureml.core import Datastore
-
-blob_dstore = Datastore.register_azure_blob_container(workspace=workspace,
-                                                      datastore_name='my-datastore',
-                                                      container_name='my-container',
-                                                      account_name='my-storage-account')
-```
-
-### <a name="submit-training-run"></a>Skicka träningskörning
-
-När du skickar en övnings körning med data lagret använder Machine Learning-beräkningen dess hanterade identitet för att få åtkomst till data.
 
 ## <a name="use-docker-images-for-inference"></a>Använd Docker-avbildningar för att göra en härledning
 

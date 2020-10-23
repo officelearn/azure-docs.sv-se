@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1708b3b8777b32aac7c160a1084235ba1b2eda13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658356"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457999"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Smidig enkel inloggning i Azure Active Directory
 
@@ -63,19 +63,21 @@ Sömlös SSO kan kombineras med antingen [lösen ordets hash-synkronisering](how
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|E.t.
-|Windows 8,1|Ja\*|E.t.|Ja|Ja\*\*\*|E.t.
-|Windows 8|Ja\*|E.t.|Ja|Ja\*\*\*|E.t.
-|Windows 7|Ja\*|E.t.|Ja|Ja\*\*\*|E.t.
-|Windows Server 2012 R2 eller senare|Ja\*\*|E.t.|Ja|Ja\*\*\*|E.t.
+|Windows 10|Ja\*|Ja|Ja|Ja\*\*\*|Ej tillämpligt
+|Windows 8.1|Yes\*|Ja\*\*\*|Yes|Ja\*\*\*|Ej tillämpligt
+|Windows 8|Yes\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
+|Windows 7|Yes\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
+|Windows Server 2012 R2 eller senare|Ja\*\*|Ej tillämpligt|Yes|Ja\*\*\*|Ej tillämpligt
 |Mac OS X|Saknas|Saknas|Ja\*\*\*|Ja\*\*\*|Ja\*\*\*
 
 
-\*Kräver Internet Explorer version 10 eller senare
+\*Kräver Internet Explorer version 10 eller senare.
 
-\*\*Kräver Internet Explorer version 10 eller senare. Inaktivera utökat kernelläge
+\*\*Kräver Internet Explorer version 10 eller senare. Inaktivera utökat skyddat läge.
 
-\*\*\*Kräver [ytterligare konfiguration](how-to-connect-sso-quick-start.md#browser-considerations)
+\*\*\*Kräver [ytterligare konfiguration](how-to-connect-sso-quick-start.md#browser-considerations).
+
+\*\*\*\*Kräver Microsoft Edge version 77 eller senare.
 
 >[!NOTE]
 >För Windows 10 rekommenderar vi att du använder [Azure AD Join](../devices/concept-azure-ad-join.md) för att få en optimal enkel inloggning med Azure AD.

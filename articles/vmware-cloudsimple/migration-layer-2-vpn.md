@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a530a6f656f37657a198af85d93d5404ac88d0e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f524bf6af66d44bc13b7c0957de7977968cbef28
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83651023"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427259"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrera arbetsbelastningar med hjälp av stretchade Layer 2-nätverk
 
@@ -57,8 +57,8 @@ I följande tabell visas vilka vSphere-versioner och typer av nätverks anpassni
 
 | vSphere-version | Typ av vSwitch-källa | Virtuell NIC-drivrutin | Typ av mål vSwitch | Stöds? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| Alla | DVS | Alla | DVS | Ja |
-| vSphere 6,7 UI eller högre, 6,5 P03 eller högre | DVS | VMXNET3 | N-VDS | Ja |
+| Alla | DVS | Alla | DVS | Yes |
+| vSphere 6,7 UI eller högre, 6,5 P03 eller högre | DVS | VMXNET3 | N-VDS | Yes |
 | vSphere 6,7 UI eller högre, 6,5 P03 eller högre | DVS | E1000 | N-VDS | [Stöds inte per VWware](https://kb.vmware.com/s/article/56991) |
 | vSphere 6,7 UI eller 6.5 P03, NSX-V eller versioner under NSX-T 2.2, 6.5 P03 eller senare | Alla | Alla | N-VDS | [Stöds inte per VWware](https://kb.vmware.com/s/article/56991) |
 
@@ -118,7 +118,7 @@ Följande steg visar hur du hämtar det logiska router-ID: t för Tier0 DR Logic
 
 3. Öppna en SSH-session med hanterings-IP-adressen för den virtuella Edge-datorn. Kör ```get logical-router``` kommandot med användar namnet **admin** och lösen ord **CloudSimple 123!**.
 
-    ![Hämta utdata för logiska routrar](media/l2vpn-fetch03.png)
+    ![Skärm bild som visar en öppen SSH-session.](media/l2vpn-fetch03.png)
 
 4. Om du inte ser posten "DR-Provider-LR" utför du följande steg.
 
@@ -132,7 +132,7 @@ Följande steg visar hur du hämtar det logiska router-ID: t för Tier0 DR Logic
 
 7. Kör `get logical-router` kommandot igen på SSH-sessionen för den virtuella Edge-sessionen. UUID: t för den logiska routern "DR-Provider-LR" visas. Anteckna UUID, vilket krävs när du konfigurerar L2VPN.
 
-    ![Hämta utdata för logiska routrar](media/l2vpn-fetch06.png)
+    ![Skärm bild som visar UUID för den logiska routern.](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Hämta det ID för logisk växel som krävs för L2VPN
 
@@ -430,7 +430,7 @@ Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler t
 
 2. Gå till mappen med alla extraherade filer. Välj alla VMDK: er (NSX-l2t-client-Large. MF och NSX-l2t-client-large. OVF för stor installations storlek eller NSX-l2t-client-XLarge. MF och NSX-l2t-client-Xlarge. OVF för extra stor storleks storlek). Klicka på **Nästa**.
 
-    ![Välj mall ](media/l2vpn-deploy-client02.png) ![ Välj mall](media/l2vpn-deploy-client03.png)
+    ![Välj mall- ](media/l2vpn-deploy-client02.png) ![ skärm bild som visar de valda VMDK: er-filerna.](media/l2vpn-deploy-client03.png)
 
 3. Ange ett namn för NSX-T fristående klienten och klicka på **Nästa**.
 

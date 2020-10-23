@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 127fd9a9e47a85479018524998e33f44b0a65ba8
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: ea12b3eb72ce05f2672f6ca0912cc67345413c3c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078484"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461285"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Skicka frågor till Azure Digitals dubbla grafer
 
-Den här artikeln innehåller exempel och mer information om hur du använder [Azures digitala dubbla frågespråk](concepts-query-language.md) för att skicka frågor till den [dubbla grafen](concepts-twins-graph.md) . Du kör frågor i grafen med hjälp av Azures digitala dubbla [**API: er för frågor**](how-to-use-apis-sdks.md).
+Den här artikeln innehåller exempel och mer information om hur du använder [Azures digitala dubbla frågespråk](concepts-query-language.md) för att skicka frågor till den [dubbla grafen](concepts-twins-graph.md) . Du kör frågor i grafen med hjälp av Azures digitala dubbla [**API: er för frågor**](/rest/api/digital-twins/dataplane/query).
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
@@ -268,7 +268,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 Du kan **kombinera** någon av ovanstående typer av fråga med hjälp av kombinations operatorer för att inkludera mer information i en enskild fråga. Här följer några ytterligare exempel på sammansatta frågor som frågar efter fler än en typ av dubbel beskrivare på en gång.
 
-| Beskrivning | Söka i data |
+| Description | Söka i data |
 | --- | --- |
 | Från de enheter som *Room 123* har kan du returnera de MxChip-enheter som hanterar rollen operatör | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Hämta dubbla som har en relation som heter *innehåller* med en annan som har ID: t *id1* | `SELECT Room`<br>`FROM DIGITALTWINS Room`<br>`JOIN Thermostat RELATED Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
@@ -288,7 +288,7 @@ Följande operatorer stöds:
 | Jämförelse |=,! =, <, >, <=, >= |
 | Innehåller | I, NOM |
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 
 Följande typ av kontroll och data typs funktioner stöds:
 

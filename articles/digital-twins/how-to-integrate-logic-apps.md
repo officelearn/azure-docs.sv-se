@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427988"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461081"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrera med Logic Apps med hjälp av en anpassad anslutning
 
@@ -43,7 +43,7 @@ Om du vill ansluta en Azure Digitals-instans till Logic Apps i den här artikeln
 Börja med att **Konfigurera en digital Azure-instans** och autentisering som krävs för att kunna arbeta med den. Det gör du genom att följa anvisningarna i [*instruktion: Konfigurera en instans och autentisering*](how-to-set-up-instance-portal.md). Beroende på din önskade upplevelse, erbjuds installations artikeln för skript exemplet [Azure Portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md)eller [automatiserad Cloud Shell distribution](how-to-set-up-instance-scripted.md). Alla versioner av instruktionerna innehåller också steg för att kontrol lera att du har slutfört varje steg och är redo att gå vidare till med den nya instansen.
 * När du har konfigurerat din Azure Digital-instansen behöver du instansen **_värdnamn_** ([hitta i Azure Portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-För att kunna autentisera ADT Explorer-programmet måste du också konfigurera en app- **registrering**. Följ instruktionerna i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md) för att konfigurera den här. 
+För att autentisera anslutningen måste du också konfigurera en **app-registrering**. Följ instruktionerna i [*instruktion: skapa en app-registrering*](how-to-create-app-registration.md) för att konfigurera den här. 
 * När du har registrerat en app behöver du registreringens **_program_** -ID och **_katalog (klient)-ID_** ([hitta i Azure Portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Hämta klient hemlighet för app-registrering
@@ -66,7 +66,7 @@ Kontrol lera nu att klient hemligheten är synlig på sidan _certifikat & hemlig
 
 I den här artikeln används Logic Apps för att uppdatera en dubbel i din Azure Digital-instansen. Om du vill fortsätta måste du lägga till minst en i din instans. 
 
-Du kan lägga till dubbla med [DigitalTwins-API: er](how-to-use-apis-sdks.md), [.net (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md). Detaljerade anvisningar om hur du skapar dubblare med hjälp av dessa metoder finns i [*How-to: hantera digitala dubbla*](how-to-manage-twin.md).
+Du kan lägga till dubbla med [DigitalTwins-API: er](/rest/api/digital-twins/dataplane/twins), [.net (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)eller [Azure Digitals flätade CLI](how-to-use-cli.md). Detaljerade anvisningar om hur du skapar dubblare med hjälp av dessa metoder finns i [*How-to: hantera digitala dubbla*](how-to-manage-twin.md).
 
 Du behöver det **_dubbla ID: t_** för en som är dubbel i din instans som du har skapat.
 

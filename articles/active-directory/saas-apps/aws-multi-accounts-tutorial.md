@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: jeedes
-ms.openlocfilehash: a9c1eb8816246c66803eca71677bc6ee835a9b29
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 246eba24f42baacf264c1c6d39ea63a51c62c51f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425593"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Självstudie: Azure Active Directory integration med Amazon Web Services (AWS) (tidigare självstudier)
 
@@ -31,7 +31,7 @@ Integreringen av Amazon Web Services (AWS) med Azure AD medför följande förde
 ![Amazon Web Services (AWS) i resultatlistan](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
 
 > [!NOTE]
-> Tänk på att ansluta en AWS-app till alla dina AWS-konton är inte den rekommenderade metoden. I stället rekommenderar vi att du använder [den här](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) metoden för att konfigurera flera instanser av AWS-kontot till flera instanser av AWS-appar i Azure AD. Du bör bara använda den här metoden om du har några AWS-konton och-roller i den här modellen är den inte skalbar eftersom AWS-kontona och rollerna i dessa konton växer. Den här metoden använder inte import funktionen för AWS-roller med hjälp av Azure AD-etablering, så du måste manuellt lägga till/uppdatera/ta bort roller. Andra begränsningar för den här metoden finns i informationen nedan.
+> Tänk på att ansluta en AWS-app till alla dina AWS-konton är inte den rekommenderade metoden. I stället rekommenderar vi att du använder [den här](./amazon-web-service-tutorial.md) metoden för att konfigurera flera instanser av AWS-kontot till flera instanser av AWS-appar i Azure AD. Du bör bara använda den här metoden om du har några AWS-konton och-roller i den här modellen är den inte skalbar eftersom AWS-kontona och rollerna i dessa konton växer. Den här metoden använder inte import funktionen för AWS-roller med hjälp av Azure AD-etablering, så du måste manuellt lägga till/uppdatera/ta bort roller. Andra begränsningar för den här metoden finns i informationen nedan.
 
 **Observera att vi inte rekommenderar att du använder den här metoden på grund av följande:**
 
@@ -43,7 +43,7 @@ Integreringen av Amazon Web Services (AWS) med Azure AD medför följande förde
 
 * Alla AWS-konton kommer att använda samma XML-fil för federationsmetadata och vid tidpunkten för certifikat förnyelse måste du köra den här enorma övningen för att uppdatera certifikatet på alla AWS-konton på samma gång
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Amazon Web Services (AWS) behöver du följande:
 
@@ -363,11 +363,11 @@ Du kan också kontrol lera SAML-svaret för att se vilka roller som skickas som 
 
 ![Testa enkel inloggning-On2](./media/aws-multi-accounts-tutorial/tutorial-amazonwebservices-test-saml.png)
 
-Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../active-directory-saas-access-panel-introduction.md).
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har konfigurerat Amazon Web Services (AWS) kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+När du har konfigurerat Amazon Web Services (AWS) kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 <!--Image references-->
 

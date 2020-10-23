@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 094a146f8e0e32667986a8e807955be1a5f66e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71d9af57ab85d694cc08f30c19f6ac87796b2c4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613957"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425559"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Tableau online för automatisk användar etablering
 
@@ -25,7 +25,7 @@ Den här självstudien visar de steg som du utför i Tableau online och Azure Ac
 > [!NOTE]
 > I den här självstudien beskrivs en koppling som är byggd ovanpå Azure AD-tjänsten för användar etablering. Information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering av SaaS-program (Software-as-a-Service) med Azure Active Directory](../app-provisioning/user-provisioning.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du har:
 
@@ -78,7 +78,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 ### <a name="configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Konfigurera automatisk användar etablering för Tableau online i Azure AD
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**  >  **alla program**  >  **Tableau online**.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**  >  **alla program**  >  **Tableau online**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -98,7 +98,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
    * I rutan **domän** fyller du i under domänen baserat på steg 6.
 
-   * I rutan **Administratörs användar namn** fyller du i användar namnet för administratörs kontot på din Clarizen-klient. Ett exempel är admin@contoso.com.
+   * I rutan **Administratörs användar namn** fyller du i användar namnet för administratörs kontot på Tableau online-klienten. Ett exempel är admin@contoso.com.
 
    * I rutan **Administratörs lösen ord** fyller du i lösen ordet för det administratörs konto som motsvarar administratörens användar namn.
 

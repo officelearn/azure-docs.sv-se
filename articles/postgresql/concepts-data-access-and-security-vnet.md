@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 170d5eaa4c14c6de54825bc08f3aef0fd0dfa0c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37b2414252a7011444617ecc08c9dd7d081b7441
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708007"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425503"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Använd Virtual Network tjänst slut punkter och regler för Azure Database for PostgreSQL-enskild server
 
@@ -82,7 +82,7 @@ Det finns en separation av säkerhets roller i administration av Virtual Network
 - **Nätverks administratör:** &nbsp; Aktivera slut punkten.
 - **Databas administratör:** &nbsp; Uppdatera åtkomst kontrol listan (ACL) för att lägga till angivet undernät till Azure Database for PostgreSQL servern.
 
-*RBAC-alternativ:*
+*Alternativ för Azure RBAC:*
 
 Rollerna för nätverks administratör och databas administratörer har fler funktioner än vad som krävs för att hantera virtuella nätverks regler. Endast en delmängd av deras funktioner krävs.
 
@@ -147,7 +147,7 @@ Artiklar om hur du skapar VNet-regler finns i:
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]: ../role-based-access-control/overview.md
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 

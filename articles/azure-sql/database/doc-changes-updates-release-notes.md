@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 027a816e846996aa7c61a1747327128f9a0feed0
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 01126a1ca8590d02d0cd0aa1c8554b34161dbac5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079215"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426276"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Vad är nytt i Azure SQL Database & SQL-hanterad instans?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Den här tabellen ger en snabb jämförelse mellan ändringen i terminologin:
 |**Azure SQL Database**|Azure SQL Database *enskild databas*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool. |
 |**Azure SQL Database**|Azure SQL Database *elastisk pool*| Om inget annat uttryckligen anges innehåller produkt namnet Azure SQL Database både enkla databaser och databaser som distribueras till en elastisk pool.  |
 |**Azure SQL Database** |Azure SQL Database | Även om villkoret förblir detsamma gäller det nu bara för distributioner av en enskild databas och elastisk pool, och omfattar inte hanterade instanser. |
-| **Azure SQL**| Saknas | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
+| **Azure SQL**| Ej tillämpligt | Detta avser en familj av SQL Server databas motor produkter som är tillgängliga i Azure: Azure SQL Database, Azure SQL-hanterad instans och SQL Server på virtuella Azure-datorer. | 
 
 ## <a name="features-in-public-preview"></a>Funktioner i offentlig för hands version
 
@@ -100,7 +100,7 @@ Följande funktioner är aktiverade i distributions modellen SQL-hanterad instan
 |---------|---------|---------|---------|
 |[Distribuerade transaktioner kan utföras efter borttagning av hanterade instanser från Server förtroende grupp](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Okt 2020|Har en lösning||
 |[Distribuerade transaktioner kan inte utföras efter skalnings åtgärden för hanterade instanser](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Okt 2020|Har en lösning||
-|[Bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) i Azure SQL och `BACKUP` / `RESTORE` instruktionen i en hanterad instans kan inte använda Azure AD-hantera identitet för att autentisera till Azure Storage|Sep 2020|Har en lösning||
+|[bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) / [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15) i Azure SQL och `BACKUP` / `RESTORE` instruktionen i en hanterad instans kan inte använda Azure AD-hantera identitet för att autentisera till Azure Storage|Sep 2020|Har en lösning||
 |[Tjänstens huvud namn kan inte komma åt Azure AD och AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Har en lösning||
 |[Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020|Matchat|Juni 2020|
 |[Agenten slutar svara vid ändring, inaktive ring eller aktivering av befintliga jobb](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020|Matchat|Juni 2020|
@@ -139,7 +139,7 @@ Skalnings åtgärder för hanterade instanser som inkluderar ändring av tjänst
 
 ### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>BULK INSERT-och BACKUP/Restore-instruktioner kan inte använda hanterad identitet för att komma åt Azure Storage
 
-Bulk INSERT-instruktionen kan inte använda `DATABASE SCOPED CREDENTIAL` med hanterad identitet för att autentisera till Azure Storage. Som en lösning kan du växla till autentisering med delad åtkomst-signatur. Följande exempel fungerar inte på Azure SQL (både databasen och den hanterade instansen):
+Mass infognings-, säkerhets kopierings-och återställnings instruktioner och OpenRowSet-funktionen kan inte använda `DATABASE SCOPED CREDENTIAL` med hanterad identitet för att autentisera till Azure Storage. Som en lösning kan du växla till autentisering med delad åtkomst-signatur. Följande exempel fungerar inte på Azure SQL (både databasen och den hanterade instansen):
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';

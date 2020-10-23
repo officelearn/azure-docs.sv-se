@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34036388ce9243c082cf79eb4be9251957eafc01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd6a907ce855fbb7c1ef96236766beef9b25b2ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400474"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428369"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Azures säkerhetsbaslinje för Key Vault
 
@@ -566,7 +566,9 @@ Azure Key Vault loggning: https://docs.microsoft.com/azure/key-vault/key-vault-l
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4,4: kryptera all känslig information under överföring
 
-**Vägledning**: all trafik som ska Azure Key Vault för åtkomst till autentisering, hantering och data plan krypteras och går över https: port 443. (Det är dock ibland HTTP [port 80] trafik för CRL.) 
+**Vägledning**: all trafik som ska Azure Key Vault för åtkomst till autentisering, hantering och data plan krypteras och går över https: port 443. (Det är dock ibland HTTP [port 80] trafik för CRL.) Azure Key Vault fortsätter att tillåta att TLS 1,1 och TLS 1,0-data matas in. Data kan begränsas till TLS 1,2 genom konfiguration på klient sidan.
+
+
 
 Åtkomst Azure Key Vault bakom en brand vägg: https://docs.microsoft.com/azure/key-vault/key-vault-access-behind-firewall
 

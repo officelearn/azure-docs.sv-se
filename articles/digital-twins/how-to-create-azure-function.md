@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d81d26c4cf975a20f31b4b4546c1477ed1a630e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: acbccd09fc8bc765083fea7b3a8d6ad749003ae9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048329"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428005"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Anslut Azure Functions appar för bearbetning av data
 
@@ -50,7 +50,7 @@ När din Function-app har skapats, kommer Visual Studio att ha automatiskt ifyll
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Skriv en Azure-funktion med en Event Grid-utlösare
 
-Du kan skriva en Azure-funktion genom att lägga till SDK i din Function-app. Function-appen interagerar med Azure Digitals sammanflätade med [Azure IoT Digital-klient biblioteket för .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
+Du kan skriva en Azure-funktion genom att lägga till SDK i din Function-app. Function-appen interagerar med Azure Digitals dubbla med [Azure Digitals-SDK för .net (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
 
 För att kunna använda SDK måste du inkludera följande paket i projektet. Du kan antingen installera paketen med hjälp av Visual Studio NuGet Package Manager eller lägga till paketen med hjälp av `dotnet` kommando rads verktyget. Välj någon av följande metoder: 
 

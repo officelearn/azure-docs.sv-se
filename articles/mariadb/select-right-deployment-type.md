@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 47aff04dfd44ea7fd892fdee763e93d7fd13a9d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be6b97ed1647ad09a2abc3360b4f3a42c25ad62
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542401"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424906"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Välj rätt MariaDB Server-alternativ i Azure
 
@@ -38,11 +38,11 @@ De huvudsakliga skillnaderna mellan dessa alternativ visas i följande tabell:
 | MariaDB korrigering     | Automatiskt  | Hanteras av kunder |
 | Hög tillgänglighet | Modellen med hög tillgänglighet (HA) baseras på inbyggda funktioner för redundansväxling för när ett avbrott på nod-nivå sker. I sådana fall skapar tjänsten automatiskt en ny instans och kopplar lagring till den här instansen. | Kunders arkitekt, implementera, testa och underhålla hög tillgänglighet. Funktioner kan omfatta Always on-redundanskluster, Always on-gruppreplikering, logg överföring eller transaktionell replikering.|
 | Zonredundans | Stöds inte för närvarande | Virtuella Azure-datorer kan konfigureras för att köras i olika tillgänglighets zoner. För en lokal lösning måste kunderna skapa, hantera och underhålla ett eget sekundärt Data Center.|
-| Hybrid scenarier | Med [datareplikering](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)kan du synkronisera data från en extern MariaDB-server till tjänsten Azure Database for MariaDB. Den externa servern kan vara lokalt, i virtuella datorer eller i en databas tjänst som är värd för andra moln leverantörer.<br/><br/> Med funktionen [Läs replik](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) kan du replikera data från en Azure Database for MariaDB käll server till upp till fem skrivskyddade replik servrar. Replikerna är antingen inom samma Azure-region eller i flera regioner. Skrivskyddade repliker uppdateras asynkront med BinLog-replikering.<br/><br/>Läs replikering mellan regioner är för närvarande en offentlig för hands version.| Hanteras av kunder
-| Säkerhets kopiering och återställning | Skapar automatiskt [Server säkerhets kopior](https://docs.microsoft.com/azure/MariaDB/concepts-backup#backups) och lagrar dem i användar konfigurations lagring som antingen är lokalt redundant eller Geo-redundant. Tjänsten tar full, differentiell och transaktions logg säkerhets kopior | Hanteras av kunder |
-| Övervaka databas åtgärder | Ger kunderna möjlighet att [ställa in aviseringar](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) för databas åtgärden och vidta åtgärder för att nå tröskelvärden. | Hanteras av kunder |
-| Advanced Threat Protection | Tillhandahåller [Avancerat skydd](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal). Det här skyddet identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.<br/><br/>Avancerat skydd är för närvarande en offentlig för hands version.| Kunderna måste bygga det här skyddet för sig själva.
-| Haveriberedskap | Lagrar automatiserade säkerhets kopieringar i användar konfiguration [lokalt redundant eller Geo-redundant lagring](https://docs.microsoft.com/azure/MariaDB/howto-restore-server-portal). Säkerhets kopieringar kan också återställa en server till en tidpunkt. Kvarhållningsperioden är var som helst från 7 till 35 dagar. Återställningen utförs med hjälp av Azure Portal. | Fullständigt hanterad av kunder. Ansvaret omfattar men är inte begränsat till schemaläggning, testning, arkivering, lagring och kvarhållning. Ett annat alternativ är att använda ett Azure Recovery Services-valv för att säkerhetskopiera virtuella Azure-datorer och databaser på virtuella datorer. Det här alternativet är i för hands version. |
+| Hybrid scenarier | Med [datareplikering](concepts-data-in-replication.md)kan du synkronisera data från en extern MariaDB-server till tjänsten Azure Database for MariaDB. Den externa servern kan vara lokalt, i virtuella datorer eller i en databas tjänst som är värd för andra moln leverantörer.<br/><br/> Med funktionen [Läs replik](concepts-read-replicas.md) kan du replikera data från en Azure Database for MariaDB käll server till upp till fem skrivskyddade replik servrar. Replikerna är antingen inom samma Azure-region eller i flera regioner. Skrivskyddade repliker uppdateras asynkront med BinLog-replikering.<br/><br/>Läs replikering mellan regioner är för närvarande en offentlig för hands version.| Hanteras av kunder
+| Säkerhets kopiering och återställning | Skapar automatiskt [Server säkerhets kopior](concepts-backup.md#backups) och lagrar dem i användar konfigurations lagring som antingen är lokalt redundant eller Geo-redundant. Tjänsten tar full, differentiell och transaktions logg säkerhets kopior | Hanteras av kunder |
+| Övervaka databas åtgärder | Ger kunderna möjlighet att [ställa in aviseringar](concepts-monitoring.md) för databas åtgärden och vidta åtgärder för att nå tröskelvärden. | Hanteras av kunder |
+| Advanced Threat Protection | Tillhandahåller [Avancerat skydd](howto-database-threat-protection-portal.md). Det här skyddet identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.<br/><br/>Avancerat skydd är för närvarande en offentlig för hands version.| Kunderna måste bygga det här skyddet för sig själva.
+| Haveriberedskap | Lagrar automatiserade säkerhets kopieringar i användar konfiguration [lokalt redundant eller Geo-redundant lagring](howto-restore-server-portal.md). Säkerhets kopieringar kan också återställa en server till en tidpunkt. Kvarhållningsperioden är var som helst från 7 till 35 dagar. Återställningen utförs med hjälp av Azure Portal. | Fullständigt hanterad av kunder. Ansvaret omfattar men är inte begränsat till schemaläggning, testning, arkivering, lagring och kvarhållning. Ett annat alternativ är att använda ett Azure Recovery Services-valv för att säkerhetskopiera virtuella Azure-datorer och databaser på virtuella datorer. Det här alternativet är i för hands version. |
 | Prestandarekommendationer | Ger kunderna [prestanda rekommendationer](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) baserat på systemgenererade användnings loggar. Rekommendationerna hjälper till att optimera arbets belastningar.<br/><br/>Prestanda rekommendationer är för närvarande en offentlig för hands version. | Hanteras av kunder |
 
 ## <a name="business-motivations-for-choosing-paas-or-iaas"></a>Affärs motivation för att välja PaaS eller IaaS
@@ -55,9 +55,9 @@ Begränsad finansiering är ofta den främsta överväganden som avgör den bäs
 
 #### <a name="billing"></a>Fakturering
 
-Azure Database for MariaDB är för närvarande tillgängligt som en tjänst på flera nivåer med olika priser för resurser. Alla resurser debiteras per timme med ett fast pris. Den senaste informationen om de tjänst nivåer, beräknings storlekar och lagrings belopp som stöds för närvarande finns i [vCore-baserad inköps modell](https://docs.microsoft.com/azure/MariaDB/concepts-pricing-tiers). Du kan justera tjänst nivåerna dynamiskt och beräknings storlekarna så att de överensstämmer med programmets varierande data flödes behov. Du debiteras för utgående Internet trafik med regelbundna [data överförings kostnader](https://azure.microsoft.com/pricing/details/data-transfers/).
+Azure Database for MariaDB är för närvarande tillgängligt som en tjänst på flera nivåer med olika priser för resurser. Alla resurser debiteras per timme med ett fast pris. Den senaste informationen om de tjänst nivåer, beräknings storlekar och lagrings belopp som stöds för närvarande finns i [vCore-baserad inköps modell](concepts-pricing-tiers.md). Du kan justera tjänst nivåerna dynamiskt och beräknings storlekarna så att de överensstämmer med programmets varierande data flödes behov. Du debiteras för utgående Internet trafik med regelbundna [data överförings kostnader](https://azure.microsoft.com/pricing/details/data-transfers/).
 
-Med Azure Database for MariaDB konfigurerar Microsoft automatiskt, patchar och uppgraderar databas program varan. Dessa automatiserade åtgärder minskar dina administrations kostnader. Azure Database for MariaDB har också [inbyggda funktioner för säkerhets kopiering](https://docs.microsoft.com/azure/MariaDB/concepts-backup) . Dessa funktioner hjälper dig att uppnå avsevärda kostnads besparingar, särskilt när du har ett stort antal databaser. Med MariaDB på virtuella Azure-datorer kan du däremot välja och köra valfri MariaDB-version. Oavsett vilken MariaDB-version du använder betalar du för den etablerade virtuella datorn och kostnaderna för den aktuella MariaDB-licens typen som används.
+Med Azure Database for MariaDB konfigurerar Microsoft automatiskt, patchar och uppgraderar databas program varan. Dessa automatiserade åtgärder minskar dina administrations kostnader. Azure Database for MariaDB har också [inbyggda funktioner för säkerhets kopiering](concepts-backup.md) . Dessa funktioner hjälper dig att uppnå avsevärda kostnads besparingar, särskilt när du har ett stort antal databaser. Med MariaDB på virtuella Azure-datorer kan du däremot välja och köra valfri MariaDB-version. Oavsett vilken MariaDB-version du använder betalar du för den etablerade virtuella datorn och kostnaderna för den aktuella MariaDB-licens typen som används.
 
 Azure Database for MariaDB ger en inbyggd hög tillgänglighet för alla typer av avbrott på nodnivå samtidigt som service avtalet för service avtalet för service avtal fortfarande 99,99 upprätthålls. För databas hög tillgänglighet i virtuella datorer bör dock kunderna använda alternativen för hög tillgänglighet, t. ex. [MariaDB-replikering](https://mariadb.com/kb/en/library/setting-up-replication/) som är tillgängliga i en MariaDB-databas. Att använda ett alternativ för hög tillgänglighet som stöds ger inte ytterligare ett service avtal. Men det gör att du kan uppnå mer än 99,99% tillgänglighet till databaser med extra kostnad och administrativa kostnader.
 
@@ -83,13 +83,13 @@ I följande lista beskrivs administrativa överväganden för varje alternativ:
   - Databaser
   - Logga in
   - Index justering
-  - Fråga-justering
+  - Frågejustering
   - Granskning
   - Säkerhet
 
   Dessutom kräver en minimal konfiguration eller administration att konfigurera hög tillgänglighet till ett annat data Center.
 
-* Med MariaDB på virtuella Azure-datorer har du fullständig kontroll över operativ systemet och konfigurationen av MariaDB-serverinstansen. Med en virtuell dator bestämmer du när du vill uppdatera eller uppgradera operativ systemet och databas program varan. Du bestämmer också när du ska installera ytterligare program vara, till exempel ett antivirus program. Vissa automatiserade funktioner är till för att avsevärt förenkla korrigering, säkerhets kopiering och hög tillgänglighet. Du kan kontrol lera storleken på den virtuella datorn, antalet diskar och deras lagrings konfiguration. Mer information finns i [virtuella datorer och moln tjänst storlekar för Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Med MariaDB på virtuella Azure-datorer har du fullständig kontroll över operativ systemet och konfigurationen av MariaDB-serverinstansen. Med en virtuell dator bestämmer du när du vill uppdatera eller uppgradera operativ systemet och databas program varan. Du bestämmer också när du ska installera ytterligare program vara, till exempel ett antivirus program. Vissa automatiserade funktioner är till för att avsevärt förenkla korrigering, säkerhets kopiering och hög tillgänglighet. Du kan kontrol lera storleken på den virtuella datorn, antalet diskar och deras lagrings konfiguration. Mer information finns i [virtuella datorer och moln tjänst storlekar för Azure](../virtual-machines/sizes.md).
 
 ### <a name="time-to-move-to-azure"></a>Tid att flytta till Azure
 
@@ -102,4 +102,4 @@ I följande lista beskrivs administrativa överväganden för varje alternativ:
 ## <a name="next-steps"></a>Nästa steg
 
 * Se [Azure Database for MariaDB prissättning](https://azure.microsoft.com/pricing/details/MariaDB/).
-* Kom igång genom [att skapa din första server](https://docs.microsoft.com/azure/MariaDB/quickstart-create-MariaDB-server-database-using-azure-portal).
+* Kom igång genom [att skapa din första server](quickstart-create-mariadb-server-database-using-azure-portal.md).

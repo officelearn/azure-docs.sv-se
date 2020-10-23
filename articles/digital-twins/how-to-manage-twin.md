@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Se hur du hämtar, uppdaterar och tar bort enskilda dubbla och relationer.
 author: baanders
 ms.author: baanders
-ms.date: 4/10/2020
+ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c522ac9e1aedbcdfdb4564d17b506b1b490da0c3
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 58ee064d4946442bff70e97d56a68080333e2197
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150396"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426159"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
-Entiteter i din miljö representeras av [digitala dubbla](concepts-twins-graph.md). Att hantera digitala dubbla, kan vara att skapa, ändra och ta bort. Om du vill utföra dessa åtgärder kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md).
+Entiteter i din miljö representeras av [digitala dubbla](concepts-twins-graph.md). Att hantera digitala dubbla, kan vara att skapa, ändra och ta bort. Om du vill utföra dessa åtgärder kan du använda [**DigitalTwins-API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md).
 
 Den här artikeln fokuserar på att hantera digitala dubbla, information om hur du arbetar med relationer och det [dubbla diagrammet](concepts-twins-graph.md) som helhet finns i [*instruktion: hantera den dubbla grafen med relationer*](how-to-manage-graph.md).
 
@@ -25,29 +25,32 @@ Den här artikeln fokuserar på att hantera digitala dubbla, information om hur 
 
 ## <a name="create-a-digital-twin"></a>Skapa en digital, dubbel
 
-Om du vill skapa en dubbel, använder du `CreateDigitalTwin` -metoden på tjänst klienten så här:
+Om du vill skapa en dubbel, använder du `CreateDigitalTwin()` -metoden på tjänst klienten så här:
 
 ```csharp
-await client.CreateDigitalTwinAsync("myNewTwinID", initData);
+await client.CreateDigitalTwinAsync("myTwinId", initData);
 ```
 
 Om du vill skapa en digital Digital måste du ange:
 * Önskat ID för den digitala dubbla
-* Den [modell](concepts-models.md) som du vill använda 
+* Den [modell](concepts-models.md) som du vill använda
 
 Om du vill kan du ange startvärden för alla egenskaper för den digitala, dubbla. 
 
 Värdena modell och initial egenskap anges via `initData` parametern, som är en JSON-sträng som innehåller relevanta data. Fortsätt till nästa avsnitt om du vill ha mer information om att strukturera objektet.
 
 > [!TIP]
-> När du har skapat eller uppdaterat en dubbel, kan det finnas en fördröjning på upp till 10 sekunder innan ändringarna visas i [frågor](how-to-query-graph.md). `GetDigitalTwin`API (beskrivs [längre fram i den här artikeln](#get-data-for-a-digital-twin)) förväntar sig inte den här fördröjningen, så Använd API-anropet i stället för att fråga om du vill se dina nyskapade dubblare om du behöver ett direkt svar. 
+> När du har skapat eller uppdaterat en dubbel, kan det finnas en fördröjning på upp till 10 sekunder innan ändringarna visas i [frågor](how-to-query-graph.md). `GetDigitalTwin`API (beskrivs [längre fram i den här artikeln](#get-data-for-a-digital-twin)) förväntar sig inte den här fördröjningen, så om du behöver ett direkt svar använder du API-anropet i stället för att fråga för att se dina nyligen skapade dubbla. 
 
 ### <a name="initialize-model-and-properties"></a>Initiera modell och egenskaper
 
 Det dubbla skapande-API: et accepterar ett objekt som är serialiserat i en giltig JSON-Beskrivning av de dubbla egenskaperna. Se [*begrepp: digitala garn och den dubbla grafen*](concepts-twins-graph.md) för en beskrivning av JSON-formatet för en dubbel. 
 
-Först ska du skapa ett data objekt som representerar den dubbla och dess egenskaps data. Sedan kan du använda `JsonSerializer` för att skicka en serialiserad version av detta till API-anropet för `initdata` parametern.
+Först kan du skapa ett data objekt som representerar den dubbla och dess egenskaps data. Sedan kan du använda `JsonSerializer` för att skicka en serialiserad version av det här objektet till API-anropet för `initdata` parametern, så här:
 
+```csharp
+await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+```
 Du kan skapa ett parameter objekt antingen manuellt eller med hjälp av en angiven hjälp klass. Här är ett exempel på var och en.
 
 #### <a name="create-twins-using-manually-created-data"></a>Skapa dubbla med manuellt skapade data
@@ -58,7 +61,7 @@ Utan att använda anpassade hjälp klasser kan du representera en dubbels egensk
 
 #### <a name="create-twins-with-the-helper-class"></a>Skapa dubbla med hjälp av klassen
 
-Med hjälp klassen i `BasicDigitalTwin` kan du lagra egenskaps fält i ett "" ""-objekt mer direkt. Du kanske fortfarande vill bygga listan med egenskaper med hjälp av en `Dictionary<string, object>` , som sedan kan läggas till i det dubbla objektet som dess `CustomProperties` direkt.
+Med hjälp klassen i `BasicDigitalTwin` kan du lagra egenskaps fält i ett "" ""-objekt direkt. Du kanske fortfarande vill bygga listan med egenskaper med hjälp av en `Dictionary<string, object>` , som sedan kan läggas till i det dubbla objektet som dess `CustomProperties` direkt.
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
@@ -70,27 +73,37 @@ props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
 twin.CustomProperties = props;
 
-client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateDigitalTwinAsync("myRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+Console.WriteLine("The twin is created successfully");
 ```
 
 >[!NOTE]
-> `BasicDigitalTwin` objekt levereras med ett `Id` fält. Du kan lämna fältet tomt, men om du lägger till ett ID-värde måste det matcha ID-parametern som skickas till `CreateDigitalTwin` anropet. I exemplet ovan skulle det se ut så här:
+> `BasicDigitalTwin` objekt levereras med ett `Id` fält. Du kan lämna fältet tomt, men om du lägger till ett ID-värde måste det matcha ID-parametern som skickas till `CreateDigitalTwin()` anropet. Exempel:
 >
 >```csharp
->twin.Id = "myNewRoomID";
+>twin.Id = "myRoomId";
 >```
 
 ## <a name="get-data-for-a-digital-twin"></a>Hämta data för en digital, dubbel
 
-Du kan komma åt alla digitala data genom att anropa:
+Du kan komma åt information om alla digitala dubbla genom att anropa- `GetDigitalTwin()` metoden så här:
 
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
+Anropet returnerar dubbla data som en JSON-sträng. Här är ett exempel på hur du kan använda den för att Visa dubbel information:
 
-Anropet returnerar dubbla data som en JSON-sträng. 
-
-Endast egenskaper som har angetts minst en gång returneras när du hämtar ett dubbla med `GetDigitalTwin` .
+```csharp
+Response<string> res = client.GetDigitalTwin("myRoomId");
+twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+foreach (string prop in twin.CustomProperties.Keys)
+{
+  if (twin.CustomProperties.TryGetValue(prop, out object value))
+  Console.WriteLine($"Property '{prop}': {value}");
+}
+```
+Endast egenskaper som har angetts minst en gång returneras när du hämtar en delad med- `GetDigitalTwin()` metoden.
 
 >[!TIP]
 >`displayName`För en enhet är en del av modellens metadata, så den visas inte när data hämtas för den dubbla instansen. Om du vill se det här värdet kan du [Hämta det från modellen](how-to-manage-model.md#retrieve-models).
@@ -101,7 +114,7 @@ Tänk på följande modell (skrivet i [Digitals definitions språk (DTDL)](https
 
 ```json
 {
-    "@id": " dtmi:com:contoso:Moon;1",
+    "@id": "dtmi:example:Moon;1",
     "@type": "Interface",
     "@context": "dtmi:dtdl:context;2",
     "contents": [
@@ -120,8 +133,7 @@ Tänk på följande modell (skrivet i [Digitals definitions språk (DTDL)](https
     ]
 }
 ```
-
-Resultatet av att ringa `object result = await client.DigitalTwins.GetByIdAsync("my-moon");` på en *måne*-typ kan se ut så här:
+Resultatet av att ringa `object result = await client.GetDigitalTwinAsync("my-moon");` på en *måne*-typ kan se ut så här:
 
 ```json
 {
@@ -130,7 +142,7 @@ Resultatet av att ringa `object result = await client.DigitalTwins.GetByIdAsync(
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
-    "$model": "dtmi:com:contoso:Moon;1",
+    "$model": "dtmi:example:Moon;1",
     "radius": {
       "desiredValue": 1737.1,
       "desiredVersion": 5,
@@ -151,7 +163,7 @@ Resultatet av att ringa `object result = await client.DigitalTwins.GetByIdAsync(
 
 De definierade egenskaperna för den digitala kanten returneras som toppnivå egenskaper på den digitala dubbla. Metadata-eller system information som inte ingår i DTDL-definitionen returneras med ett `$` prefix. Metadata-egenskaper inkluderar:
 * ID: t för den digitala dubbla i den här Azure Digital-instansen, som `$dtId` .
-* `$etag`, ett standard-HTTP-fält som tilldelas av webb servern
+* `$etag`, ett standard-HTTP-fält som tilldelas av webb servern.
 * Andra egenskaper i ett `$metadata` avsnitt. Exempel:
     - DTMI för den digitala dubbla.
     - Synkroniseringsstatus för varje skrivbar egenskap. Detta är mest användbart för enheter, där det är möjligt att tjänsten och enheten har avvikande status (till exempel när en enhet är offline). Den här egenskapen gäller för närvarande endast för fysiska enheter som är anslutna till IoT Hub. Med data i avsnittet metadata är det möjligt att förstå fullständig status för en egenskap samt de senast ändrade tidsstämplar. Mer information om synkroniseringsstatus finns i [den här IoT Hub själv studie kursen](../iot-hub/tutorial-device-twins.md) om synkronisering av enhets status.
@@ -162,7 +174,7 @@ Du kan parsa den returnerade JSON-filen för den dubbla med ett JSON-tolknings b
 Du kan också använda den serialiserande hjälp klassen `BasicDigitalTwin` som ingår i SDK: n, vilket returnerar de dubbla metadata och egenskaperna i förparsat formulär. Här är ett exempel:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin(twin_id);
+Response<string> res = client.GetDigitalTwin(twin_Id);
 BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 foreach (string prop in twin.CustomProperties.Keys)
@@ -176,7 +188,7 @@ Du kan läsa mer om serialiserings hjälp klasser i [*How-to: använda Azure Dig
 
 ## <a name="update-a-digital-twin"></a>Uppdatera en digital delad
 
-Om du vill uppdatera egenskaperna till en digital, skriver du den information som du vill ersätta i [JSON patch](http://jsonpatch.com/) -format. På så sätt kan du ersätta flera egenskaper samtidigt. Sedan skickar du JSON-korrigerings dokumentet till en `Update` metod:
+Om du vill uppdatera egenskaperna för en digital, så skriver du den information som du vill ersätta i [JSON patch](http://jsonpatch.com/) -format. På så sätt kan du ersätta flera egenskaper samtidigt. Sedan skickar du JSON-korrigerings dokumentet till en `UpdateDigitalTwin()` metod:
 
 ```csharp
 await client.UpdateDigitalTwin(id, patch);
@@ -203,7 +215,6 @@ Här är ett exempel på en JSON-patch-kod. Det här dokumentet ersätter *Mass*
   }
 ]
 ```
-
 Du kan skapa uppdateringar manuellt eller genom att använda en serialiserande hjälp klass i [SDK](how-to-use-apis-sdks.md). Här är ett exempel på var och en.
 
 #### <a name="create-patches-manually"></a>Skapa korrigeringar manuellt
@@ -216,7 +227,10 @@ twinData.Add(new Dictionary<string, object>() {
     { "value", 25.0}
 });
 
-await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData));
+await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+Console.WriteLine("Updated twin properties");
+FetchAndPrintTwin(twin_Id, client);
+}
 ```
 
 #### <a name="create-patches-using-the-helper-class"></a>Skapa korrigeringar med hjälp av klassen
@@ -224,14 +238,14 @@ await client.UpdateDigitalTwinAsync(twinId, JsonConvert.SerializeObject(twinData
 ```csharp
 UpdateOperationsUtility uou = new UpdateOperationsUtility();
 uou.AppendAddOp("/Temperature", 25.0);
-await client.UpdateDigitalTwinAsync(twinId, uou.Serialize());
+await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
 ```
 
 ### <a name="update-properties-in-digital-twin-components"></a>Uppdatera egenskaper i digitala dubbla komponenter
 
 Kom ihåg att en modell kan innehålla komponenter, så att den kan bestå av andra modeller. 
 
-Om du vill uppdatera egenskaper i en digital, dubbla komponenter använder du Path-syntax i JSON-korrigering:
+Om du vill korrigera egenskaper i en digital-enhets komponent kan du använda Path-syntax i JSON-korrigering:
 
 ```json
 [
@@ -245,7 +259,7 @@ Om du vill uppdatera egenskaper i en digital, dubbla komponenter använder du Pa
 
 ### <a name="update-a-digital-twins-model"></a>Uppdatera en digital Garns modell
 
-`Update`Funktionen kan också användas för att migrera en digital, dubbel till en annan modell. 
+`UpdateDigitalTwin()`Funktionen kan också användas för att migrera en digital, dubbel till en annan modell. 
 
 Anta till exempel följande JSON-korrigerings dokument som ersätter det digitala `$model` området metadata:
 
@@ -254,7 +268,7 @@ Anta till exempel följande JSON-korrigerings dokument som ersätter det digital
   {
     "op": "replace",
     "path": "/$metadata/$model",
-    "value": "dtmi:com:contoso:foo;1"
+    "value": "dtmi:example:foo;1"
   }
 ]
 ```
@@ -273,7 +287,7 @@ Korrigeringen för den här situationen måste uppdatera både modellen och den 
   {
     "op": "replace",
     "path": "$metadata.$model",
-    "value": "dtmi:com:contoso:foo_new"
+    "value": "dtmi:example:foo_new"
   },
   {
     "op": "add",
@@ -298,9 +312,9 @@ De två anropen som ändrar *Twin1* körs en efter en annan och ändrings meddel
 
 ## <a name="delete-a-digital-twin"></a>Ta bort en digital delad
 
-Du kan ta bort dubbla med `DeleteDigitalTwin(ID)` . Men du kan bara ta bort en dubbel när den inte har fler relationer. Du måste först ta bort alla relationer. 
+Du kan ta bort dubbla med- `DeleteDigitalTwin()` metoden. Men du kan bara ta bort en dubbel när den inte har fler relationer. Så ta bort de dubbla inkommande och utgående relationerna först.
 
-Här är ett exempel på koden för:
+Här är ett exempel på koden för att ta bort dubbla och deras relationer:
 
 ```csharp
 static async Task DeleteTwin(string id)
@@ -334,7 +348,7 @@ public async Task FindAndDeleteOutgoingRelationshipsAsync(string dtId)
     }
     catch (RequestFailedException ex)
     {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
+        Log.Error($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
     }
 }
 
@@ -344,7 +358,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
     try
     {
-        // GetRelationshipssAsync will throw an error if a problem occurs
+        // GetRelationshipsAsync will throw an error if a problem occurs
         AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
 
         await foreach (IncomingRelationship incomingRel in incomingRels)
@@ -355,18 +369,162 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
     }
     catch (RequestFailedException ex)
     {
-        Log.Error($"*** Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
+        Log.Error($"_*_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
     }
 }
 ```
-
 ### <a name="delete-all-digital-twins"></a>Ta bort alla digitala dubbla
 
-Ett exempel på hur du tar bort alla dubbla på en gång finns i den exempel app som används i [*självstudien: utforska grunderna med ett exempel på ett klient program*](tutorial-command-line-app.md). *CommandLoop.cs* -filen gör detta i en `CommandDeleteAllTwins` funktion.
+Ett exempel på hur du tar bort alla dubbla på en gång får du genom att ladda ned exempel appen som används i [_Tutorial: utforska grunderna med ett exempel på klient program *](tutorial-command-line-app.md). *CommandLoop.cs* -filen gör detta i en `CommandDeleteAllTwins()` funktion.
+
+## <a name="manage-twins-using-runnable-code-sample"></a>Hantera dubbla med körbara kod exempel
+
+Du kan använda körbara-kod exemplet nedan för att skapa en dubbel, uppdatera dess information och ta bort den dubbla. 
+
+Kodfragmentet använder [Room.jspå](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) modell definitionen från [*självstudien: utforska digitala Azure-enheter med ett exempel på en klient-app*](tutorial-command-line-app.md). Du kan använda den här länken för att gå direkt till filen eller ladda ned den som en del av ett fullständigt exempel projekt från början till slut [här](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
+
+Ersätt plats hållaren `<your-instance-hostname>` med din Azure Digitals sammanflätade instans information och kör exemplet.
+
+```csharp
+using System;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+using System.Threading.Tasks;
+using System.IO;
+using System.Collections.Generic;
+using Azure;
+using Azure.DigitalTwins.Core.Serialization;
+using System.Text.Json;
+
+namespace minimal
+{
+    class Program
+    {
+
+        static async Task Main(string[] args)
+        {
+            Console.WriteLine("Hello World!");
+            string adtInstanceUrl = "https://<your-instance-hostname>";
+            var credentials = new DefaultAzureCredential();
+            Console.WriteLine();
+            Console.WriteLine($"Upload a model");
+            BasicDigitalTwin twin = new BasicDigitalTwin();
+            var typeList = new List<string>();
+            string twin_Id = "myRoomId";
+            string dtdl = File.ReadAllText("Room.json");
+            typeList.Add(dtdl);
+            // Upload the model to the service
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            Console.WriteLine($"Service client created – ready to go");
+            await client.CreateModelsAsync(typeList);
+            twin.Metadata = new DigitalTwinMetadata();
+            twin.Metadata.ModelId = "dtmi:example:Room;1";
+            // Initialize properties
+            Dictionary<string, object> props = new Dictionary<string, object>();
+            props.Add("Temperature", 35.0);
+            props.Add("Humidity", 55.0);
+            twin.CustomProperties = props;
+            await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            Console.WriteLine("Twin created successfully");
+            twin = FetchAndPrintTwin(twin_Id, client);
+            List<object> twinData = new List<object>();
+            twinData.Add(new Dictionary<string, object>() 
+            {
+                { "op", "add"},
+                { "path", "/Temperature"},
+                { "value", 25.0}
+            });
+
+            await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
+            Console.WriteLine("Updated Twin Properties");
+            FetchAndPrintTwin(twin_Id, client);
+            await DeleteTwin(client, twin_Id);
+        }
+
+        private static BasicDigitalTwin FetchAndPrintTwin(string twin_Id, DigitalTwinsClient client)
+        {
+            BasicDigitalTwin twin;
+            Response<string> res = client.GetDigitalTwin(twin_Id);
+            twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
+            Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
+            foreach (string prop in twin.CustomProperties.Keys)
+            {
+                if (twin.CustomProperties.TryGetValue(prop, out object value))
+                    Console.WriteLine($"Property '{prop}': {value}");
+            }
+
+            return twin;
+        }
+        static async Task DeleteTwin(DigitalTwinsClient client, string id)
+        {
+            await FindAndDeleteOutgoingRelationshipsAsync(client, id);
+            await FindAndDeleteIncomingRelationshipsAsync(client, id);
+            try
+            {
+                await client.DeleteDigitalTwinAsync(id);
+                Console.WriteLine("Twin deleted successfully");
+                FetchAndPrintTwin(id, client);
+            }
+            catch (RequestFailedException exc)
+            {
+                Console.WriteLine($"*** Error:{exc.Message}");
+            }
+        }
+
+        public static async Task FindAndDeleteOutgoingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<string> relsJson = client.GetRelationshipsAsync(dtId);
+
+                await foreach (string relJson in relsJson)
+                {
+                    var rel = System.Text.Json.JsonSerializer.Deserialize<BasicRelationship>(relJson);
+                    await client.DeleteRelationshipAsync(dtId, rel.Id).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted relationship {rel.Id} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"**_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+       static async Task FindAndDeleteIncomingRelationshipsAsync(DigitalTwinsClient client, string dtId)
+        {
+            // Find the relationships for the twin
+
+            try
+            {
+                // GetRelationshipsAsync will throw an error if a problem occurs
+                AsyncPageable<IncomingRelationship> incomingRels = client.GetIncomingRelationshipsAsync(dtId);
+
+                await foreach (IncomingRelationship incomingRel in incomingRels)
+                {
+                    await client.DeleteRelationshipAsync(incomingRel.SourceId, incomingRel.RelationshipId).ConfigureAwait(false);
+                    Console.WriteLine($"Deleted incoming relationship {incomingRel.RelationshipId} from {dtId}");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine($"_*_ Error {ex.Status}/{ex.ErrorCode} retrieving or deleting incoming relationships for {dtId} due to {ex.Message}");
+            }
+        }
+
+    }
+}
+
+```
+Här är konsol resultatet av programmet ovan: 
+
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Konsol resultat som visar att den dubbla skapas, uppdateras och tas bort" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## <a name="manage-twins-with-cli"></a>Hantera dubbla med CLI
 
-Uppdelade kan också hanteras med hjälp av Azure Digitals flätade CLI. Kommandona finns i [*anvisningar: använda Azure Digitals flätade CLI*](how-to-use-cli.md).
+Uppdelade kan också hanteras med hjälp av Azure Digitals flätade CLI. Du hittar kommandona i [_How-till: Använd Azure Digitals flätat CLI *](how-to-use-cli.md).
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 

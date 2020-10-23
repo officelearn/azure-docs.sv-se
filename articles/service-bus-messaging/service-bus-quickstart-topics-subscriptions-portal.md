@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: d3dc63106e1ca5d9db2b14392ca1fb97e3a68289
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9085ccd272c6634e4be518872cb7e279da6b803c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88191530"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425407"
 ---
 # <a name="use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Använda Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer på ämnet
 I den här snabb starten använder du Azure Portal för att skapa ett Service Bus ämne och sedan skapa prenumerationer på det avsnittet. 
@@ -32,7 +32,11 @@ Med hjälp av Service Bus ämnen och prenumerationer kan du skala för att bearb
 > Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
 ## <a name="next-steps"></a>Nästa steg
-Information om hur du skickar meddelanden till ett ämne och tar emot dessa meddelanden via en prenumeration finns i följande artikel: Välj programmeringsspråket i innehålls förteckningen. 
+I den här artikeln har du skapat en Service Bus namnrymd, ett ämne i namn området och tre prenumerationer på ämnet. Information om hur du publicerar meddelanden till ämnet och prenumererar på meddelanden från en prenumeration finns i följande snabb starter i avsnittet **publicera och prenumerera på meddelanden** . 
 
-> [!div class="nextstepaction"]
-> [Publicera och prenumerera på meddelanden](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+- [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+- [JavaScript](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
+- [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+- [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
+- [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)

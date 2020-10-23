@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 48ce6edc3d071d84c3921f85c2e9798b804d0279
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0cdf4699f5dc00087845ee6ca0d24ad6493c320b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017769"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426864"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Vägledning för migrering för att flytta från Media Services v2 till v3
 
@@ -32,7 +32,7 @@ Den här artikeln innehåller en vägledning för migrering från Media Services
 
 Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services v2-API: erna](../previous/media-services-overview.md)bör du läsa följande rikt linjer och överväganden innan du migrerar till v3-API: erna. Det finns många fördelar och nya funktioner i v3-API: et som förbättrar utvecklings upplevelsen och funktionerna i Media Services. Som du ser i avsnittet [kända problem](#known-issues) i den här artikeln finns det också vissa begränsningar på grund av ändringar mellan API-versionerna. Den här sidan kommer att behållas när Media Servicess teamet gör fortsatta förbättringar av v3-API: erna och åtgärdar luckorna mellan versionerna. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Granska [Media Services v2 vs. v3](media-services-v2-vs-v3.md)
 * [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -59,7 +59,7 @@ Om du har en video tjänst som utvecklats idag ovanpå de [äldre Media Services
 * Live-utdata är enklare att använda än entiteten program i v2-API: erna. 
 * Förbättrat stöd för RTMP (ökad stabilitet och fler stöd för käll kodare).
 * RTMPs säker inmatning.<br/>När du skapar en Live-händelse får du 4 inmatnings-URL: er. De 4 inmatnings-URL: erna är nästan identiska, har samma strömnings-token (AppId), men endast port nummer delen är annorlunda. Två av URL: erna är primära och säkerhets kopiering för RTMP.   
-* Du har rollbaserad åtkomst kontroll (RBAC) över dina entiteter. 
+* Du har rollbaserad åtkomst kontroll i Azure (Azure RBAC) över dina entiteter. 
 
 ## <a name="known-issues"></a>Kända problem
 

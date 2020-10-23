@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: fb321aeeae1f0ef5aaadce22e228024895176143
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8169b277dfae918e86ac493259325ff84d0b6a4e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202658"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427485"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Skapa ett Azure Remote Rendering-konto
 
@@ -101,7 +101,7 @@ De andra List rutorna väljs som i det första steget.
 
 Om du har lagt till alla tre roller har ditt Azure Remote rendering-konto åtkomst till ditt lagrings konto med systemtilldelade tjänst identiteter.
 > [!IMPORTANT]
-> Azure Role-tilldelningar cachelagras av Azure Storage, så det kan finnas en fördröjning på upp till 30 minuter mellan när du beviljar åtkomst till ditt konto för fjärrrendering och när det kan användas för åtkomst till ditt lagrings konto. Mer information finns i [dokumentationen för roll bas åtkomst kontroll](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) .
+> Azure Role-tilldelningar cachelagras av Azure Storage, så det kan finnas en fördröjning på upp till 30 minuter mellan när du beviljar åtkomst till ditt konto för fjärrrendering och när det kan användas för åtkomst till ditt lagrings konto. Mer information finns i [dokumentationen för rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) .
 
 ## <a name="next-steps"></a>Nästa steg
 

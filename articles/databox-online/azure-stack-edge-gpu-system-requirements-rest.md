@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 5e3b9b841c8e6ff17a29ac9c6a5e746ed6b687b9
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f99a3110880626b3a809e6bab5edc02398094547
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128507"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426216"
 ---
 # <a name="azure-stack-edge-blob-storage-requirements"></a>Krav för Azure Stack gräns-blob-lagring
 
@@ -21,16 +21,14 @@ Den här artikeln innehåller en lista över de Azure-API: er, Azures klient bib
 
 Vi rekommenderar att du läser informationen noggrant innan du ansluter till Azure Stack Edge Blob Storage och sedan går tillbaka till den vid behov.
 
-
 ## <a name="storage-differences"></a>Lagrings skillnader
 
 |     Funktion                                             |     Azure Storage                                     |     Azure Stack Edge Blob Storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Azure File Storage                                   |    Molnbaserade SMB-filresurser stöds              |    Stöds inte      |
-|    Tjänst kryptering för vilande data                  |    256-bitars AES-kryptering                             |    256-bitars AES-kryptering |
 |    Storage Account-typ                                 |    Generell användnings-och Azure Blob Storage-konton    |    Allmän användning endast v1|
 |    Blobnamn                                            |    1 024 tecken (2 048 byte)                     |    880 tecken (1 760 byte)|
-|    Maximal storlek för Block Blob                              |    4,75 TB (100 MB X 50 000 block)                   |    4,75 TB (100 MB x 50 000 block) för Azure Stack Edge v-2.1.1377.2170 och senare|
+|    Maximal storlek för Block Blob                              |    4,75 TB (100 MB X 50 000 block)                   |    4,75 TB (100 MB x 50 000 block) för Azure Stack Edge|
 |    Maximal storlek för Page BLOB                               |    8 TB                                               |    1 TB                   |
 |    Sid storlek för sid-BLOB                                  |    512 byte                                          |    4 kB                   |
 
@@ -44,7 +42,7 @@ Följande versioner av Azure Storage Service-API: er stöds med Azure Stack Edge
 
 ## <a name="supported-azure-client-libraries"></a>Azure-klientcertifikat som stöds
 
-För Azure Stack Edge Blob Storage finns det särskilda klient bibliotek och särskilda krav för slut punkts suffix. Azure Stack Edge Blob Storage-slutpunkter har inte fullständig paritet med den senaste versionen av Azure Blob Storage REST API; Se de [API-versioner som stöds för Azure Stack Edge-2.1.1377.2170 och senare](#supported-api-versions). För lagrings klient biblioteken måste du vara medveten om vilken version som är kompatibel med REST API.
+För Azure Stack Edge Blob Storage finns det särskilda klient bibliotek och särskilda krav för slut punkts suffix. Azure Stack Edge Blob Storage-slutpunkter har inte fullständig paritet med den senaste versionen av Azure Blob Storage REST API; Se de [API-versioner som stöds för Azure Stack Edge](#supported-api-versions). För lagrings klient biblioteken måste du vara medveten om vilken version som är kompatibel med REST API.
 
 ### <a name="azure-stack-edge-2113772170-onwards"></a>Azure Stack Edge-2.1.1377.2170 och senare
 
@@ -52,10 +50,11 @@ Följande versioner av Azure-klientens bibliotek stöds för Azure Stack Edge Bl
 
 [!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
-### <a name="install-php-client-via-composer---current"></a>Installera PHP-klient via Composer-Current
+### <a name="install-the-php-client-via-composer---current"></a>Installera PHP-klienten via Composer-Current
 
-Installera via Composer: (ta blob som exempel).
-1. Skapa en fil med namnet composer.jsi roten i projektet med följande kod:
+Installera PHP-klienten via Composer:
+
+1. Skapa en fil med namnet composer.jsi roten i projektet med följande kod (exempel använder Azure Storage Blob tjänst).
 
     ```
     {
@@ -68,10 +67,12 @@ Installera via Composer: (ta blob som exempel).
 
 3. Kör: php Composer. Phar-installation.
 
-### <a name="endpoint-declaration"></a>Slut punkts deklaration
+
+## <a name="endpoint-declaration"></a>Slut punkts deklaration
 
 I Azure Stack Edge Blob Storage SDK, identifierar Endpoint-suffixet `<device serial number>.microsoftdatabox.com` Azure Stack Edge-domänen. Mer information om BLOB service-slutpunkten finns i [överföra data via lagrings konton med Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
- 
+
+
 ## <a name="examples"></a>Exempel
 
 ### <a name="net"></a>.NET

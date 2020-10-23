@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: ee5f70f40103a92ff26cfcabc6adf9e2b825b59b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c388bd22ba20dd681997064496a90a81dabb292f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074846"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426721"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integrera med Kubernetes-distribution med Helm
 
@@ -23,14 +23,14 @@ Under publicerings processen sammanfogar Helm diagrammet med rätt konfiguration
 
 Du kan åsidosätta värdena som lagras i *Values. yaml* genom att tillhandahålla ytterligare yaml-baserade konfigurationsfiler på kommando raden när du kör Helm. Azure App-konfigurationen stöder export av konfigurations värden till YAML-filer. Genom att integrera den här export funktionen i din distribution kan dina Kubernetes-program utnyttja konfigurations värden som lagras i appens konfiguration.
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Använd värden från appens konfiguration när du distribuerar ett program till Kubernetes med hjälp av Helm.
 > * Skapa en Kubernetes-hemlighet baserat på en Key Vault referens i appens konfiguration.
 
 Den här självstudien förutsätter grundläggande förståelse för att hantera Kubernetes med Helm. Lär dig mer om att installera program med Helm i [Azure Kubernetes-tjänsten](../aks/kubernetes-helm.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 - Installera [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) (version 2.4.0 eller senare)
@@ -231,7 +231,7 @@ Kontrol lera att konfigurationer och hemligheter har angetts genom att komma åt
 
 En hemlighet, **lösen ord**, butiker som Key Vault referens i app Configuration har också lagts till i Kubernetes hemligheter. 
 
-![Snabbstart av lokal app](./media/kubernetes-dashboard-secrets.png)
+![Skärm bild som markerar lösen ordet i avsnittet data.](./media/kubernetes-dashboard-secrets.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

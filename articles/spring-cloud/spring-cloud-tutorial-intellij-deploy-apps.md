@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088779"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426731"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Använda IntelliJ för att distribuera Azure Spring Cloud-program
 
@@ -22,13 +22,13 @@ IntelliJ-plugin-programmet för Azure våren Cloud stöder program distribution 
 
 Innan du kör det här exemplet kan du prova den [grundläggande snabb](spring-cloud-quickstart.md)starten.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0 +](https://maven.apache.org/download.cgi)
-* [IntelliJ idé, community/Ultimate-utgåva, version 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ idé, community/Ultimate-utgåva, version 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Installera plugin-programmet
-Du kan lägga till Azure Toolkit for IntelliJ idé 3.35.0 från IntelliJ **plugin** -gränssnittet.
+Du kan lägga till Azure Toolkit for IntelliJ idé 3.43.0 från IntelliJ **plugin** -gränssnittet.
 
 1. Starta IntelliJ.  Om du har öppnat ett projekt tidigare stänger du projektet för att Visa välkomst dialog rutan. Välj **Konfigurera** från länk nedre högra och klicka sedan på **plugin** -program för att öppna dialog rutan konfiguration av plugin-programmet och välj **Installera plugin-program från disk**.
 

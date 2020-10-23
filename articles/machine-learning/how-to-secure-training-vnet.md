@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 6e7499d8402bf31d5ecc4d1b212c08b7064d0446
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629734"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425094"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning utbildnings miljö med virtuella nätverk
 
@@ -36,18 +36,18 @@ I den här artikeln får du lära dig att skydda följande utbildnings beräknin
 > - Virtuell dator
 > - HDInsight-kluster
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
 + Ett befintligt virtuellt nätverk och undernät som ska användas med dina beräknings resurser.
 
-+ För att distribuera resurser till ett virtuellt nätverk eller undernät måste ditt användar konto ha behörighet till följande åtgärder i Azure-rollbaserade åtkomst kontroller (RBAC):
++ För att distribuera resurser till ett virtuellt nätverk eller undernät måste ditt användar konto ha behörighet till följande åtgärder i rollbaserad åtkomst kontroll i Azure (Azure RBAC):
 
     - "Microsoft. Network/virtualNetworks/Join/Action" på den virtuella nätverks resursen.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" på under näts resursen.
 
-    Mer information om RBAC med nätverk finns i [inbyggda nätverks roller](/azure/role-based-access-control/built-in-roles#networking)
+    Mer information om Azure RBAC med nätverk finns i [inbyggda nätverks roller](/azure/role-based-access-control/built-in-roles#networking)
 
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Beräknings kluster & instanser 

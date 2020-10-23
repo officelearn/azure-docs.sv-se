@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/10/2020
-ms.openlocfilehash: 4fd16e9dcf9f0b75b48311adf3e9282adbce2a25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 9424a56eeda5750afc00dd996be957e67850c30c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708721"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426678"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Övervaka och finjustera Azure Database for PostgreSQL-enskild server
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for PostgreSQL innehåller olika övervaknings alternativ för att ge inblick i serverns beteende.
@@ -22,7 +22,7 @@ Azure Database for PostgreSQL tillhandahåller olika mått som ger inblick i fun
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for PostgreSQL:
 
-|Mått|Mått visnings namn|Enhet|Beskrivning|
+|Mått|Mått visnings namn|Enhet|Description|
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
@@ -55,28 +55,12 @@ Funktionen [prestanda rekommendationer](concepts-performance-recommendations.md)
 
 ## <a name="planned-maintenance-notification"></a>Meddelande om planerat underhåll
 
-Med **planerade underhålls aviseringar** kan du få aviseringar om kommande planerat underhåll till din Azure Database for PostgreSQL-enskild server. Dessa meddelanden är integrerade med [service Health](../service-health/overview.md) planerat underhåll och gör att du kan visa alla schemalagda underhåll för dina prenumerationer på ett och samma ställe. Den hjälper också till att skala meddelandet till rätt mål grupper för olika resurs grupper, eftersom du kan ha olika kontakter som är ansvariga för olika resurser. Du får ett meddelande om kommande underhåll 72 timmar före händelsen.
+Med [planerade underhålls aviseringar](./concepts-planned-maintenance-notification.md) kan du få aviseringar om kommande planerat underhåll till din Azure Database for PostgreSQL-enskild server. Dessa meddelanden är integrerade med [service Health](../service-health/overview.md) planerat underhåll och gör att du kan visa alla schemalagda underhåll för dina prenumerationer på ett och samma ställe. Den hjälper också till att skala meddelandet till rätt mål grupper för olika resurs grupper, eftersom du kan ha olika kontakter som är ansvariga för olika resurser. Du får ett meddelande om kommande underhåll 72 timmar före händelsen.
 
-> [!Note]
-> Vi kommer att göra varje försök att tillhandahålla **planerat underhåll meddelande** 72 timmar meddelande om alla händelser. I fall av kritiska uppdateringar eller säkerhets korrigeringar kan du dock skicka meddelanden närmare händelsen eller utelämnas.
-
-### <a name="to-receive-planned-maintenance-notification"></a>För att få ett meddelande om planerat underhåll
-
-1. I [portalen](https://portal.azure.com)väljer du **service Health**.
-2. I avsnittet **aviseringar** väljer du **hälso aviseringar**.
-3. Välj **+ Lägg till tjänstens hälso tillstånds avisering** och fyll i fälten.
-4. Fyll i de obligatoriska fälten. 
-5. Välj **händelse typ**, Välj **planerat underhåll** eller **Välj alla**
-6. I **Åtgärds grupper** definierar du hur du vill få aviseringen (få ett e-postmeddelande, utlösa en Logic app osv.)  
-7. Se till att aktivera regel vid skapande har angetts till Ja.
-8. Välj **skapa aviserings regel** för att slutföra aviseringen
-
-Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar**finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md).
-
-> [!IMPORTANT]
-> Meddelanden om planerade underhåll är för närvarande tillgängliga i för hands versionen i alla regioner **utom** västra centrala USA
+Lär dig mer om hur du konfigurerar aviseringar i dokumentet om [planerade underhålls meddelanden](./concepts-planned-maintenance-notification.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 - Se [hur du ställer in aviseringar](howto-alert-on-metric.md) för vägledning om hur du skapar en avisering på ett mått.
-- Mer information om hur du får åtkomst till och exporterar mått med hjälp av Azure Portal, REST API eller CLI finns i [Översikt över Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Mer information om hur du får åtkomst till och exporterar mått med hjälp av Azure Portal, REST API eller CLI finns i [Översikt över Azure mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - Läs vår blogg om [bästa praxis för att övervaka servern](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
+- Lär dig mer om [planerade underhålls meddelanden](./concepts-planned-maintenance-notification.md) i Azure Database for PostgreSQL-enskild server.

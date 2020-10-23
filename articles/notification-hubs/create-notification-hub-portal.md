@@ -11,12 +11,12 @@ ms.date: 08/04/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 981e23a2b021cc0eb8085aa943830f87352aee69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 141812e83653b458a2562bf73b70117c39bf7be0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87828531"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426555"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Snabb start: skapa en Azure Notification Hub i Azure Portal
 
@@ -52,10 +52,10 @@ I det här avsnittet skapar du en meddelandehubb i en befintlig namnrymd.
       ![Distributionsmeddelande](./media/create-notification-hub-portal/deployment-notification.png)
 7. Uppdatera webbplatsen **Notification Hub Namespaces** (Namnrymder för meddelandehubb) för att se den nya hubben i listan.
 
-      ![Azure Portal – Meddelanden -> Gå till resurser](./media/create-notification-hub-portal/new-hub-in-list.png)
+      ![Skärm bild som visar webb sidan för Notification Hub-namnområden med den nya hubben i listan.](./media/create-notification-hub-portal/new-hub-in-list.png)
 8. Välj din **meddelandehubb** för att se startsidan för meddelandehubben.
 
-      ![Azure Portal – Meddelanden -> Gå till resurser](./media/create-notification-hub-portal/hub-home-page.png)
+      ![Skärm bild som visar start sidan för Notification Hub.](./media/create-notification-hub-portal/hub-home-page.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

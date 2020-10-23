@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 87d26e18ff97416ff8cb0eda08f7beb81005c627
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: d18962e097358b8e80ac93b4d8419f7cd4f77ee0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015710"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426815"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -335,9 +335,9 @@ Följande förbättringar introducerades:
 
 Det nya **Transform** -objektet fören klar kodnings modellen. Det nya objektet gör det enkelt att skapa och dela koda Resource Manager-mallar och för inställningar. 
 
-#### <a name="azure-active-directory-authentication-and-rbac"></a>Azure Active Directory autentisering och RBAC
+#### <a name="azure-active-directory-authentication-and-azure-rbac"></a>Azure Active Directory autentisering och Azure RBAC
 
-Azure AD-autentisering och Role-Based Access Control (RBAC) möjliggör säker transformering, LiveEvents, principer för innehålls nycklar eller till gångar efter roll eller användare i Azure AD.
+Azure AD-autentisering och rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör säker transformering, LiveEvents, innehålls nyckel principer eller till gångar efter roll eller användare i Azure AD.
 
 #### <a name="client-sdks"></a>Klient-SDK: er  
 

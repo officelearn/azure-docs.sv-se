@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 5ce2c866954f46e3a01cabb23033ea2dae77ead6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fed376eae1c3dadb17f5ecf8e7f1c3422e07b9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757460"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426431"
 ---
 # <a name="tutorial-configure-apple-school-manager-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Apple School Manager för automatisk användar etablering
 
@@ -34,7 +34,7 @@ I den här självstudien beskrivs de steg du behöver utföra i både Apple Scho
 > * Ta bort användare i Apple School Manager när de inte behöver åtkomst längre
 > * Behåll särskilda användarattribut som synkroniseras mellan Azure AD och Apple School Manager
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -160,7 +160,6 @@ När du har konfigurerat etableringen använder du följande resurser till att �
 * [Visa SCIM-aktivitet i Apple School Manager](https://support.apple.com/guide/apple-school-manager/apd1bfd8dfde)
 * [Hantera befintliga SCIM-token och anslutningar i Apple School Manager](https://support.apple.com/guide/apple-school-manager/apdc9a823611)
 * [Koppla från SCIM-anslutningen i Apple School Manager](https://support.apple.com/guide/apple-school-manager/apd609be3a61)
-* [Hantera befintliga SCIM-token och anslutningar i Apple School Manager](https://support.apple.com/guide/apple-school-manager/apdc9a8236e9)
 * [Felsöka SCIM-anslutningen i Apple School Manager](https://support.apple.com/guide/apple-school-manager/apd403a0f3bd)
 
 ## <a name="next-steps"></a>Nästa steg

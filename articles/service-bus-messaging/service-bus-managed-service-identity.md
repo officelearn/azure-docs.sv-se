@@ -2,13 +2,13 @@
 title: Hanterade identiteter för Azure-resurser med Service Bus
 description: Den här artikeln beskriver hur du använder hanterade identiteter för att få åtkomst till Azure Service Bus entiteter (köer, ämnen och prenumerationer).
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 1deb3bdf823f1554e302bb35baabe444223f9008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 1efcd3c48e7e4a431a0c72c4b3b84531b44e973e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079866"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425525"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser
 [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en funktion i Azure som gör att du kan skapa en säker identitet som är kopplad till den distribution som program koden körs under. Du kan sedan associera identiteten med åtkomst kontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som ditt program behöver.
@@ -45,7 +45,7 @@ Innan du tilldelar en Azure-roll till ett säkerhets objekt bör du bestämma om
 
 I följande lista beskrivs de nivåer där du kan begränsa åtkomsten till Service Bus resurser, från och med det smala omfång:
 
-- **Kö**, **ämne**eller **prenumeration**: roll tilldelningen gäller för den angivna Service Bus entiteten. För närvarande har Azure Portal inte stöd för att tilldela användare/grupper/hanterade identiteter till Service Bus Azure-roller på prenumerations nivån. Här är ett exempel på hur du använder Azure CLI-kommandot: [AZ-Role-Assignment-Create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) för att tilldela en identitet till en Service Bus Azure-roll: 
+- **Kö**, **ämne**eller **prenumeration**: roll tilldelningen gäller för den angivna Service Bus entiteten. För närvarande har Azure Portal inte stöd för att tilldela användare/grupper/hanterade identiteter till Service Bus Azure-roller på prenumerations nivån. Här är ett exempel på hur du använder Azure CLI-kommandot: [AZ-Role-Assignment-Create](/cli/azure/role/assignment?#az-role-assignment-create) för att tilldela en identitet till en Service Bus Azure-roll: 
 
     ```azurecli
     az role assignment create \
@@ -91,6 +91,9 @@ Följ dessa steg när programmet har skapats:
 
 När du har aktiverat den här inställningen skapas en ny tjänst identitet i din Azure Active Directory (Azure AD) och konfigureras i App Service-värden.
 
+> [!NOTE]
+> När du använder en hanterad identitet ska anslutnings strängen ha formatet: `Endpoint=sb://<NAMESPACE NAME>.servicebus.windows.net/;Authentication=Managed Identity` .
+
 Tilldela nu den här tjänst identiteten till en roll i det begärda omfånget i Service Bus-resurser.
 
 ### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Så här tilldelar du Azure-roller med hjälp av Azure Portal
@@ -114,8 +117,10 @@ Om du vill tilldela en roll till en Service Bus-namnrymd navigerar du till namn 
 
 När du har tilldelat rollen får webb programmet åtkomst till Service Bus entiteter under det definierade omfånget. 
 
-### <a name="run-the-app"></a>Kör appen
 
+
+
+### <a name="run-the-app"></a>Kör appen
 Ändra nu standard sidan för det ASP.NET-program som du skapade. Du kan använda webb program koden från [den här GitHub-lagringsplatsen](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
 Sidan default. aspx är din landnings sida. Du hittar koden i Default.aspx.cs-filen. Resultatet är ett minimalt webb program med några fält och med knapparna **Skicka** och **ta emot** som ansluter till Service Bus för att antingen skicka eller ta emot meddelanden.

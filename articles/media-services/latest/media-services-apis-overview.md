@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 5d57a6705973fbd5ee39042404015347d75b49b3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b01208c67610ff220df1654d10211472e0eed61f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019791"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426846"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Utveckla med API:er för Media Services v3
 
@@ -35,7 +35,7 @@ Du måste autentiseras innan du kan få åtkomst till Media Services-resurser oc
 * **Autentisering av tjänstens huvudnamn**: Används för att autentisera en tjänst (till exempel webbappar, funktionsappar, logikappar, API:er och mikrotjänster). Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, tjänster på mellan nivå eller schemalagda jobb. För Web Apps bör till exempel alltid vara en mellan nivå som ansluter till Media Services med ett huvud namn för tjänsten.
 * **Användarautentisering**: Används för att autentisera en person som använder appen för att interagera med Media Services-resurser. Den interaktiva appen bör först fråga efter användarens autentiseringsuppgifter. Ett exempel är en hanteringskonsolapp som används av behöriga användare för att övervaka kodningsjobb eller liveuppspelning.
 
-Media Services-API:et kräver att användaren eller appen skickar REST API-begäranden för att få åtkomst till Media Services-kontoresursen och att rollen **Deltagare** eller **Ägare** används. Det går att komma åt API:et med rollen **Läsare** men då är endast åtgärderna **Get** eller **List** tillgängliga.Mer information finns i [Rollbaserad åtkomstkontroll för Media Services-konton](rbac-overview.md).
+Media Services-API:et kräver att användaren eller appen skickar REST API-begäranden för att få åtkomst till Media Services-kontoresursen och att rollen **Deltagare** eller **Ägare** används. Det går att komma åt API:et med rollen **Läsare** men då är endast åtgärderna **Get** eller **List** tillgängliga. Mer information finns i [rollbaserad åtkomst kontroll i Azure (Azure RBAC) för Media Services-konton](rbac-overview.md).
 
 I stället för att skapa tjänstens huvudnamn kan du överväga att använda hanterade identiteter för Azure-resurser så att du kan komma åt Media Services-API:et via Azure Resource Manager. Mer information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser?](../../active-directory/managed-identities-azure-resources/overview.md).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f32783b18b5454164567910aa369739d025b8be0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826909"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425674"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -30,7 +30,7 @@ För modell utbildning i produktions klass använder du ett [Azure Machine Learn
 
 En beräknings instans är en fullständigt hanterad molnbaserad arbets station som är optimerad för din Machine Learning Development-miljö. Det ger följande fördelar:
 
-|Viktiga fördelar|Beskrivning|
+|Viktiga fördelar|Description|
 |----|----|
 |Produktivitet|Du kan bygga och distribuera modeller med integrerade antecknings böcker och följande verktyg i Azure Machine Learning Studio:<br/>– Jupyter<br/>- JupyterLab<br/>-RStudio (för hands version)<br/>Compute-instansen är helt integrerad med Azure Machine Learning-arbetsyta och Studio. Du kan dela antecknings böcker och data med andra data forskare på arbets ytan.<br/> Du kan också använda [vs Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) med beräknings instanser.
 |Hanterad & säker|Minska din säkerhets storlek och Lägg till efterlevnad med företagets säkerhets krav. Beräknings instanser ger robusta hanterings principer och säkra nätverkskonfigurationer som:<br/><br/>– Autoetablering från Resource Manager-mallar eller Azure Machine Learning SDK<br/>- [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Stöd för virtuella nätverk](how-to-enable-virtual-network.md#compute-instance)<br/>– SSH-princip för att aktivera/inaktivera SSH-åtkomst<br/>TLS 1,2 aktiverat |
@@ -118,9 +118,9 @@ För varje beräknings instans i arbets ytan som du kan använda kan du:
 * SSH till beräknings instans. SSH-åtkomst är inaktive rad som standard men kan aktive ras vid skapande av beräknings instanser. SSH-åtkomst sker via en funktion för offentlig/privat nyckel. På fliken får du information om SSH-anslutning, till exempel IP-adress, användar namn och port nummer.
 * Hämta information om en angiven beräknings instans, till exempel IP-adress och region.
 
-Med [RBAC](/azure/role-based-access-control/overview) kan du styra vilka användare i arbets ytan som kan skapa, ta bort, starta, stoppa och starta om en beräknings instans. Alla användare i arbets ytans deltagare och ägar roll kan skapa, ta bort, starta, stoppa och starta om beräknings instanser i arbets ytan. Men endast skaparen av en angiven beräknings instans, eller användaren som tilldelats om den skapades för deras räkning, tillåts komma åt Jupyter, JupyterLab och RStudio på den beräknings instansen. En beräknings instans är dedikerad till en enda användare som har rot åtkomst och kan terminalen i genom Jupyter/JupyterLab/RStudio. Compute-instansen kommer att ha en enkel användar inloggning och alla åtgärder använder den användarens identitet för RBAC och behörighet för experiment körningar. SSH-åtkomsten styrs via mekanismen för offentlig/privat nyckel.
+Med [Azure RBAC](/azure/role-based-access-control/overview) kan du styra vilka användare i arbets ytan som kan skapa, ta bort, starta, stoppa och starta om en beräknings instans. Alla användare i arbets ytans deltagare och ägar roll kan skapa, ta bort, starta, stoppa och starta om beräknings instanser i arbets ytan. Men endast skaparen av en angiven beräknings instans, eller användaren som tilldelats om den skapades för deras räkning, tillåts komma åt Jupyter, JupyterLab och RStudio på den beräknings instansen. En beräknings instans är dedikerad till en enda användare som har rot åtkomst och kan terminalen i genom Jupyter/JupyterLab/RStudio. Compute-instansen kommer att ha enkel inloggning och alla åtgärder kommer att använda användarens identitet för Azure RBAC och för att köra experiment körningar. SSH-åtkomsten styrs via mekanismen för offentlig/privat nyckel.
 
-De här åtgärderna kan styras av RBAC:
+De här åtgärderna kan styras av Azure RBAC:
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/läsning*
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/skrivning*
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/ta bort*
@@ -146,9 +146,9 @@ De dedikerade kärnorna per region per VM-tullkvot och den totala regionala kvot
 
 Som administratör kan du skapa en beräknings instans på uppdrag av en data expert och tilldela den instansen till dem med:
 * [Azure Resource Manager mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Information om hur du hittar TenantID och ObjectID som behövs i den här mallen finns i [hitta ID-objekt-ID: n för konfiguration av autentisering](../healthcare-apis/find-identity-object-ids.md).  Du kan också hitta dessa värden i Azure Active Directory-portalen.
-* REST-API
+* REST API
 
-Data expert som du skapar beräknings instansen för behöver följande RBAC-behörigheter: 
+Data expert du skapar beräknings instansen för behöver följande Azure RBAC-behörigheter: 
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/start/åtgärd*
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/stoppa/åtgärd*
 * *Microsoft. MachineLearningServices/arbets ytor/beräkningar/omstart/åtgärd*

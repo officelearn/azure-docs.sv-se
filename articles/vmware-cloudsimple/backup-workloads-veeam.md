@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e661485e58c7e00c4eee41d808f727153a7761c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb883b70d1ae9f2894c7679633a586586922aa18
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86525049"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419933"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Säkerhetskopiera virtuella arbets belastnings datorer på CloudSimple privata moln med Veeam B&R
 
@@ -56,7 +56,7 @@ För miljöer med mindre än 30 TB som ska säkerhets kopie ras rekommenderar Cl
 * En Linux-baserad primär säkerhets kopierings databas i Azure som är konfigurerad som mål för säkerhets kopierings jobb.
 * `azcopy` används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
 
-![Grundläggande distributions scenarier](media/veeam-basicdeployment.png)
+![Diagram som visar grundläggande Veeam distributions scenarier.](media/veeam-basicdeployment.png)
 
 **Avancerad distribution**
 
@@ -136,7 +136,7 @@ Skapa brand Väggs regler mellan hanterings under nätet och säkerhets kopierin
 
 Följande tabell innehåller en port lista.
 
-| Ikon | Beskrivning | Ikon | Beskrivning |
+| Ikon | Description | Ikon | Description |
 | ------------ | ------------- | ------------ | ------------- |
 | Säkerhets kopierings Server  | vCenter  | HTTPS/TCP  | 443 |
 | Säkerhets kopierings Server <br> *Krävs för distribution av Veeam backup & Replication Components* | Säkerhetskopiera proxy  | TCP/UDP  | 135, 137 till 139 och 445 |

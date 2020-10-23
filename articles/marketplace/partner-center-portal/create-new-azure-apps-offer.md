@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: fb3a3ab5339186d8fa4e347d9d13e66940457f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710727"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428214"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -188,7 +188,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 5. Sekretess policy adress (länk)
 6. Erbjudandets namn
 7. Sammanfattning
-8. Beskrivning
+8. Description
 9. Skärm bilder/videor
 
 <br>Här är ett exempel på hur information om erbjudandet visas i Azure Portal:
@@ -202,7 +202,7 @@ Här är ett exempel på hur information om erbjudandet visas på Azure Marketpl
 3. Användbara länkar
 4. Skärmbilder
 
-#### <a name="name"></a>Namn
+#### <a name="name"></a>Name
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -214,7 +214,7 @@ Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan 
 
 Ange en längre Beskrivning av erbjudandet, upp till 256 tecken. Beskrivningen kan användas i Sök resultat.
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -328,16 +328,16 @@ Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroe
 
 ### <a name="create-new-plan"></a>Skapa ny plan
 
-***Plan-ID*** – skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID visas för kunder i produkt-URL: en.  Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. Högst 50 tecken tillåts för det här plan-ID: t. Detta ID kan inte ändras efter att du valt skapa.
+**_Plan-ID_*_ – skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID visas för kunder i produkt-URL: en.  Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. Högst 50 tecken tillåts för det här plan-ID: t. Detta ID kan inte ändras efter att du valt skapa.
 
-***Plan namn*** – kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (till exempel erbjudande namn: Windows Server; abonnemang: Windows Server 2016, Windows Server 2019).
+_*_Plan namn_*_ – kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (till exempel erbjudande namn: Windows Server; abonnemang: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-setup"></a>Planera installationen
 
 På den här fliken kan du ange en hög nivå konfiguration för typen av plan, om den återanvänder paket från ett annat abonnemang och vilka moln planen ska vara tillgänglig i. Dina svar på den här fliken kommer att påverka vilka fält som visas på andra flikar för samma plan.
 
 #### <a name="plan-type"></a>Plantyp
-Välj typ av plan för ditt erbjudande. En plan för **lösnings mal len** hanteras helt av kunden. En **hanterad program** plan gör det möjligt för utgivare att hantera programmet för kundens räkning. Mer information finns i [typer av Azure-programplaner](#types-of-azure-application-plans).
+Välj typ av plan för ditt erbjudande. En _*lösnings mal len** plan hanteras helt av kunden. En **hanterad program** plan gör det möjligt för utgivare att hantera programmet för kundens räkning. Mer information finns i [typer av Azure-programplaner](#types-of-azure-application-plans).
 
 #### <a name="re-use-technical-configuration"></a>Använd teknisk konfiguration igen
 
@@ -508,7 +508,7 @@ Ange en HTTPS webhook-slutpunkt för att ta emot aviseringar om alla CRUD-åtgä
 
 Välj det här alternativet om du vill ange vilka åtgärder som kunder kan utföra på de hanterade resurserna utöver de " `*/read` "-åtgärder som är tillgängliga som standard.
 
-Lista de ytterligare åtgärder som du vill att kunden ska utföra här, avgränsade med semikolon.  Mer information finns i [förstå neka tilldelningar för Azure-resurser](../../role-based-access-control/deny-assignments.md). Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta att användare startar om virtuella datorer kan du lägga till dem `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna.
+Lista de ytterligare åtgärder som du vill att kunden ska utföra här, avgränsade med semikolon.  Mer information finns i [förstå neka tilldelningar för Azure-resurser](../../role-based-access-control/deny-assignments.md). För tillgängliga åtgärder, se [Azure Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md). Om du till exempel vill tillåta att användare startar om virtuella datorer kan du lägga till dem `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna.
 
 #### <a name="global-azure--azure-government-cloud"></a>Globalt Azure/Azure Government-moln
 
@@ -518,7 +518,7 @@ Ange vem som ska ha hanterings åtkomst till det här hanterade programmet i var
 
 **Auktorisering** – lägg till Azure Active Directory objekt-ID för den användare, grupp eller det program som du vill bevilja behörighet till den hanterade resurs gruppen. Identifiera användaren med sitt huvud-ID, som finns på [bladet Azure Active Directory användare på Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-För varje huvud konto väljer du en av de inbyggda Azure AD-rollerna i listan (ägare eller deltagare). Rollen du väljer beskriver de behörigheter som huvud kontot kommer att ha på resurserna i kund prenumerationen. Mer information finns i [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md). Mer information om rollbaserad åtkomst kontroll (RBAC) finns i [Kom igång med RBAC i Azure Portal](../../role-based-access-control/overview.md).
+För varje huvud konto väljer du en av de inbyggda Azure AD-rollerna i listan (ägare eller deltagare). Rollen du väljer beskriver de behörigheter som huvud kontot kommer att ha på resurserna i kund prenumerationen. Mer information finns i [Inbyggda roller i Azure](../../role-based-access-control/built-in-roles.md). Mer information om rollbaserad åtkomst kontroll i Azure (Azure RBAC) finns i [Vad är Azure RBAC](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Även om du kan lägga till upp till 100-auktoriseringar per moln är det oftast enklare att skapa en Active Directory användar grupp och ange dess ID i "huvud-ID". På så sätt kan du lägga till fler användare i hanterings gruppen när planen har distribuerats och minska behovet av att uppdatera planen bara för att lägga till fler auktoriseringar.

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1386dd820b10b63862ddab38c441f251bea1d83d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400425"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428390"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Felsöka problem med Hybrid Runbook Worker
 
@@ -46,7 +46,7 @@ Följande är möjliga orsaker:
 
 #### <a name="resolution"></a>Lösning
 
-Kontrol lera att datorn har utgående åtkomst till ***. Azure-Automation.net** på port 443.
+Kontrol lera att datorn har utgående åtkomst till ** \* . Azure-Automation.net** på port 443.
 
 Datorer som kör Hybrid Runbook Worker bör uppfylla minimi kraven för maskin vara innan arbets tagaren har kon figurer ATS för att vara värd för den här funktionen. Runbooks och bakgrunds processen som de använder kan orsaka att systemet överanvänds och orsakar fördröjningar eller tids gränser för Runbook-jobbet.
 
@@ -226,7 +226,7 @@ I händelse loggen **program-och tjänst loggar \ Operations Manager** visas hä
 
 #### <a name="cause"></a>Orsak
 
-Det här problemet kan bero på att proxyn eller nätverks brand väggen blockerar kommunikationen till Microsoft Azure. Kontrol lera att datorn har utgående åtkomst till ***. Azure-Automation.net** på port 443.
+Det här problemet kan bero på att proxyn eller nätverks brand väggen blockerar kommunikationen till Microsoft Azure. Kontrol lera att datorn har utgående åtkomst till ** \* . Azure-Automation.net** på port 443.
 
 #### <a name="resolution"></a>Lösning
 
@@ -293,7 +293,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="scenario-you-cant-add-a-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: du kan inte lägga till en Hybrid Runbook Worker
+### <a name="scenario-you-cant-add-a-windows-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: du kan inte lägga till en Windows-Hybrid Runbook Worker
 
 #### <a name="issue"></a>Problem
 
@@ -312,6 +312,46 @@ Det här problemet kan uppstå om datorn redan har registrerats med ett annat Au
 Lös problemet genom att ta bort följande register nyckel, starta om `HealthService` och prova `Add-HybridRunbookWorker` cmdleten igen.
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
+
+### <a name="scenario-you-cant-add-a-linux-hybrid-runbook-worker"></a><a name="already-registered"></a>Scenario: du kan inte lägga till en Linux-Hybrid Runbook Worker
+
+#### <a name="issue"></a>Problem
+
+Följande meddelande visas när du försöker lägga till en Hybrid Runbook Worker med hjälp av python- `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` skriptet:
+
+```error
+Unable to register, an existing worker was found. Please deregister any existing worker and try again.
+```
+
+Dessutom försöker avregistrera en Hybrid Runbook Worker med hjälp av `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` python-skriptet:
+
+```error
+Failed to deregister worker. [response_status=404]
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här problemet kan uppstå om datorn redan har registrerats med ett annat Automation-konto, om Azure Hybrid Worker-gruppen har tagits bort eller om du försöker lägga till Hybrid Runbook Worker igen när du har tagit bort den från en dator.
+
+#### <a name="resolution"></a>Lösning
+
+Lös problemet så här:
+
+1. Ta bort agenten `sudo sh onboard_agent.sh --purge` .
+
+1. Kör dessa kommandon:
+
+   ```
+   sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
+   sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
+   sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
+   ```
+
+1. Återställa agenten `sudo sh onboard_agent.sh -w <workspace id> -s <workspace key> -d opinsights.azure.com` .
+
+1. Vänta tills mappen har `/opt/microsoft/omsconfig/modules/nxOMSAutomationWorker` fyllts i.
+
+1. Prova `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` python-skriptet igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

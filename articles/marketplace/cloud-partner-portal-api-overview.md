@@ -7,19 +7,19 @@ ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: bfb6e9cb510f5fe887f108dfdea5932406aafe0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d3d1c6bb14db3eb2ca499069934a628d2f7fea
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87292917"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425778"
 ---
 # <a name="cloud-partner-portal-api-reference"></a>API-referens för Cloud Partner Portal
 
 > [!NOTE]
 > Cloud Partner Portal API: er är integrerade i och fortsätter att fungera i Partner Center. Över gången introducerar små ändringar. Granska [ändringarna i cpp-API: erna](#changes-to-cpp-apis-after-the-migration-to-partner-center) som anges i det här dokumentet för att se till att koden fortsätter att fungera efter över gången till Partner Center. CPP-API: er bör endast användas för befintliga produkter som redan har integrerats före över gången till Partner Center. nya produkter bör använda API: er för överföring av Partner Center.
 
-Cloud Partner Portal REST-API: er tillåter programmerings hämtning och manipulering av arbets belastningar, erbjudanden och utgivar profiler. API: erna använder rollbaserad åtkomst kontroll (RBAC) för att genomdriva korrekta behörigheter vid bearbetnings tiden.
+Cloud Partner Portal REST-API: er tillåter programmerings hämtning och manipulering av arbets belastningar, erbjudanden och utgivar profiler. API: erna använder rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att genomdriva korrekta behörigheter vid bearbetnings tiden.
 
 Den här referensen ger teknisk information för Cloud Partner Portal REST-API: er. Nytto Last exemplen i det här dokumentet är endast för referens och kan komma att ändras när nya funktioner läggs till.
 
@@ -50,7 +50,7 @@ Denna referens information innehåller API: er för att utföra följande vanlig
 - [Skapa ett erbjudande](./cloud-partner-portal-api-creating-offer.md)
 - [Publicera ett erbjudande](./cloud-partner-portal-api-publish-offer.md)
 
-### <a name="operations"></a>Åtgärder
+### <a name="operations"></a>Operations
 
 - [Hämta åtgärder](./cloud-partner-portal-api-retrieve-operations.md)
 - [Avbryt åtgärder](./cloud-partner-portal-api-cancel-operations.md)

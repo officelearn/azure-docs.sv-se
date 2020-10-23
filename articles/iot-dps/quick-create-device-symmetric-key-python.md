@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: 0fe9d59e97ebbc9aba17fea14aed43756300d56e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b87d9d487257504a438cf13a5b94e3ca4f9233d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90528609"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426373"
 ---
 # <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Snabb start: etablera en python-enhet med symmetriska nycklar
 
-I den här snabb starten får du lära dig hur du etablerar en Windows-utvecklings maskin som en enhet i en IoT-hubb med python. Den här enheten använder en symmetrisk nyckel för att autentisera med en tjänst för enhets etablerings tjänsten (DPS) för att kunna tilldelas en IoT-hubb. Den autentiserade enheten kommer att identifieras av DPS baserat på en enskild registrering och tilldelas till en IoT-hubb. Exempel kod från [Azure IoT python SDK](https://github.com/Azure/azure-iot-sdk-python) kommer att användas för att etablera enheten. 
+I den här snabb starten får du lära dig hur du etablerar en Windows-utvecklings maskin som en enhet i en IoT-hubb med python. Den här enheten använder en symmetrisk nyckel och en enskild registrering för att autentisera med en tjänst för enhets etablerings tjänsten (DPS) för att kunna tilldelas en IoT-hubb. Exempel kod från [Azure IoT python SDK](https://github.com/Azure/azure-iot-sdk-python) kommer att användas för att etablera enheten. 
 
 Även om den här artikeln visar etablering med en enskild registrering, kan du även använda registrerings grupper. Det finns vissa skillnader när du använder registrerings grupper. Du måste till exempel använda en härledd enhets nyckel med ett unikt registrerings-ID för enheten. Även om registreringsgrupper för symmetrisk nyckel inte är begränsade till äldre enheter finns det ett exempel för registreringsgrupper i avsnittet om [hur du etablerar äldre enheter med symmetrisk nyckelattestering](how-to-legacy-device-symm-key.md). Mer information finns i avsnittet om [gruppregistreringar för symmetrisk nyckelattestering](concepts-symmetric-key-attestation.md#group-enrollments).
 
@@ -32,7 +32,7 @@ Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Se till att du har [Python 3,7](https://www.python.org/downloads/) eller senare installerat på din Windows-baserade dator. Du kan kontrol lera din version av python genom att köra `python --version` .
 

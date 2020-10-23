@@ -3,12 +3,12 @@ title: Registrera en kund i Azure Lighthouse
 description: Lär dig hur du kan publicera en kund i Azure Lighthouse, så att deras resurser kan nås och hanteras via din egen klient med Azure-delegerad resurs hantering.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 926e9bc5302403063d536e31fe304d837bca8ec5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: b5a6d60d10b2cee7f26ae405ed95b980f423b42e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92109076"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426338"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Registrera en kund i Azure Lighthouse
 
@@ -36,7 +36,7 @@ För att kunna publicera en kunds klient måste den ha en aktiv Azure-prenumerat
 
 Om du inte redan har dessa ID-värden kan du hämta dem på något av följande sätt. Se till att du använder de här exakta värdena i distributionen.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Du kan se ditt klient-ID genom att hovra över ditt konto namn längst upp till höger i Azure Portal, eller genom att välja **Växla katalog**. Om du vill välja och kopiera ditt klient-ID söker du efter "Azure Active Directory" i portalen och väljer sedan **Egenskaper** och kopierar värdet som visas i fältet **katalog-ID** . Om du vill hitta ID: t för en prenumeration i kund klienten söker du efter "prenumerationer" och väljer sedan lämpligt prenumerations-ID.
 
@@ -62,7 +62,7 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Definiera roller och behörigheter
 
-Som tjänst leverantör kanske du vill utföra flera uppgifter för en enskild kund, vilket kräver olika åtkomst för olika omfång. Du kan definiera så många auktoriseringar som du behöver för att kunna tilldela de [inbyggda rollen rollbaserad åtkomst kontroll (RBAC) inbyggda roller](../../role-based-access-control/built-in-roles.md) till användare i din klient organisation.
+Som tjänst leverantör kanske du vill utföra flera uppgifter för en enskild kund, vilket kräver olika åtkomst för olika omfång. Du kan definiera så många auktoriseringar som du behöver för att kunna tilldela lämpliga [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md) till användare i din klient organisation.
 
 För att förenkla hanteringen rekommenderar vi att du använder Azure AD-användargrupper för varje roll. Detta ger dig flexibiliteten att lägga till eller ta bort enskilda användare i gruppen som har åtkomst, så att du inte behöver upprepa onboarding-processen för att göra ändringar i användaren. Du kan tilldela roller till ett huvud namn för tjänsten, vilket kan vara användbart för automatiserings scenarier.
 
@@ -208,7 +208,7 @@ När du har uppdaterat parameter filen måste en användare i kundens klient org
 
 Distributionen kan göras i Azure Portal, med hjälp av PowerShell eller med hjälp av Azure CLI, som du ser nedan.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 1. I vår [GitHub-lagrings platsen](https://github.com/Azure/Azure-Lighthouse-samples/)väljer du knappen **distribuera till Azure** som visas bredvid den mall som du vill använda. Mallen öppnas på Azure-portalen.
 1. Ange dina värden för **namnet på MSP-erbjudandet**, en **Beskrivning av MSP-erbjudandet**, **hanteras av klient-ID**och **auktoriseringar**. Om du vill kan du välja **Redigera parametrar** för att ange värden för `mspOfferName` , `mspOfferDescription` , `managedbyTenantId` och `authorizations` direkt i parameter filen. Se till att uppdatera dessa värden i stället för att använda standardvärdena från mallen.
@@ -260,7 +260,7 @@ az deployment sub create --name <deploymentName> \
 
 När en kund prenumeration har publicerats till Azure-Lighthouse kommer användare i tjänste leverantörens klient organisation att kunna se prenumerationen och dess resurser (om de har beviljats åtkomst till den genom processen ovan, antingen individuellt eller som medlem i en Azure AD-grupp med rätt behörigheter). Bekräfta detta genom att kontrol lera att prenumerationen visas på något av följande sätt.  
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 I tjänst leverantörens klient organisation:
 

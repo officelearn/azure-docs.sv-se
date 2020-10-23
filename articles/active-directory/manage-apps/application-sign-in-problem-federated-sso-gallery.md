@@ -11,12 +11,13 @@ ms.topic: troubleshooting
 ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
-ms.openlocfilehash: 715cbb78cc33ce2ae9b22e743abfea81afc2cb55
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: contperfq2
+ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108192"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427373"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problem med att logga in till SAML-baserade enkel inloggning konfigurerade appar
 För att felsöka inloggnings problemen nedan rekommenderar vi följande för att bättre diagnostisera och automatisera lösnings stegen:
@@ -144,7 +145,7 @@ När programmet lades till som en icke-galleriapp skapade Azure Active Directory
 
 Ta bort de oanvända svars-URL: erna som kon figurer ATS för programmet.
 
-På sidan SAML-baserad SSO-konfiguration, i avsnittet **svars-URL för försäkrans konsument tjänst** , tar du bort oanvända eller vanliga svars-URL: er som skapats av systemet. Exempelvis `https://127.0.0.1:444/applications/default.aspx`.
+På sidan SAML-baserad SSO-konfiguration, i avsnittet **svars-URL för försäkrans konsument tjänst** , tar du bort oanvända eller vanliga svars-URL: er som skapats av systemet. Till exempel `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem vid anpassning av SAML-anspråk som skickas till ett program
 Information om hur du anpassar SAML-attributets anspråk som skickas till programmet finns i [anspråks mappning i Azure Active Directory](../develop/active-directory-claims-mapping.md).

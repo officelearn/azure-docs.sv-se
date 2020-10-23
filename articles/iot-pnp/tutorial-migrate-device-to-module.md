@@ -1,5 +1,5 @@
 ---
-title: Anslut en allmän IoT Plug and Play generisk modul | Microsoft Docs
+title: Anslut en allmän IoT Plug and Play-modul | Microsoft Docs
 description: Använd exempel C# IoT Plug and Play enhets kod i en allmän modul.
 author: ericmitt
 ms.author: ericmitt
@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089170"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426928"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Självstudie: ansluta en IoT Plug and Play-modul (C#)
 
@@ -22,7 +22,7 @@ En enhet är en IoT Plug and Play-enhet om den publicerar sitt modell-ID när de
 
 För att demonstrera hur du implementerar en IoT Plug and Play-modul visar den här självstudien hur du konverterar termostat C#-enhets exemplet till en allmän modul.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [iot-pnp-prerequisites](../../includes/iot-pnp-prerequisites.md)]
 

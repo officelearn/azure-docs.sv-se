@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbde77de0ad8698ff82b80b440ae1d4bdcae1f36
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319436"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427007"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Använd skrivskyddade repliker för att avlasta skrivskyddade arbets belastningar
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Som en del av [arkitekturen för hög tillgänglighet](high-availability-sla.md#premium-and-business-critical-service-tier-availability)etablerades varje enskild databas, Elastic pool-databas och hanterad instans i Premium-och affärskritisk tjänst nivån automatiskt med en primär Read-Write-replik och flera sekundära skrivskyddade repliker. De sekundära replikerna är etablerade med samma beräknings storlek som den primära repliken. Med funktionen *Läs skalbar* kan du avlasta skrivskyddade arbets belastningar med beräknings kapaciteten för en av de skrivskyddade replikerna, i stället för att köra dem på den skrivskyddade repliken. På så sätt kan vissa skrivskyddade arbets belastningar isoleras från de Läs-och skriv arbets belastningarna och påverkar inte deras prestanda. Funktionen är avsedd för program som innehåller logiskt åtskilda skrivskyddade arbets belastningar, till exempel analys. På tjänst nivåerna Premium och Affärskritisk kan program få prestanda för delar med denna ytterligare kapacitet utan extra kostnad.
+Som en del av [arkitekturen för hög tillgänglighet](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability)etablerades varje enskild databas, Elastic pool-databas och hanterad instans i Premium-och affärskritisk tjänst nivån automatiskt med en primär Read-Write-replik och flera sekundära skrivskyddade repliker. De sekundära replikerna är etablerade med samma beräknings storlek som den primära repliken. Med funktionen *Läs skalbar* kan du avlasta skrivskyddade arbets belastningar med beräknings kapaciteten för en av de skrivskyddade replikerna, i stället för att köra dem på den skrivskyddade repliken. På så sätt kan vissa skrivskyddade arbets belastningar isoleras från de Läs-och skriv arbets belastningarna och påverkar inte deras prestanda. Funktionen är avsedd för program som innehåller logiskt åtskilda skrivskyddade arbets belastningar, till exempel analys. På tjänst nivåerna Premium och Affärskritisk kan program få prestanda för delar med denna ytterligare kapacitet utan extra kostnad.
 
 Funktionen för *Läs skalning* är också tillgänglig i den storskaliga tjänst nivån när minst en sekundär replik skapas. Flera sekundära repliker kan användas för skrivskyddade belastnings Utjämnings arbets belastningar som kräver fler resurser än vad som är tillgängligt på en sekundär replik.
 
@@ -85,7 +85,7 @@ När du är ansluten till en skrivskyddad replik visar DMV: er (Dynamic Manageme
 
 Ofta använda vyer är:
 
-| Namn | Syfte |
+| Name | Syfte |
 |:---|:---|
 |[sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Tillhandahåller Mät värden för resursutnyttjande under den senaste timmen, inklusive CPU, data-IO och logg Skriv användning i förhållande till begränsningar i tjänst målet.|
 |[sys.dm_os_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql)| Tillhandahåller sammanställd wait-statistik för databas motor instansen. |
@@ -135,7 +135,7 @@ Du kan inaktivera och återaktivera Läs utskalning på enkla databaser och Elas
 > [!NOTE]
 > För enskilda databaser och Elastic pool-databaser, tillhandahålls möjligheten att inaktivera Läs skalning för bakåtkompatibilitet. Läs skalning kan inte inaktive ras på Affärskritisk hanterade instanser.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
 Du kan hantera inställningen för Läs skalning på bladet **Konfigurera** databas.
 
@@ -166,7 +166,7 @@ Så här återaktiverar du Läs skalan för en befintlig databas (ersätter obje
 Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Enabled
 ```
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
 Om du vill skapa en databas med Läs skala inaktive rad, eller ändra inställningen för en befintlig databas, använder du följande metod med `readScale` egenskapen inställd på `Enabled` eller `Disabled` , som i följande exempel förfrågan.
 

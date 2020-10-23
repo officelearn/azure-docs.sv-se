@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 19ce74046dd86885a01ad5e8dcc4bfda950dd884
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 40484521ecdc32e2e279ddf1b68ddcd4b1d7bc9b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201364"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427587"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
-Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skriva ett klient program för att interagera med sin instans av Azure Digitals dubbla tjänster. Den här själv studie kursen för utvecklare ger en introduktion till programmering mot Azure Digitals-tjänsten med [Azure IoT Digital-klient biblioteket för .net (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Den vägleder dig genom att skriva en C#-konsol klient program steg för steg, som börjar från grunden.
+Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skriva ett klient program för att interagera med sin instans av Azure Digitals dubbla tjänster. Den här själv studie kursen om utvecklare är en introduktion till programmering mot Azure Digitals-tjänsten med [Azure Digitals-SDK för .net (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Den vägleder dig genom att skriva en C#-konsol klient program steg för steg, som börjar från grunden.
 
 > [!div class="checklist"]
 > * Konfigurera projekt
@@ -25,7 +25,7 @@ Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skri
 > * Rensa resurser
 > * Nästa steg
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I den här självstudien används kommando raden för installation och projekt arbete. Därför kan du använda valfri kod redigerare för att gå igenom övningarna.
 
@@ -58,7 +58,7 @@ dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
-Det första beroendet är [Azure IoT Digital-klient biblioteket för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Det andra sambandet innehåller verktyg som hjälper dig med autentisering mot Azure.
+Det första beroendet är [Azure Digitals sammanflätade SDK för .net](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Det andra sambandet innehåller verktyg som hjälper dig med autentisering mot Azure.
 
 Se till att kommando fönstret är öppet, eftersom du fortsätter att använda det i självstudien.
 
@@ -266,12 +266,18 @@ Från och med nu kommer kursen att figursättas alla anrop till tjänst metoder 
 
 Nu när du har laddat upp en modell till Azure Digitals, kan du använda den här modell definitionen för att skapa **digitala dubbla**. [Digitala dubbla](concepts-twins-graph.md) är instanser av en modell och representerar entiteterna i din affärs miljö – saker som sensorer i en grupp, rum i en byggnad eller lampor i en bil. Det här avsnittet skapar några digitala dubbla, baserat på den modell som du laddade upp tidigare.
 
-Lägg till en ny `using` instruktion överst eftersom du behöver den inbyggda .net JSON-serialiseraren i `System.Text.Json` :
+Lägg till dessa nya `using` instruktioner överst, eftersom det här kod exemplet använder den inbyggda .net JSON-serialiseraren i `System.Text.Json` , och `Serialization` namn området från [Azure Digitals-SDK för .net (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [länk ändrad för för hands version]:
 
 ```csharp
 using System.Text.Json;
 using Azure.DigitalTwins.Core.Serialization;
 ```
+
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` krävs inte för att arbeta med digitala dubbla och relationer. Det är en valfri namnrymd som kan hjälpa till att hämta data till rätt format. Några alternativ för att använda den är:
+>* Sammanfoga strängar för att skapa ett JSON-objekt
+>* Använda en JSON-parser som `System.Text.Json` för att skapa ett JSON-objekt dynamiskt
+>* Utforma anpassade typer i C#, instansiera dem och serialisera dem till strängar
 
 Lägg sedan till följande kod i slutet av- `Main` metoden för att skapa och initiera tre digitala dubbla, baserade på den här modellen.
 
@@ -301,17 +307,7 @@ Observera att det inte uppstår något fel när de dubblarna skapas den andra g�
 
 Sedan kan du skapa **relationer** mellan de dubbla som du har skapat, för att ansluta dem till ett **dubbel diagram**. [Dubbla grafer](concepts-twins-graph.md) används för att representera hela miljön.
 
-För att hjälpa till med att skapa relationer använder det här kod exemplet `Azure.DigitalTwins.Core.Serialization` namn området. Du har lagt till detta i projektet tidigare med den här `using` instruktionen:
-
-```csharp
-using Azure.DigitalTwins.Core.Serialization;
-```
-
->[!NOTE]
->`Azure.DigitalTwins.Core.Serialization` krävs inte för att arbeta med digitala dubbla och relationer. Det är en valfri namnrymd som kan hjälpa till att hämta data till rätt format. Några alternativ för att använda den är:
->* Sammanfoga strängar för att skapa ett JSON-objekt
->* Använda en JSON-parser som `System.Text.Json` för att skapa ett JSON-objekt dynamiskt
->* Utforma anpassade typer i C#, instansiera dem och serialisera dem till strängar
+För att hjälpa till med att skapa relationer använder det här kod exemplet `Azure.DigitalTwins.Core.Serialization` namn området. Du har lagt till detta i projektet tidigare i avsnittet [*skapa digitala dubbla*](#create-digital-twins) avsnitt.
 
 Lägg till en ny statisk metod till `Program` -klassen under `Main` metoden:
 

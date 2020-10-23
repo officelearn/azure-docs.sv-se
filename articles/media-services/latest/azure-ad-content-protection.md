@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839545"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427202"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Självstudie: innehålls skydd från slut punkt till slut punkt med hjälp av Azure AD
 
@@ -26,7 +26,7 @@ ms.locfileid: "91839545"
 
 Med den här självstudien och det tillhandahållna Player-exemplet kan du konfigurera ett Azure Active Directory AMS-undersystem Azure Media Services från slut punkt till slut punkt till slut punkt till slut punkt för att strömma medie innehåll med alla AMS som stöder DRM/AES-128, strömmande protokoll, codec och behållar format. Exemplet är allmänt nog för säker åtkomst till alla REST API som skyddas av OAuth 2 via auktoriseringskod-flöde med bevis nyckel för Code Exchange (PKCE). (Azure Media Services licens leverans tjänst är bara en av dem.) Det fungerar också med Microsoft Graph-API eller anpassade utvecklade REST API som skyddas med OAuth 2 Authorization Code Flow. Detta är det medföljande dokumentet till [exempel koden](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 
-I de här självstudierna får du:
+I den här självstudien kommer vi att:
 
 > [!div class="checklist"]
 >
@@ -165,7 +165,7 @@ Välj en Azure AD-klient som ska användas för vårt exempel från slut punkt t
 1. Välj **exponera ett API** från menyn. Vyn Lägg till en omfattning visas. (Azure tillhandahåller en program-ID-URI, men om du vill ändra det kan du redigera i fältet program-ID URI.)
 1. Klicka på **Spara och fortsätt**. Vyn kommer att ändras. För var och en av inställningarna i kolumnen inställning i tabellen nedan anger du värdet i kolumnen värde och klickar sedan på **Lägg till omfång**.
 
-| Inställningen | Värde | Beskrivning |
+| Inställning | Värde | Beskrivning |
 | ------- | ----- | ----------- |
 | Namn på sökomfång | *Rights. Licens. Delivery* | Hur omfånget visas när åtkomst till detta API begärs och i åtkomsttoken när omfattningen har beviljats till ett klient program. Detta måste vara unikt i det här programmet. Vi rekommenderar att du använder "Resource. operation. constraint" som ett mönster för att generera namnet. |
 | Vem kan godkänna? | *Administratörer och användare* | Anger om användare kan godkänna det här omfånget i kataloger där användar medgivande har Aktiver ATS. |
@@ -313,7 +313,7 @@ Om du planerar att använda en annan IDE/webb plattform och/eller en webb server
 
 Nu när du har slutfört självstudien och har ett fungerande under system kan du prova att ändra det till följande kund scenarier:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Role-Based Access Control (RBAC) för licens leverans via Azure AD Group-medlemskap
+### <a name="azure-role-based-access-control-azure-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Rollbaserad åtkomst kontroll i Azure (Azure RBAC) för licens leverans via Azure AD Group-medlemskap
 
 I så fall tillåter systemet alla användare som kan logga in för att få en giltig licens och spela det skyddade innehållet.
 

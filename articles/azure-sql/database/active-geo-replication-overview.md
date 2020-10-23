@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: bc5bfb7c9cadea7aaa9cdedb2a17943014c6ef59
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 344d4e6b57082eb9ccfcd0642732d05216ad3978
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124766"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426330"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Skapa och använda aktiv geo-replikering – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,7 +83,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 > Logg omuppspelningen fördröjs på den sekundära databasen om det finns schema uppdateringar på den primära. Den senare kräver ett schema lås på den sekundära databasen.
 
 > [!IMPORTANT]
-> Du kan använda geo-replikering för att skapa en sekundär databas i samma region som den primära. Du kan använda den här sekundära för att belastningsutjämna en skrivskyddad arbets belastning i samma region. En sekundär databas i samma region ger dock inte ytterligare fel återhämtning och är därför inte ett lämpligt failover-mål för haveri beredskap. Det kommer inte heller att garantera isolering av tillgänglighets zoner. Använd tjänst nivån verksamhets kritisk eller Premium med [Zone-redundant konfiguration](high-availability-sla.md#zone-redundant-configuration) för att uppnå isolering av tillgänglighets zoner.
+> Du kan använda geo-replikering för att skapa en sekundär databas i samma region som den primära. Du kan använda den här sekundära för att belastningsutjämna en skrivskyddad arbets belastning i samma region. En sekundär databas i samma region ger dock inte ytterligare fel återhämtning och är därför inte ett lämpligt failover-mål för haveri beredskap. Det kommer inte heller att garantera isolering av tillgänglighets zoner. Använd tjänst nivån verksamhets kritisk eller Premium med [zon redundant konfiguration](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) eller generell användning Service Tier [Zone-redundant konfiguration](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) för att uppnå isolering av tillgänglighets zoner.
 >
 
 - **Planerad redundans**

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131827"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426096"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk
 
@@ -39,7 +39,7 @@ Se de andra artiklarna i den här serien:
 > Även om de flesta Studio fungerar med data som lagras i ett virtuellt nätverk gör integrerade antecknings böcker __inte__det. Integrerade antecknings böcker stöder inte användning av lagring som finns i ett virtuellt nätverk. I stället kan du använda Jupyter-anteckningsböcker från en beräknings instans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok]() .
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 + Läs [översikten över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -89,7 +89,7 @@ Azure Machine Learning använder [data lager](concept-data.md#datastores) för a
 1. I data lager inställningarna väljer du __Ja__ för  __Tillåt Azure Machine Learning-tjänst för att komma åt lagringen med hjälp av arbets ytans hanterad identitet__.
 
 
-De här stegen lägger till den arbetsytans hanterade identiteten som en __läsare__ till lagrings tjänsten med hjälp av Azure Resource based Access Control (RBAC). Med __läsar__ åtkomst kan arbets ytan Hämta brand Väggs inställningar och se till att data inte lämnar det virtuella nätverket.
+De här stegen lägger till den arbets ytans hanterade identiteten som en __läsare__ till lagrings tjänsten med hjälp av Azure Resource-baserad åtkomst kontroll (Azure RBAC). Med __läsar__ åtkomst kan arbets ytan Hämta brand Väggs inställningar och se till att data inte lämnar det virtuella nätverket.
 
 > [!NOTE]
 > Det kan ta upp till 10 minuter innan ändringarna börjar gälla.
@@ -104,9 +104,9 @@ För __Azure Blob Storage__läggs den arbets ytans hanterade identiteten också 
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Azure Data Lake Storage Gen2 åtkomst kontroll
 
-Du kan använda både RBAC-och POSIX-typ åtkomst kontrol listor (ACL: er) för att styra data åtkomsten i ett virtuellt nätverk.
+Du kan använda både Azure RBAC-och POSIX-typ åtkomst kontrol listor (ACL: er) för att styra data åtkomsten i ett virtuellt nätverk.
 
-Om du vill använda RBAC lägger du till den arbets ytans hanterade identitet i [BLOB data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) -rollen. Mer information finns i [rollbaserad åtkomst kontroll i Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
+Om du vill använda Azure RBAC lägger du till arbets ytans hanterade identitet i rollen [BLOB data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) . Mer information finns i [rollbaserad åtkomst kontroll i Azure](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
 För att kunna använda ACL: er kan den arbets ytans hanterade identitet tilldelas åtkomst precis som andra säkerhets principer. Mer information finns i [åtkomst kontrol listor på filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 

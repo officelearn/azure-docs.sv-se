@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 654fc453f0b4167ae91afcab811de321925c6bf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f9e4fd2f7f55f916743074b57f89788c0d32f7d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89614675"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427493"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Azures säkerhets bas linje för privat Azure-länk
 
@@ -268,7 +268,7 @@ Mata in data i Azure Sentinel för ytterligare undersökning.
 
 Begränsa åtkomst nivån till dina Azure-resurser med dina program och företags miljöer baserat på affärs krav. 
 
-Kontrol lera åtkomsten till Azure-resurser via Azure Active Directory rollbaserad åtkomst kontroll.
+Kontrol lera åtkomsten till Azure-resurser via rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 - [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
 
@@ -292,7 +292,7 @@ Följ Security Center rekommendationer för kryptering i vila och kryptering und
 
 **Ansvars område**: delat
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
 **Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till data och resurser, Använd annars tjänstens speciella metoder för åtkomst kontroll.
 
@@ -456,7 +456,7 @@ Implementera rekommendationer från Security Center som en säker konfigurations
 
 - [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+- [Säkerhetsrekommendationer – en referensguide](../security-center/recommendations-reference.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -634,7 +634,7 @@ Kunden ansvarar för att prioritera reparationen av aviseringar baserat på allv
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 

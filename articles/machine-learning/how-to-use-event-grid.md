@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77d2f600a651f44abddf4a77f2a01486fa0259f2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362524"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428425"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Utlös program, processer eller CI/CD-arbetsflöden baserat på Azure Machine Learning händelser (förhands granskning)
 
@@ -33,7 +33,7 @@ När du ska använda Event Grid för händelse drivna åtgärder:
 > [!NOTE] 
 > För närvarande utlöses endast runStatusChanged-händelser när körnings statusen **misslyckades**
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda Event Grid behöver du deltagar-eller ägar åtkomst till arbets ytan Azure Machine Learning du skapar händelser för.
 
 ## <a name="the-event-model--types"></a>Händelse modell & typer
@@ -62,7 +62,7 @@ Dessa händelser publiceras via Azure Event Grid. Med hjälp av Azure Portal, Po
 
 När du konfigurerar dina händelser kan du använda filter för att endast utlösa för vissa händelse data. I exemplet nedan kan du filtrera efter körnings status ändrade händelser med körnings typer. Händelsen utlöses endast när villkoret är uppfyllt. Se det [Azure Machine Learning Event Grid-schemat](/azure/event-grid/event-schema-machine-learning) för att lära dig mer om händelse data som du kan filtrera efter. 
 
-Prenumerationer för Azure Machine Learning händelser skyddas av rollbaserad åtkomst kontroll (RBAC). Endast [deltagare eller ägare](how-to-assign-roles.md#default-roles) av en arbets yta kan skapa, uppdatera och ta bort händelse prenumerationer.  Filter kan tillämpas på händelse prenumerationer antingen under [skapandet](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) av händelse prenumerationen eller vid ett senare tillfälle. 
+Prenumerationer för Azure Machine Learning händelser skyddas av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Endast [deltagare eller ägare](how-to-assign-roles.md#default-roles) av en arbets yta kan skapa, uppdatera och ta bort händelse prenumerationer.  Filter kan tillämpas på händelse prenumerationer antingen under [skapandet](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) av händelse prenumerationen eller vid ett senare tillfälle. 
 
 
 1. Gå till Azure Portal, Välj en ny prenumeration eller en befintlig. 

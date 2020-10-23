@@ -10,19 +10,19 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cb6c49ce779fe8b1e764471c31b392e31d6572ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd6fc3ee88d63c1d933d3405437ec1bf49e0432e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631213"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426363"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Skapa en arbets yta för Azure Machine Learning med Azure CLI
 
 
 I den här artikeln får du lära dig hur du skapar en Azure Machine Learning-arbetsyta med hjälp av Azure CLI. Azure CLI innehåller kommandon för att hantera Azure-resurser. Machine Learning-tillägget till CLI innehåller kommandon för att arbeta med Azure Machine Learning resurser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En **Azure-prenumeration**. Om du inte har en sådan kan du prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
 
@@ -359,7 +359,7 @@ Om du vill dela en arbets yta med en annan användare i din prenumeration använ
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-Mer information om rollbaserad åtkomst kontroll (RBAC) med Azure Machine Learning finns i [Hantera användare och roller](how-to-assign-roles.md).
+Mer information om rollbaserad åtkomst kontroll i Azure (Azure RBAC) med Azure Machine Learning finns i [Hantera användare och roller](how-to-assign-roles.md).
 
 Mer information finns i [AZ ml-arbetsytan resurs](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-workspace-share) dokumentation.
 

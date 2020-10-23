@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f6f3b10219775adb02d47a91da2573ea99f30ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60090dec56a177fac6ddad946d97142b484355af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212263"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425748"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Konfigurera vCenter-identitets källor som ska använda Active Directory
 
@@ -61,9 +61,9 @@ Använd informationen i följande tabell när du konfigurerar din Active Directo
 | **Domän namn** | FQDN för domänen, till exempel example.com. Ange ingen IP-adress i den här text rutan. |
 | **Domän Ali Aset** | Domänens NetBIOS-namn. Lägg till NetBIOS-namnet för Active Directory domän som ett alias för identitets källan om du använder SSPI-autentiseringar. |
 | **Bas-DN för grupper** | Det grundläggande unika namnet för grupper. |
-| **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet  `ldap://hostname:port`   eller  `ldaps://hostname:port` . Porten är vanligt vis 389 för LDAP-anslutningar och 636 för LDAPs-anslutningar. För att Active Directory distributioner av flera domänkontrollanter är porten vanligt vis 3268 för LDAP och 3269 för LDAPs.<br><br>Ett certifikat som upprättar förtroende för slut punkten för LDAPs-slutpunkten för Active Directory-servern krävs när du använder  `ldaps://`   i den primära eller sekundära LDAP-URL: en. |
+| **Primär server-URL** | Primär domänkontrollantens LDAP-server för domänen.<br><br>Använd formatet `ldap://hostname:port` eller `ldaps://hostname:port` . Porten är vanligt vis 389 för LDAP-anslutningar och 636 för LDAPs-anslutningar. För att Active Directory distributioner av flera domänkontrollanter är porten vanligt vis 3268 för LDAP och 3269 för LDAPs.<br><br>Ett certifikat som upprättar förtroende för slut punkten för LDAPs-slutpunkten för Active Directory-servern krävs när du använder `ldaps://` i den primära eller sekundära LDAP-URL: en. |
 | **Sekundär server-URL** | Adress till en sekundär domänkontrollant LDAP-server som används för redundans. |
-| **Välj certifikat** | Om du vill använda LDAPs med din Active Directory LDAP-server eller OpenLDAP-serverns identitets källa visas knappen Välj certifikat när du har skrivit  `ldaps://`   i text rutan URL. Det krävs ingen sekundär URL. |
+| **Välj certifikat** | Om du vill använda LDAPs med din Active Directory LDAP-server eller OpenLDAP-serverns identitets källa visas knappen Välj certifikat när du har skrivit `ldaps://` i text rutan URL. Det krävs ingen sekundär URL. |
 | **Användarnamn** | ID för en användare i domänen som har minst skrivskyddad åtkomst till bas-DN för användare och grupper. |
 | **Lösenord** | Lösen ordet för den användare som anges av användar namnet. |
 
@@ -127,7 +127,7 @@ När nätverks anslutningen har upprättats följer du stegen i [lägga till lok
 
 6. Välj **Active Directory som en LDAP-server** och klicka på **Nästa**.
 
-    ![Active Directory](media/OnPremAD04.png)
+    ![Skärm bild som visar Active Directory som ett alternativ för LDAP-server.](media/OnPremAD04.png)
 
 7. Ange parametrarna för identitets källan för din miljö och klicka på **Nästa**.
 

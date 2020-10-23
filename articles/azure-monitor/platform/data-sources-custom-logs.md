@@ -1,21 +1,24 @@
 ---
-title: Samla in anpassade loggar i Azure Monitor | Microsoft Docs
+title: Samla in anpassade loggar med Log Analytics agent i Azure Monitor
 description: Azure Monitor kan samla in händelser från textfiler på både Windows-och Linux-datorer.  Den här artikeln beskriver hur du definierar en ny anpassad logg och information om de poster som de skapar i Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/26/2019
-ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 406371325ddf8b555ede481582e19635b85abe49
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269496"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461574"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
+# <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Samla in anpassade loggar med Log Analytics agent i Azure Monitor
 
-Med data källan för anpassade loggar i Azure Monitor kan du samla in händelser från textfiler på både Windows-och Linux-datorer. Många program loggar information till textfiler i stället för standard loggnings tjänster som Windows-händelseloggen eller syslog. När du har samlat in kan du antingen parsa data i enskilda fält i dina frågor eller extrahera data under samlingen till enskilda fält.
+Data källan för anpassade loggar för Log Analytics agenten i Azure Monitor gör att du kan samla in händelser från textfiler på både Windows-och Linux-datorer. Många program loggar information till textfiler i stället för standard loggnings tjänster som Windows-händelseloggen eller syslog. När du har samlat in kan du antingen parsa data i enskilda fält i dina frågor eller extrahera data under samlingen till enskilda fält.
+
+> [!IMPORTANT]
+> Den här artikeln beskriver hur du samlar in anpassade loggar med [Log Analytics agent](log-analytics-agent.md) som är en av de agenter som används av Azure Monitor. Andra agenter samlar in olika data och konfigureras på olika sätt. Se [Översikt över Azure Monitor agenter](agents-overview.md) för en lista över tillgängliga agenter och de data som de kan samla in.
 
 ![Anpassad logg samling](media/data-sources-custom-logs/overview.png)
 
@@ -74,7 +77,7 @@ Ett program kan till exempel skapa en loggfil varje dag med datumet som ingår i
 
 Följande tabell innehåller exempel på giltiga mönster för att ange olika loggfiler.
 
-| Beskrivning | Sökväg |
+| Description | Sökväg |
 |:--- |:--- |
 | Alla filer i *: c:\Logs* med tillägget. txt i Windows-agenten |: C:\Logs \\ \* . txt |
 | Alla filer i *: c:\Logs* med ett namn som börjar med log och tillägget. txt i Windows-agenten |C:\Logs\log \* . txt |

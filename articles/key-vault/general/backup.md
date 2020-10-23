@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 08/12/2019
+ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: a1c07432dcf90759662e8f4aaedc760abd18157c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585941"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440526"
 ---
 # <a name="azure-key-vault-backup"></a>Azure Key Vault säkerhets kopiering
 
@@ -30,6 +30,9 @@ Key Vault bibehåller tillgänglighet i katastrof scenarier och växlar automati
 Om du vill skydda mot oavsiktlig eller skadlig borttagning av dina hemligheter konfigurerar du funktionerna för mjuk borttagning och rensning av skydd i nyckel valvet. Mer information finns i [Översikt över Azure Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="limitations"></a>Begränsningar
+
+> [!IMPORTANT]
+> Key Vault stöder inte möjligheten att säkerhetskopiera fler än 500 tidigare versioner av ett nyckel-, hemligt eller certifikat objekt. Försök att säkerhetskopiera en nyckel, ett hemligt objekt eller ett certifikat objekt kan resultera i ett fel. Det går inte att ta bort tidigare versioner av en nyckel, hemlighet eller certifikat.
 
 Key Vault tillhandahåller för närvarande inte ett sätt att säkerhetskopiera hela nyckel valvet i en enda åtgärd. Alla försök att använda de kommandon som anges i det här dokumentet för att göra en automatiserad säkerhets kopiering av ett nyckel valv kan resultera i fel och stöds inte av Microsoft eller Azure Key Vaults teamet. 
 

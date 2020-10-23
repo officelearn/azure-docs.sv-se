@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 10/19/2020
 ms.author: kenwith
 ms.reviewer: arajpathak7
-ms.openlocfilehash: 825f79b0a1c132fb7a15d643c3487dfb7d6a9abd
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: e819073c3bc723a66f8beb2f9b2a094a07233ca9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210482"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427690"
 ---
 # <a name="understand-oidc-based-single-sign-on"></a>Förstå OIDC-baserad enkel inloggning
 I [snabb starts serien](view-applications-portal.md) för program hantering har du lärt dig hur du använder Azure AD som identitets leverantör (IdP) för ett program. Den här artikeln går till mer information om appar som använder OpenID Connect standard för att implementera enkel inloggning. 

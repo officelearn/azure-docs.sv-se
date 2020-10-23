@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a93ef47d4a7ecc136f66cf54a08f7ed23bec2cc0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285612"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427980"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Självstudie: aktivera tillägg för ingångs kontroll (för hands version) för ett nytt AKS-kluster med en ny Application Gateway instans
 
@@ -87,7 +87,7 @@ I följande exempel distribuerar du ett nytt AKS-kluster *med namnet IT-kluster 
 Om du distribuerar ett nytt AKS-kluster med AGIC-tillägget aktiverat utan att ange en befintlig Application Gateway instans, innebär det att en automatisk generering av en Standard_v2 SKU Application Gateway-instans skapas automatiskt. Så du kan också ange namn och under näts adress utrymme för Application Gateway-instansen. Namnet på Application Gateway-instansen kommer att vara *myApplicationGateway*och adress utrymmet för under nätet som vi använder är 10.2.0.0/16. Se till att du har lagt till eller uppdaterat tillägget AKS-Preview i början av den här självstudien. 
 
 ```azurecli-interactive
-az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" 
+az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-prefix "10.2.0.0/16" --generate-ssh-keys
 ```
 
 Information om hur du konfigurerar ytterligare parametrar för `az aks create` kommandot finns i [följande referenser](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create). 

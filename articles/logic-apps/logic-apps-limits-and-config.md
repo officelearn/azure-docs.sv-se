@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 16dab7897fc41a97a8607df5a03281582377e1e4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 05881791d495770167b271e20de173e6679f39d9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424085"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440662"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Information om begränsningar och konfiguration för Azure Logic Apps
 
@@ -48,7 +48,7 @@ Här följer gränserna för en enda Logic app-körning:
 | Name | Gräns för flera innehavare | Miljö gräns för integrerings tjänst | Kommentarer |
 |------|--------------------|---------------------------------------|-------|
 | Körningens varaktighet | 90 dagar | 366 dagar | Körningens varaktighet beräknas med hjälp av start tiden för körning. |
-| Kvarhållning av körnings historik i lagring | 90 dagar | 366 dagar | När en körning slutförs eller timeout beräknas alltid körningen av historiken med hjälp av start tiden för körning och den gräns som anges vid *aktuell tidpunkt* av arbets flödes inställningen, [**körning av historik i dagar**](#change-retention). Om du ändrar den här inställningen används alltid den *aktuella* gränsen för att beräkna kvarhållning, oavsett föregående gräns. När Körningens varaktighet överskrider den aktuella gränsen, tas körningen bort från körnings historiken. <p><p>Anta till exempel att du minskar gränsen för kvarhållning från 90 dagar till 30 dagar. En 60-dagars-gammal-körning tas bort från körnings historiken. Om du ökar kvarhållningsperioden från 30 dagar till 60 dagar, stannar en 20 dagars gammal körning i körnings historiken för ytterligare 40 dagar. <p><p>Om du vill ändra standard gränsen, som är 90 dagar, se [ändra kvarhållning av körnings historik i lagring](#change-retention). |
+| Kvarhållning av körnings historik i lagring | 90 dagar | 366 dagar | Om körnings tiden överskrider den aktuella gränsen för körnings historik, tas körningen bort från körnings historiken i lagringen. Oavsett om körningen har slutförts eller om tids gränsen överskrids beräknas alltid körnings historiken med hjälp av körningens start tid och den aktuella gränsen som anges i arbets flödes inställningen, [**körning av historik i dagar**](#change-retention). Oavsett föregående gräns används alltid den aktuella gränsen för att beräkna kvarhållning. <p><p>Om du vill ändra standard gränsen och mer information, se [ändring av körnings historik i lagring](#change-retention). Om du vill öka Max gränsen [kontaktar du Logic Appss teamet](mailto://logicappsemail@microsoft.com) för att få hjälp med dina krav. |
 | Lägsta upprepnings intervall | 1 sekund | 1 sekund ||
 | Högsta upprepnings intervall | 500 dagar | 500 dagar ||
 |||||
@@ -57,11 +57,17 @@ Här följer gränserna för en enda Logic app-körning:
 
 ### <a name="change-run-history-retention-in-storage"></a>Ändra kvarhållning av körnings historik i lagring
 
-Följ dessa steg om du vill ändra standardvärdet för kvarhållning av körnings historik i lagring. Om du vill öka Max gränsen [kontaktar du Logic Appss teamet](mailto://logicappsemail@microsoft.com) för att få hjälp med dina krav.
+Följ dessa steg om du vill ändra standardvärdet för kvarhållning av körnings historik i lagring.
 
-> [!NOTE]
-> För logi Kap par i Azure med flera innehavare, är standard gränsen på 90 samma som den maximala gränsen. Du kan bara minska det här värdet.
-> För Logic Apps i en integrerings tjänst miljö kan du minska eller öka standard gränsen på 90 dagar.
+* För logi Kap par i Azure med flera innehavare, är standard gränsen på 90 samma som den maximala gränsen. Du kan bara minska det här värdet.
+
+* För Logic Apps i en integrerings tjänst miljö kan du minska eller öka standard gränsen på 90 dagar.
+
+Anta till exempel att du minskar gränsen för kvarhållning från 90 dagar till 30 dagar. En 60-dagars-gammal-körning tas bort från körnings historiken. Om du ökar kvarhållningsperioden från 30 dagar till 60 dagar, stannar en 20 dagars gammal körning i körnings historiken för ytterligare 40 dagar. 
+
+
+> [!IMPORTANT]
+> För att undvika att köra historiken för körning kontrollerar du att kvarhållningsintervallet *alltid* är mer än körningens längsta möjliga varaktighet. Annars går det inte att köra historiken.
 
 1. I sökrutan [Azure Portal](https://portal.azure.com) söker du efter **och väljer Logi**Kap par.
 

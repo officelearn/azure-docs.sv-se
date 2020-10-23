@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/06/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to learn the options available to monitor the health of my vaults
-ms.openlocfilehash: 6b179dd2662bf6fa545ea44b723671f1499b9e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9195bb59264731914740e1cca902707603e3502d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589018"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427018"
 ---
 # <a name="monitoring-and-alerting-for-azure-key-vault"></a>Övervakning och avisering för Azure Key Vault
 
@@ -53,7 +53,7 @@ När du har börjat använda Key Vault för att lagra dina produktions hemlighet
 3. Välj **mått** under **övervakning** 
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-1.png)
+> ![Skärm bild som visar alternativet mått i avsnittet övervakning.](../media/alert-1.png)
 
 4. Uppdatera rubriken för diagrammet till det du vill se på instrument panelen. 
 5. Välj en omfattning. I det här exemplet ska vi välja ett enda nyckel valv. 
@@ -61,7 +61,7 @@ När du har börjat använda Key Vault för att lagra dina produktions hemlighet
 7. Uppdatera tidsintervallet till de senaste 24 timmarna och uppdatera tids kornigheten till 1 minut. 
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-2.png)
+> ![Skärm bild som visar det övergripande tillgänglighet-måttet för valvet.](../media/alert-2.png)
 
 8. Upprepa stegen ovan för måtten för valv-mättnad och service API-fördröjning. Välj **Fäst på instrument panelen** för att spara dina mått på en instrument panel. 
 
@@ -71,19 +71,19 @@ När du har börjat använda Key Vault för att lagra dina produktions hemlighet
 9. Om du vill övervaka alla typer av åtgärder i nyckel valvet använder du måttet **Total service API-träffar** och väljer **tillämpa delning efter aktivitets typ**
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-3.png)
+> ![Skärm bild som visar knappen Använd delning.](../media/alert-3.png)
 
 10. Om du vill övervaka fel koderna i nyckel valvet använder du måttet **Total service API-resultat** och väljer **Använd delning efter aktivitets typ**
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-4.png)
+> ![Skärm bild som visar mått för det valda totala service API-resultatet.](../media/alert-4.png)
 
 Nu har du en instrument panel som ser ut så här. Du kan klicka på de tre punkterna längst upp till höger i varje panel och du kan arrangera om och ändra storlek på panelerna efter behov. 
 
 När du har sparat och publicerat instrument panelen kommer den att skapa en ny resurs i din Azure-prenumeration. Du kommer att kunna se det när som helst genom att söka efter "delad instrument panel". 
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-5.png)
+> ![Skärm bild som visar den publicerade instrument panelen.](../media/alert-5.png)
 
 ## <a name="how-to-configure-alerts-on-your-key-vault"></a>Så här konfigurerar du aviseringar på Key Vault 
 
@@ -101,20 +101,20 @@ En åtgärds grupp är en konfigurerbar lista över meddelanden och egenskaper.
 3. Välj **Hantera åtgärder**
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-6.png)
+> ![Skärm bild som visar knappen hantera åtgärder.](../media/alert-6.png)
 
 4. Välj **+ Lägg till åtgärds grupp**
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-7.png)
+> ![Skärm bild som visar knappen Lägg till åtgärds grupp.](../media/alert-7.png)
 
 5. Välj **Åtgärds typ** för din åtgärds grupp. I det här exemplet ska vi skapa en e-postavisering.
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-8.png)
+> ![Skärm bild som visar de fält som behövs för att lägga till en åtgärds grupp.](../media/alert-8.png)
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-9.png)
+> ![Skärm bild som visar vad som behövs för att lägga till ett e-postmeddelande eller SMS-avisering.](../media/alert-9.png)
 
 6. Klicka på **OK** längst ned på sidan. Du har skapat en åtgärds grupp. 
 
@@ -125,12 +125,12 @@ Nu när du har konfigurerat en åtgärds grupp kommer vi att konfigurera tröske
 1. Välj din Key Vault-resurs i Azure Portal och välj **aviseringar** under **övervakning**
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-10.png)
+> ![Skärm bild som visar meny alternativet aviseringar under avsnittet övervakning.](../media/alert-10.png)
 
 2. Välj **ny aviserings regel**
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-11.png)
+> ![Skärm bild som visar knappen + Ny varnings regel.](../media/alert-11.png)
 
 3. Välj omfattningen för aviserings regeln. Du kan välja ett enda valv eller flera. 
 
@@ -138,7 +138,7 @@ Nu när du har konfigurerat en åtgärds grupp kommer vi att konfigurera tröske
 > Observera att alla valda valv måste finnas i samma region när du väljer flera valv för aviseringens omfattning. Du måste konfigurera separata varnings regler för valv i olika regioner. 
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-12.png)
+> ![Skärm bild som visar hur du kan välja ett valv.](../media/alert-12.png)
 
 4. Välj villkor för dina aviseringar. Du kan välja någon av följande signaler och definiera din logik för aviseringar. Key Vaults teamet rekommenderar att du konfigurerar följande tröskelvärden för aviseringar. 
 
@@ -149,13 +149,13 @@ Nu när du har konfigurerat en åtgärds grupp kommer vi att konfigurera tröske
     + Totalt antal felkoder som är större än genomsnittet (dynamiskt tröskelvärde) 
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-13.png)
+> ![Skärm bild som visar var du väljer villkor för aviseringar.](../media/alert-13.png)
 
 ### <a name="example-1-configuring-a-static-alert-threshold-for-latency"></a>Exempel 1: Konfigurera en statisk aviserings tröskel för svars tid
 
 Välj **övergripande service API-latens** som signal namn
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-14.png)
+> ![Skärm bild som visar svars namnet på den övergripande service API-svars tiden.](../media/alert-14.png)
 
 Se följande konfigurations parametrar.
 
@@ -168,14 +168,14 @@ Se följande konfigurations parametrar.
 + Välj **färdig**  
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-15.png)
+> ![Skärm bild som visar den konfigurerade varnings logiken.](../media/alert-15.png)
 
 ### <a name="example-2-configuring-a-dynamic-alert-threshold-for-vault-saturation"></a>Exempel 2: Konfigurera ett tröskelvärde för dynamisk avisering för valvets mättnad 
 
 När du använder en dynamisk avisering kommer du att kunna se historiska data för det nyckel valv som du har valt. Det blå utrymmet representerar den genomsnittliga användningen av ditt nyckel valv. Det röda fältet visar toppar som skulle ha utlöst en avisering om att andra kriterier i aviserings konfigurationen är uppfyllda. De röda punkterna visar instanser av överträdelser där villkoren för aviseringen uppfylldes under den sammanställda tids perioden. Du kan ställa in en avisering för brand efter ett visst antal överträdelser inom en angiven tid. Om du inte vill inkludera tidigare data kan du välja att undanta gamla data nedan i avancerade inställningar. 
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-16.png)
+> ![Skärm bild som visar ett diagram över den övergripande beläggningen för valvet.](../media/alert-16.png)
 
 Se följande konfigurations parametrar.
 
@@ -194,12 +194,12 @@ Se följande konfigurations parametrar.
 5. Lägg till den åtgärds grupp som du har konfigurerat
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-18.png)
+> ![Skärm bild som visar hur du lägger till en åtgärds grupp.](../media/alert-18.png)
 
 6. Aktivera aviseringen och tilldela en allvarlighets grad
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-19.png)
+> ![Skärm bild som visar var du aktiverar aviseringen och tilldelar en allvarlighets grad.](../media/alert-19.png)
 
 7. Skapa aviseringen 
 
@@ -211,4 +211,4 @@ Grattis, nu har du skapat en övervaknings instrument panel och konfigurerat avi
 ### <a name="example-email-alert"></a>Exempel på e-postavisering 
 
 > [!div class="mx-imgBorder"]
-> ![Skärm bild av Azure Portal](../media/alert-20.png)
+> ![Skärm bild som visar den information som behövs för att konfigurera en e-postavisering.](../media/alert-20.png)

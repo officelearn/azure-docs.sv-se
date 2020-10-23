@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c16882f35c9ca79644cd2b51ce4cd88bba516ed2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ee8c7cf2b34d5923f84bf9b9ba3cf5b10034e3e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89652065"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458059"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implement password hash synchronization with Azure AD Connect sync (Implementera synkronisering av lösenordshash med Azure AD Connect-synkronisering)
 Den här artikeln innehåller information som du behöver för att synkronisera dina användar lösen ord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory-instans (Azure AD).
@@ -109,7 +109,7 @@ Continue with this operation?
 [Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y
 ```
 
-När den är aktive rad går Azure AD inte till varje synkroniserad användare för att ta bort `DisablePasswordExpiration` värdet från PasswordPolicies-attributet. I stället ställs värdet in på `None` under nästa Lösenordssynkronisering för varje användare nästa gång de ändrar sina lösen ord i lokal AD.  
+När den är aktive rad går Azure AD inte till varje synkroniserad användare för att ta bort `DisablePasswordExpiration` värdet från PasswordPolicies-attributet. I stället `DisablePasswordExpiration` tas värdet bort från PasswordPolicies under nästa lösen ords-hash-synkronisering för varje användare vid nästa lösen ords ändring i lokal AD.
 
 Vi rekommenderar att du aktiverar EnforceCloudPasswordPolicyForPasswordSyncedUsers innan du aktiverar synkronisering av lösen ords-hash, så att den inledande synkroniseringen av lösen ords-hashar inte lägger till `DisablePasswordExpiration` värdet i PasswordPolicies-attributet för användarna.
 

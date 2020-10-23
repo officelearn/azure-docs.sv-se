@@ -7,12 +7,13 @@ ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 9ebf07a5125995e66297d89643845b54aad246b8
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.custom: device-developer
+ms.openlocfilehash: c2af331304decd7955892ef4911d1644518f57b8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170301"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427880"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Så här ansluter du enheter med X. 509-certifikat med hjälp av Node.js Device SDK för IoT Central program
 
@@ -20,7 +21,7 @@ IoT Central stöder de båda certifikaten för signaturer för delad åtkomst (S
 
 Den här artikeln visar två sätt att använda X. 509 – [grupp registreringar](how-to-connect-devices-x509.md#use-a-group-enrollment) som vanligt vis används i en produktions miljö och [enskilda registreringar](how-to-connect-devices-x509.md#use-an-individual-enrollment) är användbara för testning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slut för ande av [skapa och Anslut ett klient program till din Azure IoT Central program-självstudie (Node.js)](./tutorial-connect-device-nodejs.md) .
 - [Git](https://git-scm.com/download/).

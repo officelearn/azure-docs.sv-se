@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b428ffc0122f13ef15f870ce734b54fe6707f582
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdee884990dfadec444fae919a715c7dc3428f77
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983950"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428412"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Netsuite för automatisk användar etablering
 
@@ -28,6 +28,7 @@ Det scenario som beskrivs i självstudien förutsätter att du redan har följan
 *   En Azure Active Directory-klient.
 *   En Netsuite OneWorld-prenumeration. Observera att automatisk användar etablering bara stöds med Netsuite-OneWorld.
 *   Ett användar konto i Netsuite med administratörs behörighet.
+*   För integrering med Azure AD krävs ett 2FA undantag. Kontakta support teamet för Netsuite för detta undantag.
 
 ## <a name="assigning-users-to-netsuite-oneworld"></a>Tilldela användare till Netsuite-OneWorld
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7b404d05f512449c99e60c0bfdc93aab22c399ef
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c71a7d4737ad34c43df1aa302d9517c61ed400b2
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019026"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92440798"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Förstå dubbla modeller i Azure Digitals flätas
 
@@ -230,7 +230,7 @@ Det utökade gränssnittet kan inte ändra någon av definitionerna för de öve
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se Hantera modeller med DigitalTwinsModels-API: er:
+Se Hantera modeller med DigitalTwinModels-API: er:
 * [*Anvisningar: Hantera anpassade modeller*](how-to-manage-model.md)
 
 Du kan också läsa mer om hur digitala dubbla modeller skapas baserat på modeller:

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 9320abb46c45b4bd151839eda40b03b445a2675f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7e63f770763d1960148dfdfa184d0b4e2b76754c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152015"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427082"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Självstudie: bygga en Java våren Boot Web-App med Azure App Service på Linux och Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Den här självstudien vägleder dig genom processen för att skapa, konfigurera
 
 ![Våren Boot Application lagrar data i Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en Cosmos DB-databas.
@@ -31,7 +31,7 @@ I de här självstudierna får du lära dig att
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Azure CLI](/cli/azure/overview) installerat på din egen dator. 
 * [Git](https://git-scm.com/)
@@ -238,7 +238,7 @@ Om du ser undantag i stället för meddelandet "startad TodoApplication", kontro
 
 ## <a name="deploy-to-app-service-on-linux"></a>Distribuera till App Service i Linux
 
-Använd `azure-webapp:deploy` Maven-målet för att distribuera TODO-appen till Azure App Service i Linux.
+Använd `mvn azure-webapp:deploy` Maven-målet för att distribuera TODO-appen till Azure App Service i Linux.
 
 ```bash
 
@@ -275,7 +275,7 @@ bash-3.2$ mvn azure-webapp:deploy
 Utdata innehåller URL till dina distribuerade program (i det här exemplet `https://spring-todo-app.azurewebsites.net` ). Du kan kopiera denna URL i webbläsaren eller köra följande kommando i terminalfönstret för att läsa in din app.
 
 ```bash
-open https://spring-todo-app.azurewebsites.net
+curl https://spring-todo-app.azurewebsites.net
 ```
 
 Du bör se när appen körs med fjärrwebbadressen i adressfältet:
@@ -299,8 +299,8 @@ az appservice plan update --number-of-workers 2 \
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte behöver de här resurserna för en annan självstudie (se [Nästa steg](#next)) kan du ta bort dem genom att köra följande kommando i Cloud Shell: 
-  
+Om du inte behöver de här resurserna för en annan självstudie (se [Nästa steg](#next)) kan du ta bort dem genom att köra följande kommando i Cloud Shell: 
+  
 ```bash
 az group delete --name <your-azure-group-name>
 ```

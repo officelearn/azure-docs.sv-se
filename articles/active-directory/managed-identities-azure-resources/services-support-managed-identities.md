@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072177"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426449"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -41,6 +41,16 @@ I följande lista kan du konfigurera hanterad identitet för Azure API Managemen
 
 - [Azure Resource Manager-mall](../../api-management/api-management-howto-use-managed-service-identity.md)
 
+### <a name="azure-app-configuration"></a>Azure App Configuration
+
+| Hanterad identitets typ | Alla allmänt tillgängliga<br>Globala Azure-regioner | Azure Government | Azure Tyskland | Azure Kina 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Systemtilldelad | ![Tillgänglig][check] | ![Tillgänglig][check] | Inte tillgängligt | Inte tillgängligt |
+| Användartilldelad | ![Tillgänglig][check] | ![Tillgänglig][check]  | Inte tillgängligt  | Inte tillgängligt |
+
+I följande lista kan du konfigurera hanterad identitet för Azure App konfiguration (i regioner där det är tillgängligt):
+
+- [Azure CLI](../../azure-app-configuration/overview-managed-identity.md)
 
 ### <a name="azure-app-service"></a>Azure App Service
 

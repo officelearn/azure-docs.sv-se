@@ -3,16 +3,16 @@ title: 'Snabb start: kör en anpassad behållare på App Service'
 description: Kom igång med behållare på Azure App Service genom att distribuera din första anpassade behållare.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 08/28/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 3191552421091bc0a2c4e6855c0271c142af1882
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1411491906e763a52ee1b6a66df1dea183b91973
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152366"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425858"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Köra en anpassad behållare i Azure
 
@@ -25,7 +25,7 @@ Den här snabb starten visar hur du distribuerar en ASP.NET-app i en Windows-avb
 > App Service i Windows-behållare är i för hands version.
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -87,7 +87,7 @@ Skapa en ASP.NET-webbapp genom att följa dessa steg:
 
 ## <a name="create-a-windows-container-app"></a>Skapa en Windows-containerapp
 
-1. Logga in på [Azure-portalen]( https://portal.azure.com).
+1. Logga in på [Azure Portal]( https://portal.azure.com).
 
 1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 
@@ -184,7 +184,7 @@ Eller kolla ut andra resurser:
 ::: zone pivot="container-linux"
 App Service på Linux ger fördefinierade program stackar i Linux med stöd för språk som .NET, PHP, Node.js och andra. Du kan också använda en anpassad Docker-avbildning för att köra din webbapp på en programstack som inte redan har definierats i Azure. Den här snabb starten visar hur du distribuerar en avbildning från en [Azure Container Registry](../container-registry/index.yml) (ACR) till App Service.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett [Azure-konto](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
 * [Docker](https://www.docker.com/community-edition)

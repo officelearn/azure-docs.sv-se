@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 158caf3a6c4cc0efc2f89e18d065a0112b481ee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ceb1a299fe09afd0551bdade5526a4aeefebaba
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274052"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441852"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Vanliga frågor och svar om Azure Active Directory B2B-samarbete
 
@@ -51,7 +51,7 @@ Den här funktionen stöds inte för närvarande. Om åtkomst till organisatione
 En organisation kanske vill lägga till B2B-samarbets användare, etablera dem för program efter behov och sedan skicka inbjudningar. Du kan använda API: et för samverkan med B2B för att anpassa onboarding-arbetsflödet.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Kan jag göra gäst användare synliga i den globala adress listan i Exchange?
-Ja. Gäst objekt visas inte i din organisations globala adress lista som standard, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Ser [kan jag göra gäst objekt synliga i den globala adress listan?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
+Ja. Gäst objekt visas inte i din organisations globala adress lista som standard, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Ser [kan jag göra gäst objekt synliga i den globala adress listan?](/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>Kan jag göra en gäst användare till en begränsad administratör?
 Absolut. Mer information finns i [lägga till gäst användare till en roll](add-guest-to-role.md).
@@ -80,16 +80,16 @@ Ja! Du kan skapa en princip för villkorlig åtkomst som blockerar alla gäst-oc
 Ja. Multi-Factor Authentication-och konsument-e-postkonton stöds både för Azure AD B2B-samarbete.
 
 ### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>Har du stöd för lösen ords återställning för Azure AD B2B Collaboration-användare?
-Om din Azure AD-klient är hem katalogen för en användare kan du [återställa användarens lösen ord](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal) från Azure Portal. Men du kan inte återställa ett lösen ord direkt för en gäst användare som loggar in med ett konto som hanteras av en annan Azure AD-katalog eller extern identitets leverantör. Endast gäst användaren eller en administratör i användarens arbets katalog kan återställa lösen ordet. Här följer några exempel på hur lösen ords återställning fungerar för gäst användare:
+Om din Azure AD-klient är hem katalogen för en användare kan du [återställa användarens lösen ord](../fundamentals/active-directory-users-reset-password-azure-portal.md) från Azure Portal. Men du kan inte återställa ett lösen ord direkt för en gäst användare som loggar in med ett konto som hanteras av en annan Azure AD-katalog eller extern identitets leverantör. Endast gäst användaren eller en administratör i användarens arbets katalog kan återställa lösen ordet. Här följer några exempel på hur lösen ords återställning fungerar för gäst användare:
  
 * Gäst användare som loggar in med en Microsoft-konto (till exempel guestuser@live.com ) kan återställa sina egna lösen ord med hjälp av Microsoft-konto självbetjäning för återställning av lösen ord (SSPR). Se [hur du återställer Microsoft-konto-lösenordet](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password).
 * Gäst användare som loggar in med ett Google-konto eller en annan extern identitetsprovider kan återställa sina egna lösen ord med hjälp av identitets leverantörens SSPR-metod. Till exempel kan en gäst användare med Google-kontot guestuser@gmail.com återställa sitt lösen ord genom att följa anvisningarna i [ändra eller återställa ditt lösen ord](https://support.google.com/accounts/answer/41078).
-* Om identitets klienten är en just-in-Time-klient (JIT) eller "viral"-klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
+* Om identitets klienten är en just-in-Time-klient (JIT) eller "viral"-klient (vilket innebär att det är en separat, ohanterad Azure-klient) kan bara gäst användaren återställa sina lösen ord. Ibland tar en organisation [över hanteringen av viral-klienter](../users-groups-roles/domains-admin-takeover.md) som skapas när anställda använder sina arbets-e-postadresser för att registrera sig för tjänster. När organisationen har tagit över en virus klient kan bara en administratör i organisationen återställa användarens lösen ord eller aktivera SSPR. Vid behov kan du, som bjuda in organisationen, ta bort gäst användar kontot från katalogen och skicka en inbjudan igen.
 
 * Om gäst användarens Hem Katalog är din Azure AD-klient kan du återställa användarens lösen ord. Du kan till exempel ha skapat en användare eller synkroniserat en användare från din lokala Active Directory och ange sina UserType till gäst. Eftersom den här användaren är i hem katalogen kan du återställa lösen ordet från Azure Portal.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Ger Microsoft Dynamics 365 support online för Azure AD B2B-samarbete?
-Ja, Dynamics 365 (online) stöder Azure AD B2B-samarbete. Mer information finns i Dynamics 365-artikeln [Bjud in användare med Azure AD B2B-samarbete](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
+Ja, Dynamics 365 (online) stöder Azure AD B2B-samarbete. Mer information finns i Dynamics 365-artikeln [Bjud in användare med Azure AD B2B-samarbete](/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration).
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>Vad är livs längden för ett inledande lösen ord för en nyligen skapad B2B Collaboration-användare?
 Azure AD har en fast uppsättning av lösen ord, lösen ords styrka och konto utelåsnings krav som gäller för alla Azure AD Cloud-användarkonton. Moln användar konton är konton som inte är federerade med en annan identitets leverantör, t. ex. 
@@ -135,4 +135,3 @@ Information om vilka licenser din organisation behöver för att använda Azure 
 ### <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-

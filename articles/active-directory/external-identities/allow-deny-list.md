@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa2ac203f92d401095194bb3f1b5f3ef3c52093b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87650f364f8ccfd3a531d710bfbdc4715f0ac5a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87910297"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442192"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Tillåt eller blockera inbjudningar till B2B-användare från specifika organisationer
 
@@ -41,7 +41,7 @@ Detta är det vanligaste scenariot, där din organisation vill arbeta med nästa
 
 Så här lägger du till en neka-lista:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory**  >  **Users**  >  **användar inställningar**för användare.
 3. Under **externa användare**väljer du **Hantera inställningar för externt samarbete**.
 4. Under **samarbets begränsningar**väljer **du neka inbjudningar till de angivna domänerna**.
@@ -62,7 +62,7 @@ Om du vill använda en lista över tillåtna, se till att du tillbringar tid fö
 
 Så här lägger du till en lista över tillåtna:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Azure Active Directory**  >  **Users**  >  **användar inställningar**för användare.
 3. Under **externa användare**väljer du **Hantera inställningar för externt samarbete**.
 4. Under **samarbets begränsningar**väljer du **Tillåt endast inbjudningar till de angivna domänerna (mest restriktiva)**.
@@ -126,7 +126,7 @@ Om modulen inte är installerad eller om du inte har en version som krävs, gör
 
 ### <a name="use-the-azureadpolicy-cmdlets-to-configure-the-policy"></a>Använd AzureADPolicy-cmdletar för att konfigurera principen
 
-Använd cmdleten [New-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) för att skapa en lista över tillåtna eller nekade. I följande exempel visas hur du anger en neka-lista som blockerar domänen "live.com".
+Använd cmdleten [New-AzureADPolicy](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview) för att skapa en lista över tillåtna eller nekade. I följande exempel visas hur du anger en neka-lista som blockerar domänen "live.com".
 
 ```powershell 
 $policyValue = @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}")
@@ -140,19 +140,19 @@ Följande visar samma exempel, men med princip definitionen infogad.
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Använd cmdleten [set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) för att ange List principen för att tillåta eller neka. Exempel:
+Använd cmdleten [set-AzureADPolicy](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) för att ange List principen för att tillåta eller neka. Exempel:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Använd cmdleten [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) för att hämta principen. Exempel:
+Använd cmdleten [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) för att hämta principen. Exempel:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Använd cmdleten [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) om du vill ta bort principen. Exempel:
+Använd cmdleten [Remove-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) om du vill ta bort principen. Exempel:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 
@@ -162,6 +162,3 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 
 - En översikt över Azure AD B2B finns i [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
 - Information om villkorlig åtkomst och B2B-samarbete finns i [villkorlig åtkomst för B2B-samarbets användare](conditional-access.md).
-
-
-

@@ -7,16 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 6ee1c70ec02af2a24f7867a6e6b06593361612b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bccf2b9a3dfe42ca439a45eb1e35cfaff58d0208
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083125"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426950"
 ---
 # <a name="integrate-apache-zeppelin-with-hive-warehouse-connector-in-azure-hdinsight"></a>Integrera Apache Zeppelin med Hive Warehouse Connector i Azure HDInsight
 
 HDInsight Spark-kluster innehåller Apache Zeppelin-anteckningsböcker med olika tolkar. I den här artikeln kommer vi bara att fokusera på livy-tolken för att få åtkomst till Hive-tabeller från Spark med Hive Warehouse Connector.
+
+> [!NOTE]
+> Den här artikeln innehåller referenser till termen *vitlista*, en term som Microsoft inte längre använder. När termen tas bort från program varan tar vi bort det från den här artikeln.
 
 ## <a name="prerequisite"></a>Förutsättning
 

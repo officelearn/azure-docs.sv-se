@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93b2b5538df894e17449e173baa3e402d6c59654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91354997"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441444"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Språk anpassning i Azure Active Directory (för hands version)
 
@@ -146,7 +146,7 @@ Chrome och Firefox båda förfrågningarna om deras inställda språk. Om det ä
 
 ## <a name="supported-languages"></a>Språk som stöds
 
-Azure AD innehåller stöd för följande språk. Användar flödes språk tillhandahålls av Azure AD. Meddelande språken för Multi-Factor Authentication (MFA) tillhandahålls av [Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+Azure AD innehåller stöd för följande språk. Användar flödes språk tillhandahålls av Azure AD. Meddelande språken för Multi-Factor Authentication (MFA) tillhandahålls av [Azure MFA](../authentication/concept-mfa-howitworks.md).
 
 | Språk              | Språkkod | Användarflöden         | MFA-meddelanden  |
 |-----------------------| :-----------: | :----------------: | :----------------: |

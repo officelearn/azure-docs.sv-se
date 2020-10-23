@@ -1,31 +1,34 @@
 ---
-title: Samla in och analysera prestanda räknare i Azure Monitor | Microsoft Docs
+title: Samla in prestanda data källor för Windows och Linux med Log Analytics-agenten i Azure Monitor
 description: Prestanda räknare samlas in av Azure Monitor för att analysera prestanda för Windows-och Linux-agenter.  Den här artikeln beskriver hur du konfigurerar insamling av prestanda räknare för både Windows-och Linux-agenter, information om de lagras i arbets ytan och hur du analyserar dem i Azure Portal.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/28/2018
-ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.date: 10/21/2020
+ms.openlocfilehash: 71fc3f457338796289c2f6ac54f3bc713a91cc29
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131198"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461370"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Prestanda data källor för Windows och Linux i Azure Monitor
-Prestanda räknare i Windows och Linux ger inblick i prestanda för maskin varu komponenter, operativ system och program.  Azure Monitor kan samla in prestanda räknare med frekventa intervall för analys i nära real tid (NRT), förutom att samla in prestanda data för analys och rapportering på längre sikt.
+# <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Samla in prestanda data källor för Windows och Linux med Log Analytics agent
+Prestanda räknare i Windows och Linux ger inblick i prestanda för maskin varu komponenter, operativ system och program.  Azure Monitor kan samla in prestanda räknare från Log Analytics agenter med frekventa intervall för NRT-analys (nära real tid), förutom att aggregera prestanda data för analys och rapportering på längre sikt.
+
+> [!IMPORTANT]
+> Den här artikeln beskriver hur du samlar in prestanda data med [Log Analytics agent](log-analytics-agent.md) som är en av de agenter som används av Azure Monitor. Andra agenter samlar in olika data och konfigureras på olika sätt. Se [Översikt över Azure Monitor agenter](agents-overview.md) för en lista över tillgängliga agenter och de data som de kan samla in.
 
 ![Prestandaräknare](media/data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Konfigurera prestanda räknare
-Konfigurera prestanda räknare från [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources).
+Konfigurera prestanda räknare från [Data-menyn i avancerade inställningar](agent-data-sources.md#configuring-data-sources) för arbets ytan Log Analytics.
 
 När du först konfigurerar Windows-eller Linux-prestandaräknare för en ny arbets yta får du möjlighet att snabbt skapa flera vanliga räknare.  De listas med en kryssruta bredvid varje.  Se till att alla räknare som du vill skapa först är markerade och klicka sedan på **Lägg till de valda prestanda räknarna**.
 
 För prestanda räknare i Windows kan du välja en angiven instans för varje prestanda räknare. För prestanda räknare för Linux används instansen för varje räknare som du väljer för alla underordnade räknare för den överordnade räknaren. I följande tabell visas de vanliga instanser som är tillgängliga för prestanda räknare för både Linux och Windows.
 
-| Instansnamn | Beskrivning |
+| Instansnamn | Description |
 | --- | --- |
 | \_Totalt |Totalt antal instanser |
 | \* |Alla instanser |
@@ -75,7 +78,7 @@ Varje objekt eller kategori av prestanda mått som ska samlas in bör definieras
 
 Parametrarna i det här elementet beskrivs i följande tabell.
 
-| Parametrar | Beskrivning |
+| Parametrar | Description |
 |:--|:--|
 | objekt \_ namn | Objekt namn för samlingen. |
 | instans- \_ regex |  Ett *reguljärt uttryck* som definierar vilka instanser som ska samlas in. Värdet: `.*` anger alla instanser. Om du bara vill samla in processor mått för den \_ totala instansen kan du ange `_Total` . Om du bara vill samla in process mått för crond-eller sshd-instanser kan du ange: `(crond\|sshd)` . |
@@ -203,7 +206,7 @@ Prestanda poster har en typ av **prestanda** och har egenskaperna i följande ta
 ## <a name="log-queries-with-performance-records"></a>Logga frågor med prestanda poster
 Följande tabell innehåller olika exempel på logg frågor som hämtar prestanda poster.
 
-| Söka i data | Beskrivning |
+| Söka i data | Description |
 |:--- |:--- |
 | Prest |Alla prestanda data |
 | Perf &#124; där dator = = "Min Dator" |Alla prestanda data från en viss dator |

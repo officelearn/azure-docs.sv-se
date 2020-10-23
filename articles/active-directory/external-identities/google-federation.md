@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dba592417ca07d1858a7942b162b4dfa6a85680
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c07a6a67e97deafa2f611b297574a801aa356d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91274001"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441954"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägg till Google som en identitets leverantör för B2B-gäst användare
 
@@ -109,7 +109,7 @@ Nu ska du ange Google-klient-ID och klient hemlighet, antingen genom att ange de
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > Använd klient-ID och klient hemlighet från den app som du skapade i "steg 1: Konfigurera ett Google Developer-projekt". Mer information finns i artikeln [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) . 
+   > Använd klient-ID och klient hemlighet från den app som du skapade i "steg 1: Konfigurera ett Google Developer-projekt". Mer information finns i artikeln [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) . 
  
 ## <a name="how-do-i-remove-google-federation"></a>Hur gör jag för att ta bort Google Federation?
 Du kan ta bort din Google Federation-installation. Om du gör det kan Google gäst användare som redan har löst deras inbjudan inte logga in, men du kan ge dem åtkomst till dina resurser igen genom att ta bort dem från katalogen och bjuda in dem igen. 
@@ -133,4 +133,4 @@ Du kan ta bort din Google Federation-installation. Om du gör det kan Google gä
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > Mer information finns i [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Mer information finns i [Remove-AzureADMSIdentityProvider](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview).

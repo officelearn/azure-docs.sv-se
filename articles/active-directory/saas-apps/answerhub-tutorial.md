@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 69ebc238d36223a4287ae1de668f60f9c2db014a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef09ef7d2ca6dd68def732831f9341dcd3aa6d62
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713583"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Självstudie: Azure Active Directory integrering med AnswerHub
 
@@ -27,7 +27,7 @@ När du integrerar AnswerHub med Azure AD innebär det följande fördelar:
 * Du kan låta dina användare logga in automatiskt på AnswerHub med sina Azure AD-konton (enkel inloggning).
 * Du kan hantera dina konton från en central plats: Azure-portalen.
 
-Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
@@ -181,7 +181,7 @@ I det här avsnittet skapar du en testanvändare med namnet Britta Simon i Azure
     a. I rutan **Namn** anger du **BrittaSimon**.
   
     b. I rutan **användar namn** anger du **brittasimon \@<yourcompanydomain. extension>**.  
-    Exempelvis BrittaSimon@contoso.com.
+    Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
 
@@ -242,13 +242,12 @@ Om du vill ge Azure AD-användare möjlighet att logga in på AnswerHub måste d
 
 I det här avsnittet testar du din konfiguration av enkel inloggning för Azure AD med hjälp av åtkomstpanelen.
 
-När du väljer AnswerHub-panelen i åtkomstpanelen bör du automatiskt loggas in på AnswerHub som du har konfigurerat enkel inloggning för. Mer information om åtkomst panelen finns i [Introduktion till åtkomst panelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer AnswerHub-panelen i åtkomstpanelen bör du automatiskt loggas in på AnswerHub som du har konfigurerat enkel inloggning för. Mer information om åtkomst panelen finns i [Introduktion till åtkomst panelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

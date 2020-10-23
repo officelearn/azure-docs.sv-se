@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: 12c2652b4dcef46c5affde2c3fb9ef9288176eb9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 057b20d9c14b9a25a1e713d25796e1f0ac93daaa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87852267"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428047"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för python
 
@@ -31,15 +31,15 @@ Använd klient biblioteket V12 i Azure Queue Storage för python för att:
 
 Ytterligare resurser:
 
-* [Referensdokumentation för API](https://docs.microsoft.com/python/api/azure-storage-queue/index)
+* [Referensdokumentation för API](/python/api/azure-storage-queue/index)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
 * [Paket (python-paket index)](https://pypi.org/project/azure-storage-queue/)
-* [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Exempel](/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage-konto – [skapa ett lagrings konto](/azure/storage/common/storage-quickstart-create-account)
 * [Python](https://www.python.org/downloads/) för ditt operativ system – 2,7, 3,5 eller högre
 
 ## <a name="setting-up"></a>Konfigurera
@@ -111,9 +111,9 @@ Följande diagram visar relationen mellan de här resurserna.
 
 Använd följande python-klasser för att interagera med dessa resurser:
 
-* [QueueServiceClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): med `QueueServiceClient` kan du hantera alla köer i ditt lagrings konto.
-* [QueueClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` klassen låter dig hantera och ändra en enskild kö och dess meddelanden.
-* [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` klassen representerar de enskilda objekt som returneras när [receive_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) anropas i en kö.
+* [QueueServiceClient](/python/api/azure-storage-queue/azure.storage.queue.queueserviceclient): med `QueueServiceClient` kan du hantera alla köer i ditt lagrings konto.
+* [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient): `QueueClient` klassen låter dig hantera och ändra en enskild kö och dess meddelanden.
+* [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage): `QueueMessage` klassen representerar de enskilda objekt som returneras när [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) anropas i en kö.
 
 ## <a name="code-examples"></a>Kodexempel
 
@@ -149,9 +149,9 @@ Lägg till den här koden inuti `try` blocket:
 Välj ett namn för den nya kön. Koden nedan lägger till ett UUID-värde till könamnet för att säkerställa att det är unikt.
 
 > [!IMPORTANT]
-> Könamn får bara innehålla gemena bokstäver, siffror och bindestreck, och måste börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck. Namnet måste vara mellan 3 och 63 tecken långt. Mer information om namngivning av köer finns i [namnge köer och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata).
+> Könamn får bara innehålla gemena bokstäver, siffror och bindestreck, och måste börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck. Namnet måste vara mellan 3 och 63 tecken långt. Mer information om namngivning av köer finns i [namnge köer och metadata](/rest/api/storageservices/naming-queues-and-metadata).
 
-Skapa en instans av klassen [QueueClient](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient) . Anropa sedan [create_queue](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) -metoden för att skapa kön i ditt lagrings konto.
+Skapa en instans av klassen [QueueClient](/python/api/azure-storage-queue/azure.storage.queue.queueclient) . Anropa sedan [create_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#create-queue---kwargs-) -metoden för att skapa kön i ditt lagrings konto.
 
 Lägg till den här koden i slutet av `try` blocket:
 
@@ -171,7 +171,7 @@ Lägg till den här koden i slutet av `try` blocket:
 
 ### <a name="add-messages-to-a-queue"></a>Lägga till meddelanden i en kö
 
-Följande kodfragment lägger till meddelanden i kön genom att anropa metoden [send_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) . Det sparar också den [QueueMessage](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queuemessage) som returneras från det tredje `send_message` anropet. `saved_message`Används för att uppdatera meddelande innehållet senare i programmet.
+Följande kodfragment lägger till meddelanden i kön genom att anropa metoden [send_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#send-message-content----kwargs-) . Det sparar också den [QueueMessage](/python/api/azure-storage-queue/azure.storage.queue.queuemessage) som returneras från det tredje `send_message` anropet. `saved_message`Används för att uppdatera meddelande innehållet senare i programmet.
 
 Lägg till den här koden i slutet av `try` blocket:
 
@@ -186,7 +186,7 @@ Lägg till den här koden i slutet av `try` blocket:
 
 ### <a name="peek-at-messages-in-a-queue"></a>Granska meddelanden i en kö
 
-Titta på meddelandena i kön genom att anropa metoden [peek_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) . `peek_messages`Metoden hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
+Titta på meddelandena i kön genom att anropa metoden [peek_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#peek-messages-max-messages-none----kwargs-) . `peek_messages`Metoden hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
 
 Lägg till den här koden i slutet av `try` blocket:
 
@@ -203,7 +203,7 @@ Lägg till den här koden i slutet av `try` blocket:
 
 ### <a name="update-a-message-in-a-queue"></a>Uppdatera ett meddelande i en kö
 
-Uppdatera innehållet i ett meddelande genom att anropa metoden [update_message](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) . `update_message`Metoden kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Förutom det nya innehållet skickar du värden från meddelandet som sparades tidigare i koden. `saved_message`Värdena identifierar vilket meddelande som ska uppdateras.
+Uppdatera innehållet i ett meddelande genom att anropa metoden [update_message](/python/api/azure-storage-queue/azure.storage.queue.queueclient#update-message-message--pop-receipt-none--content-none----kwargs-) . `update_message`Metoden kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Förutom det nya innehållet skickar du värden från meddelandet som sparades tidigare i koden. `saved_message`Värdena identifierar vilket meddelande som ska uppdateras.
 
 ```python
     print("\nUpdating the third message in the queue...")
@@ -215,7 +215,7 @@ Uppdatera innehållet i ett meddelande genom att anropa metoden [update_message]
 
 ### <a name="receive-messages-from-a-queue"></a>Ta emot meddelanden från en kö
 
-Hämta tidigare tillagda meddelanden genom att anropa metoden [receive_messages](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) .
+Hämta tidigare tillagda meddelanden genom att anropa metoden [receive_messages](/python/api/azure-storage-queue/azure.storage.queue.queueclient#receive-messages---kwargs-) .
 
 Lägg till den här koden i slutet av `try` blocket:
 
@@ -249,7 +249,7 @@ Lägg till den här koden i slutet av `try` blocket:
 
 ### <a name="delete-a-queue"></a>Ta bort en kö
 
-Följande kod rensar resurserna som skapats av appen genom att ta bort kön med hjälp av metoden [delete_queue](https://docs.microsoft.com/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) .
+Följande kod rensar resurserna som skapats av appen genom att ta bort kön med hjälp av metoden [delete_queue](/python/api/azure-storage-queue/azure.storage.queue.queueclient#delete-queue---kwargs-) .
 
 Lägg till den här koden i slutet av `try` blocket och spara filen:
 
@@ -314,7 +314,7 @@ I den här snabb starten har du lärt dig hur du skapar en kö och lägger till 
 För självstudier, exempel, snabb starter och annan dokumentation går du till:
 
 > [!div class="nextstepaction"]
-> [Azure för python-utvecklare](https://docs.microsoft.com/azure/python/)
+> [Azure för python-utvecklare](/azure/python/)
 
 * Mer information finns i [Azure Storage bibliotek för python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage).
 * Om du vill se fler Azure Queue Storage-exempelprogram fortsätter du till [Azure Queue Storage V12 python-klient biblioteks exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples).

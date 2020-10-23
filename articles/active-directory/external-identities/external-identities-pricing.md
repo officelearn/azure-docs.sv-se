@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 983a803245467145a0b1161a4495e8045759e7ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265805"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442073"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Fakturerings modell för externa Azure AD-identiteter
 
-Priser för Azure Active Directory (Azure AD) externa identiteter baseras på månatliga aktiva användare (MAU), vilket är antalet unika användare med autentiserings aktivitet inom en kalender månad. Den här fakturerings modellen gäller både B2B (Azure AD gäst användar samarbete) och [Azure AD B2C klienter](https://docs.microsoft.com/azure/active-directory-b2c/billing). MAU-faktureringen hjälper dig att minska kostnaderna genom att erbjuda en kostnads fri nivå och flexibel, förutsägbar prissättning. I den här artikeln får du lära dig om hur du MAU fakturering och länkar dina Azure AD-klienter till en prenumeration.
+Priser för Azure Active Directory (Azure AD) externa identiteter baseras på månatliga aktiva användare (MAU), vilket är antalet unika användare med autentiserings aktivitet inom en kalender månad. Den här fakturerings modellen gäller både B2B (Azure AD gäst användar samarbete) och [Azure AD B2C klienter](../../active-directory-b2c/billing.md). MAU-faktureringen hjälper dig att minska kostnaderna genom att erbjuda en kostnads fri nivå och flexibel, förutsägbar prissättning. I den här artikeln får du lära dig om hur du MAU fakturering och länkar dina Azure AD-klienter till en prenumeration.
 
 > [!IMPORTANT]
 > Den här artikeln innehåller ingen pris information. Den senaste informationen om fakturering och prissättning för användning finns [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -45,7 +45,7 @@ Den pris nivå som gäller för gäst användarna baseras på den högsta pris n
 
 En Azure AD-klient måste vara länkad till en Azure-prenumeration för korrekt fakturering och åtkomst till funktioner. Om katalogen inte redan har en prenumeration som du kan länka till, har du möjlighet att lägga till en under den här processen.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med ett Azure-konto som har tilldelats minst [deltagar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) rollen i prenumerationen eller en resurs grupp i prenumerationen.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med ett Azure-konto som har tilldelats minst [deltagar](../../role-based-access-control/built-in-roles.md) rollen i prenumerationen eller en resurs grupp i prenumerationen.
 
 2. Välj den katalog som du vill länka: i Azure Portal verktygsfältet väljer du ikonen **katalog + prenumeration** och välj sedan katalogen.
 

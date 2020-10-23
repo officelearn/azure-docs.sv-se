@@ -3,13 +3,13 @@ title: Uppgradera ett AKS-kluster (Azure Kubernetes Service)
 description: Lär dig hur du uppgraderar ett Azure Kubernetes service-kluster (AKS) för att få de senaste funktionerna och säkerhets uppdateringarna.
 services: container-service
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: da46c44dc9cc16dfa44aacb15b35b652c0c912a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/21/2020
+ms.openlocfilehash: 046c010cdd811b53ef8ef35624ed41a673af43d3
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87050612"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461455"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett AKS-kluster (Azure Kubernetes Service)
 
@@ -107,7 +107,7 @@ az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManaged
 
 ## <a name="upgrade-an-aks-cluster"></a>Uppgradera ett AKS-kluster
 
-Med en lista över tillgängliga versioner för ditt AKS-kluster använder du kommandot [AZ AKS Upgrade][az-aks-upgrade] för att uppgradera. Under uppgraderings processen lägger AKS till en ny nod i klustret som kör den angivna Kubernetes-versionen, därefter noga [Cordon och tömmer][kubernetes-drain] en av de gamla noderna för att minimera störningar i program som körs. När den nya noden bekräftas som att köra Application poddar tas den gamla noden bort. Den här processen upprepas tills alla noder i klustret har uppgraderats.
+Med en lista över tillgängliga versioner för ditt AKS-kluster använder du kommandot [AZ AKS Upgrade][az-aks-upgrade] för att uppgradera. Under uppgraderings processen lägger AKS till en ny buffert (eller så många noder som har kon figurer ATS i [maximal spänning](#customize-node-surge-upgrade-preview)) till klustret som kör den angivna Kubernetes-versionen. Sedan kommer den att [Cordon och tömma][kubernetes-drain] en av de gamla noderna för att minimera störningar i program som körs (om du använder maximal överspänning kommer det att [Cordon och tömma][kubernetes-drain] sig så många noder på samma gång som antalet buffertplatser som anges). När den gamla noden är helt dränerad kommer den att återavbildas för att ta emot den nya versionen och den blir noden buffert för följande nod som ska uppgraderas. Den här processen upprepas tills alla noder i klustret har uppgraderats. I slutet av processen tas den sista avtömda noden bort, vilket bibehåller det befintliga antalet noder i agenten.
 
 ```azurecli-interactive
 az aks upgrade \

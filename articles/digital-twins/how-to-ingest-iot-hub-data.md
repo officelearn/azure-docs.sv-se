@@ -7,22 +7,22 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 0123a89c4ec1c2c70326de1a2f685b08278333ab
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131504"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461557"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Mata in IoT Hub telemetri i Azure Digitals, dubbla
 
 Digitala Azure-enheter drivs med data från IoT-enheter och andra källor. En gemensam källa för enhets data som ska användas i Azure Digitals dubbla är [IoT Hub](../iot-hub/about-iot-hub.md).
 
-Processen för att mata in data i Azure Digitals, är att konfigurera en extern beräknings resurs, till exempel en [Azure-funktion](../azure-functions/functions-overview.md), som tar emot data och använder [DigitalTwins-API: er](how-to-use-apis-sdks.md) för att ange egenskaper eller brand släcknings händelser på [digitala dubbla](concepts-twins-graph.md) . 
+Processen för att mata in data i Azure Digitals, är att konfigurera en extern beräknings resurs, till exempel en [Azure-funktion](../azure-functions/functions-overview.md), som tar emot data och använder [DigitalTwins-API: er](/rest/api/digital-twins/dataplane/twins) för att ange egenskaper eller brand släcknings händelser på [digitala dubbla](concepts-twins-graph.md) . 
 
 Det här dokumentet vägleder dig genom processen för att skriva en Azure-funktion som kan mata in telemetri från IoT Hub.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du fortsätter med det här exemplet måste du konfigurera följande resurser som krav:
 * **En IoT-hubb**. Anvisningar finns i avsnittet *skapa en IoT Hub* i [den här IoT Hub snabb](../iot-hub/quickstart-send-telemetry-cli.md)starten.
@@ -228,7 +228,7 @@ På sidan **Skapa händelse prenumeration** fyller du i fälten enligt följande
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Ett diagram som visar ett flödes diagram. I diagrammet skickar en IoT Hub enhet temperatur telemetri via IoT Hub till en Azure-funktion som uppdaterar en temperatur egenskap på en enhet i en digital i Azure Digitals.":::
 
 Verifiera nedanstående information på sidan _Välj Azure-funktion_ som öppnas.
- 1. **Prenumeration**: din Azure-prenumeration
+ 1. **Prenumeration**: Din Azure-prenumeration
  2. **Resurs grupp**: din resurs grupp
  3. **Function-app**: namnet på din Function-app
  4. **Fack**: _produktion_

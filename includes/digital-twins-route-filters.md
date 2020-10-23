@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
 ms.openlocfilehash: a1098088a38b23ec1074434e5424e261e60bcd55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 10/23/2020
 ms.locfileid: "91779340"
 ---
 | Filternamn | Beskrivning | Filtrera text schema | Värden som stöds | 
@@ -29,7 +29,7 @@ Följande data typer stöds som värden som returneras av referenser till data o
 |-|-|-|
 |**Sträng**| `STARTS_WITH($body.$metadate.$model, 'dtmi:example:com:floor')` <br> `CONTAINS(subject, '<twinID>')`|
 |**Integer**|`$body.errorCode > 200`|
-|**Double**|`$body.temperature <= 5.5`|
+|**Dubbelklicka**|`$body.temperature <= 5.5`|
 |**Booleska**|`$body.poweredOn = true`|
 |**Null**|`$body.prop != null`|
 

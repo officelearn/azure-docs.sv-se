@@ -65,7 +65,6 @@
       href: load-balancer-multivip-overview.md
     - name: Utgående proxy
       href: load-balancer-outbound-connections.md
-    - name: Timeout för TCP-återställning och TCP-inaktivitet
     - name: Regler för utgående trafik
       href: outbound-rules.md
     - name: TCP-återställning vid tidsgräns för inaktivitet

@@ -4,18 +4,18 @@ description: Artikeln innehåller information om migrering av Azure SQL Database
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.custom: sqldbrb=1 
+ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fadbecc2c00a739afb2f94dd1d049805915cfa5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90004280"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427101"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -70,7 +70,7 @@ Nya SQL-gatewayer läggs till i följande regioner. Dessa SQL-gatewayer ska bör
 Befintliga SQL-gatewayer börjar att acceptera trafik i följande regioner. Dessa SQL-gatewayer ska börja acceptera kund trafik den **1 September 2020** :
 - Japan, öst: 40.79.184.8, 40.79.192.5
 
-# <a name="completed"></a>[Slutfört](#tab/completed-ip)
+# <a name="completed"></a>[Slutförd](#tab/completed-ip)
 
 Följande Gateway-migreringar har slutförts: 
 
@@ -108,7 +108,8 @@ Du kan påverkas om du:
 
 - Hårdkoda IP-adressen för en viss gateway i din lokala brand vägg
 - Ha undernät som använder Microsoft. SQL som en tjänst slut punkt men inte kan kommunicera med IP-adresser för gateway
-- Använd [zonens redundanta konfiguration](high-availability-sla.md#zone-redundant-configuration) för din databas
+- Använd [zonens redundanta konfiguration för generell användnings nivå](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+- Använd [zonens redundanta konfiguration för premium & affärs kritiska nivåer](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
 
 Du påverkas inte om du har:
  

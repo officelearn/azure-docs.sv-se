@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54f5721ef606b6ea916f5a00031c58f5e2adeb0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b87881ad5533724f08de3b2f348d1487f763ab04
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87910273"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442175"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Metod tips för Azure Active Directory B2B
 Den här artikeln innehåller rekommendationer och metod tips för samarbete mellan företag (B2B) i Azure Active Directory (Azure AD).
@@ -31,7 +31,7 @@ Den här artikeln innehåller rekommendationer och metod tips för samarbete mel
 | För en optimal inloggnings upplevelse kan du federera med identitets leverantörer | När det är möjligt kan du federera direkt med identitets leverantörer så att inbjudna användare kan logga in på dina delade appar och resurser utan att behöva skapa Microsoft-konton (MSA: er) eller Azure AD-konton. Du kan använda [Google Federation-funktionen](google-federation.md) för att tillåta B2B-gäst användare att logga in med sina Google-konton. Du kan också använda [funktionen direkt Federation (förhands granskning)](direct-federation.md) för att konfigurera direkt Federation med en organisation vars identitetsprovider (IdP) stöder SAML 2,0 eller WS-Fed-protokollet. |
 | Använd funktionen email eng ång slö sen ord (för hands version) för B2B-gäster som inte kan autentisera på annat sätt | Funktionen [email eng ång slö sen ord (för hands version)](one-time-passcode.md) autentiserar B2B-gäst användare när de inte kan autentiseras via andra sätt som Azure AD, en Microsoft-konto (MSA) eller Google Federation. När gäst användaren löser in en inbjudan eller får åtkomst till en delad resurs, kan de begära en tillfällig kod som skickas till deras e-postadress. Sedan anger de den här koden för att fortsätta logga in. |
 | Lägg till företagsanpassning på inloggningssidan | Du kan anpassa inloggnings sidan så att det blir mer intuitivt för dina B2B-gäst användare. Se så här [lägger du till företags anpassning för inloggnings-och åtkomst panel sidor](../fundamentals/customize-branding.md). |
-| Lägg till din sekretess policy till den B2B-gäst användaren inlösnings upplevelse | Du kan lägga till URL: en för din organisations sekretess policy till den första gången inlösnings processen för inbjudan så att en inbjuden användare måste godkänna dina sekretess villkor för att kunna fortsätta. Se [anvisningar: Lägg till din organisations sekretess information i Azure Active Directory](https://aka.ms/adprivacystatement). |
+| Lägg till din sekretess policy till den B2B-gäst användaren inlösnings upplevelse | Du kan lägga till URL: en för din organisations sekretess policy till den första gången inlösnings processen för inbjudan så att en inbjuden användare måste godkänna dina sekretess villkor för att kunna fortsätta. Se [anvisningar: Lägg till din organisations sekretess information i Azure Active Directory](../fundamentals/active-directory-properties-area.md). |
 | Använd funktionen för Mass inbjudan (för hands version) för att bjuda in flera B2B-gäst användare på samma tid | Bjud in flera gäst användare till din organisation samtidigt med hjälp av funktionen för förhands granskning av Mass inbjudan i Azure Portal. Med den här funktionen kan du ladda upp en CSV-fil för att skapa B2B-gäst användare och skicka inbjudningar i bulk. Mer information finns i [självstudier för Mass inbjudan B2B-användare](tutorial-bulk-invite.md). |
 | Tillämpa principer för villkorlig åtkomst för Multi-Factor Authentication (MFA) | Vi rekommenderar att du tillämpar MFA-principer på de appar som du vill dela med partners B2B-användare. På så sätt tillämpas MFA konsekvent på apparna i din klient, oavsett om partner organisationen använder MFA. Se [villkorlig åtkomst för B2B-samarbets användare](conditional-access.md). |
 | Om du tillämpar enhets principer för villkorlig åtkomst använder du undantags listor för att ge åtkomst till B2B-användare | Om enhetbaserade principer för villkorlig åtkomst har Aktiver ATS i din organisation blockeras B2B-gäst användar enheter eftersom de inte hanteras av din organisation. Du kan skapa undantags listor som innehåller vissa partner användare för att undanta dem från den enhets principen för villkorlig åtkomst. Se [villkorlig åtkomst för B2B-samarbets användare](conditional-access.md). |

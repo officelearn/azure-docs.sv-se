@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 10773a2a379291fa861dbb2adfdda2ba3f63117f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57598ea22874cfba772f6cf0e6b2ba779ef7c482
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550647"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448460"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Självstudie: Azure Active Directory integrering med verktyg för att tänka på verktyg
 
@@ -28,9 +28,9 @@ Med den här integreringen kan du:
 * Gör det möjligt för användarna att logga in automatiskt på verktyg Toolkit (enkel inloggning) med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande om du vill konfigurera Azure AD-integrering med verktyg för att tänka på verktyg:
 
@@ -43,7 +43,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 * Verktyget för att tänka på verktyg stöder SP-initierad SSO.
 * Verktyget för att tänka på verktyg stöder just-in-Time-etablering av användare.
-* När du har konfigurerat verktyg för att skapa verktyg kan du framtvinga kontroll av sessioner. Den här kontrollen skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat verktyg för att skapa verktyg kan du framtvinga kontroll av sessioner. Den här kontrollen skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-mind-tools-toolkit-from-the-gallery"></a>Lägg till verktyg Toolkit från galleriet
 
@@ -112,7 +112,7 @@ I det här avsnittet skapar du en test användare som heter B. Simon i Azure Por
 1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I fältet **namn** anger du **B. Simon**.  
-   1. I fältet **användar namn** anger du **B.Simon@**_companydomain_**.** _tillägg_. Exempelvis B.Simon@contoso.com.
+   1. I fältet **användar namn** anger du **B.Simon@**_companydomain_**.** _tillägg_. Till exempel B.Simon@contoso.com.
    1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -148,18 +148,18 @@ Verktyget för att tänka på verktyg stöder just-in-Time-etablering, som är a
 
 I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av portalen Mina appar.
 
-När du väljer verktygs panelen för verktyg i My Apps-portalen loggas du automatiskt in på verktyg-verktygslådan som du ställer in SSO för. Mer information om mina apps-portalen finns i [Introduktion till portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer verktygs panelen för verktyg i My Apps-portalen loggas du automatiskt in på verktyg-verktygslådan som du ställer in SSO för. Mer information om mina apps-portalen finns i [Introduktion till portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova verktyg Toolkit med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Skydda verktyg för att tänka på verktyg med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Skydda verktyg för att tänka på verktyg med avancerad synlighet och kontroller](/cloud-app-security/proxy-intro-aad)

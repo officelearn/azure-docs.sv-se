@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 40484521ecdc32e2e279ddf1b68ddcd4b1d7bc9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 23f32b6d09e36a98c68f5cb8f73ae1125c0543dd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427587"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460758"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
-Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skriva ett klient program för att interagera med sin instans av Azure Digitals dubbla tjänster. Den här själv studie kursen om utvecklare är en introduktion till programmering mot Azure Digitals-tjänsten med [Azure Digitals-SDK för .net (C#)](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Den vägleder dig genom att skriva en C#-konsol klient program steg för steg, som börjar från grunden.
+Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skriva ett klient program för att interagera med sin instans av Azure Digitals dubbla tjänster. Den här själv studie kursen om utvecklare är en introduktion till programmering mot Azure Digitals-tjänsten med [Azure Digitals-SDK för .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). Den vägleder dig genom att skriva en C#-konsol klient program steg för steg, som börjar från grunden.
 
 > [!div class="checklist"]
 > * Konfigurera projekt
@@ -25,7 +25,7 @@ Det är vanligt för utvecklare som arbetar med Azure Digitals dubblare att skri
 > * Rensa resurser
 > * Nästa steg
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 I den här självstudien används kommando raden för installation och projekt arbete. Därför kan du använda valfri kod redigerare för att gå igenom övningarna.
 
@@ -58,7 +58,7 @@ dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
 dotnet add package Azure.identity
 ```
 
-Det första beroendet är [Azure Digitals sammanflätade SDK för .net](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Det andra sambandet innehåller verktyg som hjälper dig med autentisering mot Azure.
+Det första beroendet är [Azure Digitals sammanflätade SDK för .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). Det andra sambandet innehåller verktyg som hjälper dig med autentisering mot Azure.
 
 Se till att kommando fönstret är öppet, eftersom du fortsätter att använda det i självstudien.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91305683"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445726"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ett nät för automatisk användar etablering
 
@@ -27,7 +27,7 @@ I den här artikeln får du lära dig hur du konfigurerar Azure Active Directory
 >
 > Den här kopplingen är för närvarande en för hands version. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här artikeln förutsätter att du redan har följande krav:
 
@@ -99,7 +99,7 @@ Innan du konfigurerar ett nät för automatisk användar etablering med Azure AD
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare eller grupper i ett nät baserat på användar-eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för ett nät genom att följa anvisningarna i [självstudien för enkel inloggning med enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial). Du kan konfigurera enkel inloggning oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för ett nät genom att följa anvisningarna i [självstudien för enkel inloggning med enkel inloggning](./harness-tutorial.md). Du kan konfigurera enkel inloggning oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
 
 > [!NOTE]
 > Mer information om nät SCIM-slutpunkten finns i artikeln om [API-nycklar](https://docs.harness.io/article/smloyragsm-api-keys) .

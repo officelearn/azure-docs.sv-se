@@ -11,16 +11,16 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cc959d23aebea082d873e9474998e7f17b1b320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7cbcdb4b947e4b45a5473dc0f9f0252b5ad1d5c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295166"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442056"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API för Azure Active Directory B2B-samarbete och anpassning
 
-Vi har haft många kunder som säger oss att de vill anpassa processen för inbjudan på ett sätt som passar bäst för deras organisationer. Med vårt API kan du bara göra det. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+Vi har haft många kunder som säger oss att de vill anpassa processen för inbjudan på ett sätt som passar bäst för deras organisationer. Med vårt API kan du bara göra det. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Funktioner i API för inbjudan
 
@@ -117,7 +117,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 
 ## <a name="see-also"></a>Se även
 
-Kolla in API-referens för inbjudan i [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
+Kolla in API-referens för inbjudan i [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](/graph/api/resources/invitation) .
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 4c50e881fd6b7dda5c609a4ac6492d77fff1b537
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.custom: contperfq2
+ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208013"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426455"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -121,7 +122,7 @@ Om din brand vägg eller proxy låter dig konfigurera listor över tillåtna DNS
 Om du inte kan tillåta anslutning av FQDN och behöver ange IP-adressintervall i stället, använder du följande alternativ:
 
 * Tillåt anslutningen utgående åtkomst till alla destinationer.
-* Tillåt anslutningen utgående åtkomst till alla Azure datacenter IP-intervall. Utmaningen med att använda listan över IP-intervall för Azure-datacenter är att den uppdateras varje vecka. Du måste placera en process för att se till att dina åtkomst regler uppdateras i enlighet med detta. Om du bara använder en delmängd av IP-adresserna kan konfigurationen brytas. Hämta de senaste IP-intervallen för Azure Data Center genom att gå till [https://download.microsoft.com](https://download.microsoft.com) och söka efter "Azure IP-intervall och service märken". Se till att välja det relevanta molnet. Till exempel kan de offentliga molnets IP-intervall hittas med "Azure IP-intervall och service märken – offentligt moln". Du hittar det amerikanska goverment-molnet genom att söka efter "Azure IP-intervall och service-Taggar – US goverment Cloud".
+* Tillåt anslutningen utgående åtkomst till alla Azure datacenter IP-intervall. Utmaningen med att använda listan över IP-intervall för Azure-datacenter är att den uppdateras varje vecka. Du måste placera en process för att se till att dina åtkomst regler uppdateras i enlighet med detta. Om du bara använder en delmängd av IP-adresserna kan konfigurationen brytas. Hämta de senaste IP-intervallen för Azure Data Center genom att gå till [https://download.microsoft.com](https://download.microsoft.com) och söka efter "Azure IP-intervall och service märken". Se till att välja det relevanta molnet. Till exempel kan de offentliga molnets IP-intervall hittas med "Azure IP-intervall och service märken – offentligt moln". Du hittar det amerikanska myndighets molnet genom att söka efter "Azure IP-intervall och service märken – amerikanska myndigheter".
 
 #### <a name="proxy-authentication"></a>Proxyautentisering
 

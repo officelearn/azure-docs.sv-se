@@ -267,7 +267,7 @@
         - name: Storage Explorer-hjälpmedel
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Queue Storage på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
+      href: /answers/topics/azure-queue-storage.html
     - name: Queue Storage på Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-queues'
     - name: Prissättning för Queue Storage
@@ -309,7 +309,7 @@
             - name: Azure Storage-klientbibliotek version 12.x
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
             - name: 'Blobbar, köer och filer (version 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+              href: /java/api/overview/azure/storage?view=azure-java-legacy
             - name: Azure Storage-klientbibliotek version 8.x och tidigare
               href: 'https://github.com/Azure/azure-storage-java'
         - name: Node.js

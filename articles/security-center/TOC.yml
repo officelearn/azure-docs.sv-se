@@ -131,10 +131,6 @@
           href: security-center-monitoring.md
         - name: Referenslista över rekommendationer
           href: recommendations-reference.md
-        - name: Skydda nätverksresurser
-          href: security-center-network-recommendations.md
-        - name: Skydda identitet och åtkomst
-          href: security-center-identity-access.md
         - name: Hantera säkerhetsrekommendationer
           items:
             - name: Automatisera svar på rekommendationer
@@ -142,6 +138,10 @@
               href: workflow-automation.md
             - name: Undanta en resurs från en rekommendation
               href: exempt-resource.md
+        - name: Skydda nätverksresurser
+          href: security-center-network-recommendations.md
+        - name: Skydda identitet och åtkomst
+          href: security-center-identity-access.md
     - name: Azure Defender-aviseringar
       items:
         - name: Översikt över Azure Defender-aviseringar
@@ -170,7 +170,7 @@
         - name: Sårbarhetsgenomsökning
           items:
             - name: Integrerad VA-genomsökare för datorer
-              displayName: 'qualys, vulnerability, arc'
+              displayName: 'qualys, vulnerability, arc, hybrid'
               href: deploy-vulnerability-assessment-vm.md
             - name: Sök igenom virtuella datorer med BYOL VA-lösningen
               displayName: 'qualys, rapid7, vulnerability'
@@ -179,7 +179,7 @@
               displayName: 'qualys, rapid7, vulnerability'
               href: remediate-vulnerability-findings-vm.md
             - name: Inaktivera specifika sårbarhetsresultat
-              displayName: 'qualys, rapid7, vulnerability'
+              displayName: 'qualys, rapid7'
               href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
         - name: Skydda hanteringsportar med just-in-time-åtkomst till virtuella datorer
           items:
@@ -187,20 +187,24 @@
               displayName: 'jit, management'
               href: just-in-time-explained.md
             - name: Hantera just-in-time-åtkomst
-              displayName: 'jit, management'
+              displayName: 'jit, management, ports'
               href: security-center-just-in-time.md
         - name: Använda den integrerade licensen för Microsoft Defender för slutpunkter
           displayName: 'ATP, mdatp, wdatp'
           href: security-center-wdatp.md
         - name: Hantera anpassningsbara programkontroller
+          displayName: 'aac, whitelist, allowlist, reviewgroup'
           href: security-center-adaptive-application.md
         - name: Använda övervakning av filintegritet
           items:
             - name: Översikt över övervakning av filintegritet
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring.md
             - name: Jämföra baslinjer med hjälp av filintegritetsövervakning
+              displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
         - name: Hantera anpassad nätverkshärdning
+          displayName: anh
           href: security-center-adaptive-network-hardening.md
         - name: Härda Docker-värdarna
           displayName: containers

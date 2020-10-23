@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 6ef4a4f422bb787b3ead33ed1047d26d5e3c9c1f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b29e4411a104bbcd1d6d5b3320df47a742e2ca84
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978079"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461251"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
 HDInsight har två inbyggda python-installationer i Spark-klustret, Anaconda python 2,7 och python 3,5. Kunder kan behöva anpassa python-miljön som att installera externa python-paket. Här visar vi bästa praxis för säker hantering av python-miljöer för Apache Spark kluster i HDInsight.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md). Om du inte redan har ett Spark-kluster i HDInsight kan du köra skript åtgärder när klustret skapas. Gå till dokumentationen om [hur du använder anpassade skript åtgärder](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -46,8 +46,8 @@ HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-
 |Inställning |Python 2,7|Python 3,5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark-version|Standard är inställt på 2,7|Saknas|
-|Livy-version|Standard är inställt på 2,7|Saknas|
+|Spark-version|Standard är inställt på 2,7|Kan ändra konfigurationen till 3,5|
+|Livy-version|Standard är inställt på 2,7|Kan ändra konfigurationen till 3,5|
 |Jupyter|PySpark-kernel|PySpark3-kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt

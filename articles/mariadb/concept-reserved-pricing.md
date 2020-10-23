@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 47ddad70b4764fedefb50b93de2b7f078cf9fd27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91ccb9f11740599ecf060c98f9fcc7a26d5b363
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82732911"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427808"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Förskotts betalning för Azure Database for MariaDB beräknings resurser med reserverad kapacitet
 
@@ -19,13 +19,13 @@ Azure Database for MariaDB nu kan du spara pengar genom att betala för beräkni
 
 Du behöver inte tilldela reservationen till vissa Azure Database for MariaDB-servrar. Om du redan kör Azure Database for MariaDB eller som nyligen har distribuerats får du automatiskt fördelarna med reserverad prissättning. Genom att köpa en reservation betalar du för beräknings kostnaderna för en period på en eller tre år. Så snart du köper en reservation debiteras inte längre Azure Database for MariaDB-beräknings avgifter som matchar reservations attributen enligt priserna för betala per användning. En reservation omfattar inte program vara, nätverk eller lagrings kostnader som är kopplade till MariaDB-databas servern. I slutet av reservations perioden upphör fakturerings förmånen och Azure Database for MariaDB debiteras enligt priset betala per användning. Reservationer förnyas inte automatiskt. För pris information, se [Azure Database for MariaDB reserverat kapacitets erbjudande](https://azure.microsoft.com/pricing/details/mariadb/). </br>
 
-Du kan köpa Azure Database for MariaDB reserverad kapacitet i [Azure Portal](https://portal.azure.com/). Betala för reservationen [i förväg eller via månadsbetalningar](../cost-management-billing/reservations/monthly-payments-reservations.md). Så här köper du den reserverade kapaciteten:
+Du kan köpa Azure Database for MariaDB reserverad kapacitet i [Azure Portal](https://portal.azure.com/). Betala för reservationen [i förväg eller via månadsbetalningar](../cost-management-billing/reservations/prepare-buy-reservation.md). Så här köper du den reserverade kapaciteten:
 
 * Du måste ha ägar rollen för minst ett företag eller en enskild prenumeration med priser enligt principen betala per användning.
 * För Enterprise-prenumerationer måste **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Eller, om inställningen är inaktive rad, måste du vara en EA-administratör i prenumerationen.
 * För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa Azure Database for MariaDB reserverad kapacitet. </br>
 
-Information om hur företags kunder och kunder som betalar per användning debiteras för reservations köp, se [förstå Azure reservation-användning för företagets registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) och [förstå Azure reservation-användning för din prenumeration enligt principen betala per](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)användning.
+Information om hur företags kunder och kunder som betalar per användning debiteras för reservations köp, se [förstå Azure reservation-användning för företagets registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) och [förstå Azure reservation-användning för din prenumeration enligt principen betala per](../cost-management-billing/reservations/understand-reserved-instance-usage.md)användning.
 
 
 ## <a name="determine-the-right-server-size-before-purchase"></a>Fastställ rätt server storlek innan köpet
@@ -48,7 +48,7 @@ Anta till exempel att du kör ett allmänt syfte, Gen5 – 32 vCore MariaDB Data
 
 I följande tabell beskrivs obligatoriska fält.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | :------------ | :------- |
 | Prenumeration   | Prenumerationen som används för att betala för den Azure Database for MariaDB reserverade kapacitets reservationen. Betalnings metoden för prenumerationen debiteras mot startkostnader för den Azure Database for MariaDB reserverade kapacitets reservationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en enskild prenumeration med priset betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.
 | Omfång | VCore-reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: </br></br> **Delat**används reservations rabatten för vCore på Azure Database for MariaDB servrar som körs i en prenumeration i din fakturerings kontext. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För Betala per användning-kunder gäller den delade omfattningen samtliga Betala per användning-prenumerationer som kontoadministratören har skapat.</br></br> **Enskild prenumeration**tillämpas reservations rabatten för vCore på Azure Database for MariaDB servrar i den här prenumerationen. </br></br> **En enda resurs grupp**, reservations rabatten tillämpas på Azure Database for MariaDB servrar i den valda prenumerationen och den valda resurs gruppen i den prenumerationen.
@@ -60,7 +60,7 @@ I följande tabell beskrivs obligatoriska fält.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>flexibilitet för vCore-storlek
 
@@ -77,9 +77,9 @@ Information om hur du hanterar Azure Database for MariaDB reserverad kapacitet f
 
 Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-* [Vad är Azure reservations](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)?
-* [Hantera Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Förstå reservationsrabatter i Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Förstå reservationsanvändning för din Betala per användning-prenumeration](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mariadb)
-* [Förstå reservationsanvändning för din Enterprise-registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Vad är Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md)?
+* [Hantera Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Förstå reservationsrabatter i Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Förstå reservationsanvändning för din Betala per användning-prenumeration](../cost-management-billing/reservations/understand-reservation-charges-mariadb.md)
+* [Förstå reservationsanvändning för din Enterprise-registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](/partner-center/azure-reservations)

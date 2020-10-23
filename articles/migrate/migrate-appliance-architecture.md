@@ -3,12 +3,12 @@ title: Programarkitektur för Azure Migrate
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a01932a9e4f72d7ce6747214b53f124d54942894
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d38796d4c4a1149d096f5bb06f7a11bc71b33cc5
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312912"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428166"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Programarkitektur för Azure Migrate
 
@@ -51,8 +51,8 @@ Under installationen av installationen registrerar du enheten med Azure Migrate 
 **Åtgärd** | **Detaljer** | **Behörigheter**
 --- | --- | ---
 **Registrera käll leverantörer** | Dessa resurs leverantörer registreras i den prenumeration du väljer under installationen av installationen: Microsoft. OffAzure, Microsoft. Migrate och Microsoft. nyckel valv.<br/><br/> När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. | Om du vill registrera resurs leverantörer behöver du en deltagar-eller ägar roll för prenumerationen.
-**Skapa Azure AD-App – kommunikation** | Azure Migrate skapar en Azure Active Directory (Azure AD)-app för kommunikation (autentisering och auktorisering) mellan de agenter som körs på produkten och deras respektive tjänster som körs på Azure.<br/><br/> Den här appen har inte behörighet att göra Azure Resource Manager-anrop eller RBAC-åtkomst på alla resurser. | Du behöver [dessa behörigheter](./tutorial-discover-vmware.md#prepare-an-azure-user-account) för att Azure Migrate ska kunna skapa appen.
-**Skapa Azure AD-appar – nyckel valv** | Den här appen skapas endast för migrering utan agent för virtuella VMware-datorer till Azure.<br/><br/> Den används enbart för att komma åt nyckel valvet som skapats i användarens prenumeration för migrering utan agent.<br/><br/> Den har RBAC-åtkomst i Azure Key Vault (skapas i kundens klient) när identifieringen initieras från enheten. | Du behöver [dessa behörigheter](./tutorial-discover-vmware.md#prepare-an-azure-user-account) för att Azure Migrate ska kunna skapa appen.
+**Skapa Azure AD-App – kommunikation** | Azure Migrate skapar en Azure Active Directory (Azure AD)-app för kommunikation (autentisering och auktorisering) mellan de agenter som körs på produkten och deras respektive tjänster som körs på Azure.<br/><br/> Den här appen har inte behörighet att göra Azure Resource Manager-anrop eller Azure RBAC-åtkomst på vilken resurs som helst. | Du behöver [dessa behörigheter](./tutorial-discover-vmware.md#prepare-an-azure-user-account) för att Azure Migrate ska kunna skapa appen.
+**Skapa Azure AD-appar – nyckel valv** | Den här appen skapas endast för migrering utan agent för virtuella VMware-datorer till Azure.<br/><br/> Den används enbart för att komma åt nyckel valvet som skapats i användarens prenumeration för migrering utan agent.<br/><br/> Den har Azure RBAC-åtkomst på Azure Key Vault (skapas i kundens klient) när identifieringen initieras från enheten. | Du behöver [dessa behörigheter](./tutorial-discover-vmware.md#prepare-an-azure-user-account) för att Azure Migrate ska kunna skapa appen.
 
 
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 48a2f7f6587d22c34e240fb3e784eb980c81b6b3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094015"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92419854"
 ---
 # <a name="azure-spring-cloud-faq"></a>Vanliga frågor och svar om Azure våren Cloud
 
@@ -106,7 +106,7 @@ Du kan ta bort de diagnostiska inställningarna för våren-molnet med hjälp av
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Vilka versioner av Java Runtime stöds i Azure våren Cloud?
 
-Azure våren Cloud har stöd för Java LTS-versioner med de senaste build-versionerna, för närvarande 2020, Java 8 build 252 och Java 11 build 7 stöds. Se [installera JDK för Azure och Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
+Azure våren Cloud har stöd för Java LTS-versioner med de senaste build-versionerna, för närvarande 2020, Java 8 och Java 11. Se [installera JDK för Azure och Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>Vem har skapat dessa Java-körningar?
 

@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 292305c3f899ac4156fd84e8edcb0d6e9a3c0b34
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b23e9a1e344bb0db1399a4f04712815557b8139e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280853"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427988"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integrera med Logic Apps med hjälp av en anpassad anslutning
 
@@ -26,7 +26,7 @@ Azure Digitals dubbla är för närvarande inte en certifierad (fördefinierad) 
 
 I den här artikeln ska du använda [Azure Portal](https://portal.azure.com) för att **skapa en anpassad anslutning** som kan användas för att ansluta Logic Apps till en digital Azure-instans. Sedan skapar du **en Logic-app** som använder den här anslutningen för ett exempel scenario, där händelser som utlöses av en timer automatiskt uppdaterar en dubbla i din Azure Digital-instansen. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du **skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ** innan du börjar.
 Logga in på [Azure Portal](https://portal.azure.com) med det här kontot. 
@@ -66,7 +66,7 @@ Kontrol lera nu att klient hemligheten är synlig på sidan _certifikat & hemlig
 
 I den här artikeln används Logic Apps för att uppdatera en dubbel i din Azure Digital-instansen. Om du vill fortsätta måste du lägga till minst en i din instans. 
 
-Du kan lägga till dubbla med [DigitalTwins-API: er](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md). Detaljerade anvisningar om hur du skapar dubblare med hjälp av dessa metoder finns i [*How-to: hantera digitala dubbla*](how-to-manage-twin.md).
+Du kan lägga till dubbla med [DigitalTwins-API: er](how-to-use-apis-sdks.md), [.net (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)eller [Azure Digitals flätade CLI](how-to-use-cli.md). Detaljerade anvisningar om hur du skapar dubblare med hjälp av dessa metoder finns i [*How-to: hantera digitala dubbla*](how-to-manage-twin.md).
 
 Du behöver det **_dubbla ID: t_** för en som är dubbel i din instans som du har skapat.
 

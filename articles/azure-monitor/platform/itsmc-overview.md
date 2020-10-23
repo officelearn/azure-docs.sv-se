@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 0a632e8c57ab57869e4454b0d6a4018de6bd5548
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41aabeeeb151a6e2cf3c52dbfa2075c55f86989f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613772"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427305"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 
@@ -106,6 +106,11 @@ När du har beredd dina ITSM-verktyg följer du stegen nedan för att skapa en a
 ## <a name="using-the-solution"></a>Använda lösningen
    Genom att använda ITSM-anslutningsprogram lösning kan du skapa arbets objekt från Azure-aviseringar, Log Analytics aviseringar och Log Analytics logg poster.
 
+## <a name="template-definitions"></a>Mall definitioner
+   Det finns typer av **arbets objekt** som kan använda mallar som definieras av ITSM-verktyget.
+Med hjälp av mallar kan kunden definiera fält som fylls i automatiskt enligt fasta värden som definieras som en del av åtgärds gruppen. Den här definitionen görs i ITSM-verktyget.
+I dessa fall kan du med kryss rutan "använda anpassad mall" tillåta kunden att fylla i fält som fylls i automatiskt enligt fasta värden som definieras som en del av åtgärds gruppen.
+   
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Skapa ITSM arbets objekt från Azure-aviseringar
 
 När du har skapat din ITSM-anslutning kan du skapa arbets objekt i ITSM-verktyget baserat på Azure-aviseringar med hjälp av **åtgärden ITSM** i **Åtgärds grupper**.
@@ -133,8 +138,10 @@ Följ dessa steg:
     ![ITSM åtgärds information](media/itsmc-overview/itsm-action-details.png)
 
 6. Välj typ av **arbets objekt** på den nedrullningsbara menyn.
-   Välj att använda en befintlig mall eller fyll i fälten som krävs av din ITSM-produkt.
-7. Klicka på **OK**.
+
+7. Välj att använda en befintlig mall eller Använd en gemensam mall och fyll i fälten som krävs av din ITSM-produkt.
+
+8. Klicka på **OK**.
 
 När du skapar/redigerar en regel för Azure-avisering använder du en åtgärds grupp som har en ITSM-åtgärd. När aviseringen utlöses skapas/uppdateras arbets objekt i ITSM-verktyget.
 
@@ -236,7 +243,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 - Planerat slutdatum
 - Start datum för arbete
 - Slutdatum för arbete
-- Beskrivning
+- Description
 - Dator
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Utdata för en ServiceNow-incident
@@ -255,7 +262,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | AssignedTo_s | Tilldelad  |
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
-| Description_s|  Obs! |
+| Description_s|  Kommentarer |
 | CreatedDate_t|  Inleddes |
 | ClosedDate_t| stängd|
 | ResolvedDate_t|Matchat|
@@ -283,7 +290,7 @@ ServiceDeskWorkItemType_s = "ändringsbegäran"
 | PlannedEndDate_t  |   Planerat slutdatum |
 | WorkStartDate_t  | Verkligt start datum |
 | WorkEndDate_t | Verkligt slutdatum|
-| Description_s | Beskrivning |
+| Description_s | Description |
 | Dator  | Konfigurations objekt |
 
 

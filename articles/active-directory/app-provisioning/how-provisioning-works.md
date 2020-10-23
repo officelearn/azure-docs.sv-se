@@ -11,12 +11,13 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b990fc7282cd986b0903fb1f33114a164be1c191
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366691"
+ms.locfileid: "92424642"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -179,6 +180,8 @@ Kontrol lera att du har markerat kryss rutan för uppdateringar.
 
 Se till att du har mappning för *aktiv* för ditt program. Om du använder ett program från App-galleriet kan mappningen vara något annorlunda. Kontrol lera att du använder standard-/slut för-Box-mappningen för Galleri program.
 
+:::image type="content" source="./media/how-provisioning-works/disable-user.png" alt-text="Inaktivera en användare" lightbox="./media/how-provisioning-works/disable-user.png":::
+
 
 **Konfigurera ditt program för att ta bort en användare**
 
@@ -188,7 +191,9 @@ Följande scenarier utlöser en inaktivera eller ta bort:
 * En användare tas bort permanent från pappers korgen i Azure AD.
 * En användare är inte tilldelad från en app.
 * En användare går från inom omfånget till out-of-scope (skickar inte ett definitions områdes filter längre).
-    
+
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Inaktivera en användare" lightbox="./media/how-provisioning-works/delete-user.png":::
+
 Som standard tar Azure AD Provisioning-tjänsten bort eller inaktiverar användare som omfattas av omfånget. Om du vill åsidosätta det här standard beteendet kan du ange en flagga som [hoppar över borttagningar utanför omfattning.](skip-out-of-scope-deletions.md)
 
 Om någon av ovanstående fyra händelser inträffar och mål programmet inte stöder mjuka borttagningar, skickar etablerings tjänsten en BORTTAGNINGs förfrågan för att permanent ta bort användaren från appen.

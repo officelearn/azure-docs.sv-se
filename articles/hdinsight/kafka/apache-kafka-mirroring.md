@@ -8,16 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 278fbdf7010fe7b14488bb021ab8a366393ad512
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4a2be6719fdaaa9dc859df21cc030478e474210
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087370"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428240"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Använd MirrorMaker för att replikera Apache Kafka-ämnen med Kafka i HDInsight
 
 Lär dig hur du använder Apache Kafkas speglings funktion för att replikera ämnen till ett sekundärt kluster. Spegling kan köras som en kontinuerlig process eller användas tillfälligt som en metod för att migrera data från ett kluster till ett annat.
+
+> [!NOTE]
+> Den här artikeln innehåller referenser till termen *vitlista*, en term som Microsoft inte längre använder. När termen tas bort från program varan tar vi bort det från den här artikeln.
 
 I det här exemplet används spegling för att replikera ämnen mellan två HDInsight-kluster. Båda klustren finns i olika virtuella nätverk i olika data Center.
 

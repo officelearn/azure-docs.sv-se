@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78ff0440fa83b6bd002cdf4256dc066342b1b390
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976261"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424759"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: dirigera trafik via en NVA
 
@@ -41,16 +41,16 @@ Följande anslutnings mat ris sammanfattar de flöden som stöds i det här scen
 
 | Från             | Till:|   *NVA pinnar*|*NVA virtuella nätverk*|*Icke-NVA virtuella nätverk*|*Grenar*|
 |---|---|---|---|---|---|
-| **NVA pinnar**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
-| **NVA virtuella nätverk**    | &#8594; |   Statisk |      X   |        X     |      X    |
-| **Icke-NVA virtuella nätverk**| &#8594; |   Statisk |      X   |        X     |      X    |
-| **Grenar**     | &#8594; |   Statisk |      X   |        X     |      X    |
+| **NVA pinnar**   | &#8594; | Över NVA VNet | Peering | Över NVA VNet | Över NVA VNet |
+| **NVA virtuella nätverk**    | &#8594; | Peering | Direct | Direct | Direct |
+| **Icke-NVA virtuella nätverk**| &#8594; | Över NVA VNet | Direct | Direct | Direct |
+| **Grenar**     | &#8594; | Över NVA VNet | Direct | Direct | Direct |
 
-Var och en av cellerna i anslutnings matrisen beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) får ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde. Ett "X" innebär att anslutningen tillhandahålls internt av Virtual WAN och "static" innebär att anslutningen tillhandahålls av Virtual WAN med statiska vägar. Tänk också på följande:
+Var och en av cellerna i anslutnings matrisen beskriver hur ett VNet eller en gren ("från"-sidan i flödet, rad rubrikerna i tabellen) kommunicerar med ett virtuellt nätverk eller en förgrening ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen). "Direct" innebär att anslutningen tillhandahålls internt av Virtual WAN, "peering" innebär att anslutningen tillhandahålls av en User-Defined väg i VNet, "över NVA VNet" innebär att anslutningen passerar NVA som distribueras i NVA VNet. Tänk också på följande:
 
 * NVA ekrar hanteras inte av virtuella WAN-nätverk. Det innebär att de mekanismer som de kommer att kommunicera med andra virtuella nätverk eller grenar bevaras av användaren. Anslutning till NVA VNet tillhandahålls av en VNet-peering och en standard väg till 0.0.0.0/0 som pekar på NVA som nästa hopp bör gälla anslutning till Internet, till andra ekrar och till grenar
 * NVA-virtuella nätverk kommer att veta om sina egna NVA ekrar, men inte om NVA ekrar kopplade till andra NVA virtuella nätverk. I tabell 1, VNet 2 vet till exempel VNet 5 och VNet 6, men inte andra ekrar som VNet 7 och VNet 8. En statisk väg krävs för att mata in andra ekrars prefix i NVA virtuella nätverk
-* På samma sätt vet inte grenar och icke-NVA virtuella nätverk om några NVA ekrar, eftersom NVA ekrar inte är anslutna till VWAN-hubbar. Det innebär att statiska vägar också behövs här.
+* På samma sätt vet inte grenar och icke-NVA virtuella nätverk om några NVA ekrar, eftersom NVA ekrar inte är anslutna till virtuella WAN-hubbar. Det innebär att statiska vägar också behövs här.
 
 Med hänsyn till att NVA ekrar inte hanteras av virtuella WAN-nätverk visas samma anslutnings mönster i alla andra rader. Därför kommer en enda routningstabell (standard en) att göra:
 
@@ -69,14 +69,14 @@ I det här scenariot behöver vi dock tänka på vilka statiska vägar som ska k
 
 Med det här alternativet är de statiska vägar som vi behöver i standard tabellen för att skicka trafik till NVA ekrar bakom NVA VNet följande:
 
-| Beskrivning | Routningstabell | Statisk väg              |
+| Description | Routningstabell | Statisk väg              |
 | ----------- | ----------- | ------------------------- |
-| VNet 2       | Default     | 10.2.0.0/16-> eastusconn |
-| VNet 4       | Default     | 10.4.0.0/16-> weconn     |
+| VNet 2       | Standard     | 10.2.0.0/16-> eastusconn |
+| VNet 4       | Standard     | 10.4.0.0/16-> weconn     |
 
 Nu vet Virtual WAN vilken anslutning som ska skicka paketen till, men anslutningen måste veta vad du ska göra när du tar emot dessa paket: det är här som anslutnings väg tabellerna används. Här kommer vi att använda de kortare prefixen (/24 i stället för längre/16) för att se till att dessa vägar har prioritet över vägar som importeras från NVA-virtuella nätverk (VNet 2 och VNet 4):
 
-| Beskrivning | Anslutning | Statisk väg            |
+| Description | Anslutning | Statisk väg            |
 | ----------- | ---------- | ----------------------- |
 | VNet 5       | eastusconn | 10.2.1.0/24 – > 10.2.0.5 |
 | VNet 6       | eastusconn | 10.2.2.0/24 – > 10.2.0.5 |

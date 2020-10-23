@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 3b6a38087aee7f33861f980cb6d245024f8d51ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81614005a1b0374dc249187c4ff3c920b7c97e9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852335"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424850"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Använda Notification Hubs från python
 
@@ -414,7 +414,7 @@ Observera taggarna HTTP-huvud, som läggs till i HTTP-begäran (i exemplet nedan
 hub.send_windows_notification(wns_payload, "sports")
 ```
 
-![Skärm bild av en konsol med information om H T T P-begäran och Service Bus meddelande format, Service Bus Notification-Taggar och X W N S typ värden som anges i rött.][3]
+![Skärm bild av en konsol med information om H T T P-begäran och Service Bus meddelande format, en Service Bus meddelande tag gen och X W N S typ värden som anges i rött.][3]
 
 ### <a name="send-notification-specifying-multiple-tags"></a>Skicka meddelande som anger flera taggar
 
@@ -425,7 +425,7 @@ tags = {'sports', 'politics'}
 hub.send_windows_notification(wns_payload, tags)
 ```
 
-![Skärm bild av en konsol med information om H T T P-begäran och Service Bus meddelande format, Service Bus Notification-Taggar och X W N S typ värden som anges i rött.][4]
+![Skärm bild av en konsol med information om H T T P-begäran och Service Bus meddelande format, flera Service Bus Notification-Taggar och X W N S typ värden som anges i rött.][4]
 
 ### <a name="templated-notification"></a>Meddelande om mall
 
@@ -446,7 +446,7 @@ hub.send_template_notification(template_payload)
 
 ![Skärm bild av en-konsol med information om H T T P P-begäran och innehålls typ och Service Buss format värden som anges i rött.][5]
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Den här artikeln visar hur du skapar en python REST-klient för Notification Hubs. Här kan göra du följande:
 

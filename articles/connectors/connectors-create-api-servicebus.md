@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 5834a1927fda71faa924e14265fb7f82034887de
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996348"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426647"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps och Azure Service Bus
 
@@ -29,7 +29,7 @@ Du kan använda utlösare som får svar från Service Bus och göra utdata tillg
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -60,7 +60,7 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
       ![Kopiera Service Bus namn områdets anslutnings sträng](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Om du vill kontrol lera att anslutnings strängen är kopplad till din Service Bus-namnrymd eller en meddelande enhet, till exempel en kö, söker du efter `EntityPath`   parameterns anslutnings sträng. Om du hittar den här parametern är anslutnings strängen för en speciell entitet och är inte rätt sträng som ska användas med din Logic app.
+   > Om du vill kontrol lera att anslutnings strängen är kopplad till din Service Bus-namnrymd eller en meddelande enhet, till exempel en kö, söker du efter `EntityPath` parameterns anslutnings sträng. Om du hittar den här parametern är anslutnings strängen för en speciell entitet och är inte rätt sträng som ska användas med din Logic app.
 
 ## <a name="add-service-bus-trigger"></a>Lägg till Service Bus-utlösare
 
@@ -68,18 +68,22 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din tomma Logic-app i Logic App Designer.
 
-1. I rutan Sök anger du "Azure Service Bus" som filter. Välj den utlösare som du vill använda från listan utlösare.
+1. I rutan Portal sökning anger du `azure service bus` . Välj den utlösare som du vill använda från listan utlösare som visas.
 
    Om du till exempel vill utlösa din Logi Kap par när ett nytt objekt skickas till en Service Bus-kö, markerar du utlösaren **när ett meddelande tas emot i en kö (automatisk komplettering)** .
 
    ![Välj Service Bus utlösare](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
-   Alla Service Bus-utlösare är *tids avsöknings* utlösare. Den här beskrivningen innebär att utlösaren bearbetar alla meddelanden när utlösaren utlöses och väntar sedan 30 sekunder på att fler meddelanden ska visas i kön eller ämnes prenumerationen. Om inga meddelanden visas på 30 sekunder hoppas utlösarens körning över. Annars fortsätter utlösaren att läsa meddelanden tills kön eller ämnes prenumerationen är tom. Nästa Utlös ande avsökning baseras på upprepnings intervallet som anges i utlösarens egenskaper.
+   Här följer några saker att tänka på när du använder en Service Bus-utlösare:
 
-   Vissa utlösare, till exempel **när ett eller flera meddelanden tas emot i en kö (automatisk komplettering)** , kan returnera ett eller flera meddelanden. När utlösarna utlöses, returnerar de mellan ett och antalet meddelanden som anges av utlösarens egenskap för **maximalt antal meddelanden** .
+   * Alla Service Bus-utlösare är *tids avsöknings* utlösare. Den här beskrivningen innebär att utlösaren bearbetar alla meddelanden när utlösaren utlöses och väntar sedan 30 sekunder på att fler meddelanden ska visas i kön eller ämnes prenumerationen. Om inga meddelanden visas på 30 sekunder hoppas utlösarens körning över. Annars fortsätter utlösaren att läsa meddelanden tills kön eller ämnes prenumerationen är tom. Nästa Utlös ande avsökning baseras på upprepnings intervallet som anges i utlösarens egenskaper.
 
-    > [!NOTE]
-    > Utlösaren för automatisk komplettering Slutför automatiskt ett meddelande, men slut för ande sker bara vid nästa anrop till Service Bus. Det här beteendet kan påverka din Logic Apps design. Undvik till exempel att ändra samtidigheten i utlösaren för automatisk komplettering eftersom den här ändringen kan resultera i dubbla meddelanden om din Logic-app går in i ett begränsat tillstånd. Om du ändrar samtidighets kontrollen skapas dessa villkor: begränsade utlösare hoppas över med `WorkflowRunInProgress` koden, slut för ande åtgärden inträffar inte och nästa Utlös ande körning sker efter avsöknings intervallet. Du måste ange varaktigheten för Service Bus-låset till ett värde som är längre än avsöknings intervallet. Men trots den här inställningen kanske inte meddelandet kan slutföras om din Logic-app är i ett begränsat tillstånd vid nästa avsöknings intervall.
+   * Vissa utlösare, till exempel **när ett eller flera meddelanden tas emot i en kö (automatisk komplettering)** , kan returnera ett eller flera meddelanden. När utlösarna utlöses, returnerar de mellan ett och antalet meddelanden som anges av utlösarens egenskap för **maximalt antal meddelanden** .
+
+     > [!NOTE]
+     > Utlösaren för automatisk komplettering Slutför automatiskt ett meddelande, men slut för ande sker bara vid nästa anrop till Service Bus. Det här beteendet kan påverka din Logic Apps design. Undvik till exempel att ändra samtidigheten i utlösaren för automatisk komplettering eftersom den här ändringen kan resultera i dubbla meddelanden om din Logic-app går in i ett begränsat tillstånd. Om du ändrar samtidighets kontrollen skapas dessa villkor: begränsade utlösare hoppas över med `WorkflowRunInProgress` koden, slut för ande åtgärden inträffar inte och nästa Utlös ande körning sker efter avsöknings intervallet. Du måste ange varaktigheten för Service Bus-låset till ett värde som är längre än avsöknings intervallet. Men trots den här inställningen kanske inte meddelandet kan slutföras om din Logic-app är i ett begränsat tillstånd vid nästa avsöknings intervall.
+
+   * Om du [aktiverar samtidighets inställningen](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) för en Service Bus utlösare är standardvärdet för `maximumWaitingRuns` egenskapen 10. Baserat på den Service Bus enhetens inställning för lås varaktighet och körnings tid för din Logi Kap par instansen kan standardvärdet vara för stort och kan orsaka ett "lock förlorat" undantag. Om du vill hitta det optimala värdet för ditt scenario börjar du testa med ett värde på 1 eller 2 för `maximumWaitingRuns` egenskapen. Om du vill ändra värdet för högsta antal väntande körningar kan du se [gränsen för ändring av väntande körning](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs)
 
 1. Om utlösaren ansluter till Service Bus namn området för första gången följer du de här stegen när du uppmanas att ange anslutnings information i Logic Apps designer.
 
@@ -113,13 +117,13 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din Logic app i Logic App Designer.
+1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
 1. Under steget där du vill lägga till en åtgärd väljer du **nytt steg**.
 
    Eller om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj **Lägg till en åtgärd**.
 
-1. Under **Välj en åtgärd**i rutan Sök anger du "Azure Service Bus" som filter. I listan åtgärder väljer du den åtgärd som du vill använda. 
+1. Under **Välj en åtgärd**i rutan Sök anger du `azure service bus` . I listan åtgärder som visas väljer du den åtgärd som du vill använda. 
 
    I det här exemplet väljer du åtgärden **Skicka meddelande** .
 

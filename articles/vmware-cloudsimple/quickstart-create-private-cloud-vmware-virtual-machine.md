@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 32ac78c6bc613daf04fc98c03044699f387f290d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd67a5a7f1bf665333e06c66f73c7f18727a3e12
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88140861"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427761"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Skapa virtuella VMware-datorer i ditt privata moln
 
@@ -58,37 +58,37 @@ Kom åt vCenter genom att starta från CloudSimple-portalen. På Start sidan, un
 1. I vCenter klickar du på ikonen **värdar och kluster** .
 
 2. Högerklicka på **arbets belastning** och välj **ny virtuell dator**.
-    ![Ny virtuell dator](media/vcvm01.png)
+    ![Skärm bild som markerar meny alternativet ny virtuell dator.](media/vcvm01.png)
 
 3. Välj **Skapa ny virtuell dator** och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm02.png)
+    ![Skärm bild som markerar alternativet Skapa ny virtuell dator.](media/vcvm02.png)
 
 4. Namnge datorn, Välj platsen för **arbets Belastningens VM** och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm03.png)
+    ![Skärm bild som visar alternativet virtuella arbets belastningar.](media/vcvm03.png)
 
 5. Välj resurs för beräkning av **arbets belastning** och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm04.png)
+    ![Skärm bild som visar beräknings resursen för arbets belastningen.](media/vcvm04.png)
 
 6. Välj **vsanDatastore** och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm05.png)
+    ![Skärm bild som visar alternativet vsanDatastore.](media/vcvm05.png)
 
 7. Behåll standard valet av ESXi 6,5 och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm06.png)
+    ![Skärm bild som visar det valda ESXi 6,5-kompatibilitetsinställningen.](media/vcvm06.png)
 
 8. Välj gäst operativ systemet för ISO-filen för den virtuella dator som du skapar och klicka på **Nästa**.
-    ![Ny virtuell dator](media/vcvm07.png)
+    ![Skärm bild som visar hur du väljer guese-operativ systemet för den virtuella datorn ISO.](media/vcvm07.png)
 
 9. Välj alternativ för hård disk och nätverk. För ny CD/DVD-enhet väljer du **data lager ISO-fil**.  Om du vill tillåta trafik från den offentliga IP-adressen till den här virtuella datorn väljer du nätverket som **VM-1**.
-    ![Ny virtuell dator](media/vcvm08.png)
+    ![Skärm bild som visar var du väljer ISO-filen för data lager.](media/vcvm08.png)
 
 10. Ett val fönster öppnas. Välj den fil som du tidigare laddade upp till mappen ISO och mallar och klicka på **OK**.
     ![Ny virtuell dator](media/vcvm10.png)
 
 11. Granska inställningarna och klicka på **OK** för att skapa den virtuella datorn.
-    ![Ny virtuell dator](media/vcvm11.png)
+    ![Skärm bild som visar var du granskar inställningarna.](media/vcvm11.png)
 
 Den virtuella datorn läggs nu till i beräknings resurserna för arbets belastningen och är redo att användas. 
-![Ny virtuell dator](media/vcvm12.png)
+![Skärm bild som visar den virtuella datorn som har lagts till i beräknings resurserna för arbets belastningen.](media/vcvm12.png)
 
 Den grundläggande installationen slutförs nu. Du kan börja använda ditt privata moln på samma sätt som du använder din lokala infrastruktur för virtuella datorer.
 
@@ -102,7 +102,7 @@ CloudSimple tilldelar ett standard-vCenter-användarkonto med användar namn `cl
 
 Program och arbets belastningar som körs i en privat moln miljö kräver namn matchning och DHCP-tjänster för sökning och tilldelning av IP-adresser. En korrekt DHCP-och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster. Du kan konfigurera en virtuell dator i vCenter för att tillhandahålla dessa tjänster i din privata moln miljö.
 
-Förutsättningar
+Krav
 
 * En distribuerad port grupp med VLAN konfigurerat
 

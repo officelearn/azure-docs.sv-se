@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
-ms.openlocfilehash: f5d76168b75d9352898d8f0abf80a6ccfb83af30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9f4947fe379f19593d06ba9efb6bfc43c397e9f
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333451"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424407"
 ---
 # <a name="tutorial-configure-zoom-for-automatic-user-provisioning"></a>Självstudie: Konfigurera zoom för automatisk användar etablering
 
@@ -30,7 +30,7 @@ I den här självstudien beskrivs de steg som du måste utföra i både zoomning
 > * Behåll användarattribut synkroniserade mellan Azure AD och zoom
 > * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-tutorial) till zoom (rekommenderas)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -152,6 +152,7 @@ När du har konfigurerat etableringen använder du följande resurser till att �
 
 ## <a name="change-log"></a>Ändringslogg
 * 05/14/2020 – stöd för UPPDATERINGs åtgärder som har lagts till för e-post [Type EQ "Work"]-attribut.
+* 10/20/2020 – stöd har lagts till för två nya roller "licensierad" och "lokal" för att ersätta befintliga roller "Pro" och "Corp". Support för rollerna "Pro" och "Corp" kommer att tas bort i framtiden.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

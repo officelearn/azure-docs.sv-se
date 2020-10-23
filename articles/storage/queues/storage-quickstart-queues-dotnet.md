@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f23512bfd85c520c36cd98843db37371b84af293
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 3ea413c3879f61f735290717d06a132048169971
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939210"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426697"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för .NET
 
@@ -34,12 +34,12 @@ Ytterligare resurser:
 * [Referensdokumentation för API](/dotnet/api/azure.storage.queues)
 * [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
 * [Paket (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+* [Exempel](/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Azure Storage-konto – [skapa ett lagrings konto](/azure/storage/common/storage-quickstart-create-account)
 * Nuvarande [.net Core SDK](https://dotnet.microsoft.com/download/dotnet-core) för ditt operativ system. Se till att hämta SDK och inte körnings miljön.
 
 ## <a name="setting-up"></a>Konfigurera
@@ -77,7 +77,7 @@ Från projekt katalogen:
 1. Öppna filen *program.cs* i redigeraren
 1. Ta bort `Console.WriteLine("Hello World!");` instruktionen
 1. Lägg till `using` direktiv
-1. Uppdatera `Main` metod deklarationen för att [stödja asynkron kod](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#async-main)
+1. Uppdatera `Main` metod deklarationen för att [stödja asynkron kod](/dotnet/csharp/whats-new/csharp-7#async-main)
 
 
 
@@ -334,7 +334,7 @@ I den här snabb starten har du lärt dig hur du skapar en kö och lägger till 
 För självstudier, exempel, snabb starter och annan dokumentation går du till:
 
 > [!div class="nextstepaction"]
-> [Azure för .NET- och .NET Core-utvecklare](https://docs.microsoft.com/dotnet/azure/)
+> [Azure för .NET- och .NET Core-utvecklare](/dotnet/azure/)
 
 * Mer information finns i [Azure Storage bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
 * Om du vill se fler exempel på Azure Queue Storage-appar kan du fortsätta till [exempel för Azure Queue Storage V12 .net-klient bibliotek](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).

@@ -10,23 +10,23 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 14e4cd141094763d37a1309572bb4da4efb3f7ce
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378111"
+ms.locfileid: "92428029"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Azure Active Directory program hantering: Nyheter
 
-Välkommen till nyheter i Azure Active Directory program hanterings dokumentation. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna.
+Välkommen till nyheter i Azure Active Directory program hanterings dokumentation. Den här artikeln innehåller nya dokument som har lagts till och de som har haft betydande uppdateringar under de senaste tre månaderna. Information om vad som är nytt i program hanterings tjänsten finns i [Nyheter i Azure Active Directory](../fundamentals/whats-new.md).
 
 ## <a name="september-2020"></a>September 2020
 
 ### <a name="new-articles"></a>Nya artiklar
 - [Snabb start: Konfigurera OIDC-baserad enkel inloggning (SSO) för ett program i din Azure Active Directory (Azure AD)-klient](add-application-portal-setup-oidc-sso.md)
 - [Snabb start: tilldela användare till en app som använder Azure AD som identitets leverantör](add-application-portal-assign-users.md)
-- [Nyheter](whats-new-docs.md)
+- [Vad är nytt i dokumenten?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Uppdaterade artiklar

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743288"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426998"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Självstudie: förbereda för att distribuera Azure Stack Edge Pro med GPU 
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 För Azure Stack Edge Pro-distribution måste du först förbereda din miljö. När miljön är klar följer du de steg som krävs och om det behövs, valfria steg och procedurer för att distribuera enheten fullständigt. Anvisningarna för steg-för-steg-distribution anger när du bör utföra var och en av dessa obligatoriska och valfria steg.
 
-| Steg | Beskrivning |
+| Steg | Description |
 | --- | --- |
 | **Förberedelse** |De här stegen måste utföras i förberedelser inför den kommande distributionen. |
 | **[Check lista för distributions konfiguration](#deployment-configuration-checklist)** |Använd den här checklistan för att samla in och registrera information före och under distributionen. |
@@ -123,20 +123,19 @@ För att skapa en Azure Stack Edge-resurs, utför följande steg i Azure Portal.
 
 6. På fliken **grundläggande** anger eller väljer du följande **projekt information**.
     
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Prenumeration    |Detta fylls i automatiskt baserat på den tidigare markeringen. Prenumerationen är kopplad till ditt faktureringskonto. |
     |Resursgrupp  |Välj en befintlig grupp eller skapa en ny grupp.<br>Lär dig mer om [Azures resurs grupper](../azure-resource-manager/resource-group-overview.md).     |
 
 7. Ange eller Välj följande **instans information**.
 
-    |Inställningen  |Värde  |
+    |Inställning  |Värde  |
     |---------|---------|
     |Namn   | Ett eget namn som identifierar resursen.<br>Namnet innehåller mellan 2 och 50 tecken som består av bokstäver, siffror och bindestreck.<br> Namnet börjar och slutar med en bokstav eller en siffra.        |
     |Region     |För en lista över alla regioner där Azure Stack Edge-resursen är tillgänglig, se [Azure-produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Om du använder Azure Government är alla myndigheter tillgängliga som de visas i Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/).<br> Välj den plats som är närmast den geografiska region där du vill distribuera enheten.|
 
     ![Skapa en resurs 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
-
 
 8. Välj **Nästa: leverans adress**.
 
@@ -167,6 +166,9 @@ När resursen har skapats och distribuerats får du ett meddelande. Välj **Gå 
 När ordern har placerats, granskar Microsoft ordern och når dig (via e-post) med leverans information.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+
+> [!NOTE]
+>Om du vill skapa flera beställningar samtidigt eller klona en befintlig order kan du använda [skripten i Azure-exempel](https://github.com/Azure-Samples/azure-stack-edge-order). Mer information finns i README-filen.
 
 Om du stöter på problem under beställnings processen går du till [Felsöka beställnings problem](azure-stack-edge-troubleshoot-ordering.md).
 

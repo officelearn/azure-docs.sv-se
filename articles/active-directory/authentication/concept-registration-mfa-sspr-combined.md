@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71900bc3741c25299402e31057ea2237cd0a4637
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965156"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424573"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Kombinerad säkerhets informations registrering för Azure Active Directory översikt
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur kombinerad säkerhets registrering är. Informat
 
 Innan du aktiverar den nya upplevelsen kan du läsa den här administratörs säkra dokumentationen och den användar fokuserade dokumentationen så att du förstår funktionerna och effekterna av den här funktionen. Basera din utbildning på [användar dokumentationen](../user-help/security-info-setup-signin.md) för att förbereda dina användare för den nya upplevelsen och hjälpa till att säkerställa en lyckad distribution.
 
-Den kombinerade säkerhets informations registreringen i Azure AD är för närvarande inte tillgänglig för nationella moln som Azure amerikanska myndigheter, Azure Germany eller Azure Kina 21Vianet.
+Den kombinerade säkerhets informations registreringen i Azure AD är för närvarande inte tillgänglig för nationella moln som Azure Germany eller Azure Kina 21Vianet. Den är tillgänglig för Azure amerikanska myndigheter.
 
 > [!IMPORTANT]
 > Användare som har Aktiver ATS för både den ursprungliga för hands versionen och den förbättrade kombinerade registrerings upplevelsen ser det nya beteendet. Användare som är aktiverade för båda upplevelserna ser bara den nya min profil upplevelsen. Den nya *min profil* överensstämmer med utseendet och känslan av kombinerad registrering och ger en sömlös upplevelse för användarna. Användarna kan se min profil genom att gå till [https://myprofile.microsoft.com](https://myprofile.microsoft.com) .

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: c98e377ec216bea6c1d4a96b15b3741aa52672e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e515df0ff8c7cd3794efb4db567ef7146ccb7a03
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91618164"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424224"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Vad är en hanterad Azure SQL-instans?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,15 +56,15 @@ Huvud funktionerna i SQL-hanterad instans visas i följande tabell:
 |Funktion | Beskrivning|
 |---|---|
 | SQL Server version/build | SQL Server databas motor (senaste stabila) |
-| Hanterade automatiserade säkerhets kopieringar | Ja |
-| Inbyggd instans och databas övervakning och mått | Ja |
-| Automatisk uppdatering av program vara | Ja |
-| De senaste databas motor funktionerna | Ja |
+| Hanterade automatiserade säkerhets kopieringar | Yes |
+| Inbyggd instans och databas övervakning och mått | Yes |
+| Automatisk uppdatering av program vara | Yes |
+| De senaste databas motor funktionerna | Yes |
 | Antal datafiler (rader) per databas | Flera |
 | Antal loggfiler (logg) per databas | 1 |
-| VNet – Azure Resource Manager distribution | Ja |
-| VNet – klassisk distributions modell | Inga |
-| Portal stöd | Ja|
+| VNet – Azure Resource Manager distribution | Yes |
+| VNet – klassisk distributions modell | No |
+| Portal stöd | Yes|
 | Inbyggd integrerings tjänst (SSIS) | No-SSIS är en del av [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Inbyggd Analysis Service (SSAS) | No-SSAS är separat [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | Inbyggd repor ting service (SSRS) | Använd [Power BI sid färdiga rapporter](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) i stället för att vara värd för SSRS på en virtuell Azure-dator. SQL-hanterad instans kan inte köra SSRS som en tjänst, men kan vara värd för [SSRS-katalog databaser](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) för en rapport server som är installerad på en virtuell Azure-dator med hjälp av SQL Server autentisering. |
@@ -96,7 +96,7 @@ I följande lista beskrivs viktiga egenskaper för Generell användning tjänst 
 
 - Utformad för de flesta affärs program med typiska prestanda krav
 - Azure Blob Storage med höga prestanda (8 TB)
-- Inbyggd [hög tillgänglighet](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability) baserat på tillförlitlig Azure Blob Storage och [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
+- Inbyggd [hög tillgänglighet](../database/high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability) baserat på tillförlitlig Azure Blob Storage och [Azure Service Fabric](../../service-fabric/service-fabric-overview.md)
 
 Mer information finns i [lagrings skiktet på generell användning nivå](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) och [metod tips för lagring och överväganden för SQL-hanterad instans (generell användning)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -110,7 +110,7 @@ I följande lista beskrivs viktiga egenskaper för Affärskritisk tjänst nivå:
 
 - Utformad för företags program med högsta prestanda och HA krav
 - Levereras med super-fast lokal SSD-lagring (upp till 1 TB på Gen4 och upp till 4 TB på Gen5)
-- Inbyggd [hög tillgänglighet](../database/high-availability-sla.md#premium-and-business-critical-service-tier-availability) baserat på [tillgänglighets grupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure-Service Fabric](../../service-fabric/service-fabric-overview.md)
+- Inbyggd [hög tillgänglighet](../database/high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) baserat på [tillgänglighets grupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) och [Azure-Service Fabric](../../service-fabric/service-fabric-overview.md)
 - Inbyggd ytterligare [skrivskyddad databas replik](../database/read-scale-out.md) som kan användas för rapportering och andra skrivskyddade arbets belastningar
 - [Minnes intern OLTP](../in-memory-oltp-overview.md) som kan användas för arbets belastning med höga prestanda krav  
 

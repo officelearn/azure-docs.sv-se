@@ -7,22 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4d0405df1863ee47374242ba4fba5b845711d3a1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102939"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424516"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Tjänster med hög tillgänglighet som stöds av Azure HDInsight
 
 För att ge dig optimala tillgänglighets nivåer för dina analys komponenter utvecklades HDInsight med en unik arkitektur för att säkerställa hög tillgänglighet för kritiska tjänster. Vissa komponenter i den här arkitekturen har utvecklats av Microsoft för att tillhandahålla automatisk redundans. Andra komponenter är standard Apache-komponenter som distribueras för att stödja vissa tjänster. I den här artikeln beskrivs arkitekturen hos HA-tjänst modellen i HDInsight, hur HDInsight stöder redundans för HA-tjänster och bästa praxis för att återställa från andra tjänst avbrott.
- 
+
 > [!NOTE]
-> Kompensations fri kommunikation
->
-> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
->
+> Den här artikeln innehåller referenser till termen *slav*, en term som Microsoft inte längre använder. När termen tas bort från program varan tar vi bort det från den här artikeln.
 
 ## <a name="high-availability-infrastructure"></a>Infrastruktur med hög tillgänglighet
 

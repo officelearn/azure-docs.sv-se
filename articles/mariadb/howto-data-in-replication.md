@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 2de6b6311a1a5d452907b8c4b6a2ffeb9c0e133e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91598194"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425996"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurera Datareplikering i Azure Database for MariaDB
 
@@ -56,7 +56,7 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
 2. Se till att käll servern tillåter både inkommande och utgående trafik på port 3306 och att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgänglig eller har ett fullständigt kvalificerat domän namn (FQDN). 
    
-   Testa anslutningen till käll servern genom att försöka ansluta från ett verktyg som till exempel den MySQL-kommandorad som finns på en annan dator eller från den [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) som är tillgänglig i Azure Portal.
+   Testa anslutningen till käll servern genom att försöka ansluta från ett verktyg som till exempel den MySQL-kommandorad som finns på en annan dator eller från den [Azure Cloud Shell](../cloud-shell/overview.md) som är tillgänglig i Azure Portal.
 
    Om din organisation har strikta säkerhets principer och inte tillåter alla IP-adresser på käll servern att möjliggöra kommunikation från Azure till käll servern kan du använda kommandot nedan för att fastställa IP-adressen för din Azure Database for MariaDB-Server.
     
@@ -212,7 +212,7 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
 1. Ange käll servern.
 
-   Alla Datareplikering funktioner utförs med lagrade procedurer. Du hittar alla procedurer på [datareplikering lagrade procedurer](reference-data-in-stored-procedures.md). Lagrade procedurer kan köras i MySQL-gränssnittet eller MySQL Workbench.
+   Alla Datareplikering funktioner utförs med lagrade procedurer. Du hittar alla procedurer på [datareplikering lagrade procedurer](reference-stored-procedures.md). Lagrade procedurer kan köras i MySQL-gränssnittet eller MySQL Workbench.
 
    Logga in på mål replik servern i Azure DB for MariaDB-tjänsten för att länka två servrar och starta replikering. Ange sedan den externa instansen som käll Server genom att använda den `mysql.az_replication_change_master` eller `mysql.az_replication_change_master_with_gtid` lagrade proceduren på Azure dB för MariaDB-servern.
 

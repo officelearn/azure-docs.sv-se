@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 05a469dbeb093c41b45be278aec42cc930223c72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89002184"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428051"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Tabelldesignguide för Azure Table Storage: Skalbara och högpresterande tabeller
 
@@ -204,10 +204,10 @@ I följande exempel förutsätts att Table Storage lagrar anställdas entiteter 
 
 Här följer några allmänna rikt linjer för att utforma tabell lagrings frågor. Filter-syntaxen som används i följande exempel är från tabell lagrings REST API. Mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
-* En *punkt fråga* är den mest effektiva sökningen som används och rekommenderas för sökning efter stora volymer eller uppslag som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange både `PartitionKey` `RowKey` värdena och. Exempel: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
-* Det andra bästa är en *Range-fråga*. Det använder `PartitionKey` och filtrerar på ett värde intervall `RowKey` för att returnera mer än en entitet. `PartitionKey`Värdet identifierar en viss partition och `RowKey` värdena identifierar en delmängd av entiteterna i partitionen. Exempel: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
-* Det tredje bästa är en *partitions ökning*. Det använder och `PartitionKey` filtrerar på en annan icke-nyckel-egenskap och kan returnera fler än en entitet. `PartitionKey`Värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Exempel: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
-* En *tabells ökning* omfattar inte `PartitionKey` och är ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen för matchande entiteter. Den utför en tabells ökning oavsett om filtret använder eller inte `RowKey` . Exempel: `$filter=LastName eq 'Jones'`.  
+* En *punkt fråga* är den mest effektiva sökningen som används och rekommenderas för sökning efter stora volymer eller uppslag som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange både `PartitionKey` `RowKey` värdena och. Till exempel: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
+* Det andra bästa är en *Range-fråga*. Det använder `PartitionKey` och filtrerar på ett värde intervall `RowKey` för att returnera mer än en entitet. `PartitionKey`Värdet identifierar en viss partition och `RowKey` värdena identifierar en delmängd av entiteterna i partitionen. Till exempel: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
+* Det tredje bästa är en *partitions ökning*. Det använder och `PartitionKey` filtrerar på en annan icke-nyckel-egenskap och kan returnera fler än en entitet. `PartitionKey`Värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Till exempel: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
+* En *tabells ökning* omfattar inte `PartitionKey` och är ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen för matchande entiteter. Den utför en tabells ökning oavsett om filtret använder eller inte `RowKey` . Till exempel: `$filter=LastName eq 'Jones'`.  
 * Azure Table Storage-frågor som returnerar flera entiteter sorterar dem i `PartitionKey` och `RowKey` ordning. Välj en `RowKey` som definierar den vanligaste sorterings ordningen för att undvika att enheterna i klienten används. Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 Om du använder en "**eller**" för att ange ett filter baserat på `RowKey` värden resulterar det i en partitions ökning och behandlas inte som en områdes fråga. Undvik därför frågor som använder filter som till exempel: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
@@ -476,7 +476,7 @@ Lagra flera kopior av varje entitet genom att använda olika `RowKey` värden i 
 #### <a name="context-and-problem"></a>Kontext och problem
 Table Storage indexerar automatiskt entiteter med hjälp `PartitionKey` av `RowKey` värdena och. Detta gör att ett klient program kan hämta en entitet effektivt genom att använda dessa värden. Om du till exempel använder följande tabell struktur kan ett klient program använda en punkt fråga för att hämta en enskild anställd entitet med hjälp av avdelnings namnet och medarbetar-ID: t ( `PartitionKey` och- `RowKey` värdena). En-klient kan också hämta entiteter sorterade efter anställnings-ID inom varje avdelning.  
 
-:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Bild som visar en avdelnings enhet och en anställds entitet":::[9]
+:::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE09.png" alt-text="Bild som visar en avdelnings enhet och en anställds entitet"::: 1.9
 
 Om du också vill kunna hitta en anställd entitet baserat på värdet för en annan egenskap, till exempel e-postadress, måste du använda en mindre effektiv partitions ökning för att hitta en matchning. Detta beror på att Table Storage inte tillhandahåller sekundära index. Dessutom finns det inget alternativ för att begära en lista över anställda sorterade i en annan ordning än `RowKey` order.  
 

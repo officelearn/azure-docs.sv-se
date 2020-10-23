@@ -7,12 +7,13 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: device-developer
+ms.openlocfilehash: 9e5288bb177d5827f05003e4561bc79240a71b59
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291612"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427872"
 ---
 # <a name="telemetry-property-and-command-payloads"></a>Telemetri, egenskaper och kommandonyttolaster
 
@@ -768,9 +769,9 @@ IoT Central förväntar sig ett svar från enheten till skrivbara egenskaps uppd
 
 `ac` är ett numeriskt fält som använder värdena i följande tabell:
 
-| Värde | Etikett | Beskrivning |
+| Värde | Etikett | Description |
 | ----- | ----- | ----------- |
-| `'ac': 200` | Slutfört | Egenskaps ändrings åtgärden har slutförts. |
+| `'ac': 200` | Slutförd | Egenskaps ändrings åtgärden har slutförts. |
 | `'ac': 202`  eller `'ac': 201` | Väntar | Egenskaps ändrings åtgärden väntar eller pågår |
 | `'ac': 4xx` | Fel | Den begärda egenskaps ändringen var inte giltig eller innehöll ett fel |
 | `'ac': 5xx` | Fel | Ett oväntat fel uppstod i enheten vid bearbetning av den begärda ändringen. |

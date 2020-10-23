@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33d52f871de75a7f7d34016b040e44d6f1623fd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89da6935d85628b5ce4ff762ad31d3f280682921
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70101267"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424256"
 ---
 # <a name="disaster-recovery-principles"></a>Principer för haveri beredskap
 
@@ -68,7 +68,7 @@ Nästa steg är att du ska installera den andra SAP HANA-instansen i den stora v
 - Stoppa den nyligen installerade SAP HANA-instansen på volymen HANA stor instans i Azure-regionen DR.
 - Demontera de här PRD-volymerna och kontakta SAP HANA på Azure Service Management. Volymerna kan inte vara monterade på enheten eftersom de inte kan nås under drift som mål för lagrings replikering.  
 
-![Installations steg för DR innan du upprättar replikering](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
+![Diagram som visar replikeringsrelationen mellan PRD-volymerna i Azure-regionen för produktion och PRD-volymerna i DR Azure-regionen.](./media/hana-overview-high-availability-disaster-recovery/disaster_recovery_start3.PNG)
 
 Drift teamet upprättar replikeringsrelationen mellan PRD-volymerna i Azure-regionen för produktion och PRD-volymerna i DR Azure-regionen.
 

@@ -3,12 +3,12 @@ title: Azure Lab Services-administratörs guide | Microsoft Docs
 description: Den här guiden hjälper administratörer som skapar och hanterar labb konton med Azure Lab Services.
 ms.topic: article
 ms.date: 10/20/2020
-ms.openlocfilehash: 380676b22fc27b5f62c40112457c42a04b4bf955
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a39ee2cc57c8fc1497c3798759bd40d1ed2976e3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371417"
+ms.locfileid: "92425306"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services-administratörs guide
 IT-administratörer som hanterar ett universitets moln resurser är vanligt vis ansvariga för att ställa in labb kontot för sin skola. När ett labb konto har kon figurer ATS kan administratörer eller lärare skapa klass rums labb som finns i labb kontot. Den här artikeln innehåller en översikt över de Azure-resurser som ingår och vägledningen för att skapa dem.
@@ -178,7 +178,7 @@ När administratörer eller labb skapare skapar ett klass rums labb, kan de väl
 
 ## <a name="manage-identity"></a>Hantera identitet
 
-Med hjälp av [Azures rollbaserade åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)kan följande roller tilldelas för att ge åtkomst till labb konton och klass rum labb:
+Med hjälp av [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)kan följande roller tilldelas för att ge åtkomst till labb konton och klass rum labb:
 
 - **Labbkontoägare**
 

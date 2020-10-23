@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d982d06bd100313d643033294b6d14e6383d5df
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79246115"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424716"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Konfigurera DNS för namn matchning för privat moln vCenter-åtkomst från lokala arbets stationer
 
@@ -58,19 +58,19 @@ zone "az.cloudsimple.io"
 
 1. Högerklicka på DNS-servern och välj **ny zon**. 
   
-    ![Ny zon](media/DNS01.png)
+    ![Skärm bild som markerar meny alternativet ny zon.](media/DNS01.png)
 2. Välj **stub-zon** och klicka på **Nästa**.
 
-    ![Ny zon](media/DNS02.png)
+    ![Skärm bild som visar alternativet stub-zon.](media/DNS02.png)
 3. Välj lämpligt alternativ beroende på din miljö och klicka på **Nästa**.
 
-    ![Ny zon](media/DNS03.png)
+    ![Skärm bild som visar alternativen för zondad data replikering.](media/DNS03.png)
 4. Välj **zon för vanlig sökning** och klicka på **Nästa**.
 
-    ![Ny zon](media/DNS01.png)
+    ![Skärm bild som markerar alternativet för zon för vanlig sökning.](media/DNS01.png)
 5. Ange zon namnet och klicka på **Nästa**.
 
-    ![Ny zon](media/DNS05.png)
+    ![Skärm bild som visar var du anger namnet på zonen.](media/DNS05.png)
 6. Ange IP-adresserna för DNS-servrarna för ditt privata moln som du har fått från CloudSimple-portalen.
 
     ![Ny zon](media/DNS06.png)

@@ -16,12 +16,12 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: 7e68e93e8a103ccf92c949df779d929ac4095d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5485dacc4d9e3210ad69819caf4e36f96c626da
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268833"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428374"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Självstudie: skicka push-meddelanden till Android-enheter med Firebase SDK version 0,6
 
@@ -411,7 +411,7 @@ Navet har nu kon figurer ATS för att fungera med Firebase Cloud Messaging. Du h
     android:id="@+id/text_hello"
     ```
 
-    ![Azure Notification Hubs – Prova att skicka](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
+    ![Skärm bild som visar ID för Android: ID = "@ + ID/text_hello" som tillämpas på TextView-kontrollen.](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
 10. Härnäst lägger du till en underklass för mottagaren som du definierade i AndroidManifest.xml. Lägg till ytterligare en ny klass i projektet och ge den namnet `FirebaseService`.
 
@@ -573,4 +573,4 @@ I den här självstudien använde du Firebase Cloud Messaging för att skicka me
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
 [Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

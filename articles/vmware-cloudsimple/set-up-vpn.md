@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d000d8390375466232c7daac2a4a056ef424be79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd08ce938a25e3311358892c9afa9eefd6c6dbf
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77087140"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424670"
 ---
 # <a name="configure-a-vpn-connection-to-your-cloudsimple-private-cloud"></a>Konfigurera en VPN-anslutning till ditt CloudSimple privata moln
 
@@ -63,7 +63,7 @@ Exemplet nedan visar hur du importerar en anslutning med hjälp av **viskositet-
 
 4. Välj konfigurations filen för OpenVPN (. ovpn) för det protokoll som du vill använda och klicka på **Öppna**.
 
-    ![VPN](media/import-p2s-vpn-config-choose-ovpn.png)
+    ![Skärm bild som visar OpenVPN-konfigurationsfiler som du kan välja.](media/import-p2s-vpn-config-choose-ovpn.png)
 
 Anslutningen visas nu på menyn viskositet.
 
@@ -71,7 +71,7 @@ Anslutningen visas nu på menyn viskositet.
 
 Om du vill ansluta till VPN med hjälp av OpenVPN-klienten för viskositet väljer du anslutningen på menyn. Meny ikonen uppdateras för att indikera att anslutningen har upprättats.
 
-![VPN](media/vis03.png)
+![Skärm bild som visar status för CloudSimple VPN-anslutning.](media/vis03.png)
 
 ### <a name="connecting-to-multiple-private-clouds"></a>Ansluta till flera privata moln
 

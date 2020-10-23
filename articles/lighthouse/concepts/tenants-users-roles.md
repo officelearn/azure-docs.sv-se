@@ -3,12 +3,12 @@ title: Klienter, roller och användare i Azure Lighthouse-scenarier
 description: Förstå begreppen för Azure Active Directory klienter, användare och roller, samt hur de kan användas i Azure Lighthouse-scenarier.
 ms.date: 07/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: c409b45d18504d071ffed3185de20ec5e1147bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dae09ddd7760af1663e0329eb646c8956dff3ac
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399252"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424113"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Klienter, roller och användare i Azure Lighthouse-scenarier
 
@@ -22,7 +22,7 @@ Vilken onboarding-metod du väljer måste du definiera *auktoriseringar*. Varje 
 
 ## <a name="role-support-for-azure-lighthouse"></a>Roll stöd för Azure-Lighthouse
 
-När du definierar en auktorisering måste varje användar konto tilldelas en av de [inbyggda rollbaserade RBAC-rollerna (rollbaserad åtkomst kontroll)](../../role-based-access-control/built-in-roles.md). Administratörs roller för anpassade roller och [klassiska prenumerationer](../../role-based-access-control/classic-administrators.md) stöds inte.
+När du definierar en auktorisering måste varje användar konto tilldelas en av de [inbyggda Azure-rollerna](../../role-based-access-control/built-in-roles.md). Administratörs roller för anpassade roller och [klassiska prenumerationer](../../role-based-access-control/classic-administrators.md) stöds inte.
 
 Alla [inbyggda roller](../../role-based-access-control/built-in-roles.md) stöds för närvarande med Azure Lighthouse, med följande undantag:
 

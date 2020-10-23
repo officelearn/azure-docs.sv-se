@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f1ebbbfed3b3a39e43986a385be87d65d70b175
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885169"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427272"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Spelbok för att lösa vanliga säkerhets krav med Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -791,12 +791,14 @@ De flesta säkerhets standarder hanterar data tillgänglighet när det gäller d
 
 - Azure erbjuder inbyggd hög tillgänglighet: [hög tillgänglighet med SQL Database-och SQL-hanterad instans](high-availability-sla.md)
 
-- Affärskritisk nivån inkluderar redundans grupper, zoner för flera tillgänglighet, fullständiga och differentiella logg säkerhets kopieringar och säkerhets kopiering av tidpunkter som är aktiverade som standard:  
-  - [Redundant konfiguration med hög tillgänglighets zon](high-availability-sla.md#zone-redundant-configuration)
+- I Affärskritisk nivån finns säkerhets kopior av redundans, fullständiga och differentiella loggar och säkerhets kopior för tidpunkter som är aktiverade som standard.  
   - [Automatiserade säkerhetskopieringar](automated-backups-overview.md)
   - [Återställa en databas med hjälp av automatiska säkerhets kopieringar av databaser – återställning av plats vid tid](recovery-using-backups.md#point-in-time-restore)
 
-- Ytterligare funktioner för affärs kontinuitet, till exempel automatisk redundans över olika Azure-geografiska områden, kan konfigureras enligt beskrivningen här: [Översikt över affärs kontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md)
+- Ytterligare funktioner för affärs kontinuitet, till exempel zonens redundanta konfiguration och grupper för automatisk redundans över olika Azure-geografiska områden, kan konfigureras: 
+    - [Redundant konfiguration med hög tillgänglighets zon för Premium-& Affärskritisk tjänst nivåer](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability)
+    - [Redundant konfiguration med hög tillgänglighets zon för Generell användning tjänst nivå](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview)
+    - [Översikt över affärs kontinuitet](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

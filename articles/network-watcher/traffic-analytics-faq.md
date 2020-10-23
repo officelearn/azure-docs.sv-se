@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae87771e8a557ad7cb58c9cad9231784606cdd74
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87479854"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426551"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
 
@@ -58,7 +58,7 @@ Så här kontrollerar du roller som har tilldelats en användare för en prenume
 
 3. Om du vill visa en lista över alla roller som har tilldelats en angiven användare använder du  **Get-AzRoleAssignment-SignInName [user email]-IncludeClassicAdministrators**. 
 
-Om du inte ser några utdata kan du kontakta respektive prenumerations administratör för att få åtkomst till att köra kommandona. Mer information finns i [Hantera rollbaserad åtkomst kontroll med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+Om du inte ser några utdata kan du kontakta respektive prenumerations administratör för att få åtkomst till att köra kommandona. Mer information finns i [lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>I vilka Azure-regioner är Trafikanalys tillgängliga?

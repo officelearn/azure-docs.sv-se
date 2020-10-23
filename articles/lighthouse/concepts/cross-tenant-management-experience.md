@@ -3,12 +3,12 @@ title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b033e141d176db839e897ac4add738a4a799de99
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: c9b47dd720271fe782ce9562d2216eca881756ae
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315937"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424151"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -160,7 +160,7 @@ Support förfrågningar:
 Tänk på följande nuvarande begränsningar i alla scenarier:
 
 - Begär Anden som hanteras av Azure Resource Manager kan utföras med hjälp av Azure dataLighthouses. Åtgärds-URI: erna för dessa begär Anden börjar med `https://management.azure.com` . Begär Anden som hanteras av en instans av en resurs typ (till exempel Key Vault hemligheter åtkomst eller åtkomst till lagrings data) stöds dock inte med Azure-Lighthouse. Åtgärds-URI: erna för dessa begär Anden börjar vanligt vis med en adress som är unik för din instans, till exempel `https://myaccount.blob.core.windows.net` eller `https://mykeyvault.vault.azure.net/` . De sistnämnda är också vanliga data åtgärder i stället för hanterings åtgärder.
-- Roll tilldelningar måste använda [Inbyggda RBAC-roller](../../role-based-access-control/built-in-roles.md)(rollbaserad åtkomst kontroll). Alla inbyggda roller stöds för närvarande med Azure-delegerad resurs hantering förutom för ägare eller inbyggda roller med [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) behörighet. Rollen administratör för användar åtkomst stöds endast för begränsad användning i [tilldela roller till hanterade identiteter](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Administratörs roller för anpassade roller och [klassiska prenumerationer](../../role-based-access-control/classic-administrators.md) stöds inte.
+- Roll tilldelningar måste använda [inbyggda Azure-roller](../../role-based-access-control/built-in-roles.md). Alla inbyggda roller stöds för närvarande med Azure-delegerad resurs hantering förutom för ägare eller inbyggda roller med [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) behörighet. Rollen administratör för användar åtkomst stöds endast för begränsad användning i [tilldela roller till hanterade identiteter](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Administratörs roller för anpassade roller och [klassiska prenumerationer](../../role-based-access-control/classic-administrators.md) stöds inte.
 - Även om du kan publicera prenumerationer som använder Azure Databricks kan användare i hanterings klienten inte starta Azure Databricks arbets ytor i en delegerad prenumeration just nu.
 - Även om du kan publicera prenumerationer och resurs grupper som har resurs lås, kommer dessa lås inte att förhindra att åtgärder utförs av användare i hanterings klienten. [Neka tilldelningar](../../role-based-access-control/deny-assignments.md) som skyddar systemhanterade resurser, t. ex. de som skapats av Azure-hanterade program eller Azure-skisser (systemtilldelade neka-tilldelningar), förhindrar användare i hanterings klienten från att fungera på dessa resurser. men vid den här tidpunkten kan användare i kund klienten inte skapa sina egna neka-tilldelningar (användar tilldelning neka tilldelningar).
 

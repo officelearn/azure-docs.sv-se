@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 10/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c4489e22344d2807b22bf4752add9c336215bec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d1f4c04bf4a26e67a905679db23e303c2762d90c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369715"
+ms.locfileid: "92426400"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Så här distribuerar du uppdateringar och granskar resultat
 
@@ -111,7 +111,7 @@ Utför följande steg för att schemalägga en ny uppdaterings distribution. Ber
     > [!NOTE]
     > När du är klar med att konfigurera distributions schema för en vald Arc-aktiverad server väljer du **Granska + skapa**.
 
-15. Du kommer tillbaka till statusinstrumentpanelen. Välj **distributions scheman** om du vill visa det distributions schema som du har skapat. Högst 500 scheman visas. Om du har fler än 500 scheman och du vill granska den fullständiga listan går du till [program uppdaterings konfiguration – lista](/rest/api/automation/softwareupdateconfigurations/list) REST API metod med version 2019-06-01 eller högre.
+15. Du kommer tillbaka till statusinstrumentpanelen. Välj **distributions scheman** om du vill visa det distributions schema som du har skapat. Högst 500 scheman visas. Om du har fler än 500 scheman och du vill granska den fullständiga listan, se REST API metoden [program uppdaterings konfiguration – lista](/rest/api/automation/softwareupdateconfigurations/list) . Ange API-version 2019-06-01 eller högre.
 
 ## <a name="schedule-an-update-deployment-programmatically"></a>Schemalägga en uppdaterings distribution program mässigt
 

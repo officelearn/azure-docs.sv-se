@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: c29b864fb3a547599f32c00c9e8c27cbdb0e0a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb7619500cc142eca52ca0a1a6e0b670e6b8f51a
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89459614"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425478"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Använda Queue Storage från Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -29,7 +29,7 @@ De scenarier som beskrivs är att **Infoga**, **Granska**, **Hämta**och **ta bo
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-ruby-application"></a>Skapa ett ruby-program
-Skapa ett ruby-program. Instruktioner finns i [skapa en Ruby-app i App Service på Linux](https://docs.microsoft.com/azure/app-service/quickstart-ruby).
+Skapa ett ruby-program. Instruktioner finns i [skapa en Ruby-app i App Service på Linux](/azure/app-service/quickstart-ruby).
 
 ## <a name="configure-your-application-to-access-storage"></a>Konfigurera ditt program för åtkomst till lagring
 Om du vill använda Azure Storage måste du ladda ned och använda ruby Azure-paketet, som innehåller en uppsättning bekvämlighets bibliotek som kommunicerar med lagrings REST tjänsterna.
@@ -148,10 +148,10 @@ Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metode
 azure_queue_service.delete_queue("test-queue")
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Nu när du har lärt dig grunderna i Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter.
 
-* Besök [Azure Storage teamets blogg](https://docs.microsoft.com/archive/blogs/windowsazurestorage/)
+* Besök [Azure Storage teamets blogg](/archive/blogs/windowsazurestorage/)
 * Besök [Azure SDK för ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) -lagringsplatsen på GitHub
 
 En jämförelse mellan Azure Queue Service som diskuteras i den här artikeln och Azure Service Bus köer som beskrivs i artikeln [så här använder du Service Bus köer](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) , se [Azure-köer och Service Bus köer-jämförda och kontrasterande](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

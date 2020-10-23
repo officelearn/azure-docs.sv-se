@@ -8,20 +8,20 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3edf6248d42878bb79115fad925ef38e3353c979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ffbacd9167f6c73fb2815f76f56bfe2ae08eca9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502279"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425944"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database for MariaDB brand Väggs regler med hjälp av Azure CLI
 Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en Azure Database for MariaDB-Server från en speciell IP-adress eller ett intervall med IP-adresser. Med hjälp av praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, Visa och Visa brand Väggs regler för hantering av servern. En översikt över Azure Database for MariaDB brand väggar finns i [Azure Database for MariaDB Server brand Väggs regler](./concepts-firewall-rules.md).
 
 Virtual Network-regler (VNet) kan också användas för att skydda åtkomsten till servern. Lär dig mer om [att skapa och hantera Virtual Network tjänst slut punkter och regler med hjälp av Azure CLI](howto-manage-vnet-cli.md).
 
-## <a name="prerequisites"></a>Förutsättningar
-* [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+## <a name="prerequisites"></a>Krav
+* [Installera Azure CLI](/cli/azure/install-azure-cli).
 * En [Azure Database for MariaDB Server och databas](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Kommandon för brand Väggs regel:

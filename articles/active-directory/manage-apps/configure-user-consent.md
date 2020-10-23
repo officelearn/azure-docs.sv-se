@@ -11,12 +11,13 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 3cfcd758390ff401c786c28d410c4d092a82c37f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.custom: contperfq2
+ms.openlocfilehash: c1c0c3038c687b7f91d3c75d8c4c9589c5e245a3
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368493"
+ms.locfileid: "92427627"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurera hur slutanvändare godkänner program
 
@@ -80,7 +81,7 @@ Om du vill tillåta användar medgivande väljer du vilken app medgivande policy
 
 Ersätt `{consent-policy-id}` med ID för den princip som du vill använda. Du kan välja en [anpassad princip för program medgivande](manage-app-consent-policies.md#create-a-custom-app-consent-policy) som du har skapat, eller så kan du välja bland följande inbyggda principer:
 
-| ID | Beskrivning |
+| ID | Description |
 |:---|:------------|
 | Microsoft-User-default-Low | **Tillåt användar medgivande för appar från verifierade utgivare, för valda behörigheter**<br /> Tillåt endast begränsade användare för appar från verifierade utgivare och appar som registrerats i din klient organisation, och endast för behörigheter som du klassificerar som "låg påverkan". (Glöm inte att [klassificera behörigheter](configure-permission-classifications.md) för att välja vilka behörigheter som användare tillåts att godkänna.) |
 | Microsoft-User-default – bakåtkompatibelt | **Tillåt användar tillstånd för appar**<br /> Med det här alternativet kan alla användare godkänna alla behörigheter som inte kräver administratörs medgivande, för alla program |
@@ -144,7 +145,7 @@ Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://do
 
 1. Förstå inställning svärdet:
 
-    | Inställningen       | Typ         | Beskrivning  |
+    | Inställningen       | Typ         | Description  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Boolesk |  Flagga som anger om användar medgivande ska blockeras när en riskfylld begäran identifieras. |
 

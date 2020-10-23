@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449040"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428105"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Anslut dina AWS-konton till Azure Security Center
 
@@ -42,7 +42,7 @@ I skärm bilden nedan ser du AWS-konton som visas på instrument panelen i Secur
 |Versions tillstånd:|Förhandsgranskning|
 |Priset|Kräver [Azure Defender för servrar](defender-for-servers-introduction.md)|
 |Nödvändiga roller och behörigheter:|**Ägare** eller **deltagare** på den aktuella Azure-prenumerationen|
-|Moln|![Ja](./media/icons/yes-icon.png) Kommersiella moln<br>![Inga](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
+|Moln|![Yes](./media/icons/yes-icon.png) Kommersiella moln<br>![No](./media/icons/no-icon.png) National/suverän (US Gov, Kina gov, andra gov)|
 |||
 
 
@@ -118,9 +118,12 @@ AWS Systems Manager krävs för att automatisera uppgifter över dina AWS-resurs
 - [Installera och konfigurera SSM-agenten på Amazon EC2 Linux-instanser](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### <a name="step-4-create-a-service-principal-for-onboarding-at-scale"></a>Steg 4. Skapa ett huvud namn för tjänsten för onboarding i skala
+### <a name="step-4-complete-azure-arc-prerequisites"></a>Steg 4. Slutför nödvändiga komponenter för Azure båg
+1. Kontrol lera att rätt [Azure-adressresurser](../azure-arc/servers/agent-overview.md#register-azure-resource-providers) är registrerade:
+    - Microsoft. HybridCompute
+    - Microsoft. GuestConfiguration
 
-Som **ägare** till den prenumeration som du vill använda för onboarding skapar du ett tjänst huvud namn för Azure Arc onboarding enligt beskrivningen i [skapa ett tjänst huvud namn för onboarding i skala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
+1. Skapa ett huvud namn för tjänsten för onboarding i stor skala. Som **ägare** till den prenumeration som du vill använda för onboarding skapar du ett tjänst huvud namn för Azure Arc onboarding enligt beskrivningen i [skapa ett tjänst huvud namn för onboarding i stor skala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale).
 
 
 ### <a name="step-5-connect-aws-to-security-center"></a>Steg 5. Anslut AWS till Security Center
@@ -132,9 +135,10 @@ Som **ägare** till den prenumeration som du vill använda för onboarding skapa
     1. Ange ett **visnings namn** för kopplingen.
     1. Bekräfta att prenumerationen är korrekt. Det är den prenumeration som omfattar anslutnings-och AWS för säkerhets nav.
     1. Beroende på vilket autentiseringsalternativ du valde i [steg 2. Konfigurera autentisering för Security Center i AWS](#step-2-set-up-authentication-for-security-center-in-aws):
-        - Välj  **anta roll** och klistra in ARN från [skapa en IAM-roll för Security Center](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel":::
+        - Välj  **anta roll** och klistra in ARN från [skapa en IAM-roll för Security Center](#create-an-iam-role-for-security-center).
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 GCP-projekt som visas på Security Center översikts instrument panel":::
 
-            ELLER
+            OR
 
         - Välj **autentiseringsuppgifter** och klistra in **åtkomst nyckeln** och den **hemliga nyckeln** från CSV-filen som du sparade i [skapa en AWS-användare för Security Center](#create-an-aws-user-for-security-center).
 1. Välj **Nästa**.
@@ -143,7 +147,7 @@ Som **ägare** till den prenumeration som du vill använda för onboarding skapa
     Security Center identifierar EC2-instanserna i det anslutna AWS-kontot och använder SSM för att publicera dem till Azure-bågen. 
 
     > [!TIP]
-    > Listan över operativ system som stöds finns i vanliga frågor och svar nedan.
+    > En lista över operativ system som stöds finns i [vilka operativ system för mina EC2-instanser stöds?](#what-operating-systems-for-my-ec2-instances-are-supported) i vanliga frågor och svar.
 
     1. Välj den **resurs grupp** och den **Azure-region** som identifierade AWS-EC2s kommer att ingå i den valda prenumerationen.
     1. Ange **tjänstens huvud namns-ID** och **tjänstens huvud namn** för Azure-bågen enligt beskrivningen här [skapa ett tjänst huvud namn för onboarding i skala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)

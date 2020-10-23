@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3cc8974be9adb81391134790d85336016a7d9f1c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb403e2d1b11391ca3917478955dc282a174ae88
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204341"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426300"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Azures säkerhets bas linje för Azure Machine Learning
 
@@ -303,13 +303,13 @@ Azure Machine Learning har varierande stöd för olika beräknings resurser och 
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
-**Vägledning**: du kan använda fliken identitets-och åtkomst hantering för en resurs i Azure Portal för att konfigurera rollbaserad åtkomst kontroll (RBAC) och underhålla inventeringen på Azure Machine Learning resurser. Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper.
+**Vägledning**: du kan använda fliken identitets-och åtkomst hantering för en resurs i Azure Portal för att konfigurera rollbaserad åtkomst kontroll i Azure (Azure RBAC) och underhålla inventeringen på Azure Machine Learning resurser. Rollerna tillämpas på användare, grupper, tjänstens huvud namn och hanterade identiteter i Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper.
 
-Azure Machine Learning tillhandahåller inbyggd RBAC för vanliga hanterings scenarier i Azure Machine Learning. En person som har en profil i Azure Active Directory (Azure AD) kan tilldela de här RBAC-rollerna till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Machine Learning resurser.
+Azure Machine Learning innehåller inbyggda roller för vanliga hanterings scenarier i Azure Machine Learning. En person som har en profil i Azure Active Directory (Azure AD) kan tilldela roller till användare, grupper, tjänstens huvud namn eller hanterade identiteter för att bevilja eller neka åtkomst till resurser och åtgärder på Azure Machine Learning resurser.
 
 Du kan också använda Azure AD PowerShell-modulen för att utföra adhoc-frågor för att identifiera konton som är medlemmar i administrativa grupper.
 
-- [Förstå rollbaserad åtkomst kontroll i Azure Machine Learning](how-to-assign-roles.md)
+- [Lär dig mer om rollbaserad åtkomst kontroll i Azure i Azure Machine Learning](how-to-assign-roles.md)
 
 - [Så här hämtar du en katalog roll i Azure Active Directory med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -902,13 +902,13 @@ Azure Machine Learning har fullt stöd för git-lagringsplatser för att spåra 
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7,6: lagra anpassade operativ Systems avbildningar på ett säkert sätt
 
-**Vägledning**: Azure Machine Learning har varierande stöd för olika beräknings resurser och till och med dina egna beräknings resurser. För beräknings resurser som ägs av din organisation använder du Azure rollbaserad åtkomst kontroll (RBAC) för att säkerställa att endast behöriga användare kan komma åt dina anpassade avbildningar. Använd ett galleri för delade Azure-avbildningar du kan dela dina avbildningar till olika användare, tjänst huvud namn eller Azure AD-grupper i din organisation. Lagra behållar avbildningar i Azure Container Registry och Använd RBAC för att säkerställa att endast auktoriserade användare har åtkomst.
+**Vägledning**: Azure Machine Learning har varierande stöd för olika beräknings resurser och till och med dina egna beräknings resurser. För beräknings resurser som ägs av din organisation använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) så att endast behöriga användare kan komma åt dina anpassade avbildningar. Använd ett galleri för delade Azure-avbildningar du kan dela dina avbildningar till olika användare, tjänst huvud namn eller Azure AD-grupper i din organisation. Lagra behållar avbildningar i Azure Container Registry och Använd Azure RBAC för att säkerställa att endast auktoriserade användare har åtkomst.
 
-- [Förstå RBAC i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Förstå Azure RBAC](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-- [Förstå RBAC för Container Registry](../container-registry/container-registry-roles.md)
+- [Lär dig mer om Azure RBAC för Container Registry](../container-registry/container-registry-roles.md)
 
-- [Konfigurera RBAC i Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 - [Översikt över delade avbildnings Galleri](../virtual-machines/windows/shared-image-galleries.md)
 
@@ -1088,7 +1088,7 @@ Azure Machine Learning har varierande stöd för olika beräknings resurser och 
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9,4: se till att skydda säkerhets kopior och Kundhanterade nycklar
 
-**Vägledning**: för lokal säkerhets kopiering tillhandahålls kryptering i vila med den lösen fras som du anger när du säkerhetskopierar till Azure. Använd rollbaserad åtkomst kontroll för att skydda säkerhets kopior och Kundhanterade nycklar. 
+**Vägledning**: för lokal säkerhets kopiering tillhandahålls kryptering i vila med den lösen fras som du anger när du säkerhetskopierar till Azure. Använd rollbaserad åtkomst kontroll i Azure för att skydda säkerhets kopior och Kundhanterade nycklar. 
 
 Aktivera mjuk borttagning och tömning av skydd i Key Vault för att skydda nycklar mot oavsiktlig eller skadlig borttagning. Om Azure Storage används för att lagra säkerhets kopior aktiverar du mjuk borttagning för att spara och återställa data när blobbar eller BLOB-ögonblicksbilder tas bort.
  

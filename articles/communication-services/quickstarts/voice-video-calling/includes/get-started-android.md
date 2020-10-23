@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 460d1c33dcd5284067d14d5d6efa9da9b5b182ae
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 02cf175fc0a29795428ce1b3651469532ff3867c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779759"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92438757"
 ---
 I den här snabb starten får du lära dig hur du startar ett samtal med Azure Communication Services som anropar klient bibliotek för Android.
 
@@ -261,7 +261,7 @@ private void getAllPermissions() {
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient biblioteket:
 
-| Namn                                  | Beskrivning                                                  |
+| Name                                  | Beskrivning                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | CallClient| CallClient är den huvudsakliga start punkten för det anropande klient biblioteket.|
 | CallAgent | CallAgent används för att starta och hantera samtal. |
@@ -321,4 +321,4 @@ Välj projekt mal len &quot;Tom aktivitet":::
 
 ## <a name="sample-code"></a>Exempelkod
 
-Du kan ladda ned exempel appen från [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)
+Du kan ladda ned exempel appen från [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/Add%20Voice%20Calling)

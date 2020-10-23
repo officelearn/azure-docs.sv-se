@@ -8,29 +8,29 @@ ms.devlang: azurepowershell
 ms.topic: how-to
 ms.date: 05/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a3870ae192955df11107f0ebb5c618b90a0cc799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984a5d52dfdd45190cbded5e900d3fcfe2f9ad43
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87833257"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424498"
 ---
 # <a name="how-to-back-up-and-restore-an-azure-database-for-mariadb-server-using-powershell"></a>Säkerhetskopiera och återställa en Azure Database for MariaDB-server med hjälp av PowerShell
 
 Azure Database for MariaDB servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här instruktions guiden behöver du:
 
-- [AZ PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) installeras lokalt eller [Azure Cloud Shell](https://shell.azure.com/) i webbläsaren
+- [AZ PowerShell-modulen](/powershell/azure/install-az-ps) installeras lokalt eller [Azure Cloud Shell](https://shell.azure.com/) i webbläsaren
 - En [Azure Database for MariaDB-Server](quickstart-create-mariadb-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Även om PowerShell-modulen AZ. MariaDb är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande kommando: `Install-Module -Name Az.MariaDb -AllowPrerelease` .
 > När AZ. MariaDb PowerShell-modulen är allmänt tillgänglig blir den en del av framtida versioner av AZ PowerShell-modulen som är tillgängliga internt inifrån Azure Cloud Shell.
 
-Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -75,10 +75,10 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Parameter uppsättningen **PointInTimeRestore** för `Restore-AzMariaDbServer` cmdleten kräver följande parametrar:
 
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
-| Namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| ResourceGroupName |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
+| Name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | RestorePointInTime | 2020-03-13T13:59:00Z | Välj en tidpunkt för återställning. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601 datum-och tids format. Du kan till exempel använda din egen lokala tidszon som **2020-03-13T05:59:00-08:00**. Du kan också använda formatet UTC-Zulu, till exempel **2018-03-13T13:59:00Z**. |
 | UsePointInTimeRestore | `<SwitchParameter>` | Använd punkt-i-Time-läge för att återställa. |
 
@@ -117,11 +117,11 @@ Get-AzMariaDbServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 Parameter **uppsättningen för den här** `Restore-AzMariaDbServer` cmdleten måste ha följande parametrar:
 
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 |ResourceGroupName | myresourcegroup | Namnet på den resurs grupp som den nya servern tillhör.|
-|Namn | mydemoserver – omåterställd | Namnet på den nya servern. |
-|Plats | eastus | Platsen för den nya servern. |
+|Name | mydemoserver – omåterställd | Namnet på den nya servern. |
+|Plats | USA, östra | Platsen för den nya servern. |
 |UseGeoRestore | `<SwitchParameter>` | Använd geo-läge för att återställa. |
 
 När du skapar en ny server med geo Restore ärver den samma lagrings storlek och pris nivå som käll servern om inte parametern **SKU** anges.

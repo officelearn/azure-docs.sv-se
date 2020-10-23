@@ -10,12 +10,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
 ms.author: kenwith
-ms.openlocfilehash: 14e3b23b4246f26e1ac59e0b12b043341546d0a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: fc480ab025a0e0de7cccde8818ddbd85ce6c8529
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018251"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424601"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referens för att skriva uttryck för mappningar av attribut i Azure AD
 
@@ -142,7 +143,7 @@ Returnerar "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 Returnerar 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>Count
+### <a name="count"></a>Antal
 **Funktion:** Count (attribut)
 
 **Beskrivning:** Funktionen COUNT returnerar antalet element i ett multi-värde-attribut
@@ -180,7 +181,7 @@ Returnerar "CN = Johan, DC = contoso, DC = com"
 
 | Name | Krävs/upprepas | Typ | Kommentarer |
 | --- | --- | --- | --- |
-| **värde** |Obligatorisk | Datum | AD-datum som ska konverteras till DateTime-typ |
+| **värde** |Obligatorisk | Date | AD-datum som ska konverteras till DateTime-typ |
 
 **Exempel**
 `DateFromNum([lastLogonTimestamp])`
@@ -238,7 +239,7 @@ Returnerar en DateTime som representerar 1 januari 2012 vid 11:12:00.
 | --- | --- | --- | --- |
 | **value1** |Obligatorisk |Sträng |Sträng som ska genomsökas |
 | **värde2** |Obligatorisk |Sträng |Sträng som ska hittas |
-| **har** |Valfritt |Heltal |Start position för att hitta del strängen|
+| **har** |Valfritt |Integer |Start position för att hitta del strängen|
 | **compareType** |Valfritt |Enum |Kan vara vbTextCompare eller vbBinaryCompare |
 
 **Exempel**
@@ -323,7 +324,7 @@ Returnerar true om attributet inte finns eller är en tom sträng.
 | Name | Krävs/upprepas | Typ | Kommentarer |
 | --- | --- | --- | --- |
 | **basattributet** |Obligatorisk |Attribut |Multi-Value-attribut som ska genomsökas |
-| **Tabbindex** |Obligatorisk |Heltal | Index till ett objekt i en multi-Value-sträng|
+| **Tabbindex** |Obligatorisk |Integer | Index till ett objekt i en multi-Value-sträng|
 
 **Exempel**
 `Item([proxyAddresses], 1)`
@@ -357,7 +358,7 @@ Om strängen innehåller färre tecken än det tal som anges i numChars returner
 | Name | Krävs/upprepas | Typ | Kommentarer |
 | --- | --- | --- | --- |
 | **Sträng** |Obligatorisk |Attribut | Strängen att returnera tecken från |
-| **NumChars** |Obligatorisk |Heltal | Ett tal som identifierar antalet tecken som ska returneras från början (vänster) av sträng|
+| **NumChars** |Obligatorisk |Integer | Ett tal som identifierar antalet tecken som ska returneras från början (vänster) av sträng|
 
 **Exempel**
 `Left("John Doe", 3)`
@@ -585,7 +586,7 @@ Om strängen innehåller färre än tal ord, eller om strängen inte innehåller
 | Name | Krävs/upprepas | Typ | Kommentarer |
 | --- | --- | --- | --- |
 | **Sträng** |Obligatorisk |Multi-Value-attribut |Sträng för att returnera ett ord från.|
-| **WordNumber** |Obligatorisk | Heltal | Nummer som identifierar vilket ord nummer som ska returneras|
+| **WordNumber** |Obligatorisk | Integer | Nummer som identifierar vilket ord nummer som ska returneras|
 | **avgränsare** |Obligatorisk |Sträng| En sträng som representerar de avgränsare som ska användas för att identifiera ord|
 
 **Exempel**

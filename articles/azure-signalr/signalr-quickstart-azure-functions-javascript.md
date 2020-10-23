@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
 ms.custom: devx-track-js
-ms.openlocfilehash: c210096c1765015378f12f8c5e01fc9f8f97e10b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 02bcbf0b4f6f6021c157a8ba3c5d2783fc94f1aa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327688"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425327"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Snabb start: Använd Java Script för att skapa ett chattrum med Azure Functions-och signaler-tjänsten
 
 Med Azure SignalR service kan du enkelt lägga till real tids funktioner i ditt program och Azure Functions är en plattform utan server som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabb starten använder du Java Script för att bygga ett Server lös chatt-program i real tid med hjälp av SignalR service och functions.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En kod redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -58,7 +58,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. Markera och kopiera den primära anslutningssträngen.
 
-    ![Skapa SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
+    ![Skärm bild som markerar den primära anslutnings strängen.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
 1. I kod redigeraren öppnar du mappen *src/Chat/JavaScript* i den klonade lagrings platsen.
 

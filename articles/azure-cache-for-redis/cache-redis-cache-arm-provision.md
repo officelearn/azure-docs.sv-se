@@ -1,22 +1,22 @@
 ---
 title: Distribuera Azure cache för Redis med hjälp av Azure Resource Manager mall
-description: Lär dig hur du använder en Azure Resource Manager-mall för att distribuera en Azure-cache för Redis-resursen. Mallar finns för vanliga scenarier.
+description: Lär dig hur du använder en Azure Resource Manager mall (ARM-mall) för att distribuera en Azure-cache för Redis-resursen. Mallar finns för vanliga scenarier.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0445aeaea6f99754469d5c0e46972aef2ed667aa
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461246"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424209"
 ---
-# <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Skapa en Azure-cache för Redis med hjälp av en Resource Manager-mall
+# <a name="create-an-azure-cache-for-redis-using-an-arm-template"></a>Skapa en Azure-cache för Redis med en ARM-mall
 
-Lär dig hur du skapar en Azure Resource Manager-mall som distribuerar en Azure-cache för Redis. Cachen kan användas med ett befintligt lagrings konto för att behålla diagnostikdata. Du lär dig också hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Diagnostiska inställningar delas för närvarande för alla cacheminnen i samma region för en prenumeration. Att uppdatera en cache i regionen påverkar alla andra cacheminnen i regionen.
+Lär dig hur du skapar en Azure Resource Manager mall (ARM-mall) som distribuerar en Azure-cache för Redis. Cachen kan användas med ett befintligt lagrings konto för att behålla diagnostikdata. Du lär dig också hur du definierar vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav. Diagnostiska inställningar delas för närvarande för alla cacheminnen i samma region för en prenumeration. Att uppdatera en cache i regionen påverkar alla andra cacheminnen i regionen.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -46,7 +46,7 @@ Resource Manager-mallar för den nya [Premium-nivån](cache-overview.md#service-
 * [Skapa Premium Azure-cache för Redis med data persistence](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
 * [Skapa Premium-Redis Cache distribueras till en Virtual Network](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 
-Du kan söka efter de senaste mallarna i [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/) och söka efter `Azure Cache for Redis` .
+Du kan söka efter de senaste mallarna i [Azure snabb starts mallar](https://azure.microsoft.com/documentation/templates/) och söka efter _Azure cache för Redis_.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -59,14 +59,14 @@ Du kan söka efter de senaste mallarna i [Azure snabb starts mallar](https://azu
     * **Resurs grupp**: Välj **Skapa ny** för att skapa en ny resurs grupp eller Välj en befintlig resurs grupp.
     * **Plats**: Välj en plats för resursgruppen. Lagrings kontot och Redis-cachen måste vara i samma region. Som standard använder Redis-cachen samma plats som resurs gruppen. Ange därför samma plats som lagrings kontot.
     * **Redis cache namn**: Ange ett namn för Redis-cachen.
-    * **Befintligt diagnostik-lagrings konto**: Ange resurs-ID för ett lagrings konto. Syntaxen är **/Subscriptions/ &lt; PRENUMERATIONS-ID>/RESOURCEGROUPS/ &lt; resurs grupp namn>/providers/Microsoft.Storage/STORAGEACCOUNTS/ &lt; lagrings konto namn>**.
+    * **Befintligt diagnostik-lagrings konto**: Ange resurs-ID för ett lagrings konto. Syntax: `/subscriptions/&lt;SUBSCRIPTION ID>/resourceGroups/&lt;RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/&lt;STORAGE ACCOUNT NAME>`.
 
     Använd standardvärdet för resten av inställningarna.
 1. Välj **Jag accepterar de villkor som anges ovan**och välj **köp**.
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Öppna Redis-cachen som du skapade.
 
 ## <a name="clean-up-resources"></a>Rensa resurser

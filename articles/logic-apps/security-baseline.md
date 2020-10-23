@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1846a6d94b81a907ac05fe92151c860aab457292
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9630919b71afd0219a2e82a86e0f89106e8a0ac2
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315827"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424064"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Azures säkerhets bas linje för Logic Apps
 
@@ -182,7 +182,7 @@ Distribuera den brand Väggs lösning som du väljer för var och en av organisa
 
 - DDoS Protection standard ska vara aktive rad
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll (RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll i Azure (Azure RBAC) och principer, i en enda skiss definition. Använd enkelt skissen på nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -578,7 +578,7 @@ För Logic Apps som behöver direkt åtkomst till resurser i ett virtuellt Azure
 
 När du skapar din ISE kan du välja att använda antingen interna eller externa slut punkter för åtkomst. Ditt val bestämmer om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket.
 
-Implementera dessutom isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via Azure Active Directory rollbaserad åtkomst kontroll.
+Implementera dessutom isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 - [Förstå anslutningar för Logic Apps](../connectors/apis-list.md)
 
@@ -644,9 +644,9 @@ Microsoft hanterar den underliggande infrastrukturen för Azure Logic Apps och h
 
 **Ansvars område**: delat
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: du kan endast tillåta vissa användare eller grupper att köra vissa uppgifter, till exempel hantera, redigera och Visa Logic Apps. Om du vill kontrol lera deras behörigheter använder du Azure Role-Based Access Control (RBAC) så att du kan tilldela anpassade eller inbyggda roller till medlemmarna i din Azure-prenumeration:
+**Vägledning**: du kan endast tillåta vissa användare eller grupper att köra vissa uppgifter, till exempel hantera, redigera och Visa Logic Apps. Om du vill kontrol lera deras behörigheter använder du rollbaserad åtkomst kontroll i Azure (Azure RBAC) så att du kan tilldela de anpassade eller inbyggda rollerna till medlemmarna i din Azure-prenumeration:
 
 - Logic app-deltagare: låter dig hantera Logi Kap par, men du kan inte ändra åtkomsten till dem.
 - Logic app-operator: låter dig läsa, aktivera och inaktivera Logic Apps, men du kan inte redigera eller uppdatera dem.
@@ -883,7 +883,7 @@ Använd Azure Resource Graph för att fråga/identifiera resurser i sina prenume
 
 **Vägledning**: resurser som är relaterade till dina Logic Apps som krävs för affärs åtgärder, men som kan ådra sig högre risk för organisationen, bör isoleras inom en egen virtuell dator och/eller ett virtuellt nätverk och tillräckligt säkert med antingen en Azure-brandvägg eller en nätverks säkerhets grupp.
 
-Logic Apps som krävs för affärs åtgärder, men kan ådra sig högre risk för organisationen, bör isoleras när det är möjligt via separata resurs grupper med specifika behörigheter och RBAC-gränser.
+Logic Apps som krävs för affärs åtgärder, men kan ådra sig högre risk för organisationen, bör isoleras när det är möjligt via separata resurs grupper med specifika behörigheter och Azure RBAC-gränser.
 
 - [Så här skapar du ett virtuellt nätverk](../virtual-network/quick-create-portal.md) 
 
@@ -891,7 +891,7 @@ Logic Apps som krävs för affärs åtgärder, men kan ådra sig högre risk fö
 
 - [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md) 
 
-- [Skydda åtkomsten till Logic Apps via RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+- [Skydda åtkomsten till Logic Apps via Azure RBAC](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

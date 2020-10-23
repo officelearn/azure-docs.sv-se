@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 66e280f20109967f029a14e368fdb0aeea269aad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db85892115f345039353cd90eeedbe809eb6ae67
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536621"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425578"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replikera data till Azure Database for MariaDB
 
@@ -34,8 +34,8 @@ Huvud scenarierna för att överväga att använda Datareplikering är:
 - Varje tabell måste ha en primär nyckel.
 - Käll servern bör använda InnoDB-motorn.
 - Användaren måste ha behörighet att konfigurera binär loggning och skapa nya användare på käll servern.
-- Om käll servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mariadb.az_replication_change_master` lagrade proceduren. Se följande [exempel](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
-- Se till att käll serverns IP-adress har lagts till Azure Database for MariaDB replik serverns brand Väggs regler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) eller [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
+- Om käll servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mariadb.az_replication_change_master` lagrade proceduren. Se följande [exempel](howto-data-in-replication.md#link-the-source-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
+- Se till att käll serverns IP-adress har lagts till Azure Database for MariaDB replik serverns brand Väggs regler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](howto-manage-firewall-portal.md) eller [Azure CLI](howto-manage-firewall-cli.md).
 - Se till att den dator som är värd för käll servern tillåter både inkommande och utgående trafik på port 3306.
 - Kontrol lera att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
 

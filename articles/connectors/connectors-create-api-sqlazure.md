@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 534b9fedc6649d3174ea65caf51b28004de7bda2
-ms.sourcegitcommit: a75ca63da5c0cc2aff5fb131308853b9edb41552
+ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92169395"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426609"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för en SQL-databas med hjälp av Azure Logic Apps
 
@@ -74,10 +74,10 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
 1. För **Autentiseringstyp**väljer du den autentisering som krävs och är aktive rad på databasen i Azure SQL Database eller Azure SQL-hanterad instans:
 
-   | Autentisering | Beskrivning |
+   | Autentisering | Description |
    |----------------|-------------|
    | [**Azure AD-integrerad**](../azure-sql/database/authentication-aad-overview.md) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver en giltig identitet i Azure Active Directory (Azure AD) som har åtkomst till din databas. <p>Mer information finns i de här ämnena: <p>- [Översikt över Azure SQL-säkerhet – autentisering](../azure-sql/database/security-overview.md#authentication) <br>- [Auktorisera databas åtkomst till Azure SQL – autentisering och auktorisering](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL – integrerad Azure AD-autentisering](../azure-sql/database/authentication-aad-overview.md) |
-   | [**SQL Server autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i databasen. <p>Mer information finns i de här ämnena: <p>- [Översikt över Azure SQL-säkerhet – autentisering](../azure-sql/database/security-overview.md#authentication) <br>- [Auktorisera databas åtkomst till Azure SQL – autentisering och auktorisering](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**SQL Server-autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i databasen. <p>Mer information finns i de här ämnena: <p>- [Översikt över Azure SQL-säkerhet – autentisering](../azure-sql/database/security-overview.md#authentication) <br>- [Auktorisera databas åtkomst till Azure SQL – autentisering och auktorisering](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
    Det här exemplet fortsätter med **Azure AD Integrated**:
@@ -91,8 +91,8 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Servernamn** | Yes | Adressen till din SQL-Server, till exempel `Fabrikam-Azure-SQL.database.windows.net` |
-   | **Databasnamn** | Ja | Namnet på din SQL-databas, till exempel `Fabrikam-Azure-SQL-DB` |
-   | **Tabell namn** | Ja | Den tabell som du vill använda, till exempel `SalesLT.Customer` |
+   | **Databasnamn** | Yes | Namnet på din SQL-databas, till exempel `Fabrikam-Azure-SQL-DB` |
+   | **Tabellnamn** | Yes | Den tabell som du vill använda, till exempel `SalesLT.Customer` |
    ||||
 
    > [!TIP]
@@ -118,10 +118,10 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
 1. För **Autentiseringstyp**väljer du den autentisering som krävs och är aktive rad på SQL Server:
 
-   | Autentisering | Beskrivning |
+   | Autentisering | Description |
    |----------------|-------------|
    | [**Windows-autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Stöder endast non-ISE SQL Server-anslutningen, som kräver en data gateway-resurs som tidigare har skapats i Azure för anslutningen, oavsett om du använder Azure med flera innehavare eller en ISE. <p><p>-Kräver ett giltigt Windows-användarnamn och-lösen ord för att bekräfta din identitet via ditt Windows-konto. <p>Mer information finns i [Windows-autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) |
-   | [**SQL Server autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i SQL Server. <p>Mer information finns i [SQL Server autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**SQL Server-autentisering**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | – Stöder både non-ISE-och ISE SQL Server-anslutningen. <p><p>-Kräver ett giltigt användar namn och ett starkt lösen ord som skapas och lagras i SQL Server. <p>Mer information finns i [SQL Server autentisering](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
    Det här exemplet fortsätter med **Windows-autentisering**:
@@ -132,10 +132,10 @@ Första gången du lägger till en SQL- [utlösare](#add-sql-trigger) eller [SQL
 
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
-   | **SQL Server-namn** | Ja | Adressen till din SQL-Server, till exempel `Fabrikam-Azure-SQL.database.windows.net` |
-   | **SQL-databasens namn** | Ja | Namnet på SQL Server databasen, till exempel `Fabrikam-Azure-SQL-DB` |
-   | **Användarnamn** | Ja | Ditt användar namn för SQL Server och databasen |
-   | **Lösenord** | Ja | Ditt lösen ord för SQL Server och databasen |
+   | **SQL Server-namn** | Yes | Adressen till din SQL-Server, till exempel `Fabrikam-Azure-SQL.database.windows.net` |
+   | **SQL-databasens namn** | Yes | Namnet på SQL Server databasen, till exempel `Fabrikam-Azure-SQL-DB` |
+   | **Användarnamn** | Yes | Ditt användar namn för SQL Server och databasen |
+   | **Lösenord** | Yes | Ditt lösen ord för SQL Server och databasen |
    | **Prenumeration** |  Ja, för Windows-autentisering | Azure-prenumerationen för den data gateway-resurs som du tidigare skapade i Azure |
    | **Gateway för anslutning** | Ja, för Windows-autentisering | Namnet på den data gateway-resurs som du tidigare skapade i Azure <p><p>**Tips**: om din Gateway inte visas i listan kontrollerar du att du har konfigurerat [din gateway](../logic-apps/logic-apps-gateway-connection.md)korrekt. |
    |||
@@ -214,19 +214,16 @@ I det här exemplet börjar Logic-appen med [upprepnings utlösaren](../connecto
 
 Ibland måste du arbeta med resultat uppsättningar så att kopplingen inte returnerar alla resultat samtidigt, eller om du vill ha bättre kontroll över storleken och strukturen för dina resultat uppsättningar. Här är några exempel på hur du kan hantera sådana stora resultat uppsättningar:
 
-* För att hjälpa dig att hantera resultat som mindre mängder, aktiverar du *sid brytning*. Mer information finns i [Hämta Mass data, poster och objekt med hjälp av sid brytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
+* För att hjälpa dig att hantera resultat som mindre mängder, aktiverar du *sid brytning*. Mer information finns i [Hämta Mass data, poster och objekt med hjälp av sid brytning](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Mer information finns i [SQL-sid brytning för Mass data överföring med Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
 
-* Skapa en lagrad procedur som ordnar resultatet på det sätt som du vill.
+* Skapa en [*lagrad procedur*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) som ordnar resultatet på det sätt som du vill. SQL-anslutningen innehåller många backend-funktioner som du kan komma åt genom att använda Azure Logic Apps så att du enkelt kan automatisera affärs uppgifter som fungerar med SQL Database-tabeller.
 
   När du hämtar eller infogar flera rader kan din Logi Kap par iterera genom de här raderna genom att använda en [*loop till*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) i dessa [gränser](../logic-apps/logic-apps-limits-and-config.md). Men när din Logic-app måste arbeta med post uppsättningar så stor, till exempel tusentals eller miljon tals rader, vill du minimera kostnaderna som uppstår vid anrop till databasen.
 
-  För att ordna resultaten på det sätt som du vill ha, kan du skapa en [*lagrad procedur*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) som körs i SQL-instansen och som använder instruktionen **Select-order by** . Den här lösningen ger dig större kontroll över storleken och strukturen på resultaten. Din Logi Kap par anropar den lagrade proceduren med hjälp av åtgärden SQL Server Connector: s **Kör lagrad procedur** .
+  För att ordna resultaten på det sätt som du vill ha, kan du skapa en lagrad procedur som körs i SQL-instansen och som använder instruktionen **Select-order by** . Den här lösningen ger dig större kontroll över storleken och strukturen på resultaten. Din Logi Kap par anropar den lagrade proceduren med hjälp av åtgärden SQL Server Connector: s **Kör lagrad procedur** . Mer information finns i [Select-order by-sats](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
-  Mer information om lösningar finns i följande artiklar:
-
-  * [SQL-sid brytning för Mass data överföring med Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
-
-  * [SELECT-ORDER BY-sats](/sql/t-sql/queries/select-order-by-clause-transact-sql)
+  > [!NOTE]
+  > Med den här kopplingen är en lagrad procedur som är begränsad till en [tids gräns på mindre än 2 minuter](/connectors/sql/#known-issues-and-limitations). Vissa lagrade procedurer kan ta längre tid än den här begränsningen att bearbeta och slutföra hela tiden, vilket genererar ett `504 TIMEOUT` fel. I själva verket är vissa långvariga processer kodade som lagrade procedurer explicit för detta ändamål. Att anropa dessa procedurer från Azure Logic Apps kan skapa problem på grund av denna tids gräns. Även om SQL-anslutaren inte har inbyggt stöd för ett asynkront läge, kan du simulera det här läget genom att använda en SQL-utlösare, en intern SQL-direktautentisering, en tillstånds tabell och jobb på Server sidan med hjälp av [Azure elastiska jobb agenten](../azure-sql/database/elastic-jobs-overview.md).
 
 ### <a name="handle-dynamic-bulk-data"></a>Hantera dynamiska Mass data
 
@@ -253,13 +250,13 @@ När du anropar en lagrad procedur med hjälp av SQL Server Connector är den re
 
 ## <a name="troubleshoot-problems"></a>Felsöka problem
 
-Problem med anslutningen kan vanligt vis inträffa, så för att felsöka och lösa dessa typer av problem kan du gå igenom [lösa anslutnings fel till SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Här följer några exempel:
+* Problem med anslutningen kan vanligt vis inträffa, så för att felsöka och lösa dessa typer av problem kan du gå igenom [lösa anslutnings fel till SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). Här följer några exempel:
 
-* `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+  * `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
 
-* `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+  * `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
 
-* `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+  * `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
 
 ## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 

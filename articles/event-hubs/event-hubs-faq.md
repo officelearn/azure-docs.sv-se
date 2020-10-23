@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en lista med vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: 94ddfbf0803ea7ab53b1b42b977a9ebdd2354bc5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2c58f67fed880b8aad60ff1a46a587dcf514102e
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369615"
+ms.locfileid: "92424188"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -206,7 +206,7 @@ Du skapar ett Event Hubs dedikerat kluster genom att skicka en [kvot som ökar s
 ## <a name="best-practices"></a>Bästa praxis
 
 ### <a name="how-many-partitions-do-i-need"></a>Hur många partitioner behöver jag?
-Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Antalet partitioner kan inte ändras, så du bör överväga långsiktig skalning när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Mer information om partitioner finns i [partitioner](event-hubs-features.md#partitions).
+Antalet partitioner anges när det skapas och måste vara mellan 1 och 32. Antalet partitioner kan inte ändras, så du bör överväga långsiktig skalning när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Mer information om partitioner finns i [partitioner](event-hubs-features.md#partitions).
 
 Du kanske vill ange att den ska vara det högsta möjliga värdet, vilket är 32 vid tidpunkten för skapandet. Kom ihåg att om du har mer än en partition resulterar det i händelser som skickas till flera partitioner utan att behållas i ordningen, om du inte konfigurerar avsändare till att bara skicka till en enda partition av 32 som lämnar de återstående 31 partitionerna överflödiga. I det förra fallet måste du läsa händelser över alla 32-partitioner. I det senare fallet finns det ingen tydlig ytterligare kostnad utöver den extra konfiguration som du måste göra på händelse bearbetnings värden.
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 10/21/2020
 ms.author: cherylmc
-ms.openlocfilehash: 18367ec163511fac2e90cc5dd0dd0ad6b091afc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94ad0a05dafe2c405b1b9cb62242675aa54c4432
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976218"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424374"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Om konfigurations inställningar för VPN Gateway
 
@@ -53,11 +53,11 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Konfigurera en gateway-SKU
 
-#### <a name="azure-portal"></a>Azure Portal
+**Azure-portalen**
 
 Om du använder Azure Portal för att skapa en virtuell nätverksgateway i Resource Manager kan du välja Gateway-SKU: n med hjälp av list rutan. De alternativ som visas motsvarar den gateway-typ och VPN-typ som du väljer.
 
-#### <a name="powershell"></a>PowerShell
+**PowerShell**
 
 Följande PowerShell-exempel anger `-GatewaySku` as-VpnGw1. När du använder PowerShell för att skapa en gateway måste du först skapa IP-konfigurationen och sedan använda en variabel för att referera till den. I det här exemplet är konfigurations variabeln $gwipconfig.
 
@@ -67,7 +67,7 @@ New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="azure-cli"></a>Azure CLI
+**Azure CLI**
 
 ```azurecli
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
@@ -82,6 +82,12 @@ Om du har en VPN-gateway och vill använda en annan gateway-SKU, måste du antin
 3. Du **kan inte** ändra storlek från Basic/standard/HighPerformance SKU: er till VpnGw SKU: er. Du måste i stället [ändra](#change) till de nya SKU: erna.
 
 #### <a name="to-resize-a-gateway"></a><a name="resizegwsku"></a>Ändra storlek på en gateway
+
+**Azure-portalen**
+
+[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
+
+**PowerShell**
 
 [!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
 

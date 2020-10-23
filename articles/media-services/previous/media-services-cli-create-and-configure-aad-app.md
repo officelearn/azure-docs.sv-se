@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: juliako
-ms.openlocfilehash: ceb01c97ec50f4e2a7aa146448c3da662d4314ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d6beac446f8a15a41daf0dfe8ca1783c95c775
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89258358"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427241"
 ---
 # <a name="use-azure-cli-to-create-an-azure-ad-app-and-configure-it-to-access-media-services-api"></a>Använd Azure CLI för att skapa en Azure AD-App och konfigurera den för åtkomst till Media Services-API
 
@@ -29,14 +29,14 @@ ms.locfileid: "89258358"
 
 Det här avsnittet visar hur du använder Azure CLI för att skapa ett Azure Active Directory (Azure AD)-program och tjänstens huvud namn för att få åtkomst till Azure Media Services resurser. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett Azure-konto. Mer information finns i [kostnads fri utvärderings version av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Ett Media Services-konto. Mer information finns i [skapa ett Azure Media Services konto med hjälp av Azure Portal](media-services-portal-create-account.md).
 
 ## <a name="use-the-azure-cloud-shell"></a>Använd Azure Cloud Shell
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Starta Cloud Shell från det övre navigerings fönstret i portalen.
 
     ![Cloud Shell](./media/media-services-cli-create-and-configure-aad-app/media-services-cli-create-and-configure-aad-app01.png) 
@@ -67,7 +67,7 @@ Det kan till exempel vara någon av följande nivåer:
 
 Mer information finns i [skapa ett huvud namn för Azure-tjänsten med Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli)
 
-Se även [hantera Role-Based Access Control med kommando rads gränssnittet i Azure](../../role-based-access-control/role-assignments-cli.md). 
+Se även [lägga till eller ta bort Azure-roll tilldelningar med Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 

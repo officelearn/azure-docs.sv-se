@@ -1,6 +1,6 @@
 ---
-title: Rollbaserad åtkomst kontroll för Media Services konton – Azure | Microsoft Docs
-description: Den här artikeln beskriver rollbaserad åtkomst kontroll (RBAC) för Azure Media Services-konton.
+title: Rollbaserad åtkomst kontroll i Azure för Media Services konton – Azure | Microsoft Docs
+description: Den här artikeln beskriver rollbaserad åtkomst kontroll i Azure (Azure RBAC) för Azure Media Services-konton.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: d6bc37a8aaddfb48e6d06eb46d9c1648e815b5ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fba3db14c2a950dd230a4721841b4baa9f64636
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89289264"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426800"
 ---
-# <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Rollbaserad åtkomst kontroll (RBAC) för Media Services-konton
+# <a name="azure-role-based-access-control-azure-rbac-for-media-services-accounts"></a>Rollbaserad åtkomst kontroll i Azure (Azure RBAC) för Media Services-konton
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -27,7 +27,7 @@ För närvarande definierar Azure Media Services inte några anpassade roller so
 
 ## <a name="design-principles"></a>Designprinciper
 
-En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3-API: er returnerar inte hemligheter eller autentiseringsuppgifter för **Get** -eller **list** åtgärder. Nycklarna är alltid null, tomma eller oberoende av svaret. Användaren måste anropa en separat åtgärds metod för att få hemligheter eller autentiseringsuppgifter. Rollen **läsare** kan inte anropa åtgärder som till gång. ListContainerSas, StreamingLocator. ListContentKeys, ContentKeyPolicies. GetPolicyPropertiesWithSecrets. Med separata åtgärder kan du ställa in mer detaljerade RBAC-säkerhetsbehörigheter i en anpassad roll om du vill.
+En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3-API: er returnerar inte hemligheter eller autentiseringsuppgifter för **Get** -eller **list** åtgärder. Nycklarna är alltid null, tomma eller oberoende av svaret. Användaren måste anropa en separat åtgärds metod för att få hemligheter eller autentiseringsuppgifter. Rollen **läsare** kan inte anropa åtgärder som till gång. ListContainerSas, StreamingLocator. ListContentKeys, ContentKeyPolicies. GetPolicyPropertiesWithSecrets. Med separata åtgärder kan du ställa in mer detaljerade Azure RBAC-säkerhetsbehörigheter i en anpassad roll om du vill.
 
 Gör så här om du vill visa vilka åtgärder som Media Services stöder:
 
@@ -42,9 +42,9 @@ Den [inbyggda roll definitions](../../role-based-access-control/built-in-roles.m
 
 Mer information finns i följande artiklar:
 
-- [Klassiska administratörs roller för prenumeration, Azure-roller och Azure AD-administratörskonton](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Klassiska administratörs roller för prenumeration, Azure-roller och Azure AD-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 - [Vad är rollbaserad åtkomstkontroll i Azure (Azure RBAC)?](../../role-based-access-control/overview.md)
-- [Använd RBAC för att hantera åtkomst](../../role-based-access-control/role-assignments-rest.md)
+- [Lägga till eller ta bort Azure-rolltilldelningar med hjälp av REST API](../../role-based-access-control/role-assignments-rest.md)
 - [Åtgärder för Media Services Resource Provider](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
 ## <a name="next-steps"></a>Nästa steg

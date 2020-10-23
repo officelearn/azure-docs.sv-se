@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: ca9a74763715c5c68526ff3213a14d2148f5ad30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3637eb5e9f6f70d0f53d7b1cb97bd348c114bc
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83834313"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424414"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Så här använder du förklaringar för att profilera frågor om prestanda i Azure Database for MariaDB
 **Förklaring** är ett användbart verktyg för att optimera frågor. FÖRKLARINGs instruktionen kan användas för att hämta information om hur SQL-uttryck körs. Följande utdata visar ett exempel på körning av en FÖRKLARINGs instruktion.
@@ -54,10 +54,10 @@ possible_keys: id
 ```
 
 Den nya förklaringen visar att MariaDB nu använder ett index för att begränsa antalet rader till 1, vilket i sin tur förkortade Sök tiden dramatiskt.
- 
+ 
 ## <a name="covering-index"></a>Täcker index
 Ett täcker index består av alla kolumner i en fråga i indexet för att minska värde hämtningen från data tabeller. Här är en illustration i följande **Group by** -instruktion.
- 
+ 
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -76,10 +76,10 @@ possible_keys: NULL
 ```
 
 Som kan ses från utdata använder MariaDB inte några index eftersom det inte finns några lämpliga index. Den visar också *användning av temporärt. Att använda fil sortering*, vilket innebär att MariaDB skapar en temporär tabell för att uppfylla **Group by** -satsen.
- 
+ 
 Att skapa ett index för enbart Column **C2** gör ingen skillnad, och MariaDB måste fortfarande skapa en tillfällig tabell:
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY (c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -99,7 +99,7 @@ possible_keys: NULL
 
 I det här fallet kan ett **index som omfattas** både **C1** och **C2** skapas, genom att lägga till värdet **C2**direkt i indexet för att eliminera ytterligare data sökning.
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
 *************************** 1. row ***************************
@@ -120,7 +120,7 @@ possible_keys: covered
 Som beskrivs ovan, använder MariaDB nu det skyddade indexet och undviker att skapa en temporär tabell. 
 
 ## <a name="combined-index"></a>Kombinerat index
-Ett kombinerat index består av värden från flera kolumner och kan betraktas som en matris med rader som sorteras efter sammanfogning av värden för de indexerade kolumnerna.Den här metoden kan vara användbar i en **Group by** -instruktion.
+Ett kombinerat index består av värden från flera kolumner och kan betraktas som en matris med rader som sorteras efter sammanfogning av värden för de indexerade kolumnerna. Den här metoden kan vara användbar i en **Group by** -instruktion.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -141,7 +141,7 @@ possible_keys: NULL
 
 MariaDB utför en *fil sorterings* åtgärd som är ganska långsam, särskilt när den måste sortera många rader. För att optimera den här frågan kan ett kombinerat index skapas i båda kolumnerna som sorteras.
 
-```sql 
+```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
 *************************** 1. row ***************************
@@ -160,10 +160,10 @@ possible_keys: NULL
 ```
 
 FÖRKLARINGEN visar nu att MariaDB kan använda kombinerat index för att undvika ytterligare sortering eftersom indexet redan har sorterats.
- 
+ 
 ## <a name="conclusion"></a>Slutsats
- 
+ 
 Att använda förklaringar och olika typer av index kan öka prestandan avsevärt. Att ha ett index i tabellen innebär inte nödvändigt vis att MariaDB skulle kunna använda den för dina frågor. Validera alltid dina antaganden med hjälp av förklara och optimera dina frågor med hjälp av index.
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill hitta peer-svar på dina mest aktuella frågor eller publicera en ny fråga/svar kan du besöka [Microsoft Q&en fråge sida](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+- Om du vill hitta peer-svar på dina mest aktuella frågor eller publicera en ny fråga/svar kan du besöka [Microsoft Q&en fråge sida](/answers/topics/azure-database-mariadb.html) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

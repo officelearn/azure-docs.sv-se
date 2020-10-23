@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2cc2f954f4255c00b7c3549ab5d33d71b240fb70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 980ba86a9916e13dd2ac7639bd06d3ab8546d2f1
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86507682"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424695"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimera ditt CloudSimple privata moln för att installera Oracle RAC
 
@@ -46,14 +46,14 @@ I följande exempel används diskarna som definierats i tabellen nedan.
 
 | Disk                                      | Syfte                                       | Delad disk |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| Operativsystem                                        | Operativsystemdisk                         | Inga          |
-| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | Inga          |
-| DATABASE                                  | Installations plats för Oracle Database-programvara | Inga          |
-| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | Inga          |
-| DATA1, DATA2, DATA3, DATA4                | Disk där Oracle-databasfiler lagras   | Ja         |
-| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Gör om logg diskar                                | Ja         |
-| OCR1, OCR2, OCR3, OCR4, OCR5              | Röstnings diskar                                  | Ja         |
-| FRA1, FRA2                                | Snabba återställnings områden diskar                      | Ja         |
+| Operativsystem                                        | Operativsystemdisk                         | No          |
+| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | No          |
+| DATABASE                                  | Installations plats för Oracle Database-programvara | No          |
+| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | No          |
+| DATA1, DATA2, DATA3, DATA4                | Disk där Oracle-databasfiler lagras   | Yes         |
+| REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Gör om logg diskar                                | Yes         |
+| OCR1, OCR2, OCR3, OCR4, OCR5              | Röstnings diskar                                  | Yes         |
+| FRA1, FRA2                                | Snabba återställnings områden diskar                      | Yes         |
 
 ![Disk konfiguration för Oracle-virtuell dator](media/oracle-vmdk.png)
 
@@ -79,7 +79,7 @@ Varje virtuell Oracle-dator har kon figurer ATS med flera diskar för värd oper
 * Delning har angetts till **Ingen delning**.
 * Redundans definieras på lagrings platsen med virtuellt SAN-principer.  
 
-![Konfiguration av Oracle RAC data disk Group](media/oracle-vm-os-disks.png)
+![Diagram som visar fysisk konfiguration för Oracle RAC OS-disken.](media/oracle-vm-os-disks.png)
 
 ### <a name="data-disk-configuration"></a>Konfiguration av data disk
 
@@ -148,7 +148,7 @@ Det snabba återställnings fältet (FRA) är fil system som hanteras av Oracle 
 * Diskarna måste vara konfigurerade som en ASM-disk grupp.  
 * ASM-redundans är inställt på **extern** redundans.
 
-![Konfiguration av disk grupp för Oracle RAC-röstning](media/oracle-vm-fra-disks.png)
+![Diagram som visar konfigurationen av en röst grupp för Oracle RAC-röstning.](media/oracle-vm-fra-disks.png)
 
 ## <a name="deploy-cloudsimple-private-cloud-vsphere-cluster"></a>Distribuera CloudSimple Private Cloud vSphere-kluster
 
@@ -220,7 +220,7 @@ Oracle använder delad disk för att lagra data, logga och gör om loggfiler.  D
 9. Ange **multi-Writer**för delning.
 10. För noden virtuell enhet väljer du den nya SCSI-styrenhet som skapades i steg 2.
 
-    ![Skapa diskar på den första virtuella datorn](media/oracle-rac-new-hard-disk.png)
+    ![Skärm bild som visar de fält som behövs för att skapa diskar på den första virtuella datorn.](media/oracle-rac-new-hard-disk.png)
 
 Upprepa steg 2 – 10 för alla nya diskar som krävs för Oracle-data, loggar och gör om loggfiler.
 

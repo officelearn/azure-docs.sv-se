@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0fd3778d50216e337b872f0a27cb30b04a0219f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 972e4bcfc0eb20903dafc598bad812d0afe98afb
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617238"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428317"
 ---
 # <a name="what-is-azure-sql-database"></a>Vad är Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -108,7 +108,7 @@ Azure SQL Database gör det möjligt för ditt företag att fortsätta arbeta un
 
 Haveri beredskap förutsätter att en oåterkallelig händelse är geografiskt lokaliserad för att ha en annan dator eller uppsättning datorer med en kopia av dina data långt bort. I SQL Server kan du använda Always on-tillgänglighetsgrupper som körs i asynkront läge för att få den här funktionen. Användare vill ofta inte vänta på att replikeringen ska ske innan den genomför en transaktion, så det är möjligt att förlora data när du gör oplanerad redundans.
 
-Databaser i tjänst nivåerna Premium och Affärskritisk har redan ett [liknande sätt](high-availability-sla.md#premium-and-business-critical-service-tier-availability) som synkroniseringen av en tillgänglighets grupp. Databaser med lägre tjänst nivåer ger redundans genom att använda en [annan men likvärdig mekanism](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-availability). Inbyggd logik skyddar mot ett enskilt dator haveri. Funktionen aktiv geo-replikering ger dig möjlighet att skydda mot katastrofer där en hel region förstörs.
+Databaser i tjänst nivåerna Premium och Affärskritisk har redan ett [liknande sätt](high-availability-sla.md#premium-and-business-critical-service-tier-locally-redundant-availability) som synkroniseringen av en tillgänglighets grupp. Databaser med lägre tjänst nivåer ger redundans genom att använda en [annan men likvärdig mekanism](high-availability-sla.md#basic-standard-and-general-purpose-service-tier-locally-redundant-availability). Inbyggd logik skyddar mot ett enskilt dator haveri. Funktionen aktiv geo-replikering ger dig möjlighet att skydda mot katastrofer där en hel region förstörs.
 
 Azure-tillgänglighetszoner försöker skydda mot avbrott i en enda data centers byggnad inom en enda region. Det hjälper dig att skydda mot förlust av ström eller nätverk till en byggnad. I SQL Database placerar du de olika replikerna i olika tillgänglighets zoner (olika byggnader, effektivt).
 

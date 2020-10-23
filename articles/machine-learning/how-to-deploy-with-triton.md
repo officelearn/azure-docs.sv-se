@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 9a6e2de07921d05e123154f604c3d1b369b3b89d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998764"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92428342"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Högpresterande tjänster med Triton-Härlednings Server (för hands version) 
 
@@ -30,7 +30,7 @@ Triton är ett ramverk som är *optimerat för en härledning*. Den ger bättre 
 > Att använda Triton för distribution från Azure Machine Learning är för närvarande en för __hands version__. Förhands gransknings funktioner kanske inte omfattas av kund support. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna
 
 > [!TIP]
-> Kodfragmenten i det här dokumentet är i exempel syfte och kanske inte visar en komplett lösning. Information om hur du använder exempel kod finns i [Azure Machine Learning från slut punkt till slut punkt för Triton i](https://aka.ms/aml-triton-sample).
+> Kodfragmenten i det här dokumentet är i exempel syfte och kanske inte visar en komplett lösning. Information om hur du använder exempel kod finns i [Azure Machine Learning från slut punkt till slut punkt för Triton i](https://github.com/Azure/azureml-examples/tree/main/tutorials).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -47,7 +47,7 @@ Innan du försöker använda Triton för din egen modell är det viktigt att du 
 
 * Flera [Gunicorn](https://gunicorn.org/) -arbetskrafter börjar samtidigt hantera inkommande begär Anden.
 * Dessa arbetare hanterar för bearbetning, anropar modellen och efter bearbetning. 
-* Härlednings begär Anden använder __poängsättnings-URI__. Exempelvis `https://myserevice.azureml.net/score`.
+* Härlednings begär Anden använder __poängsättnings-URI__. Till exempel `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Normalt, icke-Triton, distributions arkitektur diagram":::
 
@@ -56,7 +56,7 @@ Innan du försöker använda Triton för din egen modell är det viktigt att du 
 * Flera [Gunicorn](https://gunicorn.org/) -arbetskrafter börjar samtidigt hantera inkommande begär Anden.
 * Begär Anden vidarebefordras till Triton- **servern**. 
 * Triton bearbetar förfrågningar i batchar för att maximera GPU-användningen.
-* Klienten använder bedömnings- __URI: n__ för att göra förfrågningar. Exempelvis `https://myserevice.azureml.net/score`.
+* Klienten använder bedömnings- __URI: n__ för att göra förfrågningar. Till exempel `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Normalt, icke-Triton, distributions arkitektur diagram":::
 

@@ -157,6 +157,8 @@
             - name: Private Link
               href: concepts-data-access-and-security-private-link.md
               displayName: 'security, private link, private endpoint'
+        - name: Planerat underhåll
+          href: concepts-planned-maintenance-notification.md
         - name: Verksamhetskontinuitet
           items:
             - name: Introduktion till affärskontinuitet
@@ -222,7 +224,7 @@
               displayName: 'scale server, reset password'
         - name: Starta om servern
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -230,7 +232,7 @@
               href: howto-restart-server-powershell.md
         - name: Brandväggsregler
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: Azure CLI
@@ -282,7 +284,7 @@
           displayName: 'application development, TLS'
         - name: Konfigurera serverparametrar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -293,7 +295,7 @@
               displayName: 'application development, server parameters'
         - name: Lagring som växer automatiskt
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Azure CLI
@@ -304,7 +306,7 @@
               displayName: 'business continuity, scale , storage'
         - name: Åtkomstloggar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
             - name: Azure CLI
@@ -478,7 +480,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: Konfigurera serverparametrar
           items:
-            - name: Azure Portal
+            - name: Azure-portalen
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI

@@ -3,12 +3,12 @@ title: Skapa en anpassad Azure Resource Manager roll och tilldela till tjänsten
 description: Den här artikeln innehåller vägledning om hur du skapar en anpassad Azure Resource Manager roll och tilldelar tjänstens huvud namn för video analys på IoT Edge med Azure CLI.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bf0f60a718d512e02481d977b8208112ed1a55
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90526586"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425726"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Skapa anpassad Azure Resource Manager roll och tilldela till tjänstens huvud namn
 
@@ -16,7 +16,7 @@ Live video analys på IoT Edge module-instans måste ha ett aktivt Azure Media S
 
 Den här artikeln visar hur du skapar en anpassad Azure Resource Manager roll med Azure Cloud Shell, som sedan används för att skapa ett huvud namn för tjänsten.
 
-## <a name="prerequisites"></a>Förutsättningar  
+## <a name="prerequisites"></a>Krav  
 
 Krav för den här artikeln är följande:
 
@@ -179,7 +179,7 @@ az role assignment create --role “LVAEdge User” --assignee-object-id < objec
 
 Parametrar:
 
-|Parametrar|Beskrivning| 
+|Parametrar|Description| 
 |---|---|
 |--roll |Namn eller ID för anpassad roll. I vårt exempel: "LVAEdge User".|
 |--tilldelad person-objekt-ID|Objekt-ID för tjänstens huvud namn som du kommer att använda.|
@@ -230,7 +230,7 @@ Leta efter "roleDefinitionName" och se att dess värde är inställt på "LVAEdg
 
 Detta bekräftar att vi har länkat den anpassade användar rollen med det tjänst huvud namn som används för programmet.
 
-### <a name="test-the-service-principal-rbac"></a>Testa tjänstens huvudobjekt RBAC  
+### <a name="test-the-service-principal-access-control"></a>Testa tjänstens huvud princip för åtkomst kontroll
 
 1. Logga in med tjänstens huvud namn. För detta behöver vi tre informations objekt för Azure Active Directory för att ge oss rätt åtkomsttoken som vi kan hämta från utdata från avsnittet [skapa tjänstens huvud namn](#create-service-principal) :
     1. AadClientID 

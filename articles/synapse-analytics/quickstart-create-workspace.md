@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9780a2adb60c690abda6880157252aaa0c562f18
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: d06d1b0553161523708f4bb142f1c715a77eb2dd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171781"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461115"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Snabb start: skapa en Synapse-arbetsyta
 I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-arbetsyta med hjälp av Azure Portal.
@@ -23,13 +23,8 @@ I den här snabb starten beskrivs stegen för att skapa en Azure dataSynapses-ar
 
 1. Öppna [Azure Portal](https://portal.azure.com)och högst upp i Sök efter **Synapse**.
 1. I Sök resultaten under **tjänster**väljer du **Azure Synapse Analytics (för hands versioner av arbets ytor)**.
-1. Välj **Lägg till** för att skapa en arbets yta med följande inställningar:
-
-    |Flik|Inställning | Föreslaget värde | Beskrivning |
-    |---|---|---|---|
-    |Grundläggande inställningar|**Namn på arbetsyta**|Du kan ge det något annat namn.| I det här dokumentet använder vi min **arbets yta**.|
-    |Grundläggande inställningar|**Region**|Matcha lagrings kontots region.|
-
+1. Välj **Lägg till** för att skapa en arbets yta.
+1. På fliken **grundläggande** ger du arbets ytan ett unikt namn. Vi använder **mysworkspace** i det här dokumentet
 1. Du behöver ett ADLSGEN2-konto för att skapa en arbets yta. Det enklaste valet är att skapa ett nytt. Om du vill använda en befintlig konfiguration igen måste du utföra en del ytterligare konfiguration. 
 1. ALTERNATIV 1 Skapa ett nytt ADLSGEN2-konto 
     1. Under **välj Data Lake Storage gen 2**, klickar du på **Skapa nytt** och ge den namnet **contosolake**.

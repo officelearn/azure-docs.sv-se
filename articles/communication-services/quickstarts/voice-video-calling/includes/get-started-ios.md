@@ -6,16 +6,16 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 48a3972d7b7db3f0c68866f23d6deca0bbce2e35
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 63b74675a9b0d3480c90c7414e82658705796e7c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157830"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92438502"
 ---
 I den här snabb starten får du lära dig hur du startar ett samtal med Azure Communication Services som anropar klient bibliotek för iOS.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande förutsättningar:
 
@@ -116,7 +116,7 @@ struct ContentView: View {
 
 Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna i Azure Communication Services som anropar klient biblioteket:
 
-| Namn                                  | Beskrivning                                                  |
+| Name                                  | Beskrivning                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | ACSCallClient | CallClient är den huvudsakliga start punkten för det anropande klient biblioteket.|
 | ACSCallAgent | CallAgent används för att starta och hantera samtal. |
@@ -201,4 +201,4 @@ Du kan göra ett utgående VOIP-anrop genom att ange ett användar-ID i fältet 
 
 ## <a name="sample-code"></a>Exempelkod
 
-Du kan ladda ned exempel appen från [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/iOS/Swift)
+Du kan ladda ned exempel appen från [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/Add%20Voice%20Calling)

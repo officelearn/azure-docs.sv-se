@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68528a810ebc9cd61b205dd5167396d75db7f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de255836cb269f5077a417a203e136f9e903f05d
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613993"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441682"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Lägga till en API-anslutning till ett användar flöde
 
@@ -44,7 +44,7 @@ Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du fö
 > Tidigare var du tvungen att konfigurera vilka användarattribut som ska skickas till API: et ("anspråk att skicka") och vilka användarattribut som ska accepteras från API: et ("anspråk att ta emot"). Nu skickas alla användarattribut som standard om de har ett värde och det finns ett användar-attribut som kan returneras av API: et i ett fortsättnings svar.
 
 ## <a name="the-request-sent-to-your-api"></a>Begäran skickades till ditt API
-En API-anslutning materialiseras som en **http post** -begäran och skickar användarattribut ("anspråk") som nyckel/värde-par i en JSON-text. Attributen serialiseras på samma sätt som [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/user#properties) användar egenskaper. 
+En API-anslutning materialiseras som en **http post** -begäran och skickar användarattribut ("anspråk") som nyckel/värde-par i en JSON-text. Attributen serialiseras på samma sätt som [Microsoft Graph](/graph/api/resources/user#properties) användar egenskaper. 
 
 **Exempelbegäran**
 ```http
@@ -85,7 +85,7 @@ Dessutom skickas anspråk som är **lokala för användar gränssnittet (ui_loca
 > Om ett anspråk att skicka inte har något värde när API-slutpunkten anropas skickas inte anspråket till API: et. Ditt API bör vara utformat för att uttryckligen söka efter det värde som förväntas.
 
 > [!TIP] 
-> [**identiteter (' Identities ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) och e- **postadressen (e-post)** -anspråk kan användas av ditt API för att identifiera en användare innan de har ett konto i din klient organisation. "Identities"-anspråk skickas när en användare autentiseras med en identitetsprovider som Google eller Facebook. "e-post" skickas alltid.
+> [**identiteter (' Identities ')**](/graph/api/resources/objectidentity) och e- **postadressen (e-post)** -anspråk kan användas av ditt API för att identifiera en användare innan de har ett konto i din klient organisation. "Identities"-anspråk skickas när en användare autentiseras med en identitetsprovider som Google eller Facebook. "e-post" skickas alltid.
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Aktivera API-anslutningen i ett användar flöde
 
@@ -106,7 +106,7 @@ Följ dessa steg om du vill lägga till en API-anslutning till ett självbetjän
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>När du har loggat in med en identitets leverantör
 
-En API-anslutning i det här steget i registrerings processen anropas omedelbart när användaren autentiseras med en identitetsprovider (Google, Facebook, Azure AD). Det här steget föregår ***sidan för attribut samling***, som är det formulär som visas för användaren att samla in användarattribut. 
+En API-anslutning i det här steget i registrerings processen anropas omedelbart när användaren autentiseras med en identitetsprovider (Google, Facebook, Azure AD). Det här steget föregår*_sidan * Attribute Collection_*_, som är det formulär som visas för användaren att samla in användarattribut. 
 
 <!-- The following are examples of API connector scenarios you may enable at this step:
 - Use the email or federated identity that the user provided to look up claims in an existing system. Return these claims from the existing system, pre-fill the attribute collection page, and make them available to return in the token.
@@ -244,12 +244,12 @@ Content-type: application/json
 }
 ```
 
-| Parameter                                          | Typ              | Krävs | Beskrivning                                                                                                                                                                                                                                                                            |
+| Parameter                                          | Typ              | Obligatorisk | Beskrivning                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| version                                            | Sträng            | Ja      | API-versionen.                                                                                                                                                                                                                                                                |
-| åtgärd                                             | Sträng            | Ja      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Inga       | Värden kan lagras i katalogen om de har valts som ett **anspråk att ta emot** i API-anslutningens konfiguration **och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Inga       | Det returnerade anspråket behöver inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
+| version                                            | Sträng            | Yes      | API-versionen.                                                                                                                                                                                                                                                                |
+| åtgärd                                             | Sträng            | Yes      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Värden kan lagras i katalogen om de har valts som ett _-*anspråk för att ta emot** i konfigurationen för API- **anslutningen och användarattribut** för ett användar flöde. Värdena kan returneras i token om de väljs som ett **program anspråk**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | Det returnerade anspråket behöver inte innehålla `_<extensions-app-id>_` . Värdena lagras i katalogen om de valts som ett **anspråk att ta emot** i API-kopplingens konfiguration och **användarattribut** för ett användar flöde. Det går inte att skicka anpassade attribut tillbaka i token. |
 
 ### <a name="example-of-a-blocking-response"></a>Exempel på ett blockerande svar
 
@@ -266,12 +266,12 @@ Content-type: application/json
 
 ```
 
-| Parameter   | Typ   | Krävs | Beskrivning                                                                |
+| Parameter   | Typ   | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
-| version     | Sträng | Ja      | API-versionen.                                                    |
-| åtgärd      | Sträng | Ja      | Värdet måste vara `ShowBlockPage`                                              |
-| userMessage | Sträng | Ja      | Meddelande som ska visas för användaren.                                            |
-| kod        | Sträng | Inga       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
+| version     | Sträng | Yes      | API-versionen.                                                    |
+| åtgärd      | Sträng | Yes      | Värdet måste vara `ShowBlockPage`                                              |
+| userMessage | Sträng | Yes      | Meddelande som ska visas för användaren.                                            |
+| kod        | Sträng | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 **Slut användar upplevelse med ett blockerande svar**
 
@@ -292,13 +292,13 @@ Content-type: application/json
 }
 ```
 
-| Parameter   | Typ    | Krävs | Beskrivning                                                                |
+| Parameter   | Typ    | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
-| version     | Sträng  | Ja      | API-versionen.                                                    |
-| åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
-| status      | Integer | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
-| userMessage | Sträng  | Ja      | Meddelande som ska visas för användaren.                                            |
-| kod        | Sträng  | Inga       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
+| version     | Sträng  | Yes      | API-versionen.                                                    |
+| åtgärd      | Sträng  | Yes      | Värdet måste vara `ValidationError` .                                           |
+| status      | Integer | Yes      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
+| userMessage | Sträng  | Yes      | Meddelande som ska visas för användaren.                                            |
+| kod        | Sträng  | No       | Felkod. Kan användas för fel söknings syfte. Visas inte för användaren. |
 
 **Slut användar upplevelse med ett verifierings fel svar**
 

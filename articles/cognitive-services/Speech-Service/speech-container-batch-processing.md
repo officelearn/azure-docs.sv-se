@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/22/2020
 ms.author: aahi
-ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3b2a9db688104c168017863910745427a3a68f9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319086"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425797"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Batch bearbetnings paket för tal behållare
 
@@ -75,9 +75,8 @@ Batch-klienten kan dynamiskt identifiera om en slut punkt blir otillgänglig (ti
 > [!NOTE] 
 > * I det här exemplet används samma katalog ( `/my_nfs` ) för konfigurations filen och katalogerna indata, utdata och loggar. Du kan använda värdbaserade eller NFS-monterade kataloger för dessa mappar.
 > * Om du kör-klienten med `–h` visas tillgängliga kommando rads parametrar och deras standardvärden. 
+> * Bearbetnings behållaren för batchbearbetning stöds endast i Linux.
 
-
-#### <a name="linux"></a>[Linux](#tab/linux)
 Använd Docker- `run` kommandot för att starta behållaren. Detta kommer att starta ett interaktivt gränssnitt i behållaren.
 
 ```Docker
@@ -95,17 +94,6 @@ Så här kör du batch-klienten och behållaren i ett enda kommando:
 ```Docker
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
-
-#### <a name="windows"></a>[Windows](#tab/windows)
-
-Så här kör du batch-klienten och behållaren i ett enda kommando:
-
-```Docker
-docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
-
-```
-
----
 
 
 Klienten börjar köras. Om en ljudfil redan har tilldelats i en tidigare körning hoppar klienten automatiskt över filen. Filer skickas med ett automatiskt återförsök om tillfälliga fel inträffar, och du kan skilja mellan vilka fel som du vill att klienten ska försöka igen. Vid ett avskrifts fel kommer klienten att fortsätta avskriften och kan försöka igen utan att förlora förloppet.  

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 6c96c4803293db9d9bacfc43f0de2f7803e6c41c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da54917d21d468f96b8e72ac362e030570fabaee
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836487"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426010"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-portal"></a>Skapa och hantera en privat länk för Azure Database for MariaDB med hjälp av portalen
 
@@ -23,7 +23,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 > Funktionen privat länk är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Skapa en virtuell Azure-dator
 
@@ -232,7 +232,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | Servertyp| Välj **MariaDB**.|
     | Servernamn| Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername anges när MariaDB-servern skapas. |
-    |lösenordsinställning |Ange ett lösen ord som angavs när MariaDB-servern skapades. |
+    |Lösenord |Ange ett lösen ord som angavs när MariaDB-servern skapades. |
     |SSL|Välj **obligatoriskt**.|
     ||
 
@@ -251,7 +251,7 @@ När du är klar med den privata slut punkten, MariaDB-servern och den virtuella
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktionen har du skapat en virtuell dator i ett virtuellt nätverk, en Azure Database for MariaDB och en privat slut punkt för privat åtkomst. Du har anslutit till en virtuell dator från Internet och kommunicerat på ett säkert sätt till MariaDB-servern med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är en privat Azure-slutpunkt](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+I den här instruktionen har du skapat en virtuell dator i ett virtuellt nätverk, en Azure Database for MariaDB och en privat slut punkt för privat åtkomst. Du har anslutit till en virtuell dator från Internet och kommunicerat på ett säkert sätt till MariaDB-servern med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är en privat Azure-slutpunkt](../private-link/private-endpoint-overview.md).
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

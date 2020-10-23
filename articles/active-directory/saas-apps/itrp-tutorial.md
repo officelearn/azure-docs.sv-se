@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a49edf738586dce190fa90f7349f2c9b01e2050d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 2dff68f98e2922d5fc7a4fca1e6de8740bc2ae68
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "91850412"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Självstudie: Azure Active Directory integrering med ITRP
 
@@ -27,11 +27,11 @@ Den här integrationen ger följande fördelar:
 * Du kan göra det möjligt för användarna att logga in automatiskt på ITRP (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats: Azure Portal.
 
-Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Läs mer om SaaS-appintegrering med Azure AD i [Enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med ITRP måste du ha:
 
@@ -242,12 +242,12 @@ Gör så här för att skapa ett användar konto:
 
 Nu måste du testa konfigurationen för enkel inloggning med Azure AD med hjälp av åtkomst panelen.
 
-När du väljer panelen ITRP på åtkomst panelen, bör du loggas in automatiskt på ITRP-instansen som du ställer in SSO för. Mer information om åtkomst panelen finns i [komma åt och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen ITRP på åtkomst panelen, bör du loggas in automatiskt på ITRP-instansen som du ställer in SSO för. Mer information om åtkomst panelen finns i [komma åt och använda appar på portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

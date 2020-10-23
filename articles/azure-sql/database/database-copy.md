@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: 67f123472a5fd6060bc4e2de36fb7ac1ea46d356
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124403"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460962"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en databas i Azure SQL Database
 
@@ -82,7 +82,7 @@ Databas kopieringen är en asynkron åtgärd, men mål databasen skapas direkt e
 
 Logga in på huvud databasen med Server Administratörs inloggning eller inloggning som skapade databasen som du vill kopiera. För att databas kopieringen ska lyckas måste inloggningar som inte är Server administratör vara medlemmar i `dbmanager` rollen. Mer information om inloggningar och anslutning till-servern finns i [Hantera inloggningar](logins-create-manage.md).
 
-Starta kopieringen av käll databasen med [create-databasen... SOM en kopia av](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#copy-a-database) instruktionen. T-SQL-instruktionen fortsätter att köras tills databas kopierings åtgärden har slutförts.
+Starta kopieringen av käll databasen med [create-databasen... SOM en kopia av](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true#copy-a-database) instruktionen. T-SQL-instruktionen fortsätter att köras tills databas kopierings åtgärden har slutförts.
 
 > [!NOTE]
 > Om du avslutar T-SQL-instruktionen avbryts inte databas kopierings åtgärden. Avsluta åtgärden genom att släppa mål databasen.
@@ -100,6 +100,21 @@ Detta kommando kopierar Databas1 till en ny databas med namnet Databas2 på samm
    ```sql
    -- execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
+   ```
+
+### <a name="copy-to-an-elastic-pool"></a>Kopiera till en elastisk pool
+
+Logga in på huvud databasen med Server Administratörs inloggning eller inloggning som skapade databasen som du vill kopiera. För att kopieringen av databasen ska lyckas måste inloggningar som inte är Server administratör vara medlemmar i `dbmanager` rollen.
+
+Detta kommando kopierar Databas1 till en ny databas med namnet Databas2 i en elastisk pool med namnet pool1. Beroende på databasens storlek kan kopierings åtgärden ta lite tid att slutföra.
+
+Databas1 kan vara en databas i en databas, men pool1 måste vara samma tjänst nivå som Databas1. 
+
+   ```sql
+   -- execute on the master database to start copying
+   CREATE DATABASE "Database2"
+   AS COPY OF "Database1"
+   (SERVICE_OBJECTIVE = ELASTIC_POOL( name = "pool1" ) ) ;
    ```
 
 ### <a name="copy-to-a-different-server"></a>Kopiera till en annan server
@@ -167,7 +182,7 @@ Om du vill se åtgärder under distributioner i resurs gruppen på portalen, må
 
 ## <a name="resolve-logins"></a>Lösa inloggningar
 
-När den nya databasen är online på mål servern använder du instruktionen [Alter User](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current) för att mappa om användarna från den nya databasen till inloggningar på mål servern. Information om hur du löser överblivna användare finns i [Felsöka överblivna användare](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Se även [hur du hanterar Azure SQL Database säkerhet efter haveri beredskap](active-geo-replication-security-configure.md).
+När den nya databasen är online på mål servern använder du instruktionen [Alter User](https://docs.microsoft.com/sql/t-sql/statements/alter-user-transact-sql?view=azuresqldb-current&preserve-view=true) för att mappa om användarna från den nya databasen till inloggningar på mål servern. Information om hur du löser överblivna användare finns i [Felsöka överblivna användare](https://docs.microsoft.com/sql/sql-server/failover-clusters/troubleshoot-orphaned-users-sql-server). Se även [hur du hanterar Azure SQL Database säkerhet efter haveri beredskap](active-geo-replication-security-configure.md).
 
 Alla användare i den nya databasen behåller de behörigheter som de hade i käll databasen. Den användare som initierade databas kopian blir databas ägaren till den nya databasen. När kopieringen är klar och innan andra användare mappas om kan bara databas ägaren logga in på den nya databasen.
 

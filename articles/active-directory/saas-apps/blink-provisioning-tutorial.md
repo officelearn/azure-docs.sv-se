@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 33433587f0617382cc5f05550577594d7e3f9f7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb04b17db94a2abf0ab11d9b9baff65e764e472a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322034"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457052"
 ---
 # <a name="tutorial-configure-blink-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Blink för automatisk användar etablering
 
@@ -81,7 +81,7 @@ Innan du konfigurerar blinka för automatisk användar etablering med Azure AD m
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare i blinkar baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för att blinka, genom att följa anvisningarna i [själv studie kursen om att blinka enkla inloggningar](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för att blinka, genom att följa anvisningarna i [själv studie kursen om att blinka enkla inloggningar](./blink-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
 
 ### <a name="to-configure-automatic-user-provisioning-for-blink-in-azure-ad"></a>Konfigurera automatisk användar etablering för blinkar i Azure AD:
 
@@ -145,4 +145,3 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
-

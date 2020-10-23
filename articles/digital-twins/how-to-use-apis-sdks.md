@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5be746b73cef37826be36b13c6f491b8ef6ad809
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0fe56a8173a4cfe8836a078a62c7bc9015c83324
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359024"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461268"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -42,10 +42,10 @@ Du kan också öva på att kontrol lera plan-API: er genom att interagera med Az
 ## <a name="overview-data-plane-apis"></a>Översikt: data Plans-API: er
 
 Data Plans-API: erna är Azure Digitals dubbla API: er som används för att hantera elementen i Azure Digitals-instansen. De innehåller åtgärder som att skapa vägar, överföra modeller, skapa relationer och hantera dubbla. De kan delas i stor mängd i följande kategorier:
-* **DigitalTwinsModels** – DigitalTwinsModels-kategorin innehåller API: er för att hantera [modeller](concepts-models.md) i en digital Azure-instans. Hanterings aktiviteter omfattar uppladdning, validering, hämtning och borttagning av modeller som skapats i DTDL.
+* **DigitalTwinModels** – DigitalTwinModels-kategorin innehåller API: er för att hantera [modeller](concepts-models.md) i en digital Azure-instans. Hanterings aktiviteter omfattar uppladdning, validering, hämtning och borttagning av modeller som skapats i DTDL.
 * **DigitalTwins** – DigitalTwins-kategorin innehåller de API: er som utvecklare kan använda för att skapa, ändra och ta bort [digitala dubbla](concepts-twins-graph.md) och deras relationer i en digital Azure-instans.
 * **Fråga** – kategorin fråga gör det möjligt [för utvecklare att hitta uppsättningar digitala delar i det dubbla diagrammet](how-to-query-graph.md) mellan relationer.
-* **EventRoutes** – EventRoutes-kategorin innehåller API: er för att [dirigera data](concepts-route-events.md)genom systemet och till underordnade tjänster.
+* **Händelse vägar** – kategorin händelse vägar innehåller API: er för att [dirigera data](concepts-route-events.md)genom systemet och till underordnade tjänster.
 
 Den mest aktuella data planet API-versionen för den offentliga för hands versionen är _**2020-10-31**_.
 
@@ -56,7 +56,7 @@ Använda data Plans-API: er:
 * Du kan använda **.net (C#)** SDK. För att använda .NET SDK...
    - Du kan visa och lägga till paketet från NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
    - Du kan hitta SDK-källan, inklusive en mapp med exempel, i GitHub: [Azure IoT Digitals klient bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - Du kan visa [SDK Reference-dokumentationen](/dotnet/api/overview/azure/digitaltwins?preserve-view=true&view=azure-dotnet-preview).
+   - Du kan visa [SDK Reference-dokumentationen](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview).
    - Du kan se detaljerade informations-och användnings exempel genom att gå vidare till avsnittet [.net (C#) SDK (data plan)](#net-c-sdk-data-plane) i den här artikeln.
 * Du kan använda **Java** SDK. För att använda Java SDK...
    - Du kan visa och installera paketet från maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)

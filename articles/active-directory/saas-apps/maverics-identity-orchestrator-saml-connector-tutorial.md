@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/12/2020
 ms.author: jeedes
-ms.openlocfilehash: fbab2bbaa47090ff4bd7fb99495912bd1f645b61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d5988f25b833480c4809ba116c48022566b7a0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91758149"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458191"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-with-maverics-identity-orchestrator-saml-connector"></a>Självstudie: integrera enkel inloggning med Azure AD med Maverics Identity Orchestrator SAML Connector
 
@@ -157,15 +157,15 @@ secrets:
 Du kan konfigurera ett Azure Key Vault med hjälp av antingen Azure Portal eller Azure CLI.
 
 **Använda Azure-portalen**
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. [Skapa ett nytt nyckel valv](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault).
-1. [Lägg till hemligheterna i nyckel valvet](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
-1. [Registrera ett program med Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-1. [Auktorisera ett program för att använda en hemlighet](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. [Skapa ett nytt nyckel valv](../../key-vault/secrets/quick-create-portal.md#create-a-vault).
+1. [Lägg till hemligheterna i nyckel valvet](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+1. [Registrera ett program med Azure AD](../develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. [Auktorisera ett program för att använda en hemlighet](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 **Använda Azure CLI**
 
-1. Öppna [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)och ange följande kommando:
+1. Öppna [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)och ange följande kommando:
 
     ```shell
     az login

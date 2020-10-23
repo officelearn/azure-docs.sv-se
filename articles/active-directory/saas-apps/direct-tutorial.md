@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: ac19eba35e478fbd30aff647e1605fc7fc4c45a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8226a1e445c6f7f6360d715d17bbe5229e4172b6
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88536591"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>Självstudie: Azure Active Directory integrering med direkt
 
@@ -27,10 +27,10 @@ Genom att integrera direkt med Azure AD får du följande fördelar:
 * Du kan göra det möjligt för användarna att bli inloggade automatiskt till direkt (enkel inloggning) med deras Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Direct behöver du följande objekt:
 
@@ -179,7 +179,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-direct-test-user"></a>Skapa direkt test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i direkt. Arbeta med [Direct support-teamet](https://direct4b.com/ja/support.html#inquiry) för att lägga till användare i direkt plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i direkt. Arbeta med [Direct support-teamet](https://direct4b.com/ja/support.html#inquiry) för att lägga till användare i direkt plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
@@ -195,13 +195,12 @@ I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD me
 
     b. Mata in ditt `subdomain` i text rutan som visas och tryck på "次へ (nästa)" och du bör bli inloggad automatiskt till ditt **direkta** program.
 
-När du klickar på den direkta panelen i åtkomst panelen bör du loggas in automatiskt till den direkta för vilken du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på den direkta panelen i åtkomst panelen bör du loggas in automatiskt till den direkta för vilken du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

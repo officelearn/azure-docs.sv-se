@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fa45ece76499b50694d366ed2dcdd57cc1e0c7dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caeff5be83e02948baab4ecbcf05630eacff74df
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91312104"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459381"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Självstudie: Konfigurera jives för automatisk användar etablering
 
@@ -35,7 +35,7 @@ Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att
 
 Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till jives-appen. När du har bestämt dig kan du tilldela dessa användare till jives-appen genom att följa anvisningarna här:
 
-[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-jive"></a>Viktiga tips för att tilldela användare till jives
 

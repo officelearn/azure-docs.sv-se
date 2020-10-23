@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab072fa53d3ecc3f856b6765acfb8c19da3ff298
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119801"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92442260"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Använd Microsoft Authentication Library för Java Script för att arbeta med Azure AD B2C
 
@@ -32,7 +32,7 @@ Följande avsnitt visar hur du:
 - Stöd inloggning i ett enda webb-program (SPA) och anrop till *det* skyddade webb-API: et
 - Aktivera stöd för lösen ords återställning
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte redan har gjort det skapar du en [Azure AD B2C-klient](../../active-directory-b2c/tutorial-create-tenant.md).
 
@@ -56,16 +56,22 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodej
 
 ### <a name="step-3-configure-authentication"></a>Steg 3: Konfigurera autentisering
 
-1. Öppna filen `config.js` i exemplet.
+1. Öppna filen `config.json` i exemplet.
 
-2. Konfigurera exemplet med de programautentiseringsuppgifter som du fick tidigare när du registrerade ditt program. Ändra följande rader med kod genom att ersätta värdena med namnen på din clientID, värd, tenantId och princip namn.
+2. Konfigurera exemplet med de programautentiseringsuppgifter som du fick tidigare när du registrerade ditt program. Ändra följande rader med kod genom att ersätta värdena med klient organisationens namn, klient-ID och princip namn.
 
-```JavaScript
-const clientID = "<Application ID for your Node.js web API - found on Properties page in Azure portal e.g. 93733604-cc77-4a3c-a604-87084dd55348>";
-const b2cDomainHost = "<Domain of your B2C host eg. fabrikamb2c.b2clogin.com>";
-const tenantId = "<your-tenant-ID>.onmicrosoft.com"; // Alternatively, you can use your Directory (tenant) ID (GUID)
-const policyName = "<Name of your sign in / sign up policy, e.g. B2C_1_signupsignin1>";
-```
+    ```json
+         "credentials": {
+             "tenantName": "<your-tenant-name>",
+             "clientID": "<your-webapi-application-ID>"
+         },
+         "policies": {
+             "policyName": "B2C_1_signupsignin1"
+         },
+         "resource": {
+             "scope": ["demo.read"] 
+         },
+    ```
 
 Mer information finns i det här [Node.js B2C-API-exemplet](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).
 
@@ -209,6 +215,6 @@ När användaren väljer **glömt lösen ord**, genererar programmet ett fel som
 
 Lär dig mer om dessa Azure AD B2C koncept:
 
-- [Användarflöden](../../active-directory-b2c/tutorial-create-user-flows.md)
+- [Användar flöden](../../active-directory-b2c/tutorial-create-user-flows.md)
 - [Anpassade principer](../../active-directory-b2c/custom-policy-get-started.md)
 - [UX-anpassning](../../active-directory-b2c/custom-policy-configure-user-input.md)

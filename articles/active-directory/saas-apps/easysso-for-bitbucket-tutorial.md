@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: jeedes
-ms.openlocfilehash: bd15798e9b642f3abc617c0fa224c530d90b5dd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0433c0fdc1584ce209eb0409b0e8f5cbfc2719ed
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555585"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454413"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med EasySSO för BitBucket
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig hur du integrerar EasySSO för BitBuc
 * Gör det möjligt för användarna att logga in automatiskt till EasySSO för BitBucket med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande:
 
@@ -41,7 +41,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * EasySSO för BitBucket stöder SP-initierad och IdP-initierad SSO.
 * EasySSO för BitBucket har stöd för "just-in-Time"-användar etablering.
-* När du har konfigurerat EasySSO för BitBucket kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat EasySSO för BitBucket kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-easysso-for-bitbucket-from-the-gallery"></a>Lägg till EasySSO för BitBucket från galleriet
 
@@ -121,7 +121,7 @@ I det här avsnittet ska du skapa en test användare, B. Simon, i Azure Portal.
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. Som **namn**anger du `B.Simon` .  
-   1. För **användar namn**anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. För **användar namn**anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned lösen ordet.
    1. Välj **Skapa**.
 
@@ -190,7 +190,7 @@ Men om du inte vill aktivera automatisk användar etablering när användaren lo
 
 I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av åtkomst panelen.
 
-När du väljer EasySSO för BitBucket, bör du loggas in automatiskt på BitBucket-instansen som du ställer in SSO för. Mer information finns i [Logga in och starta appar från portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer EasySSO för BitBucket, bör du loggas in automatiskt på BitBucket-instansen som du ställer in SSO för. Mer information finns i [Logga in och starta appar från portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="sp-initiated-workflow"></a>SP-initierat arbets flöde
 
@@ -210,14 +210,14 @@ Om du har problem kan du kontakta [EasySSO support-teamet](mailto:support@techti
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Testa EasySSO för BitBucket med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Skydda EasySSO för BitBucket med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Skydda EasySSO för BitBucket med avancerad synlighet och kontroller](/cloud-app-security/proxy-intro-aad)

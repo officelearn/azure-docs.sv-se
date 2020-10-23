@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 10/12/2020
-ms.openlocfilehash: 10728a5500d8ad36c006bac9176422c6afb9bf1a
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 878fa9f576e50fb53e648d3bf39f98558d6e880a
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946000"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92441121"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Transparent data kryptering för SQL Database, SQL-hanterad instans och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ För Azure SQL Database och Azure-Synapse anges TDE-skyddet på [Server](logical
 > Alla nyligen skapade databaser i SQL Database krypteras som standard med hjälp av tjänst hanterad transparent data kryptering. Befintliga SQL-databaser som skapats före maj 2017 och SQL-databaser som skapats via återställning, geo-replikering och databas kopiering är inte krypterade som standard. Befintliga SQL-hanterade instans databaser som skapats före februari 2019 krypteras inte som standard. SQL-hanterade instans databaser som skapats via återställning ärver krypterings status från källan.
 
 > [!NOTE]
-> TDE kan inte användas för att kryptera **Master** -databasen i Azure SQL Database och Azure SQL-hanterad instans. **Huvud** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användar databaserna.
+> TDE kan inte användas för att kryptera system databaser, till exempel **huvud** databasen, i Azure SQL Database och Azure SQL-hanterad instans. **Huvud** databasen innehåller objekt som behövs för att utföra TDE-åtgärder på användar databaserna.
 
 ## <a name="service-managed-transparent-data-encryption"></a>Hanterad transparent data kryptering i tjänst
 

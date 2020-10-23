@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: 10851754bda73fc769e613153582e491265ebb71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db83e24931ec91449ac8c08bf4ce476e0f527b26
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85963248"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461353"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Samla in prestanda räknare för Linux-program i Azure Monitor 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
+
 Den här artikeln innehåller information om hur du konfigurerar [Log Analytics agent för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) att samla in prestanda räknare för vissa program i Azure Monitor.  Programmen som ingår i den här artikeln är:  
 
 - [MySQL](#mysql)
@@ -70,7 +70,7 @@ Ingår i installationen av MySQL OMI-providern är ett fil program för MySQL-OM
 
 Följande tabell innehåller information om syntaxen för att använda mycimprovauth.
 
-| Åtgärd | Exempel | Beskrivning
+| Åtgärd | Exempel | Description
 |:--|:--|:--|
 | uppdatera *Falskt eller sant* | mycimprovauth AutoUpdate false | Anger om autentiseringsprocessen ska uppdateras automatiskt vid omstart eller uppdatering. |
 | standard *lösen ord för bind-Address username* | mycimprovauth standard 127.0.0.1 rot-PWD | Ställer in standard instansen i OMI-autentiseringsprocessen för MySQL.<br>Fältet lösen ord ska anges i oformaterad text – lösen ordet i MySQL-OMI är 64 Base64-kodat. |

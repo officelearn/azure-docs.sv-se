@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dbe1c368a730fcd09cf5e5f6435ca247150b5c3c
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102501"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426197"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Hantera Azure Digitals dubbla modeller
 
-Du kan hantera de [modeller](concepts-models.md) som Azure Digitals-instansen är medveten om att använda [**DigitalTwinsModels-API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core)eller [Azure Digitals flätat CLI](how-to-use-cli.md). 
+Du kan hantera de [modeller](concepts-models.md) som Azure Digitals-instansen är medveten om att använda [**DigitalTwinsModels-API: er**](how-to-use-apis-sdks.md), [.net (C#) SDK](https://www.nuget.org/packages/Azure.DigitalTwins.Core)eller [Azure Digitals flätat CLI](how-to-use-cli.md). 
 
 Hanterings åtgärder omfattar överföring, validering, hämtning och borttagning av modeller. 
 

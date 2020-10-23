@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8cc59b805cd757edce79a14d124ea244b4652a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c71664769f1518ba80d36867c71ef35b2ca026
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267490"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461472"
 ---
 # <a name="scenario-route-to-shared-services-vnets"></a>Scenario: dirigera till delade tjänster virtuella nätverk
 
@@ -24,17 +24,19 @@ Mer information om routning av virtuell hubb finns i [om virtuell hubb](about-vi
 
 ## <a name="design"></a><a name="design"></a>Design
 
-Vi kan använda en anslutnings mat ris för att sammanfatta kraven i det här scenariot. I matrisen beskriver varje cell om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna i tabellen) ett måltema ("till"-sidan i flödet, kolumn rubrikerna i kursiv stil i tabellen) för ett särskilt trafikflöde. Ett "X" innebär att anslutningen tillhandahålls av Virtual WAN:
+Vi kan använda en anslutnings mat ris för att sammanfatta kraven i det här scenariot:
 
 **Anslutnings mat ris**
 
 | Från             | Till:   |*Isolerade virtuella nätverk*|*Delat VNet*|*Grenar*|
 |---|---|---|---|---|
-|**Isolerade virtuella nätverk**|&#8594;|                |        X        |       X      |
-|**Delade virtuella nätverk**  |&#8594;|       X        |        X        |       X      |
-|**Grenar**      |&#8594;|       X        |        X        |       X      |
+|**Isolerade virtuella nätverk**|&#8594;|        | Direct | Direct |
+|**Delade virtuella nätverk**  |&#8594;| Direct | Direct | Direct |
+|**Grenar**      |&#8594;| Direct | Direct | Direct |
 
-I likhet med det [isolerade VNet-scenariot](scenario-isolate-vnets.md)ger den här anslutnings matrisen två olika rad mönster, som översätts till två väg tabeller (de delade tjänsterna virtuella nätverk och grenarna har samma anslutnings krav). Det virtuella WAN-nätverket har redan en standard väg tabell, så vi behöver en annan anpassad routningstabell som vi ska anropa **RT_SHARED** i det här exemplet.
+Var och en av cellerna i föregående tabell beskriver om en virtuell WAN-anslutning ("från"-sidan i flödet, rad rubrikerna) kommunicerar med ett mål ("till"-sidan av flödet, kolumn rubrikerna i kursiv stil). I det här scenariot finns det inga brand väggar eller virtuella nätverks enheter, så kommunikationen flödar direkt över det virtuella WAN-nätverket (och därför ordet "Direct" i tabellen).
+
+På samma sätt som det [isolerade VNet-scenariot](scenario-isolate-vnets.md)ger den här anslutnings matrisen två olika rad mönster, som översätts till två väg tabeller (de delade tjänsterna virtuella nätverk och grenarna har samma anslutnings krav). Det virtuella WAN-nätverket har redan en standard väg tabell, så vi behöver en annan anpassad routningstabell som vi ska anropa **RT_SHARED** i det här exemplet.
 
 Virtuella nätverk kommer att kopplas till tabellen **RT_SHARED** väg. Eftersom de behöver anslutning till grenar och till den delade tjänsten virtuella nätverk måste den delade tjänsten VNet och grenarna spridas till **RT_SHARED** (annars skulle virtuella nätverk inte lära sig att lära sig grenen och delade VNet-prefix). Eftersom grenarna alltid är kopplade till standard väg tabellen, och anslutnings kraven är desamma för delade tjänster virtuella nätverk, kommer vi att associera den delade tjänsten virtuella nätverk till standard väg tabellen.
 

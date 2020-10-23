@@ -1,7 +1,7 @@
 ---
 title: Hantera roller i din arbets yta
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du kommer åt en Azure Machine Learning-arbetsyta med rollbaserad åtkomst kontroll (RBAC).
+description: Lär dig hur du kommer åt en Azure Machine Learning-arbetsyta med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: a9259e287c75a3a39ad1d4e701638f38b4512ee0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e15092ee767e6840f190027b0a35af3ce07e8ba9
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966414"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425650"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 
@@ -34,9 +34,9 @@ En Azure Machine Learning-arbetsyta är en Azure-resurs. När en ny Azure Machin
 | **Anpassad roll** | Gör att du kan anpassa åtkomsten till vissa kontroller eller data Plans åtgärder inom en arbets yta. Du kan till exempel skicka en körning, skapa en beräkning, distribuera en modell eller registrera en data uppsättning. |
 
 > [!IMPORTANT]
-> Roll åtkomsten kan begränsas till flera nivåer i Azure. Till exempel kanske någon med ägar åtkomst till en arbets yta saknar ägar åtkomst till den resurs grupp som innehåller arbets ytan. Mer information finns i [hur RBAC fungerar](/azure/role-based-access-control/overview#how-rbac-works).
+> Roll åtkomsten kan begränsas till flera nivåer i Azure. Till exempel kanske någon med ägar åtkomst till en arbets yta saknar ägar åtkomst till den resurs grupp som innehåller arbets ytan. Mer information finns i [så här fungerar Azure RBAC](/azure/role-based-access-control/overview#how-azure-rbac-works).
 
-Mer information om de inbyggda rollerna finns i [inbyggda roller för Azure](/azure/role-based-access-control/built-in-roles).
+Mer information om de inbyggda rollerna finns i [inbyggda roller i Azure](/azure/role-based-access-control/built-in-roles).
 
 ## <a name="manage-workspace-access"></a>Hantera åtkomst till arbets ytan
 
@@ -432,13 +432,13 @@ Här är några saker som du bör känna till när du använder rollbaserad åtk
     - "Microsoft. Network/virtualNetworks/Join/Action" på VNet-resursen.
     - "Microsoft. Network/virtualNetworks/Subnet/Join/Action" på under näts resursen.
     
-    För ytterligare information om RBAC med nätverk, se [inbyggda nätverks roller](/azure/role-based-access-control/built-in-roles#networking).
+    För mer information om Azure RBAC med nätverk, se de [inbyggda nätverks rollerna](/azure/role-based-access-control/built-in-roles#networking).
 
 - Det kan ibland ta upp till 1 timme innan dina nya roll tilldelningar börjar gälla för cachelagrade behörigheter i stacken.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>F. Vilka behörigheter behöver jag för att använda en användardefinierad hanterad identitet med mina Amlcompute-kluster?
 
-För att tilldela en tilldelad identitet i Amlcompute-kluster, måste en ha Skriv behörighet för att skapa Compute och ha [rollen hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Mer information om RBAC med hanterade identiteter finns [i hantera användarens tilldelade identitet](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+För att tilldela en tilldelad identitet i Amlcompute-kluster, måste en ha Skriv behörighet för att skapa Compute och ha [rollen hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Mer information om Azure RBAC med hanterade identiteter finns i [hantera användarens tilldelade identitet](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>F. Stöder vi rollbaserad åtkomst kontroll på Studio-portalen?

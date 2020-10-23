@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8e782dc632fe4100194015c3e0adb4ceb1ac30a6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d73f225f0e6f230509c856af0d15bc02e80fcd98
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89011471"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92425878"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Snabb start: Använd Azure Storage SDK-V11 för .NET för att hantera en kö
 
@@ -23,7 +23,7 @@ I den här snabb starten får du lära dig hur du använder Azure Storage klient
 > [!NOTE]
 > I den här snabb starten används en äldre version av klient biblioteket för Azure Queue Storage. För att komma igång med den senaste versionen, se [snabb start: Azure Queue Storage klient bibliotek V12 för .net](storage-quickstart-queues-dotnet.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -34,7 +34,7 @@ Härnäst laddar du ned och installerar .NET Core 2.0 för ditt operativsystem. 
 - Installera [.NET Core för Windows](https://www.microsoft.com/net/download/windows) eller [.NET Framework](https://www.microsoft.com/net/download/windows) (ingår i Visual Studio för Windows)
 - Installera [Visual Studio för Windows](https://www.visualstudio.com/). Om du använder .NET Core så är det valfritt för dig att installera Visual Studio.  
 
-Information om hur du väljer mellan .NET Core och .NET Framework finns i [Välj mellan .NET Core och .NET Framework för serverappar](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
+Information om hur du väljer mellan .NET Core och .NET Framework finns i [Välj mellan .NET Core och .NET Framework för serverappar](/dotnet/standard/choosing-core-framework-server).
 
 ### <a name="linux"></a>Linux
 
@@ -266,14 +266,14 @@ Se dessa ytterligare resurser för .NET-utveckling med Azure Queues:
 
 ### <a name="binaries-and-source-code"></a>Binärfiler och källkod
 
-- Hämta NuGet-paketen för den senaste versionen av [klient biblioteket för Azure Storage för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet)
+- Hämta NuGet-paketen för den senaste versionen av [klient biblioteket för Azure Storage för .net](/dotnet/api/overview/azure/storage)
     - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Köer](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Visa [källkoden för .NET-klientbiblioteket](https://github.com/Azure/azure-storage-net) på GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Referens och exempel för klientbiblioteket
 
-- Mer information om klientbiblioteket för .NET finns i [API-referens för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
+- Mer information om klientbiblioteket för .NET finns i [API-referens för .NET](/dotnet/api/overview/azure/storage).
 - Utforska [Queue Storage-exempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) som skrivits med .NET-klientbiblioteket.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -281,6 +281,6 @@ Se dessa ytterligare resurser för .NET-utveckling med Azure Queues:
 I den här snabbstarten lärde du dig hur du lägger till meddelanden i en kö, granskar meddelanden från en kö och bearbetar och tar bort meddelanden från en kö med hjälp av .NET. 
 
 > [!div class="nextstepaction"]
-> [Kommunicera mellan program med Azure Queue Storage](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Kommunicera mellan program med Azure Queue Storage](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - Mer information om .NET Core finns i [Kom igång med .NET på 10 minuter](https://www.microsoft.com/net/learn/get-started/).

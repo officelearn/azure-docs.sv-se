@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Kom igång med Azure Sentinel'
-description: Använd den här snabb starten för att lära dig att snabbt visa och övervaka vad som händer i din miljö med hjälp av Azure Sentinel. 
+description: Använd den här snabb starten för att lära dig att snabbt visa och övervaka vad som händer i din miljö med hjälp av Azure Sentinel.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208234"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516961"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabbstart: Kom igång med Azure Sentinel
 
@@ -80,10 +80,10 @@ Om du vill lägga till en ny panel kan du lägga till den i en befintlig arbets 
 Du kan skapa en ny arbets bok från början eller använda en inbyggd arbets bok som grund för din nya arbets bok.
 
 1. Om du vill skapa en ny arbets bok från grunden väljer du **arbets böcker** och sedan **+ ny arbets bok**.
-2. Välj den prenumeration som arbets boken skapas i och ge den ett beskrivande namn. Varje arbets bok är en Azure-resurs på samma sätt som andra, och du kan tilldela IT-roller (RBAC) för att definiera och begränsa vem som har åtkomst till den. 
+2. Välj den prenumeration som arbets boken skapas i och ge den ett beskrivande namn. Varje arbets bok är en Azure-resurs på samma sätt som andra, och du kan tilldela IT-roller (Azure RBAC) för att definiera och begränsa vem som har åtkomst till den. 
 3. Om du vill att det ska visas i dina arbets böcker för att fästa visualiseringar i måste du dela den. Klicka på **dela** och **Hantera användare**. 
  
-1. Använd **kontrol lera åtkomst** -och **roll tilldelningar** på samma sätt som för andra Azure-resurser. Mer information finns i [dela Azure-arbetsböcker med hjälp av RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Använd **kontrol lera åtkomst** -och **roll tilldelningar** på samma sätt som för andra Azure-resurser. Mer information finns i [dela Azure-arbetsböcker med hjälp av Azure RBAC](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
 ## <a name="new-workbook-examples"></a>Exempel på nya arbetsböcker

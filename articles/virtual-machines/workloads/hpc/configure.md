@@ -4,15 +4,15 @@ description: Lär dig mer om att konfigurera och optimera InfiniBand-aktiverade 
 author: vermagit
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 10/23/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ecfe1df273834ae38bd6bb94980444f5e34f786
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: a1bfb5988169ba79a6e3e8416804d7d4c896c758
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994817"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516858"
 ---
 # <a name="configure-and-optimize-vms"></a>Konfigurera och optimera virtuella datorer
 
@@ -36,11 +36,24 @@ För icke-SR-IOV-aktiverade [RDMA-kompatibla virtuella datorer](../../sizes-hpc.
   För SR-IOV-aktiverade [RDMA-kompatibla virtuella datorer](../../sizes-hpc.md#rdma-capable-instances)är [CentOS-HPC version 7,6 eller en senare](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557) version av VM-avbildningar på Marketplace lämplig. De här VM-avbildningarna är optimerade och förinstallerade med OFED-drivrutinerna för RDMA och olika vanliga MPI-bibliotek och vetenskapliga data behandlings paket och är det enklaste sättet att komma igång.
 
   Exempel på skript som används för att skapa CentOS-HPC version 7,6 och senare VM-avbildningar från en CentOS Marketplace-avbildning finns på [azhpc-images lagrings platsen](https://github.com/Azure/azhpc-images/tree/master/centos).
+  
+  > [!NOTE] 
+  > De senaste Azure HPC Marketplace-avbildningarna har Mellanox OFED 5,1 och senare, som inte stöder ConnectX3-Pro InfiniBand-kort. SR-IOV-aktiverade virtuella datorer i N-serien med FDR InfiniBand (t. ex. NCv3) kommer att kunna använda följande avbildnings versioner för CentOS-HPC-virtuella datorer eller äldre:
+  >- OpenLogic: CentOS-HPC: 7.6:7.6.2020062900
+  >- OpenLogic: CentOS-HPC: 7_6gen2:7.6.2020062901
+  >- OpenLogic: CentOS-HPC: 7.7:7.7.2020062600
+  >- OpenLogic: CentOS-HPC: 7_7-Gen2:7.7.2020062601
+  >- OpenLogic: CentOS-HPC: 8_1:8.1.2020062400
+  >- OpenLogic: CentOS-HPC: 8_1-Gen2:8.1.2020062401
+
 
 ### <a name="rhelcentos-vm-images"></a>RHEL/CentOS VM-avbildningar
 RHEL-eller CentOS-baserade VM-avbildningar på Marketplace kan konfigureras för användning i SR-IOV-aktiverade [virtuella datorer med RDMA-kapacitet](../../sizes-hpc.md#rdma-capable-instances). Läs mer om hur du [aktiverar InfiniBand](enable-infiniband.md) och [konfigurerar MPI](setup-mpi.md) på de virtuella datorerna.
 
   Exempel på skript som används för att skapa CentOS-HPC version 7,6 och senare VM-avbildningar från en CentOS Marketplace-avbildning finns på [azhpc-images lagrings platsen](https://github.com/Azure/azhpc-images/tree/master/centos).
+  
+  > [!NOTE]
+  > Mellanox OFED 5,1 och senare stöder inte ConnectX3-Pro InfiniBand-kort på SR-IOV-aktiverade VM-storlekar i N-serien med FDR InfiniBand (t. ex. NCv3). Använd LTS Mellanox OFED version 4.9-0.1.7.0 eller äldre på den virtuella datorn i N-serien med ConnectX3-Pro-kort. Mer information finns [här](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
 
 ### <a name="ubuntu-vm-images"></a>Ubuntu VM-avbildningar
 Ubuntu Server 16,04 LTS, 18,04 LTS och 20,04 LTS VM-avbildningar på Marketplace stöds för både SR-IOV-och icke-SR-IOV [RDMA-kompatibla virtuella datorer](../../sizes-hpc.md#rdma-capable-instances). Läs mer om hur du [aktiverar InfiniBand](enable-infiniband.md) och [konfigurerar MPI](setup-mpi.md) på de virtuella datorerna.

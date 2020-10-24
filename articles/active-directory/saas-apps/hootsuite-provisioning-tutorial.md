@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 82cd39fdefef477e3761d8d7ab771301cea962e2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b81dfec5e8ee828fba202f14967a4583bde32ed3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92443231"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503767"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera HootSuite för automatisk användar etablering
 
@@ -30,12 +30,12 @@ I den här självstudien beskrivs de steg du behöver utföra i både HootSuite 
 > * Etablera grupper och grupp medlemskap i HootSuite
 > * [Enkel inloggning](./hootsuite-tutorial.md) till HootSuite (rekommenderas)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
 * [En Azure AD-klient](../develop/quickstart-create-new-tenant.md) 
-* Ett användarkonto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör). 
+* Ett användar konto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (till exempel program administratör, moln program administratör, program ägare eller global administratör). 
 * Ett användar konto med [HootSuite](http://www.hootsuite.com/) som har behörighet att **Hantera medlemmar** i organisationen.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
@@ -108,18 +108,30 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |displayName|Sträng|
    |preferredLanguage|Sträng|
    |timezone|Sträng|
-   |urn: IETF: params: scim: schemas: tillägg: HootSuite: 2.0: användare: organizationIds|Sträng|
-   |urn: IETF: params: scim: schemas: tillägg: HootSuite: 2.0: användare: teamIds|Sträng|
+   |name.givenName|Sträng|
+   |name.familyName|Sträng|
 
-10. Om du vill aktivera Azure AD Provisioning-tjänsten för HootSuite ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper**.
+
+11. Granska gruppattributen som synkroniseras från Azure AD till HootSuite i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i HootSuite för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+
+      |Attribut|Typ|
+      |---|---|
+      |displayName|Sträng|
+      |externalId|Sträng|
+      |medlemmar|Referens|
+
+12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Om du vill aktivera Azure AD Provisioning-tjänsten för HootSuite ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
 
     ![Etableringsstatus är på](common/provisioning-toggle-on.png)
 
-11. Definiera de användare och/eller grupper som du vill etablera till HootSuite genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+14. Definiera de användare och/eller grupper som du vill etablera till HootSuite genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
 
     ![Etableringsomfång](common/provisioning-scope.png)
 
-12. När du är redo att etablera klickar du på **Spara**.
+15. När du är redo att etablera klickar du på **Spara**.
 
     ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
@@ -132,6 +144,10 @@ När du har konfigurerat etableringen använder du följande resurser till att �
 * Kontrollera [förloppsindikatorn](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) för att se status för etableringscykeln och hur nära den är att slutföras
 * Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## <a name="change-log"></a>Ändringslogg
+
+* 10/22/2020 – stöd har lagts till för användarattribut "Name. givenName" och "Name. familyName". De anpassade tilläggs attributen "organizationIds" och "teamIds" har tagits bort för användare.
+Stöd har lagts till för gruppattributen "displayName", "Members" och "externalId".
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

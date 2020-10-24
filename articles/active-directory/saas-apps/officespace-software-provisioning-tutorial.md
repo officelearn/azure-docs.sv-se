@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: Zhchia
-ms.openlocfilehash: 123f35154c3b87ff1ed479084f5e9dfa35043b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe48cef0fb235d217f95012e81d7daf501928300
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287244"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518576"
 ---
 # <a name="tutorial-configure-officespace-software-for-automatic-user-provisioning"></a>Självstudie: Konfigurera OfficeSpace-programvara för automatisk användar etablering
 
@@ -89,7 +89,7 @@ Innan du konfigurerar OfficeSpace-programvaran för automatisk användar etabler
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i OfficeSpace program vara utifrån användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för OfficeSpace-program genom att följa anvisningarna i [självstudien om OfficeSpace program vara för enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/officespace-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för OfficeSpace-program genom att följa anvisningarna i [självstudien om OfficeSpace program vara för enkel inloggning](./officespace-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
 
 ### <a name="to-configure-automatic-user-provisioning-for-officespace-software-in-azure-ad"></a>Konfigurera automatisk användar etablering för OfficeSpace-program i Azure AD:
 
@@ -153,4 +153,3 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
-

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: def394369ebcb8b457d78ad6537830487e8049f7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 6fd20cd9e3172d6ce80d2c18c2cfa41fcc044929
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277505"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508037"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -133,11 +133,11 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa en privat slut punkt för SQL Database med hjälp av portalen ](create-private-endpoint-portal.md)
-- [Skapa en privat slut punkt för SQL Database med PowerShell ](create-private-endpoint-powershell.md)
-- [Skapa en privat slut punkt för SQL Database med CLI ](create-private-endpoint-cli.md)
-- [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen ](create-private-endpoint-storage-portal.md)
-- [Skapa en privat slut punkt för Azure Cosmos-konto med hjälp av portalen ](../cosmos-db/how-to-configure-private-endpoints.md)
+- [Skapa en privat slut punkt för SQL Database med hjälp av portalen](create-private-endpoint-portal.md)
+- [Skapa en privat slut punkt för SQL Database med PowerShell](create-private-endpoint-powershell.md)
+- [Skapa en privat slut punkt för SQL Database med CLI](create-private-endpoint-cli.md)
+- [Skapa en privat slut punkt för lagrings kontot med hjälp av portalen](create-private-endpoint-storage-portal.md)
+- [Skapa en privat slut punkt för Azure Cosmos-konto med hjälp av portalen](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Skapa en egen privat länk-tjänst med hjälp av Azure PowerShell](create-private-link-service-powershell.md)
 - [Skapa en egen privat länk för Azure Database for PostgreSQL-en server med hjälp av portalen](../postgresql/howto-configure-privatelink-portal.md)
 - [Skapa en egen privat länk för Azure Database for PostgreSQL-enskild server med CLI](../postgresql/howto-configure-privatelink-cli.md)
@@ -145,3 +145,4 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 - [Skapa en egen privat länk för Azure Database for MySQL med CLI](../mysql/howto-configure-privatelink-cli.md)
 - [Skapa en egen privat länk för Azure Database for MariaDB med hjälp av portalen](../mariadb/howto-configure-privatelink-portal.md)
 - [Skapa en egen privat länk för Azure Database for MariaDB med CLI](../mariadb/howto-configure-privatelink-cli.md)
+- [Skapa en egen privat länk för Azure Key Vault med hjälp av portalen och CLI](../key-vault/general/private-link-service.md)

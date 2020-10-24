@@ -3,12 +3,12 @@ title: Slutför en haveri beredskap för virtuella datorer
 description: Den här artikeln visar hur du utför en haveri beredskap för virtuella datorer med hjälp av Azure VMware-lösningen
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 2ccb6546b9b01255e4a28aed79fd0d3ccbc4516c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3608243600eb5d00dcfe10db5bc6b907ecb9aee8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580597"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508442"
 ---
 # <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Slutför en haveri beredskap för virtuella datorer med hjälp av Azure VMware-lösningen
 
@@ -20,7 +20,7 @@ VMware HCX tillhandahåller olika åtgärder som ger fin kontroll och granularit
 
 - **Paus** – pausa den aktuella replikeringsprincipen som är associerad med den valda virtuella datorn.
 
-- **Återuppta** – pausa den aktuella replikeringsprincipen som är associerad med den valda virtuella datorn.
+- **Återuppta** – återuppta den aktuella replikeringsprincipen som är associerad med den valda virtuella datorn.
 
 - **Ta bort** – ta bort den aktuella replikeringsprincipen som är associerad med den valda virtuella datorn.
 

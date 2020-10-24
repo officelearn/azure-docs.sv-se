@@ -9,16 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ee7eda58c211ca570b052d55c813999e62b95fde
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 3ece62e671caa0838bbf4713c0ad4a74f19fd6cb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876319"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518882"
 ---
 # <a name="tutorial---migrate-from-google-maps-to-azure-maps"></a>Självstudie – migrera från Google Maps till Azure Maps
 
-Den här artikeln innehåller insikter om hur du migrerar webb-, mobil-och serverbaserade program från Google Maps till Microsoft Azure Maps-plattformen. Den här självstudien innehåller jämför ande kod exempel, förslag på migrering och metod tips för migrering till Azure Maps.
+Den här artikeln innehåller insikter om hur du migrerar webb-, mobil-och serverbaserade program från Google Maps till Microsoft Azure Maps-plattformen. Den här självstudien innehåller jämför ande kod exempel, förslag på migrering och metod tips för migrering till Azure Maps. I den här kursen lär du dig:
+
+> [!div class="checklist"]
+> * Jämförelse på hög nivå för motsvarande Google Maps-funktioner som finns i Azure Maps
+> * Vilka licensierings skillnader som bör beaktas
+> * Planera migreringen
+> * Här hittar du tekniska resurser och support.
+
+## <a name="prerequisites"></a>Förutsättningar 
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+2. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="azure-maps-platform-overview"></a>Översikt över Azure Maps plattform
 
@@ -38,19 +50,19 @@ Tabellen innehåller en övergripande lista med Azure Maps funktioner som motsva
 | Avstånds mat ris             | ✓                                      |
 | Höjning                   | Planerad                                |
 | Landskod (framåt/omvänd) | ✓                                      |
-| Geolocation                 | E.t.                                    |
+| Geolocation                 | Ej tillämpligt                                    |
 | Närmaste vägar               | ✓                                      |
 | Sök efter platser               | ✓                                      |
 | Plats information              | Saknas – webbplats & telefonnummer är tillgängligt |
-| Placerar foton               | E.t.                                    |
+| Placerar foton               | Ej tillämpligt                                    |
 | Placera Autoavsluta          | ✓                                      |
 | Fäst vid väg                | ✓                                      |
 | Hastighets begränsningar                | ✓                                      |
 | Statiska Maps                 | ✓                                      |
-| Statisk gata vy          | E.t.                                    |
+| Statisk gata vy          | Ej tillämpligt                                    |
 | Tidszon                   | ✓                                      |
-| Mappar inbäddat API           | E.t.                                    |
-| Kart-URL: er                    | E.t.                                    |
+| Mappar inbäddat API           | Ej tillämpligt                                    |
+| Kart-URL: er                    | Ej tillämpligt                                    |
 
 Google Maps innehåller grundläggande nyckelbaserad autentisering. Azure Maps tillhandahåller både grundläggande nyckelbaserad autentisering och Azure Active Directory autentisering. Azure Active Directory-autentisering innehåller fler säkerhetsfunktioner jämfört med den grundläggande nyckelbaserade autentiseringen.
 
@@ -107,10 +119,15 @@ Här är en lista över användbara tekniska resurser för Azure Maps.
 
 Utvecklare kan söka efter stöd för migrering via [forumen](https://aka.ms/AzureMapsForums) eller via ett av de många support alternativen för Azure: [https://azure.microsoft.com/support/options](https://azure.microsoft.com/support/options)
 
-Du kan lära dig att migrera ditt Google Maps-program med: 
+## <a name="next-steps"></a>Nästa steg
 
-[Migrera en Android-app](migrate-from-google-maps-android-app.md) 
+Lär dig mer om hur du migrerar ditt Google Maps-program med följande artiklar:
 
-[Migrera en webbtjänst](migrate-from-google-maps-web-services.md) 
+> [!div class="nextstepaction"]
+> [Migrera en webbapp](migrate-from-google-maps-web-app.md)
 
-[Migrera en webbapp](migrate-from-google-maps-web-app.md)
+> [!div class="nextstepaction"]
+> [Migrera en webbtjänst](migrate-from-google-maps-web-services.md) 
+
+> [!div class="nextstepaction"]
+> [Migrera en Android-app](migrate-from-google-maps-android-app.md) 

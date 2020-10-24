@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/24/2020
 ms.author: jeedes
-ms.openlocfilehash: 989b41d4fc55241a5fa75a0eed9ea8f4ebaeee67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fbc42864761360d252ed62cea1aef6f2937b599
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856831"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516077"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-signalfx"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SignalFx
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig hur du integrerar SignalFx med Azure 
 * Gör det möjligt för användarna att logga in automatiskt till SignalFx med sina Azure AD-konton. särskilt
 * Hantera dina konton på en plats (Azure Portal).
 
-Mer information om SaaS program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar behöver du:
 
@@ -42,7 +42,7 @@ I den här självstudien kommer du att konfigurera och testa Azure AD SSO i en t
 
 * SignalFx stöder **IDP** INITIERAd SSO
 * SignalFx stöder **just-in-Time** User-etablering
-* När du har konfigurerat SignalFx kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat SignalFx kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="step-1-add-the-signalfx-application-in-azure"></a>Steg 1: Lägg till SignalFx-programmet i Azure
 
@@ -92,7 +92,7 @@ Använd de här instruktionerna för att aktivera Azure AD SSO i Azure Portal.
     
 1. Granska och verifiera att följande anspråk mappar till de källattribut som är ifyllda i Active Directory. 
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ------------------- | -------------------- |
     | User.FirstName  | user.givenname |
     | User. email  | user.mail |
@@ -156,7 +156,7 @@ Läs följande information om hur du testar SSO, samt förväntningar för att l
 
 * När en ny test användare loggar in för första gången tvingar Azure dig att ändra lösen ordet. När detta inträffar slutförs inte inloggnings processen för SSO. test användaren dirigeras till Azure Portal. För att felsöka ska test användaren ändra sitt lösen ord och navigera till SignalFx-inloggnings sidan eller till åtkomst panelen och försöka igen.
     * När du klickar på panelen SignalFx på åtkomst panelen, ska du loggas in automatiskt på SignalFx. 
-        * Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+        * Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 * SignalFx-programmet kan nås från åtkomst panelen eller via en anpassad inloggnings sida som tilldelats organisationen. Test användaren bör testa integreringen med början från någon av dessa platser.
     * Test användaren kan använda de autentiseringsuppgifter som skapades tidigare i den här processen för **b. simon \@ contoso.com**.
@@ -169,12 +169,12 @@ Läs följande information om hur du testar SSO, samt förväntningar för att l
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](./tutorial-list.md)
 
-- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory? ](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
 - [Prova SignalFx med Azure AD](https://aad.portal.azure.com/)

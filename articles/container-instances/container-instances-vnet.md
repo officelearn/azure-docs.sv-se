@@ -4,12 +4,12 @@ description: Lär dig hur du distribuerar en behållar grupp till ett nytt eller
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f61bc74f79c1712c3c662be66384c5ef689eb7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91303016"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518134"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera containerinstanser i ett virtuellt Azure-nätverk
 
@@ -40,7 +40,7 @@ När du har distribuerat din första behållar grupp med den här metoden kan du
 
 ### <a name="example"></a>Exempel
 
-Följande kommando för [AZ container Create][az-container-create] anger inställningar för ett nytt virtuellt nätverk och undernät. Ange namnet på en resurs grupp som har skapats i en region där distributioner av container grupper i ett virtuellt nätverk är [tillgängliga](container-instances-region-availability.md#availability---virtual-network-deployment). Det här kommandot distribuerar den offentliga Microsoft [ACI-HelloWorld-][aci-helloworld] behållaren som kör en liten Node.js-webbserver som betjänar en statisk webb sida. I nästa avsnitt ska du distribuera en andra behållar grupp till samma undernät och testa kommunikationen mellan de två behållar instanserna.
+Följande kommando för [AZ container Create][az-container-create] anger inställningar för ett nytt virtuellt nätverk och undernät. Ange namnet på en resurs grupp som har skapats i en region där distributioner av container grupper i ett virtuellt nätverk är [tillgängliga](container-instances-region-availability.md). Det här kommandot distribuerar den offentliga Microsoft [ACI-HelloWorld-][aci-helloworld] behållaren som kör en liten Node.js-webbserver som betjänar en statisk webb sida. I nästa avsnitt ska du distribuera en andra behållar grupp till samma undernät och testa kommunikationen mellan de två behållar instanserna.
 
 ```azurecli
 az container create \

@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 09/28/2020
 ms.custom: devx-track-csharp, mvc, devcenter, seo, devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c8e22373f4550b0c65f6ea5c0b62815e32dcbb58
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 4e50f6b2770f9f787c92e7a9c66f72cdbb252a94
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92105132"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519698"
 ---
 # <a name="quickstart-create-a-function-in-azure-using-visual-studio-code"></a>Snabbstart: Skapa en funktion i Azure med hjälp av Visual Studio Code
 
@@ -65,7 +65,7 @@ Innan du börjar bör du kontrol lera att du har följande krav på plats:
 - Både [.net core 3,1](https://www.microsoft.com/net/download) och [.net Core 2,1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 ::: zone-end
 ::: zone pivot="programming-language-java"
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8.
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8 eller 11.
 
 - [Apache maven](https://maven.apache.org), version 3,0 eller senare.
 ::: zone-end
@@ -121,7 +121,7 @@ I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt A
     ::: zone pivot="programming-language-java"
     - **Välj ett språk för ditt funktions projekt**: Välj `Java` .
 
-    - **Välj en version av Java**: Välj `Java 8` eller `Java 11 (preview)` , där dina funktioner körs i Azure. Välj en Java-version som du har verifierat lokalt.
+    - **Välj en version av Java**: Välj `Java 8` eller `Java 11` , där dina funktioner körs i Azure. Välj en Java-version som du har verifierat lokalt.
 
     - **Ange ett grupp-ID**: Välj `com.function` .
 

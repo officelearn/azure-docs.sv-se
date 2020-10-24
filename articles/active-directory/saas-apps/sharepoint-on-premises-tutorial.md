@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: a3a5834cd63351b9bf61dc97c8d6e14d430b6284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a52fc28d99e0f072323e5042257baec9bf98ecb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979704"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518390"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Självstudie: Azure Active Directory integration med enkel inloggning med SharePoint lokalt
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar lokal SharePoint me
 * Gör det möjligt för användarna att logga in automatiskt till SharePoint lokalt med deras Azure AD-konton.
 * Hantera dina konton i Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med SharePoint lokalt behöver du följande objekt:
 
@@ -133,7 +133,7 @@ Så här konfigurerar du Azure AD SSO med SharePoint lokalt:
     Kör följande kommandon för att konfigurera en ny betrodd identitets leverantör.
 
     > [!TIP]
-    > Om PowerShell är nytt för dig eller om du vill veta mer om hur PowerShell fungerar, se [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps).
+    > Om PowerShell är nytt för dig eller om du vill veta mer om hur PowerShell fungerar, se [SharePoint PowerShell](/powershell/sharepoint/overview?view=sharepoint-ps).
 
 
     ```
@@ -285,6 +285,6 @@ Konfigurationen fungerar för ett enda webb program, men ytterligare konfigurati
 
 Du kanske har andra scenarier där du vill ge åtkomst till din lokala SharePoint-instans för dina interna användare. I det här scenariot måste du distribuera Microsoft Azure Active Directory Connect för att kunna synkronisera dina lokala användare med Azure AD. Den här installationen beskrivs i en annan artikel.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-När du har konfigurerat SharePoint lokalt kan du framtvinga kontroll över sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+När du har konfigurerat SharePoint lokalt kan du framtvinga kontroll över sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)

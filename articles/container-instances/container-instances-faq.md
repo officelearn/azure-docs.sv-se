@@ -5,12 +5,12 @@ author: macolso
 ms.author: macolso
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 1cedfb7464fd97249c5cd3fae73c9290365da6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4760463a4d71e4c097b082aa6b93d8b339f94ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91818493"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516978"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Vanliga frågor och svar om Azure Container Instances
 
@@ -61,7 +61,7 @@ Använd den minsta avbildning som uppfyller dina krav. För Linux kan du använd
 
 Det beror faktiskt på din arbets belastning. Starta små och test prestanda för att se hur dina behållare gör. [Övervaka användningen av processor-och minnes resurser](container-instances-monitor.md)och Lägg sedan till kärnor eller minne baserat på den typ av processer som du distribuerar i behållaren.
 
-Se till att även kontrol lera [resurs tillgängligheten](container-instances-region-availability.md#availability---general) för den region som du distribuerar i för de övre gränserna för processor kärnor och tillgängligt minne per behållar grupp. 
+Se till att även kontrol lera [resurs tillgängligheten](container-instances-region-availability.md) för den region som du distribuerar i för de övre gränserna för processor kärnor och tillgängligt minne per behållar grupp. 
 
 > [!NOTE]
 > En liten del av en behållar grupps resurser används av tjänstens underliggande infrastruktur. Behållarna kommer att kunna komma åt de flesta men inte alla resurser som har allokerats till gruppen. Därför bör du planera en liten resurs buffert när du begär resurser för behållare i gruppen.
@@ -80,7 +80,7 @@ Inte ännu. För närvarande är detta de maximala värdena för en behållar gr
 
 ### <a name="when-will-aci-be-in-a-specific-region"></a>När kommer ACI finnas i en speciell region?
 
-Aktuell regions tillgänglighet publiceras [här](container-instances-region-availability.md#availability---general). Kontakta Azure-supporten om du har ett krav för en speciell region.
+Aktuell regions tillgänglighet publiceras [här](container-instances-region-availability.md). Kontakta Azure-supporten om du har ett krav för en speciell region.
 
 ## <a name="features-and-scenarios"></a>Funktioner och scenarier
 

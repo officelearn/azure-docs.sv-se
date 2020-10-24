@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7604e8519e7ae8db255a0e033ca3df0bb941a845
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3ae57652737acc2b23cda75ace361f0bb40340
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626266"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518193"
 ---
 # <a name="azure-security-baseline-for-vpn-gateway"></a>Azures säkerhets bas linje för VPN Gateway
 
@@ -178,7 +178,7 @@ Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel.
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
-**Vägledning**: Azure rollbaserad åtkomst kontroll (RBAC) gör att du kan hantera åtkomst till Azure-resurser via roll tilldelningar. Du kan tilldela dessa roller till användare, grupper tjänstens huvud namn och hanterade identiteter. Det finns fördefinierade inbyggda roller för vissa resurser och dessa roller kan inventeras eller frågas via verktyg som Azure CLI, Azure PowerShell eller Azure Portal.
+**Vägledning**: Azure rollbaserad åtkomst kontroll (Azure RBAC) gör att du kan hantera åtkomst till Azure-resurser via roll tilldelningar. Du kan tilldela dessa roller till användare, grupper tjänstens huvud namn och hanterade identiteter. Det finns fördefinierade inbyggda roller för vissa resurser och dessa roller kan inventeras eller frågas via verktyg som Azure CLI, Azure PowerShell eller Azure Portal.
 
 - [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0) 
 
@@ -310,7 +310,7 @@ Du kan effektivisera den här processen genom att skapa diagnostikinställningar
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4,2: isolera system som lagrar eller bearbetar känslig information
 
-**Vägledning**: VPN-gatewayer har dedikerade VM-instanser för varje kundens virtuella nätverk. Implementera isolering med separata virtuella nätverk, prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via Azure Active Directory rollbaserad åtkomst kontroll.
+**Vägledning**: VPN-gatewayer har dedikerade VM-instanser för varje kundens virtuella nätverk. Implementera isolering med separata virtuella nätverk, prenumerationer och hanterings grupper för enskilda säkerhets domäner, till exempel miljö typ och data känslighets nivå. Du kan begränsa åtkomst nivån till dina Azure-resurser som dina program och företags miljöer kräver. Du kan styra åtkomsten till Azure-resurser via rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 - [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
 
@@ -362,11 +362,11 @@ Följ Azure Security Center rekommendationer för kryptering i vila och krypteri
 
 **Ansvar**: kund
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: Använd Azure AD RBAC för att kontrol lera åtkomsten till data och resurser, Använd annars tjänst särskilda metoder för åtkomst kontroll. Använd inbyggda rollbaserade åtkomst kontroll roller som ägare, deltagare eller nätverks deltagare och tilldela sedan rollen till lämplig omfattning. Tilldela vissa behörigheter för en delmängd av funktioner för virtuella nätverk genom att skapa en anpassad roll och tilldela de behörigheter som krävs för virtuella nätverk, undernät, VPN-gatewayer, nätverks gränssnitt, nätverks säkerhets grupper och routningstabeller till rollen.
+**Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att kontrol lera åtkomsten till data och resurser, Använd annars tjänstens speciella metoder för åtkomst kontroll. Använd inbyggda roller som ägare, deltagare eller nätverks deltagare och tilldela sedan rollen till lämplig omfattning. Tilldela vissa behörigheter för en delmängd av funktioner för virtuella nätverk genom att skapa en anpassad roll och tilldela de behörigheter som krävs för virtuella nätverk, undernät, VPN-gatewayer, nätverks gränssnitt, nätverks säkerhets grupper och routningstabeller till rollen.
 
-- [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Planera virtuella nätverk](../virtual-network/virtual-network-vnet-plan-design-arm.md#permissions)
 
@@ -532,7 +532,7 @@ Du kan också använda rekommendationer från Azure Security Center som en säke
 
 - [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+- [Säkerhetsrekommendationer – en referensguide](../security-center/recommendations-reference.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -720,7 +720,7 @@ Dessutom kan du markera prenumerationer med taggar och skapa ett namngivnings sy
 
 - [Säkerhetsaviseringar i Azure Security Center](../security-center/security-center-alerts-overview.md) 
 
-- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 

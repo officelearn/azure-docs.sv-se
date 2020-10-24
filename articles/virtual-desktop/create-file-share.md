@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aad5ebaf7eef5b404f7849b79694facf1efd01b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287329"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519447"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Skapa en profil behållare med Azure Files och AD DS
 
@@ -29,7 +29,7 @@ Först måste du konfigurera ett Azure Files lagrings konto.
 
 Så här konfigurerar du ett lagrings konto:
 
-1. Logga in på Azure Portal.
+1. Logga in på Azure-portalen.
 
 2. Sök efter **lagrings konto** i Sök fältet.
 
@@ -86,7 +86,7 @@ Om du vill konfigurera behörigheter på resurs nivå tilldelar du varje använd
 >[!NOTE]
 >De konton eller grupper som du tilldelar behörigheter bör ha skapats i domänen och synkroniserats med Azure AD. Konton som skapats i Azure AD fungerar inte.
 
-Tilldela rollbaserad åtkomst kontroll (RBAC) behörigheter:
+Så här tilldelar du Azure-rollbaserad åtkomst kontroll (Azure RBAC) behörigheter:
 
 1. Öppna Azure-portalen.
 
@@ -106,7 +106,7 @@ Tilldela rollbaserad åtkomst kontroll (RBAC) behörigheter:
 
 ## <a name="assign-users-permissions-on-the-azure-file-share"></a>Tilldela användare behörigheter på Azure-filresursen
 
-När du har tilldelat RBAC-behörighet till dina användare behöver du konfigurera NTFS-behörigheterna.
+När du har tilldelat Azure RBAC-behörigheter till dina användare måste du konfigurera NTFS-behörigheterna.
 
 Du behöver veta två saker från Azure Portal för att komma igång:
 

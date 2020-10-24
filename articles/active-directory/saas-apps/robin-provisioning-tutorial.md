@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: Zhchia
-ms.openlocfilehash: e69b6aa5518f83dbbeba34d70b459c781b50dc9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a7c2634f4dc06e3c988a48c7ca15294160759e2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300032"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520735"
 ---
 # <a name="tutorial-configure-robin-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Tax för automatisk användar etablering
 
@@ -89,7 +89,7 @@ Innan du konfigurerar Robin för automatisk användar etablering med Azure AD m�
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Tax baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för resursallokering genom att följa anvisningarna i [självstudien om enkel inloggning i Robin](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för resursallokering genom att följa anvisningarna i [självstudien om enkel inloggning i Robin](./robin-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
 
 ### <a name="to-configure-automatic-user-provisioning-for-robin-in-azure-ad"></a>Konfigurera automatisk användar etablering för resursallokering i Azure AD:
 
@@ -163,4 +163,3 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
-

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: baf528e1b4ab7e323b69574729669d09692741cc
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 27c9198558a730d0af49077d6f5baa6db4789416
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148146"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503529"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Skapa och Använd en intern Load Balancer App Service-miljön 
 
@@ -104,22 +104,22 @@ När du använder en extern ASE registreras appar i dina ASE med Azure DNS. Det 
 
 Så här konfigurerar du DNS på din egen DNS-server med din ILB-ASE:
 
-1. skapa en zon för <ASE name> . appserviceenvironment.net
+1. skapa en zon för &lt; ASE name &gt; . appserviceenvironment.net
 2. skapa en A-post i den zonen som pekar på ILB IP-adress
 3. skapa en A-post i den zonen som pekar @ på ILB IP-adress
-4. skapa en zon i <ASE name> . appserviceenvironment.net med namnet SCM
+4. skapa en zon i &lt; ASE name &gt; . appserviceenvironment.net med namnet SCM
 5. skapa en A-post i SCM-zonen som pekar på ILB IP-adress
 
 Så här konfigurerar du DNS i Azure DNS privata zoner:
 
-1. skapa en Azure DNS privat zon med namnet <ASE name> . appserviceenvironment.net
+1. skapa en Azure DNS privat zon med namnet &lt; ASE name &gt; . appserviceenvironment.net
 2. skapa en A-post i den zonen som pekar på ILB IP-adress
 3. skapa en A-post i den zonen som pekar @ på ILB IP-adress
 4. skapa en A-post i den zonen som pekar *. scm till ILB-IP-adressen
 
-DNS-inställningarna för ditt ASE standard-domänsuffix begränsar inte dina appar till att endast vara tillgängliga för dessa namn. Du kan ange ett anpassat domän namn utan att verifiera dina appar i en ILB-ASE. Om du sedan vill skapa en zon med namnet contoso.net kan du göra det och peka den mot ILB IP-adressen. Det anpassade domän namnet fungerar för app-begäranden, men inte för SCM-platsen. SCM-webbplatsen är bara tillgänglig på <appname> . scm. <asename> . appserviceenvironment.net.
+DNS-inställningarna för ditt ASE standard-domänsuffix begränsar inte dina appar till att endast vara tillgängliga för dessa namn. Du kan ange ett anpassat domän namn utan att verifiera dina appar i en ILB-ASE. Om du sedan vill skapa en zon med namnet contoso.net kan du göra det och peka den mot ILB IP-adressen. Det anpassade domän namnet fungerar för app-begäranden, men inte för SCM-platsen. SCM-webbplatsen är bara tillgänglig på &lt; APPNAME &gt; . scm. &lt; asename &gt; . appserviceenvironment.net.
 
-Zonen med namnet. <asename> . appserviceenvironment.net är globalt unikt. Innan maj 2019 kunde kunderna ange domänsuffix för ILB-ASE. Om du vill använda. contoso.com för domänsuffix kan du göra det och inkludera SCM-webbplatsen. Det fanns utmaningar med denna modell, inklusive; hantera SSL-standardcertifikatet, avsaknad av enkel inloggning med SCM-platsen och kravet på att använda ett jokertecken. ILB ASE-processen för standard certifikats uppgradering avbröts också och det gjorde att programmet startades om. För att lösa dessa problem ändrades beteendet för ILB ASE till att använda ett domänsuffix baserat på namnet på ASE och med ett Microsoft-ägda suffix. Ändringen av ILB ASE-beteendet påverkar bara ILB ASE som gjorts efter maj 2019. Befintliga ILB-ASE måste fortfarande hantera standard certifikatet för ASE och deras DNS-konfiguration.
+Zonen med namnet. &lt; asename &gt; . appserviceenvironment.net är globalt unikt. Innan maj 2019 kunde kunderna ange domänsuffix för ILB-ASE. Om du vill använda. contoso.com för domänsuffix kan du göra det och inkludera SCM-webbplatsen. Det fanns utmaningar med denna modell, inklusive; hantera SSL-standardcertifikatet, avsaknad av enkel inloggning med SCM-platsen och kravet på att använda ett jokertecken. ILB ASE-processen för standard certifikats uppgradering avbröts också och det gjorde att programmet startades om. För att lösa dessa problem ändrades beteendet för ILB ASE till att använda ett domänsuffix baserat på namnet på ASE och med ett Microsoft-ägda suffix. Ändringen av ILB ASE-beteendet påverkar bara ILB ASE som gjorts efter maj 2019. Befintliga ILB-ASE måste fortfarande hantera standard certifikatet för ASE och deras DNS-konfiguration.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicera med en ILB ASE
 

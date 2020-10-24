@@ -9,16 +9,34 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d7e6c5229fa6f8204ba363d9868ffa80d78ccba
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fb99afef2d5e210b8aa166f016bd2b9ec409c2a2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876506"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518967"
 ---
-# <a name="migrate-a-web-app-from-google-maps"></a>Migrera en webbapp från Google Maps
+# <a name="tutorial---migrate-a-web-app-from-google-maps"></a>Självstudie – migrera en webbapp från Google Maps
 
-De flesta Web Apps, som använder Google Maps, använder Google Maps v3 Java Script SDK. Azure Maps Web SDK är lämplig Azure-baserad SDK för att migrera till. Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll och bilder. Du kan köra din app på både webb-och mobil program. Den här kontrollen använder WebGL, så att du kan rendera stora datauppsättningar med höga prestanda. Utveckla med det här SDK: t med Java Script eller TypeScript.
+De flesta Web Apps, som använder Google Maps, använder Google Maps v3 Java Script SDK. Azure Maps Web SDK är lämplig Azure-baserad SDK för att migrera till. Med Azure Maps Web SDK kan du anpassa interaktiva kartor med ditt eget innehåll och bilder. Du kan köra din app på både webb-och mobil program. Den här kontrollen använder WebGL, så att du kan rendera stora datauppsättningar med höga prestanda. Utveckla med det här SDK: t med Java Script eller TypeScript. I den här självstudien får du lära dig hur man:
+
+> [!div class="checklist"]
+> * Läsa in en karta
+> * Lokalisera en karta
+> * Lägg till markörer, polystreck och polygoner.
+> * Visa information i ett popup-eller informations fönster
+> * Läsa in och visa KML-och interjson-data
+> * Kluster markörer
+> * Täcka över ett panel lager
+> * Visa trafikdata
+> * Lägg till ett mark överlägg
+
+Du får också lära dig: 
+
+> [!div class="checklist"]
+> * Så här utför du vanliga mappnings aktiviteter med hjälp av Azure Maps Web SDK
+> * Metod tips för att förbättra prestanda och användar upplevelsen
+> * Tips om hur du gör ditt program med fler avancerade funktioner som är tillgängliga i Azure Maps
 
 Om du migrerar ett befintligt webb program bör du kontrol lera om det använder ett kart kontroll bibliotek med öppen källkod. Exempel på kart kontroll bibliotek med öppen källkod är: cesium, häfte och openlager. Du kan fortfarande migrera ditt program, även om det använder ett kart kontroll bibliotek med öppen källkod, och du inte vill använda Azure Maps Web SDK. I det här fallet ansluter du ditt program till Azure Maps panels tjänster[(](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [satellit paneler satellit paneler](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile)). Följande beskriver hur du använder Azure Maps i några vanliga kart kontroll bibliotek med öppen källkod.
 
@@ -33,6 +51,11 @@ Om du utvecklar med ett JavaScript-ramverk kan något av följande projekt med �
 - [Azure Maps Reakta komponent](https://github.com/WiredSolutions/react-azure-maps) – ett reaktat omslutning för kontrollen Azure Maps.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) – en Azure Maps komponent för Vue-program.
 
+## <a name="prerequisites"></a>Förutsättningar 
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+2. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="key-features-support"></a>Viktiga funktioner stöder
 
@@ -72,7 +95,6 @@ Följande är några viktiga skillnader mellan Google Maps och Azure Maps webb-S
 
 Den här samlingen innehåller kod exempel för varje plattform och varje exempel omfattar ett vanligt användnings fall. Det är avsett att hjälpa dig att migrera ditt webb program från Google Maps v3 JavaScript SDK till Azure Maps Web SDK. Kod exempel som är relaterade till webb program finns i Java Script. Azure Maps även tillhandahålla TypeScript-definitioner som ett ytterligare alternativ genom en [NPM-modul](how-to-use-map-control.md).
 
-
 **Ämnen**
 
 - [Läsa in en karta](#load-a-map)
@@ -90,7 +112,6 @@ Den här samlingen innehåller kod exempel för varje plattform och varje exempe
 - [Visa trafikdata](#show-traffic-data)
 - [Lägg till ett mark överlägg](#add-a-ground-overlay)
 - [Lägg till KML-data till kartan](#add-kml-data-to-the-map)
-
 
 ### <a name="load-a-map"></a>Läsa in en karta
 
@@ -1720,9 +1741,18 @@ Bibliotek lägger till ytterligare funktioner till kartan. Många av dessa bibli
 | Geometri bibliotek      | [Atlas. matematik](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | Visualiserings bibliotek | [Termiskt kart skikt](map-add-heat-map-layer.md) |
 
-Läs mer om hur du migrerar Google Maps:
+## <a name="next-steps"></a>Nästa steg
 
-* [använda modulen tjänster](how-to-use-services-module.md) 
-* [använda modulen verktyg för ritning](set-drawing-options.md)
-* [använda modulen tjänster](how-to-use-services-module.md)
-* [använda kart kontrollen](how-to-use-map-control.md)
+Läs mer om Azure Maps Web SDK:
+
+> [!div class="nextstepaction"]
+> [Använda kart kontrollen](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Använda modulen verktyg för ritning](set-drawing-options.md)
+
+> [!div class="nextstepaction"]
+> [Använda modulen tjänster](how-to-use-services-module.md)
+
+> [!div class="nextstepaction"]
+> [Använda den spatiala IO-modulen](how-to-use-spatial-io-module.md)

@@ -12,12 +12,12 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
-ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8eeddecbec31ec1bfa73cf956deb4c50809c50e7
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88751263"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521954"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Självstudier för att integrera SaaS-appar med Azure Active Directory
 
@@ -25,7 +25,7 @@ Vi har utvecklat en samling med självstudier som vägleder dig genom konfigurat
 
 En lista över alla SaaS-appar som har förintegrerats i Azure AD finns på [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
 
-Använd [programmets nätverks Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) för att begära att ett [scim](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups) aktiverat program läggs till i galleriet för automatisk etablering eller ett SAML/OIDC-aktiverat program som ska läggas till i galleriet för SSO.
+Använd [programmets nätverks Portal](../azuread-dev/howto-app-gallery-listing.md) för att begära att ett [scim](../app-provisioning/use-scim-to-provision-users-and-groups.md) aktiverat program läggs till i galleriet för automatisk etablering eller ett SAML/OIDC-aktiverat program som ska läggas till i galleriet för SSO.
 
 ## <a name="quick-links"></a>Snabblänkar
 
@@ -34,7 +34,7 @@ Använd [programmets nätverks Portal](https://docs.microsoft.com/azure/active-d
 | ![logo typ – Atlassian Cloud](./media/tutorial-list/active-directory-saas-atlassian-cloud-tutorial.png)| [Atlassian Cloud](atlassian-cloud-tutorial.md)| [Atlassian-moln – användar etablering](atlassian-cloud-provisioning-tutorial.md)|
 | ![logo typ – ServiceNow](./media/tutorial-list/active-directory-saas-servicenow-tutorial.png)| [ServiceNow](servicenow-tutorial.md)|[ServiceNow – användar etablering](servicenow-provisioning-tutorial.md)|
 | ![logo typ – slack](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack – användar etablering](slack-provisioning-tutorial.md)|
-| ![logo typ – SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors – användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial) |
+| ![logo typ – SuccessFactors](./media/tutorial-list/active-directory-saas-successfactors-tutorial.png)| [SuccessFactors](successfactors-tutorial.md)| [SuccessFactors – användar etablering](./sap-successfactors-inbound-provisioning-tutorial.md) |
 | ![logo typ-Workday](./media/tutorial-list/active-directory-saas-workday-tutorial.png)| [Workday](workday-tutorial.md)| [Arbets dag – användar etablering](workday-inbound-tutorial.md)|
 
 Använd innehålls förteckningen till vänster om du vill ha fler självstudier.
@@ -47,7 +47,7 @@ Använd innehålls förteckningen till vänster om du vill ha fler självstudier
 | ![logo typ – Alibaba Cloud Service (roll Base SSO)](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (roll Base SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![logo typ – Google Cloud Platform](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform användar etablering](google-apps-provisioning-tutorial.md) |
 | ![logo typ-Salesforce](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce-användar etablering](salesforce-provisioning-tutorial.md) |
-| ![logo typ – SAP Cloud Identity Platform](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)|[SAP Cloud Identity Platform – etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
+| ![logo typ – SAP Cloud Identity Platform](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)|[SAP Cloud Identity Platform – etablering](./sap-cloud-platform-identity-authentication-provisioning-tutorial.md) |
 
 ## <a name="oneclick-sso"></a>OneClick SSO
 
@@ -83,7 +83,7 @@ Använd innehålls förteckningen till vänster om du vill ha fler självstudier
 | ![logo typ-hjälp Scout](./media/tutorial-list/active-directory-saas-helpscout-tutorial.png)| [Help Scout](helpscout-tutorial.md)|
 | ![logo typ – Hightail](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|
 | ![logo typ – HRworks Single Sign-On](./media/tutorial-list/active-directory-saas-hrworks-single-sign-on-tutorial.png)| [HRworks Single Sign-On](hrworks-single-sign-on-tutorial.md)|
-| ![logo typ – JAMF Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [Jamf Pro](jamfprosamlconnector-tutorial.md)|
+| ![logo typ – JAMF Pro](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [JAMF Pro](jamfprosamlconnector-tutorial.md)|
 | ![logo typ – Kanbanize](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
 | ![logo typ – kunskap överallt i LMS](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Knowledge Anywhere LMS](knowledge-anywhere-lms-tutorial.md)|
 | ![logo-monday.com](./media/tutorial-list/active-directory-saas-mondaycom-tutorial.png)| [monday.com](mondaycom-tutorial.md)|

@@ -3,18 +3,18 @@ title: Azure Messaging-tjänster – Service Manager till Resource Manager
 description: Den här artikeln innehåller mappning av föråldrade Azure Service Manager REST API & PowerShell-cmdletar till Resource Manager REST API & PowerShell-cmdletar.
 ms.topic: article
 ms.date: 09/25/2020
-ms.openlocfilehash: 84335d534c229f40381b913dfca54f42e2da250b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b82772b364bbc44a898197e7fafd11b33e2e6320
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761183"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518797"
 ---
 # <a name="deprecation-of-azure-service-manager-support-for-azure-service-bus-relay-and-event-hubs"></a>Utfasning av Azure Service Manager-stöd för Azure Service Bus, relä och Event Hubs
 
 Resource Manager, vår nästa generations moln infrastrukturs stack, ersätter fullständigt den klassiska Azure Service Management-modellen (klassisk distributions modell). Som ett resultat kommer den klassiska distributions modellen REST-API: er och stöd för Service Bus, relä och Event Hubs att dras tillbaka den 1 november 2021. Den här utfasningen introducerades först i ett [Microsoft Tech community-meddelande](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Deprecating-Service-Management-support-for-Azure-Service-Bus/ba-p/370909), men vi har nyligen valt att förlänga den föråldrade perioden två år från den tidpunkt då det ursprungliga meddelandet skickades. För enkel identifiering har dessa API: er `management.core.windows.net` i sin URI. I följande tabell hittar du en lista över de inaktuella API: erna och deras Azure Resource Manager-API-version som du bör använda.
 
-Om du vill fortsätta använda Service Bus, relä och Event Hubs flyttar du till Resource Manager före den 31 oktober 2021. Vi rekommenderar att alla kunder som fortfarande använder gamla API: er snabbt kan dra nytta av de ytterligare fördelarna med Resource Manager, bland annat resurs gruppering, taggar, en strömlinjeformad distributions-och hanterings process samt detaljerad åtkomst kontroll med hjälp av rollbaserad åtkomst kontroll (RBAC).
+Om du vill fortsätta använda Service Bus, relä och Event Hubs flyttar du till Resource Manager före den 31 oktober 2021. Vi rekommenderar att alla kunder som fortfarande använder gamla API: er kan dra nytta av de ytterligare fördelarna med Resource Manager, bland annat resurs gruppering, taggar, en strömlinjeformad distributions-och hanterings process samt detaljerad åtkomst kontroll med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 Mer information om Azure Resource Manager vs Azure Service Manager finns i TechNet- [bloggen](https://blogs.technet.microsoft.com/meamcs/2016/12/22/difference-between-azure-service-manager-and-azure-resource-manager/).
 

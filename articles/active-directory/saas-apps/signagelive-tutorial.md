@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a8fe24e5fa1935b2363ed5d2c15c72af8af11ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad6a4d075ea861068ad0c929d92cd2f12efa6121
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88539784"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Självstudie: Azure Active Directory integrering med Signagelive
 
@@ -27,9 +27,9 @@ Genom att integrera Signagelive med Azure AD får du följande fördelar:
 * Du kan göra det möjligt för användarna att logga in automatiskt på Signagelive (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats: Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis). Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md). Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Signagelive behöver du följande:
 
@@ -177,19 +177,18 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-a-signagelive-test-user"></a>Skapa en Signagelive-test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Signagelive. Arbeta med [Signagelive support team](mailto:support@signagelive.com) för att lägga till användare i Signagelive-plattformen. Du måste skapa och aktivera användare innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Signagelive. Arbeta med [Signagelive support team](mailto:support@signagelive.com) för att lägga till användare i Signagelive-plattformen. Du måste skapa och aktivera användare innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av portalen för Mina appar.
 
-När du väljer panelen **Signagelive** på portalen för Mina appar, bör du loggas in automatiskt. Mer information om portalen för Mina appar finns i [Vad är portalen för Mina appar?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen **Signagelive** på portalen för Mina appar, bör du loggas in automatiskt. Mer information om portalen för Mina appar finns i [Vad är portalen för Mina appar?](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

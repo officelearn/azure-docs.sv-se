@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: cdb3f30813d2650737cfa43507cef2b1d456573d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e777a27e793b1f4ef5489248c170824d69d615c
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532548"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517692"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Självstudie: Azure Active Directory integrering med Veritas Enterprise Vault. enkel inloggning i molnet
 
@@ -27,10 +27,10 @@ Integrering av Veritas Enterprise Vault. med Azure AD får du följande fördela
 * Du kan göra det möjligt för användarna att logga in automatiskt till Veritas Enterprise-valvet. enkel inloggning med Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Veritas Enterprise Vault. Cloud SSO behöver du följande objekt:
 
@@ -192,19 +192,18 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-veritas-enterprise-vaultcloud-sso-test-user"></a>Skapa Veritas Enterprise-valvet. Cloud SSO-test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i Veritas Enterprise Vault. Cloud SSO. Arbeta med [Veritas Enterprise Vault. Cloud SSO support team](https://www.veritas.com/support/.html) för att lägga till användare i Veritas Enterprise-valvet. plattform för moln-SSO. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Veritas Enterprise Vault. Cloud SSO. Arbeta med [Veritas Enterprise Vault. Cloud SSO support team](https://www.veritas.com/support/.html) för att lägga till användare i Veritas Enterprise-valvet. plattform för moln-SSO. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på den Veritas Enterprise-valvet. på panelen för inloggning i molnet i åtkomst panelen, bör du loggas in automatiskt på Veritas Enterprise-valvet. i det här fallet ska du konfigurera SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på den Veritas Enterprise-valvet. på panelen för inloggning i molnet i åtkomst panelen, bör du loggas in automatiskt på Veritas Enterprise-valvet. i det här fallet ska du konfigurera SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

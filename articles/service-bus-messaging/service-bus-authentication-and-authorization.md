@@ -3,18 +3,18 @@ title: Azure Service Bus autentisering och auktorisering | Microsoft Docs
 description: Autentisera appar för att Service Bus med autentisering med signatur för delad åtkomst (SAS).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: d5d0ed03c869bd574e4cfaa52ac7b62e8cb7fb98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a71cef6aad973f3c39ef61a8dbab313ebfca44ef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88066870"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517288"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus, autentisering och auktorisering
 Det finns två sätt att autentisera och auktorisera åtkomst till Azure Service Bus resurser: Azure Activity Directory (Azure AD) och signaturer för delad åtkomst (SAS). Den här artikeln innehåller information om hur du använder dessa två typer av säkerhetsmekanismer. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
-Azure AD-integration för Service Bus-resurser tillhandahåller rollbaserad åtkomst kontroll (RBAC) för detaljerad kontroll över en klients åtkomst till resurser. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, en grupp eller ett huvud konto för en program tjänst. Säkerhets objekt autentiseras av Azure AD för att returnera en OAuth 2,0-token. Token kan användas för att auktorisera en begäran om åtkomst till en Service Bus resurs (kö, ämne osv.).
+Azure AD-integrering för Service Bus-resurser ger Azure-rollbaserad åtkomst kontroll (Azure RBAC) för detaljerad kontroll över en klients åtkomst till resurser. Du kan använda Azure RBAC för att bevilja behörighet till ett säkerhets objekt, som kan vara en användare, en grupp eller ett program tjänst objekt. Säkerhets objekt autentiseras av Azure AD för att returnera en OAuth 2,0-token. Token kan användas för att auktorisera en begäran om åtkomst till en Service Bus resurs (kö, ämne osv.).
 
 Mer information om hur du autentiserar med Azure AD finns i följande artiklar:
 

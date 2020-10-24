@@ -8,23 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c31ebfedeee0fe208f68c190402796b98c73ea1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 000e43a7861bd155ebbd7175db96dd323731464b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85829881"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518219"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Skydda din privata moln miljö
 
 Definiera rollbaserad åtkomst kontroll (RBAC) för CloudSimple-tjänsten, CloudSimple-portalen och det privata molnet från Azure.  Användare, grupper och roller för åtkomst till vCenter för privat moln anges med VMware SSO.  
 
-## <a name="rbac-for-cloudsimple-service"></a>RBAC för CloudSimple-tjänst
+## <a name="azure-rbac-for-cloudsimple-service"></a>Azure RBAC för CloudSimple-tjänst
 
 Skapandet av CloudSimple-tjänsten kräver rollen **ägare** eller **deltagare** i Azure-prenumerationen.  Som standard kan alla ägare och deltagare skapa en CloudSimple-tjänst och få åtkomst till CloudSimple-portalen för att skapa och hantera privata moln.  Det går bara att skapa en CloudSimple-tjänst per region.  Om du vill begränsa åtkomsten till vissa administratörer följer du stegen nedan.
 
 1. Skapa en CloudSimple-tjänst i en ny **resurs grupp** på Azure Portal
-2. Ange RBAC för resurs gruppen.
+2. Ange Azure RBAC för resurs gruppen.
 3. Köpa noder och använda samma resurs grupp som CloudSimple-tjänsten
 
 Endast användare som har behörighet som **ägare** eller **deltagare** i resurs gruppen kommer att se CloudSimple-tjänsten och starta CloudSimple-portalen.

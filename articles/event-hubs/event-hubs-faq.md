@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en lista med vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: c95016064ecc9bbfc091138863c8215feeec50b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495224"
+ms.locfileid: "92518032"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -42,13 +42,13 @@ Mer information om pris nivåer, inklusive Event Hubs Dedicated finns i [pris in
 
 Azure Event Hubs är tillgängligt i alla Azure-regioner som stöds. För en lista går du till sidan [Azure-regioner](https://azure.microsoft.com/regions/) .  
 
-### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Kan jag använda en enda AMQP-anslutning för att skicka och ta emot från flera Event Hub?
+### <a name="can-i-use-a-single-advanced-message-queuing-protocol-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Kan jag använda en enda Advanced Message Queueing Protocol-anslutning (AMQP) för att skicka och ta emot från flera Event Hub?
 
 Ja, så länge alla Event Hub finns i samma namnrymd.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Vad är den maximala kvarhållningsperioden för händelser?
 
-Event Hubs standard nivån stöder för närvarande en maximal kvarhållningsperiod på sju dagar. Händelse hubbar är inte avsedda som permanenta data lager. Kvarhållningsperiod som är större än 24 timmar är avsedda för scenarier där det är lämpligt att spela upp en händelse ström i samma system. till exempel för att träna eller verifiera en ny maskin inlärnings modell på befintliga data. Om du behöver kvarhålla meddelanden längre än sju dagar, kan du med hjälp av [Event Hubs Capture](event-hubs-capture-overview.md) på händelsehubben hämta data från Händelsehubben till lagrings kontot eller Azure Data Lake tjänst konto som du väljer. Om du aktiverar Capture debiteras du en avgift utifrån dina köpta data flödes enheter.
+Event Hubs standard nivån stöder för närvarande en maximal kvarhållningsperiod på sju dagar. Händelse hubbar är inte avsedda som permanenta data lager. Kvarhållningsperiod som är större än 24 timmar är avsedda för scenarier där det är lämpligt att spela upp en händelse ström i samma system. Till exempel för att träna eller verifiera en ny maskin inlärnings modell på befintliga data. Om du behöver kvarhålla meddelanden längre än sju dagar, kan du med hjälp av [Event Hubs Capture](event-hubs-capture-overview.md) på händelsehubben hämta data från Händelsehubben till lagrings kontot eller Azure Data Lake tjänst konto som du väljer. Om du aktiverar Capture debiteras du en avgift utifrån dina köpta data flödes enheter.
 
 Du kan konfigurera kvarhållningsperioden för de infångade data på ditt lagrings konto. Funktionen för **livs cykel hantering** i Azure Storage erbjuder en omfattande, regelbaserade princip för generell användning v2-och Blob Storage-konton. Använd principen för att överföra data till lämpliga åtkomst nivåer eller förfaller i slutet av data livs cykeln. Mer information finns i [Hantera Azure Blob Storage-livscykeln](../storage/blobs/storage-lifecycle-management-concepts.md). 
 
@@ -56,12 +56,12 @@ Du kan konfigurera kvarhållningsperioden för de infångade data på ditt lagri
 Event Hubs utvärderar uttömmande Mät värden som ger resursernas tillstånd att [Azure Monitor](../azure-monitor/overview.md). De gör det också möjligt att utvärdera den övergripande hälsan för tjänsten Event Hubs inte bara på namn områdes nivån, utan även på enhets nivå. Lär dig mer om vilken övervakning som erbjuds för [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
 ### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Var lagrar Azure Event Hubs kund information?
-Azure Event Hubs lagrar kund information. Dessa data lagras automatiskt av Event Hubs i en enda region, så den här tjänsten uppfyller automatiskt placering-kraven för regions data, inklusive de som anges i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/).
+Azure Event Hubs lagrar kund information. Dessa data lagras automatiskt av Event Hubs i en enda region, så den här tjänsten uppfyller automatiskt placering-kraven för region, inklusive de som anges i [säkerhets Center](https://azuredatacentermap.azurewebsites.net/).
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Vilka portar måste jag öppna i brand väggen? 
 Du kan använda följande protokoll med Azure Service Bus för att skicka och ta emot meddelanden:
 
-- Advanced Message Queuing Protocol (AMQP)
+- AMQP
 - HTTP
 - Apache Kafka
 
@@ -105,7 +105,7 @@ Om du använder **zon redundans** för ditt namn område måste du utföra någr
 ### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Var hittar jag klient-IP skickar eller tar emot meddelanden till mitt namn område?
 Börja med att aktivera [IP-filtrering](event-hubs-ip-filtering.md) i namn området. 
 
-Aktivera sedan diagnostikloggar för [Event Hubs händelser för virtuella nätverks anslutningar](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) genom att följa anvisningarna i [Aktivera diagnostikloggar](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). IP-adressen som anslutningen nekas till visas.
+Aktivera sedan diagnostikloggar för [Event Hubs händelser för virtuella nätverks anslutningar](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) genom att följa anvisningarna i [Aktivera diagnostikloggar](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Du ser IP-adressen för vilken anslutningen nekas.
 
 ```json
 {
@@ -128,12 +128,23 @@ Event Hubs tillhandahåller en Kafka-slutpunkt som kan användas av befintliga A
 ### <a name="what-configuration-changes-need-to-be-done-for-my-existing-application-to-talk-to-event-hubs"></a>Vilka konfigurations ändringar måste göras för mitt befintliga program för att prata med Event Hubs?
 Om du vill ansluta till en Event Hub måste du uppdatera Kafka-klientens konfiguration. Det gör du genom att skapa en Event Hubs namnrymd och hämta [anslutnings strängen](event-hubs-get-connection-string.md). Ändra start-. servrarna så att de pekar på Event Hubs-FQDN och porten till 9093. Uppdatera sasl.jaas.config för att dirigera Kafka-klienten till din Event Hubs-slutpunkt (vilket är den anslutnings sträng som du har fått), med korrekt autentisering enligt nedan:
 
-Bootstrap. servers = {din. EVENTHUBS. FQDN}: 9093-begäran. timeout. MS = 60 000 tecken Security. Protocol = SASL_SSL sasl. mekanism = PLAIn sasl.jaas.config= org. apache. Kafka. Common. Security. plain. PlainLoginModule required username = "$ConnectionString" Password = "{YOUR. EVENTHUBS. Anslutningen. STRÄNG} ";
+```properties
+bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+```
 
 Exempel:
 
-Bootstrap. servers = dummynamespace. Service Bus. Windows. net: 9093-begäran. timeout. MS = 60 000 tecken Security. Protocol = SASL_SSL sasl. mekanism = PLAIn sasl.jaas.config= org. apache. Kafka. Common. Security.. PlainLoginModule required username = "$ConnectionString" Password = "slut punkt = SB://dummynamespace.ServiceBus.Windows.net/; SharedAccessKeyName = DummyAccessKeyName; SharedAccessKey = XXXXXXXXXXXXXXXXXXXXX ";
-
+```properties
+bootstrap.servers=dummynamespace.servicebus.windows.net:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXX";
+```
 OBS! om sasl.jaas.config inte är en konfiguration som stöds i ramverket hittar du de konfigurationer som används för att ange SASL användar namn och lösen ord och använder dem i stället. Ange användar namnet $ConnectionString och lösen ordet till din Event Hubs anslutnings sträng.
 
 ### <a name="what-is-the-messageevent-size-for-event-hubs"></a>Vad är storleken på meddelandet/händelsen för Event Hubs?

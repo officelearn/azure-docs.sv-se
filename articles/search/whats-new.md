@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 135e0ccfd9b4681932a9a69df0372aa400933124
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ddf418c90857b5bb7eca97eb2c6943cc93fce9ab
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102582"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518933"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -21,12 +21,12 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 ## <a name="september-2020"></a>September 2020
 
-Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sedan RBAC-behörigheter för att ge identiteten skrivskyddade behörigheter till Azure Data källor. Du kan också välja funktionen [undantag för betrodda tjänster](search-indexer-howto-access-trusted-service-exception.md) om IP-regler inte är ett alternativ.
+Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sedan Azure RBAC-behörigheter för att ge identiteten Läs behörighet till Azure-datakällor. Du kan också välja funktionen [undantag för betrodda tjänster](search-indexer-howto-access-trusted-service-exception.md) om IP-regler inte är ett alternativ.
 
 
 |Zoomfunktionen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Kategori | Beskrivning | Tillgänglighet  |
 |------------------------------|----------|-------------|---------------|
-| [Hanterad tjänst identitet](search-howto-managed-identities-data-sources.md) | Indexerare, säkerhet | Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sedan RBAC-behörigheter för att bevilja åtkomst till Azure-datakällor. Den här metoden eliminerar behovet av autentiseringsuppgifter för anslutnings strängen. <br><br>Ett annat sätt att använda en hanterad tjänst identitet är via ett [betrott undantag](search-indexer-howto-access-trusted-service-exception.md) om IP-regler inte är ett alternativ. | Allmänt tillgänglig. Använd den här funktionen när du använder portalen eller [skapa data källa (rest)](/rest/api/searchservice/create-data-source) med API-version = 2020-06-30. |
+| [Hanterad tjänst identitet](search-howto-managed-identities-data-sources.md) | Indexerare, säkerhet | Skapa en identitet för en Sök tjänst i Azure Active Directory och Använd sedan Azure RBAC-behörigheter för att bevilja åtkomst till Azure-datakällor. Den här metoden eliminerar behovet av autentiseringsuppgifter för anslutnings strängen. <br><br>Ett annat sätt att använda en hanterad tjänst identitet är via ett [betrott undantag](search-indexer-howto-access-trusted-service-exception.md) om IP-regler inte är ett alternativ. | Allmänt tillgänglig. Använd den här funktionen när du använder portalen eller [skapa data källa (rest)](/rest/api/searchservice/create-data-source) med API-version = 2020-06-30. |
 | [Utgående begär Anden med en privat länk](search-indexer-howto-access-private.md) | Indexerare, säkerhet | Skapa en delad privat länk resurs som indexerare kan använda för att få åtkomst till Azure-resurser som skyddas av en privat Azure-länk. Mer information om alla sätt som du kan använda för att skydda indexerings anslutningar finns i [indexerare åtkomst till innehåll som skyddas av Azure Network Security-funktioner](search-indexer-securing-resources.md). | Allmänt tillgänglig. Använd den här funktionen när du använder portalen eller den [delade privata länk resursen](/rest/api/searchmanagement/sharedprivatelinkresources) med API-version = 2020-08-01. |
 | [Hanterings REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | Ny stabil REST API ger stöd för att skapa delade privata länk resurser. | Allmänt tillgänglig. |
 | [Hanterings REST API (2020-08-01-för hands version)](/rest/api/searchmanagement/management-api-versions) | REST | Lägger till delad privat länk resurs för Azure Functions och Azure SQL för MySQL-databaser. | Offentlig för hands version. |

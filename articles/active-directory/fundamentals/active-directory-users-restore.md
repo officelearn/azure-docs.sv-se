@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: how-to
-ms.date: 04/01/2018
+ms.date: 10/23/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bba8a0898c11cf1af150f4824d9bef5e9e03576e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bd4d42e1cafa58aaf6a47188c9e86c24ac175047
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370890"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514397"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Återställa eller ta bort en nyligen borttagen användare med hjälp av Azure Active Directory
-När du har tagit bort en användare förblir kontot i ett pausat tillstånd i 30 dagar. Under den 30-dagars perioden kan användar kontot återställas, tillsammans med alla dess egenskaper. Efter det 30-dagars perioden skickas automatiskt användaren och tas bort permanent.
+När du har tagit bort en användare förblir kontot i ett pausat tillstånd i 30 dagar. Under den 30-dagars perioden kan användar kontot återställas, tillsammans med alla dess egenskaper. När 30-dagars perioden har passerat startas den permanenta borttagnings processen automatiskt.
 
 Du kan visa dina återställas-användare, återställa en borttagen användare eller permanent ta bort en användare med hjälp av Azure Active Directory (Azure AD) i Azure Portal.
 
@@ -80,7 +80,7 @@ Du kan ta bort en användare från din organisation Permanent utan att vänta 30
     ![Sidan användare – borttagna användare med alternativet ta bort användare markerat](media/active-directory-users-restore/users-deleted-users-permanent-delete-user.png)
 
 ## <a name="next-steps"></a>Nästa steg
-När du har återställt eller tagit bort dina användare kan du utföra följande grundläggande processer:
+När du har återställt eller tagit bort dina användare kan du:
 
 - [Lägga till eller ta bort användare](add-users-azure-active-directory.md)
 

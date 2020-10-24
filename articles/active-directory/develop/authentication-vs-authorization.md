@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 320debcf2b744e949faf7b29dd72ed334fe0feea
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252121"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503733"
 ---
 # <a name="authentication-vs-authorization"></a>Autentisering mot auktorisering
 
@@ -35,6 +35,8 @@ I den här artikeln definieras autentisering och auktorisering och du får en ko
 ## <a name="authentication-and-authorization-using-microsoft-identity-platform"></a>Autentisering och auktorisering med Microsoft Identity Platform
 
 I stället för att skapa appar som var och en upprätthåller sin egen användar namn och lösen ords information, vilket innebär en hög administrativ börda när du behöver lägga till eller ta bort användare över flera appar, kan appar delegera det ansvaret till en centraliserad identitets leverantör.
+
+> [!VIDEO https://www.youtube.com/embed/tkQJSHFsduY]
 
 Azure Active Directory (Azure AD) är en centraliserad identitets leverantör i molnet. Genom att delegera autentisering och auktorisering till det kan du använda scenarier som principer för villkorlig åtkomst som kräver att en användare befinner sig på en speciell plats, användningen av [Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) (kallas ibland för TVÅFAKTORAUTENTISERING eller 2fa), samt att göra det möjligt för en användare att logga in en gång och sedan loggas in automatiskt på alla webbappar som delar samma centrala katalog. Den här funktionen kallas **enkel inloggning (SSO)**.
 

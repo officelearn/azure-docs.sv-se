@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 4cb46487904f1f909686119d074dff5dcfad40c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b774f50f6f136d9e7c71b5fe6fbffb725a9240a5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604649"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522231"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-orgvitality-sso"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med OrgVitality SSO
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar OrgVitality SSO med
 * Gör det möjligt för användarna att logga in automatiskt för att OrgVitality SSO med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -102,7 +102,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -124,7 +124,7 @@ Om du vill konfigurera enkel inloggning på **ORGVITALITY SSO** -sidan måste du
 
 ### <a name="create-orgvitality-sso-test-user"></a>Skapa OrgVitality SSO test User
 
-I det här avsnittet skapar du en användare som heter Britta Simon i OrgVitality SSO. Arbeta med [ORGVITALITY SSO support team](https://orgvitality.com/contact-us/) för att lägga till användare i OrgVitality SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i OrgVitality SSO. Arbeta med [ORGVITALITY SSO support team](https://orgvitality.com/contact-us/) för att lägga till användare i OrgVitality SSO-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -132,8 +132,8 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 1. Klicka på testa det här programmet i Azure Portal så bör du loggas in automatiskt på den OrgVitality SSO som du ställer in SSO för.
 
-1. Du kan använda Microsoft Access-panelen. När du klickar på OrgVitality SSO-panelen på åtkomst panelen, bör du loggas in automatiskt på OrgVitality SSO som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. Du kan använda Microsoft Access-panelen. När du klickar på OrgVitality SSO-panelen på åtkomst panelen, bör du loggas in automatiskt på OrgVitality SSO som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har konfigurerat OrgVitality SSO kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+När du har konfigurerat OrgVitality SSO kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

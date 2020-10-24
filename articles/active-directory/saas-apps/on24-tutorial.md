@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 30fd3843b50ac6b075d33e961986b94ee2496fef
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944516"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518538"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Självstudie: Azure Active Directory integration med SAML-anslutning för virtuell ON24-miljö
 
@@ -27,7 +27,7 @@ Genom att integrera ON24 virtuell miljö SAML-anslutning med Azure AD får du f�
 * Du kan göra det möjligt för användarna att logga in automatiskt till ON24 för virtuell miljö (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -225,19 +225,18 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>Skapa test användare för SAML-anslutning för virtuell ON24-miljö
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i ON24 Virtual Environment SAML-anslutning. Arbeta med [ON24 Virtual Environment SAML Connection support team](https://www.on24.com/about-us/support/) för att lägga till användarna i den virtuella ON24-plattformen för SAML-anslutningar. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i ON24 Virtual Environment SAML-anslutning. Arbeta med [ON24 Virtual Environment SAML Connection support team](https://www.on24.com/about-us/support/) för att lägga till användarna i den virtuella ON24-plattformen för SAML-anslutningar. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen för SAML-anslutningen ON24 virtuell miljö på åtkomst panelen, bör du loggas in automatiskt på den ON24 virtuella miljön SAML-anslutning för vilken du konfigurerar SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för SAML-anslutningen ON24 virtuell miljö på åtkomst panelen, bör du loggas in automatiskt på den ON24 virtuella miljön SAML-anslutning för vilken du konfigurerar SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

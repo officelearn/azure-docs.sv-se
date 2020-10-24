@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 338fe463cec4c44b1ddf019d9ecb435736e46826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f6786ad8b7a9a635770be378e3efd0716be2428
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91816827"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519664"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure automanage för virtuella datorer
 
@@ -58,7 +58,7 @@ Det är också viktigt att Observera att den automatiska hanteringen endast stö
 
 Se [Azure automanage för Virtual Machines bästa praxis](virtual-machines-best-practices.md) för den fullständiga listan med deltagande Azure-tjänster, samt de konfigurations profiler som stöds.
 
- Vi kommer automatiskt att publicera dig till dessa deltagande tjänster. De är viktiga för våra bästa praxis white paper, som du hittar i vårt [ramverk för moln införande](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management).
+ Vi kommer automatiskt att publicera dig till dessa deltagande tjänster. De är viktiga för våra bästa praxis white paper, som du hittar i vårt [ramverk för moln införande](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 För alla dessa tjänster kommer vi automatiskt att registreras, konfigureras automatiskt, övervakas för drift och tjänstassisterad om driften upptäcks.
 

@@ -8,12 +8,12 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 2fb94faacc2bc7d6c3b1e166e617f3f675594cef
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bcb6e91bba367363385214806077146b1a24fe7b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92101264"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503495"
 ---
 # <a name="indexer-access-to-content-protected-by-azure-network-security-features-azure-cognitive-search"></a>Indexerare får åtkomst till innehåll som skyddas av Azure Network Security-funktioner (Azure Kognitiv sökning)
 
@@ -41,12 +41,12 @@ Kunder kan skydda dessa resurser via flera nätverks isolerings mekanismer som e
 | Azure Cosmos DB-SQL API | Stöds | Stöds |
 | Azure Cosmos DB-Cassandra, Mongo och Gremlin API | Stöds | Stöd saknas |
 | Azure SQL Database | Stöds | Stöds |
-| SQL Server på virtuella Azure-datorer | Stöds | Saknas |
-| SQL-hanterad instans | Stöds | Saknas |
+| SQL Server på virtuella Azure-datorer | Stöds | Ej tillämpligt |
+| SQL-hanterad instans | Stöds | Ej tillämpligt |
 | Azure Functions | Stöds | Stöds endast för vissa nivåer av Azure Functions |
 
 > [!NOTE]
-> Utöver de alternativ som anges ovan kan kunder som är skyddade Azure Storage-konton utnyttja det faktum att Azure Kognitiv sökning är en [betrodd Microsoft-tjänst](../storage/common/storage-network-security.md#trusted-microsoft-services). Det innebär att en bestämd Sök tjänst kan kringgå virtuella nätverk eller IP-begränsningar på lagrings kontot och kan komma åt data i lagrings kontot, om lämplig rollbaserad åtkomst kontroll har Aktiver ATS på lagrings kontot. Mer information finns i [indexerare anslutningar med hjälp av undantag för betrodda tjänster](search-indexer-howto-access-trusted-service-exception.md). Det här alternativet kan användas i stället för IP-begränsning, om lagrings kontot eller Sök tjänsten inte kan flyttas till en annan region.
+> Utöver de alternativ som anges ovan kan kunder som är skyddade Azure Storage-konton utnyttja det faktum att Azure Kognitiv sökning är en [betrodd Microsoft-tjänst](../storage/common/storage-network-security.md#trusted-microsoft-services). Det innebär att en bestämd Sök tjänst kan kringgå virtuella nätverk eller IP-begränsningar för lagrings kontot och kan komma åt data i lagrings kontot, om lämplig rollbaserad åtkomst kontroll har Aktiver ATS på lagrings kontot. Mer information finns i [indexerare anslutningar med hjälp av undantag för betrodda tjänster](search-indexer-howto-access-trusted-service-exception.md). Det här alternativet kan användas i stället för IP-begränsning, om lagrings kontot eller Sök tjänsten inte kan flyttas till en annan region.
 
 När du väljer vilken säker åtkomst mekanism som en indexerare ska använda, bör du tänka på följande begränsningar:
 
@@ -87,7 +87,7 @@ Den här funktionen är endast tillgänglig i fakturerbara Sök tjänster med gr
 
 Kunderna bör anropa Sök hanterings åtgärden, [CreateOrUpdate-API](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) på en **delad privat länk resurs**, för att skapa en privat slut punkts anslutning till deras skyddade resurs (till exempel ett lagrings konto). Trafik som går över den här (utgående) privata slut punkts anslutningen kommer endast från det virtuella nätverk som är i Sök tjänstens aktuella "privata" index körnings miljö.
 
-Azure Kognitiv sökning verifierar att anroparna i det här API: t har RBAC-behörighet för att godkänna anslutningar för privata slut punkter till den säkra resursen. Om du till exempel begär en privat slut punkts anslutning till ett lagrings konto med skrivskyddad behörighet avvisas anropet.
+Azure Kognitiv sökning verifierar att anroparna i det här API: et har Azure RBAC-behörighet för att godkänna anslutnings begär Anden för privata slut punkter till den skyddade resursen. Om du till exempel begär en privat slut punkts anslutning till ett lagrings konto med skrivskyddad behörighet avvisas anropet.
 
 ### <a name="step-2-approve-the-private-endpoint-connection"></a>Steg 2: Godkänn anslutningen till den privata slut punkten
 
@@ -119,7 +119,7 @@ Om du vill aktivera indexerare för att få åtkomst till resurser via anslutnin
 De här stegen beskrivs mer detaljerat i [Indexer-anslutningar via en privat slut punkt](search-indexer-howto-access-private.md).
 När du har en godkänd privat slut punkt till en resurs får indexerare som är inställt för *privata* försök att få åtkomst via anslutningen till den privata slut punkten.
 
-### <a name="limits"></a>Gränser
+### <a name="limits"></a>Begränsningar
 
 För att säkerställa optimala prestanda och stabilitet för Sök tjänsten införs begränsningar (av Sök tjänst nivån) på följande dimensioner:
 

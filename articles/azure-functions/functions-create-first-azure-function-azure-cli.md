@@ -5,12 +5,12 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurecli, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: b299f0bb13bb25fbc192f3d117be11ca1ce26586
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b457c3b0ec0f68dd6a8213fbebe7a2596bed4c2e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89145560"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519681"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Snabb start: skapa en funktion i Azure som svarar på HTTP-begäranden
 
@@ -82,7 +82,11 @@ func init LocalFunctionProj --powershell
 ```
 ::: zone-end    
 ::: zone pivot="programming-language-java"  
-Kör följande kommando i en tom mapp för att skapa ett funktionsprojekt utifrån en [Maven-arketyp](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Använd `-DjavaVersion=11` om du vill att funktionerna ska köras på Java 11. Mer information finns i [Java-versioner](functions-reference-java.md#java-versions). 
+Kör följande kommando i en tom mapp för att skapa ett funktionsprojekt utifrån en [Maven-arketyp](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). 
+
+> [!IMPORTANT]
+> + Använd `-DjavaVersion=11` om du vill att funktionerna ska köras på Java 11. Mer information finns i [Java-versioner](functions-reference-java.md#java-versions). 
+> + `JAVA_HOME`Miljövariabeln måste anges till installations platsen för rätt version av JDK för att slutföra den här artikeln.
 
 # <a name="bash"></a>[bash](#tab/bash)
 ```bash
@@ -158,8 +162,6 @@ Inställningarna för de Azure-resurser som skapats som **värd för din** app d
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Du kan ändra de här inställningarna för att styra hur resurser skapas i Azure, till exempel genom `runtime.os` att ändra från `windows` till `linux` före den första distributionen. En fullständig lista över inställningar som stöds av maven-plugin-programmet finns i [konfigurations informationen](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
-
-Om du vill köra din Function-app i Java 11 i stället för Java 8 måste du manuellt uppdatera pom.xml-filen med Java 11-värden. Mer information finns i [Java-versioner](functions-reference-java.md#java-versions). När du kör på Java 11 ser du till att  
 
 #### <a name="functiontestjava"></a>FunctionTest. java
 

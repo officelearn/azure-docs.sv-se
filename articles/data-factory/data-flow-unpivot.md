@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: 38986c3f93856981e903ae93ed7788ae01fc6d5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea8881adf39a315df7746dbce14dedcbee18ccf6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823580"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521058"
 ---
 # <a name="unpivot-transformation-in-mapping-data-flow"></a>Avpivotera transformering i data flöde för mappning
 
@@ -28,27 +28,27 @@ Använd unpivot i data flöde för ADF-mappning som ett sätt att omvandla en no
 
 ![Avpivotera transformering](media/data-flow/unpivot5.png "Avpivotera alternativ 2")
 
-Ange först de kolumner som du vill gruppera efter för din Pivot-aggregering. Ange en eller flera kolumner för att dela upp med +-tecknet bredvid kolumn listan.
+Ange först de kolumner som du vill dela upp för unpivot-aggregering. Ange en eller flera kolumner för att dela upp med +-tecknet bredvid kolumn listan.
 
 ## <a name="unpivot-key"></a>Unpivot-nyckel
 
 ![Avpivotera transformering](media/data-flow/unpivot6.png "Avpivotera alternativ 3")
 
-Pivot-tangenten är den kolumn som ADF kommer från rad till kolumn. Som standard kommer varje unikt värde i data uppsättningen för det här fältet att pivoteras till en kolumn. Du kan också ange värden från data uppsättningen som du vill pivotera till kolumn värden.
+Unpivot-nyckeln är den kolumn som används för ADF från kolumn till rad. Som standard kommer varje unikt värde i data uppsättningen för det här fältet att pivoteras till en rad. Du kan också ange värden från data uppsättningen som du vill pivotera till rad värden.
 
 ## <a name="unpivoted-columns"></a>Kolumner som inte har pivoteras
 
 ![Avpivotera transformering](media/data-flow//unpivot7.png "Avpivotera alternativ 4")
 
-Slutligen väljer du den agg regering som du vill använda för de pivoterade värdena och hur du vill att kolumnerna ska visas i den nya utdata-projektionen från omvandlingen.
+Slutligen väljer du kolumn namnet för att lagra värdena för staplade kolumner som omvandlas till rader.
 
-Valfritt Du kan ange ett namn mönster med ett prefix, mellan och suffix som ska läggas till i varje nytt kolumn namn från rad värden.
+Valfritt Du kan släppa rader med null-värden.
 
-Om du till exempel pivoterar "Sales" efter "region" får du bara nya kolumn värden från varje försäljnings värde. Exempel: "25", "50", "1000",... Men om du anger ett prefixvärde för "försäljning" kommer värdet "Sales" att föregås av värdena.
+Till exempel är SumCost det kolumn namn som väljs i exemplet som delas ovan.
 
 ![Bild som visar kolumnerna PO, Vendor och frukt före och efter en unipivot-omvandling med hjälp av kolumnen frukt som unipivot-nyckeln.](media/data-flow/unpivot3.png)
 
-Om du anger kolumn ordningen till "normal" grupperas alla de pivoterade kolumnerna med deras sammanlagda värden. Att ange kolumnernas ordning till "lateral" kommer att alternera mellan kolumn och värde.
+Om du ställer in kolumn ordningen till "normal" grupperas alla nya kolumner som inte har pivoteras från ett enda värde. Om du anger kolumnernas ordning till "lateral" grupperas nya, staplade kolumner som genereras från en befintlig kolumn.
 
 ![Avpivotera transformering](media/data-flow//unpivot7.png "Avpivotera alternativ 5")
 

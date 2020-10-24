@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: f342371ec065c4fb60c492c4354c6f8c717c9bb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1fec471e4047707f2b7cbaa55fdc7f2256bebe93
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546085"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Självstudie: Azure Active Directory integrering med Zscaler beta
 
@@ -27,10 +27,10 @@ När du integrerar Zscaler beta med Azure AD kan du:
 * Tillåt att användarna loggas in automatiskt till Zscaler beta med sina Azure AD-konton. Den här åtkomst kontrollen kallas enkel inloggning (SSO).
 * Hantera dina konton på en central plats med hjälp av Azure Portal.
 
-Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Zscaler Beta behöver du följande:
 
@@ -113,7 +113,7 @@ Följ dessa steg om du vill konfigurera enkel inloggning med Azure AD med Zscale
 
 6. Zscaler beta-programmet förväntar sig att fler attribut ska skickas tillbaka i SAML-svar. I avsnittet **användar anspråk** **i dialog rutan användarattribut,** följer du dessa steg för att lägga till attributet SAML-token, som visas i följande tabell.
     
-    | Name | Källattribut | 
+    | Namn | Källattribut | 
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 
@@ -136,7 +136,7 @@ Följ dessa steg om du vill konfigurera enkel inloggning med Azure AD med Zscale
     ex. Välj **Spara**.
 
     > [!NOTE]
-    > Information om hur du konfigurerar roller i Azure AD finns i [Konfigurera roll anspråk](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
+    > Information om hur du konfigurerar roller i Azure AD finns i [Konfigurera roll anspråk](../develop/active-directory-enterprise-app-role-management.md).
 
 7. På sidan **Konfigurera en enskild Sign-On med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Hämta** för att ladda ned **certifikatet (base64)**. Spara den på din dator.
 
@@ -296,11 +296,10 @@ I det här avsnittet skapas User Britta Simon i Zscaler beta. Zscaler Beta stöd
 
 Testa konfigurationen för enkel inloggning med Azure AD med hjälp av åtkomst panelen.
 
-När du väljer Zscaler beta-panelen på åtkomst panelen, bör du loggas in automatiskt på den Zscaler-beta version som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer Zscaler beta-panelen på åtkomst panelen, bör du loggas in automatiskt på den Zscaler-beta version som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

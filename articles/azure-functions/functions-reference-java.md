@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: 346dbb962e05519153537e3edb90763f5fd8da03
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2dfd00484e84f4b2c31e52392df43bb07a800f73
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996506"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519630"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
@@ -134,8 +134,6 @@ Här är det genererade `function.json` som motsvarar [Azure-Functions-maven-plu
 
 ## <a name="java-versions"></a>Java-versioner
 
-_Stöd för Java 11 är för närvarande en för hands version_
-
 Den version av Java som används när du skapade Function-appen där funktioner körs i Azure anges i pom.xml-filen. Maven-archetype genererar för närvarande en pom.xml för Java 8, som du kan ändra innan du publicerar. Java-versionen i pom.xml måste matcha den version som du har utvecklat lokalt och testat din app på. 
 
 ### <a name="supported-versions"></a>Versioner som stöds
@@ -144,14 +142,14 @@ I följande tabell visas aktuella Java-versioner som stöds för varje huvud ver
 
 | Funktions version | Java-versioner (Windows) | Java-versioner (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (för hands version)<br/>8 | 11 (för hands version)<br/>8 |
+| 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2x | 8 | Saknas |
 
 Om du inte anger en Java-version för distributionen kommer maven archetype att standardvärdet Java 8 under distributionen till Azure.
 
 ### <a name="specify-the-deployment-version"></a>Ange distributions version
 
-Du kan kontrol lera vilken version av Java som är mål för maven-archetype med hjälp av `-DjavaVersion` parametern. Värdet för den här parametern kan vara antingen `8` eller `11` . Java 11-stöd är för närvarande en för hands version. 
+Du kan kontrol lera vilken version av Java som är mål för maven-archetype med hjälp av `-DjavaVersion` parametern. Värdet för den här parametern kan vara antingen `8` eller `11` . 
 
 Maven-archetype genererar en pom.xml som är riktad mot den angivna Java-versionen. Följande element i pom.xml visar vilken Java-version som ska användas:
 

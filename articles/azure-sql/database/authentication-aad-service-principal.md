@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
-ms.openlocfilehash: 57d24c824782bdc6530b78450fc55a879a511ddc
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/21/2020
+ms.openlocfilehash: 2ded60f8c57d8c9db374bf77efe6dfd1a71690bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367694"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482935"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Azure Active Directory tjänstens huvud namn med Azure SQL
 
@@ -34,7 +34,7 @@ När ett Azure AD-program registreras med Azure Portal eller ett PowerShell-komm
 - Ett programobjekt
 - Ett objekt för tjänstens huvudnamn
 
-Mer information om Azure AD-program finns [i program-och tjänst huvud objekt i Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) och [skapa ett Azure-tjänstens huvud namn med Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-4.2.0).
+Mer information om Azure AD-program finns [i program-och tjänst huvud objekt i Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) och [skapa ett Azure-tjänstens huvud namn med Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps).
 
 SQL Database, Azure-Synapse och SQL-hanterad instans stöder följande Azure AD-objekt:
 
@@ -72,14 +72,16 @@ Om du vill aktivera en Azure AD-objekts skapande i SQL Database och Azure-Synaps
     - Om du vill kontrol lera om Server identiteten har tilldelats till servern kör du kommandot Get-AzSqlServer.
 
     > [!NOTE]
-    > Server identiteten kan också tilldelas med CLI-kommandon. Mer information finns i [AZ SQL Server Create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) och [AZ SQL Server Update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
+    > Server identiteten kan också tilldelas med CLI-kommandon. Mer information finns i [AZ SQL Server Create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create&preserve-view=true) och [AZ SQL Server Update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update&preserve-view=true).
 
 2. Ge Azure AD- [**katalogen läsar**](../../active-directory/roles/permissions-reference.md#directory-readers) behörighet till den server identitet som skapats eller tilldelats servern.
     - Om du vill bevilja behörigheten följer du beskrivningen som används för SQL-hanterad instans som finns i följande artikel: [etablera Azure AD admin (SQL-hanterad instans)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
     - Den Azure AD-användare som beviljar behörigheten måste vara en del av administratörs rollen Azure AD **Global Administrator** eller **Privileged roles** .
 
 > [!IMPORTANT]
-> Steg 1 och 2 måste köras i ovanstående ordning. Börja med att skapa eller tilldela server identiteten och följ genom att ge [**katalog läsar**](../../active-directory/roles/permissions-reference.md#directory-readers) behörighet. Om du utelämnar något av dessa steg, eller båda kommer att orsaka ett körnings fel under en Azure AD-objekts skapande i Azure SQL för ett Azure AD-program. Stegvisa instruktioner för att skapa en Azure AD-användare på uppdrag av ett Azure AD-program finns i [Självstudier: Skapa Azure AD-användare med hjälp av Azure AD-program](authentication-aad-service-principal-tutorial.md).
+> Steg 1 och 2 måste köras i ovanstående ordning. Börja med att skapa eller tilldela server identiteten och följ genom att ge [**katalog läsar**](../../active-directory/roles/permissions-reference.md#directory-readers) behörighet. Om du utelämnar något av dessa steg, eller båda kommer att orsaka ett körnings fel under en Azure AD-objekts skapande i Azure SQL för ett Azure AD-program.
+>
+> Om du använder tjänstens huvud namn för att ange eller neka Azure AD-administratören måste programmet också ha [katalogen. Read. all](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API-behörighet i Azure AD. Mer information om vilka [behörigheter som krävs för att ställa in en Azure AD-administratör](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin)och stegvisa anvisningar för att skapa en Azure AD-användare för ett Azure AD-program finns i [Självstudier: Skapa Azure AD-användare med hjälp av Azure AD-program](authentication-aad-service-principal-tutorial.md).
 >
 > I **offentlig för hands version**kan du tilldela rollen **katalog läsare** till en grupp i Azure AD. Grupp ägarna kan sedan lägga till den hanterade identiteten som en medlem i den här gruppen, vilket skulle kringgå behovet av att en **Global administratör** eller **privilegierad roll administratör** ska bevilja rollen som **katalog läsare** . Mer information om den här funktionen finns i [katalog läsare roll i Azure Active Directory för Azure SQL](authentication-aad-directory-readers-role.md).
 
@@ -92,7 +94,7 @@ Om du vill aktivera en Azure AD-objekts skapande i SQL Database och Azure-Synaps
       - För ovanstående fel följer du stegen för att [tilldela en identitet till den logiska Azure SQL-servern](authentication-aad-service-principal-tutorial.md#assign-an-identity-to-the-azure-sql-logical-server) och [tilldela katalog läsar behörighet till den logiska SQL-serverns identitet](authentication-aad-service-principal-tutorial.md#assign-directory-readers-permission-to-the-sql-logical-server-identity).
     > [!NOTE]
     > De fel meddelanden som anges ovan ändras innan funktionen GA identifierar det saknade installations kravet för stöd för Azure AD-program.
-- Att ställa in Azure AD-programmet som en Azure AD-administratör för SQL-hanterad instans stöds bara med CLI-kommandot och PowerShell-kommandot med [AZ. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) eller senare. Mer information finns i [AZ SQL mi AD-admin Create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create) och [set-AzSqlInstanceActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) commands. 
+- Att ställa in Azure AD-programmet som en Azure AD-administratör för SQL-hanterad instans stöds bara med CLI-kommandot och PowerShell-kommandot med [AZ. SQL 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0) eller senare. Mer information finns i [AZ SQL mi AD-admin Create](https://docs.microsoft.com/cli/azure/sql/mi/ad-admin?view=azure-cli-latest#az-sql-mi-ad-admin-create&preserve-view=true) och [set-AzSqlInstanceActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) commands. 
     - Om du vill använda Azure Portal för SQL-hanterad instans för att ange Azure AD-administratören, är det en möjlig lösning att skapa en Azure AD-grupp. Lägg sedan till tjänstens huvud namn (Azure AD-program) i den här gruppen och ange den här gruppen som en Azure AD-administratör för SQL-hanterad instans.
     - Att ange tjänstens huvud namn (Azure AD-program) som Azure AD-administratör för SQL Database och Azure-Synapse stöds med hjälp av kommandona Azure Portal, [PowerShell](authentication-aad-configure.md?tabs=azure-powershell#powershell-for-sql-database-and-azure-synapse)och [CLI](authentication-aad-configure.md?tabs=azure-cli#powershell-for-sql-database-and-azure-synapse) .
 - Det går inte att använda ett Azure AD-program med tjänstens huvud namn från en annan Azure AD-klient vid åtkomst till SQL Database eller SQL-hanterad instans som skapats i en annan klient. Ett tjänst objekt som är tilldelat till det här programmet måste vara från samma klient organisation som den logiska SQL-servern eller en hanterad instans.

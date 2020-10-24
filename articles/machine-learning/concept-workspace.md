@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: dccdbcb99b32a922d76b29e5896cdf99290758d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302459"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495714"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
+# <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning-arbetsyta?
 
 Arbets ytan är toppnivå resursen för Azure Machine Learning, vilket ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning.  Arbets ytan har en historik över alla utbildningar som körs, inklusive loggar, mått, utdata och en ögonblicks bild av dina skript. Du kan använda den här informationen för att avgöra vilken utbildning som ska användas för att skapa den bästa modellen.  
 
@@ -88,8 +88,8 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 
 Det finns flera sätt att skapa en arbets yta:  
 
-* Använd [Azure Portal](how-to-manage-workspace.md) för ett punkt-och-klick-gränssnitt för att vägleda dig genom varje steg.
-* Använd [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true#&preserve-view=trueworkspace) för att skapa en arbets yta i farten från Python-skript eller Jupiter-anteckningsböcker
+* Använd [Azure Portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) för ett punkt-och-klick-gränssnitt för att vägleda dig genom varje steg.
+* Använd [Azure Machine Learning SDK för python](how-to-manage-workspace.md?tabs=python#create-a-workspace) för att skapa en arbets yta i farten från Python-skript eller Jupiter-anteckningsböcker
 * Använd en [Azure Resource Manager mall](how-to-create-workspace-template.md) eller [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) när du behöver automatisera eller anpassa skapandet med företags säkerhets standarder.
 * Använd [vs Code-tillägget](how-to-manage-resources-vscode.md#create-a-workspace)om du arbetar i Visual Studio Code.
 
@@ -114,7 +114,7 @@ När du skapar en ny arbets yta skapar den automatiskt flera Azure-resurser som 
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): lagrar hemligheter som används av beräknings mål och annan känslig information som krävs av arbets ytan.
 
 > [!NOTE]
-> Förutom att skapa nya versioner kan du också använda befintliga Azure-tjänster.
+> I stället kan du använda befintliga Azure Resource instances när du skapar arbets ytan med [python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace), [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/create_workspace.html)eller Azure Machine Learning CLI [med en arm-mall](how-to-create-workspace-template.md).
 
 <a name="wheres-enterprise"></a>
 
@@ -131,9 +131,9 @@ I båda versionerna är kunderna ansvariga för kostnaden för Azure-resurser so
 För att komma igång med Azure Machine Learning, se:
 
 + [Översikt över Azure Machine Learning](overview-what-is-azure-ml.md)
-+ [Skapa en arbetsyta](how-to-manage-workspace.md)
-+ [Hantera en arbetsyta](how-to-manage-workspace.md)
-+ [Självstudie: kom igång med att skapa ditt första ML-experiment med python SDK](tutorial-1st-experiment-sdk-setup.md)
++ [Skapa och hantera en arbets yta](how-to-manage-workspace.md)
++ [Självstudie: kom igång med Azure Machine Learning i din utvecklings miljö](tutorial-1st-experiment-sdk-setup-local.md)
++ [Självstudie: kom igång med att skapa ditt första ML experiment på en beräknings instans](tutorial-1st-experiment-sdk-setup.md)
 + [Självstudie: kom igång med Azure Machine Learning med R SDK](tutorial-1st-r-experiment.md)
-+ [Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning](tutorial-first-experiment-automated-ml.md) 
++ [Självstudie: Skapa din första klassificeringsmodell med automatiserad maskininlärning](tutorial-first-experiment-automated-ml.md) 
 + [Självstudie: förutsäga Automobile-priset med designern](tutorial-designer-automobile-price-train-score.md)

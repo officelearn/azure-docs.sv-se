@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: d6518767b0148828280071188c086e396401a6fc
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbd5dbd81cf8cda117447a15d4a73ae8a546f181
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277686"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482527"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Skala ett Azure Cosmos DB API för Cassandra-konto elastiskt
 
 Det finns flera olika alternativ för att utforska den elastiska natur som Azure Cosmos DB-API: n för Cassandra. För att förstå hur du skalar effektivt i Azure Cosmos DB är det viktigt att förstå hur du etablerar rätt mängd enheter för programbegäran (RU/s) för att hantera prestanda kraven i systemet. Mer information om enheter för programbegäran finns i artikeln om [enheter för programbegäran](request-units.md) . 
 
-För API för Cassandra kan du hämta avgiften för enhets begär Anden för enskilda frågor med hjälp av [.net-och Java-SDK](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api): er. Detta är användbart när du ska bestämma hur många RU/s du behöver etablera i tjänsten.
+För API för Cassandra kan du hämta avgiften för enhets begär Anden för enskilda frågor med hjälp av [.net-och Java-SDK](./find-request-unit-charge-cassandra.md): er. Detta är användbart när du ska bestämma hur många RU/s du behöver etablera i tjänsten.
 
 :::image type="content" source="./media/request-units/request-units.png" alt-text="Databas åtgärder förbrukar enheter för programbegäran" border="false":::
 
@@ -38,7 +38,7 @@ Om du behöver minimera svars tiden finns det ett spektrum av alternativ för ha
 
 I följande avsnitt beskrivs fördelarna och nack delarna med varje metod. Du kan sedan välja den bästa strategin för att balansera systemets skalnings behov, den totala kostnaden och effektiviteten för din lösning.
 
-## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Använd Azure Portal
+## <a name="use-the-azure-portal"></a><a id="use-azure-portal"></a>Använda Azure-portalen
 
 Du kan skala resurserna i Azure Cosmos DB API för Cassandra konto genom att använda Azure Portal. Mer information finns i artikeln om att [etablera data flöde på behållare och databaser](set-throughput.md). I den här artikeln beskrivs de relativa fördelarna med att ställa in data flöde på antingen [databas](set-throughput.md#set-throughput-on-a-database) -eller [behållar](set-throughput.md#set-throughput-on-a-container) nivå i Azure Portal. Termerna "Database" och "container" som nämns i dessa artiklar mappar till "disk utrymme" och "Tabell" för API för Cassandra.
 
@@ -46,7 +46,7 @@ Fördelen med den här metoden är att det är ett enkelt sätt att hantera data
 
 ## <a name="use-the-control-plane"></a><a id="use-control-plane"></a>Använd kontroll planet
 
-Azure Cosmos DBens API för Cassandra ger möjlighet att justera genomflödet program mässigt med hjälp av våra olika kontroll Plans funktioner. Se artikeln [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [POWERSHELL](powershell-samples.md)och [Azure CLI](cli-samples.md) för vägledning och exempel.
+Azure Cosmos DBens API för Cassandra ger möjlighet att justera genomflödet program mässigt med hjälp av våra olika kontroll Plans funktioner. Se artikeln [Azure Resource Manager](./templates-samples-cassandra.md), [POWERSHELL](powershell-samples.md)och [Azure CLI](cli-samples.md) för vägledning och exempel.
 
 Fördelen med den här metoden är att du kan automatisera skala upp eller ned resurser baserat på en timer för att redovisa hög aktivitet eller perioder med låg aktivitet. Ta en titt på vårt exempel [här](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) för hur du kan göra detta med hjälp av Azure Functions och PowerShell.
 

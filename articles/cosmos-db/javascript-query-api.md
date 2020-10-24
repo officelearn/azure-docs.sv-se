@@ -8,16 +8,16 @@ ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 1e8e1aa9d8e582644d1d625fc8a97cc0e0c790df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f16498f0661ba918acd42b7964b649d0bbdf5841
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334403"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495887"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Java Script-fråge-API i Azure Cosmos DB
 
-Förutom att skicka frågor med hjälp av SQL-API: et i [Cosmos DB Azure Cosmos DB tillhandahåller SDK: n på Server sidan](https://azure.github.io/azure-cosmosdb-js-server/) ett JavaScript-gränssnitt för att utföra optimerade frågor i Cosmos DB lagrade procedurer och utlösare. Du behöver inte vara medveten om SQL-språket för att kunna använda det här JavaScript-gränssnittet. Med Java Script-API: et kan du skapa frågor genom programmering genom att skicka predikat till sekvenser med funktions anrop, med en syntax som är välbekant för ECMAScript5's-matriser och populära JavaScript-bibliotek som Lodash. Frågor parsas av JavaScript-körningen och körs effektivt med Azure Cosmos DB index.
+Förutom att skicka frågor med hjälp av SQL-API: et i [Cosmos DB Azure Cosmos DB tillhandahåller SDK: n på Server sidan](https://github.com/Azure/azure-cosmosdb-js-server/) ett JavaScript-gränssnitt för att utföra optimerade frågor i Cosmos DB lagrade procedurer och utlösare. Du behöver inte vara medveten om SQL-språket för att kunna använda det här JavaScript-gränssnittet. Med Java Script-API: et kan du skapa frågor genom programmering genom att skicka predikat till sekvenser med funktions anrop, med en syntax som är välbekant för ECMAScript5's-matriser och populära JavaScript-bibliotek som Lodash. Frågor parsas av JavaScript-körningen och körs effektivt med Azure Cosmos DB index.
 
 ## <a name="supported-javascript-functions"></a>JavaScript-funktioner som stöds
 
@@ -43,7 +43,7 @@ Följande JavaScript-konstruktioner blir inte optimerade för Azure Cosmos DB in
 - Kontroll flöde (till exempel, om, till exempel)
 - Funktions anrop
 
-Mer information finns på sidan om [Cosmos DB på Server sidans JavaScript-dokumentation](https://azure.github.io/azure-cosmosdb-js-server/).
+Mer information finns på sidan om [Cosmos DB på Server sidans JavaScript-dokumentation](https://github.com/Azure/azure-cosmosdb-js-server/).
 
 ## <a name="sql-to-javascript-cheat-sheet"></a>SQL till JavaScript lathund-blad
 

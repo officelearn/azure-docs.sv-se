@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e874e7107af0eac60f16f5494c04905da56f785a
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0dfc93987fb2ca25b9e397e4aa91adcaaafd8a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205514"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478866"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Konfigurera en digital Azure-instans och autentisering (portal)
 
@@ -75,7 +75,7 @@ Nu har du en Azure Digital-instansen som är redo att sätta igång. Sedan ger d
 :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
 
 På följande sida för *Lägg till roll tilldelning* fyller du i värdena (måste slutföras av en användare med [tillräckliga behörigheter](#prerequisites-permission-requirements) i Azure-prenumerationen):
-* **Roll**: Välj *Azure Digitals flätade ägare (för hands version)* från List menyn
+* **Roll**: Välj *Azure Digitals sammanflätade data ägare* från List menyn
 * **Tilldela åtkomst till**: Välj *Azure AD-användare, grupp eller tjänstens huvud namn* i list menyn
 * **Välj**: Sök efter namnet eller e-postadressen för den användare som ska tilldelas. När du väljer resultatet visas användaren i avsnittet *markerade medlemmar* .
 
@@ -91,7 +91,7 @@ Tryck på knappen *Spara* när du är klar med att ange informationen.
 
 ### <a name="verify-success"></a>Verifieringen lyckades
 
-Du kan visa roll tilldelningen som du har angett under *åtkomst kontroll (IAM) > roll tilldelningar*. Användaren ska visas i listan med en roll av *Azure Digitals flätade ägare (för hands version)*. 
+Du kan visa roll tilldelningen som du har angett under *åtkomst kontroll (IAM) > roll tilldelningar*. Användaren ska visas i listan med en roll av *Azure Digitals sammanflätade data ägare*. 
 
 :::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Välj Skapa en resurs från start sidan för Azure Portal":::
 

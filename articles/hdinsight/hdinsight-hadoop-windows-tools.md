@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 3ec50acc693452fe73d929effcea98b12fc5ff8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75933939"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484771"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeta i Apache Hadoop eko system på HDInsight från en Windows-dator
 
@@ -58,7 +58,7 @@ Exempel på uppgifter som du kan utföra med Visual Studio och Data Lake verktyg
 Du kan använda Visual Studio med .NET SDK för att hantera kluster och utveckla Big data program. Du kan använda andra IDE: er för följande uppgifter, men exemplen visas i Visual Studio.
 
 Exempel på uppgifter som du kan utföra med .NET SDK i Visual Studio:
-* [Azure HDInsight SDK för .net](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+* [Azure HDInsight SDK för .net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
 * [Kör Apache Hive frågor med .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 * [Använd C#-användardefinierade funktioner med Apache Hive och Apache gris streaming på Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
@@ -90,7 +90,7 @@ Om du kommer över en situation där du måste använda ett verktyg eller en tek
 
 ## <a name="cross-platform-tools"></a>Plattforms oberoende verktyg
 
-Kommandoradsgränssnittet för Azure (CLI) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.  Mer information finns i avsnittet om [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Kommandoradsgränssnittet för Azure (CLI) är Microsofts plattformsoberoende kommandoradsmiljö för att hantera Azure-resurser.  Mer information finns i avsnittet om [Azure Command-Line Interface (CLI)](/cli/azure/).
 
 ## <a name="next-steps"></a>Nästa steg
 

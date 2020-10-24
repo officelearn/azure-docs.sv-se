@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289029"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474792"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Använda OpenRowSet med SQL på begäran (för hands version)
 
@@ -192,9 +192,9 @@ Anger ett tecken som ska användas som citat tecken i CSV-filen. Om inget anges 
 
 DATA_COMPRESSION = data_compression_method
 
-Anger komprimerings metod. Följande komprimerings metod stöds:
+Anger komprimerings metod. Stöds endast i PARSER_VERSION = 1.0. Följande komprimerings metod stöds:
 
-- org. apache. Hadoop. io. compress. GzipCodec
+- GZIP
 
 PARSER_VERSION = parser_version
 

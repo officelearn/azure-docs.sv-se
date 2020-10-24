@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 469235957ebe26dd44cc6ce464a68167629099ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 098d6e3712a928392547fcd2cba68b68dcca5ef3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948205"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476152"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Azure Database for PostgreSQL enskild server
 
@@ -81,8 +81,8 @@ Tjänsten enskild server är utrustad med inbyggda funktioner för prestanda öv
 
 Tjänsten kör community-versionen av PostgreSQL. Detta möjliggör fullständig programkompatibilitet och kräver minimal omkostnader för att migrera befintliga program som utvecklats på PostgreSQL-motorn till en enskild server-tjänst. Migreringen till den enskilda servern kan utföras med hjälp av något av följande alternativ:
 
-- **Dumpa och Återställ** – för offline-migrering där användarna kan ge viss nedtid, dumpa och återställa med hjälp av community-verktyg som Pg_dump och Pg_restore kan ge ett snabbast sätt att migrera. Mer information finns i [migrera med dump och Restore](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) .
-- **Azure Database migration service** – för sömlösa och förenklade migreringar till en enskild server med minimal nedtid kan Azure Database migration service utnyttjas. Se [DMS via portal](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) och [DMS via CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).
+- **Dumpa och Återställ** – för offline-migrering där användarna kan ge viss nedtid, dumpa och återställa med hjälp av community-verktyg som Pg_dump och Pg_restore kan ge ett snabbast sätt att migrera. Mer information finns i [migrera med dump och Restore](./howto-migrate-using-dump-and-restore.md) .
+- **Azure Database migration service** – för sömlösa och förenklade migreringar till en enskild server med minimal nedtid kan Azure Database migration service utnyttjas. Se [DMS via portal](../dms/tutorial-postgresql-azure-postgresql-online-portal.md) och [DMS via CLI](../dms/tutorial-postgresql-azure-postgresql-online.md).
 
 ## <a name="contacts"></a>Kontakter
 
@@ -98,4 +98,3 @@ Tänk dessutom på följande kontaktpunkter efter behov:
 
 Nu när du har läst en introduktion till Azure Database for PostgreSQL distributions läge för enskild server är du redo att:
 - Skapa din första server.
-  

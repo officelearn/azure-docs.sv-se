@@ -3,18 +3,18 @@ title: Säkerhetskopiera virtuella datorer i Azure VMware-lösningen med Azure B
 description: Konfigurera din Azure VMware-lösning för att säkerhetskopiera virtuella datorer med hjälp av Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: b8b5236a8da165efbb8e479e25b58872c4a735ee
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: d4273980a134fbdaabe64215aaf0b66a53253788
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893024"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495697"
 ---
 # <a name="back-up-azure-vmware-solution-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella datorer i Azure VMware-lösningen med Azure Backup Server
 
-I den här artikeln går vi igenom procedurerna för att säkerhetskopiera virtuella VMware-datorer (VM: ar) som körs på Azure VMware-lösning med hjälp av Azure Backup Server. Innan du börjar ska du kontrol lera att du är noga med att [konfigurera Microsoft Azure Backup Server för Azure VMware-lösning](set-up-backup-server-for-azure-vmware-solution.md).
+I den här artikeln ska vi säkerhetskopiera virtuella VMware-datorer (VM: ar) som körs på Azure VMware-lösning med Azure Backup Server. Börja med att gå igenom [konfigurera Microsoft Azure Backup Server för Azure VMware-lösning](set-up-backup-server-for-azure-vmware-solution.md).
 
-Sedan går vi igenom alla nödvändiga procedurer för att:
+Sedan kommer vi att gå igenom alla nödvändiga procedurer för att:
 
 > [!div class="checklist"] 
 > * Konfigurera en säker kanal så att Azure Backup Server kan kommunicera med VMware-servrar via HTTPS. 
@@ -162,7 +162,11 @@ VMware 6,7 och tidigare hade TLS aktiverat som kommunikations protokoll.
 
    ![Sidan Slutför](../backup/media/backup-azure-backup-server-vmware/summary-screen.png)
 
-   Du bör se vCenter-servern som visas under **produktions server** med typen som **VMware-Server** och **agent status** som **OK**. Om du ser **agent status** som **okänd**väljer du **Uppdatera**.
+   Du ser vCenter-servern som visas under **produktions server** med:
+   - Typ som **VMware-Server** 
+   - Agent status som **OK** 
+   
+      Om du ser **agent status** som **okänd**väljer du **Uppdatera**.
 
 ## <a name="configure-a-protection-group"></a>Konfigurera en skydds grupp
 
@@ -202,7 +206,7 @@ Skydds grupper samlar in flera virtuella datorer och tillämpar samma data lagri
 
    - De rekommenderade disk tilldelningarna baseras på det kvarhållningsintervall du angav, typ av arbets belastning och storleken på skyddade data. Gör nödvändiga ändringar och välj sedan **Nästa**.
    - **Data storlek:** Storlek på data i skydds gruppen.
-   - **Disk utrymme:** Rekommenderad mängd disk utrymme för skydds gruppen. Om du vill ändra den här inställningen tilldelar du totalt utrymme som är något större än det belopp som du uppskattar varje data källa växer.
+   - **Disk utrymme:** Rekommenderad mängd disk utrymme för skydds gruppen. Om du vill ändra den här inställningen väljer du utrymme som är ljust större än det belopp du uppskattar varje data källa växer.
    - **Information om lagringspool:** Visar status för lagringspoolen, som innehåller total och återstående disk storlek.
 
    :::image type="content" source="media/azure-vmware-solution-backup/review-disk-allocation.png" alt-text="vSphere-webbklient":::
@@ -229,14 +233,14 @@ Skydds grupper samlar in flera virtuella datorer och tillämpar samma data lagri
 
    ![Ange skydds data online](../backup/media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-1. På sidan **Ange schema för onlinesäkerhetskopiering** anger du hur ofta du vill säkerhetskopiera data från lokal lagring till Azure. Välj sedan **Nästa**. 
+1. På sidan **Ange schema för onlinesäkerhetskopiering** anger du hur ofta du vill säkerhetskopiera data från lokal lagring till Azure. 
 
    - Moln återställnings punkter för data som genereras enligt schemat. 
    - När återställnings punkten har genererats överförs den till Recovery Services valvet i Azure.
 
    ![Ange schemat för onlinesäkerhetskopiering](../backup/media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
-1. På sidan **Ange princip för kvarhållning av online** anger du hur länge du vill behålla återställnings punkterna som skapas utifrån de dagliga, vecko Visa, månatliga och årliga säkerhets kopieringarna till Azure. Välj sedan **Nästa**.
+1. På sidan **Ange princip för kvarhållning av online** anger du hur länge du vill behålla återställnings punkterna som skapats från säkerhets kopieringarna till Azure.
 
    - Det finns ingen tids gräns för hur länge du kan lagra data i Azure.
    - Den enda begränsningen är att du inte kan ha mer än 9 999 återställnings punkter per skyddad instans. I det här exemplet är den skyddade instansen VMware-servern.
@@ -251,8 +255,9 @@ Skydds grupper samlar in flera virtuella datorer och tillämpar samma data lagri
 
 När du har konfigurerat skydds gruppen för säkerhets kopiering av virtuella datorer i Azure VMware-lösningen kan du övervaka säkerhets kopierings jobbets status och avisering med hjälp av Azure Backup Server-konsolen. Det här kan du övervaka.
 
-- På fliken **aviseringar** i fönstret **övervakning** kan du övervaka fel, varningar och allmän information för en skydds grupp för en enskild skyddad dator eller allvarlighets grad för meddelande. Du kan visa aktiva och inaktiva aviseringar och konfigurera e-postaviseringar.
-- På fliken **jobb** i fönstret **övervakning** kan du Visa jobb som initierats av Azure Backup Server för en bestämd skyddad data källa eller skydds grupp. Du kan följa jobb förloppet eller kontrol lera resurser som förbrukas av jobb.
+- I **övervaknings** aktivitets fältet:
+   - Under **aviseringar**kan du övervaka fel, varningar och allmän information.  Du kan visa aktiva och inaktiva aviseringar och konfigurera e-postaviseringar.
+   - Under **jobb**kan du Visa jobb som startats av Azure Backup Server för en bestämd skyddad data källa eller skydds grupp. Du kan följa jobb förloppet eller kontrol lera resurser som förbrukas av jobb.
 - I aktivitets avsnittet **skydd** kan du kontrol lera statusen för volymer och resurser i skydds gruppen. Du kan också kontrol lera konfigurations inställningar, till exempel återställnings inställningar, diskallokering och schema för säkerhets kopiering.
 - I aktivitets avsnittet **hantering** kan du Visa flikarna **diskar, online**och **agenter** för att kontrol lera statusen för diskarna i lagringspoolen, registrera till Azure och distribuera statusen för DPM-agenten.
 
@@ -263,18 +268,18 @@ När du har konfigurerat skydds gruppen för säkerhets kopiering av virtuella d
 I Azure Backup Server Administratörskonsol finns det två sätt att hitta återställnings bara data. Du kan söka eller bläddra. När du återställer data kanske du inte vill återställa data eller en virtuell dator till samma plats. Därför stöder Azure Backup Server tre återställnings alternativ för säkerhets kopiering av virtuella VMware-datorer:
 
 - **Återställning av ursprunglig plats (OLR)**: Använd OLR för att återställa en skyddad virtuell dator till dess ursprungliga plats. Du kan bara återställa en virtuell dator till dess ursprungliga plats om inga diskar har lagts till eller tagits bort sedan säkerhets kopieringen genomfördes. Om diskarna har lagts till eller tagits bort måste du använda alternativ plats återställning.
-- **Alternativ plats återställning (återställning till)**: när den ursprungliga virtuella datorn saknas eller om du inte vill störa den ursprungliga virtuella datorn återställer du den virtuella datorn till en annan plats. Om du vill återställa en virtuell dator till en alternativ plats måste du ange platsen för en ESXi-värd, resurspool, mapp och lagrings plats och sökväg för lagring. För att hjälpa till att skilja den återställda virtuella datorn från den ursprungliga virtuella datorn lägger Azure Backup Server till "-återställd" till namnet på den virtuella datorn.
+- **Alternativ plats återställning (återställning till)**: Använd när den ursprungliga virtuella datorn saknas eller om du inte vill störa den ursprungliga virtuella datorn. Ange platsen för en ESXi-värd, resurspool, mapp och lagrings plats och sökväg för lagring. För att hjälpa till att skilja den återställda virtuella datorn från den ursprungliga virtuella datorn lägger Azure Backup Server till *"-återställd"* till namnet på den virtuella datorn.
 - **Individuell fil lokaliserings återställning (ILR)**: om den skyddade virtuella datorn är en virtuell Windows Server-dator kan enskilda filer eller mappar i den virtuella datorn återställas med hjälp av ILR-funktionen i Azure Backup Server. Om du vill återställa enskilda filer, se proceduren senare i den här artikeln. Att återställa en enskild fil från en virtuell dator är bara tillgängligt för virtuella Windows-datorer och disk återställnings punkter.
 
 ### <a name="restore-a-recovery-point"></a>Återställa en återställnings punkt
 
 1. Välj vyn **återställning** i Azure Backup Server administratörskonsol. 
 
-1. Använd fönstret **Bläddra** , bläddra eller filtrera för att hitta den virtuella dator som du vill återställa. När du har valt en virtuell dator eller mapp visas tillgängliga återställnings punkter i rutan **återställnings punkter för** .
+1. Använd fönstret **Bläddra** , bläddra eller filtrera för att hitta den virtuella dator som du vill återställa. När du har valt en virtuell dator eller mapp visas tillgängliga återställnings punkter i rutan * * återställnings punkter för.
 
    ![Tillgängliga återställnings punkter](../backup/media/restore-azure-backup-server-vmware/recovery-points.png)
 
-1. I fönstret **återställnings punkter för** använder du kalendern och de nedrullningsbara menyerna för att välja ett datum när en återställnings punkt togs. Kalender datum i fetstil har tillgängliga återställnings punkter. Alternativt kan du högerklicka på den virtuella datorn och välja **Visa alla återställnings punkter** och sedan välja återställnings punkten i listan.
+1. I fönstret **återställnings punkter för** väljer du ett datum när en återställnings punkt skulle utföras. Kalender datum i fetstil har tillgängliga återställnings punkter. Alternativt kan du högerklicka på den virtuella datorn och välja **Visa alla återställnings punkter** och sedan välja återställnings punkten i listan.
 
    > [!NOTE] 
    > För kortsiktigt skydd väljer du en diskbaserad återställnings punkt för snabbare återställning. När kortsiktiga återställnings punkter går ut ser du bara återställnings punkter **online** att återställa.
@@ -292,7 +297,7 @@ I Azure Backup Server Administratörskonsol finns det två sätt att hitta åter
    > [!NOTE]
    > VMware-arbetsbelastningar stöder inte aktivering av begränsning av nätverks bandbredd.
 
-1. På sidan **Välj återställnings typ** väljer du om du vill återställa till den ursprungliga instansen eller en ny plats. Välj sedan **Nästa**.
+1. På sidan **Välj återställnings typ** återställer du antingen till den ursprungliga instansen eller till en ny plats.
 
    - Om du väljer **Återställ till ursprunglig instans**behöver du inte göra några fler val i guiden. Data för den ursprungliga instansen används.
    - Om du väljer **Återställ som virtuell dator på en värd**anger du informationen för **ESXi-värden**, **resurspool**, **mappar**och **sökväg**på skärmen **Ange mål** .
@@ -312,11 +317,11 @@ Du kan återställa enskilda filer från en skyddad VM-återställnings punkt. D
 
 1. Välj vyn **återställning** i Azure Backup Server administratörskonsol.
 
-1. Använd fönstret **Bläddra** , bläddra eller filtrera för att hitta den virtuella dator som du vill återställa. När du har valt en virtuell dator eller mapp visas tillgängliga återställnings punkter i rutan **återställnings punkter för** .
+1. Använd fönstret **Bläddra** , bläddra eller filtrera för att hitta den virtuella dator som du vill återställa. När du har valt en virtuell dator eller mapp visas tillgängliga återställnings punkter i rutan * * återställnings punkter för.
 
    ![Tillgängliga återställnings punkter](../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png)
 
-1. I rutan **återställnings punkter för** använder du kalendern för att välja det datum som innehåller önskade återställnings punkter. Beroende på hur säkerhets kopierings principen har kon figurer ATS kan datum ha fler än en återställnings punkt. 
+1. I rutan **återställnings punkter för** använder du kalendern för att välja det datum som innehåller de önskade återställnings punkterna. Beroende på hur säkerhets kopierings principen har kon figurer ATS kan datum ha fler än en återställnings punkt. 
 
 1. När du har valt den dag då återställnings punkten togs, se till att du väljer rätt **återställnings tid**. 
 
@@ -341,7 +346,7 @@ Du kan återställa enskilda filer från en skyddad VM-återställnings punkt. D
 
 1. På skärmen **Välj återställnings typ** väljer du **Nästa**. Du kan bara återställa dina filer eller mappar till en nätverksmapp.
 
-1. På skärmen **Ange mål** väljer du **Bläddra** för att hitta en nätverks plats för dina filer eller mappar. Azure Backup Server skapar en mapp där alla återställda objekt kopieras. Namnet på mappen har prefixet MABS_day-månad-år. När du väljer en plats för de återställda filerna eller mappen, tillhandahålls informationen för den platsen, till exempel **mål**, **mål Sök väg**och **tillgängligt utrymme**.
+1. På skärmen **Ange mål** väljer du **Bläddra** för att hitta en nätverks plats för dina filer eller mappar. Azure Backup Server skapar en mapp där alla återställda objekt kopieras. Namnet på mappen har prefixet MABS_day-månad-år. När du väljer en plats för de återställda filerna eller mappen tillhandahålls information om den platsen.
 
    ![Ange plats för att återställa filer](../backup/media/restore-azure-backup-server-vmware/specify-destination.png)
 

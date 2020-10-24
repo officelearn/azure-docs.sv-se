@@ -8,12 +8,12 @@ ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34508abdfa509dc2f8238e8e3b0dbac21c26ff7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7aace0b1ee6963aa220a60a11d02c370bf4d822a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801927"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476560"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Konfigurera en CI/CD-pipeline med Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps
 
@@ -32,13 +32,13 @@ För att använda build-uppgiften måste vi först installera den i Azure DevOps
 Välj sedan den organisation där du vill installera tillägget. 
 
 > [!NOTE]
-> Om du vill installera ett tillägg i en Azure DevOps-organisation måste du vara konto ägare eller projekt samlings administratör. Om du saknar behörigheter, men du är kontomedlem, kan du istället begära tillägg. [Läs mer.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts&preserve-view=true)
+> Om du vill installera ett tillägg i en Azure DevOps-organisation måste du vara konto ägare eller projekt samlings administratör. Om du saknar behörigheter, men du är kontomedlem, kan du istället begära tillägg. [Läs mer.](/azure/devops/marketplace/faq-extensions?preserve-view=true&view=vsts)
 
 :::image type="content" source="./media/tutorial-setup-ci-cd/addExtension_2.png" alt-text="Hitta och installera Azure Cosmos DB-emulatorns build-uppgift i Azure DevOps Marketplace":::
 
 ## <a name="create-a-build-definition"></a>Skapa en byggesdefinition
 
-Nu när tillägget har installerats loggar du in på din Azure DevOps-organisation och hittar projektet från instrument panelen för projekt. Du kan lägga till en [bygg-pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&preserve-view=true&tabs=new-nav) i projektet eller ändrar en befintlig bygg-pipeline. Om du redan har en bygg-pipeline kan du gå vidare till [Lägga till emulatorns build-uppgift i en build-definition](#addEmulatorBuildTaskToBuildDefinition).
+Nu när tillägget har installerats loggar du in på din Azure DevOps-organisation och hittar projektet från instrument panelen för projekt. Du kan lägga till en [bygg-pipeline](/azure/devops/pipelines/get-started-designer?preserve-view=true&tabs=new-nav&view=vsts) i projektet eller ändrar en befintlig bygg-pipeline. Om du redan har en bygg-pipeline kan du gå vidare till [Lägga till emulatorns build-uppgift i en build-definition](#addEmulatorBuildTaskToBuildDefinition).
 
 1. Du kan skapa en ny build-definition genom att gå till fliken **Build** (Bygg) i Azure DevOps. Välj **+ ny.** \> **Ny bygg-pipeline**
 
@@ -51,7 +51,7 @@ Nu när tillägget har installerats loggar du in på din Azure DevOps-organisati
 3. Välj slutligen den mall du vill använda för bygg-pipeline. Vi väljer **ASP.NET**-mallen i den här kursen. Nu har du en pipeline för bygge som du kan konfigurera för att använda Azure Cosmos DB emulatorns build-aktivitet. 
 
 > [!NOTE]
-> Den agent-pool som ska väljas för det här CI ska ha Docker för Windows installerat om inte installationen görs manuellt i en tidigare aktivitet som en del av CI. Se artikeln [Microsoft Hosted](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&preserve-view=true&tabs=yaml) agents för ett urval av agent-pooler. Vi rekommenderar att du börjar med `Hosted VS2017` .
+> Den agent-pool som ska väljas för det här CI ska ha Docker för Windows installerat om inte installationen görs manuellt i en tidigare aktivitet som en del av CI. Se artikeln [Microsoft Hosted](/azure/devops/pipelines/agents/hosted?preserve-view=true&tabs=yaml&view=azure-devops) agents för ett urval av agent-pooler. Vi rekommenderar att du börjar med `Hosted VS2017` .
 
 Azure Cosmos DB emulator har för närvarande inte stöd för den värdbaserade VS2019. Emulatorn kommer dock redan med VS2019 installerat och du använder den genom att starta emulatorn med följande PowerShell-cmdletar. Om du stöter på problem när du använder VS2019 kan du kontakta [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) -teamet för att få hjälp:
 
@@ -92,9 +92,9 @@ Det här steget är valfritt och det krävs bara om du konfigurerar CI/CD-pipeli
 
 Nu kan konfigurerar vi våra tester för att använda emulatorn. Emulatorns build-uppgift exporterar en miljövariabel – CosmosDbEmulator.Endpoint – som uppgifter längre in i bygg-pipeline kan utfärda begäranden mot. 
 
-I den här självstudiekursen använder vi [Visual Studio Test-uppgiften](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) för att köra enhetstester konfigurerade via en **.runsettings**-fil. Mer information om konfiguration av enhetstester finns i [dokumentationen](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017&preserve-view=true). Kod exemplet fullständig program kod som du använder i det här dokumentet finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
+I den här självstudiekursen använder vi [Visual Studio Test-uppgiften](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) för att köra enhetstester konfigurerade via en **.runsettings**-fil. Mer information om konfiguration av enhetstester finns i [dokumentationen](/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?preserve-view=true&view=vs-2017). Kod exemplet fullständig program kod som du använder i det här dokumentet finns på [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-todo-app)
 
-Nedan är ett exempel på en **.runsettings**-fil som definierar parametrar som ska skickas till ett programs enhetstester. Observera att `authKey`-variabeln som används är den [välkända nyckeln](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) för emulatorn. Denna `authKey` är nyckeln som förväntas av emulatorns build-uppgift och ska definieras i **.runsettings**-filen.
+Nedan är ett exempel på en **.runsettings**-fil som definierar parametrar som ska skickas till ett programs enhetstester. Observera att `authKey`-variabeln som används är den [välkända nyckeln](./local-emulator.md#authenticate-requests) för emulatorn. Denna `authKey` är nyckeln som förväntas av emulatorns build-uppgift och ska definieras i **.runsettings**-filen.
 
 ```csharp
 <RunSettings>
@@ -177,6 +177,6 @@ Observera när bygget har slutförts att testet godkänns, och att allt körs mo
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder emulatorn för lokal utveckling och testning finns i [Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning](https://docs.microsoft.com/azure/cosmos-db/local-emulator).
+Mer information om hur du använder emulatorn för lokal utveckling och testning finns i [Använda Azure Cosmos DB-emulatorn för lokal utveckling och testning](./local-emulator.md).
 
-Om du vill exportera TLS/SSL-certifikat för emulatorn, se [exportera Azure Cosmos DB emulator-certifikat för användning med Java, python och Node.js](https://docs.microsoft.com/azure/cosmos-db/local-emulator-export-ssl-certificates)
+Om du vill exportera TLS/SSL-certifikat för emulatorn, se [exportera Azure Cosmos DB emulator-certifikat för användning med Java, python och Node.js](./local-emulator-export-ssl-certificates.md)

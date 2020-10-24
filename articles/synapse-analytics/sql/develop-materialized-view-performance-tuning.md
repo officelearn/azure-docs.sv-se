@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289046"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474775"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Prestandajustering med materialiserade vyer
 
@@ -37,8 +37,8 @@ De flesta standard kraven för standardvyn gäller fortfarande för en materiali
 |Visa innehåll                    | Genereras varje gång som vyn används.   | Förbehandlade och lagrade i Azure Data Warehouse när du skapar vyn. Uppdateras när data läggs till i de underliggande tabellerna.
 |Datauppdatering                    | Alltid uppdaterad                               | Alltid uppdaterad
 |Hastighet för att hämta visnings data från komplexa frågor     | Långsam                                         | Snabb  
-|Extra lagrings utrymme                   | Inga                                           | Ja
-|Syntax                          | SKAPA VY                                  | SKAPA MATERIALISERAD VY SOM VÄLJ
+|Extra lagrings utrymme                   | Nej                                           | Ja
+|Syntax                          | CREATE VIEW                                  | SKAPA MATERIALISERAD VY SOM VÄLJ
 
 ## <a name="benefits-of-materialized-views"></a>Fördelar med materialiserade vyer
 
@@ -79,7 +79,9 @@ Jämfört med andra justerings alternativ, till exempel skalnings-och statistik 
 
 **Du behöver en annan strategi för data distribution för snabbare frågans prestanda**
 
-Azure Data Warehouse är ett system med distribuerad och massivt parallell bearbetning (MPP).   Data i en informations lager tabell är fördelade över 60-noder med en av tre [distributions strategier](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, Round_Robin eller replikerad).  
+Azure Data Warehouse är ett system med distribuerad och massivt parallell bearbetning (MPP).  
+
+Synapse SQL är ett distribuerat Query-system som gör det möjligt för företag att implementera data lager-och data virtualiseringslösningar med hjälp av vanliga T-SQL-upplevelser som är bekanta med data tekniker. Den utökar också funktionerna i SQL för att adressera strömnings-och maskin inlärnings scenarier. Data i en informations lager tabell är fördelade över 60-noder med en av tre [distributions strategier](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (hash, Round_Robin eller replikerad).  
 
 Data distributionen anges vid tabell skapande tiden och förblir oförändrad tills tabellen släpps. Materialiserad vy är en virtuell tabell på disken som stöder hash-och round_robin data distributioner.  Användare kan välja en data distribution som skiljer sig från bas tabellerna men som är optimal för prestanda för frågor som ofta använder vyerna.  
 

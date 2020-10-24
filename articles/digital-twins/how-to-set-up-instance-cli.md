@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 081eb10166ff681990af15110829030176efa3fa
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26302fa67394e6c3122b159866c3814fb5677ba6
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207792"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494986"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-cli"></a>Konfigurera en digital Azure-instans och autentisering (CLI)
 
@@ -36,7 +36,7 @@ Den här versionen av den här artikeln går igenom dessa steg manuellt, en i ta
 
 I det här avsnittet ska du **skapa en ny instans av Azure Digitals dubbla** med kommandot Cloud Shell. Du måste ange:
 * En resurs grupp att distribuera den i. Om du inte redan har en befintlig resurs grupp i åtanke kan du skapa en nu med det här kommandot:
-    ```azurecli
+    ```azurecli-interactive
     az group create --location <region> --name <name-for-your-resource-group>
     ```
 * En region för distributionen. Om du vill se vilka regioner som stöder Azure Digitals, kan du gå till [*Azure-produkter som är tillgängliga efter region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -44,7 +44,7 @@ I det här avsnittet ska du **skapa en ny instans av Azure Digitals dubbla** med
 
 Använd de här värdena i följande kommando för att skapa instansen:
 
-```azurecli
+```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> -g <your-resource-group> -l <region>
 ```
 
@@ -67,8 +67,8 @@ Nu har du en Azure Digital-instansen som är redo att sätta igång. Sedan ger d
 
 Använd följande kommando för att tilldela rollen (måste köras av en användare med [tillräcklig behörighet](#prerequisites-permission-requirements) i Azure-prenumerationen). Kommandot kräver att du skickar *User Principal Name* på Azure AD-kontot för den användare som ska tilldelas rollen. I de flesta fall matchar detta användarens e-post på Azure AD-kontot.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<Azure-AD-user-principal-name-of-user-to-assign>" --role "Azure Digital Twins Data Owner"
 ```
 
 Resultatet av det här kommandot är information om den roll tilldelning som har skapats.

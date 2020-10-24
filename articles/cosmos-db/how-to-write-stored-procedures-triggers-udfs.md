@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: bc7bc677fb44600721b580ac9efc42feea4d98da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87d33308932ecd7c523c6fbe287648d4afc21ef0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252960"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485808"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Skriva lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Innan du kan anropa en lagrad procedur, utlösare eller användardefinierad funk
 > [!NOTE]
 > När du kör en lagrad procedur med partitionerade containrar måste ett partitionsnyckelvärde anges i alternativen för begäran. Lagrade procedurer är alltid begränsade till en partitionsnyckel. Objekt som har ett annan partitionsnyckelvärde visas inte för den lagrade proceduren. Detta gäller även för utlösare.
 > [!Tip]
-> Cosmos stöder distribution av behållare med lagrade procedurer, utlösare och användardefinierade funktioner. Mer information finns i [skapa en Azure Cosmos DB behållare med Server sidans funktioner.](manage-sql-with-resource-manager.md#create-sproc)
+> Cosmos stöder distribution av behållare med lagrade procedurer, utlösare och användardefinierade funktioner. Mer information finns i [skapa en Azure Cosmos DB behållare med Server sidans funktioner.](./manage-with-templates.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Skriva lagrade procedurer
 

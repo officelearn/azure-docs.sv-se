@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: d4fbadd03f443d28376a122c7ecb06c475c2247d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85850704"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478158"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Bli social med Azure Cosmos DB
 
@@ -216,9 +216,9 @@ Eftersom du använder Azure Cosmos DB kan du enkelt implementera en sökmotor me
 
 Varför är den här processen så enkel?
 
-Azure Kognitiv sökning implementerar vad de anropar [indexerare](https://msdn.microsoft.com/library/azure/dn946891.aspx), bakgrunds processer som hookar i dina data lager och lägger till, uppdaterar eller tar bort objekt i indexen. De stöder en [Azure SQL Database indexerare](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), [Azure blobs-indexerare](../search/search-howto-indexing-azure-blob-storage.md) och Thankfully [Azure Cosmos db indexerare](../search/search-howto-index-documentdb.md). Över gången till information från Cosmos DB till Azure Kognitiv sökning är enkelt. Båda teknikerna lagrar information i JSON-format, så du behöver bara [skapa ditt index](../search/search-create-index-portal.md) och mappa attributen från dina dokument som du vill indexera. Klart! Beroende på storleken på dina data kommer allt innehåll att vara tillgängligt för att kunna sökas på några minuter av den bästa Sök-som-tjänst-lösningen i moln infrastrukturen.
+Azure Kognitiv sökning implementerar vad de anropar [indexerare](/rest/api/searchservice/Indexer-operations), bakgrunds processer som hookar i dina data lager och lägger till, uppdaterar eller tar bort objekt i indexen. De stöder en [Azure SQL Database indexerare](/archive/blogs/kaevans/indexing-azure-sql-database-with-azure-search), [Azure blobs-indexerare](../search/search-howto-indexing-azure-blob-storage.md) och Thankfully [Azure Cosmos db indexerare](../search/search-howto-index-cosmosdb.md). Över gången till information från Cosmos DB till Azure Kognitiv sökning är enkelt. Båda teknikerna lagrar information i JSON-format, så du behöver bara [skapa ditt index](../search/search-what-is-an-index.md) och mappa attributen från dina dokument som du vill indexera. Klart! Beroende på storleken på dina data kommer allt innehåll att vara tillgängligt för att kunna sökas på några minuter av den bästa Sök-som-tjänst-lösningen i moln infrastrukturen.
 
-Om du vill ha mer information om Azure Kognitiv sökning kan du gå [till Hitchhikers guide för att söka](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Om du vill ha mer information om Azure Kognitiv sökning kan du gå [till Hitchhikers guide för att söka](/archive/blogs/mvpawardprogram/a-hitchhikers-guide-to-search).
 
 ## <a name="the-underlying-knowledge"></a>Den underliggande kunskapen
 

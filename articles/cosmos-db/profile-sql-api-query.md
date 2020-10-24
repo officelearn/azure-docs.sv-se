@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: girobins
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 71ebc90834083def5b82e16dc387a6e61943206d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d47bd90f7704cd3c55f9e5d64fe6b58946d4568
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021756"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475098"
 ---
 # <a name="get-sql-query-execution-metrics-and-analyze-query-performance-using-net-sdk"></a>Få SQL-fråga om körnings mått och analysera frågeresultat med .NET SDK
 
-Den här artikeln visar hur du kan profilera prestanda för SQL-frågor på Azure Cosmos DB. Den här profileringen kan göras med hjälp av `QueryMetrics` hämtade från .NET SDK och beskrivs här. [QueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.querymetrics.aspx) är ett starkt skrivet objekt med information om Server delens frågekörning. Dessa mått är dokumenterade i detalj i artikeln [finjustera prestanda](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
+Den här artikeln visar hur du kan profilera prestanda för SQL-frågor på Azure Cosmos DB. Den här profileringen kan göras med hjälp av `QueryMetrics` hämtade från .NET SDK och beskrivs här. [QueryMetrics](/dotnet/api/microsoft.azure.documents.querymetrics) är ett starkt skrivet objekt med information om Server delens frågekörning. Dessa mått är dokumenterade i detalj i artikeln [finjustera prestanda](./sql-api-query-metrics.md) .
 
 ## <a name="set-the-feedoptions-parameter"></a>Ange parametern FeedOptions
 
-Alla överlagringar för [DocumentClient. CreateDocumentQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentquery.aspx) tar en valfri [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) -parameter. Det här alternativet är vad som tillåter körning av frågor och parametrar. 
+Alla överlagringar för [DocumentClient. CreateDocumentQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentquery) tar en valfri [FeedOptions](/dotnet/api/microsoft.azure.documents.client.feedoptions) -parameter. Det här alternativet är vad som tillåter körning av frågor och parametrar. 
 
-Om du vill samla in SQL-frågans körnings mått måste du ange parametern [PopulateQueryMetrics](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.populatequerymetrics.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) i [FeedOptions](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.aspx) till `true` . `PopulateQueryMetrics`Om värdet är true blir det så att det `FeedResponse` innehåller relevant `QueryMetrics` . 
+Om du vill samla in SQL-frågans körnings mått måste du ange parametern [PopulateQueryMetrics](/dotnet/api/microsoft.azure.documents.client.feedoptions.populatequerymetrics#P:Microsoft.Azure.Documents.Client.FeedOptions.PopulateQueryMetrics) i [FeedOptions](/dotnet/api/microsoft.azure.documents.client.feedoptions) till `true` . `PopulateQueryMetrics`Om värdet är true blir det så att det `FeedResponse` innehåller relevant `QueryMetrics` . 
 
 ## <a name="get-query-metrics-with-asdocumentquery"></a>Hämta Frågeregler med AsDocumentQuery ()
-Följande kod exempel visar hur du hämtar mått när du använder metoden [AsDocumentQuery ()](https://msdn.microsoft.com/library/microsoft.azure.documents.linq.documentqueryable.asdocumentquery.aspx) :
+Följande kod exempel visar hur du hämtar mått när du använder metoden [AsDocumentQuery ()](/dotnet/api/microsoft.azure.documents.linq.documentqueryable.asdocumentquery) :
 
 ```csharp
 // Initialize this DocumentClient and Collection
@@ -63,7 +63,7 @@ while (documentQuery.HasMoreResults)
 ```
 ## <a name="aggregating-querymetrics"></a>Agg regering av QueryMetrics
 
-I föregående avsnitt ser du att det finns flera anrop till [ExecuteNextAsync](https://msdn.microsoft.com/library/azure/dn850294.aspx) -metoden. Varje anrop returnerade ett `FeedResponse` objekt som har en ordbok av `QueryMetrics` ; en för varje fortsättning av frågan. I följande exempel visas hur du sammanställer dessa `QueryMetrics` med LINQ:
+I föregående avsnitt ser du att det finns flera anrop till [ExecuteNextAsync](/dotnet/api/microsoft.azure.documents.linq.idocumentquery-1.executenextasync) -metoden. Varje anrop returnerade ett `FeedResponse` objekt som har en ordbok av `QueryMetrics` ; en för varje fortsättning av frågan. I följande exempel visas hur du sammanställer dessa `QueryMetrics` med LINQ:
 
 ```csharp
 List<QueryMetrics> queryMetricsList = new List<QueryMetrics>();
@@ -130,7 +130,7 @@ IReadOnlyDictionary<string, QueryMetrics> queryMetrics = feedResponse.QueryMetri
 
 ## <a name="expensive-queries"></a>Dyra frågor
 
-Du kan avbilda de enheter för programbegäran som används av varje fråga för att undersöka dyra frågor eller frågor som använder stora data flöden. Du kan hämta begär ande avgiften genom att använda egenskapen [RequestCharge](https://msdn.microsoft.com/library/azure/dn948712.aspx) i `FeedResponse` . Om du vill veta mer om hur du hämtar begär ande avgiften med hjälp av Azure Portal och olika SDK: er, se [hitta artikeln om enhets avgiften för begäran](find-request-unit-charge.md) .
+Du kan avbilda de enheter för programbegäran som används av varje fråga för att undersöka dyra frågor eller frågor som använder stora data flöden. Du kan hämta begär ande avgiften genom att använda egenskapen [RequestCharge](/dotnet/api/microsoft.azure.documents.client.feedresponse-1.requestcharge) i `FeedResponse` . Om du vill veta mer om hur du hämtar begär ande avgiften med hjälp av Azure Portal och olika SDK: er, se [hitta artikeln om enhets avgiften för begäran](find-request-unit-charge.md) .
 
 ```csharp
 string query = "SELECT * FROM c";
@@ -232,11 +232,11 @@ WHERE c.description = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, 
 
 Den här frågan kan nu hanteras från indexet.
 
-Mer information om hur du finjusterar prestanda för frågor finns i artikeln [Justera frågeresultat](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-metrics) .
+Mer information om hur du finjusterar prestanda för frågor finns i artikeln [Justera frågeresultat](./sql-api-query-metrics.md) .
 
 ## <a name="references"></a><a id="References"></a>Referenser
 
-- [Azure Cosmos DB SQL-specifikation](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [Azure Cosmos DB SQL-specifikation](./sql-query-getting-started.md)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 

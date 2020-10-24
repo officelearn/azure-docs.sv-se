@@ -2,13 +2,13 @@
 title: Vanliga frågor och svar – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en lista med vanliga frågor och svar (FAQ) för Azure Event Hubs och deras svar.
 ms.topic: article
-ms.date: 09/16/2020
-ms.openlocfilehash: 2c58f67fed880b8aad60ff1a46a587dcf514102e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.date: 10/23/2020
+ms.openlocfilehash: 511706e0de2737feb259c0ff9529373ab8b6d026
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424188"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495224"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -181,27 +181,12 @@ I ett erbjudande med flera innehavare kan data flödes enheter växa upp till 40
 ### <a name="what-are-event-hubs-dedicated-clusters"></a>Vad är Event Hubs dedikerade kluster?
 Event Hubs Dedicated kluster erbjuder distributioner för enskilda klienter för kunder med de mest krävande kraven. Detta erbjudande skapar ett kapacitets baserat kluster som inte är kopplat till data flödes enheter. Det innebär att du kan använda klustret för att mata in och strömma data som styrs av klustrets processor-och minnes användning. Mer information finns i [Event Hubs Dedicated kluster](event-hubs-dedicated-overview.md).
 
-### <a name="how-much-does-a-single-capacity-unit-let-me-achieve"></a>Hur mycket tillåter en enda kapacitetsenhet mig att uppnå?
-För ett dedikerat kluster, hur mycket du kan mata in och strömma beror på olika faktorer, till exempel producenter, konsumenter, den hastighet som du matar in och bearbetar, och mycket mer. 
-
-I följande tabell visas de benchmark-resultat som vi uppnått vid testningen:
-
-| Nytto Last form | Mottagare | Ingress bandbredd| Ingress meddelanden | Utgående bandbredd | Utgående meddelanden | Totalt antal antal | Antal per CU |
-| ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Batchar av 100x1KB | 2 | 400 MB/SEK | 400k meddelanden/SEK | 800 MB/SEK | 800k meddelanden/SEK | 400 antal | 100 antal | 
-| Batchar av 10x10KB | 2 | 666 MB/SEK | 66.6 k meddelanden/SEK | 1,33 GB/SEK | 133k meddelanden/SEK | 666 antal | 166 antal |
-| Batchar av 6x32KB | 1 | 1,05 GB/SEK | 34k meddelanden/SEK | 1,05 GB/SEK | 34k meddelanden/SEK | 1000 antal | 250 antal |
-
-I testningen användes följande kriterier:
-
-- Ett dedikerat Event Hubs kluster med fyra kapacitets enheter (CUs) användes. 
-- Händelsehubben som används för inmatning hade 200 partitioner. 
-- De data som matats in togs emot av två mottagar program som tar emot från alla partitioner.
-
-Resultatet ger dig en uppfattning om vad som kan uppnås med ett dedikerat Event Hubs-kluster. Dessutom levereras ett dedikerat kluster med Event Hubs-avbildningen som är aktive rad för dina scenarier för mikrobatch och långsiktig kvarhållning.
-
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Hur gör jag för att skapa ett Event Hubs Dedicated-kluster?
-Du skapar ett Event Hubs dedikerat kluster genom att skicka en [kvot som ökar support förfrågan](https://portal.azure.com/#create/Microsoft.Support) eller genom att kontakta [Event Hubss teamet](mailto:askeventhubs@microsoft.com). Det tar vanligt vis ungefär två veckor att få klustret distribuerat och behålls för att användas av dig. Den här processen är tillfällig tills en fullständig egen betjäning görs tillgänglig via Azure Portal.
+Steg-för-steg-instruktioner och mer information om hur du konfigurerar ett Event Hubs dedikerat kluster finns i [snabb start: skapa ett dedikerat Event Hubs-kluster med Azure Portal](event-hubs-dedicated-cluster-create-portal.md). 
+
+
+[!INCLUDE [event-hubs-dedicated-clusters-faq](../../includes/event-hubs-dedicated-clusters-faq.md)]
+
 
 ## <a name="best-practices"></a>Bästa praxis
 

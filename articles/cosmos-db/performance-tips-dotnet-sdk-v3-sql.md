@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: c869f80eba5a6bdff4b952c62b0d964401f904d2
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 05fe22ed0dc7d03148f66fd02aa648e1b63ab319
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277300"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475336"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestandatips för Azure Cosmos DB och .NET
 
@@ -39,7 +39,7 @@ För Linux och andra plattformar som inte stöds, där ServiceInterop.dll inte �
 
 De fyra program typerna som anges här använder 32-bitars värd bearbetning som standard. Om du vill ändra värd bearbetningen till 64-bitars bearbetning för din program typ gör du följande:
 
-- **För körbara program**: i fönstret **projekt egenskaper** går du till fönstret **skapa** och anger [plattforms målet](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) till **x64**.
+- **För körbara program**: i fönstret **projekt egenskaper** går du till fönstret **skapa** och anger [plattforms målet](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) till **x64**.
 
 - **För VSTest-baserade test projekt**: på **test** -menyn i Visual Studio väljer du **testa**  >  **test inställningar**och anger sedan **standard processor arkitekturen** till **x64**.
 
@@ -53,7 +53,7 @@ De fyra program typerna som anges här använder 32-bitars värd bearbetning som
     
 **Aktivera skräp insamling på Server Sidan**
 
-Att minska frekvensen skräp insamling kan i vissa fall hjälpa till. I .NET anger du [gcServer](https://docs.microsoft.com/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) till `true` .
+Att minska frekvensen skräp insamling kan i vissa fall hjälpa till. I .NET anger du [gcServer](/dotnet/core/run-time-config/garbage-collector#flavors-of-garbage-collection) till `true` .
 
 **Skala ut din klient arbets belastning**
 
@@ -86,8 +86,8 @@ När den körs på TCP-protokollet optimeras klienten för svars tider med hjäl
 
 I scenarier där du har sparse-åtkomst, och om du ser att ett högre antal anslutningar jämfört med åtkomst till gateway-läge, kan du:
 
-* Konfigurera egenskapen [CosmosClientOptions. PortReuseMode](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) till `PrivatePortPool` (gällande Framework-versioner 4.6.1 och senare och .net Core-versioner 2,0 och senare). Med den här egenskapen kan SDK använda en liten pool av tillfälliga portar för olika Azure Cosmos DB slut punkter för mål.
-* Konfigurera egenskapen [CosmosClientOptions. IdleConnectionTimeout](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) som är större än eller lika med 10 minuter. De rekommenderade värdena är från 20 minuter till 24 timmar.
+* Konfigurera egenskapen [CosmosClientOptions. PortReuseMode](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.portreusemode) till `PrivatePortPool` (gällande Framework-versioner 4.6.1 och senare och .net Core-versioner 2,0 och senare). Med den här egenskapen kan SDK använda en liten pool av tillfälliga portar för olika Azure Cosmos DB slut punkter för mål.
+* Konfigurera egenskapen [CosmosClientOptions. IdleConnectionTimeout](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.idletcpconnectiontimeout) som är större än eller lika med 10 minuter. De rekommenderade värdena är från 20 minuter till 24 timmar.
 
 <a id="same-region"></a>
 
@@ -103,7 +103,7 @@ Du kan få lägsta möjliga fördröjning genom att se till att det anropande pr
 
 **Öka antalet trådar/aktiviteter**
 
-Eftersom anrop till Azure Cosmos DB görs via nätverket kan du behöva variera graden av samtidighet för dina begär Anden så att klient programmet ägnar lång tid åt att vänta mellan begär Anden. Om du till exempel använder ett [parallellt .net-aktivitets bibliotek](https://msdn.microsoft.com//library/dd460717.aspx)skapar du i ordningen på hundratals aktiviteter som läser från eller skriver till Azure Cosmos dB.
+Eftersom anrop till Azure Cosmos DB görs via nätverket kan du behöva variera graden av samtidighet för dina begär Anden så att klient programmet ägnar lång tid åt att vänta mellan begär Anden. Om du till exempel använder ett [parallellt .net-aktivitets bibliotek](/dotnet/standard/parallel-programming/task-parallel-library-tpl)skapar du i ordningen på hundratals aktiviteter som läser från eller skriver till Azure Cosmos dB.
 
 **Aktivera accelererat nätverk**
  
@@ -146,7 +146,7 @@ Aktivera *Mass bearbetning* för scenarier där arbets belastningen kräver stor
 
 **Öka System.Net MaxConnections per värd när du använder Gateway-läge**
 
-Azure Cosmos DB begär Anden görs via HTTPS/REST när du använder Gateway-läge. De är underkastade standard anslutnings gränsen per värdnamn eller IP-adress. Du kan behöva ange `MaxConnections` ett högre värde (från 100 till 1 000) så att klient biblioteket kan använda flera samtidiga anslutningar till Azure Cosmos dB. I .NET SDK-1.8.0 och senare är standardvärdet för [ServicePointManager. DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 50. Om du vill ändra värdet kan du ange [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) ett högre värde.
+Azure Cosmos DB begär Anden görs via HTTPS/REST när du använder Gateway-läge. De är underkastade standard anslutnings gränsen per värdnamn eller IP-adress. Du kan behöva ange `MaxConnections` ett högre värde (från 100 till 1 000) så att klient biblioteket kan använda flera samtidiga anslutningar till Azure Cosmos dB. I .NET SDK-1.8.0 och senare är standardvärdet för [ServicePointManager. DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) 50. Om du vill ändra värdet kan du ange [`Documents.Client.ConnectionPolicy.MaxConnectionLimit`](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) ett högre värde.
 
 **Justera parallella frågor för partitionerade samlingar**
 
@@ -170,7 +170,7 @@ Parallella frågor ger två parametrar som du kan justera för att passa dina be
 
 Under prestanda testningen bör du öka belastningen tills en låg frekvens av begär Anden begränsas. Om förfrågningarna är begränsade bör klient programmet inaktivera begränsning för det Server-angivna återförsöksintervallet. Genom att respektera backoff ser du till att du ägnar en liten stund åt att vänta mellan återförsök. 
 
-Mer information finns i [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+Mer information finns i [RetryAfter](/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 Det finns en mekanism för att logga ytterligare diagnostikinformation och felsöka latens problem, som du ser i följande exempel. Du kan logga den diagnostiska strängen för förfrågningar som har en högre Läs fördröjning. Den infångade diagnostikprogrammet hjälper dig att förstå hur många gånger du fick ett *429* -fel för en specifik begäran.
 

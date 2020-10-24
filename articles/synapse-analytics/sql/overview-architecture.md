@@ -1,6 +1,6 @@
 ---
 title: Synapse SQL-arkitektur
-description: Lär dig hur Azure Synapse SQL kombinerar massivt parallell bearbetning (MPP) med Azure Storage för att uppnå höga prestanda och skalbarhet.
+description: Lär dig hur Azure Synapse SQL kombinerar distribuerade fråge bearbetnings funktioner med Azure Storage för att uppnå höga prestanda och skalbarhet.
 services: synapse-analytics
 author: mlee3gsd
 manager: rothja
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f2f3eee12bb8741f6d079f6f081a08f4e2db9b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87046855"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476016"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL-arkitektur 
 
@@ -35,7 +35,7 @@ För SQL på begäran, som server lös, görs skalningen automatiskt för att up
 
 Synapse SQL använder en Node-baserad arkitektur. Program ansluter och utfärdar T-SQL-kommandon till en Control-nod, vilket är den enda punkten i posten för Synapse SQL. 
 
-Noden för SQL-adresspoolen använder MPP-motorn för att optimera frågor för parallell bearbetning och skickar sedan åtgärder till Compute-noder för att utföra sitt arbete parallellt. 
+Azure Synapse SQL Control-noden använder en distribuerad frågemotor för att optimera frågor för parallell bearbetning och skickar sedan åtgärder till Compute-noder för att utföra sitt arbete parallellt. 
 
 Noden SQL-kontroll på begäran använder sig av DQP-motorn (Distributed Query Processing) för att optimera och dirigera distribuerad körning av användar fråga genom att dela upp den i mindre frågor som ska utföras på Compute-noder. Varje liten fråga kallas aktivitet och representerar distribuerad körnings enhet. Den läser fil (er) från lagringen, ger resultat från andra aktiviteter, grupper eller order data som hämtats från andra uppgifter. 
 
@@ -61,7 +61,7 @@ Med SQL på begäran kan du fråga filer i data Lake i skrivskyddat läge, medan
 
 Kontrollnoden är hjärnan i arkitekturen. Det är den som är klientdelen som interagerar med alla program och anslutningar. 
 
-I SQL-poolen körs MPP-motorn på noden kontroll för att optimera och koordinera parallella frågor. När du skickar en T-SQL-fråga till SQL-poolen, omvandlar noden kontroll den till frågor som körs mot varje distribution parallellt.
+I Synapse SQL körs den distribuerade frågespråket på noden kontroll för att optimera och koordinera parallella frågor. När du skickar en T-SQL-fråga till SQL-poolen, omvandlar noden kontroll den till frågor som körs mot varje distribution parallellt.
 
 I SQL på begäran körs DQP-motorn på noden kontroll för att optimera och koordinera distribuerad körning av användar frågor genom att dela upp den i mindre frågor som ska utföras på datornoderna. Det tilldelar också uppsättningar av filer som ska bearbetas av varje nod.
 
@@ -69,7 +69,7 @@ I SQL på begäran körs DQP-motorn på noden kontroll för att optimera och koo
 
 Beräkningsnoderna ger dataresurser. 
 
-I SQL-poolen mappar distributioner till Compute-noder för bearbetning. När du betalar för fler beräknings resurser mappar poolen om distributionerna till de tillgängliga datornoderna. Antalet datornoder sträcker sig från 1 till 60 och bestäms av Service nivån för SQL-poolen. Varje Compute-nod har ett nod-ID som visas i systemvyer. Du kan se Compute Node ID genom att leta efter kolumnen node_id i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa systemvyer finns i [MPP system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+I SQL-poolen mappar distributioner till Compute-noder för bearbetning. När du betalar för fler beräknings resurser mappar poolen om distributionerna till de tillgängliga datornoderna. Antalet datornoder sträcker sig från 1 till 60 och bestäms av Service nivån för SQL-poolen. Varje Compute-nod har ett nod-ID som visas i systemvyer. Du kan se Compute Node ID genom att leta efter kolumnen node_id i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa system visningar finns i [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
 I SQL på begäran tilldelas varje datornod en uppgift och en uppsättning filer att köra uppgiften på. Uppgiften är distribuerad frågekörning, som faktiskt är en del av frågan som användaren skickat. Automatisk skalning används för att se till att tillräckligt många datornoder används för att köra användar frågor.
 

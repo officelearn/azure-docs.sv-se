@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13d2633576454ea6445deb4d2b0b11c2bbb1514e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869447"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478379"
 ---
 # <a name="azcopy-sync"></a>azcopy synkronisering
 
@@ -151,15 +151,15 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--sträng på loggnivå** definierar loggens utförlighet för logg filen, tillgängliga nivåer: `INFO` (alla begär Anden och svar) `WARNING` (långsamma svar), `ERROR` (endast misslyckade förfrågningar) och `NONE` (inga utgående loggar). (standard `INFO` ). 
 
-**--Behåll-SMB-info**     Falskt som standard.Bevarar information om SMB-egenskaper (senaste skrivnings tid, skapande tid, attribut bitar) mellan SMB-medvetna resurser (Windows och Azure Files).Den här flaggan gäller för både filer och mappar, om inte ett fil filter anges (till exempel include-Pattern).Informationen som överförs för mappar är samma som för filer, förutom senaste skrivnings tid som inte bevaras för mappar.
+**--Behåll-SMB-info**   Falskt som standard. Bevarar information om SMB-egenskaper (senaste skrivnings tid, skapande tid, attribut bitar) mellan SMB-medvetna resurser (Windows och Azure Files). Den här flaggan gäller för både filer och mappar, om inte ett fil filter anges (till exempel include-Pattern). Informationen som överförs för mappar är samma som för filer, förutom senaste skrivnings tid som inte bevaras för mappar.
 
-**--bevara-SMB-Permissions**     Falskt som standard.Bevarar SMB ACL: er mellan medvetna resurser (Windows och Azure Files).Den här flaggan gäller för både filer och mappar, om inte ett fil filter anges (till exempel  `include-pattern` ).
+**--bevara-SMB-Permissions**   Falskt som standard. Bevarar SMB ACL: er mellan medvetna resurser (Windows och Azure Files). Den här flaggan gäller för både filer och mappar, om inte ett fil filter anges (till exempel `include-pattern` ).
 
 **--Skicka-MD5**     Skapa en MD5-hash av varje fil och spara hashen som Content-MD5-egenskapen för Målmatrisen eller-filen. (Som standard skapas inte hashen.) Endast tillgängligt vid uppladdning.
 
 **--rekursivt** `True` som standard tittar du i under kataloger rekursivt vid synkronisering mellan kataloger.     (standard `True` ). 
 
-**--S2S-konserver-Access-Tier**  Bevara åtkomst nivån under tjänst-till-tjänst-kopiering. Se [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) lag rings nivå för att säkerställa att mål lagrings kontot har stöd för att ange åtkomst nivå. I de fall då det inte finns stöd för att ange åtkomst nivå kan du använda s2sPreserveAccessTier = false för att kringgå kopiering av åtkomst nivå. (standard `true` ). 
+**--S2S-konserver-Access-Tier**  Bevara åtkomst nivån under tjänst-till-tjänst-kopiering. Se [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](/azure/storage/blobs/storage-blob-storage-tiers) lag rings nivå för att säkerställa att mål lagrings kontot har stöd för att ange åtkomst nivå. I de fall då det inte finns stöd för att ange åtkomst nivå kan du använda s2sPreserveAccessTier = false för att kringgå kopiering av åtkomst nivå. (standard `true` ). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Alternativ som ärvts från överordnade kommandon
 

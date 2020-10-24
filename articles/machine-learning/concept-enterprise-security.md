@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 462ecb1fb3f44f3caac8c58bfca169e4eac2a6da
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: fef41a177f653dc67835897a48d734400a37a0d0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207945"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496000"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -183,6 +183,7 @@ Om du vill använda dina egna (Kundhanterade) nycklar för att kryptera din Azur
 Ett exempel på hur du skapar en arbets yta med en befintlig Azure Container Registry finns i följande artiklar:
 
 * [Skapa en arbets yta för Azure Machine Learning med Azure CLI](how-to-manage-workspace-cli.md).
+* [Skapa en arbets yta med python SDK](how-to-manage-workspace.md?tabs=python#create-a-workspace).
 * [Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning](how-to-create-workspace-template.md)
 
 #### <a name="azure-container-instance"></a>Azure Container-instans

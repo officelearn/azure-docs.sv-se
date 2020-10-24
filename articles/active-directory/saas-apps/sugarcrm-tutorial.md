@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cd1be43bd8984df8fef690e595ec99f4b112c3c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ddcbfd9c069fa3d50cf694087600bfc3030b1c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533721"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484159"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sugar-crm"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med socker i CRM
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig att integrera socker CRM med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -110,7 +110,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -142,11 +142,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. I avsnittet **Administration** klickar du på **lösen ords hantering**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795889.png "Administration")
+    ![Skärm bild som visar avsnittet Administration där du kan välja lösen ords hantering.](./media/sugarcrm-tutorial/ic795889.png "Administration")
 
 1. Välj **Aktivera SAML-autentisering**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795890.png "Administration")
+    ![Skärm bild som visar alternativet för att välja SAML-autentisering.](./media/sugarcrm-tutorial/ic795890.png "Administration")
 
 1. Gör följande i avsnittet **SAML-autentisering**:
 
@@ -174,7 +174,7 @@ För att Azure AD-användare ska kunna logga in på socker i Azure måste de til
 
 1. I avsnittet **Administration** klickar du på **användar hantering**.
 
-    ![Administration](./media/sugarcrm-tutorial/ic795893.png "Administration")
+    ![Skärm bild som visar avsnittet Administration där du kan välja användar hantering.](./media/sugarcrm-tutorial/ic795893.png "Administration")
 
 1. Gå till **användare \> Skapa ny användare**.
 
@@ -182,7 +182,7 @@ För att Azure AD-användare ska kunna logga in på socker i Azure måste de til
 
 1. Utför följande steg på fliken **användar profil** :
 
-    ![Ny användare](./media/sugarcrm-tutorial/ic795895.png "Ny användare")
+    ![Skärm bild som visar fliken användar profil där du kan ange de värden som beskrivs.](./media/sugarcrm-tutorial/ic795895.png "Ny användare")
 
     * Ange **användar namn**, **efter namn**och **e-postadress** för en giltig Azure Active Directory användare i de relaterade text rutorna.
   
@@ -190,7 +190,7 @@ För att Azure AD-användare ska kunna logga in på socker i Azure måste de til
 
 1. Utför följande steg på fliken lösen ord:
 
-    ![Ny användare](./media/sugarcrm-tutorial/ic795896.png "Ny användare")
+    ![Skärm bild som visar fliken lösen ord där du kan ange de värden som beskrivs.](./media/sugarcrm-tutorial/ic795896.png "Ny användare")
 
     a. Skriv in lösen ordet i den relaterade text rutan.
 

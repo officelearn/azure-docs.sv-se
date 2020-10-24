@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8154ef7a90011da8c15f52870eebb6c80ebaebca
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254082"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496102"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetri och fel sökning
 
@@ -23,9 +23,9 @@ Rumslig analys innehåller en uppsättning funktioner som övervakar systemets h
 
 ## <a name="enable-visualizations"></a>Aktivera visualiseringar
 
-Om du vill aktivera en visualisering av AI Insights-händelser i en video RAM måste du använda `.debug` versionen av en [spatial analys åtgärd](spatial-analysis-operations.md). Det finns fyra fel söknings åtgärder tillgängliga.
+Om du vill aktivera en visualisering av AI Insights-händelser i en video RAM måste du använda `.debug` versionen av en [spatial analys åtgärd](spatial-analysis-operations.md) på en stationär dator. Visualiseringen är inte möjlig på Azure Stack Edge-enheter. Det finns fyra fel söknings åtgärder tillgängliga.
 
-Redigera [distributions manifestet](https://go.microsoft.com/fwlink/?linkid=2142179) så att det använder rätt värde för `DISPLAY` miljö variabeln. Den måste matcha `$DISPLAY` variabeln på värddatorn. När du har uppdaterat distributions manifestet distribuerar du om behållaren.
+Om enheten inte är en Azure Stack Edge-enhet redigerar du distributions manifest filen för [Station ära datorer](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) för att använda rätt värde för `DISPLAY` miljö variabeln. Den måste matcha `$DISPLAY` variabeln på värddatorn. När du har uppdaterat distributions manifestet distribuerar du om behållaren.
 
 När distributionen har slutförts kan du behöva kopiera `.Xauthority` filen från värddatorn till behållaren och sedan starta om den. I exemplet nedan `peopleanalytics` är namnet på behållaren på värddatorn.
 
@@ -39,7 +39,7 @@ xhost +
 
 ## <a name="collect-system-health-telemetry"></a>Samla in system hälso telemetri
 
-Teleympkvistar är en bild med öppen källkod som fungerar med Spatial analys och är tillgänglig i Microsoft Container Registry. Det tar följande indata och skickar dem till Azure Monitor. Modulen teleympkvistar kan skapas med önskade anpassade indata och utdata. Konfigurationen av netympkvistar-modulen i spatial analys är en del av [distributions manifestet](https://go.microsoft.com/fwlink/?linkid=2142179). Den här modulen är valfri och kan tas bort från manifestet om du inte behöver den. 
+Teleympkvistar är en bild med öppen källkod som fungerar med Spatial analys och är tillgänglig i Microsoft Container Registry. Det tar följande indata och skickar dem till Azure Monitor. Modulen teleympkvistar kan skapas med önskade anpassade indata och utdata. Konfigurationen av netympkvistar-modulen i rums analysen är en del av distributions manifestet (länkat ovan). Den här modulen är valfri och kan tas bort från manifestet om du inte behöver den. 
 
 Tillför 
 1. Mät värden för rums analys
@@ -51,7 +51,7 @@ Tillför
 Utdata
 1. Azure Monitor
 
-Den angivna spatiala netympkvistar-modulen kommer att publicera alla telemetridata som genereras av behållaren för rums analys till Azure Monitor. Se [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för information om hur du lägger till Azure Monitor i din prenumeration.
+Den angivna spatiala netympkvistar-modulen kommer att publicera alla telemetridata som genereras av behållaren för rums analys till Azure Monitor. Se [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för information om hur du lägger till Azure Monitor till din prenumeration.
 
 När du har konfigurerat Azure Monitor måste du skapa autentiseringsuppgifter som gör det möjligt för modulen att skicka telemetri. Du kan använda Azure Portal för att skapa ett nytt huvud namn för tjänsten eller använda Azure CLI-kommandot nedan för att skapa ett.
 
@@ -68,14 +68,14 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-I [distributions manifestet](https://go.microsoft.com/fwlink/?linkid=2142179)letar du reda på modulen *teleympkvistar* och ersätter följande värden med tjänstens huvud namns information från föregående steg och distribuerar om.
+I distributions manifestet för din [Azure Stack Edge-enhet](https://go.microsoft.com/fwlink/?linkid=2142179) eller annan [stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)letar du reda på modulen *teleympkvistar* och ersätter följande värden med tjänstens huvud namns information från föregående steg och distribuerar om.
 
 ```json
 
 "telegraf": { 
-  "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
-  "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/telegraf:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Runtime\":\"nvidia\",\"NetworkMode\":\"azure-iot-edge\",\"Memory\":33554432,\"Binds\":[\"/var/run/docker.sock:/var/run/docker.sock\"]}}"
 },
 "type": "docker",
 "env": {
@@ -105,19 +105,19 @@ När modulen teleympkvistar har distribuerats kan de rapporterade måtten nås v
 
 | Händelsenamn | Beskrivning|
 |------|---------|
-|archon_exit    |Skickas när en användare ändrar status för spatial Analysis-modulen från att *köras* till *stoppad*.  |
-|archon_error   |Skickas när någon av processerna i behållarens krasch. Detta är ett kritiskt fel.  |
-|InputRate  |Den hastighet med vilken grafen bearbetar video ingångar. Rapporteras var 5: e minut. | 
-|OutputRate     |Den hastighet med vilken diagrammet matar ut AI-insikter. Rapporteras var 5: e minut. |
-|archon_allGraphsStarted | Skickas när alla grafer har startats. |
-|archon_configchange    | Skickas när en diagram konfiguration har ändrats. |
-|archon_graphCreationFailed     |Skickas när grafen med det rapporterade problemet `graphId` inte startar. |
-|archon_graphCreationSuccess    |Skickas när grafen med rapporterade `graphId` Starter har slutförts. |
-|archon_graphCleanup    | Skickas när grafen med rapporterade `graphId` rensningar och avslut. |
-|archon_graphHeartbeat  |Pulsslag skickas varje minut för varje graf i en färdighet. |
+|archon_exit    |Skickas när en användare ändrar status för spatial Analysis-modulen från att *köras* till *stoppad*.  |
+|archon_error   |Skickas när någon av processerna i behållarens krasch. Detta är ett kritiskt fel.  |
+|InputRate  |Den hastighet med vilken grafen bearbetar video ingångar. Rapporteras var 5: e minut. | 
+|OutputRate     |Den hastighet med vilken diagrammet matar ut AI-insikter. Rapporteras var 5: e minut. |
+|archon_allGraphsStarted | Skickas när alla grafer har startats. |
+|archon_configchange    | Skickas när en diagram konfiguration har ändrats. |
+|archon_graphCreationFailed     |Skickas när grafen med det rapporterade problemet `graphId` inte startar. |
+|archon_graphCreationSuccess    |Skickas när grafen med rapporterade `graphId` Starter har slutförts. |
+|archon_graphCleanup    | Skickas när grafen med rapporterade `graphId` rensningar och avslut. |
+|archon_graphHeartbeat  |Pulsslag skickas varje minut för varje graf i en färdighet. |
 |archon_apiKeyAuthFail |Skickas när Visuellt innehåll resurs nyckeln inte kan autentisera behållaren i mer än 24 timmar på grund av följande orsaker: kvoten är ogiltig, offline. |
-|VideoIngesterHeartbeat     |Skickas varje timme för att indikera att videon strömmas från video källan, med antalet fel i den timmen. Rapporteras för varje diagram. |
-|VideoIngesterState | Rapporter har *stoppats* eller *startats* för video strömning.Rapporteras för varje diagram. |
+|VideoIngesterHeartbeat     |Skickas varje timme för att indikera att videon strömmas från video källan, med antalet fel i den timmen. Rapporteras för varje diagram. |
+|VideoIngesterState | Rapporter har *stoppats* eller *startats* för video strömning. Rapporteras för varje diagram. |
 
 ##  <a name="troubleshooting-an-iot-edge-device"></a>Felsöka en IoT Edge enhet
 
@@ -129,22 +129,17 @@ Du kan använda `iotedge` kommando rads verktyget för att kontrol lera status o
 
 ## <a name="collect-log-files-with-the-diagnostics-container"></a>Samla in loggfiler med diagnostik-behållaren
 
-Rums analys genererar Docker fel söknings loggar som du kan använda för att diagnostisera körnings problem eller ta med i support biljetter. Modulen för att analysera spatial analys är tillgänglig i Microsoft Container Registry som du kan hämta. Leta reda på modulen *diagnostik* i [exempel distributions manifestet](https://go.microsoft.com/fwlink/?linkid=2142179).
+Rums analys genererar Docker fel söknings loggar som du kan använda för att diagnostisera körnings problem eller ta med i support biljetter. Modulen för att analysera spatial analys är tillgänglig i Microsoft Container Registry som du kan hämta. I manifest distributions filen för din [Azure Stack Edge-enhet](https://go.microsoft.com/fwlink/?linkid=2142179) eller annan [stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)letar du reda på modulen *diagnostik* .
 
 I avsnittet "miljö" lägger du till följande konfiguration:
 
 ```json
-"diagnostics": {  
-  "settings": {
-  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
-  "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
-  }
+"diagnostics": {  
+  "settings": {
+  "image":   "mcr.microsoft.com/azure-cognitive-services/vision/spatial-analysis/diagnostics:1.0",
+  "createOptions":   "{\"HostConfig\":{\"Mounts\":[{\"Target\":\"/usr/bin/docker\",\"Source\":\"/home/data/docker\",\"Type\":\"bind\"},{\"Target\":\"/var/run\",\"Source\":\"/run\",\"Type\":\"bind\"}],\"LogConfig\":{\"Config\":{\"max-size\":\"500m\"}}}}"
+  }
 ```    
-
->[!NOTE]
-> Om du inte kör en ASE Kubernetes-miljö ersätter du alternativet för att skapa en behållare för loggnings modulen till följande:
->
->`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
 
 För att optimera loggar som överförs till en fjärrslutpunkt, till exempel Azure Blob Storage, rekommenderar vi att du behåller en liten fil storlek. Se exemplet nedan för den rekommenderade konfiguration av Docker-loggar.
 
@@ -193,13 +188,13 @@ Det kan också ställas in via IoT Edge modulens dubbla dokument antingen global
 > `diagnostics`Modulen påverkar inte loggnings innehållet, det underlättar bara för insamling, filtrering och uppladdning av befintliga loggar.
 > Du måste ha Docker-API version 1,40 eller högre för att kunna använda den här modulen.
 
-Manifest filen för [distributions exempel](https://go.microsoft.com/fwlink/?linkid=2142179) innehåller en modul med namnet `diagnostics` som samlar in och laddar upp loggar. Den här modulen är inaktive rad som standard och måste aktive ras via IoT Edge module-konfigurationen när du behöver åtkomst till loggar. 
+Manifest filen för exempel distributionen för din [Azure Stack Edge-enhet](https://go.microsoft.com/fwlink/?linkid=2142179) eller annan [stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)  innehåller en modul med namnet `diagnostics` som samlar in och laddar upp loggar. Den här modulen är inaktive rad som standard och måste aktive ras via IoT Edge module-konfigurationen när du behöver åtkomst till loggar. 
 
 `diagnostics`Samlingen är på begäran och styrs via en IoT Edge Direct-metod och kan skicka loggar till en Azure-Blob Storage.
 
 ### <a name="configure-diagnostics-upload-targets"></a>Konfigurera uppladdnings mål för diagnostik
 
-Från IoT Edge-portalen väljer du enheten och sedan **Diagnostics** -modulen. I exempel filen [*DeploymentManifest.jspå*](https://go.microsoft.com/fwlink/?linkid=2142179)letar du reda på avsnittet **miljövariabler** för diagnostik, med namnet "kuvert" och lägger till följande information:
+Från IoT Edge-portalen väljer du enheten och sedan **Diagnostics** -modulen. I manifest filen för exempel distribution för din [Azure Stack Edge-enhet](https://go.microsoft.com/fwlink/?linkid=2142179) eller andra [Station ära datorer](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)letar du reda på avsnittet **miljövariabler** för diagnostik, med namnet `env` och lägger till följande information:
 
 **Konfigurera uppladdning till Azure Blob Storage**
 
@@ -221,9 +216,9 @@ Loggar överförs på begäran med `getRTCVLogs` metoden IoT Edge, i `diagnostic
 
 
 1. Gå till sidan IoT Hub Portal, Välj **gräns enheter**och välj sedan din enhet och diagnostik-modulen. 
-2. Gå till sidan information i modulen och klicka på fliken Direct- ***metod*** .
+2. Gå till sidan information i modulen och klicka på fliken **_Direct metoden_*_.
 3. Ange `getRTCVLogs` metod namn och en JSON-format sträng i nytto lasten. Du kan ange `{}` , vilket är en tom nytto Last. 
-4. Ange timeout för anslutning och metod och klicka på **anropa metod**.
+4. Ange timeout för anslutning och metod och klicka på _ * Invoke metod * *.
 5. Välj mål behållare och bygg en nytto Last-JSON-sträng med parametrarna som beskrivs i avsnittet **loggnings syntax** . Klicka på **anropa metod** för att utföra begäran.
 
 >[!NOTE]
@@ -250,7 +245,7 @@ I följande tabell visas attributen i svaret på frågan.
 
 | Följt | Beskrivning|
 |--|--|
-|DoPost| Antingen *Sant* eller *falskt*. Anger om loggarna har överförts eller inte. Om du väljer att inte ladda upp loggar, returnerar API information ***synkront***. När du väljer att ladda upp loggar returnerar API 200, om begäran är giltig och börjar ladda upp loggar ***asynkront***.|
+|DoPost| Antingen *Sant* eller *falskt*. Anger om loggarna har överförts eller inte. Om du väljer att inte överföra loggar returnerar API: n informationen ***synkront**_. När du väljer att ladda upp loggar returnerar API 200, om begäran är giltig och börjar ladda upp loggar _*_asynkront_*_.|
 |TimeFilter| Tids filtret som används för loggarna.|
 |ValueFilters| Nyckelords filter som tillämpas på loggarna. |
 |TimeStamp| Start tid för metod körning. |
@@ -303,7 +298,7 @@ I följande tabell visas attributen i svaret på frågan.
 }
 ```
 
-Kontrol lera hämtnings loggens rader, tider och storlekar, om dessa inställningar ser till att ersätta ***DoPost*** till `true` och som ska skicka loggarna med samma filter till mål. 
+Kontrol lera hämtnings loggens rader, tider och storlekar, om dessa inställningar ser till att ersätta _*_DoPost_*_ till `true` och som ska skicka loggarna med samma filter till mål. 
 
 Du kan exportera loggar från Azure-Blob Storage när du felsöker problem. 
 
@@ -319,9 +314,9 @@ Mer information finns i [begära godkännande för att köra behållaren](spatia
 
 I följande avsnitt finns information om hur du felsöker och verifierar status för din Azure Stack Edge-enhet.
 
-### <a name="access-the-kubernetes-api-endpoint"></a>Få åtkomst till Kubernetes API-slutpunkten. 
+### <a name="access-the-kubernetes-api-endpoint"></a>Få åtkomst till Kubernetes API-slutpunkten. 
 
-1. I enhetens lokala användar gränssnitt går du till sidan **enheter** . 
+1. I enhetens lokala användar gränssnitt går du till sidan _*enheter**. 
 2. Under **enhets slut punkter**kopierar du Kubernetes API-tjänstens slut punkt. Den här slut punkten är en sträng i följande format: `https://compute..[device-IP-address]` .
 3. Spara slut punkts strängen. Du kommer att använda detta senare när du konfigurerar `kubectl` för att få åtkomst till Kubernetes-klustret.
 
@@ -336,7 +331,7 @@ Anslut via fjärr anslutning från en Windows-klient. När Kubernetes-klustret h
 1. Kör en Windows PowerShell-session som administratör. 
     1. Kontrol lera att tjänsten Windows Remote Management körs på klienten. Skriv i kommando tolken `winrm quickconfig` .
 
-2. Tilldela en variabel för enhetens IP-adress. Exempelvis `$ip = "<device-ip-address>"`.
+2. Tilldela en variabel för enhetens IP-adress. Till exempel `$ip = "<device-ip-address>"`.
 
 3. Använd följande kommando för att lägga till IP-adressen för enheten i klientens lista över betrodda värdar. 
 

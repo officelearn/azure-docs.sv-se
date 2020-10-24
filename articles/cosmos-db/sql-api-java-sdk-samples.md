@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: ead5ab6f914db951027406e43437ac30a4f85247
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: afc9633c32174cbe1d94535d68e4c8f85f3d137b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279247"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478074"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: Java SDK v4-exempel
 
@@ -124,7 +124,7 @@ där *Sample. Synchronicity. MainClass* kan vara
 
 ## <a name="autoscale-collection-examples"></a>Exempel för autoskalning samling
 
-Om du vill veta mer om autoskalning innan du kör dessa exempel kan du ta en titt på de här instruktionerna för att aktivera autoskalning i ditt [konto](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) och i dina [databaser och behållare](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autoscale).
+Om du vill veta mer om autoskalning innan du kör dessa exempel kan du ta en titt på de här instruktionerna för att aktivera autoskalning i ditt [konto](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-autoscale/) och i dina [databaser och behållare](./provision-throughput-autoscale.md).
 
 [CRUD exempel filen för autoskalning av databasen](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/autoscaledatabasecrud/sync/AutoscaleDatabaseCRUDQuickstart.java) visar hur du utför följande uppgifter.
 
@@ -163,7 +163,7 @@ Filen [CRUD exempel för dokument](https://github.com/Azure/azure-documentdb-jav
 | [Läs dokument endast om dokumentet har ändrats](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/documentcrud/sync/DocumentCRUDQuickstart.java#L266-L300) | AccessCondition.setType<br>AccessCondition.setCondition |
 
 ## <a name="indexing-examples"></a>Indexeringsexempel
-[Exempel filen Collection CRUD-exempel](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) visar hur du utför följande uppgifter. Om du vill veta mer om indexering i Azure Cosmos DB innan du kör följande exempel, se [indexerings principer](index-policy.md), [indexerings typer](index-types.md)och [indexerings Sök vägar](index-paths.md) konceptuella artiklar. 
+[Exempel filen Collection CRUD-exempel](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/CollectionCrudSamples.java) visar hur du utför följande uppgifter. Om du vill veta mer om indexering i Azure Cosmos DB innan du kör följande exempel, se [indexerings principer](index-policy.md), [indexerings typer](index-overview.md#index-kinds)och [indexerings Sök vägar](index-policy.md#include-exclude-paths) konceptuella artiklar. 
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -180,7 +180,7 @@ Filen [CRUD exempel för dokument](https://github.com/Azure/azure-documentdb-jav
 Mer information om indexering finns i [Azure Cosmos DB indexeringsprinciper](index-policy.md).
 
 ## <a name="query-examples"></a>Exempelfrågor
-I [fråge exempel](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) filen visas hur du utför följande uppgifter med hjälp av SQL-frågespråket. Om du vill veta mer om SQL-frågan i Azure Cosmos DB innan du kör följande exempel kan du läsa [mer i SQL-fr åga for Azure Cosmos DB](how-to-sql-query.md). 
+I [fråge exempel](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java) filen visas hur du utför följande uppgifter med hjälp av SQL-frågespråket. Om du vill veta mer om SQL-frågan i Azure Cosmos DB innan du kör följande exempel kan du läsa [mer i SQL-fr åga for Azure Cosmos DB](./sql-query-getting-started.md). 
 
 | Uppgift | API-referens |
 | --- | --- |

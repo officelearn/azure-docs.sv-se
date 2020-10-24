@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 69df5a65df99a7497099e71e9f41701458370c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84423929"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496063"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Ta bort TLS 1,0 och 1,1 från användning med Azure cache för Redis
 
@@ -19,10 +19,14 @@ Det finns en företagsomfattande push-överföring mot exklusiv användning av T
 
 Som en del av den här ansträngningen gör vi följande ändringar i Azure cache för Redis:
 
-* **Fas 1:** Vi konfigurerar den lägsta standard TLS-versionen till 1,2 för nyskapade cache-instanser (tidigare TLS 1,0).  Befintliga instanser av cachen uppdateras inte just nu. Du får [ändra den lägsta TLS-versionen](cache-configure.md#access-ports) tillbaka till 1,0 eller 1,1 för bakåtkompatibilitet, om det behövs. Den här ändringen kan göras via Azure Portal eller andra hanterings-API: er.
-* **Fas 2:** Vi slutar stödja TLS-versionerna 1,0 och 1,1. Efter den här ändringen måste ditt program använda TLS 1,2 eller senare för att kommunicera med din cache.
+* **Fas 1:** Vi konfigurerar den lägsta standard TLS-versionen till 1,2 för nyskapade cache-instanser (tidigare var TLS 1,0). Befintliga instanser av cachen uppdateras inte just nu. Du kan fortfarande använda Azure Portal eller andra hanterings-API: er för att [ändra den lägsta TLS-versionen](cache-configure.md#access-ports) till 1,0 eller 1,1 för bakåtkompatibilitet om du behöver.
+* **Fas 2:** Vi slutar stödja TLS 1,1 och TLS 1,0. Efter den här ändringen måste ditt program använda TLS 1,2 eller senare för att kommunicera med din cache. Azure cache för Redis-tjänsten förväntas vara tillgänglig medan vi migrerar den så att den endast stöder TLS 1,2 eller senare.
 
-Som en del av den här ändringen kommer vi dessutom att ta bort stöd för äldre, osäkra chiffer-paket.  Våra chiffer-paket som stöds är begränsade till följande när cachen är konfigurerad med en lägsta TLS-version på 1,2.
+  > [!NOTE]
+  > Fas 2 har planerat preliminärt att börja tidigast 31 december 2020. Vi rekommenderar dock starkt att du börjar planera för den här ändringen nu och uppdaterar klienter proaktivt för att stödja TLS 1,2 eller senare. 
+  >
+
+Som en del av den här ändringen kommer vi också att ta bort stöd för äldre chiffer-paket som inte är säkra. Våra chiffer-paket som stöds är begränsade till följande serier när cachen har kon figurer ATS med minst TLS 1,2:
 
 * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P384
 * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256
@@ -33,12 +37,14 @@ Datumen när ändringarna börjar gälla:
 
 | Moln                | Start datum för fas 1 | Start datum för fas 2         |
 |----------------------|--------------------|----------------------------|
-| Azure (global)       |  13 januari 2020  | Uppskjuten på grund av COVID 19  |
-| Azure Government     |  13 mars 2020    | Uppskjuten på grund av COVID 19  |
-| Azure Tyskland        |  13 mars 2020    | Uppskjuten på grund av COVID 19  |
-| Azure Kina 21Vianet |  13 mars 2020    | Uppskjuten på grund av COVID 19  |
+| Azure (global)       |  13 januari 2020  | Uppskjuten på grund av COVID-19  |
+| Azure Government     |  13 mars 2020    | Uppskjuten på grund av COVID-19  |
+| Azure Tyskland        |  13 mars 2020    | Uppskjuten på grund av COVID-19  |
+| Azure Kina 21Vianet |  13 mars 2020    | Uppskjuten på grund av COVID-19  |
 
-Obs! nytt datum för fas 2 har ännu inte fastställts
+> [!NOTE]
+> Fas 2 har planerat preliminärt att börja tidigast 31 december 2020. Den här artikeln kommer att uppdateras när vissa datum anges.
+>
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Kontrol lera om programmet redan är kompatibelt
 

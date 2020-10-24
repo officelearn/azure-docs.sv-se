@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277299"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496122"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installera och kör behållaren för rums analys (förhands granskning)
 
@@ -99,7 +99,7 @@ Rums analys använder Compute-funktionerna i Azure Stack Edge för att köra en 
   1. Aktivera Compute-funktionen på Azure Stack Edge-enheten. Om du vill aktivera beräkning går du till **beräknings** sidan i webb gränssnittet för din enhet. 
   2. Välj ett nätverks gränssnitt som du vill aktivera för beräkning och klicka sedan på **Aktivera**. Detta skapar en virtuell växel på enheten i nätverks gränssnittet.
   3. Lämna IP-adresserna för Kubernetes-testnoden och IP-adresserna för Kubernetes externa tjänster tomma.
-  4. Klicka på **Applicera**. Den här åtgärden kan ta ungefär två minuter. 
+  4. Klicka på **Använd**. Den här åtgärden kan ta ungefär två minuter. 
 
 ![Konfigurera beräkning](media/spatial-analysis/configure-compute.png)
 
@@ -261,7 +261,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Om värddatorn inte är en Azure Stack Edge-enhet måste du installera [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.8. Följ de här stegen för att ladda ned rätt version:
+Om värddatorn inte är en Azure Stack Edge-enhet måste du installera [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.9. Följ de här stegen för att ladda ned rätt version:
 
 Ubuntu Server 18,04:
 ```bash
@@ -286,10 +286,10 @@ Uppdatera paket listorna på enheten.
 sudo apt-get update
 ```
 
-Installera 1.0.8-versionen:
+Installera 1.0.9-versionen:
 
 ```bash
-sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
 ```
 
 Registrera sedan värddatorn som en IoT Edge enhet i IoT Hub-instansen med hjälp av en [anslutnings sträng](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
@@ -314,7 +314,7 @@ Använd stegen nedan för att distribuera behållaren med hjälp av Azure CLI.
 
 ### <a name="iot-deployment-manifest"></a>Distributions manifest för IoT
 
-För att effektivisera behållar distributionen på flera värddatorer kan du skapa en distributions manifest fil för att ange alternativ för att skapa behållare och miljövariabler. Du kan hitta ett exempel på ett [distributions manifest på GitHub](https://go.microsoft.com/fwlink/?linkid=2142179).
+För att effektivisera behållar distributionen på flera värddatorer kan du skapa en distributions manifest fil för att ange alternativ för att skapa behållare och miljövariabler. Du kan hitta ett exempel på ett distributions manifest [för Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) och  [andra Station ära datorer](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) på GitHub.
 
 I följande tabell visas de olika miljövariabler som används av IoT Edge-modulen. Du kan också ställa in dem i distributions manifestet som länkas ovan med hjälp av `env` attributet i `spatialanalysis` :
 
@@ -335,17 +335,16 @@ I följande tabell visas de olika miljövariabler som används av IoT Edge-modul
 > [!IMPORTANT]
 > `Eula`Alternativen, `Billing` och `ApiKey` måste anges för att köra behållaren, annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
-När du har uppdaterat exemplet [DeploymentManifest.jspå](https://go.microsoft.com/fwlink/?linkid=2142179) en fil med dina egna inställningar och val av åtgärder kan du använda följande [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) -kommando för att distribuera behållaren på värddatorn som en IoT Edge modul.
+När du har uppdaterat distributions manifestet för [Azure Stack Edge-enheter](https://go.microsoft.com/fwlink/?linkid=2142179) eller [en stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) med dina egna inställningar och val av åtgärder, kan du använda följande [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) -kommando för att distribuera behållaren på värddatorn som en IoT Edge modul.
 
 ```azurecli
 az login
 az extension add --name azure-iot
-az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
+az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json --subscription "<subscriptionId>"
 ```
 
 |Parameter  |Beskrivning  |
 |---------|---------|
-| `--deployment-id` | Ett nytt namn för distributionen. |
 | `--hub-name` | Ditt Azure IoT Hub namn. |
 | `--content` | Namnet på distributions filen. |
 | `--target-condition` | IoT Edge enhets namn för värddatorn. |
@@ -386,7 +385,7 @@ Navigera till **container** -avsnittet och skapa en ny behållare eller Använd 
 
 Klicka på **skapa SAS-token och URL** och kopiera BLOB SAS-URL: en. Ersätt den `https` med `http` och testa webb adressen i en webbläsare som stöder videouppspelning.
 
-Ersätt `VIDEO_URL` i [distributions manifestet](https://go.microsoft.com/fwlink/?linkid=2142179) med den URL som du har skapat för alla grafer. Ange `VIDEO_IS_LIVE` till `false` och distribuera om behållaren för rums analys med det uppdaterade manifestet. Se exemplet nedan.
+Ersätt `VIDEO_URL` i distributions manifestet för din [Azure Stack Edge-enhet](https://go.microsoft.com/fwlink/?linkid=2142179) eller en annan [stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) med den URL som du har skapat för alla grafer. Ange `VIDEO_IS_LIVE` till `false` och distribuera om behållaren för rums analys med det uppdaterade manifestet. Se exemplet nedan.
 
 Modulen för spatial analys kommer att börja använda video filen och kommer att spelas upp kontinuerligt automatiskt.
 

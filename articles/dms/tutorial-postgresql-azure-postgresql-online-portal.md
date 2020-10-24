@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 4e424d41a7b4c1d9394e789c60b60a6fa86a69c5
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: c451c49555e9c4c9214780bd936c17e9a30df776
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893789"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495533"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Självstudie: Migrera PostgreSQL till Azure DB för PostgreSQL online med DMS via Azure Portal
 
@@ -211,7 +211,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 2. På skärmen **Azure Database migration Services** söker du efter namnet på Azure Database migration service-instansen som du har skapat, väljer instansen och väljer sedan + **nytt migreringsjobb**.
 
-3. På skärmen **ny migrerings projekt** anger du ett namn för projektet i text rutan **typ av käll Server** , väljer **PostgresSQL**, i text rutan **mål server typ** , väljer du **Azure Database for PostgreSQL**.
+3. På skärmen **ny migrerings projekt** anger du ett namn för projektet i text rutan **typ av käll Server** , väljer **postgresql**, i text rutan **mål server typ** , väljer du **Azure Database for PostgreSQL**.
 
 4. I avsnittet **Välj typ av aktivitet** väljer du **migrering av data online**.
 

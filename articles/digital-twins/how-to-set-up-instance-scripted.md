@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 10d4d07a61bc4ebec789d53e4271a3bcdc7ba76b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 5806ea094abd3431cd7e22064c6acd8ad150726a
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205598"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495016"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Konfigurera en digital Azure-instans och autentisering (skript)
 
@@ -43,7 +43,7 @@ I den här artikeln används ett digitalt kod exempel för Azure för att distri
 
 Här följer stegen för att köra distributions skriptet i Cloud Shell.
 1. Gå till ett [Azure Cloud Shell](https://shell.azure.com/) -fönster i webbläsaren. Logga in med det här kommandot:
-    ```azurecli
+    ```azurecli-interactive
     az login
     ```
     Om CLI kan öppna din standard webbläsare så gör den det och läser in en Azure-inloggnings sida. Annars öppnar du en webb sida på *https://aka.ms/devicelogin* och anger den auktoriseringskod som visas i din terminal.
@@ -62,11 +62,11 @@ Här följer stegen för att köra distributions skriptet i Cloud Shell.
 
 4. Kör skriptet genom `./deploy.ps1` att skicka kommandot i Cloud Shells fönstret. Du kan kopiera kommandot nedan (kom ihåg att klistra in i Cloud Shell, du kan använda **CTRL + SHIFT + v** på Windows och Linux eller **cmd + Shift + v** på MacOS. Du kan också använda snabb menyn.
 
-    ```azurecli
+    ```azurecli-interactive
     ./deploy.ps1
     ```
 
-    Skriptet skapar en Azure Digitals-instans och tilldelar Azure-användaren rollen *Azure Digitals-ägare (för hands version)* på instansen.
+    Skriptet skapar en Azure Digitals-instans och tilldelar din Azure-användare *Azures digitala data ägar* roll på instansen.
 
     När skriptet körs genom de automatiserade konfigurations stegen uppmanas du att skicka in följande värden:
     * För instansen: *prenumerations-ID* för din Azure-prenumeration som ska användas
@@ -83,10 +83,10 @@ Här är ett utdrag från utmatnings loggen från skriptet:
 Om skriptet har slutförts kommer den slutliga utskriften att stå `Deployment completed successfully` . Annars kan du åtgärda fel meddelandet och köra skriptet igen. De steg som du redan har slutfört kommer att kringgås och börja begära inmatningar vid den punkt där du slutade.
 
 > [!NOTE]
-> Skriptet tilldelar för närvarande den nödvändiga hanterings rollen i Azure Digitals (för hands version) av Azure Digitals (för*hands version)* till samma användare som kör skriptet från Cloud Shell. Om du behöver tilldela rollen till någon annan som ska hantera instansen kan du göra det nu via Azure Portal ([instruktioner](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) eller CLI ([instruktioner](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
+> Skriptet tilldelar för närvarande den nödvändiga hanterings rollen i Azure Digitals-data (*Azure Digitals data ägare*) till samma användare som kör skriptet från Cloud Shell. Om du behöver tilldela rollen till någon annan som ska hantera instansen kan du göra det nu via Azure Portal ([instruktioner](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) eller CLI ([instruktioner](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
->Det finns för närvarande ett **känt problem** med skript konfiguration, där vissa användare (särskilt användare på personliga [Microsoft-konton (MSA: er)](https://account.microsoft.com/account)) kan hitta **roll tilldelningen till _Azure Digitals-ägare (förhands granskning)_ har inte skapats**.
+>Det finns för närvarande ett **känt problem** med skript konfiguration, där vissa användare (särskilt användare på personliga [Microsoft-konton (MSA: er)](https://account.microsoft.com/account)) kan hitta **roll tilldelningen till _Azure Digitals data ägare_ har inte skapats**.
 >
 >Du kan kontrol lera roll tilldelningen med avsnittet [*Verifiera tilldelning av användar roll*](#verify-user-role-assignment) senare i den här artikeln och, om det behövs, konfigurera roll tilldelningen manuellt med hjälp av [Azure Portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) eller [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 >

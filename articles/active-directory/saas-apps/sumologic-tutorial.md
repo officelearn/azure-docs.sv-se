@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: a14235cb4fc20147accc8eb8a0e421cbc4df90f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c604a3edcee0c34df2817c7bbebf0f3ad4fada67
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533702"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483564"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SumoLogic
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar SumoLogic med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -107,7 +107,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig SumoLogic-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    |  Name | Källattribut |
+    |  Namn | Källattribut |
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
@@ -132,7 +132,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -168,11 +168,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Välj **Azure AD**i listan **Välj en konfiguration eller skapa en ny** , och klicka sedan på **Konfigurera**.
 
-    ![Konfigurera SAML 2,0](./media/sumologic-tutorial/ic778558.png "Konfigurera SAML 2,0")
+    ![Skärm bild som visar konfigurera SAML 2,0 där du kan välja Azure A D.](./media/sumologic-tutorial/ic778558.png "Konfigurera SAML 2,0")
 
 1. I dialog rutan **Konfigurera SAML 2,0** utför du följande steg:
 
-    ![Konfigurera SAML 2,0](./media/sumologic-tutorial/ic778559.png "Konfigurera SAML 2,0")
+    ![Skärm bild som visar dialog rutan konfigurera SAML 2,0 där du kan ange de värden som beskrivs.](./media/sumologic-tutorial/ic778559.png "Konfigurera SAML 2,0")
 
     a. I text rutan **konfigurations namn** skriver du **Azure AD**.
 
@@ -200,11 +200,11 @@ För att Azure AD-användare ska kunna logga in på SumoLogic måste de tillhand
 
 1. Gå till **Hantera \> Användare**.
 
-    ![Användare](./media/sumologic-tutorial/ic778561.png "Användare")
+    ![Skärm bild som visar användare som valts från menyn hantera.](./media/sumologic-tutorial/ic778561.png "Användare")
 
 1. Klicka på **Lägg till**.
 
-    ![Användare](./media/sumologic-tutorial/ic778562.png "Användare")
+    ![Skärm bild som visar knappen Lägg till för användare.](./media/sumologic-tutorial/ic778562.png "Användare")
 
 1. Utför följande steg i dialog rutan **ny användare** :
 

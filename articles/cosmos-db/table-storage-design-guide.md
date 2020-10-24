@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: dc140553cbca2347678c376cc9420cfddef22b07
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428051"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477597"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Tabelldesignguide för Azure Table Storage: Skalbara och högpresterande tabeller
 
@@ -24,7 +24,7 @@ För att utforma skalbara och presterande tabeller måste du tänka på en rad o
 Table Storage är utformat för att stödja molnbaserade program som kan innehålla miljard tals entiteter ("rader" i Relations databas terminologi) eller för data uppsättningar som måste ha stöd för hög transaktions volymer. Du måste därför tänka på olika sätt att lagra dina data och förstå hur Table Storage fungerar. Ett väl utformat NoSQL-datalager kan göra det möjligt för din lösning att skala mycket ytterligare (och en lägre kostnad) än en lösning som använder en Relations databas. Den här guiden hjälper dig med dessa ämnen.  
 
 ## <a name="about-azure-table-storage"></a>Om Azure Table Storage
-I det här avsnittet beskrivs några av de viktigaste funktionerna i Table Storage som är särskilt relevanta för att utforma för prestanda och skalbarhet. Om du inte har använt Azure Storage-och table Storage tidigare kan du läsa [Introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md) och [komma igång med Azure Table Storage med hjälp av .net](table-storage-how-to-use-dotnet.md) innan du läser resten av den här artikeln. Även om den här hand boken är i tabell lagring, innehåller den viss diskussion om Azure Queue Storage och Azure Blob Storage, samt hur du kan använda dem tillsammans med Table Storage i en lösning.  
+I det här avsnittet beskrivs några av de viktigaste funktionerna i Table Storage som är särskilt relevanta för att utforma för prestanda och skalbarhet. Om du inte har använt Azure Storage-och table Storage tidigare kan du läsa [Introduktion till Microsoft Azure Storage](../storage/common/storage-introduction.md) och [komma igång med Azure Table Storage med hjälp av .net](./tutorial-develop-table-dotnet.md) innan du läser resten av den här artikeln. Även om den här hand boken är i tabell lagring, innehåller den viss diskussion om Azure Queue Storage och Azure Blob Storage, samt hur du kan använda dem tillsammans med Table Storage i en lösning.  
 
 Tabell lagring använder ett tabell format för att lagra data. I standard terminologin representerar varje rad i tabellen en entitet och kolumnerna lagrar de olika egenskaperna för entiteten. Varje entitet har ett nyckel par för att unikt identifiera den och en tidsstämpelkolumn som tabell lagring använder för att spåra när entiteten senast uppdaterades. Tidsstämpel-fältet läggs till automatiskt och du kan inte skriva över tidsstämpeln manuellt med ett godtyckligt värde. I Table Storage används den senaste ändrade tidsstämpeln (LMT) för att hantera optimistisk samtidighet.  
 
@@ -123,7 +123,7 @@ I följande exempel visas en enkel tabell design där du kan lagra personal-och 
 </table>
 
 
-Hittills ser den här designen ut ungefär som en tabell i en Relations databas. De viktigaste skillnaderna är de obligatoriska kolumnerna och möjligheten att lagra flera entitetstyper i samma tabell. Dessutom har var och en av de användardefinierade egenskaperna, till exempel **FirstName** eller **Age**, en datatyp, till exempel Integer eller string, precis som en kolumn i en Relations databas. Till skillnad från i en Relations databas innebär dock schema fri form av tabell lagring att en egenskap inte behöver ha samma datatyp på varje entitet. Om du vill lagra komplexa data typer i en enskild egenskap måste du använda ett serialiserat format, till exempel JSON eller XML. Mer information finns i [förstå tabell lagrings data modell](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Hittills ser den här designen ut ungefär som en tabell i en Relations databas. De viktigaste skillnaderna är de obligatoriska kolumnerna och möjligheten att lagra flera entitetstyper i samma tabell. Dessutom har var och en av de användardefinierade egenskaperna, till exempel **FirstName** eller **Age**, en datatyp, till exempel Integer eller string, precis som en kolumn i en Relations databas. Till skillnad från i en Relations databas innebär dock schema fri form av tabell lagring att en egenskap inte behöver ha samma datatyp på varje entitet. Om du vill lagra komplexa data typer i en enskild egenskap måste du använda ett serialiserat format, till exempel JSON eller XML. Mer information finns i [förstå tabell lagrings data modell](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Ditt val av `PartitionKey` och `RowKey` är grundläggande för bra tabell design. Varje entitet som lagras i en tabell måste ha en unik kombination av `PartitionKey` och `RowKey` . Precis som med nycklar i en Relations databas tabell `PartitionKey` `RowKey` indexeras värdena och skapar ett grupperat index som aktiverar snabb sökning. Table Storage skapar dock inte några sekundära index, så dessa är de enda två indexerade egenskaperna (några av mönstren som beskrivs senare visar hur du kan kringgå den här synliga begränsningen).  
 
@@ -134,7 +134,7 @@ Konto namnet, tabell namnet och `PartitionKey` tillsammans identifierar partitio
 
 I Table Storage är en enskild nod en eller flera fullständiga partitioner, och tjänsten skalas genom en dynamisk belastnings utjämning mellan noderna. Om en nod är under belastning kan Table Storage dela upp det intervall av partitioner som hanteras av noden på olika noder. Vid trafik under sidor kan tabell lagring sammanfoga partitionernas intervall från tysta noder tillbaka till en enda nod.  
 
-Mer information om intern information om Table Storage och hur den hanterar partitioner finns i [Microsoft Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
+Mer information om intern information om Table Storage och hur den hanterar partitioner finns i [Microsoft Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Enhets grupp transaktioner
 I Table Storage är enhets grupp transaktioner (EGTs) den enda inbyggda mekanismen för att utföra atomiska uppdateringar över flera entiteter. EGTs kallas även *batch-transaktioner*. EGTs kan bara användas på entiteter som är lagrade i samma partition (som delar samma partitionsnyckel i en viss tabell), så när som helst behöver du Atomic-transaktionell beteende över flera entiteter, se till att dessa entiteter finns i samma partition. Detta är ofta en orsak till att hålla flera entitetstyper i samma tabell (och partition) och inte använda flera tabeller för olika typer av enheter. En enda avställning kan köras på högst 100 entiteter.  Om du skickar flera samtidiga EGTs för bearbetning är det viktigt att se till att dessa EGTs inte körs på entiteter som är gemensamma för EGTs. Annars riskerar du att fördröja bearbetningen.
@@ -156,7 +156,7 @@ Följande tabell innehåller några av de viktigaste värdena som du bör känna
 | Storlek på `RowKey` |En sträng som är upp till 1 KB stor. |
 | Storlek på en enhets grupps transaktion |En transaktion kan innehålla högst 100 entiteter och nytto lasten måste vara mindre än 4 MB. En EGT kan bara uppdatera en entitet en gång. |
 
-Mer information finns i [förstå Table service data modell](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Mer information finns i [förstå Table service data modell](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).  
 
 ### <a name="cost-considerations"></a>Kostnadsöverväganden
 Table Storage är relativt billigt, men du bör inkludera kostnads uppskattningar för både kapacitets användning och antalet transaktioner som en del av din utvärdering av en lösning som använder Table Storage. I många fall är det dock ett giltigt tillvägagångs sätt att lagra denormaliserade eller duplicerade data för att förbättra din lösnings prestanda eller skalbarhet. Mer information om priser finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).  
@@ -202,7 +202,7 @@ I följande exempel förutsätts att Table Storage lagrar anställdas entiteter 
 | `Age` |Integer |
 | `EmailAddress` |Sträng |
 
-Här följer några allmänna rikt linjer för att utforma tabell lagrings frågor. Filter-syntaxen som används i följande exempel är från tabell lagrings REST API. Mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Här följer några allmänna rikt linjer för att utforma tabell lagrings frågor. Filter-syntaxen som används i följande exempel är från tabell lagrings REST API. Mer information finns i [fråga entiteter](/rest/api/storageservices/Query-Entities).  
 
 * En *punkt fråga* är den mest effektiva sökningen som används och rekommenderas för sökning efter stora volymer eller uppslag som kräver lägsta latens. En sådan fråga kan använda indexen för att hitta en enskild entitet effektivt genom att ange både `PartitionKey` `RowKey` värdena och. Till exempel: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
 * Det andra bästa är en *Range-fråga*. Det använder `PartitionKey` och filtrerar på ett värde intervall `RowKey` för att returnera mer än en entitet. `PartitionKey`Värdet identifierar en viss partition och `RowKey` värdena identifierar en delmängd av entiteterna i partitionen. Till exempel: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
@@ -410,7 +410,7 @@ I föregående avsnitt har du lärt dig hur du optimerar tabell designen för at
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE05.png" alt-text="Bild som visar en avdelnings enhet och en anställds entitet":::
 
-Mönster kartan visar några relationer mellan mönster (blå) och anti-mönster (orange) som dokumenteras i den här guiden. Det finns många andra mönster som är värda att tänka på. Ett av de viktigaste scenarierna för Table Storage är till exempel att använda [mönstret för materialiserade vyer](https://msdn.microsoft.com/library/azure/dn589782.aspx) från [kommando frågans ansvars](https://msdn.microsoft.com/library/azure/jj554200.aspx) mönster.  
+Mönster kartan visar några relationer mellan mönster (blå) och anti-mönster (orange) som dokumenteras i den här guiden. Det finns många andra mönster som är värda att tänka på. Ett av de viktigaste scenarierna för Table Storage är till exempel att använda [mönstret för materialiserade vyer](/previous-versions/msp-n-p/dn589782(v=pandp.10)) från [kommando frågans ansvars](/previous-versions/msp-n-p/jj554200(v=pandp.10)) mönster.  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Sekundärt index mönster för sekundär partition
 Lagra flera kopior av varje entitet genom att använda olika `RowKey` värden (i samma partition). Detta möjliggör snabba och effektiva sökningar och alternativa sorterings ordningar med hjälp av olika `RowKey` värden. Uppdateringar mellan kopior kan behållas konsekvent med hjälp av EGTs.  
@@ -437,7 +437,7 @@ Om du frågar efter ett intervall med anställdas entiteter kan du ange ett inte
 * Om du vill hitta alla anställda på försäljnings avdelningen med ett anställnings-ID i intervallet 000100 till 000199 använder du: $filter = (PartitionKey EQ Sales) och (RowKey ge "empid_000100") och (RowKey Le ' empid_000199 ')  
 * Om du vill hitta alla anställda på försäljnings avdelningen med en e-postadress som börjar med bokstaven "a" använder du: $filter = (PartitionKey EQ Sales) och (RowKey ge "email_a") och (RowKey lt ' email_b ')  
   
-Den filter-syntax som används i föregående exempel är från tabell lagrings REST API. Mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Den filter-syntax som används i föregående exempel är från tabell lagrings REST API. Mer information finns i [fråga entiteter](/rest/api/storageservices/Query-Entities).  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -497,7 +497,7 @@ Om du frågar efter ett intervall med anställdas entiteter kan du ange ett inte
 * Om du vill hitta alla anställda på försäljnings avdelningen med ett anställnings-ID i intervallet **000100** till **000199**, sorterade i anställnings-ID-ordning, använder du: $filter = (PartitionKey EQ ' empid_Sales ') och (RowKey ge ' 000100 ') och (RowKey Le ' 000199 ')  
 * Om du vill hitta alla anställda på försäljnings avdelningen med en e-postadress som börjar med "a", sorterade i e-postadressen, använder du: $filter = (PartitionKey EQ email_Sales) och (RowKey ge "a") och (RowKey lt ' b ')  
 
-Observera att filter syntaxen som används i föregående exempel är från tabellen Storage REST API. Mer information finns i [fråga entiteter](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Observera att filter syntaxen som används i föregående exempel är från tabellen Storage REST API. Mer information finns i [fråga entiteter](/rest/api/storageservices/Query-Entities).  
 
 #### <a name="issues-and-considerations"></a>Problem och överväganden
 Tänk på följande när du bestämmer hur du ska implementera mönstret:  
@@ -557,7 +557,7 @@ I det här exemplet infogar steg 4 i diagrammet medarbetaren i **Arkiv** tabelle
 #### <a name="recover-from-failures"></a>Återställa från fel
 Det är viktigt att åtgärderna i steg 4-5 i diagrammet blir *idempotenta* , om arbets rollen behöver starta om lagrings åtgärden. Om du använder Table Storage, för steg 4, bör du använda en "Infoga eller Ersätt"-åtgärd. i steg 5 bör du använda åtgärden "ta bort om finns" i klient biblioteket som du använder. Om du använder ett annat lagrings system måste du använda en lämplig idempotenta-åtgärd.  
 
-Om arbets rollen aldrig Slutför steg 6 i diagrammet visas meddelandet igen i kön redo för arbets rollen för att försöka att bearbeta det igen efter en tids gräns. Arbets rollen kan kontrol lera hur många gånger ett meddelande i kön har lästs och, om det behövs flagga det som ett "Poison"-meddelande för undersökning genom att skicka det till en separat kö. Mer information om hur du läser Kömeddelanden och kontrollerar antalet ur kön finns i [Hämta meddelanden](https://msdn.microsoft.com/library/azure/dd179474.aspx).  
+Om arbets rollen aldrig Slutför steg 6 i diagrammet visas meddelandet igen i kön redo för arbets rollen för att försöka att bearbeta det igen efter en tids gräns. Arbets rollen kan kontrol lera hur många gånger ett meddelande i kön har lästs och, om det behövs flagga det som ett "Poison"-meddelande för undersökning genom att skicka det till en separat kö. Mer information om hur du läser Kömeddelanden och kontrollerar antalet ur kön finns i [Hämta meddelanden](/rest/api/storageservices/Get-Messages).  
 
 Vissa fel från Table Storage och Queue Storage är tillfälliga fel och klient programmet bör inkludera lämplig omprövnings logik för att hantera dem.  
 
@@ -1009,7 +1009,7 @@ En fråga mot Table Storage kan returnera högst 1 000 entiteter vid ett tillfä
 - Frågan slutfördes inte inom fem sekunder.
 - Frågan korsar partitionens gränser. 
 
-Mer information om hur du använder fortsättnings-token finns i [fråga om tids gräns och sid brytning](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Mer information om hur du använder fortsättnings-token finns i [fråga om tids gräns och sid brytning](/rest/api/storageservices/Query-Timeout-and-Pagination).  
 
 Om du använder lagrings klient biblioteket kan du automatiskt hantera tilläggs-token åt dig när det returnerar entiteter från Table Storage. Till exempel hanterar följande C#-kod exempel automatiskt fortsättnings-token om Table Storage returnerar dem i ett svar:  
 
@@ -1415,7 +1415,7 @@ Du kan använda signaturer för delad åtkomst (SAS) för att aktivera att klien
 * Du kan avlasta en del av arbetet som webb-och arbets roller utför i hantering av dina entiteter. Du kan avlasta till klient enheter som slut användar datorer och mobila enheter.  
 * Du kan tilldela en begränsad och tidsbegränsad uppsättning behörigheter till en klient (till exempel tillåta skrivskyddad åtkomst till särskilda resurser).  
 
-Mer information om hur du använder SAS-token med Table Storage finns i [använda signaturer för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+Mer information om hur du använder SAS-token med Table Storage finns i [använda signaturer för delad åtkomst (SAS)](../storage/common/storage-sas-overview.md).  
 
 Du måste dock fortfarande generera SAS-token som ger ett klient program till entiteterna i Table Storage. Gör detta i en miljö som har säker åtkomst till dina lagrings konto nycklar. Normalt använder du en webb-eller arbets roll för att generera SAS-token och leverera dem till de klient program som behöver åtkomst till dina entiteter. Eftersom det fortfarande finns en omkostnader som används för att skapa och leverera SAS-token till klienter, bör du överväga hur du bäst kan minska den här belastningen, särskilt i stora volym scenarier.  
 
@@ -1512,5 +1512,4 @@ I det här asynkrona exemplet kan du se följande ändringar från den synkrona 
 * Metodsignaturen innehåller nu `async` modifieraren och returnerar en `Task` instans.  
 * I stället för `Execute` att anropa metoden för att uppdatera entiteten anropar metoden nu `ExecuteAsync` metoden. -Metoden använder `await` modifieraren för att hämta resultat asynkront.  
 
-Klient programmet kan anropa flera asynkrona metoder som det här, och varje metod anrop körs i en separat tråd.  
-
+Klient programmet kan anropa flera asynkrona metoder som det här, och varje metod anrop körs i en separat tråd.

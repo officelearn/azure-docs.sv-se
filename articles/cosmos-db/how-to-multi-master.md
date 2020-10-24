@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 8079fb3ab04d5f613566816735491203d7df951a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570661"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486148"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Konfigurera flera region skrivningar i dina program som använder Azure Cosmos DB
 
@@ -129,8 +129,8 @@ Läs följande artiklar:
 * [Konflikttyper och principer för konfliktlösning i Azure Cosmos DB](conflict-resolution-policies.md)
 * [Hög tillgänglighet i Azure Cosmos DB](high-availability.md)
 * [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md)
-* [Välj rätt konsekvens nivå i Azure Cosmos DB](consistency-levels-choosing.md)
-* [Konsekvens, tillgänglighet och prestanda kompromisser i Azure Cosmos DB](consistency-levels-tradeoffs.md)
-* [Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](consistency-levels-tradeoffs.md)
-* [Skala etablerat dataflöde globalt](scaling-throughput.md)
+* [Välj rätt konsekvens nivå i Azure Cosmos DB](./consistency-levels.md)
+* [Konsekvens, tillgänglighet och prestanda kompromisser i Azure Cosmos DB](./consistency-levels.md)
+* [Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](./consistency-levels.md)
+* [Skala etablerat dataflöde globalt](./request-units.md)
 * [Global distribution: under huven](global-dist-under-the-hood.md)

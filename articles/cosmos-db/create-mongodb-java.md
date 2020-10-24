@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 301bedc75d243f427120c955bda539508ff43200
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a831921ec3b3fa755496c08c02665b1c0fe99557
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87323646"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475965"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Snabb start: skapa en konsol app med Java och MongoDB-API: et i Azure Cosmos DB
 
@@ -136,4 +136,4 @@ Nu kan du använda [Robomongo](mongodb-robomongo.md)  /  [Studio-3T](mongodb-mon
 I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB-API för mongo DB-konto, lägger till en databas och behållare med Datautforskaren och lägger till data med hjälp av en Java-konsol-app. Du kan nu importera ytterligare data till din Cosmos-databas. 
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

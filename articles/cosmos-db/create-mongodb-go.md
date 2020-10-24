@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 0c03c4f163ef36335dacdc3c28340164dcd23fba
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6b3d01445eb5624addb5edec3ccb9cd8e4a9b6d9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85299202"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476033"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: ansluta ett Go-program till Azure Cosmos DB s API för MongoDB
 
@@ -28,7 +28,7 @@ ms.locfileid: "85299202"
 
 Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning. I den här snabb starten skapar du och hanterar ett Azure Cosmos DB konto genom att använda Azure Cloud Shell, klona ett befintligt exempel program från GitHub och konfigurera det så att det fungerar med Azure Cosmos DB. 
 
-Exempel programmet är ett kommando rads baserat `todo` hanterings verktyg som skrivs i go. Azure Cosmos DBs API för MongoDB är [kompatibelt med MongoDB-Wire-protokollet](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility), vilket gör det möjligt för alla MongoDB klient driv rutiner att ansluta till den. I det här programmet används [driv rutinen Go för MongoDB](https://github.com/mongodb/mongo-go-driver) på ett sätt som är transparent för programmet att data lagras i en Azure Cosmos DB databas.
+Exempel programmet är ett kommando rads baserat `todo` hanterings verktyg som skrivs i go. Azure Cosmos DBs API för MongoDB är [kompatibelt med MongoDB-Wire-protokollet](./mongodb-introduction.md#wire-protocol-compatibility), vilket gör det möjligt för alla MongoDB klient driv rutiner att ansluta till den. I det här programmet används [driv rutinen Go för MongoDB](https://github.com/mongodb/mongo-go-driver) på ett sätt som är transparent för programmet att data lagras i en Azure Cosmos DB databas.
 
 ## <a name="prerequisites"></a>Förutsättningar
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med anslutnings strängen `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
@@ -279,7 +279,7 @@ Parametern `--kind MongoDB` aktiverar MongoDB-klientanslutningar.
 När Azure Cosmos DB-kontot har skapats, visar Azure CLI information liknande följande exempel. 
 
 > [!NOTE]
-> I det här exemplet används JSON som standardalternativ för Azure CLI-utdataformat. Om du vill använda andra format läser du [Utdataformat för Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> I det här exemplet används JSON som standardalternativ för Azure CLI-utdataformat. Om du vill använda andra format läser du [Utdataformat för Azure CLI-kommandon](/cli/azure/format-output-azure-cli).
 
 ```json
 {
@@ -352,7 +352,7 @@ export MONGODB_COLLECTION=todos
 
 Du kan välja önskade värden för `MONGODB_DATABASE` och `MONGODB_COLLECTION` eller lämna dem som de är.
 
-## <a name="run-the-application"></a>Kör programmet
+## <a name="run-the-application"></a>Köra appen
 
 För att skapa en `todo`
 
@@ -457,4 +457,4 @@ Det `todo` du nyss tog bort bör inte finnas
 I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB MongoDB API-konto med hjälp av Azure Cloud Shell och skapar och kör en go-kommandoraden för att hantera `todo` s. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto.
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

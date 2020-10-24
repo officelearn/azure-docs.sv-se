@@ -8,12 +8,12 @@ ms.date: 6/3/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: f6c6c1cfdfef864be17adfed2d115150c4fbede0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3e5eb49a91e2c8bbd73f5dd37ed90f10b406fa3d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045133"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496039"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Använd Azure Digitals flätas för att uppdatera en Azure Maps inomhus karta
 
@@ -25,7 +25,7 @@ Den här instruktionen kommer att avse:
 2. Skapa en Azure-funktion för att uppdatera en Azure Maps inomhus Maps-funktion stateset.
 3. Så här lagrar du ditt Maps-ID och funktions stateset-ID i Azure Digitals grafen.
 
-### <a name="prerequisites"></a>Krav
+### <a name="prerequisites"></a>Förutsättningar
 
 * Följ självstudien om Azure Digitals dubbla [*steg: Anslut en lösning från slut punkt till slut punkt*](./tutorial-end-to-end.md).
     * Du kommer att utöka den här dubbla med en ytterligare slut punkt och väg. Du kommer även att lägga till en annan funktion i din Function-app från den självstudien. 
@@ -50,12 +50,12 @@ Azure Digitals dubbla instanser kan generera dubbla uppdaterings händelser när
 Det här mönstret läser från rummet direkt, i stället för IoT-enheten, vilket ger dig flexibiliteten att ändra den underliggande data källan för temperatur utan att behöva uppdatera mappnings logiken. Du kan till exempel lägga till flera termometers eller ange det här rummet för att dela en termometer med ett annat rum, utan att du behöver uppdatera din kart logik.
 
 1. Skapa ett event Grid-ämne, som tar emot händelser från din Azure Digital-instansen.
-    ```azurecli
+    ```azurecli-interactive
     az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
     ```
 
 2. Skapa en slut punkt för att länka ditt event Grid-ämne till Azure Digitals.
-    ```azurecli
+    ```azurecli-interactive
     az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
     ```
 
@@ -64,9 +64,9 @@ Det här mönstret läser från rummet direkt, i stället för IoT-enheten, vilk
     >[!NOTE]
     >Det finns för närvarande ett **känt problem** i Cloud Shell som påverkar dessa kommando grupper: `az dt route` , `az dt model` , `az dt twin` .
     >
-    >Du kan lösa problemet genom att antingen köra `az login` i Cloud Shell innan du kör kommandot eller använda den [lokala CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) : en i stället för Cloud Shell. Mer information finns i [*fel sökning: kända problem i Azure Digitals*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+    >Du kan lösa problemet genom att antingen köra `az login` i Cloud Shell innan du kör kommandot eller använda den [lokala CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) : en i stället för Cloud Shell. Mer information finns i [*fel sökning: kända problem i Azure Digitals*](troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
 
-    ```azurecli
+    ```azurecli-interactive
     az dt route create -n <your-Azure-Digital-Twins-instance-name> --endpoint-name <Event-Grid-endpoint-name> --route-name <my_route> --filter "type = 'Microsoft.DigitalTwins.Twin.Update'"
     ```
 
@@ -135,7 +135,7 @@ namespace SampleFunctionsApp
 
 Du måste ange två miljövariabler i din Function-app. En är din [Azure Maps primära prenumerations nyckel](../azure-maps/quick-demo-map-app.md#get-the-primary-key-for-your-account)och en är ditt [Azure Maps stateset-ID](../azure-maps/tutorial-creator-indoor-maps.md#create-a-feature-stateset).
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set --settings "subscription-key=<your-Azure-Maps-primary-subscription-key> -g <your-resource-group> -n <your-App-Service-(function-app)-name>"
 az functionapp config appsettings set --settings "statesetID=<your-Azure-Maps-stateset-ID> -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```

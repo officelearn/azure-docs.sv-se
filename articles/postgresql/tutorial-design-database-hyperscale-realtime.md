@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 41ac1cb856011d9730f7b49bbf85350f4dbccdbd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bd06491b5488223b9a8eba50839a7fdf0cd61b6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90895234"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478549"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en instrument panel med real tids analys med Azure Database for PostgreSQL – storskalig (citus)
 
@@ -28,7 +28,7 @@ I den här självstudien använder du Azure Database for PostgreSQL-storskalig s
 > * Fråga rå data och sammanställda data
 > * Förfaller data
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -226,5 +226,5 @@ I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror
 
 I den här självstudien har du lärt dig hur du etablerar en Server grupp för storskaliga (citus). Du är ansluten till den med psql, skapat ett schema och distribuerade data. Du har lärt dig att fråga data i rå data, samla in data, fråga de sammanställda tabellerna och förfalla gamla data.
 
-- Lär dig mer om [Node-typer](https://aka.ms/hyperscale-concepts) för Server grupper
+- Lär dig mer om [Node-typer](./concepts-hyperscale-nodes.md) för Server grupper
 - Fastställ bästa [initial storlek](howto-hyperscale-scaling.md#picking-initial-size) för Server gruppen

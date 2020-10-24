@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/27/2020
-ms.openlocfilehash: 6e43d00722dd86934c8f95e06a3b8b590b263d61
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2c340f9e7d2c44082adc67eeb816276449602035
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91705168"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484499"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Snabb start: skapa en Azure Database for PostgreSQL-server med hjälp av Azure Portal
 
@@ -51,7 +51,7 @@ Så här skapar du en Azure Database for PostgreSQL Server:
    Prenumeration|Ditt prenumerationsnamn|Den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
    Resursgrupp|*myresourcegroup*| Ett nytt resursgruppnamn eller ett befintligt namn i prenumerationen.
    Servernamn |*mydemoserver*|Ett unikt namn som identifierar Azure Database för PostgreSQL-servern. Domän namnet *postgres.Database.Azure.com* läggs till i det Server namn som du anger. Servernamnet får bara innehålla gemener, siffror och bindestreck (-). Det måste innehålla mellan 3 och 63 tecken.
-   Datakälla | **Ingen** | Välj **Ingen** om du vill skapa en ny server från grunden. (Du väljer **säkerhets kopia** om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for postgresql-server.)
+   Datakälla | **Inga** | Välj **Ingen** om du vill skapa en ny server från grunden. (Du väljer **säkerhets kopia** om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for postgresql-server.)
    Användarnamn för administratör |*myadmin*| Ett eget inloggningskonto att använda när du ansluter till servern. Inloggnings namnet för administratören får inte vara **azure_superuser**, **azure_pg_admin**, **admin**, **Administrator**, **root**, **Guest**eller **Public**. Den kan inte börja med **PG_**.
    Lösenord |Ditt lösenord| Ett nytt lösenord för serverns administratörskonto. Det måste innehålla 8 till 128 tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0 till 9) och icke-alfanumeriska tecken (till exempel!, $, #,%).
    Plats|Den region som är närmast dina användare| Den plats som är närmast dina användare.
@@ -68,7 +68,7 @@ Så här skapar du en Azure Database for PostgreSQL Server:
 En tom databas, **postgres**, skapas. Du hittar också en **azure_maintenance** databas som används för att avgränsa hanterade tjänst processer från användar åtgärder. Du har inte åtkomst till **azure_maintenance** databasen.
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurera en brandväggsregel på servernivå
-Som standard är den server som du skapar inte offentligt tillgänglig. Du måste ge behörighet till din IP-adress. Gå till Server resursen i Azure Portal och välj **anslutnings säkerhet** på den vänstra menyn för Server resursen. Om du inte är säker på hur du hittar din resurs, se [Öppna resurser](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+Som standard är den server som du skapar inte offentligt tillgänglig. Du måste ge behörighet till din IP-adress. Gå till Server resursen i Azure Portal och välj **anslutnings säkerhet** på den vänstra menyn för Server resursen. Om du inte är säker på hur du hittar din resurs, se [Öppna resurser](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Skärm bild som visar Azure Database for PostgreSQL på menyn.":::
@@ -80,7 +80,7 @@ Välj **Lägg till aktuell klient-IP-adress**och välj sedan **Spara**. Du kan l
 
 ## <a name="connect-to-azure-database-for-postgresql-server-by-using-psql"></a>Ansluta till Azure Database for PostgreSQL server med hjälp av psql
 
-Du kan använda [psql](http://postgresguide.com/utilities/psql.html) eller [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html), som är populära postgresql-klienter. I den här snabb starten ska vi ansluta med psql i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) i Azure Portal.
+Du kan använda [psql](http://postgresguide.com/utilities/psql.html) eller [pgAdmin](https://www.pgadmin.org/docs/pgadmin4/latest/connecting.html), som är populära postgresql-klienter. I den här snabb starten ska vi ansluta med psql i [Azure Cloud Shell](../cloud-shell/overview.md) i Azure Portal.
 
 1. Anteckna Server namnet, inloggnings namnet för Server administratören, lösen ordet och prenumerations-ID: t för den nya servern från **översikts** avsnittet på servern.
 

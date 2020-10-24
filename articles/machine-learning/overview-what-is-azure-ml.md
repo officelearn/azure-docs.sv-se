@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: e214607b82a44fb1b6859a3c73d58907fbb279d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ad025d2278d6c9ab360ddbdc250e8db4b4eec665
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710744"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495753"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -128,7 +128,8 @@ Ditt Azure Storage-konto, beräknings mål och andra resurser kan användas på 
 ## <a name="next-steps"></a>Nästa steg
 
 - Skapa ditt första experiment med önskad metod:
-  + [Använd python-anteckningsböcker för att träna & distribuera ML-modeller](tutorial-1st-experiment-sdk-setup.md)
+- + [Kom igång i din egen utvecklings miljö](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Använd Jupyter notebooks på en beräknings instans för att träna & distribuera ML-modeller](tutorial-1st-experiment-sdk-setup.md)
   + [Använd R-markdown för att träna & distribuera ML-modeller](tutorial-1st-r-experiment.md) 
   + [Använd automatisk maskin inlärning för att träna & distribuera ML-modeller](tutorial-first-experiment-automated-ml.md) 
   + [Använd designerns dra & släpp-funktioner för att träna & distribuera](tutorial-designer-automobile-price-train-score.md) 

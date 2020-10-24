@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 78addb76e2ce7a2679358e241650cc5cc827791f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 0cc3a335e5fbe037742767a3b59243e366f094ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461625"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495922"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Anslut Azure Functions appar för bearbetning av data
 
@@ -186,26 +186,28 @@ Du kan konfigurera säkerhets åtkomst för Azure Function-appen med något av f
 
 Azure Function Skeleton från tidigare exempel kräver att en Bearer-token skickas till den för att kunna autentisera med Azure Digital-dubbla. För att säkerställa att denna Bearer-token skickas måste du konfigurera [hanterad tjänstidentitet (MSI)](../active-directory/managed-identities-azure-resources/overview.md) för Function-appen. Detta måste bara göras en gång för varje Function-app.
 
-Du kan skapa Systemhanterad identitet och tilldela Function-appens identitet till rollen _Azure Digital-ägare (för hands version)_ för din Azure Digital-instansen. Detta ger funktionen app behörighet i instansen för att utföra data Plans aktiviteter. Sedan kan du göra webb adressen till Azure Digitals dubblare-instans tillgänglig för din funktion genom att ange en miljö variabel.
+Du kan skapa Systemhanterad identitet och tilldela Function-appen identitet till den _**digitala Azure-dataägarens data ägar**_ roll för Azure Digitals-instansen. Detta ger funktionen app behörighet i instansen för att utföra data Plans aktiviteter. Sedan kan du göra webb adressen till Azure Digitals dubblare-instans tillgänglig för din funktion genom att ange en miljö variabel.
 
- Använd [Azure Cloud Shell](https://shell.azure.com) för att köra kommandona.
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
+
+Använd [Azure Cloud Shell](https://shell.azure.com) för att köra kommandona.
 
 Använd följande kommando för att skapa den systemhanterade identiteten. Anteckna fältet _principalId_ i utdata.
 
-```azurecli 
+```azurecli-interactive 
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-Använd värdet _principalId_ i följande kommando för att tilldela Function-appens identitet till rollen _Azure Digital-ägare (för hands version)_ för din Azure Digital-instansen.
+Använd värdet _principalId_ i följande kommando för att tilldela Function-appens identitet till den _digitala Azure-dataägarens data ägar_ roll för Azure Digital-instansen.
 
-```azurecli 
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive 
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 Slutligen kan du göra webb adressen till din Azure Digital-instansen tillgänglig för din funktion genom att ange en miljö variabel. Mer information om hur du ställer in miljövariabler finns i [*miljövariabler*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
 > URL: en för Azure Digitals dubbla instanser görs genom att lägga till *https://* i början av *värd namnet*för Azure Digital-instansen. Om du vill se värd namnet, tillsammans med alla egenskaper för din instans, kan du köra `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
 
-```azurecli 
+```azurecli-interactive 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 ### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>Alternativ 2: Konfigurera säkerhets åtkomst för Azure Function-appen med hjälp av Azure Portal
@@ -241,7 +243,7 @@ På sidan _Lägg till roll tilldelning (förhands granskning)_ som öppnas välj
 * _Omfång_: Resursgrupp
 * _Prenumeration_: Välj din Azure-prenumeration
 * _Resurs grupp_: Välj din resurs grupp i list rutan
-* _Roll_: Välj _Azure Digitals flätade ägare (för hands version)_ i list rutan
+* _Roll_: Välj _Azure Digitals sammanflätade data ägare_ i list rutan
 
 Spara sedan informationen genom att trycka på knappen _Spara_ .
 

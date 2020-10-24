@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a67a062c06950294ec9e49e2ec69552edc4ee77a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 347da75d8e3f58d3875b02000d74533b36a9b18c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278596"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486114"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Etablera standard (manuell) genom strömning på en databas i Azure Cosmos DB-SQL API
 
@@ -72,7 +72,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 I följande artiklar finns information om etablerade data flöden i Azure Cosmos DB:
 
-* [Skala etablerat dataflöde globalt](scaling-throughput.md)
+* [Skala etablerat dataflöde globalt](./request-units.md)
 * [Etablera dataflöde på containrar och databaser](set-throughput.md)
 * [Så här etablerar du standard (manuell) data flöde för en behållare](how-to-provision-container-throughput.md)
 * [Så här etablerar du data flöde för autoskalning för en behållare](how-to-provision-autoscale-throughput.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: 9d6cb699ad8a24e4450cbeb4bc1ca3cb6d46d9fe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e38096a0c5de266be6be6a58e09a251ce28a55df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278193"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482612"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Vanliga frågor och svar om API för Cassandra i Azure Cosmos DB
 
@@ -75,7 +75,7 @@ Det är viktigt att se vilka åtgärder (och deras volym) som orsakar det här p
 
 Mått är tillgängliga som visar hur data flödet används över timmar, över dagar och per sju dagar, över partitioner eller i mängd. Mer information finns i [övervakning och fel sökning med mått i Azure Cosmos DB](use-metrics.md).
 
-Diagnostikloggar beskrivs i artikeln [Azure Cosmos DB diagnostisk loggning](logging.md) .
+Diagnostikloggar beskrivs i artikeln [Azure Cosmos DB diagnostisk loggning](./monitor-cosmos-db.md) .
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>Mappar primär nyckeln till partitionens nyckel koncept för Azure Cosmos DB?
 
@@ -135,9 +135,9 @@ Ja, TTL stöds.
 
 Azure Cosmos DB är en plattforms tjänst som hjälper dig att öka produktiviteten och inte oroa dig för att hantera och övervaka infrastruktur. Du behöver till exempel inte övervaka nodens status, replik status, GC och OS-parametrar tidigare med olika verktyg. Du behöver bara ta hand om data flödet som är tillgängligt i Portal mått för att se om du får en begränsning och sedan ökar eller minskar data flödet. Du kan:
 
-- Övervaka [service avtal](monitor-accounts.md)
+- Övervaka [service avtal](./monitor-cosmos-db.md)
 - Använd [mått](use-metrics.md)
-- Använda [diagnostikloggar](logging.md)
+- Använda [diagnostikloggar](./monitor-cosmos-db.md)
 
 ### <a name="which-client-sdks-can-work-with-the-cassandra-api"></a>Vilka klient-SDK: er kan fungera med API för Cassandra?
 
@@ -187,7 +187,7 @@ Du kan läsa om migreringsåtgärder i själv studie kursen om [att migrera dina
 Ge feedback via [feedback från användarens röst](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Nästa steg
 

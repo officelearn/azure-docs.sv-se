@@ -8,12 +8,12 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0c760a3a2f6300108c1739f18ef9fa97a40dd833
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211121e21502e9cd4929169053a8ad58a9d7b21b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021943"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476934"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-net-sdk-request-timeout-exceptions"></a>Diagnostisera och Felsök Azure Cosmos DB timeout-undantag för .NET SDK
 HTTP 408-felet uppstår om SDK: n inte kunde slutföra begäran innan tids gränsen nåddes.
@@ -28,7 +28,7 @@ Med `CosmosClientOptions.RequestTimeout` konfigurationen (eller `ConnectionPolic
 
 ### <a name="cancellationtoken"></a>CancellationToken
 
-Alla asynkrona åtgärder i SDK har en valfri CancellationToken-parameter. Denna [CancellationToken](https://docs.microsoft.com/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) -parameter används i hela åtgärden, över alla nätverks begär Anden. I mellan nätverks begär Anden kan det hända att token för annullering kontrol leras och en åtgärd avbryts om den relaterade token har upphört att gälla. Token för annullering ska användas för att definiera en ungefärlig förväntad tids gräns i åtgärds omfånget.
+Alla asynkrona åtgärder i SDK har en valfri CancellationToken-parameter. Denna [CancellationToken](/dotnet/standard/threading/how-to-listen-for-cancellation-requests-by-polling) -parameter används i hela åtgärden, över alla nätverks begär Anden. I mellan nätverks begär Anden kan det hända att token för annullering kontrol leras och en åtgärd avbryts om den relaterade token har upphört att gälla. Token för annullering ska användas för att definiera en ungefärlig förväntad tids gräns i åtgärds omfånget.
 
 > [!NOTE]
 > `CancellationToken`Parametern är en mekanism där biblioteket kontrollerar annulleringen när det [inte orsakar ett ogiltigt tillstånd](https://devblogs.microsoft.com/premier-developer/recommended-patterns-for-cancellationtoken/). Åtgärden kan inte avbrytas exakt när tiden som definierats i annulleringen är upp. När tiden är upp avbryts det när det är säkert att göra det.

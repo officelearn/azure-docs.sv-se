@@ -9,32 +9,32 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: afee95f6a8776c3506e10c29cfd8e776734a915a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ee7e180094c1584995e5d734adbe589a112754b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326685"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477580"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark Connector for Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
-> * [Våren data v2](sql-api-sdk-java-spring-v2.md)
-> * [Våren data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring-data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring-data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
-> * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
+> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
+> * [SQL](./sql-query-getting-started.md)
+> * [Masskörningsbibliotek – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Masskörningsbibliotek – Java](sql-api-sdk-bulk-executor-java.md)
 
 Du kan påskynda stor data analys med hjälp av Azure Cosmos DB Apache Spark Connector for Core (SQL). Med Spark-anslutningen kan du köra [Spark](https://spark.apache.org/) -jobb på data som lagras i Azure Cosmos dB. Batch-och Stream-bearbetning stöds.
 
@@ -56,10 +56,10 @@ Du kan använda anslutningen med [Azure Databricks](https://azure.microsoft.com/
 
 | Resurs | Länk |
 |---|---|
-| **SDK-hämtning** | [Hämta senaste. jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
+| **SDK-nedladdning** | [Hämta senaste. jar](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG), [maven](https://search.maven.org/search?q=a:azure-cosmosdb-spark_2.4.0_2.11) |
 |**API-dokumentation** | [Spark Connector-referens]() |
 |**Bidra till SDK: n** | [Azure Cosmos DB Connector för Apache Spark på GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
-|**Komma igång** | [Påskynda stor data analys genom att använda Apache Spark för att Azure Cosmos DB koppling](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Använd Apache Spark strukturerad strömning med Apache Kafka och Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
+|**Komma igång** | [Påskynda stor data analys genom att använda Apache Spark för att Azure Cosmos DB koppling](./spark-connector.md#bk_working_with_connector) <br> [Använd Apache Spark strukturerad strömning med Apache Kafka och Azure Cosmos DB](../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## <a name="release-history"></a>Versions historik
 

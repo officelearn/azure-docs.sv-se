@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 699bdeb34d4a7134cd9fc4938427a2bd813069fa
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3ee4036a605e74ff43b3951b41ee3b4d1325004d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282634"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482051"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-api"></a>Skapa en databas och behållare för Azure Cosmos DB-SQL API
 
@@ -38,23 +38,23 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 |**Azure Cosmos DB**| |
-| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Skapar ett Cosmos DB-konto. |
-| [New-AzCosmosDBSqlDatabase](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqldatabase) | Skapar ett Cosmos DB SQL Database. |
-| [New-AzCosmosDBSqlUniqueKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekey) | Skapar ett PSSqlUniqueKey-objekt som används som en parameter för New-AzCosmosDBSqlUniqueKeyPolicy. |
-| [New-AzCosmosDBSqlUniqueKeyPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekeypolicy) | Skapar ett PSSqlUniqueKeyPolicy-objekt som används som en parameter för New-AzCosmosDBSqlContainer. |
-| [New-AzCosmosDBSqlCompositePath](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlcompositepath) | Skapar ett PSCompositePath-objekt som används som en parameter för New-AzCosmosDBSqlIndexingPolicy. |
-| [New-AzCosmosDBSqlIncludedPathIndex](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpathindex) | Skapar ett PSIndexes-objekt som används som en parameter för New-AzCosmosDBSqlIncludedPath. |
-| [New-AzCosmosDBSqlIncludedPath](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpath) | Skapar ett PSIncludedPath-objekt som används som en parameter för New-AzCosmosDBSqlIndexingPolicy. |
-| [New-AzCosmosDBSqlIndexingPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | Skapar ett PSSqlIndexingPolicy-objekt som används som en parameter för New-AzCosmosDBSqlContainer. |
-| [New-AzCosmosDBSqlConflictResolutionPolicy](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlconflictresolutionpolicy) | Skapar ett PSSqlConflictResolutionPolicy-objekt som används som en parameter för New-AzCosmosDBSqlContainer. |
-| [New-AzCosmosDBSqlContainer](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) | Skapar en ny Cosmos DB SQL-behållare. |
+| [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Skapar ett Cosmos DB-konto. |
+| [New-AzCosmosDBSqlDatabase](/powershell/module/az.cosmosdb/new-azcosmosdbsqldatabase) | Skapar ett Cosmos DB SQL Database. |
+| [New-AzCosmosDBSqlUniqueKey](/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekey) | Skapar ett PSSqlUniqueKey-objekt som används som en parameter för New-AzCosmosDBSqlUniqueKeyPolicy. |
+| [New-AzCosmosDBSqlUniqueKeyPolicy](/powershell/module/az.cosmosdb/new-azcosmosdbsqluniquekeypolicy) | Skapar ett PSSqlUniqueKeyPolicy-objekt som används som en parameter för New-AzCosmosDBSqlContainer. |
+| [New-AzCosmosDBSqlCompositePath](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcompositepath) | Skapar ett PSCompositePath-objekt som används som en parameter för New-AzCosmosDBSqlIndexingPolicy. |
+| [New-AzCosmosDBSqlIncludedPathIndex](/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpathindex) | Skapar ett PSIndexes-objekt som används som en parameter för New-AzCosmosDBSqlIncludedPath. |
+| [New-AzCosmosDBSqlIncludedPath](/powershell/module/az.cosmosdb/new-azcosmosdbsqlincludedpath) | Skapar ett PSIncludedPath-objekt som används som en parameter för New-AzCosmosDBSqlIndexingPolicy. |
+| [New-AzCosmosDBSqlIndexingPolicy](/powershell/module/az.cosmosdb/new-azcosmosdbsqlindexingpolicy) | Skapar ett PSSqlIndexingPolicy-objekt som används som en parameter för New-AzCosmosDBSqlContainer. |
+| [New-AzCosmosDBSqlConflictResolutionPolicy](/powershell/module/az.cosmosdb/new-azcosmosdbsqlconflictresolutionpolicy) | Skapar ett PSSqlConflictResolutionPolicy-objekt som används som en parameter för New-AzCosmosDBSqlContainer. |
+| [New-AzCosmosDBSqlContainer](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer) | Skapar en ny Cosmos DB SQL-behållare. |
 |**Resurs grupper i Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/).

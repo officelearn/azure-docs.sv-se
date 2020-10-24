@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a6aed0630acf6ee6624c72831a2cdc88e6c0a91d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16f8233a2800025a8c6f601e236b86d2fd044fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89013069"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480691"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Använd GEO-redundans för att skapa program med hög tillgänglighet
 
@@ -146,7 +146,7 @@ Ett annat övervägande är hur du hanterar flera instanser av ett program, och 
 
 Du har tre huvud alternativ för att övervaka frekvensen för återförsök i den primära regionen för att bestämma när du ska växla över till den sekundära regionen och ändra programmet så att det körs i skrivskyddat läge.
 
-* Lägg till en hanterare för händelsen [**försök igen**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) på [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) -objektet som du skickar till dina lagrings begär anden – det här är metoden som visas i den här artikeln och används i det medföljande exemplet. De här händelserna utlöses när klienten gör en begäran så att du kan spåra hur ofta klienten påträffar nya fel på en primär slut punkt.
+* Lägg till en hanterare för händelsen [**försök igen**](/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) på [**OperationContext**](/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) -objektet som du skickar till dina lagrings begär anden – det här är metoden som visas i den här artikeln och används i det medföljande exemplet. De här händelserna utlöses när klienten gör en begäran så att du kan spåra hur ofta klienten påträffar nya fel på en primär slut punkt.
 
     ```csharp
     operationContext.Retrying += (sender, arguments) =>
@@ -157,7 +157,7 @@ Du har tre huvud alternativ för att övervaka frekvensen för återförsök i d
     };
     ```
 
-* I metoden [**utvärdera**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) i en anpassad princip för återförsök kan du köra anpassad kod när ett nytt försök görs. Förutom att registrera när ett nytt försök görs, ger du också möjlighet att ändra beteendet för återförsök.
+* I metoden [**utvärdera**](/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) i en anpassad princip för återförsök kan du köra anpassad kod när ett nytt försök görs. Förutom att registrera när ett nytt försök görs, ger du också möjlighet att ändra beteendet för återförsök.
 
     ```csharp
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -233,6 +233,6 @@ Du kan utöka det här exemplet för att fånga upp ett större antal förfrågn
 
 Om du har gjort tröskelvärdena för att växla ditt program till skrivskyddat läge, blir det enklare att testa beteendet med icke-produktions transaktions volymer.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Ett fullständigt exempel som visar hur du ändrar fram och tillbaka mellan de primära och sekundära slut punkterna finns i Azure- [exempel – använda krets brytar mönstret med RA-GRS-lagring](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).

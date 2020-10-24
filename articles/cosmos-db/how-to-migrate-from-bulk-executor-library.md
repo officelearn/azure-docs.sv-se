@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 8f573a3e851fe428c66066e36a913d6580cabd51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62a31750fe0c058624c4f69848abb56e7b5095b4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022487"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491027"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Migrera från bulk utförar-biblioteket till Mass stödet i Azure Cosmos DB .NET v3 SDK
 
@@ -20,13 +20,13 @@ I den här artikeln beskrivs de steg som krävs för att migrera ett befintligt 
 
 ## <a name="enable-bulk-support"></a>Aktivera Mass stöd
 
-Aktivera Mass support på `CosmosClient` instansen via [AllowBulkExecution](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) -konfigurationen:
+Aktivera Mass support på `CosmosClient` instansen via [AllowBulkExecution](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.allowbulkexecution) -konfigurationen:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="Initialization":::
 
 ## <a name="create-tasks-for-each-operation"></a>Skapa aktiviteter för varje åtgärd
 
-Mass support i .NET SDK fungerar genom att använda det [parallella aktivitets bibliotek](https://docs.microsoft.com/dotnet/standard/parallel-programming/task-parallel-library-tpl) och de grupperings åtgärder som inträffar samtidigt. 
+Mass support i .NET SDK fungerar genom att använda det [parallella aktivitets bibliotek](/dotnet/standard/parallel-programming/task-parallel-library-tpl) och de grupperings åtgärder som inträffar samtidigt. 
 
 Det finns ingen enskild metod i SDK som tar din lista över dokument eller åtgärder som en indataparameter, men i stället måste du skapa en uppgift för varje åtgärd som du vill köra i bulk och sedan vänta tills de har slutförts.
 
@@ -38,11 +38,11 @@ Om du vill göra Mass import (liknar att använda BulkExecutor. BulkImportAsync)
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkImport":::
 
-Om du vill göra en Mass *uppdatering* (liknar att använda [BulkExecutor. BulkUpdateAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)) måste du ha samtidiga anrop till `ReplaceItemAsync` metoden efter att objektet har uppdaterats. Exempel:
+Om du vill göra en Mass *uppdatering* (liknar att använda [BulkExecutor. BulkUpdateAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkupdateasync)) måste du ha samtidiga anrop till `ReplaceItemAsync` metoden efter att objektet har uppdaterats. Exempel:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkUpdate":::
 
-Och om du vill utföra Mass *borttagning* (liknar att använda [BulkExecutor. BulkDeleteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)) måste du ha samtidiga anrop till `DeleteItemAsync` med och- `id` partitionerings nyckeln för varje objekt. Exempel:
+Och om du vill utföra Mass *borttagning* (liknar att använda [BulkExecutor. BulkDeleteAsync](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkexecutor.bulkdeleteasync)) måste du ha samtidiga anrop till `DeleteItemAsync` med och- `id` partitionerings nyckeln för varje objekt. Exempel:
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="BulkDelete":::
 
@@ -68,7 +68,7 @@ Vi använder den här hjälp klassen för att spåra omfattningen av hela listan
 
 ## <a name="capture-statistics"></a>Samla in statistik
 
-Föregående kod väntar tills alla åtgärder har slutförts och beräknar den statistik som krävs. Den här statistiken liknar den för utförar-bibliotekets [BulkImportResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse).
+Föregående kod väntar tills alla åtgärder har slutförts och beräknar den statistik som krävs. Den här statistiken liknar den för utförar-bibliotekets [BulkImportResponse](/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkimport.bulkimportresponse).
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/BulkExecutorMigration/Program.cs" ID="ResponseType":::
 
@@ -81,9 +81,9 @@ Föregående kod väntar tills alla åtgärder har slutförts och beräknar den 
 
 ## <a name="retry-configuration"></a>Försök att konfigurera igen
 
-Bulk utförar Library hade en [vägledning](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) som nämndes att ange `MaxRetryWaitTimeInSeconds` och `MaxRetryAttemptsOnThrottledRequests` för [RetryOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) för `0` att delegera kontroll till biblioteket.
+Bulk utförar Library hade en [vägledning](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account) som nämndes att ange `MaxRetryWaitTimeInSeconds` och `MaxRetryAttemptsOnThrottledRequests` för [RetryOptions](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.retryoptions) för `0` att delegera kontroll till biblioteket.
 
-Det finns inget dolt beteende för Mass support i .NET SDK. Du kan konfigurera alternativen för återförsök direkt via [CosmosClientOptions. MaxRetryAttemptsOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) och [CosmosClientOptions. MaxRetryWaitTimeOnRateLimitedRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
+Det finns inget dolt beteende för Mass support i .NET SDK. Du kan konfigurera alternativen för återförsök direkt via [CosmosClientOptions. MaxRetryAttemptsOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests) och [CosmosClientOptions. MaxRetryWaitTimeOnRateLimitedRequests](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretrywaittimeonratelimitedrequests).
 
 > [!NOTE]
 > I de fall där de etablerade enheterna är mycket lägre än vad som förväntas utifrån mängden data, kanske du vill överväga att ange dessa till höga värden. Mass åtgärden tar längre tid, men den har en högre chans att lyckas på grund av högre återförsök.

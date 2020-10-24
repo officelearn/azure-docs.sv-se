@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 7a76ac3bbe62d48de67815d09e1c8d75f03caa36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d560a415aa6ee0da5304a1a9900c30b32e3be18
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86077906"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488936"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Migrera lokala Apache Hadoop kluster till Azure HDInsight-arkitektur metod tips
 
@@ -32,20 +32,20 @@ Azure HDInsight-kluster har utformats för en speciell typ av beräknings använ
 |IoT/streaming|Kafka, Storm, Spark|
 |NoSQL-transaktionell bearbetning|HBase|
 |Interaktiva och snabbare frågor med minnes intern cachelagring|Interaktiv fråga|
-|Datavetenskap|ML-tjänster, Spark|
+|Dataforskning|ML-tjänster, Spark|
 
 I följande tabell visas de olika metoder som kan användas för att skapa ett HDInsight-kluster.
 
 |Verktyg|Webbläsare baserad|Kommandorad|REST-API|SDK|
 |---|---|---|---|---|
-|[Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
+|[Azure-portalen](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
 |[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[Azure CLI (ver 1,0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
-|[.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet)||||X|
-|[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python)||||X|
-|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable)||||X|
+|[.NET SDK](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true)||||X|
+|[Python SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight)||||X|
+|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/hdinsight)||||X|
 |[Azure Resource Manager-mallar](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)||X|||
 
 Mer information finns i artikel [kluster typer i HDInsight](../hadoop/apache-hadoop-introduction.md).
@@ -103,11 +103,11 @@ Några HDInsight-Hive-metaarkiv bästa praxis är följande:
 - Säkerhetskopiera de anpassade metaarkiv med jämna mellanrum.
 - Behåll metaarkiv-och HDInsight-klustret i samma region.
 - Övervaka metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database övervaknings verktyg som Azure Portal eller Azure Monitor loggar.
-- Kör `ANALYZE TABLE` kommandot som krävs för att generera statistik för tabeller och kolumner. Exempelvis `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
+- Kör `ANALYZE TABLE` kommandot som krävs för att generera statistik för tabeller och kolumner. Till exempel `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-workloads"></a>Metod tips för olika arbets belastningar
 
-- Överväg att använda LLAP-kluster för interaktiva Hive-frågor med förbättrad svars tid [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP)   är en ny funktion i Hive 2,0 som tillåter minnes intern cachelagring av frågor. LLAP gör Hive-frågor mycket snabbare, upp till [26x snabbare än Hive 1. x i vissa fall](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
+- Överväg att använda LLAP-kluster för interaktiva Hive-frågor med förbättrad svars tid [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) är en ny funktion i Hive 2,0 som tillåter minnes intern cachelagring av frågor. LLAP gör Hive-frågor mycket snabbare, upp till [26x snabbare än Hive 1. x i vissa fall](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
 - Överväg att använda Spark-jobb i stället för Hive-jobb.
 - Överväg att ersätta Impala-baserade frågor med LLAP-frågor.
 - Överväg att ersätta MapReduce-jobb med Spark-jobb.

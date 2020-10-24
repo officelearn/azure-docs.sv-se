@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 6101e80131aca94e44bb4e85ee51fe607f47c10f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebd1c4f71d71ca70f6d10763d538b1877b0c3539
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85118958"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489361"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Ändra feed design mönster i Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Förutom att läsa från en Cosmos containers ändrings flöde kan du också kö
 
 ### <a name="high-availability"></a>Hög tillgänglighet
 
-Azure Cosmos DB erbjuder upp till 99,999% Läs-och skriv tillgänglighet. Till skillnad från många meddelande köer kan Azure Cosmos DB data enkelt globalt distribueras och konfigureras med ett [RTO (återställnings tid)](consistency-levels-tradeoffs.md#rto) på noll.
+Azure Cosmos DB erbjuder upp till 99,999% Läs-och skriv tillgänglighet. Till skillnad från många meddelande köer kan Azure Cosmos DB data enkelt globalt distribueras och konfigureras med ett [RTO (återställnings tid)](./consistency-levels.md#rto) på noll.
 
 Efter bearbetning av objekt i ändrings flödet kan du bygga en materialiserad vy och bevara sammanställda värden i Azure Cosmos DB. Om du använder Azure Cosmos DB för att bygga ett spel kan du till exempel använda ändra feed för att implementera ranknings listor i real tid baserat på poängen från färdiga spel.
 
@@ -73,7 +73,7 @@ När du måste [normalisera data mellan partitioner och behållare](how-to-model
 
 ## <a name="event-sourcing"></a>Händelse källa
 
-[Mönstret för händelse källor](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) innebär att du använder en lagrings plats för endast tillägg för att registrera hela serien med åtgärder för dessa data. Azure Cosmos DBens ändrings flöde är ett bra val som ett centralt data lager i händelse källor arkitekturer där all data inmatning modelleras som skrivningar (inga uppdateringar eller borttagningar). I det här fallet är varje skrivning till Azure Cosmos DB en "event" och du kommer att ha en fullständig post med tidigare händelser i ändrings flödet. Vanliga användnings områden för de händelser som publiceras av den centrala händelse lagringen är för att underhålla materialiserade vyer eller för integrering med externa system. Eftersom det inte finns någon tids gräns för kvarhållning i ändrings flödet kan du spela upp alla tidigare händelser genom att läsa från början av Cosmos-behållarens ändrings flöde.
+[Mönstret för händelse källor](/azure/architecture/patterns/event-sourcing) innebär att du använder en lagrings plats för endast tillägg för att registrera hela serien med åtgärder för dessa data. Azure Cosmos DBens ändrings flöde är ett bra val som ett centralt data lager i händelse källor arkitekturer där all data inmatning modelleras som skrivningar (inga uppdateringar eller borttagningar). I det här fallet är varje skrivning till Azure Cosmos DB en "event" och du kommer att ha en fullständig post med tidigare händelser i ändrings flödet. Vanliga användnings områden för de händelser som publiceras av den centrala händelse lagringen är för att underhålla materialiserade vyer eller för integrering med externa system. Eftersom det inte finns någon tids gräns för kvarhållning i ändrings flödet kan du spela upp alla tidigare händelser genom att läsa från början av Cosmos-behållarens ändrings flöde.
 
 Du kan ha [flera ändrings flöden som konsumenter prenumererar på samma behållares ändrings flöde](how-to-create-multiple-cosmos-db-triggers.md#optimizing-containers-for-multiple-triggers). Det finns inte någon kostnad för att använda ändrings flödet från [leasing behållarens](change-feed-processor.md#components-of-the-change-feed-processor) etablerade data flöde. Ändrings flödet är tillgängligt i varje behållare oavsett om den används eller inte.
 

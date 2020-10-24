@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 81dc3a4f55b214ea6ca7ad0388e57f4b4fdc7124
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1db4f1ae40c72203cdd5d07c49b2f9c202ad525
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546482"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491367"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-textmagic"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med TextMagic
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar TextMagic med Azure
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -90,7 +90,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig TextMagic-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
-    | Name |   Källattribut| Namnområde  |
+    | Namn |   Källattribut| Namnområde  |
     | --------------- | --------------- | --------------- |
     | company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
@@ -113,7 +113,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -149,11 +149,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. Välj **konto inställningar** under användar namnet.
 
-    ![TextMagic-konfiguration](./media/textmagic-tutorial/config1.png)
+    ![Skärm bild som visar de konto inställningar som valts från användaren.](./media/textmagic-tutorial/config1.png)
 
 5. Klicka på fliken **enkel Sign-On (SSO)** och fyll i följande fält:  
 
-    ![TextMagic-konfiguration](./media/textmagic-tutorial/config2.png)
+    ![Skärm bild som visar fliken enkel Sign-On där du kan ange de värden som beskrivs.](./media/textmagic-tutorial/config2.png)
 
     a. I text rutan **entitets-ID för identitetsprovider:** klistrar du in värdet för **Azure AD-identifieraren**, som du har kopierat från Azure Portal.
 

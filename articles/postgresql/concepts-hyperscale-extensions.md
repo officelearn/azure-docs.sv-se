@@ -7,20 +7,20 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: fda40e58231b849f1e63f53f7bb268375ffe7fec
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 2e4a09ba07a5fa5eb3a5af7aa88e092feb3e7efc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996455"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487984"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL – storskalig (citus)
 
-PostgreSQL ger möjlighet att utöka funktionaliteten i databasen med hjälp av tillägg. Tillägg tillåter flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. När de har lästs in i databasen kan tillägg fungera som inbyggda funktioner. Mer information om PostgreSQL-tillägg finns i [paket relaterade objekt till ett tillägg](https://www.postgresql.org/docs/current/static/extend-extensions.html).
+PostgreSQL ger möjlighet att utöka funktionaliteten i databasen med hjälp av tillägg. Tillägg tillåter flera relaterade SQL-objekt tillsammans i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. När de har lästs in i databasen kan tillägg fungera som inbyggda funktioner. Mer information om PostgreSQL-tillägg finns i [paket relaterade objekt till ett tillägg](https://www.postgresql.org/docs/current/static/extend-extensions.html).
 
 ## <a name="use-postgresql-extensions"></a>Använd PostgreSQL-tillägg
 
-PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du kommandot [skapa tillägg](https://www.postgresql.org/docs/current/static/sql-createextension.html)   från psql-verktyget för att läsa in de paketerade objekten i databasen.
+PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du kommandot [skapa tillägg](https://www.postgresql.org/docs/current/static/sql-createextension.html) från psql-verktyget för att läsa in de paketerade objekten i databasen.
 
 Azure Database for PostgreSQL-Scale (citus) stöder för närvarande en delmängd av nyckel tillägg som visas här. Andra tillägg än de som listas stöds inte. Du kan inte skapa ditt eget tillägg med Azure Database for PostgreSQL.
 
@@ -140,7 +140,7 @@ I följande tabeller visas de standard PostgreSQL-tillägg som för närvarande 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 [Tillägget för PG \_ stat- \_ satser](https://www.postgresql.org/docs/current/pgstatstatements.html) är förinstallerat på alla Azure Database for postgresql server för att ge dig ett sätt att spåra KÖRNINGs statistik för SQL-uttryck.
 
-Inställningen `pg_stat_statements.track` styr vilka instruktioner som räknas av tillägget. Den används som standard `top` , vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna är `none` och `all` . Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+Inställningen `pg_stat_statements.track` styr vilka instruktioner som räknas av tillägget. Den används som standard `top` , vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna är `none` och `all` . Den här inställningen kan konfigureras som en server parameter via [Azure Portal](./howto-configure-server-parameters-using-portal.md) eller [Azure CLI](./howto-configure-server-parameters-using-cli.md).
 
 Det är en kompromiss mellan information om körning av fråga pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du ställer in `pg_stat_statements.track` på `none` . Vissa övervaknings tjänster från tredje part kan vara beroende av pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
 

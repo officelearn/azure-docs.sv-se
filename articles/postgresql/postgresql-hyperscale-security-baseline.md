@@ -7,30 +7,30 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cef787cbf8ae38b5b80b63594710fcc21e124c5a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318134"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481082"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig (citus)
 
 Azures säkerhets bas linje för Azure Database for PostgreSQL-storskalig (citus) innehåller rekommendationer som hjälper dig att förbättra distributionens säkerhets position.
 
-Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
+Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](../security/benchmarks/overview.md), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
 
-Mer information finns i [Översikt över Azure Security-bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Mer information finns i [Översikt över Azure Security-bas linjer](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets kontroll: nätverks säkerhet](/azure/security/benchmarks/security-control-network-security).*
+*Mer information finns i [säkerhets kontroll: nätverks säkerhet](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1,1: skydda Azure-resurser i virtuella nätverk
 
 **Vägledning**: Azure Database for postgresql server brand vägg förhindrar all åtkomst till citus-koordinatorn tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran. Du konfigurerar brandväggen genom att skapa brandväggsregler som anger intervall med godkända IP-adresser. Du kan skapa brand Väggs regler på server nivå.
 
-- [Konfigurera brand Väggs regler i Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
+- [Konfigurera brand Väggs regler i Azure Database for PostgreSQL-storskalig (citus)](./concepts-hyperscale-firewall-rules.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -40,11 +40,11 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 **Vägledning**: definiera och implementera standardinställda säkerhetskonfigurationer för nätverks inställningar och nätverks resurser som är kopplade till dina Azure Database for PostgreSQL-instanser med Azure policy. Använd Azure Policy alias i namn området "Microsoft. Network" om du vill skapa anpassade principer för granskning eller framtvinga nätverks konfigurationen för dina Azure Database for PostgreSQL-instanser.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy exempel för nätverk](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [Azure Policy exempel för nätverk](../governance/policy/samples/built-in-policies.md#network)
 
-- [Så här skapar du en Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Så här skapar du en Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -52,7 +52,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets kontroll: loggning och övervakning](/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets kontroll: loggning och övervakning](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2,2: Konfigurera central hantering av säkerhets loggar
 
@@ -60,11 +60,11 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 Dessutom skickas loggar via Azure Monitor för att samla in säkerhets data som genererats av storskalig (citus). Använd Log Analytics arbets ytor i Azure Monitor för att fråga och utföra analyser och Använd lagrings konton för långsiktig/lagring. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en säkerhets incident och händelse hantering från tredje part (SIEM). 
 
-- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
-- [Mått i storskalig (citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
+- [Mått i storskalig (citus)](./concepts-hyperscale-monitoring.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -78,11 +78,11 @@ För gransknings loggning i kontroll plan aktiverar du Azure aktivitets logg dia
 
 Dessutom skickas loggar via Azure Monitor för att samla in säkerhets data som genererats av storskalig (citus). Använd Log Analytics arbets ytor i Azure Monitor för att fråga och utföra analyser och Använd lagrings konton för långsiktig/lagring. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en säkerhets incident och händelse hantering från tredje part (SIEM). 
 
-- [Mått i storskalig (citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-monitoring)
+- [Mått i storskalig (citus)](./concepts-hyperscale-monitoring.md)
 
-- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Så här aktiverar du diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -92,9 +92,9 @@ Dessutom skickas loggar via Azure Monitor för att samla in säkerhets data som 
 
 **Vägledning**: i Azure Monitor, för arbets ytan Log Analytics som används för att lagra dina citus-loggar, anger du kvarhållningsperioden enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig/Arkiv lagring.
 
-- [Ange logg lagrings parametrar för Log Analytics arbets ytor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Ange logg lagrings parametrar för Log Analytics arbets ytor](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Lagra resurs loggar i ett Azure Storage konto](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Lagra resurs loggar i ett Azure Storage konto](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -104,11 +104,11 @@ Dessutom skickas loggar via Azure Monitor för att samla in säkerhets data som 
 
 **Vägledning**: analysera och övervaka loggar från citus-instanserna för avvikande beteende. Använd Azure Monitor Log Analytics för att granska loggar och köra frågor om loggdata. Alternativt kan du aktivera och fordonsbaserad data till Azure Sentinel eller en SIEM från tredje part.
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Mer information om Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Mer information om Log Analytics](../azure-monitor/log-query/get-started-portal.md)
 
-- [Så här utför du anpassade frågor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Så här utför du anpassade frågor i Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -120,11 +120,11 @@ Dessutom skickas loggar via Azure Monitor för att samla in säkerhets data som 
 
 Publicera din Log Analytics-arbetsyta till Azure-kontroll när den tillhandahåller en SOAR-lösning (Security Orchestration autoresponse). Detta gör det möjligt för spel böcker (automatiserade lösningar) att skapas och användas för att åtgärda säkerhets problem.
 
-- [Mått i storskalig (citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-alert-on-metric)
+- [Mått i storskalig (citus)](./howto-hyperscale-alert-on-metric.md)
 
-- [Konfigurera diagnostikinställningar för Azure aktivitets logg](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Konfigurera diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -132,7 +132,7 @@ Publicera din Log Analytics-arbetsyta till Azure-kontroll när den tillhandahål
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [säkerhets kontroll: identitets-och åtkomst kontroll](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3,1: underhåll en inventering av administrativa konton
 
@@ -142,15 +142,15 @@ Storskalig (citus) stöder inte inbyggd rollbaserad åtkomst kontroll, men du ka
 
 Dessutom använder PostgreSQL-motorn roller för att kontrol lera åtkomsten till databas objekt och en nyskapad citus-servergrupp () innehåller flera roller som definierats i förväg. Om du vill ändra användar behörigheter använder du standard PostgreSQL-kommandon med ett verktyg som PgAdmin eller psql.
 
-- [Förstå anpassade roller för Azure-prenumerationen](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) 
+- [Förstå anpassade roller för Azure-prenumerationen](../role-based-access-control/custom-roles.md) 
 
-- [Förstå Azure Database for PostgreSQL Resource Provider-åtgärder](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdbforpostgresql) 
+- [Förstå Azure Database for PostgreSQL Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md#microsoftdbforpostgresql) 
 
-- [Förstå åtkomst hantering för Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-security#access-management])
+- [Förstå åtkomst hantering för Azure Database for PostgreSQL](./concepts-security.md#access-management)
 
-- [Så här skapar du användare i Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Så här skapar du användare i Azure Database for PostgreSQL-storskalig (citus)](./howto-hyperscale-create-users.md)
 
-- [Så här ansluter du till PostgreSQL (citus) med psql](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#connect-to-the-database-using-psql)
+- [Så här ansluter du till PostgreSQL (citus) med psql](./quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql)
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -169,9 +169,9 @@ Dessutom använder PostgreSQL-motorn roller för att kontrol lera åtkomsten til
 
 **Vägledning**: skapa standard procedurer för användning av dedikerade administrativa konton som används för att få åtkomst till dina citus-instanser. Administratörs kontona för att hantera Azure-resursen är knutna till Azure Active Directory, det finns även lokala server administratörs konton som finns i Server gruppen för storskaliga (citus) för att hantera åtkomst behörigheter för databasen. Använd Azure Security Center identitets-och åtkomst hantering för att övervaka antalet administrativa konton i Azure Active Directory.
 
-- [Förstå Azure Security Center identitet och åtkomst](https://docs.microsoft.com/azure/security-center/security-center-identity-access) 
+- [Förstå Azure Security Center identitet och åtkomst](../security-center/security-center-identity-access.md) 
 
-- [Så här skapar du användare i Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Så här skapar du användare i Azure Database for PostgreSQL-storskalig (citus)](./howto-hyperscale-create-users.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -181,9 +181,9 @@ Dessutom använder PostgreSQL-motorn roller för att kontrol lera åtkomsten til
 
 **Vägledning**: för åtkomst till Azure Portal aktivera Azure Active Directory Multi-Factor Authentication (MFA) och Azure Security Center följa rekommendationerna för identitets-och åtkomst hantering.
 
-- [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Övervaka identitet och åtkomst i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Övervaka identitet och åtkomst i Azure Security Center](../security-center/security-center-identity-access.md)
 
 
 **Azure Security Center övervakning**: Ja
@@ -194,9 +194,9 @@ Dessutom använder PostgreSQL-motorn roller för att kontrol lera åtkomsten til
 
 **Vägledning**: Använd Paw (Privileged Access Workstation) med Multi-Factor Authentication (MFA) konfigurerat för att logga in på och konfigurera Azure-resurser.
 
-- [Lär dig mer om arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Lär dig mer om arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Så här aktiverar du MFA i Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -209,9 +209,9 @@ Dessutom använder PostgreSQL-motorn roller för att kontrol lera åtkomsten til
 
 Använd identifieringar av Azure AD-risker för att visa aviseringar och rapporter om riskfyllda användar beteenden.
 
-- [Distribuera Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Distribuera Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Förstå identifieringar av Azure AD-risker](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Förstå identifieringar av Azure AD-risker](../active-directory/identity-protection/overview-identity-protection.md)
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -222,7 +222,7 @@ Använd identifieringar av Azure AD-risker för att visa aviseringar och rapport
 
 **Vägledning**: använda villkorlig åtkomst med namngivna platser för att tillåta portal och Azure Resource Manager åtkomst från enbart vissa logiska grupperingar av IP-adressintervall eller länder/regioner.
 
-- [Så här konfigurerar du namngivna platser i Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Så här konfigurerar du namngivna platser i Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -234,9 +234,9 @@ Använd identifieringar av Azure AD-risker för att visa aviseringar och rapport
 
 Användare i en citus-Server grupp kan inte vara direkt kopplade till Azure Active Directory konton. Om du vill ändra användar behörighet för databas objekts åtkomst använder du standard PostgreSQL-kommandon med verktyg som PgAdmin eller psql.
 
-- [Ändra privilegium för användar roller](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users#how-to-modify-privileges-for-user-role)
+- [Ändra privilegium för användar roller](./howto-hyperscale-create-users.md#how-to-modify-privileges-for-user-role)
 
-- [Så här skapar och konfigurerar du en AAD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Så här skapar och konfigurerar du en AAD-instans](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 
 
@@ -252,9 +252,9 @@ För användare med åtkomst till hantera Azure-resurser i Azure granskar du Azu
 
 - [Granska PostgreSQL-användare och tilldelade roller](https://www.postgresql.org/docs/current/database-roles.html)
 
-- [Förstå Azure AD repor ting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Förstå Azure AD repor ting](../active-directory/reports-monitoring/index.yml)
 
-- [Så här använder du granskningar av Azure Identity Access](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Så här använder du granskningar av Azure Identity Access](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -266,7 +266,7 @@ För användare med åtkomst till hantera Azure-resurser i Azure granskar du Azu
 
 Du kan effektivisera processen genom att skapa diagnostikinställningar för Azure Active Directory användar konton och skicka gransknings loggar och inloggnings loggar till en Log Analytics arbets yta. Du kan konfigurera önskade aviseringar i Log Analytics arbets ytan. 
 
-- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -279,11 +279,11 @@ Du kan effektivisera processen genom att skapa diagnostikinställningar för Azu
 
 Du kan också mata in loggar i Azure Sentinel för ytterligare undersökning.
 
-- [Översikt över Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/overview-identity-protection)
+- [Översikt över Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Visa Azure AD-riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -293,7 +293,7 @@ Du kan också mata in loggar i Azure Sentinel för ytterligare undersökning.
 
 **Vägledning**: inte tillgänglig för tillfället. Customer Lockbox stöds ännu inte för storskalig (citus).
 
-- [Lista över Customer Lockbox tjänster som stöds](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista över Customer Lockbox tjänster som stöds](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -301,13 +301,13 @@ Du kan också mata in loggar i Azure Sentinel för ytterligare undersökning.
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [säkerhets kontroll: data skydd](/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [säkerhets kontroll: data skydd](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
 **Vägledning**: Använd taggar för att under lätta spårning av citus-instanser (interscales) eller relaterade resurser som lagrar eller bearbetar känslig information.
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -317,13 +317,13 @@ Du kan också mata in loggar i Azure Sentinel för ytterligare undersökning.
 
 **Vägledning**: implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion. Använd en kombination av administrativa roller och brand Väggs regler för att isolera och begränsa nätverks åtkomsten till dina Azure Database for PostgreSQL-instanser.
 
-- [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
-- [Förstå brand Väggs regler i Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-firewall-rules)
+- [Förstå brand Väggs regler i Azure Database for PostgreSQL-storskalig (citus)](./concepts-hyperscale-firewall-rules.md)
 
-- [Förstå roller i storskaliga (citus)](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Förstå roller i storskaliga (citus)](./howto-hyperscale-create-users.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -337,9 +337,9 @@ För alla Azure Database for PostgreSQL-servrar som tillhandahålls via Azure Po
 
 I vissa fall kräver program från tredje part en lokal certifikat fil som genererats från en certifikat utfärdare (. cer) från en betrodd certifikat utfärdare för att ansluta säkert.
 
-- [Så här konfigurerar du TLS i Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
+- [Så här konfigurerar du TLS i Azure Database for PostgreSQL-storskalig (citus)](./concepts-hyperscale-ssl-connection-security.md)
 
-- [Program som kräver certifikat verifiering för TLS-anslutning](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-ssl-connection-security)
+- [Program som kräver certifikat verifiering för TLS-anslutning](./concepts-hyperscale-ssl-connection-security.md)
 
 
 
@@ -353,9 +353,9 @@ I vissa fall kräver program från tredje part en lokal certifikat fil som gener
 
 Om du vill ändra användar behörighet på databas nivå använder du standard kommandon för PostgreSQL med ett verktyg som PgAdmin eller psql.
 
-- [Så här konfigurerar du Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Så här konfigurerar du användar åtkomst med SQL för Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users)
+- [Så här konfigurerar du användar åtkomst med SQL för Azure Database for PostgreSQL](./howto-hyperscale-create-users.md)
 
 
 **Azure Security Center övervakning**: Ja
@@ -367,7 +367,7 @@ Om du vill ändra användar behörighet på databas nivå använder du standard 
 **Vägledning**:  
 Minst en gång per dag tar Azure Database for PostgreSQL storskalig (citus) ögonblicks bilder av datafiler och databas transaktions loggen. Med säkerhets kopiorna kan du återställa en server till alla tidpunkter inom kvarhållningsperioden. (Kvarhållningsperioden är för närvarande 35 dagar för alla kluster.) Alla säkerhets kopior krypteras med AES 256-bitars kryptering. PostgreSQL citus-erbjudandet använder Microsoft-hanterade nycklar för kryptering.
 
-- [Förstå kryptering för säkerhets kopior av citus (Azure PostgreSQL-storskalig)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Förstå kryptering för säkerhets kopior av citus (Azure PostgreSQL-storskalig)](./concepts-hyperscale-backup.md)
 
 
 
@@ -379,7 +379,7 @@ Minst en gång per dag tar Azure Database for PostgreSQL storskalig (citus) ögo
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i produktions instanser av storskaliga (citus) och andra kritiska eller relaterade resurser.
 
-- [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Så här skapar du aviseringar för Azure aktivitets logg händelser](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -387,13 +387,13 @@ Minst en gång per dag tar Azure Database for PostgreSQL storskalig (citus) ögo
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [säkerhets kontroll: sårbarhets hantering](/azure/security/benchmarks/security-control-vulnerability-management).*
+*Mer information finns i [säkerhets kontroll: sårbarhets hantering](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
 **Vägledning**: inte tillgänglig för tillfället. Azure Security Center har ännu inte stöd för sårbarhets bedömning för Azure Database for PostgreSQL-storskalig skalning (citus).
 
-- [Funktions täckning för Azure PaaS Services i Azure Security Center](https://docs.microsoft.com/azure/security-center/features-paas)
+- [Funktions täckning för Azure PaaS Services i Azure Security Center](../security-center/features-paas.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -401,17 +401,17 @@ Minst en gång per dag tar Azure Database for PostgreSQL storskalig (citus) ögo
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-automated-asset-discovery-solution"></a>6,1: Använd automatiserad identifierings lösning för till gång
 
 **Vägledning**: Använd Azure Resource Graph för att fråga efter och identifiera alla resurser (inklusive storskaliga (citus) instanser) i dina prenumerationer. Se till att du har rätt (Läs) behörigheter i din klient och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer.
 
-- [Så här skapar du frågor med Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -421,7 +421,7 @@ Minst en gång per dag tar Azure Database for PostgreSQL storskalig (citus) ögo
 
 **Vägledning**: använda taggar till storskaliga (citus) instanser och andra relaterade resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -431,11 +431,11 @@ Minst en gång per dag tar Azure Database for PostgreSQL storskalig (citus) ögo
 
 **Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer, vid behov, för att ordna och spåra citus-instanser och relaterade resurser. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
 
-- [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -451,9 +451,9 @@ Minst en gång per dag tar Azure Database for PostgreSQL storskalig (citus) ögo
 
 Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i prenumerationerna.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här skapar du frågor med Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 
 **Azure Security Center övervakning**: inte tillämpligt
@@ -469,9 +469,9 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i prenumerationerna.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här skapar du frågor med Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Så här skapar du frågor med Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -484,9 +484,9 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 - Otillåtna resurstyper
 - Tillåtna resurstyper
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här nekar du en speciell resurs typ med Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -496,7 +496,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning**: Använd den villkorliga Azure-åtkomsten för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering". Detta kan förhindra att resurser skapas och ändras i en hög säkerhets miljö, till exempel instanser av citus () som innehåller känslig information.
 
-- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -504,7 +504,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [säkerhets kontroll: säker konfiguration](/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [säkerhets kontroll: säker konfiguration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
@@ -512,11 +512,11 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 Azure Resource Manager har också möjlighet att exportera mallen i JavaScript Object Notation (JSON), vilken bör granskas för att säkerställa att konfigurationerna uppfyller/överskrider säkerhets kraven för din organisation. 
 
-- [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Exportera en och flera resurser till en mall i Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/export-template-portal) 
+- [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md) 
 
 
 
@@ -528,11 +528,11 @@ Azure Resource Manager har också möjlighet att exportera mallen i JavaScript O
 
 **Vägledning**: Använd Azure policy [Deny] och [distribuera om det inte finns] för att genomdriva säkra inställningar i dina Azure-resurser.  Dessutom kan du använda Azure Resource Manager mallar för att underhålla säkerhets konfigurationen för dina Azure-resurser som krävs av din organisation. 
 
-- [Förstå Azure Policys effekter](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
 
-- [Skapa och hantera principer för att använda kompatibilitet](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Skapa och hantera principer för att använda kompatibilitet](../governance/policy/tutorials/create-and-manage.md)
 
-- [Översikt över Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Översikt över Azure Resource Manager mallar](../azure-resource-manager/templates/overview.md)
 
 
 
@@ -544,9 +544,9 @@ Azure Resource Manager har också möjlighet att exportera mallen i JavaScript O
 
 **Vägledning**: om du använder anpassade Azure policy-definitioner för dina citus-instanser och relaterade resurser använder du Azure databaser för att lagra och hantera din kod på ett säkert sätt.
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Dokumentation om Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -556,11 +556,11 @@ Azure Resource Manager har också möjlighet att exportera mallen i JavaScript O
 
 **Vägledning**: Använd Azure policy [Deny] och [distribuera om det inte finns] för att genomdriva säkra inställningar i dina Azure-resurser.  Dessutom kan du använda Azure Resource Manager mallar för att underhålla säkerhets konfigurationen för dina Azure-resurser som krävs av din organisation. 
 
-- [Förstå Azure Policys effekter](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Förstå Azure Policys effekter](../governance/policy/concepts/effects.md)
 
-- [Skapa och hantera principer för att använda kompatibilitet](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Skapa och hantera principer för att använda kompatibilitet](../governance/policy/tutorials/create-and-manage.md)
 
-- [Översikt över Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview)
+- [Översikt över Azure Resource Manager mallar](../azure-resource-manager/templates/overview.md)
 
 
 
@@ -572,7 +572,7 @@ Azure Resource Manager har också möjlighet att exportera mallen i JavaScript O
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. DBforPostgreSQL" om du vill skapa anpassade principer för att varna, granska och genomdriva system konfigurationer. Använd Azure-princip [granskning], [neka] och [distribuera om det inte finns] för att automatiskt framtvinga konfigurationer för dina Azure Database for PostgreSQL-instanser och relaterade resurser.
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -582,9 +582,9 @@ Azure Resource Manager har också möjlighet att exportera mallen i JavaScript O
 
 **Vägledning**: Azure Database for PostgreSQL-storskalig (citus) stöder för närvarande inte hanterade identiteter direkt. När du skapar Azure Database for PostgreSQL-servern måste du ange autentiseringsuppgifter för en administratörs användare. Du kan skapa ytterligare användar roller i Azure Portal-gränssnittet.
 
-- [Skapa en Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal#create-an-azure-database-for-postgresql---hyperscale-citus)
+- [Skapa en Azure Database for PostgreSQL-storskalig (citus)](./quickstart-create-hyperscale-portal.md#create-an-azure-database-for-postgresql---hyperscale-citus)
 
-- [Skapa ytterligare användar roller](https://docs.microsoft.com/azure/postgresql/howto-hyperscale-create-users#how-to-create-additional-user-roles)
+- [Skapa ytterligare användar roller](./howto-hyperscale-create-users.md#how-to-create-additional-user-roles)
 
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
@@ -603,7 +603,7 @@ Azure Resource Manager har också möjlighet att exportera mallen i JavaScript O
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8,2: för skanning av filer som ska laddas upp till Azure-resurser som inte är Compute
 
@@ -617,13 +617,13 @@ Förskanna allt innehåll som laddas upp till Azure-resurser som inte är Comput
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [säkerhets kontroll: Data återställning](/azure/security/benchmarks/security-control-data-recovery).*
+*Mer information finns i [säkerhets kontroll: Data återställning](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
 
 **Vägledning**: Azure Database for PostgreSQL – storskalig (citus) skapar automatiskt säkerhets kopior av varje nod och lagrar dem i lokalt redundant lagring. Säkerhets kopieringar kan användas för att återställa ditt citus-kluster till en angiven tid.
 
-- [Säkerhetskopiera och återställa i Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Säkerhetskopiera och återställa i Azure Database for PostgreSQL-storskalig (citus)](./concepts-hyperscale-backup.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -635,7 +635,7 @@ Förskanna allt innehåll som laddas upp till Azure-resurser som inte är Comput
 
 I Azure-regioner som har stöd för tillgänglighets zoner lagras ögonblicks bilder av säkerhets kopior i tre tillgänglighets zoner. Så länge minst en tillgänglighets zon är online är citus-klustret återställas.
 
-- [Säkerhetskopiera och återställa i Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Säkerhetskopiera och återställa i Azure Database for PostgreSQL-storskalig (citus)](./concepts-hyperscale-backup.md)
 
 
 **Azure Security Center övervakning**: Ja
@@ -648,7 +648,7 @@ I Azure-regioner som har stöd för tillgänglighets zoner lagras ögonblicks bi
 
 Brand Väggs inställningar och parametrar för PostgreSQL-servern bevaras inte från den ursprungliga Server gruppen. de återställs till standardvärdena. Brand väggen kommer att förhindra alla anslutningar. Du måste justera inställningarna manuellt efter återställningen.
 
-- [Säkerhetskopiera och återställa i Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Säkerhetskopiera och återställa i Azure Database for PostgreSQL-storskalig (citus)](./concepts-hyperscale-backup.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -658,7 +658,7 @@ Brand Väggs inställningar och parametrar för PostgreSQL-servern bevaras inte 
 
 **Vägledning**: det går inte att återställa borttagna citus-kluster. Om du tar bort klustret tas alla noder som tillhör klustret bort och kan inte återställas. För att skydda kluster resurser efter en oavsiktlig borttagning eller oväntade ändringar kan administratörerna utnyttja hanterings lås.
 
-- [Säkerhetskopiera och återställa i Azure Database for PostgreSQL-storskalig (citus)](https://docs.microsoft.com/azure/postgresql/concepts-hyperscale-backup)
+- [Säkerhetskopiera och återställa i Azure Database for PostgreSQL-storskalig (citus)](./concepts-hyperscale-backup.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -666,13 +666,13 @@ Brand Väggs inställningar och parametrar för PostgreSQL-servern bevaras inte 
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [säkerhets kontroll: incident svar](/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [säkerhets kontroll: incident svar](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10,1: skapa en incident svars guide
 
 **Vägledning**: Bygg ut en incident svars guide för din organisation. Se till att det finns skriftliga svars planer för incidenter som definierar alla personal roller och faser för incident hantering/hantering från identifiering till granskning efter incidenten. 
 
-- [Konfigurera automatisering av arbets flöden i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide) 
+- [Konfigurera automatisering av arbets flöden i Azure Security Center](../security-center/security-center-planning-and-operations-guide.md) 
 
 - [Vägledning om hur du skapar en egen svars process för säkerhets incidenter](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 
@@ -708,7 +708,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att kundens data har öppnats av en olaglig eller obehörig part.  Granska incidenter när du är säker på att problemen är lösta. 
 
-- [Så här ställer du in Azure Security Center säkerhets kontakt](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Så här ställer du in Azure Security Center säkerhets kontakt](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -718,9 +718,9 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviserings indikatorn. 
 
-- [Så här konfigurerar du kontinuerlig export](https://docs.microsoft.com/azure/security-center/continuous-export) 
+- [Så här konfigurerar du kontinuerlig export](../security-center/continuous-export.md) 
 
-- [Strömma aviseringar till Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Strömma aviseringar till Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -730,7 +730,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: Använd funktionen för automatisering av arbets flöden i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer. 
 
-- [Konfigurera automatisering av arbets flöden och Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Konfigurera automatisering av arbets flöden och Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -738,7 +738,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Penetrationstester och Red Team-tester
 
-*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11,1: utför regelbundna inträngande tester av dina Azure-resurser och se till att åtgärda alla viktiga säkerhets brister
 
@@ -752,5 +752,5 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)

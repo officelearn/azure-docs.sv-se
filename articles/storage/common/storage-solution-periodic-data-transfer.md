@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 9ffa35e158d34a1fc6945ee2730dcf136d13edb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09498587ad65a8de0935a3a4455bb3b66ed6c3ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504346"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491265"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Lösningar för periodisk dataöverföring
  
@@ -55,19 +55,19 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 | Funktion                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Form faktor                                   | Virtuell enhet             | Fysisk enhet          | Tjänst i Azure Portal, agent lokalt                                                            |
-| Maskinvara                                      | Din hypervisor            | Tillhandahålls av Microsoft    | NA                                                            |
+| Maskinvara                                      | Din hypervisor            | Tillhandahålls av Microsoft    | Ej tillämpligt                                                            |
 | Första installations ansträngning                          | Låg (<30 minuter.)            | Måttlig (~ paret timmar) | Stor (~ dagar)                                                 |
-| Data format                                   | Azure-blobbar, Azure Files   | Azure-blobbar, Azure Files | [Stöd för 70 + data anslutningar för data lager och format](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
-| För bearbetning av data                           | Inga                         | Ja, via Edge Compute    | Ja                                                           |
-| Lokal cache<br>(för att lagra lokala data)    | Ja                        | Ja                      | Inga                                                            |
-| Överföring från andra moln                    | Inga                         | Inga                       | Ja                                                           |
+| Data format                                   | Azure-blobbar, Azure Files   | Azure-blobbar, Azure Files | [Stöd för 70 + data anslutningar för data lager och format](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| För bearbetning av data                           | Nej                         | Ja, via Edge Compute    | Ja                                                           |
+| Lokal cache<br>(för att lagra lokala data)    | Ja                        | Ja                      | Nej                                                            |
+| Överföring från andra moln                    | Nej                         | Nej                       | Ja                                                           |
 | Prissättning                                       | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/gateway/)                    | [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                  | [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                       |
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Överför data med AZCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
-- [Mer information om data överföring med Storage REST-API: er](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
+- [Mer information om data överföring med Storage REST-API: er](/dotnet/api/overview/azure/storage).
 - Förstå hur du:
-    - [Överför data med data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformera data med data Box Edge innan du skickar dem till Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Lär dig hur du överför data med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-bulk-copy-portal).
+    - [Överför data med data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
+    - [Transformera data med data Box Edge innan du skickar dem till Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
+- [Lär dig hur du överför data med Azure Data Factory](/azure/data-factory/tutorial-bulk-copy-portal).

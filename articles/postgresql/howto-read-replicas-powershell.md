@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 26c6f70f92e4c372c0ff6afbcbb3c0bb284e2f6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bacb7a434cfa04dbdfdaf39d9fd3a0baab5f11a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704811"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489820"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-postgresql-using-powershell"></a>Skapa och hantera Läs repliker i Azure Database for PostgreSQL med PowerShell
 
@@ -26,14 +26,14 @@ Du kan skapa och hantera Läs repliker med PowerShell.
 
 För att slutföra den här instruktions guiden behöver du:
 
-- [AZ PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps) installeras lokalt eller [Azure Cloud Shell](https://shell.azure.com/) i webbläsaren
+- [AZ PowerShell-modulen](/powershell/azure/install-az-ps) installeras lokalt eller [Azure Cloud Shell](https://shell.azure.com/) i webbläsaren
 - En [Azure Database for postgresql-server](quickstart-create-postgresql-server-database-using-azure-powershell.md)
 
 > [!IMPORTANT]
 > Även om PowerShell-modulen AZ. PostgreSql är i för hands version måste du installera den separat från AZ PowerShell-modulen med hjälp av följande kommando: `Install-Module -Name Az.PostgreSql -AllowPrerelease` .
 > När AZ. PostgreSql PowerShell-modulen är allmänt tillgänglig blir den en del av framtida versioner av AZ PowerShell-modulen som är tillgängliga internt inifrån Azure Cloud Shell.
 
-Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+Om du väljer att använda PowerShell lokalt ansluter du till ditt Azure-konto med hjälp av cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -51,9 +51,9 @@ Get-AzPostgreSqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
 
 `New-AzPostgreSqlServerReplica`Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern skapas.  |
+| ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern skapas.  |
 | Namn | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
 
 Om du vill skapa en skrivskyddad replik av en kors region använder du parametern **location** . I följande exempel skapas en replik i regionen **USA, västra** .
@@ -80,9 +80,9 @@ Get-AzMariaDReplica -ResourceGroupName myresourcegroup -ServerName mydemoserver
 
 `Get-AzMariaDReplica`Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
+| ResourceGroupName |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | ServerName | mydemoserver | Namnet eller ID: t för den primära servern. |
 
 ### <a name="delete-a-replica-server"></a>Ta bort en replik Server

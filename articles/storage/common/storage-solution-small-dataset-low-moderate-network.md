@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f21e7f64338b7d50ca401081bf73ca0c1a1c88f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a95361dda74c145e435a7e122339fb5945fed0f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85504312"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491231"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Dataöverföring för små datamängder med låg eller måttlig nätverksbandbredd
  
@@ -52,17 +52,17 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 | Funktion | Azure Lagringsutforskaren | Azure Portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST-API: er eller SDK: er |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
 | Tillgänglighet | Hämta och installera <br>Fristående verktyg | Webbaserade utforskar verktyg i Azure Portal | Kommando rads verktyg |Programmerbara gränssnitt i .NET, Java, python, Java Script, C++, go, ruby och PHP |
-| Grafiskt gränssnitt | Ja | Ja | Inga | Inga |
+| Grafiskt gränssnitt | Ja | Ja | Nej | Nej |
 | Plattformar som stöds | Windows, Mac, Linux | Webbaserad |Windows, Mac, Linux |Alla plattformar |
 | Tillåtna Blob Storage-åtgärder<br>för blobbar och mappar | Ladda upp<br>Ladda ned<br>Hantera | Ladda upp<br>Ladda ned<br>Hantera |Ladda upp<br>Ladda ned<br>Hantera | Ja, anpassningsbar |
-| Tillåten Data Lake gen1-lagring<br>åtgärder för filer och mappar | Ladda upp<br>Ladda ned<br>Hantera | Inga |Ladda upp<br>Ladda ned<br>Hantera                   | Inga |
+| Tillåten Data Lake gen1-lagring<br>åtgärder för filer och mappar | Ladda upp<br>Ladda ned<br>Hantera | Nej |Ladda upp<br>Ladda ned<br>Hantera                   | Nej |
 | Tillåtna åtgärder för fil lagring<br>för filer och kataloger | Ladda upp<br>Ladda ned<br>Hantera | Ladda upp<br>Ladda ned<br>Hantera   |Ladda upp<br>Ladda ned<br>Hantera | Ja, anpassningsbar |
-| Tillåtna åtgärder för tabell lagring<br>för tabeller |Hantera | Inga |Tabell stöd i AzCopy-v7 |Ja, anpassningsbar|
-| Tillåten Queue Storage | Hantera | Inga  |Inga | Ja, är anpassningsbar|
+| Tillåtna åtgärder för tabell lagring<br>för tabeller |Hantera | Nej |Tabell stöd i AzCopy-v7 |Ja, anpassningsbar|
+| Tillåten Queue Storage | Hantera | Nej  |Nej | Ja, är anpassningsbar|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [överför data med Azure Storage Explorer](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [Överföra data med AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- Lär dig hur du [överför data med Azure Storage Explorer](/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
+- [Överföra data med AzCopy](/azure/storage/common/storage-use-azcopy-v10)
 

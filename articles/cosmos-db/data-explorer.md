@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: ebfb175de67d7bb8ea011ac340b57f5d62d9e223
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b82fdd40c9ae538d1d7aa87ab5b71ea6a6c0542d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318814"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487508"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Arbeta med data med hjälp av Azure Cosmos Explorer 
 
@@ -55,4 +55,4 @@ Kunder som tar emot HTTP-401-fel kan bero på otillräckliga RBAC-behörigheter 
 
 Nu när du har lärt dig hur du kommer igång med Azure Cosmos DB Explorer för att hantera dina data, kan du göra följande:
 
-* Börja definiera [frågor](sql-api-query-reference.md) med SQL-syntax och utför [Server sidans programmering](stored-procedures-triggers-udfs.md) genom att använda lagrade procedurer, UDF: er, utlösare. 
+* Börja definiera [frågor](./sql-query-getting-started.md) med SQL-syntax och utför [Server sidans programmering](stored-procedures-triggers-udfs.md) genom att använda lagrade procedurer, UDF: er, utlösare.

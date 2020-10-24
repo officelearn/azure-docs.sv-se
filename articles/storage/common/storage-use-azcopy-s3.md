@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: ac093f707167160e916c15b935cb3d8ff6bbc748
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 022b6eb6595f25af4189d783a6a91031f95c7216
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88037124"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479365"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Kopiera data från Amazon S3 till Azure Storage med hjälp av AzCopy
 
@@ -34,7 +34,7 @@ Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att hämta A
 >
 > Om du hellre vill använda en SAS-token för att auktorisera åtkomst till BLOB-data kan du lägga till denna token i resurs-URL: en i varje AzCopy-kommando.
 >
-> Exempel: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
+> Till exempel: `https://mystorageaccount.blob.core.windows.net/mycontainer?<SAS-token>`.
 
 ### <a name="authorize-with-aws-s3"></a>Auktorisera med AWS S3
 
@@ -48,7 +48,7 @@ Samla in din AWS-åtkomst nyckel och den hemliga åtkomst nyckeln och ställ sed
 
 ## <a name="copy-objects-directories-and-buckets"></a>Kopiera objekt, kataloger och buckets
 
-AzCopy använder plats [blocket från URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) -API, så data kopieras direkt mellan AWS S3-och lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd.
+AzCopy använder plats [blocket från URL](/rest/api/storageservices/put-block-from-url) -API, så data kopieras direkt mellan AWS S3-och lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd.
 
 > [!TIP]
 > Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd.exe). Om du använder ett Windows Command Shell (cmd.exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().
@@ -135,7 +135,7 @@ Som AzCopy kopior över filer söker den också efter namngivning av kollisioner
 
 ## <a name="handle-differences-in-object-metadata"></a>Hantera skillnader i metadata för objekt
 
-AWS S3 och Azure tillåter olika uppsättningar av tecken i namn på objekt nycklar. Du kan läsa om de tecken som AWS S3 använder [här](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). På Azure-sidan följer BLOB-objektens namngivnings regler för C#- [identifierare](https://docs.microsoft.com/dotnet/csharp/language-reference/).
+AWS S3 och Azure tillåter olika uppsättningar av tecken i namn på objekt nycklar. Du kan läsa om de tecken som AWS S3 använder [här](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys). På Azure-sidan följer BLOB-objektens namngivnings regler för C#- [identifierare](/dotnet/csharp/language-reference/).
 
 Som en del av ett AzCopy `copy` -kommando kan du ange ett värde för valfri `s2s-handle-invalid-metadata` flagga som anger hur du vill hantera filer där filens metadata innehåller inkompatibla nyckel namn. I följande tabell beskrivs varje flagg värde.
 

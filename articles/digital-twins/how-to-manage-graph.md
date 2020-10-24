@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a3c37143154a6e701c4308903c46f4e68ac1b604
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458121"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495763"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Hantera en graf med digitala dubbla med relationer
 
@@ -221,6 +221,8 @@ await DeleteRelationship(client, srcId, relId);
 
 Följande körbara-kodfragment använder Relations åtgärderna från den här artikeln för att skapa ett sammanflätat diagram från digitala dubbla och relationer.
 
+### <a name="set-up-the-runnable-sample"></a>Konfigurera körbara-exemplet
+
 Kodfragmentet använder [*Room.jspå*](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) och [*Floor.jspå*](https://github.com/azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Floor.json) modell definitioner från [*självstudien: utforska Azure Digitals med en exempel klient program*](tutorial-command-line-app.md). Du kan använda dessa länkar om du vill gå direkt till filerna eller ladda ned dem som en del av det fullständiga exempel projektet från början till slut [här](/samples/azure-samples/digital-twins-samples/digital-twins-samples/). 
 
 Innan du kör exemplet gör du följande:
@@ -232,7 +234,12 @@ Innan du kör exemplet gör du följande:
     dotnet add package Azure.identity
     ```
 
-Kör sedan exemplet.
+Du måste också konfigurera lokala autentiseringsuppgifter om du vill köra exemplet direkt. Nästa avsnitt går igenom detta.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Kör exemplet
+
+När du har slutfört ovanstående steg kan du köra följande exempel kod direkt.
 
 ```csharp 
 using System;

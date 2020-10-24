@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 9ef3347b6f22d623571c8fe9cc8b156bfd92c411
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: cbf2893896b7258115ed3f59224caef9cf843b1f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282562"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481524"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: .NET-exempel för SQL API
 
@@ -90,7 +90,7 @@ En Azure-prenumeration eller ett kostnads fritt Cosmos DB utvärderings konto
 | [Läs dokument endast om dokumentet har ändrats](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L454-L500) |[DocumentClient.AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition)<br>[Documents.Client.AccessConditionType](/dotnet/api/microsoft.azure.documents.client.accessconditiontype) |
 
 ## <a name="indexing-examples"></a>Indexeringsexempel
-[RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) -metoden för exempel *IndexManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om indexering i Azure Cosmos DB innan du kör följande exempel, se [index principer](index-policy.md), [index typer](index-types.md)och [index Sök vägar](index-paths.md). 
+[RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) -metoden för exempel *IndexManagement* -projektet visar hur du utför följande uppgifter. Om du vill veta mer om indexering i Azure Cosmos DB innan du kör följande exempel, se [index principer](index-policy.md), [index typer](index-overview.md#index-kinds)och [index Sök vägar](index-policy.md#include-exclude-paths). 
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -102,7 +102,7 @@ En Azure-prenumeration eller ett kostnads fritt Cosmos DB utvärderings konto
 | [Utföra en indextransformering](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L318-L370) |[ReplaceDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync) |
 
 ## <a name="geospatial-examples"></a>Geospatiala exempel
-[RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) -metoden för det *geospatiala* exempel projektet visar hur du utför följande uppgifter.  Om du vill veta mer om geospatiala och geospatiala data innan du kör följande exempel kan du läsa [Använd data från Geospatial och geolokalisering](geospatial.md). 
+[RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) -metoden för det *geospatiala* exempel projektet visar hur du utför följande uppgifter.  Om du vill veta mer om geospatiala och geospatiala data innan du kör följande exempel kan du läsa [Använd data från Geospatial och geolokalisering](./sql-query-geospatial-intro.md). 
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -114,7 +114,7 @@ En Azure-prenumeration eller ett kostnads fritt Cosmos DB utvärderings konto
 | [Verifiera punkt- och polygondata](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L290-L326) |[ST_ISVALID](sql-query-st-isvalid.md)<br>[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)<br>[GeometryOperationExtensions.IsValid](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid)<br>[GeometryOperationExtensions.IsValidDetailed](/dotnet/api/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed) |
 
 ## <a name="query-examples"></a>Exempelfrågor
-[RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) -metoden i exempel *frågan* Project visar hur du utför följande uppgifter med hjälp av SQL Query-grammatik, LINQ-providern med Query och lambda. Om du vill veta mer om SQL-frågan i Azure Cosmos DB innan du kör följande exempel kan du läsa [mer i SQL-fr åga for Azure Cosmos DB](how-to-sql-query.md). 
+[RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) -metoden i exempel *frågan* Project visar hur du utför följande uppgifter med hjälp av SQL Query-grammatik, LINQ-providern med Query och lambda. Om du vill veta mer om SQL-frågan i Azure Cosmos DB innan du kör följande exempel kan du läsa [mer i SQL-fr åga for Azure Cosmos DB](./sql-query-getting-started.md). 
 
 | Uppgift | API-referens |
 | --- | --- |
@@ -164,4 +164,3 @@ I exemplet Change container processor, [ChangeFeedMigrationTool](https://github.
 | [Skapa en användare](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L93) |[DocumentClient.CreateUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createuserasync) |
 | [Ange behörigheter för en samling eller dokument](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L97) |[DocumentClient.CreatePermissionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createpermissionasync) |
 | [Hämta en lista över an användares behörigheter](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L241) |[DocumentClient.ReadUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readuserasync)<br>[DocumentClient.ReadPermissionFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpermissionfeedasync) |
-

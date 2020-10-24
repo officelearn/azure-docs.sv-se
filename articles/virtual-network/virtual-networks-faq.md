@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 71b7217a1a3d79db67e1649ce33d441f0c2c2da2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489412"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495829"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure Virtual Network
 
@@ -283,7 +283,7 @@ Nej. Adress utrymmen får inte överlappa för att aktivera VNet-peering.
 Det kostar inget att skapa en VNet-peering-anslutning. Data överföring mellan peering-anslutningar debiteras. [Se här](https://azure.microsoft.com/pricing/details/virtual-network/).
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>Är VNet-peering-trafiken krypterad?
-När VNet-peering-trafik flyttas mellan data Center-utanför fysiska gränser som inte styrs av (eller för Microsoft-- [MACsec Data Link Layer-kryptering](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) används den underliggande nätverks maskin varan.
+När Azure-trafik flyttas mellan data Center (utanför fysiska gränser som inte styrs av Microsoft eller på uppdrag av Microsoft), används [MACsec data länk skikt kryptering](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit) på den underliggande nätverks maskin varan.  Detta gäller för VNet-peering-trafik.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Varför är min peering-anslutning i *frånkopplat* läge?
 VNet-peering-anslutningar övergår i *frånkopplat* tillstånd när en VNet-peering-länk tas bort. Du måste ta bort båda länkarna för att återupprätta en lyckad peer kopplings anslutning.

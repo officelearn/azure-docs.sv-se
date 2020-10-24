@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 9a37baaa80aadcf10f2bb2091a04fccb3fd9b504
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 2ce6959cf025d2e29f0ee3dfb3b29b3eaf5d4221
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428943"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490840"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mariadb"></a>Meddelande om planerat underhåll i Azure Database for MariaDB
 
@@ -63,7 +63,7 @@ Du kan antingen kontrol lera den planerade underhålls aviseringen på Azure Por
 
 Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar**finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md).
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>Kan jag styra eller ändra planerat underhåll för mina servrar när jag får en meddelande händelse?
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Kan jag avbryta eller skjuta upp planerat underhåll?
 
 Underhåll krävs för att hålla din server säker, stabil och uppdaterad. Det går inte att annullera eller skjuta upp händelsen planerat underhåll. När meddelandet har skickats till en viss Azure-region kan inte korrigerings schema ändringarna göras för någon enskild server i den regionen. Korrigeringen distribueras för hela regionen på samma gång. Azure Database for MariaDB-tjänsten är utformad för internt program i molnet som inte kräver detaljerad kontroll eller anpassning av tjänsten.
 

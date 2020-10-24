@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ede358cdbe533a32ff99fbd736e171463472e45c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461334"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494784"
 ---
 # <a name="manage-digital-twins"></a>Hantera digitala tvillingar
 
@@ -381,6 +381,8 @@ Ett exempel på hur du tar bort alla dubbla på en gång får du genom att ladda
 
 Du kan använda körbara-kod exemplet nedan för att skapa en dubbel, uppdatera dess information och ta bort den dubbla. 
 
+### <a name="set-up-the-runnable-sample"></a>Konfigurera körbara-exemplet
+
 Kodfragmentet använder [Room.jspå](https://github.com/Azure-Samples/digital-twins-samples/blob/master/AdtSampleApp/SampleClientApp/Models/Room.json) modell definitionen från [*självstudien: utforska digitala Azure-enheter med ett exempel på en klient-app*](tutorial-command-line-app.md). Du kan använda den här länken för att gå direkt till filen eller ladda ned den som en del av ett fullständigt exempel projekt från början till slut [här](/samples/azure-samples/digital-twins-samples/digital-twins-samples/).
 
 Innan du kör exemplet gör du följande:
@@ -392,7 +394,12 @@ Innan du kör exemplet gör du följande:
     dotnet add package Azure.identity
     ```
 
-Kör sedan exemplet.
+Du måste också konfigurera lokala autentiseringsuppgifter om du vill köra exemplet direkt. Nästa avsnitt går igenom detta.
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
+
+### <a name="run-the-sample"></a>Kör exemplet
+
+När du har slutfört ovanstående steg kan du köra följande exempel kod direkt.
 
 ```csharp
 using System;
@@ -555,8 +562,6 @@ Här är konsol resultatet av programmet ovan:
 ## <a name="manage-twins-with-cli"></a>Hantera dubbla med CLI
 
 Uppdelade kan också hanteras med hjälp av Azure Digitals flätade CLI. Du hittar kommandona i [_How-till: Använd Azure Digitals flätat CLI *](how-to-use-cli.md).
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="view-all-digital-twins"></a>Visa alla digitala dubbla
 

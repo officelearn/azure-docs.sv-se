@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: f90160ba58983414b5421542c6292f4570f1e10a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 708a7139aec7b8d3fe9e5f08df2c5e93b99d0668
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142841"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476798"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Felsöka problem när du använder Azure Cosmos DB Java SDK v4 med SQL API-konton
 
@@ -46,7 +46,7 @@ Börja med den här listan:
 För bästa prestanda:
 * Kontrol lera att appen körs i samma region som ditt Azure Cosmos DB-konto. 
 * Kontrol lera CPU-användningen på värden där appen körs. Om CPU-användningen är 50 procent eller mer kör du din app på en värd med en högre konfiguration. Eller så kan du distribuera belastningen på fler datorer.
-    * Om du kör programmet på Azure Kubernetes-tjänsten kan du [använda Azure Monitor för att övervaka processor användningen](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-analyze).
+    * Om du kör programmet på Azure Kubernetes-tjänsten kan du [använda Azure Monitor för att övervaka processor användningen](../azure-monitor/insights/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Anslutnings begränsning
 Anslutnings begränsning kan inträffa på grund av en [anslutnings gräns på en värddator] eller [Azure SNAT-port (Pat)].
@@ -62,13 +62,13 @@ Antalet tillåtna öppna filer, som identifieras som "nofile", måste ha minst d
 
 ##### <a name="azure-snat-pat-port-exhaustion"></a><a name="snat"></a>Port överbelastning för Azure SNAT (PAT)
 
-Om din app distribueras på Azure Virtual Machines utan en offentlig IP-adress, upprättar [Azure SNAT-portar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) som standard anslutningar till en slut punkt utanför den virtuella datorn. Antalet anslutningar som tillåts från den virtuella datorn till Azure Cosmos DB slut punkten begränsas av [Azure SNAT-konfigurationen](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+Om din app distribueras på Azure Virtual Machines utan en offentlig IP-adress, upprättar [Azure SNAT-portar](../load-balancer/load-balancer-outbound-connections.md#preallocatedports) som standard anslutningar till en slut punkt utanför den virtuella datorn. Antalet anslutningar som tillåts från den virtuella datorn till Azure Cosmos DB slut punkten begränsas av [Azure SNAT-konfigurationen](../load-balancer/load-balancer-outbound-connections.md#preallocatedports).
 
  Azure SNAT-portar används bara när den virtuella datorn har en privat IP-adress och en process från den virtuella datorn försöker ansluta till en offentlig IP-adress. Det finns två lösningar för att undvika begränsning av Azure SNAT:
 
-* Lägg till din Azure Cosmos DB tjänst slut punkt i under nätet för ditt Azure Virtual Machines virtuella nätverk. Mer information finns i [Azure Virtual Network Service-slutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Lägg till din Azure Cosmos DB tjänst slut punkt i under nätet för ditt Azure Virtual Machines virtuella nätverk. Mer information finns i [Azure Virtual Network Service-slutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md). 
 
-    När tjänstens slut punkt Aktiver ATS skickas inte längre begär Anden från en offentlig IP-adress till Azure Cosmos DB. I stället skickas det virtuella nätverket och under nätets identitet. Den här ändringen kan leda till att brand väggen släpper om bara offentliga IP-adresser är tillåtna. Om du använder en brand vägg, när du aktiverar tjänstens slut punkt, lägger du till ett undernät i brand väggen med hjälp av [Virtual Network ACL: er](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+    När tjänstens slut punkt Aktiver ATS skickas inte längre begär Anden från en offentlig IP-adress till Azure Cosmos DB. I stället skickas det virtuella nätverket och under nätets identitet. Den här ändringen kan leda till att brand väggen släpper om bara offentliga IP-adresser är tillåtna. Om du använder en brand vägg, när du aktiverar tjänstens slut punkt, lägger du till ett undernät i brand väggen med hjälp av [Virtual Network ACL: er](/previous-versions/azure/virtual-network/virtual-networks-acl).
 * Tilldela en offentlig IP-adress till din virtuella Azure-dator.
 
 ##### <a name="cant-reach-the-service---firewall"></a><a name="cant-connect"></a>Det går inte att kontakta tjänsten – brand väggen
@@ -217,5 +217,3 @@ Många anslutningar till Azure Cosmos DB slut punkten kan vara i det här `CLOSE
 [Enable client SDK logging]: #enable-client-sice-logging
 [Anslutnings gräns på en värddator]: #connection-limit-on-host
 [Port överbelastning för Azure SNAT (PAT)]: #snat
-
-

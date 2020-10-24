@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 44084b7f37b326ad28dc6298f5393f95325fffae
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 87c95177970b488fe934355623c095bb93334a3c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282829"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488341"
 ---
 # <a name="create-a-keyspace-and-table-for-azure-cosmos-db---cassandra-api"></a>Skapa ett tecken utrymme och en tabell för Azure Cosmos DB-API för Cassandra
 
@@ -36,19 +36,19 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 |**Azure Cosmos DB**| |
-| [New-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Skapar ett Cosmos DB-konto. |
-| [New-AzCosmosDBCassandraKeyspace](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandrakeyspace) | Skapar ett Cosmos DB API för Cassandrat tecken utrymme. |
-| [New-AzCosmosDBCassandraClusterKey](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraclusterkey) | Skapar en Cosmos DB API för Cassandra kluster nyckel. |
-| [New-AzCosmosDBCassandraColumn](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | Skapar en Cosmos DB API för Cassandra-kolumn. |
-| [New-AzCosmosDBCassandraSchema](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandraschema) | Skapar ett Cosmos DB API för Cassandras schema. |
-| [New-AzCosmosDBCassandraTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/new-azcosmosdbcassandratable) | Skapar en Cosmos DB API för Cassandra tabell. |
+| [New-AzCosmosDBAccount](/powershell/module/az.cosmosdb/new-azcosmosdbaccount) | Skapar ett Cosmos DB-konto. |
+| [New-AzCosmosDBCassandraKeyspace](/powershell/module/az.cosmosdb/new-azcosmosdbcassandrakeyspace) | Skapar ett Cosmos DB API för Cassandrat tecken utrymme. |
+| [New-AzCosmosDBCassandraClusterKey](/powershell/module/az.cosmosdb/new-azcosmosdbcassandraclusterkey) | Skapar en Cosmos DB API för Cassandra kluster nyckel. |
+| [New-AzCosmosDBCassandraColumn](/powershell/module/az.cosmosdb/new-azcosmosdbcassandracolumn) | Skapar en Cosmos DB API för Cassandra-kolumn. |
+| [New-AzCosmosDBCassandraSchema](/powershell/module/az.cosmosdb/new-azcosmosdbcassandraschema) | Skapar ett Cosmos DB API för Cassandras schema. |
+| [New-AzCosmosDBCassandraTable](/powershell/module/az.cosmosdb/new-azcosmosdbcassandratable) | Skapar en Cosmos DB API för Cassandra tabell. |
 |**Resurs grupper i Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/).

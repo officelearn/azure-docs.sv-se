@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 5c9ec20ffe52c23c2dec5a624fc157da7ebd4a41
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 749e0f7c2d79c03be052869d7d1d9539976a09c5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330945"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489310"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrera data till Azure Cosmos DB API för Cassandra konto med Striims
 
@@ -20,9 +20,9 @@ Striims-avbildningen på Azure Marketplace erbjuder kontinuerlig data förflyttn
 
 Den här artikeln visar hur du använder Striims för att migrera data från en **Oracle-databas** till ett **Azure Cosmos DB API för Cassandra konto**.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Om du inte har en [Azure-prenumeration](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+* Om du inte har en [Azure-prenumeration](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
 * En Oracle-databas som körs lokalt med vissa data i den.
 

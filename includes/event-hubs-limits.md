@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/10/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d0015868f6b53c2903b83795839e2dbcffd09ce4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ea1ac064799b0cede1de82851a514a2b389f20aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116777"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499113"
 ---
 Följande tabeller innehåller kvoter och begränsningar som är begränsade till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om Event Hubs priser finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="common-limits-for-all-tiers"></a>Vanliga gränser för alla nivåer
 Följande begränsningar är gemensamma för alla nivåer. 
 
-| Gräns |  Kommentarer | Värde |
+| Gräns |  Anteckningar | Värde |
 | --- |  --- | --- |
 | Antal Event Hubs namn rymder per prenumeration |- |100 |
 | Antal Event Hub per namnrymd | Efterföljande begär Anden om att skapa en ny händelsehubben avvisas. |10 |
@@ -36,7 +36,7 @@ Följande begränsningar är gemensamma för alla nivåer.
 ### <a name="basic-and-standard-tiers"></a>Basic-och standard-nivåer
 I följande tabell visas de gränser som kan vara olika för nivåerna Basic och standard. 
 
-| Gräns | Kommentarer | Basic | Standard |
+| Gräns | Anteckningar | Basic | Standard |
 | --- |  --- | -- | --- |
 | Maximal storlek för Event Hubs händelse| &nbsp; | 256 kB | 1 MB |
 | Antal konsument grupper per Event-hubb | &nbsp; |1 |20 |
@@ -47,7 +47,9 @@ I följande tabell visas de gränser som kan vara olika för nivåerna Basic och
 ### <a name="dedicated-tier"></a>Dedikerad nivå
 Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
 
-| Funktion | Gränser |
+Läs det här [dokumentet](https://docs.microsoft.com/azure/event-hubs/event-hubs-dedicated-cluster-create-portal) om hur du skapar dedikerat Event Hubs kluster med Azure Portal.
+
+| Funktion | Begränsningar |
 | --- | ---|
 | Bandbredd |  20 CUs |
 | Namnrymder | 50 per CU |

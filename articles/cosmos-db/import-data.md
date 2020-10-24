@@ -4,25 +4,27 @@ description: 'Självstudie: Lär dig hur du använder Azure Cosmos DB för data 
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 16412e6949bd6bf3d9496b33a900a0331bd1e9fb
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 8613d3b02d396f16008ee771cdff25fe8b2e2f10
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278152"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490653"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Självstudie: Använda datamigreringsverktyget för att migrera data till Azure Cosmos DB
 
 Den här självstudien innehåller anvisningar för hur du använder datamigreringsverktyget i Azure Cosmos DB, som kan importera data från olika källor till containrar och tabeller i Azure Cosmos DB. Du kan importera från JSON-filer, CSV-filer, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB och till och med Azure Cosmos DB SQL API-samlingar. Du migrerar dessa data till samlingar och tabeller för användning med Azure Cosmos DB. Datamigreringsverktyget kan också användas när du migrerar från en enda partitionssamling till en samling med flera partitioner för SQL API.
 
-Vilken API ska du använda med Azure Cosmos DB?
+> [!NOTE]
+> Verktyget Azure Cosmos DB datamigrering är ett verktyg för öppen källkod som har utformats för små migreringar. För större migreringar, se vår [Guide för att](cosmosdb-migrationchoices.md)mata in data.
 
-* **[SQL API](documentdb-introduction.md)** – Du kan använda något av källalternativen i datamigreringsverktyget när du importerar data.
-* **[Tabell-API](table-introduction.md)** – Du kan använda datamigreringsverktyget eller AzCopy när du importerar data. Se [Importera data för användning med Azure Cosmos DB Table-API](table-import.md) för mer information.
-* **[Azure Cosmos DB-API för MongoDB](mongodb-introduction.md)** – Datamigreringsverktyget har för närvarande inte stöd för Azure Cosmos DB API för MongoDB vare sig som en källa eller som ett mål. Om du vill migrera data inom eller utanför samlingar i Azure Cosmos DB hittar du instruktioner i [Hur du migrerar MongoDB-data till en Cosmos-databas med Azure Cosmos DB API för MongoDB](mongodb-migrate.md). Du kan fortfarande använda datamigreringsverktyget till att exportera data från MongoDB till Azure Cosmos DB SQL API-samlingar för användning med SQL API.
-* **[Gremlin API](graph-introduction.md)** – Datamigreringsverktyget är ett importverktyg som saknar stöd för Gremlin API-konton för närvarande.
+* **[SQL-API](./introduction.md)** – du kan använda något av de käll alternativ som anges i verktyget datamigrering för att importera data till en liten skala. [Lär dig mer om migrerings alternativ för att importera data i stor skala](cosmosdb-migrationchoices.md).
+* **[Tabell-API](table-introduction.md)** – du kan importera data med hjälp av verktyget datamigrering eller [AzCopy](table-import.md#migrate-data-by-using-azcopy) . Se [Importera data för användning med Azure Cosmos DB Table-API](table-import.md) för mer information.
+* **[Azure Cosmos DB s API för MongoDB](mongodb-introduction.md)** – verktyget datamigrering stöder inte Azure Cosmos DBS API för MongoDB antingen som en källa eller som mål. Om du vill migrera data i eller ut ur samlingar i Azure Cosmos DB, se [hur du migrerar MongoDB-data till en Cosmos-databas med Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json) för instruktioner. Du kan fortfarande använda datamigreringsverktyget till att exportera data från MongoDB till Azure Cosmos DB SQL API-samlingar för användning med SQL API.
+* **[API för Cassandra](graph-introduction.md)** -verktyget datamigrering är inte ett import verktyg som stöds för API för Cassandra-konton. [Lär dig mer om migrerings alternativ för att importera data till API för Cassandra](cosmosdb-migrationchoices.md#azure-cosmos-db-cassandra-api)
+* **[Gremlin API](graph-introduction.md)** – Datamigreringsverktyget är ett importverktyg som saknar stöd för Gremlin API-konton för närvarande. [Lär dig mer om migrerings alternativ för att importera data till Gremlin-API](cosmosdb-migrationchoices.md#other-apis) 
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -42,7 +44,7 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du utför
 * **Skapa Azure Cosmos DB-resurser:** Innan du börjar migrera data skapar du alla dina samlingar i förväg från Azure-portalen. Om du vill migrera till ett Azure Cosmos DB konto som har data flöde på databas nivå, anger du en partitionsnyckel när du skapar Azure Cosmos-behållare.
 
 > [!IMPORTANT]
-> För att se till att verktyget datamigrering använder Transport Layer Security (TLS) 1,2 när du ansluter till dina Azure Cosmos-konton, använder du .NET Framework version 4,7 eller följer instruktionerna i [den här artikeln](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
+> För att se till att verktyget datamigrering använder Transport Layer Security (TLS) 1,2 när du ansluter till dina Azure Cosmos-konton, använder du .NET Framework version 4,7 eller följer instruktionerna i [den här artikeln](/dotnet/framework/network-programming/tls).
 
 ## <a name="overview"></a><a id="Overviewl"></a>Översikt
 
@@ -58,6 +60,9 @@ Datamigreringsverktyget är en lösning med öppen källkod som importerar data 
 * Azure Cosmos-containrar
 
 Även om importverktyget innehåller ett grafiskt användargränssnitt (dtui.exe), kan det också köras från kommandoraden (dt.exe). Det finns faktiskt ett alternativ till att få utdata från ett associerat kommando när du har konfigurerat en import via användargränssnittet. Du kan transformera tabellkälldata, till exempel SQL Server- eller CSV-filer, för att skapa hierarkiska relationer (underdokument) vid import. Om du vill kan du läsa mer om källalternativ, exempelkommandon för att importera från varje källa, målalternativ och hur du ser de importerade resultaten.
+
+> [!NOTE]
+> Du bör endast använda verktyget Azure Cosmos DB migrering för små migreringar. För stora migreringar, se vår [Guide för att](cosmosdb-migrationchoices.md)mata in data.
 
 ## <a name="installation"></a><a id="Install"></a>Installation
 
@@ -124,7 +129,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a name="import-from-mongodb"></a><a id="MongoDB"></a>Importera från MongoDB
 
 > [!IMPORTANT]
-> Om du importerar till ett Cosmos-konto som har konfigurerats med Azure Cosmos DB API för MongoDB, följer du dessa [instruktioner](mongodb-migrate.md).
+> Om du importerar till ett Cosmos-konto som har konfigurerats med Azure Cosmos DB API för MongoDB, följer du dessa [instruktioner](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
 
 Med importverktygets alternativ för MongoDB-källor kan du importera från en enskild MongoDB-samling, filtrera dokument med hjälp av en fråga (valfritt) och ändra dokumentstrukturen med hjälp av en projektion.  
 
@@ -152,7 +157,7 @@ dt.exe /s:MongoDB /s.ConnectionString:mongodb://<dbuser>:<dbpassword>@<host>:<po
 ## <a name="import-mongodb-export-files"></a><a id="MongoDBExport"></a>Importera MongoDB-exportfiler
 
 > [!IMPORTANT]
-> Om du importerar till ett Azure Cosmos DB-konto med stöd för MongoDB, följer du dessa [anvisningar](mongodb-migrate.md).
+> Om du importerar till ett Azure Cosmos DB-konto med stöd för MongoDB, följer du dessa [anvisningar](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json).
 
 Med importverktygets alternativ för MongoDB-export av JSON-filkällor, kan du importera en eller flera JSON-filer som skapats med verktyget mongoexport.  
 
@@ -237,7 +242,7 @@ Formatet för anslutningssträngen till Azure Table Storage är:
 > [!NOTE]
 > Använd kommandot Kontrollera för att se att den angivna Azure Table Storage-instansen är tillgänglig i anslutningssträngens fält.
 
-Ange namnet på Azure-tabellen som du ska importera från. Du kan också ange ett [filter](../vs-azure-tools-table-designer-construct-filter-strings.md).
+Ange namnet på Azure-tabellen som du ska importera från. Du kan också ange ett [filter](/visualstudio/azure/vs-azure-tools-table-designer-construct-filter-strings).
 
 Importverktygets alternativ för Azure Table Storage-källor innehåller dessutom följande extra alternativ:
 
@@ -292,7 +297,7 @@ Anslutningssträngen för Azure Cosmos DB har följande format:
 
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;`
 
-Du kan hämta Azure Cosmos DB-kontoanslutningssträngen från sidan Nycklar i Azure-portalen, enligt beskrivningen i [Så här hanterar du ett Azure Cosmos DB-konto](manage-account.md). Dock måste namnet på databasen läggas till i anslutningssträngen i följande format:
+Du kan hämta Azure Cosmos DB-kontoanslutningssträngen från sidan Nycklar i Azure-portalen, enligt beskrivningen i [Så här hanterar du ett Azure Cosmos DB-konto](./how-to-manage-database-account.md). Dock måste namnet på databasen läggas till i anslutningssträngen i följande format:
 
 `Database=<CosmosDB Database>;`
 
@@ -363,7 +368,7 @@ Anslutningssträngen för Azure Cosmos DB har följande format:
 
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;`
 
-Anslutningssträngen för Azure Cosmos DB-kontot kan hämtas från sidan Nycklar i Azure Portal, enligt beskrivningen i [Så här hanterar du ett konto i Azure Cosmos DB](manage-account.md), men namnet på databasen måste läggas till i anslutningssträngen i följande format:
+Anslutningssträngen för Azure Cosmos DB-kontot kan hämtas från sidan Nycklar i Azure Portal, enligt beskrivningen i [Så här hanterar du ett konto i Azure Cosmos DB](./how-to-manage-database-account.md), men namnet på databasen måste läggas till i anslutningssträngen i följande format:
 
 `Database=<CosmosDB Database>;`
 
@@ -422,7 +427,7 @@ Anslutningssträngen för Azure Cosmos DB har följande format:
 
 `AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;`
 
-Du kan hämta anslutningssträngen för Azure Cosmos DB-konto från sidan Nycklar i Azure-portalen, enligt beskrivningen i [Så här hanterar du ett Azure Cosmos DB-konto](manage-account.md). Dock måste namnet på databasen läggas till i anslutningssträngen i följande format:
+Du kan hämta anslutningssträngen för Azure Cosmos DB-konto från sidan Nycklar i Azure-portalen, enligt beskrivningen i [Så här hanterar du ett Azure Cosmos DB-konto](./how-to-manage-database-account.md). Dock måste namnet på databasen läggas till i anslutningssträngen i följande format:
 
 `Database=<Azure Cosmos database>;`
 

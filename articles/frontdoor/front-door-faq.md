@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 1b49ac357fd021b23272112a24ae9371d12bc042
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 18e32a0387119d235294d1126d869186ae28d2b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331591"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488987"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Vanliga frågor och svar om Azures front dörr
 
@@ -92,7 +92,6 @@ Om du vill låsa ditt program för att endast acceptera trafik från din specifi
 - Konfigurera IP-ACLing för dina Server delar för att acceptera trafik från Azure-klientens Server dels IP-adressutrymme och Azures infrastruktur tjänster. Se IP-informationen nedan för att ACLing din server del:
  
     - Mer information finns i avsnittet om *AzureFrontDoor. backend* i [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för IP-adressintervall för IPv4-backend-IP-adresser eller också kan du använda service tag- *AzureFrontDoor. backend* i dina [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md#security-rules).
-    - Klient delens IP-utrymme för **IPv6** -Server delen, som omfattas av tjänst tag gen, visas inte i JSON-filen för Azure IP-intervall. Om du letar efter explicit IPv6-adressintervall är den för närvarande begränsad till `2a01:111:2050::/44`
     - Azures [grundläggande infrastruktur tjänster](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) via virtualiserade värd-IP-adresser: `168.63.129.16` och `169.254.169.254`
 
     > [!WARNING]

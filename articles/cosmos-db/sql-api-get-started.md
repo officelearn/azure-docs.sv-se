@@ -9,19 +9,19 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 587fe536e860f3039bfd3a2d2c1e3c76cb40e4d5
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 804330d44d63aa70076a7387aacfbbd3b4f742c9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278463"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480997"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Självstudie: Bygg en .NET-konsol-app för att hantera data i Azure Cosmos DB SQL API-konto
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Async Java](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Async Java](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
@@ -157,7 +157,7 @@ Grattis! Du har anslutit till ett Azure Cosmos DB-konto.
 
 ## <a name="step-4-create-a-database"></a>Steg 4: Skapa en databas
 
-En databas är en logisk container med objekt som är partitionerade över containrar. Antingen- `CreateDatabaseIfNotExistsAsync` eller- `CreateDatabaseAsync` metoden för [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient) -klassen kan skapa en databas.
+En databas är en logisk container med objekt som är partitionerade över containrar. Antingen- `CreateDatabaseIfNotExistsAsync` eller- `CreateDatabaseAsync` metoden för [CosmosClient](/dotnet/api/microsoft.azure.cosmos.cosmosclient) -klassen kan skapa en databas.
 
 1. Kopiera och klistra in `CreateDatabaseAsync` metoden under `GetStartedDemoAsync` metoden.
 
@@ -345,7 +345,7 @@ Grattis! Du har skapat två Azure Cosmos-objekt.
 
 ## <a name="step-7-query-azure-cosmos-db-resources"></a><a id="Query"></a>Steg 7: Skicka frågor mot Azure Cosmos DB-resurser
 
-Azure Cosmos DB stöder komplexa frågor mot JSON-dokument som lagras i varje container. Mer information finns i [komma igång med SQL-frågor](sql-api-sql-query.md). I följande exempelkod visas hur du kör en fråga mot de objekt som vi infogade i det föregående steget.
+Azure Cosmos DB stöder komplexa frågor mot JSON-dokument som lagras i varje container. Mer information finns i [komma igång med SQL-frågor](./sql-query-getting-started.md). I följande exempelkod visas hur du kör en fråga mot de objekt som vi infogade i det föregående steget.
 
 1. Kopiera och klistra in `QueryItemsAsync` metoden efter din `AddItemsToContainerAsync` metod.
 
@@ -497,8 +497,8 @@ Då är det bara att bygga den, så är du på väg!
 
 * Behöver du en mer komplex ASP.NET MVC-självstudiekurs? Se [självstudie: utveckla ett ASP.net Core MVC-webbprogram med Azure Cosmos dB med hjälp av .NET SDK](sql-api-dotnet-application.md).
 * Vill du skala och testa prestanda med Azure Cosmos DB? Se [prestanda-och skalnings testning med Azure Cosmos DB](performance-testing.md).
-* Information om hur du övervakar Azure Cosmos DB begär Anden, användning och lagring finns i [övervaka prestanda och lagrings mått i Azure Cosmos DB](monitor-accounts.md).
+* Information om hur du övervakar Azure Cosmos DB begär Anden, användning och lagring finns i [övervaka prestanda och lagrings mått i Azure Cosmos DB](./monitor-cosmos-db.md).
 * Information om hur du kör frågor mot vår exempel data uppsättning finns i [testplats för databasfrågor](https://www.documentdb.com/sql/demo).
-* Läs mer om Azure Cosmos DB i [Välkommen till Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
+* Läs mer om Azure Cosmos DB i [Välkommen till Azure Cosmos DB](./introduction.md).
 
 [cosmos-db-create-account]: create-sql-api-java.md#create-a-database-account

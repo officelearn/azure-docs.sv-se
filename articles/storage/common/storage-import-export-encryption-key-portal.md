@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d0a1826dafd1e6ce6202dc4f29417a1ce100e54f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 345fd486788cfbb69454be488d771d9b4ea394ab
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83195243"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488647"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Använda Kundhanterade nycklar i Azure Key Vault för import/export-tjänsten
 
@@ -101,9 +101,9 @@ Om du får fel som rör din kund hanterade nyckel kan du använda följande tabe
 |----------------|------------|-----------------|
 | CmkErrorAccessRevoked | Åtkomst till kundens hanterade nyckel har återkallats.                                                       | Ja, kontrol lera om: <ol><li>Key Vault har fortfarande MSI i åtkomst principen.</li><li>Åtkomst principen har behörigheterna get, wrap och unwrap aktiverat.</li><li>Om nyckel valvet finns i ett VNet bakom brand väggen kontrollerar du om **Tillåt Microsoft-betrodda tjänster** är aktiverat.</li><li>Kontrol lera att MSI för jobb resursen har återställts till att `None` använda API: er.<br>Om ja, ange värdet tillbaka till `Identity = SystemAssigned` . Detta återskapar identiteten för jobb resursen.<br>När den nya identiteten har skapats, aktivera `Get` , `Wrap` och `Unwrap` behörighet till den nya identiteten i nyckel valvets åtkomst princip</li></ol>                                                                                            |
 | CmkErrorKeyDisabled      | Den kund hanterade nyckeln är inaktive rad.                                         | Ja, genom att aktivera nyckel versionen     |
-| CmkErrorKeyNotFound      | Det går inte att hitta kundens hanterade nyckel. | Ja, om nyckeln har tagits bort men fortfarande ligger inom rensnings tiden, använder du [ångra borttagning av nyckel valv](https://docs.microsoft.com/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Tilläggs <ol><li>Ja, om kunden har säkerhets kopie rad nyckeln och återställer den.</li><li>Nej, annars.</li></ol>
-| CmkErrorVaultNotFound |Det går inte att hitta nyckel valvet för kundens hanterade nyckel. |   Om nyckel valvet har tagits bort:<ol><li>Ja, om det är i rensnings skydds tiden, med hjälp av stegen i [återställa ett nyckel valv](https://docs.microsoft.com/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Nej, om det ligger utanför rensnings skyddets varaktighet.</li></ol><br>Om nyckel valvet har migrerats till en annan klient, ja, kan det återställas med hjälp av något av stegen nedan:<ol><li>Återställ Key Vault tillbaka till den gamla klienten.</li><li>Ange `Identity = None` och ange värdet tillbaka till `Identity = SystemAssigned` . Detta tar bort och återskapar identiteten när den nya identiteten har skapats. Aktivera `Get` , `Wrap` och `Unwrap` behörighet till den nya identiteten i nyckel valvets åtkomst princip.</li></ol>|
+| CmkErrorKeyNotFound      | Det går inte att hitta kundens hanterade nyckel. | Ja, om nyckeln har tagits bort men fortfarande ligger inom rensnings tiden, använder du [ångra borttagning av nyckel valv](/powershell/module/az.keyvault/undo-azkeyvaultkeyremoval).<br>Tilläggs <ol><li>Ja, om kunden har säkerhets kopie rad nyckeln och återställer den.</li><li>Nej, annars.</li></ol>
+| CmkErrorVaultNotFound |Det går inte att hitta nyckel valvet för kundens hanterade nyckel. |   Om nyckel valvet har tagits bort:<ol><li>Ja, om det är i rensnings skydds tiden, med hjälp av stegen i [återställa ett nyckel valv](/azure/key-vault/general/soft-delete-powershell#recovering-a-key-vault).</li><li>Nej, om det ligger utanför rensnings skyddets varaktighet.</li></ol><br>Om nyckel valvet har migrerats till en annan klient, ja, kan det återställas med hjälp av något av stegen nedan:<ol><li>Återställ Key Vault tillbaka till den gamla klienten.</li><li>Ange `Identity = None` och ange värdet tillbaka till `Identity = SystemAssigned` . Detta tar bort och återskapar identiteten när den nya identiteten har skapats. Aktivera `Get` , `Wrap` och `Unwrap` behörighet till den nya identiteten i nyckel valvets åtkomst princip.</li></ol>|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?
+- [Vad är Azure Key Vault](/azure/key-vault/key-vault-overview)?

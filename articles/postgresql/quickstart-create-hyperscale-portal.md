@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d4925b8ecb7768f1f49b2c971f7234d58339c056
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91268460"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481116"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Snabb start: skapa en citus-servergrupp (för skalning) i Azure Portal
 
@@ -138,5 +138,5 @@ I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror
 
 I den här snabb starten har du lärt dig hur du etablerar en Server grupp för storskaliga (citus). Du är ansluten till den med psql, skapat ett schema och distribuerade data.
 
-- Följ en självstudie för att [bygga skalbara program med flera klienter](https://aka.ms/hyperscale-tutorial-multi-tenant)
+- Följ en självstudie för att [bygga skalbara program med flera klienter](./tutorial-design-database-hyperscale-multi-tenant.md)
 - Fastställ bästa [initial storlek](howto-hyperscale-scaling.md#picking-initial-size) för Server gruppen

@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 900221bd27fe4020a927b3155c91aa8e494ca890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c88da1c7fba5d7cb51863a580ae420eb6b3298a2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203839"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491282"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Dataöverföring för stora datamängder med måttlig eller hög nätverksbandbredd
  
@@ -69,7 +69,7 @@ Om du använder offline-dataöverföring kan du använda följande tabell för a
 |    **Form faktor**                  |    5 SSD per order             |    1 X 50 – kg. enhet för Skriv bords storlek per beställning    |    1 X ~ 500 – kg. stor enhet per beställning    |    Upp till 10 hård diskar/SSD per beställning        |
 |    **Första installations tid**               |    Låg <br>(15 minuter)            |    Låg till måttlig <br> (<30 minuter)               |    Medel<br>(1-2 timmar)               |    Måttligt till svårt<br>variabel |
 |    **Skicka data till Azure**           |    Ja                          |    Ja                                           |    Ja                                   |    Ja                                 |
-|    **Exportera data från Azure**           |    Inga                           |    Inga                                            |    Inga                                    |    Ja                                 |
+|    **Exportera data från Azure**           |    Nej                           |    Nej                                            |    Nej                                    |    Ja                                 |
 |    **Kryptering**                   |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    **Maskinvara**                     |     Microsoft tillhandahålls          |    Microsoft tillhandahålls                            |    Microsoft tillhandahålls                    |    Kunden har tillhandahållit                   |
 |    **Nätverksgränssnitt**            |    USB 3.1/SATA                 |    RJ 45, SFP +                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
@@ -88,8 +88,8 @@ Om du använder data överföring online använder du tabellen i följande avsni
 |    **Datatyp**              |    Azure-blobbar, Azure Files, Azure-tabeller    |    Azure-blobbar, Azure Files, Azure-tabeller    |    Azure-blobbar, Azure Files                           |   Stöd för 70 + data anslutningar för data lager och format    |
 |    **Form faktor**            |    Kommandoradsverktyg                        |    Programmerings gränssnitt                    |    Microsoft tillhandahåller en virtuell <br>eller fysisk enhet     |    Tjänsten i Azure Portal                                            |
 |    **Inledande eng ång slöin ställning** |    Överskådlig               |    Medel                       |    Enkelt (<30 minuter) till måttlig (1-2 timmar)            |    Bredd                                                          |
-|    **För bearbetning av data**          |    Inga                                        |    Inga                                        |    Ja (med Edge Compute)                               |    Ja                                                                |
-|    **Överföring från andra moln**   |    Inga                                        |    Inga                                        |    Inga                                                    |    Ja                                                                |
+|    **För bearbetning av data**          |    Nej                                        |    Nej                                        |    Ja (med Edge Compute)                               |    Ja                                                                |
+|    **Överföring från andra moln**   |    Nej                                        |    Nej                                        |    Nej                                                    |    Ja                                                                |
 |    **Användar typ**                    |    IT-proffs eller utveckling                                       |    Dev                                       |    IT-proffs                                                |    IT-proffs                                                             |
 |    **Prissättning**                      |    Kostnads fritt gäller avgifterna för utgående data         |    Kostnads fritt gäller avgifterna för utgående data         |    [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
@@ -98,14 +98,14 @@ Om du använder data överföring online använder du tabellen i följande avsni
 - [Lär dig hur du överför data med import/export](/azure/storage/common/storage-import-export-data-to-blobs).
 - Förstå hur du
 
-    - [Överför data med data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Överför data med data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
+    - [Överför data med data Box disk](/azure/databox/data-box-disk-quickstart-portal).
+    - [Överför data med data Box-enhet](/azure/databox/data-box-quickstart-portal).
 - [Överför data med AZCopy](/azure/storage/common/storage-use-azcopy-v10).
 - Förstå hur du:
-    - [Överför data med data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformera data med data Box Edge innan du skickar dem till Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Lär dig hur du överför data med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
+    - [Överför data med data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
+    - [Transformera data med data Box Edge innan du skickar dem till Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
+- [Lär dig hur du överför data med Azure Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
 - Använd REST-API: er för att överföra data
 
-    - [I .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [I Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [I .NET](/dotnet/api/overview/azure/storage)
+    - [I Java](/java/api/overview/azure/storage)

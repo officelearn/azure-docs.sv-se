@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: azure-communication-services
 author: dademath
 manager: nimag
@@ -10,12 +10,12 @@ ms.date: 07/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: dademath
-ms.openlocfilehash: c044e9dc7b8ee622b157a93726e7700e62ba2dfa
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: c8bce6afd914a22be80a57ae234e39161d182b7f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779330"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499186"
 ---
 Kom igång med Azure Communication Services med hjälp av kommunikations tjänsterna C# SMS-klient biblioteket för att skicka SMS-meddelanden.
 
@@ -25,7 +25,7 @@ Att slutföra den här snabb starten innebär en låg kostnad av några USD cent
 
 [API reference documentation](../../../references/overview.md) | [Library source code](https://github.com/Azure/azure-sdk-for-net-pr/tree/feature/communication/sdk/communication/Azure.Communication.Sms#todo-update-to-public) | [Package (NuGet)](#todo-nuget) | [Samples](#todo-samples)-->
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - Den senaste versionen av [klient biblioteket för .net Core](https://dotnet.microsoft.com/download/dotnet-core) för ditt operativ system.
@@ -117,3 +117,7 @@ Kör programmet från program katalogen med `dotnet run` kommandot.
 ```console
 dotnet run
 ```
+
+## <a name="sample-code"></a>Exempelkod
+
+Du kan ladda ned exempel appen från [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendSMS)

@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3366f39f3aca8ad0114244c122d1003b5e9b91a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcc9ca0175e0e03c62c2ce2b91d8ec337756a3cc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90946667"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490109"
 ---
 # <a name="tutorial-deploy-django-app-with-app-service-and-azure-database-for-postgresql---flexible-server-preview"></a>Självstudie: Distribuera django-app med App Service och Azure Database for PostgreSQL-flexibel Server (för hands version)
 
@@ -22,13 +22,13 @@ ms.locfileid: "90946667"
 
 I den här självstudien får du lära dig hur du distribuerar ett django-program i Azure med hjälp av App Services och Azure Database for PostgreSQL-flexibel server i ett virtuellt nätverk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Du måste logga in på ditt konto med kommandot [AZ login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) . Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
+Du måste logga in på ditt konto med kommandot [AZ login](/cli/azure/authenticate-azure-cli) . Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
 
 ```azurecli
 az login

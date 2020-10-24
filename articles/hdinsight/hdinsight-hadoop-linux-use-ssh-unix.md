@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 02/28/2020
-ms.openlocfilehash: 074b1571cea6c102a00fcefe7934cad0ded8458d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0aa21dbe6dd59ab0ec616c4a848b41cdfd053142
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087664"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488137"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH
 
@@ -61,7 +61,7 @@ Om ditt SSH-konto skyddas med en nyckel måste klienten tillhandahålla den matc
 
 * De flesta klienter kan konfigureras att använda en __standardnyckel__. Exempelvis söker `ssh`-klienten efter en privat nyckel i `~/.ssh/id_rsa` i Linux- och Unix-miljöer.
 
-* Du kan ange __sökvägen till en privat nyckel__. Med `ssh`-klienten används `-i`-parametern för att ange sökvägen till den privata nyckeln. Exempelvis `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
+* Du kan ange __sökvägen till en privat nyckel__. Med `ssh`-klienten används `-i`-parametern för att ange sökvägen till den privata nyckeln. Till exempel `ssh -i ~/.ssh/id_rsa sshuser@myedge.mycluster-ssh.azurehdinsight.net`.
 
 * Om du har __flera privata nycklar__ för användning med olika servrar kan verktyg som [ssh-agent användas (https://en.wikipedia.org/wiki/Ssh-agent)](https://en.wikipedia.org/wiki/Ssh-agent). Verktyget `ssh-agent` kan användas för att automatiskt välja nyckeln som ska användas när en SSH-session etableras.
 
@@ -91,7 +91,7 @@ Du uppmanas att ange information under processen för att skapa nyckeln. Till ex
 | ------- | ------- |
 | Azure Portal | Avmarkera __Använd kluster inloggnings lösen ord för SSH__och välj sedan __offentlig nyckel__ som SSH-autentiseringstyp. Välj slutligen filen för den offentliga nyckeln eller klistra in textinnehållet från filen i fältet __Offentlig SSH-nyckel__.</br>![Dialogrutan Offentlig SSH-nyckel vid generering av HDInsight-kluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | Azure PowerShell | Använd `-SshPublicKey` parametern för cmdleten [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) och skicka innehållet i den offentliga nyckeln som en sträng.|
-| Azure CLI | Använd `--sshPublicKey` parametern för [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) kommandot och skicka innehållet i den offentliga nyckeln som en sträng. |
+| Azure CLI | Använd `--sshPublicKey` parametern för [`az hdinsight create`](/cli/azure/hdinsight#az-hdinsight-create) kommandot och skicka innehållet i den offentliga nyckeln som en sträng. |
 | Resource Manager-mall | Ett exempel på hur du använder SSH-nycklar med en mall finns i avsnittet [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) (Distribuera HDInsight i Linux med en SSH-nyckel). `publicKeys`-elementet i filen [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) används för att skicka nycklarna till Azure när klustret skapas. |
 
 ## <a name="authentication-password"></a>Autentisering: lösenord
@@ -110,7 +110,7 @@ SSH-konton kan skyddas med ett lösenord. När du ansluter till HDInsight med hj
 | --------------- | ---------------- |
 | Azure Portal | SSH-användarkontot har som standard samma lösenord som kontot för klusterinloggning. Om du vill använda ett annat lösen ord avmarkerar du __Använd kluster inloggnings lösen ord för SSH__och anger sedan lösen ordet i fältet __SSH-lösenord__ .</br>![Dialogrutan SSH-lösenord när ett HDInsight-kluster skapas](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
 | Azure PowerShell | Använd `--SshCredential` parametern för cmdleten [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) och skicka ett `PSCredential` objekt som innehåller SSH-användarkontots namn och lösen ord. |
-| Azure CLI | Använd `--ssh-password` parametern för [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) kommandot och ange lösen ordet. |
+| Azure CLI | Använd `--ssh-password` parametern för [`az hdinsight create`](/cli/azure/hdinsight#az-hdinsight-create) kommandot och ange lösen ordet. |
 | Resource Manager-mall | Ett exempel på hur du använder ett lösenord med en mall finns i [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) (Distribuera HDInsight i Linux med SSH-lösenord). `linuxOperatingSystemProfile`-elementet i filen [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) används för att skicka SSH-kontonamnet och SSH-lösenordet till Azure när klustret skapas.|
 
 ### <a name="change-the-ssh-password"></a>Ändra SSH-lösenordet
@@ -160,7 +160,7 @@ Head-noderna och Edge-noden (om det finns en) kan nås via Internet på portarna
     ```
 
 > [!IMPORTANT]  
-> I föregående exempel förutsätts att du använder lösenordsverifiering eller att certifikatautentisering sker automatiskt. Om du använder ett SSH-nyckelpar för autentisering och certifikatet inte används automatiskt, anger du den privata nyckeln med parametern `-i`. Exempelvis `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
+> I föregående exempel förutsätts att du använder lösenordsverifiering eller att certifikatautentisering sker automatiskt. Om du använder ett SSH-nyckelpar för autentisering och certifikatet inte används automatiskt, anger du den privata nyckeln med parametern `-i`. Till exempel `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
 När du är ansluten ändras prompten för att ange SSH-användarnamnet och noden som du är ansluten till. När du exempelvis är ansluten till den primära huvudnoden som `sshuser` visar fönstret `sshuser@<active-headnode-name>:~$`.
 

@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0123a89c4ec1c2c70326de1a2f685b08278333ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1fa14c4341c449c32fd6a5f6b3274b057478c01c
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461557"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495821"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Mata in IoT Hub telemetri i Azure Digitals, dubbla
 
@@ -22,7 +22,7 @@ Processen för att mata in data i Azure Digitals, är att konfigurera en extern 
 
 Det här dokumentet vägleder dig genom processen för att skriva en Azure-funktion som kan mata in telemetri från IoT Hub.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du fortsätter med det här exemplet måste du konfigurera följande resurser som krav:
 * **En IoT-hubb**. Anvisningar finns i avsnittet *skapa en IoT Hub* i [den här IoT Hub snabb](../iot-hub/quickstart-send-telemetry-cli.md)starten.
@@ -64,19 +64,15 @@ Modellen ser ut så här:
 
 Om du vill **överföra den här modellen till din dubbla instansen**öppnar du Azure CLI och kör följande kommando:
 
-```azurecli
+```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
-
 Sedan måste du **skapa en dubbel med den här modellen**. Använd följande kommando för att skapa en dubbla och ange 0,0 som första temperatur värde.
 
-```azurecli
+```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
-
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 Utdata från ett lyckat dubbelt skapande-kommando bör se ut så här:
 ```json
@@ -252,9 +248,7 @@ I självstudierna från slut punkt till slut punkt utför du följande steg:
 
 När du kör enhets simulatorn ovan ändras temperatur värdet för din digitala garn. I Azure CLI kör du följande kommando för att visa temperatur svärdet.
 
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
-
-```azurecli
+```azurecli-interactive
 az dt twin query -q "select * from digitaltwins" -n {digital_twins_instance_name}
 ```
 

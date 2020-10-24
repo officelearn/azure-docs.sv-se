@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: rohink
-ms.openlocfilehash: d6fabd58baf8fb3dc30c2468efd5bdc8179d5f95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a0aebc727233cdd838f3e1bf8eeb5cd247b9836
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84709206"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489684"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Värd zoner för omvänd DNS-sökning i Azure DNS
 
@@ -48,7 +48,7 @@ Namnet på en IPv4-zon för omvänd sökning baseras på det IP-adressintervall 
 
 I följande exempel visas hur du skapar en omvänd DNS-zon för klass C `2.0.192.in-addr.arpa` som heter i Azure DNS via Azure Portal:
 
- ![Fönstret "skapa DNS-zon" med ifyllda rutor](./media/dns-reverse-dns-hosting/figure2.png)
+ ![Skärm bild som visar hur du skapar en omvänd DNS-zon för klass C med namnet 2.0.192.in-addr. arpa i Azure DNS via Azure Portal.](./media/dns-reverse-dns-hosting/figure2.png)
 
 **Resurs gruppens plats** definierar platsen för resurs gruppen. Den har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid ”global” och visas inte.
 
@@ -117,7 +117,7 @@ Följande exempel vägleder dig genom processen att skapa en PTR-post i en omvä
 
 1. Välj **+ post uppsättning** längst upp i fönstret **DNS-zon** för att öppna fönstret **Lägg till uppsättning av poster** .
 
-   ![Knapp för att skapa en post uppsättning](./media/dns-reverse-dns-hosting/figure4.png)
+   ![Skärm bild av fönstret DNS-zon med en pil som pekar på knappen + post uppsättning.](./media/dns-reverse-dns-hosting/figure4.png)
 
 1. Namnet på post uppsättningen för en PTR-post måste vara resten av IPv4-adressen i omvänd ordning. 
 
@@ -162,7 +162,7 @@ Följande exempel vägleder dig genom processen med att skapa en ny PTR-post. In
 4. För **domän namn**anger du FQDN för den resurs som använder IP-adressen.
 5. Klicka på **OK** längst ned i fönstret för att skapa DNS-posten.
 
-![Fönstret Lägg till uppsättning av poster med ifyllda rutor i](./media/dns-reverse-dns-hosting/figure7.png)
+![Skärm bild som visar fönstret Lägg till post uppsättning med en pil som pekar på värdet i fältet typ.](./media/dns-reverse-dns-hosting/figure7.png)
 
 I följande exempel visas hur du utför den här uppgiften med hjälp av PowerShell eller Azure CLI.
 

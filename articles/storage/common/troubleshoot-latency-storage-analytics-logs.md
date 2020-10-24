@@ -10,12 +10,12 @@ ms.service: storage
 ms.subservice: common
 services: storage
 tags: ''
-ms.openlocfilehash: efae9cd2a73bf6df89007ac313ca6dfe6efe6ddd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c29fd00a19c930995d748027b2ec04eaa12a5ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075945"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480657"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>Felsöka långa svarstider med hjälp av loggar i Lagringsanalys
 
@@ -27,7 +27,7 @@ Följande steg visar hur du kan identifiera och felsöka latens problem med hjä
 
 ## <a name="recommended-steps"></a>Rekommenderade åtgärder
 
-1. Ladda ned [Lagringsanalys loggar](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
+1. Ladda ned [Lagringsanalys loggar](/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
 
 2. Använd följande PowerShell-skript för att konvertera RAW-formatet loggar till tabell format:
 
@@ -99,10 +99,10 @@ Följande steg visar hur du kan identifiera och felsöka latens problem med hjä
 
    | Blob-typ |RequestStatus =<br>Klart|RequestStatus =<br>SÄKERHETS NetworkError|Rekommendation|
    |---|---|---|---|
-   |GetBlob|Ja|Inga|[**GetBlob-åtgärd:** RequestStatus = lyckades](#getblob-operation-requeststatus--success)|
-   |GetBlob|Inga|Ja|[**GetBlob-åtgärd:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|Ja|Inga|[**Placerings åtgärd:** RequestStatus = lyckades](#put-operation-requeststatus--success)|
-   |PutBlob|Inga|Ja|[**Placerings åtgärd:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|Ja|Nej|[**GetBlob-åtgärd:** RequestStatus = lyckades](#getblob-operation-requeststatus--success)|
+   |GetBlob|Nej|Ja|[**GetBlob-åtgärd:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|Ja|Nej|[**Placerings åtgärd:** RequestStatus = lyckades](#put-operation-requeststatus--success)|
+   |PutBlob|Nej|Ja|[**Placerings åtgärd:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>Status resultat
 

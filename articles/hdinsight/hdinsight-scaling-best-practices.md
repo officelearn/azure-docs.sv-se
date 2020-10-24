@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 44cfc5b651bdd5dc0d7abee575bd964ad0b603d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874cea2377d3c0a128894bb67278e8ec2cbe7edc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505020"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490976"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -34,17 +34,17 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | [`az hdinsight resize`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
+|[Azure CLI](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Klassisk Azure CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
-|[Azure Portal](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
+|[Azure-portalen](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
 
 ![Alternativet Azure Portal skalnings kluster](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
 Med någon av dessa metoder kan du skala ditt HDInsight-kluster upp eller ned på några minuter.
 
 > [!IMPORTANT]  
-> * Den klassiska Azure CLI är inaktuell och bör endast användas med den klassiska distributions modellen. Använd [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)för alla andra distributioner.
-> * PowerShell-modulen AzureRM är föråldrad.  Använd AZ- [modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) när det är möjligt.
+> * Den klassiska Azure CLI är inaktuell och bör endast användas med den klassiska distributions modellen. Använd [Azure CLI](/cli/azure/)för alla andra distributioner.
+> * PowerShell-modulen AzureRM är föråldrad.  Använd AZ- [modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) när det är möjligt.
 
 ## <a name="impact-of-scaling-operations"></a>Effekt av skalnings åtgärder
 

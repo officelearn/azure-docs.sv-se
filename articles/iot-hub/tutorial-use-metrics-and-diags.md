@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - devx-track-azurecli
 - devx-track-csharp
-ms.openlocfilehash: b070d6600f18b87ec16f1f9894d577f4c0a6c51c
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 47cca5019277b2f4d0025ccb6743589a21dfaafa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149184"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480130"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Självstudie: Konfigurera och Använd mått och diagnostikloggar med IoT Hub
 
@@ -40,7 +40,7 @@ I den här självstudien utför du följande åtgärder:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 - Installera [Visual Studio](https://www.visualstudio.com/). 
 
@@ -138,7 +138,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 2. Leta upp **övervakningsavsnittet** på IoT Hub-bladet. Klicka på **Diagnostikinställningar**. 
 
-   ![Skärmbild som visar diagnostikinställningar för en del av IoT Hub-bladet.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
+   ![Skärm bild som visar diagnostikinställningar i avsnittet övervakning.](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
 3. Kontrollera att prenumerationen och resursgruppen är korrekta. Under **Resurstyp** avmarkerar du **Markera alla** och letar upp och markerar **IoT Hub**. (Om du *väljer alla* igen, ignoreras markeringen.) Under **resurs**väljer du hubbens namn. Skärmen bör se ut som på bilden: 
@@ -182,7 +182,7 @@ Konfigurera nu vissa mått att hålla utkik efter när meddelanden skickas till 
 
    Nu visar skärmen minimerade mått för *Telemetry messages sent* (Skickade telemetrimeddelanden), plus det nya måttet för *Total number of messages used* (Totalt antal använda meddelanden).
 
-   ![Skärmbild som visar när man lägger till ett mått för skickade telemetrimeddelanden.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
+   ![Skärm bild som visar knappen Fäst på instrument panelen.](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
    Klicka på **Fäst vid instrumentpanelen**. Det fästs på instrumentpanelen i Azure-portalen så att du har åtkomst till det igen. Om du inte fäster det på instrumentpanelen behålls inte dina inställningar.
 

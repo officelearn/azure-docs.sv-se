@@ -9,32 +9,32 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 509c6e7a7940cb740a3dcbf81deed9f0d26c2bc8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3f9261922a5d281e173fba9e833da2ba82e9102
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802862"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477818"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB asynkron Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
-> * [Våren data v2](sql-api-sdk-java-spring-v2.md)
-> * [Våren data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring-data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring-data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
-> * FLESTA (/rest/api
-> * [REST-resursprovider](/azure/azure-resource-manager/management/azure-services-resource-providers)
+> * [REST](/rest/api
+> * [REST Resource Provider](/azure/azure-resource-manager/management/azure-services-resource-providers)
 > * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Masskörningsbibliotek – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Masskörningsbibliotek – Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API async Java SDK skiljer sig från SQL API Java SDK genom att tillhandahålla asynkrona åtgärder med stöd för det [Netta biblioteket](https://netty.io/). Den befintliga [SQL API Java SDK](sql-api-sdk-java.md) har inte stöd för asynkrona åtgärder. 
 
@@ -45,7 +45,7 @@ SQL API async Java SDK skiljer sig från SQL API Java SDK genom att tillhandahå
 | |  |
 |---|---|
 | **SDK-hämtning** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) |
-|**API-dokumentation** |[Referens dokumentation för Java API](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable&preserve-view=true) | 
+|**API-dokumentation** |[Referens dokumentation för Java API](/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?preserve-view=true&view=azure-java-stable) | 
 |**Bidra till SDK** | [GitHub](https://github.com/Azure/azure-cosmosdb-java) | 
 |**Komma igång** | [Kom igång med asynkron Java SDK](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started) | 
 |**Kodexempel** | [GitHub](https://github.com/Azure/azure-cosmosdb-java#usage-code-sample)| 
@@ -57,5 +57,4 @@ SQL API async Java SDK skiljer sig från SQL API Java SDK genom att tillhandahå
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även
-Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan.
-
+Mer information om Cosmos DB finns på sidan om tjänsten [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

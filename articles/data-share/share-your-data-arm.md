@@ -1,22 +1,22 @@
 ---
 title: Dela utanför organisationen (ARM-mall) – snabb start för Azure Data resurs
-description: Lär dig hur du delar data med kunder och partner med Azure Data Resource och Resource Manager-mall i den här snabb starten.
+description: Lär dig hur du delar data med kunder och partner med hjälp av Azure Data Share och en Azure Resource Manager-mall (ARM-mall) i den här snabb starten.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146150"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487695"
 ---
-# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Snabb start: dela data med Azure Data Resource och Resource Manager-mallar
+# <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Snabb start: dela data med Azure Data Share och ARM-mall
 
-Lär dig hur du konfigurerar en ny Azure-Dataresurs från ett Azure Storage-konto genom att använda Azure Resource Manager mall och börja dela data med kunder och partner utanför Azure-organisationen. En lista över data lager som stöds finns i [data lager som stöds i Azure Data Share](./supported-data-stores.md).
+Lär dig hur du konfigurerar en ny Azure-Dataresurs från ett Azure Storage-konto med hjälp av en Azure Resource Manager mall (ARM-mall). Och börja dela dina data med kunder och partner utanför Azure-organisationen. En lista över data lager som stöds finns i [data lager som stöds i Azure Data Share](./supported-data-stores.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -38,12 +38,12 @@ Följande resurser definieras i mallen:
 
 * [Microsoft. Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts):
 * [Microsoft. Storage/storageAccounts/blobServices/containers](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
+* [Microsoft. DataShare/konton](/azure/templates/microsoft.datashare/accounts)
+* [Microsoft. DataShare/konton/resurser](/azure/templates/microsoft.datashare/accounts/shares)
 * [Microsoft. Storage/storageAccounts/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft. DataShare/konton](/rest/api/datashare/accounts/create)
-* [Microsoft. DataShare/konton/resurser](/rest/api/datashare/shares/create)
-* [Microsoft. DataShare/konton/resurser/data uppsättningar](/rest/api/datashare/datasets/create)
-* [Microsoft. DataShare/konton/resurser/inbjudningar](/rest/api/datashare/invitations/create)
-* [Microsoft. DataShare/Accounts/Shares/synchronizationSettings](/rest/api/datashare/synchronizationsettings/create)
+* [Microsoft. DataShare/konton/resurser/data uppsättningar](/azure/templates/microsoft.datashare/accounts/shares/datasets)
+* [Microsoft. DataShare/konton/resurser/inbjudningar](/azure/templates/microsoft.datashare/accounts/shares/invitations)
+* [Microsoft. DataShare/Accounts/Shares/synchronizationSettings](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
 Mallen utför följande uppgifter:
 
@@ -56,11 +56,11 @@ Mallen utför följande uppgifter:
 
 Den här mallen skapas i inlärnings syfte. I praktiken har du vanligt vis vissa data i ett befintligt lagrings konto. Du måste skapa roll tilldelningen innan du kör en mall eller ett skript för att skapa data uppsättningen. Ibland kan du få följande fel meddelande när du distribuerar mallen:
 
-```error message
+```plaintext
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Det beror på att distributionen försöker skapa data uppsättningen innan Azure Role-tilldelningen har slutförts. Trots fel meddelandet lyckades distributionen.  Du kan fortfarande gå igenom [granskade distribuerade resurser](#review-deployed-resources).
+Det beror på att distributionen försöker skapa data uppsättningen innan Azure Role-tilldelningen har slutförts. Trots fel meddelandet lyckades distributionen. Du kan fortfarande gå igenom [granskade distribuerade resurser](#review-deployed-resources).
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 

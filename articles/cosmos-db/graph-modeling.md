@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 6526119a8b20a7c60879fe690aefe96159b062a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409773"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490636"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Diagram data modellering för Azure Cosmos DB Gremlin-API
 
@@ -37,7 +37,7 @@ En diagram databas lösning kan tillämpas optimalt om entiteterna och relatione
 
 Om ovanstående villkor är uppfyllt är det troligt att en diagram databas metod ger fördelar för att **fråga komplexitet**, **skalbarhet för data modeller**och **fråga om prestanda**.
 
-Nästa steg är att avgöra om grafen ska användas för analys-eller transaktions syfte. Om grafen är avsedd att användas för tung beräkning och data bearbetnings arbets belastningar, skulle det vara värt att utforska [Cosmos DB Spark-anslutaren](https://docs.microsoft.com/azure/cosmos-db/spark-connector) och användningen av [Graphx-biblioteket](https://spark.apache.org/graphx/). 
+Nästa steg är att avgöra om grafen ska användas för analys-eller transaktions syfte. Om grafen är avsedd att användas för tung beräkning och data bearbetnings arbets belastningar, skulle det vara värt att utforska [Cosmos DB Spark-anslutaren](./spark-connector.md) och användningen av [Graphx-biblioteket](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Använda diagram objekt
 
@@ -45,7 +45,7 @@ Nästa steg är att avgöra om grafen ska användas för analys-eller transaktio
 
 Här följer de rekommenderade metoderna för egenskaperna i graf-objekten:
 
-| Objekt | Egenskap | Typ | Obs! |
+| Objekt | Egenskap | Typ | Anteckningar |
 | --- | --- | --- |  --- |
 | Punkten | ID | Sträng | Används unikt per partition. Om ett värde inte anges vid infogning, lagras ett GUID som genereras automatiskt. |
 | Punkten | etikett | Sträng | Den här egenskapen används för att definiera den typ av entitet som hörnen representerar. Om ett värde inte anges används ett standardvärde "hörn". |

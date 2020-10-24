@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 1b7cfa03aeb705ea7e7caf3254bc39d9fff722ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d50434ce3cca4e6f5082334bb91c3d569e2b1e1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546542"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talent-palette"></a>Självstudie: Azure Active Directory-integrering med Talent Palette
 
@@ -30,7 +30,7 @@ När du integrerar Talent Palette med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Talent Palette behöver du följande objekt:
 
@@ -100,13 +100,13 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Talent Pal
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om domän och URL:er för enkel inloggning med Talent Palette](common/both_replyurl.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange ett svar U R L.](common/both_replyurl.png)
 
     Skriv en URL i text rutan **svars-URL** med följande mönster:  `https://talent-p.net/saml/acs/<tenantID>`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om domän och URL:er för enkel inloggning med Talent Palette](common/both_signonurl.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/both_signonurl.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://talent-p.net/saml/sso/<tenantID>`
 
@@ -184,7 +184,7 @@ I det här avsnittet gör du så att Britta Simon kan använda enkel inloggning 
 
 ### <a name="create-talent-palette-test-user"></a>Skapa Talent Palette-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Talent Palette. Samarbeta med  [Talent Palette-supporten](mailto:talent-support@pa-consul.co.jp) med att lägga till användare på Talent Palette-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Talent Palette. Arbeta med [personal](mailto:talent-support@pa-consul.co.jp) för att lägga till användare i personal-paletten. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

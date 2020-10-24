@@ -11,18 +11,18 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fecdd65ae0dbf9faeb0e74e6446a9deaf8273106
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 2f3433075a1fddf116aae28666feb62473c6dbfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92075033"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476101"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategier för att läsa in data till en Synapse SQL-pool
 
-Traditionella SMP SQL-pooler använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Synapse SQL-pool i Azure Synapse Analytics har en arkitektur för massivt parallell bearbetning (MPP) som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser.
+Traditionella SMP SQL-pooler använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Synapse SQL, i Azure Synapse Analytics, använder arkitektur för distribuerad bearbetning av processer som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser.
 
-Om du använder en process för att extrahera, läsa in och transformera (ELT) används MPP och eliminerar de resurser som krävs för dataomvandling innan inläsningen.
+Genom att använda en process för extrahering, inläsning och transformering (ELT) används inbyggda funktioner för distribuerad frågekörning och eliminerar de resurser som krävs för dataomvandling innan inläsningen.
 
 SQL-poolen har stöd för många inläsnings metoder, inklusive populära SQL Server alternativ som [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [SqlBulkCopy-API](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), och det snabbaste och mest skalbara sättet att läsa in data är genom PolyBase externa tabeller och [kopierings instruktionen](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 

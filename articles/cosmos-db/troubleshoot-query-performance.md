@@ -8,12 +8,12 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 9d17ce5b3409d8b6bb24d42c2857ba22699e1364
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277167"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476713"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsöka problem med frågor när du använder Azure Cosmos DB
 
@@ -191,7 +191,7 @@ Indexerings princip har uppdaterats:
 
 **Avgift för ru:** 2,98 ru: er
 
-Du kan när som helst lägga till egenskaper till indexerings principen, utan någon påverkan på Skriv-eller Läs tillgänglighet. Du kan [spåra förloppet för index omvandling](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Du kan när som helst lägga till egenskaper till indexerings principen, utan någon påverkan på Skriv-eller Läs tillgänglighet. Du kan [spåra förloppet för index omvandling](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-system-functions-use-the-index"></a>Förstå vilka system funktioner som använder indexet
 
@@ -491,5 +491,5 @@ Frågor är utformade för att hämta resultat när den aktuella resultat gruppe
 I följande artiklar finns information om hur du mäter ru: er per fråga, hämtar körnings statistik för att finjustera dina frågor med mera:
 
 * [Hämta SQL-frågans körnings mått med hjälp av .NET SDK](profile-sql-api-query.md)
-* [Justera frågeprestanda med Azure Cosmos DB](sql-api-sql-query-metrics.md)
+* [Justera frågeprestanda med Azure Cosmos DB](./sql-api-query-metrics.md)
 * [Prestandatips för .NET SDK](performance-tips.md)

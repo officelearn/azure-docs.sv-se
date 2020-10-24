@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667443"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495992"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 
@@ -30,7 +30,7 @@ I den här artikeln får du lära dig:
 
 Studio erbjuder flera redigerings upplevelser beroende på typ av projekt och användar upplevelse.
 
-+ **Anteckningsböcker**
++ **Notebook-filer**
 
   Skriv och kör din egen kod i hanterade [Jupyter Notebook servrar](how-to-run-jupyter-notebooks.md) som är direkt integrerade i Studio. 
 
@@ -98,7 +98,9 @@ I följande tabell sammanfattas viktiga skillnader mellan ML Studio (klassisk) o
 ## <a name="next-steps"></a>Nästa steg
 
 Besök [Studio](https://ml.azure.com)eller utforska de olika redigerings alternativen med de här självstudierna:  
-  + [Använd python-anteckningsböcker för att träna & distribuera modeller](tutorial-1st-experiment-sdk-setup.md)
+
+- + [Kom igång i din egen utvecklings miljö](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Använd Jupyter notebooks på en beräknings instans för att träna & distribuera modeller](tutorial-1st-experiment-sdk-setup.md)
   + [Använd automatisk maskin inlärning för att träna & distribuera modeller](tutorial-first-experiment-automated-ml.md)  
   + [Använd designern för att träna & distribuera modeller](tutorial-designer-automobile-price-train-score.md)
 

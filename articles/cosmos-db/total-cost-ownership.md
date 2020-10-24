@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 1e6d0343a68d502fb567f6010b8c8b3043e282a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569490"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477002"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Total ägande kostnad (TCO) med Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Etablerings modellen utan server för Azure Cosmos DB eliminerar behovet av att 
 
 * **Du betalar per timme:** För storskaliga arbets belastningar som behöver skalas när som helst debiteras du bara per timme. Arbets belastningarna i ett program varierar ofta över tiden på året och av de data som efter frågas. Med Azure Cosmos DB kan du skala upp eller ned efter behov och bara betala för det du behöver. Med lokala eller IaaS-värdbaserade system kan du inte matcha den här modellen eftersom det inte finns något sätt att inaktivera maskin varan varje timme. I sådana fall kan du eventuellt spara mellan 10 och 14 gånger i genomsnitt med Azure Cosmos DB.
 
-* **Du får flera funktioner kostnads fritt:** I Azure Cosmos DB är Skriv arbets belastningar avsevärt billigare jämfört med alternativa databas tjänster. Dessutom erbjuder Azure Cosmos DB funktioner som till exempel [Automatisk indexering](indexing-policies.md), [Time to Live (TTL)](time-to-live.md), [ändrings flöde](change-feed.md) och andra utan ytterligare avgifter, något som annars debiteras av andra databas tjänster.
+* **Du får flera funktioner kostnads fritt:** I Azure Cosmos DB är Skriv arbets belastningar avsevärt billigare jämfört med alternativa databas tjänster. Dessutom erbjuder Azure Cosmos DB funktioner som till exempel [Automatisk indexering](index-policy.md), [Time to Live (TTL)](time-to-live.md), [ändrings flöde](change-feed.md) och andra utan ytterligare avgifter, något som annars debiteras av andra databas tjänster.
 
 * **Använder enhetlig valuta för olika arbets belastningar:** Till skillnad från alternativa erbjudanden i Azure Cosmos DB behöver du inte segmentera arbets belastningar, till exempel i läsningar och skrivningar. Eller etablera data flöde på en typ av per arbets belastning som är läst genom strömning eller Skriv data flöde. I Azure Cosmos DB reserveras det etablerade data flödet med en enhetlig och normaliserad valuta i termer av enheter för programbegäran eller RU/SEK. Azure Cosmos DB tvingar dig inte att tilldela arbets belastningarna prioritet, utföra kapacitets planering eller betala för varje typ av kapacitet separat. Med den här metoden kan du enkelt växla samma RU/s mellan olika åtgärder och arbets belastnings typer.
 
@@ -63,6 +63,6 @@ Etablerings modellen utan server för Azure Cosmos DB eliminerar behovet av att 
 * Läs mer om hur du [optimerar data flödes kostnaden](optimize-cost-throughput.md)
 * Läs mer om hur du [optimerar lagrings kostnader](optimize-cost-storage.md)
 * Läs mer om hur [du optimerar kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
-* Lär dig mer om hur [du optimerar kostnaden för frågor](optimize-cost-queries.md)
+* Lär dig mer om hur [du optimerar kostnaden för frågor](./optimize-cost-reads-writes.md)
 * Lär dig mer om hur [du optimerar kostnaden för Cosmos-konton med flera regioner](optimize-cost-regions.md)
 * Läs mer om [den totala kostnaden för (icke) ägarskap av en NoSQL Database-moln tjänst](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)

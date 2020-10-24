@@ -7,12 +7,12 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 7f0a8fcb841399eb910f5f043cc75ddad037ee30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606860"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482255"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Planera och hantera kostnader för Azure Cosmos DB
 
@@ -45,7 +45,7 @@ Följande skärm bild visar data flödet och kostnads uppskattningen med hjälp 
 
 Om du planerar att använda Azure Cosmos DB i Server lös läge måste du uppskatta hur många enheter för [programbegäran](request-units.md) och GB lagrings utrymme som du kan använda varje månad. Du kan beräkna den nödvändiga mängden enheter för programbegäran genom att utvärdera antalet databas åtgärder som ska utfärdas under en månad och multiplicera deras belopp med motsvarande RU-kostnad. I följande tabell visas de uppskattade RU-avgifterna för vanliga databas åtgärder:
 
-| Åtgärd | Beräknad kostnad | Obs! |
+| Åtgärd | Beräknad kostnad | Anteckningar |
 | --- | --- | --- |
 | Skapa ett objekt | 5 ru: er | Genomsnittlig kostnad för ett 1 KB-objekt med färre än 5 egenskaper att indexera |
 | Uppdatera ett objekt | 10 RU:er | Genomsnittlig kostnad för ett 1 KB-objekt med färre än 5 egenskaper att indexera |
@@ -75,13 +75,13 @@ När du börjar använda Azure Cosmos DB resurser från Azure Portal kan du se d
 
 ## <a name="use-budgets-and-cost-alerts"></a>Använda budgetar och kostnadsaviseringar
 
-Du kan skapa [budgetar](../cost-management/tutorial-acm-create-budgets.md) för att hantera kostnader och skapa aviseringar som automatiskt meddelar mottagarna om kostnadsavvikelser och risker för överförbrukning. Aviseringar baseras på utgifter jämfört med budget- och kostnadströsklar. Budgetar och aviseringar skapas för Azure-prenumerationer och resurs grupper, så de är användbara som en del av en övergripande kostnads övervaknings strategi. De kan dock ha begränsade funktioner för att hantera enskilda kostnader för Azure-tjänster, till exempel kostnaden för Azure Cosmos DB eftersom de är utformade för att spåra kostnader på en högre nivå.
+Du kan skapa [budgetar](../cost-management-billing/costs/tutorial-acm-create-budgets.md) för att hantera kostnader och skapa aviseringar som automatiskt meddelar mottagarna om kostnadsavvikelser och risker för överförbrukning. Aviseringar baseras på utgifter jämfört med budget- och kostnadströsklar. Budgetar och aviseringar skapas för Azure-prenumerationer och resurs grupper, så de är användbara som en del av en övergripande kostnads övervaknings strategi. De kan dock ha begränsade funktioner för att hantera enskilda kostnader för Azure-tjänster, till exempel kostnaden för Azure Cosmos DB eftersom de är utformade för att spåra kostnader på en högre nivå.
 
-Om din Azure-prenumeration har en utgifts gräns hindrar Azure dig från att behöva spendera på ditt kredit belopp. När du skapar och använder Azure-resurser används dina krediter. När du når din kredit gräns inaktive ras de resurser som du har distribuerat för resten av fakturerings perioden. Du kan inte ändra kredit gränsen, men du kan ta bort den. Mer information om utgifts gränser finns i [utgifts gränsen för Azure](../billing/billing-spending-limit.md).
+Om din Azure-prenumeration har en utgifts gräns hindrar Azure dig från att behöva spendera på ditt kredit belopp. När du skapar och använder Azure-resurser används dina krediter. När du når din kredit gräns inaktive ras de resurser som du har distribuerat för resten av fakturerings perioden. Du kan inte ändra kredit gränsen, men du kan ta bort den. Mer information om utgifts gränser finns i [utgifts gränsen för Azure](../cost-management-billing/manage/spending-limit.md).
 
 ## <a name="monitor-costs"></a>Övervaka kostnader
 
-När du använder resurser med Azure Cosmos DB debiteras du kostnader. Kostnader för resursanvändning varierar beroende på tidsintervaller (sekunder, minuter, timmar och dagar) eller genom att använda enhets användning. Så snart som användningen av Azure Cosmos DB startar kan kostnader uppstå och du kan se dem i fönstret [kostnads analys](../cost-management/quick-acm-cost-analysis.md) i Azure Portal.
+När du använder resurser med Azure Cosmos DB debiteras du kostnader. Kostnader för resursanvändning varierar beroende på tidsintervaller (sekunder, minuter, timmar och dagar) eller genom att använda enhets användning. Så snart som användningen av Azure Cosmos DB startar kan kostnader uppstå och du kan se dem i fönstret [kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md) i Azure Portal.
 
 När du använder kostnads analys kan du Visa Azure Cosmos DB kostnader i grafer och tabeller i olika tidsintervall. Några exempel är per dag, aktuell, föregående månad och år. Du kan också Visa kostnader för budgetar och prognostiserade kostnader. Om du växlar till längre vyer över tid kan du identifiera utgifts trender och se var överförbrukningen kan ha inträffat. Om du har skapat budgetar kan du också enkelt se var de överskreds. Så här visar du Azure Cosmos DB kostnader i kostnads analys:
 
@@ -103,5 +103,5 @@ I följande artiklar finns mer information om hur priser fungerar i Azure Cosmos
 
 * [Prismodell i Azure Cosmos DB](how-pricing-works.md)
 * [Optimera kostnaden för etablerat dataflöde i Azure Cosmos DB](optimize-cost-throughput.md)
-* [Optimera kostnaden för frågor i Azure Cosmos DB](optimize-cost-queries.md)
+* [Optimera kostnaden för frågor i Azure Cosmos DB](./optimize-cost-reads-writes.md)
 * [Optimera lagrings kostnaden i Azure Cosmos DB](optimize-cost-storage.md)

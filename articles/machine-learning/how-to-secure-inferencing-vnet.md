@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: peterlu
 author: peterclu
-ms.date: 10/12/2020
+ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 0eb4f8a7994e7c1d04013e9c9cf92e604ef6a1a7
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: eb7439bc84eaa4bfba58be1059a19ddadfc6a93e
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424459"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496020"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Skydda en Azure Machine Learning inferencing-miljö med virtuella nätverk
 
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig att skydda följande inferencing-resurser 
 > - Azure Container Instances (ACI)
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 + Läs artikeln [Översikt över nätverks säkerhet](how-to-network-security-overview.md) för att förstå vanliga scenarier för virtuella nätverk och övergripande arkitektur för virtuella nätverk.
 
@@ -123,7 +123,7 @@ Det finns två metoder för att isolera trafik till och från AKS-klustret till 
 * __Intern AKS-belastningsutjämnare__: den här metoden konfigurerar slut punkten för dina distributioner till AKS för att använda en privat IP-adress i det virtuella nätverket.
 
 > [!WARNING]
-> **Använd antingen en privat AKS eller en intern belastningsutjämnare, men inte båda**.
+> Den interna belastningsutjämnaren fungerar inte med ett AKS-kluster som använder Kubernetes. Om du vill använda en intern belastningsutjämnare och ett privat AKS-kluster samtidigt konfigurerar du ditt privata AKS-kluster med Azure Container Network Interface (CNI). Mer information finns i [Konfigurera Azure cni-nätverk i Azure Kubernetes-tjänsten](../aks/configure-azure-cni.md).
 
 ### <a name="private-aks-cluster"></a>Privat AKS-kluster
 
@@ -134,7 +134,7 @@ När du har skapat det privata AKS-klustret [ansluter du klustret till det virtu
 > [!IMPORTANT]
 > Innan du använder en privat länk som är aktive rad AKS-kluster med Azure Machine Learning måste du öppna en support incident för att aktivera den här funktionen. Mer information finns i [Hantera och öka kvoter](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
-## <a name="internal-aks-load-balancer"></a>Intern belastningsutjämnare för AKS
+### <a name="internal-aks-load-balancer"></a>Intern belastningsutjämnare för AKS
 
 Som standard använder AKS-distributioner en [offentlig belastningsutjämnare](../aks/load-balancer-standard.md). I det här avsnittet får du lära dig hur du konfigurerar AKS till att använda en intern belastningsutjämnare. En intern (eller privat) belastningsutjämnare används där endast privata IP-adresser tillåts som klient del. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk
 

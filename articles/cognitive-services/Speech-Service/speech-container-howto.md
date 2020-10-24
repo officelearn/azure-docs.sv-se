@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/23/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: lokal, Docker, behållare
-ms.openlocfilehash: c26c69a0f6cbf0f9f658d3b7a32cce99319767b4
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 6f04e40b0b2baa496faf8001684304c5df78ec20
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930449"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496139"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Installera och kör Docker-behållare för tal tjänstens API: er 
 
@@ -54,7 +54,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 Följande krav gäller innan du använder tal behållare:
 
-| Krävs | Syfte |
+| Obligatorisk | Syfte |
 |--|--|
 | Docker-motorn | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
 | Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker` kommandon. |
@@ -491,6 +491,16 @@ Det här kommandot:
 * Allokerar 1 processor kärnor och 1 GB minne.
 * Exponerar TCP-port 5003 och allokerar en pseudo-TTY för behållaren.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+
+Om du bara skickar tal Språkidentifiering begär Anden måste du ange tal klientens `phraseDetection` värde till `None` .  
+
+```python
+speech_config.set_service_property(
+      name='speechcontext-phraseDetection.Mode',
+      value='None',
+      channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+   )
+```
 
 Om du vill köra den här behållaren med en "tal-till-text"-behållare kan du använda den här [Docker-avbildningen](https://hub.docker.com/r/antsu/on-prem-client). När båda behållarna har startats använder du kommandot Docker Run för att köra `speech-to-text-with-languagedetection-client` .
 

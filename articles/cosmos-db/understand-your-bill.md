@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567867"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476407"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå Azure Cosmos DB-fakturan
 
@@ -304,7 +304,7 @@ Det du har köpt på ett effektivt sätt är en kredit på $8 per timme, för 10
 |Köpt reserverad kapacitet|$0,0064 (20% rabatt) |100 RU/SEK eller $8 kapacitet för inköpt |– $8|– $5 760 |
 |Netto faktura|||0,50 USD |$360 |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure Cosmos DB med följande artiklar:
 
@@ -313,5 +313,5 @@ Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure
 * Läs mer om hur du [optimerar data flödes kostnaden](optimize-cost-throughput.md)
 * Läs mer om hur du [optimerar lagrings kostnader](optimize-cost-storage.md)
 * Läs mer om hur [du optimerar kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
-* Lär dig mer om hur [du optimerar kostnaden för frågor](optimize-cost-queries.md)
+* Lär dig mer om hur [du optimerar kostnaden för frågor](./optimize-cost-reads-writes.md)
 * Läs mer om hur [du optimerar kostnaden för Azure Cosmos-konton med flera regioner](optimize-cost-regions.md)

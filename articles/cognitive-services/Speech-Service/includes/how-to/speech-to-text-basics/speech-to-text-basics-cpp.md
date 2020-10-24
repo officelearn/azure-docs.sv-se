@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: 420a8ab9a36cdabc3a4565d18f4dbee1d84ec39e
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 7575e174f1f47d55c507fdbf0386fbd578649839
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470794"
+ms.locfileid: "92499078"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -31,68 +31,62 @@ Innan du kan göra något måste du installera talet SDK. Använd följande inst
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering. Skapa en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) med hjälp av din nyckel och region. Se sidan [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regions-ID.
 
-> [!NOTE]
-> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
+```cpp
+using namespace std;
+using namespace Microsoft::CognitiveServices::Speech;
 
-Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) :
+auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+```
 
-* Med en prenumeration: skicka i en nyckel och tillhör ande region.
+Det finns några andra sätt som du kan initiera [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) :
+
 * Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
 * Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
 * Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
 
-Låt oss ta en titt på hur en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) har skapats med hjälp av en nyckel och region. Hämta dessa autentiseringsuppgifter genom att följa stegen i [testa tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
+> [!NOTE]
+> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
 
-```cpp
-auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
+## <a name="recognize-from-microphone"></a>Identifiera från mikrofonen
 
-## <a name="initialize-a-recognizer"></a>Initiera en identifierare
-
-När du har skapat en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) är nästa steg att initiera en [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) . När du initierar en måste [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) du skicka den `speech_config` . Detta ger de autentiseringsuppgifter som tal tjänsten behöver för att verifiera din begäran.
-
-```cpp
-auto recognizer = SpeechRecognizer::FromConfig(config);
-```
-
-## <a name="recognize-from-microphone-or-file"></a>Identifiera från mikrofon eller fil
-
-Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) och skicka den som en parameter när du initierar [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) .
-
-Om du vill känna igen tal med din enhets mikrofon skapar du en `AudioConfig` med `FromDefaultMicrophoneInput()` och skickar sedan ljud konfigurationen när du skapar `SpeechRecognizer` objektet.
+Skapa en med hjälp av om du vill känna igen tal med din enhets mikrofon `AudioConfig` `FromDefaultMicrophoneInput()` . Initiera sedan en [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) , och skicka in `audioConfig` och `config` .
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
 
 auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
+
+cout << "Speak into your microphone." << std::endl;
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
-> [!TIP]
-> [Lär dig hur du hämtar enhets-ID: t för din enhet för ljud inspelning](../../../how-to-select-audio-input-devices.md).
+Om du vill använda en *speciell* enhet för ljud inspelning måste du ange enhets-ID i `AudioConfig` . Lär dig [hur du hämtar enhets-ID](../../../how-to-select-audio-input-devices.md) : t för din enhet för ljud inspelning.
 
-Om du vill känna igen tal från en ljudfil i stället för att använda en mikrofon måste du ändå skapa en `AudioConfig` . Men när du skapar [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) , i stället för att anropa `FromDefaultMicrophoneInput()` , anropar `FromWavFileInput()` och skickar `filename` parametern.
+## <a name="recognize-from-file"></a>Identifiera från fil
+
+Om du vill känna igen tal från en ljudfil i stället för att använda en mikrofon måste du ändå skapa en `AudioConfig` . Men när du skapar i [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) stället för att anropa anropar `FromDefaultMicrophoneInput()` du `FromWavFileInput()` och överför fil Sök vägen.
 
 ```cpp
+using namespace Microsoft::CognitiveServices::Speech::Audio;
+
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
 auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
+
+auto result = recognizer->RecognizeOnceAsync().get();
+cout << "RECOGNIZED: Text=" << result->Text << std::endl;
 ```
 
 ## <a name="recognize-speech"></a>Identifiera tal
 
 [Igenkännings klassen](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) för tal SDK för C++ exponerar några metoder som du kan använda för tal igenkänning.
 
-* Identifiering av enstaka bild (async) – utför igenkänning i ett icke-blockerande (asynkront) läge. Detta kommer att identifiera en enda uttryck. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas.
-* Kontinuerlig igenkänning (async) – initierar kontinuerlig igenkännings åtgärd asynkront. Användaren måste ansluta för att hantera händelser för att få igenkännings resultat. Anropa för att stoppa asynkron kontinuerlig igenkänning [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync) .
-
-> [!NOTE]
-> Läs mer om hur du [väljer ett tal igenkännings läge](../../../how-to-choose-recognition-mode.md).
-
 ### <a name="single-shot-recognition"></a>Igenkänning av enstaka bild
 
-Här är ett exempel på en asynkron igenkänning av enstaka bild med [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) :
+Ett enda avbilds igenkännings läge identifierar en enskild uttryck asynkront. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas. Här är ett exempel på en asynkron igenkänning av enstaka bild med [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) :
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();

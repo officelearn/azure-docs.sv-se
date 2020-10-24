@@ -6,17 +6,17 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 420efd653ef6218b5a1d5a8c70ca268b7185fc30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 41ba9d9e66fa1d7f622550bde68951573af4bb96
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103551"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484992"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Skapa HDInsight-kluster med Azure Data Lake Storage Gen1 med hjälp av Azure Portal
 
 > [!div class="op_single_selector"]
-> * [Använd Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Använda Azure-portalen](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Använd PowerShell (för standard lagring)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 > * [Använd PowerShell (för ytterligare lagrings utrymme)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 > * [Använd Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -25,7 +25,7 @@ ms.locfileid: "92103551"
 
 Lär dig hur du använder Azure Portal för att skapa ett HDInsight-kluster med Azure Data Lake Storage Gen1 som standard lagring eller ytterligare lagrings utrymme. Även om ytterligare lagring är valfritt för ett HDInsight-kluster rekommenderar vi att du lagrar dina affärs data i de ytterligare lagrings kontona.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar bör du kontrol lera att du uppfyller följande krav:
 
@@ -85,18 +85,11 @@ I det här avsnittet konfigurerar du Data Lake Storage Gen1 åtkomst från HDIns
 Från Azure Portal kan du antingen använda ett befintligt huvud namn för tjänsten eller skapa ett nytt.
 
 Så här skapar du ett huvud namn för tjänsten från Azure Portal:
-
-1. Välj **data Lake Store åtkomst** från bladet lagring.
-1. På bladet **data Lake Storage gen1 åtkomst** väljer du **Skapa nytt**.
-1. Välj **tjänstens huvud namn**och följ sedan anvisningarna för att skapa ett huvud namn för tjänsten.
-1. Hämta certifikatet om du bestämmer dig för att använda det igen i framtiden. Att ladda ned certifikatet är användbart om du vill använda samma huvud namn för tjänsten när du skapar ytterligare HDInsight-kluster.
-
-    ![Lägg till tjänstens huvud namn i HDInsight-kluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png)
-
-1. Välj **åtkomst** för att konfigurera åtkomst till mappen.  Se [Konfigurera fil behörigheter](#configure-file-permissions).
+1. Se [skapa tjänstens huvud namn och certifikat](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) med hjälp av Azure Active Directory.
 
 Så här använder du ett befintligt huvud namn för tjänsten från Azure Portal:
 
+1. Tjänstens huvud namn ska ha ägar behörigheter för lagrings kontot. Se [Konfigurera behörigheter för tjänstens huvud namn som ägare på lagrings kontot](#configure-serviceprincipal-permissions).
 1. Välj **data Lake Store åtkomst**.
 1. På bladet **data Lake Storage gen1 åtkomst** väljer du **Använd befintlig**.
 1. Välj **tjänstens huvud namn**och välj sedan ett huvud namn för tjänsten.
@@ -105,6 +98,10 @@ Så här använder du ett befintligt huvud namn för tjänsten från Azure Porta
 [Lägg till tjänstens huvud namn i HDInsight-kluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png)
 
 1. Välj **åtkomst** för att konfigurera åtkomst till mappen.  Se [Konfigurera fil behörigheter](#configure-file-permissions).
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>Ställ in behörigheter för tjänstens huvud namn som ägare på lagrings kontot
+1. På bladet Access Control (IAM) i lagrings kontot klickar du på Lägg till en roll tilldelning. 
+2. På bladet Lägg till en roll tilldelning väljer du roll som ägare och väljer SPN och klickar på Spara.
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Konfigurera fil behörigheter
 

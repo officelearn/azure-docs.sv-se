@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 34b4a7395102549dfea6f9d51ef8d1216bacddba
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: ebc0398eeb7679ffd57e0aa5aae642f6303aaa35
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327713"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484618"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Azures säkerhets bas linje för HDInsight
 
@@ -146,9 +146,7 @@ Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-dist
 
 Så här visar du tillgängliga Azure Policy alias:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Så här konfigurerar och hanterar du Azure Policy:
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Så här konfigurerar och hanterar du Azure Policy:
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -346,11 +344,11 @@ Dessutom kan du använda rekommendationer för Azure Security Center identitets-
 
 Så här hämtar du en katalog roll i Azure AD med PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
 
 Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell:
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
 
 Så här övervakar du identitet och åtkomst med Azure Security Center:
 
@@ -780,7 +778,7 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
 Så här visar du dina Azure-prenumerationer:
 
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
 
 Förstå Azure RBAC:
 
@@ -942,7 +940,7 @@ Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till Azu
 
 Så här visar du tillgängliga Azure Policy alias:
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
 
 Så här konfigurerar och hanterar du Azure Policy:
 
@@ -990,13 +988,9 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Vägledning**: om du använder anpassade Azure policys definitioner använder du Azure DevOps eller Azure databaser för att lagra och hantera din kod på ett säkert sätt.
 
-Så här lagrar du kod i Azure DevOps:
+[Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
-
-Dokumentation om Azure databaser:
-
-https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+[Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1034,13 +1028,9 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Vägledning**: Använd Azure policy alias i namn området "Microsoft. HDInsight" för att skapa anpassade principer för granskning eller framtvinga konfigurationen av ditt HDInsight-kluster.
 
-Så här visar du tillgängliga Azure Policy alias:
+[Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
-
-Så här konfigurerar och hanterar du Azure Policy:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+[Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1174,7 +1164,7 @@ https://docs.microsoft.com/azure/storage/common/storage-redundancy
 
 Så här säkerhetskopierar du Key Vault nycklar i Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1190,7 +1180,7 @@ https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
 
 Så här återställer du Key Vault-nycklar i Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 

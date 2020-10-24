@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
-ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3d35940a445b73ecb9285355f36b141c3a151b8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80066551"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475064"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installera Elastic Stack på en virtuell dator i Azure VM
 
@@ -228,7 +228,7 @@ az vm open-port --port 5601 --resource-group myResourceGroup --name myVM
 
 Öppna Kibana-konsolen och välj **Skapa** för att generera ett standardindex baserat på de syslog-data som skickades till Elasticsearch tidigare. 
 
-![Bläddra i Syslog-händelser i Kibana](media/elasticsearch-install/kibana-index.png)
+![Skärm bild som visar Kibana-konsolen och markerar knappen Skapa.](media/elasticsearch-install/kibana-index.png)
 
 Välj **Utforska** på Kibana-konsolen och sök, bläddra och filtrera syslog-händelserna.
 

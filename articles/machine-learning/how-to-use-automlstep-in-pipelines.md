@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 82e2a484e23d55b91ff0c7820302b2cc83537cb8
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: b6c6d15b553e8b19fff2c464dfb856550f7bcbf0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057713"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494920"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Använd automatisk ML i en Azure Machine Learning pipeline i python
 
@@ -25,7 +25,7 @@ Med hjälp av den automatiserade ML-funktionen i Azure Machine Learning kan du u
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto  innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  
 
@@ -73,7 +73,7 @@ if not 'titanic_ds' in ws.datasets.keys() :
 titanic_ds = Dataset.get_by_name(ws, 'titanic_ds')
 ```
 
-Koden loggar först in på Azure Machine Learning arbets ytan som definierats i **config.jspå** (en förklaring finns i [Självstudier: komma igång med att skapa ditt första ml-experiment med python SDK](tutorial-1st-experiment-sdk-setup.md)). Om det inte redan finns en data uppsättning med namnet `'titanic_ds'` registrerad, skapas en. Koden laddar ned CSV-data från webben, använder dem för att instansiera en `TabularDataset` och sedan registrerar data uppsättningen med arbets ytan. Slutligen `Dataset.get_by_name()` tilldelar funktionen `Dataset` till `titanic_ds` . 
+Koden loggar först in på Azure Machine Learning arbets ytan som definierats i **config.jspå** (för en förklaring, se [skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace). Om det inte redan finns en data uppsättning med namnet `'titanic_ds'` registrerad, skapas en. Koden laddar ned CSV-data från webben, använder dem för att instansiera en `TabularDataset` och sedan registrerar data uppsättningen med arbets ytan. Slutligen `Dataset.get_by_name()` tilldelar funktionen `Dataset` till `titanic_ds` . 
 
 ### <a name="configure-your-storage-and-compute-target"></a>Konfigurera lagrings-och beräknings mål
 

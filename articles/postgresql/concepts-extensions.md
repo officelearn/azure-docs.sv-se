@@ -6,18 +6,18 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: f6c73362d554ada6c4845ab8dca2093d3dcbf173
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78395873457f9fe53d45dfbfd94aa9ccdccd614d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707956"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485468"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL – enskild server
 PostgreSQL ger möjlighet att utöka funktionerna i databasen med hjälp av tillägg. Tillägg samlar flera SQL-objekt i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. När tilläggen har lästs in i databasen fungerar de som inbyggda funktioner.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Använda PostgreSQL-tillägg
-PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du kommandot [skapa tillägg](https://www.postgresql.org/docs/current/sql-createextension.html)   från psql-verktyget för att läsa in de paketerade objekten i databasen.
+PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du kommandot [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) från psql-verktyget för att läsa in de paketerade objekten i databasen.
 
 Azure Database for PostgreSQL stöder en delmängd av nyckel tillägg som anges nedan. Den här informationen är också tillgänglig genom att köra `SELECT * FROM pg_available_extensions;` . Tillägg utöver de som anges i listan stöds inte. Du kan inte skapa ditt eget tillägg i Azure Database for PostgreSQL.
 
@@ -205,7 +205,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 [Pg_stat_statements-tillägget](https://www.postgresql.org/docs/current/pgstatstatements.html) är förinstallerat på varje Azure Database for postgresql-server för att ge dig ett sätt att spåra körnings statistik över SQL-uttryck.
-Inställningen `pg_stat_statements.track` , som styr vilka instruktioner som räknas av tillägget, är standardvärdet `top` , vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna är `none` och `all` . Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+Inställningen `pg_stat_statements.track` , som styr vilka instruktioner som räknas av tillägget, är standardvärdet `top` , vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna är `none` och `all` . Den här inställningen kan konfigureras som en server parameter via [Azure Portal](./howto-configure-server-parameters-using-portal.md) eller [Azure CLI](./howto-configure-server-parameters-using-cli.md).
 
 Det uppstår en kompromiss mellan information om körningen pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du ställer in `pg_stat_statements.track` på `none` . Observera att vissa övervaknings tjänster från tredje part kan förlita sig på pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
 

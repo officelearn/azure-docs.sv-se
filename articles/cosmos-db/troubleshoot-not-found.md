@@ -7,12 +7,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b28c562dca0c20b6f78058f1c7f7def60416ee
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802404"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496097"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnostisera och Felsök Azure Cosmos DB inte hittade undantag
 HTTP-statuskoden 404 anger att resursen inte längre finns.
@@ -28,7 +28,7 @@ Det finns flera SDK-klient instanser och läsningen skedde innan skrivningen.
 
 #### <a name="solution"></a>Lösning:
 1. Standard kontot är konsekvens för Azure Cosmos DB är konsekvens på sessionen. När ett objekt skapas eller uppdateras, returnerar svaret en session-token som kan skickas mellan SDK-instanser för att garantera att Read-begäran läser från en replik med den ändringen.
-1. Ändra [konsekvens nivån](consistency-levels-choosing.md) till en [starkare nivå](consistency-levels-tradeoffs.md).
+1. Ändra [konsekvens nivån](./consistency-levels.md) till en [starkare nivå](./consistency-levels.md).
 
 ### <a name="invalid-partition-key-and-id-combination"></a>Ogiltig kombination av partitionsnyckel och ID
 Kombinationen av partitionsnyckel och ID är ogiltig.
@@ -37,7 +37,7 @@ Kombinationen av partitionsnyckel och ID är ogiltig.
 Åtgärda den program logik som orsakar felaktig kombination. 
 
 ### <a name="invalid-character-in-an-item-id"></a>Ogiltigt Character i ett objekt-ID
-Ett objekt infogas i Azure Cosmos DB med ett [ogiltigt Character](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.resource.id?view=azure-dotnet&preserve-view=true#remarks) i objekt-ID: t.
+Ett objekt infogas i Azure Cosmos DB med ett [ogiltigt Character](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) i objekt-ID: t.
 
 #### <a name="solution"></a>Lösning:
 Ändra ID till ett annat värde som inte innehåller specialtecknen. Om du ändrar ID: t inte är ett alternativ kan du base64 koda ID: t för att undanta specialtecknen.
@@ -79,7 +79,7 @@ while (invalidItemsIterator.HasMoreResults)
 ```
 
 ### <a name="time-to-live-purge"></a>Time to Live rensa
-Värdet för egenskapen [Time to Live (TTL)](https://docs.microsoft.com/azure/cosmos-db/time-to-live) har angetts för objektet. Objektet tömdes eftersom TTL-egenskapen hade upphört att gälla.
+Värdet för egenskapen [Time to Live (TTL)](./time-to-live.md) har angetts för objektet. Objektet tömdes eftersom TTL-egenskapen hade upphört att gälla.
 
 #### <a name="solution"></a>Lösning:
 Ändra egenskapen TTL för att förhindra att objektet rensas.
@@ -94,11 +94,11 @@ Vänta tills indexeringen har fångats upp eller ändra indexerings principen.
 Databasen eller behållaren som objektet finns i har tagits bort.
 
 #### <a name="solution"></a>Lösning:
-1. [Återställ](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore#backup-retention-period) den överordnade resursen eller återskapa resurserna.
+1. [Återställ](./online-backup-and-restore.md#request-data-restore-from-a-backup) den överordnade resursen eller återskapa resurserna.
 1. Skapa en ny resurs som ersätter den borttagna resursen.
 
 ### <a name="7-containercollection-names-are-case-sensitive"></a>7. behållare/samlings namn är Skift läges känsliga
-Behållare/samlings namn är Case-sesnsitive i Cosmos DB.
+Behållare/samlings namn är Skift läges känsliga i Cosmos DB.
 
 #### <a name="solution"></a>Lösning:
 Se till att använda det exakta namnet när du ansluter till Cosmos DB.

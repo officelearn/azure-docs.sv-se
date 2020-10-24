@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f0d62ae3909bc886fa6a56ba7ed32d55d27302dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2497a1fe5bfd3618246c9590685d08894e897f3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568651"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476526"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Konfigurera global distribution i Azure Cosmos DB med tabell-API
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver följande uppgifter:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Ansluta till en önskad region med hjälp av tabell-API
 
-För att kunna dra nytta av den [globala distributionen](distribute-data-globally.md)bör klient programmen ange den aktuella platsen där programmet körs. Detta görs genom att ange `CosmosExecutorConfiguration.CurrentRegion` egenskapen. `CurrentRegion`Egenskapen ska innehålla en enda plats. Varje klient instans kan ange sin egen region för läsningar med låg latens. Regionen måste namnges med hjälp av deras [visnings namn](https://msdn.microsoft.com/library/azure/gg441293.aspx) som "västra USA". 
+För att kunna dra nytta av den [globala distributionen](distribute-data-globally.md)bör klient programmen ange den aktuella platsen där programmet körs. Detta görs genom att ange `CosmosExecutorConfiguration.CurrentRegion` egenskapen. `CurrentRegion`Egenskapen ska innehålla en enda plats. Varje klient instans kan ange sin egen region för läsningar med låg latens. Regionen måste namnges med hjälp av deras [visnings namn](/previous-versions/azure/reference/gg441293(v=azure.100)) som "västra USA". 
 
 Azure Cosmos DB Tabell-API SDK väljer automatiskt den bästa slut punkten för att kommunicera med baserat på konto konfigurationen och den aktuella regionala tillgängligheten. Den prioriterar den närmaste regionen för att ge bättre svars tid till klienter. När du har angett den aktuella `CurrentRegion` egenskapen dirigeras Läs-och skriv förfrågningar enligt följande:
 
@@ -47,4 +47,3 @@ I den här självstudien har du gjort följande:
 > [!div class="checklist"]
 > * Konfigurera global distribution med Azure Portal
 > * Konfigurera global distribution med tabell-API:n i Azure Cosmos DB
-

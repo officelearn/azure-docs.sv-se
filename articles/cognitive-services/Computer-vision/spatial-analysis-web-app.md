@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8032c3607dd74cddbaa5fd6690a95ebdf218809a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91628202"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496077"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Så här distribuerar du en användare som räknar webb program
 
@@ -63,14 +63,14 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Distribuera behållaren på Azure IoT Edge på värddatorn
 
-Distribuera behållaren för rums analys som en IoT-modul på värddatorn med hjälp av Azure CLI. Distributions processen kräver en distributions manifest fil som beskriver de obligatoriska behållarna, variablerna och konfigurationerna för distributionen. Du hittar ett exempel på [distributions manifestet](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) på GitHub, som innehåller en grundläggande distributions konfiguration för behållaren för *spatial analys* . 
+Distribuera behållaren för rums analys som en IoT-modul på värddatorn med hjälp av Azure CLI. Distributions processen kräver en distributions manifest fil som beskriver de obligatoriska behållarna, variablerna och konfigurationerna för distributionen. Du kan hitta ett exempel på [Azure Stack Edge-särskilt distributions manifest](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) och ett [icke-Azure Stack-särskilt distributions manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) på GitHub, som innehåller en grundläggande distributions konfiguration för behållaren för *spatial analys* . 
 
 > [!NOTE] 
-> Behållarna *spatial-analys-teleympkvistar* och *spatial-analys – diagnostik* är valfria. Du kan välja att ta bort dem från *DeploymentManifest.jsi* filen. Mer information finns i artikeln om [telemetri och fel sökning](./spatial-analysis-logging.md) . Du kan hitta ett exempel * påDeploymentManifest.jspå* en fil [på GitHub](https://go.microsoft.com/fwlink/?linkid=2142179) 
+> Behållarna *spatial-analys-teleympkvistar* och *spatial-analys – diagnostik* är valfria. Du kan välja att ta bort dem från *DeploymentManifest.jsi* filen. Mer information finns i artikeln om [telemetri och fel sökning](./spatial-analysis-logging.md) . Du kan hitta två exempel *DeploymentManifest.jspå* filer på GitHub, antingen för en [Azure Stack Edge-enhet](https://go.microsoft.com/fwlink/?linkid=2142179) eller en annan [stationär dator](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
 
 ### <a name="set-environment-variables"></a>Ange miljövariabler
 
-De flesta **miljövariabler** för IoT Edge-modulen har redan ställts in i exemplet *DeploymentManifest.jspå* filen som är länkad ovan. I filen söker du efter `BILLING_ENDPOINT` `API_KEY` variablerna och för miljön, som visas nedan. Ersätt värdena med slut punkts-URI: n och den API-nyckel som du skapade tidigare. Se till att EULA-värdet är inställt på acceptera. 
+De flesta **miljövariabler** för IoT Edge-modulen har redan ställts in i exemplet *DeploymentManifest.jspå* filer som är länkade ovan. I filen söker du efter `BILLING_ENDPOINT` `API_KEY` variablerna och för miljön, som visas nedan. Ersätt värdena med slut punkts-URI: n och den API-nyckel som du skapade tidigare. Se till att EULA-värdet är inställt på acceptera. 
 
 ```json
 "EULA": { 
@@ -89,7 +89,7 @@ De flesta **miljövariabler** för IoT Edge-modulen har redan ställts in i exem
 
 Nu när den inledande konfigurationen av behållaren för *spatial analys* är klar, är nästa steg att konfigurera parametrarna för drift och lägga till dem i distributionen. 
 
-Det första steget är att uppdatera [manifestet](https://go.microsoft.com/fwlink/?linkid=2142179) för exempel distribution och konfigurera operationId för `cognitiveservices.vision.spatialanalysis-personcount` som visas nedan:
+Det första steget är att uppdatera det exempel distributions manifest som är länkat ovan och konfigurera operationId `cognitiveservices.vision.spatialanalysis-personcount` så som visas nedan:
 
 
 ```json
@@ -107,7 +107,7 @@ Det första steget är att uppdatera [manifestet](https://go.microsoft.com/fwlin
 },
 ```
 
-När [distributions manifestet](https://go.microsoft.com/fwlink/?linkid=2142179) har uppdaterats följer du kamera tillverkarens instruktioner för att installera kameran, konfigurerar kamerans URL och konfigurerar användar namn och lösen ord. 
+När distributions manifestet har uppdaterats följer du kamera tillverkarens instruktioner för att installera kameran, konfigurerar kamerans URL och konfigurerar användar namn och lösen ord. 
 
 Ange sedan `VIDEO_URL` till RTSP-URL: en för kameran och autentiseringsuppgifterna för att ansluta till kameran.
 
@@ -122,7 +122,7 @@ Du kan också välja ett konfidens tröskelvärde för när identifierade person
 
 ### <a name="execute-the-deployment"></a>Kör distributionen
 
-Nu när [distributions manifestet](https://go.microsoft.com/fwlink/?linkid=2142179) är klart använder du det här kommandot i Azure CLI för att distribuera behållaren på värddatorn som en IoT Edge modul.
+Nu när distributions manifestet är klart använder du det här kommandot i Azure CLI för att distribuera behållaren på värddatorn som en IoT Edge modul.
 
 ```azurecli
 az login
@@ -145,7 +145,7 @@ Leta upp *körnings statusen* i inställningarna för IoT Edge modulen för modu
 
 ![Exempel på distributions verifiering](./media/spatial-analysis/deployment-verification.png)
 
-I det här läget Kör behållaren för spatial analys åtgärden. Den genererar AI-insikter för `cognitiveservices.vision.spatialanalysis-personcount` åtgärden och dirigerar dessa insikter som telemetri till Azure IoT Hub-instansen. Om du vill konfigurera ytterligare kameror kan du uppdatera [distributions manifest](https://go.microsoft.com/fwlink/?linkid=2142179) filen och köra distributionen igen.
+I det här läget Kör behållaren för spatial analys åtgärden. Den genererar AI-insikter för `cognitiveservices.vision.spatialanalysis-personcount` åtgärden och dirigerar dessa insikter som telemetri till Azure IoT Hub-instansen. Om du vill konfigurera ytterligare kameror kan du uppdatera distributions manifest filen och köra distributionen igen.
 
 ## <a name="person-counting-web-application"></a>Webb program för person inventering
 
@@ -156,7 +156,7 @@ Med den här webb program inventeringen kan du snabbt konfigurera ett exempel p�
 Ett behållar formulär för den här appen finns på Azure Container Registry. Använd följande Docker pull-kommando för att ladda ned det. Kontakta Microsoft på projectarchon@microsoft.com för åtkomst-token.
 
 ```bash
-docker login rtvsofficial.azurecr.io -u <token name> -p <password>
+docker login rtvsofficial.azurecr.io -u <token name> -p <password>
 docker pull rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0
 ```
 

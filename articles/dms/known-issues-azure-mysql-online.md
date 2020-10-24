@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 673480d1b5171e03b701cd2102c7a640aae58ad0
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 3b9a94f7f9f64426374a5ea349b3653d837fc1ac
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893755"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494447"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Problem med online-migrering & begränsningar för Azure DB för MySQL med Azure Database Migration Service
 
@@ -32,7 +32,7 @@ Kända problem och begränsningar som är kopplade till online-migreringar från
 - Azure Database for MySQL stöder:
   - MySQL Community Edition
   - InnoDB-motor
-- Migrering av samma version. Migrering av MySQL 5,6 till Azure Database for MySQL 5,7 stöds inte.
+- Migrering av samma version. Migrering av MySQL 5,6 till Azure Database for MySQL 5,7 stöds inte. Migreringar till eller från MySQL 8,0 stöds inte.
 - Aktivera binär loggning i my.ini (Windows) eller My. cnf (UNIX)
   - Ange Server_id till ett tal som är större eller lika med 1, till exempel Server_id = 1 (endast för MySQL 5,6)
   - Ange log-bin = \<path> (endast för MySQL 5,6)

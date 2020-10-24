@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 4aaf4f059976635f32c1a4e6b7130f8835598f98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f69c0460fe3e2d2570f79e842963f75bab792d9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552143"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483581"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>Självstudie: Azure Active Directory integration med aktivitet
 
@@ -30,7 +30,7 @@ Att integrera aktivitet med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integration med aktivitet behöver du följande objekt:
 
@@ -99,7 +99,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med akt
 
 4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Information om enkel inloggning för domän och URL-adresser](common/idp-intiated.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange identifierare, svara U R L och välja Spara.](common/idp-intiated.png)
 
     a. I text rutan **identifierare** anger du en URL med hjälp av följande mönster: `https://taseu.combtas.com/<DOMAIN>`
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med akt
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om enkel inloggning för domän och URL-adresser](common/metadata-upload-additional-signon.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/metadata-upload-additional-signon.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://taseu.combtas.com/<DOMAIN>`
 
@@ -134,11 +134,11 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med akt
 
 2. På vänster sida av menyn klickar du på **Inställningar** och navigerar till **administratör** och klickar sedan på **hantera enkel inloggning**.
 
-    ![Konfiguration av aktivitet](./media/tas-tutorial/configure01.png)
+    ![Skärm bild som visar hantera enkel inloggning markerat.](./media/tas-tutorial/configure01.png)
 
 3. Utför följande steg på sidan **hantera enkel inloggning** :
 
-    ![Konfiguration av aktivitet](./media/tas-tutorial/configure02.png)
+    ![Skärm bild som visar sidan Hantera enkel inloggning där du kan ange de värden som beskrivs.](./media/tas-tutorial/configure02.png)
 
     a. Skriv ditt miljö namn i text rutan **namn** .
     

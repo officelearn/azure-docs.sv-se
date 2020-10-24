@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 74c8924116cf9b565ea63e3b72a409686a4d725c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff828024610ce498d40a4039d8116e28366aebb9
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975728"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494427"
 ---
 # <a name="updated-ndv2-series"></a>Uppdaterad NDv2-serien
 
@@ -37,7 +37,7 @@ I stor skala är NDv2 byggd för både beräknings intensiva data (med 8 GPU-pro
 [Premium Storage caching](premium-storage-performance.md): stöds<br>
 [Direktmigrering](maintenance-and-updates.md): stöds inte<br>
 [Minnes bebetjänings uppdateringar](maintenance-and-updates.md): stöds inte<br>
-[Stöd för VM-generering](generation-2.md): generation 1<br>
+[Stöd för VM-generering](generation-2.md): generation 2<br>
 InfiniBand: stöds<br>
 <br>
 

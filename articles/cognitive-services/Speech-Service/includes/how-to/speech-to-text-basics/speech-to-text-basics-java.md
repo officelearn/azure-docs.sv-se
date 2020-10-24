@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: dc1e506036df7a571f6f9f523540680e8ce347fe
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: badc3cd372ca992a83678ef8d32ac76966ba9b94
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470900"
+ms.locfileid: "92499163"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -31,69 +31,60 @@ Innan du kan göra något måste du installera talet SDK. Använd följande inst
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
-
-> [!NOTE]
-> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
-
-Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true) :
-
-* Med en prenumeration: skicka i en nyckel och tillhör ande region.
-* Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
-* Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
-* Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
-
-Låt oss ta en titt på hur en [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true) har skapats med hjälp av en nyckel och region. Hämta dessa autentiseringsuppgifter genom att följa stegen i [testa tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
-
-```java
-SpeechConfig config = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
-
-## <a name="initialize-a-recognizer"></a>Initiera en identifierare
-
-När du har skapat en [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true) är nästa steg att initiera en [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable&preserve-view=true) . När du initierar en [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable&preserve-view=true) skickar du det `SpeechConfig` . Detta ger de autentiseringsuppgifter som tal tjänsten behöver för att verifiera din begäran.
-
-```java
-SpeechRecognizer recognizer = new SpeechRecognizer(config);
-```
-
-## <a name="recognize-from-microphone-or-file"></a>Identifiera från mikrofon eller fil
-
-Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable&preserve-view=true) och skicka den som en parameter när du initierar [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable&preserve-view=true) .
-
-Om du vill känna igen tal med din enhets mikrofon skapar du en `AudioConfig` med `fromDefaultMicrophoneInput()` och skickar sedan ljud konfigurationen när du skapar `SpeechRecognizer` objektet.
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering. Skapa en [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) med hjälp av din nyckel och region. Se sidan [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regions-ID.
 
 ```java
 import java.util.concurrent.Future;
 import com.microsoft.cognitiveservices.speech.*;
 
-AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
+SpeechConfig config = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-> [!TIP]
-> [Lär dig hur du hämtar enhets-ID: t för din enhet för ljud inspelning](../../../how-to-select-audio-input-devices.md).
+Det finns några andra sätt som du kan initiera [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) :
 
-Om du vill känna igen tal från en ljudfil i stället för att använda en mikrofon måste du ändå skapa en `AudioConfig` . Men när du skapar [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable&preserve-view=true) , i stället för att anropa `fromDefaultMicrophoneInput()` , anropar `fromWavFileInput()` och skickar `filename` parametern.
+* Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
+* Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
+* Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
+
+> [!NOTE]
+> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
+
+## <a name="recognize-from-microphone"></a>Identifiera från mikrofonen
+
+Skapa en med hjälp av om du vill känna igen tal med din enhets mikrofon `AudioConfig` `fromDefaultMicrophoneInput()` . Initiera sedan en [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) , och skicka in `audioConfig` och `config` .
+
+```java
+AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
+
+System.out.println("Speak into your microphone.");
+Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+SpeechRecognitionResult result = task.get();
+System.out.println("RECOGNIZED: Text=" + result.getText());
+```
+
+Om du vill använda en *speciell* enhet för ljud inspelning måste du ange enhets-ID i `AudioConfig` . Lär dig [hur du hämtar enhets-ID](../../../how-to-select-audio-input-devices.md) : t för din enhet för ljud inspelning.
+
+## <a name="recognize-from-file"></a>Identifiera från fil
+
+Om du vill känna igen tal från en ljudfil i stället för att använda en mikrofon måste du ändå skapa en `AudioConfig` . Men när du skapar [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) , i stället för att anropa `fromDefaultMicrophoneInput()` , anropa `fromWavFileInput()` och skicka fil Sök vägen.
 
 ```java
 AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
 SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
+
+Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+SpeechRecognitionResult result = task.get();
+System.out.println("RECOGNIZED: Text=" + result.getText());
 ```
 
 ## <a name="recognize-speech"></a>Identifiera tal
 
 [Igenkännings klassen](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable&preserve-view=true) för tal-SDK för Java visar några metoder som du kan använda för tal igenkänning.
 
-* Identifiering av enstaka bild (async) – utför igenkänning i ett icke-blockerande (asynkront) läge. Detta kommer att identifiera en enda uttryck. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas.
-* Kontinuerlig igenkänning (async) – initierar kontinuerlig igenkännings åtgärd asynkront. Om du vill ange en ljudfil i stället för att använda en mikrofon måste du ändå ange en `audioConfig` . Anropa [stopContinuousRecognitionAsync](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync)för att stoppa asynkron kontinuerlig igenkänning.
-
-> [!NOTE]
-> Läs mer om hur du [väljer ett tal igenkännings läge](../../../how-to-choose-recognition-mode.md).
-
 ### <a name="single-shot-recognition"></a>Igenkänning av enstaka bild
 
-Här är ett exempel på en asynkron igenkänning av enstaka bild med [`recognizeOnceAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-java-stable&preserve-view=true) :
+Ett enda avbilds igenkännings läge identifierar en enskild uttryck asynkront. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas. Här är ett exempel på en asynkron igenkänning av enstaka bild med [`recognizeOnceAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-java-stable) :
 
 ```java
 Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();

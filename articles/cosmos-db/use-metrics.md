@@ -8,16 +8,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cb6869aa8bc7ede7d2047abf8eddc98b01f567fa
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2a7645950fd7a239376f07d6c6f4689c1a3f3da5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280814"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476322"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Övervaka och felsöka med mått i Azure Cosmos DB
 
-Azure Cosmos DB tillhandahåller mått för dataflöde, lagring, konsekvens, tillgänglighet och svarstid. Azure-portalen innehåller en sammanställd vy över dessa mått. Du kan också Visa Azure Cosmos DB-mått från Azure Monitor-API:et. Dimensionsvärdena för måtten, till exempel container Name, är Skift läges okänsliga. Du måste därför använda Skift läges okänslig jämförelse när du utför sträng jämförelser på dessa dimensions värden. Information om hur du visar mått från Azure Monitor finns i artikeln [Hämta mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) .
+Azure Cosmos DB tillhandahåller mått för dataflöde, lagring, konsekvens, tillgänglighet och svarstid. Azure-portalen innehåller en sammanställd vy över dessa mått. Du kan också Visa Azure Cosmos DB-mått från Azure Monitor-API:et. Dimensionsvärdena för måtten, till exempel container Name, är Skift läges okänsliga. Du måste därför använda Skift läges okänslig jämförelse när du utför sträng jämförelser på dessa dimensions värden. Information om hur du visar mått från Azure Monitor finns i artikeln [Hämta mått från Azure Monitor](./monitor-cosmos-db.md) .
 
 Den här artikeln vägleder dig genom vanliga användningsfall och beskriver hur Azure Cosmos DB-mått kan användas för att analysera och felsöka dessa problem. Mått samlas in var femte minut och bevaras i sju dagar.
 
@@ -112,6 +112,6 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 Nu har du lärt dig hur du övervakar och felsöker problem med hjälp av de mått som anges i Azure Portal. Du kanske vill lära dig mer om hur du kan förbättra databasens prestanda genom att läsa följande artiklar:
 
-* Information om hur du visar mått från Azure Monitor finns i artikeln [Hämta mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) . 
+* Information om hur du visar mått från Azure Monitor finns i artikeln [Hämta mått från Azure Monitor](./monitor-cosmos-db.md) . 
 * [Prestanda-och skalnings testning med Azure Cosmos DB](performance-testing.md)
 * [Prestandatips för Azure Cosmos DB](performance-tips.md)

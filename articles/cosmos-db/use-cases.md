@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: af49a7bec68c30e4ded576a8d84eac850eb745f8
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: b8d74f9da62b0f5a596c811efa9f93b55c99f1d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331370"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476356"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Vanliga användningsfall för Azure Cosmos DB
 
@@ -28,7 +28,7 @@ När du har läst den här artikeln kan du svara på följande frågor:
 
 [Azure Cosmos DB](../cosmos-db/introduction.md) är Microsofts snabba NoSQL-databas med öppna API: er för alla skalor. Tjänsten är utformad för att göra det möjligt för kunder att elastiskt (och självständigt) skala data flöde och lagrings utrymme i valfritt antal geografiska regioner. Azure Cosmos DB är den första globalt distribuerade databas tjänsten på marknaden idag för att erbjuda omfattande [service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/) som omfattar data flöde, svars tid, tillgänglighet och konsekvens.
 
-Azure Cosmos DB är en globalt distribuerad databas för flera modeller som används i en mängd olika program och användnings fall. Det är ett bra val för alla program utan [Server](https://azure.com/serverless) som behöver svars tider med låg ordning i millisekunder och måste skalas snabbt och globalt. Den har stöd för flera data modeller (nyckel värde, dokument, grafer och kolumner) och många API: er för data åtkomst, inklusive [Azure Cosmos DB s API för MongoDB](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin API](graph-introduction.md)och [tabeller API](table-introduction.md) internt och på ett utöknings Bart sätt. 
+Azure Cosmos DB är en globalt distribuerad databas för flera modeller som används i en mängd olika program och användnings fall. Det är ett bra val för alla program utan [Server](https://azure.com/serverless) som behöver svars tider med låg ordning i millisekunder och måste skalas snabbt och globalt. Den har stöd för flera data modeller (nyckel värde, dokument, grafer och kolumner) och många API: er för data åtkomst, inklusive [Azure Cosmos DB s API för MongoDB](mongodb-introduction.md), [SQL API](./introduction.md), [Gremlin API](graph-introduction.md)och [tabeller API](table-introduction.md) internt och på ett utöknings Bart sätt. 
 
 Följande är några attribut för Azure Cosmos DB som gör det lämpligt för program med höga prestanda med globala ambition.
 

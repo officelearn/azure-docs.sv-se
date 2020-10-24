@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 8f50475d7ba9117fd32951b401b24b63d192fcd8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372386"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494524"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor om Azure Kubernetes Service (AKS)
 
@@ -193,7 +193,7 @@ Nej, skalnings åtgärder med hjälp av API: er för skalnings uppsättningen f�
 
 ## <a name="can-i-use-custom-vm-extensions"></a>Kan jag använda anpassade VM-tillägg?
 
-Nej, AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte. Så här installerar du anpassade komponenter osv. Använd Kubernetes-API: er och mekanismer. Du kan till exempel utnyttja DaemonSets för att installera nödvändiga komponenter.
+Log Analytics agent stöds eftersom det är ett tillägg som hanteras av Microsoft. Annars är inte AKS en hanterad tjänst och manipulering av IaaS-resurser stöds inte. Använd Kubernetes-API: er och mekanismer för att installera anpassade komponenter osv. Använd till exempel DaemonSets för att installera nödvändiga komponenter.
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>Lagrar AKS kund information utanför klustrets region?
 

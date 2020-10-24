@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 97f6817a02b7adf4d2d3e12dee6d1e3445e09a5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88053f2c7b1218a15315f2c616231d9356b65540
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552224"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484346"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-stormboard"></a>Självstudie: Azure Active Directory integrering med Stormboard
 
@@ -30,7 +30,7 @@ När du integrerar Stormboard med Azure AD innebär det följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Stormboard behöver du följande:
 
@@ -102,13 +102,13 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Storm
 
 4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-    ![Information om Stormboard-domän och URL:er för enkel inloggning](common/both-replyurl.png)
+    ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange ett svar U R L och välja Spara.](common/both-replyurl.png)
 
     Skriv en URL i text rutan **svars-URL** med följande mönster:  `https://<SUBDOMAIN>.stormboard.com/saml2/ad/acs/<TEAMID>`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Information om Stormboard-domän och URL:er för enkel inloggning](common/both-signonurl.png)
+    ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/both-signonurl.png)
 
     I text rutan **inloggnings-URL** skriver du en URL med följande mönster:  `https://<SUBDOMAIN>.stormboard.com/saml2/ad/login/<TEAMID>`
 

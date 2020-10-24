@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d1c3ad9aa034e6eace5323dd80c5275699a6e728
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331506"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495902"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Tjänstbegäran misslyckades. Status: 403 (ej tillåtet)
 
@@ -25,7 +25,9 @@ Det här felet kan inträffa på många typer av tjänst begär Anden som kräve
 
 ### <a name="cause-1"></a>Orsak #1
 
-Oftast indikerar det här felet att din Azure-rollbaserade åtkomst kontroll (Azure RBAC)-behörigheter för tjänsten inte har ställts in korrekt. Många åtgärder för en digital Azure Digital-instans kräver att du har rollen *Azure Digitals-ägare (förhands granskning)* **på den instans som du försöker hantera**. 
+Oftast indikerar det här felet att din Azure-rollbaserade åtkomst kontroll (Azure RBAC)-behörigheter för tjänsten inte har ställts in korrekt. Många åtgärder för en digital Azure Digitals-instans kräver att du har rollen *Azure Digitals dubbla data ägare* **på den instans som du försöker hantera**. 
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 ### <a name="cause-2"></a>Orsak #2
 
@@ -37,11 +39,12 @@ App-registreringen måste ha åtkomst behörighet som kon figurer ATS för Azure
 
 ### <a name="solution-1"></a>Lösnings #1
 
-Den första lösningen är att kontrol lera att Azure-användaren har rollen _**Azure Digital-ägare (förhands granskning)**_ på den instans som du försöker hantera. Om du inte har den här rollen ställer du in den.
+Den första lösningen är att kontrol lera att din Azure-användare har rollen _**Azure Digitals data ägare**_ på den instans som du försöker hantera. Om du inte har den här rollen ställer du in den.
 
 Observera att rollen skiljer sig från...
-* *ägar* rollen för hela Azure-prenumerationen. *Azure Digitals flätat-ägare (för hands version)* är en roll i Azure Digitals och är begränsad till den här enskilda Azure Digital-instansen.
-* *ägar* rollen i Azure Digitals dubbla. Detta är två unika hanterings roller för Azure Digitals, och *Azure Digitals-ägare (för hands version)* är den roll som ska användas för hantering under för hands versionen.
+* det tidigare namnet för den här rollen under för hands versionen, *Azure Digitals-ägare (för hands version)* (rollen är densamma, men namnet har ändrats)
+* *ägar* rollen för hela Azure-prenumerationen. *Azure Digitals sammanflätade data ägare* är en roll i Azure Digitals och är begränsad till den här enskilda Azure Digital-instansen.
+* *ägar* rollen i Azure Digitals dubbla. Det här är två unika hanterings roller för Azure Digitals, och *data ägaren till Azure Digital* är den roll som ska användas för hantering under för hands versionen.
 
 #### <a name="check-current-setup"></a>Kontrol lera aktuell installation
 
@@ -49,12 +52,12 @@ Observera att rollen skiljer sig från...
 
 #### <a name="fix-issues"></a>Åtgärda problem 
 
-Om du inte har den här roll tilldelningen ska någon med en ägar roll i din **Azure-prenumeration** köra följande kommando för att ge Azure-användaren rollen *Azure Digitals-ägare (för hands version)* på **Azure Digitals-instansen**. 
+Om du inte har den här roll tilldelningen ska någon med en ägar roll i din **Azure-prenumeration** köra följande kommando för att ge din Azure-användare Azures *digitala data ägar* roll på **Azure Digitals-instansen**. 
 
 Om du är ägare till prenumerationen kan du köra det här kommandot själv. Om du inte gör det kan du kontakta en ägare för att köra det här kommandot åt dig.
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
 Mer information om det här roll kravet och tilldelnings processen finns i avsnittet [ *Konfigurera din användares åtkomst behörigheter* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) i *instruktion: Konfigurera en instans och autentisering (CLI eller Portal)*.

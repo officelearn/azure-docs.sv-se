@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df8e4c2728bd7487520164553d26dfd42e38b647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e9fd3b3d2d5bceb766651c2758f956b9ef105e0
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841872"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494950"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Självstudie: kom igång med Azure Machine Learning i Jupyter Notebooks
 
@@ -34,6 +34,8 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
 En Azure Machine Learning arbets yta är en grundläggande resurs i molnet som du använder för att experimentera, träna och distribuera maskin inlärnings modeller. Den binder din Azure-prenumeration och resurs grupp till ett enkelt förbrukat objekt i tjänsten.
 
+Gå vidare till [klona en Notebook-mapp](#clone) om du redan har en Azure Machine Learning arbets yta.  
+
 Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera dina Azure-resurser.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
@@ -49,7 +51,7 @@ Azure Machine Learning innehåller en molnbaserad Notebook-server i din arbets y
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-### <a name="clone-a-notebook-folder"></a>Klona en Notebook-mapp
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Klona en Notebook-mapp
 
 Du har slutfört följande experiment-konfiguration och kör steg i Azure Machine Learning Studio. Det här konsoliderade gränssnittet innehåller Machine Learning-verktyg för att utföra data vetenskaps scenarier för läkare för data vetenskap för alla färdighets nivåer.
 

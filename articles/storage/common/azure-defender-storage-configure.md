@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb71c5eda66d3d11385577da7142970f4fbcbad2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289777"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474860"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Konfigurera Azure Defender för lagring
 
@@ -37,7 +37,7 @@ I följande lista sammanfattas tillgängligheten för Azure Defender för lagrin
 
 - Versions tillstånd:
   - [Blob Storage](https://azure.microsoft.com/services/storage/blobs/) (allmän tillgänglighet)
-  - [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (allmän tillgänglighet)
+  - [Azure Files](/azure/storage/files/storage-files-introduction) (allmän tillgänglighet)
   - Azure Data Lake Storage Gen2 (allmän tillgänglighet)
 - Moln<br>
     ✔ Kommersiella moln<br>
@@ -98,16 +98,16 @@ Använd en Azure Policy för att aktivera Azure Defender över lagrings konton u
 
 Använd REST API-kommandon för att skapa, uppdatera eller hämta Azure Defender-inställningen för ett angivet lagrings konto.
 
-- [Avancerat skydd – skapa](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-- [Avancerat skydd – Hämta](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+- [Avancerat skydd – skapa](/rest/api/securitycenter/advancedthreatprotection/create)
+- [Avancerat skydd – Hämta](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Använd följande PowerShell-cmdletar:
 
-- [Aktivera avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-- [Hämta Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-- [Inaktivera Avancerat skydd](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+- [Aktivera avancerat skydd](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+- [Hämta Avancerat skydd](/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+- [Inaktivera Avancerat skydd](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ---
 

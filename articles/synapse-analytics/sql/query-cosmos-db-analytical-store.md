@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3367a20ca5e2dc59880ed66939413606ff83963b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 99fcdd0232e2991acaceb6838bff0b00c6824dfb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122729"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474911"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Fråga Azure Cosmos DB data med Server lös SQL-pool i Azure Synapse Link (för hands version)
 
@@ -277,5 +277,6 @@ Du kan rapportera förslag och problem på [feedback-sidan för Azure Synapse](h
 
 Mer information finns i följande artiklar:
 
+- [Använda Power BI och Server lös Synapse SQL-pool med Azure Synapse-länk](../../cosmos-db/synapse-link-power-bi.md)
 - [Så här skapar du och använder vyer i SQL på begäran](create-use-views.md) 
 - [Självstudie om att skapa SQL-vyer på begäran över Azure Cosmos DB och ansluta dem till Power BI modeller via DirectQuery](./tutorial-data-analyst.md)

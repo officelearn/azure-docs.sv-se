@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: dfa8227f319a818efee20f26c1f2bebf72ad7cf9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4b0e0bd38c8bb9ea1d2331a65fc891e157971eef
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367660"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495847"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrera Azure Digitals dubbla med Azure SignalR-tjänsten
 
@@ -20,7 +20,7 @@ I den här artikeln får du lära dig hur du integrerar Azure Digitals dubbla me
 
 Lösningen som beskrivs i den här artikeln gör att du kan push-överföra digitala dubbla telemetridata till anslutna klienter, till exempel en enskild webb sida eller ett mobilt program. Det innebär att klienterna uppdateras med real tids mått och status från IoT-enheter, utan att behöva avsöka servern eller skicka nya HTTP-begäranden för uppdateringar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Här är de krav du måste utföra innan du fortsätter:
 
@@ -147,7 +147,7 @@ Publicera sedan din funktion till Azure med hjälp av stegen som beskrivs i arti
 
 1. Slutligen lägger du till **anslutnings strängen** för Azure SignalR från tidigare till funktionens appinställningar med hjälp av följande Azure CLI-kommando. Kommandot kan köras i [Azure Cloud Shell](https://shell.azure.com)eller lokalt om du har Azure CLI [installerat på datorn](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
  
-    ```azurecli
+    ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
     ```
 
@@ -242,7 +242,7 @@ Med hjälp av Azure Cloud Shell eller lokalt Azure CLI kan du ta bort alla Azure
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

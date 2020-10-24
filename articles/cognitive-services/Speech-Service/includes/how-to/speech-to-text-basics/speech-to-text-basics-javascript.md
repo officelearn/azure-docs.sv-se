@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 74da0ebf53b265bf5727c080e74772ad95bfb13c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: afe6562357f1d5558fdb2ac8cb0eb53cd3422d48
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470956"
+ms.locfileid: "92499117"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -63,69 +63,57 @@ Mer information om `require` finns i <a href="https://nodejs.org/en/knowledge/ge
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
-
-> [!NOTE]
-> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
-
-Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) :
-
-* Med en prenumeration: skicka i en nyckel och tillhör ande region.
-* Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
-* Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
-* Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
-
-Låt oss ta en titt på hur en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) har skapats med hjälp av en nyckel och region. Hämta dessa autentiseringsuppgifter genom att följa stegen i [testa tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering. Skapa en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) med hjälp av din nyckel och region. Se sidan [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regions-ID.
 
 ```javascript
 const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-## <a name="initialize-a-recognizer"></a>Initiera en identifierare
+Det finns några andra sätt som du kan initiera [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) :
 
-När du har skapat en [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) är nästa steg att initiera en [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true) . När du initierar en [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true) skickar du det `speechConfig` . Detta ger de autentiseringsuppgifter som tal tjänsten behöver för att verifiera din begäran.
+* Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
+* Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
+* Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
 
-```javascript
-const recognizer = new SpeechRecognizer(speechConfig);
-```
+> [!NOTE]
+> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
 
-## <a name="recognize-from-microphone-or-file"></a>Identifiera från mikrofon eller fil
+## <a name="recognize-from-microphone"></a>Identifiera från mikrofonen
 
-Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true) och skicka den som en parameter när du initierar [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true) .
-
-Om du vill känna igen tal med din enhets mikrofon skapar du en `AudioConfig` med `fromDefaultMicrophoneInput()` och skickar sedan ljud konfigurationen när du skapar `SpeechRecognizer` objektet.
+Skapa en med hjälp av om du vill känna igen tal med din enhets mikrofon `AudioConfig` `fromDefaultMicrophoneInput()` . Initiera sedan en [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true) , och skicka in `speechConfig` och `audioConfig` .
 
 ```javascript
 const audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+
+console.log('Speak into your microphone.');
+recognizer.recognizeOnceAsync(result => {
+    console.log(`RECOGNIZED: Text=${result.text}`);
+});
 ```
 
-> [!TIP]
-> [Lär dig hur du hämtar enhets-ID: t för din enhet för ljud inspelning](../../../how-to-select-audio-input-devices.md).
+Om du vill använda en *speciell* enhet för ljud inspelning måste du ange enhets-ID i `AudioConfig` . Lär dig [hur du hämtar enhets-ID](../../../how-to-select-audio-input-devices.md) : t för din enhet för ljud inspelning.
 
-Om du vill känna igen tal från en ljudfil i stället för att använda en mikrofon måste du ändå ange en `AudioConfig` . Men när du skapar [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true) , i stället för att anropa `fromDefaultMicrophoneInput()` , anropar `fromWavFileInput()` och skickar `filename` parametern.
+## <a name="recognize-from-file-nodejs-only"></a>Identifiera från fil (endast Node.js)
 
-> [!IMPORTANT]
-> Det går *bara* att känna igen tal från en fil i **Node.js** SDK
+Om du vill känna igen tal från en ljudfil i stället för att använda en mikrofon måste du ändå ange en `AudioConfig` . Men när du skapar i [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true) stället för att anropa anropar `fromDefaultMicrophoneInput()` du `fromWavFileInput()` och överför fil Sök vägen.
 
 ```javascript
 const audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
 const recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+
+recognizer.recognizeOnceAsync(result => {
+    console.log(`RECOGNIZED: Text=${result.text}`);
+});
 ```
 
 ## <a name="recognize-speech"></a>Identifiera tal
 
 [Igenkännings klassen](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true) för tal-SDK för Java Script visar några metoder som du kan använda för tal igenkänning.
 
-* Identifiering av enstaka bild (async) – utför igenkänning i ett icke-blockerande (asynkront) läge. Detta kommer att identifiera en enda uttryck. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas.
-* Kontinuerlig igenkänning (async) – initierar kontinuerlig igenkännings åtgärd asynkront. Användaren registrerar sig för händelser och hanterar olika program tillstånd. Anropa för att stoppa asynkron kontinuerlig igenkänning [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#stopcontinuousrecognitionasync) .
-
-> [!NOTE]
-> Läs mer om hur du [väljer ett tal igenkännings läge](../../../how-to-choose-recognition-mode.md).
-
 ### <a name="single-shot-recognition"></a>Igenkänning av enstaka bild
 
-Här är ett exempel på en asynkron igenkänning av enstaka bild med [`recognizeOnceAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#recognizeonceasync) :
+Ett enda avbilds igenkännings läge identifierar en enskild uttryck asynkront. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas. Här är ett exempel på en asynkron igenkänning av enstaka bild med [`recognizeOnceAsync`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest&preserve-view=true#recognizeonceasync) :
 
 ```javascript
 recognizer.recognizeOnceAsync(result => {

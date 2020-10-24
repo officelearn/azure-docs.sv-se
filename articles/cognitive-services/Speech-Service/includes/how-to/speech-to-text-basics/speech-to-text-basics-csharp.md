@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f903c0ea3b7ca6fb692e216a5681bb89223a764c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 30f32ace3fa2d67c558c84c1e53ebed146432323
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470725"
+ms.locfileid: "92499135"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -24,7 +24,9 @@ Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst 
 
 ## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
-Innan du kan göra något måste du installera talet SDK. Använd följande instruktioner, beroende på plattform:
+Om du bara vill att paket namnet ska komma igång kör `Install-Package Microsoft.CognitiveServices.Speech` du i NuGet-konsolen.
+
+Information om plattformsspecifika installations anvisningar finns i följande länkar:
 
 * <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet&pivots=programming-language-csharp" target="_blank">.NET Framework <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 * <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnetcore&pivots=programming-language-csharp" target="_blank">.NET Core <span class="docon docon-navigate-external x-hidden-focus"></span></a>
@@ -34,68 +36,61 @@ Innan du kan göra något måste du installera talet SDK. Använd följande inst
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering. Skapa en [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) med hjälp av din nyckel och region. Se sidan [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regions-ID.
 
-> [!NOTE]
-> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
+```csharp
+using Microsoft.CognitiveServices.Speech;
 
-Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) :
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+```
 
-* Med en prenumeration: skicka i en nyckel och tillhör ande region.
+Det finns några andra sätt som du kan initiera [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) :
+
 * Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
 * Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
 * Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
 
-Låt oss ta en titt på hur en [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) har skapats med hjälp av en nyckel och region. Hämta dessa autentiseringsuppgifter genom att följa stegen i [testa tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
+> [!NOTE]
+> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
 
-```csharp
-var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
+## <a name="recognize-from-microphone"></a>Identifiera från mikrofonen
 
-## <a name="initialize-a-recognizer"></a>Initiera en identifierare
-
-När du har skapat en [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) är nästa steg att initiera en [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet&preserve-view=true) . När du initierar en [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet&preserve-view=true) skickar du det `speechConfig` . Detta ger de autentiseringsuppgifter som tal tjänsten behöver för att verifiera din begäran.
-
-```csharp
-using var recognizer = new SpeechRecognizer(speechConfig);
-```
-
-## <a name="recognize-from-microphone-or-file"></a>Identifiera från mikrofon eller fil
-
-Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet&preserve-view=true) och skicka den som en parameter när du initierar [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet&preserve-view=true) .
-
-Om du vill känna igen tal med din enhets mikrofon skapar du en `AudioConfig` med `FromDefaultMicrophoneInput()` och skickar sedan ljud konfigurationen när du skapar `SpeechRecognizer` objektet.
+Skapa en med hjälp av om du vill känna igen tal med din enhets mikrofon `AudioConfig` `FromDefaultMicrophoneInput()` . Initiera sedan en [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) , och skicka in `audioConfig` och `speechConfig` .
 
 ```csharp
 using Microsoft.CognitiveServices.Speech.Audio;
 
 using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
 using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+
+Console.WriteLine("Speak into your microphone.");
+var result = await recognizer.RecognizeOnceAsync();
+Console.WriteLine($"RECOGNIZED: Text={result.Text}");
 ```
 
-> [!TIP]
-> [Lär dig hur du hämtar enhets-ID: t för din enhet för ljud inspelning](../../../how-to-select-audio-input-devices.md).
+Om du vill använda en *speciell* enhet för ljud inspelning måste du ange enhets-ID i `AudioConfig` . Lär dig [hur du hämtar enhets-ID](../../../how-to-select-audio-input-devices.md) : t för din enhet för ljud inspelning.
 
-Om du vill känna igen tal från en ljudfil i stället för en mikrofon måste du ändå skapa en `AudioConfig` . Men när du skapar [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet&preserve-view=true) , i stället för att anropa `FromDefaultMicrophoneInput()` , anropar `FromWavFileInput()` och skickar `filename` parametern.
+## <a name="recognize-from-file"></a>Identifiera från fil
+
+Om du vill känna igen tal från en ljudfil i stället för en mikrofon måste du ändå skapa en `AudioConfig` . Men när du skapar i [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet) stället för att anropa anropar `FromDefaultMicrophoneInput()` du `FromWavFileInput()` och överför fil Sök vägen.
 
 ```csharp
+using Microsoft.CognitiveServices.Speech.Audio;
+
 using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
 using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+
+var result = await recognizer.RecognizeOnceAsync();
+Console.WriteLine($"RECOGNIZED: Text={result.Text}");
 ```
 
 ## <a name="recognize-speech"></a>Identifiera tal
 
 [Igenkännings klassen](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet&preserve-view=true) för tal-SDK för C# visar några metoder som du kan använda för tal igenkänning.
 
-* Identifiering av enstaka bild (async) – utför igenkänning i ett icke-blockerande (asynkront) läge. Detta kommer att identifiera en enda uttryck. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas.
-* Kontinuerlig igenkänning (async) – initierar kontinuerlig igenkännings åtgärd asynkront. Användaren registrerar sig för händelser och hanterar olika program tillstånd. Anropa för att stoppa asynkron kontinuerlig igenkänning [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet&preserve-view=true) .
-
-> [!NOTE]
-> Läs mer om hur du [väljer ett tal igenkännings läge](../../../how-to-choose-recognition-mode.md).
-
 ### <a name="single-shot-recognition"></a>Igenkänning av enstaka bild
 
-Här är ett exempel på en asynkron igenkänning av enstaka bild med [`RecognizeOnceAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet&preserve-view=true) :
+Ett enda avbilds igenkännings läge identifierar en enskild uttryck asynkront. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas. Här är ett exempel på en asynkron igenkänning av enstaka bild med [`RecognizeOnceAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet) :
 
 ```csharp
 var result = await recognizer.RecognizeOnceAsync();
@@ -141,13 +136,14 @@ Vi börjar med att definiera indatamängden och initiera en [`SpeechRecognizer`]
 using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
 using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
+
 Nu ska vi skapa en variabel för att hantera läget för tal igenkänning. För att starta ska vi deklarera en `TaskCompletionSource<int>` efter föregående deklarationer.
 
 ```csharp
 var stopRecognition = new TaskCompletionSource<int>();
 ```
 
-Vi kommer att prenumerera på de händelser som skickas från [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet&preserve-view=true) .
+Prenumerera på de händelser som skickas från [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) .
 
 * [`Recognizing`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizing?view=azure-dotnet&preserve-view=true): Signal för händelser som innehåller mellanliggande igenkännings resultat.
 * [`Recognized`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognized?view=azure-dotnet&preserve-view=true): Signal för händelser som innehåller slutgiltiga igenkännings resultat (indikerar ett lyckat igenkännings försök).

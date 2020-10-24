@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: d96604cd23f49ff61dce2087fde2c13b8fa2069d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483736"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474673"
 ---
 # <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Utforma en PolyBase data inläsnings strategi för Azure Synapse SQL-poolen
 
-Traditionella SMP-datalager använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Azure SQL-poolen är en minnes trycks arkitektur med massivt parallell bearbetning (MPP) som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser. Att använda en process för att extrahera, läsa in och transformera (ELT) kan dra nytta av MPP och eliminera de resurser som behövs för att transformera data innan de läses in.
+Traditionella SMP-datalager använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Azure SQL-poolen är en minnes trycks arkitektur med massivt parallell bearbetning (MPP) som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser. Att använda en process för att extrahera, läsa in och transformera (ELT) kan dra nytta av inbyggda funktioner för distribuerad frågekörning och eliminera de resurser som behövs för att transformera data innan de läses in.
 
 SQL-poolen stöder många inläsnings metoder, inklusive icke-PolyBase-alternativ som BCP och SQL BulkCopy API, och det snabbaste och mest skalbara sättet att läsa in datum är genom PolyBase.  PolyBase är en teknik som använder externa data som lagras i Azure Blob Storage eller som Azure Data Lake Store via T-SQL-språket.
 
@@ -112,7 +112,7 @@ Formatera textfilerna:
 
 ## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Läs in data i mellanlagrings tabeller för SQL-pool med PolyBase
 
-Vi rekommenderar att du läser in data i en mellanlagringsplats. Med mellanlagrings tabeller kan du hantera fel utan att störa produktions tabellerna. Med en mellanlagringsplats får du också möjlighet att använda SQL-poolens MPP för data transformationer innan du infogar data i produktions tabeller.
+Vi rekommenderar att du läser in data i en mellanlagringsplats. Med mellanlagrings tabeller kan du hantera fel utan att störa produktions tabellerna. Med en mellanlagringsplats får du också möjlighet att använda SQL-poolen inbyggda funktioner för distribuerad frågekörning för data transformationer innan du infogar data i produktions tabeller.
 
 ### <a name="options-for-loading-with-polybase"></a>Alternativ för att läsa in med PolyBase
 

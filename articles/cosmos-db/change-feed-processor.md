@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2da6fcb82b1ec14d6f57931709321871fa575d38
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277031"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475812"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändringsflödesprocessorn i Azure Cosmos DB
 
@@ -125,10 +125,10 @@ Processorn för ändrings flöden initieras och börjar läsa ändringar från b
 
 Processorn för ändrings flöden kan finnas på alla plattformar som stöder tids krävande processer eller uppgifter:
 
-* En kontinuerlig körning av ett [Azure-webbjobb](https://docs.microsoft.com/learn/modules/run-web-app-background-task-with-webjobs/).
-* En process i en [virtuell Azure-dator](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
-* Ett bakgrunds jobb i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
-* En [värdbaserad ASP.net-tjänst](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services).
+* En kontinuerlig körning av ett [Azure-webbjobb](/learn/modules/run-web-app-background-task-with-webjobs/).
+* En process i en [virtuell Azure-dator](/azure/architecture/best-practices/background-jobs#azure-virtual-machines).
+* Ett bakgrunds jobb i [Azure Kubernetes-tjänsten](/azure/architecture/best-practices/background-jobs#azure-kubernetes-service).
+* En [värdbaserad ASP.net-tjänst](/aspnet/core/fundamentals/host/hosted-services).
 
 Medan byte av flödes processor kan köras i korta levde miljöer, eftersom Lease-behållaren upprätthåller tillstånd, kommer start cykeln för de här miljöerna att lägga till fördröjning för att ta emot meddelanden (på grund av omkostnader för att starta processorn varje gång miljön startas).
 
@@ -147,4 +147,4 @@ Nu kan du fortsätta med att lära dig mer om att ändra flödes processor i fö
 * [Hämtningsmodell för ändringsflöde](change-feed-pull-model.md)
 * [Så här migrerar du från biblioteket Change feed processor](how-to-migrate-from-change-feed-library.md)
 * [Använda ändringsflödesövervakaren](how-to-use-change-feed-estimator.md)
-* [Starttid för ändringsflödesprocessor](how-to-configure-change-feed-start-time.md)
+* [Starttid för ändringsflödesprocessor](#starting-time)

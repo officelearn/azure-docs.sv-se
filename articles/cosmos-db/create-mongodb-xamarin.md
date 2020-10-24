@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 10e3f420a187d67e19392dd3647692b54a817fa5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ffa8e473fb084b2d5f0e7f59a07b3de50e04752e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090309"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475867"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: Bygg en Xamarin. Forms-app med .NET SDK och Azure Cosmos DB s API för MongoDB
 
@@ -184,7 +184,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 2. Klicka på **Återställ alla NuGet-paket**.
 3. Högerklicka på **TaskList.Android** och välj **Ange som startprojekt**.
 4. Tryck på F5 för att starta felsökning av programmet.
-5. Om du vill köra på iOS ansluts datorn först till en Mac (här är [instruktionerna](https://docs.microsoft.com/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) för hur du gör detta).
+5. Om du vill köra på iOS ansluts datorn först till en Mac (här är [instruktionerna](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) för hur du gör detta).
 6. Högerklicka på projektet **TaskList.iOS** och välj **Ange som startprojekt**.
 7. Klicka på F5 för att starta felsökning av programmet.
 
@@ -206,4 +206,4 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 I den här snabbstarten har du lärt dig hur du skapar ett Azure Cosmos DB-konto och kör en Xamarin.Forms-app via API:t för MongoDB. Du kan nu importera ytterligare data till ditt Cosmos DB-konto.
 
 > [!div class="nextstepaction"]
-> [Importera data till Azure Cosmos DB konfigurerat med Azure Cosmos DB:s API för MongoDB](mongodb-migrate.md)
+> [Importera data till Azure Cosmos DB konfigurerat med Azure Cosmos DB:s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

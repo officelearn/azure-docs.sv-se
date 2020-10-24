@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ef0462b849210bc9b6963ab25e7a216c978f0568
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281066"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475472"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimera kostnaden för etablerat dataflöde i Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Som du ser i följande tabell, beroende på valet av API, kan du etablera data f
 
 |API|För **delat** data flöde konfigurerar du |För **dedikerat** data flöde konfigurerar du |
 |----|----|----|
-|API för SQL|Databasen|Container|
+|API för SQL|Databas|Container|
 |API för Azure Cosmos DB för MongoDB|Databas|Samling|
 |Cassandra-API|Keyspace|Tabeller|
 |Gremlin-API|Databaskonto|Graph|
@@ -80,7 +80,7 @@ De ursprungliga SDK: erna (.NET/.NET Core, Java, Node.js och python) fångar imp
 
 Om du har mer än en klient ackumulerad på ett konsekvent sätt över begär ande frekvensen, kanske standard antalet nya försök, som för närvarande är 9, inte räcker. I sådana fall genererar klienten en `RequestRateTooLargeException` med status kod 429 till programmet. Standard antalet återförsök kan ändras genom att ställa in `RetryOptions` på ConnectionPolicy-instansen. Som standard `RequestRateTooLargeException` returneras med status kod 429 efter en ackumulerad vänte tid på 30 sekunder om begäran fortsätter att köras över begär ande frekvensen. Detta inträffar även om det aktuella antalet återförsök är mindre än max antalet försök, måste det vara standardvärdet 9 eller ett användardefinierat värde. 
 
-[MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet&preserve-view=true) är inställt på 3, så i det här fallet, om en begär ande åtgärd är begränsad genom att överskrida det reserverade data flödet för behållaren, försöker åtgärden tre gånger innan undantaget utlöses till programmet. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) är inställt på 60, så i det här fallet om den ackumulerade återförsöks tiden i sekunder sedan den första begäran överskrider 60 sekunder, genereras undantaget.
+[MaxRetryAttemptsOnThrottledRequests](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?preserve-view=true&view=azure-dotnet) är inställt på 3, så i det här fallet, om en begär ande åtgärd är begränsad genom att överskrida det reserverade data flödet för behållaren, försöker åtgärden tre gånger innan undantaget utlöses till programmet. [MaxRetryWaitTimeInSeconds](/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) är inställt på 60, så i det här fallet om den ackumulerade återförsöks tiden i sekunder sedan den första begäran överskrider 60 sekunder, genereras undantaget.
 
 ```csharp
 ConnectionPolicy connectionPolicy = new ConnectionPolicy(); 
@@ -112,7 +112,7 @@ Om du använder Azure Cosmos DB och du vet att du inte kommer att söka efter vi
 
 ## <a name="optimize-by-changing-indexing-policy"></a>Optimera genom att ändra indexerings princip 
 
-Som standard indexerar Azure Cosmos DB automatiskt varje egenskap för varje post. Detta är avsett för att under lätta utvecklingen och säkerställa utmärkta prestanda för många olika typer av ad hoc-frågor. Om du har stora poster med tusentals egenskaper kanske du betalar data flödes kostnaden för indexering av varje egenskap som inte är användbar, särskilt om du bara frågar mot 10 eller 20 av dessa egenskaper. I takt med att du får en referens till din speciella arbets belastning är vår vägledning att justera din index princip. Fullständig information om Azure Cosmos DB indexerings princip finns [här](indexing-policies.md). 
+Som standard indexerar Azure Cosmos DB automatiskt varje egenskap för varje post. Detta är avsett för att under lätta utvecklingen och säkerställa utmärkta prestanda för många olika typer av ad hoc-frågor. Om du har stora poster med tusentals egenskaper kanske du betalar data flödes kostnaden för indexering av varje egenskap som inte är användbar, särskilt om du bara frågar mot 10 eller 20 av dessa egenskaper. I takt med att du får en referens till din speciella arbets belastning är vår vägledning att justera din index princip. Fullständig information om Azure Cosmos DB indexerings princip finns [här](index-policy.md). 
 
 ## <a name="monitoring-provisioned-and-consumed-throughput"></a>Övervaka etablerade och förbrukade data flöden 
 
@@ -156,7 +156,7 @@ Följande steg hjälper dig att göra dina lösningar mycket skalbara och kostna
 
 1. Om du har betydligt över ett insamlat data flöde i behållare och databaser bör du granska ru: er-etablerade vs-förbrukade ru: er och finjustera arbets belastningarna.  
 
-2. En metod för att uppskatta mängden reserverat data flöde som krävs av ditt program är att registrera begär ande enhet RU-avgift som är kopplad till att köra vanliga åtgärder mot en representativ Azure Cosmos-behållare eller-databas som används av ditt program och sedan beräkna antalet åtgärder som du förväntar dig att utföra varje sekund. Se till att du mäter och inkluderar även vanliga frågor och deras användning. Information om hur du uppskattar RU-kostnader för frågor via programmering eller med hjälp av portalen finns i [optimera kostnaden för frågor](optimize-cost-queries.md). 
+2. En metod för att uppskatta mängden reserverat data flöde som krävs av ditt program är att registrera begär ande enhet RU-avgift som är kopplad till att köra vanliga åtgärder mot en representativ Azure Cosmos-behållare eller-databas som används av ditt program och sedan beräkna antalet åtgärder som du förväntar dig att utföra varje sekund. Se till att du mäter och inkluderar även vanliga frågor och deras användning. Information om hur du uppskattar RU-kostnader för frågor via programmering eller med hjälp av portalen finns i [optimera kostnaden för frågor](./optimize-cost-reads-writes.md). 
 
 3. Ett annat sätt att få fram åtgärder och deras kostnader i ru: er är genom att aktivera Azure Monitor loggar, vilket ger dig en uppdelning av drift/varaktighet och begär ande avgiften. Azure Cosmos DB tillhandahåller en begär ande avgift för varje åtgärd, så varje åtgärds avgift kan lagras tillbaka från svaret och sedan användas för analys. 
 
@@ -182,6 +182,5 @@ Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure
 * Lär dig mer om [att förstå din Azure Cosmos DB faktura](understand-your-bill.md)
 * Läs mer om hur du [optimerar lagrings kostnader](optimize-cost-storage.md)
 * Läs mer om hur [du optimerar kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
-* Lär dig mer om hur [du optimerar kostnaden för frågor](optimize-cost-queries.md)
+* Lär dig mer om hur [du optimerar kostnaden för frågor](./optimize-cost-reads-writes.md)
 * Läs mer om hur [du optimerar kostnaden för Azure Cosmos-konton med flera regioner](optimize-cost-regions.md)
-

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: d3caeea88bcbcc1f7db111158d6900d02dd3ade7
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 05fc215d6283c6d839b01a7247518a84d9b89a38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92470972"
+ms.locfileid: "92499165"
 ---
 En av de viktigaste funktionerna i tal tjänsten är möjligheten att känna igen mänskligt tal (kallas ofta tal till text). I den här snabb starten får du lära dig hur du använder tal-SDK i dina appar och produkter för att utföra högkvalitativt tal-till-text-konvertering.
 
@@ -37,7 +37,7 @@ Om du använder macOS och kör installations problem kan du behöva köra komman
 python3 -m pip install --upgrade pip
 ```
 
-När du har installerat talet SDK importerar du det till python-projektet med den här instruktionen.
+När du har installerat talet SDK importerar du det till python-projektet.
 
 ```Python
 import azure.cognitiveservices.speech as speechsdk
@@ -45,81 +45,61 @@ import azure.cognitiveservices.speech as speechsdk
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
-
-> [!NOTE]
-> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
-
-Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true) :
-
-* Med en prenumeration: skicka i en nyckel och tillhör ande region.
-* Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
-* Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
-* Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
-
-Låt oss ta en titt på hur en [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true) har skapats med hjälp av en nyckel och region. Hämta dessa autentiseringsuppgifter genom att följa stegen i [testa tal tjänsten kostnads fritt](../../../overview.md#try-the-speech-service-for-free).
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering. Skapa en [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) med hjälp av din nyckel och region. Se sidan [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regions-ID.
 
 ```Python
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 ```
 
-## <a name="initialize-a-recognizer"></a>Initiera en identifierare
+Det finns några andra sätt som du kan initiera [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python) :
 
-När du har skapat en [`SpeechConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python&preserve-view=true) är nästa steg att initiera en [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python&preserve-view=true) . När du initierar en [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python&preserve-view=true) skickar du det `speech_config` . Detta ger de autentiseringsuppgifter som tal tjänsten behöver för att verifiera din begäran.
+* Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
+* Med en värd: skicka in en värd adress. En nyckel eller autentiseringstoken är valfri.
+* Med en autentiseringstoken: skicka in en autentiseringstoken och den associerade regionen.
+
+> [!NOTE]
+> Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
+
+## <a name="recognize-from-microphone"></a>Identifiera från mikrofonen
+
+Om du vill känna igen tal med hjälp av din enhets mikrofon skapar du bara en `SpeechRecognizer` utan att skicka en `AudioConfig` , och skickar din `speech_config` .
 
 ```Python
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
+
+print("Speak into your microphone.")
+result = speech_recognizer.recognize_once_async().get()
+print(result.text)
 ```
 
-## <a name="recognize-from-microphone-or-file"></a>Identifiera från mikrofon eller fil
+Om du vill använda en *speciell* enhet för ljud inspelning måste du ange enhets-ID i en `AudioConfig` och skicka den till `SpeechRecognizer` konstruktorns `audio_config` param. Lär dig [hur du hämtar enhets-ID](../../../how-to-select-audio-input-devices.md) : t för din enhet för ljud inspelning.
 
-Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python&preserve-view=true) och skicka den som en parameter när du initierar [`SpeechRecognizer`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer?view=azure-python&preserve-view=true) .
-
-Om du vill känna igen tal med din enhets mikrofon skapar du bara en `SpeechRecognizer` utan att skicka ett `AudioConfig`
-
-```Python
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
-```
-
-> [!TIP]
-> Om du vill referera till en enhet efter ID skapar du en `AudioConfig` med `AudioConfig(device_name="<device id>")` 
->  [Lär dig hur du hämtar enhets-ID: t för enheten för ljud inspelning](../../../how-to-select-audio-input-devices.md).
+## <a name="recognize-from-file"></a>Identifiera från fil
 
 Om du vill känna igen tal från en ljudfil i stället för att använda en mikrofon skapar [`AudioConfig`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig?view=azure-python&preserve-view=true) du en och använder- `filename` parametern.
 
 ```Python
 audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+
+result = speech_recognizer.recognize_once_async().get()
+print(result.text)
 ```
 
 ## <a name="recognize-speech"></a>Identifiera tal
 
 [Igenkännings klassen](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python&preserve-view=true) för tal-SDK för python visar några metoder som du kan använda för tal igenkänning.
 
-* En avbildad igenkänning (Sync) – utför igenkänning i ett block läge (synkront). Returnerar efter att en enskild uttryck har identifierats. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas. Uppgiften returnerar igenkännings texten som resultat.
-* Identifiering av enstaka bild (async) – utför igenkänning i ett icke-blockerande (asynkront) läge. Detta kommer att identifiera en enda uttryck. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas.
-* Kontinuerlig igenkänning (synkronisering) – startar synkront löpande igenkänning. Klienten måste ansluta till `EventSignal` för att få igenkännings resultat. Anropa [stop_continuous_recognition ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition--)om du vill stoppa igenkänning.
-* Kontinuerlig igenkänning (async) – initierar kontinuerlig igenkännings åtgärd asynkront. Användaren måste ansluta till EventSignal för att få igenkännings resultat. Anropa [stop_continuous_recognition ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#stop-continuous-recognition-async--)för att stoppa asynkron löpande igenkänning.
-
-> [!NOTE]
-> Läs mer om hur du [väljer ett tal igenkännings läge](../../../how-to-choose-recognition-mode.md).
-
 ### <a name="single-shot-recognition"></a>Igenkänning av enstaka bild
 
-Här är ett exempel på en synkron igenkänning med [`recognize_once()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once) :
+Ett enda avbilds igenkännings läge identifierar en enskild uttryck asynkront. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas. Här är ett exempel på en asynkron igenkänning av enstaka bild med [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture) :
 
 ```Python
-result = speech_recognizer.recognize_once()
+result = speech_recognizer.recognize_once_async().get()
 ```
 
-Här är ett exempel på en asynkron igenkänning av enstaka bild med [`recognize_once_async()`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer?view=azure-python#recognize-once-async------azure-cognitiveservices-speech-resultfuture) :
-
-```Python
-result = speech_recognizer.recognize_once_async()
-```
-
-Oavsett om du har använt metoden synkront eller asynkront måste du skriva kod för att iterera genom resultatet. I det här exemplet utvärderas [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python&preserve-view=true) :
+Du måste skriva kod för att iterera genom resultatet. I det här exemplet utvärderas [`result.reason`](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason?view=azure-python) :
 
 * Skriver ut resultatet för igenkänning: `speechsdk.ResultReason.RecognizedSpeech`
 * Om det inte finns någon igenkännings matchning, informera användaren: `speechsdk.ResultReason.NoMatch `

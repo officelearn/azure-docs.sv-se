@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 02e9fbbe98458e4f9ba39e971b2c5fe50fd8fa4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 380cd174e1e71ed4bd63e168503ced7888b5b34f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284688"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482391"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-with-azure-resource-manager-templates"></a>Hantera API-resurser för Azure Cosmos DB Core (SQL) med Azure Resource Manager-mallar
 
@@ -82,7 +82,7 @@ Den här mallen skapar ett Azure Cosmos-konto på kostnads nivå och en databas 
 
 Här följer några ytterligare resurser:
 
-* [Dokumentation om Azure Resource Manager](/azure/azure-resource-manager/)
+* [Dokumentation om Azure Resource Manager](../azure-resource-manager/index.yml)
 * [Schema för Azure Cosmos DB Resource Provider](/azure/templates/microsoft.documentdb/allversions)
 * [Azure Cosmos DB Snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Documentdb&pageNumber=1&sort=Popular)
 * [Felsök vanliga Azure Resource Manager distributions fel](../azure-resource-manager/templates/common-deployment-errors.md)

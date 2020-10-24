@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: e4e680ea55988f7b3446bf72c8e800bcc51eb537
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 556b3915336d0ca9cec8ac67a34778cfb2523cbe
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282056"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475081"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Enheter för programbegäran i Azure Cosmos DB
 
@@ -62,7 +62,7 @@ När du uppskattar antalet ru: er som konsumeras av arbets belastningen bör du 
 
   Samma fråga på samma data kostar alltid att ha samma antal ru: er vid upprepade körningar.
 
-- **Skript användning**: som med frågor, lagrade procedurer och utlösare använder ru: er baserat på komplexiteten för de åtgärder som utförs. När du utvecklar ditt program kan du läsa [rubriken för begärandekostnad](optimize-cost-queries.md#evaluate-request-unit-charge-for-a-query) för att få mer information om hur mycket RU-kapacitet varje åtgärd förbrukar.
+- **Skript användning**: som med frågor, lagrade procedurer och utlösare använder ru: er baserat på komplexiteten för de åtgärder som utförs. När du utvecklar ditt program kan du läsa [rubriken för begärandekostnad](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) för att få mer information om hur mycket RU-kapacitet varje åtgärd förbrukar.
 
 ## <a name="request-units-and-multiple-regions"></a>Enheter för programbegäran och flera regioner
 
@@ -76,12 +76,12 @@ Ditt val av [konsekvens modell](consistency-levels.md) påverkar också data fl�
 
 - Lär dig mer om hur du [etablerar data flöde i Azure Cosmos-behållare och databaser](set-throughput.md).
 - Lär dig mer om att utan [Server på Azure Cosmos DB](serverless.md).
-- Läs mer om [logiska partitioner](partition-data.md).
-- Lär dig mer om hur du [globalt skalar allokerat data flöde](scaling-throughput.md).
+- Läs mer om [logiska partitioner](./partitioning-overview.md).
+- Lär dig mer om hur du [globalt skalar allokerat data flöde]().
 - Lär dig hur du [etablerar data flöde i en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
 - Lär dig hur du [etablerar data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 - Lär dig hur du [hittar enhets avgiften för en åtgärd](find-request-unit-charge.md).
 - Lär dig hur du [optimerar den etablerade data flödes kostnaden i Azure Cosmos DB](optimize-cost-throughput.md).
 - Lär dig hur du [optimerar läsning och skrivning av kostnader i Azure Cosmos DB](optimize-cost-reads-writes.md).
-- Lär dig hur du [optimerar kostnad för frågor i Azure Cosmos DB](optimize-cost-queries.md).
+- Lär dig hur du [optimerar kostnad för frågor i Azure Cosmos DB](./optimize-cost-reads-writes.md).
 - Lär dig hur du [använder mått för att övervaka data flödet](use-metrics.md).

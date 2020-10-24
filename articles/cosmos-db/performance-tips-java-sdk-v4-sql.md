@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8735bf721ec85dcd556582f7fd887dd82b55a35d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369989"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475234"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestandatips för Azure Cosmos DB Java SDK v4
 
@@ -85,13 +85,13 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
 * **Aktivera accelererat nätverk på den virtuella Azure-datorn för kortare svars tid.**
 
-Vi rekommenderar att du följer anvisningarna för att aktivera accelererat nätverk i [Windows (Klicka för instruktioner)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) eller [Linux (Klicka för instruktioner)](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) virtuell Azure-dator för att maximera prestanda.
+Vi rekommenderar att du följer anvisningarna för att aktivera accelererat nätverk i [Windows (Klicka för instruktioner)](../virtual-network/create-vm-accelerated-networking-powershell.md) eller [Linux (Klicka för instruktioner)](../virtual-network/create-vm-accelerated-networking-cli.md) virtuell Azure-dator för att maximera prestanda.
 
 Från och med accelererade nätverk kan IO-överföring mellan din virtuella Azure-dator och andra Azure-resurser vara onödigt dirigerad genom en värd och en virtuell växel som ligger mellan den virtuella datorn och nätverkskortet. Om värd och virtuell växel infogas i Datapath inte bara ökar svars tiden och darr i kommunikations kanalen, stjälas även CPU-cykler från den virtuella datorn. Med accelererat nätverk är de virtuella dator gränssnitten direkt med NÄTVERKSKORTet utan mellanhänder; all nätverks princip information som hanteras av värden och den virtuella växeln hanteras nu i maskin varan på NÄTVERKSKORTet. värden och den virtuella växeln ignoreras. Vanligt vis kan du förväntar dig kortare latens och högre genom strömning, samt mer *konsekvent* svars tid och minskad CPU-användning när du aktiverar accelererat nätverk.
 
 Begränsningar: accelererade nätverk måste stödjas på VM OS och kan bara aktive ras när den virtuella datorn stoppas och frigörs. Det går inte att distribuera den virtuella datorn med Azure Resource Manager.
 
-Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) -och [Linux](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) -instruktionerna.
+Mer information finns i [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) -och [Linux](../virtual-network/create-vm-accelerated-networking-cli.md) -instruktionerna.
 
 ## <a name="sdk-usage"></a>SDK-användning
 * **Installera den senaste SDK: n**
@@ -311,7 +311,7 @@ _ **Skala ut din klient-arbets belastning**
 
     [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/documentationsnippets/async/SampleDocumentationSnippetsAsync.java?name=MigrateIndexingAsync)]
 
-    Mer information finns i [Azure Cosmos DB indexerings principer](indexing-policies.md).
+    Mer information finns i [Azure Cosmos DB indexerings principer](index-policy.md).
 
 ## <a name="throughput"></a>Dataflöde
 <a id="measure-rus"></a>

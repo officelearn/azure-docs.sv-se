@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 6/15/2020
-ms.openlocfilehash: 075f5fde272d4ee2e932e5f6c1f0e34324c38837
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa9f38b2cefa60a0c3341c1317cf45fbcb735301
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707939"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485451"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--single-server"></a>Hög tillgänglighet i Azure Database for PostgreSQL – enskild server
 Tjänsten Azure Database for PostgreSQL – enskild server ger en garanterad hög tillgänglighets nivå med det ekonomiskt service avtal (SLA) på [99,99%](https://azure.microsoft.com/support/legal/sla/postgresql) drift tid. Azure Database for PostgreSQL ger hög tillgänglighet under planerade händelser som initated Scale Compute operation och även när oplanerade händelser som underliggande maskin vara, program eller nätverks fel inträffar. Azure Database for PostgreSQL kan snabbt återställas från de mest kritiska förhållandena, vilket säkerställer att det är praktiskt taget ingen program tids period när tjänsten används.
@@ -40,8 +40,8 @@ Här följer några planerade underhålls scenarier:
 | ------------ | ----------- |
 | <b>Beräknings skala upp/ned | När användaren utför en beräknings beräknings åtgärd, etableras en ny databas server med den skalade beräknings konfigurationen. På den gamla databas servern tillåts aktiva kontroll punkter att slutföras, klient anslutningar töms, eventuella obekräftade transaktioner avbryts och sedan stängs den av. Lagringen kopplas sedan bort från den gamla databas servern och kopplas till den nya databas servern. När klient programmet försöker ansluta igen eller försöker skapa en ny anslutning, dirigerar gatewayen anslutningsbegäran till den nya databas servern.|
 | <b>Skala upp lagring | Att skala upp lagringen är en online-åtgärd och avbryter inte databas servern.|
-| <b>Ny program varu distribution (Azure) | Nya funktioner distribution eller fel korrigeringar sker automatiskt som en del av tjänstens planerade underhåll. Mer information finns i [dokumentationen](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification)och kontrol lera också [portalen](https://aka.ms/servicehealthpm).|
-| <b>Lägre versions uppgraderingar | Azure Database for PostgreSQL automatiskt korrigering av databas servrar till den lägre versionen som bestäms av Azure. Det inträffar som en del av tjänstens planerade underhåll. Detta skulle innebära en kort stillestånds tid i sekunder och databas servern startas automatiskt om med den nya lägre versionen. Mer information finns i [dokumentationen](https://docs.microsoft.com/azure/postgresql/concepts-monitoring#planned-maintenance-notification)och kontrol lera också [portalen](https://aka.ms/servicehealthpm).|
+| <b>Ny program varu distribution (Azure) | Nya funktioner distribution eller fel korrigeringar sker automatiskt som en del av tjänstens planerade underhåll. Mer information finns i [dokumentationen](./concepts-monitoring.md#planned-maintenance-notification)och kontrol lera också [portalen](https://aka.ms/servicehealthpm).|
+| <b>Lägre versions uppgraderingar | Azure Database for PostgreSQL automatiskt korrigering av databas servrar till den lägre versionen som bestäms av Azure. Det inträffar som en del av tjänstens planerade underhåll. Detta skulle innebära en kort stillestånds tid i sekunder och databas servern startas automatiskt om med den nya lägre versionen. Mer information finns i [dokumentationen](./concepts-monitoring.md#planned-maintenance-notification)och kontrol lera också [portalen](https://aka.ms/servicehealthpm).|
 
 
 ##  <a name="unplanned-downtime-mitigation"></a>Minskning av oplanerade stillestånd
@@ -68,8 +68,8 @@ Här följer några fel scenarier som kräver användar åtgärd för att åters
 
 | **Scenario** | **Återställnings plan** |
 | ---------- | ---------- |
-| <b> Regions haveri | En regions haveri är en sällsynt händelse. Men om du behöver skydd från ett regions haveri kan du konfigurera en eller flera Läs repliker i andra regioner för haveri beredskap (DR). (Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) om att skapa och hantera Läs repliker). I händelse av ett problem på regions nivå kan du manuellt befordra den skrivskyddade replik som kon figurer ATS i den andra regionen som din produktions databas server. |
-| <b> Logiska/användar fel | Återställning från användar fel, till exempel oavsiktligt borttagna tabeller eller felaktigt uppdaterade data, innebär att utföra en [tidpunkts återställning](https://docs.microsoft.com/azure/postgresql/concepts-backup) (PITR), genom att återställa och återställa data tills tiden strax innan felet uppstod.<br> <br>  Om du bara vill återställa en delmängd av databaser eller vissa tabeller i stället för alla databaser på databas servern, kan du återställa databas servern i en ny instans, exportera tabellen/tabellerna via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html)och sedan använda [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) för att återställa tabellerna till din databas. |
+| <b> Regions haveri | En regions haveri är en sällsynt händelse. Men om du behöver skydd från ett regions haveri kan du konfigurera en eller flera Läs repliker i andra regioner för haveri beredskap (DR). (Mer information finns i [den här artikeln](./howto-read-replicas-portal.md) om att skapa och hantera Läs repliker). I händelse av ett problem på regions nivå kan du manuellt befordra den skrivskyddade replik som kon figurer ATS i den andra regionen som din produktions databas server. |
+| <b> Logiska/användar fel | Återställning från användar fel, till exempel oavsiktligt borttagna tabeller eller felaktigt uppdaterade data, innebär att utföra en [tidpunkts återställning](./concepts-backup.md) (PITR), genom att återställa och återställa data tills tiden strax innan felet uppstod.<br> <br>  Om du bara vill återställa en delmängd av databaser eller vissa tabeller i stället för alla databaser på databas servern, kan du återställa databas servern i en ny instans, exportera tabellen/tabellerna via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html)och sedan använda [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) för att återställa tabellerna till din databas. |
 
 
 

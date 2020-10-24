@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 98bc108af22491c6ea0b64bc2e278b6b32f43a5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 66008012dd9b3eb6000e96f251d18cf14a9c8dc1
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203100"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495240"
 ---
 # <a name="set-up-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklings miljö för Azure Machine Learning
 
@@ -139,10 +139,10 @@ Det finns inget att installera eller konfigurera för en beräknings instans.
 
 Skapa en när som helst i din Azure Machine Learning-arbetsyta. Ange ett namn och ange en typ av virtuell Azure-dator. Prova nu med den här [självstudien: installations miljö och arbets yta](tutorial-1st-experiment-sdk-setup.md).
 
-Om du vill veta mer om beräknings instanser, inklusive hur du installerar paket, se [Compute instances](concept-compute-instance.md).
+Mer information om beräknings instanser, inklusive hur du installerar paket finns i [skapa och hantera en Azure Machine Learning beräknings instans](how-to-create-manage-compute-instance.md).
 
 > [!TIP]
-> [Stoppa beräknings instansen](tutorial-1st-experiment-bring-data.md#clean-up-resources)för att förhindra kostnader för en oanvänd beräknings instans.
+> [Stoppa beräknings instansen](how-to-create-manage-compute-instance.md#manage)för att förhindra kostnader för en oanvänd beräknings instans.
 
 Förutom en Jupyter Notebook Server-och JupyterLab kan du använda beräknings instanser i den [integrerade Notebook-funktionen i Azure Machine Learning Studio](how-to-run-jupyter-notebooks.md).
 

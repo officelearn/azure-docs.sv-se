@@ -3,59 +3,93 @@ title: Resurs tillgänglighet per region
 description: Tillgänglighet för beräknings-och minnes resurser för tjänsten Azure Container Instances i olika Azure-regioner.
 ms.topic: article
 ms.date: 04/27/2020
-ms.openlocfilehash: 97baa5199a1803bd967c0b55c846908ea5a2ddcf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: 1ed3f50198c0410d9c893fe87523fa214ca03d88
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565437"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521466"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Resurs tillgänglighet för Azure Container Instances i Azure-regioner
 
-Den här artikeln innehåller information om tillgängligheten för Azure Container Instances beräknings-, minnes-och lagrings resurser i Azure-regioner och efter mål operativ system. 
+Den här artikeln innehåller information om tillgängligheten för Azure Container Instances beräknings-, minnes-och lagrings resurser i Azure-regioner och efter mål operativ system. En allmän lista över tillgängliga regioner för Azure Container Instances finns i [tillgängliga regioner](https://azure.microsoft.com/regions/services/).
 
-Värden som anges är de maximala tillgängliga resurserna per distribution av en [behållar grupp](container-instances-container-groups.md). Värden är aktuella vid tidpunkten för publiceringen. 
+Värden som anges är de maximala tillgängliga resurserna per distribution av en [behållar grupp](container-instances-container-groups.md). Värden är aktuella vid tidpunkten för publiceringen.
 
 > [!NOTE]
 > Behållar grupper som skapas inom dessa resurs gränser är beroende av tillgängligheten i distributions regionen. Om en region har hög belastning kan du uppleva fel vid distribution av instanser. Om du vill undvika ett sådant distributions haveri försök att distribuera instanser med lägre resurs inställningar, eller försök att distribuera vid ett senare tillfälle eller i en annan region med tillgängliga resurser.
 
 Information om kvoter och andra begränsningar i dina distributioner finns i [kvoter och gränser för Azure Container instances](container-instances-quotas.md).
 
-## <a name="availability---general"></a>Tillgänglighet – allmänt
+## <a name="linux-container-groups"></a>Linux container grupper
 
-Följande regioner och maximalt antal resurser är tillgängliga för behållar grupper med Linux och [stödda](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016-baserade behållare.
+Följande regioner och maximala resurser är tillgängliga för behållar grupper med Linux-behållare i allmänna distributioner, [Azure Virtual Network](container-instances-vnet.md) -distributioner och distributioner med [GPU-resurser](container-instances-gpu.md) (för hands version).
 
-| Regioner | Operativsystem | Maximal CPU | Högsta mängd minne (GB) | Lagring (GB) |
-| -------- | -- | :---: | :-----------: | :---: |
-| Södra Brasilien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Västeuropa, västra USA, västra USA 2 | Linux | 4 | 16 | 50 |
-| Östra Australien, Östra Japan | Linux | 2 | 8 | 50 |
-| USA, norra centrala | Linux | 2 | 3.5 | 50 |
-| Södra Brasilien, Östra Japan, västra Europa | Windows | 4 | 16 | 20 |
-| Östra USA, västra USA | Windows | 4 | 14 | 20 |
-| Östra Australien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA 2, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, västra USA 2 | Windows | 2 | 3.5 | 20 |
+> [!IMPORTANT]
+> De maximala resurserna i en region är olika beroende på din distribution. En region kan till exempel ha en annan maximal processor-och minnes storlek i en Azure Virtual Network-distribution än för en allmän distribution. Samma region kan också ha en annan uppsättning av högsta värden för en distribution med GPU-resurser. Verifiera distributions typen innan du kontrollerar de följande tabellerna för att se de maximala värdena i din region.
 
-## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Tillgänglighet – Windows Server 2019 LTSC, 1809 distributioner (för hands version)
+| Region | Maximal CPU | Högsta mängd minne (GB) | Max-CPU för VNET | Största mängd minne i VNET (GB) | Lagring (GB) | GPU SKU: er (för hands version) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
+| Australien, östra | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| Brasilien, södra | 4 | 16 | 2 | 8 | 50 | Ej tillämpligt |
+| Kanada, centrala | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| Indien, centrala | 4 | 16 | Saknas | Saknas | 50 | V100 |
+| Central US | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| Asien, östra | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| East US | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| USA, östra 2 | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| Japan, östra | 2 | 8 | 4 | 16 | 50 | Ej tillämpligt |
+| Sydkorea, centrala | 4 | 16 | Saknas | Saknas | 50 | Ej tillämpligt |
+| USA, norra centrala | 2 | 3.5 | 4 | 16 | 50 | Ej tillämpligt |
+| Norra Europa | 4 | 16 | 4 | 16 | 50 | K80 |
+| USA, södra centrala | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| Sydostasien | 4 | 16 | 4 | 16 | 50 | P100, V100 |
+| Indien, södra | 4 | 16 | Saknas | Saknas | 50 | Ej tillämpligt |
+| Storbritannien, södra | 4 | 16 | 4 | 16 | 50 | Ej tillämpligt |
+| USA, västra centrala| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Europa, västra | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| USA, västra | 4 | 16 | 2 | 4 | 16| Ej tillämpligt |
+| USA, västra 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
-Följande regioner och maximalt antal resurser är tillgängliga för behållar grupper med Windows Server 2019-baserade behållare (för hands version).
+Följande maximala resurser är tillgängliga för en behållar grupp som distribueras med [GPU-resurser](container-instances-gpu.md) (för hands version).
 
-| Regioner | Operativsystem | Maximal CPU | Högsta mängd minne (GB) | Lagring (GB) |
-| -------- | -- | :---: | :-----------: | :---: |
-| Östra Australien, södra Brasilien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA, östra USA, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Västeuropa | Windows | 4 | 16 | 20 |
-| USA, östra 2, västra USA 2 | Windows | 2 | 3.5 | 20 |
+| GPU-SKU: er | GPU-antal | Maximal CPU | Högsta mängd minne (GB) | Lagring (GB) |
+| --- | --- | --- | --- | --- |
+| K80 | 1 | 6 | 56 | 50 |
+| K80 | 2 | 12 | 112 | 50 |
+| K80 | 4 | 24 | 224 | 50 |
+| P100, V100 | 1 | 6 | 112 | 50 |
+| P100, V100 | 2 | 12 | 224 | 50 |
+| P100, V100 | 4 | 24 | 448 | 50 |
 
+## <a name="windows-container-groups"></a>Grupper med Windows-behållare
 
-## <a name="availability---virtual-network-deployment"></a>Tillgänglighet – virtuell nätverks distribution
+Följande regioner och maximalt antal resurser är tillgängliga för behållar grupper med [stödda och för hands versioner](container-instances-faq.md#what-windows-base-os-images-are-supported) av Windows Server-behållare.
 
-Följande regioner och maximalt antal resurser är tillgängliga för en behållar grupp som distribueras i ett [virtuellt Azure-nätverk](container-instances-vnet.md).
-
-[!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
-
-## <a name="availability---gpu-resources-preview"></a>Tillgänglighet – GPU-resurser (förhands granskning)
-
-Följande regioner och maximalt antal resurser är tillgängliga för en behållar grupp som distribueras med [GPU-resurser](container-instances-gpu.md) (för hands version).
-
-[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
-[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
+| Region | Windows Server 2016 Max CPU | Windows Server 2016 Max minne (GB) | Windows Server 2019 LTSC Max CPU | Windows Server 2019 LTSC Max minne (GB) | Lagring (GB) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Australien, östra | 2 | 3.5 | 4 | 16 | 20 |
+| Brasilien, södra | 4 | 16 | 4 | 16 | 20 |
+| Kanada, centrala | 2 | 3.5 | 4 | 16 | 20 |
+| Indien, centrala | 2 | 3.5 | 4 | 16 | 20 |
+| Central US | 2 | 3.5 | 4 | 16 | 20 |
+| Asien, östra | 2 | 3.5 | 4 | 16 | 20 |
+| East US | 2 | 8 | 4 | 16 | 20 |
+| USA, östra 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+| Frankrike, centrala | 4 | 16 | 4 | 16 | 20 |
+| Japan, östra | 4 | 16 | 4 | 16 | 20 |
+| Sydkorea, centrala | 4 | 16 | 4 | 16 | 20 |
+| USA, norra centrala | 2 | 3.5 | 4 | 16 | 20 |
+| Norra Europa | 2 | 3.5 | 4 | 16 | 20 |
+| USA, södra centrala | 2 | 3.5 | 4 | 16 | 20 |
+| Indien, södra | 2 | 3.5 | 4 | 16 | 20 |
+| Sydostasien | 2 | 3.5 | 4 | 16 | 20 |
+| Storbritannien, södra | 2 | 3.5 | 4 | 16 | 20 |
+| USA, västra centrala | 4 | 16 | 4 | 16 | 20 |
+| Europa, västra | 4 | 16 | 4 | 16 | 20 |
+| USA, västra | 4 | 14 | Saknas | Saknas | 20 |
+| USA, västra 2 | 2 | 3.5 | 2 | 3.5 | 20 |
 
 ## <a name="next-steps"></a>Nästa steg
 

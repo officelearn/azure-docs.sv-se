@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: a6ade8d44e6c751f45849743c66d0a34075943b4
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b144d49daf9ab89a4553b93e3b36c9c2c8bef9ca
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946135"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521333"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Snabb start: interagera med en IoT Plug and Play-enhet som är ansluten till din lösning (Node.js)
 
@@ -214,7 +214,7 @@ I det här scenariot matas den ut `Model Id: dtmi:com:example:Thermostat;1` .
     node twin.js
     ```
 
-1. I **tjänstens** Terminal-utdata, i avsnittet ¬ rapporterade egenskaper, ser du att den uppdaterade mål temperaturen har rapporter ATS. Det kan ta en stund innan enheten har slutfört uppdateringen. Upprepa det här steget tills enheten har bearbetat egenskaps uppdateringen:
+1. I **tjänstens** Terminal-utdata i `reported` avsnittet Egenskaper ser du att den uppdaterade mål temperaturen har rapporter ATS. Det kan ta en stund innan enheten har slutfört uppdateringen. Upprepa det här steget tills enheten har bearbetat egenskaps uppdateringen:
 
     ```json
     "reported": {

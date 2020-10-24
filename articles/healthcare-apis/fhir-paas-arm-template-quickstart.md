@@ -1,6 +1,6 @@
 ---
 title: 'Snabb start: Distribuera Azure API för FHIR med en ARM-mall'
-description: I den här snabb starten får du lära dig hur du distribuerar Azure API för snabba hälso-och sjukvårds resurser (FHIR®) genom att använda en Azure Resource Manager-mall.
+description: I den här snabb starten får du lära dig hur du distribuerar Azure API för snabba hälso-och sjukvårds resurser (FHIR®) genom att använda en Azure Resource Manager-mall (ARM-mall).
 author: mgblythe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/06/2020
-ms.openlocfilehash: 8e259dffe95b992003c2d8edb5d2a9eb3486631f
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0d045aac63daf99bf67ec79438f55eedd5f200d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339347"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521449"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Snabb start: Använd en ARM-mall för att distribuera Azure API för FHIR
 
@@ -25,7 +25,7 @@ Om din miljö uppfyller förhandskraven och du är van att använda ARM-mallar v
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuera till Azure en Azure API för FHIR-tjänst med en ARM-mall i Azure Portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 

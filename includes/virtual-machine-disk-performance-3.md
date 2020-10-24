@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
@@ -8,39 +8,39 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 14e74bfbcd087ccc1d8c5f2f10a8e44ed37cce84
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 8eff9da82fdfa5749fd1c2bc04652d5c8ce8dfd2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92016594"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518091"
 ---
-![Mått menyn](media/vm-disk-performance/utilization-metrics-example/fio-output.jpg)
+![Skärm bild av f i o-utdata som visar r = 22.8 k markerat.](media/vm-disk-performance/utilization-metrics-example/fio-output.jpg)
 
-Standard_D8s_v3 kan få totalt 28 600 IOPs, med hjälp av måtten kan du undersöka vad som pågår och identifiera vår Flask hals i IO-minnet. Börja med att leta upp menyn med mått knappen till vänster och välj den:
+Standard_D8s_v3 kan få totalt 28 600 IOPS. Vi använder måtten för att undersöka vad som händer och identifiera vår Flask hals i Storage. I den vänstra rutan väljer du **mått**:
 
-![Mått menyn](media/vm-disk-performance/utilization-metrics-example/metrics-menu.jpg)
+![Skärm bild som visar mått som marker ATS i det vänstra fönstret.](media/vm-disk-performance/utilization-metrics-example/metrics-menu.jpg)
 
 Låt oss ta en titt på vårt mått på **VM cachelagrad IOPS förbrukade procent** :
 
-![VM cachelagrad IOPS förbrukad procent](media/vm-disk-performance/utilization-metrics-example/vm-cached.jpg)
+![Skärm bild som visar den förbrukade procent satsen V M cachelagrad I O s](media/vm-disk-performance/utilization-metrics-example/vm-cached.jpg)
 
-Det här måttet meddelar oss från 16 000 IOPs som tilldelats till cachelagrade IOPs på den virtuella datorn, 61% används. Det innebär att lagrings-IO-Flask halsen inte är med de diskar som cachelagras på grund av att den inte är 100%. Nu ska vi ta en titt på vårt mått för **förbrukade IOPS i virtuell dator i procent** :
+Det här måttet visar att 61% av 16 000 IOPS som tilldelats till cachelagrade IOPS på den virtuella datorn används. Den här procent andelen innebär att lagrings-i/o-Flask halsen inte är med de diskar som cachelagras eftersom den inte är 100%. Nu ska vi titta på vårt mått för **förbrukade IOPS i virtuell dator i procent** :
 
-![VM, ej cachelagrad IOPS, procent andel](media/vm-disk-performance/utilization-metrics-example/vm-uncached.jpg)
+![Skärm bild som visar V M Uncached I O P S förbrukade procent.](media/vm-disk-performance/utilization-metrics-example/vm-uncached.jpg)
 
-Det här måttet är på 100% och talar om för oss att alla 12 800 IOPs som tilldelats till den cachelagrade IOPs på den virtuella datorn används. Ett sätt att åtgärda detta är att ändra storleken på den virtuella datorn till en större storlek som kan hantera ytterligare i/o. Men innan vi gör det tar vi en titt på disken som är ansluten för att se hur många IOPs de ser. Låt oss ta en titt på OS-disken genom att titta på **OS-diskens IOPS förbrukade procent**:
+Måttet är på 100%. Det meddelar oss att alla 12 800 IOPS som tilldelats till den cachelagrade IOPS på den virtuella datorn används. Ett sätt som vi kan åtgärda problemet är att ändra storleken på den virtuella datorn till en större storlek som kan hantera ytterligare IO. Men innan vi gör det ska vi titta på den anslutna disken för att ta reda på hur många IOPS de ser. Kontrol lera OS-disken genom att titta på **OS-diskens IOPS förbrukade procent**:
 
-![Förbrukade procent av OS-diskens IOPS](media/vm-disk-performance/utilization-metrics-example/os-disk.jpg)
+![Skärm bild som visar O-S disk-I/O S förbrukade procent.](media/vm-disk-performance/utilization-metrics-example/os-disk.jpg)
 
-Det här måttet talar om för oss att den 5 000 IOPs som har tillhandahållits för den här P30 OS-disken, cirka 90% av den används. Det innebär att det inte finns någon Flask hals här på OS-disken. Nu ska vi ta en titt på de data diskar som är anslutna till den virtuella datorn genom att titta på **data disken med IOPS förbrukade procent**:
+Det här måttet visar oss att cirka 90% av 5 000 IOPS som har allokerats för den här P30 OS-disken används. Den här procent andelen innebär att det inte finns någon Flask hals på OS-disken. Nu ska vi kontrol lera de data diskar som är anslutna till den virtuella datorn genom att titta på **data disken IOPS förbrukade procent**:
 
-![Förbrukad rabatt i data disk IOPS](media/vm-disk-performance/utilization-metrics-example/data-disks-no-splitting.jpg)
+![Skärm bild som visar den förbrukade procenten för datadisk I O s.](media/vm-disk-performance/utilization-metrics-example/data-disks-no-splitting.jpg)
 
-Detta mått talar om för oss att den genomsnittliga IOPs-förbrukade procenten över alla diskar som är anslutna är cirka 42%. Den här procent satsen beräknas baserat på IOPs som används av diskarna och hanteras inte från värd-cachen. Nu ska vi titta närmare på det här måttet och se hur man använder **delning** för dessa mått och delar av LUN-värdet:
+Det här måttet anger att den genomsnittliga IOPS-förbrukade procenten på alla diskar som är anslutna är cirka 42%. Den här procent satsen beräknas baserat på IOPS som används av diskarna och som inte hanteras från värd-cachen. Nu ska vi gå djupare i det här måttet genom att använda *delning* för dessa mått och dela upp dem med LUN-värdet:
 
-![Data disk IOPS förbrukade procent andel med delning](media/vm-disk-performance/utilization-metrics-example/data-disks-splitting.jpg)
+![Skärm bild som visar datadisk I O P S förbrukade procent med delning.](media/vm-disk-performance/utilization-metrics-example/data-disks-splitting.jpg)
 
-Det här måttet talar om för oss att de data diskar som är anslutna på LUN 3 och 2 använder runt 85% av deras etablerade IOPs. Här är ett diagram över hur IO-händelsen ser ut från arkitekturen för virtuella datorer och diskar:
+Det här måttet talar om för oss att data diskarna som är anslutna på LUN 3 och 2 använder runt 85% av sina etablerade IOPS. Här är ett diagram över hur IO-händelsen ser ut som i arkitekturen för virtuella datorer och diskar:
 
-![Exempel diagram för lagring av IO-mått](media/vm-disk-performance/utilization-metrics-example/metrics-diagram.jpg)
+![Diagram över enhets mått I O-exempel.](media/vm-disk-performance/utilization-metrics-example/metrics-diagram.jpg)

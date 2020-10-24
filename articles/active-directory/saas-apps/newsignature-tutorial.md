@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
-ms.openlocfilehash: d45a3ddda44922c70080a09447866a9a4c6997a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 950744e0b8b2f722d801c911d6fd2c9112f035ec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554461"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92522513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Självstudie: Azure Active Directory integrering med moln Hanteringsportal för Microsoft Azure
 
@@ -27,10 +27,10 @@ Integreringen av Cloud Management Portal for Microsoft Azure med Azure AD medfö
 * Du kan göra så att dina användare automatiskt loggas in på Cloud Management Portal for Microsoft Azure (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Cloud Management Portal for Microsoft Azure behöver du följande:
 
@@ -197,19 +197,18 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-cloud-management-portal-for-microsoft-azure-test-user"></a>Skapa testanvändare för Cloud Management Portal for Microsoft Azure
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Cloud Management Portal for Microsoft Azure. Kontakta [supportteamet för Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com) och lägg till användarna i Cloud Management Portal for Microsoft Azure-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i Cloud Management Portal for Microsoft Azure. Arbeta med [moln hanteringsportal för Microsoft Azure support team](mailto:jczernuszka@newsignature.com) för att lägga till användare i moln Hanteringsportal för Microsoft Azure plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Cloud Management Portal for Microsoft Azure-panelen i åtkomstpanelen bör du automatiskt loggas in på Cloud Management Portal for Microsoft Azure som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på Cloud Management Portal for Microsoft Azure-panelen i åtkomstpanelen bör du automatiskt loggas in på Cloud Management Portal for Microsoft Azure som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

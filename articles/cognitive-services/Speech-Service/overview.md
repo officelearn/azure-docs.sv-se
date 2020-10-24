@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b7b28c972dfb55bfdc4e5bb09c460fe71c92328e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489429"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521517"
 ---
 # <a name="what-is-the-speech-service"></a>Vad är Speech Service?
 
@@ -81,9 +81,21 @@ Så här lägger du till en tjänst resurs (kostnads fri eller betald) till ditt
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-Det tar en stund att distribuera den nya tal resursen. När distributionen är klar väljer **du gå till resurs** och i det vänstra navigerings fönstret väljer du **nycklar och slut punkt** för att Visa prenumerations nycklar och region-ID för din röst tjänst. Varje prenumeration har två nycklar. Du kan använda någon av nycklarna i ditt program. Om du snabbt vill kopiera eller klistra in en nyckel i kod redigeraren eller på en annan plats, väljer du kopierings knappen bredvid varje nyckel, växlar fönster för att klistra in innehållet i Urklipp till önskad plats.
+Det tar en stund att distribuera den nya tal resursen. 
 
-Kopiera dessutom `LOCATION` värdet som är ditt regions-ID (t. ex. `westus`, `westeurope` ) för SDK-anrop.
+### <a name="find-keys-and-region"></a>Hitta nycklar och region
+
+Följ dessa steg om du vill hitta nycklar och region för en slutförd distribution:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt Microsoft-konto.
+
+2. Välj **alla resurser**och välj namnet på din Cognitive Services-resurs.
+
+3. I den vänstra rutan, under **resurs hantering**, väljer du **nycklar och slut punkt**.
+
+Varje prenumeration har två nycklar. Du kan använda någon av nycklarna i ditt program. Om du vill kopiera eller klistra in en nyckel i kod redigeraren eller på en annan plats väljer du kopierings knappen bredvid varje nyckel, växlar fönster så att urklipps innehållet klistras in på önskad plats.
+
+Kopiera dessutom `LOCATION` värdet, vilket är ditt regions-ID (t. ex. `westus`, `westeurope` ) för SDK-anrop.
 
 > [!IMPORTANT]
 > Dessa prenumerations nycklar används för att få åtkomst till ditt kognitiva tjänst-API. Dela inte dina nycklar. Lagra dem på ett säkert sätt – till exempel med hjälp av Azure Key Vault. Vi rekommenderar också att du återskapar nycklarna regelbundet. Endast en nyckel krävs för att göra ett API-anrop. När du återskapar den första nyckeln kan du använda den andra nyckeln för fortsatt åtkomst till tjänsten.

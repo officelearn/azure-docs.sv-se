@@ -3,12 +3,12 @@ title: Azure Service Bus vanliga frågor och svar (FAQ) | Microsoft Docs
 description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure Service Bus.
 ms.topic: article
 ms.date: 09/16/2020
-ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec79b6988fdbc78dc4f45e504f84179e617589cc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90894531"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518763"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Service Bus
 
@@ -83,7 +83,7 @@ Om du använder **zon redundans** för ditt namn område måste du utföra någr
     > Den IP-adress som returnerades av `nslookup` kommandot är inte en statisk IP-adress. Det förblir dock konstant tills den underliggande distributionen tas bort eller flyttas till ett annat kluster.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Var kan jag hitta IP-adressen för klienten som skickar/tar emot meddelanden till/från ett namn område? 
-Vi loggar inte IP-adresserna för klienter som skickar eller tar emot meddelanden till/från namn området. Återskapa nycklar så att alla befintliga klienter inte kan autentisera och granska[RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)-inställningar (rollbaserad åtkomst kontroll) för att säkerställa att endast tillåtna användare eller program har åtkomst till namn området. 
+Vi loggar inte IP-adresserna för klienter som skickar eller tar emot meddelanden till/från namn området. Återskapa nycklar så att alla befintliga klienter inte kan autentisera och granska [Azures inställningar för rollbaserad åtkomst kontroll (Azure RBAC)](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)för att säkerställa att endast tillåtna användare eller program har åtkomst till namn området. 
 
 Om du använder ett **Premium** -namnområde använder du [IP-filtrering](service-bus-ip-filtering.md), [slut punkter för virtuella nätverks tjänster](service-bus-service-endpoints.md)och [privata slut punkter](private-link-service.md) för att begränsa åtkomsten till namn området. 
 

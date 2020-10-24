@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: 3957a9cde957c8e92806f10d39c949d73f20153e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00dadf8a91b7ed01ab9f91933d296744305a95af
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323030"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518814"
 ---
 # <a name="face-recognition-concepts"></a>Koncept för ansikts igenkänning
 
@@ -58,7 +58,7 @@ Det här avsnittet beskriver hur de fyra igenkännings åtgärderna använder da
 Använd följande tips för att se till att dina angivna bilder ger de mest exakta igenkännings resultaten:
 
 * De inspelnings bild format som stöds är JPEG, PNG, GIF (den första ramen), BMP.
-* Bild filens storlek får inte vara större än 4 MB.
+* Bild filens storlek får inte vara större än 6 MB.
 * När du skapar person objekt bör du använda foton som har olika typer av vinklar och belysning.
 * Vissa ansikten kanske inte kan identifieras på grund av tekniska utmaningar, till exempel:
   * Bilder med extrem belysning, till exempel hög bakgrunds belysning.

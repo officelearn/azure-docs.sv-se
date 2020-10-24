@@ -5,13 +5,13 @@ author: cherylmc
 ms.author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 10/21/2020
-ms.openlocfilehash: 41bb69d675f3aa45061dab3236eae5c869bc346b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.date: 10/23/2020
+ms.openlocfilehash: 74000322372652b90e0d0db07d687f8e57c4f88e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460775"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518253"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-azure-portal"></a>Självstudie: skapa och hantera en VPN-gateway med Azure Portal
 
@@ -30,7 +30,7 @@ Följande diagram visar det virtuella nätverket och den VPN-gateway som skapats
 
 :::image type="content" source="./media/tutorial-create-gateway-portal/gateway-diagram.png" alt-text="Diagram över VNet-och VPN-gateway":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Azure-konto med en aktiv prenumeration. Om du inte har ett kan du [skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -100,7 +100,10 @@ Om du inte kommer att fortsätta att använda programmet eller gå till nästa s
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till nästa artikel om du vill lära dig att:
+När du har en VPN-gateway kan du konfigurera anslutningar. Artiklarna nedan hjälper dig att skapa några av de vanligaste konfigurationerna:
 
 > [!div class="nextstepaction"]
-> [Skapa och hantera VPN-anslutningar för plats-till-plats](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> [Plats-till-plats-VPN-anslutningar](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+
+> [!div class="nextstepaction"]
+> [Punkt-till-plats-VPN-anslutningar](vpn-gateway-howto-point-to-site-resource-manager-portal.md)

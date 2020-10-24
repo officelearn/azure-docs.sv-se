@@ -9,16 +9,16 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 715e09eaf6ca379261d619fe02ad81a69a519d3e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 5f59f626d9edbf30f61935c026ac965dbbe946f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92328546"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516927"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
-I den här artikeln får du lära dig de olika sätt som du kan använda för att autentisera till Azure spatiala ankare från din app eller webb tjänst. Du får också lära dig hur du kan använda rollbaserad åtkomst kontroll i Azure Active Directory (Azure AD) för att styra åtkomsten till dina konton för spatialdata.
+I den här artikeln får du lära dig de olika sätt som du kan använda för att autentisera till Azure spatiala ankare från din app eller webb tjänst. Du får också lära dig hur du kan använda Azures rollbaserade åtkomst kontroll (Azure RBAC) i Azure Active Directory (Azure AD) för att styra åtkomsten till dina konton för spatialdata.
 
 ## <a name="overview"></a>Översikt
 
@@ -108,7 +108,7 @@ För program som riktar Azure Active Directory användare rekommenderar vi att d
    1.    Gå till resurser för spatial ankare i Azure Portal.
    2.    Gå till fliken **åtkomst kontroll (IAM)** .
    3.    Välj **Lägg till rolltilldelning**.
-   1.    [Välj en roll](#role-based-access-control).
+   1.    [Välj en roll](#azure-role-based-access-control).
    2.    I rutan **Välj** anger du namnen på de användare, grupper och/eller program som du vill tilldela åtkomst till.
    3.    Välj **Spara**.
 
@@ -182,7 +182,7 @@ Azure AD-åtkomsttoken hämtas via [MSAL](../../active-directory/develop/msal-ov
         1.    Gå till resurser för spatial ankare i Azure Portal.
         2.    Gå till fliken **åtkomst kontroll (IAM)** .
         3.    Välj **Lägg till rolltilldelning**.
-        1.    [Välj en roll](#role-based-access-control).
+        1.    [Välj en roll](#azure-role-based-access-control).
         2.    I rutan **Välj** anger du namn eller namn för de program som du vill tilldela åtkomst till. Om du vill att appens användare ska ha olika roller mot kontot för spatiala ankare, registrerar du flera program i Azure AD och tilldelar en separat roll till var och en. Implementera sedan din auktoriserings logik för att använda rätt roll för dina användare.
         
               > [!NOTE] 
@@ -262,7 +262,7 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ---
 
-## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
+## <a name="azure-role-based-access-control"></a>Rollbaserad Azure-åtkomstkontroll
 
 För att hjälpa dig att kontrol lera åtkomst nivån för program, tjänster eller Azure AD-användare av tjänsten kan du tilldela de här befintliga rollerna efter behov mot dina konton för ditt konto för spatialdata i Azure:
 

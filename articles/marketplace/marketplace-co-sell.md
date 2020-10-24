@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 96df9610f0da94cfe7d3a82fc8ef72aeb539b2d0
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207723"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521005"
 ---
 # <a name="co-sell-partner-engagement"></a>Deltagande i partnersäljsamarbete
 
@@ -75,11 +75,13 @@ Starta din co-försäljnings resa direkt i Partner Center genom att följa stege
  
 1. Överför Sälj kontakt information i avsnittet **kontakter** . Microsoft-säljare kan kontakta dessa kontakter för att begära ytterligare information om ditt erbjudande. (*Krävs: en kontakt för varje geografi där ditt erbjudande görs tillgängligt.*)
 
-    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Den här bilden visar platsen för samförsäljnings platsen med Microsoft-fliken.":::
+    :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Den här bilden visar platsen för samförsäljnings platsen med Microsoft-fliken." under List rutan "önskade CED-tjänster":
+<ul><ul>
 
-1. Spara utkastet innan du fortsätter.
-1. När du har slutfört alla nödvändiga avsnitt i erbjudandet kan du skicka det till granskning och publicering. I det övre högra hörnet väljer du **Granska och publicera**. Granska erbjudande informationen och välj sedan **publicera**.
-1. Vi granskar det material som du har laddat upp och fastställer om ditt erbjudande kvalificerar sig för programmet för medfinansiering.
+:::image type="content" source="media/co-sell/co-sell-request-review.png" alt-text="Den här bilden visar platsen för samförsäljnings platsen med Microsoft-fliken.":::
+
+CED kommer att kontakta dig för att slutföra processen.
+</ul></ul>
 
 ## <a name="next-steps"></a>Nästa steg
 

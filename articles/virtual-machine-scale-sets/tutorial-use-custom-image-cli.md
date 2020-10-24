@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: dd0cf450ca63349d29aba3d65f3c76f40a44be2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503641"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518721"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här guiden får du lära du dig hur man:
@@ -197,7 +197,7 @@ Ange den offentliga IP-adressen i din webbläsare. Standardwebbsidan för NGINX 
 
 ## <a name="share-the-gallery"></a>Dela galleriet
 
-Du kan dela avbildningar över prenumerationer med hjälp av Role-Based Access Control (RBAC). Du kan dela bilder i galleriet, bild definitionen eller avbildnings versionen. Alla användare som har Läs behörighet till en avbildnings version, även över prenumerationer, kan distribuera en virtuell dator med hjälp av avbildnings versionen.
+Du kan dela avbildningar över prenumerationer med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Du kan dela bilder i galleriet, bild definitionen eller avbildnings versionen. Alla användare som har Läs behörighet till en avbildnings version, även över prenumerationer, kan distribuera en virtuell dator med hjälp av avbildnings versionen.
 
 Vi rekommenderar att du delar med andra användare på Galleri nivån. Om du vill hämta objekt-ID: t för galleriet använder du [AZ sig Visa](/cli/azure/sig#az-sig-show).
 
@@ -217,7 +217,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Mer information om hur du delar resurser med RBAC finns i [Hantera åtkomst med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md).
+Mer information om hur du delar resurser med hjälp av Azure RBAC finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 10/23/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcef70d821c7148cb926bd9357bbe656ceae35fe
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d0e2ce094b792d6f3f7e5f8fe1920d87a9cceea2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377067"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517183"
 ---
 # <a name="user-management-enhancements-preview-in-azure-active-directory"></a>Förbättringar av användar hantering (för hands version) i Azure Active Directory
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du använder för hands versionen av användar h
 Ändringarna i förhands granskningen är:
 
 - Mer synliga användar egenskaper, inklusive objekt-ID, status för katalog synkronisering, skapande typ och identitets utfärdare
-- Nu kan du söka i kombinerad sökning efter namn, e-post och objekt-ID: n
+- Med Sök kan du nu söka efter en under sträng och kombinera sökning efter namn, e-post och objekt-ID: n
 - Utökad filtrering efter användar typ (medlem, gäst, ingen), status för katalog, skapande typ, företags namn och domän namn
 - Nya sorterings funktioner för egenskaper som namn och User Principal Name
 - Ett nytt totalt antal användare som uppdaterar med sökningar eller filter
@@ -59,7 +59,7 @@ Följande är de användar egenskaper som visas på sidan **alla användare** :
 
 - Namn: användarens visnings namn.
 - Användarens huvud namn: användarens User Principal Name (UPN).
-- Användar typ: användarens användar typ, antingen medlem eller gäst.
+- Användar typ: medlem, gäst, ingen.
 - Katalogen har synkroniserats: anger om användaren har synkroniserats från en lokal katalog.
 - Identitets utfärdare: utfärdare av den identitet som används för att logga in på ett användar konto.
 - Objekt-ID: användarens objekt-ID.
@@ -67,6 +67,7 @@ Följande är de användar egenskaper som visas på sidan **alla användare** :
 - Företags namn: företags namnet som användaren är associerad med.
 - Status för inbjudan: status för inbjudan till en gäst användare.
 - Mail: e-postmeddelandet för användaren.
+- Senaste inloggning: datumet då användaren senast loggade in. Den här egenskapen är endast synlig för användare med behörighet att läsa gransknings loggar (Reporting_ApplicationAuditLogs_Read)
 
 ![nya användar egenskaper som visas på sidorna alla användare och borttagna användare](./media/users-search-enhanced/user-properties.png)
 
@@ -75,7 +76,10 @@ Följande är de användar egenskaper som visas på sidan **alla användare** :
 Sidan **borttagna användare** innehåller alla kolumner som är tillgängliga på sidan **alla användare** och några ytterligare kolumner, nämligen:
 
 - Borttagnings datum: datumet då användaren först togs bort från organisationen (användaren är återställas).
-- Permanent borttagnings datum: datumet då användaren togs bort permanent från organisationen.
+- Permanent borttagnings datum: det datum då processen för att permanent ta bort användaren från organisationen börjar automatiskt att gälla. 
+
+> [!NOTE]
+> Borttagnings datum visas i UTC-tid (Coordinated Universal Time).
 
 Vissa kolumner visas som standard. Om du vill lägga till andra kolumner väljer du **kolumner** på sidan, markerar de kolumn namn som du vill lägga till och väljer **OK** för att spara dina inställningar.
 
@@ -88,7 +92,7 @@ Välj en post i kolumnen **identitets utfärdare** för en användare om du vill
 
 ## <a name="user-list-search"></a>Sök efter användar lista
 
-När du anger en Sök sträng använder Sök funktionen "börjar med"-sökning som nu kan matcha namn, e-post eller objekt-ID: n i en enskild sökning. Du kan ange något av dessa attribut i sökrutan och sökningen kommer automatiskt att se ut i alla dessa egenskaper för att returnera matchande resultat. Du kan utföra samma sökning på sidorna **alla användare** och **borttagna användare** .
+När du anger en Sök sträng använder Sök funktionen nu "börjar med" och under Strängs sökning för att matcha namn, e-post eller objekt-ID: n i en enskild sökning. Du kan ange något av dessa attribut i sökrutan och sökningen ser automatiskt ut i alla dessa egenskaper för att returnera matchande resultat. Under Strängs sökningen utförs endast på hela ord. Du kan utföra samma sökning på sidorna **alla användare** och **borttagna användare** .
 
 ## <a name="user-list-filtering"></a>Filtrering av användar lista
 
@@ -133,10 +137,10 @@ Du kan visa det totala antalet användare på sidorna **alla användare** och **
 
 Fråga | Svar
 -------- | ------
+Varför visas den borttagna användaren fortfarande när den permanenta borttagnings datumet har passerats? | Det permanenta borttagnings datumet visas i UTC-tidszonen, så det kanske inte matchar den aktuella tids zonen. Detta datum är också det tidigaste datumet då användaren kommer att tas bort permanent från organisationen, så det kan fortfarande bearbetas. Permanent borttagna användare tas bort automatiskt från listan.
 Vad händer med Mass funktionerna för användare och gäster? | Mass åtgärderna är fortfarande tillgängliga för användare och gäster, inklusive Mass skapande, Mass inbjudan, Mass borttagning och nedladdning av användare. Vi har precis slagit samman dem i en meny som kallas **Mass åtgärder**. Du hittar alternativen för **Mass åtgärder** överst på sidan **alla användare** .
 Vad hände med käll kolumnen? | **Käll** kolumnen har ersatts med andra kolumner som innehåller liknande information, samtidigt som du kan filtrera utifrån dessa värden oberoende av varandra. Exempel på detta är **skapande typ**, **katalog som synkroniseras** och **identitets utfärdare**.
 Vad hände med kolumnen användar namn? | Kolumnen **användar namn** finns fortfarande där, men den har bytt namn till **användarens huvud namn**. Detta visar den information som finns i kolumnen. Du ser också att det fullständiga huvud namnet för användare visas nu för B2B-gäster. Detta matchar det du fick i MS Graph.  
-Varför kan jag bara utföra en sökning med "börjar med" och inte en "innehåller"-sökning? | Det finns vissa begränsningar som hindrar oss från att tillåta att du utför en "innehåller"-sökning. Vi har hört din feedback, så håll dig uppdaterad.
 
 ## <a name="next-steps"></a>Nästa steg
 

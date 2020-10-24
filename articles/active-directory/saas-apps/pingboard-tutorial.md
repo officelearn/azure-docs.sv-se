@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f96f7eb358907bc27303735f4d8a111efeb6a3dc
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d7b090eb5228a449212ceebd6cd299c5f8860089
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996657"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520803"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Självstudie: Azure Active Directory integrering med Pingboard
 
@@ -27,7 +27,7 @@ Genom att integrera Pingboard med Azure AD får du följande fördelar:
 * Du kan göra det möjligt för användarna att logga in automatiskt till Pingboard (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -43,7 +43,7 @@ I den här självstudien konfigurerar och testar du enkel inloggning med Azure A
 
 * Pingboard stöder **SP** -och **IDP** -initierad SSO
 
-* Pingboard har stöd för [Automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial) 
+* Pingboard har stöd för [Automatisk användar etablering](./pingboard-provisioning-tutorial.md) 
 
 ## <a name="adding-pingboard-from-the-gallery"></a>Lägga till Pingboard från galleriet
 
@@ -239,14 +239,14 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Pingboard på åtkomst panelen, bör du loggas in automatiskt på den Pingboard som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Pingboard på åtkomst panelen, bör du loggas in automatiskt på den Pingboard som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
-- [Konfigurera användar etablering](https://docs.microsoft.com/azure/active-directory/saas-apps/pingboard-provisioning-tutorial)
+- [Konfigurera användar etablering](./pingboard-provisioning-tutorial.md)

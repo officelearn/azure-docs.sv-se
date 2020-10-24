@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: Translator, Translator-tjänst, översätta text, translittererad text, språk identifiering
-ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ca86ce1dc015c8d7ee3bc83a6d7e3279a146f195
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91318848"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517046"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Snabb start: kom igång med Translator
 
@@ -2440,6 +2440,12 @@ Efter ett lyckat anrop bör du se följande svar. Mer information om svaret finn
     }
 ]
 ```
+
+## <a name="troubleshooting"></a>Felsökning
+
+### <a name="java-users"></a>Java-användare
+
+Om du stöter på anslutnings problem kan det bero på att ditt SSL-certifikat har upphört att gälla. Lös problemet genom att installera [DigiCertGlobalRootG2. CRT](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) i ditt privata arkiv. 
 
 ## <a name="next-steps"></a>Nästa steg
 

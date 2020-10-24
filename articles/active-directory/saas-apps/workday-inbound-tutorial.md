@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22252ea3e132aee39075d986d7f5a979e14c0a3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541296"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520242"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets dag för automatisk användar etablering
 
@@ -311,7 +311,7 @@ Det här avsnittet innehåller steg för etablering av användar konton från ar
 För att etablera till Active Directory lokalt måste etablerings agenten installeras på en server som har .NET 4.7.1 + Framework och nätverks åtkomst till önskad Active Directory domän (er).
 
 > [!TIP]
-> Du kan kontrol lera versionen av .NET Framework på servern med hjälp av anvisningarna [här](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> Du kan kontrol lera versionen av .NET Framework på servern med hjälp av anvisningarna [här](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
 > Om inte .NET 4.7.1 eller senare är installerat på servern kan du ladda ned den [här](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows).  
 
 Överför de hämtade agent installations programmet till Server värden och följ stegen nedan för att slutföra Agent konfigurationen.
@@ -390,8 +390,8 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
    
      | URL-format | WWS-API-version som används | XPATH-ändringar krävs |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v-21.1 | Inga |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | Inga |
+     | https://####.workday.com/ccx/service/tenantName | v-21.1 | Nej |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v-21.1 | Nej |
      | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v # #. # | Ja |
 
       > [!NOTE]
@@ -410,7 +410,7 @@ I det här steget upprättar vi anslutningen till arbets dagar och Active Direct
    * **E-postavisering –** Ange din e-postadress och markera kryss rutan "skicka e-post om fel inträffar".
 
      > [!NOTE]
-     > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) .
+     > Azure AD Provisioning-tjänsten skickar e-postavisering om etablerings jobbet hamnar i [karantän](../app-provisioning/application-provisioning-quarantine-status.md) .
 
    * Klicka på knappen **Testa anslutning** . Om anslutnings testet lyckas, klickar du på knappen **Spara** längst upp. Om det Miss lyckas, kontrol lera att autentiseringsuppgifterna för arbets dag och de AD-autentiseringsuppgifter som kon figurer ATS för Agent installationen är giltiga.
 
@@ -594,7 +594,7 @@ Nej, lösningen upprätthåller inte ett cacheminne för användar profiler. Azu
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>Har lösningen stöd för att tilldela användare lokala AD-grupper till användaren?
 
-Den här funktionen stöds inte för närvarande. Rekommenderad lösning är att distribuera ett PowerShell-skript som frågar Microsoft Graph API-slutpunkten för [Gransknings logg data](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) och använder det för att utlösa scenarier som till exempel grupp tilldelning. Det här PowerShell-skriptet kan kopplas till en Schemaläggaren och distribueras i samma ruta som kör etablerings agenten.  
+Den här funktionen stöds inte för närvarande. Rekommenderad lösning är att distribuera ett PowerShell-skript som frågar Microsoft Graph API-slutpunkten för [Gransknings logg data](/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) och använder det för att utlösa scenarier som till exempel grupp tilldelning. Det här PowerShell-skriptet kan kopplas till en Schemaläggaren och distribueras i samma ruta som kör etablerings agenten.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>Vilka API: er för Workday använder lösningen för att fråga och uppdatera arbets dag profiler?
 
@@ -679,7 +679,7 @@ Ersätt variablerna [proxy-server] och [proxy-port] proxyserverns namn och portv
 
 #### <a name="how-do-i-ensure-that-the-provisioning-agent-is-able-to-communicate-with-the-azure-ad-tenant-and-no-firewalls-are-blocking-ports-required-by-the-agent"></a>Hur gör jag för att se till att etablerings agenten kan kommunicera med Azure AD-klienten och inga brand väggar blockerar portar som krävs av agenten?
 
-Du kan också kontrol lera om alla [nödvändiga portar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) är öppna.
+Du kan också kontrol lera om alla [nödvändiga portar](../manage-apps/application-proxy-add-on-premises-application.md#open-ports) är öppna.
 
 #### <a name="can-one-provisioning-agent-be-configured-to-provision-multiple-ad-domains"></a>Kan en etablerings agent konfigureras för att etablera flera AD-domäner?
 
@@ -1157,4 +1157,4 @@ I samband med datakvarhållning genererar inte Azure AD Provisioning-tjänsten r
 * [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 * [Lär dig hur du konfigurerar enkel inloggning mellan arbets dagar och Azure Active Directory](workday-tutorial.md)
 * [Lär dig hur du integrerar andra SaaS-program med Azure Active Directory](tutorial-list.md)
-* [Lär dig hur du använder Microsoft Graph API: er för att hantera etablerings konfiguration](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Lär dig hur du använder Microsoft Graph API: er för att hantera etablerings konfiguration](/graph/api/resources/synchronization-overview)

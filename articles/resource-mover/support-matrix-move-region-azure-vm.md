@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: d71181c5f45ab63febae7288f07189dc52ea12fd
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945921"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521313"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Stöd för att flytta virtuella Azure-datorer mellan Azure-regioner
 
@@ -26,7 +26,7 @@ Den här artikeln sammanfattar support och förutsättningar när du flyttar vir
 
 Resurs förflyttning har stöd för virtuella Azure-datorer som kör dessa Windows-operativsystem.
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 Windows Server 2019 | Stöds för Server Core, server med Skriv bords miljö.
 Windows Server 2016  | Server Core som stöds, server med Skriv bords miljö.
@@ -43,7 +43,7 @@ Windows 7 (x64) med SP1 och senare | Installera en Windows [servicing stack Upda
 
 Resurs flyttning har stöd för virtuella Azure-datorer som kör dessa Linux-operativsystem.
 
-**Operativsystem** | **Information**
+**Operativsystem** | **Detaljer**
 --- | ---
 Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0, 8,1
@@ -98,7 +98,7 @@ SUSE Linux Enterprise Server 15 och 15 SP1 |  Alla börs-och 15-kernels och 15 k
 
 ## <a name="supported-vm-compute-settings"></a>Inställningar för VM-beräkning som stöds
 
-**Inställning** | **Support** | **Information**
+**Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 Storlek | Valfri storlek på virtuella Azure-datorer med minst två processor kärnor och 1 GB RAM | Verifiera [storleken på virtuella Azure-datorer](../virtual-machines/sizes-general.md).
 Tillgänglighetsuppsättningar | Stöds för närvarande inte | Om du lägger till en virtuell Azure-dator med en tillgänglighets uppsättning i flyttnings samlingen med standard alternativen, Miss lyckas förberedelse processen. Du kan antingen välja att flytta den virtuella datorn till en tillgänglighets zon till eller flytta den som en enskild instans av en virtuell dator. Du kan ändra inställningarna på sidan Redigera mål egenskaper.
@@ -107,7 +107,7 @@ Azure Gallery-avbildningar (publicerat av Microsoft) | Stöds | Stöds om den vi
 Azure Gallery-avbildningar (publicerat av tredje part)  | Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Anpassade avbildningar (publicerat av tredje part)| Stöds | Stöds om den virtuella datorn körs på ett operativ system som stöds.
 Virtuella datorer som använder Site Recovery | Stöds inte | Flytta resurser mellan regioner för virtuella datorer med Site Recovery på Server delen. Om du redan använder Site Recovery inaktiverar du replikering och startar sedan förberedelse processen.
-RBAC-principer | Stöds inte | Principer för rollbaserad åtkomst kontroll (RBAC) på virtuella datorer kopieras inte över till den virtuella datorn i mål regionen.
+Azure RBAC-principer | Stöds inte | Azure-rollbaserad åtkomst kontroll (Azure RBAC) principer för virtuella datorer kopieras inte till den virtuella datorn i mål regionen.
 Tillägg | Stöds inte | Tillägg kopieras inte till den virtuella datorn i mål regionen. Installera dem manuellt när flyttningen är klar.
 
 
@@ -119,7 +119,7 @@ Den här tabellen sammanfattade stödet för den virtuella Azure OS-disken, data
 > Storleken på den virtuella mål datorn måste vara lika med eller större än den virtuella käll datorn. De parametrar som används för verifiering är: antal data diskar, antal nätverkskort, tillgängliga processorer, minne i GB. Om det inte är ett fel utfärdas.
 
 
-**Komponent** | **Support** | **Information**
+**Komponent** | **Support** | **Detaljer**
 --- | --- | ---
 Maximal storlek för OS-disk | 2048 GB | [Läs mer](../virtual-machines/windows/managed-disks-overview.md) om VM-diskar.
 Tillfällig disk | Stöds inte | Den tillfälliga disken är alltid exkluderad från förberedelse processen.<br/><br/> Lagra inte beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/managed-disks-overview.md#temporary-disk).
@@ -150,7 +150,7 @@ Premium P20-, P30-, P40- eller P50-disk | minst 16 kB |20 MB/s | 1684 GB per di
 
 ## <a name="supported-vm-networking-settings"></a>Nätverks inställningar för virtuella datorer som stöds
 
-**Inställning** | **Support** | **Information**
+**Inställning** | **Support** | **Detaljer**
 --- | --- | ---
 NIC | Stöds | Ange en befintlig resurs i mål regionen eller skapa en ny resurs under förberedelse processen. 
 Intern lastbalanserare | Stöds | Ange en befintlig resurs i mål regionen eller skapa en ny resurs under förberedelse processen.  
@@ -170,7 +170,7 @@ Virtuella Azure-datorer som du vill flytta behöver utgående åtkomst.
 
  Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutning ger du åtkomst till följande URL: er:
 
-**Namn** | **Offentligt Azure-moln** | **Information** 
+**Namn** | **Offentligt Azure-moln** | **Detaljer** 
 --- | --- | --- 
 Storage | `*.blob.core.windows.net`  | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. 
 Azure Active Directory | `login.microsoftonline.com`  | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. 

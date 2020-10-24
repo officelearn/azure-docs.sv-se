@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: Zhchia
-ms.openlocfilehash: 164b2915d3085ff765635b10e97f7552df1bf4c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 786e99cec4999eef0af92fe2be18bcf0e48ed379
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256366"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519001"
 ---
 # <a name="tutorial-configure-miro-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Miro för automatisk användar etablering
 
@@ -79,7 +79,7 @@ Innan du konfigurerar Miro för automatisk användar etablering med Azure AD må
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Miro baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Miro genom att följa anvisningarna i [självstudien om enkel inloggning med Miro](https://docs.microsoft.com/azure/active-directory/saas-apps/miro-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Miro genom att följa anvisningarna i [självstudien om enkel inloggning med Miro](./miro-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner är gemensamt.
 
 > [!NOTE]
 > Läs mer om Miro SCIM-slutpunkten i [detta](https://help.miro.com/hc/en-us/articles/360036777814).
@@ -158,4 +158,3 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
-

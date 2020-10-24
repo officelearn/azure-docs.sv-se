@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 79a4fc048b8301d67206bf28b571f88f9e5ad024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58da5c73ea2674bbbd1536a163e163aa0ff31d96
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597678"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521296"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights Gen2-miljö
 
@@ -36,9 +36,9 @@ I den här guiden får du lära dig att:
 
 Registrera dig för en [kostnads fri Azure-prenumeration](https://azure.microsoft.com/free/) om du inte redan har en.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste minst ha **deltagar** rollen för Azure-prenumerationen. Mer information finns i [Hantera åtkomst med hjälp av rollbaserad åtkomst kontroll och Azure Portal](../role-based-access-control/role-assignments-portal.md).
+* Du måste minst ha **deltagar** rollen för Azure-prenumerationen. Mer information finns i [lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Skapa en enhetssimulering
 
@@ -84,15 +84,15 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights Gen2-m
 
 1. I fönstret **skapa Time Series Insights miljö** går du till fliken **grundläggande** och anger följande parametrar:
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | ---|
     | **Miljönamn** | Ange ett unikt namn för Azure Time Series Insights Gen2-miljön. |
     | **Prenumeration** | Ange den prenumeration där du vill skapa Azure Time Series Insights Gen2-miljön. Ett bra tips är att använda samma prenumeration som resten av IoT-resurserna som skapas av enhets simulatorn. |
     | **Resursgrupp** | Välj en befintlig resurs grupp eller skapa en ny resurs grupp för resursen Azure Time Series Insights Gen2-miljö. En resursgrupp är en container för Azure-resurser. Ett bra tips är att använda samma resurs grupp som andra IoT-resurser som skapas av enhets simulatorn. |
     | **Plats** | Välj en data Center region för din Azure Time Series Insights Gen2-miljö. För att undvika ytterligare svars tid är det bäst att skapa din Azure Time Series Insights Gen2-miljö i samma region som din IoT-hubb som skapats av enhets simulatorn. |
     | **Nivå** |  Välj **Gen2 (L1)**. Detta är SKU: n för den Azure Time Series Insights Gen2-produkten. |
-    | **Egenskaps namn för Time Series ID** | Ange ett namn på en egenskap som innehåller värden som unikt identifierar tids serie instanserna. Det värde som du anger i rutan **egenskaps namn** som Time Series ID kan inte ändras senare. I den här självstudien anger du ***iothub-Connection-Device-ID***. Om du vill veta mer om Time Series ID inklusive sammansatt Time Series ID, Läs [metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). |
-    | **Namn på lagringskonto** | Ange ett globalt unikt namn för ett nytt lagrings konto.|
+    | **Egenskaps namn för Time Series ID** | Ange ett namn på en egenskap som innehåller värden som unikt identifierar tids serie instanserna. Det värde som du anger i rutan **egenskaps namn** som Time Series ID kan inte ändras senare. I den här självstudien anger du **_iothub-Connection-Device-ID_*_. Om du vill veta mer om Time Series ID inklusive sammansatt Time Series ID, Läs [metod tips för att välja ett Time Series-ID](./time-series-insights-update-how-to-id.md). |
+    | _*Lagrings konto namn** | Ange ett globalt unikt namn för ett nytt lagrings konto.|
     | **Typ av lagrings konto** | Välj lagrings typ för ett nytt lagrings konto. Vi rekommenderar StorageV2|
     | **Replikering av lagrings konto** | Välj lagrings typ för ett nytt lagrings konto. Utifrån val av plats kan du välja mellan LRS, GRS och ZRS. I den här självstudien kan du välja LRS|
     | **Hierarkiskt namn område** |Det här alternativet kan väljas när du har valt den lagrings typ som ska StorageV2. Som standard är den inaktive rad. I den här självstudien kan du lämna den i *inaktiverat* standard läge|
@@ -107,7 +107,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights Gen2-m
 
 1. Ange följande parametrar på fliken **händelse källa** :
 
-   | Parameter | Action |
+   | Parameter | Åtgärd |
    | --- | --- |
    | **Vill du skapa en händelse källa?** | Välj **Ja**.|
    | **Namn** | Ange ett unikt värde för händelse källans namn. |
@@ -161,7 +161,7 @@ Nu när du har distribuerat din Azure Time Series Insights Gen2-miljö börjar d
 
     1. Ange de parametrar som krävs efter att installations sidan för **simulering** har lästs in.
 
-        | Parameter | Action |
+        | Parameter | Åtgärd |
         | --- | --- |
         | **Namn** | Ange ett unikt namn för en simulator. |
         | **Beskrivning** | Ange en definition. |
@@ -217,7 +217,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
 1. Ange följande parametrar:
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | ---|
     | **Namn** | Ange **hiss** |
     | **Beskrivning** | Ange **Detta är en typ definition för hissen** |
@@ -226,25 +226,25 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     1. Välj **+ Lägg till variabel** och fyll i följande värden för den första variabeln i hiss typen. Du kommer att skriva tre variabler totalt.
 
-        | Parameter | Action |
+        | Parameter | Åtgärd |
         | --- | --- |
         | **Namn** | Ange **Genomsnittlig temperatur**. |
         | **Typ** | Välj **numerisk** |
         | **Värde** | Välj från förval: Välj **temperatur (dubbel)**. <br /> Obs! det kan ta några minuter innan **värdet** fylls i automatiskt när Azure Time Series Insights Gen2 börjar ta emot händelser.|
         | **Sammansättningsåtgärd** | Expandera **Avancerade alternativ**. <br /> Välj **AVG**. |
 
-    1. Välj **Använd**. Sedan, **+ Lägg till variabel** igen och ange följande värden:
+    1. Välj **Tillämpa**. Sedan, **+ Lägg till variabel** igen och ange följande värden:
 
-        | Parameter | Action |
+        | Parameter | Åtgärd |
         | --- | --- |
         | **Namn** | Ange **genomsnittlig vibration**. |
         | **Typ** | Välj **numerisk** |
         | **Värde** | Välj från förval: Välj **vibrationer (dubbel)**. <br /> Obs! det kan ta några minuter innan **värdet** fylls i automatiskt när Azure Time Series Insights Gen2 börjar ta emot händelser.|
         | **Sammansättningsåtgärd** | Expandera **Avancerade alternativ**. <br /> Välj **AVG**. |
 
-    1. Välj **Använd**. Sedan, **+ Lägg till variabel** igen och ange följande värden för den tredje och sista variabeln:
+    1. Välj **Tillämpa**. Sedan, **+ Lägg till variabel** igen och ange följande värden för den tredje och sista variabeln:
 
-        | Parameter | Action |
+        | Parameter | Åtgärd |
         | --- | --- |
         | **Namn** | Ange **basyta**. |
         | **Typ** | Välj **kategoriska** |
@@ -254,7 +254,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
         [![Lägg till typer av variabler.](media/v2-update-provision/tsi-add-type-variables.png)](media/v2-update-provision/tsi-add-type-variables.png#lightbox)
 
-    1. Välj **Använd**. 
+    1. Välj **Tillämpa**. 
     1. Välj **Spara**. Tre variabler skapas och visas.
 
         [![När du har lagt till typen granskar du den i vyn modell.](media/v2-update-provision/tsi-add-type-and-view.png)](media/v2-update-provision/tsi-add-type-and-view.png#lightbox)
@@ -263,7 +263,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
    1. I fönstret **Redigera hierarki** anger du följande parametrar:
 
-        | Parameter | Action |
+        | Parameter | Åtgärd |
         | --- | ---|
         | **Namn** | Ange **Platshierarkin**. |
         |**Nivåer**| Ange **land** som namn på den första nivån <br /> Välj **+ Lägg till nivå** <br /> Ange **stad** för den andra nivån och välj sedan **+ Lägg till nivå** <br /> Ange **build** som namn på den tredje och den slutgiltiga nivån |
@@ -276,7 +276,7 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     1. Under **åtgärder** längst till höger, och välj Penn ikonen för att redigera den första instansen med följande värden:
 
-        | Parameter | Action |
+        | Parameter | Åtgärd |
         | --- | --- |
         | **Typ** | Välj **hiss**. |
         | **Namn** | Ange **hiss 1**|
@@ -284,10 +284,10 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     1. Navigera till **instans fälten** och ange följande värden:
 
-        | Parameter | Action |
+        | Parameter | Åtgärd |
         | --- | --- |
         | **Hierarkier** | Välj **platshierarki** |
-        | **Ursprungslandet** | Ange **USA** |
+        | **Country** | Ange **USA** |
         | **City** | Ange **Seattle** |
         | **Skapa** | Ange **områdes nål** |
 
@@ -297,25 +297,25 @@ I det här avsnittet tillämpar du en modell för att strukturera data. För att
 
     **För hiss 2:**
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Typ** | Välj **hiss**. |
     | **Namn** | Ange **hiss 2**|
     | **Beskrivning** | Ange **instansen för hiss 2** |
     | **Hierarkier** | Välj **platshierarki** |
-    | **Ursprungslandet** | Ange **USA** |
+    | **Country** | Ange **USA** |
     | **City** | Ange **Seattle** |
     | **Skapa** | Ange **Pacific Science Center** |
 
     **För hiss 3:**
 
-    | Parameter | Action |
+    | Parameter | Åtgärd |
     | --- | --- |
     | **Typ** | Välj **hiss**. |
     | **Namn** | Ange **hiss 3**|
     | **Beskrivning** | Ange **instansen för hiss 3** |
     | **Hierarkier** | Välj **platshierarki** |
-    | **Ursprungslandet** | Ange **USA** |
+    | **Country** | Ange **USA** |
     | **City** | Ange **New York** |
     | **Skapa** | Ange **Empire-tillstånds byggnad** |
 

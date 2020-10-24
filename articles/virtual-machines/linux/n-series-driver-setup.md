@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: c0f05bd9ebd100956cfb7b2b6188e18616368dd0
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 9b6e752f8352db565239aba4a990752b1c397f5f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168485"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517267"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på virtuella datorer i N-serien som kör Linux
 
@@ -161,6 +161,23 @@ Distribuera RDMA-kompatibla virtuella datorer i N-serien från en av avbildninga
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
 * **CentOS-baserade 7,4 HPC** -drivrutiner och Intel MPI 5,1 är installerade på den virtuella datorn.
+
+* **CentOS-baserade HPC** -CENTOS-HPC 7,6 och senare (för SKU: er där InfiniBand stöds i SR-IOV). De här avbildningarna har Mellanox OFED-och MPI-bibliotek förinstallerade.
+
+> [!NOTE]
+> CX3-Pro kort stöds bara med LTS-versioner av Mellanox OFED. Använd LTS Mellanox OFED version (4.9-0.1.7.0) på virtuella datorer i N-serien med ConnectX3-Pro-kort. Mer information finns i [Linux-drivrutiner](https://www.mellanox.com/products/infiniband-drivers/linux/mlnx_ofed).
+>
+> Några av de senaste HPC-avbildningarna för Azure Marketplace har också Mellanox OFED 5,1 och senare, vilket inte stöder ConnectX3-Pro kort. Kontrol lera Mellanox OFED-versionen i HPC-avbildningen innan du använder den på virtuella datorer med ConnectX3-Pro-kort.
+>
+> Följande avbildningar är de senaste CentOS-HPC-avbildningarna som stöder ConnectX3-Pro kort:
+>
+> - OpenLogic: CentOS-HPC: 7.6:7.6.2020062900
+> - OpenLogic: CentOS-HPC: 7_6gen2:7.6.2020062901
+> - OpenLogic: CentOS-HPC: 7.7:7.7.2020062600
+> - OpenLogic: CentOS-HPC: 7_7-Gen2:7.7.2020062601
+> - OpenLogic: CentOS-HPC: 8_1:8.1.2020062400
+> - OpenLogic: CentOS-HPC: 8_1-Gen2:8.1.2020062401
+>
 
 ## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Installera RUTNÄTs driv rutiner på virtuella datorer med NV eller NVv3-serien
 

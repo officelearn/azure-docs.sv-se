@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: 86336ddb557613d42117480a5793e8b0ecbc7bae
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495829"
+ms.locfileid: "92518015"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure Virtual Network
 
@@ -326,7 +326,7 @@ Det finns två steg för att skydda en Azure service-resurs via tjänst slut pun
 1. Aktivera tjänstens slut punkter för Azure-tjänsten.
 2. Konfigurera VNet ACL: er för Azure-tjänsten.
 
-Det första steget är en åtgärd på nätverks sidan och det andra steget är en åtgärd på tjänst resurs sidan. Båda stegen kan utföras antingen av samma administratör eller olika administratörer baserat på de RBAC-behörigheter som tilldelats rollen administratör. Vi rekommenderar att du först aktiverar tjänstens slut punkter för ditt virtuella nätverk innan du konfigurerar VNet ACL: er på Azure-tjänstesidan. Därför måste stegen utföras i den ordning som anges ovan för att konfigurera VNet-tjänstens slut punkter.
+Det första steget är en åtgärd på nätverks sidan och det andra steget är en åtgärd på tjänst resurs sidan. Båda stegen kan utföras antingen av samma administratör eller olika administratörer baserat på de Azure RBAC-behörigheter som har tilldelats rollen administratör. Vi rekommenderar att du först aktiverar tjänstens slut punkter för ditt virtuella nätverk innan du konfigurerar VNet ACL: er på Azure-tjänstesidan. Därför måste stegen utföras i den ordning som anges ovan för att konfigurera VNet-tjänstens slut punkter.
 
 >[!NOTE]
 > Båda åtgärderna som beskrivs ovan måste slutföras innan du kan begränsa åtkomsten till Azure-tjänsten till det tillåtna VNet och under nätet. Att bara aktivera tjänst slut punkter för Azure-tjänsten på nätverks sidan ger dig inte begränsad åtkomst. Dessutom måste du också konfigurera VNet ACL: er på Azure-tjänstesidan.

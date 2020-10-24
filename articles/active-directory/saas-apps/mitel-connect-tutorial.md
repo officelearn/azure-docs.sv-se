@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 044ee51fb7ff675af0fb97224313c388c4cbeac1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b89ae74a1f4ead568a5454c9494d4a82b0eeea3e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371349"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Självstudie: Azure Active Directory integrering med MiCloud Connect eller CloudLink Platform
 
@@ -25,11 +25,11 @@ I den här självstudien får du lära dig hur du använder den särskilda Conne
 * Du kan styra användarnas åtkomst till MiCloud Connect-appar och till CloudLink-appar i Azure AD med sina företags uppgifter.
 * Du kan låta användare på ditt konto loggas in automatiskt till MiCloud Connect eller CloudLink (enkel inloggning) med hjälp av deras Azure AD-konton.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar integrera Azure AD med MiCloud Connect eller CloudLink-plattformen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med MiCloud Connect behöver du följande objekt:
 
@@ -41,7 +41,7 @@ Om du vill konfigurera Azure AD-integrering med MiCloud Connect behöver du föl
 I den här självstudien får du konfigurera och testa enkel inloggning (SSO) för Azure AD.
 
 * Spetsig anslutning stöder **SP** -INITIERAd SSO
-* När du har konfigurerat tusentals anslutning kan du framtvinga kontroll av sessionen, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* När du har konfigurerat tusentals anslutning kan du framtvinga kontroll av sessionen, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-mitel-connect-from-the-gallery"></a>Lägg till spetsig anslutning från galleriet
 
@@ -168,7 +168,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
     1. I fältet **namn** skriver du **BrittaSimon**.
   
-    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Exempelvis BrittaSimon@contoso.com.
+    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Till exempel BrittaSimon@contoso.com.
 
     1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
 
@@ -221,7 +221,7 @@ Skapa en användare på ditt MiCloud Connect-konto med följande information:
 
 I det här avsnittet ska du testa konfigurationen för enkel inloggning med Azure AD via åtkomst panelen.
 
-När du väljer panelen för att ansluta på åtkomst panelen bör du omdirigeras automatiskt för att logga in på MiCloud Connect-programmet som du konfigurerade som standard i fältet **inloggnings-URL** . Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen för att ansluta på åtkomst panelen bör du omdirigeras automatiskt för att logga in på MiCloud Connect-programmet som du konfigurerade som standard i fältet **inloggnings-URL** . Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="configure-and-test-azure-ad-sso-with-cloudlink-platform"></a>Konfigurera och testa Azure AD SSO med CloudLink-plattformen
 
@@ -323,7 +323,7 @@ I det här avsnittet ska du skapa en test användare med namnet Britta Simon i A
 
     1. I fältet **namn** skriver du **BrittaSimon**.
   
-    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Exempelvis BrittaSimon@contoso.com.
+    1. I fältet **användar namn** skriver du brittasimon@ \<yourcompanydomain\> . \<extension\> .  Till exempel BrittaSimon@contoso.com.
 
     1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
 
@@ -375,12 +375,12 @@ Skapa en användare på CloudLink-konto portalen med följande information:
 
 I det här avsnittet ska du testa din Azure AD SSO-konfiguration med hjälp av åtkomst panelen.
 
-När du väljer panelen för att ansluta på åtkomst panelen omdirigeras du automatiskt för att logga in till det CloudLink-program som du konfigurerade som standard i fältet **inloggnings-URL** . Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen för att ansluta på åtkomst panelen omdirigeras du automatiskt för att logga in till det CloudLink-program som du konfigurerade som standard i fältet **inloggnings-URL** . Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

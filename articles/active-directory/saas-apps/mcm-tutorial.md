@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a3f6e8877b0d515543ffdca8af1df38bb3d12b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22dc30db3465e2e4fbd4d0fd38d4b5a463e2bd1b
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554756"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519545"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Självstudie: Azure Active Directory integrering med MCM
 
@@ -27,10 +27,10 @@ Integreringen av MCM med Azure AD medför följande fördelar:
 * Du kan göra så att dina användare automatiskt loggas in på MCM (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med MCM behöver du följande:
 
@@ -179,7 +179,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-mcm-test-user"></a>Skapa MCM-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i MCM. Ta hjälp av [supportteamet för MCM](https://mcmtechnology.com/support) för att lägga till användarna i MCM-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i MCM. Arbeta med [MCM support team](https://mcmtechnology.com/support) för att lägga till användare i MCM-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 >[!NOTE]
 >Du kan använda andra verktyg för MCM av användar konton eller API: er som tillhandahålls av MCM för att etablera Azure AD-användarkonton.
@@ -188,13 +188,12 @@ I det här avsnittet skapar du en användare med namnet Britta Simon i MCM. Ta h
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på MCM-panelen i åtkomstpanelen bör du automatiskt loggas in på MCM som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på MCM-panelen i åtkomstpanelen bör du automatiskt loggas in på MCM som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

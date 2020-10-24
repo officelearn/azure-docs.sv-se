@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0261c495ad08000f9041390658e0f19954b71669
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003360"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517029"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Självstudie: skapa en app för bearbetning av formulär med AI Builder
 
@@ -30,7 +30,7 @@ I den här guiden får du lära dig att:
 > * Träna modellen
 > * Publicera din modell som ska användas i Azure Power Apps eller Power automatisering
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En uppsättning minst fem formulär av samma typ som används för utbildning/testning av data. Se [skapa en tränings data uppsättning](./build-training-data-set.md) för tips och alternativ för att sätta samman din tränings data uppsättning. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2128080).
 * En Power Apps eller en automatiserad energi licens – se [licens guiden](https://go.microsoft.com/fwlink/?linkid=2085130). Licensen måste innehålla [common data service](https://powerplatform.microsoft.com/en-us/common-data-service/).
@@ -93,7 +93,7 @@ På sidan Val av fält väljer du de fält som är viktiga för dig:
     - **Fält värde**: värdet för det identifierade fältet.
 
 > [!div class="mx-imgBorder"]
-> ![Sidan Lägg till dokument](./media/tutorial-ai-builder/select-fields-page.png)
+> ![taggnings sida](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### <a name="label-undetected-fields"></a>Etiketter utan identifierade fält
 
@@ -104,7 +104,7 @@ Om fältet som du vill använda etiketten inte identifierades automatiskt av mod
 1. Välj **Nästa** för att kontrollera de valda formulärfälten. Om allt ser bra ut väljer du **träna** för att träna din modell.
 
     > [!div class="mx-imgBorder"]
-    > ![Sidan Lägg till dokument](./media/tutorial-ai-builder/summary-train-page.png)
+    > ![Sidan utbildning](./media/tutorial-ai-builder/summary-train-page.png)
 1. När inlärningen är klar väljer du **Gå till informationssidan** i på skärmen **Träningen är klar**.
 ## <a name="quick-test-your-model"></a>Snabbtesta din modell
 
@@ -127,7 +127,7 @@ Om du får dåliga resultat eller låga förtroende poäng för vissa fält kan 
 Om du är nöjd med din modell väljer du **publicera**  för att publicera den. När publiceringen är klar höjs din modell som **Publicerad** och är redo att användas.
 
 > [!div class="mx-imgBorder"]
-> ![Sidan Lägg till dokument](./media/tutorial-ai-builder/model-page.png)
+> ![Sidan publicera modell](./media/tutorial-ai-builder/model-page.png)
 
 När du har publicerat din formulär bearbetnings modell kan du använda den i en [app för Power Apps-arbetsytan](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) eller i [energi spar läge](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
 

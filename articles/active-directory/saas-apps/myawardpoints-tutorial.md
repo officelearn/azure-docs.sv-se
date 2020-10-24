@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 06104964c06b0853498a7de272a62d2913b10be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2328bd51712089f706c8491007f9f51eba52337
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518734"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92508136"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Självstudie: Azure Active Directory integrering med mina belönings punkter överst till-/topp-teamet
 
@@ -27,10 +27,10 @@ Genom att integrera mina belönings punkter överst till-/topp-teamet med Azure 
 * Du kan göra det möjligt för användarna att vara automatiskt inloggade på mina belönings punkter överst till höger/översta teamet (enkel inloggning) med deras Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande om du vill konfigurera Azure AD-integrering med mina tilldelnings platser överst till-/-teamet:
 
@@ -180,18 +180,18 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-my-award-points-top-subtop-team-test-user"></a>Skapa mina belönings punkter överst till-grupp för sub/topp-test användare
 
-I det här avsnittet ska du skapa en användare med namnet Britta Simon i mitt belönings Points överst/högsta-teamet. Arbeta med [Mina belönings punkter överst stöd för sub/Top team support team](mailto:myawardpoints@biworldwide.com) för att lägga till användarna i den översta delen av under-och-huvud-teamet. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i mitt belönings Points överst/högsta-teamet. Arbeta med [Mina belönings punkter överst stöd för sub/Top team support team](mailto:myawardpoints@biworldwide.com) för att lägga till användarna i den översta delen av under-och-huvud-teamet. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på den övre delen av gruppen mina belönings punkter överst/översta gruppen på åtkomst panelen, bör du loggas in automatiskt på det översta under-och topp-teamet som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på den övre delen av gruppen mina belönings punkter överst/översta gruppen på åtkomst panelen, bör du loggas in automatiskt på det översta under-och topp-teamet som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

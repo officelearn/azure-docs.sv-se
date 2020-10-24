@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5051a5e29f9e34c43963a9a264ee47e2ad7b04a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331581"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490789"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Använd Azurite-emulatorn för lokal Azure Storage utveckling
 
@@ -282,7 +282,7 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>Certifikat konfiguration (HTTPS)
 
-**Valfritt** – Azurite använder http-protokollet. Aktivera HTTPS-läge genom att ange en sökväg till en Privacy Enhanced Mail (. pem) eller [personal information Exchange (. pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) -certifikat fil till `--cert` växeln.
+**Valfritt** – Azurite använder http-protokollet. Aktivera HTTPS-läge genom att ange en sökväg till en Privacy Enhanced Mail (. pem) eller [personal information Exchange (. pfx)](/windows-hardware/drivers/install/personal-information-exchange---pfx--files) -certifikat fil till `--cert` växeln.
 
 När `--cert` har angetts för en PEM-fil måste du ange en motsvarande `--key` växel.
 

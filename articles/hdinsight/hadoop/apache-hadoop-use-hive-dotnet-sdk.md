@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
-ms.openlocfilehash: cdb2207ab834ab84cedd2ad23e5e26186ac44039
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f815754c099e1e085fb0692285b9e690d68194e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020481"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487678"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Köra Apache Hive frågor med HDInsight .NET SDK
 
@@ -146,6 +146,6 @@ I den här artikeln har du lärt dig hur du skickar Apache Hive frågor med hjä
 
 * [Kom igång med Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Skapa Apache Hadoop kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
-* [HDInsight .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight .NET SDK-referens](/dotnet/api/overview/azure/hdinsight)
 * [Använda Apache Sqoop med HDInsight](apache-hadoop-use-sqoop-mac-linux.md)
 * [Skapa .NET HDInsight-program med icke-interaktiv autentisering](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

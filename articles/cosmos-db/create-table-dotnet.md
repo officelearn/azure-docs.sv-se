@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e49ecf0f8e88e0de22117a5ed85b8352e73a2f5d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65a3e9a1e60ad28fbc0357c5b04007ce4da37895
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89020243"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487610"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Snabb start: Bygg en Tabell-API-app med .NET SDK och Azure Cosmos DB 
 
@@ -22,7 +22,7 @@ ms.locfileid: "89020243"
 > * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
-> * [Python](create-table-python.md)
+> * [Python](./table-storage-how-to-use-python.md)
 >  
 
 Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md) i .NET och Azure Cosmos DB för att skapa en app genom att klona ett exempel från GitHub. Den här snabbstarten visar även hur du skapar ett Azure Cosmos DB-konto och hur du använder Datautforskaren för att skapa tabeller och entiteter i den webbaserade Azure-portalen.
@@ -68,7 +68,7 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
    ```
 
 > [!TIP]
-> En mer detaljerad genom gång av liknande kod finns i artikeln [Cosmos DB tabell-API exempel](table-storage-how-to-use-dotnet.md) .
+> En mer detaljerad genom gång av liknande kod finns i artikeln [Cosmos DB tabell-API exempel](./tutorial-develop-table-dotnet.md) .
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>Öppna exempelappen i Visual Studio
 
@@ -173,4 +173,3 @@ I den här snabbstarten har du fått lära dig att skapa ett Azure Cosmos DB-kon
 
 > [!div class="nextstepaction"]
 > [Importera tabelldata till tabell-API](table-import.md)
-

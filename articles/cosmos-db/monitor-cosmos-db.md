@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 12bf87e16bf4506f2015dd75fb360f8de8399902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bfedc7d14c234f88e8140281a01ffcc330ba532
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797827"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488375"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Övervaknings Azure Cosmos DB
 
@@ -66,13 +66,13 @@ På sidan **Översikt** i Azure Portal för varje Azure Cosmos-databas finns en 
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> Analysera mått data
 
-Azure Cosmos DB ger en anpassad upplevelse för att arbeta med mått. Se [övervaka och felsök Azure Cosmos DB mått från Azure Monitor](cosmos-db-azure-monitor-metrics.md) för information om hur du använder den här upplevelsen och för att analysera olika Azure Cosmos DB scenarier.
+Azure Cosmos DB ger en anpassad upplevelse för att arbeta med mått. Se [övervaka och felsök Azure Cosmos DB mått från Azure Monitor]() för information om hur du använder den här upplevelsen och för att analysera olika Azure Cosmos DB scenarier.
 
 Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänster med hjälp av Metric Explorer genom att öppna **mått** från **Azure Monitor** -menyn. Mer information om hur du använder det här verktyget finns i [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) . Alla mått för Azure Cosmos DB finns i namn området **Cosmos DB standard mått**. Du kan använda följande dimensioner med dessa mått när du lägger till ett filter i ett diagram:
 
 * CollectionName
 * DatabaseName
-* OperationType
+* Åtgärdstyp
 * Region
 * StatusCode
 
@@ -118,7 +118,7 @@ Data i Azure Monitor loggar lagras i tabeller som varje tabell har en egen upps�
 
 ### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Azure Cosmos DB Log Analytics frågor i Azure Monitor
 
-Här följer några frågor som du kan ange i Sök fältet för **loggs ökning** och som hjälper dig att övervaka dina Azure Cosmos-behållare. Dessa frågor fungerar med det [nya språket](../log-analytics/log-analytics-log-search-upgrade.md).
+Här följer några frågor som du kan ange i Sök fältet för **loggs ökning** och som hjälper dig att övervaka dina Azure Cosmos-behållare. Dessa frågor fungerar med det [nya språket](../azure-monitor/log-query/log-query-overview.md).
 
 Följande är frågor som du kan använda för att övervaka dina Azure Cosmos-databaser.
 
@@ -151,9 +151,9 @@ Följande är frågor som du kan använda för att övervaka dina Azure Cosmos-d
 
 Konto nivå måtten som är tillgängliga i portalen, till exempel användning av konto lagring och totalt antal begär Anden, är inte tillgängliga via SQL-API: erna. Du kan dock hämta användnings data på samlings nivå med hjälp av SQL-API: erna. Gör följande för att hämta data på samlings nivå:
 
-* Om du vill använda REST API [utför du en hämtning på samlingen](https://msdn.microsoft.com/library/mt489073.aspx). Kvot-och användnings informationen för samlingen returneras i rubrikerna x-MS-Resource-quota och x-MS-Resource-Usage i svaret.
+* Om du vill använda REST API [utför du en hämtning på samlingen](/rest/api/cosmos-db/get-a-collection). Kvot-och användnings informationen för samlingen returneras i rubrikerna x-MS-Resource-quota och x-MS-Resource-Usage i svaret.
 
-* Om du vill använda .NET SDK använder du metoden [DocumentClient. ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) , som returnerar en [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) som innehåller ett antal användnings egenskaper som **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**med flera.
+* Om du vill använda .NET SDK använder du metoden [DocumentClient. ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) , som returnerar en [ResourceResponse](/dotnet/api/microsoft.azure.documents.client.resourceresponse-1) som innehåller ett antal användnings egenskaper som **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**med flera.
 
 Använd [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)för att få åtkomst till ytterligare mått. Tillgängliga mått definitioner kan hämtas genom att anropa:
 

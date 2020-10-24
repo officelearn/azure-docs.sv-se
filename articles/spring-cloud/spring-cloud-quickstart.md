@@ -4,16 +4,16 @@ description: I den här snabb starten distribuerar vi ett våren Cloud-program t
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 09/18/2020
+ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2ec79c9c1fc3b461037b2005da7198f81cbbab34
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: a060528d3140203541f6a13064659651c7a4f67d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170352"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488969"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Snabb start: Distribuera ditt första Azure våren Cloud-program
 
@@ -96,7 +96,7 @@ I Visual Studio skapar du ett ASP.NET Core webb program med namnet "Hello-World"
    cd hello-world
    ```
 
-1. Redigera *appSettings.jspå*   fil för att lägga till följande inställningar:
+1. Redigera *appSettings.jspå* fil för att lägga till följande inställningar:
 
    ```json
    "spring": {
@@ -345,9 +345,9 @@ För att slutföra den här snabbstarten behöver du:
 
 ## <a name="generate-a-spring-cloud-project"></a>Skapa ett våren Cloud-projekt
 
-Börja med [våren Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin) för att generera ett exempel projekt med rekommenderade beroenden för Azure våren Cloud. Följande bild visar Initializr som kon figurer ATS för det här exempelprojektet.
+Börja med [våren Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client) för att generera ett exempel projekt med rekommenderade beroenden för Azure våren Cloud. Följande bild visar Initializr som kon figurer ATS för det här exempelprojektet.
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.4.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-starter-sleuth,cloud-starter-zipkin,cloud-config-client
 ```
 
   ![Sidan Initializr](media/spring-cloud-quickstart-java/initializr-page.png)

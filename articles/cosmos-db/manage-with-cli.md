@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 631dd3242e695a1e7872a4b078ab3f9761591c56
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0b19d7681925296936fee5823f7df32e131f8bb8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277757"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482663"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Hantera Azure Cosmos Core (SQL) API-resurser med hjälp av Azure CLI
 
-I följande guide beskrivs vanliga kommandon för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och containrar med hjälp av Azure CLI. Referens sidor för alla Azure Cosmos DB CLI-kommandon är tillgängliga i [Azure CLI-referensen](https://docs.microsoft.com/cli/azure/cosmosdb). Du kan också hitta fler exempel i [Azure CLI-exempel för Azure Cosmos DB](cli-samples.md), inklusive hur du skapar och hanterar Cosmos DB-konton, databaser och behållare för MongoDB, Gremlin, Cassandra och tabell-API.
+I följande guide beskrivs vanliga kommandon för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och containrar med hjälp av Azure CLI. Referens sidor för alla Azure Cosmos DB CLI-kommandon är tillgängliga i [Azure CLI-referensen](/cli/azure/cosmosdb). Du kan också hitta fler exempel i [Azure CLI-exempel för Azure Cosmos DB](cli-samples.md), inklusive hur du skapar och hanterar Cosmos DB-konton, databaser och behållare för MongoDB, Gremlin, Cassandra och tabell-API.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -545,5 +545,5 @@ az lock delete --ids $lockid
 Mer information om Azure CLI finns i:
 
 * [Installera Azure CLI](/cli/azure/install-azure-cli)
-* [Azure CLI-referens](https://docs.microsoft.com/cli/azure/cosmosdb)
+* [Azure CLI-referens](/cli/azure/cosmosdb)
 * [Ytterligare Azure CLI-exempel för Azure Cosmos DB](cli-samples.md)

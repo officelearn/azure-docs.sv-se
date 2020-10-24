@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 1a8d375519ed4c7d252afe60d71aad4c5244cd1c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0fa7f122c5a9957db0800d2ccf4e5c1f8effd574
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284648"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491180"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-api-for-mongodb"></a>Skapa en behållare i Azure Cosmos DB API för MongoDB
 
@@ -62,12 +62,11 @@ Om du råkar ut för tids gräns undantag när du skapar en samling, gör du en 
 
 ## <a name="create-a-container-using-azure-resource-manager-templates"></a>Skapa en behållare med Azure Resource Manager mallar
 
-[Skapa en samling för Azure Cosmos dB för MongoDB-API med Resource Manager-mall](manage-sql-with-resource-manager.md#azure-cosmos-account-with-standard-provisioned-throughput).
+[Skapa en samling för Azure Cosmos dB för MongoDB-API med Resource Manager-mall](./manage-with-templates.md#azure-cosmos-account-with-standard-provisioned-throughput).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
 * [Etablera dataflöde på containrar och databaser](set-throughput.md)
-* [Arbeta med ett Azure Cosmos-konto](account-overview.md)
-
+* [Arbeta med ett Azure Cosmos-konto](./account-databases-containers-items.md)

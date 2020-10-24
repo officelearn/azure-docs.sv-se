@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: ba53fb786b1d1f61535168cda2152049a12dfb99
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87f3ea2d1ce8d3d9f2f584db379618fc6c4a4a67
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86535844"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491248"
 ---
 # <a name="quickstart-build-a-go-app-with-the-gocql-client-to-manage-azure-cosmos-db-cassandra-api-data"></a>Snabb start: Bygg en go-app med `gocql` klienten för att hantera Azure Cosmos DB API för Cassandra data
 
@@ -85,7 +85,7 @@ func GetSession(cosmosCassandraContactPoint, cosmosCassandraPort, cosmosCassandr
 }
 ```
 
-Den Azure Cosmos DB Cassandra-värden skickas till [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) funktionen för att hämta en [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) struktur som sedan har kon figurer ATS för att använda användar namn, lösen ord, port och lämplig TLS-version ([https/SSL/TLS-kryptering säkerhets krav](https://docs.microsoft.com/azure/cosmos-db/database-security?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
+Den Azure Cosmos DB Cassandra-värden skickas till [`gocql.NewCluster`](https://godoc.org/github.com/gocql/gocql#NewCluster) funktionen för att hämta en [`*gocql.ClusterConfig`](https://godoc.org/github.com/gocql/gocql#ClusterConfig) struktur som sedan har kon figurer ATS för att använda användar namn, lösen ord, port och lämplig TLS-version ([https/SSL/TLS-kryptering säkerhets krav](./database-security.md?WT.mc_id=cassandrago-docs-abhishgu#how-does-azure-cosmos-db-secure-my-database))
 
 `GetSession`Funktionen anropas sedan från `main` funktionen ( `main.go` ).
 
@@ -221,7 +221,7 @@ func mapToUser(m map[string]interface{}) model.User {
 }
 ```
 
-## <a name="run-the-application"></a>Kör programmet
+## <a name="run-the-application"></a>Köra appen
 
 Som tidigare nämnts godkänner programmet anslutningar och autentiseringsuppgifter i form av miljövariablerna. 
 
@@ -238,7 +238,7 @@ set COSMOSDB_CASSANDRA_USER=<value for "USERNAME">
 set COSMOSDB_CASSANDRA_PASSWORD=<value for "PRIMARY PASSWORD">
 ```
 
-Ändra till rätt mapp i terminalfönstret. Till exempel:
+Ändra till rätt mapp i terminalfönstret. Exempel:
 
 ```shell
 cd "C:\git-samples\azure-cosmosdb-cassandra-go-getting-started"

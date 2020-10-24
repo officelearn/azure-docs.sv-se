@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 035bc13ee44a8a003ae860eb2bdd67432fa91f14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 175934c3e80e1271d6d17aa04327b58887427ea5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542533"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483700"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-online"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Tableau online
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Tableau online med 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -165,15 +165,15 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 1. Logga in på ditt Tableau online-program i ett annat webbläsarfönster. Gå till **Inställningar** och sedan **autentisering**.
 
-    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
+    ![Skärm bild som visar den autentisering som valts från menyn Inställningar.](./media/tableauonline-tutorial/tutorial_tableauonline_09.png)
 
 2. För att aktivera SAML under avsnittet **autentiseringsmetoder** . Markera **aktivera ytterligare en autentiseringsmetod** och markera sedan **SAML** -kryss rutan.
 
-    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
+    ![Skärm bild som visar avsnittet autentiseringsmetoder där du kan välja värden.](./media/tableauonline-tutorial/tutorial_tableauonline_12.png)
 
 3. Rulla nedåt uppåt för att **Importera metadatafilen till avsnittet Tableau online** .  Klicka på Bläddra och importera metadatafilen som du har laddat ned från Azure AD. Klicka sedan på **Använd**.
 
-   ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
+   ![Skärm bild som visar avsnittet där du kan importera metadatafilen.](./media/tableauonline-tutorial/tutorial_tableauonline_13.png)
 
 4. I avsnittet **matchnings intyg** infogar du motsvarande namn på identitets leverantören för **e-postadress**, **förnamn**och **efter namn**. För att hämta den här informationen från Azure AD: 
   
@@ -181,17 +181,17 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
     b. I avsnittet **användarattribut &-anspråk** klickar du på redigerings ikonen.
 
-   ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/attributesection.png)
+   ![Skärm bild som visar avsnittet användarattribut &-anspråk där du kan välja redigerings ikonen.](./media/tableauonline-tutorial/attributesection.png)
 
     c. Kopiera namn rymds värdet för dessa attribut: givenName, e-post och efter namn med hjälp av följande steg:
 
-   ![Azure AD Single Sign-On](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
+   ![Skärm bild som visar attributen givenName, efter namn och EmailAddress.](./media/tableauonline-tutorial/tutorial_tableauonline_10.png)
 
     d. Klicka på **User. givenName** -värde
 
     e. Kopiera värdet från text rutan **namnrymd** .
 
-    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/attributesection2.png)
+    ![Skärm bild som visar avsnittet hantera användar anspråk där du kan ange namn området.](./media/tableauonline-tutorial/attributesection2.png)
 
     f. Om du vill kopiera namn rymds värden för e-postmeddelandet och förnamnet upprepar du ovanstående steg.
 
@@ -203,7 +203,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
     * Efter namn: efter **namn**
 
-    ![Konfigurera enkel inloggning](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
+    ![Skärm bild som visar avsnittet matcha attribut där du kan ange värden.](./media/tableauonline-tutorial/tutorial_tableauonline_14.png)
 
 ### <a name="create-tableau-online-test-user"></a>Skapa Tableau online-test användare
 
@@ -211,11 +211,11 @@ I det här avsnittet skapar du en användare som heter Britta Simon i Tableau on
 
 1. På **Tableau online**klickar du på **Inställningar** och sedan på **autentisering** . Rulla ned till avsnittet **Hantera användare** . Klicka på **Lägg till användare** och sedan på **Ange e-postadresser**.
   
-    ![Skapa en testanvändare för Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
+    ![Skärm bild som visar avsnittet hantera användare där du kan välja Lägg till användare.](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
 2. Välj **Lägg till användare för (SAML) autentisering**. I text rutan **Ange e-postadresser** lägger du till Britta. Simon \@ contoso.com
   
-    ![Skapa en testanvändare för Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
+    ![Skärm bild som visar sidan Lägg till användare där du kan ange en e-postadress.](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 
 3. Klicka på **Lägg till användare**.
 

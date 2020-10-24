@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0fe56a8173a4cfe8836a078a62c7bc9015c83324
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1d524e34623d5fde3d6f22afbdd63ce95699fe6f
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461268"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494489"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Använda Azure Digital Twins-API:er och -SDK:er
 
@@ -32,10 +32,10 @@ Använda API: er för kontroll plan:
 * Du kan anropa API: erna direkt genom att referera till de senaste Swagger i [mappen Control plan Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins). Den här lagrings platsen innehåller också en mapp med exempel som visar användningen.
 * Du kan för närvarande komma åt SDK: er för kontroll-API: er i...
   - [.Net (C#)](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([källa](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins)) ([referens [genereras automatiskt]](/dotnet/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-dotnet-preview))
-  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referens [automatiskt genererad]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
+  - [Java](https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_10_31/azure-mgmt-digitaltwins/1.0.0/jar) ([källa](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins)) ([referens [automatiskt genererad]](/java/api/overview/azure/digitaltwins/management?preserve-view=true&view=azure-java-preview))
   - [Java Script](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([källa](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [Python](https://pypi.org/project/azure-mgmt-digitaltwins/) ([källa](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins))
-  - [Go-source](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/digitaltwins/mgmt/2020-03-01-preview/digitaltwins)
+  - [Kör](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins)
 
 Du kan också öva på att kontrol lera plan-API: er genom att interagera med Azure Digitals sammanflätar via [Azure Portal](https://portal.azure.com) och [CLI](how-to-use-cli.md).
 
@@ -56,7 +56,7 @@ Använda data Plans-API: er:
 * Du kan använda **.net (C#)** SDK. För att använda .NET SDK...
    - Du kan visa och lägga till paketet från NuGet: [Azure. DigitalTwins. Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
    - Du kan hitta SDK-källan, inklusive en mapp med exempel, i GitHub: [Azure IoT Digitals klient bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - Du kan visa [SDK Reference-dokumentationen](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview).
+   - Du kan visa [SDK Reference-dokumentationen](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
    - Du kan se detaljerade informations-och användnings exempel genom att gå vidare till avsnittet [.net (C#) SDK (data plan)](#net-c-sdk-data-plane) i den här artikeln.
 * Du kan använda **Java** SDK. För att använda Java SDK...
    - Du kan visa och installera paketet från maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
@@ -65,6 +65,8 @@ Använda data Plans-API: er:
 * Du kan använda **Java Script** SDK. För att använda JavaScript SDK...
    - Du kan visa och installera paketet från NPM: [Azure Azure Digitals dubbla klient bibliotek för Java Script](https://www.npmjs.com/package/@azure/digital-twins).
    - Du kan visa [SDK Reference-dokumentationen](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
+* Du kan använda **python** SDK. Använda python SDK...
+   - Du kan visa och installera paketet: [Azure Azure Digitals sammanflätade kärn klient bibliotek för python](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/).
 * Du kan skapa ett SDK för ett annat språk med hjälp av AutoRest. Följ instruktionerna i [*instruktion: skapa anpassade SDK: er för Azure Digitals med AutoRest*](how-to-create-custom-sdks.md).
 
 Du kan också utföra API: er för datum plan genom att interagera med Azure Digitals flätar via [CLI](how-to-use-cli.md).
@@ -100,6 +102,8 @@ string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
 var credential = new DefaultAzureCredential();
 DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 ```
+
+[!INCLUDE [Azure Digital Twins: local credentials note](../../includes/digital-twins-local-credentials-note.md)] 
 
 Ladda upp en modell-och list modeller:
 

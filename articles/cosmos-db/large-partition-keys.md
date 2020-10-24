@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 59781f9b86764d0982e1612f9671e8f0919ed490
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89009516"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488443"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Skapa behållare med stor partitionsnyckel
 
@@ -83,4 +83,4 @@ För närvarande kan du inte använda behållare med stor partitionsnyckel i i P
 * [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
 * [Etablera dataflöde på containrar och databaser](set-throughput.md)
-* [Arbeta med ett Azure Cosmos-konto](account-overview.md)
+* [Arbeta med ett Azure Cosmos-konto](./account-databases-containers-items.md)

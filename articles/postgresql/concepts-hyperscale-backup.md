@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 2d781ca7293d4bd95ae62eadc50295ca14c2d381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9656e6ab608665e325ac5f772e06df9ac296c521
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314938"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485383"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---hyperscale-citus"></a>Säkerhets kopiering och återställning i Azure Database for PostgreSQL-storskalig (citus)
 
@@ -39,7 +39,7 @@ I Azure Database for PostgreSQL skapar återställer ett citus-kluster ett nytt 
 
 
 > [!IMPORTANT]
-> Det går inte att återställa citus-kluster (borttagna storskaliga). Om du tar bort klustret tas alla noder som tillhör klustret bort och kan inte återställas. För att skydda kluster resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](/azure/azure-resource-manager/management/lock-resources).
+> Det går inte att återställa citus-kluster (borttagna storskaliga). Om du tar bort klustret tas alla noder som tillhör klustret bort och kan inte återställas. För att skydda kluster resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="point-in-time-restore-pitr"></a>Återställning av tidpunkt (PITR)
 
@@ -65,5 +65,5 @@ Efter en återställning från återställnings metoden bör du göra följande 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [tillgänglighets zoner i Azure](/azure/availability-zones/az-overview).
-* Ange [föreslagna aviseringar](/azure/postgresql/howto-hyperscale-alert-on-metric#suggested-alerts) på citus-servergrupper (-Server grupper).
+* Lär dig mer om [tillgänglighets zoner i Azure](../availability-zones/az-overview.md).
+* Ange [föreslagna aviseringar](./howto-hyperscale-alert-on-metric.md#suggested-alerts) på citus-servergrupper (-Server grupper).

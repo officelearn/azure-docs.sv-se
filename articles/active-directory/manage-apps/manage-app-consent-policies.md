@@ -12,12 +12,12 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: 59e00d2bb47826bb4bfa381c42db551f44d84b71
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427595"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486930"
 ---
 # <a name="manage-app-consent-policies"></a>Hantera principer för appmedgivande
 
@@ -57,14 +57,14 @@ Det är en bra idé att börja med att bekanta dig med de befintliga appens medg
 1. Visa villkors uppsättningar för en princip:
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "includes"
     ```
 
 1. Visa villkors uppsättningar för "exkluderar":
 
     ```powershell
-    Get-AzureADMSPermissionGrantConditionSet -Id "microsoft-application-admin" `
+    Get-AzureADMSPermissionGrantConditionSet -PolicyId "microsoft-application-admin" `
                                              -ConditionSetType "excludes"
     ```
 
@@ -130,7 +130,7 @@ När appens medgivande princip har skapats kan du tillåta att [användarens med
 
 I följande tabell visas en lista över de villkor som stöds för principer för program medgivande.
 
-| Condition (Väderförhållanden) | Description|
+| Condition (Väderförhållanden) | Beskrivning|
 |:---------------|:----------|
 | PermissionClassification | [Behörighets klassificeringen](configure-permission-classifications.md) för behörigheten som beviljas, eller "alla" så att den överensstämmer med behörighets klassificeringen (inklusive behörigheter som inte klassificeras). Standardvärdet är all. |
 | PermissionType | Behörighets typen för den behörighet som beviljas. Använd "program" för program behörigheter (t. ex. app-roller) eller "delegerad" för delegerade behörigheter. <br><br>**Obs!** värdet "delegatedUserConsentable" indikerar delegerade behörigheter som inte har kon figurer ATS av API-utgivaren för att kräva administrativt godkännande – det här värdet kan användas i inbyggda behörighets beviljande principer, men kan inte användas i anpassade behörighets beviljande principer. Krävs. |

@@ -6,23 +6,23 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 9424a56eeda5750afc00dd996be957e67850c30c
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4d4287b877f5327b7fd485358b26148686b9515b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426678"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487933"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Övervaka och finjustera Azure Database for PostgreSQL-enskild server
 Genom att övervaka data om dina servrar kan du felsöka och optimera för din arbets belastning. Azure Database for PostgreSQL innehåller olika övervaknings alternativ för att ge inblick i serverns beteende.
 
 ## <a name="metrics"></a>Mått
-Azure Database for PostgreSQL tillhandahåller olika mått som ger inblick i funktionerna i resurserna som stöder PostgreSQL-servern. Varje mått genereras med en minuters frekvens och har upp till [93 dagars historik](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#retention-of-metrics). Du kan konfigurera aviseringar för måtten. Steg för steg-anvisningar finns i [så här konfigurerar du aviseringar](howto-alert-on-metric.md). Andra uppgifter är att ställa in automatiserade åtgärder, utföra avancerad analys och lagrings historik. Mer information finns i [Översikt över Azure Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Database for PostgreSQL tillhandahåller olika mått som ger inblick i funktionerna i resurserna som stöder PostgreSQL-servern. Varje mått genereras med en minuters frekvens och har upp till [93 dagars historik](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics). Du kan konfigurera aviseringar för måtten. Steg för steg-anvisningar finns i [så här konfigurerar du aviseringar](howto-alert-on-metric.md). Andra uppgifter är att ställa in automatiserade åtgärder, utföra avancerad analys och lagrings historik. Mer information finns i [Översikt över Azure Metrics](../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for PostgreSQL:
 
-|Mått|Mått visnings namn|Enhet|Description|
+|Mått|Mått visnings namn|Enhet|Beskrivning|
 |---|---|---|---|
 |cpu_percent|CPU-procent|Procent|Procent andelen CPU som används.|
 |memory_percent|Minnes procent|Procent|Procent andelen minne som används.|
@@ -61,6 +61,6 @@ Lär dig mer om hur du konfigurerar aviseringar i dokumentet om [planerade under
 
 ## <a name="next-steps"></a>Nästa steg
 - Se [hur du ställer in aviseringar](howto-alert-on-metric.md) för vägledning om hur du skapar en avisering på ett mått.
-- Mer information om hur du får åtkomst till och exporterar mått med hjälp av Azure Portal, REST API eller CLI finns i [Översikt över Azure mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- Mer information om hur du får åtkomst till och exporterar mått med hjälp av Azure Portal, REST API eller CLI finns i [Översikt över Azure mått](../azure-monitor/platform/data-platform.md)
 - Läs vår blogg om [bästa praxis för att övervaka servern](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
 - Lär dig mer om [planerade underhålls meddelanden](./concepts-planned-maintenance-notification.md) i Azure Database for PostgreSQL-enskild server.

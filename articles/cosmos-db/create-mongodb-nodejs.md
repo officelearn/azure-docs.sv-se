@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: 5af929991e96d1307c32d219a9807c6e6a58387c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f5d137cb5bb702cc2ee9307336775dda1c864da
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91253385"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476050"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Snabb start: Migrera en befintlig MongoDB Node.js-webbapp till Azure Cosmos DB 
 
@@ -59,7 +59,7 @@ Kör följande kommandon för att klona exempellagringsplatsen. Den här exempel
     git clone https://github.com/prashanthmadi/mean
     ```
 
-## <a name="run-the-application"></a>Kör programmet
+## <a name="run-the-application"></a>Köra appen
 
 Den här MongoDB-appen som skrevs i Node.js ansluter till Azure Cosmos DB-databasen, som stöder MongoDB-klienten. Det är med andra ord transparent för programmet att data lagras i en Azure Cosmos DB databas.
 
@@ -115,7 +115,7 @@ Parametern `--kind MongoDB` aktiverar MongoDB-klientanslutningar.
 När Azure Cosmos DB-kontot har skapats, visar Azure CLI information liknande följande exempel. 
 
 > [!NOTE]
-> I det här exemplet används JSON som standardalternativ för Azure CLI-utdataformat. Om du vill använda andra format läser du [Utdataformat för Azure CLI-kommandon](https://docs.microsoft.com/cli/azure/format-output-azure-cli).
+> I det här exemplet används JSON som standardalternativ för Azure CLI-utdataformat. Om du vill använda andra format läser du [Utdataformat för Azure CLI-kommandon](/cli/azure/format-output-azure-cli).
 
 ```json
 {
@@ -249,4 +249,4 @@ git commit -m "configured MongoDB connection string"
 I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB MongoDB API-konto med hjälp av Azure Cloud Shell och skapar och kör en MEAN.js app för att lägga till användare till kontot. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto.
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

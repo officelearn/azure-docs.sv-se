@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 56cf360dd8d015d797b4974aab667bb89edcce4b
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 340ec7c16c5ed3e477cc2c4505c8b018d2d39a06
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951935"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486012"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurera Time to Live i Azure Cosmos DB
 
 Du kan välja att konfigurera Time to Live (TTL) på containernivån i Azure Cosmos DB, eller så kan du åsidosätta det på en objektnivå när du har ställt in containern. Du kan konfigurera TTL för en container med hjälp av Azure-portalen eller språkspecifika SDK:er. Åsidosättningar av TTL på objektnivå kan konfigureras med hjälp av SDK:erna.
 
-> Det här innehållet är relaterat till Azure Cosmos DB transaktions arkivets TTL. Om du letar efter analitycal Store TTL som aktiverar NoETL HTAP-scenarier via [Azure Synapse länk](https://docs.microsoft.com/azure/cosmos-db/synapse-link), klickar du [här](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Det här innehållet är relaterat till Azure Cosmos DB transaktions arkivets TTL. Om du letar efter analitycal Store TTL som aktiverar NoETL HTAP-scenarier via [Azure Synapse länk](./synapse-link.md), klickar du [här](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Aktivera TTL för en container med hjälp av Azure-portalen
 

@@ -6,18 +6,18 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 84c68125ab7e8256b8ca949a0f4b49c5ccd5162f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93e3f42c6b635ced7fdca61cb2ffe4f74d19bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884649"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489514"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Privat länk för Azure Database för PostgreSQL-Single Server
 
 Med privat länk kan du skapa privata slut punkter för Azure Database for PostgreSQL-enskild server och sedan flytta Azure-tjänster i ditt privata Virtual Network (VNet). Den privata slut punkten visar en privat IP-adress som du kan använda för att ansluta till din databas server precis som vilken annan resurs som helst i VNet.
 
-Om du vill ha en lista över PaaS Services som stöder funktionen för privat länk läser du [dokumentationen](https://docs.microsoft.com/azure/private-link/index)om den privata länken. En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) och undernät.
+Om du vill ha en lista över PaaS Services som stöder funktionen för privat länk läser du [dokumentationen](../private-link/index.yml)om den privata länken. En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](../virtual-network/virtual-networks-overview.md) och undernät.
 
 > [!NOTE]
 > Funktionen privat länk är bara tillgänglig för Azure Database for PostgreSQL servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
@@ -28,7 +28,7 @@ Data ex filtrering i Azure Database for PostgreSQL enskild server är när en au
 
 Tänk dig ett scenario med en användare som kör PGAdmin i en virtuell Azure-dator (VM) som ansluter till en Azure Database for PostgreSQL enskild server som tillhandahålls i västra USA. Exemplet nedan visar hur du begränsar åtkomsten med offentliga slut punkter på Azure Database for PostgreSQL enskild server med hjälp av nätverks åtkomst kontroller.
 
-* Inaktivera all Azure Service-trafik till Azure Database for PostgreSQL enskild server via den offentliga slut punkten genom att ställa in *Tillåt att Azure-tjänsterna* är av. Se till att inga IP-adresser eller intervall får åtkomst till servern antingen via [brand Väggs regler](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) eller [tjänst slut punkter för virtuella nätverk](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
+* Inaktivera all Azure Service-trafik till Azure Database for PostgreSQL enskild server via den offentliga slut punkten genom att ställa in *Tillåt att Azure-tjänsterna* är av. Se till att inga IP-adresser eller intervall får åtkomst till servern antingen via [brand Väggs regler](./concepts-firewall-rules.md) eller [tjänst slut punkter för virtuella nätverk](./concepts-data-access-and-security-vnet.md).
 
 * Tillåt endast trafik till Azure Database for PostgreSQL enskild server med den virtuella datorns privata IP-adress. Mer information finns i artikeln om [service Endpoint](concepts-data-access-and-security-vnet.md) och [VNet brand Väggs regler.](howto-manage-vnet-using-portal.md)
 
@@ -45,7 +45,7 @@ Med privat länk kan du nu konfigurera nätverks åtkomst kontroller som NSG: er
 
 När du ansluter till den offentliga slut punkten från lokala datorer måste du lägga till din IP-adress i den IP-baserade brand väggen med hjälp av en brand Väggs regel på server nivå. Även om den här modellen fungerar bra för att tillåta åtkomst till enskilda datorer för utveckling eller testning av arbets belastningar, är det svårt att hantera i en produktions miljö.
 
-Med privat länk kan du aktivera åtkomst mellan platser till den privata slut punkten med hjälp av [Express Route](https://azure.microsoft.com/services/expressroute/) (er), privat peering eller [VPN-tunnel](https://docs.microsoft.com/azure/vpn-gateway/). De kan sedan inaktivera all åtkomst via offentlig slut punkt och inte använda den IP-baserade brand väggen.
+Med privat länk kan du aktivera åtkomst mellan platser till den privata slut punkten med hjälp av [Express Route](https://azure.microsoft.com/services/expressroute/) (er), privat peering eller [VPN-tunnel](../vpn-gateway/index.yml). De kan sedan inaktivera all åtkomst via offentlig slut punkt och inte använda den IP-baserade brand väggen.
 
 > [!NOTE]
 > I vissa fall finns Azure Database for PostgreSQL och VNet-under nätet i olika prenumerationer. I dessa fall måste du se till att följande konfigurationer:
@@ -57,8 +57,8 @@ Med privat länk kan du aktivera åtkomst mellan platser till den privata slut p
 
 Privata slut punkter krävs för att aktivera privat länk. Detta kan göras med hjälp av följande instruktions guider.
 
-* [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-portal)
-* [CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-privatelink-cli)
+* [Azure-portalen](./howto-configure-privatelink-portal.md)
+* [CLI](./howto-configure-privatelink-cli.md)
 
 ### <a name="approval-process"></a>Godkännande process
 När nätverks administratören skapar den privata slut punkten (PE) kan PostgreSQL-administratören hantera den privata slut punkts anslutningen (PEC) för att Azure Database for PostgreSQL. Denna uppdelning av uppgifter mellan nätverks administratören och DBA är användbar för hantering av den Azure Database for PostgreSQL anslutningen. 
@@ -89,17 +89,17 @@ Klienter kan ansluta till den privata slut punkten från samma VNet, peer-koppla
 :::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Välj den privata slut punkts portalen":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ansluta från en virtuell Azure-dator i peer-Virtual Network (VNet)
-Konfigurera [VNet-peering](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) för att upprätta anslutning till den Azure Database for PostgreSQL-enskilda servern från en virtuell Azure-dator i ett peer-kopplat VNet.
+Konfigurera [VNet-peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) för att upprätta anslutning till den Azure Database for PostgreSQL-enskilda servern från en virtuell Azure-dator i ett peer-kopplat VNet.
 
 ### <a name="connecting-from-an-azure-vm-in-vnet-to-vnet-environment"></a>Ansluta från en virtuell Azure-dator i VNet-till-VNet-miljö
-Konfigurera [VPN gateway-anslutning mellan virtuella](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) nätverk för att upprätta anslutning till en Azure Database for PostgreSQL-enskild server från en virtuell Azure-dator i en annan region eller prenumeration.
+Konfigurera [VPN gateway-anslutning mellan virtuella](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) nätverk för att upprätta anslutning till en Azure Database for PostgreSQL-enskild server från en virtuell Azure-dator i en annan region eller prenumeration.
 
 ### <a name="connecting-from-an-on-premises-environment-over-vpn"></a>Ansluta från en lokal miljö via VPN
 Om du vill upprätta en anslutning från en lokal miljö till den Azure Database for PostgreSQL-enskilda servern väljer du och implementerar något av alternativen:
 
-* [Punkt-till-plats-anslutning](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps)
-* [Plats-till-plats-anslutning via VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)
-* [ExpressRoute-krets](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)
+* [Punkt-till-plats-anslutning](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Plats-till-plats-anslutning via VPN](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
+* [ExpressRoute-krets](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 ## <a name="private-link-combined-with-firewall-rules"></a>Privat länk kombinerat med brand Väggs regler
 
@@ -128,11 +128,11 @@ Information om hur du ställer in **neka offentlig nätverks åtkomst** för Azu
 
 Mer information om Azure Database for PostgreSQL funktioner för enskild server-säkerhet finns i följande artiklar:
 
-* Information om hur du konfigurerar en brand vägg för Azure Database for PostgreSQL enskild server finns i [brand Väggs stöd](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules).
+* Information om hur du konfigurerar en brand vägg för Azure Database for PostgreSQL enskild server finns i [brand Väggs stöd](./concepts-firewall-rules.md).
 
-* Information om hur du konfigurerar en tjänst slut punkt för virtuella nätverk för din Azure Database for PostgreSQL enskild server finns i [Konfigurera åtkomst från virtuella nätverk](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-vnet).
+* Information om hur du konfigurerar en tjänst slut punkt för virtuella nätverk för din Azure Database for PostgreSQL enskild server finns i [Konfigurera åtkomst från virtuella nätverk](./concepts-data-access-and-security-vnet.md).
 
-* En översikt över Azure Database for PostgreSQL enskild server-anslutning finns i [Azure Database for PostgreSQL anslutnings arkitektur](https://docs.microsoft.com/azure/postgresql/concepts-connectivity-architecture)
+* En översikt över Azure Database for PostgreSQL enskild server-anslutning finns i [Azure Database for PostgreSQL anslutnings arkitektur](./concepts-connectivity-architecture.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

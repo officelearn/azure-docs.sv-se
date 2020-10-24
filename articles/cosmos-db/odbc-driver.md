@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7f9573769beb5bf1f6ebe47e6e0a277185ac42b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084831"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488426"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med hjälp av BI Analytics-verktyg med ODBC-drivrutinen
 
@@ -137,7 +137,7 @@ Du kan fråga Azure Cosmos DB från SQL Server Management Studio (SSMS) genom at
 
 1. Skapa en system data källa enligt beskrivningen i [steg 2](#connect), med namnet till exempel `SDS Name` .
 
-1. [Installera SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) och Anslut till servern. 
+1. [Installera SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) och Anslut till servern. 
 
 1. I SSMS Frågeredigeraren skapar du ett länkat Server objekt `DEMOCOSMOS` för data källan med följande kommandon. Ersätt `DEMOCOSMOS` med namnet på den länkade servern och `SDS Name` med namnet på system data källan.
 
@@ -195,7 +195,7 @@ I fönstret **Visa definitioner** gör du följande:
 
 1. Klicka på **nytt**, ange ett namn för vyn, till exempel EmployeesfromSeattleView, och klicka sedan på **OK**.
 
-1. I fönstret **Redigera vy** anger du en Azure Cosmos DB fråga. Detta måste vara en [Azure Cosmos DB SQL-fråga](how-to-sql-query.md), till exempel `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"` och klicka sedan på **OK**.
+1. I fönstret **Redigera vy** anger du en Azure Cosmos DB fråga. Detta måste vara en [Azure Cosmos DB SQL-fråga](./sql-query-getting-started.md), till exempel `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Manager FROM c WHERE c.City = "Seattle"` och klicka sedan på **OK**.
 
     :::image type="content" source="./media/odbc-driver/odbc-driver-create-view-2.png" alt-text="Azure Cosmos DB ODBC-Administrera data Källa":::
 

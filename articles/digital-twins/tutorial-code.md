@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 23f32b6d09e36a98c68f5cb8f73ae1125c0543dd
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e44fe44285a6693583c1b16645ad0d023428c72b
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460758"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92494668"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
@@ -34,6 +34,8 @@ Vad du behöver för att börja:
 * **.Net Core 3,1** på din utvecklings dator. Du kan hämta den här versionen av .NET Core SDK för flera plattformar från [Hämta .net Core 3,1](https://dotnet.microsoft.com/download/dotnet-core/3.1).
 
 [!INCLUDE [Azure Digital Twins tutorials: instance prereq](../../includes/digital-twins-tutorial-prereq-instance.md)]
+
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](../../includes/digital-twins-local-credentials-outer.md)]
 
 ## <a name="set-up-project"></a>Konfigurera projekt
 
@@ -116,9 +118,6 @@ Console.WriteLine($"Service client created – ready to go");
 ```
 
 Spara filen. 
-
->[!NOTE]
-> I det här exemplet används en `DefaultAzureCredential` for-autentisering. Information om andra typer av autentiseringsuppgifter finns i dokumentationen för [Microsoft Identity Platform Authentication libraries](../active-directory/develop/reference-v2-libraries.md)eller Azure Digitals-artikeln om autentisering av [klient program](how-to-authenticate-client.md).
 
 Kör koden med det här kommandot i kommando fönstret: 
 

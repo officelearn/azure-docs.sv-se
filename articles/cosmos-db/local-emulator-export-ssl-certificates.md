@@ -7,12 +7,12 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: 068b316eaa92a1e781df0b9945133a26fa0b88a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f747cc6405cef07510766bcfa4c826aec9d9857b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445289"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490415"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Exportera Azure Cosmos DB emulator-certifikat för användning med Java-, python-och Node.js-appar
 
@@ -66,7 +66,7 @@ Du måste exportera emulator-certifikatet för att kunna använda emulatorns slu
 
 När du kör Java-program eller MongoDB-program som använder en Java-baserad klient är det enklare att installera certifikatet i Java standard certifikat arkivet än att skicka `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flaggorna. Till exempel är det inkluderade java demo programmet ( `https://localhost:8081/_explorer/index.html` ) beroende av standard certifikat arkivet.
 
-Följ instruktionerna i arkivet för att [lägga till ett certifikat i Java-certifikaten](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X. 509-certifikatet till standard-Java-certifikatarkivet. Kom ihåg att du arbetar i katalogen *% JAVA_HOME%* när du kör-verktyget. När certifikatet har importer ATS till certifikat arkivet kommer klienter för SQL och Azure Cosmos DBs API för MongoDB att kunna ansluta till Azure Cosmos-emulatorn.
+Följ instruktionerna i arkivet för att [lägga till ett certifikat i Java-certifikaten](/azure/developer/java/sdk/java-sdk-add-certificate-ca-store) för att importera X. 509-certifikatet till standard-Java-certifikatarkivet. Kom ihåg att du arbetar i katalogen *% JAVA_HOME%* när du kör-verktyget. När certifikatet har importer ATS till certifikat arkivet kommer klienter för SQL och Azure Cosmos DBs API för MongoDB att kunna ansluta till Azure Cosmos-emulatorn.
 
 Du kan också köra följande bash-skript för att importera certifikatet:
 
@@ -106,4 +106,3 @@ Om du har installerat certifikatet i Java-certifikatarkivet eller använt dem n�
 
 * [Använd kommando rads parametrar och PowerShell-kommandon för att styra emulatorn](emulator-command-line-parameters.md)
 * [Felsöka problem med emulatorn](troubleshoot-local-emulator.md)
-

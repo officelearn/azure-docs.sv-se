@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 8d249cdabcbfd82fc555c486f29bbdba200e1da1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ae3c538c78be8af0fa4569592ac60547e7f5912
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710506"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481303"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Loggar i Azure Database for PostgreSQL-enskild server
 
@@ -72,7 +72,7 @@ Om du vill aktivera resurs loggar med PowerShell, CLI eller REST API går du til
 
 ### <a name="access-resource-logs"></a>Åtkomst till resurs loggar
 
-Hur du kommer åt loggarna beror på vilken slut punkt du väljer. Information om Azure Storage finns i artikeln [Logga lagrings konto](../azure-monitor/platform/resource-logs-collect-storage.md) . Information om Event Hubs finns i artikeln [Stream Azure-loggar](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+Hur du kommer åt loggarna beror på vilken slut punkt du väljer. Information om Azure Storage finns i artikeln [Logga lagrings konto](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Information om Event Hubs finns i artikeln [Stream Azure-loggar](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
 
 För Azure Monitor loggar skickas loggar till den valda arbets ytan. Postgres-loggarna använder samlings läget **AzureDiagnostics** , så att de kan frågas från AzureDiagnostics-tabellen. Fälten i tabellen beskrivs nedan. Läs mer om frågor och aviseringar i Översikt över [Azure Monitor loggar frågor](../azure-monitor/log-query/log-query-overview.md) .
 
@@ -115,7 +115,7 @@ I följande tabell beskrivs fälten för **PostgreSQLLogs** -typen. Beroende på
 | Nivå | Loggnings nivå, exempel: logg, fel, meddelande |
 | Meddelande | Primärt logg meddelande | 
 | Domän | Server version, exempel: postgres-10 |
-| Information | Sekundärt logg meddelande (om tillämpligt) |
+| Detalj | Sekundärt logg meddelande (om tillämpligt) |
 | ColumnName | Namnet på kolumnen (om tillämpligt) |
 | SchemaName | Schemats namn (om tillämpligt) |
 | DatatypeName | Namnet på data typen (om tillämpligt) |

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: f9d472b94b5490d00eac6d160af40c61d547534b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 89e8a6a2abfc38c497be646bd70910895f92588f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107495"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489327"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -169,7 +169,7 @@ Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton
 | LIST ROLLER | Nej |
 | LISTA användare (föråldrade i ursprunglig Apache-Cassandra) | Nej |
 | REVOKE | Nej |
-| SELECT | Ja |
+| VÄLJ | Ja |
 | Välj (Lightweight-transaktioner med IF-villkor)| Nej |
 | UPDATE | Ja |
 | Uppdatera (Lightweight-transaktioner med IF-villkor)| Nej |
@@ -208,7 +208,7 @@ Du kan också ansluta till API för Cassandra i Azure Cosmos DB genom att använ
 
 **Aktivitets**
 
-Om du använder Windows rekommenderar vi att du aktiverar [Windows-fil systemet för Linux](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Du kan sedan följa Linux-kommandona nedan.
+Om du använder Windows rekommenderar vi att du aktiverar [Windows-fil systemet för Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Du kan sedan följa Linux-kommandona nedan.
 
 **Unix/Linux/Mac:**
 
@@ -255,7 +255,7 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mappning av konsekvens 
 
-Azure Cosmos DB Cassandra-API innehåller val av konsekvens för läsåtgärder.  Konsekvens mappningen beskrivs [här](consistency-levels-across-apis.md#cassandra-mapping).
+Azure Cosmos DB Cassandra-API innehåller val av konsekvens för läsåtgärder.  Konsekvens mappningen beskrivs [här](./cassandra-consistency.md#mapping-consistency-levels).
 
 ## <a name="permission-and-role-management"></a>Behörighets- och rollhantering
 

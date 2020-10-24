@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 0054b6e9bb73ef2918a8e5c52c59a272bae5da26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34b486dc4ccfb116b49cf57217c5b7e5aedbd992
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612514"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488851"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett V2-lagringskonto för generell användning
 
@@ -40,7 +40,7 @@ Att uppgradera till ett allmänt-syfte v2-lagrings konto från dina generella v1
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av PowerShell, måste du först uppdatera PowerShell för att använda den senaste versionen av modulen **AZ. Storage** . Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av PowerShell, måste du först uppdatera PowerShell för att använda den senaste versionen av modulen **AZ. Storage** . Mer information om hur du installerar PowerShell finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
 Sedan anropar du följande kommando för att uppgradera kontot, vilket ersätter resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
 
@@ -49,7 +49,7 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 ```
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av Azure CLI installerar du först den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du vill uppgradera ett allmänt v1-konto till ett allmänt-syfte v2-konto med hjälp av Azure CLI installerar du först den senaste versionen av Azure CLI. Information om att installera CLI finns i [Installera Azure CLI 2.0](/cli/azure/install-azure-cli).
 
 Sedan anropar du följande kommando för att uppgradera kontot, vilket ersätter resurs gruppens namn, lagrings kontots namn och önskad konto åtkomst nivå.
 

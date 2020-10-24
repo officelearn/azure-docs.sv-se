@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0cbbcc822765097f83fcd1a52ce775c69faba9fa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4c5629f80c37c9f79dc9a39c4d8304acbee9679d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87836436"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489582"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Snabb start: skapa och hantera Azure Files resurs med virtuella Windows-datorer
 
@@ -22,7 +22,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -98,7 +98,7 @@ Nu har du skapat en ny virtuell dator och anslutit en datadisk. Nu måste du ans
 1. I Azure-portalen går du till filresursen *qsfileshare* och väljer **Anslut**.
 1. Kopiera innehållet i den andra rutan och klistra in det i **Anteckningar**.
 
-   ![UNC-sökvägen från fönstret Anslut i Azure Files](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
+   ![Skärm bild som visar innehållet i rutan sekunder som ska kopieras och klistras in i anteckningar.](./media/storage-files-quick-create-use-windows/portal_netuse_connect2.png)
 
 1. I den virtuella datorn öppnar du **Utforskaren** och väljer **Den här datorn** i fönstret. Detta ändrar menyerna i menyfliksområdet. Under menyn **Dator** väljer du **Mappa nätverksenhet**.
 1. Välj enhetsbeteckningen och ange UNC-sökvägen. Om du har följt namn förslaget i den här snabb starten kopierar du * \\ qsstorageacct. File. Core. Windows. Net\qsfileshare* från **anteckningar**.

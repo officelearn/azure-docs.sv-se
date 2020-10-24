@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 5ea5ee2dfe89b36fce78c369100224718eb5864f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ddb6bc297a32be856172707a220fe1dfaefb9f6d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278763"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487457"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuera dina data globalt med Azure Cosmos DB
 
@@ -55,7 +55,6 @@ Läs mer om global distribution i följande artiklar:
 * [Lägg till eller ta bort regioner från ditt Azure Cosmos DB konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Skapa en anpassad konflikt lösnings princip för SQL API-konton](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 * [Programmerings bara konsekvens modeller i Cosmos DB](consistency-levels.md)
-* [Välj rätt konsekvens nivå för ditt program](consistency-levels-choosing.md)
-* [Konsekvens nivåer i Azure Cosmos DB API: er](consistency-levels-across-apis.md)
-* [Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](consistency-levels-tradeoffs.md)
-
+* [Välj rätt konsekvens nivå för ditt program](./consistency-levels.md)
+* [Konsekvens nivåer i Azure Cosmos DB API: er](./consistency-levels.md)
+* [Tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](./consistency-levels.md)

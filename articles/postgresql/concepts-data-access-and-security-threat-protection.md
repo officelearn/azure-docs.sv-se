@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: cfe565c45ea6aa0a4bcfecc95b1e1149b17542a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa136a15e4fa034307e16ef50c2b16060c5af0d2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708058"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490211"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Avancerat skydd i Azure Database for PostgreSQL-enskild server
 
@@ -41,6 +41,6 @@ Avancerat skydd för Azure Database for PostgreSQL identifierar avvikande aktivi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Läs mer om [Azure Security Center](../security-center/security-center-introduction.md)
 * Mer information om priser finns på sidan med [Azure Database for PostgreSQL priser](https://azure.microsoft.com/pricing/details/postgresql/) 
-* Konfigurera [Azure Database for PostgreSQL Avancerat skydd](howto-database-threat-protection-portal.md) med hjälp av Azure Portal  
+* Konfigurera [Azure Database for PostgreSQL Avancerat skydd](howto-database-threat-protection-portal.md) med hjälp av Azure Portal

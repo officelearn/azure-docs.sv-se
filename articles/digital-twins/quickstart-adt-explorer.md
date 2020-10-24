@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: bec4e831b3f7af0ef551617ba8a8253925226e05
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 925a5000f9778689660765ef715dd8760d5340a2
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461846"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495978"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Snabb start – utforska ett exempel på Azure Digitals dubbla scenarier med ADT Explorer
 
@@ -31,7 +31,7 @@ Det exempel diagram som du kommer att arbeta med representerar en byggnad med tv
 
 :::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vy av ett diagram av 4 cirkelformade noder som är anslutna via pilar. En cirkel med namnet &quot;Floor1&quot; är kopplad till en cirkel med etiketten &quot;Room1&quot;. en cirkel med etiketten &quot;Floor0&quot; är kopplad till en cirkel med etiketten &quot;Room0&quot;. ' Floor1 ' och ' Floor0 ' är inte anslutna.":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver en Azure-prenumeration för att slutföra den här snabb starten. Om du inte redan har en, kan du **[skapa ett kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** nu.
 
@@ -318,7 +318,7 @@ Om du planerar att fortsätta med självstudierna för Azure Digitals dubbla, ka
 
 Ta sedan bort den Azure Active Directory app-registrering som du skapade för din klient app med det här kommandot:
 
-```azurecli
+```azurecli-interactive
 az ad app delete --id <your-application-ID>
 ```
 

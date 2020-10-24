@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 44951fc19f36bb6652caf79ded96484bcc4b38f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49419853f193336e39ff8f729472342bb137fd39
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503148"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490228"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Självstudie: skapa ett Apache Kafka REST proxy-aktiverat kluster i HDInsight med Azure CLI
 
@@ -27,15 +27,15 @@ I den här självstudien får du lära dig:
 > * Krav för Kafka REST proxy
 > * Skapa ett Apache Kafka-kluster med Azure CLI
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett program som är registrerat i Azure AD. Klient programmen som du skriver för att interagera med Kafka REST-proxyn använder programmets ID och hemlighet för att autentisera till Azure. Mer information finns i [Registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md).
 
 * En Azure AD-säkerhetsgrupp med ditt registrerade program som medlem. Den här säkerhets gruppen används för att kontrol lera vilka program som får interagera med REST-proxyn. Mer information om hur du skapar Azure AD-grupper finns i [skapa en grundläggande grupp och lägga till medlemmar med hjälp av Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* Azure CLI. Se till att du har minst version 2.0.79. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Azure CLI. Se till att du har minst version 2.0.79. Se [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-apache-kafka-cluster"></a>Skapa ett Apache Kafka-kluster
 
@@ -85,7 +85,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
     export componentVersion=kafka=2.1
     ```
 
-1. [Skapa resurs gruppen](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) genom att ange kommandot nedan:
+1. [Skapa resurs gruppen](/cli/azure/group#az-group-create) genom att ange kommandot nedan:
 
     ```azurecli
      az group create \
@@ -93,7 +93,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
         --name $resourceGroupName
     ```
 
-1. [Skapa ett Azure Storage konto](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) genom att ange kommandot nedan:
+1. [Skapa ett Azure Storage konto](/cli/azure/storage/account#az-storage-account-create) genom att ange kommandot nedan:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -106,7 +106,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
         --sku Standard_LRS
     ```
 
-1. [Extrahera primär nyckeln](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) från Azure Storage-kontot och lagra den i en variabel genom att ange kommandot nedan:
+1. [Extrahera primär nyckeln](/cli/azure/storage/account/keys#az-storage-account-keys-list) från Azure Storage-kontot och lagra den i en variabel genom att ange kommandot nedan:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -115,7 +115,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
         --query [0].value -o tsv)
     ```
 
-1. [Skapa en Azure Storage-behållare](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) genom att ange kommandot nedan:
+1. [Skapa en Azure Storage-behållare](/cli/azure/storage/container#az-storage-container-create) genom att ange kommandot nedan:
 
     ```azurecli
     az storage container create \
@@ -124,7 +124,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
         --account-name $storageAccount
     ```
 
-1. [Skapa HDInsight-klustret](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create). Observera följande parametrar innan du anger kommandot:
+1. [Skapa HDInsight-klustret](/cli/azure/hdinsight#az-hdinsight-create). Observera följande parametrar innan du anger kommandot:
 
     1. Obligatoriska parametrar för Kafka-kluster:
 

@@ -9,12 +9,12 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6f7114188a7a996ee80346ec48a51f0cce8bba54
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425038"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487389"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Hantera indexering i Azure Cosmos DBs API för MongoDB
 
@@ -78,7 +78,7 @@ Här är ett exempel på hur du skapar ett geospatialt index i `location` fälte
 
 ### <a name="text-indexes"></a>Text index
 
-Azure Cosmos DBs API för MongoDB stöder för närvarande inte text index. För texts öknings frågor på strängar bör du använda [Azure kognitiv sökning](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integration med Azure Cosmos dB. 
+Azure Cosmos DBs API för MongoDB stöder för närvarande inte text index. För texts öknings frågor på strängar bör du använda [Azure kognitiv sökning](../search/search-howto-index-cosmosdb.md) integration med Azure Cosmos dB. 
 
 ## <a name="wildcard-indexes"></a>Jokertecken index
 

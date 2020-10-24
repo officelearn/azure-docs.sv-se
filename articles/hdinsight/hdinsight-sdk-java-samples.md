@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/29/2019
-ms.openlocfilehash: 5876626ed4ba27c0f39b0c02af926c61261fca71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2698e88517642460d756ca7c57031a8f1912358f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327437"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490942"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Java-exempel
 
@@ -30,7 +30,7 @@ Den här artikeln innehåller:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [Azure HDInsight SDK för Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
 
@@ -45,4 +45,4 @@ Du kan hämta dessa exempel för Java genom att klona GitHub-lagringsplatsen [HD
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Kodfragment för dessa ytterligare SDK-funktioner finns i [referens dokumentationen för HDInsight SDK för Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview).
+Kodfragment för dessa ytterligare SDK-funktioner finns i [referens dokumentationen för HDInsight SDK för Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight).

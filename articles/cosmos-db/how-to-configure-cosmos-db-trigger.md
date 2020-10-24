@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: 8e2b74f95f24e107cb395686fe6dd1c96566bb08
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 152454b3da0ff1efd33ac463aecec78155a8e6f7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284672"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490483"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Så här konfigurerar du loggning och anslutningar med Azure Functions utlösare för Cosmos DB
 
@@ -43,7 +43,7 @@ När Azure-funktionen har distribuerats med den uppdaterade konfigurationen visa
 
 ### <a name="query-the-logs"></a>Skicka frågor till loggarna
 
-Kör följande fråga för att skicka frågor till loggarna som genereras av Azure Functions utlösare för Cosmos DB i [Azure Application insikter-analys](../azure-monitor/app/analytics.md):
+Kör följande fråga för att skicka frågor till loggarna som genereras av Azure Functions utlösare för Cosmos DB i [Azure Application insikter-analys](../azure-monitor/log-query/log-query-overview.md):
 
 ```sql
 traces

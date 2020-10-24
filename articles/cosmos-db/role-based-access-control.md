@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 10713b264429b5588826421231e45194ebed33f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9a29a34b25b6834c2c343bd568f3dd3548ceff3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569184"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474945"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Rollbaserad åtkomstkontroll i Azure Cosmos DB
 
@@ -67,7 +67,7 @@ Den här inställningen förhindrar eventuella ändringar av Cosmos-resurser fr�
 
 - Ändra lagrade procedurer, utlösare eller användardefinierade funktioner.
 
-Om dina program (eller användare via Azure Portal) utför någon av dessa åtgärder måste de migreras för att köras via [arm-mallar](manage-sql-with-resource-manager.md), [POWERSHELL](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), rest eller [Azures hanterings bibliotek](https://github.com/Azure-Samples/cosmos-management-net). Observera att Azure-hantering är tillgängligt på [flera språk](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+Om dina program (eller användare via Azure Portal) utför någon av dessa åtgärder måste de migreras för att köras via [arm-mallar](./manage-with-templates.md), [POWERSHELL](manage-with-powershell.md), [Azure CLI](manage-with-cli.md), rest eller [Azures hanterings bibliotek](https://github.com/Azure-Samples/cosmos-management-net). Observera att Azure-hantering är tillgängligt på [flera språk](/azure/?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Ställ in via ARM-mall
 

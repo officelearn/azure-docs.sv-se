@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409535"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490585"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB Gremlin Server-svarshuvuden
 Den här artikeln beskriver rubriker som Cosmos DB Gremlin-servern returnerar till anroparen när begäran har körts. De här rubrikerna är användbara för att felsöka prestanda för förfrågningar, bygga program som integreras internt med Cosmos DB-tjänsten och förenklar kundsupporten.
@@ -29,7 +29,7 @@ Tänk på att om du tar hänsyn till dessa huvuden begränsar du portabiliteten 
 | **x-MS-total-Server-Time-MS** | double | 130,512 | Lyckade och misslyckade | Total tid i millisekunder som Cosmos DB Gremlin-servern tog att köra hela genom gången. Den här rubriken ingår i varje delvis svar. Den representerar ackumulerad körnings tid sedan begäran startades. Det sista svaret anger den totala körnings tiden. Den här rubriken är användbar för att skilja mellan klienten och servern som en fördröjnings källa. Du kan jämföra Traversal-körnings tiden på klienten med värdet för den här rubriken. |
 | **x-ms-status-code** | long | 200 | Lyckade och misslyckade | Huvudet anger en intern orsak till att begäran har slutförts eller avslutas. Programmet uppmanas att titta på värdet för rubriken och vidta lämpliga åtgärder. |
 | **x-MS-substatus-kod** | long | 1003 | Endast haveri | Cosmos DB är en databas för flera modeller som är byggd ovanpå Unified Storage Layer. Den här rubriken innehåller ytterligare insikter om fel orsaken när fel uppstår inom lägre lager med hög tillgänglighets stack. Programmet uppmanas att lagra sidhuvudet och använda det när du kontaktar Cosmos DB kund support. Värdet för den här rubriken är användbart för Cosmos DB teknikern för snabb fel sökning. |
-| **x-ms-retry-after-ms** | sträng (TimeSpan) | "00:00:03.9500000" | Endast haveri | Den här rubriken är en sträng representation av en .NET- [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) -typ. Det här värdet inkluderas bara i begär Anden som misslyckades på grund av förbrukade data flöde. Programmet ska skicka om genom gång igen efter en instruerad tids period. |
+| **x-ms-retry-after-ms** | sträng (TimeSpan) | "00:00:03.9500000" | Endast haveri | Den här rubriken är en sträng representation av en .NET- [TimeSpan](/dotnet/api/system.timespan) -typ. Det här värdet inkluderas bara i begär Anden som misslyckades på grund av förbrukade data flöde. Programmet ska skicka om genom gång igen efter en instruerad tids period. |
 | **x-ms-activity-id** | sträng (GUID) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Lyckade och misslyckade | Huvudet innehåller en unik identifierare för Server sidan för en begäran. Varje begäran tilldelas en unik identifierare av servern för spårnings syfte. Program ska logga aktivitets identifierare som returneras av servern för förfrågningar som kunder kan kontakta kund support om. Cosmos DB support personal kan hitta vissa förfrågningar av dessa identifierare i Cosmos DB service telemetri. |
 
 ## <a name="status-codes"></a>Statuskoder

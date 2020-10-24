@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.custom:
 - references_regions
 - fasttrack-edit
-ms.openlocfilehash: a037c903a72ba79b79c7e6b011fe025aefd7b51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaf5cb70e3099d84a54a22fa291f8f3ab9e0daa6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578044"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490755"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions Premium-plan
 
@@ -104,7 +104,7 @@ Du kan konfigurera plan storlek och Max belopp i Azure Portal genom att välja a
 Du kan också öka den maximala burst-gränsen från Azure CLI:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 Minimi kravet för varje plan är minst en instans.  Det faktiska minsta antalet instanser konfigureras automatiskt för dig baserat på de alltid färdiga instanser som begärs av appar i planen.  Om till exempel en app begär fem alltid färdiga instanser och app B begär två alltid färdiga instanser i samma plan, beräknas den minsta schema storleken som fem.  App A körs på alla 5, och app B körs bara på 2.
@@ -117,7 +117,7 @@ I de flesta fall bör det här autoberäknade minimivärdet vara tillräckligt. 
 Att öka det beräknade minimivärdet för en plan kan göras med hjälp av Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### <a name="available-instance-skus"></a>Tillgängliga instanser SKU: er

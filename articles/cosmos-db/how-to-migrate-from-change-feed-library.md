@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/17/2019
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 7a15e5135cd89d7360a1357e3518b1253e80ee65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1c54c2e486f935b3c3ba1b13207caaa67099459
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019529"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490993"
 ---
 # <a name="migrate-from-the-change-feed-processor-library-to-the-azure-cosmos-db-net-v3-sdk"></a>Migrera från biblioteket Change feed processor till Azure Cosmos DB .NET v3 SDK
 
@@ -23,7 +23,7 @@ I den här artikeln beskrivs de steg som krävs för att migrera ett befintligt 
 .NET v3 SDK har flera viktiga ändringar, följande är de viktigaste stegen för att migrera ditt program:
 
 1. Konvertera `DocumentCollectionInfo` instanserna till `Container` referenser för behållare för övervakade och lån.
-1. Anpassningar som används `WithProcessorOptions` bör uppdateras för användning `WithLeaseConfiguration` och `WithPollInterval` intervall, `WithStartTime` [för start tid](how-to-configure-change-feed-start-time.md)och för `WithMaxItems` att definiera maximalt antal objekt.
+1. Anpassningar som används `WithProcessorOptions` bör uppdateras för användning `WithLeaseConfiguration` och `WithPollInterval` intervall, `WithStartTime` [för start tid](./change-feed-processor.md#starting-time)och för `WithMaxItems` att definiera maximalt antal objekt.
 1. Ställ in `processorName` på på `GetChangeFeedProcessorBuilder` för att matcha värdet som kon figurer ATS på `ChangeFeedProcessorOptions.LeasePrefix` eller Använd `string.Empty` annars.
 1. Ändringarna levereras inte längre som en `IReadOnlyList<Document>` , i stället är det `IReadOnlyCollection<T>` där `T` är en typ som du måste definiera, det finns ingen bas objekts klass längre.
 1. Om du vill hantera ändringarna behöver du inte längre någon implementering, i stället måste du [definiera ett ombud](change-feed-processor.md#implementing-the-change-feed-processor). Ombudet kan vara en statisk funktion eller, om du behöver underhålla tillstånd över körningar, kan du skapa en egen klass och skicka en instans metod som ombud.
@@ -60,4 +60,4 @@ Nu kan du fortsätta med att lära dig mer om att ändra flödes processor i fö
 
 * [Översikt över ändring av flödes processor](change-feed-processor.md)
 * [Använda ändringsflödesövervakaren](how-to-use-change-feed-estimator.md)
-* [Starttid för ändringsflödesprocessor](how-to-configure-change-feed-start-time.md)
+* [Starttid för ändringsflödesprocessor](./change-feed-processor.md#starting-time)

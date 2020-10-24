@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dca046df68b10853752b0de65c48c2b8f83afb31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5af62cd8c110e38ffd2a72ef2441a8e548e1ece
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020906"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475489"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Optimera lagrings kostnaden i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Azure Cosmos DB erbjuder obegränsad lagring och data flöde. Till skillnad frå
 
 ## <a name="storage-cost"></a>Lagringskostnad
 
-Lagringen debiteras med enheten för GB. Lokalt SSD-baserat lagrings utrymme används av dina data och indexering. Det totala lagrings utrymmet som används motsvarar det lagrings utrymme som krävs av data och index som används i alla regioner där du använder Azure Cosmos DB. Om du globalt replikerar ett Azure Cosmos-konto över tre regioner betalar du för den totala lagrings kostnaden för var och en av de tre regionerna. Information om hur du beräknar lagrings kraven finns i verktyget [Capacity Planner](https://www.documentdb.com/capacityplanner) . Kostnaden för lagring i Azure Cosmos DB är $0,25 GB/månad, se [prissättnings sida](https://azure.microsoft.com/pricing/details/cosmos-db/) för de senaste uppdateringarna. Du kan ställa in aviseringar för att fastställa vilka lagrings enheter som används av din Azure Cosmos-behållare för att övervaka lagringen, se [övervaka Azure Cosmos DB](monitor-accounts.md)) artikeln.
+Lagringen debiteras med enheten för GB. Lokalt SSD-baserat lagrings utrymme används av dina data och indexering. Det totala lagrings utrymmet som används motsvarar det lagrings utrymme som krävs av data och index som används i alla regioner där du använder Azure Cosmos DB. Om du globalt replikerar ett Azure Cosmos-konto över tre regioner betalar du för den totala lagrings kostnaden för var och en av de tre regionerna. Information om hur du beräknar lagrings kraven finns i verktyget [Capacity Planner](https://www.documentdb.com/capacityplanner) . Kostnaden för lagring i Azure Cosmos DB är $0,25 GB/månad, se [prissättnings sida](https://azure.microsoft.com/pricing/details/cosmos-db/) för de senaste uppdateringarna. Du kan ställa in aviseringar för att fastställa vilka lagrings enheter som används av din Azure Cosmos-behållare för att övervaka lagringen, se [övervaka Azure Cosmos DB](./monitor-cosmos-db.md)) artikeln.
 
 ## <a name="optimize-cost-with-item-size"></a>Optimera kostnaden med objekt storlek
 
@@ -28,7 +28,7 @@ Azure Cosmos DB förväntar sig att objekt storleken ska vara 2 MB eller mindre 
 
 ## <a name="optimize-cost-with-indexing"></a>Optimera kostnader med indexering
 
-Som standard indexeras data automatiskt, vilket kan öka den totala förbrukade lagringen. Du kan dock använda anpassade index principer för att minska den här omkostnaderna. Automatisk indexering som inte har justerats genom principen är cirka 10-20% av objektets storlek. Genom att ta bort eller anpassa index principer betalar du inte extra kostnader för skrivningar och behöver inte ytterligare data flödes kapacitet. Konfigurera anpassade indexerings principer genom att se [indexering i Azure Cosmos DB](indexing-policies.md) . Om du har arbetat med relations databaser tidigare kan du tänka på att "indexera allt" innebär dubblerad lagring eller högre. I Azure Cosmos DB i median fallet är det dock mycket lägre. I Azure Cosmos DB är lagrings belastningen för indexet normalt låg (10-20%) även med automatisk indexering, eftersom det är utformat för att få en låg lagrings plats. Genom att hantera indexerings principen kan du kontrol lera kompromissen med index och fråga prestanda på ett mer kornigt sätt.
+Som standard indexeras data automatiskt, vilket kan öka den totala förbrukade lagringen. Du kan dock använda anpassade index principer för att minska den här omkostnaderna. Automatisk indexering som inte har justerats genom principen är cirka 10-20% av objektets storlek. Genom att ta bort eller anpassa index principer betalar du inte extra kostnader för skrivningar och behöver inte ytterligare data flödes kapacitet. Konfigurera anpassade indexerings principer genom att se [indexering i Azure Cosmos DB](index-policy.md) . Om du har arbetat med relations databaser tidigare kan du tänka på att "indexera allt" innebär dubblerad lagring eller högre. I Azure Cosmos DB i median fallet är det dock mycket lägre. I Azure Cosmos DB är lagrings belastningen för indexet normalt låg (10-20%) även med automatisk indexering, eftersom det är utformat för att få en låg lagrings plats. Genom att hantera indexerings principen kan du kontrol lera kompromissen med index och fråga prestanda på ett mer kornigt sätt.
 
 ## <a name="optimize-cost-with-time-to-live-and-change-feed"></a>Optimera kostnaderna med tiden till Live och ändra feed
 
@@ -40,7 +40,7 @@ Om du vill lagra omfattande medie typer, till exempel videor, bilder osv., har d
 
 ## <a name="check-storage-consumed"></a>Kontrol lera förbrukad lagring
 
-Om du vill kontrol lera lagrings användningen för en Azure Cosmos-behållare kan du köra en HEAD-eller GET-begäran på behållaren och kontrol lera `x-ms-request-quota` `x-ms-request-usage` rubrikerna och. När du arbetar med .NET SDK kan du också använda egenskaperna [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))och [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) för att hämta förbrukad lagring.
+Om du vill kontrol lera lagrings användningen för en Azure Cosmos-behållare kan du köra en HEAD-eller GET-begäran på behållaren och kontrol lera `x-ms-request-quota` `x-ms-request-usage` rubrikerna och. När du arbetar med .NET SDK kan du också använda egenskaperna [DocumentSizeQuota](/previous-versions/azure/dn850325(v%3Dazure.100))och [DocumentSizeUsage](/previous-versions/azure/dn850324(v=azure.100)) för att hämta förbrukad lagring.
 
 ## <a name="using-sdk"></a>Använda SDK
 
@@ -59,6 +59,5 @@ Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure
 * Lär dig mer om [att förstå din Azure Cosmos DB faktura](understand-your-bill.md)
 * Läs mer om hur du [optimerar data flödes kostnaden](optimize-cost-throughput.md)
 * Läs mer om hur [du optimerar kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
-* Lär dig mer om hur [du optimerar kostnaden för frågor](optimize-cost-queries.md)
+* Lär dig mer om hur [du optimerar kostnaden för frågor](./optimize-cost-reads-writes.md)
 * Läs mer om hur [du optimerar kostnaden för Azure Cosmos-konton med flera regioner](optimize-cost-regions.md)
-

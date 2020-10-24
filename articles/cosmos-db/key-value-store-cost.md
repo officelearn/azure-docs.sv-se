@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1cd6b4b52db224db5febcec1eff79b01379a5956
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d04c670010e3595d8f30c7ffcd34d99e27374cb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262828"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488460"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB som ett nyckel värdes lager – kostnads översikt
 
-Azure Cosmos DB är en globalt distribuerad databas tjänst med flera modeller för att skapa hög tillgängliga, storskaliga program i stor skala. Som standard indexeras Azure Cosmos DB automatiskt och effektivt indexera alla data som matas in. Detta möjliggör snabba och konsekventa [SQL](how-to-sql-query.md) -frågor (och [Java Script](stored-procedures-triggers-udfs.md)) för data. 
+Azure Cosmos DB är en globalt distribuerad databas tjänst med flera modeller för att skapa hög tillgängliga, storskaliga program i stor skala. Som standard indexeras Azure Cosmos DB automatiskt och effektivt indexera alla data som matas in. Detta möjliggör snabba och konsekventa [SQL](./sql-query-getting-started.md) -frågor (och [Java Script](stored-procedures-triggers-udfs.md)) för data. 
 
 I den här artikeln beskrivs kostnaden för Azure Cosmos DB för enkla Skriv-och Läs åtgärder när den används som nyckel/värde-lagring. Skriv åtgärder inkluderar infogningar, ersätter, tar bort och upsertar av data objekt. Förutom att garantera ett service avtal på 99,999% tillgänglighet för alla konton med flera regioner, Azure Cosmos DB ger garanterad <10 MS-svars tid för läsningar och för (indexerade) skrivningar, vid 99 percentil. 
 
@@ -48,4 +48,3 @@ De flesta av de grundläggande BLOB-objekten eller objekt lagrings tjänsterna d
 ## <a name="next-steps"></a>Nästa steg
 
 * Använd [ru-kalkylatorn](https://cosmos.azure.com/capacitycalculator/) för att beräkna data flödet för dina arbets belastningar.
-

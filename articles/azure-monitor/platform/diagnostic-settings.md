@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: fcbce9e7a5b24cbbe695b2ad664137875464b705
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 32ff5a73494bac2cabcb9488f946673435173dd0
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107937"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489446"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Skapa diagnostikinställningar för att skicka plattformsloggar och mått till olika målplatser
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av. [Plattforms mått](data-platform-metrics.md) samlas in som standard och lagras vanligt vis i Azure Monitor Metrics-databasen. Den här artikeln innehåller information om hur du skapar och konfigurerar diagnostikinställningar för att skicka plattforms mått och plattforms loggar till olika mål.
@@ -63,6 +63,8 @@ Du måste skapa alla destinationer för den diagnostiska inställningen innan du
 > [!NOTE]
 > Azure Data Lake Storage Gen2-konton stöds för närvarande inte som mål för diagnostikinställningar även om de visas som ett giltigt alternativ i Azure-portalen.
 
+> [!NOTE]
+> Azure Monitor (diagnostikinställningar) kan inte komma åt Event Hubs resurser när virtuella nätverk är aktiverade. Du måste aktivera inställningen Tillåt att betrodda Microsoft-tjänster kringgår den här brand Väggs inställningen i Händelsehubben, så att Azure Monitor (diagnostikinställningar) beviljas åtkomst till dina Event Hubs-resurser. 
 
 
 ## <a name="create-in-azure-portal"></a>Skapa i Azure-portalen

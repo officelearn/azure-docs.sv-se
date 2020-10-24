@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 913bc4373785d9341064e505ddce84fe43f727b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74a4178cc6b9645f3cb22bf3d1c7c0ee942c3f5f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801604"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485298"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Självstudie: bygga ett Java-webbprogram med Azure Cosmos DB och SQL API
 
@@ -22,7 +22,7 @@ ms.locfileid: "91801604"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -197,7 +197,7 @@ Med Azure Web Sites är det enkelt att distribuera Java-appar. Allt du behöver 
    * Välj en plats där WAR-filen ska sparas i rutan Destination.
    * Klicka på **Finish**.
 
-1. Nu när du har en WAR-fil laddar du bara upp den till katalogen **Webbappar** på Azure Web Sites. Anvisningar som beskriver hur du laddar upp filen finns i [Add a Java application to Azure App Service Web Apps](../app-service/web-sites-java-add-app.md) (Lägga till ett Java-program i Azure App Service Web Apps). När WAR-filen har överförts till webapps-katalogen, kommer körnings miljön att upptäcka att du har lagt till den och läser in den automatiskt.
+1. Nu när du har en WAR-fil laddar du bara upp den till katalogen **Webbappar** på Azure Web Sites. Anvisningar som beskriver hur du laddar upp filen finns i [Add a Java application to Azure App Service Web Apps](../app-service/quickstart-java.md) (Lägga till ett Java-program i Azure App Service Web Apps). När WAR-filen har överförts till webapps-katalogen, kommer körnings miljön att upptäcka att du har lagt till den och läser in den automatiskt.
 
 1. Du kan visa den färdiga produkten genom att gå till `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` och börja lägga till aktiviteter!
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 793f3869a9534c71d860cc8dea7a1995f5ee278d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d0dcecf6a0da1fbd3561dadcbe001c0ef8d4ebc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88871249"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479467"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
 
@@ -240,7 +240,7 @@ Mer detaljerad information finns i referens dokument för [AzCopy-kopiering](sto
 
 Du kan använda AzCopy för att kopiera filer till andra lagrings konton. Kopieringsåtgärden är synkron, så när kommandot returneras anger det att alla filer har kopierats.
 
-AzCopy använder [Server-till-Server-](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [API: er](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), så data kopieras direkt mellan lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd. Du kan öka data flödet för dessa åtgärder genom att ange värdet för `AZCOPY_CONCURRENCY_VALUE` miljövariabeln. Mer information finns i [optimera data flöde](storage-use-azcopy-configure.md#optimize-throughput).
+AzCopy använder [Server-till-Server-](/rest/api/storageservices/put-block-from-url) [API: er](/rest/api/storageservices/put-page-from-url), så data kopieras direkt mellan lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd. Du kan öka data flödet för dessa åtgärder genom att ange värdet för `AZCOPY_CONCURRENCY_VALUE` miljövariabeln. Mer information finns i [optimera data flöde](storage-use-azcopy-configure.md#optimize-throughput).
 
 Det här avsnittet innehåller följande exempel:
 
@@ -340,7 +340,7 @@ Den första fil resursen som visas i det här kommandot är källan. I slutet av
 | **Syntax** | `azcopy sync 'https://<source-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>&sharesnapsot<snapshot-ID>' 'https://<destination-storage-account-name>.file.core.windows.net/<file-share-name><SAS-token>' --recursive` |
 | **Exempel** | `azcopy sync 'https://mysourceaccount.file.core.windows.net/myfileShare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D&sharesnapshot=2020-03-03T20%3A24%3A13.0000000Z' 'https://mydestinationaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D' --recursive` |
 
-Mer information om resurs ögonblicks bilder finns i [Översikt över resurs ögonblicks bilder för Azure Files](https://docs.microsoft.com/azure/storage/files/storage-snapshots-files).
+Mer information om resurs ögonblicks bilder finns i [Översikt över resurs ögonblicks bilder för Azure Files](/azure/storage/files/storage-snapshots-files).
 
 ## <a name="next-steps"></a>Nästa steg
 

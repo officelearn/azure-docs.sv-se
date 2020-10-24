@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: 1e48b2ff6e469a5f792b64c20631e4bd64fb9fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263552"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480929"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Migrera hundratals terabyte data till Azure Cosmos DB 
 
@@ -38,7 +38,7 @@ Många av de här begränsningarna är fasta för verktyg som Azure Data Factory
 
 ## <a name="custom-tool-with-bulk-executor-library"></a>Anpassat verktyg med bulk utförar Library 
 
-Utmaningarna som beskrivs i ovanstående avsnitt kan lösas med hjälp av ett anpassat verktyg som enkelt kan skalas ut över flera instanser och det är elastiskt för tillfälliga haverier. Dessutom kan det anpassade verktyget pausa och återuppta migrering vid olika kontroll punkter. Azure Cosmos DB har redan ett [samlings utförar-bibliotek](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-overview) som införlivar några av dessa funktioner. Till exempel har utförar-biblioteket redan funktioner för att hantera tillfälliga fel och kan skala ut trådar i en enda nod för att förbruka cirka 500 K ru: er per nod. Utförar-biblioteket partitionerar också käll data uppsättningen i mikrobatchar som drivs oberoende som en form av kontroll punkter.  
+Utmaningarna som beskrivs i ovanstående avsnitt kan lösas med hjälp av ett anpassat verktyg som enkelt kan skalas ut över flera instanser och det är elastiskt för tillfälliga haverier. Dessutom kan det anpassade verktyget pausa och återuppta migrering vid olika kontroll punkter. Azure Cosmos DB har redan ett [samlings utförar-bibliotek](./bulk-executor-overview.md) som införlivar några av dessa funktioner. Till exempel har utförar-biblioteket redan funktioner för att hantera tillfälliga fel och kan skala ut trådar i en enda nod för att förbruka cirka 500 K ru: er per nod. Utförar-biblioteket partitionerar också käll data uppsättningen i mikrobatchar som drivs oberoende som en form av kontroll punkter.  
 
 Det anpassade verktyget använder bulk utförar-biblioteket och har stöd för skalning på flera klienter och för att spåra fel under inmatnings processen. För att kunna använda det här verktyget bör källdata partitioneras i distinkta filer i Azure Data Lake Storage (ADLS) så att olika migreringar kan hämta varje fil och mata in dem i Azure Cosmos DB. Det anpassade verktyget använder en separat samling, som lagrar metadata om migreringens förlopp för varje enskild källfil i ADLS och spårar eventuella fel som är kopplade till dem.  
 
@@ -152,4 +152,4 @@ När migreringen är klar kan du kontrol lera att antalet dokument i Azure Cosmo
 
 * Lär dig mer genom att testa exempel programmen som använder bulk utförar-biblioteket i [.net](bulk-executor-dot-net.md) och [Java](bulk-executor-java.md). 
 * Bulk utförar-biblioteket är integrerat i Cosmos DB Spark-anslutningsprogrammet för mer information finns i artikeln [Azure Cosmos DB Spark Connector](spark-connector.md) .  
-* Kontakta Azure Cosmos DB produkt teamet genom att öppna ett support ärende under "allmän råd givande" problem typ och "stora (TB +) migreringar" problem under typ för ytterligare hjälp med storskalig migrering. 
+* Kontakta Azure Cosmos DB produkt teamet genom att öppna ett support ärende under "allmän råd givande" problem typ och "stora (TB +) migreringar" problem under typ för ytterligare hjälp med storskalig migrering.

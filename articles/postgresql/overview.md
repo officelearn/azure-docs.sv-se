@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 5945f50ada9af6a8d117d3d773ebeae48d5f4085
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c3ea7930f41fe89538a817da032e993e534db9cd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90903769"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491333"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
 
@@ -29,7 +29,7 @@ Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molne
 
  :::image type="content" source="./media/overview/overview-what-is-azure-postgres.png" alt-text="Azure Database for PostgreSQL":::
 
-Dessa funktioner kräver nästan ingen administration, och alla tillhandahålls utan extra kostnad. De gör att du kan fokusera på snabb program utveckling och påskynda tiden till marknaden snarare än att allokera dyrbar tid och resurser för att hantera virtuella datorer och infrastruktur. Du kan dessutom fortsätta att utveckla programmet med verktygen med öppen källkod och på valfri plattform, och leverera med den hastighet och effektivitet som verksamheten kräver utan att du behöver lära dig nya färdigheter.
+Dessa funktioner kräver nästan ingen administration och tillhandahålls utan extra kostnad. De gör att du kan fokusera på snabb program utveckling och påskynda tiden till marknaden snarare än att allokera dyrbar tid och resurser för att hantera virtuella datorer och infrastruktur. Du kan dessutom fortsätta att utveckla programmet med verktygen med öppen källkod och på valfri plattform, och leverera med den hastighet och effektivitet som verksamheten kräver utan att du behöver lära dig nya färdigheter.
 
 ## <a name="deployment-models"></a>Distributionsmodeller
 
@@ -43,7 +43,7 @@ Azure Database for PostgreSQL som drivs av PostgreSQL Community Edition finns i 
 
 Azure Database for PostgreSQL enskild server är en fullständigt hanterad databas tjänst med minimala krav för anpassning av databasen. Plattformen för enskild server är utformad för att hantera de flesta av funktionerna för databas hantering, till exempel korrigering, säkerhets kopiering, hög tillgänglighet, säkerhet med minimal användar konfiguration och kontroll. Arkitekturen är optimerad för inbyggd hög tillgänglighet med 99,99% tillgänglighet för enskild tillgänglighets zon. Den stöder community-versionen av PostgreSQL 9,5, 9, 6, 10 och 11. Tjänsten är allmänt tillgänglig idag i många olika Azure- [regioner](https://azure.microsoft.com/global-infrastructure/services/).
 
-Distributionsalternativet för enkel server har tre prisnivåer: Basic, Generell användning och Minnesoptimerad. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers).
+Distributionsalternativet för enkel server har tre prisnivåer: Basic, Generell användning och Minnesoptimerad. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i [Prisnivåer](./concepts-pricing-tiers.md).
 
 Enkla servrar lämpar sig bäst för molnbaserade program som är utformade för att hantera automatiserad uppdatering utan att behöva detaljerad kontroll över uppdaterings schema och anpassade konfigurations inställningar för PostgreSQL.
 
@@ -72,7 +72,7 @@ Distributionsalternativet Hyperskala (Citus) ger:
 - Frågeparallellisering över dessa servrar för snabbare svar på stora datamängder
 - Utmärkt stöd för tillämpningar med flera klienter, driftanalys i realtid och högt genomflöde transaktionsarbetsbelastningar
   
-Program som skapats för PostgreSQL kan köra distribuerade frågor på citus (storskalig) med standard [anslutnings bibliotek](https://docs.microsoft.com/azure/postgresql/concepts-connection-libraries) och minimala ändringar.
+Program som skapats för PostgreSQL kan köra distribuerade frågor på citus (storskalig) med standard [anslutnings bibliotek](./concepts-connection-libraries.md) och minimala ändringar.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
 ms.author: jasonh
-ms.openlocfilehash: 841d2bcc50b62554fac8643048a3b3534e82dfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408240"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490602"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Använda stegen i körningsprofilen för att utvärdera Gremlin-frågor
 
@@ -220,8 +220,8 @@ Antag följande körnings profil svar från en **partitionerad graf**:
 
 Följande slut satser kan göras från den:
 - Frågan är en enskild ID-sökning, eftersom Gremlin-instruktionen följer mönstret `g.V('id')` .
-- Bedömnings från `time` måttet, verkar svars tiden för den här frågan vara hög eftersom det är [mer än 10ms för en enda punkt-Läs åtgärd](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- Om vi tittar på `storeOps` objektet kan vi se att `fanoutFactor` är `5` , vilket innebär att [5 partitioner](https://docs.microsoft.com/azure/cosmos-db/partition-data) har öppnats av den här åtgärden.
+- Bedömnings från `time` måttet, verkar svars tiden för den här frågan vara hög eftersom det är [mer än 10ms för en enda punkt-Läs åtgärd](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- Om vi tittar på `storeOps` objektet kan vi se att `fanoutFactor` är `5` , vilket innebär att [5 partitioner](./partitioning-overview.md) har öppnats av den här åtgärden.
 
 I slutet av den här analysen kan vi fastställa att den första frågan har åtkomst till fler partitioner än vad som behövs. Detta kan åtgärdas genom att ange partitionerings nyckeln i frågan som ett predikat. Detta leder till mindre latens och mindre kostnad per fråga. Lär dig mer om [diagram partitionering](graph-partitioning.md). En mer optimal fråga är `g.V('tt0093640').has('partitionKey', 't1001')` .
 

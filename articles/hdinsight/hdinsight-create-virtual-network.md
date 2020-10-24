@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 8e68bd2d164e3a8de60a9061363b839c4dfd4777
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 886e8cb1c5d86c1a61e65fa8cbd54c022f6c1c6b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074757"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484822"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Skapa virtuella nätverk för Azure HDInsight-kluster
 
@@ -28,7 +28,7 @@ Innan du kör något av kod exemplen i den här artikeln har du en förståelse 
 Andra krav för exemplen i den här artikeln innehåller följande objekt:
 
 * Om du använder PowerShell måste du installera [AZ-modulen](https://docs.microsoft.com/powershell/azure/).
-* Om du vill använda Azure CLI och ännu inte har installerat det kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Om du vill använda Azure CLI och ännu inte har installerat det kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
 > Om du vill ha stegvisa anvisningar om hur du ansluter HDInsight till ditt lokala nätverk med hjälp av en Azure-Virtual Network, se [ansluta HDInsight till det lokala nätverks](connect-on-premises-network.md) dokumentet.
@@ -289,7 +289,7 @@ På den anpassade DNS-servern i det virtuella nätverket:
     
     * Ersätt värdet `192.168.0.1` med IP-adressen för din lokala DNS-server. Den här posten dirigerar alla andra DNS-förfrågningar till den lokala DNS-servern.
 
-1. Starta om Bind om du vill använda konfigurationen. Exempelvis `sudo service bind9 restart`.
+1. Starta om Bind om du vill använda konfigurationen. Till exempel `sudo service bind9 restart`.
 
 1. Lägg till en villkorlig vidarebefordrare till den lokala DNS-servern. Konfigurera den villkorliga vidarebefordraren att skicka begär Anden för DNS-suffixet från steg 1 till den anpassade DNS-servern.
 

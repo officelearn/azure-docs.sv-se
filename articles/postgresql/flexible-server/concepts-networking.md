@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 38dd103189446e287f3d62d93344ed89a364d238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4280932787cfb2220dab1da84dca41ca0c40e302
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708789"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485264"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Nätverks översikt – Azure Database for PostgreSQL – flexibel Server
 
@@ -72,6 +72,9 @@ Här följer några begrepp som du bör känna till när du använder virtuella 
 * Peering-virtuella nätverk över regioner stöds inte
 
 Lär dig hur du skapar en flexibel server med privat åtkomst (VNet-integrering) i [Azure Portal](how-to-manage-virtual-network-portal.md) eller [Azure CLI](how-to-manage-virtual-network-cli.md).
+
+> [!NOTE]
+> Om du använder den anpassade DNS-servern måste du använda en DNS-vidarebefordrare för att matcha FQDN för Azure Database for MySQL-flexibel Server. Läs mer i [namn matchning som använder din egen DNS-Server](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) .
 
 ## <a name="public-access-allowed-ip-addresses"></a>Offentlig åtkomst (tillåtna IP-adresser)
 Egenskaperna för den offentliga åtkomst metoden är:

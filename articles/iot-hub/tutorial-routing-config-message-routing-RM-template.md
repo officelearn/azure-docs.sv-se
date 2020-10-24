@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5ae5948c8baf1573393c73026c84d0f62e8693e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74084393"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480113"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>Självstudie: Använd en Azure Resource Manager-mall för att konfigurera IoT Hub meddelanderoutning
 
@@ -74,7 +74,7 @@ De flesta av dessa parametrar har standardvärden. De som slutar med **_In** sam
 
 **AuthRules_sb_queue**: det här fältet är auktoriseringsregler för Service Bus-kön som används för att hämta anslutnings strängen för kön.
 
-### <a name="variables"></a>Variabler
+### <a name="variables"></a>Variables (Variabler)
 
 Dessa värden används i mallen och är mest härledda från parametrar.
 
@@ -358,7 +358,7 @@ Distribuera mallen till Azure genom att överföra mallen och parameter filen ti
 
 Om du vill överföra filerna väljer du ikonen **Ladda upp/ladda ned filer** på Meny raden och väljer sedan ladda upp.
 
-![Cloud Shell meny raden med Ladda upp/ladda ned filer markerade](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
+![Skärm bild som visar ikonen Ladda upp/ladda ned filer.](media/tutorial-routing-config-message-routing-RM-template/CloudShell_upload_files.png)
 
 Använd Utforskaren som öppnas för att hitta filerna på den lokala disken och markera dem och välj sedan **Öppna**.
 

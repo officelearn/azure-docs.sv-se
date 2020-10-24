@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 5c82c7a3fbe931042c1ae817d2f5b6c9ae6989ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427753"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480742"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Säkerhets kopiering och återställning i Azure Database for MariaDB
 
@@ -44,12 +44,15 @@ Kvarhållningsperioden för säkerhets kopior styr hur långt tillbaka i tiden e
 - Servrar med upp till 4 TB lagrings utrymme behåller upp till 2 fullständiga säkerhets kopieringar av databaser, alla differentiella säkerhets kopieringar och säkerhets kopieringar av transaktions loggar som utförs sedan den tidigaste fullständiga säkerhets kopieringen
 -   Servrar med upp till 16 TB lagring behåller den fullständiga ögonblicks bilden av databasen, alla differentiella ögonblicks bilder och säkerhets kopieringar av transaktions loggar de senaste 8 dagarna.
 
+#### <a name="long-term-retention-of-backups"></a>Långsiktig kvarhållning av säkerhetskopior
+Långsiktig kvarhållning av säkerhets kopieringar utöver 35 dagar stöds för närvarande inte av tjänsten ännu. Du har möjlighet att använda mysqldump för att göra säkerhets kopior och lagra dem för långsiktig kvarhållning. Vårt support team har blogg en [steg-för-steg-artikel](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/automate-backups-of-your-azure-database-for-mysql-server-to/ba-p/1791157) för att dela hur du kan åstadkomma det. 
+
 ### <a name="backup-redundancy-options"></a>Alternativ för redundans för säkerhets kopiering
 
 Azure Database for MariaDB ger flexibiliteten att välja mellan lokalt redundant eller Geo-redundant lagring av säkerhets kopior i Generell användning och minnesoptimerade nivåer. När säkerhets kopiorna lagras i Geo-redundant lagring av säkerhets kopior lagras de inte bara i den region där servern finns, men replikeras också till ett [parat Data Center](../best-practices-availability-paired-regions.md). Detta ger bättre skydd och möjlighet att återställa servern i en annan region i händelse av en katastrof. Basic-nivån erbjuder endast lokalt redundant säkerhets kopierings lagring.
 
-> [!IMPORTANT]
-> Det går bara att konfigurera lokalt redundant eller Geo-redundant lagring för säkerhets kopiering när servern skapas. När servern har tillhandahållits kan du inte ändra redundans alternativet för lagring av säkerhets kopior.
+#### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Flytta från lokalt redundant till Geo-redundant lagring av säkerhets kopior
+Det går bara att konfigurera lokalt redundant eller Geo-redundant lagring för säkerhets kopiering när servern skapas. När servern har tillhandahållits kan du inte ändra redundans alternativet för lagring av säkerhets kopior. För att kunna flytta lagrings utrymme för säkerhets kopior från lokalt redundant lagring till Geo-redundant lagring, skapar du en ny server och migrerar data med [dump och Restore](howto-migrate-dump-restore.md) är det enda alternativ som stöds.
 
 ### <a name="backup-storage-cost"></a>Reserv lagrings kostnad
 

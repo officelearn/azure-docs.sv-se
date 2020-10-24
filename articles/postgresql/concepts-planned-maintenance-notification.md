@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a0d61488fe5e7e91d025c7d3b8d3aa862b9cd9bd
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1ed2929dc5dc79c30f2a9583966e32d81b63ba2e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428931"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487916"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-postgresql---single-server"></a>Meddelande om planerat underhåll i Azure Database for PostgreSQL-enskild server
 
@@ -61,9 +61,9 @@ Du kan antingen kontrol lera den planerade underhålls aviseringen på Azure Por
 7. Se till att aktivera regel vid skapande har angetts till Ja.
 8. Välj **skapa aviserings regel** för att slutföra aviseringen
 
-Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar**finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md).
+Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar**finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications-portal.md).
 
-## <a name="can-i-control-or-change-planned-maintenance-for-my-servers-after-i-receive-a-notification-event"></a>Kan jag styra eller ändra planerat underhåll för mina servrar när jag får en meddelande händelse?
+## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Kan jag avbryta eller skjuta upp planerat underhåll?
 
 Underhåll krävs för att hålla din server säker, stabil och uppdaterad. Det går inte att annullera eller skjuta upp händelsen planerat underhåll. När meddelandet har skickats till en viss Azure-region kan inte korrigerings schema ändringarna göras för någon enskild server i den regionen. Korrigeringen distribueras för hela regionen på samma gång. Azure Database for PostgreSQL-enskild server-tjänst är utformad för internt program i molnet som inte kräver detaljerad kontroll eller anpassning av tjänsten. Om du vill ha möjlighet att schemalägga underhåll för dina servrar rekommenderar vi att du betraktar [flexibla servrar](./flexible-server/overview.md).
 

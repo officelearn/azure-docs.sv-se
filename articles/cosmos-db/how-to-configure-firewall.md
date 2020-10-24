@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3ad53a90586ccf88c5c74326103997ca0a53cdf9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: fb97f9ee822c808057139bd25b2e4f43c48a2e48
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279756"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490517"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Konfigurera IP-brandvägg i Azure Cosmos DB
 
@@ -22,7 +22,7 @@ För att skydda data som lagras i ditt konto har Azure Cosmos DB stöd för en h
 
 Som standard är ditt Azure Cosmos-konto tillgängligt från Internet, förutsatt att begäran åtföljs av en giltig autentiseringstoken. Om du vill konfigurera IP-principbaserad åtkomst kontroll måste användaren ange en uppsättning IP-adresser eller IP-adressintervall i CIDR-form (Classless Inter-Domain routing) som ska ingå i listan över tillåtna klient-IP-adresser för att få åtkomst till ett angivet Azure Cosmos-konto. När den här konfigurationen används får alla begär Anden som kommer från datorer utanför den här tillåtna listan mottagning 403 (förbjuden) svar. När du använder IP-brandvägg rekommenderar vi att du tillåter Azure Portal att komma åt ditt konto. Åtkomst krävs för att tillåta användning av data Utforskaren samt för att hämta mått för ditt konto som visas på Azure Portal. När du använder data Utforskaren måste du, förutom att tillåta Azure Portal komma åt ditt konto, uppdatera brand Väggs inställningarna för att lägga till din aktuella IP-adress i brand Väggs reglerna. Observera att det kan ta upp till 15min att sprida brand Väggs ändringar.
 
-Du kan kombinera IP-baserad brand vägg med åtkomst kontroll för undernät och VNET. Genom att kombinera dem kan du begränsa åtkomsten till alla källor som har en offentlig IP-adress och/eller från ett särskilt undernät i VNET. Om du vill veta mer om hur du använder undernät och VNET-baserad åtkomst kontroll, se [åtkomst Azure Cosmos DB resurser från virtuella nätverk](vnet-service-endpoint.md).
+Du kan kombinera IP-baserad brand vägg med åtkomst kontroll för undernät och VNET. Genom att kombinera dem kan du begränsa åtkomsten till alla källor som har en offentlig IP-adress och/eller från ett särskilt undernät i VNET. Om du vill veta mer om hur du använder undernät och VNET-baserad åtkomst kontroll, se [åtkomst Azure Cosmos DB resurser från virtuella nätverk](./how-to-configure-vnet-service-endpoint.md).
 
 För att sammanfatta krävs alltid autentiseringstoken för att få åtkomst till ett Azure Cosmos-konto. Om IP-brandväggen och VNET Access Control List (ACL) inte har kon figurer ATS kan Azure Cosmos-kontot nås med autentiseringstoken. När IP-brandväggen eller VNET-ACL: er eller båda har kon figurer ATS på Azure Cosmos-kontot får du bara begär Anden som härstammar från de källor du har angett (och med autentiseringstoken) get giltiga svar. 
 
@@ -91,7 +91,7 @@ När du skalar ut din moln tjänst genom att lägga till roll instanser, kommer 
 
 ### <a name="requests-from-virtual-machines"></a>Begär Anden från virtuella datorer
 
-Du kan också använda [virtuella datorer](https://azure.microsoft.com/services/virtual-machines/) eller [skalnings uppsättningar för virtuella](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) datorer för att hantera tjänster på mellan nivå med hjälp av Azure Cosmos dB. Om du vill konfigurera ditt Cosmos DB-konto så att det tillåter åtkomst från virtuella datorer, måste du konfigurera den offentliga IP-adressen för den virtuella datorn och/eller skalnings uppsättningen för den virtuella datorn som en av de tillåtna IP-adresserna för ditt Azure Cosmos DB-konto genom att [Konfigurera principen för IP-åtkomstkontroll](#configure-ip-policy).
+Du kan också använda [virtuella datorer](https://azure.microsoft.com/services/virtual-machines/) eller [skalnings uppsättningar för virtuella](../virtual-machine-scale-sets/overview.md) datorer för att hantera tjänster på mellan nivå med hjälp av Azure Cosmos dB. Om du vill konfigurera ditt Cosmos DB-konto så att det tillåter åtkomst från virtuella datorer, måste du konfigurera den offentliga IP-adressen för den virtuella datorn och/eller skalnings uppsättningen för den virtuella datorn som en av de tillåtna IP-adresserna för ditt Azure Cosmos DB-konto genom att [Konfigurera principen för IP-åtkomstkontroll](#configure-ip-policy).
 
 Du kan hämta IP-adresser för virtuella datorer i Azure Portal, som visas på följande skärm bild:
 
@@ -105,7 +105,7 @@ När du ansluter till ditt Azure Cosmos DB-konto från en dator på Internet må
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Konfigurera en IP-brandvägg med en Resource Manager-mall
 
-Om du vill konfigurera åtkomst kontroll till ditt Azure Cosmos DB konto kontrollerar du att Resource Manager-mallen anger egenskapen **ipRules** med en matris med tillåtna IP-intervall. Om du konfigurerar IP-brandvägg till ett redan distribuerat Cosmos-konto ser du till att `locations` matrisen matchar vad som för närvarande har distribuerats. Du kan inte ändra `locations` matrisen och andra egenskaper samtidigt. Mer information och exempel på Azure Resource Manager mallar för Azure Cosmos DB finns i [Azure Resource Manager mallar för Azure Cosmos DB](resource-manager-samples.md)
+Om du vill konfigurera åtkomst kontroll till ditt Azure Cosmos DB konto kontrollerar du att Resource Manager-mallen anger egenskapen **ipRules** med en matris med tillåtna IP-intervall. Om du konfigurerar IP-brandvägg till ett redan distribuerat Cosmos-konto ser du till att `locations` matrisen matchar vad som för närvarande har distribuerats. Du kan inte ändra `locations` matrisen och andra egenskaper samtidigt. Mer information och exempel på Azure Resource Manager mallar för Azure Cosmos DB finns i [Azure Resource Manager mallar för Azure Cosmos DB](./templates-samples-sql.md)
 
 > [!IMPORTANT]
 > **IpRules** -egenskapen har introducerats med API-version 2020-04-01. Tidigare versioner exponerade en **ipRangeFilter** -egenskap i stället, som är en lista över kommaavgränsade IP-adresser.
@@ -221,7 +221,7 @@ När du kommer åt Azure Cosmos DB-resurser med hjälp av SDK: er från datorer 
 
 ### <a name="source-ips-in-blocked-requests"></a>Käll-IP: er i blockerade begär Anden
 
-Aktivera diagnostisk loggning på ditt Azure Cosmos DB-konto. Loggarna visar varje begäran och svar. De brand Väggs meddelanden som är relaterade loggas med en 403-returkod. Genom att filtrera dessa meddelanden kan du se käll-IP: er för de blockerade förfrågningarna. Se [Azure Cosmos DB diagnostisk loggning](logging.md).
+Aktivera diagnostisk loggning på ditt Azure Cosmos DB-konto. Loggarna visar varje begäran och svar. De brand Väggs meddelanden som är relaterade loggas med en 403-returkod. Genom att filtrera dessa meddelanden kan du se käll-IP: er för de blockerade förfrågningarna. Se [Azure Cosmos DB diagnostisk loggning](./monitor-cosmos-db.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Begär Anden från ett undernät med en tjänst slut punkt för Azure Cosmos DB aktive rad
 

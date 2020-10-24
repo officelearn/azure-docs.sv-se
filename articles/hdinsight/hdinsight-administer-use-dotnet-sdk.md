@@ -8,18 +8,18 @@ ms.custom: hdinsightactive, devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: dd0d7a3a05c108f0d7e95719356079633a0e2276
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 367b47e8dbe0e1ee56fea620d97109631ba87a06
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016095"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484890"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hantera Apache Hadoop-kluster i HDInsight med hjälp av .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Lär dig hur du hanterar HDInsight-kluster med [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+Lär dig hur du hanterar HDInsight-kluster med [HDInsight.NET SDK](/dotnet/api/overview/azure/hdinsight).
 
 **Förutsättningar**
 
@@ -268,7 +268,7 @@ Mer information finns i [Överföra data till HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Se även
 
-* [Dokumentation om HDInsight .NET SDK-referens](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [Dokumentation om HDInsight .NET SDK-referens](/dotnet/api/overview/azure/hdinsight)
 * [Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal](hdinsight-administer-use-portal-linux.md)
 * [Administrera HDInsight med ett kommando rads gränssnitt][hdinsight-admin-cli]
 * [Skapa HDInsight-kluster][hdinsight-provision]

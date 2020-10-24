@@ -8,19 +8,19 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: 6452934828c4e74563daf001271b3ce018ab58e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2ecf5c540c3fce7a60ebf256d871993400a731ed
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707905"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481201"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Snabb start: Använd python för att ansluta och fråga efter data i Azure Database for PostgreSQL-enskild server
 
 I den här snabb starten arbetar du med en Azure Database for PostgreSQL med python på macOS, Ubuntu Linux eller Windows. Snabb starten visar hur du ansluter till databasen och använder SQL-uttryck för att fråga, infoga, uppdatera och ta bort data. Artikeln förutsätter att du är bekant med python, men att du inte har arbetat med Azure Database for PostgreSQL.
 
 > [!TIP]
-> Om du vill bygga ett django-program med PostgreSQL kan du checka in självstudien, [distribuera en django-webbapp med en postgresql-](../app-service/containers/tutorial-python-postgresql-app.md) självstudie.
+> Om du vill bygga ett django-program med PostgreSQL kan du checka in självstudien, [distribuera en django-webbapp med en postgresql-](../app-service/tutorial-python-postgresql-app.md) självstudie.
 
 
 ## <a name="prerequisites"></a>Förutsättningar

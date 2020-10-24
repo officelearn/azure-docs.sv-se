@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 98210f26072504c129ba32f765cf6bab74fef604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a8351b8c74f9219cf14575cc326fa8049264ed7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570711"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92491129"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
 
@@ -33,7 +33,7 @@ Information om hur du [skapar ett Azure Cosmos DB konto med PowerShell](manage-w
 
 ### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Azure Resource Manager-mall
 
-Information om hur du [skapar Azure Cosmos DB konto med Azure Resource Manager mallar](manage-sql-with-resource-manager.md)
+Information om hur du [skapar Azure Cosmos DB konto med Azure Resource Manager mallar](./manage-with-templates.md)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Lägga till/ta bort regioner från ditt databaskonto
 

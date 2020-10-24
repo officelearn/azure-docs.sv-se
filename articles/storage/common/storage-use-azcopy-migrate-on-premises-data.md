@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f969c30033604cb4b331b5ed86d992af371f9c75
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716092"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490823"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Självstudie: migrera lokala data till moln lagring med AzCopy
 
@@ -29,7 +29,7 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Hämta den senaste versionen av AzCopy för att slutföra den här självstudien. Se [Kom igång med AZCopy](storage-use-azcopy-v10.md).
 
@@ -46,7 +46,7 @@ Skapa en container genom att följa de här stegen:
 1. Välj knappen **Lagringskonton** på huvudsidan och markera det lagringskonto som du har skapat.
 2. Välj **Blobar** under **Tjänster**, och välj sedan **Container**.
 
-   ![Skapa en container](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Skärm bild som visar skapande av behållare](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 Containernamn måste börja med en bokstav eller siffra. De får bara innehålla bokstäver, siffror och bindestreck (-). Mer information om namngivning av blobar och containrar finns i [Namngivning och referens av containrar, blobar och metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -62,7 +62,7 @@ Placera AzCopy-filen var som helst på din dator. Lägg till platsen för filen 
 
 ## <a name="authenticate-with-azure-ad"></a>Autentisera med Azure AD
 
-Tilldela först rollen [Storage BLOB data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) till din identitet. Se [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+Tilldela först rollen [Storage BLOB data Contributor](/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) till din identitet. Se [använda Azure Portal för att tilldela en Azure-roll för åtkomst till blob-och Queue-data](/azure/storage/common/storage-auth-aad-rbac-portal).
 
 Öppna sedan en kommando tolk, Skriv följande kommando och tryck på RETUR-tangenten.
 
@@ -72,13 +72,13 @@ azcopy login
 
 Det här kommandot returnerar en autentiseringsnyckel och URL: en för en webbplats. Öppna webbplatsen, ange koden och välj sedan knappen **Nästa** .
 
-![Skapa en container](media/storage-use-azcopy-v10/azcopy-login.png)
+![Skärm bild som visar inloggnings meddelandet](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Ett inloggnings fönster visas. I det fönstret loggar du in på ditt Azure-konto med hjälp av dina autentiseringsuppgifter för Azure-kontot. När du har loggat in kan du stänga webbläsarfönstret och börja använda AzCopy.
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Ladda upp innehåll i en mapp till Blob Storage
 
-Du kan överföra alla filer i en mapp till Blob Storage i [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) eller [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) med AzCopy. Överför alla blobar i en mapp genom att ange följande AzCopy-kommando:
+Du kan överföra alla filer i en mapp till Blob Storage i [Windows](/azure/storage/common/storage-use-azcopy) eller [Linux](/azure/storage/common/storage-use-azcopy-linux) med AzCopy. Överför alla blobar i en mapp genom att ange följande AzCopy-kommando:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -176,7 +176,7 @@ Du kan verifiera att den schemalagda uppgiften/Cron-jobbet körs korrekt genom a
 
 Mer information om hur du flyttar lokala data till Azure Storage och vice versa finns i följande länk:
 
-* [Flytta data till och från Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Flytta data till och från Azure Storage](/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
 Mer information om AzCopy finns i följande artiklar:
 

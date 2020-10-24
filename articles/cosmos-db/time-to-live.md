@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 52885f874f877d9a2fd256d0212ba8693067ea8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91802938"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476985"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Med **Time to Live** eller TTL ger Azure Cosmos DB möjlighet att ta bort objekt
 
 Borttagning av utgångna objekt är en bakgrunds aktivitet som förbrukar [enheter](request-units.md)med överdrivet utrymme, det vill säga enheter som inte har använts av användar förfrågningar. Även om TTL-värdet har upphört att gälla, om behållaren överbelastas med begär Anden och om det inte finns tillräckligt många RU-objekt, så fördröjs data borttagningen. Data tas bort när det finns tillräckligt med ru: er tillgängliga för att utföra borttagnings åtgärden. Även om data borttagningen fördröjs, returneras inte data av några frågor (med valfritt API) När TTL har upphört att gälla.
 
-> Det här innehållet är relaterat till Azure Cosmos DB transaktions arkivets TTL. Om du letar efter analitycal Store TTL som aktiverar NoETL HTAP-scenarier via [Azure Synapse länk](https://docs.microsoft.com/azure/cosmos-db/synapse-link), klickar du [här](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
+> Det här innehållet är relaterat till Azure Cosmos DB transaktions arkivets TTL. Om du letar efter analitycal Store TTL som aktiverar NoETL HTAP-scenarier via [Azure Synapse länk](./synapse-link.md), klickar du [här](./analytical-store-introduction.md#analytical-ttl).
 
 ## <a name="time-to-live-for-containers-and-items"></a>Tid till Live för behållare och objekt
 

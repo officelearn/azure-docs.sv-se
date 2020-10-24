@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8bcbe395f78d3e4e9a6f7f615edc61eaa04347cf
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311688"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489021"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Kända problem i Azure Digitals, dubbla
 
@@ -34,7 +34,7 @@ Du kan också öppna fönstret Cloud Shell i Azure Portal och slutföra din Clou
 
 :::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vy av Azure Portal med ikonen &quot;Cloud Shell&quot; markerad och Cloud Shell visas längst ned i Portal fönstret":::
 
-Slutligen är en annan lösning att [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) på datorn så att du kan köra Azure CLI-kommandon lokalt. Den lokala CLI: en drabbas inte av det här problemet.
+Slutligen är en annan lösning att [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) på datorn så att du kan köra Azure CLI-kommandon lokalt. Den lokala CLI: en drabbas inte av det här problemet.
 
 ### <a name="possible-causes"></a>Möjliga orsaker
 
@@ -46,7 +46,9 @@ Detta påverkar inte Azure Digitals dubbla kommandon från `az dt` `az dt endpoi
 
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Roll tilldelning saknas efter skriptad installation
 
-Vissa användare kan uppleva problem med roll tilldelnings delen i [*anvisningar: Konfigurera en instans och autentisering (skript)*](how-to-set-up-instance-scripted.md). Skriptet indikerar inte fel, men rollen *Azure Digitals-ägare (förhands granskning)* har inte tilldelats till användaren, och det här problemet påverkar möjligheten att skapa andra resurser på vägen.
+Vissa användare kan uppleva problem med roll tilldelnings delen i [*anvisningar: Konfigurera en instans och autentisering (skript)*](how-to-set-up-instance-scripted.md). Skriptet indikerar inte fel, men den *digitala data ägar* rollen för Azure har inte tilldelats till användaren, och det här problemet påverkar möjligheten att skapa andra resurser.
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Följ anvisningarna i avsnittet [*Verifiera användar roll tilldelning*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) i installations artikeln för att avgöra om din roll tilldelning har kon figurer ATS när skriptet har körts. Om användaren inte visas med den här rollen påverkar det här problemet.
 
@@ -64,7 +66,7 @@ För användare som är inloggade med en personlig [Microsoft-konto (MSA)](https
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problem med interaktiv webb läsar autentisering
 
-När du skriver authentication code i dina Azure Digital-program med version **1.2.0** av ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet) -biblioteket**kan det uppstå problem med [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet) -metoden.
+När du skriver authentication code i dina Azure Digital-program med version **1.2.0** av ** [Azure. Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) -biblioteket**kan det uppstå problem med [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) -metoden.
 
 Detta är inte den senaste versionen av biblioteket. Den senaste versionen är **1.2.2**.
 

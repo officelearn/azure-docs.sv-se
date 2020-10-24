@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: jasonh
-ms.openlocfilehash: f21aa30de2b2dfcf85e45c7ed4d5c485fe45eed7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6733e0f6447d055da8d349940bc7c7665e003e33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409705"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475608"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Optimerings steg efter migreringen när du använder Azure Cosmos DBs API för MongoDB
 
@@ -53,12 +53,12 @@ Om du vill distribuera dina data globalt kan du läsa [Distribuera data globalt 
 
 ## <a name="set-consistency-level"></a>Ange konsekvens nivå
 
-Azure Cosmos DB erbjuder 5 väldefinierade [konsekvens nivåer](consistency-levels.md). Läs [konsekvens nivåer och Azure Cosmos DBS-API: er](consistency-levels-across-apis.md)för att läsa om mappningen mellan MongoDB och Azure Cosmos DB konsekvens nivåer. Standard konsekvens nivån är konsekvens nivån för sessionen. Att ändra konsekvens nivån är valfritt och du kan optimera den för din app. Ändra konsekvens nivå med Azure Portal:
+Azure Cosmos DB erbjuder 5 väldefinierade [konsekvens nivåer](consistency-levels.md). Läs [konsekvens nivåer och Azure Cosmos DBS-API: er](./consistency-levels.md)för att läsa om mappningen mellan MongoDB och Azure Cosmos DB konsekvens nivåer. Standard konsekvens nivån är konsekvens nivån för sessionen. Att ändra konsekvens nivån är valfritt och du kan optimera den för din app. Ändra konsekvens nivå med Azure Portal:
 
 1. Gå till bladet **standard konsekvens** under Inställningar.
 2. Välj din [konsekvens nivå](consistency-levels.md)
 
-De flesta användare lämnar sin konsekvens nivå i standardinställningen för konsekvens för sessioner. Det finns dock [tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](consistency-levels-tradeoffs.md).
+De flesta användare lämnar sin konsekvens nivå i standardinställningen för konsekvens för sessioner. Det finns dock [tillgänglighets-och prestanda kompromisser för olika konsekvens nivåer](./consistency-levels.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

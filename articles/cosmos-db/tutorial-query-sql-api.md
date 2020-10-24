@@ -8,16 +8,16 @@ ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2a6033ef1d2b7dda04b1510d42fa49141e0b79b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd76a6848c9ff6a5c7a29e328814fe0054655691
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88136005"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476441"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Självstudie: Fråga Azure Cosmos DB med hjälp av SQL API
 
-Azure Cosmos DB [SQL API](documentdb-introduction.md) stöder frågedokument med hjälp av SQL. Den här artikeln innehåller ett dokumentexempel och två exempel på SQL-frågor och resultat.
+Azure Cosmos DB [SQL API](./introduction.md) stöder frågedokument med hjälp av SQL. Den här artikeln innehåller ett dokumentexempel och två exempel på SQL-frågor och resultat.
 
 Den här artikeln beskriver följande uppgifter: 
 
@@ -64,7 +64,7 @@ Du kan köra frågor med Datautforskaren i Azure-portalen via [REST-API och SDK]
 Mer information om SQL-frågor finns i:
 * [SQL-fråga och SQL-syntax](sql-query-getting-started.md)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien förutsätter att du har ett konto för Azure Cosmos DB och en samling. Har du inga av dessa resurser? Slutför [Snabbstart på 5 minuter](create-cosmosdb-resources-portal.md).
 
@@ -149,4 +149,3 @@ Du kan nu fortsätta till nästa självstudie för att lära dig hur du distribu
 
 > [!div class="nextstepaction"]
 > [Distribuera dina data globalt](tutorial-global-distribution-sql-api.md)
-

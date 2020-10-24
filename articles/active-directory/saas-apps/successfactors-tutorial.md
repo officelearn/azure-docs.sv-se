@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 48524bec352d2fa9c169a1345e52ad4c789e59d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 232d138488d061c638073b51198e5f2ea4c6b53f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552128"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481286"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med SuccessFactors
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar SuccessFactors med 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -130,7 +130,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
     1. I **Namn**-fältet skriver du `B.Simon`.  
-    1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+    1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
     1. Klicka på **Skapa**.
 
@@ -160,14 +160,14 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 3. Placera valfritt värde i **Reset Token** (Återställ token) och klicka på **Save Token** (Spara Token) för att aktivera enkel inloggning med SAML.
 
-    ![Konfigurera enkel inloggning på appsidan][11]
+    ![Skärm bild som visar fliken program säkerhet med funktioner för enkel inloggning som anropas där du kan ange en token.][11]
 
     > [!NOTE]
     > Det här värdet används som på/av-växel. Om ett värde sparas är enkel inloggning med SAML PÅ. Om ett tomt värde sparas är enkel inloggning med SAML AV.
 
 4. Gå till skärmbilden nedan och utför följande åtgärder:
 
-    ![Konfigurera enkel inloggning på appsidan][12]
+    ![Skärm bild som visar fönstret för SAML-baserade S O där du kan ange de värden som beskrivs.][12]
   
     a. Markera alternativknappen **SAML v2 SSO** (Enkel inloggning med SAML v2)
   
@@ -192,7 +192,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 5. Gå till SAML-V2 och utför sedan följande steg:
 
-    ![Konfigurera enkel inloggning på appsidan][13]
+    ![Skärm bild som visar fönstret SAML v2 S P initierat utloggning där du kan ange de värden som beskrivs.][13]
 
     a. Välj **Yes** (Ja) för **Support SP-initiated Global Logout** (Stöd SP-initierad global utloggning).
 

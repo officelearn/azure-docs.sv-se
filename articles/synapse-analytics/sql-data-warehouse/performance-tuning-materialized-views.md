@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e807a01f575615967a039d360505a4f090cd1fd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984109"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478328"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Prestanda justering med materialiserade vyer
 
@@ -37,8 +37,8 @@ De flesta av kraven för en standardvy gäller fortfarande för en materialisera
 |Visa innehåll                    | Genereras varje gång som vyn används.   | Förbehandlade och lagrade i SQL-poolen när du skapar vyn. Uppdateras när data läggs till i de underliggande tabellerna.
 |Datauppdatering                    | Alltid uppdaterad                               | Alltid uppdaterad
 |Hastighet för att hämta visnings data från komplexa frågor     | Långsam                                         | Snabb  
-|Extra lagrings utrymme                   | Inga                                           | Ja
-|Syntax                          | SKAPA VY                                  | SKAPA MATERIALISERAD VY SOM VÄLJ
+|Extra lagrings utrymme                   | Nej                                           | Ja
+|Syntax                          | CREATE VIEW                                  | SKAPA MATERIALISERAD VY SOM VÄLJ
 
 ## <a name="benefits-of-using-materialized-views"></a>Fördelar med att använda materialiserade vyer
 
@@ -79,7 +79,7 @@ Jämfört med andra justerings alternativ som skalning och statistik hantering, 
 
 **Du behöver en annan strategi för data distribution för snabbare frågans prestanda**
 
-SQL-poolen är ett distribuerat MPP-system (massiv parallel Processing).   Data i en SQL-adresspool distribueras över 60-noder med en av tre [distributions strategier](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, Round_Robin eller replikerad).  
+Synapse SQL är ett system för distribuerad Query-bearbetning.  Data i en SQL-tabell distribueras över 60-noder med en av tre [distributions strategier](sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (hash, Round_Robin eller replikerad).   
 
 Data distributionen anges i tabellens skapelse tid och förblir oförändrad tills tabellen släpps. Materialiserad vy är en virtuell tabell på disken som stöder hash-och round_robin data distributioner.  Användare kan välja en data distribution som skiljer sig från bas tabellerna men som är optimal för prestanda för frågor som använder de flesta vyer.  
 

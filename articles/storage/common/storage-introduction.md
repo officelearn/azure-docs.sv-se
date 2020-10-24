@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 337a4c1ba3e355c2ba1dd7ea6e34645112d1c7b1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 73b48f8bcb4ec6facfebfc62d03ee5cd8237f504
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091312"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490806"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introduktion till Core Azure Storage Services
 
@@ -46,7 +46,7 @@ I följande tabell jämförs filer, blobbar, diskar, köer och tabeller, och exe
 | **Azure Files** |Erbjuder fullständigt hanterade moln fil resurser som du kan komma åt var som helst via SMB-protokollet (Server Message Block) i branschen.<br><br>Du kan montera Azure-filresurser från molnet eller lokala distributioner av Windows, Linux och macOS. | Du vill "lyfta och byta" ett program till molnet som redan använder inbyggda API: er för fil system för att dela data mellan dem och andra program som körs i Azure.<br/><br/>Du vill ersätta eller komplettera lokala fil servrar eller NAS-enheter.<br><br> Du vill lagra utvecklings-och fel söknings verktyg som behöver nås från många virtuella datorer. |
 | **Azure-blobar** | Tillåter att ostrukturerade data lagras och används i en enorm skala i block-blobar.<br/><br/>Stöder också [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) för företags lösningar för Big data analys. | Du vill att ditt program ska stödja strömnings-och slumpmässiga åtkomst scenarier.<br/><br/>Du vill kunna komma åt program data var som helst.<br/><br/>Du vill skapa ett företags data Lake på Azure och utföra stor data analys. |
 | **Azure-diskar** | Tillåter att data lagras permanent och nås från en ansluten virtuell hård disk. | Du vill använda "lyft och Shift"-program som använder interna fil system-API: er för att läsa och skriva data till beständiga diskar.<br/><br/>Du vill lagra data som inte behöver nås från utanför den virtuella dator som disken är ansluten till. |
-| **Azure Queues** | Tillåter asynkron meddelande kön mellan program komponenter. | Du vill koppla bort program komponenter och använda asynkrona meddelanden för att kommunicera mellan dem.<br><br>Information om hur du använder Queue Storage och Service Bus köer finns i [lagrings köer och Service Bus köer – jämförelse och kontrast](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
+| **Azure Queues** | Tillåter asynkron meddelande kön mellan program komponenter. | Du vill koppla bort program komponenter och använda asynkrona meddelanden för att kommunicera mellan dem.<br><br>Information om hur du använder Queue Storage och Service Bus köer finns i [lagrings köer och Service Bus köer – jämförelse och kontrast](/azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted). |
 | **Azure-tabeller** | Gör att du kan lagra strukturerade NoSQL-data i molnet och tillhandahålla ett nyckel-attributarkiv med en schema lös design. | Du vill lagra flexibla data uppsättningar som användar data för webb program, adress böcker, enhets information eller andra typer av metadata som din tjänst kräver. <br/><br/>Information om hur du använder tabell lagring jämfört med Azure Cosmos DB Tabell-API finns i [utveckla med Azure Cosmos DB tabell-API och Azure Table Storage](../../cosmos-db/table-support.md). |
 
 ## <a name="blob-storage"></a>Blob Storage
@@ -61,7 +61,7 @@ Blob Storage är perfekt för att:
 - Lagra data för säkerhetskopiering och återställning, haveriberedskap och arkivering.
 - Lagra data för analys av en tjänst som kan vara lokal eller Azure-värdbaserad.
 
-Objekt i Blob storage kan nås från vilken plats som helst i världen via HTTP eller HTTPS. Användare eller klientprogram kan få åtkomst till blobar via URL-adresser, [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage) eller ett Azure Storage-klientbibliotek. Det finns lagringsklientbibliotek för flera språk, bland annat [.NET](/dotnet/api/overview/azure/storage), [Java](https://docs.microsoft.com/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) och [Ruby](https://azure.github.io/azure-storage-ruby).
+Objekt i Blob storage kan nås från vilken plats som helst i världen via HTTP eller HTTPS. Användare eller klientprogram kan få åtkomst till blobar via URL-adresser, [Azure Storage REST API](/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](/powershell/module/azure.storage), [Azure CLI](/cli/azure/storage) eller ett Azure Storage-klientbibliotek. Det finns lagringsklientbibliotek för flera språk, bland annat [.NET](/dotnet/api/overview/azure/storage), [Java](/java/api/overview/azure/storage), [Node.js](https://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/), [PHP](https://azure.github.io/azure-storage-php/) och [Ruby](https://azure.github.io/azure-storage-ruby).
 
 Mer information om Blob Storage finns i [Introduktion till bloblagring](../blobs/storage-blobs-introduction.md).
 
@@ -113,7 +113,7 @@ Varje begäran till Azure Storage måste vara auktoriserad. Azure Storage stöde
 
 - **Azure Active Directory (Azure AD)-integration för blob-och Queue-data.** Azure Storage stöder autentisering och auktorisering med Azure AD för blob-och Queue Services via rollbaserad åtkomst kontroll i Azure (Azure RBAC). Att auktorisera begär Anden med Azure AD rekommenderas för överlägsen säkerhet och enkel användning. Mer information finns i [bevilja åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
 - **Azure AD-auktorisering över SMB för Azure Files.** Azure Files stöder identitetsbaserade auktorisering över SMB (Server Message Block) via antingen Azure Active Directory Domain Services (Azure AD DS) eller lokalt Active Directory Domain Services (för hands version). Dina domänanslutna virtuella Windows-datorer har åtkomst till Azure-filresurser med Azure AD-autentiseringsuppgifter. Mer information finns i [Översikt över Azure Files Identity-based Authentication-stöd för SMB-åtkomst](../files/storage-files-active-directory-overview.md) och [planera för en Azure Files-distribution](../files/storage-files-planning.md#identity).
-- **Auktorisering med delad nyckel.** Azure Storage Blob-, filer-, kö-och tabell tjänster har stöd för auktorisering med delad nyckel. En klient som använder autentisering med delad nyckel skickar ett huvud till varje begäran som är signerad med lagrings kontots åtkomst nyckel. Mer information finns i [auktorisera med delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Auktorisering med delad nyckel.** Azure Storage Blob-, filer-, kö-och tabell tjänster har stöd för auktorisering med delad nyckel. En klient som använder autentisering med delad nyckel skickar ett huvud till varje begäran som är signerad med lagrings kontots åtkomst nyckel. Mer information finns i [auktorisera med delad nyckel](/rest/api/storageservices/authorize-with-shared-key).
 - **Auktorisering med signaturer för delad åtkomst (SAS).** En signatur för delad åtkomst (SAS) är en sträng som innehåller en säkerhetstoken som kan läggas till i URI: n för en lagrings resurs. Säkerhetstoken kapslar in begränsningar, till exempel behörigheter och åtkomst intervallet. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
 - **Anonym åtkomst till behållare och blobbar.** En behållare och dess blobbar kan vara offentligt tillgängliga. När du anger att en behållare eller BLOB är offentlig, kan vem som helst läsa den anonymt. Ingen autentisering krävs. Mer information finns i [Hantera anonym Läs behörighet till behållare och blobbar](../blobs/storage-manage-access-to-resources.md).
 
@@ -147,10 +147,10 @@ Du kan komma åt resurser i ett lagrings konto på valfritt språk som kan göra
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Referenser till Azure Storage-data-API och -bibliotek
 
-- [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
-- [Azure Storage klient bibliotek för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-- [Azure Storage klient bibliotek för Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Azure Storage klient bibliotek för Node.js](https://docs.microsoft.com/javascript/api/overview/azure/storage-overview)
+- [Azure Storage REST API](/rest/api/storageservices/)
+- [Azure Storage klient bibliotek för .NET](/dotnet/api/overview/azure/storage)
+- [Azure Storage klient bibliotek för Java/Android](/java/api/overview/azure/storage)
+- [Azure Storage klient bibliotek för Node.js](/javascript/api/overview/azure/storage-overview)
 - [Azure Storage klient bibliotek för python](https://github.com/Azure/azure-storage-python)
 - [Azure Storage klient bibliotek för PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage klient bibliotek för ruby](https://github.com/Azure/azure-storage-ruby)
@@ -158,19 +158,19 @@ Du kan komma åt resurser i ett lagrings konto på valfritt språk som kan göra
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Referenser till Azure Storage-hanterings-API och -bibliotek
 
-- [REST-API för Storage Resource Provider](https://docs.microsoft.com/rest/api/storagerp/)
-- [Klientbibliotek för Storage Resource Provider för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/management)
+- [REST-API för Storage Resource Provider](/rest/api/storagerp/)
+- [Klientbibliotek för Storage Resource Provider för .NET](/dotnet/api/overview/azure/storage/management)
 - [REST-API för Service Management för Storage (klassisk)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Referenser till Azure Storage-dataflyttnings-API och -bibliotek
 
-- [REST-API för Storage Import/Export Service](https://docs.microsoft.com/rest/api/storageimportexport/)
+- [REST-API för Storage Import/Export Service](/rest/api/storageimportexport/)
 - [Klientbibliotek för Storage Data Movement för .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Verktyg och hjälpmedel
 
-- [Azure PowerShell-cmdletar för Storage](https://docs.microsoft.com/powershell/module/az.storage)
-- [Azure CLI-cmdletar för Storage](https://docs.microsoft.com/cli/azure/storage)
+- [Azure PowerShell-cmdletar för Storage](/powershell/module/az.storage)
+- [Azure CLI-cmdletar för Storage](/cli/azure/storage)
 - [AzCopy Command-Line-verktyg](https://aka.ms/downloadazcopy)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 - [Azure Resource Manager mallar för Azure Storage](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)

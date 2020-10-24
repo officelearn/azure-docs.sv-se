@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 0affd1660a88421f6df24bc5ef2e00497dae32a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57d319d54d15b72747da029d365137f5b5bb384c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85119278"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489259"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Avancerat skydd för Azure Cosmos DB (för hands version)
 
@@ -26,7 +26,7 @@ Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säk
 > * Avancerat skydd för Azure Cosmos DB är för närvarande endast tillgängligt för SQL-API: et.
 > * Avancerat skydd för Azure Cosmos DB är för närvarande inte tillgängligt i moln regioner i Azure myndigheter och i vår suveräna region.
 
-För en fullständig utredning av säkerhets aviseringar rekommenderar vi att du aktiverar [diagnostikloggning i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), som loggar åtgärder på själva databasen, inklusive CRUD åtgärder på alla dokument, behållare och databaser.
+För en fullständig utredning av säkerhets aviseringar rekommenderar vi att du aktiverar [diagnostikloggning i Azure Cosmos DB](./monitor-cosmos-db.md), som loggar åtgärder på själva databasen, inklusive CRUD åtgärder på alla dokument, behållare och databaser.
 
 ## <a name="threat-types"></a>Hottyper
 
@@ -59,16 +59,16 @@ Du kan konfigurera Avancerat skydd på flera sätt, som beskrivs i följande avs
 
 Använd REST API-kommandon för att skapa, uppdatera eller Hämta inställningen för avancerat skydd för ett bestämt Azure Cosmos DB konto.
 
-* [Avancerat skydd – skapa](https://go.microsoft.com/fwlink/?linkid=2099745)
-* [Avancerat skydd – Hämta](https://go.microsoft.com/fwlink/?linkid=2099643)
+* [Avancerat skydd – skapa](/rest/api/securitycenter/advancedthreatprotection/create)
+* [Avancerat skydd – Hämta](/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Använd följande PowerShell-cmdletar:
 
-* [Aktivera Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
-* [Hämta Avancerat skydd](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
-* [Inaktivera Avancerat skydd](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
+* [Aktivera Advanced Threat Protection](/powershell/module/az.security/enable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Hämta Avancerat skydd](/powershell/module/az.security/get-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
+* [Inaktivera Avancerat skydd](/powershell/module/az.security/disable-azsecurityadvancedthreatprotection?viewFallbackFrom=azps-2.4.0)
 
 ### <a name="arm-template"></a>[ARM-mall](#tab/arm-template)
 
@@ -112,9 +112,9 @@ Ett e-postmeddelande skickas också med aviserings information och rekommenderad
 
 ## <a name="cosmos-db-atp-alerts"></a>Cosmos DB ATP-aviseringar
 
- Om du vill se en lista över de aviseringar som genererats när du övervakar Azure Cosmos DB konton, se avsnittet [Cosmos DB aviseringar](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos) i Azure Security Center-dokumentationen.
+ Om du vill se en lista över de aviseringar som genererats när du övervakar Azure Cosmos DB konton, se avsnittet [Cosmos DB aviseringar](../security-center/alerts-reference.md#alerts-azurecosmos) i Azure Security Center-dokumentationen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om [diagnostisk loggning i Azure Cosmos DB](cosmosdb-monitor-resource-logs.md)
-* Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Läs mer om [Azure Security Center](../security-center/security-center-introduction.md)

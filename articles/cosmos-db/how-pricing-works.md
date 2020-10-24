@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: bb47dde8813f31f4a6acceb696a8b7c7eb0095be
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b7d54dfe2efa82aaa650168c476da03d89fe4527
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281533"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490500"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Prismodell i Azure Cosmos DB
 
@@ -36,7 +36,7 @@ Om du distribuerar ditt Azure Cosmos DB-konto till en icke-myndighets region i U
 
 Azure Cosmos DB erbjuder många alternativ för utvecklare utan kostnad. Dessa alternativ är:
 
-* **Azure Cosmos DB kostnads fri nivå**: Azure Cosmos DB kostnads fri nivå är det enkelt att komma igång, utveckla och testa dina program, eller till och med köra små produktions arbets belastningar utan kostnad. När den kostnads fria nivån har Aktiver ATS för ett konto får du de första 400 RU/s och 5 GB lagrings utrymme i kontot kostnads fritt för kontots livstid. Du kan ha upp till ett konto med en kostnads fri nivå per Azure-prenumeration och måste välja när du skapar kontot. Kom igång genom att [skapa ett nytt konto i Azure Portal med kostnads fri nivå aktive rad](create-cosmosdb-resources-portal.md) eller använda en [arm-mall](manage-sql-with-resource-manager.md#free-tier).
+* **Azure Cosmos DB kostnads fri nivå**: Azure Cosmos DB kostnads fri nivå är det enkelt att komma igång, utveckla och testa dina program, eller till och med köra små produktions arbets belastningar utan kostnad. När den kostnads fria nivån har Aktiver ATS för ett konto får du de första 400 RU/s och 5 GB lagrings utrymme i kontot kostnads fritt för kontots livstid. Du kan ha upp till ett konto med en kostnads fri nivå per Azure-prenumeration och måste välja när du skapar kontot. Kom igång genom att [skapa ett nytt konto i Azure Portal med kostnads fri nivå aktive rad](create-cosmosdb-resources-portal.md) eller använda en [arm-mall](./manage-with-templates.md#free-tier).
 
 * **Kostnads fritt Azure-konto**: Azure erbjuder en [kostnads fri nivå](https://azure.microsoft.com/free/) som ger dig $200 i Azure-krediter under de första 30 dagarna och en begränsad mängd kostnads fria tjänster i 12 månader. Mer information finns i [Kostnadsfritt Azure-konto](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB är en del av ett kostnads fritt Azure-konto. Specifikt för Azure Cosmos DB erbjuder det här kostnads fria kontot 5 GB lagring och 400 RU/s av etablerade data flöden för hela året.
 
@@ -59,7 +59,7 @@ Du kan lära dig mer om hur du optimerar kostnaderna för Azure Cosmos DB resurs
 * Läs mer om hur du [optimerar data flödes kostnaden](optimize-cost-throughput.md)
 * Läs mer om hur du [optimerar lagrings kostnader](optimize-cost-storage.md)
 * Läs mer om hur [du optimerar kostnaden för läsningar och skrivningar](optimize-cost-reads-writes.md)
-* Lär dig mer om hur [du optimerar kostnaden för frågor](optimize-cost-queries.md)
+* Lär dig mer om hur [du optimerar kostnaden för frågor](./optimize-cost-reads-writes.md)
 * Lär dig mer om hur [du optimerar kostnaden för Cosmos-konton med flera regioner](optimize-cost-regions.md)
 * Lär dig mer om [Azure Cosmos DB reserverad kapacitet](cosmos-db-reserved-capacity.md)
 * Lär dig mer om [Azure Cosmos DB emulator](local-emulator.md)

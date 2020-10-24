@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: trbye
-ms.openlocfilehash: dcc7721aec067c4de309e3fdd926245a9d240f0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d95525c7dfecd44758c86903ca4a96c2290df52
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81402518"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487795"
 ---
 # <a name="what-is-conversation-transcription-in-meetings-preview"></a>Vad är en konversations avskrift i möten (förhands granskning)?
 
@@ -34,9 +34,11 @@ Konversations avskrift är en [tal-till-text-](speech-to-text.md) lösning som k
 > [!NOTE]
 > Även om konversations avskrift inte begränsar antalet högtalare i rummet, är det optimerat för 2-10-högtalare per session.
 
-## <a name="use-cases"></a>Användningsfall
+## <a name="get-started"></a>Kom igång
 
-### <a name="inclusive-meetings"></a>Inkluderade möten
+Gå till [snabb](how-to-use-conversation-transcription.md) starten för konversationer i real tid för att komma igång.
+
+## <a name="use-cases"></a>Användningsfall
 
 För att göra möten för alla, till exempel deltagare som är döva och hörselskadade, är det viktigt att du har avskrifter i real tid. Konversations avskrift i real tids läge tar Mötes ljud och avgör vem som säger vad, vilket gör det möjligt för alla Mötes deltagare att följa avskriften och delta i mötet utan fördröjning.
 
@@ -54,6 +56,10 @@ Det här är en översikt på hög nivå över hur konversations avskrift funger
 
 - **Ljud ström för flera kanaler** – information om specifikationer och design finns i [Microsoft Speech Device SDK-mikrofonen](https://aka.ms/cts/microphone). Läs mer eller köp ett utvecklings paket i [Hämta Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
 - **Användar röst exempel** – konversations avskrift kräver användar profiler i förväg i konversationen. Du måste samla in ljud inspelningar från varje användare och sedan skicka inspelningarna till [tjänsten Signature generation](https://aka.ms/cts/signaturegenservice) för att verifiera ljudet och generera användar profiler.
+
+> [!NOTE]
+> Användarens röst exempel är valfria. Utan den här ingången visar avskriften olika högtalare, men visas som "Speaker1", "Speaker2" osv. i stället för att känna igen som förregistrerade föredragna namn.
+
 
 ## <a name="real-time-vs-asynchronous"></a>Real tids vs. Asynchronous
 
@@ -73,9 +79,9 @@ Ljuddata bearbetas Live för att returnera högtalar-ID + avskrift, och dessutom
 
 ## <a name="language-support"></a>Stöd för språk
 
-För närvarande stöder konversations avskriften "en-US" och "zh-CN" i följande regioner: *Central* -och *asienöstra*. Om du behöver ytterligare stöd för nationella inställningar kontaktar du [konversationens Avskrifts funktion](mailto:CTSFeatureCrew@microsoft.com).
+För närvarande stöder konversations avskrifter [alla tal-till-text-språk](language-support.md#speech-to-text) i följande regioner:  `centralus` ,, `eastasia` `eastus` , `westeurope` . Om du behöver ytterligare stöd för nationella inställningar kontaktar du [konversationens Avskrifts funktion](mailto:CTSFeatureCrew@microsoft.com).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skriva över konversationer i real tid](how-to-use-conversation-transcription-service.md)
+> [Skriva över konversationer i real tid](how-to-use-conversation-transcription.md)

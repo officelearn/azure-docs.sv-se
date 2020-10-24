@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 0b99b9034dc382552d292cef95a3790bb27eba89
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331761"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485757"
 ---
 # <a name="secure-azure-digital-twins"></a>Skydda digitala Azure-dubbla
 
@@ -48,11 +48,13 @@ Med hanterade identiteter hanterar Azure-plattformen den här körnings identite
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Auktorisering: Azure-roller för Azure Digitals dubbla
 
 Azure tillhandahåller de här inbyggda Azure-rollerna för att auktorisera åtkomst till en Azure Digital-resurs med dubbla resurser:
-* *Azure Digitals flätat-ägare (för hands version)* – Använd den här rollen för att ge fullständig åtkomst till resurser med Azure Digitals.
-* *Azure Digitals flätad läsare (för hands version)* – Använd den här rollen för att ge skrivskyddad åtkomst till Azure Digitals-resurser.
+* *Azure Digitals sammanflätade data ägare* – Använd den här rollen för att ge fullständig åtkomst över Azures digitala resurser.
+* *Azure Digitals data läsare* – Använd den här rollen för att ge skrivskyddad åtkomst till Azure Digitals-resurser.
 
-> [!TIP]
-> *Azure Digitals (för hands version)* -rollen stöder nu även webb relationer.
+>[!NOTE]
+> De här rollerna har nyligen bytt namn från sina tidigare namn i för hands versionen:
+> * Azure *Digitals dubbla data ägare* hade tidigare *Azure Digitals-ägare (för hands version)*.
+> * *Azure Digitals data läsare* tidigare var *Azure Digitals-läsare (för hands version)*.
 
 Mer information om hur inbyggda roller definieras finns i [*förstå roll definitioner*](../role-based-access-control/role-definitions.md) i Azure RBAC-dokumentationen. Information om hur du skapar anpassade Azure-roller finns i [*Azure-anpassade roller*](../role-based-access-control/custom-roles.md).
 

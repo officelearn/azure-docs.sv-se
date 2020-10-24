@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: c5a0ecfa8d654024c0850ad9a8b1e1246f3ee21a
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 377f8eba179253ca6187b10a22970d0eadcda2f6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427154"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489837"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Skapa och hantera VNet-tjänstens slut punkter och VNet-regler i Azure Database for PostgreSQL-enskild server med hjälp av Azure Portal
 Virtual Network (VNet) tjänsternas slut punkter och regler utökar det privata adress utrymmet för en Virtual Network till Azure Database for PostgreSQL-servern. En översikt över Azure Database for PostgreSQL VNet-tjänstens slut punkter, inklusive begränsningar, finns i [Azure Database for PostgreSQL serverns VNet-slutpunkter](concepts-data-access-and-security-vnet.md). VNet-tjänstens slut punkter är tillgängliga i alla regioner som stöds för Azure Database for PostgreSQL.
@@ -38,7 +38,7 @@ Virtual Network (VNet) tjänsternas slut punkter och regler utökar det privata 
 
    :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Azure Portal på anslutnings säkerhet" för de undernät som läggs till. Den här behörigheten ingår som standard i de inbyggda tjänstadministratörsrollerna och kan ändras genom att skapa anpassade roller.
     
-    Lär dig mer om [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) och att tilldela specifika behörigheter till [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+    Lär dig mer om [inbyggda roller](../role-based-access-control/built-in-roles.md) och att tilldela specifika behörigheter till [anpassade roller](../role-based-access-control/custom-roles.md).
     
     VNet och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer. Om VNet-och Azure-tjänstens resurser finns i olika prenumerationer bör resurserna vara under samma Active Directory-klient (AD). Se till att båda prenumerationerna har **Microsoft. SQL** -Resurshanterarens registrerad. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
 

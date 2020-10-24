@@ -8,21 +8,21 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/01/2019
-ms.openlocfilehash: ffe9167bb155826eea3a1e7994469d378e5925fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 662b85bb2b928cbbcfb1b88adecb2c125c9ae5df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260499"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486624"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB Cassandra-API:et från Spark
 
 Den här artikeln är en serie artiklar om Azure Cosmos DB API för Cassandra-integrering från Spark. Artiklarna behandlar anslutning, DDL-åtgärder (Data Definition Language), DML-åtgärder (Basic data Manipulation Language) och avancerad Azure Cosmos DB API för Cassandra-integrering från Spark. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * [Etablera ett Azure Cosmos DB API för Cassandra konto.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Tillhandahåll ditt val av Spark-miljö [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Andra].
+* Tillhandahåll ditt val av Spark-miljö [[Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal)  |  [Azure HDInsight-Spark](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) | Andra].
 
 ## <a name="dependencies-for-connectivity"></a>Beroenden för anslutning
 * **Spark-anslutning för Cassandra:** Spark-anslutningen används för att ansluta till Azure Cosmos DB API för Cassandra.  Identifiera och Använd den version av anslutningen som finns i [maven Central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibel med Spark-och Scala-versionerna av Spark-miljön.

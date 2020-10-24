@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d801499360bd05cee4c01aefd873337303017f3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 682a580d15af44ca69d9cb12a5349beaca2d28b2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427512"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489922"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-postgresql"></a>Ansluta med hanterad identitet till Azure Database for PostgreSQL
 
@@ -24,7 +24,7 @@ Lär dig att:
 - Hämta en åtkomsttoken med den virtuella dator identiteten och Använd den för att fråga en Azure Database for PostgreSQL Server
 - Implementera hämtning av token i ett exempel program i C#
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Om du inte känner till funktionen för hanterade identiteter för Azure-resurser kan du läsa igenom den här [översikten](../../articles/active-directory/managed-identities-azure-resources/overview.md). Om du inte har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 - För att kunna utföra den nödvändiga resurs skapande och roll hantering måste ditt konto ha behörigheten "ägare" i lämpligt omfång (din prenumeration eller resurs grupp). Om du behöver hjälp med roll tilldelning kan du läsa mer i [använda rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att hantera åtkomst till dina Azure-prenumerations resurser](../../articles/role-based-access-control/role-assignments-portal.md).
@@ -34,13 +34,13 @@ Lär dig att:
 
 ## <a name="creating-a-user-assigned-managed-identity-for-your-vm"></a>Skapa en användardefinierad hanterad identitet för din virtuella dator
 
-Skapa en identitet i din prenumeration med kommandot [AZ Identity Create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) . Du kan använda samma resurs grupp som den virtuella datorn körs i, eller en annan.
+Skapa en identitet i din prenumeration med kommandot [AZ Identity Create](/cli/azure/identity#az-identity-create) . Du kan använda samma resurs grupp som den virtuella datorn körs i, eller en annan.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myManagedIdentity
 ```
 
-Om du vill konfigurera identiteten i följande steg, använder du kommandot [AZ Identity show](/cli/azure/identity?view=azure-cli-latest#az-identity-show) för att lagra identitetens resurs-ID och klient-ID i variabler.
+Om du vill konfigurera identiteten i följande steg, använder du kommandot [AZ Identity show](/cli/azure/identity#az-identity-show) för att lagra identitetens resurs-ID och klient-ID i variabler.
 
 ```azurecli
 # Get resource ID of the user-assigned identity
@@ -50,7 +50,7 @@ resourceID=$(az identity show --resource-group myResourceGroup --name myManagedI
 clientID=$(az identity show --resource-group myResourceGroup --name myManagedIdentity --query clientId --output tsv)
 ```
 
-Vi kan nu tilldela den användarspecifika identiteten till den virtuella datorn med kommandot [AZ VM Identity Assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) :
+Vi kan nu tilldela den användarspecifika identiteten till den virtuella datorn med kommandot [AZ VM Identity Assign](/cli/azure/vm/identity#az-vm-identity-assign) :
 
 ```azurecli
 az vm identity assign --resource-group myResourceGroup --name myVM --identities $resourceID

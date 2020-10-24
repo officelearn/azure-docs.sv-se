@@ -5,28 +5,30 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
+ms.openlocfilehash: 6cb30b96f9c2094e6d690b565edf487d6508d520
 ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479583"
+ms.locfileid: "92487124"
 ---
 1. Från [Azure Portal](https://portal.azure.com), i **Sök efter resurser, tjänster och dokument (G +/)** typ **virtuell nätverksgateway**. Leta upp en **virtuell nätverksgateway** i Sök resultaten och markera den.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Sök fält" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/search.png" alt-text="Sök fält" lightbox="./media/vpn-gateway-add-gw-rm-portal-empty/search-expand.png":::
 
 1. På sidan **virtuell nätverksgateway** väljer du **+ Lägg till**. Då öppnas sidan **Skapa virtuell nätverksgateway**.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="Sök fält":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/add.png" alt-text="Sök fält":::
 1. På fliken **grundläggande** fyller du i värdena för din virtuella nätverksgateway.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Sök fält":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/gateway.png" alt-text="Sök fält":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Sök fält":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-empty/gateway-vnet.png" alt-text="Sök fält":::
+
+   **Projektinformation**
 
    * **Prenumeration**: Välj den prenumeration som du vill använda i list rutan.
    * **Resurs grupp**: den här inställningen fylls i när du väljer ditt virtuella nätverk på den här sidan.

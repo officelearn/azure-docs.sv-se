@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: ea7aa7758b5ccf7be02fa8d450ce710dcbef86a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4f390e6d362895d58be0e8695e72d058a021b34
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087392"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485553"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Använda Apache Kafka på HDInsight med Azure IoT Hub
 
@@ -29,7 +29,7 @@ I följande diagram visas data flödet mellan Azure IoT Hub och Kafka i HDInsigh
 
 Mer information om Connect API finns i [https://kafka.apache.org/documentation/#connect](https://kafka.apache.org/documentation/#connect) .
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Kafka kluster i HDInsight. Mer information finns i dokumentet [Snabbstart för Kafka på HDInsight](apache-kafka-get-started.md).
 
@@ -123,7 +123,7 @@ Från SSH-anslutningen till Edge-noden använder du följande steg för att konf
     |`bootstrap.servers=localhost:9092`|Ersätt `localhost:9092` värdet med Service Broker-värdarna från föregående steg|Konfigurerar den fristående konfigurationen för Edge-noden för att hitta Kafka-utjämnare.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Med den här ändringen kan du testa att använda konsol tillverkaren som ingår i Kafka. Du kan behöva olika konverterare för andra producenter och konsumenter. Information om hur du använder andra konverterings värden finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Samma som ovan.|
-    |E.t.|`consumer.max.poll.records=10`|Lägg till i slutet av filen. Den här ändringen är att förhindra timeout i mottagar anslutningen genom att begränsa den till 10 poster i taget. Mer information finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
+    |Ej tillämpligt|`consumer.max.poll.records=10`|Lägg till i slutet av filen. Den här ändringen är att förhindra timeout i mottagar anslutningen genom att begränsa den till 10 poster i taget. Mer information finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
 1. Om du vill spara filen använder du __CTRL + X__, __Y__och __anger__sedan.
 
@@ -162,7 +162,7 @@ Använd följande steg för att hämta information om IoT Hub som används av an
         > [!IMPORTANT]  
         > Slut punkt svärdet från portalen kan innehålla extra text som inte behövs i det här exemplet. Extrahera texten som matchar det här mönstret `sb://<randomnamespace>.servicebus.windows.net/` .
 
-   * Använd följande kommando __från [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__:
+   * Använd följande kommando __från [Azure CLI](/cli/azure/get-started-with-azure-cli)__:
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -184,7 +184,7 @@ Använd följande steg för att hämta information om IoT Hub som används av an
         2. Kopiera värdet för __primär nyckel__ .
         3. Kopiera __anslutnings strängen – primär nyckel__ värde.
 
-    * Använd följande kommando __från [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__:
+    * Använd följande kommando __från [Azure CLI](/cli/azure/get-started-with-azure-cli)__:
 
         1. Använd följande kommando för att hämta värdet för primär nyckel:
 

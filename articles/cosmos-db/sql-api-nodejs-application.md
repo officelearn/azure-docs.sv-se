@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb8d1cd2e3b481969059883919b9dc888955307e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322707"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478124"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Bygg en Node.js-webbapp med hjälp av Java Script SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
 
@@ -22,7 +22,7 @@ ms.locfileid: "91322707"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -38,7 +38,7 @@ Den här självstudien omfattar följande uppgifter:
 > * Ansluta programmet till Azure Cosmos DB
 > * Köra och distribuera programmet till Azure
 
-## <a name="prerequisites"></a><a name="_Toc395783176"></a>Krav
+## <a name="prerequisites"></a><a name="_Toc395783176"></a>Förutsättningar
 
 Innan du följer anvisningarna i den här artikeln bör du se till att du har följande resurser:
 
@@ -487,4 +487,3 @@ Du kan ta bort resursgruppen, Azure Cosmos DB-kontot och alla relaterade resurse
 [Node.js]: https://nodejs.org/
 [Git]: https://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-todo-app
-

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 20bedf7e48b2e40cd67e33ea024a3ae0a9d305a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707548"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489718"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Skapa och hantera Läs repliker från Azure CLI REST API
 
@@ -34,7 +34,7 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installera Azure CLI 2.0](/cli/azure/install-azure-cli)
 - En [Azure Database for postgresql-server](quickstart-create-server-up-azure-cli.md) som ska vara den primära servern.
 
 
@@ -60,7 +60,7 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
 ### <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 
-Kommandot [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) kräver följande parametrar:
+Kommandot [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) kräver följande parametrar:
 
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
@@ -91,14 +91,14 @@ Om du inte har angett `azure.replication_support` parametern till **replik** på
 > Innan en primär server inställning uppdateras till ett nytt värde uppdaterar du replik inställningen till ett lika eller högre värde. Den här åtgärden hjälper repliken att hålla sig uppdaterad med alla ändringar som görs i huvud repliken.
 
 ### <a name="list-replicas"></a>Lista repliker
-Du kan visa listan över repliker av en primär server genom att använda kommandot [AZ postgres Server Replica List](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) .
+Du kan visa listan över repliker av en primär server genom att använda kommandot [AZ postgres Server Replica List](/cli/azure/postgres/server/replica#az-postgres-server-replica-list) .
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
-Du kan stoppa replikeringen mellan en primär server och en Läs replik med hjälp av kommandot [AZ postgres Server Replica Stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) .
+Du kan stoppa replikeringen mellan en primär server och en Läs replik med hjälp av kommandot [AZ postgres Server Replica Stop](/cli/azure/postgres/server/replica#az-postgres-server-replica-stop) .
 
 När du har stoppat replikeringen till en primär server och en Läs replik kan du inte återställa den. Läs repliken blir en fristående server som stöder både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
 
@@ -107,7 +107,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ### <a name="delete-a-primary-or-replica-server"></a>Ta bort en primär server eller replik Server
-Om du vill ta bort en primär server eller replik Server använder du kommandot [AZ postgres Server Delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) .
+Om du vill ta bort en primär server eller replik Server använder du kommandot [AZ postgres Server Delete](/cli/azure/postgres/server#az-postgres-server-delete) .
 
 När du tar bort en primär server stoppas replikeringen till alla Läs repliker. De skrivskyddade replikerna blir fristående servrar som nu stöder både läsning och skrivning.
 

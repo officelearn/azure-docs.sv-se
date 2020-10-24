@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 828be8e790803e53b0434a71fb32a29a4a0c17bc
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f8aa38cf5d1667e2413f30025b554e379bd76b07
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428069"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478583"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Azures säkerhets bas linje för Azure Database for PostgreSQL-enskild server
 
@@ -134,7 +134,7 @@ Obs: Azure Database for PostgreSQL använder service tag gen "Microsoft. SQL".
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy exempel för nätverk](/azure/governance/policy/samples)
+- [Azure Policy exempel för nätverk](../governance/policy/samples/index.md)
 
 - [Så här skapar du en Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -150,7 +150,7 @@ Använd någon av de inbyggda Azure Policy definitionerna som är relaterade til
 
 Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar.
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -160,7 +160,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 **Vägledning**: Använd Azure aktivitets logg för att övervaka konfigurationer av nätverks resurser och identifiera ändringar för nätverks resurser som är relaterade till dina Azure Database for PostgreSQL-instanser. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker.
 
-- [Visa och hämta Azure aktivitets logg händelser](/azure/azure-monitor/platform/activity-log-view)
+- [Visa och hämta Azure aktivitets logg händelser](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [Så här skapar du aviseringar i Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -202,7 +202,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Konfigurera och få åtkomst till gransknings loggar för Azure Database for PostgreSQL](concepts-audit.md)
 
-- [Konfigurera diagnostikinställningar för Azure aktivitets logg](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Konfigurera diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -222,7 +222,7 @@ Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utf�
 
 - [Ange logg lagrings parametrar för Log Analytics arbets ytor](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Lagra resurs loggar i ett Azure Storage konto](/azure/azure-monitor/platform/resource-logs-collect-storage)
+- [Lagra resurs loggar i ett Azure Storage konto](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -254,7 +254,7 @@ Dessutom kan du aktivera server loggar och diagnostiska inställningar för Post
 
 - [Konfigurera och få åtkomst till gransknings loggar för Azure Database for PostgreSQL](concepts-audit.md)
 
-- [Konfigurera diagnostikinställningar för Azure aktivitets logg](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Konfigurera diagnostikinställningar för Azure aktivitets logg](../azure-monitor/platform/activity-log.md)
 
 - [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -386,7 +386,7 @@ Använd identifieringar av Azure AD-risker för att visa aviseringar och rapport
 
 - [Distribuera Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Förstå identifieringar av Azure AD-risker](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Förstå identifieringar av Azure AD-risker](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -420,7 +420,7 @@ Autentiseringsuppgifter för Azure AD kan också användas för administration p
 
 **Vägledning**: granska Azure Active Directory loggar för att identifiera inaktuella konton som kan omfatta de med Azure Database for PostgreSQL administrativa roller. Använd dessutom Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program som kan användas för att få åtkomst till Azure Database for PostgreSQL och roll tilldelningar. Användar åtkomsten bör granskas regelbundet, till exempel var 90: e dag och se till att endast rätt användare har fortsatt åtkomst.
 
-- [Förstå Azure AD repor ting](/azure/active-directory/reports-monitoring/)
+- [Förstå Azure AD repor ting](../active-directory/reports-monitoring/index.yml)
 
 - [Så här använder du granskningar av Azure Identity Access](../active-directory/governance/access-reviews-overview.md)
 
@@ -438,7 +438,7 @@ Autentiseringsuppgifter för Azure AD kan också användas för administration p
 
 - [Konfigurera och få åtkomst till gransknings loggar för Azure Database for PostgreSQL](concepts-audit.md)
 
-- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -456,7 +456,7 @@ Du kan också mata in loggar i Azure Sentinel för ytterligare undersökning.
 
 - [Översikt över Azure AD Identity Protection](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Visa Azure AD-riskfyllda inloggningar](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Visa Azure AD-riskfyllda inloggningar](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Publicera Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -482,7 +482,7 @@ Du kan också mata in loggar i Azure Sentinel för ytterligare undersökning.
 
 **Vägledning**: Använd taggar för att spåra Azure Database for PostgreSQL instanser eller relaterade resurser som lagrar eller bearbetar känslig information.
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -492,9 +492,9 @@ Du kan också mata in loggar i Azure Sentinel för ytterligare undersökning.
 
 **Vägledning**: implementera separata prenumerationer och/eller hanterings grupper för utveckling, testning och produktion. Använd en kombination av privata länkar, tjänst slut punkter och/eller brand Väggs regler för att isolera och begränsa nätverks åtkomsten till dina Azure Database for PostgreSQL-instanser.
 
-- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
 - [Konfigurera en privat länk för Azure Database for PostgreSQL](howto-configure-privatelink-portal.md)
 
@@ -654,7 +654,7 @@ Microsoft utför sårbarhets hantering på de underliggande system som har stöd
 
 - [Så här skapar du frågor med Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
 - [Förstå Azure RBAC](../role-based-access-control/overview.md)
 
@@ -666,7 +666,7 @@ Microsoft utför sårbarhets hantering på de underliggande system som har stöd
 
 **Vägledning**: Använd taggar för att Azure Database for PostgreSQL instanser och andra relaterade resurser som ger metadata till att logiskt organisera dem i en taxonomi.
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -676,11 +676,11 @@ Microsoft utför sårbarhets hantering på de underliggande system som har stöd
 
 **Vägledning**: Använd taggning, hanterings grupper och separata prenumerationer, vid behov, för att ordna och spåra Azure Database for PostgreSQL instanser och relaterade resurser. Stäm av inventering regelbundet och se till att obehöriga resurser tas bort från prenumerationen inom rimlig tid.
 
-- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](../cost-management-billing/manage/create-subscription.md)
 
-- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](../governance/management-groups/create-management-group-portal.md)
 
-- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -746,7 +746,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Så här nekar du en speciell resurs typ med Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -798,7 +798,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 - Logg anslutningar ska vara aktiverade för PostgreSQL-databas servrar
 
-- [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -838,9 +838,9 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning**: om du använder anpassade Azure policys definitioner för dina Azure Database for PostgreSQL-instanser och relaterade resurser använder du Azure-databaser för att lagra och hantera din kod på ett säkert sätt.
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Dokumentation om Azure databaser](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Dokumentation om Azure databaser](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -898,7 +898,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 - [Så här skapar du en Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [Så här ger Key Vault autentisering med en hanterad identitet](/azure/key-vault/general/managed-identity)
+- [Så här ger Key Vault autentisering med en hanterad identitet](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1106,5 +1106,5 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](../security/benchmarks/overview.md)
+- Läs mer om [Azures säkerhets bas linjer](../security/benchmarks/security-baselines-overview.md)

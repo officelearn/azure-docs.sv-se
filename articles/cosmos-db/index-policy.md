@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: b525f3299420f81670c0aea9872ac5fdef00be97
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277806"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489242"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB stöder två indexerings lägen:
 
 Indexerings principen är som standard inställd på `automatic` . Den uppnås genom att ställa in `automatic` egenskapen i indexerings principen på `true` . Genom att ange den här egenskapen kan `true` Azure-CosmosDB automatiskt indexera dokument när de skrivs.
 
-## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Inklusive och exklusive egenskaps Sök vägar
+## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a>Inklusive och exklusive egenskaps Sök vägar
 
 En anpassad indexerings princip kan ange egenskaps Sök vägar som uttryckligen tas med eller undantas från indexering. Genom att optimera antalet sökvägar som indexeras kan du avsevärt minska svars tiden och RU-avgiften för Skriv åtgärder. Dessa sökvägar definieras enligt [metoden som beskrivs i avsnittet indexerings översikt](index-overview.md#from-trees-to-property-paths) med följande tillägg:
 

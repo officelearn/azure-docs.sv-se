@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 6978855e9b32a3842e76d02ef543d86cf0673019
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf841da85dc929366991d6aed8f3d400ab3b31cc
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85206656"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489650"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Metod tips för Synapse SQL-pool i Azure Synapse Analytics (tidigare SQL DW)
 
@@ -64,7 +64,7 @@ Se även [Infoga](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-a
 
 SQL-poolen stöder inläsning och export av data via flera verktyg, inklusive Azure Data Factory, PolyBase och BCP.  För små datamängder där prestanda inte är viktigt räcker alla verktygen för dina behov.  Om du däremot läser in eller exporterar stora mängder data eller om snabba prestanda krävs är PolyBase det bästa valet.  
 
-PolyBase är utformat för att dra nytta av arkitekturen för minnes trycks-(massiv parallell bearbetning) och kommer att läsa in och exportera data storlekarna snabbare än andra verktyg.  PolyBase-inläsningar kan utföras med hjälp av CTAS eller INSERT INTO.  
+PolyBase är utformat för att utnyttja systemets distribuerade natur och kommer att läsa in och exportera data storlekarna snabbare än andra verktyg.  PolyBase-inläsningar kan utföras med hjälp av CTAS eller INSERT INTO.   
 
 > [!TIP]
 > CTAS minimerar transaktionsloggningen och är det snabbaste sättet att läsa in data.

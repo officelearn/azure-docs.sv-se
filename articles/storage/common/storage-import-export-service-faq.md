@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e50502c8c3e37c5d48359079e2e72c13feea4a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399048"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487882"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure import/export-tjänsten: vanliga frågor och svar
 
@@ -132,7 +132,7 @@ Nej. Alla enheter är krypterade med BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Hur kan jag komma åt data som importeras av den här tjänsten?
 
-Använd Azure Portal eller [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) för att få åtkomst till data under ditt Azure Storage-konto.  
+Använd Azure Portal eller [Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) för att få åtkomst till data under ditt Azure Storage-konto.  
 
 ### <a name="after-the-import-is-complete-what-does-my-data-look-like-in-the-storage-account-is-my-directory-hierarchy-preserved"></a>När importen är klar ser mina data ut som i lagrings kontot? Är min katalog-hierarki bevarad?
 
@@ -144,7 +144,7 @@ Väggen. När du förbereder enheten kan du ange om målfiler ska skrivas över 
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>Är WAImportExport-verktyget kompatibelt med 32-bitars operativ system?
 
-Nej. WAImportExport-verktyget är bara kompatibelt med 64-bitars Windows-operativsystem. En fullständig lista över operativ system som stöds finns i [operativ system som stöds](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
+Nej. WAImportExport-verktyget är bara kompatibelt med 64-bitars Windows-operativsystem. En fullständig lista över operativ system som stöds finns i [operativ system som stöds](/azure/storage/common/storage-import-export-requirements).
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Vad är den största Block Blob-och sid-BLOB-storlek som stöds av Azure import/export?
 

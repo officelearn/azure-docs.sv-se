@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: dee5a56f309dab8f09a598219f6302c88f4308e7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d3e7eca546adbcac8af882ff4cd5b09d3d643d4c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370720"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489276"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
 
@@ -225,7 +225,7 @@ Du kan bygga en Synapse SQL Server-databas och Visa vyer över Synapse-länken f
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
-[Azure Resource Manager-mallen](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) skapar en Synapse-länk aktive rad Azure Cosmos DB konto för SQL-API. Den här mallen skapar ett huvud-API-konto i en region med en behållare som kon figurer ATS med analytiskt TTL aktiverat och ett alternativ för att använda manuellt eller autoskalning av data flöde. Om du vill distribuera den här mallen klickar **du på distribuera till Azure** på sidan viktigt.
+[Azure Resource Manager-mallen](./manage-with-templates.md#azure-cosmos-account-with-analytical-store) skapar en Synapse-länk aktive rad Azure Cosmos DB konto för SQL-API. Den här mallen skapar ett huvud-API-konto i en region med en behållare som kon figurer ATS med analytiskt TTL aktiverat och ett alternativ för att använda manuellt eller autoskalning av data flöde. Om du vill distribuera den här mallen klickar **du på distribuera till Azure** på sidan viktigt.
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Komma igång med Azure Synpase Link-samples
 
@@ -237,7 +237,7 @@ Mer information finns i följande dokument:
 
 * [Azure Synapse-länk för Azure Cosmos DB.](synapse-link.md)
 
-* [Översikt över Azure Cosmos DB analys lager.](analytical-store-introduction.md)
+* [Översikt över Azure Cosmos DB-analysarkiv.](analytical-store-introduction.md)
 
 * [Vanliga frågor om Synapse-länk för Azure Cosmos DB.](synapse-link-frequently-asked-questions.md)
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.openlocfilehash: 6e768c1e938006afd62fc097a80f8ebc3ea0f3e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a4af81c6a216119ae2e1b0221c06ddc349452f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115483"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478141"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå medgivande i Azure AD-program
 
@@ -65,13 +65,13 @@ Här är de medgivande upplevelser som en användare kan se i vanliga godkännan
     
     2. Användarna kommer att se den traditionella medgivande frågan.
 
-        ![Medgivande-prompt för scenario 1b](./media/application-consent-experience/consent_prompt_1b.png)
+        ![Skärm bild som visar den traditionella medgivande frågan.](./media/application-consent-experience/consent_prompt_1b.png)
 
 2. Personer som har åtkomst till en app som kräver minst en behörighet som ligger utanför auktoritets omfånget.
     1. Administratörer ser samma prompt som 1. jag visas ovan.
     2. Användarna kommer att blockeras från att bevilja programmet, och de uppmanas att be dennes administratör om åtkomst till appen. 
                 
-        ![Medgivande-prompt för scenario 1b](./media/application-consent-experience/consent_prompt_2b.png)
+        ![Skärm bild av medgivande meddelandet som uppmanar användaren att be en administratör om åtkomst till appen.](./media/application-consent-experience/consent_prompt_2b.png)
 
 3. Individer som navigerar till eller dirigeras till det administrativa godkännande flödet.
     1. Administratörs användare ser frågan om administrativt medgivande. Rubriken och behörighets beskrivningarna som har ändrats i den här prompten. ändringarna markerar det faktum att den här varningen ger appen åtkomst till begärda data för hela klient organisationens räkning.

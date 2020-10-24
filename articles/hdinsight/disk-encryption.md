@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 97d899d73359cc45daf88940b815ed262c3b4766
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89290845"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487321"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Azure HDInsight Double Encryption för vilande data
 
@@ -36,7 +36,7 @@ De här typerna sammanfattas i följande tabell.
 |Kluster typ |OS-disk (hanterad disk) |Data disk (hanterad disk) |Temporär data disk (lokal SSD) |
 |---|---|---|---|
 |Kafka, HBase med accelererade skrivningar|LAYER1: [SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) som standard|LAYER1: [SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) som standard, layer2: Valfri kryptering i vila med CMK|LAYER1: Valfri kryptering på värden som använder PMK, layer2: Valfri kryptering i vila med CMK|
-|Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|LAYER1: [SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) som standard|E.t.|LAYER1: Valfri kryptering på värden som använder PMK, layer2: Valfri kryptering i vila med CMK|
+|Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|LAYER1: [SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) som standard|Ej tillämpligt|LAYER1: Valfri kryptering på värden som använder PMK, layer2: Valfri kryptering i vila med CMK|
 
 ## <a name="encryption-at-rest-using-customer-managed-keys"></a>Kryptering i vila med Kundhanterade nycklar
 
@@ -119,15 +119,15 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
 Nu är du redo att skapa ett nytt HDInsight-kluster. Kundhanterade nycklar kan bara tillämpas på nya kluster när klustret skapas. Det går inte att ta bort kryptering från kund hanterade nyckel kluster och Kundhanterade nycklar kan inte läggas till i befintliga kluster.
 
-#### <a name="using-the-azure-portal"></a>Använda Azure Portal
+#### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
-Ange den fullständiga **nyckel identifieraren**, inklusive nyckel versionen, när klustret skapas. Exempelvis `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
+Ange den fullständiga **nyckel identifieraren**, inklusive nyckel versionen, när klustret skapas. Till exempel `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
 
 ![Skapa nytt kluster](./media/disk-encryption/create-cluster-portal.png)
 
 #### <a name="using-azure-cli"></a>Använda Azure CLI
 
-I följande exempel visas hur du använder Azure CLI för att skapa ett nytt Apache Spark kluster med disk kryptering aktiverat. Mer information finns i [Azure CLI AZ HDInsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+I följande exempel visas hur du använder Azure CLI för att skapa ett nytt Apache Spark kluster med disk kryptering aktiverat. Mer information finns i [Azure CLI AZ HDInsight Create](/cli/azure/hdinsight#az-hdinsight-create).
 
 ```azurecli
 az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
@@ -357,7 +357,7 @@ Innehållet i resurs hanterings mal len `azuredeploy.json` :
 
 Det kan finnas scenarier där du kanske vill ändra de krypterings nycklar som används av HDInsight-klustret när det har skapats. Detta kan enkelt ske via portalen. För den här åtgärden måste klustret ha åtkomst till både den aktuella nyckeln och den avsedda nya nyckeln, annars går det inte att rotera nyckeln.
 
-#### <a name="using-the-azure-portal"></a>Använda Azure Portal
+#### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
 Om du vill rotera nyckeln behöver du URI för bas nyckel valvet. När du har gjort det går du till avsnittet HDInsight-kluster egenskaper i portalen och klickar på **ändra nyckel** under **URL för disk krypterings nyckel**. Ange den nya nyckel-URL: en och skicka för att rotera nyckeln.
 
@@ -365,7 +365,7 @@ Om du vill rotera nyckeln behöver du URI för bas nyckel valvet. När du har gj
 
 #### <a name="using-azure-cli"></a>Använda Azure CLI
 
-I följande exempel visas hur du roterar disk krypterings nyckeln för ett befintligt HDInsight-kluster. Mer information finns i [Azure CLI AZ HDInsight rotation-Disk-Encryption-Key](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-rotate-disk-encryption-key).
+I följande exempel visas hur du roterar disk krypterings nyckeln för ett befintligt HDInsight-kluster. Mer information finns i [Azure CLI AZ HDInsight rotation-Disk-Encryption-Key](/cli/azure/hdinsight#az-hdinsight-rotate-disk-encryption-key).
 
 ```azurecli
 az hdinsight rotate-disk-encryption-key \
@@ -398,7 +398,7 @@ Om klustret förlorar åtkomst till nyckeln, visas varningar i Apache Ambari-por
 
 **Hur kan jag återställa klustret om nycklarna tas bort?**
 
-Eftersom enbart "mjuk borttagning"-aktiverade nycklar stöds, om nycklarna återställs i nyckel valvet, bör klustret återfå åtkomst till nycklarna. Om du vill återställa en Azure Key Vault nyckel, se [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) eller [AZ-Key Vault-Key-Recover](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-recover).
+Eftersom enbart "mjuk borttagning"-aktiverade nycklar stöds, om nycklarna återställs i nyckel valvet, bör klustret återfå åtkomst till nycklarna. Om du vill återställa en Azure Key Vault nyckel, se [Undo-AzKeyVaultKeyRemoval](/powershell/module/az.keyvault/Undo-AzKeyVaultKeyRemoval) eller [AZ-Key Vault-Key-Recover](/cli/azure/keyvault/key#az-keyvault-key-recover).
 
 
 **Kommer de nya noderna att stödja Kundhanterade nycklar sömlöst om ett kluster skalas upp?**

@@ -8,17 +8,17 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 293c5e6c760a7b731548133414190bb431c813eb
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4bb65732a1f2667ded017077921f151e740e2c1a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427190"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489888"
 ---
 # <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>Skapa och hantera VNet-tjänstens slut punkter för Azure Database for PostgreSQL-enskild server med Azure CLI
 Virtual Network (VNet) tjänsternas slut punkter och regler utökar det privata adress utrymmet för en Virtual Network till Azure Database for PostgreSQL-servern. Med hjälp av ett bekvämt kommando rads gränssnitt (CLI) för kommando tolken kan du skapa, uppdatera, ta bort, lista och Visa VNet-tjänstens slut punkter och regler för att hantera servern. En översikt över Azure Database for PostgreSQL VNet-tjänstens slut punkter, inklusive begränsningar, finns i [Azure Database for PostgreSQL serverns VNet-slutpunkter](concepts-data-access-and-security-vnet.md). VNet-tjänstens slut punkter är tillgängliga i alla regioner som stöds för Azure Database for PostgreSQL.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom den här instruktions guiden behöver du:
 - Installera [Azure CLI](/cli/azure/install-azure-cli) eller Använd Azure Cloud Shell i webbläsaren.
 - En [Azure Database for postgresql server och databas](quickstart-create-server-database-azure-cli.md).
@@ -29,7 +29,7 @@ För att gå igenom den här instruktions guiden behöver du:
 
 
 ## <a name="configure-vnet-service-endpoints-for-azure-database-for-postgresql"></a>Konfigurera VNet-tjänstens slut punkter för Azure Database for PostgreSQL
-[AZ Network VNet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) -kommandon används för att konfigurera virtuella nätverk.
+[AZ Network VNet](/cli/azure/network/vnet) -kommandon används för att konfigurera virtuella nätverk.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -37,12 +37,12 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). 
 
-Om du kör CLI lokalt, måste du logga in på ditt konto med hjälp av kommandot [az login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest). Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
+Om du kör CLI lokalt, måste du logga in på ditt konto med hjälp av kommandot [az login](/cli/azure/authenticate-azure-cli). Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
 ```azurecli-interactive
 az login
 ```
 
-Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Ersätt egenskapen **ID** från **az login**-utdata för din prenumeration i platshållaren för prenumerations-ID.
+Om du har flera prenumerationer ska du välja lämplig prenumeration där resursen ska debiteras. Välj det specifika prenumerations-ID:t under ditt konto med hjälp av kommandot [az account set](/cli/azure/account#az-account-set). Ersätt egenskapen **ID** från **az login**-utdata för din prenumeration i platshållaren för prenumerations-ID.
 
 - Kontot måste ha nödvändiga behörigheter för att skapa ett virtuellt nätverk och tjänstslutpunkten.
 
@@ -50,7 +50,7 @@ Tjänst slut punkter kan konfigureras på virtuella nätverk oberoende av en anv
 
 För att skydda Azure-tjänstens resurser till ett VNet måste användaren ha behörighet till "Microsoft. Network/virtualNetworks/subnets/joinViaServiceEndpoint/" för de undernät som läggs till. Den här behörigheten ingår som standard i de inbyggda tjänstadministratörsrollerna och kan ändras genom att skapa anpassade roller.
 
-Lär dig mer om [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) och att tilldela specifika behörigheter till [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Lär dig mer om [inbyggda roller](../role-based-access-control/built-in-roles.md) och att tilldela specifika behörigheter till [anpassade roller](../role-based-access-control/custom-roles.md).
 
 VNet och Azure-tjänstresurser kan finnas i samma eller olika prenumerationer. Om VNet-och Azure-tjänstens resurser finns i olika prenumerationer bör resurserna vara under samma Active Directory-klient (AD). Se till att båda prenumerationerna har **Microsoft. SQL** -Resurshanterarens registrerad. Mer information hittar du i [Resource Manager-Registration][resource-manager-portal]
 

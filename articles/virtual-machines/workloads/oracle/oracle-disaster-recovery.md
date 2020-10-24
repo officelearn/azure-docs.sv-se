@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: fe93ada343e83d61526b6b899429d9e2b7b745d3
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9736c4d2b048aa18f283689247f5597d7526f1df
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996183"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480368"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Haveri beredskap för en Oracle Database 12C-databas i en Azure-miljö
 
@@ -42,7 +42,7 @@ Här är en sammanfattning av Azure-installationen:
 - En hopp, program tjänst, databas och VPN-gateway på separata undernät
 - NSG framtvingas på program-och databas under nät
 
-![Skärm bild av sidan DR-topologi](./media/oracle-disaster-recovery/oracle_topology_01.png)
+![Diagram som visar primära och DR-platser på Azure.](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
 ## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scenario 2: lokal plats för lokal och DR-webbplats på Azure
 
@@ -68,7 +68,7 @@ Följande är en sammanfattning av Azure-installationen:
 - En NSG-princip/-regel som tillåter inkommande TCP-port 1521 (eller en användardefinierad port)
 - En NSG-princip/-regel som begränsar enbart IP-adress/adresser lokalt (databas eller program) för åtkomst till det virtuella nätverket
 
-![Skärm bild av sidan DR-topologi](./media/oracle-disaster-recovery/oracle_topology_02.png)
+![Diagram som visar direkta anslutningar mellan lokala platser och Azure, vilket kräver öppna TCP-portar i brand väggen.](./media/oracle-disaster-recovery/oracle_topology_02.png)
 
 ### <a name="approach-2-site-to-site-vpn"></a>Metod 2: VPN för plats-till-plats
 VPN för plats-till-plats är ett bättre tillvägagångs sätt. Mer information om hur du konfigurerar en VPN-anslutning finns i [skapa ett virtuellt nätverk med en VPN-anslutning från plats till plats med CLI](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md).

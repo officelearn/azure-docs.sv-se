@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 3e8bf3d2407e2c3d0db4bb5d8591ba598aba68a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dfad185718dcc4a1c06ba3a4ed22961615ccd37e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546448"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486964"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Självstudie: Azure Active Directory integrering med Trisotech Digital Enterprise Server
 
@@ -30,7 +30,7 @@ Genom att integrera Trisotech Digital Enterprise Server med Azure AD får du fö
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Trisotech Digital Enterprise Server behöver du följande objekt:
 
@@ -120,15 +120,15 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med Tri
 
 2. Klicka på **meny ikonen** och välj sedan **Administration**.
 
-    ![Konfigurera enkel inloggning](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
+    ![Skärm bild som visar administrations ikonen i Microsoft Digital Enterprise Server.](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
 3. Välj **användar leverantör**.
 
-    ![Konfigurera enkel inloggning](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
+    ![Skärm bild som visar användar leverantör som valts på menyn.](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
 
 4. I avsnittet **konfigurationer av användar leverantör** utför du följande steg:
 
-    ![Konfigurera enkel inloggning](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
+    ![Skärm bild som visar konfigurationer för användar leverantörer där du kan ange de värden som beskrivs.](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
     a. Välj **skyddat Assertion Markup Language 2 (SAML 2)** från List rutan i **autentiseringsmetoden**.
 

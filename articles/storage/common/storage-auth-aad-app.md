@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a0ce2c17586e5437047ff27cb67577b0480a83af
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 20ebfc571d72b79b61a61fb633feb63c4cc58fdd
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939349"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488817"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program
 
@@ -81,7 +81,7 @@ Programmet behöver en klient hemlighet för att bevisa sin identitet när en to
 
 ### <a name="enable-implicit-grant-flow"></a>Aktivera implicit beviljande av flöde
 
-Konfigurera sedan det implicita tilldelnings flödet för ditt program. Följ de här stegen:
+Konfigurera sedan det implicita tilldelnings flödet för ditt program. Gör så här:
 
 1. Navigera till din app-registrering i Azure Portal.
 1. I avsnittet **Hantera** väljer du **autentiserings** inställningen.
@@ -290,6 +290,6 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Microsoft identitetsplattform](https://docs.microsoft.com/azure/active-directory/develop/)
+- [Microsoft identitetsplattform](/azure/active-directory/develop/)
 - [Hantera åtkomst behörigheter till lagrings data med Azure RBAC](storage-auth-aad-rbac.md)
 - [Autentisera åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser](storage-auth-aad-msi.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0d621728ac1956b2c036c9a45202c5d75ee9153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3181d4a0c605e0b1325f21de6b277e2b41f92d37
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499576"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487304"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Azure CLI-exempel
 
@@ -24,15 +24,15 @@ ms.locfileid: "87499576"
 
 Den här artikeln innehåller exempel skript för vanliga uppgifter. För varje exempel uppdaterar du variablerna med lämpliga värden och kör sedan kommandot.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Azure CLI. Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) för steg.
+* Azure CLI. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för steg.
 
 * Valfritt: bash. I exemplen i den här artikeln används bash-gränssnittet i Windows 10. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installations steg.  Exemplen kommer att fungera från en kommando tolk i Windows med några små ändringar.
 
 ## <a name="az-login"></a>az login
 
-[Logga in på Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
+[Logga in på Azure](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -43,7 +43,7 @@ az login
 
 ## <a name="az-hdinsight-create"></a>AZ HDInsight Create
 
-[Skapar ett nytt kluster](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+[Skapar ett nytt kluster](/cli/azure/hdinsight#az-hdinsight-create).
 
 ### <a name="create-a-cluster-with-an-existing-storage-account"></a>Skapa ett kluster med ett befintligt lagrings konto
 
@@ -176,7 +176,7 @@ az hdinsight create \
 
 ## <a name="az-hdinsight-application-create"></a>AZ HDInsight Application Create
 
-[Skapa ett program för ett HDInsight-kluster](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
+[Skapa ett program för ett HDInsight-kluster](/cli/azure/hdinsight/application#az-hdinsight-application-create).
 
 ### <a name="create-an-application-with-a-script-uri"></a>Skapa ett program med en skript-URI
 
@@ -243,7 +243,7 @@ az hdinsight application create \
 
 ## <a name="az-hdinsight-script-action-execute"></a>AZ HDInsight-skript – åtgärd köra
 
-[Kör skript åtgärder på det angivna HDInsight-klustret](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).
+[Kör skript åtgärder på det angivna HDInsight-klustret](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
 
 ### <a name="execute-a-script-action-and-persist-on-success"></a>Kör en skript åtgärd och Spara på lyckad
 

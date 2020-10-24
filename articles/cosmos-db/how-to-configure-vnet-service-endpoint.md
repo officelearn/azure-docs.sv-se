@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1c1d96c373103e0a89a9553ce8dab6ce5cce23c7
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d18cf248aa94e23abfa6e2b9467bb1167a32a6f1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279709"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490534"
 ---
 # <a name="configure-access-to-azure-cosmos-db-from-virtual-networks-vnet"></a>Konfigurera åtkomst till Azure Cosmos DB från virtuella nätverk (VNet)
 
@@ -93,7 +93,7 @@ För att se till att du har åtkomst till Azure Cosmos DB mått från portalen m
 
 Använd följande steg för att konfigurera en tjänst slut punkt till ett Azure Cosmos DB konto genom att använda Azure PowerShell:  
 
-1. Installera [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) och [Logga](https://docs.microsoft.com/powershell/azure/authenticate-azureps)in.  
+1. Installera [Azure PowerShell](/powershell/azure/install-Az-ps) och [Logga](/powershell/azure/authenticate-azureps)in.  
 
 1. Aktivera tjänstens slut punkt för ett befintligt undernät i ett virtuellt nätverk.  
 
@@ -317,7 +317,7 @@ Här följer några vanliga frågor om hur du konfigurerar åtkomst från virtue
 
 ### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Är antecknings böcker och Mongo/Cassandra-gränssnittet för närvarande kompatibelt med Virtual Network aktiverade konton?
 
-För närvarande stöds inte [Mongo Shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) och [Cassandra Shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) -integreringar i Cosmos DB datautforskaren och [tjänsten Jupyter Notebooks](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks). Detta är för närvarande i aktiv utveckling.
+För närvarande stöds inte [Mongo Shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) och [Cassandra Shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) -integreringar i Cosmos DB datautforskaren och [tjänsten Jupyter Notebooks](./cosmosdb-jupyter-notebooks.md). Detta är för närvarande i aktiv utveckling.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Kan jag ange både Virtual Network Service-slutpunkt och princip för IP-åtkomstkontroll på ett Azure Cosmos-konto? 
 

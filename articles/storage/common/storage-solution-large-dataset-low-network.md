@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6514b149b057d690d37551bd0489c63852addb1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60b322cc0c1a50df7f8946fa1047bdc58ea92d77
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86207508"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488545"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Dataöverföring för stora datamängder med låg eller ingen nätverksbandbredd
  
@@ -52,7 +52,7 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 |    **Form faktor**                  |    5 SSD per order             |    1 X 50 – kg. enhet för Skriv bords storlek per beställning    |    1 X ~ 500 – kg. stor enhet per beställning    |    Upp till 10 hård diskar/SSD per beställning        |
 |    **Första installations tid**           |    Låg <br>(15 minuter)            |    Låg till måttlig <br> (<30 minuter)               |    Medel<br>(1-2 timmar)               |    Måttligt till svårt<br>variabel |
 |    **Skicka data till Azure**           |    Ja                          |    Ja                                           |    Ja                                   |    Ja                                 |
-|    **Exportera data från Azure**       |    Inga                           |    Inga                                            |    Inga                                    |    Ja                                 |
+|    **Exportera data från Azure**       |    Nej                           |    Nej                                            |    Nej                                    |    Ja                                 |
 |    **Kryptering**                   |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    **Maskinvara**                     |     Microsoft tillhandahålls          |    Microsoft tillhandahålls                            |    Microsoft tillhandahålls                    |    Kunden har tillhandahållit                   |
 |    **Nätverksgränssnitt**            |    USB 3.1/SATA                 |    RJ 45, SFP +                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
@@ -66,6 +66,6 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 
 - Förstå hur du
 
-    - [Överför data med data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Överför data med data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
+    - [Överför data med data Box disk](/azure/databox/data-box-disk-quickstart-portal).
+    - [Överför data med data Box-enhet](/azure/databox/data-box-quickstart-portal).
     - [Överför data med import/export](/azure/storage/common/storage-import-export-data-to-blobs).

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 615bd423296fb9ed2ee28cab9e362873a30ee7b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284680"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488392"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Felsök problem med frågor när du använder Azure Cosmos DB API för MongoDB
 
@@ -116,7 +116,7 @@ db.coll.find({foodGroup: "Baby Foods"}).explain({"executionStatistics": true })
 | `timeInclusiveMS` | Svars tid för backend-fråga |
 | `pathsIndexed` | Visar index som används av frågan | 
 | `pathsNotIndexed` | Visar index som frågan kan ha använt, om den är tillgänglig | 
-| `shardInformation` | Översikt över frågans prestanda för en viss [fysisk partition](partition-data.md#physical-partitions) | 
+| `shardInformation` | Översikt över frågans prestanda för en viss [fysisk partition](./partitioning-overview.md#physical-partitions) | 
 | `retrievedDocumentCount` | Antal dokument som lästs in av frågemotor | 
 | `outputDocumentCount` | Antal dokument som returneras i frågeresultatet | 
 | `estimatedDelayFromRateLimitingInMilliseconds` | Beräknad ytterligare svars tid på grund av hastighets begränsning | 
@@ -256,7 +256,7 @@ Indexering av metod tips i Azure Cosmos DBs API för MongoDB skiljer sig från M
 
 [Jokertecken index](mongodb-indexing.md#wildcard-indexes) kan förenkla indexeringen. Till skillnad från i MongoDB kan jokertecken indexeras ha stöd för flera fält i frågesyntaxen. Det kommer inte att finnas någon skillnad i frågans prestanda om du använder ett enda index i ett jokertecken i stället för att skapa ett separat index för varje egenskap. Att lägga till ett Wildcard-index för alla egenskaper är det enklaste sättet att optimera alla dina frågor.
 
-Du kan lägga till nya index när som helst, utan någon påverkan på Skriv-eller Läs tillgänglighet. Du kan [spåra förloppet för index omvandling](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+Du kan lägga till nya index när som helst, utan någon påverkan på Skriv-eller Läs tillgänglighet. Du kan [spåra förloppet för index omvandling](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
 ### <a name="understand-which-aggregation-operations-use-the-index"></a>Förstå vilka agg regerings åtgärder som använder indexet
 

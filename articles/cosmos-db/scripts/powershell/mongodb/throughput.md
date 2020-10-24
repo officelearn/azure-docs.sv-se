@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0b3c755415185324d427bcd3ae222774bca31284
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 54e990b27461bd47466e12e5f51f3ed2a8a585ec
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282710"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489106"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-database-or-collection-for-azure-cosmos-db-api-for-mongodb"></a>Data flöde (RU/s)-åtgärder med PowerShell för en databas eller samling för Azure Cosmos DB API för MongoDB
 
@@ -44,19 +44,19 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Kommentarer |
+| Kommando | Anteckningar |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBMongoDBDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabasethroughput) | Hämtar data flöde svärdet för angivet Azure Cosmos DB-API för MongoDB-databasen. |
-| [Get-AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Hämtar data flöde svärdet för angivet Azure Cosmos DB-API för MongoDB-samlingen. |
-| [Uppdatera – AzCosmosDBMongoDBDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbdatabasethroughput) | Uppdaterar data flöde svärdet för Azure Cosmos DB-API: et för MongoDB-databasen. |
-| [Uppdatera – AzCosmosDBMongoDBCollectionThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollectionthroughput) | Uppdaterar data flöde svärdet för Azure Cosmos DB API för MongoDB-samlingen. |
-| [Invoke-AzCosmosDBMongoDBDatabaseThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbmongodbdatabasethroughputmigration) | Migrera genomflöde av ett Azure Cosmos DB-API för MongoDB-samling. |
-| [Invoke-AzCosmosDBMongoDBCollectionThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbmongodbcollectionthroughputmigration) | Migrera genomflöde av ett Azure Cosmos DB-API för MongoDB-samling. |
+| [Get-AzCosmosDBMongoDBDatabaseThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbdatabasethroughput) | Hämtar data flöde svärdet för angivet Azure Cosmos DB-API för MongoDB-databasen. |
+| [Get-AzCosmosDBMongoDBCollectionThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbmongodbcollectionthroughput) | Hämtar data flöde svärdet för angivet Azure Cosmos DB-API för MongoDB-samlingen. |
+| [Uppdatera – AzCosmosDBMongoDBDatabaseThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbdatabasethroughput) | Uppdaterar data flöde svärdet för Azure Cosmos DB-API: et för MongoDB-databasen. |
+| [Uppdatera – AzCosmosDBMongoDBCollectionThroughput](/powershell/module/az.cosmosdb/update-azcosmosdbmongodbcollectionthroughput) | Uppdaterar data flöde svärdet för Azure Cosmos DB API för MongoDB-samlingen. |
+| [Invoke-AzCosmosDBMongoDBDatabaseThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbmongodbdatabasethroughputmigration) | Migrera genomflöde av ett Azure Cosmos DB-API för MongoDB-samling. |
+| [Invoke-AzCosmosDBMongoDBCollectionThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbmongodbcollectionthroughputmigration) | Migrera genomflöde av ett Azure Cosmos DB-API för MongoDB-samling. |
 |**Resurs grupper i Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
+Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](/powershell/).

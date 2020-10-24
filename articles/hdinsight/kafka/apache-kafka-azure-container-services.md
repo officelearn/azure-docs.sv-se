@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: baf350e23025342cc74b4d063d9a1604e8ad2ffd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab87f181f78158d2ea0dd6575a30e6087600f60c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087430"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485689"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Använda Azure Kubernetes-tjänsten med Apache Kafka på HDInsight
 
@@ -26,7 +26,7 @@ Lär dig hur du använder Azure Kubernetes service (AKS) med [Apache Kafka](http
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure CLI](/cli/azure/install-azure-cli)
 * En Azure-prenumeration
 
 Det här dokumentet förutsätter att du är van att skapa och använda följande Azure-tjänster:
@@ -80,7 +80,7 @@ Om du inte redan har ett AKS-kluster kan du använda något av följande dokumen
     |Egenskap | Värde |
     |---|---|
     |Adressutrymme|Du måste använda ett adress utrymme som inte överlappar det som används av AKS-kluster nätverket.|
-    |Location|Använd samma __plats__ för det virtuella nätverk som du använde för AKS-klustret.|
+    |Plats|Använd samma __plats__ för det virtuella nätverk som du använde för AKS-klustret.|
 
 1. Vänta tills det virtuella nätverket har skapats innan du går vidare till nästa steg.
 

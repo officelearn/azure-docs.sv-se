@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: 9fa899e0f0de3b263baad7e44ed24d32d735b001
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3a5106fcc7f1b55db22ee13ced34328cc38096d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836519"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486216"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Konfigurera kundhanterade nycklar för ditt Azure Cosmos-konto med Azure Key Vault
 
@@ -83,7 +83,7 @@ Om du skapar en ny Azure Key Vault-instans aktiverar du dessa egenskaper när de
 
 ## <a name="create-a-new-azure-cosmos-account"></a>Skapa ett nytt Azure Cosmos-konto
 
-### <a name="using-the-azure-portal"></a>Använda Azure Portal
+### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
 När du skapar ett nytt Azure Cosmos DB konto från Azure Portal väljer du **kundhanterad nyckel** i **krypterings** steget. I fältet **nyckel-URI** klistrar du in URI/nyckel-ID för den Azure Key Vault nyckel som du kopierade från föregående steg:
 
@@ -277,7 +277,7 @@ När du använder Kundhanterade nycklar kan [enheter](./request-units.md) som an
 
 Alla data som lagras i ditt Azure Cosmos-konto krypteras med kundens hanterade nycklar, förutom följande metadata:
 
-- Namnen på dina Azure Cosmos DB [-konton, databaser och behållare](./account-overview.md#elements-in-an-azure-cosmos-account)
+- Namnen på dina Azure Cosmos DB [-konton, databaser och behållare](./account-databases-containers-items.md#elements-in-an-azure-cosmos-account)
 
 - Namnen på dina [lagrade procedurer](./stored-procedures-triggers-udfs.md)
 

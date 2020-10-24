@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 07/18/2019
 ms.author: robinsh
-ms.openlocfilehash: 37f8016e087642ae0a7455e35f3ce18d7229e169
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cd14ff0688f4230aeedac748ca4b32609bdd2938
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146644"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490330"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Övervakning och aviseringar för IoT-fjärrhantering med Azure Logic Apps du ansluter din IoT Hub och post lådan
 
@@ -112,7 +112,7 @@ Lägg till en anpassad slut punkt för Service Bus kön i IoT-hubben och skapa e
 
 1. Under **meddelanden**väljer du **meddelanderoutning.** **I fönstret meddelanderoutning** väljer du fliken **anpassade slut punkter** och väljer sedan **+ Lägg till**. I list rutan väljer du **Service Bus-kö**.
 
-   ![Lägg till en slut punkt i IoT Hub i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
+   ![Skärm bild som visar alternativet för Service Bus-kön.](media/iot-hub-monitoring-notifications-with-azure-logic-apps/select-iot-hub-custom-endpoint.png)
 
 1. I fönstret **Lägg till en Service Bus-slutpunkt** anger du följande information:
 
@@ -183,7 +183,7 @@ I föregående avsnitt ställer du in IoT-hubben för att dirigera meddelanden s
 1. Skapa en Service Bus-anslutning.
    1. Ange ett namn på anslutningen och välj Service Bus namn området i listan. Nästa skärm öppnas.
 
-      ![Skapa en Service Bus-anslutning för din Logic app i Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
+      ![Skärm bild som visar när ett eller flera meddelanden tas emot i en kö (komplettera automatiskt).](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
 
    1. Välj Service Bus-princip (RootManageSharedAccessKey). Välj sedan  **skapa**.
 

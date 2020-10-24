@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 2f7ef27ea5cc19c60e05fddfe4d00cd4ff234bc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b016468d858162123e2796e0d76b83b0a1bbf33
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568054"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480062"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link för Azure Cosmos DB: Användningsfall för nära realtidsanalys
 
@@ -118,7 +118,7 @@ Låt oss ta ett exempel på ett e-handelsföretags CompanyXYZ med globala åtgä
 
   * Högt data flöde inmatning av båda batch-& strömma datafeeds med [real tids indexering](index-policy.md) i transaktions lagring.
 
-  * Azure Cosmos DB transaktions lager ger tre fler alternativ än de två extrema nivåerna av starka och slutliga konsekvens nivåer för att uppnå [tillgänglighet jämfört med prestanda kompromisser](consistency-levels-tradeoffs.md) som är närmast affärs behovet.
+  * Azure Cosmos DB transaktions lager ger tre fler alternativ än de två extrema nivåerna av starka och slutliga konsekvens nivåer för att uppnå [tillgänglighet jämfört med prestanda kompromisser](./consistency-levels.md) som är närmast affärs behovet.
 
 * CompanyXYZs partner för leverans kedjan har mycket varierande trafik mönster som sträcker sig från hundratals till miljon tals begär Anden/s och därför måste inventerings hanterings plattformen hantera oväntade burstiness i trafiken.  Fördelar med att använda Azure Cosmos DB:
 

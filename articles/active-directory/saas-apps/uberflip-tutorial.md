@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6aed014800be41ce5b9d1d86d137aefcf2585e98
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533188"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486981"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Självstudie: Azure Active Directory integrering med Uberflip
 
@@ -30,7 +30,7 @@ Genom att integrera Uberflip med Azure AD får du följande fördelar:
 
 Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med Uberflip behöver du följande objekt:
 
@@ -96,7 +96,7 @@ Utför följande steg för att konfigurera enkel inloggning med Uberflip i Azure
 
 1. I fönstret **Konfigurera enskilda Sign-On med SAML** väljer du **Redigera** (Penn ikonen) för att öppna fönstret **grundläggande SAML-konfiguration** .
 
-   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+   ![Skärm bild som visar den grundläggande SAML-konfigurationen, där du kan ange ett svar U R L.](common/edit-urls.png)
 
 1. I fönstret **grundläggande SAML-konfiguration** utför du något av följande steg, beroende på vilket SSO-läge som du vill konfigurera:
 
@@ -113,7 +113,7 @@ Utför följande steg för att konfigurera enkel inloggning med Uberflip i Azure
 
      `https://app.uberflip.com/users/login`
 
-     ![Information om enkel inloggning för Uberflip-domän och URL: er](common/both-signonurl.png)
+     ![Skärm bild som visar ytterligare U R LS där du kan ange ett tecken på U R L.](common/both-signonurl.png)
 
 1. I avsnittet **Konfigurera enskilda Sign-On med SAML** i avsnittet **SAML-signeringscertifikat** väljer du **Ladda ned** för att ladda ned **XML-metadata för federationsmetadata** från de angivna alternativen och sparar dem på din dator.
 

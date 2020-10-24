@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 0eaac8ac65b490e1b8de716d79bd36d2f7a7567c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707667"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489752"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Flytta en Azure Database för Azure Database for PostgreSQL-enskild server till en annan region med hjälp av Azure Portal
 
@@ -21,7 +21,7 @@ Det finns olika scenarier för att flytta en befintlig Azure Database for Postgr
 Du kan använda en Azure Database for PostgreSQL [över flera regioner](concepts-read-replicas.md#cross-region-replication) för att slutföra flytten till en annan region. Det gör du genom att först skapa en Läs replik i mål regionen. Stoppa sedan replikering till Läs replik servern för att göra den till en fristående server som accepterar både Läs-och Skriv trafik. 
 
 > [!NOTE]
-> Den här artikeln fokuserar på att flytta servern till en annan region. Om du vill flytta servern till en annan resurs grupp eller prenumeration kan du läsa artikeln [Flytta](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) . 
+> Den här artikeln fokuserar på att flytta servern till en annan region. Om du vill flytta servern till en annan resurs grupp eller prenumeration kan du läsa artikeln [Flytta](../azure-resource-manager/management/move-resource-group-and-subscription.md) . 
 
 ## <a name="prerequisites"></a>Förutsättningar
 

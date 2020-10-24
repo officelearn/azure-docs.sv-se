@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a601b7ec7e2615053203e23ea61fc6d2efc85bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09d661f29b2e262e5e67c471711a5e978abe79d8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533528"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Självstudie: Azure Active Directory integration med T&E Express
 
@@ -30,7 +30,7 @@ Att integrera T&E Express med Azure AD ger följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med T&E Express behöver du följande objekt:
 
@@ -128,11 +128,11 @@ Utför följande steg för att konfigurera enkel inloggning för Azure AD med T&
 
 1. Klicka på **SAML-domän** under fliken **admin** för att öppna sidan SAML-inställningar.
 
-    ![Konfigurera enkel inloggning](./media/tyeexpress-tutorial/tye-SAML.png)
+    ![Skärm bild visar SAML-domän som valts från administratörs menyn.](./media/tyeexpress-tutorial/tye-SAML.png)
 
 1. Välj alternativet **activar (aktivera)** från **no** till **si (Ja)**. I text rutan för **identitetsprovider i metadata** klistrar du in XML-metadata som du har laddat ned från Azure Portal.
 
-    ![Konfigurera enkel inloggning](./media/tyeexpress-tutorial/tyeAdmin.png)
+    ![Skärm bild som visar dominio SAML-sidan där du kan ange metadata.](./media/tyeexpress-tutorial/tyeAdmin.png)
 
 1. Klicka på knappen **skydd (Spara)** för att spara inställningarna.
 
@@ -197,17 +197,17 @@ För att Azure AD-användare ska kunna logga in på T&E Express måste de vara e
 
 1. Klicka på användare under admin-tagg för att öppna användarens huvud sida.
 
-    ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-adminusers.png)
+    ![Skärm bild som visar användare som valts från administratörs menyn.](./media/tyeexpress-tutorial/tye-adminusers.png)
 
 1. På Start sidan klickar du på på **+** för att lägga till användarna.
 
-    ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-usershome.png)
+    ![Skärm bild som visar plus ikonen för att lägga till användare.](./media/tyeexpress-tutorial/tye-usershome.png)
 
 1. Ange alla obligatoriska uppgifter som efter frågas i formuläret och klicka på knappen Spara för att spara informationen.
 
-    ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-usersadd.png)
+    ![Skärm bild som visar avsnittet användar information där du kan ange lämpliga värden.](./media/tyeexpress-tutorial/tye-usersadd.png)
 
-    ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-userssave.png)
+    ![Skärm bild som visar avsnittet god kännare och assistent där du kan ange lämpliga värden.](./media/tyeexpress-tutorial/tye-userssave.png)
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

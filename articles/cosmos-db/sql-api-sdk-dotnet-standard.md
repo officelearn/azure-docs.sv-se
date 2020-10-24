@@ -9,36 +9,36 @@ ms.topic: reference
 ms.date: 10/07/2020
 ms.author: anfeldma
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 321b80e8aa86703cad16e70af46d016b9dc6555f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e5c88f94544fa25e4f91fefedc0352ff2ef1132d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048006"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477648"
 ---
 # <a name="azure-cosmos-db-net-sdk-v3-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK v3 för SQL API: Hämta och viktig information
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
-> * [Våren data v2](sql-api-sdk-java-spring-v2.md)
-> * [Våren data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring-data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring-data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
-> * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
+> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
+> * [SQL](./sql-query-getting-started.md)
+> * [Masskörningsbibliotek – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Masskörningsbibliotek – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
-|**SDK-hämtning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
+|**SDK-nedladdning**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)|
 |**API-dokumentation**|[Dokumentation om .NET API-referens](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
 |**Exempel**|[.NET-kod exempel](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage)|
 |**Komma igång**|[Kom igång med Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
@@ -52,4 +52,4 @@ ms.locfileid: "92048006"
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även
-Mer information om Cosmos DB finns i [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service-sidan. 
+Mer information om Cosmos DB finns på sidan om tjänsten [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).

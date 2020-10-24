@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 821b2a36a40f828edf37ff1c2f3eab58b10b4162
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 97bb7db434322609630d97b7eff84e08da72c11c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88607583"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486658"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Snabb start: skapa ett Azure Cosmos-konto, databas, behållare och objekt från Azure Portal
 
@@ -28,7 +28,7 @@ ms.locfileid: "88607583"
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan använda Azure Cosmos DB för att snabbt skapa och fråga nyckel/värde-databaser, dokument databaser och Graf-databaser, som alla drar nytta av den globala distributionen och den horisontella skalnings kapaciteten i kärnan av Azure Cosmos DB. 
 
-Den här snabb starten visar hur du använder Azure Portal för att skapa ett Azure Cosmos DB [SQL API](sql-api-introduction.md) -konto, skapa en dokument databas och behållare och lägga till data i behållaren. 
+Den här snabb starten visar hur du använder Azure Portal för att skapa ett Azure Cosmos DB [SQL API](./introduction.md) -konto, skapa en dokument databas och behållare och lägga till data i behållaren. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -53,7 +53,7 @@ Gå till [Microsoft Azure-portalen](https://portal.azure.com/) för att skapa et
     |Resursgrupp|Namn på resursgrupp|Välj en resursgrupp eller välj **Skapa ny** och ange sedan ett unikt namn för den nya resursgruppen. |
     |Account Name|Ett unikt namn|Ange ett namn som identifierar ditt Azure Cosmos-konto. Eftersom*documents.azure.com* läggs till det namn du anger för att skapa din URI måste du använda ett unikt namn.<br><br>Namnet får endast innehålla gemener, siffror och bindestreck (-). Det måste innehålla 3–31 tecken.|
     |API|Typ av konto som skapas|Välj **Core (SQL)** för att skapa en dokumentdatabas och kör frågor med hjälp av SQL-syntax. <br><br>API:et avgör vilken typ av konto som skapas. Azure Cosmos DB tillhandahåller fem API: er: Core (SQL) och MongoDB för dokument data, Gremlin för graf-data, Azure Table och Cassandra. För närvarande måste du skapa ett separat konto för varje API. <br><br>[Läs mer om SQL-API: et](introduction.md).|
-    |Kapacitets läge|Allokerat data flöde eller Server lös|Välj **tillhandahållet data flöde** för att skapa ett konto i ett [allokerat data flödes](set-throughput.md) läge. Välj **Server** lös om du vill skapa ett konto i [Server](serverless.md) fritt läge.<br><br>**Obs!** Server lös är för närvarande endast tillgängligt för Core (SQL) API-konton.|
+    |Kapacitetsläge|Allokerat data flöde eller Server lös|Välj **tillhandahållet data flöde** för att skapa ett konto i ett [allokerat data flödes](set-throughput.md) läge. Välj **Server** lös om du vill skapa ett konto i [Server](serverless.md) fritt läge.<br><br>**Obs!** Server lös är för närvarande endast tillgängligt för Core (SQL) API-konton.|
     |Tillämpa rabatt för kostnadsfri nivå|Tillämpa eller Verkställ inte|Med Azure Cosmos DB kostnads fri nivå får du de första 400 RU/s och 5 GB lagring kostnads fritt i ett konto. Läs mer om den [kostnads fria nivån](https://azure.microsoft.com/pricing/details/cosmos-db/).|
     |Plats|Den region som är närmast dina användare|Välj en geografisk plats som värd för ditt Azure Cosmos DB-konto. Använd den plats som är närmast dina användare för att ge dem så snabb åtkomst till data som möjligt.|
     |Kontotyp|Produktion eller icke-produktion|Välj **produktion** om kontot ska användas för en produktions arbets belastning. Välj **icke-produktion** om kontot ska användas för icke-produktion, t. ex. utveckling, testning, frågor och svar eller mellanlagring. Det här är en Azure-resurs tag-inställning som justerar Portal upplevelsen, men som inte påverkar det underliggande Azure Cosmos DB kontot. Du kan ändra det här värdet när som helst.|

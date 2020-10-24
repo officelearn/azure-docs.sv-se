@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: d485e90036f03c13ad8c9d52781486151009e14c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 54b58a07e3d6d4b330b6f97ef0f4a7bdd10293da
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284651"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490466"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-cassandra-api"></a>Skapa en behållare i Azure Cosmos DB API för Cassandra
 
@@ -68,5 +68,4 @@ Om du råkar ut för tids gräns undantag när du skapar en samling, gör du en 
 * [Partitionering i Azure Cosmos DB](partitioning-overview.md)
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
 * [Etablera dataflöde på containrar och databaser](set-throughput.md)
-* [Arbeta med ett Azure Cosmos-konto](account-overview.md)
-
+* [Arbeta med ett Azure Cosmos-konto](./account-databases-containers-items.md)

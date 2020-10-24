@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0e0bcde44ba28751761b7db3f6d6fcae8f7bd49c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08f677c23cce6eb840a1caee15dcddf6c8311517
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400560"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488698"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>Välja en Azure-lösning för dataöverföring
 
@@ -71,15 +71,15 @@ Du kan också gå till ditt Azure Storage-konto i Azure Portal och välja funkti
 ## <a name="next-steps"></a>Nästa steg
 
 - [Få en introduktion till Azure Storage Explorer](https://azure.microsoft.com/resources/videos/introduction-to-microsoft-azure-storage-explorer/).
-- [Läs en översikt över AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10).
+- [Läs en översikt över AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 - [Snabb start: Ladda upp, ladda ned och lista blobar med PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 - [Snabb start: skapa, ladda ned och lista blobar med Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 - Läs om:
 
-    - [Azure Data Box, Azure Data Box disk och Azure Data Box Heavy för offline-överföringar](https://docs.microsoft.com/azure/databox/).
-    - [Azure Data Box gateway och Azure Stack Edge för online-överföringar](https://docs.microsoft.com/azure/databox-online/).
-- [Lär dig vad som är Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview).
+    - [Azure Data Box, Azure Data Box disk och Azure Data Box Heavy för offline-överföringar](/azure/databox/).
+    - [Azure Data Box gateway och Azure Stack Edge för online-överföringar](/azure/databox-online/).
+- [Lär dig vad som är Azure Data Factory](/azure/data-factory/copy-activity-overview).
 - Använd REST-API: er för att överföra data
 
-    - [I .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [I Java](https://docs.microsoft.com/java/api/overview/azure/storage)
+    - [I .NET](/dotnet/api/overview/azure/storage)
+    - [I Java](/java/api/overview/azure/storage)

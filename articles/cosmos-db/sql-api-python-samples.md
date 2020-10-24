@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: ba4382e03e6fc1acfd606a375a062c05581f712c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 10da2f3a84a4c1e6d761c86901f3249972cc0f5b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278221"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477852"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python-exempel
 
@@ -38,7 +38,7 @@ Exempellösningarna som utför CRUD-åtgärder och andra vanliga åtgärder på 
     * I en Azure Active-prenumeration:
         * [Skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/free) eller Använd din befintliga prenumeration 
         * [Månads krediter för Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers)
-        * [Azure Cosmos DB kostnads fri nivå](https://docs.microsoft.com/azure/cosmos-db/optimize-dev-test#azure-cosmos-db-free-tier)
+        * [Azure Cosmos DB kostnads fri nivå](./optimize-dev-test.md#azure-cosmos-db-free-tier)
     * Utan en Azure-aktiv prenumeration:
         * [Prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/), en test miljö som varar i 30 dagar.
         * [Azure Cosmos DB-emulator](https://aka.ms/cosmosdb-emulator) 
@@ -90,7 +90,7 @@ Exemplet [item_management. py](https://github.com/Azure/azure-sdk-for-python/blo
 
 ## <a name="indexing-examples"></a>Indexeringsexempel
 
-Exemplet [index_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) python visar hur du utför följande uppgifter. Om du vill veta mer om indexering i Azure Cosmos DB innan du kör följande exempel, se [indexerings principer](index-policy.md), [indexerings typer](index-types.md)och [indexerings Sök vägar](index-paths.md) konceptuella artiklar.
+Exemplet [index_management. py](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/samples/index_management.py) python visar hur du utför följande uppgifter. Om du vill veta mer om indexering i Azure Cosmos DB innan du kör följande exempel, se [indexerings principer](index-policy.md), [indexerings typer](index-overview.md#index-kinds)och [indexerings Sök vägar](index-policy.md#include-exclude-paths) konceptuella artiklar.
 
 | Uppgift | API-referens |
 | --- | --- |

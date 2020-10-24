@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 427facaffa277ec44ee99d70681928f49fe31df8
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 2aa4e7d063141f74dc94e5f23cd227fcc16ba84f
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278485"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487423"
 ---
 # <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Självstudie: utveckla mobil program med Xamarin och Azure Cosmos DB
 
@@ -21,7 +21,7 @@ ms.locfileid: "92278485"
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
-> * [Python](sql-api-python-application.md)
+> * [Python](./create-sql-api-python.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
@@ -34,12 +34,12 @@ Azure Cosmos DB innehåller följande viktiga funktioner för utvecklare av mobi
 
 :::image type="content" source="media/mobile-apps-with-xamarin/documentdb-for-mobile.png" alt-text="Azure Cosmos DB-funktioner för mobilappar":::
 
-* Omfattande frågor för schemalösa data. Azure Cosmos DB lagrar data som schemalösa JSON-dokument i heterogena samlingar. Den erbjuder [omfattande och snabba frågor](how-to-sql-query.md) utan att du behöver bekymra dig om scheman eller index.
+* Omfattande frågor för schemalösa data. Azure Cosmos DB lagrar data som schemalösa JSON-dokument i heterogena samlingar. Den erbjuder [omfattande och snabba frågor](./sql-query-getting-started.md) utan att du behöver bekymra dig om scheman eller index.
 * Högt dataflöde. Det tar bara några millisekunder att läsa och skriva dokument med Azure Cosmos DB. Utvecklare kan specificera vilket dataflöde de behöver och Azure Cosmos DB erbjuder ett serviceavtal med 99,99 % tillgänglighet för alla konton med tillgång till en eller flera regioner med konsekvensmodellen ”relaxed” (avslappnad), samt 99,999 % läsningstillgänglighet för alla databaskonton med tillgång till flera regioner.
 * Obegränsad skalning. Dina Azure Cosmos-behållare [växer när din app växer](partitioning-overview.md). Du kan starta med ett liten datastorlek och ett dataflöde på ett par hundra förfrågningar per sekund. Dina samlingar eller databaser kan växa till flera petabyte data och ett högt dataflöde med hundratals miljoner förfrågningar per sekund.
 * Globalt distribuerad. Användare av mobilappar är ofta på resande fot över hela världen. Azure Cosmos DB är en [globalt distribuerad databas](distribute-data-globally.md). Klicka på kartan för att göra data tillgängliga för användarna.
 * Inbyggd omfattande autentisering. Med Azure Cosmos DB kan du enkelt implementera populära mönster som [data per användare](https://github.com/kirillg/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems) eller delade data för flera användare utan kod för komplex anpassad autentisering.
-* Geospatiala frågor. Många mobilappar erbjuder idag geo-baserade upplevelser. Med förstklassigt stöd för [geospatiala typer](geospatial.md) gör Azure Cosmos DB det enkelt att skapa sådana upplevelser.
+* Geospatiala frågor. Många mobilappar erbjuder idag geo-baserade upplevelser. Med förstklassigt stöd för [geospatiala typer](./sql-query-geospatial-intro.md) gör Azure Cosmos DB det enkelt att skapa sådana upplevelser.
 * Binära bilagor. Dina appdata innehåller ofta binära blobar. Inbyggt stöd för bifogade filer gör Azure Cosmos DB till det enda du behöver för din app.
 
 ## <a name="azure-cosmos-db-and-xamarin-tutorial"></a>Självstudiekurs för Azure Cosmos DB och Xamarin
@@ -106,8 +106,5 @@ Grattis! Du har slutfört lösningen och har en mobilapp med Xamarin och Azure C
 * Visa källkoden för [Xamarin och Azure Cosmos DB på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin).
 * Ladda ned [Cosmos Azure DB .NET Core SDK](sql-api-sdk-dotnet-core.md).
 * Hitta fler kodexempel för [.NET-program](sql-api-dotnet-samples.md).
-* Lär dig mer om [Azure Cosmos DB omfattande frågefunktioner](how-to-sql-query.md).
-* Lär dig mer om [geospatialt stöd i Azure Cosmos DB](geospatial.md).
-
-
-
+* Lär dig mer om [Azure Cosmos DB omfattande frågefunktioner](./sql-query-getting-started.md).
+* Lär dig mer om [geospatialt stöd i Azure Cosmos DB](./sql-query-geospatial-intro.md).

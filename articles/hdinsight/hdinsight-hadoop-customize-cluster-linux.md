@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 09/02/2020
-ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23361470fd7b1cdb5b6153580e0240ac2f6c9133
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89400865"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490347"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -207,7 +207,7 @@ Det kan ta flera minuter innan klustret skapas.
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Använd en skript åtgärd när du skapar kluster från HDInsight .NET SDK
 
-HDInsight .NET SDK innehåller klient bibliotek som gör det enklare att arbeta med HDInsight från ett .NET-program. Ett kod exempel finns i [skript åtgärder](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#script-actions).
+HDInsight .NET SDK innehåller klient bibliotek som gör det enklare att arbeta med HDInsight från ett .NET-program. Ett kod exempel finns i [skript åtgärder](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true#script-actions).
 
 ## <a name="script-action-to-a-running-cluster"></a>Skript åtgärd för ett kluster som körs
 
@@ -260,7 +260,7 @@ NodeTypes       : {HeadNode, WorkerNode}
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-cli"></a>Tillämpa en skript åtgärd på ett kluster som körs från Azure CLI
 
-Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure CLI. Se till att du har den senaste versionen. Mer information finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure CLI. Se till att du har den senaste versionen. Mer information finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 1. Autentisera till din Azure-prenumeration:
 
@@ -274,7 +274,7 @@ Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure C
     az hdinsight script-action execute --cluster-name CLUSTERNAME --name SCRIPTNAME --resource-group RESOURCEGROUP --roles ROLES
     ```
 
-    Giltiga roller är `headnode` , `workernode` , `zookeepernode` , `edgenode` . Om skriptet ska tillämpas på flera nodtyper avgränsar du rollerna med ett blank steg. Exempelvis `--roles headnode workernode`.
+    Giltiga roller är `headnode` , `workernode` , `zookeepernode` , `edgenode` . Om skriptet ska tillämpas på flera nodtyper avgränsar du rollerna med ett blank steg. Till exempel `--roles headnode workernode`.
 
     Lägg till för att spara skriptet `--persist-on-success` . Du kan också Spara skriptet senare med hjälp av `az hdinsight script-action promote` .
 
@@ -288,7 +288,7 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 
 ## <a name="view-history-and-promote-and-demote-script-actions"></a>Visa historik och befordran och degradering av skript åtgärder
 
-### <a name="the-azure-portal"></a>Azure Portal
+### <a name="the-azure-portal"></a>Azure-portalen
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och leta upp klustret.
 
@@ -323,12 +323,12 @@ Följande exempel skript visar hur du använder cmdlet: ar för att befordra och
 
 | Kommando | Beskrivning |
 | --- | --- |
-| [`az hdinsight script-action delete`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-delete) |Tar bort en angiven Sparad skript åtgärd i klustret. Det här kommandot återställer inte de åtgärder som utförs av ett skript. det tar bara bort den bestående flaggan.|
-|[`az hdinsight script-action execute`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)|Kör skript åtgärder på det angivna HDInsight-klustret.|
-| [`az hdinsight script-action list`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list) |Visar alla beständiga skript åtgärder för det angivna klustret. |
-|[`az hdinsight script-action list-execution-history`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-list-execution-history)|Visar alla skript körnings historik för det angivna klustret.|
-|[`az hdinsight script-action promote`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-promote)|Höjer den angivna ad hoc-skript körningen till ett beständigt skript.|
-|[`az hdinsight script-action show-execution-details`](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-show-execution-details)|Hämtar information om skript körning för angivet ID för skript körning.|
+| [`az hdinsight script-action delete`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-delete) |Tar bort en angiven Sparad skript åtgärd i klustret. Det här kommandot återställer inte de åtgärder som utförs av ett skript. det tar bara bort den bestående flaggan.|
+|[`az hdinsight script-action execute`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute)|Kör skript åtgärder på det angivna HDInsight-klustret.|
+| [`az hdinsight script-action list`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list) |Visar alla beständiga skript åtgärder för det angivna klustret. |
+|[`az hdinsight script-action list-execution-history`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-list-execution-history)|Visar alla skript körnings historik för det angivna klustret.|
+|[`az hdinsight script-action promote`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-promote)|Höjer den angivna ad hoc-skript körningen till ett beständigt skript.|
+|[`az hdinsight script-action show-execution-details`](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-show-execution-details)|Hämtar information om skript körning för angivet ID för skript körning.|
 
 ### <a name="hdinsight-net-sdk"></a>HDInsight .NET SDK
 

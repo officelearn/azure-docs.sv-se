@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6236b34c76ccd9e4688b97e7844cbadf9f515213
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 35bfc45ffffac17a2eca40cb51c2db5d94c140a2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372250"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487474"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Säkerhet i Azure Cosmos DB – översikt
 
@@ -69,7 +69,7 @@ Låt oss titta närmare på var och en.
 |Automatiserade säkerhets kopieringar online|Azure Cosmos-databaser säkerhets kopie ras regelbundet och lagras i en Geo-redundant lagring. <br><br>Läs mer i [Automatisk säkerhets kopiering och återställning online med Azure Cosmos DB](online-backup-and-restore.md).|
 |Återställ borttagna data|De automatiserade säkerhets kopieringarna kan användas för att återställa data som du kan ha tagit bort av misstag, upp till ~ 30 dagar efter händelsen. <br><br>Läs mer i [Automatisk säkerhets kopiering och återställning online med Azure Cosmos DB](online-backup-and-restore.md)|
 |Skydda och isolera känsliga data|Alla data i de regioner som anges i vad är nytt? är nu krypterad i vila.<br><br>Personliga data och andra konfidentiella data kan isoleras till en viss behållare och skriv-eller Läs behörighet kan begränsas till vissa användare.|
-|Övervaka för attacker|Genom att använda [gransknings loggning och aktivitets loggar](logging.md)kan du övervaka ditt konto för normal och onormal aktivitet. Du kan se vilka åtgärder som utfördes på resurserna, som initierade åtgärden, när åtgärden utfördes, status för åtgärden och mycket mer som visas på skärm bilden efter den här tabellen.|
+|Övervaka för attacker|Genom att använda [gransknings loggning och aktivitets loggar](./monitor-cosmos-db.md)kan du övervaka ditt konto för normal och onormal aktivitet. Du kan se vilka åtgärder som utfördes på resurserna, som initierade åtgärden, när åtgärden utfördes, status för åtgärden och mycket mer som visas på skärm bilden efter den här tabellen.|
 |Svara på attacker|När du har kontaktat Azure-supporten för att rapportera en potentiell attack, startas en process med 5 stegs incident svar. Målet med en 5-stegs process är att återställa normala tjänst säkerhet och-åtgärder så snabbt som möjligt när ett problem har upptäckts och en undersökning har startats.<br><br>Läs mer i [Microsoft Azure säkerhets svar i molnet](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Geo-staket|Azure Cosmos DB garanterar data styrning för suveräna regioner (till exempel Tyskland, Kina, US Gov).|
 |Skyddade anläggningar|Data i Azure Cosmos DB lagras på SSD i Azures skyddade data Center.<br><br>Läs mer i [Microsofts globala data Center](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
@@ -104,6 +104,6 @@ Primära, sekundära, skrivskyddade och Läs-och skriv-och skrivbara primär nyc
 
 Mer information om primära nycklar och resurs-token finns i [Skydda åtkomsten till Azure Cosmos db data](secure-access-to-data.md).
 
-Mer information om gransknings loggning finns i [Azure Cosmos DB diagnostisk loggning](logging.md).
+Mer information om gransknings loggning finns i [Azure Cosmos DB diagnostisk loggning](./monitor-cosmos-db.md).
 
 Mer information om Microsoft-certifieringar finns [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/).

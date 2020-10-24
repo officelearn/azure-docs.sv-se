@@ -5,21 +5,21 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 10/22/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1626d6f86dcfefd094f325f1f10296d01d4bad93
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ea5e25473214ccc9090038430642232735aaaf61
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "73523914"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479649"
 ---
 Du kan visa anslutningsstatus för en Resource Manager VPN Gateway i Azure Portal genom att navigera till anslutningen. Följande steg visar ett sätt att navigera till din anslutning och verifiera.
 
-1. I [Azure Portal](https://portal.azure.com) -menyn väljer du **alla resurser** eller söker efter och väljer **alla resurser** från vilken sida som helst. 
-2. Välj en virtuell nätverksgateway.
-3. På bladet för den virtuella nätverksgatewayen, klickar du på **Anslutningar**. Du kan se status för varje anslutning.
-4. Klicka på namnet på den anslutning du vill verifiera för att öppna **Essentials**. I Essentials, kan du visa mer information om din anslutning. **Statusen** är Lyckades och Ansluten, när du har skapat en lyckad anslutning.
+1. I [Azure Portal](https://portal.azure.com) -menyn väljer du **alla resurser** eller söker efter och väljer **alla resurser** från vilken sida som helst.
+1. Välj en virtuell nätverksgateway.
+1. På bladet för den virtuella nätverksgatewayen, klickar du på **Anslutningar**. Du kan se status för varje anslutning.
+1. Klicka på namnet på den anslutning du vill verifiera för att öppna **Essentials**. I Essentials, kan du visa mer information om din anslutning. **Statusen** är Lyckades och Ansluten, när du har skapat en lyckad anslutning.
 
-   ![Verifiera VPN Gateway-anslutningen med Azure Portal](./media/vpn-gateway-verify-connection-portal-include/connection-succeeded.png)
+   :::image type="content" source="./media/vpn-gateway-verify-connection-portal-include/status.png" alt-text="Verifiera VPN Gateway-anslutningen med Azure Portal":::

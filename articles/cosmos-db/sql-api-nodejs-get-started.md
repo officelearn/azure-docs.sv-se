@@ -9,25 +9,25 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: 68a2d354c45820bc9f2b291701deb9066a745235
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1e0f8c301d40ff10dbf977731d457a31b096328
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297886"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92478005"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Självstudie: Skapa en Node.js-konsolapp med JavaScript SDK för att hantera data från SQL-API:et för Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [Async Java](sql-api-async-java-get-started.md)
+> * [Java](./create-sql-api-java.md)
+> * [Async Java](./create-sql-api-java.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
 Som utvecklare kan du ha program som använder NoSQL-dokumentdata. Du kan använda ett SQL API-konto i Azure Cosmos DB till att lagra och komma åt dessa dokumentdata. Den här självstudien visar hur du skapar ett Node.js-konsolprogram som skapar Azure Cosmos DB-resurser och skickar frågor mot dem.
 
-I de här självstudierna får du:
+I den här självstudien kommer vi att:
 
 > [!div class="checklist"]
 > * Skapa och ansluta till ett Azure Cosmos DB-konto.
@@ -37,7 +37,7 @@ I de här självstudierna får du:
 > * Lägga till objekt i containern.
 > * Utföra grundläggande åtgärder på objekten, containern och databasen.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Se till att du har följande resurser:
 
@@ -221,6 +221,6 @@ Du kan ta bort resursgruppen, Azure Cosmos DB-kontot och alla relaterade resurse
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Övervaka ett Azure Cosmos DB-konto](monitor-accounts.md)
+> [Övervaka ett Azure Cosmos DB-konto](./monitor-cosmos-db.md)
 
 [create-account]: create-sql-api-dotnet.md#create-account

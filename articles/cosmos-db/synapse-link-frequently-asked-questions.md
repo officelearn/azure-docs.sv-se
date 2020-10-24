@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104112"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480079"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Vanliga frågor och svar om Azure Synapse Link för Azure Cosmos DB
 
@@ -37,13 +37,13 @@ I för hands versionen när Azure Synapse-länken är aktive rad för ett konto 
 
 Automatisk säkerhets kopiering och återställning av dina data i det analytiska arkivet stöds inte för närvarande för behållarna med analytisk lagring aktiverat. 
 
-När Synapse-länken är aktive rad på ett databas konto kommer Azure Cosmos DB fortsätta att automatiskt [ta säkerhets kopior](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) av dina data i transaktions arkivet (endast) i behållare vid schemalagd säkerhets kopierings intervall, som alltid. Det är viktigt att Observera att när en behållare med ett analytiskt arkiv som är aktive rad återställs till ett nytt konto, kommer behållaren att återställas med enbart transaktions lagring och inget analytiskt Arkiv har Aktiver ATS. 
+När Synapse-länken är aktive rad på ett databas konto kommer Azure Cosmos DB fortsätta att automatiskt [ta säkerhets kopior](./online-backup-and-restore.md) av dina data i transaktions arkivet (endast) i behållare vid schemalagd säkerhets kopierings intervall, som alltid. Det är viktigt att Observera att när en behållare med ett analytiskt arkiv som är aktive rad återställs till ett nytt konto, kommer behållaren att återställas med enbart transaktions lagring och inget analytiskt Arkiv har Aktiver ATS. 
 
 ### <a name="can-i-disable-the-azure-synapse-link-feature-for-my-azure-cosmos-db-account"></a>Kan jag inaktivera funktionen Azure Synapse-länk för mitt Azure Cosmos DB konto?
 
 När Synapse Link-funktionen har aktiverats på kontonivå kan du för närvarande inte inaktivera den. Du kommer inte att debiteras om Synapse Link-funktionen aktiveras på kontonivå och det inte finns några analysarkivaktiverade containrar. 
 
-Om du behöver inaktivera funktionen har du två alternativ. Det första är att ta bort och återskapa ett nytt Azure Cosmos DB konto och migrera data vid behov. Det andra alternativet är att öppna ett support ärende för att få hjälp med att migrera data till ett annat konto.
+Om du behöver inaktivera funktionen har du två alternativ. Det första är att ta bort och Azure Cosmos DB-kontot, skapa ett nytt och sedan migrera data om det behövs. Det andra alternativet är att öppna en supportbegäran för att få hjälp med att migrera data till ett annat konto.
 
 ## <a name="azure-cosmos-db-analytical-store"></a>Azure Cosmos DB analys lager
 
@@ -98,9 +98,9 @@ Data i analysarkiv partitioneras baserat på den vågräta partitioneringen i sh
 
 För närvarande kan du inte transformera data objekt när de automatiskt sprids från transaktions arkivet till analytisk lagring. Om du har scenarier som blockeras av den här begränsningen, e-posta [Azure Cosmos DB-teamet](mailto:cosmosdbsynapselink@microsoft.com).
 
-### <a name="is-analytical-store-supported-by-terraform"></a>Stöds analys lagring av terraform?
+### <a name="is-analytical-store-supported-by-terraform"></a>Har Terraform stöd för analytisk lagring?
 
-För närvarande stöder terraform inte analys lagrings behållare. Mer information finns i [terraform GitHub-problemen](https://github.com/hashicorp/terraform/issues) .
+Terraform har för närvarande inte stöd för analytiska lagringscontainrar. Läs mer i [GitHub-problem för Terraform](https://github.com/hashicorp/terraform/issues).
 
 ## <a name="analytical-time-to-live-ttl"></a>TTL-värde (Analytical Time to Live)
 

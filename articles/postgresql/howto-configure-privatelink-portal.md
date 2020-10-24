@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d2bdb96485a811ea9b3dde5320084f666508622
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4da1c1e142c5d70bea342fd9513061710228e61d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907494"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489939"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Skapa och hantera privat länk för Azure Database for PostgreSQL-en server med hjälp av portalen
 
@@ -62,7 +62,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Namn på virtuell dator | Ange *myVm*. |
     | Region | Välj **Europa, västra**. |
     | Alternativ för tillgänglighet | Lämna standard **ingen redundans för infrastruktur krävs**. |
-    | Bild | Välj **Windows Server 2019 Data Center**. |
+    | Avbildning | Välj **Windows Server 2019 Data Center**. |
     | Storlek | Lämna standard **ds1 v2**som standard. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
@@ -222,7 +222,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     Address:  10.1.3.4
     ```
 
-3. Testa anslutningen till den privata länken för PostgreSQL-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) för att utföra åtgärden.
+3. Testa anslutningen till den privata länken för PostgreSQL-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [Azure Data Studio](/sql/azure-data-studio/download?view=sql-server-ver15) för att utföra åtgärden.
 
 4. I **ny anslutning**anger eller väljer du den här informationen:
 
@@ -231,7 +231,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | Servertyp| Välj **postgresql**.|
     | Servernamn| Välj *mydemopostgresserver.privatelink.postgres.Database.Azure.com* |
     | Användarnamn | Ange användar namn som username@servername anges när postgresql-servern skapas. |
-    |lösenordsinställning |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
+    |Lösenord |Ange ett lösen ord som angavs när PostgreSQL-servern skapades. |
     |SSL|Välj **obligatoriskt**.|
     ||
 
@@ -252,7 +252,7 @@ När du är klar med den privata slut punkten, PostgreSQL-servern och den virtue
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktionen har du skapat en virtuell dator i ett virtuellt nätverk, en Azure Database for PostgreSQL-enskild server och en privat slut punkt för privat åtkomst. Du har anslutit till en virtuell dator från Internet och kommunicerat på ett säkert sätt till PostgreSQL-servern med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är en privat Azure-slutpunkt](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+I den här instruktionen har du skapat en virtuell dator i ett virtuellt nätverk, en Azure Database for PostgreSQL-enskild server och en privat slut punkt för privat åtkomst. Du har anslutit till en virtuell dator från Internet och kommunicerat på ett säkert sätt till PostgreSQL-servern med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är en privat Azure-slutpunkt](../private-link/private-endpoint-overview.md).
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

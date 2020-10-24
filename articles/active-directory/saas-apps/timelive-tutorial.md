@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 217a049b589db98b6d28e7a0ef9b8ef64f635349
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e9328d25459985172d2a80915bb156d297371ae
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88541722"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>Självstudie: Azure Active Directory integrering med TimeLive
 
@@ -30,7 +30,7 @@ Genom att integrera TimeLive med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med TimeLive behöver du följande objekt:
 
@@ -130,11 +130,11 @@ Utför följande steg för att konfigurera enkel inloggning med TimeLive i Azure
 
 2. Välj **Inställningar** under **Administratörs alternativ**.
 
-    ![TimeLive-konfiguration](./media/timelive-tutorial/configure1.png)
+    ![Skärm bild som visar administratörs alternativen med valda inställningar.](./media/timelive-tutorial/configure1.png)
 
 3. I avsnittet **program inställningar** utför du följande steg:
     
-    ![TimeLive-konfiguration](./media/timelive-tutorial/configure2.png)
+    ![Skärm bild som visar avsnittet program inställningar där du kan ange de värden som beskrivs.](./media/timelive-tutorial/configure2.png)
 
     a. Välj fliken **Säkerhet**.
 

@@ -6,20 +6,20 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 7361355a81de019af90e908f11c4d283b7f16cc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c07f59ae183c2d4ac920c6b3773fc6d177622ad2
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542129"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490194"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering för enskild server med en kundhanterad nyckel
 
 Med data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL enskild server kan du ta med din egen nyckel (BYOK) för data skydd i vila. Det gör det även möjligt för organisationer att implementera ansvarsfördelning vad gäller hanteringen av nycklar och data. Med kundhanterad kryptering ansvarar du för och har fullständig kontroll över en nyckels livscykel, behörigheter för nyckelanvändning och granskning av åtgärder på nycklar.
 
-Data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL enskild server, anges på server nivå. För en specifik server används en kundhanterad nyckel, som kallas nyckel krypterings nyckel (KEK), för att kryptera data krypterings nyckeln (DEK) som används av tjänsten. KEK är en asymmetrisk nyckel som lagras i en kundägda och kundhanterad [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) instans. Nyckel krypterings nyckeln (KEK) och data krypterings nyckeln (DEK) beskrivs mer detaljerat längre fram i den här artikeln.
+Data kryptering med Kundhanterade nycklar för Azure Database for PostgreSQL enskild server, anges på server nivå. För en specifik server används en kundhanterad nyckel, som kallas nyckel krypterings nyckel (KEK), för att kryptera data krypterings nyckeln (DEK) som används av tjänsten. KEK är en asymmetrisk nyckel som lagras i en kundägda och kundhanterad [Azure Key Vault](../key-vault/general/secure-your-key-vault.md) instans. Nyckel krypterings nyckeln (KEK) och data krypterings nyckeln (DEK) beskrivs mer detaljerat längre fram i den här artikeln.
 
-Key Vault är ett molnbaserad, externt nyckel hanterings system. Den har hög tillgänglighet och ger skalbar och säker lagring för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2, verifierade HSM: er (Hardware Security modules). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering och dekryptering till auktoriserade entiteter. Key Vault kan generera nyckeln, importera den eller [låta den överföras från en lokal HSM-enhet](../key-vault/key-Vault-hsm-protected-keys.md).
+Key Vault är ett molnbaserad, externt nyckel hanterings system. Den har hög tillgänglighet och ger skalbar och säker lagring för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2, verifierade HSM: er (Hardware Security modules). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering och dekryptering till auktoriserade entiteter. Key Vault kan generera nyckeln, importera den eller [låta den överföras från en lokal HSM-enhet](../key-vault/keys/hsm-protected-keys.md).
 
 > [!NOTE]
 > Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for PostgreSQL enskild server stöder pris nivåer för "Generell användning" och "Minnesoptimerade". Mer information om andra begränsningar finns i [begränsnings](concepts-data-encryption-postgresql.md#limitations) avsnittet.
@@ -68,7 +68,7 @@ Följande är krav för att konfigurera den Kundhanterade nyckeln:
 * Den Kundhanterade nyckeln som ska användas för att kryptera DEK kan bara vara asymmetrisk, RSA 2048.
 * Aktiverings datumet (om det är inställt) måste vara datum och tid tidigare. Utgångs datumet (om det är inställt) måste vara ett framtida datum och en framtida tidpunkt.
 * Nyckeln måste vara i *aktiverat* läge.
-* Om du [importerar en befintlig nyckel](https://docs.microsoft.com/rest/api/keyvault/ImportKey/ImportKey) till nyckel valvet ska du se till att tillhandahålla den i de fil format som stöds ( `.pfx` , `.byok` , `.backup` ).
+* Om du [importerar en befintlig nyckel](/rest/api/keyvault/ImportKey/ImportKey) till nyckel valvet ska du se till att tillhandahålla den i de fil format som stöds ( `.pfx` , `.byok` , `.backup` ).
 
 ## <a name="recommendations"></a>Rekommendationer
 
@@ -85,7 +85,7 @@ Här är rekommendationer för att konfigurera en kundhanterad nyckel:
 
 * Behåll en kopia av den Kundhanterade nyckeln på en säker plats eller depositions den till depositions-tjänsten.
 
-* Om Key Vault genererar nyckeln skapar du en nyckel säkerhets kopia innan du använder nyckeln för första gången. Du kan bara återställa säkerhets kopian till Key Vault. Mer information om säkerhets kopierings kommandot finns i [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyVault/backup-azkeyVaultkey).
+* Om Key Vault genererar nyckeln skapar du en nyckel säkerhets kopia innan du använder nyckeln för första gången. Du kan bara återställa säkerhets kopian till Key Vault. Mer information om säkerhets kopierings kommandot finns i [Backup-AzKeyVaultKey](/powershell/module/az.keyVault/backup-azkeyVaultkey).
 
 ## <a name="inaccessible-customer-managed-key-condition"></a>Otillgängligt kund hanterat nyckel villkor
 
@@ -95,7 +95,7 @@ När du konfigurerar data kryptering med en kundhanterad nyckel i Key Vault, kr�
 * Om vi skapar en Läs replik för Azure Database for PostgreSQL enskild server, som har data kryptering aktiverat, blir replik servern i ett *otillgängligt* tillstånd. Du kan åtgärda Server tillstånd genom [Azure Portal](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) eller [CLI](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers).
 * Om du tar bort ett nyckel valv kommer Azure Database for PostgreSQL enskild server inte att kunna komma åt nyckeln och övergår till *otillgängligt* tillstånd. Återställ [Key Vault](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) och verifiera om data krypteringen för att göra servern *tillgänglig*.
 * Om vi tar bort nyckeln från nyckel valvet, kommer Azure Database for PostgreSQL enskild server inte att kunna komma åt nyckeln och kommer att övergå till *otillgängligt* tillstånd. Återställ [nyckeln](../key-vault/general/soft-delete-cli.md#deleting-and-purging-key-vault-objects) och verifiera om data krypteringen för att göra servern *tillgänglig*.
-* Om den nyckel som lagras i Azure-nyckelpar upphör att gälla blir nyckeln ogiltig och den Azure Database for PostgreSQL enskilda servern övergår till *otillgängligt* tillstånd. Förläng utgångs datumet för nyckeln med [CLI](https://docs.microsoft.com/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-set-attributes) och verifiera sedan om data krypteringen för att göra servern *tillgänglig*.
+* Om den nyckel som lagras i Azure-nyckelpar upphör att gälla blir nyckeln ogiltig och den Azure Database for PostgreSQL enskilda servern övergår till *otillgängligt* tillstånd. Förläng utgångs datumet för nyckeln med [CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) och verifiera sedan om data krypteringen för att göra servern *tillgänglig*.
 
 ### <a name="accidental-key-access-revocation-from-key-vault"></a>Återkallning av åtkomst till oavsiktlig nyckel från Key Vault
 
@@ -113,7 +113,7 @@ Det kan hända att någon med tillräckliga åtkomst rättigheter för Key Vault
 Konfigurera följande Azure-funktioner för att övervaka databasens tillstånd och för att aktivera aviseringar för förlust av transparent data krypterings skydds åtkomst:
 
 * [Azure Resource Health](../service-health/resource-health-overview.md): en oåtkomlig databas som har förlorat åtkomst till kund nyckeln visas som "oåtkomlig" när den första anslutningen till databasen har nekats.
-* [Aktivitets logg](../service-health/alerts-activity-log-service-notifications.md): när åtkomst till kund nyckeln i den kundhanterade Key Vault Miss lyckas, läggs poster till i aktivitets loggen. Du kan återställa åtkomst så snart som möjligt, om du skapar aviseringar för dessa händelser.
+* [Aktivitets logg](../service-health/alerts-activity-log-service-notifications-portal.md): när åtkomst till kund nyckeln i den kundhanterade Key Vault Miss lyckas, läggs poster till i aktivitets loggen. Du kan återställa åtkomst så snart som möjligt, om du skapar aviseringar för dessa händelser.
 
 * [Åtgärds grupper](../azure-monitor/platform/action-groups.md): definiera de här grupperna för att skicka aviseringar och aviseringar baserat på dina inställningar.
 
@@ -143,4 +143,3 @@ För Azure Database for PostgreSQL har stödet för att kryptera data i vila med
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du [konfigurerar data kryptering med en kundhanterad nyckel för Azure Database för postgresql-server med hjälp av Azure Portal](howto-data-encryption-portal.md).
-

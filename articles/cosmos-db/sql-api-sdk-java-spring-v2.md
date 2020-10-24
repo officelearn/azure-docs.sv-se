@@ -9,32 +9,32 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: d5a906e12df14c6c3ffec704310bbede742ad841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15d3b5eb0dfd5eb35b81da1c0c1ef629aa0def63
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760833"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477427"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Våren data Azure Cosmos DB v2 för Core (SQL) API: viktig information och resurser
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
 > * [.NET SDK v2](sql-api-sdk-dotnet.md)
 > * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
 > * [Synkron Java-SDK v2](sql-api-sdk-java.md)
-> * [Våren data v2](sql-api-sdk-java-spring-v2.md)
-> * [Våren data v3](sql-api-sdk-java-spring-v3.md)
+> * [Spring-data v2](sql-api-sdk-java-spring-v2.md)
+> * [Spring-data v3](sql-api-sdk-java-spring-v3.md)
 > * [Spark-anslutningsprogram](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
-> * [REST-resursprovider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-api-query-reference.md)
-> * [Mass utförar – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
+> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
+> * [SQL](./sql-query-getting-started.md)
+> * [Masskörningsbibliotek – .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Masskörningsbibliotek – Java](sql-api-sdk-bulk-executor-java.md)
 
  Med vår data Azure Cosmos DB version 2 för Core (SQL) kan utvecklare använda Azure Cosmos DB i vår program. Våren data Azure Cosmos DB visar data gränssnittet våren för att manipulera databaser och samlingar, arbeta med dokument och skicka frågor. Både synkronisering och asynkron (reaktiv) API: er stöds i samma maven-artefakt. 
 
@@ -48,14 +48,14 @@ Du kan använda vår data Azure Cosmos DB i dina [Azure våren Cloud](https://az
 > Våren data Azure Cosmos DB stöder bara SQL-API: et.
 >
 > I följande artiklar finns information om våren-data på andra Azure Cosmos DB API: er:
-> * [Våren-data för Apache Cassandra med Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
-> * [Fjädra data MongoDB med Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
-> * [Fjädra data Gremlin med Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
+> * [Våren-data för Apache Cassandra med Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db)
+> * [Fjädra data MongoDB med Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db)
+> * [Fjädra data Gremlin med Azure Cosmos DB](/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Vill du komma igång snabbt?
 > 1. Installera den [lägsta stödda Java Runtime, JDK 8](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), så att du kan använda SDK: n.
-> 2. Skapa en våren data Azure Cosmos DB-appen genom att använda [Start](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)programmet. Det är enkelt!
-> 3. Arbeta via [vår Data Azure Cosmos DB Developer ' s guide](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), som guidar genom grundläggande Azure Cosmos DB förfrågningar.
+> 2. Skapa en våren data Azure Cosmos DB-appen genom att använda [Start](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db)programmet. Det är enkelt!
+> 3. Arbeta via [vår Data Azure Cosmos DB Developer ' s guide](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb), som guidar genom grundläggande Azure Cosmos DB förfrågningar.
 >
 > Du kan sätta upp våren Boot starter-appar snabbt genom att använda [våren Initializr](https://start.spring.io/)!
 >
@@ -64,14 +64,14 @@ Du kan använda vår data Azure Cosmos DB i dina [Azure våren Cloud](https://az
 
 | Resurs | Länk |
 |---|---|
-| **SDK-hämtning** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/spring-data-cosmosdb) |
+| **SDK-nedladdning** | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/spring-data-cosmosdb) |
 |**API-dokumentation** | [Dokumentation om vår data Azure Cosmos DB referens]() |
 |**Bidra till SDK: n** | [Våren data Azure Cosmos DB lagrings platsen på GitHub](https://github.com/microsoft/spring-data-cosmosdb) | 
 |**Start starter för våren**| [Azure Cosmos DB fjäder start starter klient bibliotek för Java](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
 |**Exempel på våren att göra-appen med Azure Cosmos DB**| [Java-upplevelse från slut punkt till slut punkt i App Service Linux (del 2)](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2) |
-|**Guide för utvecklare** | [Utvecklarguide för Spring Data Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
-|**Använda Start programmet** | [Använda våren Boot starter med Azure Cosmos DB SQL API](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [GitHub lagrings platsen för Azure Cosmos DB fjäder start starter](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
-|**Exempel med Azure App Service** | [Så här använder du Spring och Cosmos DB med App Service på Linux](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Exempel på att göra-appen](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
+|**Guide för utvecklare** | [Utvecklarguide för Spring Data Azure Cosmos DB](/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb) | 
+|**Använda Start programmet** | [Använda våren Boot starter med Azure Cosmos DB SQL API](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) <br> [GitHub lagrings platsen för Azure Cosmos DB fjäder start starter](https://github.com/MicrosoftDocs/azure-dev-docs/blob/master/articles/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md) |
+|**Exempel med Azure App Service** | [Så här använder du Spring och Cosmos DB med App Service på Linux](/azure/developer/java/spring-framework/configure-spring-app-with-cosmos-db-on-app-service-linux) <br> [Exempel på att göra-appen](https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git) |
 
 ## <a name="release-history"></a>Versions historik
 

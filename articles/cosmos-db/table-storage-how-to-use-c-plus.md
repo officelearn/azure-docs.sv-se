@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: ed3ea64bf76eafd965e13f4dab1911840ed8139a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282858"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477342"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med C++
 
@@ -78,7 +78,7 @@ Det här exemplet visar hur du deklarerar ett statiskt fält som innehåller Azu
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Använd namnet på ditt lagrings konto för `<your_storage_account>` . För <your_storage_account_key> använder du åtkomst nyckeln för lagrings kontot som anges i [Azure Portal](https://portal.azure.com). Information om lagrings konton och åtkomst nycklar finns i [skapa ett lagrings konto](../storage/common/storage-create-storage-account.md).
+Använd namnet på ditt lagrings konto för `<your_storage_account>` . För <your_storage_account_key> använder du åtkomst nyckeln för lagrings kontot som anges i [Azure Portal](https://portal.azure.com). Information om lagrings konton och åtkomst nycklar finns i [skapa ett lagrings konto](../storage/common/storage-account-create.md).
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Konfigurera en Azure Cosmos DB-anslutningssträng
 
@@ -138,7 +138,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>Lägga till en entitet i en tabell
 
-Skapa ett nytt `table_entity` objekt och skicka det till om du vill lägga till en entitet i en tabell `table_operation::insert_entity` . I följande kod används kundens förnamn som radnyckel och efternamnet som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Entiteter med samma partitionsnyckel kan efter frågas snabbare än entiteter med olika partitionsnyckel. Genom att använda olika partitionstyper kan du öka skalbarheten för parallella åtgärder. Mer information finns i [checklistan för prestanda och skalbarhet i Microsoft Azure Storage](../storage/common/storage-performance-checklist.md).
+Skapa ett nytt `table_entity` objekt och skicka det till om du vill lägga till en entitet i en tabell `table_operation::insert_entity` . I följande kod används kundens förnamn som radnyckel och efternamnet som partitionsnyckel. Tillsammans identifierar en entitets partition och radnyckel entiteten i tabellen unikt. Entiteter med samma partitionsnyckel kan efter frågas snabbare än entiteter med olika partitionsnyckel. Genom att använda olika partitionstyper kan du öka skalbarheten för parallella åtgärder. Mer information finns i [checklistan för prestanda och skalbarhet i Microsoft Azure Storage](../storage/blobs/storage-performance-checklist.md).
 
 Följande kod skapar en ny instans av `table_entity` med viss kund information att lagra. Koden nästa anrop `table_operation::insert_entity` för att skapa ett `table_operation` objekt för att infoga en entitet i en tabell och kopplar den nya tabellen entiteten till den. Slutligen anropar koden `execute` metoden i `cloud_table` objektet. Den nya `table_operation` skickar en begäran till Table service att infoga den nya kundentiteten i `people` tabellen.  
 

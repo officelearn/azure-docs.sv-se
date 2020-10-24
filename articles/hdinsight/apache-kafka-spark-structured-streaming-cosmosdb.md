@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/18/2019
-ms.openlocfilehash: 0a2e69a220f6752e5f0392c345b02967e2e76beb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20045ce914a340ac36e4df8cbd0df38e872a1d38
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86203471"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487338"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Använd Apache Spark strukturerad strömning med Apache Kafka och Azure Cosmos DB
 
@@ -86,7 +86,7 @@ Apache Kafka i HDInsight ger inte åtkomst till Kafka-utjämnare via det offentl
 
 Projektet som används i det här dokumentet lagrar data i Cosmos DB. Innan du kör koden måste du först skapa en _databas_ och _samling_ i Cosmos DB-instansen. Du måste också hämta dokument slut punkten och _nyckeln_ som används för att autentisera begär anden till Cosmos dB.
 
-Ett sätt att göra detta är att använda [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Följande skript kommer att skapa en databas med namnet `kafkadata` och en samling med namnet `kafkacollection` . Den returnerar sedan den primära nyckeln.
+Ett sätt att göra detta är att använda [Azure CLI](/cli/azure/). Följande skript kommer att skapa en databas med namnet `kafkadata` och en samling med namnet `kafkacollection` . Den returnerar sedan den primära nyckeln.
 
 ```azurecli
 #!/bin/bash

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/06/2020
-ms.openlocfilehash: 87feba3bc79e39f1379a25fa55fe0186d5605e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 524c888bb132405f03af44f9c28198be0ac89370
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085556"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489599"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Kör Apache Hive frågor med Apache Hadoop i HDInsight med REST
 
@@ -21,7 +21,7 @@ ms.locfileid: "86085556"
 
 Lär dig hur du använder WebHCat-REST API för att köra Apache Hive frågor med Apache Hadoop på Azure HDInsight-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -185,7 +185,7 @@ $clusterName
 
 1. När jobbets tillstånd har ändrats till **lyckades**kan du hämta resultatet från Azure Blob Storage. Den `statusdir` parameter som skickades med frågan innehåller platsen för utdatafilen, i det här fallet `/example/rest` . Den här adressen lagrar utdata i `example/curl` katalogen i klustrets standard lagring.
 
-    Du kan visa och hämta dessa filer med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI med Azure Storage finns i [använda Azure CLI med Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli) -dokument.
+    Du kan visa och hämta dessa filer med hjälp av [Azure CLI](/cli/azure/install-azure-cli). Mer information om hur du använder Azure CLI med Azure Storage finns i [använda Azure CLI med Azure Storage](https://docs.microsoft.com/azure/storage/storage-azure-cli) -dokument.
 
 ## <a name="next-steps"></a>Nästa steg
 

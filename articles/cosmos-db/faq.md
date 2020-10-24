@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26794f0d743bc701879a161f69e374340206e5d8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570356"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488477"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Du kan också använda [Azure Cosmos DB emulatorn](local-emulator.md) för att u
 
 Om du vill ställa en teknisk fråga kan du publicera till någon av dessa två fråge-och svars Forum:
 
-* [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Sidan Microsoft Q&en fråga](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för programmerings frågor. Se till att din fråga är [i ämne](https://stackoverflow.com/help/on-topic) och [Ange så många detaljer som möjligt, så att frågan blir tydlig och kan besvaras](https://stackoverflow.com/help/how-to-ask).
 
 Om du vill begära nya funktioner skapar du en ny begäran på [användarens röst](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -179,7 +179,7 @@ SQL-API: et stöder låg latens agg regering i valfri skala via mängd funktione
 
 SQL-API: et stöder optimistisk samtidighets kontroll (OCC) via HTTP-entitetstyper eller ETags. Varje SQL-API-resurs har en ETag och ETag anges på servern varje gång ett dokument uppdateras. ETag-rubriken och det aktuella värdet ingår i alla svarsmeddelanden. ETags kan användas med If-Match-rubriken för att tillåta att servern bestämmer om en resurs ska uppdateras. Värdet If-Match är det ETag-värde som ska kontrol leras mot. Om ETag-värdet matchar Server-ETag-värdet, uppdateras resursen. Om ETag inte längre är aktuell, avvisar servern åtgärden med svars koden "HTTP 412-förväntas haveri". Klienten hämtar sedan resursen för att hämta det aktuella ETag-värdet för resursen. Dessutom kan ETags användas med rubriken If-None-Match för att avgöra om en återhämtning av en resurs krävs.
 
-Om du vill använda optimistisk samtidighet i .NET använder du klassen [AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx) . Ett .NET-exempel finns i [program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) i DocumentManagement-exemplet på GitHub.
+Om du vill använda optimistisk samtidighet i .NET använder du klassen [AccessCondition](/dotnet/api/microsoft.azure.documents.client.accesscondition) . Ett .NET-exempel finns i [program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs) i DocumentManagement-exemplet på GitHub.
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>Hur gör jag för att utföra transaktioner i SQL-API: et?
 
@@ -210,7 +210,7 @@ Detta är en begränsning i Java Script. Java Script använder dubbla precisions
 Att skapa behörigheter med ResourceTokens tillåts på behållar nivån och dess underordnade (till exempel dokument, bilagor). Detta innebär att försök att skapa en behörighet till databasen eller en konto nivå inte är tillåtet för tillfället.
 
 [azure-portal]: https://portal.azure.com
-[query]: sql-api-sql-query.md
+[query]: ./sql-query-getting-started.md
 
 ## <a name="next-steps"></a>Nästa steg
 

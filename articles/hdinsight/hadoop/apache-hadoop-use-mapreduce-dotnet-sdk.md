@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/15/2020
-ms.openlocfilehash: 3de7101eb998d0f9b3b57afba6d19595738cbb63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddb14c321962c65d09be420d8da15f1e547aa282
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020413"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489548"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Köra MapReduce-jobb med HDInsight .NET SDK
 
@@ -174,5 +174,5 @@ I den här artikeln har du lärt dig flera olika sätt att skapa ett HDInsight-k
 * Information om hur du skickar ett Hive-jobb finns i [köra apache Hive frågor med HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md).
 * Information om hur du skapar HDInsight-kluster finns i [skapa Linux-baserade Apache Hadoop kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Information om hur du hanterar HDInsight-kluster finns i [hantera Apache Hadoop kluster i HDInsight](../hdinsight-administer-use-portal-linux.md).
-* Information om hur du lär dig av HDInsight .NET SDK finns i [referens för HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+* Information om hur du lär dig av HDInsight .NET SDK finns i [referens för HDInsight .NET SDK](/dotnet/api/overview/azure/hdinsight).
 * Information om icke-interaktiv autentisering till Azure finns i [skapa icke-interaktiv autentisering .net HDInsight-program](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).

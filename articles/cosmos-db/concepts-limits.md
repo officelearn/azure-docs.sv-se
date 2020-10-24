@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 06821b62fa05a4fd772b15aa5a57bd1e3de5dbb2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7dface648f7bf219d4c66b038af62e3307560650
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329380"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489293"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -144,7 +144,7 @@ Det finns inga begränsningar för objektets nytto laster som antalet egenskaper
 
 ## <a name="per-request-limits"></a>Begränsningar per begäran
 
-Azure Cosmos DB stöder [CRUD-och Query-åtgärder](/rest/api/cosmos-db/) mot resurser som behållare, objekt och databaser. Det stöder också [transaktionella batch-begäranden](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) mot flera objekt med samma partitionsnyckel i en behållare.
+Azure Cosmos DB stöder [CRUD-och Query-åtgärder](/rest/api/cosmos-db/) mot resurser som behållare, objekt och databaser. Det stöder också [transaktionella batch-begäranden](/dotnet/api/microsoft.azure.cosmos.transactionalbatch) mot flera objekt med samma partitionsnyckel i en behållare.
 
 | Resurs | Standardgräns |
 | --- | --- |
@@ -191,7 +191,7 @@ Mer detaljerad information om data flödes-och lagrings gränser med autoskalnin
 
 ## <a name="sql-query-limits"></a>Begränsningar för SQL-frågor
 
-Cosmos DB stöder frågor mot objekt med hjälp av [SQL](how-to-sql-query.md). I följande tabell beskrivs begränsningar i frågeuttryck, till exempel vad gäller antal satser eller frågor.
+Cosmos DB stöder frågor mot objekt med hjälp av [SQL](./sql-query-getting-started.md). I följande tabell beskrivs begränsningar i frågeuttryck, till exempel vad gäller antal satser eller frågor.
 
 | Resurs | Standardgräns |
 | --- | --- |

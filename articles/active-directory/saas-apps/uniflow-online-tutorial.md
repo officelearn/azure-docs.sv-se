@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bcda410e678e44916a4128d7ef097883e148ed79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81d0a0df53ff18661582416d4d96fd5d5ee83192
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551868"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486913"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med uniFLOW online
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar uniFLOW online med 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -101,7 +101,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig uniFLOW-online-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | -----------| --------------- |
     | displayname (visningsnamn) | user.displayname |
     | smek namn | User. egna namnet onpremisessamaccountname |
@@ -121,7 +121,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -152,20 +152,19 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Välj fliken **användare** i den vänstra navigerings panelen.
 
-    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure1.png)
+    ![Skärm bild som visar användaren som valts från webbplatsen uniFLOW online.](./media/uniflow-online-tutorial/configure1.png)
 
 1. Klicka på **identitets leverantörer**.
 
-    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure2.png)
+    ![Skärm bild som visar de valda identitets leverantörerna.](./media/uniflow-online-tutorial/configure2.png)
 
 1. Klicka på **Lägg till identitets leverantör**.
 
-    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure3.png)
+    ![Skärm bild som visar Lägg till identitets leverantör vald.](./media/uniflow-online-tutorial/configure3.png)
 
 1. I avsnittet **Lägg till identitetsprovider** utför du följande steg:
 
-
-    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure4.png)
+    ![Skärm bild som visar avsnittet Lägg till identitets leverantör där du kan ange de värden som beskrivs.](./media/uniflow-online-tutorial/configure4.png)
 
     a. Ange visnings namnet t. ex.: *AZUREAD SSO*.
 
@@ -177,7 +176,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Utför följande steg på fliken **Allmänt** :
 
-    ![uniFLOW online-konfiguration](./media/uniflow-online-tutorial/configure5.png)
+    ![Skärm bild som visar fliken Allmänt där du kan ange de värden som beskrivs.](./media/uniflow-online-tutorial/configure5.png)
 
     a. Ange visnings namnet t. ex.: *AZUREAD SSO*.
 

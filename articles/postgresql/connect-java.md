@@ -8,24 +8,24 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 66a3b4919903f739ed5afef0a02b501f00ff248f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cc9d8bf253a7282a5893af75b5e2ed71b3ab4b6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88545445"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92490160"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Använda Java och JDBC med Azure Database for PostgreSQL
 
-Det här avsnittet visar hur du skapar ett exempel program som använder Java och [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) för att lagra och hämta information i [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/).
+Det här avsnittet visar hur du skapar ett exempel program som använder Java och [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) för att lagra och hämta information i [Azure Database for PostgreSQL](./index.yml).
 
 JDBC är standard Java-API: et för att ansluta till traditionella Relations databaser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Om du inte har någon kan du [få en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.
-- En [Java Development Kit](https://aka.ms/azure-jdks)som stöds, version 8 (ingår i Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.
+- En [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support)som stöds, version 8 (ingår i Azure Cloud Shell).
 - Verktyget [Apache maven](https://maven.apache.org/) build.
 
 ## <a name="prepare-the-working-environment"></a>Förbered arbets miljön
@@ -67,7 +67,7 @@ az group create \
 Det första vi ska skapa är en hanterad PostgreSQL-Server.
 
 > [!NOTE]
-> Du kan läsa mer detaljerad information om hur du skapar PostgreSQL-servrar i [skapa en Azure Database for postgresql-server med hjälp av Azure Portal](/azure/postgresql/quickstart-create-server-database-portal).
+> Du kan läsa mer detaljerad information om hur du skapar PostgreSQL-servrar i [skapa en Azure Database for postgresql-server med hjälp av Azure Portal](./quickstart-create-server-database-portal.md).
 
 Kör följande kommando i [Azure Cloud Shell](https://shell.azure.com/):
 

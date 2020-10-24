@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2020
+ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: a4fa1a690c6607b70774be67048fcad7db378b8b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f7d9389eb0a0118f2c1be8375531f58b6bed94b6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461608"
+ms.locfileid: "92488103"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en offentlig belastningsutjämnare för att belastningsutjämna virtuella datorer med hjälp av Azure Portal
 
@@ -52,8 +52,8 @@ När du skapar en offentlig belastningsutjämnare, skapar du en ny offentlig IP-
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
-    | Resursgrupp         | Välj **Skapa nytt** och ange **myResourceGroupLB** i text rutan.|
-    | Name                   | Ange **myLoadBalancer**                                   |
+    | Resursgrupp         | Välj **Skapa ny** och ange **CreatePubLBQS-RG** i text rutan.|
+    | Namn                   | Ange **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **standard** |
@@ -164,7 +164,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     |------------------|-----------------------------------------------------------------|
     | **Projekt information**  |                                                                 |
     | Prenumeration     | Välj din Azure-prenumeration                                  |
-    | Resursgrupp   | Välj **myResourceGroupLB** |
+    | Resursgrupp   | Välj **CreatePubLBQS-RG** |
     | **Instansinformation** |                                                                 |
     | Name             | Ange **myVNet**                                    |
     | Region           | Välj **Europa, västra** |
@@ -217,13 +217,13 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
-    | Resursgrupp | Välj **myResourceGroupLB** |
+    | Resursgrupp | Välj **CreatePubLBQS-RG** |
     | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM1** |
     | Region | Välj **Europa, västra** |
     | Tillgänglighets alternativ | Välj **tillgänglighets zoner** |
     | Tillgänglighetszon | Välj **1** |
-    | Bild | Välj **Windows Server 2019 Data Center** |
+    | Avbildning | Välj **Windows Server 2019 Data Center** |
     | Azure Spot-instans | Välj **Nej** |
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
@@ -269,7 +269,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
     | Inställning | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
+    | Namn |  **myVM2** |**myVM3**|
     | Tillgänglighetszon | **2** |**3**|
     | Nätverkssäkerhetsgrupp | Välj den befintliga **myNSG**| Välj den befintliga **myNSG**|
 
@@ -333,8 +333,8 @@ När du skapar en offentlig belastningsutjämnare, skapar du en ny offentlig IP-
     | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
     | Prenumeration               | Välj din prenumeration.    |    
-    | Resursgrupp         | Välj **Skapa ny** och skriv **myResourceGroupLB** i text rutan.|
-    | Name                   | Ange **myLoadBalancer**                                   |
+    | Resursgrupp         | Välj **Skapa ny** och skriv **CreatePubLBQS-RG** i text rutan.|
+    | Namn                   | Ange **myLoadBalancer**                                   |
     | Region         | Välj **Europa, västra**.                                        |
     | Typ          | Välj **Offentlig**.                                        |
     | SKU           | Välj **grundläggande** |
@@ -370,7 +370,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät.
     |------------------|-----------------------------------------------------------------|
     | **Projekt information**  |                                                                 |
     | Prenumeration     | Välj din Azure-prenumeration                                  |
-    | Resursgrupp   | Välj **myResourceGroupLB** |
+    | Resursgrupp   | Välj **CreatePubLBQS-RG** |
     | **Instansinformation** |                                                                 |
     | Name             | Ange **myVNet**                                    |
     | Region           | Välj **Europa, västra** |
@@ -476,6 +476,7 @@ I det här avsnittet ska du skapa en belastnings Utjämnings regel:
     | Serverdelsport | Ange **80**. |
     | Serverdelspool | Välj **myBackendPool**.|
     | Hälsoavsökning | Välj **myHealthProbe**. |
+    | Tids gräns för inaktivitet (minuter) | Flytta skjutreglaget till **15** minuter. |
  
 4. Lämna resten av standardinställningarna och välj sedan **OK**.
 
@@ -503,13 +504,13 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
     |-----------------------|----------------------------------|
     | **Projekt information** |  |
     | Prenumeration | Välj din Azure-prenumeration |
-    | Resursgrupp | Välj **myResourceGroupLB** |
+    | Resursgrupp | Välj **CreatePubLBQS-RG** |
     | **Instansinformation** |  |
     | Namn på virtuell dator | Ange **myVM1** |
     | Region | Välj **Europa, västra** |
     | Tillgänglighets alternativ | Välj **Tillgänglighetsuppsättning** |
     | Tillgänglighetsuppsättning | Välj **Skapa ny**. </br> Ange **myAvailabilitySet** i **namn**. </br> Välj **OK** |
-    | Bild | **Windows Server 2019 Datacenter** |
+    | Avbildning | **Windows Server 2019 Datacenter** |
     | Azure Spot-instans | Välj **Nej** |
     | Storlek | Välj storlek på virtuell dator eller Ställ in standardinställningen |
     | **Administratörs konto** |  |
@@ -549,7 +550,7 @@ De här virtuella datorerna läggs till i backend-poolen för belastningsutjämn
 
     | Inställning | VM 2| VM 3|
     | ------- | ----- |---|
-    | Name |  **myVM2** |**myVM3**|
+    | Namn |  **myVM2** |**myVM3**|
     | Tillgänglighetsuppsättning| Välj **myAvailabilitySet** | Välj **myAvailabilitySet**|
     | Nätverkssäkerhetsgrupp | Välj den befintliga **myNSG**| Välj den befintliga **myNSG**|
 
@@ -575,7 +576,7 @@ De virtuella datorerna som skapades i föregående steg måste läggas till i ba
 
 ## <a name="install-iis"></a>Installera IIS
 
-1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myVM1** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj **myVM1** i resurs gruppen **CreateStdLBQS-RG** i resurs listan.
 
 2. På sidan **Översikt** väljer du **Anslut**och sedan **skydds**.
 
@@ -618,7 +619,7 @@ Om du vill se belastningsutjämnaren distribuerar trafik över alla tre virtuell
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resurs gruppen, belastningsutjämnaren och alla relaterade resurser när de inte längre behövs. Det gör du genom att markera resurs gruppen **myResourceGroupLB** som innehåller resurserna och sedan välja **ta bort**.
+Ta bort resurs gruppen, belastningsutjämnaren och alla relaterade resurser när de inte längre behövs. Det gör du genom att markera resurs gruppen **CreatePubLBQS-RG** som innehåller resurserna och sedan välja **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

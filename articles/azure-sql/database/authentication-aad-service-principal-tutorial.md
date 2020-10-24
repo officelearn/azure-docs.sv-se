@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
-ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/21/2020
+ms.openlocfilehash: a666acbcd2aed168bd1d871c0ef0fb8c3205fd05
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367728"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479159"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Självstudie: Skapa Azure AD-användare med hjälp av Azure AD-program
 
@@ -36,7 +36,7 @@ I den här guiden får du lära dig att:
 > - Skapa en tjänst huvud användare i Azure SQL Database
 > - Skapa en annan Azure AD-användare i SQL Database med hjälp av en Azure AD-tjänstens huvud namn användare
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - En befintlig [Azure SQL Database](single-database-create-quickstart.md) -eller [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) -distribution. Vi förutsätter att du har en fungerande SQL Database för den här självstudien.
 - Åtkomst till ett redan befintligt Azure Active Directory.
@@ -177,6 +177,16 @@ I den här självstudien kommer vi att använda *AppSP* som vårt huvud huvud tj
 
 Mer information om hur du skapar ett Azure AD-program finns i artikeln [så här gör du: använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](../../active-directory/develop/howto-create-service-principal-portal.md).
 
+### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Behörigheter som krävs för att ange eller ta bort Azure AD-administratören
+
+För att tjänstens huvud namn ska kunna ange eller ta bort en Azure AD-administratör för Azure SQL krävs ytterligare API-behörighet. [Katalogen. Read. all](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) Application API-behörighet måste läggas till i ditt program i Azure AD.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="objekt-ID":::
+
+Tjänstens huvud namn måste också ha rollen [**SQL Server Contributor**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) för SQL Database eller rollen [**SQL-hanterad instans deltagare**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) för SQL-hanterad instans.
+
+> [!NOTE]
+> Även om Azure AD Graph API är inaktuellt är **katalogen. Reader. all** behörighet gäller fortfarande för den här självstudien. Microsoft Graph-API: t gäller inte för den här självstudien.
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>Skapa tjänstens huvud namn användare i Azure SQL Database
 

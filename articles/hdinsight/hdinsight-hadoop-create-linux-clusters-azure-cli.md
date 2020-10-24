@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: 04def98108bf996a8f8cabe0ad36c022011aa533
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf292ccd185ad2c6a85cb6d2f097bb8a7fa9e173
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080728"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92489667"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Skapa HDInsight-kluster med Azure CLI
 
@@ -25,9 +25,9 @@ Stegen i det här dokumentet beskriver hur du skapar ett HDInsight 3,6-kluster m
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installerar Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) cli.
+Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installerar Azure](/cli/azure/install-azure-cli) cli.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -42,7 +42,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
     # az account set --subscription "SUBSCRIPTIONID"
     ```
 
-2. Ange miljövariabler. Användningen av variabler i den här artikeln baseras på bash. Små variationer kommer att krävas för andra miljöer. Se [AZ-HDInsight-Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) för en fullständig lista över möjliga parametrar för att skapa kluster.
+2. Ange miljövariabler. Användningen av variabler i den här artikeln baseras på bash. Små variationer kommer att krävas för andra miljöer. Se [AZ-HDInsight-Create](/cli/azure/hdinsight#az-hdinsight-create) för en fullständig lista över möjliga parametrar för att skapa kluster.
 
     |Parameter | Beskrivning |
     |---|---|
@@ -68,7 +68,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
     export componentVersion=Hadoop=2.7
     ```
 
-3. [Skapa resurs gruppen](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) genom att ange kommandot nedan:
+3. [Skapa resurs gruppen](/cli/azure/group#az-group-create) genom att ange kommandot nedan:
 
     ```azurecli-interactive
     az group create \
@@ -78,7 +78,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
 
     För en lista över giltiga platser använder du `az account list-locations` kommandot och använder sedan en av platserna från `name` värdet.
 
-4. [Skapa ett Azure Storage konto](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) genom att ange kommandot nedan:
+4. [Skapa ett Azure Storage konto](/cli/azure/storage/account#az-storage-account-create) genom att ange kommandot nedan:
 
     ```azurecli-interactive
     # Note: kind BlobStorage is not available as the default storage account.
@@ -91,7 +91,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
         --sku Standard_LRS
     ```
 
-5. [Extrahera primär nyckeln från Azure Storage-kontot](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) och lagra den i en variabel genom att ange kommandot nedan:
+5. [Extrahera primär nyckeln från Azure Storage-kontot](/cli/azure/storage/account/keys#az-storage-account-keys-list) och lagra den i en variabel genom att ange kommandot nedan:
 
     ```azurecli-interactive
     export AZURE_STORAGE_KEY=$(az storage account keys list \
@@ -100,7 +100,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
         --query [0].value -o tsv)
     ```
 
-6. [Skapa en Azure Storage-behållare](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) genom att ange kommandot nedan:
+6. [Skapa en Azure Storage-behållare](/cli/azure/storage/container#az-storage-container-create) genom att ange kommandot nedan:
 
     ```azurecli-interactive
     az storage container create \
@@ -109,7 +109,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
         --account-name $AZURE_STORAGE_ACCOUNT
     ```
 
-7. [Skapa HDInsight-klustret](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) genom att ange följande kommando:
+7. [Skapa HDInsight-klustret](/cli/azure/hdinsight#az-hdinsight-create) genom att ange följande kommando:
 
     ```azurecli-interactive
     az hdinsight create \

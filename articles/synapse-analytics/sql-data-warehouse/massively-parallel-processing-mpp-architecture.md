@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Analytics-arkitektur (tidigare SQL DW)
-description: Lär dig hur Azure Synapse Analytics (tidigare SQL DW) kombinerar massivt parallell bearbetning (MPP) med Azure Storage för att uppnå höga prestanda och skalbarhet.
+description: Lär dig hur Azure Synapse Analytics (tidigare SQL DW) kombinerar funktioner för distribuerad frågekörning med Azure Storage för att uppnå höga prestanda och skalbarhet.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: cde6cb514b6f87315400b3c40d8b86bcb7ff0adb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85210974"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479348"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics-arkitektur (tidigare SQL DW)
 
@@ -33,13 +33,13 @@ Azure Synapse är en obegränsad analystjänst som sammanför informationslager 
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## <a name="synapse-sql-mpp-architecture-components"></a>Synapse SQL MPP Architecture-komponenter
+## <a name="synapse-sql-architecture-components"></a>Komponenter för Synapse-arkitektur i SQL
 
 [SYNAPSE SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) utnyttjar en skalbar arkitektur för att distribuera beräknings bearbetning av data över flera noder. Skalan är en abstraktion av beräknings kraften som kallas för en [informations lager enhet](what-is-a-data-warehouse-unit-dwu-cdwu.md). Compute är separat från lagring, vilket gör att du kan skala beräkningarna oberoende av data i systemet.
 
 ![Synapse SQL-arkitektur](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-Synapse SQL använder en Node-baserad arkitektur. Program ansluter och utfärdar T-SQL-kommandon till en Control-nod, vilket är den enda punkten i posten för Synapse SQL. Noden kontroll kör minnes minnes minnes minnes minnes motorn, som optimerar frågor för parallell bearbetning och skickar sedan åtgärder för att beräkna noder för att utföra sitt arbete parallellt.
+Synapse SQL använder en Node-baserad arkitektur. Program ansluter och utfärdar T-SQL-kommandon till en Control-nod, vilket är den enda punkten i posten för Synapse SQL. -Noden är värd för den distribuerade Frågeredigeraren, som optimerar frågor för parallell bearbetning och skickar sedan åtgärder till Compute-noder för att utföra sitt arbete parallellt.
 
 Beräkningsnoderna lagrar alla användardata i Azure Storage och kör de parallella frågorna. Data Movement Service (DMS) är en intern tjänst på systemnivå som flyttar data mellan noder efter behov för att köra frågor parallellt och returnera korrekta resultat.
 
@@ -60,13 +60,13 @@ Synapse SQL utnyttjar Azure Storage för att skydda dina användar data.  Efters
 
 ### <a name="control-node"></a>Kontrollnoden
 
-Kontrollnoden är hjärnan i arkitekturen. Det är den som är klientdelen som interagerar med alla program och anslutningar. MPP-motorn körs på kontrollnoden för att optimera och koordinera parallella frågor. När du skickar en T-SQL-fråga omvandlas noden Control till frågor som körs mot varje distribution parallellt.
+Kontrollnoden är hjärnan i arkitekturen. Det är den som är klientdelen som interagerar med alla program och anslutningar. Den distribuerade frågespråket körs på noden kontroll för att optimera och koordinera parallella frågor. När du skickar en T-SQL-fråga omvandlas noden Control till frågor som körs mot varje distribution parallellt.
 
 ### <a name="compute-nodes"></a>Beräkningsnoder
 
 Beräkningsnoderna ger dataresurser. Distributioner mappar till Compute-noder för bearbetning. När du betalar för fler beräknings resurser mappas distributioner om till tillgängliga datornoder. Antalet datornoder sträcker sig från 1 till 60 och bestäms av Service nivån för Synapse SQL.
 
-Varje Compute-nod har ett nod-ID som visas i systemvyer. Du kan se Compute Node ID genom att leta efter kolumnen node_id i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa systemvyer finns i [MPP system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Varje Compute-nod har ett nod-ID som visas i systemvyer. Du kan se Compute Node ID genom att leta efter kolumnen node_id i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa system visningar finns i [SYNAPSE SQL system views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="data-movement-service"></a>Data Movement Service
 

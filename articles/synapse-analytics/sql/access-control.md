@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289488"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503291"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Hantera åtkomst till arbets ytor, data och pipelines
 
 Lär dig hur du hanterar åtkomst kontroll till arbets ytor, data och pipelines i en Azure Synapse Analytics-arbetsyta (för hands version).
 
 > [!NOTE]
-> För GA blir RBAC mer utvecklad genom introduktionen av Synapse Azure-roller
+> För GA är Azure RBAC mer utvecklad genom introduktionen av Synapse Azure-roller
 
 ## <a name="access-control-for-workspace"></a>Access Control för arbets yta
 
@@ -144,7 +144,7 @@ Om du vill ge fullständig åtkomst till en användare till **alla** SQL på beg
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="sql-pools"></a>SQL-pooler

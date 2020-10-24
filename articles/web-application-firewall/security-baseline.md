@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: edb184fa286eb6212f714c18830540e105ea3305
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5ecfd5e5ff29b2eade4391976947062d6e8f186f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92021187"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516162"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Azures säkerhets bas linje för Azure Web Application-brandvägg
 
@@ -355,7 +355,7 @@ Effektivisera den här processen genom att skapa diagnostikinställningar för A
 
 **Vägledning**: implementera isolering med separata prenumerationer och hanterings grupper för enskilda säkerhets domäner som miljö typ och data känslighets nivå, till exempel utvecklings-, test-och produktions miljöer. 
 
-Kontrol lera åtkomsten till Azure-resurser med rollbaserad åtkomst kontroll i Azure Active Directory (Azure AD) (Azure RBAC).
+Kontrol lera åtkomsten till Azure-resurser med rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 
 - [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
 
@@ -379,10 +379,10 @@ Följ Security Center rekommendationer för kryptering i vila och kryptering und
 
 **Ansvars område**: delat
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att kontrol lera åtkomst till resurser
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4,6: Använd Azure RBAC för att kontrol lera åtkomsten till resurser
 
-**Vägledning**: kontrol lera åtkomsten till Azure-resurser med rollbaserad åtkomst kontroll i Azure Active Directory (Azure AD) (Azure RBAC).
-- [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+**Vägledning**: kontrol lera åtkomsten till Azure-resurser med rollbaserad åtkomst kontroll i Azure (Azure RBAC).
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

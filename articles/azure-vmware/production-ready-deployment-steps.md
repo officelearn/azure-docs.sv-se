@@ -3,18 +3,18 @@ title: Planera distributionen av Azure VMware-lösningen
 description: Den här artikeln beskriver ett arbets flöde för distribution av Azure VMware-lösningar.  Det slutliga resultatet är en miljö som är redo för generering och migrering av virtuella datorer (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147988"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517369"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planera distributionen av Azure VMware-lösningen
 
-I den här artikeln ger vi dig planerings processen för att identifiera och samla in data som används under distributionen. När du planerar distributionen ska du se till att dokumentera den information som du samlar in för enkel referens under distributionen.
+Den här artikeln innehåller planerings processen för att identifiera och samla in data som används under distributionen. När du planerar distributionen ska du se till att dokumentera den information som du samlar in för enkel referens under distributionen.
 
-Processerna för den här snabb starten resulterar i en produktions klar miljö för att skapa virtuella datorer och migrering. 
+Processerna för den här snabb starten leder till en produktions klar miljö för att skapa virtuella datorer och migrering. 
 
 >[!IMPORTANT]
 >Innan du skapar din Azure VMware-lösning kan du följa artikeln [så här aktiverar du Azure VMware-lösningen](enable-azure-vmware-solution.md) för att skicka ett support ärende så att dina noder tilldelas ett support ärende. När support teamet har tagit emot din begäran tar det upp till fem arbets dagar för att bekräfta din begäran och allokera noderna. Om du har ett befintligt privat moln i Azure VMware-lösningen och vill att fler noder ska tilldelas, går du igenom samma process. 
@@ -73,7 +73,7 @@ Mer information finns i [Check lista för nätverks planering](tutorial-network-
 
 Identifiera ett IP-segment för att skapa ditt första nätverk (NSX-segment) i ditt privata moln.  Med andra ord vill du skapa ett nätverks segment i Azure VMware-lösningen så att du kan distribuera virtuella datorer till Azure VMware-lösningen.   
 
-Även om du bara planerar att utöka L2-nätverk skapar du ett nätverks segment som är användbart för att verifiera miljön.
+Även om du bara planerar att utöka L2-nätverk skapar du ett nätverks segment som validerar miljön.
 
 Kom ihåg att alla IP-segment som skapats måste vara unika i Azure och lokalt.  
 
@@ -92,7 +92,7 @@ Tänk på följande:
 
 ## <a name="expressroute-global-reach-peering-network"></a>ExpressRoute Global Reach peering Network
 
-Identifiera ett `/29` CIDR-nätverk för adress block som krävs för ExpressRoute Global Reach-peering. Kom ihåg att alla IP-segment som skapats måste vara unika i din Azure VMware-lösning och lokalt. IP-adresserna i det här segmentet används i varje ände av ExpressRoute-Global Reach-anslutningen för att ansluta ExpressRoute-kretsen för Azure VMware-lösningen med den lokala ExpressRoute-kretsen. 
+Identifiera ett `/29` CIDR-block för nätverks adress som krävs för ExpressRoute Global Reach-peering. Kom ihåg att alla IP-segment som skapats måste vara unika i din Azure VMware-lösning och lokalt. IP-adresserna i det här segmentet används i varje ände av ExpressRoute-Global Reach-anslutningen för att ansluta ExpressRoute-kretsen för Azure VMware-lösningen med den lokala ExpressRoute-kretsen. 
 
 **Exempel:** 10.1.0.0/29
 
@@ -128,7 +128,7 @@ VMware HCX är en teknik som ingår i Azure VMware-lösningen. De främsta anvä
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har samlat in och dokumenterat den information som behövs kan du fortsätta till nästa avsnitt för att skapa ett privat moln i Azure VMware-lösningen.
+Nu när du har samlat in och dokumenterat den information som krävs fortsätter du till nästa avsnitt för att skapa ditt privata moln i Azure VMware-lösningen.
 
 > [!div class="nextstepaction"]
 > [Distribuera Azure VMware Solution](deploy-azure-vmware-solution.md)

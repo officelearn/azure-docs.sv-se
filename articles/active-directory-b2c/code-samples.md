@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 2db64a950569e4a96a9a87bb86a5397a17b4f2ba
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: b52bfc14906d8e47c804ae15ee898f6ca00784af
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214948"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503852"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Azure Active Directory B2C-kodexempel
 
@@ -60,10 +60,23 @@ Följande tabeller innehåller länkar till exempel för program, inklusive iOS,
 
 Följande tabeller innehåller länkar till kod exempel för att använda webb-API: er i dina användar flöden med [API-kopplingar](api-connectors-overview.md).
 
-## <a name="api-connector-azure-function-quickstarts"></a>Snabb start för Azure-koppling i Azure
+### <a name="azure-function-quickstarts"></a>Snabb starter för Azure Function
 
 | Exempel                                                                                                                          | Beskrivning                                                                                                                                               |
 | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-api-connector-azure-function-validate) | Den här .NET Core Azure Function-exemplet visar hur du begränsar registreringen till vissa e-postdomäner och validerar information från användaren. |
 | [Node.js](https://github.com/Azure-Samples/active-directory-nodejs-external-identities-api-connector-azure-function-validate)   | Det här Node.js Azure Function-exemplet visar hur du begränsar registreringen till vissa e-postdomäner och validerar information från användaren.  |
 | [Python](https://github.com/Azure-Samples/active-directory-python-external-identities-api-connector-azure-function-validate)    | Det här python Azure Function-exemplet visar hur du begränsar registreringen till vissa e-postdomäner och verifierar information från användaren.    |
+
+### <a name="identity-verification-with-api-connectors"></a>Identitets verifiering med API-kopplingar
+
+| Exempel                                                                                                            | Beskrivning                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [IDology](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-idology-identity-verification) | Det här exemplet visar hur du verifierar en användar identitet som en del av din självbetjänings registrering genom att använda en API-anslutning för att integrera med IDology. |
+| [Experian](https://github.com/Azure-Samples/active-directory-dotnet-external-identities-experian-identity-verification) | Det här exemplet visar hur du verifierar en användar identitet som en del av din självbetjänings registrering genom att använda en API-anslutning för att integrera med Experian:. |
+
+### <a name="community-samples"></a>Community-exempel
+
+| Exempel                                                                                                            | Beskrivning                                                                                                                          |
+| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [Community-exempel för API-anslutning](https://github.com/azure-ad-b2c/api-connector-samples) | Den här lagrings platsen innehåller Community-exempel för scenarier som har Aktiver ATS av API-kopplingar|

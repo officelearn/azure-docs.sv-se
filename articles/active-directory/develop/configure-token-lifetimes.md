@@ -9,22 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/23/2020
 ms.author: ryanwi
 ms.custom: aaddev, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f70a11165f6433e580fd857f2d5a620deb6640c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2815041f32ebd7c2dae235229d1ca19aad253f7d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604342"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503629"
 ---
 # <a name="configure-token-lifetime-policies-preview"></a>Konfigurera livs längd principer för token (förhands granskning)
-Många scenarier är möjliga i Azure AD när du kan skapa och hantera livs längder för token för appar, tjänstens huvud namn och din övergripande organisation. Om du vill veta mer kan du läsa om [livstiden för token i Microsoft Identity Platform](active-directory-configurable-token-lifetimes.md). 
+Många scenarier är möjliga i Azure AD när du kan skapa och hantera livs längder för token för appar, tjänstens huvud namn och din övergripande organisation.  
 
 > [!IMPORTANT]
-> Efter att ha hört från kunder under för hands versionen har vi implementerat [hanterings funktioner för autentisering](../conditional-access/howto-conditional-access-session-lifetime.md) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens. Efter den 30 maj 2020 kommer ingen ny klient att kunna använda konfigurerings bara livs längds princip för token för att konfigurera sessioner och uppdatera tokens. Utfasningen sker inom flera månader efter det, vilket innebär att vi slutar att respektera befintliga sessioner för session och uppdatering av token. Du kan fortfarande konfigurera livstid för åtkomsttoken efter utfasningen.
+> Efter den 30 januari 2021 kommer klienter inte längre att kunna konfigurera uppdateringar och livstider för sessionstoken och Azure AD slutar att svara på befintlig uppdatering och sessionstoken i principer efter det datumet. Du kan fortfarande konfigurera livstid för åtkomsttoken efter utfasningen.  Om du vill veta mer kan du läsa om [livstiden för token i Microsoft Identity Platform](active-directory-configurable-token-lifetimes.md).
+> Vi har implementerat [hanterings funktioner för autentisering](../conditional-access/howto-conditional-access-session-lifetime.md)   i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens.
 
 
 I det här avsnittet går vi igenom några vanliga princip scenarier som hjälper dig att införa nya regler för:

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: bc0286dc509acd4afba7f1660b65e49b25378496
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 194625ab43dbb161d2b04352d715a44a1328a888
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371759"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503342"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Vad är SQL Data Sync för Azure?
 
@@ -135,7 +135,7 @@ Etablering och avetablering när du skapar, uppdaterar och tar bort grupper kan 
 - En primär nyckel kan inte ha följande data typer: sql_variant, Binary, varbinary, image, XML.
 - Var försiktig när du använder följande data typer som primär nyckel, eftersom den precision som stöds endast är för den andra: Time, DateTime, datetime2, DateTimeOffset.
 - Namn på objekt (databaser, tabeller och kolumner) får inte innehålla de utskrivbara tecken perioderna (.), vänster hak paren tes ([) eller höger hak paren tes (]).
-- Ett tabell namn får inte innehålla skrivbara tecken:! " # $ % ' ( ) * + -
+- Ett tabell namn får inte innehålla skrivbara tecken:! "# $% ' () * +-utrymme
 - Azure Active Directory autentisering stöds inte.
 - Om det finns tabeller med samma namn men olika schema (till exempel dbo. kunder och försäljning. kunder) kan endast en av tabellerna läggas till i Sync.
 - Kolumner med User-Defined data typer stöds inte

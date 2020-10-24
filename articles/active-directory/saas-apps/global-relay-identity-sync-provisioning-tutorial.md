@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: f0e34c8a331c475b103922789a9d1983f1c84cac
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c1e2d64bb30b6451e232c85a5892771157d32928
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92492215"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514409"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Självstudie: Konfigurera global vidarebefordring identitets synkronisering för automatisk användar etablering
 
@@ -52,7 +52,7 @@ Kontakta din globala Relay Identity Sync-representant för att ta emot klient-UR
 
 ## <a name="step-3-add-global-relay-identity-sync-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till global Relay Identity Sync från Azure AD Application Gallery
 
-Lägg till global Relay Identity Sync från Azure AD-programgalleriet för att börja hantera etablering till global Relay-synkronisering av identiteter. Om du tidigare har konfigurerat global Relay Identity Sync för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Lägg till global Relay Identity Sync från Azure AD-programgalleriet för att börja hantera etablering till global Relay-synkronisering av identiteter. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
 ## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas i etableringsomfånget 
 
@@ -63,7 +63,7 @@ Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, basera
 
 ## <a name="step-5-configure-automatic-user-provisioning-to-global-relay-identity-sync"></a>Steg 5. Konfigurera automatisk användar etablering till global vidarebefordra identitets synkronisering 
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i TestApp baserat på användar-och/eller grupp tilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i global Relay Identity sync-app baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Konfigurera automatisk användar etablering för global vidarebefordra identitets synkronisering i Azure AD:
 

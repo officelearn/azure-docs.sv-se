@@ -2,14 +2,14 @@
 title: Välj VM-storlekar för pooler
 description: Hur du väljer bland tillgängliga VM-storlekar för datornoderna i Azure Batch pooler
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 10/23/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: fd093006a9eb0c9746a19cb5f91b280145ddfb7e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107512"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517063"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
 
@@ -31,17 +31,19 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | Basic A | Alla storlekar *utom* Basic_A0 (a0) |
 | A | Alla storlekar *utom* Standard_A0 |
 | AV2 | Alla storlekar |
-| B | Inga |
-| DC | Inga |
+| B | Stöds inte |
+| DC | Stöds inte |
 | Dv2, DSv2 | Alla storlekar |
 | Dv3, Dsv3 | Alla storlekar |
 | Dav4<sup>1</sup> | Alla storlekar |
 | Dasv4<sup>1</sup> | Alla storlekar |
 | Ddv4, Ddsv4 |  Alla storlekar |
+| Dv4, Dsv4 | Stöds inte |
 | Ev3, Esv3 | Alla storlekar, förutom E64is_v3 |
 | Eav4<sup>1</sup> | Alla storlekar |
 | Easv4<sup>1</sup> | Alla storlekar |
 | Edv4, Edsv4 |  Alla storlekar |
+| Ev4, Esv4 | Stöds inte |
 | F, FS | Alla storlekar |
 | Fsv2 | Alla storlekar |
 | G, GS | Alla storlekar |
@@ -56,12 +58,13 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | NC | Alla storlekar |
 | NCv2<sup>1</sup> | Alla storlekar |
 | NCv3<sup>1</sup> | Alla storlekar |
+| NCasT4_v3 | Ingen – ännu inte tillgänglig |
 | ND<sup>1</sup> | Alla storlekar |
 | NDv2<sup>1</sup> | Ingen – ännu inte tillgänglig |
 | NV | Alla storlekar |
 | NVv3<sup>1</sup> | Alla storlekar |
-| NVv4 | Ingen – ännu inte tillgänglig |
-| SAP HANA | Inga |
+| NVv4<sup>1</sup> | Alla storlekar |
+| SAP HANA | Stöds inte |
 
 <sup>1</sup> dessa VM-serier kan allokeras i batch-pooler i konfigurationen av den virtuella datorn, men du måste skapa ett nytt batch-konto och begära en bestämd [kvot ökning](batch-quota-limit.md#increase-a-quota). Den här begränsningen tas bort när vCPU-kvoten per VM-serien har fullt stöd för batch-konton.
 

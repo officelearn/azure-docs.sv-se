@@ -11,12 +11,12 @@ ms.date: 03/24/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: synapse-analytics
-ms.openlocfilehash: 9eb1006bdba6c69136c972359bb13420a04f4180
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70ce0d6aada2b03646500720b0eba980a1f2d8f8
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048032"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515737"
 ---
 # <a name="monitor-your-azure-synapse-analytics-sql-pool-workload-using-dmvs"></a>Övervaka arbets belastningen för Azure Synapse Analytics SQL-poolen med DMV: er
 
@@ -139,7 +139,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
 * Markera kolumnen *total_elapsed_time* om du vill se om en viss distribution tar betydligt längre tid än andra för data förflyttning.
-* För den tids krävande distributionen kontrollerar du kolumnen *rows_processed* för att se om antalet rader som flyttas från den distributionen är betydligt större än andra. I så fall kan det hända att den här sökningen visar skevning av underliggande data.
+* För den tids krävande distributionen kontrollerar du kolumnen *rows_processed* för att se om antalet rader som flyttas från den distributionen är betydligt större än andra. I så fall kan det hända att den här sökningen visar skevning av underliggande data. En orsak till datasnedingen är att distribueras i en kolumn med många NULL-värden (vars rader kommer att alla hamnar i samma fördelning). Förhindra långsamma frågor genom att undvika distribution på dessa typer av kolumner eller filtrera din fråga för att eliminera NULL-värden när det är möjligt. 
 
 Om frågan körs kan du använda [DBCC PDW_SHOWEXECUTIONPLAN](/sql/t-sql/database-console-commands/dbcc-pdw-showexecutionplan-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta den SQL Server beräknade planen från SQL Server plan-cachen för det SQL-steg som körs för närvarande i en viss distribution.
 

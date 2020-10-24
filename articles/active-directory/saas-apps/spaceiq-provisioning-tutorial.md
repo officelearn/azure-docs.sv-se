@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: cd1e9431d7125b405f31cb1ed329e6e264cd247e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 135b780f547ddd8e979899898b9971c4dcf89cee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285965"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514716"
 ---
 # <a name="tutorial-configure-spaceiq-for-automatic-user-provisioning"></a>Självstudie: Konfigurera SpaceIQ för automatisk användar etablering
 
@@ -95,7 +95,7 @@ Innan du konfigurerar SpaceIQ för automatisk användar etablering med Azure AD 
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i SpaceIQ baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för SpaceIQ genom att följa anvisningarna i [självstudien om enkel inloggning med SpaceIQ](https://docs.microsoft.com/azure/active-directory/saas-apps/spaceiq-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för SpaceIQ genom att följa anvisningarna i [självstudien om enkel inloggning med SpaceIQ](./spaceiq-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
 
 ### <a name="to-configure-automatic-user-provisioning-for-spaceiq-in-azure-ad"></a>Konfigurera automatisk användar etablering för SpaceIQ i Azure AD:
 

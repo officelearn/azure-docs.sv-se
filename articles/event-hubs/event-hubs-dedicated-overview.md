@@ -3,12 +3,12 @@ title: Översikt över dedikerade Event Hub – Azure Event Hubs | Microsoft Doc
 description: Den här artikeln innehåller en översikt över dedikerade Azure-Event Hubs, som erbjuder distributioner av enskilda innehavare av Event Hub.
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: e6208a8d50e21766969dbe9d9739d5003958126a
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 20b153c9093c96e7357a8e439b6655f1db80bd46
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495109"
+ms.locfileid: "92517011"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Översikt över Event Hubs Dedicated
 
@@ -25,13 +25,13 @@ Dedikerade Event Hubs erbjuder tre övertygande förmåner för kunder som behö
 
 #### <a name="single-tenancy-guarantees-capacity-for-better-performance"></a>En enda innehavare garanterar kapaciteten för bättre prestanda
 
-Ett dedikerat kluster garanterar kapacitet i full skala och kan gå upp till gigabyte av strömmande data med fullständigt varaktiga lagrings utrymme och under andra svars tider för att hantera all burst i trafiken. 
+Ett dedikerat kluster garanterar kapacitet i full skala och kan tränga upp till gigabyte av strömmande data med fullständigt varaktig lagring och under en andra latens för att hantera all burst i trafiken. 
 
 #### <a name="inclusive-and-exclusive-access-to-features"></a>Inklusive och exklusiv åtkomst till funktioner 
-Det dedikerade erbjudandet omfattar funktioner som att samla in utan extra kostnad, samt exklusiv åtkomst till kommande funktioner som Bring Your Own Key (BYOK). Tjänsten hanterar även belastnings utjämning, OS-uppdateringar, säkerhets korrigeringar och partitionering för kunden, så att du kan lägga mindre tid på infrastruktur underhåll och mer tid på att skapa funktioner på klient sidan.  
+Det dedikerade erbjudandet omfattar funktioner som att fånga utan extra kostnad och exklusiv åtkomst till kommande funktioner som Bring Your Own Key (BYOK). Tjänsten hanterar även belastnings utjämning, OS-uppdateringar, säkerhets uppdateringar och partitionering för kunden, så att du kan lägga mindre tid på infrastruktur underhåll och mer tid på att skapa funktioner på klient sidan.  
 
 #### <a name="cost-savings"></a>Kostnads besparingar
-Vid höga ingångs volymer (>100 antal) är ett kluster kostar betydligt mindre per timme än att köpa en jämförbar mängd data flödes enheter i standard erbjudandet.
+Vid höga ingångs volymer (>100-dataflödes enheter) är ett kluster kostar betydligt mindre per timme än att köpa en jämförbar mängd data flödes enheter i standard erbjudandet.
 
 
 ## <a name="event-hubs-dedicated-quotas-and-limits"></a>Event Hubs Dedicated kvoter och begränsningar
@@ -53,7 +53,7 @@ Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst
 
 ## <a name="how-to-onboard"></a>Publicera
 
-Den självbetjänings upplevelsen för att [skapa ett Event Hubs kluster](event-hubs-dedicated-cluster-create-portal.md) via [Azure Portal](https://aka.ms/eventhubsclusterquickstart) är nu i för hands version. Om du har några frågor eller behöver hjälp med att registrera dig Event Hubs Dedicated kan du kontakta [Event Hubs-teamet](mailto:askeventhubs@microsoft.com).
+Den självbetjänings upplevelsen för att [skapa ett Event Hubs kluster](event-hubs-dedicated-cluster-create-portal.md) via [Azure Portal](https://aka.ms/eventhubsclusterquickstart) är nu i för hands version. Om du har några frågor eller behöver hjälp med att registrera dig för att Event Hubs Dedicated kan du kontakta [Event Hubss teamet](mailto:askeventhubs@microsoft.com).
 
 ## <a name="faqs"></a>Vanliga frågor och svar
 

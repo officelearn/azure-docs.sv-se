@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 635f1e03596d55101b6158353ed8cdc278212ceb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: edd9898580c60199b761b24b172a366069f09cb2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92155489"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516196"
 ---
 # <a name="how-to-use-permissions-in-azure-spring-cloud"></a>Så här använder du behörigheter i Azure våren Cloud
 Den här artikeln visar hur du skapar anpassade roller som delegerar behörigheter till Azure våren Cloud-resurser. Anpassade roller utökar [inbyggda Azure-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) med olika lager behörigheter.

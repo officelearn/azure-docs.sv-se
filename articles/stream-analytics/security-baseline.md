@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 72a2b24ad8e05943f975f0819d8b2a872b0ab829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5a7f27ff20a4770caea44e73d91001d9785c015
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229012"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517233"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Azures säkerhets bas linje för Stream Analytics
 
@@ -248,7 +248,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3,2: ändra standard lösen ord där tillämpligt
 
-**Vägledning**: Stream Analytics saknar begreppet standard lösen ord som autentiseringen tillhandahålls med Azure Active Directory och skyddas av rollbaserad åtkomst kontroll (RBAC) för att hantera tjänsten. Beroende på inmatnings strömmar tjänster och utgående tjänster måste du rotera de autentiseringsuppgifter som kon figurer ATS i jobben.
+**Vägledning**: Stream Analytics saknar begreppet standard lösen ord som autentiseringen tillhandahålls med Azure Active Directory och skyddas av rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att hantera tjänsten. Beroende på inmatnings strömmar tjänster och utgående tjänster måste du rotera de autentiseringsuppgifter som kon figurer ATS i jobben.
 
 * [Rotera inloggnings uppgifter för indata och utdata för ett Stream Analytics jobb](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-login-credentials-inputs-outputs)
 
@@ -324,7 +324,7 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 ### <a name="39-use-azure-active-directory"></a>3,9: Använd Azure Active Directory
 
-**Vägledning**: använda Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Azure AD tillhandahåller rollbaserad åtkomst kontroll (RBAC) för detaljerad kontroll över en klients åtkomst till Stream Analytics resurser.
+**Vägledning**: använda Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Azure AD ger Azure-rollbaserad åtkomst kontroll (Azure RBAC) för detaljerad kontroll över en klients åtkomst till Stream Analytics resurser.
 
 * [Så här skapar och konfigurerar du en Azure AD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
@@ -932,7 +932,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 * [Säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
 
-* [Använd taggar till att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Använda taggar för att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

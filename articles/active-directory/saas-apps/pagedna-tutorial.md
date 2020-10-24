@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 543085eaea993f6e464a501ffc93befd7589a009
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1ccd337851f8242526362675a11280e33584082
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554149"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92513874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Självstudie: Azure Active Directory integrering med PageDNA
 
@@ -28,9 +28,9 @@ Genom att integrera PageDNA med Azure AD får du följande fördelar:
 * Du kan göra det möjligt för användarna att logga in automatiskt på PageDNA (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats: Azure Portal.
 
-Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om program vara som en tjänst (SaaS) för program integrering med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med PageDNA behöver du följande objekt:
 
@@ -196,13 +196,12 @@ En användare med namnet Britta Simon skapas nu i PageDNA. Du behöver inte gör
 
 I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av portalen Mina appar.
 
-När du väljer **PageDNA** i portalen för Mina appar, bör du loggas in automatiskt till den PageDNA-prenumeration som du ställer in enkel inloggning för. Mer information om My Apps-portalen finns i [komma åt och använda appar på portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer **PageDNA** i portalen för Mina appar, bör du loggas in automatiskt till den PageDNA-prenumeration som du ställer in enkel inloggning för. Mer information om My Apps-portalen finns i [komma åt och använda appar på portalen Mina appar](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över självstudier för att integrera SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Lista över självstudier för att integrera SaaS-program med Azure Active Directory](./tutorial-list.md)
 
-* [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Enkel inloggning till program i Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-* [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)

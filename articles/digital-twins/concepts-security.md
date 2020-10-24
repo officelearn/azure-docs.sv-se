@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f438f4393538478f2960e709d8e23beb6106510d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485757"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503325"
 ---
 # <a name="secure-azure-digital-twins"></a>Skydda digitala Azure-dubbla
 
@@ -20,7 +20,7 @@ För säkerhet ger Azure Digitals dubbla, exakt åtkomst kontroll över specifik
 
 Azure Digitals dubbla är också stöd för kryptering av data i vila.
 
-## <a name="granting-permissions-with-azure-rbac"></a>Bevilja behörigheter med Azure RBAC
+## <a name="roles-and-permissions-with-azure-rbac"></a>Roller och behörigheter med Azure RBAC
 
 Azure RBAC tillhandahålls till Azure Digitals sammanflätade via integrering med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD).
 
@@ -47,22 +47,32 @@ Med hanterade identiteter hanterar Azure-plattformen den här körnings identite
 
 #### <a name="authorization-azure-roles-for-azure-digital-twins"></a>Auktorisering: Azure-roller för Azure Digitals dubbla
 
-Azure tillhandahåller de här inbyggda Azure-rollerna för att auktorisera åtkomst till en Azure Digital-resurs med dubbla resurser:
-* *Azure Digitals sammanflätade data ägare* – Använd den här rollen för att ge fullständig åtkomst över Azures digitala resurser.
-* *Azure Digitals data läsare* – Använd den här rollen för att ge skrivskyddad åtkomst till Azure Digitals-resurser.
+Azure tillhandahåller **två inbyggda Azure-roller** för att auktorisera åtkomst till [API: er](how-to-use-apis-sdks.md#overview-data-plane-apis)för Azure Digitals dubbla data plan. Du kan referera till rollerna antingen efter namn eller efter ID:
+
+| Inbyggd roll | Beskrivning | ID | 
+| --- | --- | --- |
+| Azure Digitals sammanflätade data ägare | Ger fullständig åtkomst till resurser med Azure Digitals dubbla resurser | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Azure Digitals sammanflätade data läsare | Ger skrivskyddad åtkomst till Azure Digitals dubbla resurser | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 >[!NOTE]
 > De här rollerna har nyligen bytt namn från sina tidigare namn i för hands versionen:
 > * Azure *Digitals dubbla data ägare* hade tidigare *Azure Digitals-ägare (för hands version)*.
 > * *Azure Digitals data läsare* tidigare var *Azure Digitals-läsare (för hands version)*.
 
-Mer information om hur inbyggda roller definieras finns i [*förstå roll definitioner*](../role-based-access-control/role-definitions.md) i Azure RBAC-dokumentationen. Information om hur du skapar anpassade Azure-roller finns i [*Azure-anpassade roller*](../role-based-access-control/custom-roles.md).
-
 Du kan tilldela roller på två sätt:
 * via fönstret åtkomst kontroll (IAM) för Azure Digitals dubbla i Azure Portal (se [*lägga till eller ta bort Azure roll tilldelningar med hjälp av Azure Portal*](../role-based-access-control/role-assignments-portal.md))
 * via CLI-kommandon för att lägga till eller ta bort en roll
 
 Mer detaljerad information om hur du gör detta finns i självstudien om Azure Digitals dubbla steg [*: Anslut en lösning från slut punkt till slut punkt*](tutorial-end-to-end.md).
+
+Mer information om hur inbyggda roller definieras finns i [*förstå roll definitioner*](../role-based-access-control/role-definitions.md) i Azure RBAC-dokumentationen. Information om hur du skapar anpassade Azure-roller finns i [*Azure-anpassade roller*](../role-based-access-control/custom-roles.md).
+
+##### <a name="automating-roles"></a>Automatisera roller
+
+När du refererar till roller i automatiserade scenarier rekommenderar vi att du refererar till dem med deras **ID** i stället för deras namn. Namnen kan ändras mellan versioner, men ID: n kommer inte att göra dem till en mer stabil referens i Automation.
+
+> [!TIP]
+> Om du assiging roller med en cmdlet, t. ex. `New-AzRoleAssignment` ([referens](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), kan du använda `-RoleDefinitionId` -parametern i stället för `-RoleDefinitionName` att skicka ett ID i stället för ett namn på rollen.
 
 ### <a name="permission-scopes"></a>Behörighetsomfattning
 

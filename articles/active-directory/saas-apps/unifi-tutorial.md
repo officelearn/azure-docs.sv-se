@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 27e346dd97824918d859ea6819e3c2b43f4c02aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed7bda2875fa68254fb3842dac8b713a0bbddfd4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551956"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486998"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Självstudie: Azure Active Directory integrering med en enhetlig
 
@@ -30,7 +30,7 @@ Integreringen av UNIFI med Azure AD medför följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med UNIFI behöver du följande:
 
@@ -130,15 +130,15 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med UNIFI
 
 2. Klicka på **Användare**.
 
-    ![Konfigurera enkel inloggning](./media/unifi-tutorial/app1.png)
+    ![Skärm bild som visar användare som valts från webbplatsen för att gå vidare.](./media/unifi-tutorial/app1.png)
 
 3. Klicka på **Lägg till ny identitetsprovider**.
 
-    ![Konfigurera enkel inloggning](./media/unifi-tutorial/app2.png)
+    ![Skärm bild som visar att AD New Identity Provider har valts.](./media/unifi-tutorial/app2.png)
 
 4. Utför följande steg i avsnittet **Lägg till identitetsprovider**:
 
-    ![Konfigurera enkel inloggning](./media/unifi-tutorial/app3.png) 
+    ![Skärm bild som visar Lägg till identitets leverantör där du kan ange de värden som beskrivs.](./media/unifi-tutorial/app3.png) 
 
     a. Skriv namnet på identitetsprovidern i textrutan **Providernamn**.
 

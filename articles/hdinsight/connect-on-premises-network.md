@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 3ab706b9cdf3c071fd5d3ceca732cff6b660db6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 542e4e09949aa3d673f632890bd7ee99adf431d5
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086565"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487287"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
@@ -46,7 +46,7 @@ I följande diagram är gröna rader begär Anden om resurser som slutar med DNS
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
 * Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/).
-* Om du vill använda Azure CLI och du ännu inte har installerat det kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Om du vill använda Azure CLI och du ännu inte har installerat det kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Skapa konfiguration av virtuellt nätverk
 
@@ -73,14 +73,14 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
 1. På fliken __grundläggande__ anger du följande information:  
   
-    | Field | Värde |
+    | Fält | Värde |
     | --- | --- |
     |Prenumeration |Välj lämplig prenumeration.|
     |Resursgrupp |Välj den resurs grupp som innehåller det virtuella nätverket som skapades tidigare.|
     |Namn på virtuell dator | Ange ett eget namn som identifierar den här virtuella datorn. I det här exemplet används **DNSProxy**.|
     |Region | Välj samma region som det virtuella nätverket som skapades tidigare.  Alla VM-storlekar är inte tillgängliga i alla regioner.  |
     |Alternativ för tillgänglighet |  Välj önskad tillgänglighets nivå.  Azure erbjuder en rad alternativ för att hantera tillgänglighet och återhämtning för dina program.  Skapa din lösning för att använda replikerade virtuella datorer i Tillgänglighetszoner eller tillgänglighets uppsättningar för att skydda dina appar och data från data Center avbrott och underhålls händelser. I det här exemplet används **ingen infrastrukturs-redundans krävs**. |
-    |Bild | Lämna på **Ubuntu Server 18,04 LTS**. |
+    |Avbildning | Lämna på **Ubuntu Server 18,04 LTS**. |
     |Autentiseringstyp | __Lösen ord__ eller __Offentlig SSH-nyckel__: autentiseringsmetoden för SSH-kontot. Vi rekommenderar att du använder offentliga nycklar eftersom de är säkrare. I det här exemplet används **lösen ord**.  Mer information finns i dokumentet [skapa och använda SSH-nycklar för virtuella Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md) .|
     |Användarnamn |Ange administratörs användar namnet för den virtuella datorn.  I det här exemplet används **sshuser**.|
     |Lösen ord eller offentlig SSH-nyckel | Det tillgängliga fältet avgörs av ditt val av **Autentiseringstyp**.  Ange lämpligt värde.|
@@ -92,7 +92,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
 4. Ange följande information på fliken **nätverk** :
 
-    | Field | Värde |
+    | Fält | Värde |
     | --- | --- |
     |Virtuellt nätverk | Välj det virtuella nätverk som du skapade tidigare.|
     |Undernät | Välj standard under nätet för det virtuella nätverk som du skapade tidigare. Välj __inte__ det undernät som används av VPN-gatewayen.|

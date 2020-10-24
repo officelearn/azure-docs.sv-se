@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: a0171481b97cff2ea085a80b387bff13590529a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cc18980d1dddc33ddf98f06de70449dee22e2ac
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905898"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92484601"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrera MySQL-databasen till Azure Database för MySQL med säkerhetskopiering och återställning
 
@@ -30,11 +30,15 @@ För att gå igenom den här instruktions guiden måste du ha:
 > [!TIP]
 > Om du vill migrera stora databaser med databas storlekar på över 1 TBs kanske du vill överväga att använda community-verktyg som t. ex. en **dumpare/för-belastningsutjämnare** som stöder parallell export och import. Lär dig [hur du migrerar stora MySQL-databaser](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
 
-## <a name="common-use-cases-for-dump-and-restore"></a>Vanliga användnings fall för dump och återställning
-Du kan använda MySQL-verktyg som **mysqldump** och **mysqlpump** för att dumpa och läsa in databaser i en Azure MySQL-databas i flera vanliga scenarier. I andra scenarier kan du använda metoden [import och export](concepts-migrate-import-export.md) i stället.
 
-- **Använd databas dum par när du migrerar hela databasen**. Den här rekommendationen innehåller när du flyttar en stor mängd MySQL-data, eller när du vill minimera tjänst avbrott för Live-webbplatser eller program.
--  **Använd databas dumpning om alla tabeller i databasen använder lagrings motorn InnoDB**. Azure Database for MySQL stöder endast InnoDB lagrings motor och stöder därför inte alternativa lagrings motorer. Om dina tabeller har kon figurer ATS med andra lagrings motorer konverterar du dem till InnoDB-motorns format innan du migrerar till Azure Database for MySQL.
+## <a name="common-use-cases-for-dump-and-restore"></a>Vanliga användnings fall för dump och återställning
+
+De vanligaste användnings fallen är:
+
+- **Flytta från annan leverantör av hanterade tjänster** : mest hanterade tjänst leverantörer kanske inte ger åtkomst till den fysiska lagrings filen av säkerhets skäl så att logisk säkerhets kopiering och återställning är det enda alternativet att migrera.
+- **Migrering från en lokal miljö eller virtuell dator** – Azure Database for MySQL stöder inte återställning av fysiska säkerhets kopieringar som gör den logiska säkerhets kopieringen och återställningen som den enda metoden.
+- **Att flytta lagrings utrymme för säkerhets kopior från lokalt redundant till Geo-redundant lagring** – Azure Database for MySQL tillåter konfigurering av lokalt redundant eller Geo-redundant lagring för säkerhets kopiering tillåts bara när servern skapas. När servern har tillhandahållits kan du inte ändra redundans alternativet för lagring av säkerhets kopior. För att kunna flytta lagrings utrymme för säkerhets kopior från lokalt redundant lagring till Geo-redundant lagring är dump och Restore det enda alternativet. 
+-  **Migrering från alternativa lagrings motorer till InnoDB** -Azure Database for MySQL stöder bara InnoDB Storage Engine och stöder därför inte alternativa lagrings motorer. Om dina tabeller har kon figurer ATS med andra lagrings motorer konverterar du dem till InnoDB-motorns format innan du migrerar till Azure Database for MySQL.
 
     Om du till exempel har en WordPress eller WebApp som använder mina ISAM-tabeller, måste du först konvertera tabellerna genom att migrera till InnoDB-format innan du återställer till Azure Database for MySQL. Använd satsen `ENGINE=InnoDB` för att ställa in motorn som används när du skapar en ny tabell och överför sedan data till den kompatibla tabellen innan du återställer.
 
@@ -165,3 +169,4 @@ För kända problem, tips och trick rekommenderar vi att du tittar på vår [tec
 ## <a name="next-steps"></a>Nästa steg
 - [Anslut program till Azure Database for MySQL](./howto-connection-string.md).
 - Mer information om hur du migrerar databaser till Azure Database for MySQL finns i [Guide för databas migrering](https://aka.ms/datamigration).
+- Om du vill migrera stora databaser med databas storlekar på över 1 TBs kanske du vill överväga att använda community-verktyg som t. ex. en **dumpare/för-belastningsutjämnare** som stöder parallell export och import. Lär dig [hur du migrerar stora MySQL-databaser](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).

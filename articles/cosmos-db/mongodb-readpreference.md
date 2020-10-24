@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: a0bc2118c1a7e719c5ac45cb4d253a0708acefdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e86c48695c732b27f5032c1e3780cc24c8d3dc39
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292346"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482272"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Distribuera läsningar globalt med Azure Cosmos DB s API för MongoDB
 
@@ -43,7 +43,7 @@ Kör följande kommandon för att klona exempellagringsplatsen. Använd någon a
 git clone <sample repo url>
 ```
 
-## <a name="run-the-application"></a>Kör programmet
+## <a name="run-the-application"></a>Köra appen
 
 Beroende på vilken plattform som används installerar du de nödvändiga paketen och startar programmet. Om du vill installera beroenden följer du README-filen som ingår i exempel programmets lagrings plats. I exempel programmet NodeJS använder du exempelvis följande kommandon för att installera de nödvändiga paketen och starta programmet.
 
@@ -171,6 +171,6 @@ Om du inte kommer att fortsätta att använda den här appen tar du bort alla re
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+* [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)
 * [Konfigurera en globalt distribuerad databas med Azure Cosmos DB s API för MongoDB](tutorial-global-distribution-mongodb.md)
 * [Utveckla lokalt med Azure Cosmos DB-emulatorn](local-emulator.md)

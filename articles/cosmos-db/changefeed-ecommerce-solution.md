@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a39ade902bd22d67e9b3a7d40b392bfd83dfd3
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356374"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92475923"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB ändra feed för att visualisera data analyser i real tid
 
@@ -50,7 +50,7 @@ Följande diagram representerar det data flöde och de komponenter som ingår i 
 
 5. **Händelsehubben:** Azure Event Hub lagrar dessa händelser och skickar dem till [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) för att utföra ytterligare analyser.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics definierar frågor för att bearbeta händelserna och utföra data analys i real tid. Dessa data skickas sedan till [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** Azure Stream Analytics definierar frågor för att bearbeta händelserna och utföra data analys i real tid. Dessa data skickas sedan till [Microsoft Power BI](/power-bi/desktop-what-is-desktop).  
 
 7. **Power BI:** Power BI används för att visualisera data som skickas av Azure Stream Analytics. Du kan bygga en instrument panel för att se hur måtten ändras i real tid.  
 
@@ -382,4 +382,4 @@ Om du vill ta bort de resurser som du skapade under det här labbet går du till
 
 ## <a name="next-steps"></a>Nästa steg 
   
-* Mer information om ändrings flöden finns [i arbeta med stöd för ändrings flöden i Azure Cosmos DB](change-feed.md) 
+* Mer information om ändrings flöden finns [i arbeta med stöd för ändrings flöden i Azure Cosmos DB](change-feed.md)

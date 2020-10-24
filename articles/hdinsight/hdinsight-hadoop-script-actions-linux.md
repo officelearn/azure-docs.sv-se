@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: 08354e212b8ca3cae642b599f25ed318e79f581c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa0ae0137064cc14d6d8f2adfe085ca255da73af
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082258"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486318"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Utveckling av skript åtgärder med HDInsight
 
@@ -343,7 +343,7 @@ Det här problemet uppstår oftast när skriptet har skapats i en Windows-miljö
 > [!NOTE]  
 > Följande kommandon är ungefär likvärdiga i att de ska ändra CRLF-linjen till LF. Välj en baserad på de verktyg som är tillgängliga i systemet.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 | --- | --- |
 | `unix2dos -b INFILE` |Den ursprungliga filen säkerhets kopie ras med en. BAK-tillägg |
 | `tr -d '\r' < INFILE > OUTFILE` |Utdatafilen innehåller en version med endast LF-ändelser |
@@ -365,5 +365,5 @@ Ersätt `INFILE` med den fil som innehåller struktur listan. `OUTFILE` ska vara
 ## <a name="next-steps"></a><a name="seeAlso"></a>Nästa steg
 
 * Lär dig hur du [anpassar HDInsight-kluster med hjälp av skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md)
-* Använd [HDInsight .NET SDK-referensen](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) för att lära dig mer om att skapa .NET-program som hanterar HDInsight
+* Använd [HDInsight .NET SDK-referensen](/dotnet/api/overview/azure/hdinsight) för att lära dig mer om att skapa .NET-program som hanterar HDInsight
 * Använd [HDInsight-REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) för att lära dig hur du använder rest för att utföra hanterings åtgärder på HDInsight-kluster.

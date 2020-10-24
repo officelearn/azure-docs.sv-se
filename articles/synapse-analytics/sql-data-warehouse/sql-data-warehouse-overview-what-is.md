@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 0ec5b5a5ee5c29893f47560d57e78c281825453e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ce4efe0250ea1b85e2e2d77b7ee69bdf3dbcab26
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370397"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480403"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Vad är Azure Synapse Analytics (tidigare SQL DW)?
 
@@ -40,7 +40,7 @@ Synapse SQL-pool syftar på de företags data lager funktioner som är allmänt 
 
 SQL-poolen representerar en samling analys resurser som tillhandahålls när du använder Synapse SQL. Storleken på SQL-poolen bestäms av data lager enheter (DWU).
 
-Importera Big data med enkla [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-frågor och Använd sedan kraften i MPP för att köra analys med höga prestanda. När du integrerar och analyserar Synapse SQL-poolen den enda versionen av sanningen som ditt företag kan räkna på för snabbare och mer robusta insikter.  
+Importera Big data med enkla [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL-frågor och Använd sedan kraften i den distribuerade Frågeredigeraren för att köra analys med höga prestanda. När du integrerar och analyserar data, blir Synapse SQL den enda versionen av sanningen som ditt företag kan räkna på för snabbare och mer robusta insikter. 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Viktig komponent i en stor data lösning
 

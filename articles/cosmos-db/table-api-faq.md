@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 65f276662ac4837003c7a7078b6197ba155eadc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167597"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92485009"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Vanliga frågor och svar om Tabell-API i Azure Cosmos DB
 
@@ -97,7 +97,7 @@ Du kan använda Azure Portal för att söka i data. Du kan också använda Tabel
 
 ### <a name="which-tools-work-with-the-table-api"></a>Vilka verktyg fungerar med Tabell-API?
 
-Du kan använda [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Du kan använda [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Verktyg med flexibiliteten att ta en anslutnings sträng i det tidigare formatet kan stödja den nya Tabell-API. En lista med tabell verktyg finns på sidan [Azure Storage klient verktyg](../storage/common/storage-explorers.md) .
 
@@ -115,7 +115,7 @@ Ja, du kan ansluta genom att skapa två separata instanser av CloudTableClient, 
 
 ### <a name="how-do-i-migrate-an-existing-azure-table-storage-application-to-this-offering"></a>Hur gör jag för att migrera ett befintligt Azure Table Storage-program till det här erbjudandet?
 
-[AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) och [verktyget Azure Cosmos db data migration](import-data.md) stöds båda.
+[AzCopy](../storage/common/storage-use-azcopy-v10.md) och [verktyget Azure Cosmos db data migration](import-data.md) stöds båda.
 
 ### <a name="how-is-expansion-of-the-storage-size-done-for-this-service-if-for-example-i-start-with-n-gb-of-data-and-my-data-will-grow-to-1-tb-over-time"></a>Hur ökar expansionen av lagrings storleken för den här tjänsten om jag exempelvis börjar med *n* GB data och mina data växer till 1 TB över tid?
 
@@ -231,7 +231,7 @@ I .NET SDK kan den skickas i app.config-filen:
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-sorting-aggregates-hierarchy-and-other-functionality-will-you-be-adding-these-capabilities-to-the-table-api"></a>Azure Cosmos DB som plattform verkar ha många funktioner, till exempel sortering, agg regeringar, hierarki och andra funktioner. Kommer du att lägga till dessa funktioner i Tabell-API?
 
-Tabell-API tillhandahåller samma fråge funktioner som Azure Table Storage. Azure Cosmos DB stöder också sortering, samlingar, geospatiala frågor, hierarki och en mängd inbyggda funktioner. Mer information finns i [SQL-frågor](how-to-sql-query.md).
+Tabell-API tillhandahåller samma fråge funktioner som Azure Table Storage. Azure Cosmos DB stöder också sortering, samlingar, geospatiala frågor, hierarki och en mängd inbyggda funktioner. Mer information finns i [SQL-frågor](./sql-query-getting-started.md).
 
 ### <a name="when-should-i-change-tablethroughput-for-the-table-api"></a>När ska jag ändra TableThroughput för Tabell-API?
 
@@ -293,7 +293,7 @@ Azure Cosmos DB är ett SLA-baserat system som tillhandahåller svars tid, data 
 Du kan dela din feedback på något av följande sätt:
 
 * [Röstanvändare](https://feedback.azure.com/forums/263030-azure-cosmos-db)
-* [Sidan Microsoft Q&en fråga](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
+* [Sidan Microsoft Q&en fråga](/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för programmerings frågor. Se till att din fråga är [i ämne](https://stackoverflow.com/help/on-topic) och [Ange så många detaljer som möjligt, så att frågan blir tydlig och kan besvaras](https://stackoverflow.com/help/how-to-ask).
 
 ## <a name="next-steps"></a>Nästa steg

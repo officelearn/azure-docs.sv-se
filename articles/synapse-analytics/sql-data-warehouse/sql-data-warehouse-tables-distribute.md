@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 98a3b8d30bcb358a0aaa0f7b124b8399a286d6cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85214017"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487015"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Vägledning för att utforma distribuerade tabeller i en Synapse SQL-pool
 
 Rekommendationer för att utforma hash-distribuerade och resursallokering-tabeller med resursallokering i Synapse SQL-pooler.
 
-Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i Synapse SQL-pool.Mer information finns i [arkitekturen för storskalig parallell bearbetning (MPP) i Azure Synapse Analytics](massively-parallel-processing-mpp-architecture.md).
+Den här artikeln förutsätter att du är bekant med koncepten för data distribution och data förflyttning i Synapse SQL.  Mer information finns i [Azure Synapse Analytics-arkitekturen](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>Vad är en distribuerad tabell?
 
@@ -32,7 +32,7 @@ En distribuerad tabell visas som en enskild tabell, men raderna lagras i ställe
 
 Ett annat alternativ för tabell lagring är att replikera en liten tabell över alla Compute-noder. Mer information finns i [design guide för replikerade tabeller](design-guidance-for-replicated-tables.md). Om du snabbt vill välja bland de tre alternativen går du till distribuerade tabeller i [tabellerna översikt](sql-data-warehouse-tables-overview.md).
 
-Som en del av tabell designen förstår du så mycket som möjligt av dina data och hur data efter frågas.Överväg till exempel följande frågor:
+Som en del av tabell designen förstår du så mycket som möjligt av dina data och hur data efter frågas.  Överväg till exempel följande frågor:
 
 - Hur stor är tabellen?
 - Hur ofta uppdateras tabellen?

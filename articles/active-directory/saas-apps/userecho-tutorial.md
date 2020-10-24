@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 6708fcbe6f756a92984ee8aa48c181e1103f2046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c6e09405fbc2fec6da516cabc7f509de712c45d
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532899"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Självstudie: Azure Active Directory integrering med UserEcho
 
@@ -30,7 +30,7 @@ Genom att integrera UserEcho med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med UserEcho behöver du följande objekt:
 
@@ -128,19 +128,19 @@ Utför följande steg för att konfigurera enkel inloggning med UserEcho i Azure
 
 2. I verktygsfältet högst upp klickar du på ditt användar namn för att expandera menyn och klicka sedan på **Konfigurera**.
    
-    ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_06.png) 
+    ![Skärm bilden visar installations programmet som valts från UserEcho-webbplatsen.](./media/userecho-tutorial/tutorial_userecho_06.png) 
 
 3. Klicka på **integrationer**.
    
-    ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_07.png) 
+    ![Skärm bild som visar de integreringar som valts på menyn Inställningar.](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
 4. Klicka på **webbplats**och sedan på **enkel inloggning (SAML2)**.
    
-    ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_08.png) 
+    ![Skärm bild som visar SAML2 för enkel inloggning valda från menyn integrationer.](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
 5. Utför följande steg på sidan **enkel inloggning (SAML)** :
    
-    ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_09.png)
+    ![Skärm bild som visar SAML-sidan enkel inloggning där du kan ange de värden som beskrivs.](./media/userecho-tutorial/tutorial_userecho_09.png)
     
     a. Som **SAML-aktiverad**väljer du **Ja**.
     
@@ -212,23 +212,23 @@ Syftet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 2. I verktygsfältet högst upp klickar du på ditt användar namn för att expandera menyn och klicka sedan på **Konfigurera**.
    
-    ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_06.png)
+    ![Skärm bilden visar installations programmet som valts från UserEcho-webbplatsen.](./media/userecho-tutorial/tutorial_userecho_06.png)
 
 3. Klicka på **användare**, för att expandera avsnittet **användare** .
    
-    ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_10.png)
+    ![Skärm bild som visar användare som valts från menyn Inställningar.](./media/userecho-tutorial/tutorial_userecho_10.png)
 
 4. Klicka på **Användare**.
    
-    ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_11.png)
+    ![Skärm bild som visar användare markerade.](./media/userecho-tutorial/tutorial_userecho_11.png)
 
 5. Klicka på **Bjud in en ny användare**.
    
-    ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_12.png)
+    ![Skärm bild som visar inbjudan till en ny användar kontroll.](./media/userecho-tutorial/tutorial_userecho_12.png)
 
 6. I dialog rutan **Bjud in en ny användare** utför du följande steg:
    
-    ![Konfigurera enkel inloggning](./media/userecho-tutorial/tutorial_userecho_13.png)
+    ![Skärm bild som visar dialog rutan Bjud in en ny användare där du kan ange användar information.](./media/userecho-tutorial/tutorial_userecho_13.png)
 
     a. Skriv namnet på användaren som Britta Simon i text rutan **namn** .
     

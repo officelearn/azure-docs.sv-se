@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 815c738f1680c12f94aa97e91cd123237bf1b4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac050a9b90272203a899a9a15a51df022e4b0d0e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542511"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Självstudie: Azure Active Directory integrering med TeamSeer
 
@@ -30,7 +30,7 @@ Genom att integrera TeamSeer med Azure AD får du följande fördelar:
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill konfigurera Azure AD-integrering med TeamSeer behöver du följande objekt:
 
@@ -126,7 +126,7 @@ Utför följande steg för att konfigurera enkel inloggning med TeamSeer i Azure
 
 1. Gå till **personal administration**.
 
-    ![PERSONAL administratör](./media/teamseer-tutorial/ic789634.png "PERSONAL administratör")
+    ![Skärm bild som visar den H R-administratör som valts från fönstret TeamSeer.](./media/teamseer-tutorial/ic789634.png "PERSONAL administratör")
 
 1. Klicka på **Konfigurera**.
 
@@ -134,11 +134,11 @@ Utför följande steg för att konfigurera enkel inloggning med TeamSeer i Azure
 
 1. Klicka på **Konfigurera information om SAML-Provider**.
 
-    ![SAML-inställningar](./media/teamseer-tutorial/ic789636.png "SAML-inställningar")
+    ![Skärm bild som visar konfigurera SAML-leverantörs information valt.](./media/teamseer-tutorial/ic789636.png "SAML-inställningar")
 
 1. I avsnittet information om SAML-Provider utför du följande steg:
 
-    ![SAML-inställningar](./media/teamseer-tutorial/ic789637.png "SAML-inställningar")
+    ![Skärm bild visar information om SAML-providern där du kan ange de värden som beskrivs.](./media/teamseer-tutorial/ic789637.png "SAML-inställningar")
 
     a. I text rutan **URL** klistrar du in URL-värdet för **inloggning** , som du har kopierat från Azure Portal.
 
@@ -146,7 +146,7 @@ Utför följande steg för att konfigurera enkel inloggning med TeamSeer i Azure
 
 1. Utför följande steg för att slutföra konfigurationen av SAML-providern:
 
-    ![SAML-inställningar](./media/teamseer-tutorial/ic789638.png "SAML-inställningar")
+    ![Skärm bild som visar konfiguration av SAML-Provider där du kan ange de värden som beskrivs.](./media/teamseer-tutorial/ic789638.png "SAML-inställningar")
 
     a. I **test-e-postadresserna**anger du test användarens e-postadress.
   
@@ -215,7 +215,7 @@ Om du vill att Azure AD-användare ska kunna logga in på TeamSeer måste de til
 
 1. Gå till **personal admin- \> användare** och klicka sedan på **Kör guiden Ny användare**.
 
-    ![PERSONAL administratör](./media/teamseer-tutorial/ic789640.png "PERSONAL administratör")
+    ![Skärm bild som visar fliken H R admin där du kan välja en guide som ska köras.](./media/teamseer-tutorial/ic789640.png "PERSONAL administratör")
 
 1. I avsnittet **användar information** utför du följande steg:
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 12/13/2019
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: f9765f4ce47e6e698daf1680aecf059241c58382
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d2a6954ffdb9f992ada7fc24dbcc161658b21d23
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993576"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480436"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Referens arkitekturer för Oracle Database Enterprise Edition på Azure
 
@@ -72,7 +72,7 @@ Med Oracle Database version 12,2 och senare, är det också möjligt att konfigu
 
 Följande diagram är en rekommenderad arkitektur för att använda Oracle data Guard i Azure med tillgänglighets zoner. Den här arkitekturen gör att du kan få ett service avtal för VM-drift tid på 99,99%.
 
-![Oracle Database att använda tillgänglighets zoner med data Guard Broker – FSFO](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
+![Diagram som visar en rekommenderad arkitektur för användning av Oracle data Guard i Azure med tillgänglighets zoner.](./media/oracle-reference-architecture/oracledb_dg_fsfo_az.png)
 
 I föregående diagram ansluter klient systemet till ett anpassat program med Oracle-backend via webben. Webb klient delen har kon figurer ATS i en belastningsutjämnare. Webb klient delen gör ett anrop till rätt program Server för att hantera arbetet. Program servern frågar den primära Oracle-databasen. Oracle-databasen har kon figurer ATS med hjälp av en [optimerad virtuell dator](../../sizes-memory.md) med hög tråds teknik med [begränsade kärn virtuella processorer](../../../virtual-machines/constrained-vcpu.md) för att spara på licens kostnader och maximera prestanda. Flera Premium-eller Ultra-diskar (Managed Disks) används för prestanda och hög tillgänglighet.
 

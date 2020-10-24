@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 7/13/2019
 ms.author: rohink
-ms.openlocfilehash: f4eb26678dee161451ff10144c2eaa3321ecc011
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d8af5815e544698ab833001e5ce6d0f4a30a264
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84693120"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487406"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använd Azure DNS för att tillhandahålla anpassade domän inställningar för en Azure-tjänst
 
 Azure DNS tillhandahåller DNS för en anpassad domän för någon av dina Azure-resurser som stöder anpassade domäner eller som har ett fullständigt kvalificerat domän namn (FQDN). Ett exempel är att du har en Azure-webbapp som du vill att användarna ska ha åtkomst till genom att antingen använda contoso.com eller www- \. contoso.com som ett fullständigt domän namn. Den här artikeln vägleder dig genom konfigurationen av Azure-tjänsten med Azure DNS för att använda anpassade domäner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att kunna använda Azure DNS för din anpassade domän måste du först delegera din domän till Azure DNS. Besök [delegera en domän till Azure DNS](./dns-delegate-domain-azure-dns.md) för instruktioner om hur du konfigurerar namnservrar för delegering. När din domän är delegerad till din Azure DNS zon kan du konfigurera de DNS-poster som behövs.
 
@@ -40,7 +40,7 @@ Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande in
 
 |Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Name     | myfunctionapp        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
+|Namn     | myfunctionapp        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
 |Typ     | CNAME        | Använd en CNAME-post med ett alias.        |
 |TTL-värde     | 1        | 1 används i 1 timme        |
 |TTL-enhet     | Tider        | Timmar används som tids mått         |
@@ -65,7 +65,7 @@ Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande in
 
 |Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Name     | mywebserver        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
+|Namn     | mywebserver        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
 |Typ     | A        | Använd en A-post eftersom resursen är en IP-adress.        |
 |TTL-värde     | 1        | 1 används i 1 timme        |
 |TTL-enhet     | Tider        | Timmar används som tids mått         |
@@ -92,7 +92,7 @@ Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande in
 
 |Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Name     | mywebserver        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
+|Namn     | mywebserver        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
 |Typ     | CNAME        | Använd en CNAME-post med ett alias. Om resursen använde en IP-adress används en A-post.        |
 |TTL-värde     | 1        | 1 används i 1 timme        |
 |TTL-enhet     | Tider        | Timmar används som tids mått         |
@@ -103,7 +103,7 @@ Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande in
 
 Gå tillbaka till App Service som har kon figurer ATS för det anpassade domän namnet. Klicka på **anpassade domäner**och sedan på **värd namn**. Klicka på **+ Lägg till värdnamn**om du vill lägga till en CNAME-post som du har skapat.
 
-![bild 1](./media/dns-custom-domain/figure1.png)
+![Skärm bild som visar knappen + Lägg till värddator namn.](./media/dns-custom-domain/figure1.png)
 
 När processen är klar kan du köra **nslookup** för att verifiera att namn matchningen fungerar.
 
@@ -128,7 +128,7 @@ Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande in
 
 |Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Name     | verifiera. mystorageaccount        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
+|Namn     | verifiera. mystorageaccount        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
 |Typ     | CNAME        | Använd en CNAME-post med ett alias.        |
 |TTL-värde     | 1        | 1 används i 1 timme        |
 |TTL-enhet     | Tider        | Timmar används som tids mått         |
@@ -136,7 +136,7 @@ Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande in
 
 Gå tillbaka till ditt lagrings konto genom att klicka på **lagrings**  >  **lagrings konton**, Välj ditt lagrings konto och klicka på **anpassad domän**. Skriv in det alias som du skapade utan prefixet för att verifiera i text rutan, markera **Använd indirekt CNAME-validering**och klicka på **Spara**. När det här steget har slutförts går du tillbaka till DNS-zonen och skapar en CNAME-post utan prefixet verify.  Efter den tidpunkten är det säkert att ta bort CNAME-posten med cdnverify-prefixet.
 
-![anpassad domän för Blob Storage](./media/dns-custom-domain/indirectvalidate.png)
+![Skärm bild som visar sidan anpassad domän.](./media/dns-custom-domain/indirectvalidate.png)
 
 Verifiera DNS-matchning genom att köra `nslookup`
 
@@ -156,7 +156,7 @@ Gå till din DNS-zon och klicka på **+ post uppsättning**. Fyll i följande in
 
 |Egenskap  |Värde  |Beskrivning  |
 |---------|---------|---------|
-|Name     | cdnverify. mycdnendpoint        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
+|Namn     | cdnverify. mycdnendpoint        | Det här värdet tillsammans med domän namns etiketten är FQDN för det anpassade domän namnet.        |
 |Typ     | CNAME        | Använd en CNAME-post med ett alias.        |
 |TTL-värde     | 1        | 1 används i 1 timme        |
 |TTL-enhet     | Tider        | Timmar används som tids mått         |

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb3dda7a2f33fa76ab78a67f86fb015430c64099
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ceb2b8812b52b1ca2030a0fd0006c9388630c05e
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85114783"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487491"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Datakryptering i Azure Cosmos DB 
 
@@ -46,7 +46,7 @@ A: nycklarna hanteras av Microsoft.
 A: Microsoft har en uppsättning interna rikt linjer för rotation av krypterings nyckel, som Cosmos DB följande. De speciella rikt linjerna publiceras inte. Microsoft publicerar [livs cykeln för säkerhets utveckling (SDL)](https://www.microsoft.com/sdl/default.aspx), som visas som en delmängd av intern vägledning och har användbara metod tips för utvecklare.
 
 ### <a name="q-can-i-use-my-own-encryption-keys"></a>F: kan jag använda mina egna krypterings nycklar?
-A: Ja, den här funktionen är nu tillgänglig för nya Azure Cosmos DB-konton och detta bör göras vid tidpunkten för skapandet av kontot. Mer information finns i dokumentet med [kund hanterade nycklar](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk) .
+A: Ja, den här funktionen är nu tillgänglig för nya Azure Cosmos DB-konton och detta bör göras vid tidpunkten för skapandet av kontot. Mer information finns i dokumentet med [kund hanterade nycklar](./how-to-setup-cmk.md) .
 
 ### <a name="q-what-regions-have-encryption-turned-on"></a>F: vilka regioner har kryptering aktiverat?
 A: alla Azure Cosmos DB regioner har kryptering aktiverat för alla användar data.

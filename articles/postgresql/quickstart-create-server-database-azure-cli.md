@@ -8,23 +8,23 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 086f680a0674d5d79d9d039d9ad47e542856ac5d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 8a9661f7f5cdd66dc0aab6d937701cda48048219
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92420079"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488035"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Snabb start: skapa en Azure Database for PostgreSQL-server med hjälp av Azure CLI
 
-Den här snabb starten visar hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) -kommandon i [Azure Cloud Shell](https://shell.azure.com) för att skapa en enda Azure Database for postgresql server på fem minuter. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Den här snabb starten visar hur du använder [Azure CLI](/cli/azure/get-started-with-azure-cli) -kommandon i [Azure Cloud Shell](https://shell.azure.com) för att skapa en enda Azure Database for postgresql server på fem minuter. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 > [!TIP]
 > Överväg att använda det enklare [AZ postgres](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) Azure CLI-kommandot som för närvarande finns som för hands version. Prova [snabb](./quickstart-create-server-up-azure-cli.md)starten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 Du måste logga in på ditt konto med hjälp av kommandot [AZ login](/cli/azure/reference-index#az-login) . Observera egenskapen **ID** som refererar till **prenumerations-ID** för ditt Azure-konto. 
@@ -58,7 +58,7 @@ Här följer information om föregående argument:
 
 **Inställning** | **Exempelvärde** | **Beskrivning**
 ---|---|---
-name | mydemoserver | Unikt namn som identifierar din Azure Database for PostgreSQL-Server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken. Mer information finns i [Azure Database for PostgreSQL namngivnings regler](/azure/azure-resource-manager/management/resource-name-rules#microsoftdbforpostgresql).
+name | mydemoserver | Unikt namn som identifierar din Azure Database for PostgreSQL-Server. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken. Mer information finns i [Azure Database for PostgreSQL namngivnings regler](../azure-resource-manager/management/resource-name-rules.md#microsoftdbforpostgresql).
 resource-group | myresourcegroup | Namnet på Azure-resurs gruppen.
 location | westus | Azure-plats för servern.
 admin-user | myadmin | Användar namn för Administratörs inloggning. Det kan inte vara **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig**.
@@ -66,7 +66,7 @@ admin-password | *säkert lösenord* | Lösen ordet för administratörs använd
 sku-name|GP_Gen5_2| Namnet på pris nivån och beräknings konfigurationen. Följ konventionen {pris nivå}_{Compute generation}_{virtuella kärnor} i korthet. Mer information finns i [Azure Database for PostgreSQL prissättning](https://azure.microsoft.com/pricing/details/postgresql/server/).
 
 >[!IMPORTANT] 
->- Standard versionen av PostgreSQL på servern är 9,6. Om du vill se alla versioner som stöds, se [postgresql-versioner som stöds](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions).
+>- Standard versionen av PostgreSQL på servern är 9,6. Om du vill se alla versioner som stöds, se [postgresql-versioner som stöds](./concepts-supported-versions.md).
 >- Se [det här referens dokumentet](/cli/azure/postgres/server#az-postgres-server-create)om du vill visa alla argument för kommandot **AZ postgres Server Create** .
 >- SSL är aktiverat som standard på servern. Mer information om SSL finns i [Konfigurera SSL-anslutning](./concepts-ssl-connection-security.md).
 
@@ -154,7 +154,6 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 > [!div class="nextstepaction"]
 > [Migrera din databas med export och import](./howto-migrate-using-export-and-import.md)
 > 
-> [Distribuera en django-webbapp med PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md)
+> [Distribuera en django-webbapp med PostgreSQL](../app-service/tutorial-python-postgresql-app.md)
 >
 > [Ansluta till en Node.JS-app](./connect-nodejs.md)
-

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: ee88b980c448bfbf581537aef4653fde5354623a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302939"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92482833"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Geospatiala och geospatiala JSON-plats data i Azure Cosmos DB
 
@@ -210,7 +210,7 @@ await container.CreateItemAsync( new UserProfile
     });
 ```
 
-Om du inte har information om latitud och longitud, men har fysiska adresser eller plats namn som stad eller land/region, kan du leta upp de faktiska koordinaterna genom att använda en tjänst som Bing Maps REST Services. Lär dig mer om Bing Maps-geografi [här](https://msdn.microsoft.com/library/ff701713.aspx).
+Om du inte har information om latitud och longitud, men har fysiska adresser eller plats namn som stad eller land/region, kan du leta upp de faktiska koordinaterna genom att använda en tjänst som Bing Maps REST Services. Lär dig mer om Bing Maps-geografi [här](/bingmaps/rest-services/).
 
 ## <a name="next-steps"></a>Nästa steg
 

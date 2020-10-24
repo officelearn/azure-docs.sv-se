@@ -7,33 +7,33 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.openlocfilehash: a5ce99927ce4cd2b04b5dd5cb865299b4be84ecb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f662d7e51c49006b191778ef70740ef79173828c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86519804"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487950"
 ---
 # <a name="prepay-for-azure-database-for-postgresql---hyperscale-citus-compute-resources-with-reserved-capacity"></a>Förskotts beräkning för Azure Database for PostgreSQL-storskalig (citus) Compute-resurser med reserverad kapacitet
 
 Azure Database for PostgreSQL – storskalig (citus) hjälper dig nu att spara pengar genom att betala för beräknings resurser jämfört med priser enligt principen betala per användning. Med citus-reserverad kapacitet, gör du ett överplacerat åtagande på citus-servergruppen () för en eller tre års period för att få en betydande rabatt på beräknings kostnaderna. Om du vill köpa citus-reserverad kapacitet måste du ange Azure-regionen, reservations perioden och fakturerings frekvensen.
 
 > [!IMPORTANT]
-> Den här artikeln är om reserverad kapacitet för Azure Database for PostgreSQL – storskalig (citus). Information om reserverad kapacitet för Azure Database for PostgreSQL – enskild server finns i [Förskottsbetala för Azure Database for PostgreSQL – beräknings resurser för en enda server med reserverad kapacitet](/azure/postgresql/concept-reserved-pricing).
+> Den här artikeln är om reserverad kapacitet för Azure Database for PostgreSQL – storskalig (citus). Information om reserverad kapacitet för Azure Database for PostgreSQL – enskild server finns i [Förskottsbetala för Azure Database for PostgreSQL – beräknings resurser för en enda server med reserverad kapacitet](./concept-reserved-pricing.md).
 
 Du behöver inte tilldela reservation till vissa citus-Server grupper. En citus-servergrupp (redan körs) eller som nyligen distribueras får inte fördelarna med reserverad prissättning. Genom att köpa en reservation är det dags att betala för beräknings kostnaderna för ett år eller tre år. När du köper en reservation debiteras inte längre de citus-beräknings avgifter som matchar reservations attributen enligt priserna för betala per användning. 
 
 En reservation avser inte program vara, nätverk eller lagrings kostnader som är associerade med citus-Server grupperna. I slutet av reservations perioden upphör fakturerings förmånen och citus-Server grupperna debiteras enligt priset för betala per användning. Reservationer förnyas inte. Information om priser finns i det [reserverade kapacitets erbjudandet Azure Database for PostgreSQL – citus)](https://azure.microsoft.com/pricing/details/postgresql/hyperscale-citus/).
 
-Du kan köpa storskalig (citus) reserverad kapacitet i [Azure Portal](https://portal.azure.com/). Betala för reservationen [i förväg eller via månadsbetalningar](https://docs.microsoft.com/azure/cost-management-billing/reservations/monthly-payments-reservations). Så här köper du den reserverade kapaciteten:
+Du kan köpa storskalig (citus) reserverad kapacitet i [Azure Portal](https://portal.azure.com/). Betala för reservationen [i förväg eller via månadsbetalningar](../cost-management-billing/reservations/prepare-buy-reservation.md). Så här köper du den reserverade kapaciteten:
 
 * Du måste ha ägar rollen för minst en Enterprise-avtal (EA) eller en enskild prenumeration med priser enligt principen betala per användning.
 * För Enterprise-avtal prenumerationer måste **Lägg till reserverade instanser** vara aktiverade i [EA-portalen](https://ea.azure.com/). Eller, om inställningen är inaktive rad, måste du vara Enterprise-avtal administratör för prenumerationen.
 * För Cloud Solution Provider (CSP)-programmet kan endast administratörs agenter eller försäljnings agenter köpa citus-reserverad kapacitet.
 
 Information om hur Enterprise-avtal kunder och kunder som betalar per användning debiteras för reservations köp, finns i:
-- [Förstå Azure reservation-användning för din Enterprise-avtal-registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-- [Förstå Azure reservation-användning för din betala per användning-prenumeration](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+- [Förstå Azure reservation-användning för din Enterprise-avtal-registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+- [Förstå Azure reservation-användning för din betala per användning-prenumeration](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 ## <a name="determine-the-right-server-group-size-before-purchase"></a>Fastställ rätt storlek på Server gruppen innan köpet
 
@@ -57,7 +57,7 @@ I det här fallet köper du en ett-års reservation för:
 
 I följande tabell beskrivs obligatoriska fält.
 
-| Field        | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Fält        | Beskrivning                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Prenumeration | Prenumerationen som används för att betala för den Azure Database for PostgreSQL reserverade kapacitets reservationen. Betalnings metoden för prenumerationen debiteras mot startkostnader för den Azure Database for PostgreSQL reserverade kapacitets reservationen. Prenumerations typen måste vara en Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en Enterprise-avtal-prenumeration dras avgifterna över från registreringens belopp för betalnings åtagande eller debiteras som överanvändning. För en enskild prenumeration med priset betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.                                                                                  |
 | Omfång        | VCore-reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer **delad**tillämpas reservations rabatten för VCore på citus-Server grupper som körs i alla prenumerationer i din fakturerings kontext. För Enterprise-avtal-kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning är det delade omfånget alla prenumerationer enligt principen betala per användning som har skapats av konto administratören. Om du väljer **enskild prenumeration**tillämpas reservations rabatten för VCore på citus-Server grupper i den här prenumerationen. Om du väljer **enskild resurs grupp**tillämpas reservations rabatten på citus-Server grupper i den valda prenumerationen och den valda resurs gruppen i den prenumerationen. |
@@ -69,7 +69,7 @@ I följande tabell beskrivs obligatoriska fält.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. För ytterligare information, se [självbetjänings utbyte och åter betalningar för Azure-reservationer](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. För ytterligare information, se [självbetjänings utbyte och åter betalningar för Azure-reservationer](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="vcore-size-flexibility"></a>flexibilitet för vCore-storlek
 
@@ -85,9 +85,9 @@ Reservations rabatten för vCore tillämpas automatiskt på antalet citus-Server
 
 Mer information om Azure-reservationer finns i följande artiklar:
 
-* [Vad är Azure-reservationer?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-* [Hantera Azure-reservationer](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-* [Förstå reservations rabatten för Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Förstå reservations användningen för din prenumeration enligt principen betala per användning](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-postgresql)
-* [Förstå reservations användningen för din Enterprise-avtal-registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-* [Azure-reservationer i Partner Center Cloud Solution Provider-program](https://docs.microsoft.com/partner-center/azure-reservations)
+* [Vad är Azure-reservationer?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Hantera Azure-reservationer](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Förstå reservations rabatten för Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Förstå reservations användningen för din prenumeration enligt principen betala per användning](../cost-management-billing/reservations/understand-reservation-charges-postgresql.md)
+* [Förstå reservations användningen för din Enterprise-avtal-registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+* [Azure-reservationer i Partner Center Cloud Solution Provider-program](/partner-center/azure-reservations)

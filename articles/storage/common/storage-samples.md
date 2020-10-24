@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2cf1b643caef515411842d6aaf668708e873e96d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d537ba74dad55ea1cb980ea04d20fd0c8494ed0b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367898"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479450"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage exempel
 
@@ -67,8 +67,8 @@ För att utforska Azure CLI-exemplen måste du först [Installera Azure CLI](/cl
 
 | Språk | API-referens | Källkod |
 |----------|---------------|-------------|
-| .NET | [Referens för .NET-klient bibliotek](https://docs.microsoft.com/dotnet/api/overview/azure/storage) | [Käll kod för klient biblioteket för .NET-lagring](https://github.com/Azure/azure-storage-net) |
-| Java | [Java-klient biblioteks referens](https://docs.microsoft.com/java/api/overview/azure/storage) | [Käll kod för Java Storage klient bibliotek](https://github.com/azure/azure-storage-java) |
+| .NET | [Referens för .NET-klient bibliotek](/dotnet/api/overview/azure/storage) | [Käll kod för klient biblioteket för .NET-lagring](https://github.com/Azure/azure-storage-net) |
+| Java | [Java-klient biblioteks referens](/java/api/overview/azure/storage) | [Käll kod för Java Storage klient bibliotek](https://github.com/azure/azure-storage-java) |
 | Python | [Referens för python-klient bibliotek](https://azure-storage.readthedocs.io/) | [Käll kod för det python-lagrings klient biblioteket](https://github.com/Azure/azure-storage-python) |
 | Node.js | [ Referens förNode.js-klient bibliotek](https://azure.github.io/azure-storage-node) | [Käll kod för Node.js lagrings klient bibliotek](https://github.com/Azure/azure-storage-node) |
 | C++ | [C++-klient biblioteks referens](https://azure.github.io/azure-sdk-for-cpp/) | [Käll kod för C++ lagrings klient bibliotek](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|

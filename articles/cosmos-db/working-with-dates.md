@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7a524d34fcf8e629914d4fbc4669caada210866b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a876c5ba9c289f0edbbfdf8727e9957e7937b781
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019196"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476254"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
 
@@ -66,7 +66,7 @@ Det här dokumentet lagras i Azure Cosmos DB på följande sätt:
     }
 ```  
 
-Du kan också lagra datum och tid som UNIX-tidsstämplar, det vill säga ett tal som representerar antalet förflutna sekunder sedan den 1 januari 1970. Azure Cosmos DB s interna timestamp ( `_ts` )-egenskap följer den här metoden. Du kan använda klassen [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) för att serialisera datetime-värden som tal.
+Du kan också lagra datum och tid som UNIX-tidsstämplar, det vill säga ett tal som representerar antalet förflutna sekunder sedan den 1 januari 1970. Azure Cosmos DB s interna timestamp ( `_ts` )-egenskap följer den här metoden. Du kan använda klassen [UnixDateTimeConverter](/dotnet/api/microsoft.azure.documents.unixdatetimeconverter) för att serialisera datetime-värden som tal.
 
 ## <a name="querying-datetimes-in-linq"></a>Fråga DateTimes i LINQ
 
@@ -90,7 +90,7 @@ Frågor är vanliga med DateTime-värden. Om du vill köra dessa frågor effekti
 
 Du kan lära dig mer om hur du konfigurerar indexerings principer på [Azure Cosmos DB indexerings principer](index-policy.md). 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Hämta och kör [kod exemplen på GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
 * Läs mer om [SQL-frågor](sql-query-getting-started.md)

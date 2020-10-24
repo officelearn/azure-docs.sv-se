@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 3bb03444062a5652e4e0aad24560b90acd2ce2d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 234ef7e3cec3bfa78bc2f2aac2670efc1e3c0499
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544827"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483479"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-syxsense"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Syxsense
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Syxsense med Azure 
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -92,7 +92,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntar sig Syxsense-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name | Källattribut|
+    | Namn | Källattribut|
     | ------------ | --------- |
     | E-post | User. email |
 
@@ -108,7 +108,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -136,11 +136,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **ikonen Inställningar**.
 
-    ![Syxsense-konfiguration](./media/syxsense-tutorial/configure1.png)
+    ![Skärm bild som visar ikonen Inställningar.](./media/syxsense-tutorial/configure1.png)
 
 1. Klicka på den **externa autentiseringen** och ange URL-värdet för **app Federation-Metadata** i text rutan för **SAML 2.0-metadata** och klicka på **Spara**.
 
-    ![Syxsense-konfiguration](./media/syxsense-tutorial/configure2.png)
+    ![Skärm bild som visar sidan extern autentisering där du kan ange metadata för appens federationsmetadata U R.](./media/syxsense-tutorial/configure2.png)
 
 ### <a name="create-syxsense-test-user"></a>Skapa Syxsense test användare
 
@@ -148,15 +148,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Klicka på **användar konton** i den vänstra navigerings panelen.
 
-    ![Syxsense-konfiguration](./media/syxsense-tutorial/user1.png)
+    ![Skärm bild som visar användar konton som valts från navigerings panelen.](./media/syxsense-tutorial/user1.png)
 
 1. Klicka på **Lägg till**.
 
-    ![Syxsense-konfiguration](./media/syxsense-tutorial/user2.png)
+    ![Skärm bild som visar fönstret användar konton där du kan välja Lägg till.](./media/syxsense-tutorial/user2.png)
 
 1. Ange användar informationen enligt organisationens krav och klicka på **Spara**.
 
-    ![Syxsense-konfiguration](./media/syxsense-tutorial/user3.png)
+    ![Skärm bild som visar en sida där du kan ange din information.](./media/syxsense-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testa SSO
 

@@ -1,17 +1,18 @@
 ---
-title: Ändra storlek på krypterade volymer för logisk volym hantering med hjälp av Azure Disk Encryption
+title: Ändra storlek på diskar som är krypterade med Azure Disk Encryption
 description: Den här artikeln innehåller instruktioner för att ändra storlek på ADE-krypterade diskar med hantering av logiska volymer.
 author: jofrance
-ms.service: security
+ms.service: virtual-machines-linux
+ms.subservice: security
 ms.topic: article
 ms.author: jofrance
 ms.date: 09/21/2020
-ms.openlocfilehash: 8e32e4960776084669c8f2f7743b66b9d0f9a6ae
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ddd6097fffbc02c9b7b027bcb712e20cc47f2f96
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978483"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487967"
 ---
 # <a name="how-to-resize-logical-volume-management-devices-that-use-azure-disk-encryption"></a>Ändra storlek på logiska enheter för volym hantering som använder Azure Disk Encryption
 

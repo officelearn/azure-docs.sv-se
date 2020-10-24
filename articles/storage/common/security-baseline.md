@@ -7,24 +7,24 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f4687add8fdd55c8084a7180a6e0a3bffd9751b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746deae725e9e1ca4274b2132f7c09e2548a6629
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715154"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488885"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azures säkerhets bas linje för Azure Storage
 
 Azures säkerhets bas linje för Azure Storage innehåller rekommendationer som hjälper dig att förbättra säkerhets position för din distribution.
 
-Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](https://docs.microsoft.com/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
+Bas linjen för den här tjänsten hämtas från [Azures prestandatest version 1,0](/azure/security/benchmarks/overview), som ger rekommendationer om hur du kan skydda dina moln lösningar i Azure med våra bästa praxis rikt linjer.
 
-Mer information finns i [Översikt över Azure Security-bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Mer information finns i [Översikt över Azure Security-bas linjer](/azure/security/benchmarks/security-baselines-overview).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-*Mer information finns i [säkerhets kontroll: nätverks säkerhet](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Mer information finns i [säkerhets kontroll: nätverks säkerhet](/azure/security/benchmarks/security-control-network-security).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1,1: skydda resurser med hjälp av nätverks säkerhets grupper eller Azure-brandvägg på din Virtual Network
 
@@ -32,9 +32,9 @@ Mer information finns i [Översikt över Azure Security-bas linjer](https://docs
 
 Obs! klassiska lagrings konton stöder inte brand väggar och virtuella nätverk.
 
-- [Så här konfigurerar du Azure Storage brand väggen](https://docs.microsoft.com/azure/storage/common/storage-network-security#change-the-default-network-access-rule)
+- [Så här konfigurerar du Azure Storage brand väggen](/azure/storage/common/storage-network-security#change-the-default-network-access-rule)
 
-- [Konfigurera privata slut punkter för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints)
+- [Konfigurera privata slut punkter för Azure Storage](/azure/storage/common/storage-private-endpoints)
 
 **Azure Security Center övervakning**: Ja
 
@@ -46,13 +46,13 @@ Obs! klassiska lagrings konton stöder inte brand väggar och virtuella nätverk
 
 Observera att om du har privata slut punkter som är kopplade till ditt lagrings konto kan du inte konfigurera regler för nätverks säkerhets grupper (NSG) för undernät. 
 
-- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](/azure/storage/common/storage-network-security)
 
-- [Så här aktiverar du NSG Flow-loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Så här aktiverar du NSG Flow-loggar](/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
 
-- [Förstå nätverks säkerhet som tillhandahålls av Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Förstå nätverks säkerhet som tillhandahålls av Azure Security Center](/azure/security-center/security-center-network-recommendations)
 
-- [Förstå privata slut punkter för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-private-endpoints#known-issues)
+- [Förstå privata slut punkter för Azure Storage](/azure/storage/common/storage-private-endpoints#known-issues)
 
 **Azure Security Center övervakning**: Ja
 
@@ -70,9 +70,9 @@ Observera att om du har privata slut punkter som är kopplade till ditt lagrings
 
 **Vägledning**: Aktivera avancerat skydd för ditt Azure Storage-konto. Avancerat skydd för Azure Storage ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Azure Security Center integrerade aviseringar baseras på aktiviteter för vilka nätverkskommunikation har associerats med en IP-adress som har lösts, oavsett om IP-adressen är en känd riskfylld IP-adress (till exempel en känd cryptominer) eller en IP-adress som inte redan har identifierats som riskfylld. Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. 
 
-- [Aktivera avancerat skydd](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Aktivera avancerat skydd](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
-- [Förstå Azure Security Center integrerad Hot information](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Förstå Azure Security Center integrerad Hot information](/azure/security-center/security-center-alerts-service-layer)
 
 **Azure Security Center övervakning**: Ja
 
@@ -82,7 +82,7 @@ Observera att om du har privata slut punkter som är kopplade till ditt lagrings
 
 **Vägledning**: med Network Watcher paket insamling kan du skapa avbildnings sessioner för att spåra trafiken mellan lagrings kontot och en virtuell dator. Filter tillhandahålls för insamlingsbufferten för att se till att du bara fångar den trafik som du vill använda. Med paket fångst kan du diagnostisera nätverks avvikelser, både återaktivt och proaktivt. Andra användnings områden är insamling av nätverks statistik, insamling av information om nätverks intrång, fel sökning av klient server kommunikation och mycket mer. Att kunna fjärrutlös paket fångster, underlättar belastningen på att köra en paket registrering manuellt på en önskad virtuell dator, vilket sparar värdefull tid. 
 
-- [Hantera paket fångster med Azure Network Watcher med hjälp av portalen](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Hantera paket fångster med Azure Network Watcher med hjälp av portalen](/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Azure Security Center övervakning**: Ja
 
@@ -92,7 +92,7 @@ Observera att om du har privata slut punkter som är kopplade till ditt lagrings
 
 **Vägledning**: Avancerat skydd för Azure Storage ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhets aviseringar är integrerade med Azure Security Center och skickas också via e-post till prenumerations administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot. 
 
-- [Konfigurera Avancerat skydd för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+- [Konfigurera Avancerat skydd för Azure Storage](/azure/storage/common/storage-advanced-threat-protection)
 
 **Azure Security Center övervakning**: Ja
 
@@ -112,9 +112,9 @@ Observera att om du har privata slut punkter som är kopplade till ditt lagrings
 
 Använd Virtual Network tjänst slut punkts principer när nätverks åtkomst måste begränsas till vissa lagrings konton.
 
-- [Mer information om att använda service märken](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Mer information om att använda service märken](/azure/virtual-network/service-tags-overview)
 
-- [Mer information om tjänst slut punkts principer för virtuella nätverk för Azure Storage](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Mer information om tjänst slut punkts principer för virtuella nätverk för Azure Storage](/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -126,13 +126,13 @@ Använd Virtual Network tjänst slut punkts principer när nätverks åtkomst m�
 
 Du kan också använda inbyggda princip definitioner som är relaterade till lagrings kontot, t. ex.: lagrings konton bör använda en tjänst slut punkt för virtuellt nätverk 
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Azure Policy exempel för lagring](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#storage)
+- [Azure Policy exempel för lagring](/azure/governance/policy/samples/built-in-policies#storage)
 
-- [Azure Policy exempel för nätverk](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Azure Policy exempel för nätverk](/azure/governance/policy/samples/built-in-policies#network)
 
-- [Så här skapar du en Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Så här skapar du en Azure Blueprint](/azure/governance/blueprints/create-blueprint-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -142,11 +142,11 @@ Du kan också använda inbyggda princip definitioner som är relaterade till lag
 
 **Vägledning**: Använd taggar för nätverks säkerhets grupper (NSG) och andra resurser som rör nätverks säkerhets-och trafikflödet. För enskilda NSG-regler använder du fältet Beskrivning för att ange affärs behov och/eller varaktighet (osv.) för alla regler som tillåter trafik till/från ett nätverk. Använd någon av de inbyggda Azure Policy definitionerna som är relaterade till taggning, till exempel "Kräv tagg och dess värde" för att säkerställa att alla resurser skapas med taggar och meddela dig om befintliga otaggade resurser. Du kan använda Azure PowerShell eller Azure CLI för att söka efter eller utföra åtgärder på resurser baserat på deras taggar. 
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Så här skapar du en Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Så här skapar du en Virtual Network](/azure/virtual-network/quick-create-portal)
 
-- [Så här skapar du en NSG med en säkerhets konfiguration](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Så här skapar du en NSG med en säkerhets konfiguration](/azure/virtual-network/tutorial-filter-network-traffic)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -156,9 +156,9 @@ Du kan också använda inbyggda princip definitioner som är relaterade till lag
 
 **Vägledning**: Använd Azure policy för att logga konfigurations ändringar för nätverks resurser. Skapa aviseringar inom Azure Monitor som ska utlösas när ändringar av kritiska nätverks resurser sker. 
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Så här skapar du aviseringar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Så här skapar du aviseringar i Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Azure Security Center övervakning**: Ja
 
@@ -166,7 +166,7 @@ Du kan också använda inbyggda princip definitioner som är relaterade till lag
 
 ## <a name="logging-and-monitoring"></a>Loggning och övervakning
 
-*Mer information finns i [säkerhets kontroll: loggning och övervakning](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Mer information finns i [säkerhets kontroll: loggning och övervakning](/azure/security/benchmarks/security-control-logging-monitoring).*
 
 ### <a name="21-use-approved-time-synchronization-resource"></a>2,1: Använd godkänd tids resurs för synkronisering
 
@@ -180,7 +180,7 @@ Du kan också använda inbyggda princip definitioner som är relaterade till lag
 
 **Vägledning**: mata in loggar via Azure Monitor för att samla in säkerhets data som genereras av slut punkter, nätverks resurser och andra säkerhets system. I Azure Monitor använder du Log Analytics arbets ytor (er) för att fråga och utföra analyser och använda Azure Storage konton för långsiktig lagring eller lagrings utrymme, om du vill ha säkerhetsfunktioner som till exempel oföränderlig lagring och framtvingade kvarhållning.
 
-- [Samla in plattforms loggar och mått med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Samla in plattforms loggar och mått med Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -190,7 +190,7 @@ Du kan också använda inbyggda princip definitioner som är relaterade till lag
 
 **Vägledning**: Azure-lagringsanalys innehåller loggar för blobbar, köer och tabeller. Du kan använda Azure Portal för att konfigurera vilka loggar som registreras för ditt konto. 
 
-- [Så här konfigurerar du övervakning för ditt Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-monitoring-for-a-storage-account)
+- [Så här konfigurerar du övervakning för ditt Azure Storage-konto](/azure/storage/common/storage-monitor-storage-account#configure-monitoring-for-a-storage-account)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -208,9 +208,9 @@ Du kan också använda inbyggda princip definitioner som är relaterade till lag
 
 **Vägledning**: när du lagrar säkerhets händelse loggar i Azure Storage konto eller Log Analytics arbets yta kan du ange bevarande principen enligt organisationens krav. 
 
-- [Konfigurera bevarande princip för Azure Storage konto loggar](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Konfigurera bevarande princip för Azure Storage konto loggar](/azure/storage/common/storage-monitor-storage-account#configure-logging)
 
-- [Ändra data lagrings perioden i Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Ändra data lagrings perioden i Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -222,9 +222,9 @@ Du kan också använda inbyggda princip definitioner som är relaterade till lag
 
 Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd för Azure Storage ger ytterligare ett lager med säkerhets information som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Säkerhets varningar utlöses när avvikelser i aktivitet inträffar. Dessa säkerhets aviseringar är integrerade med Azure Security Center och skickas också via e-post till prenumerations administratörer med information om misstänkt aktivitet och rekommendationer om hur du undersöker och åtgärdar hot. 
 
-- [Logga och granska data](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#how-logs-are-stored)
+- [Logga och granska data](/azure/storage/common/storage-analytics-logging#how-logs-are-stored)
 
-- [Aktivera avancerat skydd](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Aktivera avancerat skydd](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -234,13 +234,13 @@ Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd f
 
 **Vägledning**: i Azure Security Center aktiverar du Avancerat skydd för lagrings konto. Aktivera diagnostikinställningar för lagrings kontot och skicka loggar till en Log Analytics-arbetsyta. Publicera din Log Analytics-arbetsyta till Azure-kontroll när den tillhandahåller en SOAR-lösning (Security Orchestration autoresponse). Detta gör det möjligt för spel böcker (automatiserade lösningar) att skapas och användas för att åtgärda säkerhets problem. 
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](/azure/sentinel/quickstart-onboard)
 
-- [Hantera aviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Hantera aviseringar i Azure Security Center](/azure/security-center/security-center-managing-and-responding-alerts)
 
-- [Så här aviserar du om Log Analytics-loggdata](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Så här aviserar du om Log Analytics-loggdata](/azure/azure-monitor/learn/tutorial-response)
 
-- [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Loggning med Azure-lagringsanalys](/azure/storage/common/storage-analytics-logging)
 
 **Azure Security Center övervakning**: Ja
 
@@ -250,7 +250,7 @@ Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd f
 
 **Vägledning**: Använd Azure Security Center och aktivera skydd mot hot för Azure Storage för att identifiera överföringar av skadlig kod till Azure Storage att använda hash ryktes analys och misstänkt åtkomst från en aktiv Tor-stängningsmodul (en maskera-proxy). 
 
-- [Konfigurera Avancerat skydd för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Konfigurera Avancerat skydd för Azure Storage](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -260,7 +260,7 @@ Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd f
 
 **Vägledning**: Azure DNS Analytics-lösning (för hands version) i Azure Monitor samlar in insikter om säkerhet, prestanda och åtgärder i DNS-infrastrukturen. För närvarande stöds inte Azure Storage konton, men du kan inte använda en DNS-loggnings lösning från tredje part. 
 
-- [Samla in insikter om din DNS-infrastruktur med DNS-analys för hands versions lösning](https://docs.microsoft.com/azure/azure-monitor/insights/dns-analytics)
+- [Samla in insikter om din DNS-infrastruktur med DNS-analys för hands versions lösning](/azure/azure-monitor/insights/dns-analytics)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -276,15 +276,15 @@ Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd f
 
 ## <a name="identity-and-access-control"></a>Identitets- och åtkomstkontroll
 
-*Mer information finns i [säkerhets kontroll: identitets-och Access Control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Mer information finns i [säkerhets kontroll: identitets-och Access Control](/azure/security/benchmarks/security-control-identity-access-control).*
 
 ### <a name="31-maintain-inventory-of-administrative-accounts"></a>3,1: underhåll inventering av administrativa konton
 
 **Vägledning**: Azure AD har inbyggda roller som måste tilldelas explicit och som kan frågas. Använd Azure AD PowerShell-modulen för att utföra ad hoc-frågor för att identifiera konton som är medlemmar i administrativa grupper. 
 
-- [Så här hämtar du en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Så här hämtar du en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Så här hämtar du medlemmar i en katalog roll i Azure AD med PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -294,9 +294,9 @@ Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd f
 
 **Vägledning**: Azure Storage konton eller Azure Active Directory har begreppet standard-eller tomt lösen ord. Azure Storage implementerar en modell för åtkomst kontroll som stöder rollbaserad åtkomst kontroll i Azure (Azure RBAC) samt delade nycklar och signaturer för delad åtkomst (SAS). En egenskap för delad nyckel och SAS-autentisering är att ingen identitet är associerad med anroparen och därför kan inte behörigheten för säkerhets objekts behörighet utföras. 
 
-- [Auktorisera åtkomst till data i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Auktorisera åtkomst till data i Azure Storage](/azure/storage/common/storage-auth)
 
-- [Förstå säkerhets objekt och åtkomst kontroll för Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-introduction)
+- [Förstå säkerhets objekt och åtkomst kontroll för Azure Storage konto](/azure/storage/common/storage-introduction)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -308,9 +308,9 @@ Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd f
 
 Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst genom att använda Azure AD Privileged Identity Management privilegierade roller för Microsoft-tjänster och Azure-ARM. 
 
-- [Förstå Azure Security Center identitet och åtkomst](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Förstå Azure Security Center identitet och åtkomst](/azure/security-center/security-center-identity-access)
 
-- [Översikt över Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/)
+- [Översikt över Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -320,11 +320,11 @@ Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst genom att anv�
 
 **Vägledning**: där det är möjligt använder Azure Active Directory SSO i stället för att konfigurera enskilda fristående autentiseringsuppgifter per tjänst. Använd rekommendationer för Azure Security Center identitets-och åtkomst hantering. 
 
-- [Förstå SSO med Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Förstå SSO med Azure AD](/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Auktorisera åtkomst till data i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Auktorisera åtkomst till data i Azure Storage](/azure/storage/common/storage-auth)
 
-- [Ge åtkomst till blobbar och köer med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)
+- [Ge åtkomst till blobbar och köer med hjälp av Azure Active Directory](/azure/storage/common/storage-auth-aad)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -334,9 +334,9 @@ Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst genom att anv�
 
 **Vägledning**: Aktivera Azure Active Directory multifaktorautentisering och Azure Security Center Följ rekommendationerna för identitets-och åtkomst hantering som hjälper dig att skydda dina lagrings konto resurser. 
 
-- [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Så här aktiverar du MFA i Azure](/azure/active-directory/authentication/howto-mfa-getstarted)
 
-- [Övervaka identitet och åtkomst i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Övervaka identitet och åtkomst i Azure Security Center](/azure/security-center/security-center-identity-access)
 
 **Azure Security Center övervakning**: Ja
 
@@ -346,9 +346,9 @@ Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst genom att anv�
 
 **Vägledning**: Använd Paw (arbets stationer med privilegie rad åtkomst) med MFA konfigurerat för att logga in på och konfigurera lagrings konto resurser. 
 
-- [Lär dig mer om arbets stationer med privilegie rad åtkomst](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Lär dig mer om arbets stationer med privilegie rad åtkomst](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Så här aktiverar du MFA i Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Så här aktiverar du MFA i Azure](/azure/active-directory/authentication/howto-mfa-getstarted)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -358,11 +358,11 @@ Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst genom att anv�
 
 **Vägledning**: skicka Azure Security Center risk identifierings aviseringar till Azure Monitor och konfigurera anpassade aviseringar/aviseringar med hjälp av åtgärds grupper. Aktivera avancerat skydd för Azure Storage konto för att generera aviseringar för misstänkt aktivitet. Dessutom kan du använda Azure AD-farlighets identifiering för att visa aviseringar och rapporter om riskfyllda användar beteenden. 
 
-- [Konfigurera Avancerat skydd för Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection)
+- [Konfigurera Avancerat skydd för Azure Storage konto](/azure/storage/common/storage-advanced-threat-protection)
 
-- [Förstå identifieringar av Azure AD-risker](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Förstå identifieringar av Azure AD-risker](/azure/active-directory/reports-monitoring/concept-risk-events)
 
-- [Konfigurera åtgärds grupper för anpassad avisering och avisering](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+- [Konfigurera åtgärds grupper för anpassad avisering och avisering](/azure/azure-monitor/platform/action-groups)
 
 **Azure Security Center övervakning**: Ja
 
@@ -372,7 +372,7 @@ Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst genom att anv�
 
 **Vägledning**: Använd villkorlig åtkomst med namngivna platser för att tillåta åtkomst från enbart vissa logiska grupperingar av IP-adressintervall eller länder/regioner. 
 
-- [Så här konfigurerar du namngivna platser i Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Så här konfigurerar du namngivna platser i Azure](/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -382,15 +382,15 @@ Du kan också aktivera en just-in-Time/bara-tillräcklig-åtkomst genom att anv�
 
 **Vägledning**: använda Azure Active Directory (Azure AD) som central autentiserings-och auktoriserings system. Azure ger Azure rollbaserad åtkomst kontroll (Azure RBAC) för detaljerad kontroll över en klients åtkomst till resurser i ett lagrings konto.  Använd Azure AD-autentiseringsuppgifter när det är möjligt som en säkerhets metod, i stället för att använda konto nyckeln, vilket kan vara svårare att avslöja. När program designen kräver delade åtkomst-signaturer för åtkomst till blob-lagring, använder du autentiseringsuppgifter för Azure AD för att skapa en användar Delegerings-signaturer för delad åtkomst (SAS) när det är möjligt för överlägsen säkerhet.
 
-- [Så här skapar och konfigurerar du en Azure AD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Så här skapar och konfigurerar du en Azure AD-instans](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
-- [Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
+- [Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser](/azure/storage/common/authorization-resource-provider)
 
-- [Så här konfigurerar du åtkomst till Azure blob och Queue data med Azure RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Så här konfigurerar du åtkomst till Azure blob och Queue data med Azure RBAC i Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal)
 
-- [Auktorisera åtkomst till data i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Auktorisera åtkomst till data i Azure Storage](/azure/storage/common/storage-auth)
 
-- [Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+- [Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)](/azure/storage/common/storage-sas-overview)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -406,17 +406,17 @@ Granska även anonym Läs behörighet till behållare och blobbar. Som standard 
 
 Ett effektivt sätt att minska risken för obehörig åtkomst till användar konton är att begränsa varaktigheten för åtkomst som du beviljar användare. Tidsbegränsade SAS-URI: er är ett effektivt sätt att automatiskt upphöra användarens åtkomst till ett lagrings konto. Dessutom är det enkelt att rotera lagrings konto nycklar på ett sätt som garanterar att oväntad åtkomst via lagrings konto nycklar är en begränsad varaktighet.
 
-- [Förstå Azure AD repor ting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Förstå Azure AD repor ting](/azure/active-directory/reports-monitoring/)
 
-- [Visa och ändra åtkomst på Azure Storage konto nivå](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Visa och ändra åtkomst på Azure Storage konto nivå](/azure/storage/common/storage-auth-aad-rbac-portal)
 
-- [Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+- [Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)](/azure/storage/common/storage-sas-overview)
 
-- [Hantera anonym läsåtkomst till containrar och blob-objekt](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources)
+- [Hantera anonym läsåtkomst till containrar och blob-objekt](/azure/storage/blobs/storage-manage-access-to-resources)
 
-- [Övervaka ett lagringskonto i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
+- [Övervaka ett lagringskonto i Azure-portalen](/azure/storage/common/storage-monitor-storage-account)
 
-- [Hantera åtkomst nycklar för lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Hantera åtkomst nycklar för lagrings konton](/azure/storage/common/storage-account-keys-manage)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -428,11 +428,11 @@ Ett effektivt sätt att minska risken för obehörig åtkomst till användar kon
 
 Skapa diagnostikinställningar för Azure Active Directory användar konton, skicka gransknings loggar och inloggnings loggar till en Log Analytics arbets yta. Du kan konfigurera önskade aviseringar i Log Analytics arbets ytan. Om du vill övervaka autentiseringsfel mot Azure Storage-konton kan du skapa aviseringar som meddelar dig när vissa tröskelvärden har nåtts för lagrings resurs mått. Använd dessutom Azure Monitor för att varna vid anonym åtkomst för lagrings konton med anonymt autentiserings villkor.
 
-- [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Loggning med Azure-lagringsanalys](/azure/storage/common/storage-analytics-logging)
 
-- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Så här integrerar du Azures aktivitets loggar i Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-- [Konfigurera mått varningar för Azure Storage konton](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
+- [Konfigurera mått varningar för Azure Storage konton](/azure/storage/common/storage-monitor-storage-account)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -442,11 +442,11 @@ Skapa diagnostikinställningar för Azure Active Directory användar konton, ski
 
 **Vägledning**: Använd Azure Active Directorys risk-och identitets skydds funktioner för att konfigurera automatiserade svar på identifierade misstänkta åtgärder som rör dina lagrings konto resurser. Du bör aktivera automatiserade svar via Azure Sentinel för att implementera din organisations säkerhets svar. 
 
-- [Visa Azure AD-riskfyllda inloggningar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Visa Azure AD-riskfyllda inloggningar](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-- [Så här konfigurerar och aktiverar du risk principer för identitets skydd](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [Så här konfigurerar och aktiverar du risk principer för identitets skydd](/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
 
-- [Publicera Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Publicera Azure Sentinel](/azure/sentinel/quickstart-onboard)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -456,7 +456,7 @@ Skapa diagnostikinställningar för Azure Active Directory användar konton, ski
 
 **Vägledning**: i support scenarier där Microsoft behöver åtkomst till kund information, är Customer lockbox (för hands version av lagrings konto) ett gränssnitt för kunder att granska och godkänna eller avvisa förfrågningar om kund data åtkomst. Microsoft kommer inte att behöva eller begära åtkomst till din organisations hemligheter som lagras i lagrings kontot.
 
-- [Förstå Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+- [Förstå Customer Lockbox](/azure/security/fundamentals/customer-lockbox-overview)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -464,13 +464,13 @@ Skapa diagnostikinställningar för Azure Active Directory användar konton, ski
 
 ## <a name="data-protection"></a>Dataskydd
 
-*Mer information finns i [säkerhets kontroll: data skydd](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Mer information finns i [säkerhets kontroll: data skydd](/azure/security/benchmarks/security-control-data-protection).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4,1: underhåll en inventering av känslig information
 
 **Vägledning**: Använd taggar för att spåra lagrings konto resurser som lagrar eller bearbetar känslig information. 
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -480,15 +480,15 @@ Skapa diagnostikinställningar för Azure Active Directory användar konton, ski
 
 **Vägledning**: implementera isolering med separata prenumerationer, hanterings grupper och lagrings konton för enskilda säkerhets domäner, till exempel miljö, data känslighet.  Du kan begränsa ditt lagrings konto för att kontrol lera åtkomst nivån till dina lagrings konton som dina program och företags miljöer kräver, baserat på typ och delmängd av nätverk som används. När nätverks regler har kon figurer ATS kan endast program som begär data i den angivna uppsättningen nätverk komma åt ett lagrings konto. Du kan styra åtkomsten till Azure Storage via Azure RBAC. Du kan också konfigurera privata slut punkter för att förbättra säkerheten som trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnät nätverk, vilket eliminerar exponering från det offentliga Internet. 
 
-- [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
 
-- [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create)
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security)
+- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](/azure/storage/common/storage-network-security)
 
-- [Virtual Network tjänst slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Virtual Network tjänst slut punkter](/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -500,11 +500,11 @@ Skapa diagnostikinställningar för Azure Active Directory användar konton, ski
 
 Använd dessutom tjänst slut punkts principer för virtuella nätverk för att filtrera utgående virtuell nätverks trafik till Azure Storage konton över tjänstens slut punkt och tillåta data exfiltrering enbart till vissa Azure Storage-konton.
 
-- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+- [Konfigurera brandväggar och virtuella nätverk i Azure Storage](/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 
-- [Principer för tjänstslutpunkt för virtuellt nätverk för Azure Storage](https://docs.microsoft.com/azure/private-link/create-private-endpoint-storage-portal)
+- [Principer för tjänstslutpunkt för virtuellt nätverk för Azure Storage](/azure/private-link/create-private-endpoint-storage-portal)
 
-- [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Förstå kundens data skydd i Azure](/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -514,9 +514,9 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 **Vägledning**: du kan framtvinga användningen av https genom att aktivera säker överföring som krävs för lagrings kontot. Anslutningar som använder HTTP avvisas när detta har aktiverats. Använd dessutom Azure Security Center och Azure Policy för att framtvinga säker överföring av ditt lagrings konto.
 
-- [Så här kräver du säker överföring i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)
+- [Så här kräver du säker överföring i Azure Storage](/azure/storage/common/storage-require-secure-transfer)
 
-- [Azure säkerhets principer övervakas av Security Center](https://docs.microsoft.com/azure/security-center/security-center-policy-definitions)
+- [Azure säkerhets principer övervakas av Security Center](/azure/security-center/security-center-policy-definitions)
 
 **Azure Security Center övervakning**: Ja
 
@@ -526,7 +526,7 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 **Vägledning**: funktionerna för data identifiering är ännu inte tillgängliga för Azure Storage konto och relaterade resurser. Implementera en lösning från tredje part om det krävs för efterlevnad. 
 
-- [Förstå kundens data skydd i Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Förstå kundens data skydd i Azure](/azure/security/fundamentals/protection-customer-data)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -536,15 +536,15 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 **Vägledning**: Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via rollbaserad åtkomst kontroll i Azure (Azure RBAC). Azure Storage definierar en uppsättning inbyggda Azure-roller som omfattar vanliga uppsättningar behörigheter som används för att få åtkomst till BLOB-eller Queue-data. 
 
-- [Så här tilldelar du Azure-roller för Azure Storage konto](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
+- [Så här tilldelar du Azure-roller för Azure Storage konto](/azure/storage/common/storage-auth-aad-rbac-portal#assign-azure-roles-using-the-azure-portal)
 
-- [Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser](https://docs.microsoft.com/azure/storage/common/authorization-resource-provider)
+- [Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser](/azure/storage/common/authorization-resource-provider)
 
-- [Så här konfigurerar du åtkomst till Azure blob och Queue data med Azure RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Så här konfigurerar du åtkomst till Azure blob och Queue data med Azure RBAC i Azure Portal](/azure/storage/common/storage-auth-aad-rbac-portal)
 
-- [Så här skapar och konfigurerar du en AAD-instans](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Så här skapar och konfigurerar du en AAD-instans](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
-- [Auktorisera åtkomst till data i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth)
+- [Auktorisera åtkomst till data i Azure Storage](/azure/storage/common/storage-auth)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -562,7 +562,7 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 **Vägledning**: Azure Storage kryptering har Aktiver ATS för alla lagrings konton och inte kan inaktive ras. Azure Storage krypterar dina data automatiskt när de sparas i molnet. När du läser data från Azure Storage krypteras dem av Azure Storage innan de returneras. Med Azure Storage kryptering kan du skydda dina data i vila utan att behöva ändra kod eller lägga till kod i några program. 
 
-- [Förstå Azure Storage kryptering i vila](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Förstå Azure Storage kryptering i vila](/azure/storage/common/storage-service-encryption)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -572,11 +572,11 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 **Vägledning**: Använd Azure monitor med Azure aktivitets logg för att skapa aviseringar för när ändringar sker i lagrings konto resurser. Du kan också aktivera Azure Storage loggning för att spåra hur varje begäran som görs mot Azure Storage auktoriserades. Loggarna anger om en begäran har gjorts anonymt, genom att använda en OAuth 2,0-token med hjälp av delad nyckel eller genom att använda en signatur för delad åtkomst (SAS). Använd dessutom Azure Monitor för att varna vid anonym åtkomst för lagrings konton med anonymt autentiserings villkor.
 
-- [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Så här skapar du aviseringar för Azure aktivitets logg händelser](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Loggning med Azure-lagringsanalys](/azure/storage/common/storage-analytics-logging)
 
-- [Konfigurera mått varningar för Azure Storage konton](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
+- [Konfigurera mått varningar för Azure Storage konton](/azure/storage/common/storage-monitor-storage-account)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -584,13 +584,13 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 ## <a name="vulnerability-management"></a>Sårbarhetshantering
 
-*Mer information finns i [säkerhets kontroll: sårbarhets hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Mer information finns i [säkerhets kontroll: sårbarhets hantering](/azure/security/benchmarks/security-control-vulnerability-management).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5,1: köra automatiserade sårbarhets skannings verktyg
 
 **Vägledning**: Följ rekommendationer från Azure Security Center för att kontinuerligt granska och övervaka konfigurationen av dina lagrings konton. 
 
-- [Säkerhets rekommendationer – en referens guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Säkerhetsrekommendationer – en referensguide](/azure/security-center/recommendations-reference)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -624,7 +624,7 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 **Vägledning**: Använd standard risk klassificeringarna (säkra poäng) som tillhandahålls av Azure Security Center. 
 
-- [Förstå Azure Security Center säkra Poäng](https://docs.microsoft.com/azure/security-center/security-center-secure-score)
+- [Förstå Azure Security Center säkra Poäng](/azure/security-center/security-center-secure-score)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -632,17 +632,17 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 ## <a name="inventory-and-asset-management"></a>Inventerings- och tillgångshantering
 
-*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Mer information finns i [säkerhets kontroll: inventering och till gångs hantering](/azure/security/benchmarks/security-control-inventory-asset-management).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6,1: Använd Azure Asset Discovery
 
 **Vägledning**: Använd Azure Resource Graph för att fråga och identifiera alla resurser (inklusive lagrings konton) i dina prenumerationer. Se till att du har rätt (Läs) behörigheter i din klient och kan räkna upp alla Azure-prenumerationer samt resurser i dina prenumerationer. 
 
-- [Så här skapar du frågor med Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Så här skapar du frågor med Azure Graph](/azure/governance/resource-graph/first-query-portal)
 
-- [Så här visar du dina Azure-prenumerationer](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Så här visar du dina Azure-prenumerationer](/powershell/module/az.accounts/get-azsubscription)
 
-- [Förstå Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Förstå Azure RBAC](/azure/role-based-access-control/overview)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -652,7 +652,7 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 **Vägledning**: Använd taggar för lagrings konto resurser som ger metadata till att logiskt organisera dem i en taxonomi. 
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -664,13 +664,13 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 Använd också Avancerat skydd för Azure Storage för att identifiera oauktoriserade Azure-resurser. 
 
-- [Så här skapar du ytterligare Azure-prenumerationer](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Så här skapar du ytterligare Azure-prenumerationer](/azure/billing/billing-create-subscription)
 
-- [Så här skapar du Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Så här skapar du Hanteringsgrupper](/azure/governance/management-groups/create)
 
-- [Skapa och använda Taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Skapa och använda Taggar](/azure/azure-resource-manager/resource-group-using-tags)
 
-- [Konfigurera Avancerat skydd för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Konfigurera Avancerat skydd för Azure Storage](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -694,9 +694,9 @@ Använd också Avancerat skydd för Azure Storage för att identifiera oauktoris
 
 Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i prenumerationerna. Detta kan hjälpa till med hög säkerhetsbaserade miljöer, till exempel de med lagrings konton. 
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Så här skapar du frågor med Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Så här skapar du frågor med Azure Graph](/azure/governance/resource-graph/first-query-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -714,7 +714,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning**: kunden kan förhindra att resurser skapas eller används med Azure policy som krävs av kundens företags principer. 
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -735,9 +735,9 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 - Otillåtna resurstyper 
 - Tillåtna resurstyper 
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Så här nekar du en speciell resurs typ med Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Så här nekar du en speciell resurs typ med Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -755,7 +755,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 **Vägledning**: Använd den villkorliga Azure-åtkomsten för att begränsa användarnas möjlighet att interagera med Azure Resource Manager genom att konfigurera "blockera åtkomst" för appen "Microsoft Azure hantering". Detta kan förhindra att resurser skapas och ändras i en hög säkerhets miljö, t. ex. med lagrings konton. 
 
-- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till ARM](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Så här konfigurerar du villkorlig åtkomst för att blockera åtkomst till ARM](/azure/role-based-access-control/conditional-access-azure-management)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -779,7 +779,7 @@ Använd dessutom Azure Resource Graph för att fråga/identifiera resurser i pre
 
 ## <a name="secure-configuration"></a>Säker konfiguration
 
-*Mer information finns i [säkerhets kontroll: säker konfiguration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Mer information finns i [säkerhets kontroll: säker konfiguration](/azure/security/benchmarks/security-control-secure-configuration).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7,1: upprätta säkra konfigurationer för alla Azure-resurser
 
@@ -792,9 +792,9 @@ Säker överföring till lagringskonton ska vara aktiverat
 
 Använd rekommendationer från Azure Security Center som en säker konfigurations bas linje för dina lagrings konton. 
 
-- [Visa tillgängliga Azure Policy alias](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visa tillgängliga Azure Policy alias](/powershell/module/az.resources/get-azpolicyalias)
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
 **Azure Security Center övervakning**: Ja
 
@@ -812,9 +812,9 @@ Använd rekommendationer från Azure Security Center som en säker konfiguration
 
 **Vägledning**: Använd Azure policy [neka] och [distribuera om det inte finns] för att framtvinga säkra inställningar över dina lagrings konto resurser. 
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
-- [Förstå Azure Policys effekter](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Förstå Azure Policys effekter](/azure/governance/policy/concepts/effects)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -832,9 +832,9 @@ Använd rekommendationer från Azure Security Center som en säker konfiguration
 
 **Vägledning**: Använd Azure-databaser för att lagra och hantera din kod på ett säkert sätt, till exempel anpassade Azure-principer, Azure Resource Manager mallar, önskade tillstånds konfigurations skript osv. För att få åtkomst till de resurser som du hanterar i Azure DevOps, kan du bevilja eller neka behörigheter till särskilda användare, inbyggda säkerhets grupper eller grupper som definierats i Azure Active Directory (Azure AD) om det är integrerat med Azure DevOps eller Active Directory om det är integrerat med TFS.
 
-- [Så här lagrar du kod i Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Så här lagrar du kod i Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Om behörigheter och grupper i Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/about-permissions)
+- [Om behörigheter och grupper i Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -852,7 +852,7 @@ Använd rekommendationer från Azure Security Center som en säker konfiguration
 
 **Vägledning**: utnyttja Azure policy för att varna, granska och genomdriva system konfigurationer för lagrings kontot. Dessutom kan du utveckla en process och pipeline för att hantera princip undantag. 
 
-- [Så här konfigurerar och hanterar du Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Så här konfigurerar och hanterar du Azure Policy](/azure/governance/policy/tutorials/create-and-manage)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -870,7 +870,7 @@ Använd rekommendationer från Azure Security Center som en säker konfiguration
 
 **Vägledning**: utnyttja Azure Security Center för att utföra bas linjes ökningar för dina Azure Storage konto resurser. 
 
-- [Så här åtgärdar du rekommendationer i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations)
+- [Så här åtgärdar du rekommendationer i Azure Security Center](/azure/security-center/security-center-remediate-recommendations)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -890,9 +890,9 @@ Använd rekommendationer från Azure Security Center som en säker konfiguration
 
 Dessutom kan du rotera lagrings konto nycklar regelbundet för att begränsa effekten av förlust eller avslöjande av lagrings konto nycklar.
 
-- [Azure Storage-kryptering av vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Azure Storage-kryptering av vilande data](/azure/storage/common/storage-service-encryption)
 
-- [Hantera åtkomst nycklar för lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
+- [Hantera åtkomst nycklar för lagrings konton](/azure/storage/common/storage-account-keys-manage)
 
 **Azure Security Center övervakning**: Ja
 
@@ -902,7 +902,7 @@ Dessutom kan du rotera lagrings konto nycklar regelbundet för att begränsa eff
 
 **Vägledning**: ge åtkomst till blobbar och köer i Azure Storage konton med Azure Active Directory och hanterade identiteter. Azure blob-och Queue Storage-stöd Azure Active Directory (Azure AD)-autentisering med hanterade identiteter för Azure-resurser. Hanterade identiteter för Azure-resurser kan ge åtkomst till blob-och Queue-data med hjälp av Azure AD-autentiseringsuppgifter från program som körs i virtuella Azure-datorer, Function-appar, skalnings uppsättningar för virtuella datorer och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet. 
 
-- [Så här beviljar du åtkomst till Azure blob och Queue data med hjälp av en hanterad identitet](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal)
+- [Så här beviljar du åtkomst till Azure blob och Queue data med hjälp av en hanterad identitet](/azure/storage/common/storage-auth-aad-rbac-portal)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -920,7 +920,7 @@ Dessutom kan du rotera lagrings konto nycklar regelbundet för att begränsa eff
 
 ## <a name="malware-defense"></a>Skydd mot skadlig kod
 
-*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Mer information finns i [säkerhets kontroll: försvar mot skadlig kod](/azure/security/benchmarks/security-control-malware-defense).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8,1: Använd centralt hanterat program mot skadlig kod
 
@@ -936,7 +936,7 @@ Dessutom kan du rotera lagrings konto nycklar regelbundet för att begränsa eff
 
 Du kan också förskanna allt innehåll för skadlig kod innan du laddar upp till icke-beräkning av Azure-resurser, till exempel App Service, Data Lake Storage, Blob Storage, och så att de uppfyller organisationens krav.
 
-- [Konfigurera Avancerat skydd för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
+- [Konfigurera Avancerat skydd för Azure Storage](/azure/storage/common/storage-advanced-threat-protection?tabs=azure-portal)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -952,7 +952,7 @@ Du kan också förskanna allt innehåll för skadlig kod innan du laddar upp til
 
 ## <a name="data-recovery"></a>Dataåterställning
 
-*Mer information finns i [säkerhets kontroll: Data återställning](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Mer information finns i [säkerhets kontroll: Data återställning](/azure/security/benchmarks/security-control-data-recovery).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9,1: se till att vanlig automatisk säkerhets kopiering UPS
 
@@ -960,11 +960,11 @@ Du kan också förskanna allt innehåll för skadlig kod innan du laddar upp til
 
 Du kan också aktivera Azure Automation för att ta regelbundna ögonblicks bilder av blobarna.
 
-- [Förstå Azure Storage redundans och Service-Level avtal](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
+- [Förstå Azure Storage redundans och Service-Level avtal](/azure/storage/common/storage-redundancy)
 
-- [Skapa en ögonblicks bild av en BLOB](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)
+- [Skapa en ögonblicks bild av en BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 
-- [Översikt över Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro)
+- [Översikt över Azure Automation](/azure/automation/automation-intro)
 
 **Azure Security Center övervakning**: Ja
 
@@ -974,13 +974,13 @@ Du kan också aktivera Azure Automation för att ta regelbundna ögonblicks bild
 
 **Vägledning**: för att säkerhetskopiera data från lagrings konto tjänster som stöds finns det flera metoder som är tillgängliga, inklusive användning av AzCopy eller verktyg från tredje part. Oföränderlig lagring för Azure Blob Storage gör det möjligt för användare att lagra affärs kritiska data objekt i en mask (Skriv en gång, läsa många). Det här läget gör att data inte kan raderas och inte kan ändras för ett användardefinierat intervall.
 
-- [Kom igång med AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [Kom igång med AzCopy](/azure/storage/common/storage-use-azcopy-v10)
 
-- [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage?tabs=azure-portal)
+- [Ange och hantera oföränderlighets-principer för Blob Storage](/azure/storage/blobs/storage-blob-immutability-policies-manage?tabs=azure-portal)
 
 Kundhanterade/tillhandahållna nycklar kan säkerhets kopie ras i Azure Key Vault med Azure CLI eller PowerShell. 
 
-- [Så här säkerhetskopierar du nyckel valv nycklar i Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Så här säkerhetskopierar du nyckel valv nycklar i Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Azure Security Center övervakning**: Ja
 
@@ -992,15 +992,15 @@ Kundhanterade/tillhandahållna nycklar kan säkerhets kopie ras i Azure Key Vaul
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret 
 
-- [Återställa Key Vault-certifikat](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+- [Återställa Key Vault-certifikat](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
-- [Återställa Key Vault nycklar](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Återställa Key Vault nycklar](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
-- [Återställa Key Vault hanterade lagrings konton](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
+- [Återställa Key Vault hanterade lagrings konton](/powershell/module/az.keyvault/backup-azkeyvaultmanagedstorageaccount)
 
-- [Så här återställer du Key Vault hemligheter](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret?view=azurermps-6.13.0)
+- [Så här återställer du Key Vault hemligheter](/powershell/module/azurerm.keyvault/restore-azurekeyvaultsecret)
 
-- [AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobbar, filer och tabell data till eller från ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)
+- [AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobbar, filer och tabell data till eller från ett lagrings konto](/azure/storage/common/storage-use-azcopy-v10)
 
 Obs: om du vill kopiera data till och från Azure Table Storage-tjänsten installerar du AzCopy version 7,3.
 
@@ -1013,11 +1013,11 @@ Obs: om du vill kopiera data till och från Azure Table Storage-tjänsten instal
 
 **Vägledning**: om du vill aktivera Kundhanterade nycklar på ett lagrings konto måste du använda en Azure Key Vault för att lagra dina nycklar. Du måste aktivera både den mjuka borttagningen och rensa inte egenskaperna i nyckel valvet. Key Vault funktionen för mjuk borttagning kan återställa borttagna valv och valv objekt, till exempel nycklar, hemligheter och certifikat. Om du säkerhetskopierar lagrings konto data till Azure Storage blobbar, aktiverar du mjuk borttagning för att spara och återställa data när blobbar eller BLOB-ögonblicksbilder tas bort. Du bör behandla dina säkerhets kopior som känsliga data och tillämpa relevanta åtkomst-och data skydds kontroller som en del av den här bas linjen. För förbättrat skydd kan du dessutom lagra affärs kritiska data objekt i en mask (Skriv en gång, läsa många).
 
-- [Använda Azure Key Vault ' mjuk borttagning '](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell)
+- [Använda Azure Key Vault ' mjuk borttagning '](/azure/key-vault/key-vault-soft-delete-powershell)
 
-- [Mjuk borttagning för Azure Storage-blobar](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Mjuk borttagning för Azure Storage-blobar](/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
-- [Lagra affärs kritiska BLOB-data med oföränderlig lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
+- [Lagra affärs kritiska BLOB-data med oföränderlig lagring](/azure/storage/blobs/storage-blob-immutable-storage)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1025,7 +1025,7 @@ Obs: om du vill kopiera data till och från Azure Table Storage-tjänsten instal
 
 ## <a name="incident-response"></a>Incidenthantering
 
-*Mer information finns i [säkerhets kontroll: incident svar](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Mer information finns i [säkerhets kontroll: incident svar](/azure/security/benchmarks/security-control-incident-response).*
 
 ### <a name="101-create-incident-response-guide"></a>10,1: Skapa incident svars guide
 
@@ -1047,9 +1047,9 @@ Obs: om du vill kopiera data till och från Azure Table Storage-tjänsten instal
 
 Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Prod.) med hjälp av taggar och skapa ett namngivnings system för att tydligt identifiera och kategorisera Azure-resurser, särskilt för bearbetning av känsliga data. Det är ditt ansvar att prioritera reparationen av aviseringar baserat på allvarlighets graden för de Azure-resurser och den miljö där incidenten inträffade.
 
-- [Säkerhetsaviseringar i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-overview)
+- [Säkerhetsaviseringar i Azure Security Center](/azure/security-center/security-center-alerts-overview)
 
-- [Använd taggar till att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1069,7 +1069,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: kontakt information om säkerhets incidenter kommer att användas av Microsoft för att kontakta dig om Microsoft Security Response Center (MSRC) upptäcker att dina data har använts av en olagligt eller obehörig part. Granska incidenter när du är säker på att problemen är lösta.
 
-- [Så här ställer du in Azure Security Center säkerhets kontakt](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Så här ställer du in Azure Security Center säkerhets kontakt](/azure/security-center/security-center-provide-security-contact-details)
 
 **Azure Security Center övervakning**: Ja
 
@@ -1079,9 +1079,9 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: exportera Azure Security Center aviseringar och rekommendationer med hjälp av funktionen för kontinuerlig export för att identifiera risker för Azure-resurser. Med kontinuerlig export kan du exportera aviseringar och rekommendationer antingen manuellt eller i löpande miljö. Du kan använda Azure Security Center Data Connector för att strömma aviseringarna till Azure Sentinel.
 
-- [Så här konfigurerar du kontinuerlig export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Så här konfigurerar du kontinuerlig export](/azure/security-center/continuous-export)
 
-- [Strömma aviseringar till Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Strömma aviseringar till Azure Sentinel](/azure/sentinel/connect-azure-security-center)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1091,7 +1091,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 **Vägledning**: Använd funktionen för arbets flödes automatisering i Azure Security Center för att automatiskt utlösa svar via "Logic Apps" i säkerhets aviseringar och rekommendationer för att skydda dina Azure-resurser.
 
-- [Konfigurera automatisering av arbets flöden och Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Konfigurera automatisering av arbets flöden och Logic Apps](/azure/security-center/workflow-automation)
 
 **Azure Security Center övervakning**: för närvarande inte tillgängligt
 
@@ -1099,7 +1099,7 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Intrångstester och Red Team-övningar (rött lag)
 
-*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Mer information finns i [säkerhets kontroll: inträngande tester och röda team övningar](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources"></a>11,1: utför vanlig inträngande testning av dina Azure-resurser
 
@@ -1115,5 +1115,5 @@ Dessutom är det tydligt att markera prenumerationer (t. ex. produktion, icke-Pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [Azures säkerhets benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Läs mer om [Azures säkerhets bas linjer](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- Se [Azures säkerhets benchmark](/azure/security/benchmarks/overview)
+- Läs mer om [Azures säkerhets bas linjer](/azure/security/benchmarks/security-baselines-overview)

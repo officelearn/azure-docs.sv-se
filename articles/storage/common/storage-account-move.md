@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: a5b9b4c7d3bdd0c68d3a91a39972389e48ed910d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85515022"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488834"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Flytta ett Azure Storage-konto till en annan region
 
@@ -31,7 +31,7 @@ I den här artikeln får du lära dig att:
 > * Flytta data till det nya lagrings kontot.
 > * Ta bort resurserna i käll regionen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Kontrollera att tjänsterna och funktionerna som kontot använder stöds i målregionen.
 
@@ -67,7 +67,7 @@ Så här exporterar du en mall med Azure-portalen:
 
 Exportera en mall med hjälp av PowerShell:
 
-1. Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) och följ anvisningarna på skärmen:
+1. Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) och följ anvisningarna på skärmen:
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -167,7 +167,7 @@ Distribuera mallen med hjälp av PowerShell:
          }]          
     ```
 
-    Du kan hämta region koder genom att köra kommandot [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) .
+    Du kan hämta region koder genom att köra kommandot [Get-AzLocation](/powershell/module/az.resources/get-azlocation) .
 
     ```azurepowershell-interactive
     Get-AzLocation | format-table 
@@ -196,7 +196,7 @@ Distribuera mallen för att skapa ett nytt lagringskonto i målregionen.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Hämta det prenumerations-ID där du vill distribuera den offentliga mål-IP-adressen med [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+1. Hämta det prenumerations-ID där du vill distribuera den offentliga mål-IP-adressen med [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription):
 
    ```azurepowershell-interactive
    Get-AzSubscription
@@ -225,21 +225,21 @@ I följande tabell visas dessa funktioner tillsammans med vägledning för hur d
 | **Statiska webbplatser** | [Vara värd för en statisk webbplats i Azure Storage](../blobs/storage-blob-static-website-how-to.md) |
 | **Prenumerationer på händelser** | [Reagera på Blob Storage-händelser](../blobs/storage-blob-event-overview.md) |
 | **Aviseringar** | [Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md) |
-| **Content Delivery Network (CDN)** | [Använda Azure CDN för att få åtkomst till blobbar med anpassade domäner över HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
+| **Innehållsleverantörsnätverk (CDN)** | [Använda Azure CDN för att få åtkomst till blobbar med anpassade domäner över HTTPS](../blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE] 
 > Om du ställer in ett CDN för käll lagrings kontot ändrar du bara ursprunget för din befintliga CDN till den primära BLOB-tjänstens slut punkt (eller den primära statiska webbplats slut punkten) för ditt nya konto. 
 
 ### <a name="move-data-to-the-new-storage-account"></a>Flytta data till det nya lagringskontot
 
-AzCopy är det bästa verktyget för att flytta data över. Den är optimerad för prestanda.  En sak som gör den snabbare är att data kopieras direkt mellan lagringsservrar, och därför använder AzCopy inte datorns nätverksbandbredd. Använd AzCopy på kommandoraden eller som en del av ett anpassat skript. Se [Kom igång med AZCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy är det bästa verktyget för att flytta data över. Den är optimerad för prestanda.  En sak som gör den snabbare är att data kopieras direkt mellan lagringsservrar, och därför använder AzCopy inte datorns nätverksbandbredd. Använd AzCopy på kommandoraden eller som en del av ett anpassat skript. Se [Kom igång med AZCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Du kan också använda Azure Data Factory för att flytta dina data. Det ger ett intuitivt användar gränssnitt. Om du vill använda Azure Data Factory, se någon av följande länkar:. 
 
-  - [Kopiera data till och från Azure Blob Storage med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
-  - [Kopiera data till eller från Azure Data Lake Storage Gen2 med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-  - [Kopiera data till och från Azure File Storage med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
-  - [Kopiera data till och från Azure Table Storage med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
+  - [Kopiera data till och från Azure Blob Storage med hjälp av Azure Data Factory](/azure/data-factory/connector-azure-blob-storage)
+  - [Kopiera data till eller från Azure Data Lake Storage Gen2 med Azure Data Factory](/azure/data-factory/connector-azure-data-lake-storage)
+  - [Kopiera data till och från Azure File Storage med hjälp av Azure Data Factory](/azure/data-factory/connector-azure-file-storage)
+  - [Kopiera data till och från Azure Table Storage med hjälp av Azure Data Factory](/azure/data-factory/connector-azure-table-storage)
 
 ---
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 I den här självstudien har du flyttat ett Azure Storage-konto från en region till en annan och rensade käll resurserna.  Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i:
 
 
-- [Flytta resurser till en ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
-- [Migrera virtuella Azure-datorer till en annan region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Flytta resurser till en ny resursgrupp eller prenumeration](/azure/azure-resource-manager/resource-group-move-resources)
+- [Migrera virtuella Azure-datorer till en annan region](/azure/site-recovery/azure-to-azure-tutorial-migrate)

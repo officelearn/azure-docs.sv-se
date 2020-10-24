@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: 1ed15182e700f125072c69ba9bcf60caf4da5c88
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a0545ea61879b30349403e019ead69ba14f75cb9
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87873049"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486505"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: bygga en python-app med Azure Cosmos DB s API för MongoDB
 
@@ -27,7 +27,7 @@ ms.locfileid: "87873049"
 > * [Golang](create-mongodb-go.md)
 >  
 
-I den här snabb starten använder du en Azure Cosmos DB för mongo DB API-konto eller Azure Cosmos DB-emulatorn för att köra en webb program för python-GitHub som klonas från. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
+I den här snabb starten använder du en Azure Cosmos DB för mongo DB API-konto eller Azure Cosmos DB-emulatorn för att köra en python-flaska To-Do-webbapp som klonas från GitHub. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -127,7 +127,7 @@ Du har nu uppdaterat appen med all information som behövs för kommunikation me
 
 ## <a name="deploy-to-azure"></a>Distribuera till Azure
 
-Om du vill distribuera den här appen kan du skapa en ny webbapp i Azure och aktivera kontinuerlig distribution med en förgrening av den här GitHub-lagringsplatsen. Följ den här [självstudien](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) för att konfigurera kontinuerlig distribution med GitHub i Azure.
+Om du vill distribuera den här appen kan du skapa en ny webbapp i Azure och aktivera kontinuerlig distribution med en förgrening av den här GitHub-lagringsplatsen. Följ den här [självstudien](../app-service/deploy-continuous-deployment.md) för att konfigurera kontinuerlig distribution med GitHub i Azure.
 
 När du distribuerar till Azure bör du ta bort dina programnycklar och kontrollera att avsnittet nedan inte har kommenterats bort:
 
@@ -137,7 +137,7 @@ När du distribuerar till Azure bör du ta bort dina programnycklar och kontroll
     db.authenticate(name=os.getenv("MONGO_USERNAME"),password=os.getenv("MONGO_PASSWORD"))
 ```
 
-Du måste sedan lägga till MONGOURL, MONGO_PASSWORD och MONGO_USERNAME i programinställningarna. Följ den här [självstudien](https://docs.microsoft.com/azure/app-service/configure-common#configure-app-settings) om du vill veta mer om programinställningar i Azure Web Apps.
+Du måste sedan lägga till MONGOURL, MONGO_PASSWORD och MONGO_USERNAME i programinställningarna. Följ den här [självstudien](../app-service/configure-common.md#configure-app-settings) om du vill veta mer om programinställningar i Azure Web Apps.
 
 Om du inte vill skapa en förgrening av den här lagrings platsen kan du också välja knappen **distribuera till Azure** nedan. Du bör sedan gå till Azure och konfigurera program inställningarna med din Azure Cosmos DB konto information.
 
@@ -158,7 +158,7 @@ Om du inte vill skapa en förgrening av den här lagrings platsen kan du också 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar en Azure Cosmos DB för mongo DB API-konto, och använder Azure Cosmos DB-emulatorn för att köra en webb program för python-som har klonas från GitHub. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
+I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB för mongo DB API-konto och använder Azure Cosmos DB-emulatorn för att köra en python-flaska To-Do webbapp som klonas från GitHub. Du kan nu importera ytterligare data till ditt Azure Cosmos DB-konto. 
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+> [Importera MongoDB-data till Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

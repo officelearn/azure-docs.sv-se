@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 1157ca31a66e5df92ff28f5d7190993e51d7dd65
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6e77746d21d63cf1460b9e460e470a3bd12ce656
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367643"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480045"
 ---
 # <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Använd Power BI-och Server lös Synapse SQL-pool för att analysera Azure Cosmos DB data med Synapse-länk (för hands version) 
 
@@ -19,7 +19,7 @@ I den här artikeln får du lära dig hur du skapar en server lös Synapse SQL-p
 
 I det här scenariot ska du använda dummy-data om produkt försäljning i en partner butik. Du analyserar intäkterna per butik baserat på närhet till stora hushåll och effekten av annonsering under en viss vecka. I den här artikeln skapar du två vyer med namnet **RetailSales** och **StoreDemographics** och en fråga mellan dem. Du kan hämta exempel produkt data från den här [GitHub](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/Retail/RetailData) -lagrings platsen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Se till att skapa följande resurser innan du börjar:
 
@@ -141,5 +141,7 @@ När du har valt dessa alternativ bör du se ett diagram som följande skärm bi
 :::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Lägga till ett SQL-skript i Synapse Analytics-arbetsytan":::
 
 ## <a name="next-steps"></a>Nästa steg
+
+[Använd T-SQL för att fråga Azure Cosmos DB data med Azure Synapse-länk](../synapse-analytics/sql/query-cosmos-db-analytical-store.md)
 
 Använd Server lös Synapse SQL-pool för att [analysera Azure Open-datauppsättningar och visualisera resultaten i Azure Synapse Studio](../synapse-analytics/sql/tutorial-data-analyst.md)

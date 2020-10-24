@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48e9fc4c1efa3517f5de46b7198c868a22331c79
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91716072"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486397"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Översikt över Azure Files Identity-baserade autentiseringsalternativ för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -104,7 +104,7 @@ För lokal AD DS-autentisering måste du konfigurera AD-domänkontrollanter och 
 
 Följande diagram visar lokal AD DS-autentisering till Azure-filresurser över SMB. AD DS för lokal måste synkroniseras med Azure AD med hjälp av Azure AD Connect Sync. Endast Hybrid användare som finns i både lokala AD DS och Azure AD kan autentiseras och auktoriseras för åtkomst till Azure-filresurser. Detta beror på att behörigheten på resurs nivå har kon figurer ATS mot den identitet som representeras i Azure AD där behörigheten katalog-/filnivå tillämpas med den i AD DS. Se till att du konfigurerar behörigheterna korrekt mot samma Hybrid användare.
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Venndiagram":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-on-premises-AD-DS-Diagram.png" alt-text="Diagram som visar lokal AD DS-autentisering till Azure-filresurser över SMB.":::
 
 ### <a name="azure-ad-ds"></a>Azure AD DS
 
@@ -116,7 +116,7 @@ Följande diagram visar arbets flödet för Azure AD DS-autentisering till Azure
 
 - För det andra kan alla användare som finns i Azure AD autentiseras och auktoriseras. Användaren kan endast vara moln eller hybrid. Synkroniseringen från Azure AD till Azure AD DS hanteras av plattformen utan att det krävs någon användar konfiguration. Klienten måste dock vara domänansluten till Azure AD DS, den kan inte vara Azure AD-ansluten eller registrerad. 
 
-:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Venndiagram":::
+:::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagram som visar lokal AD DS-autentisering till Azure-filresurser över SMB.":::
 
 ### <a name="enable-identity-based-authentication"></a>Aktivera identitets baserad autentisering
 

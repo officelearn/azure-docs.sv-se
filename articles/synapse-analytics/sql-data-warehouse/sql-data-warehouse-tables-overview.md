@@ -11,12 +11,12 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0138b4dcc547b961f941522abd03cd351d4d3737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460555"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92486947"
 ---
 # <a name="design-tables-in-synapse-sql-pool"></a>Design tabeller i Synapse SQL-pool
 
@@ -79,7 +79,7 @@ SQL-poolen stöder de vanligaste data typerna. En lista över data typer som st�
 
 ## <a name="distributed-tables"></a>Distribuerade tabeller
 
-En grundläggande funktion i SQL-poolen är hur den kan lagra och använda tabeller över [distributioner](massively-parallel-processing-mpp-architecture.md#distributions).  SQL-poolen stöder tre metoder för att distribuera data: Round-Robin (standard), hash och replikeras.
+En grundläggande funktion i Synapse SQL är hur den kan lagra och använda tabeller över [distributioner](massively-parallel-processing-mpp-architecture.md#distributions). Synapse SQL stöder tre metoder för att distribuera data: Round-Robin (standard), hash och replikeras.
 
 ### <a name="hash-distributed-tables"></a>Hash-distribuerade tabeller
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 30971c9c5280bfba37f46aaab0aaf2c2506502c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b53b717759bf65241b946194aab91bab0608320c
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542351"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92483411"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Teamphoria
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig hur du integrerar Teamphoria med Azur
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -98,7 +98,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -134,15 +134,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 4. Gå till alternativet **admin-inställningar** i det vänstra verktygsfältet och klicka på **enkel inloggning** på fliken Konfigurera för att öppna fönstret SSO-konfiguration.
 
-    ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/admin_sso_configure.png)
+    ![Skärm bild som visar ADMINISTRATÖRs inställningar där du kan välja enkel inloggning.](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 5. Klicka på alternativet **Lägg till ny identitetsprovider** i det övre högra hörnet för att öppna formuläret för att lägga till inställningarna för SSO.
 
-    ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/add_new_identity_provider.png)
+    ![Skärm bild som visar var du kan välja Lägg till ny identitets leverantör.](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 6. Ange informationen i fälten enligt beskrivningen nedan –
 
-    ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+    ![Skärm bild som visar sidan där du kan ange de värden som beskrivs.](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
     a. **VISNINGS namn**: Ange visnings namnet för plugin-programmet på administratörs sidan.
 
@@ -168,11 +168,11 @@ För att Azure AD-användare ska kunna logga in på Teamphoria måste de tillhan
 
 1. Klicka på alternativet för **manuell inbjudan** .
 
-    ![Bjud in personer](./media/teamphoria-tutorial/admin_manage_add_users.png)
+    ![Skärm bild som visar alternativet för manuell inbjudan.](./media/teamphoria-tutorial/admin_manage_add_users.png)
 
 1. Utför följande åtgärder på den här sidan.
 
-    ![Bjud in personer](./media/teamphoria-tutorial/manual_user_invite.png)
+    ![Skärm bild som visar sidan för manuell användar inbjudan där du kan ange namn och e-postadress.](./media/teamphoria-tutorial/manual_user_invite.png)
 
     a. I text rutan **e-postadress** anger du **e-postadressen** för användaren som B. Simon.
 

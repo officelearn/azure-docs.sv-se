@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 6ce4354faec73f8fe42a936e677bee473796701d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318780"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477291"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 
@@ -137,7 +137,7 @@ Du lägger till en entitet genom att först skapa ett objekt som definierar enti
 * **PartitionKey** – Anger i vilken partition entiteten lagras.
 * **RowKey** – Identifierar entiteten i partitionen unikt.
 
-Både **PartitionKey** och **RowKey** måste vara strängvärden. Mer information finns i [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx) (Så här fungerar datamodellen för Table Storage).
+Både **PartitionKey** och **RowKey** måste vara strängvärden. Mer information finns i [Understanding the Table Service Data Model](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) (Så här fungerar datamodellen för Table Storage).
 
 Följande är ett exempel på hur du definierar en entitet. **DueDate** definieras som en typ av `Edm.DateTime` . Typen är inte obligatorisk, och typer härleds om de inte anges.
 
@@ -483,6 +483,6 @@ Mer information finns i resurserna nedan.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 * [Azure Storage SDK för Node.js](https://github.com/Azure/azure-storage-node)-databas på GitHub.
-* [Azure för Node.js-utvecklare](https://docs.microsoft.com/azure/developer/javascript/)
+* [Azure för Node.js-utvecklare](/azure/developer/javascript/)
 * [Skapa en Node.js-webbapp i Azure](../app-service/quickstart-nodejs.md)
 * [Skapa och distribuera ett Node.js-program till en Azure-molntjänst](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (med hjälp av Windows PowerShell)

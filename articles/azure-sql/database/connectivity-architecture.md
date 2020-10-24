@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 711d1cfccb6cdfe4a2fcb48a8ada7b33f744c317
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325393"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479093"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Anslutnings arkitektur för Azure SQL Database och Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -31,7 +31,7 @@ Den här artikeln förklarar arkitekturen i olika komponenter som dirigerar nät
 
 Följande diagram ger en översikt över anslutnings arkitekturen på hög nivå.
 
-![arkitektur översikt](./media/connectivity-architecture/connectivity-overview.png)
+![Diagram som visar en översikt över anslutnings arkitekturen på hög nivå.](./media/connectivity-architecture/connectivity-overview.png)
 
 Följande steg beskriver hur en anslutning upprättas till Azure SQL Database:
 
@@ -63,7 +63,7 @@ Om du ansluter inifrån Azure får anslutningarna som standard en anslutnings pr
 
 Om du ansluter från en plats utanför Azure har anslutningarna som standard en anslutnings princip `Proxy` . En princip i `Proxy` innebär att TCP-sessionen upprättas via Azure SQL Database gateway och alla efterföljande paket flöden via gatewayen. Följande diagram illustrerar det här trafikflödet.
 
-![arkitektur översikt](./media/connectivity-architecture/connectivity-onprem.png)
+![Diagram som visar hur TCP-sessionen upprättas via Azure SQL Database gateway och alla efterföljande paket flöden via gatewayen.](./media/connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
 > Öppna även TCP-portarna 1434 och 14000-14999 för att aktivera [anslutning med DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)

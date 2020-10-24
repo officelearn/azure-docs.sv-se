@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: f0d28a71e2bd6fc2006bda81fba7d7e6336c5b1c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a765bf547924cbba1c4cff36a97df4ae88df1787
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460843"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495943"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Självstudie: Bygg ut en lösning från slut punkt till slut punkt
 
@@ -168,24 +168,26 @@ I fönstret *publicera* som öppnas i huvud fönstret i Visual Studio kontroller
 
 ### <a name="assign-permissions-to-the-function-app"></a>Tilldela behörigheter till Function-appen
 
-Om du vill göra det möjligt för Function-appen att komma åt Azure Digitals, är nästa steg att konfigurera en app-inställning, tilldela appen en Systemhanterad Azure AD-identitet och ge den identiteten rollen *Azure Digitals-ägare (för hands version)* i Azure Digitals-instansen. Den här rollen krävs för alla användare eller funktioner som vill utföra många data Plans aktiviteter på instansen. Du kan läsa mer om säkerhets-och roll tilldelningar i [*begrepp: säkerhet för Azure Digitals dubbla lösningar*](concepts-security.md).
+Om du vill göra det möjligt för Function-appen att komma åt Azure Digitals, är nästa steg att konfigurera en app-inställning, tilldela appen en Systemhanterad Azure AD-identitet och ge den identiteten *Azure Digitals data ägar* roll i Azure Digital-instansen. Den här rollen krävs för alla användare eller funktioner som vill utföra många data Plans aktiviteter på instansen. Du kan läsa mer om säkerhets-och roll tilldelningar i [*begrepp: säkerhet för Azure Digitals dubbla lösningar*](concepts-security.md).
+
+[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 I Azure Cloud Shell använder du följande kommando för att ange en program inställning som din Function-app ska använda för att referera till din Azure Digital-instansen.
 
-```azurecli
+```azurecli-interactive
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
 Använd följande kommando för att skapa den systemhanterade identiteten. Anteckna fältet *principalId* i utdata.
 
-```azurecli
+```azurecli-interactive
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Använd *principalId* -värdet från utdata i följande kommando för att tilldela Function-appens identitet till *Azure Digitals-rollen ägare (för hands version)* för din Azure Digital-instansen:
+Använd *principalId* -värdet från utdata i följande kommando för att tilldela Function-appens identitet till den *digitala Azure-dataägarens data ägar* roll för Azure Digitals-instansen:
 
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
+```azurecli-interactive
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
 
 Resultatet av det här kommandot är information om den roll tilldelning som du har skapat. Function-appen har nu åtkomst behörighet till din Azure Digital-instansen.
@@ -213,7 +215,7 @@ Digitala Azure-enheter är utformade för att fungera tillsammans med [IoT Hub](
 
 I Azure Cloud Shell använder du det här kommandot för att skapa en ny IoT-hubb:
 
-```azurecli
+```azurecli-interactive
 az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku S1
 ```
 
@@ -252,7 +254,7 @@ Det här avsnittet skapar en enhets representation i IoT Hub med ID- *thermostat
 
 I Azure Cloud Shell skapar du en enhet i IoT Hub med följande kommando:
 
-```azurecli
+```azurecli-interactive
 az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-hub-name> -g <your-resource-group>
 ```
 
@@ -264,13 +266,13 @@ Konfigurera sedan enhets simulatorn för att skicka data till IoT Hub-instansen.
 
 Börja med att hämta *anslutnings strängen för IoT Hub* med det här kommandot:
 
-```azurecli
+```azurecli-interactive
 az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Hämta sedan *enhets anslutnings strängen* med det här kommandot:
 
-```azurecli
+```azurecli-interactive
 az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
@@ -340,13 +342,13 @@ I det här avsnittet ska du skapa ett event Grid-ämne och sedan skapa en slut p
 
 I Azure Cloud Shell kör du följande kommando för att skapa ett event Grid-ämne:
 
-```azurecli
+```azurecli-interactive
 az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-grid-topic> -l <region>
 ```
 
 > [!TIP]
 > Om du vill skapa en lista med namn på Azure-regioner som kan skickas till kommandon i Azure CLI kör du följande kommando:
-> ```azurecli
+> ```azurecli-interactive
 > az account list-locations -o table
 > ```
 
@@ -354,7 +356,7 @@ Utdata från det här kommandot är information om det händelse rutnäts avsnit
 
 Skapa sedan en Azure Digitals-slutpunkt som pekar på ditt event Grid-ämne. Använd kommandot nedan och fyll i plats hållarnas fält efter behov:
 
-```azurecli
+```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
 ```
 
@@ -362,7 +364,7 @@ Utdata från det här kommandot är information om den slut punkt som du har ska
 
 Du kan också kontrol lera att slut punkten har skapats genom att köra följande kommando för att fråga din Azure Digital-instansen för den här slut punkten:
 
-```azurecli
+```azurecli-interactive
 az dt endpoint show --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> 
 ```
 
@@ -376,9 +378,7 @@ Spara de namn som du gav ditt event Grid-ämne och din Azure digital-slutpunkt. 
 
 Skapa sedan en Azure Digital-väg som skickar händelser till den Azure digital-slutpunkt som du nyss skapade.
 
-[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
-
-```azurecli
+```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
 
@@ -451,7 +451,7 @@ Med hjälp av [Azure Cloud Shell](https://shell.azure.com)kan du ta bort alla Az
 > [!IMPORTANT]
 > Att ta bort en resursgrupp kan inte ångras. Resursgruppen och alla resurser som ingår i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. 
 
-```azurecli
+```azurecli-interactive
 az group delete --name <your-resource-group>
 ```
 

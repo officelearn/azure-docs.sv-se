@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83b71d46c3d6b1612728b2bd81c6acede6d0559b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714454"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488630"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
 
@@ -23,7 +23,7 @@ I den här guiden sammanfattas lösningar för problem som ofta visas i Storage 
 
 ## <a name="azure-rbac-permissions-issues"></a>Problem med Azure RBAC-behörighet
 
-Azure-rollbaserad åtkomst kontroll [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) möjliggör mycket detaljerad åtkomst hantering av Azure-resurser genom att kombinera uppsättningar med behörigheter i _roller_. Här följer några strategier för att få Azure RBAC fungerar optimalt i Storage Explorer.
+Azure-rollbaserad åtkomst kontroll [Azure RBAC](/azure/role-based-access-control/overview) möjliggör mycket detaljerad åtkomst hantering av Azure-resurser genom att kombinera uppsättningar med behörigheter i _roller_. Här följer några strategier för att få Azure RBAC fungerar optimalt i Storage Explorer.
 
 ### <a name="how-do-i-access-my-resources-in-storage-explorer"></a>Hur gör jag för att åtkomst till mina resurser i Storage Explorer?
 
@@ -65,7 +65,7 @@ Om du vill komma åt BLOB-behållare eller köer kan du koppla dem till dessa re
 3. Välj det användar konto och den klient organisation som är associerad med resursen som du ansluter till. Klicka på Nästa.
 4. Välj resurs typ, ange URL: en till resursen och ange ett unikt visnings namn för anslutningen. Klicka på Nästa. Klicka på Anslut.
 
-För andra resurs typer har vi för närvarande ingen Azure RBAC-relaterad lösning. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+För andra resurs typer har vi för närvarande ingen Azure RBAC-relaterad lösning. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
 ### <a name="recommended-azure-built-in-roles"></a>Rekommenderade inbyggda Azure-roller
 
@@ -332,7 +332,7 @@ Storage Explorer kräver att .NET Core installeras i systemet. Vi rekommenderar 
 # <a name="ubuntu-2004"></a>[Ubuntu 20.04](#tab/2004)
 
 1. Hämta filen Storage Explorer. tar. gz.
-2. Installera [.net Core runtime](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Installera [.net Core runtime](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -345,7 +345,7 @@ Storage Explorer kräver att .NET Core installeras i systemet. Vi rekommenderar 
 # <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Hämta filen Storage Explorer. tar. gz.
-2. Installera [.net Core runtime](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Installera [.net Core runtime](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \
@@ -358,7 +358,7 @@ Storage Explorer kräver att .NET Core installeras i systemet. Vi rekommenderar 
 # <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Hämta filen Storage Explorer. tar. gz.
-2. Installera [.net Core runtime](https://docs.microsoft.com/dotnet/core/install/linux):
+2. Installera [.net Core runtime](/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
      sudo dpkg -i packages-microsoft-prod.deb; \

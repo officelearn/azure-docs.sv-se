@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 70234c9bf6be8b9c2fbb5750fa1dba718ac2690d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43c8f3dc0df41d9322edbe2e0c763de12b787ed6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370482"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479807"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -30,7 +30,7 @@ För att kunna hantera sådana program kan du övervaka dem proaktivt och först
   * [Övervaknings tjänstens hälsa]
   * [Övervaknings kapacitet]
   * [Övervaka tillgänglighet]
-  * [Övervaknings prestanda]
+  * [Övervaka prestanda]
 * [Diagnostisera lagrings problem]
   * [Problem med tjänst hälsa]
   * [Prestanda problem]
@@ -131,7 +131,7 @@ Lagrings mått lagrar bara kapacitets mått för Blob-tjänsten eftersom blobbar
 >
 >
 
-Information om hur du uppskattar storleken på olika lagrings objekt, till exempel blobbar, finns i blogg inlägget [förstå Azure Storage fakturering – bandbredd, transaktioner och kapacitet](https://docs.microsoft.com/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
+Information om hur du uppskattar storleken på olika lagrings objekt, till exempel blobbar, finns i blogg inlägget [förstå Azure Storage fakturering – bandbredd, transaktioner och kapacitet](/archive/blogs/patrick_butler_monterde/azure-storage-understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity).
 
 ### <a name="monitoring-availability"></a><a name="monitoring-availability"></a>Övervaka tillgänglighet
 Du bör övervaka tillgängligheten för lagrings tjänsterna i ditt lagrings konto genom att övervaka värdet i kolumnen **tillgänglighet** i tabellerna för tim-eller minut mått – **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue**, **$MetricsCapacityBlob**. Kolumnen **tillgänglighet** innehåller ett procent värde som anger tillgängligheten för tjänsten eller den API-åtgärd som representeras av raden ( **RowKey** visar om raden innehåller mått för tjänsten som helhet eller för en viss API-åtgärd).
@@ -362,7 +362,7 @@ Lagrings tjänsten beräknar bara Metric- **AverageE2ELatency** för lyckade beg
 #### <a name="investigating-client-performance-issues"></a>Undersöka problem med klient prestanda
 Möjliga orsaker till att klienten svarar långsamt är att ha ett begränsat antal anslutningar eller trådar, eller ha ont om resurser, till exempel processor, minne eller nätverks bandbredd. Du kanske kan lösa problemet genom att ändra klient koden så att den blir mer effektiv (till exempel genom att använda asynkrona anrop till lagrings tjänsten) eller genom att använda en större virtuell dator (med fler kärnor och mer minne).
 
-För tabell-och Queue Services kan Nagle-algoritmen också orsaka hög **AverageE2ELatency** jämfört med **AverageServerLatency**: Mer information finns i post [Nagle-algoritmen är inte läsvänlig mot små begär Anden](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). Du kan inaktivera Nagle-algoritmen i koden med hjälp av **ServicePointManager** -klassen i namn området **system.net** . Du bör göra detta innan du gör några anrop till tabellen eller Queue Services i ditt program eftersom detta inte påverkar anslutningar som redan är öppna. Följande exempel kommer från metoden **Application_Start** i en arbets roll.
+För tabell-och Queue Services kan Nagle-algoritmen också orsaka hög **AverageE2ELatency** jämfört med **AverageServerLatency**: Mer information finns i post [Nagle-algoritmen är inte läsvänlig mot små begär Anden](/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). Du kan inaktivera Nagle-algoritmen i koden med hjälp av **ServicePointManager** -klassen i namn området **system.net** . Du bör göra detta innan du gör några anrop till tabellen eller Queue Services i ditt program eftersom detta inte påverkar anslutningar som redan är öppna. Följande exempel kommer från metoden **Application_Start** i en arbets roll.
 
 # <a name="net-v12"></a>[.NET-V12](#tab/dotnet)
 
@@ -805,7 +805,7 @@ Mer information om analyser i Azure Storage finns i följande resurser:
 [Övervaknings tjänstens hälsa]: #monitoring-service-health
 [Övervaknings kapacitet]: #monitoring-capacity
 [Övervaka tillgänglighet]: #monitoring-availability
-[Övervaknings prestanda]: #monitoring-performance
+[Övervaka prestanda]: #monitoring-performance
 
 [Diagnostisera lagrings problem]: #diagnosing-storage-issues
 [Problem med tjänst hälsa]: #service-health-issues

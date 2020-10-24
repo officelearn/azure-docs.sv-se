@@ -9,12 +9,12 @@ ms.date: 08/03/2020
 ms.author: normesta
 ms.subservice: common
 ms.custom: subject-cost-optimization
-ms.openlocfilehash: 75b464c140bfda6c3f3559d3bfdbe1e6bc2e7f24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0f5069ca063f95cb845921c0d716b6c013c9e83
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87760744"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479756"
 ---
 # <a name="plan-and-manage-costs-for-azure-blob-storage"></a>Planera och hantera kostnader för Azure Blob Storage
 
@@ -32,9 +32,9 @@ Använd [pris Kalkylatorn för Azure](https://azure.microsoft.com/pricing/calcul
 
 3. Välj alternativ i list rutorna. 
 
-   När du ändrar värdet för dessa List rutor ändras kostnads beräkningen. Denna uppskattning visas i det övre hörnet och längst ned i beräkningen. 
-    
-   ![Övervaka kostnader med fönstret kostnads analys](media/storage-plan-manage-costs/price-calculator-storage-type.png)
+   När du ändrar värdet för dessa List rutor ändras kostnads beräkningen. Denna uppskattning visas i det övre hörnet och längst ned i beräkningen.
+
+   ![Skärm bild som visar din uppskattning](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
    När du ändrar värdet i list rutan **typ** ändras även andra alternativ som visas i det här kalkyl bladet. Använd länkarna i avsnittet **Mer information** för att lära dig mer om vad varje alternativ innebär och hur dessa alternativ påverkar priset för lagrings-relaterade åtgärder. 
 
@@ -56,19 +56,19 @@ I det här avsnittet beskrivs varje alternativ i detalj.
 
 Du kan spara pengar på lagrings kostnader för BLOB-data med Azure Storage reserverad kapacitet. Azure Storage reserverad kapacitet ger dig rabatt på kapacitet för block-blobbar och för Azure Data Lake Storage Gen2 data i standard lagrings konton när du genomför en reservation för ett år eller tre år. En reservation tillhandahåller en fast mängd lagrings kapacitet för reservationens period. Azure Storage reserverad kapacitet kan avsevärt minska kapacitets kostnaderna för block-blobbar och Azure Data Lake Storage Gen2 data. 
 
-Läs mer i [optimera kostnader för Blob Storage med reserverad kapacitet](https://docs.microsoft.com/azure/storage/blobs/storage-blob-reserved-capacity).
+Läs mer i [optimera kostnader för Blob Storage med reserverad kapacitet](/azure/storage/blobs/storage-blob-reserved-capacity).
 
 #### <a name="organize-data-into-access-tiers"></a>Ordna data i åtkomst nivåer
 
 Du kan minska kostnaderna genom att placera BLOB-data i de mest kostnads effektiva åtkomst nivåerna. Välj mellan tre nivåer som är utformade för att optimera dina kostnader kring data användning. *Nivån frekvent har till exempel* en högre lagrings kostnad men lägre åtkomst kostnad. Om du planerar att komma åt data ofta kan den frekventa nivån därför vara det mest kostnads effektiva valet. Om du planerar att få åtkomst till data mindre ofta, kan *kall* eller *Arkiv* lag rings nivå vara det bästa sättet eftersom det höjer kostnaden för att komma åt data samtidigt som kostnaden för att lagra data minskar.    
 
-Mer information finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal)lag rings nivåer.
+Mer information finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal)lag rings nivåer.
 
 #### <a name="automatically-move-data-between-access-tiers"></a>Flytta automatiskt data mellan åtkomst nivåer
 
 Använd principer för livs cykel hantering för att regelbundet flytta data mellan nivåer för att spara flest pengar. Dessa principer kan flytta data till genom att använda regler som du anger. Du kan till exempel skapa en regel som flyttar blobbar till Arkiv nivån om denna BLOB inte har ändrats på 90 dagar. Genom att skapa principer som justerar åtkomst nivån för dina data kan du utforma de billigaste lagrings alternativen för dina behov.
 
-Läs mer i [Hantera Azure Blob Storage-livscykeln](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
+Läs mer i [Hantera Azure Blob Storage-livscykeln](/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)
 
 ## <a name="create-budgets"></a>Skapa budgetar
 
@@ -89,13 +89,13 @@ Så här visar du Azure Storage kostnader i kostnads analys:
 
 2. Öppna fönstret **Cost Management + fakturering** , Välj **kostnads hantering** på menyn och välj sedan **kostnads analys**. Du kan sedan ändra omfånget för en speciell prenumeration från List rutan **omfattning** .
 
-   ![Övervaka kostnader med fönstret kostnads analys](./media/storage-plan-manage-costs/cost-analysis-pane.png)
+   ![Skärm bild som visar omfång](./media/storage-plan-manage-costs/cost-analysis-pane.png)
 
 4. Om du bara vill visa kostnader för Azure Storage väljer du **Lägg till filter** och väljer sedan **tjänst namn**. Välj sedan **Storage (lagring** ) i listan. 
 
    Här är ett exempel som visar kostnader för just Azure Storage:
 
-   ![Fönstret övervaka lagrings kostnader med kostnads analys](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
+   ![Skärm bild som visar filter efter lagring](./media/storage-plan-manage-costs/cost-analysis-pane-storage.png)
 
 I föregående exempel visas den aktuella kostnaden för tjänsten. Kostnader per Azure-regioner (platser) och per resurs grupp visas också. Du kan även lägga till andra filter (till exempel: ett filter om du vill visa kostnader för vissa lagrings konton).
 

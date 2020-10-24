@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1096437fc1d77042a9db4dc359d51cd6d9d22960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e363b43bf9028e3075efa0f5a1f54e6bda190d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304397"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92512713"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Självstudie: Azure Active Directory integrering med Palo-nätverk, integrerat på portalen
 
@@ -27,7 +27,7 @@ Integrering av Palo-nätverkets integrerade Portal med Azure AD ger följande f�
 * Du kan göra det möjligt för användarna att logga in automatiskt till Palo-nätverk, som har inbyggd portal (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att integrera Azure AD med Palo Alto Networks Captive Portal behöver du följande:
 
@@ -97,7 +97,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -150,8 +150,8 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 Klicka på testa det här programmet i Azure Portal så bör du loggas in automatiskt till Palo-nätverkets inbyggda portal där du konfigurerar SSO
 
-Du kan använda Microsoft Access-panelen. När du klickar på panelen Palo-nätverkets inbyggda Portal på åtkomst panelen, bör du loggas in automatiskt på Palo-nätverkets företags inbyggda Portal för vilken du konfigurerar SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Du kan använda Microsoft Access-panelen. När du klickar på panelen Palo-nätverkets inbyggda Portal på åtkomst panelen, bör du loggas in automatiskt på Palo-nätverkets företags inbyggda Portal för vilken du konfigurerar SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-När du har konfigurerat portalen Palo-nätverk, kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+När du har konfigurerat portalen Palo-nätverk, kan du framtvinga kontroll av sessioner, vilket skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

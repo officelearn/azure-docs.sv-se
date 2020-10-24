@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: c43624b57f5a46473e8640200a7284a9fa737790
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fe0d8e6ad2056a244ec0d811f1b2dcb67e7bd84
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849273"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516817"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Självstudie: Konfigurera meta Networks Connector för automatisk användar etablering
 
@@ -115,7 +115,7 @@ Innan du konfigurerar meta Network Connector för automatisk användar etablerin
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i meta Networks Connector baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för meta Networks Connector genom att följa anvisningarna i [självstudien om enkel inloggning i meta Networks Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/metanetworksconnector-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för meta Networks Connector genom att följa anvisningarna i [självstudien om enkel inloggning i meta Networks Connector](./metanetworksconnector-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
 
 ### <a name="to-configure-automatic-user-provisioning-for-meta-networks-connector-in-azure-ad"></a>Konfigurera automatisk användar etablering för meta Networks Connector i Azure AD:
 
@@ -187,4 +187,3 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
-

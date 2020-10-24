@@ -9,22 +9,35 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: b493b78971b7e802d82e8f61203abdaaca527016
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d7ec1edb779ddaf53cef02dd6e83bb3e719d0b4e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873888"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503563"
 ---
 # <a name="tutorial---migrate-an-android-app-from-google-maps"></a>Självstudie – migrera en Android-app från Google Maps
 
-Azure Maps Android SDK har ett API-gränssnitt som liknar webb-SDK: n. Om du har utvecklat en av dessa SDK: er gäller många av samma koncept, bästa praxis och arkitekturer.
+Azure Maps Android SDK har ett API-gränssnitt som liknar webb-SDK: n. Om du har utvecklat en av dessa SDK: er gäller många av samma koncept, bästa praxis och arkitekturer. I den här självstudien får du lära dig hur man:
+
+> [!div class="checklist"]
+> * Läsa in en karta
+> * Lokalisera en karta
+> * Lägg till markörer, polystreck och polygoner.
+> * Täcka över ett panel lager
+> * Visa trafikdata
 
 Azure Maps Android SDK stöder en lägsta Android-version av API 21: Android-5.0.0 (Lollipop).
 
 Alla exempel finns i Java. Du kan dock använda Kotlin med Azure Maps Android SDK.
 
 Mer information om hur du utvecklar med Android SDK genom att Azure Maps finns i [instruktions guiderna för Azure Maps Android SDK](how-to-use-android-map-control-library.md).
+
+## <a name="prerequisites"></a>Förutsättningar 
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+2. [Skapa ett Azure Maps konto](quick-demo-map-app.md#create-an-azure-maps-account)
+3. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="load-a-map"></a>Läsa in en karta
 
@@ -745,6 +758,18 @@ mapControl.onReady(map -> {
 
 ![Azure Maps trafik](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 
-Läs mer om Azure Maps Android SDK.
+## <a name="next-steps"></a>Nästa steg
 
-[Använda Android Map-kontrollen](how-to-use-android-map-control-library.md)
+Läs mer om Azure Maps Android SDK:
+
+> [!div class="nextstepaction"]
+> [Använda Android Map-kontrollen](how-to-use-android-map-control-library.md)
+
+> [!div class="nextstepaction"]
+> [Lägga till ett symbol lager i en Android-karta](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Lägga till former i en Android-karta](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
+
+> [!div class="nextstepaction"]
+> [Ändra kart format i Android Maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)

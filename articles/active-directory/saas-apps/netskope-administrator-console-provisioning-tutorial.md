@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 173ca296689bbdb8d574930ec2549e82839c47e9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5e71566ea7cd2e8953c84d58128e3380a782ba40
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428463"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516723"
 ---
 # <a name="tutorial-configure-netskope-user-authentication-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Netskope-användarautentisering för automatisk användar etablering
 
@@ -27,7 +27,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -97,7 +97,7 @@ Innan du konfigurerar Netskope användarautentisering för automatisk användar 
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Netskope användarautentisering baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Netskope-användarautentisering genom att följa anvisningarna i [självstudien om enkel inloggning i Netskope User Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/netskope-cloud-security-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Netskope-användarautentisering genom att följa anvisningarna i [självstudien om enkel inloggning i Netskope User Authentication](./netskope-cloud-security-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
 
 > [!NOTE]
 > Läs mer om SCIM-slutpunkten för användarautentisering i Netskope [.](https://docs.google.com/document/d/1n9P_TL98_kd1sx5PAvZL2HS6MQAqkQqd-OSkWAAU6ck/edit#heading=h.prxq74iwdpon)
@@ -172,4 +172,3 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
-

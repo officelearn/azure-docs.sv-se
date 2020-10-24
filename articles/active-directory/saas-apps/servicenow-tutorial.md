@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 7f3c5fc8e7ac4e61d44bb6cd54e1690d7c053526
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: fc6b36feecd96f2a84f9164e7efb3f07cf45f5a2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127173"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92505229"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ServiceNow
 
@@ -26,7 +26,7 @@ I den här självstudien får du lära dig hur du integrerar ServiceNow med Azur
 * Gör det möjligt för användarna att logga in automatiskt till ServiceNow med sina Azure AD-konton.
 * Hantera dina konton på en central plats: Azure Portal.
 
-Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -51,7 +51,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * ServiceNow har stöd för [Automatisk användar etablering](servicenow-provisioning-tutorial.md).
 
-* När du har konfigurerat ServiceNow kan du framtvinga sessionsnycklar som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat ServiceNow kan du framtvinga sessionsnycklar som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 * Du kan konfigurera det klassiska ServiceNow-programmet (mobil) med Azure AD för att aktivera SSO. Det stöder både Android-och iOS-användare. I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
@@ -128,7 +128,7 @@ I det här avsnittet ska du skapa en test användare, som kallas B. Simon, i Azu
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. Som **namn**anger du `B.Simon` .  
-   1. För **användar namn**anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. För **användar namn**anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Välj **Visa lösen ord**och skriv sedan ned värdet som visas i rutan **lösen ord** .
    1. Välj **Skapa**.
 
@@ -246,7 +246,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     1. Logga in på ditt ServiceNow-program som administratör.
 
-       * I den automatiska konfigurationen konfigureras alla nödvändiga inställningar på **ServiceNow** -sidan, men **X. 509-certifikatet** är inte aktiverat som standard. Du måste mappa den manuellt till din identitets leverantör i ServiceNow. Följ de här stegen:
+       * I den automatiska konfigurationen konfigureras alla nödvändiga inställningar på **ServiceNow** -sidan, men **X. 509-certifikatet** är inte aktiverat som standard. Du måste mappa den manuellt till din identitets leverantör i ServiceNow. Gör så här:
 
          1. I det vänstra fönstret söker du efter **SSO-avsnittet för flera providers** från sökrutan och väljer **identitets leverantörer**.
 
@@ -452,7 +452,7 @@ Syftet med det här avsnittet är att skapa en användare som kallas B. Simon i 
 
 ## <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen ServiceNow på åtkomst panelen, bör du loggas in automatiskt på den ServiceNow som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen ServiceNow på åtkomst panelen, bör du loggas in automatiskt på den ServiceNow som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="test-sso-for-servicenow-classic-mobile"></a>Testa SSO för ServiceNow Classic (mobil)
 
@@ -480,16 +480,16 @@ När du väljer panelen ServiceNow på åtkomst panelen, bör du loggas in autom
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Konfigurera användarförsörjning](servicenow-provisioning-tutorial.md)
 
 - [Prova ServiceNow med Azure AD](https://aad.portal.azure.com)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/protect-servicenow)
 
-- [Så här skyddar du ServiceNow med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Så här skyddar du ServiceNow med avancerad synlighet och kontroller](/cloud-app-security/proxy-intro-aad)

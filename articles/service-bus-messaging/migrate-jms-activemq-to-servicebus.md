@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88067162"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515754"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrera befintliga Java Message Service (JMS) 2,0-program från Apache ActiveMQ till Azure Service Bus
 
@@ -62,7 +62,7 @@ Som en del i migrering och ändring av klient program för att interagera med Az
 
 #### <a name="authentication-and-authorization"></a>Autentisering och auktorisering
 
-Rollbaserad åtkomst kontroll (RBAC), som stöds av Azure Active Directory, är den föredragna autentiseringsmetoden för Service Bus. Eftersom RBAC eller anspråksbaserad autentisering inte stöds för närvarande av Apache QPID-JMS, bör du använda SAS-nycklar för autentisering.
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC), som stöds av Azure Active Directory, är den föredragna autentiseringsmetoden för Service Bus. Eftersom Azure RBAC eller anspråksbaserad autentisering inte stöds av Apache QPID-JMS, kan du dock använda SAS-nycklar för autentisering.
 
 ## <a name="pre-migration"></a>Före migrering
 

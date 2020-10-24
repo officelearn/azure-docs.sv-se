@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: fd0f489bd6109a5dcd6625eb26286e0d40c50c63
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e4f6cefd56c12162b370c78b6df2cd29ece030f1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962334"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515720"
 ---
 # <a name="enable-write-accelerator"></a>Aktivera Skrivningsaccelerator
 
@@ -57,7 +57,7 @@ Det finns gränser för Azure Premium Storage virtuella hård diskar per virtuel
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
 
-IOPS-gränserna är per virtuell dator och *inte* per disk. Alla Skrivningsaccelerator diskar delar samma IOPS-gräns per virtuell dator.
+IOPS-gränserna är per virtuell dator och *inte* per disk. Alla Skrivningsaccelerator diskar delar samma IOPS-gräns per virtuell dator. Anslutna diskar får inte överstiga IOPS-gränsen för Skriv Accelerator för en virtuell dator. För ett exempel, även om de anslutna diskarna kan göra 30 000 IOPS, tillåter systemet inte att diskarna går över 20 000 IOPS för M416ms_v2.
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Aktivera skrivningsacceleratorer på en specifik disk
 

@@ -5,19 +5,22 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 10/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: a9e300a0e6f1b847c49ced7ded94db8e24016b32
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 857429ab5fd2e2ea9a0cb0173015ceba4bb0bacb
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102280"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504119"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Lägga till en API-anslutning till ett användar flöde för registrering (för hands version)
+
+> [!IMPORTANT]
+> API-kopplingar för registrering är en allmän förhands gransknings funktion i Azure AD B2C. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
 
 Om du vill använda en [API-anslutning](api-connectors-overview.md)skapar du först API-anslutningen och aktiverar den sedan i ett användar flöde.
 
@@ -48,7 +51,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -80,7 +83,7 @@ Dessutom skickas anspråk som är **lokala för användar gränssnittet (ui_loca
 > Om ett anspråk inte har något värde när API-slutpunkten anropas skickas inte anspråket till API: et. Ditt API bör vara utformat för att explicit kontrol lera och hantera det fall där ett anspråk inte finns i begäran.
 
 > [!TIP] 
-> [**identiteter (' Identities ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) och e- **postadressen (e-post)** -anspråk kan användas av ditt API för att identifiera en användare innan de har ett konto i din klient organisation. "Identities"-anspråk skickas när en användare autentiseras med en identitetsprovider som Google eller Facebook. "e-post" skickas alltid.
+> [**identiteter (' Identities ')**](https://docs.microsoft.com/graph/api/resources/objectidentity) och e- **postadressen (e-post)** -anspråk kan användas av ditt API för att identifiera en användare innan de har ett konto i din klient organisation. 
 
 ## <a name="enable-the-api-connector-in-a-user-flow"></a>Aktivera API-anslutningen i ett användar flöde
 
@@ -100,7 +103,7 @@ Följ dessa steg om du vill lägga till en API-anslutning till ett registrerings
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>När du har loggat in med en identitets leverantör
 
-En API-anslutning i det här steget i registrerings processen anropas omedelbart när användaren autentiseras med en identitets leverantör (som Google, Facebook, & Azure AD). Det här steget föregår ***sidan för attribut samling***, som är det formulär som visas för användaren att samla in användarattribut. Det här steget anropas inte om en användare registreras med ett lokalt konto.
+En API-anslutning i det här steget i registrerings processen anropas omedelbart när användaren autentiseras med en identitets leverantör (som Google, Facebook, & Azure AD). Det här steget föregår*_sidan * Attribute Collection_*_, som är det formulär som visas för användaren att samla in användarattribut. Det här steget anropas inte om en användare registreras med ett lokalt konto.
 
 ### <a name="example-request-sent-to-the-api-at-this-step"></a>Exempel förfrågan skickades till API: et i det här steget
 ```http
@@ -109,7 +112,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [ 
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -167,7 +170,7 @@ Content-type: application/json
 
 {
  "email": "johnsmith@fabrikam.onmicrosoft.com",
- "identities": [ //Sent for Google and Facebook identity providers
+ "identities": [
      {
      "signInType":"federated",
      "issuer":"facebook.com",
@@ -234,11 +237,11 @@ Content-type: application/json
 }
 ```
 
-| Parameter                                          | Typ              | Krävs | Beskrivning                                                                                                                                                                                                                                                                            |
+| Parameter                                          | Typ              | Obligatorisk | Beskrivning                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | Sträng            | Ja      | API-versionen.                                                                                                                                                                                                                                                                |
 | åtgärd                                             | Sträng            | Ja      | Värdet måste vara `Continue` .                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Nej       | Returnerade värden kan skriva över värden som samlas in från en användare. De kan också returneras i token om de väljs som ett **program anspråk**.                                              |
+| \<builtInUserAttribute>                            | \<attribute-type> | Nej       | Returnerade värden kan skriva över värden som samlas in från en användare. De kan också returneras i token om de väljs som _ * program anspråk * *.                                              |
 | \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Nej       | Anspråket behöver inte innehålla något `_<extensions-app-id>_` . Returnerade värden kan skriva över värden som samlas in från en användare. De kan också returneras i token om de väljs som ett **program anspråk**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Exempel på ett blockerande svar
@@ -255,7 +258,7 @@ Content-type: application/json
 
 ```
 
-| Parameter   | Typ   | Krävs | Beskrivning                                                                |
+| Parameter   | Typ   | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | Sträng | Ja      | API-versionen.                                                    |
 | åtgärd      | Sträng | Ja      | Värdet måste vara `ShowBlockPage`                                              |
@@ -281,14 +284,15 @@ Content-type: application/json
 }
 ```
 
-| Parameter   | Typ    | Krävs | Beskrivning                                                                |
+| Parameter   | Typ    | Obligatorisk | Beskrivning                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | Sträng  | Ja      | API-versionen.                                                    |
 | åtgärd      | Sträng  | Ja      | Värdet måste vara `ValidationError` .                                           |
 | status      | Integer | Ja      | Måste vara `400` ett värde för ett ValidationError-svar.                        |
 | userMessage | Sträng  | Ja      | Meddelande som ska visas för användaren.                                            |
 
-*Obs:* HTTP-statuskoden måste vara "400" Förutom värdet "status" i bröd texten i svaret.
+> [!NOTE]
+> HTTP-statuskoden måste vara "400" Förutom värdet "status" i bröd texten i svaret.
 
 **Slut användar upplevelse med ett verifierings fel svar**
 
@@ -318,4 +322,4 @@ I allmänhet är det bra att använda de loggnings verktyg som har Aktiver ATS a
 
 ## <a name="next-steps"></a>Nästa steg
 <!-- - Learn how to [add a custom approval workflow to sign-up](add-approvals.md) -->
-- Kom igång med våra [snabb starts exempel för Azure Function](code-samples.md#api-connectors).
+- Kom igång med våra [exempel](code-samples.md#api-connectors).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: jeedes
-ms.openlocfilehash: d529123b52e0e90702839f6822a586cf53dffa52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 456348f5492af44274a37a6400fb8d95e9bd55a4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546727"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516037"
 ---
 # <a name="tutorial-integrate-mvision-cloud-azure-ad-sso-configuration-with-azure-active-directory"></a>Självstudie: integrera MVISION Cloud Azure AD SSO-konfiguration med Azure Active Directory
 
@@ -26,9 +26,9 @@ I den här självstudien får du lära dig hur du integrerar MVISION Cloud Azure
 * Gör det möjligt för användarna att logga in automatiskt till MVISION Cloud Azure AD SSO-konfiguration med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att komma igång behöver du följande objekt:
 
@@ -41,7 +41,7 @@ För att komma igång behöver du följande objekt:
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
 * MVISION Cloud Azure AD SSO-konfiguration stöder **SP-och IDP** -INITIERAd SSO
-* När du har konfigurerat Dropbox kan du framtvinga kontroll över sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* När du har konfigurerat Dropbox kan du framtvinga kontroll över sessioner, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-mvision-cloud-azure-ad-sso-configuration-from-the-gallery"></a>Lägga till MVISION Cloud Azure AD SSO-konfiguration från galleriet
 
@@ -161,22 +161,22 @@ Om du vill konfigurera enkel inloggning på **MVision Cloud Azure AD SSO-konfigu
 
 ### <a name="create-mvision-cloud-azure-ad-sso-configuration-test-user"></a>Skapa MVISION Cloud Azure AD SSO-konfiguration test användare
 
-I det här avsnittet skapar du en användare som heter B. Simon i MVISION Cloud Azure AD SSO-konfiguration. Arbeta med [MVision Cloud Azure AD SSO Configuration support team](mailto:support@skyhighnetworks.com) för att lägga till användarna i MVision-molnet konfigurations plattform för enkel inloggning i Azure AD. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i MVISION Cloud Azure AD SSO-konfiguration. Arbeta med [MVision Cloud Azure AD SSO Configuration support team](mailto:support@skyhighnetworks.com) för att lägga till användarna i MVision-molnet konfigurations plattform för enkel inloggning i Azure AD. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på ikonen MVISION Cloud Azure AD SSO i åtkomst panelen, bör du loggas in automatiskt till MVISION Cloud Azure AD SSO-konfigurationen som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på ikonen MVISION Cloud Azure AD SSO i åtkomst panelen, bör du loggas in automatiskt till MVISION Cloud Azure AD SSO-konfigurationen som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](./tutorial-list.md)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorlig åtkomst i Azure Active Directory?](../conditional-access/overview.md)
 
 - [Prova MVISION Cloud Azure AD SSO Configuration med Azure AD](https://aad.portal.azure.com/)
 
-- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Vad är session Control i Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)

@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: ec8d277de177942386d9f3becdf329cdff1ca812
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797810"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504082"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -30,7 +30,7 @@ Varje IoT-hubb etableras med ett visst antal enheter på en specifik nivå. Niv�
 
 Nivån avgör också de begränsnings gränser som IoT Hub tillämpas på alla åtgärder.
 
-## <a name="iot-plug-and-play"></a>Plug and Play för IoT
+## <a name="iot-plug-and-play"></a>IoT Plug and Play
 
 IoT Plug and Play-enheter skickar minst ett telemetri-meddelande för varje gränssnitt, inklusive roten, vilket kan öka antalet meddelanden som räknas mot din meddelande kvot.
 
@@ -59,7 +59,7 @@ I följande tabell visas de tvingade begränsningarna. Värden refererar till en
 | Maximalt antal anslutna enhets strömmar<sup>1</sup> | 50 | 50 | 50 |
 | Maximal enhets data överföring<sup>1</sup> (sammanställd volym per dag) | 300 MB | 300 MB | 300 MB |
 
-<sup>1</sup> Den här funktionen är inte tillgänglig på den grundläggande IoT Hubs nivån. Mer information finns i [så här väljer du rätt IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup> Begränsnings mätarens storlek är 4 KB.
+<sup>1</sup> Den här funktionen är inte tillgänglig på den grundläggande IoT Hubs nivån. Mer information finns i [så här väljer du rätt IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup> Begränsnings mätarens storlek är 4 KB. Begränsningen baseras endast på begär ande nytto Last storlek.
 
 ### <a name="throttling-details"></a>Begränsnings information
 
@@ -99,7 +99,7 @@ IoT Hub tillämpar andra drift gränser:
 
 | Åtgärd | Gräns |
 | --------- | ----- |
-| Egenskaper | Det totala antalet enheter plus moduler som kan registreras till en enda IoT-hubb är ett tak på 1 000 000. Det enda sättet att öka den här gränsen är att kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).|
+| Enheter | Det totala antalet enheter plus moduler som kan registreras till en enda IoT-hubb är ett tak på 1 000 000. Det enda sättet att öka den här gränsen är att kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).|
 | Fil överföringar | 10 samtidiga fil överföringar per enhet. |
 | Jobb<sup>1</sup> | Maximalt antal samtidiga jobb är 1 (kostnads fritt och S1), 5 (för S2) och 10 (för S3). Dock är det maximala antalet samtidiga [enhets import/export-jobb](iot-hub-bulk-identity-mgmt.md) 1 för alla nivåer. <br/>Jobb historiken behålls upp till 30 dagar. |
 | Ytterligare slut punkter | Betalda SKU-hubbar kan ha 10 ytterligare slut punkter. De kostnads fria SKU-hubbarna kan ha en ytterligare slut punkt. |

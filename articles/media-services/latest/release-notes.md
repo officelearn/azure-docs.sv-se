@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d18962e097358b8e80ac93b4d8419f7cd4f77ee0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426815"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514494"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -37,6 +37,15 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 > Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md) och jobb, hämta information om åtkomst till API: er, Kryptera innehåll. För alla andra hanterings aktiviteter (till exempel Hantera transformeringar och jobb) använder du [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 >
 > Mer information finns i: [Azure Portal begränsningar för Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
+
+## <a name="october-2020"></a>Oktober 2020
+
+### <a name="basic-audio-analysis"></a>Grundläggande ljud analys
+För inställningen för ljud analys innehåller nu en pris nivå för Basic-läge. Det nya grundläggande ljud analys läget ger dig ett billigt alternativ för att extrahera tal avskrifter och för att formatera utdata och under texter. I det här läget utförs tal-till-text-avskrift och generering av en VTT-under text fil. Utdata från det här läget är en JSON-fil för insikter som bara innehåller nyckelord, avskrifter och tids inställnings information. Automatisk språk identifiering och talare diarization ingår inte i det här läget. Se listan över [språk som stöds.](analyzing-video-audio-files-concept.md#built-in-presets)
+
+Kunder som använder Indexer v1 och Indexer v2 bör migrera till den grundläggande inställningen för ljud analys.
+
+Mer information om Basic Audio Analyzer-läget finns i [analys av video-och ljudfiler](analyzing-video-audio-files-concept.md).  Information om hur du använder Basic Audio Analyzer-läget med REST API finns i [så här skapar du en grundläggande ljud omvandling](how-to-create-basic-audio-transform.md).
 
 ## <a name="august-2020"></a>Augusti 2020
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: aa9ed0954cbfa2d83eeed1c70f40beedcf4f44cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab23183fa42b87dad68da1d7ef9b1a2f6145750
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285983"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514801"
 ---
 # <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Soloinsight-CloudGate SSO för automatisk användar etablering
 
@@ -89,7 +89,7 @@ Innan du konfigurerar Soloinsight-CloudGate SSO för automatisk användar etable
 Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Soloinsight-CloudGate SSO baserat på användar-och/eller grupp tilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för Soloinsight-CloudGate SSO genom att följa anvisningarna i [självstudien om Soloinsight-CloudGate enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Soloinsight-CloudGate SSO genom att följa anvisningarna i [självstudien om Soloinsight-CloudGate enkel inloggning](./soloinsight-cloudgate-sso-tutorial.md). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
 
 ### <a name="to-configure-automatic-user-provisioning-for-soloinsight-cloudgate-sso-in-azure-ad"></a>Konfigurera automatisk användar etablering för Soloinsight-CloudGate SSO i Azure AD:
 
@@ -161,4 +161,3 @@ Mer information om hur du läser etablerings loggarna i Azure AD finns i [rappor
 ## <a name="next-steps"></a>Nästa steg
 
 * [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
-

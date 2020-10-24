@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: a38816f00c0e05c3bde1760e39ba00d745f12a44
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3aaa666ac6b7ddffcf5e0d2f5b62d26bd0f96004
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460962"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516213"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en databas i Azure SQL Database
 
@@ -108,7 +108,7 @@ Logga in på huvud databasen med Server Administratörs inloggning eller inloggn
 
 Detta kommando kopierar Databas1 till en ny databas med namnet Databas2 i en elastisk pool med namnet pool1. Beroende på databasens storlek kan kopierings åtgärden ta lite tid att slutföra.
 
-Databas1 kan vara en databas i en databas, men pool1 måste vara samma tjänst nivå som Databas1. 
+Databas1 kan vara en enskild databas eller en databas i en pool. Kopiering mellan olika nivåer stöds, men vissa kopior på flera nivåer kommer inte att lyckas. Du kan till exempel kopiera en enkel eller elastisk standard databas till en generell användnings pool, men du kan inte kopiera en standard elastisk databas till en Premium-pool. 
 
    ```sql
    -- execute on the master database to start copying

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 73b7b57aad43eea8e8d592d437185ca5c7e8a666
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 612576698d9eb40807b90e9d70f401aa6e9b864e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304668"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92512947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Självstudie: Azure Active Directory integrering med Palo-nätverk – admin UI
 
@@ -27,7 +27,7 @@ Integreringen av Palo Alto Networks – Admin UI med Azure AD medför följande 
 * Du kan konfigurera inställningar så att dina användare automatiskt loggas in i Palo Alto Networks – Admin UI (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Palo Alto Networks – Admin UI behöver du följande:
 
@@ -100,7 +100,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. Utöver ovan förväntas fler attribut skickas tillbaka i SAML-svar som visas nedan i Palo--nätverk-admin UI-programmet. Dessa attribut är också förifyllda, men du kan granska dem enligt dina krav.
 
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | --- | --- |
     | användarnamn | user.userprincipalname |
     | adminrole | customadmin |
@@ -131,7 +131,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension . Exempelvis `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -244,9 +244,9 @@ I det här avsnittet ska du testa Azure AD-konfigurationen för enkel inloggning
 
 2. Gå till Palo-nätverk – inloggnings-URL för admin UI direkt och starta inloggnings flödet därifrån.
 
-3. Du kan använda Microsoft Access-panelen. När du klickar på panelen Palo-nätverk-admin UI på åtkomst panelen, bör du loggas in automatiskt till Palo-ProNetworks-admin-ANVÄNDARGRÄNSSNITTET som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+3. Du kan använda Microsoft Access-panelen. När du klickar på panelen Palo-nätverk-admin UI på åtkomst panelen, bör du loggas in automatiskt till Palo-ProNetworks-admin-ANVÄNDARGRÄNSSNITTET som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/my-apps-portal-end-user-access.md).
 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-När du har konfigurerat Palo-nätverk – admin-ANVÄNDARGRÄNSSNITTET kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+När du har konfigurerat Palo-nätverk – admin-ANVÄNDARGRÄNSSNITTET kan du genomdriva session Control, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

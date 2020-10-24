@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 9df287e9070b84036be311c778f07d583251fd28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41ed942ea8962e845b7392656639e0d6bcdccbf5
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91286377"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515933"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Slack för automatisk användarförsörjning
 
-Syftet med den här självstudien är att visa vilka steg du behöver utföra i Slack och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till Slack. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+Syftet med den här självstudien är att visa vilka steg du behöver utföra i Slack och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till Slack. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
@@ -28,34 +28,34 @@ Syftet med den här självstudien är att visa vilka steg du behöver utföra i 
 > * Ta bort användare i Slack när de inte behöver någon åtkomst längre
 > * Behålla användarattribut som är synkroniserade mellan Azure AD och Slack
 > * Etablera grupper och gruppmedlemskap i Slack
-> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/slack-tutorial) till Slack (rekommenderas)
+> * [Enkel inloggning](./slack-tutorial.md) till Slack (rekommenderas)
 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i självstudien förutsätter att du redan har följande objekt:
 
-* [En Azure AD-klientorganisation](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
-* Ett användarkonto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
+* [En Azure AD-klientorganisation](../develop/quickstart-create-new-tenant.md).
+* Ett användarkonto i Azure AD med [behörighet](../users-groups-roles/directory-assign-admin-roles.md) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör).
 * En Slack-klientorganisation med [plusplan](https://aadsyncfabric.slack.com/pricing) eller bättre aktiverat.
 * Ett användarkonto i Slack med teamadministratörsbehörighet.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablering av distributionen
-1. Lär dig mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Ta reda på vem som finns i [etableringsomfånget](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Ta reda på vilka data som ska [mappas mellan Azure AD och Slack](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Lär dig mer om [hur etableringstjänsten fungerar](../app-provisioning/user-provisioning.md).
+2. Ta reda på vem som finns i [etableringsomfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+3. Ta reda på vilka data som ska [mappas mellan Azure AD och Slack](../app-provisioning/customize-application-attributes.md). 
 
 ## <a name="step-2-add-slack-from-the-azure-ad-application-gallery"></a>Steg 2. Lägg till Slack från Azure AD-programgalleriet
 
-Lägg till Slack från Azure AD-programgalleriet och börja hantera etablering till Slack. Om du tidigare har konfigurerat Slack för enkel inloggning, kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Lägg till Slack från Azure AD-programgalleriet och börja hantera etablering till Slack. Om du tidigare har konfigurerat Slack för enkel inloggning, kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen i början. Lär dig mer om att lägga till ett program från galleriet [här](../manage-apps/add-application-portal.md). 
 
 ## <a name="step-3-define-who-will-be-in-scope-for-provisioning"></a>Steg 3. Definiera vem som ska finnas i etableringsomfånget 
 
-Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Med Azure AD-etableringstjänsten kan du bestämma vem som ska etableras, baserat på tilldelningen till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska etableras till din app ska baseras på tilldelning, kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget endast ska etableras baserat på attribut för användaren eller gruppen, kan du använda ett omfångsfilter enligt beskrivningen [här](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* När du tilldelar användare och grupper till Slack, måste du välja en annan roll än **Standardåtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) och lägga till fler roller. 
+* När du tilldelar användare och grupper till Slack, måste du välja en annan roll än **Standardåtkomst**. Användare med rollen Standardåtkomst undantas från etableringen och markeras som icke-berättigade i etableringsloggarna. Om den enda rollen som är tillgänglig i programmet är standardrollen för åtkomst, kan du [uppdatera applikationsmanifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) och lägga till fler roller. 
 
-* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* Starta i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När etableringsomfånget har angetts till tilldelade användare och grupper, kan du kontrollera detta genom att tilldela en eller två användare eller grupper till appen. När omfånget är inställt på alla användare och grupper, kan du ange ett [attributbaserat omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="step-4-configure-automatic-user-provisioning-to-slack"></a>Steg 4. Konfigurera automatisk användaretablering till Slack 
 
@@ -141,7 +141,7 @@ I det här avsnittet får du hjälp med att ansluta Azure AD till Slack-API:et f
       |displayName|Sträng|
       |medlemmar|Referens|
 
-14. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudien för omfångsfilter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 15. Om du vill aktivera Azure AD-etableringstjänsten för Slack, ändrar du **Etableringsstatus** till **På** i avsnittet **Inställningar**
 
@@ -160,9 +160,9 @@ I det här avsnittet får du hjälp med att ansluta Azure AD till Slack-API:et f
 ## <a name="step-5-monitor-your-deployment"></a>Steg 5. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser till att övervaka distributionen:
 
-1. Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att se vilka användare som har etablerats och vilka som har misslyckats
-2. Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är att slutföras
-3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Använd [etableringsloggarna](../reports-monitoring/concept-provisioning-logs.md) för att se vilka användare som har etablerats och vilka som har misslyckats
+2. Kontrollera [förloppsindikatorn](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) för att se status för etableringscykeln och hur nära den är att slutföras
+3. Om etableringskonfigurationen verkar innehålla fel, kommer programmet att placeras i karantän. Läs mer om karantänstatus [här](../app-provisioning/application-provisioning-quarantine-status.md).
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
 
@@ -195,4 +195,4 @@ När du har konfigurerat etableringen använder du följande resurser till att �
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Lär dig att granska loggar och hämta rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

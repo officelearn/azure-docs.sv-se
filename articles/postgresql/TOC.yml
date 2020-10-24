@@ -104,7 +104,7 @@
         - name: Azure CLI
           href: sample-scripts-azure-cli.md
         - name: Inbyggda Azure Policy-program
-          href: policy-samples.md
+          href: ./policy-reference.md
     - name: Begrepp
       items:
         - name: Servrar
@@ -224,7 +224,7 @@
               displayName: 'scale server, reset password'
         - name: Starta om servern
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-restart-server-portal.md
             - name: Azure CLI
               href: howto-restart-server-cli.md
@@ -232,7 +232,7 @@
               href: howto-restart-server-powershell.md
         - name: Brandväggsregler
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-manage-firewall-using-portal.md
               displayName: 'firewall, portal, rules'
             - name: Azure CLI
@@ -284,7 +284,7 @@
           displayName: 'application development, TLS'
         - name: Konfigurera serverparametrar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -295,7 +295,7 @@
               displayName: 'application development, server parameters'
         - name: Lagring som växer automatiskt
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'business continuity, scale , storage'
             - name: Azure CLI
@@ -306,7 +306,7 @@
               displayName: 'business continuity, scale , storage'
         - name: Åtkomstloggar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'access logs, monitor'
             - name: Azure CLI
@@ -480,7 +480,7 @@
                   href: flexible-server/how-to-connect-tls-ssl.md
         - name: Konfigurera serverparametrar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: flexible-server/howto-configure-server-parameters-using-portal.md
               displayName: 'application development, server parameters'
             - name: Azure CLI
@@ -542,7 +542,7 @@
           displayName: 'samples, azure cli'
         - name: Inbyggda Azure Policy-program
           displayName: 'samples, policies, definitions'
-          href: ./policy-samples.md
+          href: ./policy-reference.md
     - name: Begrepp
       items:
         - name: Distribuerad data
@@ -640,7 +640,7 @@
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
     - name: Frågesida på Microsoft Q&A
-      href: 'https://docs.microsoft.com/answers/topics/azure-database-postgresql.html'
+      href: /answers/topics/azure-database-postgresql.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: Videoklipp

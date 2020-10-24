@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/16/2020
+ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: df45068ff14d8ac08a17719e4e0338308b504cac
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92426096"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503223"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Använda Azure Machine Learning Studio i ett virtuellt Azure-nätverk
 
@@ -36,7 +36,7 @@ Se de andra artiklarna i den här serien:
 
 
 > [!IMPORTANT]
-> Även om de flesta Studio fungerar med data som lagras i ett virtuellt nätverk gör integrerade antecknings böcker __inte__det. Integrerade antecknings böcker stöder inte användning av lagring som finns i ett virtuellt nätverk. I stället kan du använda Jupyter-anteckningsböcker från en beräknings instans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok]() .
+> Om din arbets yta är i ett __suveränt moln__, till exempel Azure Government eller Azure Kina 21Vianet, stöder integrerade notebook-datorer _inte_ användningen av lagring i ett virtuellt nätverk. I stället kan du använda Jupyter-anteckningsböcker från en beräknings instans. Mer information finns i avsnittet [åtkomst data i en Compute instance-anteckningsbok](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -127,7 +127,7 @@ Designern använder det lagrings konto som är kopplat till din arbets yta för 
 Ange ett nytt standard lagrings utrymme för en pipeline:
 
 1. I ett pipeline-utkast väljer du **kugg hjuls ikonen Inställningar** nära rubriken för din pipeline.
-1. Välj **Välj standard data lager**.
+1. Välj alternativet **Välj standard data lager**.
 1. Ange ett nytt data lager.
 
 Du kan även åsidosätta standard data lagret per modul. Detta ger dig kontroll över lagrings platsen för varje enskild modul.

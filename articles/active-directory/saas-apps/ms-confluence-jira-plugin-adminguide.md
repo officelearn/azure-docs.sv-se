@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 07bd9353f08e9440e495dfa92c608b4d6f70f5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543990"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515687"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassian JIRA och Confluence admin guide för Azure Active Directory
 
@@ -67,7 +67,7 @@ Plugin-programmet har stöd för följande versioner av JIRA och Confluence:
 
 * JIRA Core och program vara: 6,0 till 7,12
 * JIRA Service Desk: 3.0.0 till 3.5.0
-* JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
+* JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
 * Confluence: 5,0 till 5,10
 * Confluence: 6.0.1
 * Confluence: a
@@ -185,7 +185,7 @@ Plugin-programmet har stöd för dessa versioner:
 
 * JIRA Core och program vara: 6,0 till 7,12
 * JIRA Service Desk: 3.0.0 till 3.5.0
-* JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
+* JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](./jira52microsoft-tutorial.md) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
 * Confluence: 5,0 till 5,10
 * Confluence: 6.0.1
 * Confluence: a

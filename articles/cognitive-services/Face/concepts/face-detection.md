@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92b19941f34b9bf5656c9beb188a68d2cf01f674
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73743064"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504137"
 ---
 # <a name="face-detection-and-attributes"></a>Ansikts igenkänning och attribut
 
@@ -47,7 +47,7 @@ Attribut är en uppsättning funktioner som du kan välja att identifiera i API:
 * **Kön**. Den uppskattade kön för den aktuella ytan. Möjliga värden är hane, hona och jämställdhets.
 * **Glasögon**. Om den aktuella ytan har glasögon. Möjliga värden är noglas, ReadingGlasses, sol glasögon och SIME Goggles.
 * **Hår**. Hår texten. Det här attributet visar om hår är synligt, om baldness identifieras och vilka hår färger som identifieras.
-* **Head-attityd**. Facets orientering i 3D-rymden. Det här attributet beskrivs i vinklar, rullning och Yaw i grader. Värde intervallen är-90 grader till 90 grader,-180-grader till 180 grader och-90 grader till 90 grader. Se följande diagram för vinkel mappningar:
+* **Head-attityd**. Facets orientering i 3D-rymden. Det här attributet beskrivs i vinklar, rullning och Yaw i grader. Värde intervallen är-90 grader till 90 grader,-90-grader till 90 grader och-90 grader till 90 grader. Se följande diagram för vinkel mappningar:
 
     ![Ett huvud med axlarna för bredd, rulle och Yaw som är märkta](../Images/headpose.1.jpg)
 * **Makeup**. Om FACET har makeup. Det här attributet returnerar ett booleskt värde för eyeMakeup och lipMakeup.
@@ -63,7 +63,7 @@ Attribut är en uppsättning funktioner som du kan välja att identifiera i API:
 Använd följande tips för att se till att dina inmatade bilder ger de mest exakta identifierings resultaten:
 
 * De inspelnings bild format som stöds är JPEG, PNG, GIF för den första ramen och BMP.
-* Bild filens storlek får inte vara större än 4 MB.
+* Bild filens storlek får inte vara större än 6 MB.
 * Det detekterings bara områdets storleks intervall är 36 x 36 till 4096 x 4096 bild punkter. Ansikten utanför det här intervallet identifieras inte.
 * Vissa ansikten kanske inte kan identifieras på grund av tekniska utmaningar. Extrema ansikts vinklar (Head attityd) eller ansikts ocklusion (objekt som sol glasögon eller händerna som blockerar en del av ansiktet) kan påverka identifieringen. Front-och närbelägna ansikten ger bäst resultat.
 

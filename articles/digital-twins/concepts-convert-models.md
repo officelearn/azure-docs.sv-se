@@ -1,5 +1,5 @@
 ---
-title: Omvandla bransch standard modeller
+title: Konvertera branschstandardmodeller
 titleSuffix: Azure Digital Twins
 description: Förstå mönstret för att konvertera bransch standard modeller (RDF/OWL) till DTDL
 author: baanders
@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/28/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bf39bd0c787ed64d573cc2a257442b4d3bb8ab7d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2d30410cf201475b69adce39eb6a66a7831cad8d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015122"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503257"
 ---
 # <a name="convert-industry-standard-models-to-dtdl-for-azure-digital-twins"></a>Omvandla bransch standard modeller till DTDL för Azure Digitals, dubbla
 
@@ -32,7 +32,8 @@ Några vanliga bransch modeller är:
 | --- | --- | 
 | Utveckling/hantering av anläggningar | [RealEstateCore](https://www.realestatecore.io/)<br>[BRICK schema](https://brickschema.org/ontology/1.1/)<br>[Skapa topologi Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/)<br>[Semantisk sensor nätverk](https://www.w3.org/TR/vocab-ssn/)<br>[buildingSmart Industry Foundation-klasser (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/) |
 | Smarta städer | [ETSI NGSI – LD](https://www.etsi.org/deliver/etsi_gr/CIM/001_099/008/01.01.01_60/gr_CIM008v010101p.pdf)<br>[Smart Applications-referens (SAREF)](https://saref.etsi.org/)<br>[Fiware](https://www.fiware.org/)<br>[Öppna & Agile Smart städer (OASC)](https://oascities.org/) |
-| Energi rutnät | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968)<br>[ADRM-modeller](http://www.adrm.com/) för energi-och råvaru handel | 
+| Energi rutnät | [CIM](https://cimug.ucaiug.org/) / [IEC 61968](https://en.wikipedia.org/wiki/IEC_61968)<br>[ADRM-modeller](http://www.adrm.com/) för energi-och råvaru handel |
+| Fordon | [Signal specifikation för fordon](https://github.com/GENIVI/vehicle_signal_specification/tree/master/spec) |
 
 Beroende på dina behov kan du också använda DTDL för att anpassa eller utöka bransch modeller eller utveckla en egen anpassad modell från grunden. 
 

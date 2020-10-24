@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c34ace92fffee3c135cb05e07f06d885751bbce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36be61fd65db7ea02a3baec4b519a13231c420ec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629751"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514449"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Azures säkerhets bas linje för Virtual Network
 
@@ -118,7 +118,7 @@ Använd program säkerhets grupper för att förenkla komplex säkerhets konfigu
 
 Se standard principen för Security Center som innehåller tillgängliga säkerhets rekommendationer relaterade till dina virtuella nätverk.
 
-Använd Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, rollbaserad åtkomst kontroll (Azure RBAC)-tilldelningar och principer i en enda skiss definition. Azure Blueprint kan tillämpas på nya prenumerationer för finjusterad kontroll och hantering genom versions hantering. 
+Använd Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, Azure-rollbaserad åtkomst kontroll (Azure RBAC) och principer, i en enda skiss definition. Azure Blueprint kan tillämpas på nya prenumerationer för finjusterad kontroll och hantering genom versions hantering. 
 
 - [Så här konfigurerar och hanterar du Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -408,13 +408,13 @@ Dessutom är "kryptering som standard" med MACsec (en IEEE-standard på data lä
 
 **Ansvars område**: delat
 
-### <a name="46-use-role-based-access-control-to-manage-access-to-resources"></a>4,6: Använd rollbaserad åtkomst kontroll för att hantera åtkomst till resurser 
+### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: Använd Azure RBAC för att hantera åtkomst till resurser 
 
 **Vägledning**: Använd rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att hantera åtkomst till data och resurser. Använd annars tjänstspecifika åtkomst kontroll metoder. 
 
 Välj inbyggda roller som ägare, deltagare eller nätverks deltagare och tilldela rollen till lämplig omfattning. Du kan till exempel tilldela en delmängd av virtuella nätverksfunktioner med de behörigheter som krävs för virtuella nätverk till någon av dessa roller. 
 
-- [Konfigurera RBAC i Azure](../role-based-access-control/role-assignments-portal.md)
+- [Så här konfigurerar du Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 - [Planera virtuella nätverk](virtual-network-vnet-plan-design-arm.md#permissions)
 
@@ -562,7 +562,7 @@ Implementera rekommendationer från Security Center som en säker konfigurations
 
 - [Exportera en och flera resurser till en mall i Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Säkerhets rekommendationer – en referens guide](../security-center/recommendations-reference.md)
+- [Säkerhetsrekommendationer – en referensguide](../security-center/recommendations-reference.md)
 
 **Azure Security Center övervakning**: inte tillämpligt
 
@@ -754,7 +754,7 @@ Markera prenumerationer (till exempel produktion eller icke-produktion) med tagg
 
 - [Säkerhets aviseringar i Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Använd taggar till att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
+- [Använda taggar för att organisera dina Azure-resurser](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Azure Security Center övervakning**: Ja
 

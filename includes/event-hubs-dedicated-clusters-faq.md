@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2020
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 345454557c1bd0df3b4e7210229c81f0149af0f3
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0335481566ae3f28ac0f1e6bddce7050a65e7dc2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495090"
+ms.locfileid: "92517010"
 ---
 ### <a name="what-can-i-achieve-with-a-cluster"></a>Vad kan jag uppnå med ett kluster?
 
@@ -35,11 +35,11 @@ I testningen användes följande kriterier:
 
 ### <a name="can-i-scale-updown-my-cluster"></a>Kan jag skala upp/ned mitt kluster?
 
-Efter skapandet faktureras kluster för minst 4 timmars användning. I för hands versionen av den självbetjänings upplevelsen kan du skicka en [supportbegäran](https://ms.portal.azure.com/#create/Microsoft.Support) till Event Hubss gruppen under *teknisk > kvot > begäran om att skala upp eller ned ett dedikerat kluster* för att skala upp eller ned ett dedikerat kluster. Det kan ta upp till 7 dagar att slutföra begäran om att skala upp klustret. 
+Efter skapandet faktureras kluster för minst 4 timmars användning. I för hands versionen av den självbetjänings upplevelsen kan du skicka en [supportbegäran](https://ms.portal.azure.com/#create/Microsoft.Support) till Event Hubss gruppen under **teknisk**  >  **kvot**  >  **förfrågan för att skala upp eller ned ett dedikerat kluster** för att skala upp eller ned ett dedikerat kluster. Det kan ta upp till 7 dagar att slutföra begäran om att skala upp klustret. 
 
-### <a name="how-will-geo-dr-work-with-my-cluster"></a>Hur fungerar geo-DR med mitt kluster?
+### <a name="how-does-geo-dr-work-with-my-cluster"></a>Hur fungerar geo-DR med mitt kluster?
 
-Du kan geo-para ett namn område under ett dedikerat-nivå kluster med ett annat namn område under ett dedikerat skikt kluster. Vi uppmuntrar inte att para ihop ett dedikerat namn område med ett namn område i vårt standard erbjudande, eftersom data flödes gränsen kommer att vara inkompatibel, vilket leder till fel. 
+Du kan geo-para ett namn område under ett dedikerat-nivå kluster med ett annat namn område under ett dedikerat skikt kluster. Vi uppmuntrar inte att para ihop ett dedikerat namn område med ett namn område i vårt standard erbjudande eftersom data flödes gränsen är inkompatibel och resulterar i fel. 
 
 ### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Kan jag migrera mina standard namn rymder så att de tillhör ett dedikerat kluster?
 Vi stöder för närvarande inte en automatiserad migreringsprocessen för att migrera dina Event Hub-data från ett standard namn område till en dedikerad. 

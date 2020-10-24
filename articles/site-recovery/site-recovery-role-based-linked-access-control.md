@@ -1,21 +1,21 @@
 ---
 title: Hantera rollbaserad åtkomst kontroll i Azure Site Recovery
-description: Den här artikeln beskriver hur du använder rollbaserad åtkomst kontroll (RBAC) för att hantera Azure Site Recovery åtkomst.
+description: Den här artikeln beskriver hur du använder rollbaserad åtkomst kontroll i Azure (Azure RBAC) för att hantera Azure Site Recovery åtkomst.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 95ea8b61b01b17512d99d0316073835326e6d7bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3e1334f513e8ac587d639758d83ce080c5b4ab9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927172"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516910"
 ---
-# <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Hantera Site Recovery åtkomst med rollbaserad åtkomst kontroll (RBAC)
+# <a name="manage-site-recovery-access-with-azure-role-based-access-control-azure-rbac"></a>Hantera Site Recovery åtkomst med rollbaserad åtkomst kontroll i Azure (Azure RBAC)
 
-Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med RBAC kan du åtskilja ansvars områden i ditt team och bara bevilja vissa åtkomst behörigheter till användare som behövs för att utföra vissa jobb.
+Rollbaserad åtkomst kontroll i Azure (Azure RBAC) möjliggör detaljerad åtkomst hantering för Azure. Med hjälp av Azure RBAC kan du åtskilja ansvars områden i ditt team och bara bevilja vissa åtkomst behörigheter till användare som behövs för att utföra vissa jobb.
 
 Azure Site Recovery tillhandahåller tre inbyggda roller för att kontrol lera Site Recovery hanterings åtgärder. Lär dig mer om [inbyggda Azure-roller](../role-based-access-control/built-in-roles.md)
 
@@ -72,9 +72,9 @@ En användare behöver följande behörigheter för att slutföra replikeringen 
 Överväg att använda de [inbyggda rollerna](../role-based-access-control/built-in-roles.md) "Virtual Machine Contributor" och "klassisk virtuell dator deltagare" för Resource Manager respektive klassiska distributions modeller.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): kom igång med RBAC i Azure Portal.
+* [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): kom igång med Azure rbac i Azure Portal.
 * Lär dig hur du hanterar åtkomst med:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST-API](../role-based-access-control/role-assignments-rest.md)
-* [Rollbaserad Access Control fel sökning](../role-based-access-control/troubleshooting.md): få förslag på hur du löser vanliga problem.
+* [Fel sökning av Azure RBAC](../role-based-access-control/troubleshooting.md): få förslag på hur du löser vanliga problem.

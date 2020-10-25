@@ -224,7 +224,7 @@
               displayName: 'manage, reset password, scale'
             - name: Brandväggsregler
               items:
-                - name: Azure-portalen
+                - name: Azure Portal
                   href: howto-manage-firewall-using-portal.md
                   displayName: firewall
                 - name: Azure CLI
@@ -240,7 +240,7 @@
               displayName: 'managed identity, msi'
         - name: Återställ en server
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-restore-server-portal.md
               displayName: 'restore server,backup'
             - name: Azure CLI
@@ -271,7 +271,7 @@
               displayName: 'development, redirection , php'
         - name: Konfigurera serverparametrar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-server-parameters.md
               displayName: server parameters
             - name: Azure CLI
@@ -286,7 +286,7 @@
               href: how-to-stop-start-server.md
         - name: Lagring som växer automatiskt
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-auto-grow-storage-portal.md
               displayName: 'storage, business continuity , downtime, portal'
             - name: Azure CLI
@@ -297,7 +297,7 @@
               displayName: 'storage, business continuity , downtime, powershell'
         - name: Långsamma frågeloggar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md
               displayName: 'debug, slow query log , performance'
             - name: Azure CLI
@@ -305,7 +305,7 @@
               displayName: 'debug, slow query log , performance'
         - name: Granskningsloggar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-configure-audit-logs-portal.md
               displayName: 'debug, audit log'
             - name: Azure CLI
@@ -357,7 +357,7 @@
               displayName: 'atp, advanced thread, security'
             - name: Virtual Network
               items:
-                - name: Azure-portalen
+                - name: Azure Portal
                   href: howto-manage-vnet-using-portal.md
                   displayName: 'vnet, virtual network, service endpoint'
                 - name: Azure CLI
@@ -394,7 +394,7 @@
               displayName: 'security, public access'
         - name: Starta om servern
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: howto-restart-server-portal.md
               displayName: restart
             - name: Azure CLI
@@ -515,6 +515,14 @@
               items:
                 - name: Ansluta med TLS/SSL
                   href: flexible-server/how-to-connect-tls-ssl.md
+        - name: Konfigurera serverparametrar
+          items:
+            - name: Azure Portal
+              href: flexible-server/how-to-configure-server-parameters-portal.md
+              displayName: server parameters
+            - name: Azure CLI
+              href: flexible-server/how-to-configure-server-parameters-cli.md
+              displayName: 'server parameters, cli'
         - name: Övervakning och loggar
           items:
             - name: Skapa aviseringar för mått

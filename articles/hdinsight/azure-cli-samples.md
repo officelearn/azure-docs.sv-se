@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3181d4a0c605e0b1325f21de6b277e2b41f92d37
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a289a0d963c8e20a3b861ff9964e8afd6665de22
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487304"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542360"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Azure CLI-exempel
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller exempel skript för vanliga uppgifter. För varje 
 
 * Azure CLI. Se [Installera Azure CLI](/cli/azure/install-azure-cli) för steg.
 
-* Valfritt: bash. I exemplen i den här artikeln används bash-gränssnittet i Windows 10. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installations steg.  Exemplen kommer att fungera från en kommando tolk i Windows med några små ändringar.
+* Valfritt: bash. I exemplen i den här artikeln används bash-gränssnittet i Windows 10. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](/windows/wsl/install-win10) för installations steg.  Exemplen kommer att fungera från en kommando tolk i Windows med några små ändringar.
 
 ## <a name="az-login"></a>az login
 

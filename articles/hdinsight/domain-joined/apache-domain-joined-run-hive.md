@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2d9c96a616f05c22c8b999fdc6cab2505c27485
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397835"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544944"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Konfigurera Apache Hive-principer i HDInsight med Enterprise Security Package
 
@@ -21,7 +21,7 @@ Lär dig hur du konfigurerar Apache Ranger-principer för Apache Hive. I den hä
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ett HDInsight-kluster med Enterprise Security Package. Se [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
+* Ett HDInsight-kluster med Enterprise Security Package. Se [Konfigurera HDInsight-kluster med ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * En arbets station med Microsoft 365 appar för företag, Office 2016, Office 2013 Professional Plus, Excel 2013 fristående eller Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Anslut till Apache Ranger Admin-gränssnittet
@@ -49,8 +49,8 @@ I det här avsnittet skapar du två Ranger-principer för att få åtkomst till 
 **Skapa Ranger-principer**
 
 1. Öppna Ranger Admin-gränssnittet. Se Anslut till Apache Ranger Admin-gränssnittet.
-2. Välj **CLUSTERNAME_Hive**under **Hive**. Du bör se två förkonfigurerade principer.
-3. Välj **Lägg till ny princip**och ange sedan följande värden:
+2. Välj **CLUSTERNAME_Hive** under **Hive** . Du bör se två förkonfigurerade principer.
+3. Välj **Lägg till ny princip** och ange sedan följande värden:
 
     |Egenskap |Värde |
     |---|---|
@@ -87,13 +87,13 @@ Du hittar anvisningarna i [Skapa Hive ODBC-datakällan](../hadoop/apache-hadoop-
  | --- | --- |
  | Namn på datakälla | Namnge din datakälla |
  | Värd | Ange CLUSTERNAME.azurehdinsight.net. Till exempel myHDICluster.azurehdinsight.net |
- | Port | Använd **443**. (Den här porten har ändrats från 563 till 443.) |
- | Databas | Använd **standard**. |
+ | Port | Använd **443** . (Den här porten har ändrats från 563 till 443.) |
+ | Databas | Använd **standard** . |
  | Hive-servertyp | Välj **Hive Server 2** |
  | Mekanism | Välj **Azure HDInsight-tjänst** |
  | HTTP-sökväg | Lämna tomt. |
  | Användarnamn | Ange hiveuser1@contoso158.onmicrosoft.com. Uppdatera domän namnet om det är annorlunda. |
- | lösenordsinställning | Ange lösenordet för hiveuser1. |
+ | Lösenord | Ange lösenordet för hiveuser1. |
 
 Se till att klicka på **Test** innan du sparar datakällan.
 
@@ -107,17 +107,17 @@ I det sista avsnittet har du konfigurerat två principer.  hiveuser1 har select-
 
     ![Guiden öppna data anslutning](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
 
-1. I list rutan väljer du namnet på den data källa som du skapade i det sista avsnittet och väljer sedan **OK**.
+1. I list rutan väljer du namnet på den data källa som du skapade i det sista avsnittet och väljer sedan **OK** .
 
 1. För den första användningen öppnas en **ODBC-drivrutins** dialog ruta. Välj **fönster** på den vänstra menyn. Välj **Anslut** för att öppna fönstret **navigatör** .
 
 1. Vänta tills dialogrutan **Markera databas och tabell** öppnas. Det kan ta några sekunder.
 
-1. Välj **hivesampletable**och välj sedan **Nästa**.
+1. Välj **hivesampletable** och välj sedan **Nästa** .
 
-1. Välj **Slutför**.
+1. Välj **Slutför** .
 
-1. I dialogrutan **Importera data** kan du ändra eller specificera frågan. Det gör du genom att välja **Egenskaper**. Det kan ta några sekunder.
+1. I dialogrutan **Importera data** kan du ändra eller specificera frågan. Det gör du genom att välja **Egenskaper** . Det kan ta några sekunder.
 
 1. Välj fliken **definition** . Kommando texten är:
 
@@ -131,7 +131,7 @@ I det sista avsnittet har du konfigurerat två principer.  hiveuser1 har select-
 
 1. Stäng dialog rutan **Importera data** genom att klicka på **OK** .  
 
-1. Ange lösenordet för hiveuser1 igen och klicka sedan på **OK**. Det tar några sekunder innan data har importerats till Excel. När den är färdig visas 11 kolumner med data.
+1. Ange lösenordet för hiveuser1 igen och klicka sedan på **OK** . Det tar några sekunder innan data har importerats till Excel. När den är färdig visas 11 kolumner med data.
 
 Om du vill testa den andra principen (Read-hivesampletable-devicemake) skapade du i det sista avsnittet
 
@@ -158,7 +158,7 @@ Om du vill testa den andra principen (Read-hivesampletable-devicemake) skapade d
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du konfigurerar ett HDInsight-kluster med Enterprise Security Package finns i [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
+* Information om hur du konfigurerar ett HDInsight-kluster med Enterprise Security Package finns i [Konfigurera HDInsight-kluster med ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Information om hur du hanterar HDInsight-kluster med ESP finns i [Hantera HDInsight-kluster med ESP](apache-domain-joined-manage.md).
 * Information om hur du kör Hive-frågor med SSH på HDInsight-kluster med ESP finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).
 * För att ansluta Hive med Hive-JDBC, se [Anslut till Apache Hive på Azure HDInsight med HIVE JDBC-drivrutinen](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)

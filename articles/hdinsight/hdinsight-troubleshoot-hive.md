@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 02247adb9852a72b386feb2ef0924b0f1b3d6277
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb522e047ed8bb4929a3aba270df35322256319b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75895224"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534897"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Felsöka Apache Hive med Azure HDInsight
 
@@ -49,7 +49,7 @@ Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret
 
 ### <a name="resolution-steps"></a>Lösningssteg
 
-1. Anslut till HDInsight-klustret med hjälp av SSH. Mer information finns i **Ytterligare läsning**.
+1. Anslut till HDInsight-klustret med hjälp av SSH. Mer information finns i **Ytterligare läsning** .
 
 2. Om du vill visa Hive-klient loggar använder du följande kommando:
 
@@ -120,17 +120,17 @@ Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret
    Du måste ange ett exempel program som det första argumentet.
 
    Giltiga program namn är:
-    - **ContainerReuseAnalyzer**: åter användnings information för utskrifts behållare på dag
-    - **CriticalPath**: hitta den kritiska sökvägen för en dag
-    - **LocalityAnalyzer**: skriva ut information om den lokala datorn på en dag
-    - **ShuffleTimeAnalyzer**: analysera informationen om den blandade tiden på en dag
-    - **SkewAnalyzer**: analysera skevningen-informationen på en dag
-    - **SlowNodeAnalyzer**: skriva ut Node-information på en dag
-    - **SlowTaskIdentifier**: skriva ut information om långsamma uppgifter på en dag
-    - **SlowestVertexAnalyzer**: skriva ut långsammast hörn Detaljer på en dag
-    - **SpillAnalyzer**: information om att skriva ut spill på en dag
-    - **TaskConcurrencyAnalyzer**: Skriv ut aktivitetens samtidighets information på en dag
-    - **VertexLevelCriticalPathAnalyzer**: hitta den kritiska vägen vid hörn nivå på en dag
+    - **ContainerReuseAnalyzer** : åter användnings information för utskrifts behållare på dag
+    - **CriticalPath** : hitta den kritiska sökvägen för en dag
+    - **LocalityAnalyzer** : skriva ut information om den lokala datorn på en dag
+    - **ShuffleTimeAnalyzer** : analysera informationen om den blandade tiden på en dag
+    - **SkewAnalyzer** : analysera skevningen-informationen på en dag
+    - **SlowNodeAnalyzer** : skriva ut Node-information på en dag
+    - **SlowTaskIdentifier** : skriva ut information om långsamma uppgifter på en dag
+    - **SlowestVertexAnalyzer** : skriva ut långsammast hörn Detaljer på en dag
+    - **SpillAnalyzer** : information om att skriva ut spill på en dag
+    - **TaskConcurrencyAnalyzer** : Skriv ut aktivitetens samtidighets information på en dag
+    - **VertexLevelCriticalPathAnalyzer** : hitta den kritiska vägen vid hörn nivå på en dag
 
 ### <a name="additional-reading"></a>Mer att läsa
 
@@ -155,7 +155,7 @@ Det finns två sätt att samla in Tez DAG-data:
   1. Gå till Ambari.
   2. Gå till Tez-vyn (under Panel ikonen i det övre högra hörnet).
   3. Välj den DAG som du vill visa.
-  4. Välj **Hämta data**.
+  4. Välj **Hämta data** .
 
 ### <a name="additional-reading"></a><a name="additional-reading-end"></a>Mer att läsa
 
@@ -169,4 +169,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

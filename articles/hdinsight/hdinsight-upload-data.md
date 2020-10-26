@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 45170e9df7082e277c445a2dab6d617eb208cd44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47262e0dc7247e1d514eeb64512c21ff1ae527ab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855641"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534829"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Ladda upp data för Apache Hadoop jobb i HDInsight
 
@@ -37,7 +37,7 @@ Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
 
 | Verktyg | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
@@ -77,7 +77,7 @@ En lista över andra Hadoop-kommandon som fungerar med filer finns i [https://ha
 
 Det finns också flera program som tillhandahåller ett grafiskt gränssnitt för att arbeta med Azure Storage. Följande tabell är en lista över några av dessa program:
 
-| Client | Linux | OS X | Windows |
+| Klient | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools för HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
@@ -88,7 +88,7 @@ Det finns också flera program som tillhandahåller ett grafiskt gränssnitt fö
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Montera Azure Storage som lokal enhet
 
-Se [montera Azure Storage som lokal enhet](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
+Se [montera Azure Storage som lokal enhet](/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## <a name="upload-using-services"></a>Ladda upp med tjänster
 

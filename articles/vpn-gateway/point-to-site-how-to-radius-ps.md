@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: c8d7ae3cd40f118399e5ff60fa0738b07249c5ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bce381ba4916bc58d2c7acf8d69b323dbdf972aa
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442411"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544791"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett VNet med RADIUS-autentisering: PowerShell
 
@@ -40,7 +40,7 @@ Punkt-till-plats-anslutningar kräver inte någon VPN-enhet eller en offentlig I
 
 P2S-anslutningar kräver följande:
 
-* En RouteBased VPN gateway. 
+* En RouteBased VPN gateway. 
 * En RADIUS-server för hantering av användarautentisering. RADIUS-servern kan distribueras lokalt eller i Azure VNet. Du kan också konfigurera två RADIUS-servrar för hög tillgänglighet.
 * Ett konfigurations paket för VPN-klienten för de Windows-enheter som ska ansluta till det virtuella nätverket. Ett konfigurations paket för VPN-klienten ger de inställningar som krävs för att en VPN-klient ska kunna ansluta via P2S.
 
@@ -119,7 +119,7 @@ Följande steg skapar en resurs grupp och ett virtuellt nätverk i resurs gruppe
    ```azurepowershell-interactive
    New-AzResourceGroup -Name "TestRG" -Location "East US"
    ```
-2. Skapa undernätskonfigurationerna för det virtuella nätverket och ge dem namnen *FrontEnd*, *BackEnd* och *GatewaySubnet*. Dessa prefix måste vara en del av VNet-adressutrymmet som du deklarerade.
+2. Skapa undernätskonfigurationerna för det virtuella nätverket och ge dem namnen *FrontEnd* , *BackEnd* och *GatewaySubnet* . Dessa prefix måste vara en del av VNet-adressutrymmet som du deklarerade.
 
    ```azurepowershell-interactive
    $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
@@ -148,8 +148,8 @@ Följande steg skapar en resurs grupp och ett virtuellt nätverk i resurs gruppe
 
 Innan du skapar och konfigurerar den virtuella Nätverksgatewayen bör RADIUS-servern konfigureras på rätt sätt för autentisering.
 
-1. Om du inte har en RADIUS-server distribuerad kan du distribuera en. Information om distributions steg finns i installations guiden som tillhandahålls av din RADIUS-leverantör.  
-2. Konfigurera VPN-gatewayen som en RADIUS-klient på RADIUS. När du lägger till den här RADIUS-klienten anger du det virtuella nätverks GatewaySubnet som du skapade. 
+1. Om du inte har en RADIUS-server distribuerad kan du distribuera en. Information om distributions steg finns i installations guiden som tillhandahålls av din RADIUS-leverantör.  
+2. Konfigurera VPN-gatewayen som en RADIUS-klient på RADIUS. När du lägger till den här RADIUS-klienten anger du det virtuella nätverks GatewaySubnet som du skapade. 
 3. När RADIUS-servern har kon figurer ATS hämtar du RADIUS-serverns IP-adress och den delade hemlighet som RADIUS-klienter ska använda för att kommunicera med RADIUS-servern. Om RADIUS-servern finns i Azure VNet använder du CA-IP för den virtuella RADIUS-servern.
 
 Artikeln [nätverks princip Server (NPS)](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) ger vägledning om hur du konfigurerar en Windows RADIUS-server (NPS) för AD-domänautentisering.
@@ -169,9 +169,9 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## <a name="5-add-the-radius-server-and-client-address-pool"></a>5. <a name="addradius"></a> Lägg till RADIUS-servern och klient-adresspoolen
  
-* -RadiusServer kan anges efter namn eller IP-adress. Om du anger namnet och servern finns lokalt kommer VPN-gatewayen kanske inte att kunna matcha namnet. I så fall är det bättre att ange IP-adressen för servern. 
+* -RadiusServer kan anges efter namn eller IP-adress. Om du anger namnet och servern finns lokalt kommer VPN-gatewayen kanske inte att kunna matcha namnet. I så fall är det bättre att ange IP-adressen för servern. 
 * -RadiusSecret ska matcha det som har kon figurer ATS på RADIUS-servern.
-* VpnClientAddressPool är det intervall som de anslutande VPN-klienterna får en IP-adress från.Använd ett intervall för privata IP-adresser som inte överlappar med den lokala platsen som du ansluter från, eller med det virtuella nätverk som du vill ansluta till. Se till att du har konfigurerat en tillräckligt stor adresspool.  
+* VpnClientAddressPool är det intervall som de anslutande VPN-klienterna får en IP-adress från. Använd ett intervall för privata IP-adresser som inte överlappar med den lokala platsen som du ansluter från, eller med det virtuella nätverk som du vill ansluta till. Se till att du har konfigurerat en tillräckligt stor adresspool.  
 
 1. Skapa en säker sträng för RADIUS-hemligheten.
 
@@ -237,7 +237,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 
 ## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> Hämta konfigurations paketet för VPN-klienten och konfigurera VPN-klienten
 
-Konfigurationen av VPN-klienten gör att enheter kan ansluta till ett VNet via en P2S-anslutning.Om du vill generera ett konfigurations paket för VPN-klienten och konfigurera VPN-klienten, se [skapa en VPN-klientkonfiguration för RADIUS-autentisering](point-to-site-vpn-client-configuration-radius.md).
+Konfigurationen av VPN-klienten gör att enheter kan ansluta till ett VNet via en P2S-anslutning. Om du vill generera ett konfigurations paket för VPN-klienten och konfigurera VPN-klienten, se [skapa en VPN-klientkonfiguration för RADIUS-autentisering](point-to-site-vpn-client-configuration-radius.md).
 
 ## <a name="7-connect-to-azure"></a><a name="connect"></a>7. Anslut till Azure
 
@@ -252,13 +252,13 @@ Konfigurationen av VPN-klienten gör att enheter kan ansluta till ett VNet via e
 
 ### <a name="connect-from-a-mac-vpn-client"></a>Ansluta från en Mac VPN-klient
 
-Från dialogrutan Nätverk letar du upp den klientprofil som du vill använda och klickar sedan på **Anslut**.
+Från dialogrutan Nätverk letar du upp den klientprofil som du vill använda och klickar sedan på **Anslut** .
 
   ![Mac-anslutning](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 
 ## <a name="to-verify-your-connection"></a><a name="verify"></a>Så här verifierar du anslutningen
 
-1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all*.
+1. Verifiera att VPN-anslutningen är aktiv genom att öppna en upphöjd kommandotolk och köra *ipconfig/all* .
 2. Granska resultaten. Observera att IP-adressen som du fick är en av adresserna i klientadresspoolen för VPN för punkt-till-plats som du angav i konfigurationen. Resultatet är ungefär som i det här exemplet:
 
    ```
@@ -278,9 +278,13 @@ Information om hur du felsöker en P2S-anslutning finns i [Felsöka Azure punkt-
 
 ## <a name="to-connect-to-a-virtual-machine"></a><a name="connectVM"></a>Ansluta till en virtuell dator
 
-[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm.md)]
 
-## <a name="faq"></a><a name="faq"></a>ASSURANCE
+* Kontrollera att paketet för VPN-klientkonfiguration har skapats efter att IP-adresser för DNS-server har angetts för VNet. Om du uppdaterade IP-adresserna för DNS-servern skapar och installerar du ett nytt paket för VPN-klientkonfiguration.
+
+* Använd ”ipconfig” för att kontrollera vilken IPv4-adress som har tilldelats till Ethernet-adaptern på den dator som du ansluter från. Om IP-adressen ligger inom adressintervallet för det virtuella nätverk som du ansluter till eller inom adressintervallet för din VPNClientAddressPool, kallas detta för ett överlappande adressutrymme. När ditt adressutrymme överlappar på det här sättet når inte nätverkstrafiken Azure, utan stannar i det lokala nätverket.
+
+## <a name="faq"></a><a name="faq"></a>Vanliga frågor
 
 Detta vanliga frågor och svar gäller för P2S med RADIUS-autentisering
 

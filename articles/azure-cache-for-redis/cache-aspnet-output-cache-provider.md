@@ -7,22 +7,22 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 04/22/2018
-ms.openlocfilehash: cb986f1e0172c4a44381b2f9cf043025cb5abe8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d711b07a10e04dcdf31259f3e53c9687af28e28
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88705035"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544638"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>ASP.NET för cachelagring för Azure cache för Redis
 
-Redis för utdata är en process som är utanför processen för cachelagring av utdata. Dessa data är specifika för fullständiga HTTP-svar (cachelagring av sidutdata). Providern ansluts till den nya utöknings punkten för utdataports-providern som introducerades i ASP.NET 4. För ASP.NET Core program kan du läsa [cachelagring av svar i ASP.net Core](https://docs.microsoft.com/aspnet/core/performance/caching/response). 
+Redis för utdata är en process som är utanför processen för cachelagring av utdata. Dessa data är specifika för fullständiga HTTP-svar (cachelagring av sidutdata). Providern ansluts till den nya utöknings punkten för utdataports-providern som introducerades i ASP.NET 4. För ASP.NET Core program kan du läsa [cachelagring av svar i ASP.net Core](/aspnet/core/performance/caching/response). 
 
 Om du vill använda Redis måste du först konfigurera cachen och sedan konfigurera ditt ASP.NET-program med Redis output cache Provider NuGet-paketet. Det här avsnittet innehåller information om hur du konfigurerar ditt program att använda Redis-providern för utdata. Mer information om hur du skapar och konfigurerar en Azure-cache för Redis-instans finns i [skapa en cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
 ## <a name="store-aspnet-page-output-in-the-cache"></a>Lagra ASP.NET-sidans utdata i cachen
 
-Om du vill konfigurera ett klient program i Visual Studio med hjälp av NuGet-paketet Azure cache för Redis session State, klickar du på **NuGet Package Manager**, **Package Manager-konsolen** på menyn **verktyg** .
+Om du vill konfigurera ett klient program i Visual Studio med hjälp av NuGet-paketet Azure cache för Redis session State, klickar du på **NuGet Package Manager** , **Package Manager-konsolen** på menyn **verktyg** .
 
 Kör följande kommando från fönstret `Package Manager Console`.
 
@@ -52,22 +52,22 @@ NuGet-paketet hämtar och lägger till de sammansättnings referenser som krävs
 
 Konfigurera attributen med värdena från ditt cache-blad i Microsoft Azure-portalen och konfigurera de andra värdena efter behov. Anvisningar om hur du kommer åt dina cache-egenskaper finns i [Konfigurera Azure cache för Redis-inställningar](cache-configure.md#configure-azure-cache-for-redis-settings).
 
-| Attribut | Typ | Default | Beskrivning |
+| Attribut | Typ | Standard | Beskrivning |
 | --------- | ---- | ------- | ----------- |
 | *värd* | sträng | värd | IP-adressen eller värd namnet för Redis-servern |
 | *lastning* | positivt heltal | 6379 (ej TLS/SSL)<br/>6380 (TLS/SSL) | Redis server-port |
 | *accessKey* | sträng | "" | Redis server-lösenord när Redis-auktorisering har Aktiver ATS. Värdet är en tom sträng som standard, vilket innebär att providern för sessionstillstånd inte använder lösen ord när de ansluter till Redis-servern. **Om din redis-server finns i ett offentligt tillgängligt nätverk som Azure Redis Cache, se till att aktivera Redis-auktorisering för att förbättra säkerheten och ange ett säkert lösen ord.** |
-| *SSL* | boolean | **falskt** | Om du vill ansluta till Redis-servern via TLS. Värdet är **false** som standard eftersom Redis inte stöder TLS från rutan. **Om du använder Azure Redis Cache som har stöd för SSL från rutan, måste du ange värdet sant för att förbättra säkerheten.**<br/><br/>Icke-TLS-porten är inaktive rad som standard för nya cacheminnen. Ange **Sant** för den här inställningen om du vill använda en icke-TLS-port. Mer information om hur du aktiverar icke-TLS-porten finns i avsnittet [åtkomst portar](cache-configure.md#access-ports) i avsnittet [Konfigurera ett cacheminne](cache-configure.md) . |
+| *SSL* | boolean | **!** | Om du vill ansluta till Redis-servern via TLS. Värdet är **false** som standard eftersom Redis inte stöder TLS från rutan. **Om du använder Azure Redis Cache som har stöd för SSL från rutan, måste du ange värdet sant för att förbättra säkerheten.**<br/><br/>Icke-TLS-porten är inaktive rad som standard för nya cacheminnen. Ange **Sant** för den här inställningen om du vill använda en icke-TLS-port. Mer information om hur du aktiverar icke-TLS-porten finns i avsnittet [åtkomst portar](cache-configure.md#access-ports) i avsnittet [Konfigurera ett cacheminne](cache-configure.md) . |
 | *databaseIdNumber* | positivt heltal | 0 | *Det här attributet kan bara anges via web.config eller AppSettings.*<br/><br/>Ange vilken Redis-databas som ska användas. |
 | *connectionTimeoutInMilliseconds* | positivt heltal | Tillhandahålls av StackExchange. Redis | Används för att ange *ConnectTimeout* när du skapar stackexchange. Redis. ConnectionMultiplexer. |
 | *operationTimeoutInMilliseconds* | positivt heltal | Tillhandahålls av StackExchange. Redis | Används för att ange *SyncTimeout* när du skapar stackexchange. Redis. ConnectionMultiplexer. |
-| *ConnectionString* (giltig anslutnings sträng för stackexchange. Redis) | sträng | *ej tillämpligt* | Antingen en parameter referens till AppSettings eller web.config, eller någon annan giltig anslutnings sträng för StackExchange. Redis. Det här attributet kan ange värden för *Host*, *port*, *Accesskey*, *SSL*och andra stackexchange. Redis-attribut. En närmare titt på *ConnectionString*finns i [ställa in ConnectionString](#setting-connectionstring) i avsnittet [attribut anmärkningar](#attribute-notes) . |
-| *settingsClassName*<br/>*settingsMethodName* | sträng<br/>sträng | *ej tillämpligt* | *Attributen kan endast anges via web.config eller AppSettings.*<br/><br/>Använd de här attributen för att ange en anslutnings sträng. *settingsClassName* ska vara ett kvalificerat klass namn för sammansättningen som innehåller den metod som anges av *settingsMethodName*.<br/><br/>Metoden som anges av *settingsMethodName* ska vara offentlig, statisk och void (tar inte med parametrar) med en retur **sträng**typ. Den här metoden returnerar den faktiska anslutnings strängen. |
-| *loggingClassName*<br/>*loggingMethodName* | sträng<br/>sträng | *ej tillämpligt* | *Attributen kan endast anges via web.config eller AppSettings.*<br/><br/>Använd de här attributen för att felsöka ditt program genom att tillhandahålla loggar från session State/utdatacache tillsammans med loggar från StackExchange. Redis. *loggingClassName* ska vara ett kvalificerat klass namn för sammansättningen som innehåller den metod som anges av *loggingMethodName*.<br/><br/>Metoden som anges av *loggingMethodName* ska vara offentlig, statisk och void (tar inte med parametrar), med retur typen **system. io. TextWriter**. |
+| *ConnectionString* (giltig anslutnings sträng för stackexchange. Redis) | sträng | *ej tillämpligt* | Antingen en parameter referens till AppSettings eller web.config, eller någon annan giltig anslutnings sträng för StackExchange. Redis. Det här attributet kan ange värden för *Host* , *port* , *Accesskey* , *SSL* och andra stackexchange. Redis-attribut. En närmare titt på *ConnectionString* finns i [ställa in ConnectionString](#setting-connectionstring) i avsnittet [attribut anmärkningar](#attribute-notes) . |
+| *settingsClassName*<br/>*settingsMethodName* | sträng<br/>sträng | *ej tillämpligt* | *Attributen kan endast anges via web.config eller AppSettings.*<br/><br/>Använd de här attributen för att ange en anslutnings sträng. *settingsClassName* ska vara ett kvalificerat klass namn för sammansättningen som innehåller den metod som anges av *settingsMethodName* .<br/><br/>Metoden som anges av *settingsMethodName* ska vara offentlig, statisk och void (tar inte med parametrar) med en retur **sträng** typ. Den här metoden returnerar den faktiska anslutnings strängen. |
+| *loggingClassName*<br/>*loggingMethodName* | sträng<br/>sträng | *ej tillämpligt* | *Attributen kan endast anges via web.config eller AppSettings.*<br/><br/>Använd de här attributen för att felsöka ditt program genom att tillhandahålla loggar från session State/utdatacache tillsammans med loggar från StackExchange. Redis. *loggingClassName* ska vara ett kvalificerat klass namn för sammansättningen som innehåller den metod som anges av *loggingMethodName* .<br/><br/>Metoden som anges av *loggingMethodName* ska vara offentlig, statisk och void (tar inte med parametrar), med retur typen **system. io. TextWriter** . |
 | *applicationName* | sträng | Namnet på den aktuella processen eller "/" | *Endast SessionStateProvider*<br/>*Det här attributet kan bara anges via web.config eller AppSettings.*<br/><br/>Det App Name-prefix som ska användas i Redis-cache. Kunden kan använda samma Redis-cache för olika användnings sätt. För att säkerställa att sessionsnycklarna inte kolliderar, kan det föregås av programmets namn. |
-| *throwOnError* | boolean | true | *Endast SessionStateProvider*<br/>*Det här attributet kan bara anges via web.config eller AppSettings.*<br/><br/>Om ett undantag ska utlöses när ett fel uppstår.<br/><br/>Mer information om *throwOnError*finns i [kommentarer om *throwOnError* ](#notes-on-throwonerror) i avsnittet [Attribute Notes](#attribute-notes) . |>*Microsoft. Web. Redis. RedisSessionStateProvider. LastException*. |
-| *retryTimeoutInMilliseconds* | positivt heltal | 5000 | *Endast SessionStateProvider*<br/>*Det här attributet kan bara anges via web.config eller AppSettings.*<br/><br/>Hur lång tid det tar att försöka igen när en åtgärd Miss lyckas. Om det här värdet är mindre än *operationTimeoutInMilliseconds*kommer providern inte att försöka igen.<br/><br/>Mer information om *retryTimeoutInMilliseconds*finns i [kommentarer om *retryTimeoutInMilliseconds* ](#notes-on-retrytimeoutinmilliseconds) i avsnittet [Attribute Notes](#attribute-notes) . |
-| *redisSerializerType* | sträng | *ej tillämpligt* | Anger sammansättningens kvalificerade typnamn för en klass som implementerar Microsoft. Web. Redis. ISerializer och som innehåller den anpassade logiken för att serialisera och deserialisera värdena. Mer information finns i [About *redisSerializerType* ](#about-redisserializertype) i avsnittet [Attribute Notes](#attribute-notes) . |
+| *throwOnError* | boolean | true | *Endast SessionStateProvider*<br/>*Det här attributet kan bara anges via web.config eller AppSettings.*<br/><br/>Om ett undantag ska utlöses när ett fel uppstår.<br/><br/>Mer information om *throwOnError* finns i [kommentarer om *throwOnError*](#notes-on-throwonerror) i avsnittet [Attribute Notes](#attribute-notes) . |>*Microsoft. Web. Redis. RedisSessionStateProvider. LastException* . |
+| *retryTimeoutInMilliseconds* | positivt heltal | 5000 | *Endast SessionStateProvider*<br/>*Det här attributet kan bara anges via web.config eller AppSettings.*<br/><br/>Hur lång tid det tar att försöka igen när en åtgärd Miss lyckas. Om det här värdet är mindre än *operationTimeoutInMilliseconds* kommer providern inte att försöka igen.<br/><br/>Mer information om *retryTimeoutInMilliseconds* finns i [kommentarer om *retryTimeoutInMilliseconds*](#notes-on-retrytimeoutinmilliseconds) i avsnittet [Attribute Notes](#attribute-notes) . |
+| *redisSerializerType* | sträng | *ej tillämpligt* | Anger sammansättningens kvalificerade typnamn för en klass som implementerar Microsoft. Web. Redis. ISerializer och som innehåller den anpassade logiken för att serialisera och deserialisera värdena. Mer information finns i [About *redisSerializerType*](#about-redisserializertype) i avsnittet [Attribute Notes](#attribute-notes) . |
 
 ## <a name="attribute-notes"></a>Attribut-kommentarer
 
@@ -135,7 +135,7 @@ För närvarande, om ett fel inträffar under en session, kommer providern för 
 
 Det här beteendet har ändrats på ett sätt som har stöd för förväntningarna hos befintliga ASP.NET för sessionstillstånd, samtidigt som det ger möjlighet att agera på undantag, om så önskas. Standard beteendet genererar fortfarande ett undantag när ett fel inträffar, konsekvent med andra ASP.NET-providers för sessionstillstånd; befintlig kod ska fungera på samma sätt som tidigare.
 
-Om du anger *throwOnError* till **falskt**kommer det att Miss förkastas i stället för att ett undantag utlöses när ett fel uppstår. För att se om det uppstod ett fel och, i så fall, identifiera vad undantaget var, kontrollerar du den statiska egenskapen *Microsoft. Web. Redis. RedisSessionStateProvider. LastException*.
+Om du anger *throwOnError* till **falskt** kommer det att Miss förkastas i stället för att ett undantag utlöses när ett fel uppstår. För att se om det uppstod ett fel och, i så fall, identifiera vad undantaget var, kontrollerar du den statiska egenskapen *Microsoft. Web. Redis. RedisSessionStateProvider. LastException* .
 
 ### <a name="notes-on-retrytimeoutinmilliseconds"></a>Anteckningar på *retryTimeoutInMilliseconds*
 
@@ -173,7 +173,7 @@ namespace MyCompany.Redis
 }
 ```
 
-Om den här klassen är definierad i en sammansättning med namnet **MyCompanyDll**kan du ange parametern *redisSerializerType* för att använda den:
+Om den här klassen är definierad i en sammansättning med namnet **MyCompanyDll** kan du ange parametern *redisSerializerType* för att använda den:
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -194,7 +194,7 @@ Lägg till ett OutputCache-direktiv på varje sida som du vill cachelagra utdata
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-I föregående exempel finns cachelagrade sid data kvar i cachen i 60 sekunder och en annan version av sidan cachelagras för varje parameter kombination. Mer information om OutputCache-direktivet finns i [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837) .
+I föregående exempel finns cachelagrade sid data kvar i cachen i 60 sekunder och en annan version av sidan cachelagras för varje parameter kombination. Mer information om OutputCache-direktivet finns i [@OutputCache](/previous-versions/dotnet/netframework-4.0/hdxfb6cy(v=vs.100)) .
 
 När dessa steg har utförts är ditt program konfigurerat för att använda Redis-providern för utdata.
 

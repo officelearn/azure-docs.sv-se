@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a54d0c85902915d2ee62acd8a1d38b8db8b221c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404968"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536053"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Skapa en IoT-hubb med hjälp av Azure Portal
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du skapar och hanterar IoT-hubbar med hjälp av 
 
 Du behöver en Azure-prenumeration för att kunna använda stegen i den här självstudien. Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -36,13 +36,13 @@ Du kan ändra inställningarna för en befintlig IoT-hubb när den har skapats f
 
 Här följer några av de egenskaper som du kan ange för en IoT-hubb:
 
-**Priser och skala**: du kan använda den här egenskapen för att migrera till en annan nivå eller ange antalet IoT Hub enheter. 
+**Priser och skala** : du kan använda den här egenskapen för att migrera till en annan nivå eller ange antalet IoT Hub enheter. 
 
-**Drift övervakning**: Aktivera eller inaktivera olika övervaknings kategorier, till exempel loggning av händelser relaterade till meddelanden från enhet till moln eller meddelanden från moln till enhet.
+**Drift övervakning** : Aktivera eller inaktivera olika övervaknings kategorier, till exempel loggning av händelser relaterade till meddelanden från enhet till moln eller meddelanden från moln till enhet.
 
-**IP-filter**: Ange ett intervall med IP-adresser som ska godkännas eller avvisas av IoT Hub.
+**IP-filter** : Ange ett intervall med IP-adresser som ska godkännas eller avvisas av IoT Hub.
 
-**Egenskaper**: innehåller en lista över egenskaper som du kan kopiera och använda någon annan stans, till exempel resurs-ID, resurs grupp, plats och så vidare.
+**Egenskaper** : innehåller en lista över egenskaper som du kan kopiera och använda någon annan stans, till exempel resurs-ID, resurs grupp, plats och så vidare.
 
 ### <a name="shared-access-policies"></a>Principer för delad åtkomst
 
@@ -74,19 +74,19 @@ Klicka **på meddelanderoutning** under **meddelanden** för att se fönstret me
 
 ### <a name="routes"></a>Vägar
 
-Vägar är den första fliken i fönstret meddelanderoutning. Klicka på +**Lägg**till för att lägga till en ny väg. Följande skärm visas. 
+Vägar är den första fliken i fönstret meddelanderoutning. Klicka på + **Lägg** till för att lägga till en ny väg. Följande skärm visas. 
 
 ![Skärm bild som visar hur du lägger till en ny väg](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
 Namnge din väg. Väg namnet måste vara unikt inom listan över vägar för den hubben. 
 
-För **slut punkt**kan du välja en i list rutan eller lägga till en ny. I det här exemplet finns redan ett lagrings konto och en behållare. Klicka på +**Lägg** till bredvid List rutan slut punkt och välj **Blob Storage**om du vill lägga till dem som en slut punkt. Följande skärm bild visar var lagrings kontot och containern har angetts.
+För **slut punkt** kan du välja en i list rutan eller lägga till en ny. I det här exemplet finns redan ett lagrings konto och en behållare. Klicka på + **Lägg** till bredvid List rutan slut punkt och välj **Blob Storage** om du vill lägga till dem som en slut punkt. Följande skärm bild visar var lagrings kontot och containern har angetts.
 
 ![Skärm bild som visar hur du lägger till en lagrings slut punkt för Routningsprincipen](./media/iot-hub-create-through-portal/iot-hub-routing-add-storage-endpoint.png)
 
 Klicka på **Välj en behållare** för att välja lagrings konto och behållare. När du har valt dessa fält återgår den till slut punkts fönstret. Använd standardvärdena för resten av fälten och **skapa** för att skapa slut punkten för lagrings kontot och lägga till det i routningsregler.
 
-För **data källa**väljer du meddelanden om enhets telemetri. 
+För **data källa** väljer du meddelanden om enhets telemetri. 
 
 Lägg sedan till en cirkulations fråga. I det här exemplet dirigeras de meddelanden som har en program egenskap som kallas `level` med ett värde som är lika med till `critical` lagrings kontot.
 
@@ -112,9 +112,9 @@ Om du vill se ett komplett exempel på hur du använder anpassade slut punkter m
 
 Här följer två sätt att hitta en speciell IoT-hubb i din prenumeration:
 
-1. Om du känner till resurs gruppen som IoT-hubben tillhör, klickar du på **resurs grupper**och väljer sedan resurs gruppen i listan. På skärmen resurs grupp visas alla resurser i gruppen, inklusive IoT-hubbar. Klicka på den hubb som du vill se.
+1. Om du känner till resurs gruppen som IoT-hubben tillhör, klickar du på **resurs grupper** och väljer sedan resurs gruppen i listan. På skärmen resurs grupp visas alla resurser i gruppen, inklusive IoT-hubbar. Klicka på den hubb som du vill se.
 
-2. Klicka på **Alla resurser**. I rutan **alla resurser** finns en listruta som är standard för `All types` . Klicka på list rutan och avmarkera `Select all` . Leta upp `IoT Hub` och markera det. Klicka på list rutan för att stänga den, så kommer posterna att filtreras så att de bara visar dina IoT-hubbar.
+2. Klicka på **Alla resurser** . I rutan **alla resurser** finns en listruta som är standard för `All types` . Klicka på list rutan och avmarkera `Select all` . Leta upp `IoT Hub` och markera det. Klicka på list rutan för att stänga den, så kommer posterna att filtreras så att de bara visar dina IoT-hubbar.
 
 ## <a name="delete-the-iot-hub"></a>Ta bort IoT-hubben
 
@@ -125,5 +125,4 @@ Om du vill ta bort en IoT-hubb letar du reda på IoT-hubben som du vill ta bort 
 Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 
 * [Meddelanderoutning med IoT Hub](tutorial-routing.md)
-* [IoT Hub mått](iot-hub-metrics.md)
-* [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+* [Övervaka din IoT Hub](monitor-iot-hub.md)

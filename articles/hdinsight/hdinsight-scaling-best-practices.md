@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 874cea2377d3c0a128894bb67278e8ec2cbe7edc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 22ce91a81964ed52830fc19dbbbd52e7f170b0d4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490976"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535407"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -32,8 +32,8 @@ Microsoft tillhandahåller följande verktyg för att skala kluster:
 
 |Verktyg | Beskrivning|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[`Set-AzHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell Az](/powershell/azure)|[`Set-AzHDInsightClusterSize`](/powershell/module/az.hdinsight/set-azhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
+|[PowerShell AzureRM](/powershell/azure/azurerm) |[`Set-AzureRmHDInsightClusterSize`](/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) `-ClusterName CLUSTERNAME -TargetInstanceCount NEWSIZE`|
 |[Azure CLI](/cli/azure/) | [`az hdinsight resize`](/cli/azure/hdinsight#az-hdinsight-resize) `--resource-group RESOURCEGROUP --name CLUSTERNAME --workernode-count NEWSIZE`|
 |[Klassisk Azure CLI](hdinsight-administer-use-command-line.md)|`azure hdinsight cluster resize CLUSTERNAME NEWSIZE` |
 |[Azure-portalen](https://portal.azure.com)|Öppna fönstret HDInsight-kluster, Välj **kluster storlek** på den vänstra menyn och skriv sedan antalet arbetsnoder i rutan kluster storlek och välj Spara.|  
@@ -44,7 +44,7 @@ Med någon av dessa metoder kan du skala ditt HDInsight-kluster upp eller ned p�
 
 > [!IMPORTANT]  
 > * Den klassiska Azure CLI är inaktuell och bör endast användas med den klassiska distributions modellen. Använd [Azure CLI](/cli/azure/)för alla andra distributioner.
-> * PowerShell-modulen AzureRM är föråldrad.  Använd AZ- [modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) när det är möjligt.
+> * PowerShell-modulen AzureRM är föråldrad.  Använd AZ- [modulen](/powershell/azure/new-azureps-module-az) när det är möjligt.
 
 ## <a name="impact-of-scaling-operations"></a>Effekt av skalnings åtgärder
 
@@ -125,12 +125,12 @@ Du kan prova tre saker för att undvika att köra jobb som inte körs under en n
 1. Avsluta jobben manuellt.
 1. Skicka jobben igen när skalnings åtgärden har slutförts.
 
-Om du vill se en lista över väntande och pågående jobb kan du använda garn **Resource Manager-gränssnittet**med hjälp av följande steg:
+Om du vill se en lista över väntande och pågående jobb kan du använda garn **Resource Manager-gränssnittet** med hjälp av följande steg:
 
 1. Välj ditt kluster från [Azure Portal](https://portal.azure.com/).  Klustret öppnas på en ny Portal sida.
-2. I huvudvyn navigerar du till **kluster instrument paneler**  >  **Ambari start**. Ange dina autentiseringsuppgifter för klustret.
+2. I huvudvyn navigerar du till **kluster instrument paneler**  >  **Ambari start** . Ange dina autentiseringsuppgifter för klustret.
 3. Välj **garn** i listan över tjänster på den vänstra menyn i AMBARI-användargränssnittet.  
-4. På sidan garn väljer du **snabb länkar** och hovring över den aktiva Head-noden och väljer sedan **Resource Manager-användargränssnittet**.
+4. På sidan garn väljer du **snabb länkar** och hovring över den aktiva Head-noden och väljer sedan **Resource Manager-användargränssnittet** .
 
     ![Apache Ambari snabb länkar Resource Manager UI](./media/hdinsight-scaling-best-practices/resource-manager-ui1.png)
 

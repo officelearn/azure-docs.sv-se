@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d347707b0f48314dd872bc3ad34ac624817d2937
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73682209"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535322"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Välja rätt VM-storlek för ditt Azure HDInsight-kluster
 
@@ -32,7 +32,7 @@ VM-storlek och-typ bestäms av processor processor kraft, RAM-storlek och nätve
 
 - RAM: den virtuella datorns storlek avgör också mängden tillgängligt RAM-minne på den virtuella datorn. För arbets belastningar som lagrar data i minnet för bearbetning, i stället för att läsa från disk, se till att arbetsnoderna har tillräckligt med minne för att passa data.
 
-- Nätverk: för de flesta kluster typer finns inte de data som bearbetas av klustret på en lokal disk, utan i stället i en extern lagrings tjänst som Data Lake Storage eller Azure Storage. Överväg nätverks bandbredden och data flödet mellan den virtuella noden och lagrings tjänsten. Nätverks bandbredden som är tillgänglig för en virtuell dator ökar vanligt vis med större storlekar. Mer information finns i [Översikt över VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+- Nätverk: för de flesta kluster typer finns inte de data som bearbetas av klustret på en lokal disk, utan i stället i en extern lagrings tjänst som Data Lake Storage eller Azure Storage. Överväg nätverks bandbredden och data flödet mellan den virtuella noden och lagrings tjänsten. Nätverks bandbredden som är tillgänglig för en virtuell dator ökar vanligt vis med större storlekar. Mer information finns i [Översikt över VM-storlekar](../virtual-machines/sizes.md).
 
 ## <a name="understanding-vm-optimization"></a>Förstå optimering av virtuella datorer
 
@@ -40,10 +40,10 @@ Virtuella dator familjer i Azure är optimerade för att passa olika användning
 
 | Typ                     | Storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Inmatnings nivå](../virtual-machines/linux/sizes-general.md)          | A, AV2  | Ha processor prestanda-och minneskonfigurationer som är bäst lämpade för arbets belastningar på ingångs nivå som utveckling och testning. De är ekonomiska och ger ett billigt alternativ för att komma igång med Azure. |
-| [Generell användning](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | Balanserat förhållande mellan processor och minne. Utmärkt för testning och utveckling, små till medelstora databaser och webbservrar med låg till medelhög trafik. |
-| [Beräkningsoptimerad](../virtual-machines/linux/sizes-compute.md)        | F           | Högt förhållande mellan processor och minne. Passar för medel stora trafik webb servrar, nätverks enheter, batch-processer och program servrar.        |
-| [Minnesoptimerad](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | Högt förhållande mellan minne och processor. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
+| [Inmatnings nivå](../virtual-machines/sizes-general.md)          | A, AV2  | Ha processor prestanda-och minneskonfigurationer som är bäst lämpade för arbets belastningar på ingångs nivå som utveckling och testning. De är ekonomiska och ger ett billigt alternativ för att komma igång med Azure. |
+| [Generell användning](../virtual-machines/sizes-general.md)          | D, DSv2, Dv2  | Balanserat förhållande mellan processor och minne. Utmärkt för testning och utveckling, små till medelstora databaser och webbservrar med låg till medelhög trafik. |
+| [Beräkningsoptimerad](../virtual-machines/sizes-compute.md)        | F           | Högt förhållande mellan processor och minne. Passar för medel stora trafik webb servrar, nätverks enheter, batch-processer och program servrar.        |
+| [Minnesoptimerad](../virtual-machines/sizes-memory.md)         | Esv3, Ev3  | Högt förhållande mellan minne och processor. Utmärkt för relationsdatabasservrar, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
 
 - Information om priser för tillgängliga VM-instanser i regioner som stöds av HDInsight finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
@@ -74,4 +74,4 @@ Mer information om benchmarking för VM SKU: er och kluster storlekar finns i [k
 ## <a name="next-steps"></a>Nästa steg
 
 - [Nodkonfigurationer som stöds av Azure HDInsight](hdinsight-supported-node-configuration.md)
-- [Sizes for Linux virtual machines in Azure](../virtual-machines/linux/sizes.md)
+- [Sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md)

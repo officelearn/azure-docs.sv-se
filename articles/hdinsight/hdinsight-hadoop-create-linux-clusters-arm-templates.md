@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/07/2020
-ms.openlocfilehash: 533fe0f391779a5bbe53bf7f2a136c3e9fb19017
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a14a7276d51b7bc1f490bc9ab49f72aedfb829f7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080626"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541850"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Skapa Apache Hadoop kluster i HDInsight med hjälp av Resource Manager-mallar
 
@@ -51,11 +51,11 @@ Du kan distribuera en Resource Manager-mall med hjälp av Azure Portal. Mer info
 
 ## <a name="deploy-using-powershell"></a>Distribuera med hjälp av PowerShell
 
-Du kan distribuera en Resource Manager-mall med Azure PowerShell. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
+Du kan distribuera en Resource Manager-mall med Azure PowerShell. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="deploy-using-azure-cli"></a>Distribuera med Azure CLI
 
-Du kan distribuera en Resource Manager-mall med Azure CLI. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
+Du kan distribuera en Resource Manager-mall med Azure CLI. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>Distribuera med hjälp av REST API
 
@@ -78,6 +78,6 @@ I den här artikeln har du lärt dig flera olika sätt att skapa ett HDInsight-k
 * Fler HDInsight-relaterade mallar finns i [snabb starts mallar för Azure](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * Ett exempel på hur du distribuerar resurser via .NET-klient biblioteket finns i [distribuera resurser med hjälp av .NET-bibliotek och en mall](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Ett djupgående exempel på hur du distribuerar ett program finns i [etablera och distribuera mikrotjänster förutsägbart i Azure](../app-service/deploy-complex-application-predictably.md).
-* Information om hur du distribuerar lösningen till olika miljöer finns i [Utvecklings- och testmiljöer i Microsoft Azure](../solution-dev-test-environments.md).
+* Information om hur du distribuerar lösningen till olika miljöer finns i [Utvecklings- och testmiljöer i Microsoft Azure](../devtest-labs/devtest-lab-overview.md).
 * Mer information om avsnitten i Azure Resource Manager-mallen finns i [Redigera mallar](../azure-resource-manager/templates/template-syntax.md).
 * En lista över de funktioner som du kan använda i en Azure Resource Manager-mall finns i [Template Functions](../azure-resource-manager/templates/template-functions.md).

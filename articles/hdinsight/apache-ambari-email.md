@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 03/10/2020
-ms.openlocfilehash: 40f8c36b197b0c68b9f04a02dc7731877b27ddd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdce735bdacbe7ff0752650c6949fdb361342c73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541670"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542564"
 ---
 # <a name="tutorial-configure-apache-ambari-email-notifications-in-azure-hdinsight"></a>Självstudie: Konfigurera Apache Ambari-e-postmeddelanden i Azure HDInsight
 
@@ -24,9 +24,9 @@ I den här guiden får du lära dig att:
 > * Hämta SendGrid användar namn
 > * Konfigurera Apache Ambari-e-postmeddelanden
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Ett SendGrid e-postkonto. Instruktioner finns i [skicka e-post med hjälp av SendGrid med Azure](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email) .
+* Ett SendGrid e-postkonto. Instruktioner finns i [skicka e-post med hjälp av SendGrid med Azure](../sendgrid-dotnet-how-to-send-email.md) .
 
 * An-HDInsight kluster. Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -34,15 +34,15 @@ I den här guiden får du lära dig att:
 
 1. Från [Azure Portal](https://portal.azure.com)navigerar du till din SendGrid-resurs.
 
-1. På sidan Översikt väljer du **Hantera**för att gå till SendGrid-webbsidan för ditt konto.
+1. På sidan Översikt väljer du **Hantera** för att gå till SendGrid-webbsidan för ditt konto.
 
     ![Översikt över SendGrid i Azure Portal](./media/apache-ambari-email/azure-portal-sendgrid-manage.png)
 
-1. I den vänstra menyn navigerar du till ditt konto namn och sedan **konto information**.
+1. I den vänstra menyn navigerar du till ditt konto namn och sedan **konto information** .
 
     ![SendGrid instrument panels navigering](./media/apache-ambari-email/sendgrid-dashboard-navigation.png)
 
-1. På sidan **konto information** registrerar du **användar namnet**.
+1. På sidan **konto information** registrerar du **användar namnet** .
 
     ![SendGrid-konto information](./media/apache-ambari-email/sendgrid-account-details.png)
 
@@ -50,7 +50,7 @@ I den här guiden får du lära dig att:
 
 1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts` , där `CLUSTERNAME` är namnet på klustret.
 
-1. I list rutan **åtgärder** väljer du **Hantera meddelanden**.
+1. I list rutan **åtgärder** väljer du **Hantera meddelanden** .
 
 1. Välj ikonen i fönstret **Hantera aviserings meddelanden** **+** .
 
@@ -60,26 +60,26 @@ I den här guiden får du lära dig att:
 
     |Egenskap |Beskrivning |
     |---|---|
-    |Name|Ange ett namn för meddelandet.|
+    |Namn|Ange ett namn för meddelandet.|
     |Grupper|Konfigurera efter behov.|
     |Allvarlighetsgrad|Konfigurera efter behov.|
     |Beskrivning|Valfritt.|
-    |Metod|Lämna kvar **via e-post**.|
+    |Metod|Lämna kvar **via e-post** .|
     |E-postmeddelande till|Ange e-postmeddelanden som ska ta emot meddelanden, avgränsade med kommatecken.|
     |SMTP-Server|`smtp.sendgrid.net`|
     |SMTP-port|25 eller 587 (för okrypterade/TLS-anslutningar).|
     |E-post från|Ange en e-postadress. Adressen behöver inte vara äkta.|
     |Använd autentisering|Markera den här kryss rutan.|
     |Användarnamn|Ange SendGrid användar namn.|
-    |lösenordsinställning|Ange det lösen ord som du använde när du skapade SendGrid-resursen i Azure.|
+    |Lösenord|Ange det lösen ord som du använde när du skapade SendGrid-resursen i Azure.|
     |Bekräfta lösen ord|Ange lösenordet igen.|
     |Starta TLS|Markera den här kryss rutan|
 
     ![Skärm bild som visar dialog rutan skapa aviserings meddelande.](./media/apache-ambari-email/ambari-create-alert-notification.png)
 
-    Välj **Spara**. Du kommer tillbaka till fönstret **Hantera aviserings meddelanden** .
+    Välj **Spara** . Du kommer tillbaka till fönstret **Hantera aviserings meddelanden** .
 
-1. I fönstret **Hantera aviserings meddelanden** väljer du **Stäng**.
+1. I fönstret **Hantera aviserings meddelanden** väljer du **Stäng** .
 
 ## <a name="next-steps"></a>Nästa steg
 

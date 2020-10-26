@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4df91f4654f39780f81e0a27139677431926238
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91439955"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532670"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Azure Database for PostgreSQL-flexibel Server
 
@@ -90,11 +90,9 @@ Den flexibla Server tjänsten är utrustad med inbyggda funktioner för prestand
 
 Tjänsten kör community-versionen av PostgreSQL. Detta möjliggör fullständig programkompatibilitet och kräver minimal omkostnader för att migrera ett befintligt program som utvecklats på PostgreSQL-motorn till en flexibel Server. 
 
-- **Dumpa och Återställ** – för offline-migrering där användarna kan ge viss nedtid, dumpa och återställa med hjälp av community-verktyg som pg_dump och pg_restore kan ge ett snabbast sätt att migrera. Mer information finns i [migrera med dump och Restore](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) .
-- **Azure Database migration service** – för sömlösa och förenklade migreringar till flexibel server med minimal stillestånds tid kan Azure Database migration service utnyttjas. Se [DMS via portal](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) och [DMS via CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online). Du kan migrera från din Azure Database for PostgreSQL-enskild server till flexibel Server. Mer information finns i den här [DMS-artikeln](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) .
+- **Dumpa och Återställ** – för offline-migrering där användarna kan ge viss nedtid, dumpa och återställa med hjälp av community-verktyg som pg_dump och pg_restore kan ge ett snabbast sätt att migrera. Mer information finns i [migrera med dump och Restore](../howto-migrate-using-dump-and-restore.md) .
+- **Azure Database migration service** – för sömlösa och förenklade migreringar till flexibel server med minimal stillestånds tid kan Azure Database migration service utnyttjas. Se [DMS via portal](../../dms/tutorial-postgresql-azure-postgresql-online-portal.md) och [DMS via CLI](../../dms/tutorial-postgresql-azure-postgresql-online.md). Du kan migrera från din Azure Database for PostgreSQL-enskild server till flexibel Server. Mer information finns i den här [DMS-artikeln](../../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har läst en introduktion till Azure Database for PostgreSQL flexibelt Server distributions läge är du redo att skapa din första server: [skapa en Azure Database for PostgreSQL flexibel server med Azure Portal](./quickstart-create-server-portal.md)
-
-

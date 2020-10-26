@@ -297,17 +297,15 @@
           href: index-conversation-scenarios.yml
         - name: Samtalstranskription
           items:
-            - name: Översikt
-              items:
-                - name: Vad är samtalstranskription?
-                  href: conversation-transcription.md
+            - name: Översikt över samtalstranskription
+              href: conversation-transcription.md
+            - name: Snabbstart för samtalstranskription i realtid
+              href: how-to-use-conversation-transcription.md
             - name: Anvisningar
               items:
                 - name: Hantera kundtjänstscenarier
                   displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
                   href: call-center-transcription.md
-                - name: Samtalstranskription i realtid
-                  href: how-to-use-conversation-transcription.md
                 - name: Asynkron samtalstranskription
                   href: how-to-async-conversation-transcription.md
             - name: Referens
@@ -341,14 +339,10 @@
                       href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
         - name: Konversation med flera enheter
           items:
-            - name: Översikt
-              items:
-                - name: Vad är konversation med flera enheter?
-                  href: multi-device-conversation.md
-            - name: Snabbstart
-              items:
-                - name: Starta och delta i en konversation
-                  href: quickstarts/multi-device-conversation.md
+            - name: Översikt över konversation med flera enheter
+              href: multi-device-conversation.md
+            - name: Snabbstart för konversation med flera enheter
+              href: quickstarts/multi-device-conversation.md
             - name: Referens
               items:
                 - name: Speech SDK
@@ -363,12 +357,8 @@
       items:
         - name: Dokumentation om röstassistenter
           href: index-voice-assistants.yml
-        - name: Översikt
-          items:
-            - name: Vad är röstassistent?
-              href: voice-assistants.md
-            - name: Röstassistentexempel (GitHub)
-              href: 'https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant'
+        - name: Översikt över röstassistenter
+          href: voice-assistants.md
         - name: Anpassade kommandon
           items:
             - name: Vad är anpassade kommandon?

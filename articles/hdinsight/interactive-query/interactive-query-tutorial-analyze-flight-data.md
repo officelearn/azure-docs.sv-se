@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 5c5a3c9e66a4d25a84d7940f49ec332d57f4c818
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 730a6bfa627eafcab799fc811db4e20a1d4cec48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85319199"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534591"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av interaktiv fråga i Azure HDInsight
 
@@ -28,11 +28,11 @@ Den här självstudien omfattar följande uppgifter:
 > * Skapa en tabell i en databas i Azure SQL Database
 > * Använd Sqoop för att exportera data till en databas i Azure SQL Database
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Ett interaktivt Query-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **interaktiv fråga** för **kluster typ**.
+* Ett interaktivt Query-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj **interaktiv fråga** för **kluster typ** .
 
-* En databas i Azure SQL Database. Du använder databasen som mål data lager. Om du inte har en databas i Azure SQL Database kan du läsa [skapa en databas i Azure SQL Database i Azure Portal](/azure/sql-database/sql-database-single-database-get-started).
+* En databas i Azure SQL Database. Du använder databasen som mål data lager. Om du inte har en databas i Azure SQL Database kan du läsa [skapa en databas i Azure SQL Database i Azure Portal](../../azure-sql/database/single-database-create-quickstart.md).
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -42,13 +42,13 @@ Den här självstudien omfattar följande uppgifter:
 
 2. På sidan rensar du alla fält och väljer sedan följande värden:
 
-   | Name | Värde |
+   | Namn | Värde |
    | --- | --- |
    | Filtrera år |2019 |
    | Filtrera period |Januari |
    | Fält |`Year, FlightDate, Reporting_Airline, DOT_ID_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay`. |
 
-3. Välj **Hämta**. Du får en .zip-fil med de datafält du valde.
+3. Välj **Hämta** . Du får en .zip-fil med de datafält du valde.
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>Ladda upp data till ett HDInsight-kluster
 
@@ -97,7 +97,7 @@ Det finns många sätt att köra ett Hive-jobb på ett HDInsight-kluster. I det 
 
 Som en del av Hive-jobbet importerar du data från .csv-filen till en Hive-tabell med namnet **Delays** (Fördröjningar).
 
-1. Från SSH-prompten som du redan har för HDInsight-klustret använder du följande kommando för att skapa och redigera en ny fil med namnet **flightdelays. HQL**:
+1. Från SSH-prompten som du redan har för HDInsight-klustret använder du följande kommando för att skapa och redigera en ny fil med namnet **flightdelays. HQL** :
 
     ```bash
     nano flightdelays.hql
@@ -165,7 +165,7 @@ Som en del av Hive-jobbet importerar du data från .csv-filen till en Hive-tabel
     FROM delays_raw;
     ```
 
-3. Spara filen genom att trycka på **CTRL + X**, sedan på **y**och sedan på RETUR.
+3. Spara filen genom att trycka på **CTRL + X** , sedan på **y** och sedan på RETUR.
 
 4. Om du vill starta Hive och köra filen **flightdelays.hql** använder du följande kommando:
 
@@ -232,7 +232,7 @@ Det finns många sätt att ansluta till SQL Database och skapa en tabell. Följa
     GO
     ```
 
-    När instruktionen `GO` har angivits värderas de föregående instruktionerna. Den här instruktionen skapar en tabell med namnet **fördröjningar**, med ett grupperat index.
+    När instruktionen `GO` har angivits värderas de föregående instruktionerna. Den här instruktionen skapar en tabell med namnet **fördröjningar** , med ett grupperat index.
 
     Använd följande fråga för att verifiera att tabellen har skapats:
 

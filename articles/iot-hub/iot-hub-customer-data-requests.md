@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 1fdff6e1c29b8484aaea3bb647e2f1738d1889c6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: df1d4f3a12c6e15e2954bb0e02454ef58b22cb73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142238"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535798"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Funktioner för begäran om kund data för Azure IoT Hub-enheter
 
@@ -30,7 +30,7 @@ Om du använder funktionen routning i Azure IoT Hub-tjänsten för att vidarebef
 
 Om du använder funktionen Azure Event Grid integrering i Azure IoT Hub-tjänsten måste data begär Anden utföras av klient organisations administratören för varje prenumerant av dessa händelser. Mer information finns i [reagera på IoT Hub händelser med event Grid](iot-hub-event-grid.md).
 
-Om du använder Azure Monitor integrerings funktionen i Azure IoT Hub-tjänsten för att skapa diagnostikloggar måste data begär Anden utföras av klient administratören mot de lagrade loggarna. Mer information finns i [övervaka hälsan för Azure IoT Hub](iot-hub-monitor-resource-health.md).
+Om du använder Azure Monitor integrerings funktionen i Azure IoT Hub-tjänsten för att skapa resurs loggar måste data begär Anden utföras av klient administratören mot de lagrade loggarna. Mer information finns i [övervaka IoT Hub](monitor-iot-hub.md).
 
 ## <a name="deleting-customer-data"></a>Tar bort kund information
 

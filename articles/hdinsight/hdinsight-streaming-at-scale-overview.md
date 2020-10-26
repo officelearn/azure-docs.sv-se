@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a04ce77c7e81a3a73b87eaf5790b383dece35d86
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75435385"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535237"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Direktuppspelning i skala i HDInsight
 
 Real tids data lösningar i real tid fungerar på data som är i rörelse. Dessa data är vanligt vis mest värdefulla vid ankomst tillfället. Om den inkommande data strömmen blir större än vad som kan hanteras för tillfället kan du behöva begränsa resurserna. Alternativt kan ett HDInsight-kluster skala upp för att uppfylla din strömnings lösning genom att lägga till noder på begäran.
 
-I ett strömmande program genererar en eller flera data källor händelser (ibland i miljon tals per sekund) som måste matas in snabbt utan att du behöver släppa någon användbar information. Inkommande händelser hanteras med *Stream-buffring*, även kallat *Event Queuing*, av en tjänst som [Apache Kafka](kafka/apache-kafka-introduction.md) eller [Event Hubs](https://azure.microsoft.com/services/event-hubs/). När du har samlat in händelserna kan du analysera data med hjälp av ett real tids analys system i lager *bearbetnings* skiktet, till exempel [Apache Storm](storm/apache-storm-overview.md) eller [Apache Spark strömning](spark/apache-spark-streaming-overview.md). Bearbetade data kan lagras i långsiktiga lagrings system, t. ex. [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)och visas i real tid på en Business Intelligence instrument panel, till exempel [Power BI](https://powerbi.microsoft.com), Tableau eller en anpassad webb sida.
+I ett strömmande program genererar en eller flera data källor händelser (ibland i miljon tals per sekund) som måste matas in snabbt utan att du behöver släppa någon användbar information. Inkommande händelser hanteras med *Stream-buffring* , även kallat *Event Queuing* , av en tjänst som [Apache Kafka](kafka/apache-kafka-introduction.md) eller [Event Hubs](https://azure.microsoft.com/services/event-hubs/). När du har samlat in händelserna kan du analysera data med hjälp av ett real tids analys system i lager *bearbetnings* skiktet, till exempel [Apache Storm](storm/apache-storm-overview.md) eller [Apache Spark strömning](spark/apache-spark-streaming-overview.md). Bearbetade data kan lagras i långsiktiga lagrings system, t. ex. [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)och visas i real tid på en Business Intelligence instrument panel, till exempel [Power BI](https://powerbi.microsoft.com), Tableau eller en anpassad webb sida.
 
 ![Återströmnings mönster i Azure HDInsight](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -39,7 +39,7 @@ Mer information finns i [Vad är Apache storm på Azure HDInsight?](storm/apache
 
 Spark streaming är ett tillägg till Spark, vilket gör att du kan återanvända samma kod som du använder för batchbearbetning. Du kan kombinera både batch-och interaktiva frågor i samma program. Till skillnad från Storm ger Spark-direktuppspelning tillstånds känsligt exakt en gång för bearbetning av semantik. När det används i kombination med [Kafka Direct API](https://spark.apache.org/docs/latest/streaming-kafka-integration.html), som säkerställer att alla Kafka-data tas emot av Spark streaming exakt en gång, är det möjligt att uppnå exakt en gång. En av Spark-strömmarnas styrkor är dess feltoleranta funktioner och återställer Felaktiga noder snabbt när flera noder används i klustret.
 
-Mer information finns i [Vad är Apache Spark streaming?](hdinsight-spark-streaming-overview.md).
+Mer information finns i [Vad är Apache Spark streaming?](./spark/apache-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Skala ett kluster
 

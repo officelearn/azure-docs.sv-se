@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 929956d6f439df2a2e7cb8d1b950f5e68cdeab68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 348b9b80c74f085ce31ecce93753a253782fe3ea
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631723"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543176"
 ---
 # <a name="control-network-traffic-in-azure-hdinsight"></a>Kontrol lera nätverks trafik i Azure HDInsight
 
 Nätverks trafik i virtuella Azure-nätverk kan kontrol leras med hjälp av följande metoder:
 
-* Med **nätverks säkerhets grupper** (NSG) kan du filtrera inkommande och utgående trafik till nätverket. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/security-overview.md) .
+* Med **nätverks säkerhets grupper** (NSG) kan du filtrera inkommande och utgående trafik till nätverket. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md) .
 
 * **Virtuella nätverks enheter** (NVA) kan endast användas med utgående trafik. NVA replikerar funktionaliteten för enheter som brand väggar och routrar. Mer information finns i dokumentet om [nätverks](https://azure.microsoft.com/solutions/network-appliances) installationer.
 
@@ -40,9 +40,9 @@ Om du planerar att använda **nätverks säkerhets grupper** för att kontrol le
 
 3. Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
 
-    * __Nätverks säkerhets grupper__: Tillåt __inkommande__ trafik på port __443__ från IP-adresserna. Detta säkerställer att HDInsight Management Services kan komma åt klustret utanför det virtuella nätverket. För __KAFKA rest proxy__ -aktiverade kluster tillåter du även __inkommande__ trafik på port __9400__ . Detta säkerställer att Kafka REST-proxyservern kan kontaktas.
+    * __Nätverks säkerhets grupper__ : Tillåt __inkommande__ trafik på port __443__ från IP-adresserna. Detta säkerställer att HDInsight Management Services kan komma åt klustret utanför det virtuella nätverket. För __KAFKA rest proxy__ -aktiverade kluster tillåter du även __inkommande__ trafik på port __9400__ . Detta säkerställer att Kafka REST-proxyservern kan kontaktas.
 
-Mer information om nätverks säkerhets grupper finns i [Översikt över nätverks säkerhets grupper](../virtual-network/security-overview.md).
+Mer information om nätverks säkerhets grupper finns i [Översikt över nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).
 
 ## <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Kontrol lera utgående trafik från HDInsight-kluster
 
@@ -69,6 +69,6 @@ Mer information om brand Väggs regler för virtuella enheter finns i [scenario]
 * Kod exempel och exempel på hur du skapar virtuella Azure-nätverk finns i [skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md).
 * Ett slut punkt till slut punkts exempel på hur du konfigurerar HDInsight för att ansluta till ett lokalt nätverk finns i [ansluta HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
 * Mer information om virtuella Azure-nätverk finns i [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
-* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).
 * Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).
 * Mer information om virtuella nätverk finns i [Planera virtuella nätverk för HDInsight](./hdinsight-plan-virtual-network-deployment.md).

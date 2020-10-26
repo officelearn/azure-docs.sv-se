@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 9ee42482a2b5d59619c678d282f8b38d7a2a0b0d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f8b6f1f8b22435af33c9ae908bb0a3f6f3df8889
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490925"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535356"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: python-exempel
 
@@ -35,7 +35,7 @@ Den här artikeln innehåller:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-[Azure HDInsight SDK för python](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
+[Azure HDInsight SDK för python](/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>Kluster hantering – skapa
 
@@ -48,4 +48,4 @@ Du kan hämta dessa exempel för python genom att klona GitHub-lagringsplatsen [
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Kodfragment för dessa ytterligare SDK-funktioner finns i [referens dokumentationen för HDInsight SDK för python](https://docs.microsoft.com/python/api/overview/azure/hdinsight).
+Kodfragment för dessa ytterligare SDK-funktioner finns i [referens dokumentationen för HDInsight SDK för python](/python/api/overview/azure/hdinsight).

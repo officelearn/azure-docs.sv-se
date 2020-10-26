@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
 ms.date: 04/15/2020
-ms.openlocfilehash: a37729849bc9702fb6823c11d4534cf35df72abf
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 17e4468785ff113a85265a17a8314a0174d5d360
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489531"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535390"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Självstudie: skapa en pipeline för data från slut punkt till slut punkt för att härleda Sälj insikter i Azure HDInsight
 
@@ -33,7 +33,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 * En medlem i den [inbyggda roll ägaren i Azure](../role-based-access-control/built-in-roles.md).
 
-* Om du använder PowerShell för att utlösa Data Factory pipeline behöver du [AZ-modulen](https://docs.microsoft.com/powershell/azure/).
+* Om du använder PowerShell för att utlösa Data Factory pipeline behöver du [AZ-modulen](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) för att visualisera affärs insikter i slutet av den här självstudien.
 
@@ -110,7 +110,7 @@ Standard lösen ordet för SSH-åtkomst till klustren är `Thisisapassword1` . O
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Verifiera distribution och samla in resursinformation
 
-1. Om du vill kontrol lera statusen för din distribution går du till resurs gruppen på Azure Portal. Under **Inställningar**väljer du **distributioner**, sedan din distribution. Här kan du se vilka resurser som har distribuerats och vilka resurser som fortfarande pågår.
+1. Om du vill kontrol lera statusen för din distribution går du till resurs gruppen på Azure Portal. Under **Inställningar** väljer du **distributioner** , sedan din distribution. Här kan du se vilka resurser som har distribuerats och vilka resurser som fortfarande pågår.
 
 1. Ange följande kommando för att visa namnen på klustren:
 
@@ -214,7 +214,7 @@ Om du vill utlösa pipelinen kan du antingen:
 
     Eller
 
-* Öppna data fabriken och välj **redigera & övervakare**. Utlös `IngestAndTransform` pipelinen från portalen. Information om hur du aktiverar pipelines via portalen finns i [skapa Apache Hadoop kluster på begäran i HDInsight med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Öppna data fabriken och välj **redigera & övervakare** . Utlös `IngestAndTransform` pipelinen från portalen. Information om hur du aktiverar pipelines via portalen finns i [skapa Apache Hadoop kluster på begäran i HDInsight med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
 För att verifiera att pipelinen har körts kan du göra något av följande:
 
@@ -252,21 +252,21 @@ Andra sätt att transformera data med hjälp av HDInsight finns i [den här arti
 
 1. Öppna Power BI Desktop.
 
-1. Från menyn navigerar du till **Hämta data**  >  **mer...**  >  **Azure**  >  **Interaktiv HDInsight-fråga**.
+1. Från menyn navigerar du till **Hämta data**  >  **mer...**  >  **Azure**  >  **Interaktiv HDInsight-fråga** .
 
-1. Välj **Anslut**.
+1. Välj **Anslut** .
 
 1. Från dialog rutan **HDInsight-interaktiv fråga** :
     1. I text rutan **Server** anger du namnet på ditt LLAP-kluster i formatet `https://LLAPCLUSTERNAME.azurehdinsight.net` .
     1. I text rutan **databas** anger du `default` .
-    1. Välj **OK**.
+    1. Välj **OK** .
 
 1. I dialog rutan **AzureHive** :
     1. I text rutan **användar namn** anger du `admin` .
     1. I text rutan **lösen ord** anger du `Thisisapassword1` .
-    1. Välj **Anslut**.
+    1. Välj **Anslut** .
 
-1. Från **Navigator**väljer du `sales` och/eller `sales_raw` för att förhandsgranska data. När data har lästs in kan du experimentera med den instrument panel som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
+1. Från **Navigator** väljer du `sales` och/eller `sales_raw` för att förhandsgranska data. När data har lästs in kan du experimentera med den instrument panel som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
 
 * [Introduktion till instrumentpaneler för Power BI-designers](https://docs.microsoft.com/power-bi/service-dashboards)
 * [Självstudie: Kom igång med Power BI-tjänsten](https://docs.microsoft.com/power-bi/service-get-started)

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
-ms.openlocfilehash: 9212142ff6f43a84b141b0781fbe9828eebcbd40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e84f0c9beaee8a755499467925d28a83ba3139fc
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537165"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544060"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replikera data till Azure Database for MySQL
 
@@ -41,10 +41,10 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 - Varje tabell måste ha en primär nyckel.
 - Käll servern bör använda MySQL InnoDB-motorn.
 - Användaren måste ha behörighet att konfigurera binär loggning och skapa nya användare på käll servern.
-- Om käll servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mysql.az_replication_change_master` lagrade proceduren. Se följande [exempel](https://docs.microsoft.com/azure/mysql/howto-data-in-replication#link-master-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
-- Se till att käll serverns IP-adress har lagts till Azure Database for MySQL replik serverns brand Väggs regler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/mysql/howto-manage-firewall-using-cli).
+- Om käll servern har SSL aktiverat kontrollerar du att det SSL-CA-certifikat som har angetts för domänen har inkluderats i den `mysql.az_replication_change_master` lagrade proceduren. Se följande [exempel](./howto-data-in-replication.md#link-source-and-replica-servers-to-start-data-in-replication) och `master_ssl_ca` parametern.
+- Se till att käll serverns IP-adress har lagts till Azure Database for MySQL replik serverns brand Väggs regler. Uppdatera brandväggsregler med hjälp av [Azure-portalen](./howto-manage-firewall-using-portal.md) eller [Azure CLI](./howto-manage-firewall-using-cli.md).
 - Se till att den dator som är värd för käll servern tillåter både inkommande och utgående trafik på port 3306.
-- Kontrol lera att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
+- Kontrol lera att käll servern har en **offentlig IP-adress** , att DNS är offentligt tillgängligt eller har ett fullständigt kvalificerat domän namn (FQDN).
 
 ### <a name="other"></a>Övrigt
 - Datareplikering stöds bara i Generell användning och minnesoptimerade pris nivåer.

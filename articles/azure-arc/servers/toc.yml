@@ -41,8 +41,18 @@
           href: onboard-powershell.md
     - name: Hantera
       items:
-        - name: Hantera och använda tillägg för virtuella Azure-datorer
-          href: manage-vm-extensions.md
+        - name: Azure VM-tillägg
+          items:
+            - name: Översikt
+              href: manage-vm-extensions.md
+            - name: Hantera tillägg från portalen
+              href: manage-vm-extensions-portal.md
+            - name: Hantera tillägg med CLI
+              href: manage-vm-extensions-cli.md
+            - name: Hantera tillägg med PowerShell
+              href: manage-vm-extensions-powershell.md
+            - name: Distribuera tillägg med en ARM-mall
+              href: manage-vm-extensions-template.md
         - name: Hantera agent
           href: manage-agent.md
     - name: Felsökning
@@ -55,8 +65,22 @@
   items:
     - name: Dataplacering
       href: data-residency.md
+    - name: Azure CLI
+      href: /cli/azure/ext/connectedmachine/connectedmachine
+    - name: Azure PowerShell
+      href: /powershell/module/az.connectedmachine
+    - name: .NET
+      href: /dotnet/api/overview/azure/hybridcompute/management
     - name: REST
       href: /rest/api/hybridcompute
+    - name: Go
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/hybridcompute/mgmt/2020-08-02/hybridcompute'
+    - name: Java
+      href: /java/api/overview/azure/hybridcompute/management
+    - name: JavaScript
+      href: /javascript/api/%40azure/arm-hybridcompute
+    - name: Python
+      href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-hybridcompute/2.0.0/index.html'
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: policy-reference.md

@@ -8,19 +8,19 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e00f7b97b923443cef3b97e0cdeda009ad5c9b03
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a2395eb5f5b40a7e3469292ec7faa68d8942dce9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490874"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535203"
 ---
 # <a name="use-azure-blob-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Använd signaturer för delad åtkomst för Azure Blob Storage för att begränsa åtkomsten till data i HDInsight
 
 HDInsight har fullständig åtkomst till data i Azure Blob Storage-kontona som är kopplade till klustret. Du kan använda signaturer för delad åtkomst på BLOB-behållaren för att begränsa åtkomsten till data. Signaturer för delad åtkomst (SAS) är en funktion i Azure Blob Storage-konton som gör att du kan begränsa åtkomsten till data. Till exempel tillhandahåller skrivskyddad åtkomst till data.
 
 > [!IMPORTANT]  
-> Om du använder en lösning med Apache Ranger bör du överväga att använda domänanslutna HDInsight. Mer information finns i Konfigurera ett [domänanslutet HDInsight-](./domain-joined/apache-domain-joined-configure.md) dokument.
+> Om du använder en lösning med Apache Ranger bör du överväga att använda domänanslutna HDInsight. Mer information finns i Konfigurera ett [domänanslutet HDInsight-](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) dokument.
 
 > [!WARNING]  
 > HDInsight måste ha fullständig åtkomst till standard lagrings utrymmet för klustret.
@@ -31,7 +31,7 @@ HDInsight har fullständig åtkomst till data i Azure Blob Storage-kontona som �
 
 * En befintlig [lagrings behållare](../storage/blobs/storage-quickstart-blobs-portal.md).  
 
-* Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/).
+* Om du använder PowerShell behöver du AZ- [modulen](/powershell/azure/).
 
 * Om du vill använda Azure CLI och du ännu inte har installerat det kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -76,7 +76,7 @@ Skillnaden mellan de två formulären är viktig för ett nyckel scenario: åter
 
 Vi rekommenderar att du alltid använder lagrade åtkomst principer. När du använder lagrade principer kan du antingen återkalla signaturer eller förlänga förfallo datumet vid behov. Stegen i det här dokumentet använder lagrade åtkomst principer för att generera SAS.
 
-Mer information om signaturer för delad åtkomst finns i [förstå SAS-modellen](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Mer information om signaturer för delad åtkomst finns i [förstå SAS-modellen](../storage/common/storage-sas-overview.md).
 
 ## <a name="create-a-stored-policy-and-sas"></a>Skapa en lagrad princip och SAS
 
@@ -207,7 +207,7 @@ Du kan behöva köra `pip install --upgrade azure-storage` om du får fel meddel
 
 1. Öppna lösningen i Visual Studio.
 
-2. I Solution Explorer högerklickar du på projektet **SASExample** och väljer **Egenskaper**.
+2. I Solution Explorer högerklickar du på projektet **SASExample** och väljer **Egenskaper** .
 
 3. Välj **Inställningar** och Lägg till värden för följande poster:
 
@@ -353,27 +353,27 @@ Om du har ett befintligt kluster kan du lägga till SAS i **Core-site-** konfigu
 
 1. Öppna Ambari-webbgränssnittet för klustret. Adressen till den här sidan är `https://YOURCLUSTERNAME.azurehdinsight.net` . När du uppmanas till detta ska du autentisera till klustret med administratörs namnet (admin) och lösen ordet som du använde när du skapade klustret.
 
-1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site**.
+1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site** .
 
-1. Expandera avsnittet **anpassad Core-site** , bläddra till slutet och välj sedan **Lägg till egenskap...**. Använd följande värden för **nyckel** och **värde**:
+1. Expandera avsnittet **anpassad Core-site** , bläddra till slutet och välj sedan **Lägg till egenskap...** . Använd följande värden för **nyckel** och **värde** :
 
-    * **Nyckel**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-    * **Värde**: den SAS som returnerades av en av metoderna som kördes tidigare.
+    * **Nyckel** : `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **Värde** : den SAS som returnerades av en av metoderna som kördes tidigare.
 
     Ersätt `CONTAINERNAME` med namnet på den behållare som du använde med C#-eller SAS-programmet. Ersätt `STORAGEACCOUNTNAME` med det lagrings konto namn som du använde.
 
     Välj **Lägg till** för att spara den här nyckeln och värdet
 
-1. Välj knappen **Spara** för att spara konfigurations ändringarna. När du uppmanas till det lägger du till en beskrivning av ändringen ("lägga till SAS-åtkomstkontroll" till exempel) och väljer sedan **Spara**.
+1. Välj knappen **Spara** för att spara konfigurations ändringarna. När du uppmanas till det lägger du till en beskrivning av ändringen ("lägga till SAS-åtkomstkontroll" till exempel) och väljer sedan **Spara** .
 
     Välj **OK** när ändringarna har slutförts.
 
    > [!IMPORTANT]  
    > Du måste starta om flera tjänster innan ändringen börjar gälla.
 
-1. List rutan **starta om** visas. Välj **starta om alla som påverkas** från List rutan och bekräfta sedan __starta om alla__.
+1. List rutan **starta om** visas. Välj **starta om alla som påverkas** från List rutan och bekräfta sedan __starta om alla__ .
 
-    Upprepa den här processen för **MapReduce2** och **garn**.
+    Upprepa den här processen för **MapReduce2** och **garn** .
 
 1. När tjänsterna har startats om väljer du var och en och inaktiverar underhålls läget från List rutan **service åtgärder** .
 
@@ -411,7 +411,7 @@ Använd följande steg för att kontrol lera att du bara kan läsa och lista obj
     hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
     ```
 
-    Det här kommandot laddar ned filen till en lokal fil med namnet **testfile.txt**.
+    Det här kommandot laddar ned filen till en lokal fil med namnet **testfile.txt** .
 
 5. Använd följande kommando för att överföra den lokala filen till en ny fil med namnet **testupload.txt** på SAS-lagringen:
 

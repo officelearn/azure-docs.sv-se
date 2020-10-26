@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 6bfedc7d14c234f88e8140281a01ffcc330ba532
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: af1419dfb47f9090fd3aa307c71f7e62206e3e93
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488375"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543363"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Övervaknings Azure Cosmos DB
 
@@ -66,9 +66,9 @@ På sidan **Översikt** i Azure Portal för varje Azure Cosmos-databas finns en 
 
 ## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a> Analysera mått data
 
-Azure Cosmos DB ger en anpassad upplevelse för att arbeta med mått. Se [övervaka och felsök Azure Cosmos DB mått från Azure Monitor]() för information om hur du använder den här upplevelsen och för att analysera olika Azure Cosmos DB scenarier.
+Azure Cosmos DB ger en anpassad upplevelse för att arbeta med mått.
 
-Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänster med hjälp av Metric Explorer genom att öppna **mått** från **Azure Monitor** -menyn. Mer information om hur du använder det här verktyget finns i [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) . Alla mått för Azure Cosmos DB finns i namn området **Cosmos DB standard mått**. Du kan använda följande dimensioner med dessa mått när du lägger till ett filter i ett diagram:
+Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänster med hjälp av Metric Explorer genom att öppna **mått** från **Azure Monitor** -menyn. Mer information om hur du använder det här verktyget finns i [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) . Alla mått för Azure Cosmos DB finns i namn området **Cosmos DB standard mått** . Du kan använda följande dimensioner med dessa mått när du lägger till ett filter i ett diagram:
 
 * CollectionName
 * DatabaseName
@@ -80,11 +80,11 @@ Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänste
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Välj **övervaka** i det vänstra navigerings fältet och välj **mått**.
+1. Välj **övervaka** i det vänstra navigerings fältet och välj **mått** .
 
    :::image type="content" source="./media/monitor-cosmos-db/monitor-metrics-blade.png" alt-text="Tillgängliga övervaknings alternativ i Azure Portal":::
 
-1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen**och **resurs gruppen**. För **resurs typen**väljer du **Azure Cosmos DB konton**, väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd**.
+1. I fönstret **mått** > väljer du **en resurs** > väljer den nödvändiga **prenumerationen** och **resurs gruppen** . För **resurs typen** väljer du **Azure Cosmos DB konton** , väljer något av dina befintliga Azure Cosmos-konton och väljer **Använd** .
 
    :::image type="content" source="./media/monitor-cosmos-db/select-cosmosdb-account.png" alt-text="Tillgängliga övervaknings alternativ i Azure Portal":::
 
@@ -96,7 +96,7 @@ Du kan analysera mått för Azure Cosmos DB med mått från andra Azure-tjänste
 
 ### <a name="add-filters-to-metrics"></a>Lägg till filter till mått
 
-Du kan också filtrera mått och diagrammet som visas av en speciell **samlings**-, **databasename**-, **OperationType**-, **region**-och **StatusCode**-värde. Om du vill filtrera måtten väljer du **Lägg till filter** och väljer önskad egenskap som **OperationType** och väljer ett värde, till exempel **fråga**. Diagrammet visar sedan de enheter för programbegäran som för bruk ATS för den valda perioden. De åtgärder som utförs via den lagrade proceduren loggas inte, så de är inte tillgängliga i OperationType-måttet.
+Du kan också filtrera mått och diagrammet som visas av en speciell **samlings** -, **databasename** -, **OperationType** -, **region** -och **StatusCode** -värde. Om du vill filtrera måtten väljer du **Lägg till filter** och väljer önskad egenskap som **OperationType** och väljer ett värde, till exempel **fråga** . Diagrammet visar sedan de enheter för programbegäran som för bruk ATS för den valda perioden. De åtgärder som utförs via den lagrade proceduren loggas inte, så de är inte tillgängliga i OperationType-måttet.
 
 :::image type="content" source="./media/monitor-cosmos-db/add-metrics-filter.png" alt-text="Tillgängliga övervaknings alternativ i Azure Portal":::
 
@@ -153,7 +153,7 @@ Konto nivå måtten som är tillgängliga i portalen, till exempel användning a
 
 * Om du vill använda REST API [utför du en hämtning på samlingen](/rest/api/cosmos-db/get-a-collection). Kvot-och användnings informationen för samlingen returneras i rubrikerna x-MS-Resource-quota och x-MS-Resource-Usage i svaret.
 
-* Om du vill använda .NET SDK använder du metoden [DocumentClient. ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) , som returnerar en [ResourceResponse](/dotnet/api/microsoft.azure.documents.client.resourceresponse-1) som innehåller ett antal användnings egenskaper som **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**med flera.
+* Om du vill använda .NET SDK använder du metoden [DocumentClient. ReadDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync) , som returnerar en [ResourceResponse](/dotnet/api/microsoft.azure.documents.client.resourceresponse-1) som innehåller ett antal användnings egenskaper som **CollectionSizeUsage** , **DatabaseUsage** , **DocumentUsage** med flera.
 
 Använd [Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights)för att få åtkomst till ytterligare mått. Tillgängliga mått definitioner kan hämtas genom att anropa:
 

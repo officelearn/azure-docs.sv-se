@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 1a6aabe7ef3500a114525fe6c8bc993826295e36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afbf80810f45f616eac40de16889bbebb1cf4964
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275361"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544808"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>Server koncept i Azure Database for MySQL
 
@@ -32,7 +32,7 @@ En Azure Database for MySQL server:
 - Tillhandahåller omfattning för hanterings principer som gäller för databaserna: inloggning, brand vägg, användare, roller, konfigurationer osv.
 - Är tillgänglig i flera versioner. Mer information finns i [Azure Database for MySQL databas versioner som stöds](./concepts-supported-versions.md).
 
-Du kan skapa en eller flera databaser på en Azure Database för MySQL-server. Du kan välja att skapa en enskild databas per server för att använda alla resurser eller för att skapa flera databaser för att dela resurserna. Priserna är strukturerad per server, baserat på konfigurationen av pris nivån, virtuella kärnor och lagring (GB). Mer information finns i [pris nivåer](./concepts-service-tiers.md).
+Du kan skapa en eller flera databaser på en Azure Database för MySQL-server. Du kan välja att skapa en enskild databas per server för att använda alla resurser eller för att skapa flera databaser för att dela resurserna. Priserna är strukturerad per server, baserat på konfigurationen av pris nivån, virtuella kärnor och lagring (GB). Mer information finns i [pris nivåer](./concepts-pricing-tiers.md).
 
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>Hur gör jag för att ansluta och autentisera till en Azure Database for MySQL-Server?
 
@@ -67,5 +67,5 @@ Du kan hantera Azure Database for MySQL-servrar med hjälp av Azure Portal eller
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt över tjänsten finns i [Azure Database for MySQL översikt](./overview.md)
-- Information om vilka resurs kvoter och begränsningar som baseras på **tjänst nivån**finns i [tjänst nivåer](./concepts-service-tiers.md)
+- Information om vilka resurs kvoter och begränsningar som baseras på din **pris nivå** finns i [pris nivåer](./concepts-pricing-tiers.md)
 - Information om hur du ansluter till tjänsten finns i [anslutnings bibliotek för Azure Database for MySQL](./concepts-connection-libraries.md).

@@ -3,18 +3,18 @@ title: Hantera AWS-kostnader och AWS-användning i Azure Cost Management
 description: Den här artikeln hjälper dig att förstå hur du använder kostnadsanalys och budgetar i Cost Management för att hantera dina AWS-kostnader och din AWS-användning.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5fed70ccdbebbd178412c416f37c2e9001a81f38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266223"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148972"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Hantera AWS-kostnader och AWS-användning i Azure
 
@@ -22,7 +22,7 @@ När du har konfigurerat integrering av rapport för AWS-kostnader och AWS-anvä
 
 Om du inte redan har konfigurerat integreringen kan du se [Konfigurera integrering av rapport för AWS-användning](aws-integration-set-up-configure.md).
 
-_Innan du börjar_: Om du inte är bekant med kostnadsanalys kan du se snabbstarten [Utforska och analysera kostnader med kostnadsanalys](quick-acm-cost-analysis.md). Och om du inte är bekant med budgetar i Azure kan du se självstudien [Skapa och hantera Azure-budgetar](tutorial-acm-create-budgets.md).
+_Innan du börjar_ : Om du inte är bekant med kostnadsanalys kan du se snabbstarten [Utforska och analysera kostnader med kostnadsanalys](quick-acm-cost-analysis.md). Och om du inte är bekant med budgetar i Azure kan du se självstudien [Skapa och hantera Azure-budgetar](tutorial-acm-create-budgets.md).
 
 ## <a name="view-aws-costs-in-cost-analysis"></a>Visa AWS-kostnader i kostnadsanalys
 
@@ -44,7 +44,7 @@ I kostnadsanalys öppnar du omfattningsväljaren och väljer den hanteringsgrupp
 
 Här är ett exempel som visar kostnaderna för hanteringsgruppen i kostnadsanalys, grupperade efter leverantör (Azure och AWS).
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exempel som visar Azure- och AWS-kostnader för ett kvartal i kostnadsanalys" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Exempel på vyn Välj omfattning med länkade konton under en hanteringsgrupp" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
 
 > [!NOTE]
 > Hanteringsgrupper stöds för närvarande inte för kunder med Microsoft-kundavtal (MCA). MCA-kunder kan skapa anslutningsprogrammet och visa sina AWS-data. Däremot kan inte MCA-kunder se sina Azure-kostnader och AWS-kostnader tillsammans under en hanteringsgrupp.
@@ -55,17 +55,17 @@ Om du vill visa kostnader för ett AWS-länkat konto öppnar du omfattningsvälj
 
 Här är ett exempel som visar hur du väljer en omfattning för ett AWS-länkat konto.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exempel på vyn Välj omfattning som visar AWS-länkade konton" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Exempel på vyn Välj omfattning med länkade konton under en hanteringsgrupp" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Visa kostnader för ett AWS-konsoliderat konto
 
 Om du vill visa kostnader för ett AWS-konsoliderat konto öppnar du omfattningsväljaren och väljer det AWS-konsoliderade kontot. Här är ett exempel som visar hur du väljer en omfattning för ett AWS-konsoliderat konto.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exempel på vyn Välj omfattning med konsoliderade konton" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Exempel på vyn Välj omfattning med länkade konton under en hanteringsgrupp" :::
 
 Den här omfattningen ger en översikt över alla AWS-länkade konton som är associerade med det AWS-konsoliderade kontot. Här är ett exempel som visar kostnader för ett AWS-konsoliderat konto, grupperade efter tjänstnamn.
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exempel som visar AWS-konsoliderade kostnader i kostnadsanalys" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Exempel på vyn Välj omfattning med länkade konton under en hanteringsgrupp" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensioner som är tillgängliga för filtrering och gruppering
 
@@ -95,7 +95,7 @@ I följande tabell beskrivs de dimensioner som är tillgängliga för gruppering
 
 Med budgetar kan du hantera kostnader proaktivt och öka ansvarstagandet i organisationen. Budgetar anges på omfattningarna för AWS-konsoliderat konto och AWS länkat konto. Här är ett exempel på budgetar för ett AWS-konsoliderat konto i Cost Management:
 
-:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exempel som visar budgetar för ett AWS-konsoliderat konto" :::
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Exempel på vyn Välj omfattning med länkade konton under en hanteringsgrupp" :::
 
 ## <a name="aws-data-collection-process"></a>AWS-datainsamlingsprocess
 
@@ -117,7 +117,7 @@ Användningen av AWS-API:er kan medföra ytterligare kostnader för AWS.
 
 - Budgetar i Cost Management stöder inte hanteringsgrupper med flera valutor. Budgetutvärdering visas inte för hanteringsgrupper med flera valutor. Ett felmeddelande visas om du väljer en hanteringsgrupp som har flera valutor när du skapar en budget.
 - Molnanslutningsprogram stöder inte AWS GovCloud (US), AWS Gov eller AWS China.
-- I Cost Management visas endast _AWS-användningskostnader_. Skatt, support, återbetalningar, RI, krediter eller andra debiteringstyper stöds inte ännu.
+- I Cost Management visas endast _AWS-användningskostnader_ . Skatt, support, återbetalningar, RI, krediter eller andra debiteringstyper stöds inte ännu.
 
 ## <a name="troubleshooting-aws-integration"></a>Felsöka AWS-integrering
 
@@ -145,7 +145,7 @@ Det här felet innebär att Cost Management inte kan anropa AWS AssumeRole-API:e
 - Det externa ID:t är samma som det som finns i rolldefinitionen och anslutningsdefinitionen.
 - Rolltypen är inställd på **ett annat AWS-konto som tillhör dig eller tredje part.**
 - Alternativet **Kräv MFA** är avmarkerat.
-- Det betrodda AWS-kontot i AWS-rollen är _432263259397_.
+- Det betrodda AWS-kontot i AWS-rollen är _432263259397_ .
 
 ### <a name="collection-failed-with-access-denied---cur-report-definitions"></a>Samlingen misslyckades med nekad åtkomst – CUR-rapportdefinitioner
 
@@ -175,7 +175,13 @@ Det här felet innebär att Cost Management inte kan hitta kostnads- och använd
 
 **Felkod:** _ReportIsNotValid_
 
-Det här felet gäller definitionen för kostnads- och användningsrapporten för AWS. Specifika inställningar krävs för rapporten. Dessa krav finns i [Skapa en kostnads- och användningsrapport i AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
+Det här felet gäller definitionen för kostnads- och användningsrapporten för AWS. Specifika inställningar krävs för rapporten. Dessa krav finns i [Skapa en kostnads- och användningsrapport i AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+
+### <a name="internal-error-when-creating-connector"></a>Ett internt fel uppstod när anslutningsprogrammet skulle skapas
+
+**Felkod:** _Skapa anslutningsprogram – Det gick inte att skapa anslutningsprogrammet &lt;ConnectorName&gt;. Orsak: Internt fel. Verifiera att rätt AWS-egenskaper angavs._
+
+Det här felet kan inträffa när ditt AWS-anslutningsprogram och din prenumeration finns i olika hanteringsgrupper. AWS-anslutningsprogrammet och prenumerationen måste finnas i samma hanteringsgrupp.
 
 ## <a name="next-steps"></a>Nästa steg
 

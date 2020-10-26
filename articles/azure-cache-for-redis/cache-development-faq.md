@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be2e4a002d1daf4da7d042f1fd7d5bf0e9a01377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211299"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544519"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Vanliga frågor och svar om Azure cache för Redis-utveckling
 
@@ -55,8 +55,8 @@ Vanligt vis räcker standardvärdena för-klienten. Du kan finjustera alternativ
 
 * **Antal försök**
   * I ConnectRetry och ConnectTimeout är den allmänna vägledningen att sluta fungera snabbt och försöka igen. Den här vägledningen baseras på arbets belastningen och hur lång tid det tar för din klient att utfärda ett Redis-kommando och få ett svar.
-  * Låt StackExchange. Redis återansluta automatiskt i stället för att kontrol lera anslutnings status och ansluta igen. **Undvik att använda egenskapen ConnectionMultiplexer. IsConnected**.
-  * Snowballing – ibland kan du stöta på ett problem där du försöker igen och Återförsöken Snowball och aldrig återställer. Om Snowballing inträffar bör du överväga att använda en exponentiell backoff för nya försök enligt beskrivningen i den [allmänna vägledningen för försök](../best-practices-retry-general.md) som publicerats av Microsoft patterns & Practices Group.
+  * Låt StackExchange. Redis återansluta automatiskt i stället för att kontrol lera anslutnings status och ansluta igen. **Undvik att använda egenskapen ConnectionMultiplexer. IsConnected** .
+  * Snowballing – ibland kan du stöta på ett problem där du försöker igen och Återförsöken Snowball och aldrig återställer. Om Snowballing inträffar bör du överväga att använda en exponentiell backoff för nya försök enligt beskrivningen i den [allmänna vägledningen för försök](/azure/architecture/best-practices/transient-faults) som publicerats av Microsoft patterns & Practices Group.
   
 * **Timeout-värden**
   * Överväg din arbets belastning och ange värdena efter behov. Om du lagrar stora värden anger du tids gränsen till ett högre värde.
@@ -109,7 +109,7 @@ Du kan använda något av de kommandon som anges i [Redis-kommandon](https://red
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Kommando rads verktygen för Redis fungerar inte med TLS-porten, men du kan använda ett verktyg `stunnel` för att på ett säkert sätt ansluta verktygen till TLS-porten genom att följa anvisningarna i anvisningarna i [använda kommando rads verktyget Redis med Azure cache för Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) -artikeln.
+> Kommando rads verktygen för Redis fungerar inte med TLS-porten, men du kan använda ett verktyg `stunnel` för att på ett säkert sätt ansluta verktygen till TLS-porten genom att följa anvisningarna i anvisningarna i [använda kommando rads verktyget Redis med Azure cache för Redis](./cache-how-to-redis-cli-tool.md) -artikeln.
 >
 >
 

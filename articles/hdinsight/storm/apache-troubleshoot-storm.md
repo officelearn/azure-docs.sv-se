@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: b51b2c21fd9256c93f6947386a48336af2b75d88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc08adb2f71c49fad3c8574e9cfd5315f13d7f44
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84700373"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532772"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>Felsöka Apache Storm med Azure HDInsight
 
@@ -27,8 +27,8 @@ Du har två alternativ för att komma åt Storm-ANVÄNDARGRÄNSSNITTET från en 
 ### <a name="apache-ambari-ui"></a>Apache Ambari-användargränssnitt
 
 1. Gå till Ambari-instrumentpanelen.
-2. I listan över tjänster väljer du **Storm**.
-3. I menyn **snabb länkar** väljer du **Storm UI**.
+2. I listan över tjänster väljer du **Storm** .
+3. I menyn **snabb länkar** väljer du **Storm UI** .
 
 ### <a name="direct-link"></a>Direkt länk
 
@@ -95,7 +95,7 @@ Storm-binärfiler för den aktuella HDP-stacken finns i `/usr/hdp/current/storm-
 
 Det kan finnas flera binärfiler för vissa HDP-versioner i/usr/HDP (till exempel `/usr/hdp/2.5.0.1233/storm` ). `/usr/hdp/current/storm-client`Mappen är symlinked till den senaste versionen som körs i klustret.
 
-Mer information finns i [ansluta till ett HDInsight-kluster med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) och [Apache Storm](https://storm.apache.org/).
+Mer information finns i [ansluta till ett HDInsight-kluster med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) och [Apache Storm](https://storm.apache.org/).
 
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>Hur gör jag för att du bestämma distributions sto pol Ogin för ett Storm-kluster?
 
@@ -141,7 +141,7 @@ Mer information om hur du använder Storm Event Hub kanalen. jar-filer med din t
 
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C#-baserad topologi (mono på HDInsight 3.4 + Linux Storm-kluster)
 
-[Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[Bearbeta händelser från Azure Event Hubs med Apache Storm på HDInsight (C#)](./apache-storm-develop-csharp-event-hub-topology.md)
 
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>Senaste Apache Storm-binärfiler för Event Hub för HDInsight 3.5 + Linux Storm-kluster
 
@@ -186,4 +186,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

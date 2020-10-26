@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 2fccf5431666990919faf7e6378b46c41d682437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf749f3aef10a0c67814722577f79906f447ffdb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937092"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532789"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---flexible-server"></a>Gransknings loggning i Azure Database for PostgreSQL-flexibel Server
 
@@ -57,7 +57,7 @@ Varje gransknings post anges i `AUDIT:` närheten av logg radens början. Format
 För att snabbt komma igång, ange `pgaudit.log` till `WRITE` och öppna dina Server loggar för att granska utdata. 
 
 ## <a name="viewing-audit-logs"></a>Visa gransknings loggar
-Hur du kommer åt loggarna beror på vilken slut punkt du väljer. Information om Azure Storage finns i artikeln [Logga lagrings konto](../../azure-monitor/platform/resource-logs-collect-storage.md) . Information om Event Hubs finns i artikeln [Stream Azure-loggar](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+Hur du kommer åt loggarna beror på vilken slut punkt du väljer. Information om Azure Storage finns i artikeln [Logga lagrings konto](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Information om Event Hubs finns i artikeln [Stream Azure-loggar](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
 
 För Azure Monitor loggar skickas loggar till den valda arbets ytan. Postgres-loggarna använder samlings läget **AzureDiagnostics** , så att de kan frågas från AzureDiagnostics-tabellen. Fälten i tabellen beskrivs nedan. Läs mer om frågor och aviseringar i Översikt över [Azure Monitor loggar frågor](../../azure-monitor/log-query/log-query-overview.md) .
 

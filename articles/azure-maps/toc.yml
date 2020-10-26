@@ -95,6 +95,8 @@
   items:
     - name: Hantera Maps-konton
       items:
+        - name: Skapa konto med en ARM-mall
+          href: how-to-create-template.md
         - name: Hantera konton
           href: how-to-manage-account-keys.md
         - name: Hantera autentisering

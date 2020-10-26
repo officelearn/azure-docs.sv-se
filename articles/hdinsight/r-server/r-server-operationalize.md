@@ -8,27 +8,27 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/27/2018
-ms.openlocfilehash: 1a5a46957c92fb2c14907db728216481f3f57aac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 20159cf911670eb70fd5757991c07b63b3f1776b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087698"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536274"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operationalisera ML Services-kluster på Azure HDInsight
 
 När du har använt ML Services-kluster i HDInsight för att slutföra din data modellering kan du operationalisera modellen för att göra förutsägelser. Den här artikeln innehåller anvisningar om hur du utför den här uppgiften.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* Ett ML Services-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj ml- **tjänster** för **kluster typ**.
+* Ett ML Services-kluster i HDInsight. Se [skapa Apache Hadoop kluster med Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md) och välj ml- **tjänster** för **kluster typ** .
 
 * En SSH-klient (Secure Shell): En SSH-klient används för att fjärransluta till HDInsight-klustret och köra kommandon direkt på klustret. Mer information finns i [använda SSH med HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operationalisera ML-kluster med konfiguration med en enda ruta
 
 > [!NOTE]  
-> Stegen nedan gäller för R Server 9,0 och ML Server 9,1. För ML Server 9,3, se [använda administrations verktyget för att hantera driftsättning-konfigurationen](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
+> Stegen nedan gäller för R Server 9,0 och ML Server 9,1. För ML Server 9,3, se [använda administrations verktyget för att hantera driftsättning-konfigurationen](/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH till kantnoden.
 
@@ -54,11 +54,11 @@ När du har använt ML Services-kluster i HDInsight för att slutföra din data 
         sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
         ```
 
-1. Du visas med alternativen för att välja bland. Välj det första alternativet, som du ser i följande skärm bild, för att **konfigurera ml Server för driftsättning**.
+1. Du visas med alternativen för att välja bland. Välj det första alternativet, som du ser i följande skärm bild, för att **konfigurera ml Server för driftsättning** .
 
     ![Verktyget R Server Administration Välj](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-1. Du visas nu med alternativet att välja hur du vill operationalisera ML Server. Från de visade alternativen väljer du det första genom att ange **en**.
+1. Du visas nu med alternativet att välja hur du vill operationalisera ML Server. Från de visade alternativen väljer du det första genom att ange **en** .
 
     ![R Server administrations verktyg operationalisera](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -74,7 +74,7 @@ När du har använt ML Services-kluster i HDInsight för att slutföra din data 
 
     ![Verktyget R Server Administration diagnostik](./media/r-server-operationalize/hdinsight-diagnostic1.png)
 
-    b. Välj **en**på menyn diagnostiska test. När du uppmanas till det anger du det lösen ord som du har angett för den lokala administratörs användaren.
+    b. Välj **en** på menyn diagnostiska test. När du uppmanas till det anger du det lösen ord som du har angett för den lokala administratörs användaren.
 
     ![Test av R Server administrations verktyg](./media/r-server-operationalize/hdinsight-diagnostic2.png)
 
@@ -86,7 +86,7 @@ När du har använt ML Services-kluster i HDInsight för att slutföra din data 
 
 ### <a name="long-delays-when-consuming-web-service-on-apache-spark"></a>Långa fördröjningar när webb tjänsten förbrukas på Apache Spark
 
-Om du stöter på långa fördröjningar när du försöker använda en webb tjänst som skapats med mrsdeploy-funktioner i en Apache Spark beräknings kontext kan du behöva lägga till några saknade mappar. Spark-programmet tillhör en användare som kallas '*rserve2*' när den anropas från en webbtjänst med hjälp av mrsdeploy-funktioner. Så här kan du lösa problemet:
+Om du stöter på långa fördröjningar när du försöker använda en webb tjänst som skapats med mrsdeploy-funktioner i en Apache Spark beräknings kontext kan du behöva lägga till några saknade mappar. Spark-programmet tillhör en användare som kallas ' *rserve2* ' när den anropas från en webbtjänst med hjälp av mrsdeploy-funktioner. Så här kan du lösa problemet:
 
 ```r
 # Create these required folders for user 'rserve2' in local and hdfs:
@@ -103,7 +103,7 @@ chmod 777 /var/RevoShare/rserve2
 rxSparkConnect(reset = TRUE)
 ```
 
-I det här skedet är konfigurationen för driftsättning klar. Nu kan du använda `mrsdeploy` paketet på din RClient för att ansluta till driftsättning på Edge-noden och börja använda dess funktioner som [fjärrkörning](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) och [webb tjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Beroende på om klustret är konfigurerat i ett virtuellt nätverk eller inte kan du behöva konfigurera portvidarebefordran via SSH-inloggning. I följande avsnitt beskrivs hur du konfigurerar den här tunneln.
+I det här skedet är konfigurationen för driftsättning klar. Nu kan du använda `mrsdeploy` paketet på din RClient för att ansluta till driftsättning på Edge-noden och börja använda dess funktioner som [fjärrkörning](/machine-learning-server/r/how-to-execute-code-remotely) och [webb tjänster](/machine-learning-server/operationalize/concept-what-are-web-services). Beroende på om klustret är konfigurerat i ett virtuellt nätverk eller inte kan du behöva konfigurera portvidarebefordran via SSH-inloggning. I följande avsnitt beskrivs hur du konfigurerar den här tunneln.
 
 ### <a name="ml-services-cluster-on-virtual-network"></a>ML Services-kluster i virtuellt nätverk
 
@@ -155,17 +155,17 @@ Följ dessa steg om du vill inaktivera arbetsnoder:
 
 1. Välj Worker-noder (som ska inaktive RAS).
 
-1. Klicka på **åtgärder**  >  **markerade värdar**  >  **värdar**  >  **Aktivera underhålls läge**. I bilden nedan har vi till exempel valt att inaktivera wn3 och wn4.  
+1. Klicka på **åtgärder**  >  **markerade värdar**  >  **värdar**  >  **Aktivera underhålls läge** . I bilden nedan har vi till exempel valt att inaktivera wn3 och wn4.  
 
    ![Apache Ambari aktivera underhålls läge](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Välj **åtgärder**  >  **valda värdar**  >  **DataNodes** > Klicka på **inaktivera**.
-* Välj **åtgärder**  >  **valda värdar**  >  **) nodemanagers** > Klicka på **inaktivera**.
-* Välj **åtgärder**  >  **valda värdar**  >  **DataNodes** > Klicka på **stoppa**.
-* Välj **åtgärder**  >  **valda värdar**  >  **) nodemanagers** > Klicka på **stoppa**.
-* Välj **åtgärder**som är  >  **markerade värdar**  >  **värdar** > Klicka på **stoppa alla komponenter**.
+* Välj **åtgärder**  >  **valda värdar**  >  **DataNodes** > Klicka på **inaktivera** .
+* Välj **åtgärder**  >  **valda värdar**  >  **) nodemanagers** > Klicka på **inaktivera** .
+* Välj **åtgärder**  >  **valda värdar**  >  **DataNodes** > Klicka på **stoppa** .
+* Välj **åtgärder**  >  **valda värdar**  >  **) nodemanagers** > Klicka på **stoppa** .
+* Välj **åtgärder** som är  >  **markerade värdar**  >  **värdar** > Klicka på **stoppa alla komponenter** .
 * Avmarkera arbetsnoderna och markera huvudnoderna.
-* Välj **åtgärder**  >  **valda värdar** > "**värdar**  >  **starta om alla komponenter**.
+* Välj **åtgärder**  >  **valda värdar** > " **värdar**  >  **starta om alla komponenter** .
 
 ### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Steg 2: Konfigurera Compute-noder på varje inaktive rad arbetsnoder
 
@@ -177,7 +177,7 @@ Följ dessa steg om du vill inaktivera arbetsnoder:
     dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
     ```
 
-1. Ange **1** om du vill välja alternativ **Konfigurera ml Server för driftsättning**.
+1. Ange **1** om du vill välja alternativ **Konfigurera ml Server för driftsättning** .
 
 1. Välj alternativet **C** för att välja `C. Compute node` . Då konfigureras beräkningsnoden på arbetsnoden.
 

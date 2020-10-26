@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
-ms.openlocfilehash: 615e23dc388f36f5ae1cd7e0d846acc14ffa2236
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cfc2abad828a3974c04074a4cde062a479f673f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086423"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533571"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Övervaka kluster tillgänglighet med Apache Ambari i Azure HDInsight
 
@@ -62,7 +62,6 @@ Ambari erbjuder många fördefinierade aviseringar relaterade till tillgängligh
 | Procent Journalnodes available tillgängliga    | Den här aviseringen utlöses om antalet Journalnodes available i klustret är större än det konfigurerade kritiska tröskelvärdet. Den sammanställer resultaten av JournalNode process-kontroller. |
 | Procent DataNodes tillgängliga       | Den här aviseringen utlöses om antalet DataNodes i klustret är större än det konfigurerade kritiska tröskelvärdet. Den sammanställer resultaten av DataNode process-kontroller.|
 
-En fullständig lista över Ambari-aviseringar som hjälper dig att övervaka tillgängligheten för ett kluster finns [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-high-availability-linux#ambari-web-ui),
 
 Om du vill visa information om en avisering eller ändra kriterier väljer du **namnet** på aviseringen. Ta **DataNode Health Summary** som ett exempel. Du kan se en beskrivning av aviseringen samt de villkor som utlöser en varnings avisering eller kritisk avisering och kontroll intervallet för kriterierna. Om du vill redigera konfigurationen väljer du knappen **Redigera** i det övre högra hörnet i rutan konfiguration.
 
@@ -87,7 +86,7 @@ En dialog ruta för att hantera aviseringar öppnas. Välj längst **+** ned i d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight](hdinsight-high-availability-linux.md)
+- [Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight](./hdinsight-business-continuity.md)
 - [Klustertillgänglighet – Azure Monitor-loggar](./cluster-availability-monitor-logs.md)
 - [Använda Azure Monitor loggar](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 - [E-postaviseringar med Apache Ambari](apache-ambari-email.md)

@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: bd2f91a697fffa1ef83f5173a394686245cf9826
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488919"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544842"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Meddelande om planerat underhåll i Azure Database for MySQL-enskild server
 
@@ -46,22 +46,22 @@ Du kan antingen kontrol lera den planerade underhålls aviseringen på Azure Por
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Kontrol lera planerat underhålls meddelande från Azure Portal
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **service Health**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **service Health** .
 2. Fliken Välj **planerat underhåll**
-3. Välj **prenumeration**, * * region och **tjänst** för vilken du vill kontrol lera aviseringen om planerat underhåll. 
+3. Välj **prenumeration** , * * region och **tjänst** för vilken du vill kontrol lera aviseringen om planerat underhåll. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>För att få ett meddelande om planerat underhåll
 
-1. I [portalen](https://portal.azure.com)väljer du **service Health**.
-2. I avsnittet **aviseringar** väljer du **hälso aviseringar**.
+1. I [portalen](https://portal.azure.com)väljer du **service Health** .
+2. I avsnittet **aviseringar** väljer du **hälso aviseringar** .
 3. Välj **+ Lägg till tjänstens hälso tillstånds avisering** och fyll i fälten.
 4. Fyll i de obligatoriska fälten. 
-5. Välj **händelse typ**, Välj **planerat underhåll** eller **Välj alla**
+5. Välj **händelse typ** , Välj **planerat underhåll** eller **Välj alla**
 6. I **Åtgärds grupper** definierar du hur du vill få aviseringen (få ett e-postmeddelande, utlösa en Logic app osv.)  
 7. Se till att aktivera regel vid skapande har angetts till Ja.
 8. Välj **skapa aviserings regel** för att slutföra aviseringen
 
-Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar**finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications.md).
+Detaljerade anvisningar om hur du skapar **tjänstens hälso aviseringar** finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../service-health/alerts-activity-log-service-notifications-portal.md).
 
 ## <a name="can-i-cancel-or-postpone-planned-maintenance"></a>Kan jag avbryta eller skjuta upp planerat underhåll?
 

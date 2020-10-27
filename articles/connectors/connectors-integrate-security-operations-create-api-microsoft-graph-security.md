@@ -9,12 +9,12 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5842c5f3130b39f75b5339274b84feb2e0f283f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986376"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547103"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Förbättra hot skyddet genom att integrera säkerhets åtgärder med Microsoft Graph säkerhets & Azure Logic Apps
 
@@ -64,11 +64,11 @@ Mer information om Microsoft Graph säkerhet finns i [Översikt över Microsoft 
 
    \- eller -
 
-   För befintliga Logi Kap par, under det sista steget där du vill lägga till en Microsoft Graph säkerhets åtgärd väljer du **nytt steg**.
+   För befintliga Logi Kap par, under det sista steget där du vill lägga till en Microsoft Graph säkerhets åtgärd väljer du **nytt steg** .
 
    \- eller -
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (+) som visas och välj **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (+) som visas och välj **Lägg till en åtgärd** .
 
 1. Skriv "Microsoft Graph Security" som filter i rutan Sök. Välj den åtgärd du vill använda i listan åtgärder.
 
@@ -93,13 +93,13 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde när nya av
 
    | Egenskap | Egenskap (JSON) | Krävs | Typ | Beskrivning |
    |----------|-----------------|----------|------|-------------|
-   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p><p>– Månad: 1-16 månader <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
-   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
-   | **Tidszon** | `timeZone` | Inga | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
-   | **Start tid** | `startTime` | Inga | Sträng | Ange start datum och-tid i följande format: <p><p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>\- eller - <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill att 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **Intervall** | `interval` | Yes | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p><p>– Månad: 1-16 månader <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
+   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund** , **minut** , **timme** , **dag** , **vecka** eller **månad** |
+   | **Tidszon** | `timeZone` | Nej | Sträng | Gäller endast när du anger en start tid eftersom den här utlösaren inte accepterar [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Välj den tidszon som du vill använda. |
+   | **Start tid** | `startTime` | Nej | Sträng | Ange start datum och-tid i följande format: <p><p>ÅÅÅÅ-MM-DDThh: mm: SS om du väljer en tidszon <p>\- eller - <p>ÅÅÅÅ-MM-DDThh: mm: ssZ om du inte väljer en tidszon <p>Om du till exempel vill att 18 september 2017 på 2:00 PM anger du "2017-09-18T14:00:00" och väljer en tidszon som Pacific, normal tid. Eller ange "2017-09-18T14:00:00Z" utan en tidszon. <p>**Obs:** Den här start tiden har högst 49 år i framtiden och måste följa [8601 ISO-tiden för datum/tid](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) i [UTC-datum format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), men utan en [UTC-förskjutning](https://en.wikipedia.org/wiki/UTC_offset). Om du inte väljer en tidszon måste du lägga till bokstaven "Z" i slutet utan blank steg. Detta "Z" avser motsvarande [nautiska tid](https://en.wikipedia.org/wiki/Nautical_time). <p>För enkla scheman är start tiden den första förekomsten, medan utlösaren i komplexa scheman inte utlöses tidigare än start tiden. [*Hur kan jag använda start datum och-tid?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
-1.  När du är klar väljer du **Spara**i verktygsfältet designer.
+1.  När du är klar väljer du **Spara** i verktygsfältet designer.
 
 1.  Fortsätt nu att lägga till en eller flera åtgärder i din Logic app för de uppgifter som du vill utföra med utlösnings resultaten.
 
@@ -142,19 +142,19 @@ Om du vill filtrera, sortera eller få de senaste resultaten anger du *bara* [OD
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-Mer information om de frågor som du kan använda med den här anslutnings tjänsten finns [i "valfria frågeparametrar" i referens dokumentationen för Microsoft Graph Security Threat Intelligence-indikator](/graph/api/tiindicators-list?tabs=http&view=graph-rest-beta). Om du vill bygga förbättrade upplevelser med den här anslutningen kan du läsa mer om den [schema egenskaper Hot information-indikator](/graph/api/resources/tiindicator?view=graph-rest-beta) som stöds av Connector.
+Mer information om de frågor som du kan använda med den här anslutnings tjänsten finns [i "valfria frågeparametrar" i referens dokumentationen för Microsoft Graph Security Threat Intelligence-indikator](/graph/api/tiindicators-list). Om du vill bygga förbättrade upplevelser med den här anslutningen kan du läsa mer om den [schema egenskaper Hot information-indikator](/graph/api/resources/tiindicator) som stöds av Connector.
 
 | Åtgärd | Beskrivning |
 |--------|-------------|
-| **Hämta hot informations indikatorer** | Hämta tiIndicators filtreras baserat på en eller flera [tiIndicator-egenskaper](/graph/api/resources/tiindicator?view=graph-rest-beta), till exempel `threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **Hämta hot informations indikatorer** | Hämta tiIndicators filtreras baserat på en eller flera [tiIndicator-egenskaper](/graph/api/resources/tiindicator), till exempel `threatType eq 'MaliciousUrl' or 'DDoS'` |
 | **Hämta Hot information-indikator efter ID** | Hämta en speciell tiIndicator baserat på tiIndicator-ID: t. | 
-| **Skapa hot informations indikator** | Skapa en ny tiIndicator genom att publicera i tiIndicators-samlingen. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [egenskaper som krävs för att skapa tiIndicator](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
-| **Skicka flera hot informations indikatorer** | Skapa flera nya tiIndicators genom att publicera en tiIndicators-samling. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [egenskaper som krävs för att skicka flera tiIndicators](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |
-| **Uppdatera hot informations indikator** | Uppdatera en speciell tiIndicator baserat på tiIndicator-ID: t. För att se till att du överför de nödvändiga och redigerbara egenskaperna i din begäran, se de [redigerbara egenskaperna för tiIndicator](/graph/api/tiindicator-update?tabs=http&view=graph-rest-beta). Om du till exempel vill uppdatera åtgärden som ska tillämpas om indikatorn matchas från säkerhets verktyget targetProduct, kan du uppdatera tiIndicator- **åtgärdens** egenskap. |
-| **Uppdatera flera hot informations indikatorer** | Uppdatera flera tiIndicators. För att se till att du överför de nödvändiga egenskaperna i din begäran, se de [obligatoriska egenskaperna för att uppdatera flera tiIndicators](/graph/api/tiindicator-updatetiindicators?tabs=http&view=graph-rest-beta). |
+| **Skapa hot informations indikator** | Skapa en ny tiIndicator genom att publicera i tiIndicators-samlingen. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [egenskaper som krävs för att skapa tiIndicator](/graph/api/tiindicators-post). |
+| **Skicka flera hot informations indikatorer** | Skapa flera nya tiIndicators genom att publicera en tiIndicators-samling. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [egenskaper som krävs för att skicka flera tiIndicators](/graph/api/tiindicator-submittiindicators). |
+| **Uppdatera hot informations indikator** | Uppdatera en speciell tiIndicator baserat på tiIndicator-ID: t. För att se till att du överför de nödvändiga och redigerbara egenskaperna i din begäran, se de [redigerbara egenskaperna för tiIndicator](/graph/api/tiindicator-update). Om du till exempel vill uppdatera åtgärden som ska tillämpas om indikatorn matchas från säkerhets verktyget targetProduct, kan du uppdatera tiIndicator- **åtgärdens** egenskap. |
+| **Uppdatera flera hot informations indikatorer** | Uppdatera flera tiIndicators. För att se till att du överför de nödvändiga egenskaperna i din begäran, se de [obligatoriska egenskaperna för att uppdatera flera tiIndicators](/graph/api/tiindicator-updatetiindicators). |
 | **Ta bort hot informations indikator efter ID** | Ta bort en speciell tiIndicator baserat på tiIndicator-ID: t. |
-| **Ta bort flera hot informations indikatorer utifrån ID: n** | Ta bort flera tiIndicators med deras ID. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [obligatoriska egenskaperna för att ta bort flera tiIndicators med ID: n](/graph/api/tiindicator-deletetiindicators?tabs=http&view=graph-rest-beta). |
-| **Ta bort flera hot informations indikatorer med externa ID: n** | Ta bort flera tiIndicators med de externa ID: na. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [obligatoriska egenskaperna för att ta bort flera tiIndicators med externa ID: n](/graph/api/tiindicator-deletetiindicatorsbyexternalid?tabs=http&view=graph-rest-beta). |
+| **Ta bort flera hot informations indikatorer utifrån ID: n** | Ta bort flera tiIndicators med deras ID. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [obligatoriska egenskaperna för att ta bort flera tiIndicators med ID: n](/graph/api/tiindicator-deletetiindicators). |
+| **Ta bort flera hot informations indikatorer med externa ID: n** | Ta bort flera tiIndicators med de externa ID: na. För att se till att du skickar de nödvändiga egenskaperna i din begäran, se de [obligatoriska egenskaperna för att ta bort flera tiIndicators med externa ID: n](/graph/api/tiindicator-deletetiindicatorsbyexternalid). |
 |||
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp

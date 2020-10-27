@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
-ms.openlocfilehash: 5c5c7a5adae9891f764f714d1700c6024376de02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15c7ed4ca9d04e4bb314eea8b92bef749d2369b1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205382"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537668"
 ---
 # <a name="azure-cache-for-redis-management-faqs"></a>Vanliga frågor och svar om Azure cache för Redis Management
 Den här artikeln innehåller svar på vanliga frågor om hur du hanterar Azure cache för Redis.
@@ -63,7 +63,7 @@ Instruktioner för hur du hämtar Redis-verktygen finns i avsnittet [Hur kan jag
 * Den virtuella klient datorn som används för testning ska finnas i samma region som Azure-cachen för Redis-instansen.
 * Vi rekommenderar att du använder Dv2 VM-serien för din klient eftersom de har bättre maskin vara och ger bästa möjliga resultat.
 * Kontrol lera att den virtuella klient datorn du väljer har minst lika mycket data behandlings-och bandbredds kapacitet som det cacheminne som du testar.
-* Aktivera VRSS på klient datorn om du använder Windows. [Mer information finns här](https://technet.microsoft.com/library/dn383582.aspx).
+* Aktivera VRSS på klient datorn om du använder Windows. [Mer information finns här](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).
 * Redis-instanser på Premium-nivå har bättre nätverks svars tid och data flöde eftersom de körs på bättre maskin vara för både CPU och nätverk.
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Vad är några av överväganden när du använder vanliga Redis-kommandon?
@@ -142,9 +142,9 @@ Så här konfigurerar du den här inställningen:
     ```
 
     > [!NOTE]
-    > Värdet som anges av den här metoden är en global inställning som påverkar hela AppDomain. Om du till exempel har en dator med 4 kärnor och vill ställa in *minWorkerThreads* och *minIoThreads* på 50 per processor under körningen använder du **trådpool. SetMinThreads (200, 200)**.
+    > Värdet som anges av den här metoden är en global inställning som påverkar hela AppDomain. Om du till exempel har en dator med 4 kärnor och vill ställa in *minWorkerThreads* och *minIoThreads* på 50 per processor under körningen använder du **trådpool. SetMinThreads (200, 200)** .
 
-* Du kan också ange minsta antal trådar genom att använda [konfigurations inställningen *MinIoThreads* eller *minWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) under `<processModel>` konfigurations elementet i, som `Machine.config` vanligt vis finns på `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **Att ställa in antalet minsta trådar på det här sättet rekommenderas vanligt vis inte, eftersom det är en systemtäckande inställning.**
+* Du kan också ange minsta antal trådar genom att använda [konfigurations inställningen *MinIoThreads* eller *minWorkerThreads*](/previous-versions/dotnet/netframework-4.0/7w2sway1(v=vs.100)) under `<processModel>` konfigurations elementet i, som `Machine.config` vanligt vis finns på `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **Att ställa in antalet minsta trådar på det här sättet rekommenderas vanligt vis inte, eftersom det är en systemtäckande inställning.**
 
   > [!NOTE]
   > Värdet som anges i det här konfigurations elementet är en inställning *per kärna* . Om du till exempel har en dator med 4 kärnor och vill att *minIoThreads* -inställningen ska vara 200 vid körning använder du `<processModel minIoThreads="50"/>` .

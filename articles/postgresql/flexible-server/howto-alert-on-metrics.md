@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d3d5ced5860c14e9e4d522c42ffd0bc71341a9c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac252c3898eb014885bf9a6bf6bdedb7db74fb62
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941380"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545845"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---flexible-server"></a>Använd Azure Portal för att ställa in aviseringar för mått för Azure Database for PostgreSQL flexibel Server
 
@@ -30,9 +30,9 @@ Du kan konfigurera en avisering för att utföra följande åtgärder när den u
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
-* [Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#create-with-azure-portal)
-* [Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric#with-azure-cli)
-* [REST-API:et för Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricalerts)
+* [Azure-portalen](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [REST-API:et för Azure Monitor](/rest/api/monitor/metricalerts)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Skapa en varnings regel för ett mått från Azure Portal
 
@@ -48,13 +48,13 @@ Du kan konfigurera och hämta information om aviserings regler med hjälp av:
 
    :::image type="content" source="./media/howto-alert-on-metrics/4-add-rule-form.png" alt-text="Välj aviserings regler":::
 
-5. I avsnittet **villkor** väljer du **Lägg till villkor**.
+5. I avsnittet **villkor** väljer du **Lägg till villkor** .
 
 6. Välj ett mått i listan över signaler att bli aviserad om. I det här exemplet väljer du "lagrings procent".
 
    :::image type="content" source="./media/howto-alert-on-metrics/6-configure-signal-logic.png" alt-text="Välj aviserings regler":::
 
-7. Konfigurera aviserings logiken inklusive **villkoret** (t. ex. "Större än"), **tröskel** (t. ex. 85 procent), **tids agg regering** **, tids mängd som mått** regeln måste vara nöjd innan aviserings utlösare (t. ex. "Under de senaste 30 minuterna") och **frekvens**.
+7. Konfigurera aviserings logiken inklusive **villkoret** (t. ex. "Större än"), **tröskel** (t. ex. 85 procent), **tids agg regering** **, tids mängd som mått** regeln måste vara nöjd innan aviserings utlösare (t. ex. "Under de senaste 30 minuterna") och **frekvens** .
 
    Välj **klar** när du är klar.
 
@@ -84,5 +84,5 @@ När du har skapat en avisering kan du välja den och utföra följande åtgärd
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om hur du [konfigurerar Webhooks i aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-webhooks).
-* Få en [Översikt över mått samlingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-how-to-customize-monitoring) för att se till att tjänsten är tillgänglig och svarar.
+* Läs mer om hur du [konfigurerar Webhooks i aviseringar](../../azure-monitor/platform/alerts-webhooks.md).
+* Få en [Översikt över mått samlingen](../../azure-monitor/platform/data-platform.md) för att se till att tjänsten är tillgänglig och svarar.

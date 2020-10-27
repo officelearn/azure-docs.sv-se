@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/11/2020
-ms.openlocfilehash: 452a3b04637126b40aca907178bebd6f74ec4481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86d951089e4247d9b959476c812b98e170d92bd8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365804"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547987"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Använda Enterprise Security Package i HDInsight
 
@@ -57,7 +57,7 @@ Mer information finns i [Konfigurera HDInsight-kluster med ESP med hjälp av Azu
 
 Om du har en lokal Active Directory instans eller mer komplexa Active Directory-inställningar för din domän kan du synkronisera dessa identiteter med Azure AD med hjälp av Azure AD Connect. Du kan sedan aktivera Azure AD DS på den Active Directory klienten.
 
-Eftersom Kerberos förlitar sig på lösen ords-hashar måste du [aktivera hash-synkronisering av lösen ord på Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
+Eftersom Kerberos förlitar sig på lösen ords-hashar måste du [aktivera hash-synkronisering av lösen ord på Azure AD DS](../../active-directory-domain-services/tutorial-create-instance.md).
 
 Om du använder Federation med Active Directory Federation Services (AD FS) (AD FS) måste du aktivera hash-synkronisering av lösen ord. (För en rekommenderad installation, se [den här videon](https://youtu.be/qQruArbu2Ew).) Hash-synkronisering av lösen ord hjälper till med haveri beredskap, vilket innebär att din AD FS-infrastruktur Miss lyckas, och det ger även läckt skydd. Mer information finns i [aktivera hash-synkronisering av lösen ord med Azure AD Connect Sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
@@ -65,7 +65,7 @@ Att använda lokala Active Directory eller Active Directory endast på virtuella
 
 Om Federation används och lösen ordets hash-värden synkroniseras korrekt, men du får autentiseringsfel, kontrollerar du om Cloud Password Authentication har Aktiver ATS för PowerShell-tjänstens huvud namn. Om inte, måste du ange en [HRD-princip (Home sfär Discovery)](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) för din Azure AD-klient. För att kontrol lera och ange HRD-principen:
 
-1. Installera för hands versionen av [Azure AD PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
+1. Installera för hands versionen av [Azure AD PowerShell-modulen](/powershell/azure/active-directory/install-adv2).
 
    ```powershell
    Install-Module AzureAD

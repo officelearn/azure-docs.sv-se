@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/26/2019
-ms.openlocfilehash: 28a97edcbe84ae63a3d3d0cad2b9275c672f5664
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5864a5de8ddec60f2072a28827a870c83ece8b9d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86082283"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546049"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Kombinera scaler och Sparkr i HDInsight
 
-Det här dokumentet visar hur du förutsäger fördröjningar i flygningen med en modell för **skalnings** -logistik regression. Exemplet använder flyg fördröjning och väder data som anslöts med **sparker**.
+Det här dokumentet visar hur du förutsäger fördröjningar i flygningen med en modell för **skalnings** -logistik regression. Exemplet använder flyg fördröjning och väder data som anslöts med **sparker** .
 
 Även om båda paketen körs på Apache Hadoops Spark-körnings motor blockeras de från data delning i minnet eftersom de kräver sina egna respektive Spark-sessioner. Tills det här problemet har åtgärd ATS i en kommande version av ML Server, är lösningen att underhålla Spark-sessioner som inte överlappar och för att utbyta data via mellanliggande filer. Anvisningarna här visar att dessa krav är enkla att uppnå.
 
@@ -25,7 +25,7 @@ Det här exemplet delade först i en prata vid Strata 2016 av Mario Inchiosa och
 
 Koden skrevs ursprungligen för ML Server som körs i spark i ett HDInsight-kluster på Azure. Men begreppet att blanda användningen av sparker och scaler i ett skript är också giltigt i samband med lokala miljöer.
 
-Stegen i det här dokumentet förutsätter att du har en mellanliggande kunskap om R och är [skalnings](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) bibliotek för ml Server. Du introduceras i [sparker](https://spark.apache.org/docs/2.1.0/sparkr.html) och går igenom det här scenariot.
+Stegen i det här dokumentet förutsätter att du har en mellanliggande kunskap om R och är [skalnings](/machine-learning-server/r/concept-what-is-revoscaler) bibliotek för ml Server. Du introduceras i [sparker](https://spark.apache.org/docs/2.1.0/sparkr.html) och går igenom det här scenariot.
 
 ## <a name="the-airline-and-weather-datasets"></a>Data uppsättningarna flyg och väder
 
@@ -535,7 +535,7 @@ I den här artikeln har vi visat hur det är möjligt att kombinera användninge
 
 ## <a name="next-steps-and-more-information"></a>Nästa steg och mer information
 
-- Mer information om hur du använder ML Server på Apache Spark finns i [komma igång-guiden](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
+- Mer information om hur du använder ML Server på Apache Spark finns i [komma igång-guiden](/machine-learning-server/r/how-to-revoscaler-spark).
 
 - Information om ML-tjänster i HDInsight finns i [Översikt över ml-tjänster i HDInsight](r-server/r-server-overview.md).
 
@@ -543,4 +543,4 @@ Mer information om hur du använder Spark finns i:
 
 - [Apache sparker-dokument](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [Sparker-översikt](https://docs.databricks.com/spark/latest/sparkr/overview.html) från Databricks.
+- [Sparker-översikt](/azure/databricks/spark/latest/sparkr/overview)

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 2149d069ce9cb0b636e461d19963f413b162bc9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e96c73578a9341f67d90cd4482ed75179c6886d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010896"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537532"
 ---
 # <a name="azure-cache-for-redis-monitoring-and-troubleshooting-faqs"></a>Azure cache för Redis-övervakning och fel sökning av vanliga frågor och svar
 Den här artikeln innehåller svar på vanliga frågor om hur du övervakar och felsöker Azure cache för Redis.
@@ -29,7 +29,7 @@ Microsoft Azure cache för Redis-instanser kan övervakas i [Azure Portal](https
 **Resurs menyn** i Azure cache för Redis innehåller också flera verktyg för att övervaka och felsöka dina cacheminnen.
 
 * **Diagnostisera och lösa problem** innehåller information om vanliga problem och strategier för att lösa dem.
-* **Resource Health** bevakar din resurs och meddelar dig om den körs som förväntat. Mer information om Azure Resource Health Service finns i [Översikt över Azure Resource Health](../resource-health/resource-health-overview.md).
+* **Resource Health** bevakar din resurs och meddelar dig om den körs som förväntat. Mer information om Azure Resource Health Service finns i [Översikt över Azure Resource Health](../service-health/resource-health-overview.md).
 * Den **nya support förfrågan** innehåller alternativ för att öppna en supportbegäran för din cache.
 
 Med de här verktygen kan du övervaka Azure-cachens hälso tillstånd för Redis-instanser och hjälpa dig att hantera dina cachelagring-program. Mer information finns i avsnittet "support & fel söknings inställningar" i [så här konfigurerar du Azure cache för Redis](cache-configure.md).

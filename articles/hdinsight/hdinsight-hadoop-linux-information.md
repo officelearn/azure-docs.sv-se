@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 1b3c694b4d6134f30d04ba8bafee9a6ffabdd959
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0f0073c72c28395d89cec74a489cbc36a8f3ffe7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488120"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546117"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -24,9 +24,9 @@ Azure HDInsight-kluster ger Apache Hadoop på en välbekant Linux-miljö, som k�
 Många av stegen i det här dokumentet använder följande verktyg, som kan behöva installeras i systemet.
 
 * [sväng](https://curl.haxx.se/) -används för att kommunicera med webbaserade tjänster.
-* **JQ**, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
+* **JQ** , en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 * [Azure CLI](/cli/azure/install-azure-cli) – används för att fjärrhantera Azure-tjänster.
-* **En SSH-klient**. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+* **En SSH-klient** . Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="users"></a>Användare
 
@@ -81,7 +81,7 @@ Det här kommandot returnerar ett JSON-dokument som beskriver tjänsten och häm
     >
     > Autentisering är klartext – Använd alltid HTTPS för att säkerställa att anslutningen är säker.
 
-* **SSH** -CLUSTERNAME-SSH.azurehdinsight.net på port 22 eller 23. Port 22 används för att ansluta till den primära huvudnoden, medan 23 används för att ansluta till den sekundära. Mer information om huvudnoderna finns i [tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight](hdinsight-high-availability-linux.md).
+* **SSH** -CLUSTERNAME-SSH.azurehdinsight.net på port 22 eller 23. Port 22 används för att ansluta till den primära huvudnoden, medan 23 används för att ansluta till den sekundära. Mer information om huvudnoderna finns i [tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight](./hdinsight-business-continuity.md).
 
     > [!NOTE]  
     > Du kan bara komma åt kluster huvud-noder via SSH från en klient dator. När du är ansluten kan du sedan komma åt arbetsnoderna med hjälp av SSH från en huvudnoden.
@@ -92,8 +92,8 @@ Mer information finns i [portarna som används av Apache Hadoop Services i HDIns
 
 Hadoop-relaterade filer hittar du på klusternoderna på `/usr/hdp` . Den här katalogen innehåller följande under kataloger:
 
-* **2.6.5.3009 – 43**: Katalog namnet är den version av Hadoop-plattformen som används av HDInsight. Antalet på klustret kan vara ett annat än det som anges här.
-* **aktuell**: den här katalogen innehåller länkar till under kataloger i **2.6.5.3009-43-** katalogen. Katalogen finns så att du inte behöver komma ihåg versions numret.
+* **2.6.5.3009 – 43** : Katalog namnet är den version av Hadoop-plattformen som används av HDInsight. Antalet på klustret kan vara ett annat än det som anges här.
+* **aktuell** : den här katalogen innehåller länkar till under kataloger i **2.6.5.3009-43-** katalogen. Katalogen finns så att du inte behöver komma ihåg versions numret.
 
 Du hittar exempel data och JAR-filer på Hadoop Distributed File System på `/example` och `/HdiSamples` .
 
@@ -183,13 +183,13 @@ Du kan också hitta lagrings informationen med hjälp av Azure Portal med hjälp
 
 1. Välj ditt HDInsight-kluster från [Azure Portal](https://portal.azure.com/).
 
-2. I avsnittet **Egenskaper** väljer du **lagrings konton**. Lagrings informationen för klustret visas.
+2. I avsnittet **Egenskaper** väljer du **lagrings konton** . Lagrings informationen för klustret visas.
 
 ### <a name="how-do-i-access-files-from-outside-hdinsight"></a>Hur gör jag för att komma åt filer från externa HDInsight
 
 Det finns olika sätt att komma åt data utanför HDInsight-klustret. Följande är några länkar till verktyg och SDK: er som kan användas för att arbeta med dina data:
 
-Om du använder __Azure Blob Storage__kan du läsa följande länkar för hur du kan komma åt dina data:
+Om du använder __Azure Blob Storage__ kan du läsa följande länkar för hur du kan komma åt dina data:
 
 * [Azure CLI](/cli/azure/install-az-cli2): Command-Line gränssnitts kommandon för att arbeta med Azure. När du har installerat använder du `az storage` kommandot för att få hjälp med att använda lagring, eller `az storage blob` för BLOB-/regionsspecifika kommandon.
 * [blobxfer.py](https://github.com/Azure/blobxfer): ett Python-skript för att arbeta med blobbar i Azure Storage.
@@ -201,9 +201,9 @@ Om du använder __Azure Blob Storage__kan du läsa följande länkar för hur du
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
-    * [Lagring REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
+    * [Lagring REST API](/rest/api/storageservices/Blob-Service-REST-API)
 
-Om du använder __Azure Data Lake Storage gen1__, se följande länkar för hur du kan komma åt dina data:
+Om du använder __Azure Data Lake Storage gen1__ , se följande länkar för hur du kan komma åt dina data:
 
 * [Webbläsare](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
@@ -245,7 +245,7 @@ Om du vill använda en annan version av en komponent laddar du upp den version d
 > [!IMPORTANT]
 > Komponenter som ingår i HDInsight-klustret stöds fullt ut och Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Detta kan resultera i att lösa problemet eller be dig att engagera tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, till exempel: [Microsoft Q&en fråge sida för HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Apache-projekt har även projekt webbplatser på [https://apache.org](https://apache.org) , till exempel: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Detta kan resultera i att lösa problemet eller be dig att engagera tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, till exempel: [Microsoft Q&en fråge sida för HDInsight](/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Apache-projekt har även projekt webbplatser på [https://apache.org](https://apache.org) , till exempel: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: 37fdf863d29015bba7015fcff1ae49a34aebd785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2e59b35a30bd838eab2b05dcacf83d8b2c21236
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462283"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540405"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Vad är Apache Hive och HiveQL på Azure HDInsight?
 
@@ -72,14 +72,14 @@ Mer information om fil format som stöds av Hive finns i [språk hand boken ( ht
 
 Det finns två typer av tabeller som du kan skapa med Hive:
 
-* __Internt__: data lagras i data lagret för Hive. Informations lagret finns `/hive/warehouse/` på standard lagrings utrymmet för klustret.
+* __Internt__ : data lagras i data lagret för Hive. Informations lagret finns `/hive/warehouse/` på standard lagrings utrymmet för klustret.
 
     Använd interna tabeller när något av följande villkor gäller:
 
     * Data är temporära.
     * Du vill att Hive ska hantera livs cykeln för tabellen och data.
 
-* __Externt__: data lagras utanför data lagret. Data kan lagras på alla lagrings enheter som är tillgängliga för klustret.
+* __Externt__ : data lagras utanför data lagret. Data kan lagras på alla lagrings enheter som är tillgängliga för klustret.
 
     Använd externa tabeller när något av följande villkor gäller:
 
@@ -88,11 +88,11 @@ Det finns två typer av tabeller som du kan skapa med Hive:
     * Du behöver en anpassad plats, till exempel ett lagrings konto som inte är standard.
     * Ett annat program än Hive hanterar data formatet, platsen och så vidare.
 
-Mer information finns i blogg inlägget om [interna och externa tabeller i Hive](https://blogs.msdn.microsoft.com/cindygross/2013/02/05/hdinsight-hive-internal-and-external-tables-intro/) .
+Mer information finns i blogg inlägget om [interna och externa tabeller i Hive](/archive/blogs/cindygross/hdinsight-hive-internal-and-external-tables-intro) .
 
 ## <a name="user-defined-functions-udf"></a>Användardefinierade funktioner (UDF)
 
-Hive kan också utökas genom **användardefinierade funktioner (UDF)**. Med en UDF kan du implementera funktioner eller logik som inte är lätt att modellera i HiveQL. Ett exempel på hur du använder UDF: er med Hive finns i följande dokument:
+Hive kan också utökas genom **användardefinierade funktioner (UDF)** . Med en UDF kan du implementera funktioner eller logik som inte är lätt att modellera i HiveQL. Ett exempel på hur du använder UDF: er med Hive finns i följande dokument:
 
 * [Använd en användardefinierad Java-funktion med Apache Hive](../hadoop/apache-hadoop-hive-java-udf.md)
 
@@ -100,7 +100,7 @@ Hive kan också utökas genom **användardefinierade funktioner (UDF)**. Med en 
 
 * [Använd en C#-användardefinierad funktion med Apache Hive](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Så här lägger du till en anpassad Apache Hive användardefinierad funktion i HDInsight](https://docs.microsoft.com/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
+* [Så här lägger du till en anpassad Apache Hive användardefinierad funktion i HDInsight](/archive/blogs/bigdatasupport/how-to-add-custom-hive-udfs-to-hdinsight)
 
 * [Ett exempel Apache Hive användardefinierad funktion för att konvertera datum-/tids format till Hive-tidsstämpel](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
@@ -133,11 +133,11 @@ I föregående exempel utför HiveQL-instruktionerna följande åtgärder:
 
 |Uttryck |Beskrivning |
 |---|---|
-|TA BORT TABELL|Om tabellen redan finns tar du bort den.|
+|DROP TABLE|Om tabellen redan finns tar du bort den.|
 |SKAPA EXTERN TABELL|Skapar en ny **extern** tabell i Hive. Externa tabeller lagrar bara tabell definitionen i Hive. Data placeras kvar på den ursprungliga platsen och i det ursprungliga formatet.|
 |RAD FORMAT|Anger Hive hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.|
 |LAGRAD SOM TEXTFILE-PLATS|Anger Hive var data lagras ( `example/data` katalogen) och lagras som text. Data kan finnas i en fil eller spridas över flera filer i katalogen.|
-|VÄLJ|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]**. Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
+|SELECT|Väljer ett antal rader där kolumnen **T4** innehåller värdet **[Error]** . Den här instruktionen returnerar värdet **3** eftersom det finns tre rader som innehåller det här värdet.|
 |INPUT__FILE__NAME som%. log|Hive försöker tillämpa schemat på alla filer i katalogen. I det här fallet innehåller katalogen filer som inte matchar schemat. För att förhindra skräp data i resultaten anger den här instruktionen Hive att vi bara ska returnera data från filer som slutar med. log.|
 
 > [!NOTE]  
@@ -197,11 +197,11 @@ Azure Data Factory gör att du kan använda HDInsight som en del av en Data Fact
 
 Du kan använda SQL Server Integration Services (SSIS) för att köra ett Hive-jobb. Azure Feature Pack för SSIS innehåller följande komponenter som fungerar med Hive-jobb i HDInsight.
 
-* [Azure HDInsight Hive-uppgift](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Azure HDInsight Hive-uppgift](/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
-* [Anslutnings hanteraren för Azure-prenumeration](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
+* [Anslutnings hanteraren för Azure-prenumeration](/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
-Mer information finns i dokumentationen till [Azure Feature Pack](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis) .
+Mer information finns i dokumentationen till [Azure Feature Pack](/sql/integration-services/azure-feature-pack-for-integration-services-ssis) .
 
 ### <a name="apache-oozie"></a>Apache Oozie
 

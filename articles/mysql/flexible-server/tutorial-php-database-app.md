@@ -8,19 +8,19 @@ ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
 ms.custom: mvc
-ms.openlocfilehash: 1bad9a7da6f0604f910ce1095b734043be8cf3c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38665cdf42450b09d14211f7ed44d62e4adb75b1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90946786"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537940"
 ---
 # <a name="tutorial-build-a-php-laravel-and-mysql-flexible-server-preview-app-in-azure-app-service"></a>Självstudie: bygga en PHP-app (Laravel) och MySQL-flexibel Server (för hands version) i Azure App Service
 
 
 :::image type="content" source="media/tutorial-php-database-app/complete-checkbox-published.png" alt-text="PHP-webbapp i Azure med flexibel Server":::
 
-[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) ger en mycket skalbar och automatisk korrigering av webb värd tjänst som använder Linux-operativsystemet. I den här självstudien visas hur du skapar en PHP-app i Azure och ansluter den till en MySQL-databas. När du är klar har du en [Laravel](https://laravel.com/) -app som körs på Azure App Service på Linux.
+[Azure App Service](../../app-service/overview.md) ger en mycket skalbar och automatisk korrigering av webb värd tjänst som använder Linux-operativsystemet. I den här självstudien visas hur du skapar en PHP-app i Azure och ansluter den till en MySQL-databas. När du är klar har du en [Laravel](https://laravel.com/) -app som körs på Azure App Service på Linux.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -31,9 +31,9 @@ I den här guiden får du lära dig att:
 > * uppdatera datamodellen och distribuera om appen
 > * hantera appen i Azure-portalen.
 
-Om du inte har en [Azure-prenumeration](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
+Om du inte har en [Azure-prenumeration](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -96,7 +96,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Konfigurera MySQL-anslutningen
 
-Skapa en fil med namnet *.env* i lagringsplatsens rot. Kopiera in följande variabler i *.env*-filen. Ersätt plats hållaren för _ &lt; root_password>_ med MySQL-rot användarens lösen ord.
+Skapa en fil med namnet *.env* i lagringsplatsens rot. Kopiera in följande variabler i *.env* -filen. Ersätt plats hållaren för _&lt; root_password>_ med MySQL-rot användarens lösen ord.
 
 ```txt
 APP_ENV=local
@@ -110,7 +110,7 @@ DB_USERNAME=root
 DB_PASSWORD=<root_password>
 ```
 
-Mer information om hur Laravel använder _.env_-filen finns i [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Konfiguration av Laravel-miljö).
+Mer information om hur Laravel använder _.env_ -filen finns i [Laravel Environment Configuration](https://laravel.com/docs/5.4/configuration#environment-configuration) (Konfiguration av Laravel-miljö).
 
 ### <a name="run-the-sample-locally"></a>Köra exemplet lokalt
 
@@ -139,7 +139,7 @@ Gå till `http://localhost:8000` i en webbläsare. Lägg till några uppgifter p
 Om du vill stoppa PHP skriver du `Ctrl + C` i terminalen.
 
 ## <a name="create-a-mysql-flexible-server-preview"></a>Skapa en MySQL-flexibel Server (för hands version)
-I det här steget skapar du en MySQL-databas i [Azure Database for MySQL flexibel Server](/azure/mysql) som är i offentlig för hands version. Senare kommer du att konfigurera PHP-appen för att ansluta till den här databasen. I [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)skapar du en server i med [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) kommandot.
+I det här steget skapar du en MySQL-databas i [Azure Database for MySQL flexibel Server](../index.yml) som är i offentlig för hands version. Senare kommer du att konfigurera PHP-appen för att ansluta till den här databasen. I [Azure Cloud Shell](../../cloud-shell/overview.md)skapar du en server i med [`az flexible-server create`](/cli/azure/mysql/server#az-mysql-flexible-server-create) kommandot.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>
@@ -196,7 +196,7 @@ I det här steget ansluter du PHP-programmet till MySQL-databasen som du skapade
 
 ### <a name="configure-the-database-connection"></a>Konfigurera databasanslutningen
 
-Skapa en _.env.production_-fil i lagringsplatsens rot och kopiera in följande variabler i filen. Ersätt plats hållaren _ &lt; MySQL-Server-Name>_ både i *DB_HOST* och *DB_USERNAME*.
+Skapa en _.env.production_ -fil i lagringsplatsens rot och kopiera in följande variabler i filen. Ersätt plats hållaren _&lt; MySQL-Server-Name>_ både i *DB_HOST* och *DB_USERNAME* .
 
 ```
 APP_ENV=production
@@ -214,7 +214,7 @@ MYSQL_SSL=true
 Spara ändringarna.
 
 > [!TIP]
-> För att skydda din MySQL-anslutningsinformation är den här filen redan undantagen från Git-lagringsplatsen (se _.gitignore_ i lagringsplatsens rot). Senare får du lära dig hur du konfigurerar miljövariabler i App Service för att ansluta till din databas i Azure Database for MySQL. När du använder miljövariabler behöver du inte *.env*-filen i App Service.
+> För att skydda din MySQL-anslutningsinformation är den här filen redan undantagen från Git-lagringsplatsen (se _.gitignore_ i lagringsplatsens rot). Senare får du lära dig hur du konfigurerar miljövariabler i App Service för att ansluta till din databas i Azure Database for MySQL. När du använder miljövariabler behöver du inte *.env* -filen i App Service.
 >
 
 ### <a name="configure-tlsssl-certificate"></a>Konfigurera TLS/SSL-certifikat
@@ -235,7 +235,7 @@ Som standard tvingar MySQL-flexibla servrar TLS-anslutningar från klienter. Om 
 
 ### <a name="test-the-application-locally"></a>Testa appen lokalt
 
-Kör Laravel-databasmigreringar med _.env.production_ som miljöfil för att skapa tabellerna i din MySQL-databas i Azure Database for MySQL. Tänk på att anslutningsinformationen till din MySQL-databas i Azure finns i _.env.production_.
+Kör Laravel-databasmigreringar med _.env.production_ som miljöfil för att skapa tabellerna i din MySQL-databas i Azure Database for MySQL. Tänk på att anslutningsinformationen till din MySQL-databas i Azure finns i _.env.production_ .
 
 ```bash
 php artisan migrate --env=production --force
@@ -280,7 +280,7 @@ I det här steget distribuerar du din MySQL-anslutna PHP-app till Azure App Serv
 
 FTP och lokal git kan distribueras till en Azure-webbapp med hjälp av en distributions användare. När du har konfigurerat din distributions användare kan du använda den för alla dina Azure-distributioner. Ditt användar namn och lösen ord för distribution på konto nivå skiljer sig från dina autentiseringsuppgifter för Azure-prenumerationen.
 
-Konfigurera distributions användaren genom att köra kommandot [AZ webapp Deployment User set](https://docs.microsoft.com/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) i Azure Cloud Shell. Ersätt _ &lt; username>_ och _ &lt; Password>_ med ditt användar namn och lösen ord för distributionen.
+Konfigurera distributions användaren genom att köra kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) i Azure Cloud Shell. Ersätt _&lt; username>_ och _&lt; Password>_ med ditt användar namn och lösen ord för distributionen.
 
 Användar namnet måste vara unikt inom Azure, och för lokala git-push-meddelanden får inte innehålla symbolen @.
 Lösen ordet måste innehålla minst åtta tecken, med två av följande tre element: bokstäver, siffror och symboler.
@@ -293,7 +293,7 @@ JSON-utdata visar lösen ordet som null. Om du får en konflikt. Information: 40
 
 ### <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 
-I Cloud Shell skapar du ett App Service plan i resurs gruppen med kommandot [AZ AppService plan Create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) . I följande exempel skapas en App Service plan med namnet myAppServicePlan i den kostnads fria pris nivån (--SKU F1) och i en Linux-behållare (--är-Linux).
+I Cloud Shell skapar du ett App Service plan i resurs gruppen med kommandot [AZ AppService plan Create](/cli/azure/appservice/plan#az-appservice-plan-create) . I följande exempel skapas en App Service plan med namnet myAppServicePlan i den kostnads fria pris nivån (--SKU F1) och i en Linux-behållare (--är-Linux).
 
 AZ AppService plan Create--Name myAppServicePlan--resurs-Group myResourceGroup--SKU F1--är-Linux
 
@@ -301,9 +301,9 @@ AZ AppService plan Create--Name myAppServicePlan--resurs-Group myResourceGroup--
 
 ### <a name="create-a-web-app"></a>Skapa en webbapp
 
-Skapa en [webbapp](https://docs.microsoft.com/azure/app-service/overview#app-service-on-linux) i myAppServicePlan-App Service plan.
+Skapa en [webbapp](../../app-service/overview.md#app-service-on-linux) i myAppServicePlan-App Service plan.
 
-I Cloud Shell kan du använda kommandot [AZ webapp Create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) . I följande exempel ersätter du _ &lt; app-name->_ med ett globalt unikt app-namn (giltiga tecken är `a-z` , `0-9` och `-` ). Körningen har angetts till `PHP|7.0`. Om du vill se alla körningar som stöds kör du [AZ webapp List-Runtimes--Linux](https://docs.microsoft.com/cli/azure/webapp#az-webapp-list-runtimes).
+I Cloud Shell kan du använda kommandot [AZ webapp Create](/cli/azure/webapp#az-webapp-create) . I följande exempel ersätter du _&lt; app-name->_ med ett globalt unikt app-namn (giltiga tecken är `a-z` , `0-9` och `-` ). Körningen har angetts till `PHP|7.0`. Om du vill se alla körningar som stöds kör du [AZ webapp List-Runtimes--Linux](/cli/azure/webapp#az-webapp-list-runtimes).
 
 ```bash
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
@@ -336,7 +336,7 @@ Du har skapat en tom ny webbapp med git-distribution aktiverad.
 
 I App Service ställer du in miljövariabler som _appinställningar_ med kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set).
 
-Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt plats hållarnas _ &lt; namn>_ och _ &lt; mysql-Server-Name>_.
+Följande kommando konfigurerar appinställningarna `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` och `DB_PASSWORD`. Ersätt plats hållarnas _&lt; namn>_ och _&lt; mysql-Server-Name>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
@@ -359,13 +359,13 @@ Du kan komma åt inställningarna med PHP-metoden [getenv](https://www.php.net/m
 
 Laravel måste ha en programnyckel i App Service. Du kan konfigurera den med appinställningar.
 
-Gå till det lokala terminalfönstret och använd `php artisan` för att generera en ny programnyckel utan att spara den i _.env_.
+Gå till det lokala terminalfönstret och använd `php artisan` för att generera en ny programnyckel utan att spara den i _.env_ .
 
 ```bash
 php artisan key:generate --show
 ```
 
-I Cloud Shell anger du program nyckeln i App Service-appen med hjälp av [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) kommandot. Ersätt plats hållarna _ &lt; App-Name>_ och _ &lt; outputofphpartisankey: generate>_.
+I Cloud Shell anger du program nyckeln i App Service-appen med hjälp av [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) kommandot. Ersätt plats hållarna _&lt; App-Name>_ och _&lt; outputofphpartisankey: generate>_ .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
@@ -377,17 +377,17 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 [Laravel program livs cykel](https://laravel.com/docs/5.4/lifecycle) börjar i den _offentliga_ katalogen i stället för programmets rot Katalog. PHP Docker-standardavbildningen för App Service använder Apache, och låter dig inte anpassa `DocumentRoot` för Laravel. Däremot kan du använda `.htaccess` för att skriva om alla begäranden så att de pekar till _/public_ i stället för rotkatalogen. I lagringsplatsens rot har en `.htaccess` redan lagts till för detta ändamål. Därmed är Laravel-appen klar att distribueras.
 
-Mer information finns i [ändra plats roten](https://docs.microsoft.com/azure/app-service/configure-language-php?pivots=platform-linux#change-site-root).
+Mer information finns i [ändra plats roten](../../app-service/configure-language-php.md?pivots=platform-linux#change-site-root).
 
 ### <a name="push-to-azure-from-git"></a>Skicka till Azure från Git
 
-I det lokala terminalfönstret kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt _ &lt; deploymentLocalGitUrl-från-Create-Step>_ med URL: en för den git-fjärrdatabas som du sparade från [skapa en webbapp](#create-a-web-app).
+I det lokala terminalfönstret kan du lägga till en Azure-fjärrdatabas till din lokala Git-databas. Ersätt _&lt; deploymentLocalGitUrl-från-Create-Step>_ med URL: en för den git-fjärrdatabas som du sparade från [skapa en webbapp](#create-a-web-app).
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>
 ```
 
-Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När git Credential Manager uppmanas att ange autentiseringsuppgifter, se till att du anger de autentiseringsuppgifter som du skapade i **Konfigurera en distributions användare**, inte de autentiseringsuppgifter som du använder för att logga in på Azure Portal.
+Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När git Credential Manager uppmanas att ange autentiseringsuppgifter, se till att du anger de autentiseringsuppgifter som du skapade i **Konfigurera en distributions användare** , inte de autentiseringsuppgifter som du använder för att logga in på Azure Portal.
 
 ```bash
 git push azure master
@@ -466,11 +466,11 @@ Visa det lokala terminalfönstret och kör Laravel-databasemigreringar för att 
 php artisan migrate
 ```
 
-Modellen `Task` (se _app/Task.php_) mappar till `tasks`-tabellen som standard, baserat på [Laravel-namngivningskonventionen](https://laravel.com/docs/5.4/eloquent#defining-models).
+Modellen `Task` (se _app/Task.php_ ) mappar till `tasks`-tabellen som standard, baserat på [Laravel-namngivningskonventionen](https://laravel.com/docs/5.4/eloquent#defining-models).
 
 ### <a name="update-application-logic"></a>Uppdatera programlogik
 
-Öppna filen *routes/web.php*. Här definieras programmets vägar och affärslogik.
+Öppna filen *routes/web.php* . Här definieras programmets vägar och affärslogik.
 
 I slutet av filen lägger du till en väg med följande kod:
 
@@ -493,7 +493,7 @@ Föregående kod gör en enkel uppdatering till datamodellen genom att ändra v�
 
 ### <a name="update-the-view"></a>Uppdatera vyn
 
-Öppna filen *resources/views/tasks.blade.php*. Leta reda på starttaggen `<tr>` och ersätt den med:
+Öppna filen *resources/views/tasks.blade.php* . Leta reda på starttaggen `<tr>` och ersätt den med:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -572,6 +572,6 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hantera dina resurser i Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal) <br/>
+> [Hantera dina resurser i Azure Portal](../../azure-resource-manager/management/manage-resources-portal.md) <br/>
 > [!div class="nextstepaction"]
 > [Så här hanterar du servern](how-to-manage-server-cli.md)

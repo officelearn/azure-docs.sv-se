@@ -1,23 +1,23 @@
 ---
-title: inkludera fil
+title: ta med fil
 titleSuffix: Azure
-description: inkludera fil
+description: ta med fil
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 000971878e24c46892aaef1fa0c65237a4219883
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e139954e6550e33edb75d01ab9dbec0bba543ea6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81678535"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548128"
 ---
 När **peering** -resursen har distribuerats kan du Visa den genom att följa dessa steg.
 
-1. Gå till **resurs grupper**och välj den resurs grupp som du valde när du skapade **peering** -resursen. Använd **filter** rutan om du har för många resurs grupper.
+1. Gå till **resurs grupper** och välj den resurs grupp som du valde när du skapade **peering** -resursen. Använd **filter** rutan om du har för många resurs grupper.
 
     > [!div class="mx-imgBorder"]
     > ![Resursgrupper](../media/setup-direct-get-resourcegroup.png)
@@ -25,7 +25,7 @@ När **peering** -resursen har distribuerats kan du Visa den genom att följa de
 1. Välj den **peering** -resurs som du har skapat.
 
     > [!div class="mx-imgBorder"]
-    > ![Vyn peering-resurs](../media/setup-direct-get-open.png)
+    > ![Skärm bild som visar peering-resursen som du skapade.](../media/setup-direct-get-open.png)
 
 1. På sidan **Översikt** visas information på hög nivå, som du ser här.
 
@@ -37,14 +37,14 @@ När **peering** -resursen har distribuerats kan du Visa den genom att följa de
     > [!div class="mx-imgBorder"]
     > ![ASN-information för peering-resurs](../media/setup-direct-get-asninfo.png)
 
-1. Välj **anslutningar**till vänster. Längst upp på skärmen visas en sammanfattning av peering-anslutningar mellan ditt ASN och Microsoft, mellan olika anläggningar i Metro. Du kan också komma åt anslutnings sammanfattningen från **översikts** sidan genom att välja **anslutningar** i rutan i mitten, som du ser.
+1. Välj **anslutningar** till vänster. Längst upp på skärmen visas en sammanfattning av peering-anslutningar mellan ditt ASN och Microsoft, mellan olika anläggningar i Metro. Du kan också komma åt anslutnings sammanfattningen från **översikts** sidan genom att välja **anslutningar** i rutan i mitten, som du ser.
 
     > [!div class="mx-imgBorder"]
     > ![Peering resurs anslutningar](../media/setup-exchange-get-connectionssummary.png)
 
     * **Anslutnings status** motsvarar statusen för installationen av peering-anslutningen. De lägen som visas i det här fältet följer tillstånds diagrammet som visas i [genom gången av Exchange-peering](../walkthrough-exchange-all.md).
     * Status för **IPv4-sessionstillstånd** och **IPv6-sessionstillstånd** motsvarar tillstånden för IPv4-och IPv6 BGP-sessionstillstånd.  
-    * När du väljer en rad högst upp på skärmen visas information om varje anslutning i avsnittet **anslutning** längst ned. Välj pilarna för att expandera **konfigurationen**, **IPv4-adressen**och **IPv6-adressen**.
+    * När du väljer en rad högst upp på skärmen visas information om varje anslutning i avsnittet **anslutning** längst ned. Välj pilarna för att expandera **konfigurationen** , **IPv4-adressen** och **IPv6-adressen** .
 
     > [!div class="mx-imgBorder"]
-    > ![Vyn peering-resurs](../media/setup-exchange-get-connectionsipv4.png)
+    > ![Skärm bild som visar en pil som visar ett avsnitt.](../media/setup-exchange-get-connectionsipv4.png)

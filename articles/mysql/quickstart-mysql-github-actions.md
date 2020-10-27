@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: 7b4620c739b2f94cb6b96743280cd1decbbb746e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92326193"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541272"
 ---
 # <a name="use-github-actions-to-connect-to-azure-mysql"></a>Använda GitHub-åtgärder för att ansluta till Azure MySQL
 
@@ -39,7 +39,7 @@ Filen har två avsnitt:
 
 ## <a name="generate-deployment-credentials"></a>Generera autentiseringsuppgifter för distribution
 
-Du kan skapa ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md) med kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) i [Azure CLI](/cli/azure/). Kör det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
+Du kan skapa ett [huvud namn för tjänsten](../active-directory/develop/app-objects-and-service-principals.md) med kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) i [Azure CLI](/cli/azure/). Kör det här kommandot med [Azure Cloud Shell](https://shell.azure.com/) i Azure Portal eller genom att välja knappen **prova** .
 
 Ersätt plats hållarna `server-name` med namnet på den MySQL-server som finns på Azure. Ersätt `subscription-id` och `resource-group` med prenumerations-ID och resurs grupp som är ansluten till MySQL-servern.  
 
@@ -66,7 +66,7 @@ Utdata är ett JSON-objekt med roll tilldelningens autentiseringsuppgifter som g
 
 ## <a name="copy-the-mysql-connection-string"></a>Kopiera anslutnings strängen MySQL 
 
-I Azure Portal går du till Azure Database for MySQL-servern och öppnar **Inställningar**  >  **anslutnings strängar**. Exempel på **ADO.NET**-anslutningssträng. Ersätt plats hållarnas värden för `your_database` och `your_password` . Anslutnings strängen kommer att se ut ungefär så här. 
+I Azure Portal går du till Azure Database for MySQL-servern och öppnar **Inställningar**  >  **anslutnings strängar** . Exempel på **ADO.NET** -anslutningssträng. Ersätt plats hållarnas värden för `your_database` och `your_password` . Anslutnings strängen kommer att se ut ungefär så här. 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
@@ -77,7 +77,7 @@ Du kommer att använda anslutnings strängen som GitHub-hemlighet.
 
 1. I [GitHub](https://github.com/)bläddrar du till din lagrings plats.
 
-1. Välj **inställningar > hemligheter > ny hemlighet**.
+1. Välj **inställningar > hemligheter > ny hemlighet** .
 
 1. Klistra in hela JSON-utdata från Azure CLI-kommandot i fältet hemligt värde. Ge hemligheten namnet `AZURE_CREDENTIALS` .
 
@@ -98,7 +98,7 @@ Du kommer att använda anslutnings strängen som GitHub-hemlighet.
 
 1. Gå till **åtgärder** för din GitHub-lagringsplats. 
 
-2. Välj **Konfigurera ditt arbets flöde själv**. 
+2. Välj **Konfigurera ditt arbets flöde själv** . 
 
 2. Ta bort allt efter `on:` avsnittet i arbets flödes filen. Ditt återstående arbets flöde kan till exempel se ut så här. 
 
@@ -191,4 +191,4 @@ När din Azure MySQL-databas och lagrings plats inte längre behövs, rensar du 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om Azure och GitHub-integrering](https://docs.microsoft.com/azure/developer/github/)
+> [Lär dig mer om Azure och GitHub-integrering](/azure/developer/github/)

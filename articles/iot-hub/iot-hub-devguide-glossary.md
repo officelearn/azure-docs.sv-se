@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: e7765e077638c85c0cefe394a10cc22fe2b0b757
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 30ce2247207b34ab63df5b32b2a96f27256afdbb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147774"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547800"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Ord lista för IoT Hub villkor
 
@@ -60,7 +60,7 @@ Det finns _tjänst-SDK_ : er för flera språk som gör att du kan skapa [backen
 
 ## <a name="azure-portal"></a>Azure Portal
 
-[Microsoft Azure-portalen](https://portal.azure.com) är en central plats där du kan etablera och hantera dina Azure-resurser. Den ordnar sitt innehåll med hjälp av _blad_.
+[Microsoft Azure-portalen](https://portal.azure.com) är en central plats där du kan etablera och hantera dina Azure-resurser. Den ordnar sitt innehåll med hjälp av _blad_ .
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -218,7 +218,7 @@ IoT Hub är en helt hanterad Azure-tjänst som möjliggör tillförlitlig och s�
 
 ## <a name="iot-hub-metrics"></a>IoT Hub mått
 
-[IoT Hub mått](iot-hub-metrics.md) ger dig information om status för IoT-hubbarna i din [Azure-prenumeration](#subscription). Med IoT Hub mått kan du utvärdera den övergripande hälsan för tjänsten och de enheter som är anslutna till den. IoT Hub mått kan hjälpa dig att se vad som händer med din IoT-hubb och undersöka rotor Saks problem utan att behöva kontakta Azure-supporten.
+[IoT Hub mått](monitor-iot-hub-reference.md#metrics) ger dig information om status för IoT-hubbarna i din [Azure-prenumeration](#subscription). Med IoT Hub mått kan du utvärdera den övergripande hälsan för tjänsten och de enheter som är anslutna till den. IoT Hub mått kan hjälpa dig att se vad som händer med din IoT-hubb och undersöka rotor Saks problem utan att behöva kontakta Azure-supporten. Mer information finns i [övervaka IoT Hub](monitor-iot-hub.md).
 
 ## <a name="iot-hub-query-language"></a>IoT Hub frågespråk
 

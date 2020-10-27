@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80bca2dab1d07d9b99e75e283068bff99335fa18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e60903aaa61cae63d406d459937d33317eee394
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79271946"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545641"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Felsöka Apache Spark med Azure HDInsight
 
@@ -25,31 +25,31 @@ Konfigurations värden för Spark kan justeras för att undvika ett Apache Spark
 
 1. Logga in på Ambari på `https://CLUSTERNAME.azurehdidnsight.net` med dina autentiseringsuppgifter för klustret. Den första skärmen visar en översikts instrument panel. Det finns små kosmetiska skillnader mellan HDInsight 3,6 och 4,0.
 
-1. Navigera till **Spark2**-  >  **konfigurationer**.
+1. Navigera till **Spark2** -  >  **konfigurationer** .
 
     ![Välj fliken konfigurationer](./media/apache-troubleshoot-spark/apache-spark-ambari-config2.png)
 
-1. I listan med konfigurationer väljer och expanderar du **Custom-spark2-defaults**.
+1. I listan med konfigurationer väljer och expanderar du **Custom-spark2-defaults** .
 
-1. Leta efter den värde inställning som du behöver justera, till exempel **spark.executor. Memory**. I det här fallet är värdet för **9728m** för högt.
+1. Leta efter den värde inställning som du behöver justera, till exempel **spark.executor. Memory** . I det här fallet är värdet för **9728m** för högt.
 
     ![Välj Custom-Spark-defaults](./media/apache-troubleshoot-spark/apache-spark-ambari-config4.png)
 
 1. Ange värdet till den rekommenderade inställningen. Värdet **2048** rekommenderas för den här inställningen.
 
-1. Spara värdet och spara konfigurationen. Välj **Spara**.
+1. Spara värdet och spara konfigurationen. Välj **Spara** .
 
     ![Ändra värdet till 2048](./media/apache-troubleshoot-spark/apache-spark-ambari-config6a.png)
 
-    Skriv en anteckning om konfigurations ändringarna och välj sedan **Spara**.
+    Skriv en anteckning om konfigurations ändringarna och välj sedan **Spara** .
 
     ![Ange en anteckning om de ändringar du har gjort](./media/apache-troubleshoot-spark/apache-spark-ambari-config6c.png)
 
-    Du får ett meddelande om eventuella konfigurationer behöver åtgärdas. Anteckna objekten och välj **Fortsätt ändå**.
+    Du får ett meddelande om eventuella konfigurationer behöver åtgärdas. Anteckna objekten och välj **Fortsätt ändå** .
 
     ![Välj Fortsätt ändå](./media/apache-troubleshoot-spark/apache-spark-ambari-config6b.png)
 
-1. När en konfiguration sparas uppmanas du att starta om tjänsten. Välj **starta om**.
+1. När en konfiguration sparas uppmanas du att starta om tjänsten. Välj **starta om** .
 
     ![Välj Starta om](./media/apache-troubleshoot-spark/apache-spark-ambari-config7a.png)
 
@@ -61,13 +61,13 @@ Konfigurations värden för Spark kan justeras för att undvika ett Apache Spark
 
     ![Granska processer som körs](./media/apache-troubleshoot-spark/apache-spark-ambari-config7c.png)
 
-1. Du kan lägga till konfigurationer. I listan med konfigurationer väljer du **Custom-spark2-defaults**och väljer sedan **Lägg till egenskap**.
+1. Du kan lägga till konfigurationer. I listan med konfigurationer väljer du **Custom-spark2-defaults** och väljer sedan **Lägg till egenskap** .
 
     ![Välj Lägg till egenskap](./media/apache-troubleshoot-spark/apache-spark-ambari-config8.png)
 
 1. Definiera en ny egenskap. Du kan definiera en enskild egenskap med hjälp av en dialog ruta för vissa inställningar som datatyp. Du kan också definiera flera egenskaper med en definition per rad.
 
-    I det här exemplet definieras egenskapen **Spark. driver. Memory** med värdet **4G**.
+    I det här exemplet definieras egenskapen **Spark. driver. Memory** med värdet **4G** .
 
     ![Definiera ny egenskap](./media/apache-troubleshoot-spark/apache-spark-ambari-config9.png)
 
@@ -107,10 +107,10 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * [Översikt över Spark-minnes hantering](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [Felsöka Spark-program i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
+* [Felsöka Spark-program i HDInsight-kluster](/archive/blogs/azuredatalake/spark-debugging-101).
 
 * Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

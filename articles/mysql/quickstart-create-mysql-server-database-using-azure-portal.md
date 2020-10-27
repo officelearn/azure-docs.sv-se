@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 7/15/2020
-ms.openlocfilehash: cdddd9a90911499421351adf0f41ef90f0e2f9a5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a3438293bcbf656a371b55605c64a005ae4d599a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906569"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541408"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-in-the-azure-portal"></a>Snabb start: skapa en Azure Database for MySQL-server i Azure Portal
 
@@ -24,13 +24,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-kon
 Öppna webbläsaren och gå sedan till [Azure Portal](https://portal.azure.com/). Ange dina autentiseringsuppgifter och logga in på portalen. Standardvyn är instrumentpanelen.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Skapa en Azure Database för MySQL-server
-Du skapar en Azure Database för MySQL-server med en definierad uppsättning [Compute- och Storage-resurser](./concepts-compute-unit-and-storage.md). Du skapar servern i en [Azure-resursgrupp](../azure-resource-manager/management/overview.md).
+Du skapar en Azure Database för MySQL-server med en definierad uppsättning [Compute- och Storage-resurser](./concepts-pricing-tiers.md). Du skapar servern i en [Azure-resursgrupp](../azure-resource-manager/management/overview.md).
 
 Följ de här stegen för att skapa en Azure Database för MySQL-server:
 
 1. Välj **skapa en resurs** (+) i det övre vänstra hörnet i portalen.
 
-2. Välj **databaser**  >  **Azure Database for MySQL**. Du kan också ange **MySQL** i sökrutan för att hitta tjänsten.
+2. Välj **databaser**  >  **Azure Database for MySQL** . Du kan också ange **MySQL** i sökrutan för att hitta tjänsten.
 
   
 >[!div class="mx-imgBorder"]
@@ -46,13 +46,13 @@ Följ de här stegen för att skapa en Azure Database för MySQL-server:
 Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
 Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn. Resurs gruppen kan användas för att ordna beroenden som tillhör ett enskilt projekt.
 Servernamn | Unikt servernamn | Ange ett unikt namn som identifierar din Azure Database for MySQL-server. Till exempel "mysqldbserver". Server namnet får bara innehålla gemena bokstäver, siffror och bindestreck (-). Det måste innehålla mellan 3 och 63 tecken.
-Datakälla |*Ingen* | Välj *Ingen* om du vill skapa en ny server från grunden. (Du väljer *säkerhets kopia* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
-Inloggning för serveradministratör | myadmin | Ange ett användar namn för Server administratören. Du kan inte använda **azure_superuser**, **administratör**, **administratör**, **rot**, **gäst**eller **offentlig** som administratörs användar namn.
+Datakälla |*Inga* | Välj *Ingen* om du vill skapa en ny server från grunden. (Du väljer *säkerhets kopia* om du skapar en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
+Inloggning för serveradministratör | myadmin | Ange ett användar namn för Server administratören. Du kan inte använda **azure_superuser** , **administratör** , **administratör** , **rot** , **gäst** eller **offentlig** som administratörs användar namn.
 Lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Lösen ordet måste vara mellan 8 och 128 tecken långt med en kombination av versaler eller gemener, siffror och icke-alfanumeriska tecken (!, $, #,% osv.).
 Bekräfta lösenordet | *Ditt val*| Bekräfta administratörslösenordet.
 Plats | *Den region som är närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
 Version | *Senaste huvudversion*| Välj den senaste huvudversionen (om du inte har särskilda behov som gör att du måste ha en annan version).
-Compute + Storage | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** |Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera Server**. Sedan väljer du lämplig pris nivå. mer information finns på [sidan med priser](https://azure.microsoft.com/pricing/details/mysql/). Om du vill aktivera server säkerhets kopieringar i Geo-redundant lagring väljer du **geografiskt redundant** från **alternativen för redundans för säkerhets kopiering**. Välj **OK**.
+Compute + Storage | **Generell användning** , **Gen 5** , **2 virtuella kärnor** , **5 GB** , **7 dagar** , **Geografiskt redundant** |Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Konfigurera Server** . Sedan väljer du lämplig pris nivå. mer information finns på [sidan med priser](https://azure.microsoft.com/pricing/details/mysql/). Om du vill aktivera server säkerhets kopieringar i Geo-redundant lagring väljer du **geografiskt redundant** från **alternativen för redundans för säkerhets kopiering** . Välj **OK** .
 
    > [!NOTE]
    > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. 
@@ -61,21 +61,21 @@ Compute + Storage | **Generell användning**, **Gen 5**, **2 virtuella kärnor**
    
 5. Välj **Aviseringar** (klockikonen) i verktygsfältet för att övervaka distributionsprocessen.
    
-Som standard skapas följande databaser i din server: **information_schema**, **mysql**, **performance_schema** och **sys**.
+Som standard skapas följande databaser i din server: **information_schema** , **mysql** , **performance_schema** och **sys** .
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Konfigurera en brandväggsregel på servernivå
-Som standard skyddas servern som skapats med en brand vägg och är inte tillgänglig offentligt. Om du vill ge åtkomst till din IP-adress går du till Server resursen i Azure Portal och väljer **anslutnings säkerhet** på den vänstra menyn för Server resursen. Vet inte hur du hittar din resurs, se [så här öppnar du en resurs](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources).
+Som standard skyddas servern som skapats med en brand vägg och är inte tillgänglig offentligt. Om du vill ge åtkomst till din IP-adress går du till Server resursen i Azure Portal och väljer **anslutnings säkerhet** på den vänstra menyn för Server resursen. Vet inte hur du hittar din resurs, se [så här öppnar du en resurs](../azure-resource-manager/management/manage-resources-portal.md#open-resources).
 
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/add-current-ip-firewall.png" alt-text="Alternativet Azure-databas för MySQL":::
    
-Välj nu **Lägg till aktuell klient-IP-adress** och välj sedan **Spara**. Du kan lägga till ytterligare IP-adresser eller ange ett IP-intervall för att ansluta till servern från de IP-adresserna. Mer information finns i [Hantera brand Väggs regler på Azure Database for MySQL server](./concepts-firewall-rules.md)
+Välj nu **Lägg till aktuell klient-IP-adress** och välj sedan **Spara** . Du kan lägga till ytterligare IP-adresser eller ange ett IP-intervall för att ansluta till servern från de IP-adresserna. Mer information finns i [Hantera brand Väggs regler på Azure Database for MySQL server](./concepts-firewall-rules.md)
 
 > [!NOTE]
 > Kontrol lera om nätverket tillåter utgående trafik över Port 3306 som används av Azure Database for MySQL för att undvika anslutnings problem.  
 
 ## <a name="connect-to-azure-database-for-mysql-server-using-mysql-command-line-client"></a>Ansluta till Azure Database for MySQL server med MySQL kommando rads klient
-Du kan välja antingen [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) eller [MySQL Workbench](./connect-workbench.md) för att ansluta till servern från den lokala miljön. I den här snabb starten kommer vi att köra **mysql.exe** i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för att ansluta till servern.
+Du kan välja antingen [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) eller [MySQL Workbench](./connect-workbench.md) för att ansluta till servern från den lokala miljön. I den här snabb starten kommer vi att köra **mysql.exe** i [Azure Cloud Shell](../cloud-shell/overview.md) för att ansluta till servern.
 
 1. Starta Azure Cloud Shell i portalen genom att klicka på den markerade ikonen på den översta vänstra sidan. Anteckna Server namnet, inloggnings namnet för Server administratören, lösen ordet och prenumerationen för den nyligen skapade servern från **översikts** avsnittet, som visas på bilden nedan.
 
@@ -129,10 +129,10 @@ Du kan välja antingen [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Du har skapat en Azure Database for MySQL-server i en resurs grupp.  Om du inte tror att du behöver dessa resurser i framtiden kan du ta bort dem genom att ta bort resurs gruppen eller bara ta bort MySQL-servern. Följ dessa steg om du vill ta bort resurs gruppen:
-1. I Azure Portal söker du efter och väljer **resurs grupper**. 
+1. I Azure Portal söker du efter och väljer **resurs grupper** . 
 2. I listan resurs grupp väljer du namnet på din resurs grupp.
-3. På sidan Översikt i resurs gruppen väljer du **ta bort resurs grupp**.
-4. I bekräftelse dialog rutan skriver du namnet på din resurs grupp och väljer sedan **ta bort**.
+3. På sidan Översikt i resurs gruppen väljer du **ta bort resurs grupp** .
+4. I bekräftelse dialog rutan skriver du namnet på din resurs grupp och väljer sedan **ta bort** .
 
 Om du vill ta bort servern kan du klicka på knappen **ta bort** på sidan **Översikt** på servern enligt nedan:
 > [!div class="mx-imgBorder"]
@@ -140,6 +140,6 @@ Om du vill ta bort servern kan du klicka på knappen **ta bort** på sidan **Öv
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
->[Bygg en php-app i Windows med MySQL](../app-service/app-service-web-tutorial-php-mysql.md) 
-> [Bygga php-app på Linux med MySQL](../app-service/containers/tutorial-php-mysql-app.md) 
-> [Utveckla Java-baserad våren-app med MySQL](https://docs.microsoft.com/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)
+>[Bygg en php-app i Windows med MySQL](../app-service/tutorial-php-mysql-app.md) 
+> [Bygga php-app på Linux med MySQL](../app-service/tutorial-php-mysql-app.md?pivots=platform-linux%253fpivots%253dplatform-linux) 
+> [Utveckla Java-baserad våren-app med MySQL](/azure/developer/java/spring-framework/spring-app-service-e2e?tabs=bash)

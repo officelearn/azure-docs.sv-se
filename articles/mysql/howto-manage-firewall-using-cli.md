@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d981bf66ef9c17fda031e66e12e18a2ad9c67cc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7f8547419b45314ad044b41957a53085cdbe13
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503063"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546406"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database for MySQL brand Väggs regler med hjälp av Azure CLI
 Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en Azure Database for MySQL-server från en speciell IP-adress eller ett intervall med IP-adresser. Med hjälp av praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, Visa och Visa brand Väggs regler för hantering av servern. En översikt över Azure Database for MySQL brand väggar finns i [Azure Database for MySQL server brand Väggs regler](./concepts-firewall-rules.md).
@@ -21,18 +21,18 @@ Brand Väggs regler på server nivå kan användas för att hantera åtkomst til
 Virtual Network-regler (VNet) kan också användas för att skydda åtkomsten till servern. Lär dig mer om [att skapa och hantera Virtual Network tjänst slut punkter och regler med hjälp av Azure CLI](howto-manage-vnet-using-cli.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
-* [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* [Installera Azure CLI](/cli/azure/install-azure-cli).
 * En [Azure Database for MySQL server och databas](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Kommandon för brand Väggs regel:
 Kommandot **AZ MySQL server Firewall-Rule** används från Azure CLI för att skapa, ta bort, lista, Visa och uppdatera brand Väggs regler.
 
 Kommandon:
-- **skapa**: skapa en brand Väggs regel för Azure MySQL server.
-- **ta bort**: ta bort en regel för Azure MySQL server-brandvägg.
-- **lista**: visar en lista över Azure MySQL-serverns brand Väggs regler.
-- **Visa**: Visa information om en regel för Azure MySQL server-brandvägg.
-- **uppdatering**: uppdatera en brand Väggs regel för Azure MySQL server.
+- **skapa** : skapa en brand Väggs regel för Azure MySQL server.
+- **ta bort** : ta bort en regel för Azure MySQL server-brandvägg.
+- **lista** : visar en lista över Azure MySQL-serverns brand Väggs regler.
+- **Visa** : Visa information om en regel för Azure MySQL server-brandvägg.
+- **uppdatering** : uppdatera en brand Väggs regel för Azure MySQL server.
 
 ## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Logga in på Azure och lista dina Azure Database for MySQL-servrar
 Anslut säkert Azure CLI med ditt Azure-konto med hjälp av kommandot **AZ login** .

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 9927d4780ea015502151188b61c50ddbd2656819
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 8ae76ca27c8c6f8fed5692b9a2376fff53a52bb6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339551"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536580"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du data persistence för en Premium Azure-cache för Redis
 I den här artikeln får du lära dig hur du konfigurerar persistence i en Premium Azure-cache för Redis-instansen via Azure Portal. Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. 
@@ -28,15 +28,15 @@ Persistence skriver Redis-data till ett Azure Storage-konto som du äger och han
 
 > [!NOTE]
 > 
-> Azure Storage krypterar data automatiskt när de sparas. Du kan använda dina egna nycklar för krypteringen. Mer information finns i [kund hanterade nycklar med Azure Key Vault](/azure/storage/common/storage-service-encryption).
+> Azure Storage krypterar data automatiskt när de sparas. Du kan använda dina egna nycklar för krypteringen. Mer information finns i [kund hanterade nycklar med Azure Key Vault](../storage/common/storage-service-encryption.md).
 > 
 > 
 
-1. Om du vill skapa en Premium-cache loggar du in på [Azure Portal](https://portal.azure.com) och väljer **skapa en resurs**. Förutom att skapa cacheminnen i Azure Portal, kan du också skapa dem med hjälp av Resource Manager-mallar, PowerShell eller Azure CLI. Mer information om hur du skapar en Azure-cache för Redis finns i [skapa en cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
+1. Om du vill skapa en Premium-cache loggar du in på [Azure Portal](https://portal.azure.com) och väljer **skapa en resurs** . Förutom att skapa cacheminnen i Azure Portal, kan du också skapa dem med hjälp av Resource Manager-mallar, PowerShell eller Azure CLI. Mer information om hur du skapar en Azure-cache för Redis finns i [skapa en cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Skapa resurs.":::
    
-2. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis**.
+2. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis** .
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Skapa resurs.":::
 
@@ -44,7 +44,7 @@ Persistence skriver Redis-data till ett Azure Storage-konto som du äger och han
    
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är * \<DNS name> . Redis.cache.Windows.net*. | 
+   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är *\<DNS name> . Redis.cache.Windows.net* . | 
    | **Prenumeration** | List rutan och välj din prenumeration. | Den prenumeration som du vill skapa den här nya Azure-cache för Redis-instansen för. | 
    | **Resursgrupp** | List rutan och välj en resurs grupp, eller Välj **Skapa ny** och ange ett nytt resurs grupp namn. | Namnet på resurs gruppen där du vill skapa cachen och andra resurser. Genom att lägga till alla dina app-resurser i en resurs grupp kan du enkelt hantera eller ta bort dem tillsammans. | 
    | **Plats** | List rutan och välj en plats. | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som ska använda din cache. |
@@ -62,7 +62,7 @@ Persistence skriver Redis-data till ett Azure Storage-konto som du äger och han
    
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Säkerhets kopierings frekvens** | List rutan och välj ett intervall för säkerhets kopieringar, alternativ omfattar **15 minuter**, **30 minuter**, **60 minuter**, **6 timmar**, **12 timmar**och **24 timmar**. | Intervallet börjar räkna upp när den tidigare säkerhets kopieringen har slutförts och när en ny säkerhets kopia har initierats. | 
+   | **Säkerhets kopierings frekvens** | List rutan och välj ett intervall för säkerhets kopieringar, alternativ omfattar **15 minuter** , **30 minuter** , **60 minuter** , **6 timmar** , **12 timmar** och **24 timmar** . | Intervallet börjar räkna upp när den tidigare säkerhets kopieringen har slutförts och när en ny säkerhets kopia har initierats. | 
    | **Lagrings konto** | List rutan och välj ditt lagrings konto. | Du måste välja ett lagrings konto i samma region och prenumeration som cachen, och ett **Premium Storage** konto rekommenderas eftersom Premium Storage har högre genomflöde.  | 
    | **Lagrings nyckel** | List rutan och välj antingen den **primära nyckeln** eller **sekundära nyckeln** som ska användas. | Om lagrings nyckeln för ditt beständiga konto återskapas måste du konfigurera om önskad nyckel i list rutan **lagrings nyckel** . | 
 
@@ -83,11 +83,11 @@ Persistence skriver Redis-data till ett Azure Storage-konto som du äger och han
 
 11. Alternativt går du till fliken **taggar** och anger namn och värde om du vill kategorisera resursen. 
 
-12. Välj **Granska + skapa**. Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
+12. Välj **Granska + skapa** . Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
 
-13. När meddelandet grön verifiering har skickats visas väljer du **skapa**.
+13. När meddelandet grön verifiering har skickats visas väljer du **skapa** .
 
-Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts** sidan för Azure-cache för Redis. När **statusen** är **igång**är cacheminnet redo att användas. 
+Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts** sidan för Azure-cache för Redis. När **statusen** är **igång** är cacheminnet redo att användas. 
 
 ## <a name="persistence-faq"></a>Beständiga vanliga frågor och svar
 Följande lista innehåller svar på vanliga frågor om Azure cache för Redis persistence.
@@ -160,7 +160,7 @@ AOF persistence påverkar data flödet genom cirka 15% – 20% när cachen är u
 
 ### <a name="how-can-i-remove-the-second-storage-account"></a>Hur kan jag ta bort det andra lagrings kontot?
 
-Du kan ta bort det sekundära lagrings kontot AOF persistence genom att ange att det andra lagrings kontot ska vara samma som det första lagrings kontot. För befintliga cacheminnen öppnas bladet **data persistes** från **resurs menyn** för cacheminnet. Klicka på **inaktive rad**om du vill inaktivera AOF persistence.
+Du kan ta bort det sekundära lagrings kontot AOF persistence genom att ange att det andra lagrings kontot ska vara samma som det första lagrings kontot. För befintliga cacheminnen öppnas bladet **data persistes** från **resurs menyn** för cacheminnet. Klicka på **inaktive rad** om du vill inaktivera AOF persistence.
 
 ### <a name="what-is-a-rewrite-and-how-does-it-affect-my-cache"></a>Vad är en omskrivning och hur påverkar den min cache?
 

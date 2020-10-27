@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 02/28/2020
-ms.openlocfilehash: e5ed8fd2eba175a170c12c032e7c6ecf6a926b64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcb845904216fbe4cb05828877775ea2178c45e9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084621"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539164"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Använda REST-API:et för Apache Spark för att skicka fjärrstyrda jobb till ett HDInsight Spark-kluster
 
@@ -21,13 +21,13 @@ Lär dig hur du använder [Apache livy](https://livy.incubator.apache.org/), Apa
 
 Du kan använda livy för att köra interaktiva Spark-gränssnitt eller skicka batch-jobb som ska köras i Spark. Den här artikeln pratar om hur du använder livy för att skicka batch-jobb. Kodfragmenten i den här artikeln använder en sväng för att göra REST API anrop till livy Spark-slutpunkten.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>Skicka ett batch-jobb för Apache livy Spark
 
-Innan du skickar ett batch-jobb måste du ladda upp programmet jar på kluster lagringen som är associerad med klustret. Du kan använda kommandoradsverktyget [AzCopy](../../storage/common/storage-use-azcopy.md) till att göra detta. Det finns olika andra klienter som du kan använda för att överföra data. Det finns mer information om dem i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
+Innan du skickar ett batch-jobb måste du ladda upp programmet jar på kluster lagringen som är associerad med klustret. Du kan använda kommandoradsverktyget [AzCopy](../../storage/common/storage-use-azcopy-v10.md) till att göra detta. Det finns olika andra klienter som du kan använda för att överföra data. Det finns mer information om dem i [Ladda upp data för Apache Hadoop-jobb i HDInsight](../hdinsight-upload-data.md).
 
 ```cmd
 curl -k --user "admin:password" -v -H "Content-Type: application/json" -X POST -d '{ "file":"<path to application jar>", "className":"<classname in jar>" }' 'https://<spark_cluster_name>.azurehdinsight.net/livy/batches' -H "X-Requested-By: admin"
@@ -126,7 +126,7 @@ Utför följande steg:
     {"from":0,"total":0,"sessions":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Observera att den sista raden i utdata visar **Total: 0**, vilket innebär att inga batchar körs.
+    Observera att den sista raden i utdata visar **Total: 0** , vilket innebär att inga batchar körs.
 
 1. Låt oss nu skicka ett batch-jobb. I följande kodfragment används en indatafil (input.txt) för att skicka jar-namnet och klass namnet som parametrar. Om du kör de här stegen från en Windows-dator rekommenderar vi att du använder en indatafil.
 
@@ -155,7 +155,7 @@ Utför följande steg:
     {"id":0,"state":"starting","log":[]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Observera hur den sista raden i utdata säger **status: Started**. Det heter också **ID: 0**. Här är **0** batch-ID.
+    Observera hur den sista raden i utdata säger **status: Started** . Det heter också **ID: 0** . Här är **0** batch-ID.
 
 1. Nu kan du hämta statusen för den här batchen med batch-ID: t.
 
@@ -177,7 +177,7 @@ Utför följande steg:
     {"id":0,"state":"success","log":["\t diagnostics: N/A","\t ApplicationMaster host: 10.0.0.4","\t ApplicationMaster RPC port: 0","\t queue: default","\t start time: 1448063505350","\t final status: SUCCEEDED","\t tracking URL: http://myspar.lpel.jx.internal.cloudapp.net:8088/proxy/application_1447984474852_0002/","\t user: root","15/11/20 23:52:47 INFO Utils: Shutdown hook called","15/11/20 23:52:47 INFO Utils: Deleting directory /tmp/spark-b72cd2bf-280b-4c57-8ceb-9e3e69ac7d0c"]}* Connection #0 to host mysparkcluster.azurehdinsight.net left intact
     ```
 
-    Utdata visar nu **status: lyckades**, vilket tyder på att jobbet har slutförts.
+    Utdata visar nu **status: lyckades** , vilket tyder på att jobbet har slutförts.
 
 1. Om du vill kan du nu ta bort batchen.
 

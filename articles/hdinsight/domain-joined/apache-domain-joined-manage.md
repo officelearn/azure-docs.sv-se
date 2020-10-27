@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
-ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dcb5d7ed75bda8422ba3bd461b08d3bfb2d974f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595792"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541017"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Hantera HDInsight-kluster med Enterprise Security Package
 
@@ -87,13 +87,13 @@ Om du vill hitta det fullständigt kvalificerade domän namnet för en huvudnode
 
 Ett icke-ESP HDInsight-kluster har två användar konton som skapas när klustret skapas:
 
-- **Ambari-administratör**: det här kontot kallas även för *Hadoop-användare* eller *http-användare*. Detta konto kan användas för att logga in på Ambari på `https://CLUSTERNAME.azurehdinsight.net` . Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med Hive ODBC-drivrutin och BI-verktyg (till exempel Excel, Power BI eller Tableau).
+- **Ambari-administratör** : det här kontot kallas även för *Hadoop-användare* eller *http-användare* . Detta konto kan användas för att logga in på Ambari på `https://CLUSTERNAME.azurehdinsight.net` . Det kan också användas för att köra frågor på Ambari-vyer, köra jobb via externa verktyg (till exempel PowerShell, Templeton, Visual Studio) och autentisera med Hive ODBC-drivrutin och BI-verktyg (till exempel Excel, Power BI eller Tableau).
 
 Ett HDInsight-kluster med ESP har tre nya användare utöver Ambari-administratören.
 
-- **Ranger-administratör**: det här kontot är det lokala Apache Ranger-administratörskontot. Det är inte en Active Directory-domän användare. Detta konto kan användas för att konfigurera principer och göra andra användare administratörer eller delegerade administratörer (så att dessa användare kan hantera principer). Som standard är användar namnet *administratör* och lösen ordet är detsamma som administratörs lösen ordet för Ambari. Lösen ordet kan uppdateras från sidan Inställningar i Ranger.
+- **Ranger-administratör** : det här kontot är det lokala Apache Ranger-administratörskontot. Det är inte en Active Directory-domän användare. Detta konto kan användas för att konfigurera principer och göra andra användare administratörer eller delegerade administratörer (så att dessa användare kan hantera principer). Som standard är användar namnet *administratör* och lösen ordet är detsamma som administratörs lösen ordet för Ambari. Lösen ordet kan uppdateras från sidan Inställningar i Ranger.
 
-- **Kluster administratörs domän användare**: det här kontot är en Active Directory-domän som angetts som Hadoop-kluster administratör, inklusive Ambari och Ranger. Du måste ange användarens autentiseringsuppgifter när du skapar klustret. Den här användaren har följande behörigheter:
+- **Kluster administratörs domän användare** : det här kontot är en Active Directory-domän som angetts som Hadoop-kluster administratör, inklusive Ambari och Ranger. Du måste ange användarens autentiseringsuppgifter när du skapar klustret. Den här användaren har följande behörigheter:
     - Anslut datorer till domänen och placera dem i den ORGANISATIONSENHET som du anger när du skapar klustret.
     - Skapa tjänstens huvud namn i den ORGANISATIONSENHET som du anger när klustret skapas.
     - Skapa omvända DNS-poster.
@@ -102,7 +102,7 @@ Ett HDInsight-kluster med ESP har tre nya användare utöver Ambari-administrat�
 
     Det finns några slut punkter i klustret (till exempel Templeton) som inte hanteras av Ranger, och därför inte är säkra. Dessa slut punkter är låsta för alla användare förutom kluster administratörens domän användare.
 
-- **Normalt**: När klustret skapas kan du ange flera Active Directory-grupper. Användare i dessa grupper synkroniseras med Ranger och Ambari. Dessa användare är domän användare och har åtkomst till endast Ranger-hanterade slut punkter (till exempel Hiveserver2). Alla RBAC-principer och granskningar kommer att gälla för dessa användare.
+- **Normalt** : När klustret skapas kan du ange flera Active Directory-grupper. Användare i dessa grupper synkroniseras med Ranger och Ambari. Dessa användare är domän användare och har åtkomst till endast Ranger-hanterade slut punkter (till exempel Hiveserver2). Alla RBAC-principer och granskningar kommer att gälla för dessa användare.
 
 ## <a name="roles-of-hdinsight-clusters-with-esp"></a>Roller för HDInsight-kluster med ESP
 
@@ -117,7 +117,7 @@ HDInsight Enterprise Security Package har följande roller:
 **Så här visar du behörigheterna för dessa roller**
 
 1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
-2. Välj **roller**på den vänstra menyn.
+2. Välj **roller** på den vänstra menyn.
 3. Välj det blå frågetecknet för att se behörigheterna:
 
     ![Behörigheter för ESP HDInsight-roller](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
@@ -126,7 +126,7 @@ HDInsight Enterprise Security Package har följande roller:
 
 1. Navigera till `https://CLUSTERNAME.azurehdinsight.net/` där kluster namn är namnet på klustret.
 1. Logga in på Ambari med hjälp av kluster administratörens domän användar namn och lösen ord.
-1. Välj List Rute menyn **administratör** i det övre högra hörnet och välj sedan **Hantera Ambari**.
+1. Välj List Rute menyn **administratör** i det övre högra hörnet och välj sedan **Hantera Ambari** .
 
     ![ESP HDInsight hantera Apache Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
@@ -137,21 +137,21 @@ HDInsight Enterprise Security Package har följande roller:
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Lista de domän användare som synkroniseras från din Active Directory
 
 1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
-2. Välj **användare**på menyn till vänster. Du ska se alla användare som har synkroniserats från Active Directory till HDInsight-klustret.
+2. Välj **användare** på menyn till vänster. Du ska se alla användare som har synkroniserats från Active Directory till HDInsight-klustret.
 
     ![ESP HDInsight Ambari management UI List users](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
 ## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Lista de domän grupper som synkroniserats från din Active Directory
 
 1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
-2. Välj **grupper**på den vänstra menyn. Du ser alla grupper som synkroniserats från Active Directory till HDInsight-klustret.
+2. Välj **grupper** på den vänstra menyn. Du ser alla grupper som synkroniserats från Active Directory till HDInsight-klustret.
 
     ![ESP HDInsight-Ambari hanterings gränssnitt List grupper](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
 ## <a name="configure-hive-views-permissions"></a>Konfigurera Hive-vyer behörigheter
 
 1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
-2. Välj **vyer**på den vänstra menyn.
+2. Välj **vyer** på den vänstra menyn.
 3. Välj **HIVE** för att visa information.
 
     ![ESP HDInsight Ambari management UI Hive views](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
@@ -161,17 +161,17 @@ HDInsight Enterprise Security Package har följande roller:
 
     ![ESP HDInsight Ambari management UI Hive views Configure Permissions](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
 
-6. Välj **Lägg till användare** eller **Lägg till grupp**och ange sedan de användare eller grupper som kan använda Hive-vyer.
+6. Välj **Lägg till användare** eller **Lägg till grupp** och ange sedan de användare eller grupper som kan använda Hive-vyer.
 
 ## <a name="configure-users-for-the-roles"></a>Konfigurera användare för rollerna
 
  Om du vill se en lista över roller och deras behörigheter, se roller för HDInsight-kluster med ESP.
 
 1. Öppna hanterings gränssnittet för Ambari.  Se [Öppna hanterings gränssnittet för Ambari](#open-the-ambari-management-ui).
-2. Välj **roller**på den vänstra menyn.
+2. Välj **roller** på den vänstra menyn.
 3. Välj **Lägg till användare** eller **Lägg till grupp** för att tilldela användare och grupper till olika roller.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du konfigurerar ett HDInsight-kluster med Enterprise Security Package finns i [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md).
+- Information om hur du konfigurerar ett HDInsight-kluster med Enterprise Security Package finns i [Konfigurera HDInsight-kluster med ESP](./apache-domain-joined-configure-using-azure-adds.md).
 - Om du vill konfigurera Hive-principer och köra Hive-frågor, se [konfigurera Apache Hive principer för HDInsight-kluster med ESP](apache-domain-joined-run-hive.md).

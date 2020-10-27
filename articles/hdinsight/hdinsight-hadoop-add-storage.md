@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 73b5966bf90d2829456401a25cc5b8ea001397d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51977c00dc8c9932def89d54ec1b6ec34afad652
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856236"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542003"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Lägg till ytterligare lagrings konton i HDInsight
 
@@ -26,7 +26,7 @@ Lär dig hur du använder skript åtgärder för att lägga till ytterligare Azu
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Lagrings kontots namn och nyckel. Se [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md).
-* Om du använder PowerShell behöver du AZ-modulen.  Se [Översikt över Azure PowerShell](https://docs.microsoft.com/powershell/azure/).
+* Om du använder PowerShell behöver du AZ-modulen.  Se [Översikt över Azure PowerShell](/powershell/azure/).
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
@@ -97,7 +97,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site**.
+1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site** .
 
 1. Observera de nycklar som börjar med `fs.azure.account.key` . Konto namnet kommer att ingå i den nyckel som visas i den här exempel bilden:
 
@@ -107,7 +107,7 @@ foreach ($name in $value ) { $name.Name.Split(".")[4]}
 
 1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site**.
+1. Navigera till **HDFS**  >  **configs**  >  **Advanced**  >  **anpassad Core-site** .
 
 1. Ta bort följande nycklar:
     * `fs.azure.account.key.<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`
@@ -119,7 +119,7 @@ När du har tagit bort nycklarna och sparat konfigurationen måste du starta om 
 
 ### <a name="storage-firewall"></a>Lagrings brand vägg
 
-Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsningar för virtuella nätverk** på **valda nätverk**måste du aktivera undantaget **Tillåt betrodda Microsoft-tjänster...** så att HDInsight kan komma åt ditt lagrings konto`.`
+Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsningar för virtuella nätverk** på **valda nätverk** måste du aktivera undantaget **Tillåt betrodda Microsoft-tjänster...** så att HDInsight kan komma åt ditt lagrings konto`.`
 
 ### <a name="unable-to-access-storage-after-changing-key"></a>Det gick inte att komma åt lagring efter ändring av nyckel
 

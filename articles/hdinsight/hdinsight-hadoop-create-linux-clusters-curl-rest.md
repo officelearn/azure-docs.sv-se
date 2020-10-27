@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: f2b3810afab86b2f81a18bac442ef361404f2309
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b67ddd57c3a0787213763253cef5083f420cefe0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490364"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541680"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Skapa Apache Hadoop kluster med Azure-REST API
 
@@ -219,7 +219,7 @@ Följ stegen som beskrivs i [Kom igång med Azure CLI](/cli/azure/get-started-wi
 ## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
 > [!NOTE]  
-> De här stegen är en förkortad version av avsnittet *skapa tjänstens huvud namn med lösen ord* i [använda Azure CLI för att skapa ett tjänst huvud namn för att få åtkomst till resurs](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) dokument. De här stegen skapar ett huvud namn för tjänsten som används för att autentisera till Azure-REST API.
+> De här stegen är en förkortad version av avsnittet *skapa tjänstens huvud namn med lösen ord* i [använda Azure CLI för att skapa ett tjänst huvud namn för att få åtkomst till resurs](/cli/azure/create-an-azure-service-principal-azure-cli) dokument. De här stegen skapar ett huvud namn för tjänsten som används för att autentisera till Azure-REST API.
 
 1. Använd följande kommando från en kommando rad för att visa en lista över dina Azure-prenumerationer.
 
@@ -242,13 +242,13 @@ Följ stegen som beskrivs i [Kom igång med Azure CLI](/cli/azure/get-started-wi
 
    Värdet som returneras från det här kommandot är __app-ID:__ t för det nya programmet. Spara det här värdet.
 
-3. Använd följande kommando för att skapa ett huvud namn för tjänsten med **app-ID**.
+3. Använd följande kommando för att skapa ett huvud namn för tjänsten med **app-ID** .
 
    ```azurecli
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     Värdet som returneras från det här kommandot är __objekt-ID: t__. Spara det här värdet.
+     Värdet som returneras från det här kommandot är __objekt-ID: t__ . Spara det här värdet.
 
 4. Tilldela **ägar** rollen till tjänstens huvud namn med hjälp av värdet **objekt-ID** . Använd det **prenumerations-ID** som du fick tidigare.
 
@@ -274,7 +274,7 @@ Ange `$TENANTID` , `$APPID` och `$PASSWORD` till värdena som hämtats eller anv
 
 Om den här begäran lyckas får du ett svar på 200-serien och svars texten innehåller ett JSON-dokument.
 
-JSON-dokumentet som returnerades av den här begäran innehåller ett element med namnet **access_token**. Värdet för **access_token** används för att autentisera begär anden till REST API.
+JSON-dokumentet som returnerades av den här begäran innehåller ett element med namnet **access_token** . Värdet för **access_token** används för att autentisera begär anden till REST API.
 
 ```json
 {

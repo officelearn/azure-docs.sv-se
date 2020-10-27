@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017,seoapr2020,devx-track-java
 ms.date: 04/27/2020
-ms.openlocfilehash: b928ea8b0d05b9e1eac3c9429ec4c0ce8f88bb22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 881ec4aa36261958b566dc2d7c4d06475a76bad4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322881"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545505"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Skapa en Apache Storm-topologi i Java
 
@@ -26,7 +26,7 @@ När du har slutfört stegen i det här dokumentet kan du distribuera topologin 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Apache maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt versions system för Java-projekt.
 
@@ -43,7 +43,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Skapa ett Maven-projekt
 
-Ange följande kommando för att skapa ett Maven-projekt med namnet **WORDCOUNT**:
+Ange följande kommando för att skapa ett Maven-projekt med namnet **WORDCOUNT** :
 
 ```cmd
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -199,9 +199,9 @@ Det här avsnittet används för att lägga till plugin-program, resurser och an
 
     Ett annat användbart plugin-program är [`Apache Maven Compiler Plugin`](https://maven.apache.org/plugins/maven-compiler-plugin/) , som används för att ändra Compilation-alternativ. Ändra den Java-version som maven använder för källan och målet för ditt program.
 
-  * För HDInsight __3,4 eller tidigare__anger du käll-och mål-Java-versionen till __1,7__.
+  * För HDInsight __3,4 eller tidigare__ anger du käll-och mål-Java-versionen till __1,7__ .
 
-  * För HDInsight __3,5__anger du käll-och mål-Java-versionen till __1,8__.
+  * För HDInsight __3,5__ anger du käll-och mål-Java-versionen till __1,8__ .
 
   Lägg till följande text i `<plugins>` avsnittet i `pom.xml` filen för att inkludera Apache maven compiler-plugin-programmet. Det här exemplet anger 1,8, så målets HDInsight-version är 3,5.
 
@@ -237,11 +237,11 @@ Det här exemplet lägger till resurs katalogen i projekt roten ( `${basedir}` )
 
 En Java-baserad Apache Storm-topologi består av tre komponenter som du måste redigera (eller referens) som ett beroende.
 
-* **Kanaler**: läser data från externa källor och utvärderar data strömmar i topologin.
+* **Kanaler** : läser data från externa källor och utvärderar data strömmar i topologin.
 
-* **Bultar**: bearbetar data strömmar som har avsänts av kanaler eller andra bultar och avger en eller flera strömmar.
+* **Bultar** : bearbetar data strömmar som har avsänts av kanaler eller andra bultar och avger en eller flera strömmar.
 
-* **Topologi**: definierar hur kanaler och bultarna är ordnade och tillhandahåller start punkten för topologin.
+* **Topologi** : definierar hur kanaler och bultarna är ordnade och tillhandahåller start punkten för topologin.
 
 ### <a name="create-the-spout"></a>Skapa kanalen
 
@@ -327,9 +327,9 @@ public class RandomSentenceSpout extends BaseRichSpout {
 
 Bultar hanterar data bearbetningen. Bultar kan göra vad som helst, t. ex. beräkning, persistence eller pratar med externa komponenter. Den här topologin använder två bultar:
 
-* **SplitSentence**: delar upp meningarna som avsänts av **RandomSentenceSpout** i enskilda ord.
+* **SplitSentence** : delar upp meningarna som avsänts av **RandomSentenceSpout** i enskilda ord.
 
-* **WORDCOUNT**: räknar hur många gånger varje ord har inträffat.
+* **WORDCOUNT** : räknar hur många gånger varje ord har inträffat.
 
 #### <a name="splitsentence"></a>SplitSentence
 
@@ -826,7 +826,7 @@ Det går att skapa Trident-program med Maven-projekt. Du använder samma grundl�
 
 Mer information om Trident finns i [Översikt över Trident API](https://storm.apache.org/releases/current/Trident-API-Overview.html).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Du har lärt dig hur du skapar en Apache Storm topologi med Java. Lär dig nu att:
 

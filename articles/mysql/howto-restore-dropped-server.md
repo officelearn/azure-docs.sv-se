@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 10/09/2020
-ms.openlocfilehash: 1de11a07bdbac153b6813915cfa52edfa6484aec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 982747c1a7e093f84daeb63e75cfdf439d3fccf9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877128"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546729"
 ---
 # <a name="restore-a-dropped-azure-database-for-mysql-server"></a>Återställa en borttagen Azure Database for MySQL Server
 
@@ -36,7 +36,7 @@ Om du vill återställa en borttagen Azure Database for MySQL server, behöver d
    
  3. Dubbelklicka på händelsen ta bort MySQL-server och klicka på fliken JSON och notera attributen "resourceId" och "submissionTimestamp" i JSON-utdata. ResourceId har följande format:/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforMySQL/servers/deletedserver.
  
- 4. Gå till [skapa Server REST API sidan](https://docs.microsoft.com/rest/api/mysql/servers/create) och klicka på fliken "prova", markerad i grönt och logga in med ditt Azure-konto.
+ 4. Gå till [skapa Server REST API sidan](/rest/api/mysql/servers/create) och klicka på fliken "prova", markerad i grönt och logga in med ditt Azure-konto.
  
  5. Ange resourceGroupName, serverName (borttaget Server namn), subscriptionId som härletts från det resourceId-attribut som samlats in i steg 3, medan API-versionen är förifylld som visas i avbildningen.
  

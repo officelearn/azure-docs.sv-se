@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d03579f704879bd8d012bb0bb326659d1f778dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0b7a1c600fe81081fbfe8d33c3878f68e730888
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84793333"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547374"
 ---
 [Hämta slut punkts hälsan](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) i REST API visar slut punkternas hälso status och det senaste kända felet för att identifiera orsaken till att en slut punkt inte är felfri. Tabellen nedan visar de vanligaste felen.
 
 |Senaste kända fel|Beskrivning/när det inträffar|Möjlig minskning|
 |-----|-----|-----|
-|Tillfälliga|Ett tillfälligt fel har inträffat och IoT Hub försöker utföra åtgärden igen.|Observera [diagnostiska loggar](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes)för vägar.|
-|InternalError|Ett fel uppstod när ett meddelande levererades till en slut punkt.|Det här är ett internt undantag, men Observera även [loggar för diagnostikloggar](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health#routes).|
+|Tillfälliga|Ett tillfälligt fel har inträffat och IoT Hub försöker utföra åtgärden igen.|Observera [resurs loggar för flöden](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes).|
+|InternalError|Ett fel uppstod när ett meddelande levererades till en slut punkt.|Det här är ett internt undantag, men observerar också [vägarna resurs loggar](https://docs.microsoft.com/azure/iot-hub/monitor-service-reference#routes).|
 |Behörighet saknas|IoT Hub har inte behörighet att skicka meddelanden till den angivna slut punkten.|Kontrol lera att anslutnings strängen är aktuell för slut punkten. Om den har ändrats bör du överväga att uppdatera IoT Hub. Om den hanterade identiteten används för slut punkten kontrollerar du att IoT Hub-huvudobjektet har de behörigheter som krävs för målet.|
 |Begränsas|IoT Hub begränsas när meddelanden skrivs till slut punkten.|Granska begränsningarna för den påverkade slut punkten. Ändra konfigurationerna för slut punkten för att skala upp vid behov.|
 |Tidsgräns|Åtgärds-timeout.|Försök att utföra åtgärden igen.|

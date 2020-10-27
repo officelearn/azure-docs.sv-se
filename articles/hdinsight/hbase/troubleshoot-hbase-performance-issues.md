@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 09/24/2019
-ms.openlocfilehash: 93698fadcecf190dd8bbc24a9d03978899d3c5e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5be3f02a80524d9c4b633e1e34d581fc26bfd32d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887163"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547902"
 ---
 # <a name="troubleshoot-apache-hbase-performance-issues-on-azure-hdinsight"></a>Felsöka problem med Apache HBase-prestanda Azure HDInsight
 
@@ -73,9 +73,9 @@ Följande är några av de andra speciella parametrarna som vi har justerat, och
 
 - Öka `memstore` storleken från standard 128 MB till 256 MB. Normalt rekommenderas den här inställningen för tunga Skriv scenarier.
 
-- Öka antalet trådar som är dedikerade för komprimering, från standardinställningen **1** till **4**. Den här inställningen är relevant om vi iakttar frekventa smärre komprimeringar.
+- Öka antalet trådar som är dedikerade för komprimering, från standardinställningen **1** till **4** . Den här inställningen är relevant om vi iakttar frekventa smärre komprimeringar.
 
-- Undvik att blockera `memstore` tömning på grund av en lagrings gräns. Öka `Hbase.hstore.blockingStoreFiles` inställningen till **100**för att tillhandahålla den här bufferten.
+- Undvik att blockera `memstore` tömning på grund av en lagrings gräns. Öka `Hbase.hstore.blockingStoreFiles` inställningen till **100** för att tillhandahålla den här bufferten.
 
 - Använd följande inställningar om du vill kontrol lera tömningar:
 
@@ -104,13 +104,13 @@ Följande är några av de andra speciella parametrarna som vi har justerat, och
 - RPC-tidsgräns: **3 minuter**
 
    - RPC-timeout inkluderar HBase RPC-timeout, timeout för klient skanner och Phoenix-tidsgräns. 
-   - Kontrol lera att `hbase.client.scanner.caching` parametern har angetts till samma värde både på Server sidan och klienten slutar. Om de inte är samma, leder den här inställningen till klient slut fel som är relaterade till `OutOfOrderScannerException` . Den här inställningen ska vara inställd på ett lågt värde för stora genomsökningar. Vi anger värdet **100**.
+   - Kontrol lera att `hbase.client.scanner.caching` parametern har angetts till samma värde både på Server sidan och klienten slutar. Om de inte är samma, leder den här inställningen till klient slut fel som är relaterade till `OutOfOrderScannerException` . Den här inställningen ska vara inställd på ett lågt värde för stora genomsökningar. Vi anger värdet **100** .
 
 ## <a name="other-considerations"></a>Ytterligare överväganden
 
 Följande är ytterligare parametrar för att överväga fin justering:
 
-- `Hbase.rs.cacheblocksonwrite` – som standard på HDI är den här inställningen inställd på **True**.
+- `Hbase.rs.cacheblocksonwrite` – som standard på HDI är den här inställningen inställd på **True** .
 
 - Inställningar som gör det möjligt att skjuta upp mindre komprimering för senare.
 
@@ -124,4 +124,4 @@ Om problemet inte är löst kan du gå till någon av följande kanaler för mer
 
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) . Detta är det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Den ansluter Azure-communityn till rätt resurser: svar, support och experter.
 
-- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Din Microsoft Azure prenumeration innehåller åtkomst till prenumerations hantering och fakturerings support, och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Din Microsoft Azure prenumeration innehåller åtkomst till prenumerations hantering och fakturerings support, och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

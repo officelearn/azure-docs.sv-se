@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: a663eb65bcd85a1b2e91e6f2ad90dc64b61273ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 6482b2ec07a0473ddbea2098d37c5d67c8b68704
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484771"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539708"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Arbeta i Apache Hadoop eko system på HDInsight från en Windows-dator
 
@@ -31,17 +31,17 @@ Exempel på uppgifter som du kan utföra med PowerShell:
 * [Kör Apache Hive frågor med PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 * [Hantera kluster med PowerShell](hdinsight-administer-use-powershell.md).
 
-Följ stegen för att [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) för att få den senaste versionen.
+Följ stegen för att [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps) för att få den senaste versionen.
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Verktyg som du kan köra i en webbläsare
 
 Följande verktyg har ett webb gränssnitt som körs i en webbläsare:
-* **[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)** är ett interaktivt kommando rads gränssnitt som körs i webbläsaren och inifrån Azure Portal.
+* **[Azure Cloud Shell](../cloud-shell/overview.md)** är ett interaktivt kommando rads gränssnitt som körs i webbläsaren och inifrån Azure Portal.
 
 * **[Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)** är ett hanterings-och övervaknings verktyg som är tillgängligt i Azure Portal som kan användas för att hantera olika typer av jobb, t. ex.:
     * [Använd Apache Ambari med REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Apache Hive vy i Apache Ambari](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Apache Tez-vy i Apache Ambari](hdinsight-debug-ambari-tez-view.md)
+    * [Apache Tez-vy i Apache Ambari](./index.yml)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Data Lake-verktyg (Hadoop) för Visual Studio
 
@@ -84,7 +84,7 @@ Apache Spark kluster i HDInsight innehåller Apache Zeppelin-anteckningsböcker 
 
 Om du kommer över en situation där du måste använda ett verktyg eller en teknik som bara är tillgänglig i Linux bör du tänka på följande alternativ:
 
-* **Bash på Ubuntu i Windows 10** tillhandahåller ett Linux-undersystem i Windows. Med bash kan du köra Linux-verktyg direkt utan att behöva ha en särskild Linux-installation. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installations steg.  Andra [UNIX-gränssnitt](https://www.gnu.org/software/bash/) fungerar också.
+* **Bash på Ubuntu i Windows 10** tillhandahåller ett Linux-undersystem i Windows. Med bash kan du köra Linux-verktyg direkt utan att behöva ha en särskild Linux-installation. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](/windows/wsl/install-win10) för installations steg.  Andra [UNIX-gränssnitt](https://www.gnu.org/software/bash/) fungerar också.
 * **Docker för Windows** ger till gång till många Linux-baserade verktyg och kan köras direkt från Windows. Du kan till exempel använda Docker för att köra Beeline-klienten för Hive direkt från Windows. Du kan också använda Docker för att köra en lokal Jupyter-anteckningsbok och fjärrans luta till Spark på HDInsight. [Kom igång med Docker för Windows](https://docs.docker.com/docker-for-windows/)
 * Med **[MobaXTerm](https://mobaxterm.mobatek.net/)** kan du grafiskt bläddra i kluster fil systemet via en SSH-anslutning.
 

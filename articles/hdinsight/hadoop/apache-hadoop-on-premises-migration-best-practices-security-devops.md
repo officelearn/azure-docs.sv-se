@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 7deaca67212146881754f785e6dceaa064bde6e7
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 6fd59a346a36a304f699894c493d8ba9800489b2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329431"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545267"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – säkerhets-och DevOps metod tips
 
@@ -84,7 +84,7 @@ Säkerhet från slut punkt till slut punkt kan uppnås med hjälp av följande k
 Mer information finns i följande artiklar:
 
 - [Översikt över virtuella Azure-nätverk](../../virtual-network/virtual-networks-overview.md)
-- [Översikt över Azure nätverks säkerhets grupper](../../virtual-network/security-overview.md)
+- [Översikt över Azure nätverks säkerhets grupper](../../virtual-network/network-security-groups-overview.md)
 - [Peering för virtuella nätverk i Azure](../../virtual-network/virtual-network-peering-overview.md)
 - [Säkerhetsguiden för Azure Storage](../../storage/blobs/security-recommendations.md)
 - [Azure Storage tjänst kryptering i vila](../../storage/common/storage-service-encryption.md)
@@ -122,4 +122,4 @@ Mer information finns i artikeln: [uppdatering av operativ system för HDInsight
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [HDInsight 4,0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction).
+Läs mer om [HDInsight 4,0](./apache-hadoop-introduction.md).

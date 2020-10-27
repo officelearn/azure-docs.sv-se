@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: 830e72a8de047b0219cfa0be264fad2e1f83beb2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4dbda13ffe04e0a4214b24ccaca2b8103a39b9f2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142607"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536070"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Konfigurera IoT Hub fil överföringar med Azure CLI
 
@@ -25,7 +25,7 @@ För att göra den här självstudien behöver du följande:
 
 * Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI](/cli/azure/install-azure-cli).
 
 * En Azure IoT-hubb. Om du inte har en IoT-hubb kan du använda [ `az iot hub create` kommandot](/cli/azure/iot/hub#az-iot-hub-create) för att skapa en eller [skapa en IoT-hubb med portalen](iot-hub-create-through-portal.md).
 
@@ -35,7 +35,7 @@ För att göra den här självstudien behöver du följande:
 
 Logga in på ditt Azure-konto och välj din prenumeration.
 
-1. I kommandotolken kör du [inloggningskommandot](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest):
+1. I kommandotolken kör du [inloggningskommandot](/cli/azure/get-started-with-azure-cli):
 
     ```azurecli
     az login
@@ -89,15 +89,15 @@ Nu kan du konfigurera din IoT Hub så att du kan [Ladda upp filer till IoT Hub](
 
 Konfigurationen kräver följande värden:
 
-* **Lagrings behållare**: en BLOB-behållare i ett Azure Storage-konto i din aktuella Azure-prenumeration som ska associeras med IoT-hubben. Du har hämtat den nödvändiga lagrings konto informationen i föregående avsnitt. IoT Hub skapar automatiskt SAS-URI: er med Skriv behörighet till den här BLOB-behållaren för enheter som ska användas när de laddar upp filer.
+* **Lagrings behållare** : en BLOB-behållare i ett Azure Storage-konto i din aktuella Azure-prenumeration som ska associeras med IoT-hubben. Du har hämtat den nödvändiga lagrings konto informationen i föregående avsnitt. IoT Hub skapar automatiskt SAS-URI: er med Skriv behörighet till den här BLOB-behållaren för enheter som ska användas när de laddar upp filer.
 
-* **Ta emot meddelanden om överförda filer**: Aktivera eller inaktivera meddelanden om fil uppladdning.
+* **Ta emot meddelanden om överförda filer** : Aktivera eller inaktivera meddelanden om fil uppladdning.
 
-* **SAS-TTL**: den här inställningen är TTL-värdet för de SAS-URI: er som returnerades till enheten med IoT Hub. Ange en timme som standard.
+* **SAS-TTL** : den här inställningen är TTL-värdet för de SAS-URI: er som returnerades till enheten med IoT Hub. Ange en timme som standard.
 
-* **Inställningar för fil meddelanden standard TTL: TTL-värde**för fil överföring innan det upphör att gälla. Ange en dag som standard.
+* **Inställningar för fil meddelanden standard TTL: TTL-värde** för fil överföring innan det upphör att gälla. Ange en dag som standard.
 
-* **Maximalt antal leveranser för fil meddelanden**: antalet gånger som IoT Hub försöker leverera ett meddelande om fil överföring. Ange till 10 som standard.
+* **Maximalt antal leveranser för fil meddelanden** : antalet gånger som IoT Hub försöker leverera ett meddelande om fil överföring. Ange till 10 som standard.
 
 Använd följande Azure CLI-kommandon för att konfigurera fil överförings inställningarna på din IoT-hubb:
 
@@ -138,8 +138,7 @@ Mer information om fil överförings funktionerna i IoT Hub finns i [överföra 
 Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 
 * [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub mått](iot-hub-metrics.md)
-* [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+* [Övervaka din IoT Hub](monitor-iot-hub.md)
 
 För att ytterligare utforska funktionerna i IoT Hub, se:
 

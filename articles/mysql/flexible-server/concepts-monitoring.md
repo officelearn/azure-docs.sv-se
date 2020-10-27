@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: f3a58a6766c42385dd6611c2014ba36fd1078710
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941629"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538671"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Övervaka Azure Database for MySQL flexibla servrar med inbyggda mått
 
@@ -24,9 +24,9 @@ I den här artikeln får du lära dig mer om de olika mått som är tillgänglig
 
 ## <a name="available-metrics"></a>Tillgängliga mått
 
-Azure Database for MySQL flexibel Server ger olika mått för att förstå hur arbets belastningen presterar och baseras på dessa data, så att du kan förstå påverkan på servern och programmet. I flexibel Server kan du till exempel övervaka **värd processor procent**, **aktiva anslutningar**, IO- **procent**och **värdens minnes procent** för att identifiera när prestanda påverkas. Därifrån kan du behöva optimera arbets belastningen, skala lodrätt genom att ändra beräknings nivåer eller skala vågrätt med hjälp av Läs replik.
+Azure Database for MySQL flexibel Server ger olika mått för att förstå hur arbets belastningen presterar och baseras på dessa data, så att du kan förstå påverkan på servern och programmet. I flexibel Server kan du till exempel övervaka **värd processor procent** , **aktiva anslutningar** , IO- **procent** och **värdens minnes procent** för att identifiera när prestanda påverkas. Därifrån kan du behöva optimera arbets belastningen, skala lodrätt genom att ändra beräknings nivåer eller skala vågrätt med hjälp av Läs replik.
 
-Alla Azure-mått har en frekvens på en minut och varje mått ger 30 dagars historik. Du kan konfigurera aviseringar för måtten. Steg-för-steg-anvisningar finns i [så här konfigurerar du aviseringar](./how-to-alert-on-metric.md). Andra uppgifter är att ställa in automatiserade åtgärder, utföra avancerad analys och lagrings historik. Mer information finns i [Översikt över Azure Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Alla Azure-mått har en frekvens på en minut och varje mått ger 30 dagars historik. Du kan konfigurera aviseringar för måtten. Steg-för-steg-anvisningar finns i [så här konfigurerar du aviseringar](./how-to-alert-on-metric.md). Andra uppgifter är att ställa in automatiserade åtgärder, utföra avancerad analys och lagrings historik. Mer information finns i [Översikt över Azure Metrics](../../azure-monitor/platform/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for MySQL:

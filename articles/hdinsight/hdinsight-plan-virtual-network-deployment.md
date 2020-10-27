@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/04/2020
-ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71a4f2aa9bebd325b329af335985a37df5cd7263
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82786622"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547409"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -84,7 +84,7 @@ Använd stegen i det här avsnittet för att upptäcka hur du lägger till en ny
         Mer information finns i avsnittet [Felsöka nätverks säkerhets grupper](../virtual-network/diagnose-network-traffic-filter-problem.md) .
 
         > [!IMPORTANT]  
-        > Regler för nätverks säkerhets grupper tillämpas i ordning utifrån regel prioritet. Den första regeln som matchar trafik mönstret används och inga andra tillämpas för den trafiken. Beställ regler från de flesta tillstånd till minst tillåta. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/security-overview.md) .
+        > Regler för nätverks säkerhets grupper tillämpas i ordning utifrån regel prioritet. Den första regeln som matchar trafik mönstret används och inga andra tillämpas för den trafiken. Beställ regler från de flesta tillstånd till minst tillåta. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md) .
 
     * Användardefinierade vägar
 
@@ -148,7 +148,7 @@ Om du vill aktivera namn matchning mellan det virtuella nätverket och resursern
 
          * Vidarebefordra alla andra begär anden till den lokala DNS-servern. Den lokala DNS-tjänsten hanterar alla andra namn matchnings begär Anden, även begär Anden för Internet resurser som Microsoft.com.
 
-     * __Lokalt DNS__: vidarebefordra begär Anden för det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Den anpassade DNS-servern vidarebefordrar sedan till den rekursiva Azure-matcharen.
+     * __Lokalt DNS__ : vidarebefordra begär Anden för det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Den anpassade DNS-servern vidarebefordrar sedan till den rekursiva Azure-matcharen.
 
        Den här konfigurationen dirigerar begär Anden om fullständigt kvalificerade domän namn som innehåller det virtuella nätverkets DNS-suffix till den anpassade DNS-servern. Alla andra begär Anden (även för offentliga Internet adresser) hanteras av den lokala DNS-servern.
 
@@ -210,6 +210,6 @@ När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den
 * Kod exempel och exempel på hur du skapar virtuella Azure-nätverk finns i [skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md).
 * Ett slut punkt till slut punkts exempel på hur du konfigurerar HDInsight för att ansluta till ett lokalt nätverk finns i [ansluta HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
 * Mer information om virtuella Azure-nätverk finns i [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
-* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).
 * Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).
 * Mer information om hur du styr trafik finns i [kontrol lera nätverks trafik](./control-network-traffic.md).

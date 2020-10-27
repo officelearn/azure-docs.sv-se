@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: ee7c1c57c271a6173f4ee978a10ff37526c04c33
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 12190a50579bf5b87685fc4b19ec7b2907e5ee9c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047861"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547052"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-azure-powershell"></a>Snabb start: skapa en intern belastningsutjämnare för att belastningsutjämna virtuella datorer med Azure PowerShell
 
 Kom igång med Azure Load Balancer genom att använda Azure PowerShell för att skapa en intern belastningsutjämnare och två virtuella datorer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installerat lokalt eller Azure Cloud Shell
@@ -44,12 +44,12 @@ En Azure-resursgrupp är en logisk container där Azure-resurser distribueras oc
 
 Skapa en resurs grupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup):
 
-* Med namnet **myResourceGroupLB**.
+* Med namnet **CreateIntLBQS-RG** .
 * På den **östra** platsen.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'MyResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 
 New-AzResourceGroup -Name $rg -Location $loc
@@ -59,7 +59,7 @@ New-AzResourceGroup -Name $rg -Location $loc
 # <a name="standard-sku"></a>[**Standard-SKU**](#tab/option-1-create-load-balancer-standard)
 
 >[!NOTE]
->Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar. Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
+>Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar. Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)** .
 
 ## <a name="configure-virtual-network"></a>Konfigurera ett virtuellt nätverk
 
@@ -69,17 +69,17 @@ Innan du distribuerar virtuella datorer och testar belastningsutjämnaren, skapa
 
 Skapa ett virtuellt nätverk med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
-* Med namnet **myVNet**.
-* I resurs gruppen **myResourceGroupLB**.
-* Undernät med namnet **myBackendSubnet**.
-* Virtuellt nätverk **10.0.0.0/16**.
-* Undernät **10.0.0.0/24**.
-* Undernät med namnet **AzureBastionSubnet**.
-* Undernät **10.0.1.0/24**.
+* Med namnet **myVNet** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* Undernät med namnet **myBackendSubnet** .
+* Virtuellt nätverk **10.0.0.0/16** .
+* Undernät **10.0.0.0/24** .
+* Undernät med namnet **AzureBastionSubnet** .
+* Undernät **10.0.1.0/24** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
 $spfx = '10.0.0.0/24'
@@ -107,14 +107,14 @@ New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPr
 Använd [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) för att skapa en offentlig IP-adress för skydds-värden:
 
 * Med namnet **myPublicIPBastion**
-* I resurs gruppen **myResourceGroupLB**.
+* I resurs gruppen **CreateIntLBQS-RG** .
 * På den **östra** platsen.
-* **Statisk**Metod för allokering.
+* **Statisk** Metod för allokering.
 * **Standard** -SKU.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $ipn = 'myPublicIPBastion'
 $all = 'static'
@@ -128,14 +128,14 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Location $loc -Name $ipn -Allocati
 
 Använd [New-AzBastion](/powershell/module/az.network/new-azbastion) för att skapa en skydds-värd:
 
-* Med namnet **myBastion**.
-* I resurs gruppen **myResourceGroupLB**.
-* I virtuellt nätverk **myVNet**.
-* Associerat med offentliga IP- **myPublicIPBastion**.
+* Med namnet **myBastion** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* I virtuellt nätverk **myVNet** .
+* Associerat med offentliga IP- **myPublicIPBastion** .
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $nmn = 'myBastion'
 
 ## Command to create bastion host. $vnet and $publicip are from the previous steps ##
@@ -151,16 +151,16 @@ Skapa en nätverkssäkerhetsgrupp så att du kan definiera inkommande anslutning
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>Skapa en regel för nätverkssäkerhetsgruppen för port 80
 Skapa en regel för nätverks säkerhets grupp med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
-* Med namnet **myNSGRuleHTTP**.
-* Beskrivning av **Tillåt http**.
-* Åtkomst till **Tillåt**.
-* Protokoll **(*)**.
-* Riktningen **inkommande**.
-* Prioritet **2000**.
-* **Internet**källa.
-* Käll port intervall för **(*)**.
-* Mål adressens prefix för **(*)**.
-* Mål **Port 80**.
+* Med namnet **myNSGRuleHTTP** .
+* Beskrivning av **Tillåt http** .
+* Åtkomst till **Tillåt** .
+* Protokoll **(*)** .
+* Riktningen **inkommande** .
+* Prioritet **2000** .
+* **Internet** källa.
+* Käll port intervall för **(*)** .
+* Mål adressens prefix för **(*)** .
+* Mål **Port 80** .
 
 ```azurepowershell-interactive
 ## Variables for command ##
@@ -183,14 +183,14 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 
 Skapa en nätverks säkerhets grupp med [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
 
-* Med namnet **myNSG**.
-* I resurs gruppen **myResourceGroupLB**.
-* I **östasiatiska**platser.
+* Med namnet **myNSG** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* I **östasiatiska** platser.
 * Med säkerhets regler som skapats i föregående steg som lagras i en variabel.
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nmn = 'myNSG'
 
@@ -212,13 +212,13 @@ I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följan
 
 Skapa en frontend-IP med [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
-* Med namnet **frontend**.
-* Privat IP-adress för **10.0.0.4**.
+* Med namnet **frontend** .
+* Privat IP-adress för **10.0.0.4** .
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
 $fe = 'myFrontEnd'
-$rg = 'MyResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $ip = '10.0.0.4'
 
 ## Command to create frontend configuration. The variable $vnet is from the previous commands. ##
@@ -230,7 +230,7 @@ New-AzLoadBalancerFrontendIpConfig -Name $fe -PrivateIpAddress $ip -SubnetId $vn
 
 Skapa en backend-adresspool med [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig): 
 
-* Med namnet **myBackEndPool**.
+* Med namnet **myBackEndPool** .
 * De virtuella datorerna ansluter till den här serverdelspoolen i de återstående stegen.
 
 ```azurepowershell-interactive
@@ -250,9 +250,9 @@ En virtuell dator med en misslyckad avsöknings kontroll har tagits bort från b
 Skapa en hälso avsökning med [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig):
 
 * Övervakar hälso tillståndet för de virtuella datorerna.
-* Med namnet **myHealthProbe**.
-* Protokoll- **TCP**.
-* Övervaknings **Port 80**.
+* Med namnet **myHealthProbe** .
+* Protokoll- **TCP** .
+* Övervaknings **Port 80** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -278,20 +278,23 @@ Skapa en belastnings Utjämnings regel med [Add-AzLoadBalancerRuleConfig](/power
 
 * Med namnet **myHTTPRule**
 * Lyssnar på **Port 80** i frontend **-poolen för klient delen.**
-* Skickar belastningsutjämnad nätverks trafik till Server dels adresspoolen **myBackEndPool** med **port 80**. 
-* Använda **myHealthProbe**för hälso avsökning.
-* Protokoll- **TCP**.
+* Skickar belastningsutjämnad nätverks trafik till Server dels adresspoolen **myBackEndPool** med **port 80** . 
+* Använda **myHealthProbe** för hälso avsökning.
+* Protokoll- **TCP** .
+* Tids gräns för inaktivitet på **15 minuter** .
+* Aktivera TCP-återställning.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbr = 'myHTTPRule'
 $pro = 'tcp'
 $port = '80'
+$idl = '15'
 
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -DisableOutboundSNAT -IdleTimeoutInMinutes $idl -EnableTcpReset
 ```
 >[!NOTE]
 >De virtuella datorerna i backend-poolen har ingen utgående Internet anslutning med den här konfigurationen. </br> Mer information om hur du tillhandahåller utgående anslutningar finns i: </br> **[Utgående anslutningar i Azure](load-balancer-outbound-connections.md)**</br> Alternativ för att tillhandahålla anslutning: </br> **[Konfiguration för lastbalanserare med ”endast utgående”](egress-only.md)** </br> **[Vad är Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
@@ -302,13 +305,13 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 Skapa en intern belastningsutjämnare med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer):
 
 * Med namnet **myLoadBalancer**
-* I **öster**.
-* I resurs gruppen **myResourceGroupLB**.
+* I **öster** .
+* I resurs gruppen **CreateIntLBQS-RG** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbn = 'myLoadBalancer'
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $sku = 'Standard'
 
@@ -324,17 +327,17 @@ Skapa tre nätverks gränssnitt med [New-AzNetworkInterface](/powershell/module/
 
 #### <a name="vm-1"></a>VM 1
 
-* Med namnet **myNicVM1**.
-* I resurs gruppen **myResourceGroupLB**.
-* I **östasiatiska**platser.
-* I virtuellt nätverk **myVNet**.
-* I undernät **myBackendSubnet**.
-* I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
+* Med namnet **myNicVM1** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* I **östasiatiska** platser.
+* I virtuellt nätverk **myVNet** .
+* I undernät **myBackendSubnet** .
+* I nätverks säkerhets gruppen **myNSG** .
+* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool** .
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic1 = 'myNicVM1'
 $vnt = 'myVNet'
@@ -360,17 +363,17 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 #### <a name="vm-2"></a>VM 2
 
-* Med namnet **myNicVM2**.
-* I resurs gruppen **myResourceGroupLB**.
-* I **östasiatiska**platser.
-* I virtuellt nätverk **myVNet**.
-* I undernät **myBackendSubnet**.
-* I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
+* Med namnet **myNicVM2** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* I **östasiatiska** platser.
+* I virtuellt nätverk **myVNet** .
+* I undernät **myBackendSubnet** .
+* I nätverks säkerhets gruppen **myNSG** .
+* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool** .
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic2 = 'myNicVM2'
 $vnt = 'myVNet'
@@ -413,16 +416,16 @@ Skapa de virtuella datorerna med:
 
 #### <a name="vm1"></a>VM1
 
-* Med namnet **myVM1**.
-* I resurs gruppen **myResourceGroupLB**.
-* Ansluten till nätverks gränssnittet **myNicVM1**.
-* Ansluten till belastningsutjämnarens **myLoadBalancer**.
-* I **zon 1**.
+* Med namnet **myVM1** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* Ansluten till nätverks gränssnittet **myNicVM1** .
+* Ansluten till belastningsutjämnarens **myLoadBalancer** .
+* I **zon 1** .
 * På den **östra** platsen.
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM1'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -444,16 +447,16 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 
 #### <a name="vm2"></a>VM2
 
-* Med namnet **myVM2**.
-* I resurs gruppen **myResourceGroupLB**.
-* Ansluten till nätverks gränssnittet **myNicVM2**.
-* Ansluten till belastningsutjämnarens **myLoadBalancer**.
-* I **zon 2**.
+* Med namnet **myVM2** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* Ansluten till nätverks gränssnittet **myNicVM2** .
+* Ansluten till belastningsutjämnarens **myLoadBalancer** .
+* I **zon 2** .
 * På den **östra** platsen.
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM2'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -475,7 +478,7 @@ New-AzVM -ResourceGroupName $rg -Zone $zn -Location $loc -VM $vmConfig
 # <a name="basic-sku"></a>[**Grundläggande SKU**](#tab/option-1-create-load-balancer-basic)
 
 >[!NOTE]
->Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar. Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)**.
+>Standard-SKU-belastningsutjämnare rekommenderas för produktions arbets belastningar. Mer information om SKU: er finns i **[Azure Load Balancer SKU: er](skus.md)** .
 
 ## <a name="configure-virtual-network"></a>Konfigurera ett virtuellt nätverk
 
@@ -485,17 +488,17 @@ Innan du distribuerar virtuella datorer och testar belastningsutjämnaren, skapa
 
 Skapa ett virtuellt nätverk med [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork):
 
-* Med namnet **myVNet**.
-* I resurs gruppen **myResourceGroupLB**.
-* Undernät med namnet **myBackendSubnet**.
-* Virtuellt nätverk **10.0.0.0/16**.
-* Undernät **10.0.0.0/24**.
-* Undernät med namnet **AzureBastionSubnet**.
-* Undernät **10.0.1.0/24**.
+* Med namnet **myVNet** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* Undernät med namnet **myBackendSubnet** .
+* Virtuellt nätverk **10.0.0.0/16** .
+* Undernät **10.0.0.0/24** .
+* Undernät med namnet **AzureBastionSubnet** .
+* Undernät **10.0.1.0/24** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $sub = 'myBackendSubnet'
 $spfx = '10.0.0.0/24'
@@ -523,14 +526,14 @@ New-AzVirtualNetwork -ResourceGroupName $rg -Location $loc -Name $vnm -AddressPr
 Använd [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) för att skapa en offentlig IP-adress för skydds-värden:
 
 * Med namnet **myPublicIPBastion**
-* I resurs gruppen **myResourceGroupLB**.
+* I resurs gruppen **CreateIntLBQS-RG** .
 * På den **östra** platsen.
-* **Statisk**Metod för allokering.
+* **Statisk** Metod för allokering.
 * **Standard** -SKU.
 
 ```azurepowershell-interactive
 ## Variables for the command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $ipn = 'myPublicIPBastion'
 $all = 'static'
@@ -544,14 +547,14 @@ New-AzPublicIpAddress -ResourceGroupName $rg -Location $loc -Name $ipn -Allocati
 
 Använd [New-AzBastion](/powershell/module/az.network/new-azbastion) för att skapa en skydds-värd:
 
-* Med namnet **myBastion**.
-* I resurs gruppen **myResourceGroupLB**.
-* I virtuellt nätverk **myVNet**.
-* Associerat med offentliga IP- **myPublicIPBastion**.
+* Med namnet **myBastion** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* I virtuellt nätverk **myVNet** .
+* Associerat med offentliga IP- **myPublicIPBastion** .
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $nmn = 'myBastion'
 
 ## Command to create bastion host. $vnet and $publicip are from the previous steps ##
@@ -568,16 +571,16 @@ Skapa en nätverkssäkerhetsgrupp så att du kan definiera inkommande anslutning
 #### <a name="create-a-network-security-group-rule-for-port-80"></a>Skapa en regel för nätverkssäkerhetsgruppen för port 80
 Skapa en regel för nätverks säkerhets grupp med [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig):
 
-* Med namnet **myNSGRuleHTTP**.
-* Beskrivning av **Tillåt http**.
-* Åtkomst till **Tillåt**.
-* Protokoll **(*)**.
-* Riktningen **inkommande**.
-* Prioritet **2000**.
-* **Internet**källa.
-* Käll port intervall för **(*)**.
-* Mål adressens prefix för **(*)**.
-* Mål **Port 80**.
+* Med namnet **myNSGRuleHTTP** .
+* Beskrivning av **Tillåt http** .
+* Åtkomst till **Tillåt** .
+* Protokoll **(*)** .
+* Riktningen **inkommande** .
+* Prioritet **2000** .
+* **Internet** källa.
+* Käll port intervall för **(*)** .
+* Mål adressens prefix för **(*)** .
+* Mål **Port 80** .
 
 ```azurepowershell-interactive
 ## Variables for command ##
@@ -600,14 +603,14 @@ New-AzNetworkSecurityRuleConfig -Name $rnm -Description $des -Access $acc -Proto
 
 Skapa en nätverks säkerhets grupp med [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup):
 
-* Med namnet **myNSG**.
-* I resurs gruppen **myResourceGroupLB**.
-* I **östasiatiska**platser.
+* Med namnet **myNSG** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* I **östasiatiska** platser.
 * Med säkerhets regler som skapats i föregående steg som lagras i en variabel.
 
 ```azurepowershell
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nmn = 'myNSG'
 
@@ -629,13 +632,13 @@ I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följan
 
 Skapa en frontend-IP med [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig):
 
-* Med namnet **frontend**.
-* Privat IP-adress för **10.0.0.4**.
+* Med namnet **frontend** .
+* Privat IP-adress för **10.0.0.4** .
 
 ```azurepowershell-interactive
 ## Variables for the commands ##
 $fe = 'myFrontEnd'
-$rg = 'MyResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $ip = '10.0.0.4'
 
 ## Command to create frontend configuration. The variable $vnet is from the previous commands. ##
@@ -647,7 +650,7 @@ New-AzLoadBalancerFrontendIpConfig -Name $fe -PrivateIpAddress $ip -SubnetId $vn
 
 Skapa en backend-adresspool med [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig): 
 
-* Med namnet **myBackEndPool**.
+* Med namnet **myBackEndPool** .
 * De virtuella datorerna ansluter till den här serverdelspoolen i de återstående stegen.
 
 ```azurepowershell-interactive
@@ -667,9 +670,9 @@ En virtuell dator med en misslyckad avsöknings kontroll har tagits bort från b
 Skapa en hälso avsökning med [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig):
 
 * Övervakar hälso tillståndet för de virtuella datorerna.
-* Med namnet **myHealthProbe**.
-* Protokoll- **TCP**.
-* Övervaknings **Port 80**.
+* Med namnet **myHealthProbe** .
+* Protokoll- **TCP** .
+* Övervaknings **Port 80** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
@@ -695,20 +698,22 @@ Skapa en belastnings Utjämnings regel med [Add-AzLoadBalancerRuleConfig](/power
 
 * Med namnet **myHTTPRule**
 * Lyssnar på **Port 80** i frontend **-poolen för klient delen.**
-* Skickar belastningsutjämnad nätverks trafik till Server dels adresspoolen **myBackEndPool** med **port 80**. 
-* Använda **myHealthProbe**för hälso avsökning.
-* Protokoll- **TCP**.
+* Skickar belastningsutjämnad nätverks trafik till Server dels adresspoolen **myBackEndPool** med **port 80** . 
+* Använda **myHealthProbe** för hälso avsökning.
+* Protokoll- **TCP** .
+* Tids gräns för inaktivitet på **15 minuter** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbr = 'myHTTPRule'
 $pro = 'tcp'
 $port = '80'
+$idl = '15'
 
 ## $feip and $bePool are the variables from previous steps. ##
 
 $rule = 
-New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool
+New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPort $port -BackendPort $port -FrontendIpConfiguration $feip -BackendAddressPool $bePool -IdleTimeoutInMinutes $idl
 ```
 
 ### <a name="create-load-balancer-resource"></a>Skapa belastnings Utjämnings resurs
@@ -716,13 +721,13 @@ New-AzLoadBalancerRuleConfig -Name $lbr -Protocol $pro -Probe $probe -FrontendPo
 Skapa en offentlig belastningsutjämnare med [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer):
 
 * Med namnet **myLoadBalancer**
-* I **öster**.
-* I resurs gruppen **myResourceGroupLB**.
+* I **öster** .
+* I resurs gruppen **CreateIntLBQS-RG** .
 
 ```azurepowershell-interactive
 ## Variables for the command ##
 $lbn = 'myLoadBalancer'
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $sku = 'Basic'
 
@@ -738,17 +743,17 @@ Skapa tre nätverks gränssnitt med [New-AzNetworkInterface](/powershell/module/
 
 #### <a name="vm-1"></a>VM 1
 
-* Med namnet **myNicVM1**.
-* I resurs gruppen **myResourceGroupLB**.
-* I **östasiatiska**platser.
-* I virtuellt nätverk **myVNet**.
-* I undernät **myBackendSubnet**.
-* I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
+* Med namnet **myNicVM1** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* I **östasiatiska** platser.
+* I virtuellt nätverk **myVNet** .
+* I undernät **myBackendSubnet** .
+* I nätverks säkerhets gruppen **myNSG** .
+* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool** .
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic1 = 'myNicVM1'
 $vnt = 'myVNet'
@@ -774,17 +779,17 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic1 -LoadBa
 
 #### <a name="vm-2"></a>VM 2
 
-* Med namnet **myNicVM2**.
-* I resurs gruppen **myResourceGroupLB**.
-* I **östasiatiska**platser.
-* I virtuellt nätverk **myVNet**.
-* I undernät **myBackendSubnet**.
-* I nätverks säkerhets gruppen **myNSG**.
-* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool**.
+* Med namnet **myNicVM2** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* I **östasiatiska** platser.
+* I virtuellt nätverk **myVNet** .
+* I undernät **myBackendSubnet** .
+* I nätverks säkerhets gruppen **myNSG** .
+* Ansluten till belastningsutjämnare- **myLoadBalancer** i **myBackEndPool** .
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic2 = 'myNicVM2'
 $vnt = 'myVNet'
@@ -812,13 +817,13 @@ New-AzNetworkInterface -ResourceGroupName $rg -Location $loc -Name $nic2 -LoadBa
 
 Använd [New-AzAvailabilitySet](/powershell/module/az.compute/new-azvm) för att skapa en tillgänglighets uppsättning för de virtuella datorerna:
 
-* Med namnet **myAvSet**.
-* I resurs gruppen **myResourceGroupLB**.
+* Med namnet **myAvSet** .
+* I resurs gruppen **CreateIntLBQS-RG** .
 * På den **östra** platsen.
 
 ```azurepowershell-interactive
 ## Variables used for the command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $avs = 'myAvSet'
 $loc = 'eastus'
 
@@ -844,16 +849,16 @@ Skapa de virtuella datorerna med:
 
 #### <a name="vm1"></a>VM1
 
-* Med namnet **myVM1**.
-* I resurs gruppen **myResourceGroupLB**.
-* Ansluten till nätverks gränssnittet **myNicVM1**.
-* Ansluten till belastningsutjämnarens **myLoadBalancer**.
+* Med namnet **myVM1** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* Ansluten till nätverks gränssnittet **myNicVM1** .
+* Ansluten till belastningsutjämnarens **myLoadBalancer** .
 * På den **östra** platsen.
 * I **myAvSet** tillgänglighets uppsättning.
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM1'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -875,16 +880,16 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig -AvailabilitySetNam
 
 #### <a name="vm2"></a>VM2
 
-* Med namnet **myVM2**.
-* I resurs gruppen **myResourceGroupLB**.
-* Ansluten till nätverks gränssnittet **myNicVM2**.
-* Ansluten till belastningsutjämnarens **myLoadBalancer**.
+* Med namnet **myVM2** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* Ansluten till nätverks gränssnittet **myNicVM2** .
+* Ansluten till belastningsutjämnarens **myLoadBalancer** .
 * På den **östra** platsen.
 * I **myAvSet** tillgänglighets uppsättning.
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myVM2'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -917,7 +922,7 @@ Tillägget kör PowerShell Add-WindowsFeature Web-Server för att installera IIS
 
 ```azurepowershell-interactive
 ## Variables for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $enm = 'IIS'
 $vmn = 'myVM1'
 $loc = 'eastus'
@@ -932,7 +937,7 @@ Set-AzVMExtension -ResourceGroupName $rg -ExtensionName $enm -VMName $vmn -Locat
 
 ```azurepowershell-interactive
 ## Variables for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $enm = 'IIS'
 $vmn = 'myVM2'
 $loc = 'eastus'
@@ -951,16 +956,16 @@ Skapa ett nätverks gränssnitt med [New-AzNetworkInterface](/powershell/module/
 
 #### <a name="mytestvm"></a>myTestVM
 
-* Med namnet **myNicTestVM**.
-* I resurs gruppen **myResourceGroupLB**.
-* I **östasiatiska**platser.
-* I virtuellt nätverk **myVNet**.
-* I undernät **myBackendSubnet**.
-* I nätverks säkerhets gruppen **myNSG**.
+* Med namnet **myNicTestVM** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* I **östasiatiska** platser.
+* I virtuellt nätverk **myVNet** .
+* I undernät **myBackendSubnet** .
+* I nätverks säkerhets gruppen **myNSG** .
 
 ```azurepowershell-interactive
 ## Variables for command ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $loc = 'eastus'
 $nic1 = 'myNicTestVM'
 $vnt = 'myVNet'
@@ -998,14 +1003,14 @@ Skapa den virtuella datorn med:
 
 #### <a name="mytestvm"></a>myTestVM
 
-* Med namnet **myTestVM**.
-* I resurs gruppen **myResourceGroupLB**.
-* Ansluten till nätverks gränssnittet **myNicTestVM**.
+* Med namnet **myTestVM** .
+* I resurs gruppen **CreateIntLBQS-RG** .
+* Ansluten till nätverks gränssnittet **myNicTestVM** .
 * På den **östra** platsen.
 
 ```azurepowershell-interactive
 ## Variables used for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 $vm = 'myTestVM'
 $siz = 'Standard_DS1_v2'
 $pub = 'MicrosoftWindowsServer'
@@ -1028,17 +1033,17 @@ New-AzVM -ResourceGroupName $rg -Location $loc -VM $vmConfig
 
 1. [Logga in](https://portal.azure.com) i Azure-portalen.
 
-1. Hitta den privata IP-adressen för belastningsutjämnaren på **översikts** skärmen. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myLoadBalancer**.
+1. Hitta den privata IP-adressen för belastningsutjämnaren på **översikts** skärmen. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser** och välj sedan **myLoadBalancer** .
 
-2. Anteckna eller kopiera adressen bredvid **privat IP-adress** i **översikten** över **myLoadBalancer**.
+2. Anteckna eller kopiera adressen bredvid **privat IP-adress** i **översikten** över **myLoadBalancer** .
 
-3. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myTestVM** i resurs gruppen **myResourceGroupLB** i resurs gruppen.
+3. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser** och välj **myTestVM** i resurs gruppen **CreateIntLBQS-RG** i resurs listan.
 
-4. På sidan **Översikt** väljer du **Anslut**och sedan **skydds**.
+4. På sidan **Översikt** väljer du **Anslut** och sedan **skydds** .
 
 6. Ange det användar namn och lösen ord som angavs när den virtuella datorn skapades.
 
-7. Öppna **Internet Explorer** på **myTestVM**.
+7. Öppna **Internet Explorer** på **myTestVM** .
 
 8. Ange IP-adressen från föregående steg i adress fältet i webbläsaren. IIS-webbserverns standardsida visas i webbläsaren.
 
@@ -1052,7 +1057,7 @@ När det inte längre behövs kan du använda kommandot [Remove-AzResourceGroup]
 
 ```azurepowershell-interactive
 ## Variable for command. ##
-$rg = 'myResourceGroupLB'
+$rg = 'CreateIntLBQS-rg'
 
 Remove-AzResourceGroup -Name $rg
 ```

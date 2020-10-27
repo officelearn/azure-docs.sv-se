@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
-ms.openlocfilehash: 21d8f513ea0f749f0318b9bc5926a746f840505b
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0b8b499613f8234f449e6d72f6ed6ec1f2f21287
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147825"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545420"
 ---
 # <a name="automatic-iot-device-and-module-management-using-the-azure-cli"></a>Automatisk hantering av IoT-enheter och -moduler med Azure CLI
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Automatisk enhets hantering i Azure IoT Hub automatiserar många av de repetitiva och komplexa uppgifterna i hanteringen av stora enhets flottor. Med automatisk enhets hantering kan du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och sedan låta IoT Hub uppdatera enheterna när de kommer i omfång. Den här uppdateringen görs med hjälp av en _Automatisk enhets konfiguration_ eller _automatisk konfiguration av modulen_, som gör att du kan sammanfatta, hantera sammanslagning och konflikter och distribuera konfigurationer i en stegvis metod.
+Automatisk enhets hantering i Azure IoT Hub automatiserar många av de repetitiva och komplexa uppgifterna i hanteringen av stora enhets flottor. Med automatisk enhets hantering kan du rikta en uppsättning enheter baserat på deras egenskaper, definiera en önskad konfiguration och sedan låta IoT Hub uppdatera enheterna när de kommer i omfång. Den här uppdateringen görs med hjälp av en _Automatisk enhets konfiguration_ eller _automatisk konfiguration av modulen_ , som gör att du kan sammanfatta, hantera sammanslagning och konflikter och distribuera konfigurationer i en stegvis metod.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,7 +28,7 @@ Automatisk enhets hantering fungerar genom att uppdatera en uppsättning enheter
 
 * **Målets innehåll** definierar önskade egenskaper som ska läggas till eller uppdateras i den riktade enheten, med dubbla eller moduler. Innehållet innehåller en sökväg till avsnittet av önskade egenskaper som ska ändras.
 
-* **Måtten** definierar antalet olika konfigurations tillstånd, till exempel **lyckad**, **pågående**och **fel**. Anpassade mått anges som frågor på dubbla rapporterade egenskaper.  System mått är standard mått som mäter dubbel uppdaterings status, t. ex. antalet värden som är riktade till varandra och antalet dubbla objekt som har uppdaterats.
+* **Måtten** definierar antalet olika konfigurations tillstånd, till exempel **lyckad** , **pågående** och **fel** . Anpassade mått anges som frågor på dubbla rapporterade egenskaper.  System mått är standard mått som mäter dubbel uppdaterings status, t. ex. antalet värden som är riktade till varandra och antalet dubbla objekt som har uppdaterats.
 
 Automatiska konfigurationer körs för första gången strax efter att konfigurationen har skapats och sedan var femte minut. Mått frågor körs varje gången den automatiska konfigurationen körs.
 
@@ -136,7 +136,7 @@ Använd följande kommando för att skapa en konfiguration:
 
 * --**hubb-namn** – namnet på den IoT-hubb där konfigurationen ska skapas. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot `az account set -s [subscription name]`
 
-* --**mål villkor** – ange ett mål villkor för att avgöra vilka enheter eller moduler som ska användas med den här konfigurationen.För automatisk enhets konfiguration baseras villkoret på enhetens dubbla taggar eller enhet med dubbla önskade egenskaper och ska matcha uttrycks formatet.Exempel: `tags.environment='test'` eller `properties.desired.devicemodel='4000x'`.För automatisk konfiguration av en modul baseras villkoret på modulens dubbla taggar eller modulens dubbla önskade egenskaper.. Exempel: `from devices.modules where tags.environment='test'` eller `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
+* --**mål villkor** – ange ett mål villkor för att avgöra vilka enheter eller moduler som ska användas med den här konfigurationen. För automatisk enhets konfiguration baseras villkoret på enhetens dubbla taggar eller enhet med dubbla önskade egenskaper och ska matcha uttrycks formatet. Exempel: `tags.environment='test'` eller `properties.desired.devicemodel='4000x'`. För automatisk konfiguration av en modul baseras villkoret på modulens dubbla taggar eller modulens dubbla önskade egenskaper.. Exempel: `from devices.modules where tags.environment='test'` eller `from devices.modules where properties.reported.chillerProperties.model='4000x'`.
 
 * --**Priority** – ett positivt heltal. I händelse av att två eller flera konfigurationer är riktade till samma enhet eller modul gäller konfigurationen med det högsta numeriska värdet för prioritet.
 
@@ -155,7 +155,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**hubb-namn** – namnet på den IoT-hubb där konfigurationen finns. Navet måste finnas i den aktuella prenumerationen. Växla till önskad prenumeration med kommandot `az account set -s [subscription name]`
 
-Granska konfigurationen i kommando fönstret.Egenskapen **mått** visar ett antal för varje mått som utvärderas av varje hubb:
+Granska konfigurationen i kommando fönstret. Egenskapen **mått** visar ett antal för varje mått som utvärderas av varje hubb:
 
 * **targetedCount** – ett system mått som anger hur många enheter som är dubblare eller moduler i IoT Hub som matchar mål villkoret.
 
@@ -229,8 +229,7 @@ az iot hub configuration delete --config-id [configuration id] \
 I den här artikeln har du lärt dig hur du konfigurerar och övervakar IoT-enheter i stor skala. Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 
 * [Hantera dina IoT Hub-enhetsidentiteter i grupp](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub mått](iot-hub-metrics.md)
-* [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+* [Övervaka din IoT Hub](monitor-iot-hub.md)
 
 För att ytterligare utforska funktionerna i IoT Hub, se:
 

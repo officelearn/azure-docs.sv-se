@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: a9a95c0151ed6dd3a2ad4a9d548723cdff0bcfb8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 501b609d745e0a86bc1e00bccae54bb4f6e49376
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147091"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545284"
 ---
 # <a name="use-ip-filters"></a>Använda IP-filter
 
@@ -39,43 +39,43 @@ Alla anslutnings försök från en IP-adress som matchar en IP-regel som avvisar
 
 Som standard är **IP-filter** rutnätet i portalen för en IoT Hub tomt. Den här standardinställningen innebär att navet accepterar anslutningar från alla IP-adresser. Standardvärdet motsvarar en regel som accepterar IP-adressintervallet 0.0.0.0/0.
 
-Gå till sidan Inställningar för IP-filter genom att välja **nätverk**, **offentlig åtkomst**och sedan välja **valda IP-intervall**:
+Gå till sidan Inställningar för IP-filter genom att välja **nätverk** , **offentlig åtkomst** och sedan välja **valda IP-intervall** :
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>Lägga till eller redigera en IP-filterregel
 
-Du lägger till en IP-filterregel genom att välja **+ Lägg till IP-filterregel**.
+Du lägger till en IP-filterregel genom att välja **+ Lägg till IP-filterregel** .
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
-Fyll i fälten när du har valt **Lägg till IP-filterregel**.
+Fyll i fälten när du har valt **Lägg till IP-filterregel** .
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
-* Ange ett **namn** för IP-filterregeln. Namnet måste vara en unik, skiftlägeskänslig, alfanumerisk sträng på upp till 128 tecken. Du kan endast använda 7-bitars alfanumeriska ASCII-tecken samt `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+* Ange ett **namn** för IP-filterregeln. Namnet måste vara en unik, skiftlägeskänslig, alfanumerisk sträng på upp till 128 tecken. Du kan endast använda 7-bitars alfanumeriska ASCII-tecken samt `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
 * Ange en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation representerar exempelvis 192.168.100.0/22 de 1 024 IPv4-adresserna från 192.168.100.0 till 192.168.103.255.
 
 * Välj **Tillåt** eller **Blockera** som **åtgärd** för IP-filterregeln.
 
-När du har fyllt i fälten sparar du regeln genom att välja **Spara**. Ett meddelande visas som anger att uppdateringen pågår.
+När du har fyllt i fälten sparar du regeln genom att välja **Spara** . Ett meddelande visas som anger att uppdateringen pågår.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
 Alternativet **Lägg till** inaktiveras när du når den högsta gränsen på tio IP-filterregler.
 
-Om du vill redigera en befintlig regel väljer du de data som du vill ändra, gör ändringen och sparar sedan ändringen genom att välja **Spara**.
+Om du vill redigera en befintlig regel väljer du de data som du vill ändra, gör ändringen och sparar sedan ändringen genom att välja **Spara** .
 
 ## <a name="delete-an-ip-filter-rule"></a>Ta bort en IP-filterregel
 
-Om du vill ta bort en IP-filterregel väljer du papperskorgsikonen på den aktuella raden och väljer sedan **Spara**. Regeln tas bort och ändringen sparas.
+Om du vill ta bort en IP-filterregel väljer du papperskorgsikonen på den aktuella raden och väljer sedan **Spara** . Regeln tas bort och ändringen sparas.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Hämta och uppdatera IP-filter med Azure CLI
 
-Din IoT Hubs IP-filter kan hämtas och uppdateras via [Azure CLI](/cli/azure/?view=azure-cli-latest).
+Din IoT Hubs IP-filter kan hämtas och uppdateras via [Azure CLI](/cli/azure/).
 
 Om du vill hämta aktuella IP-filter för din IoT Hub kör du:
 
@@ -159,7 +159,7 @@ Om du till exempel vill acceptera adresser i intervallet 192.168.100.0/22 och av
 
 Om du vill ändra ordning på dina IP-filterregler i tabellen klickar du på de tre lodräta punkterna i början av en rad och drar och släpper.
 
-Sedan sparar du IP-filterreglernas nya ordning genom att klicka på **Spara**.
+Sedan sparar du IP-filterreglernas nya ordning genom att klicka på **Spara** .
 
 :::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="IoT Hub inställningar för standard-IP-filter":::
 
@@ -167,4 +167,4 @@ Sedan sparar du IP-filterreglernas nya ordning genom att klicka på **Spara**.
 
 För att ytterligare utforska funktionerna i IoT Hub, se:
 
-* [IoT Hub mått](iot-hub-metrics.md)
+* [Övervaka IoT Hub](monitor-iot-hub.md)

@@ -11,12 +11,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - devx-track-csharp
-ms.openlocfilehash: b762b77788c3df05fbd0db349457abadcbe39b51
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 64821819530e142eb207c001d3e3ccfe349cf917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147704"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547783"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter
 
@@ -34,7 +34,7 @@ IoT Hub definierar ett [gemensamt format](iot-hub-devguide-messages-construct.md
 
 ## <a name="routing-endpoints"></a>Slutpunkter för routning
 
-En IoT-hubb har en inbyggd standard slut punkt (**meddelanden/händelser**) som är kompatibel med Event Hubs. Du kan skapa [anpassade slut punkter](iot-hub-devguide-endpoints.md#custom-endpoints) för att dirigera meddelanden till genom att länka andra tjänster i din prenumeration till IoT Hub. 
+En IoT-hubb har en inbyggd standard slut punkt ( **meddelanden/händelser** ) som är kompatibel med Event Hubs. Du kan skapa [anpassade slut punkter](iot-hub-devguide-endpoints.md#custom-endpoints) för att dirigera meddelanden till genom att länka andra tjänster i din prenumeration till IoT Hub. 
 
 Varje meddelande dirigeras till alla slut punkter vars vägvals frågor det matchar. Med andra ord kan ett meddelande dirigeras till flera slut punkter.
 
@@ -49,7 +49,7 @@ IoT Hub stöder för närvarande följande slut punkter:
 
 ## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Inbyggd slut punkt som en cirkulations slut punkt
 
-Du kan använda standard [Event Hubs integration och SDK](iot-hub-devguide-messages-read-builtin.md) : er för att ta emot meddelanden från enheten till molnet från den inbyggda slut punkten (**meddelanden/händelser**). När en väg har skapats slutar data flöda till den inbyggda slut punkten om inte en väg skapas till den slut punkten.
+Du kan använda standard [Event Hubs integration och SDK](iot-hub-devguide-messages-read-builtin.md) : er för att ta emot meddelanden från enheten till molnet från den inbyggda slut punkten ( **meddelanden/händelser** ). När en väg har skapats slutar data flöda till den inbyggda slut punkten om inte en väg skapas till den slut punkten.
 
 ## <a name="azure-storage-as-a-routing-endpoint"></a>Azure Storage som en cirkulations slut punkt
 
@@ -59,7 +59,7 @@ IoT Hub stöder skrivning av data till Azure Storage i [Apache Avro](https://avr
 
 Kodnings formatet kan bara anges när Blob Storage-slutpunkten har kon figurer ATS. den kan inte redige ras för en befintlig slut punkt. Om du vill byta kodnings format för en befintlig slut punkt måste du ta bort och återskapa den anpassade slut punkten med det format som du vill använda. En praktisk strategi kan vara att skapa en ny anpassad slut punkt med önskat kodnings format och lägga till en parallell väg till den slut punkten. På så sätt kan du verifiera dina data innan du tar bort den befintliga slut punkten.
 
-Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)eller [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). Följande bild visar hur du väljer kodnings formatet i Azure Portal.
+Du kan välja kodnings formatet med IoT Hub skapa eller uppdatera REST API, särskilt [RoutingStorageContainerProperties](/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](/cli/azure/iot/hub/routing-endpoint)eller [Azure PowerShell](/powershell/module/az.iothub/add-aziothubroutingendpoint). Följande bild visar hur du väljer kodnings formatet i Azure Portal.
 
 ![Slut punkts kodning för Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -120,13 +120,13 @@ Använd följande självstudier om du vill lära dig mer om att läsa meddelande
 
 ## <a name="fallback-route"></a>Reserv väg
 
-Reserv vägen skickar alla meddelanden som inte uppfyller frågevillkor på någon av de befintliga vägarna till de inbyggda Event Hubs (**meddelanden/händelser**) som är kompatibla med [Event Hubs](../event-hubs/index.yml). Om meddelanderoutning är aktiverat kan du aktivera reserv väg funktionen. När en väg har skapats slutar data flöda till den inbyggda slut punkten, om inte en väg skapas till den slut punkten. Om det inte finns några vägar till den inbyggda slut punkten och en återställnings väg är aktive rad skickas endast meddelanden som inte matchar några frågevillkor i vägar till den inbyggda slut punkten. Om alla befintliga vägar tas bort måste återställnings vägen vara aktive rad för att ta emot alla data vid den inbyggda slut punkten.
+Reserv vägen skickar alla meddelanden som inte uppfyller frågevillkor på någon av de befintliga vägarna till de inbyggda Event Hubs ( **meddelanden/händelser** ) som är kompatibla med [Event Hubs](../event-hubs/index.yml). Om meddelanderoutning är aktiverat kan du aktivera reserv väg funktionen. När en väg har skapats slutar data flöda till den inbyggda slut punkten, om inte en väg skapas till den slut punkten. Om det inte finns några vägar till den inbyggda slut punkten och en återställnings väg är aktive rad skickas endast meddelanden som inte matchar några frågevillkor i vägar till den inbyggda slut punkten. Om alla befintliga vägar tas bort måste återställnings vägen vara aktive rad för att ta emot alla data vid den inbyggda slut punkten.
 
 Du kan aktivera/inaktivera återställnings vägen på bladet Azure Portal->meddelande cirkulation. Du kan också använda Azure Resource Manager för [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) om du vill använda en anpassad slut punkt för återställnings väg.
 
 ## <a name="non-telemetry-events"></a>Händelser som inte är telemetri
 
-Förutom telemetri möjliggör meddelanderoutning även sändning av enhets dubbla ändrings händelser, livs cykel händelser för enheter och digitala dubbla ändrings händelser. Om en väg till exempel skapas med data källa inställt på **enhet dubbla ändrings händelser**skickar IoT Hub meddelanden till slut punkten som innehåller ändringen i enheten. På liknande sätt skickar IoT Hub ett meddelande som anger om enheten har tagits bort eller skapats, om en väg skapas med data källa inställt på **enhetens livs cykel händelser**. Som en del av IoT- [Plug and Play](../iot-pnp/overview-iot-plug-and-play.md)kan en utvecklare skapa vägar med data källa inställt på **digitala dubbla ändrings händelser** och IoT Hub skickar meddelanden när en digital enhets [egenskap](../iot-pnp/iot-plug-and-play-glossary.md) har angetts eller ändrats, en [digital](../iot-pnp/iot-plug-and-play-glossary.md) enhet byts ut eller när en ändrings händelse inträffar för den underliggande enheten.
+Förutom telemetri möjliggör meddelanderoutning även sändning av enhets dubbla ändrings händelser, livs cykel händelser för enheter och digitala dubbla ändrings händelser. Om en väg till exempel skapas med data källa inställt på **enhet dubbla ändrings händelser** skickar IoT Hub meddelanden till slut punkten som innehåller ändringen i enheten. På liknande sätt skickar IoT Hub ett meddelande som anger om enheten har tagits bort eller skapats, om en väg skapas med data källa inställt på **enhetens livs cykel händelser** . Som en del av IoT- [Plug and Play](../iot-pnp/overview-iot-plug-and-play.md)kan en utvecklare skapa vägar med data källa inställt på **digitala dubbla ändrings händelser** och IoT Hub skickar meddelanden när en digital enhets [egenskap](../iot-pnp/iot-plug-and-play-glossary.md) har angetts eller ändrats, en [digital](../iot-pnp/iot-plug-and-play-glossary.md) enhet byts ut eller när en ändrings händelse inträffar för den underliggande enheten.
 
 [IoT Hub integreras också med Azure Event Grid](iot-hub-event-grid.md) för att publicera enhets händelser som stöder real tids integrering och automatisering av arbets flöden baserat på dessa händelser. Se viktiga [skillnader mellan meddelanderoutning och event Grid](iot-hub-event-grid-routing-comparison.md) för att se vilka som fungerar bäst för ditt scenario.
 
@@ -148,7 +148,9 @@ I de flesta fall är den genomsnittliga ökningen i svars tiden mindre än 500 m
 
 ## <a name="monitoring-and-troubleshooting"></a>Övervaka och felsöka
 
-IoT Hub tillhandahåller flera mått som rör Routning och slut punkter för att ge dig en översikt över hälsan för ditt nav och meddelanden som skickas. [IoT Hub mått](iot-hub-metrics.md) visar en lista över alla mått som är aktiverade som standard för din IoT Hub. Med hjälp av **vägar** diagnostikloggar i Azure Monitor [diagnostikinställningar](../iot-hub/iot-hub-monitor-resource-health.md)kan du spåra fel som uppstår under utvärderingen av en cirkulations fråga och slut punkts hälsa som uppfattas av IoT Hub. Du kan använda REST API [Hämta slut punkts hälsa](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få [hälso status](iot-hub-devguide-endpoints.md#custom-endpoints) för slut punkterna. 
+IoT Hub tillhandahåller flera mått som rör Routning och slut punkter för att ge dig en översikt över hälsan för ditt nav och meddelanden som skickas. För en lista över alla IoT Hub mått som uppdelats efter funktionell kategori, se [mått i övervaknings data referensen](monitor-iot-hub-reference.md#metrics). Du kan spåra fel som uppstår under utvärderingen av en cirkulations fråga och slut punkts hälsa som uppfattas av IoT Hub med [kategorin **vägar** i IoT Hub resurs loggar](monitor-iot-hub-reference.md#routes). Mer information om hur du använder mått och resurs loggar med IoT Hub finns i [övervaka IoT Hub](monitor-iot-hub.md).
+
+Du kan använda REST API [Hämta slut punkts hälsa](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få [hälso status](iot-hub-devguide-endpoints.md#custom-endpoints) för slut punkterna.
 
 Använd [fel söknings guiden för routning](troubleshoot-message-routing.md) för mer information och stöd för fel sökning av routning.
 

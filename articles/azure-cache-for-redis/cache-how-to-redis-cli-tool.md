@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: e8a3183e1fcac3f1a71d07835cacc37c2f57fb06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ca8980123240a90f73a4866c37a79800ce403d1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839052"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538025"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Använda kommando rads verktyget Redis med Azure cache för Redis
 
@@ -27,8 +27,8 @@ Om du vill köra kommando rads verktyget på en annan plattform laddar du ned Az
 
 Du kan samla in den information som behövs för att komma åt cachen med tre metoder:
 
-1. Azure CLI med [AZ Redis List-Keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Azure PowerShell att använda [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
+1. Azure CLI med [AZ Redis List-Keys](/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
+2. Azure PowerShell att använda [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Använda Azure-portalen.
 
 I det här avsnittet hämtar du nycklarna från Azure Portal.
@@ -46,7 +46,7 @@ Med Azure cache för Redis är endast TLS-porten (6380) aktive rad som standard.
 
     Kör **STUNNELSERVER GUI start** för att starta-servern.
 
-    Högerklicka på ikonen i aktivitets fältet för stunnelserver-servern och klicka på **Visa logg fönster**.
+    Högerklicka på ikonen i aktivitets fältet för stunnelserver-servern och klicka på **Visa logg fönster** .
 
     På stunnelserver logg fönstret klickar du på **konfiguration**  >  **Redigera konfiguration** för att öppna den aktuella konfigurations filen.
 
@@ -61,12 +61,12 @@ Med Azure cache för Redis är endast TLS-porten (6380) aktive rad som standard.
 
     Spara och Stäng konfigurations filen. 
   
-    På stunnelserver-fönstrets logg fönster klickar du på **konfiguration**  >  **Läs in på nytt**.
+    På stunnelserver-fönstrets logg fönster klickar du på **konfiguration**  >  **Läs in på nytt** .
 
 
 ## <a name="connect-using-the-redis-command-line-tool"></a>Anslut med hjälp av kommando rads verktyget Redis.
 
-När du använder stunnelserver, kör *redis-cli.exe*och bara skickar *porten*och *åtkomst nyckeln* (primär eller sekundär) för att ansluta till cacheminnet.
+När du använder stunnelserver, kör *redis-cli.exe* och bara skickar *porten* och *åtkomst nyckeln* (primär eller sekundär) för att ansluta till cacheminnet.
 
 ```
 redis-cli.exe -p 6380 -a YourAccessKey
@@ -74,7 +74,7 @@ redis-cli.exe -p 6380 -a YourAccessKey
 
 ![Skärm bild som visar att anslutningen till cacheminnet har slutförts.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
-Om du använder en testcache med en **osäker** icke-TLS-port kör `redis-cli.exe` och skickar du *värd namnet*, *porten*och *åtkomst nyckeln* (primär eller sekundär) för att ansluta till test-cachen.
+Om du använder en testcache med en **osäker** icke-TLS-port kör `redis-cli.exe` och skickar du *värd namnet* , *porten* och *åtkomst nyckeln* (primär eller sekundär) för att ansluta till test-cachen.
 
 ```
 redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
@@ -88,4 +88,3 @@ redis-cli.exe -h yourcachename.redis.cache.windows.net -p 6379 -a YourAccessKey
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig mer om att använda [Redis-konsolen](cache-configure.md#redis-console) för att utfärda kommandon.
-

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/16/2020
-ms.openlocfilehash: ce078a3dad645f592bb33ed55ce508f68ce8f30a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f21b72cd519c1615d8273bf316a8d0ccad039672
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281402"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546168"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet
 
@@ -78,21 +78,21 @@ Aviseringar organiseras i flera standard grupper som kan visas från sidan **avi
 
 ![Sida Sammanfattning för Apache Ambari-aviseringar](./media/hdinsight-hadoop-manage-ambari/hdinsight-alerts-page.png)
 
-Du kan hantera grupper med hjälp av **åtgärder** -menyn och välja **Hantera aviserings grupper**.
+Du kan hantera grupper med hjälp av **åtgärder** -menyn och välja **Hantera aviserings grupper** .
 
 ![Apache Ambari hantera aviserings grupper](./media/hdinsight-hadoop-manage-ambari/ambari-manage-alerts.png)
 
-Du hanterar aviserings metoder och skapar aviserings meddelanden från menyn **åtgärder** genom att välja __Hantera meddelanden__. Alla aktuella meddelanden visas. Skapa meddelanden härifrån. Aviseringar kan skickas via **e-post** eller **SNMP** när vissa kombinationer av aviseringar/allvarlighets grader inträffar. Du kan till exempel skicka ett e-postmeddelande när någon av aviseringarna i **standard gruppen garn** är inställd på **kritisk**.
+Du hanterar aviserings metoder och skapar aviserings meddelanden från menyn **åtgärder** genom att välja __Hantera meddelanden__ . Alla aktuella meddelanden visas. Skapa meddelanden härifrån. Aviseringar kan skickas via **e-post** eller **SNMP** när vissa kombinationer av aviseringar/allvarlighets grader inträffar. Du kan till exempel skicka ett e-postmeddelande när någon av aviseringarna i **standard gruppen garn** är inställd på **kritisk** .
 
 ![Apache Ambari skapa aviserings meddelande](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
 Slutligen kan du välja __Hantera aviserings inställningar__ på menyn __åtgärder__ för att ange hur många gånger en avisering måste inträffa innan ett meddelande skickas. Den här inställningen kan användas för att förhindra meddelanden om tillfälliga fel.
 
-En själv studie kurs om ett varnings meddelande med ett kostnads fritt [SendGrid-konto](https://docs.microsoft.com/azure/sendgrid-dotnet-how-to-send-email)finns i [Konfigurera Apache Ambari-e-postaviseringar i Azure HDInsight](./apache-ambari-email.md).
+En själv studie kurs om ett varnings meddelande med ett kostnads fritt [SendGrid-konto](../sendgrid-dotnet-how-to-send-email.md)finns i [Konfigurera Apache Ambari-e-postaviseringar i Azure HDInsight](./apache-ambari-email.md).
 
 ### <a name="cluster"></a>Kluster
 
-Fliken **mått** på instrument panelen innehåller en serie med widgetar som gör det enkelt att snabbt övervaka status för klustret. Flera widgetar, till exempel **processor användning**, ger ytterligare information när du klickar på den.
+Fliken **mått** på instrument panelen innehåller en serie med widgetar som gör det enkelt att snabbt övervaka status för klustret. Flera widgetar, till exempel **processor användning** , ger ytterligare information när du klickar på den.
 
 ![Apache Ambari-instrumentpanel med mått](./media/hdinsight-hadoop-manage-ambari/hdi-metrics-dashboard.png)
 
@@ -100,7 +100,7 @@ Fliken **termiska kartor** visar mått som färgad termiska kartor, från grönt
 
 ![Apache Ambari-instrumentpanel med termiska kartor](./media/hdinsight-hadoop-manage-ambari/hdi-heatmap-dashboard.png)
 
-Om du vill ha mer information om noderna i klustret väljer du **värdar**. Välj sedan den angivna noden som du är intresse rad av.
+Om du vill ha mer information om noderna i klustret väljer du **värdar** . Välj sedan den angivna noden som du är intresse rad av.
 
 ![Apache Ambari-värd, sammanfattnings information](./media/hdinsight-hadoop-manage-ambari/ambari-host-details1.png)
 
@@ -200,7 +200,7 @@ Använd följande steg för att konfigurera en tjänst:
 
     ![Konfiguration av Apache Ambari-tjänst](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
-3. Använd fälten som visas för att ändra konfigurationen och välj sedan **Spara**. Eller Välj en tidigare konfiguration och välj sedan **gör aktuell** för att återställa till föregående inställningar.
+3. Använd fälten som visas för att ändra konfigurationen och välj sedan **Spara** . Eller Välj en tidigare konfiguration och välj sedan **gör aktuell** för att återställa till föregående inställningar.
 
 ## <a name="ambari-views"></a>Ambari-vyer
 
@@ -214,7 +214,7 @@ Med Ambari vyer kan utvecklare koppla GRÄNSSNITTs element till Ambari-webbgrän
 
 Följande Ambari-åtgärder stöds inte i HDInsight:
 
-* __Flyttar mått insamlings tjänsten__. När du visar information på mått insamlings tjänsten, flyttas en av de åtgärder som är tillgängliga från menyn tjänst åtgärder till __mått insamlaren__. Den här åtgärden stöds inte med HDInsight.
+* __Flyttar mått insamlings tjänsten__ . När du visar information på mått insamlings tjänsten, flyttas en av de åtgärder som är tillgängliga från menyn tjänst åtgärder till __mått insamlaren__ . Den här åtgärden stöds inte med HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg
 

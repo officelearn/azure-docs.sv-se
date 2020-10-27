@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: 8c1ff1eebabd94c5e6b1241b33ca83960e8eedbb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 69844a392aa03dc962f8af456996ab51f1adf561
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490296"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547477"
 ---
 # <a name="apache-hadoop-clusters-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop kluster med lagrings konton för säker överföring i Azure HDInsight
 
@@ -32,7 +32,7 @@ Om du vill uppdatera ett befintligt lagrings konto med Azure Portal, se [Kräv s
 
 ### <a name="powershell"></a>PowerShell
 
-För PowerShell-cmdleten [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)kontrollerar du att parametern `-EnableHttpsTrafficOnly` har angetts till `1` .
+För PowerShell-cmdleten [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)kontrollerar du att parametern `-EnableHttpsTrafficOnly` har angetts till `1` .
 
 Om du vill uppdatera ett befintligt lagrings konto med PowerShell, se [Kräv säker överföring med PowerShell](../storage/common/storage-require-secure-transfer.md#require-secure-transfer-with-powershell).
 

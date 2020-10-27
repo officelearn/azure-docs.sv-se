@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 2f2ab3c55c5532b76c45a18054fd653dd8fe8137
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504082"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547698"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -30,7 +30,7 @@ Varje IoT-hubb etableras med ett visst antal enheter på en specifik nivå. Niv�
 
 Nivån avgör också de begränsnings gränser som IoT Hub tillämpas på alla åtgärder.
 
-## <a name="iot-plug-and-play"></a>IoT Plug and Play
+## <a name="iot-plug-and-play"></a>Plug and Play för IoT
 
 IoT Plug and Play-enheter skickar minst ett telemetri-meddelande för varje gränssnitt, inklusive roten, vilket kan öka antalet meddelanden som räknas mot din meddelande kvot.
 
@@ -43,7 +43,7 @@ I följande tabell visas de tvingade begränsningarna. Värden refererar till en
 | Begränsning | Gratis, B1 och S1 | B2 och S2 | B3 och S3 | 
 | -------- | ------- | ------- | ------- |
 | [Identitets register åtgärder](#identity-registry-operations-throttle) (skapa, Hämta, lista, uppdatera, ta bort) | 1.67 per sekund/enhet (100 per minut/enhet) | 1.67 per sekund/enhet (100 per minut/enhet) | 83.33 per sekund per enhet (5000 per minut/enhet) |
-| [Nya enhets anslutningar](#device-connections-throttle) (denna gräns gäller för antalet _nya anslutningar_, inte det totala antalet anslutningar) | Större än 100 per sekund eller 12 per sekund/enhet <br/> Till exempel är två S1-enheter 2 \* 12 = 24 nya anslutningar/SEK, men du har minst 100 nya anslutningar/SEK över dina enheter. Med nio S1-enheter har du 108 nya anslutningar/SEK (9 \* 12) över dina enheter. | 120 nya anslutningar/SEK/enhet | 6 000 nya anslutningar/SEK/enhet |
+| [Nya enhets anslutningar](#device-connections-throttle) (denna gräns gäller för antalet _nya anslutningar_ , inte det totala antalet anslutningar) | Större än 100 per sekund eller 12 per sekund/enhet <br/> Till exempel är två S1-enheter 2 \* 12 = 24 nya anslutningar/SEK, men du har minst 100 nya anslutningar/SEK över dina enheter. Med nio S1-enheter har du 108 nya anslutningar/SEK (9 \* 12) över dina enheter. | 120 nya anslutningar/SEK/enhet | 6 000 nya anslutningar/SEK/enhet |
 | Sändningar enhet-till-moln | Högst 100 sändnings åtgärder/SEK eller 12 sändnings åtgärder/SEK/enhet <br/> Till exempel är två S1-enheter 2 \* 12 = 24/SEK, men du har minst 100 skicka-åtgärder per sekund för dina enheter. Med nio S1-enheter har du 108 skicka åtgärder/SEK (9 \* 12) över dina enheter. | 120 skicka åtgärder/SEK/enhet | 6 000 skicka åtgärder/SEK/enhet |
 | Skicka från moln till enhet<sup>1</sup> | 1,67 skicka åtgärder/SEK/enhet (100 meddelanden/min/enhet) | 1,67 skicka åtgärder/SEK/enhet (100 skicka åtgärder/min/enhet) | 83,33 skicka åtgärder/SEK/enhet (5 000 skicka åtgärder/min/enhet) |
 | Ta emot från moln till enhet<sup>1</sup> <br/> (endast när enheten använder HTTPS)| 16,67 Receive-åtgärder/SEK/enhet (1 000 Receive-åtgärder/min/enhet) | 16,67 Receive-åtgärder/SEK/enhet (1 000 Receive-åtgärder/min/enhet) | 833,33 Receive-åtgärder/SEK/enhet (50 000 Receive-åtgärder/min/enhet) |
@@ -71,7 +71,7 @@ I följande tabell visas de tvingade begränsningarna. Värden refererar till en
 
 *  För *jobb enhets åtgärder (uppdatering, dubbla, Invoke Direct-metod)* för nivån S2, gäller 50/SEK/enheten bara när du anropar metoder med hjälp av jobb. Om du anropar direkta metoder direkt gäller den ursprungliga begränsnings gränsen på 24 MB/SEK/per enhet (för S2).
 
-*  **Kvot** är det sammanlagda antalet meddelanden som du kan skicka i hubben *per dag*. Du kan hitta hubbens kvot gräns under kolumnen **Totalt antal meddelanden som per dag** på [sidan IoT Hub prissättning](https://azure.microsoft.com/pricing/details/iot-hub/).
+*  **Kvot** är det sammanlagda antalet meddelanden som du kan skicka i hubben *per dag* . Du kan hitta hubbens kvot gräns under kolumnen **Totalt antal meddelanden som per dag** på [sidan IoT Hub prissättning](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 *  Dina begränsningar för din moln-till-enhet och enhet till moln avgör hur *ofta* du kan skicka meddelanden – antal meddelanden, oavsett om det är 4 KB-segment. Varje meddelande kan vara upp till 256 KB, vilket är den [största meddelande storleken](iot-hub-devguide-quotas-throttling.md#other-limits).
 
@@ -79,9 +79,9 @@ I följande tabell visas de tvingade begränsningarna. Värden refererar till en
 
 ### <a name="traffic-shaping"></a>Trafik utformning
 
-För att kunna hantera burst-trafik accepterar IoT Hub begär Anden ovanför begränsningen under en begränsad tid. De första av dessa begär Anden bearbetas omedelbart. Men om antalet förfrågningar fortsätter strider mot begränsningen börjar IoT Hub att placera begär anden i en kö och bearbetas enligt begränsnings hastigheten. Den här effekterna kallas för *trafik form*. Dessutom är storleken på den här kön begränsad. Om begränsnings överträdelsen fortsätter kan kön fyllas och IoT Hub börjar avvisa begär Anden med `429 ThrottlingException` .
+För att kunna hantera burst-trafik accepterar IoT Hub begär Anden ovanför begränsningen under en begränsad tid. De första av dessa begär Anden bearbetas omedelbart. Men om antalet förfrågningar fortsätter strider mot begränsningen börjar IoT Hub att placera begär anden i en kö och bearbetas enligt begränsnings hastigheten. Den här effekterna kallas för *trafik form* . Dessutom är storleken på den här kön begränsad. Om begränsnings överträdelsen fortsätter kan kön fyllas och IoT Hub börjar avvisa begär Anden med `429 ThrottlingException` .
 
-Du kan till exempel använda en simulerad enhet för att skicka 200 enhet-till-moln-meddelanden per sekund till din S1-IoT Hub (som har en gräns på 100/SEK D2C-sändningar). För den första minuten eller två bearbetas meddelandena direkt. Men eftersom enheten fortsätter att skicka fler meddelanden än begränsnings gränsen börjar IoT Hub endast bearbeta 100 meddelanden per sekund och placerar resten i en kö. Du börjar märker ökad svars tid. Slutligen börjar du få `429 ThrottlingException` medan kön fyller upp och "antalet begränsnings fel" i [IoT Hubs mått](iot-hub-metrics.md) börjar öka.
+Du kan till exempel använda en simulerad enhet för att skicka 200 enhet-till-moln-meddelanden per sekund till din S1-IoT Hub (som har en gräns på 100/SEK D2C-sändningar). För den första minuten eller två bearbetas meddelandena direkt. Men eftersom enheten fortsätter att skicka fler meddelanden än begränsnings gränsen börjar IoT Hub endast bearbeta 100 meddelanden per sekund och placerar resten i en kö. Du börjar märker ökad svars tid. Slutligen börjar du få `429 ThrottlingException` medan kön fyller upp och ["antalet begränsnings fel" IoT Hub måttet](monitor-iot-hub-reference.md#device-telemetry-metrics) börjar öka. Information om hur du skapar aviseringar och diagram baserat på mått finns i [övervaka IoT Hub](monitor-iot-hub.md).
 
 ### <a name="identity-registry-operations-throttle"></a>Åtgärds begränsningar för identitets registret
 
@@ -139,3 +139,4 @@ En djupgående Beskrivning av IoT Hub begränsnings beteende finns i blogg inlä
 Andra referens ämnen i den här IoT Hub Developer Guide är:
 
 * [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md)
+* [Övervaka IoT Hub](monitor-iot-hub.md)

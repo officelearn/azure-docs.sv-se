@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96aea35a4796eae9d31062cedaf917a736f0fe82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90988248"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547137"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Uppgradera Log Analytics instrument panels visualiseringar
 
@@ -47,7 +47,7 @@ När en Log Analytics fästa del kan uppgraderas visas *ett nytt meddelande* om 
  
 ![Marginal](media/dashboard-upgrade/update-message-1.png)
  
-![Marginal](media/dashboard-upgrade/update-message-2.png)
+![Skärm bild som visar hur du uppdaterar panelens visualisering.](media/dashboard-upgrade/update-message-2.png)
 
 > [!WARNING]
 > När instrument panelen har publicerats går det inte att ångra uppgraderingen. Ändringar tas dock bort om du navigerar bort från instrument panelen utan att publicera på nytt.  
@@ -56,7 +56,7 @@ När du har klickat på den kommer visualiseringen att uppdateras till den nya t
 
 När visualiseringarna har uppgraderats måste du publicera om instrument panelen för att ändringen ska börja gälla.
 
-![Marginal](media/dashboard-upgrade/update-message-3.png)
+![Skärm bild som visar uppgraderade visualiseringar.](media/dashboard-upgrade/update-message-3.png)
 
 ## <a name="stage-2---migration-of-all-dashboards"></a>Steg 2 – migrering av alla instrument paneler
 
@@ -74,7 +74,7 @@ Eftersom instrumentpaneler kan innehålla flera visualiseringar från flera frå
 
 Instrument paneler kan vara visuellt täta och komplexa. För att minska kognitiv belastning när du visar en instrument panel optimerar vi visualiseringarna genom att begränsa visningen till 25 olika data typer. Om det finns fler än 25 Log Analytics optimerar data. Den visar individuellt de 25 typerna med de flesta data som separata och grupperar sedan de återstående värdena till ett annat värde. Följande diagram visar sådana fall.  
 
-![Marginal](media/dashboard-upgrade/values-25-limit.png)
+![Skärm bild som visar en instrument panel med 25 olika data typer.](media/dashboard-upgrade/values-25-limit.png)
 
 ### <a name="dashboard-refresh-on-load"></a>Uppdatering av instrument panelen vid inläsning
 

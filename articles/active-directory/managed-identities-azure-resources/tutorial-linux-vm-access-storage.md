@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 10/23/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b61d3ed21d053fc7166b47c94a9ec61e355d199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c093dcff46676dc5f8a25974c3c38c74ae7666b7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263169"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546695"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure Storage 
 
@@ -37,13 +37,13 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 > [!NOTE]
 > Azure Active Directory-autentisering för Azure Storage finns i en allmänt tillgänglig förhandsversion.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
 Om du vill köra CLI-exempelskripten i den här självstudien har du två alternativ:
 
-- Använd [Azure Cloud Shell](~/articles/cloud-shell/overview.md) antingen från Azure Portal eller via knappen **Prova**, som du hittar i det övre högra hörnet av varje kodblock.
+- Använd [Azure Cloud Shell](~/articles/cloud-shell/overview.md) antingen från Azure Portal eller via knappen **Prova** , som du hittar i det övre högra hörnet av varje kodblock.
 - [Installera den senaste versionen av CLI 2.0](/cli/azure/install-azure-cli) (2.0.23 eller senare) om du föredrar att använda en lokal CLI-konsol.
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
@@ -51,11 +51,11 @@ Om du vill köra CLI-exempelskripten i den här självstudien har du två altern
 I det här avsnittet skapar du ett lagringskonto. 
 
 1. Klicka på knappen **+ Skapa en resurs** längst upp till vänster i Azure-portalen.
-2. Klicka på **Lagring** och sedan på **Lagringskonto – blob, fil, tabell, kö**.
+2. Klicka på **Lagring** och sedan på **Lagringskonto – blob, fil, tabell, kö** .
 3. Under **Namn** anger du ett namn för lagringskontot.  
-4. **Distributionsmodell** och **Typ av konto** ska vara inställda på **Resurshanterare** respektive **Lagring (generell användning v1)**. 
+4. **Distributionsmodell** och **Typ av konto** ska vara inställda på **Resurshanterare** respektive **Lagring (generell användning v1)** . 
 5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** matchar informationen som du angav när du skapade den virtuella datorn i föregående steg.
-6. Klicka på **Skapa**.
+6. Klicka på **Skapa** .
 
     ![Skapa ett nytt lagringskonto](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -64,30 +64,33 @@ I det här avsnittet skapar du ett lagringskonto.
 Eftersom filer behöver bloblagring måste du skapa en blobcontainer som du lagrar filen i. Sedan laddar du upp en fil till blobcontainern i det nya lagringskontot.
 
 1. Gå tillbaka till det lagringskonto du nyss skapade.
-2. Under **BLOB service**klickar du på **behållare**.
+2. Under **BLOB service** klickar du på **behållare** .
 3. Klicka på **+ Container** överst på sidan.
-4. Under **Ny container**anger du ett namn för containern och under **Offentlig åtkomstnivå** behåller du standardvärdet.
+4. Under **Ny container** anger du ett namn för containern och under **Offentlig åtkomstnivå** behåller du standardvärdet.
 
     ![Skapa lagringscontainer](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Med hjälp av valfritt redigeringsprogram skapar du en fil som heter *hello world.txt* på den lokala datorn.  Öppna filen och lägg till följande text (utan citattecken): ”Hello world! :)”och spara den. 
 
 6. Ladda upp filen till containern du skapade genom att klicka på containernamnet och sedan på **Ladda upp**
-7. Under **Filer** i fönstret **Ladda upp blob** klickar du på mappikonen och bläddrar till filen **hello_world.txt** på din lokala dator. Välj sedan filen och klicka på **Ladda upp**.
+7. Under **Filer** i fönstret **Ladda upp blob** klickar du på mappikonen och bläddrar till filen **hello_world.txt** på din lokala dator. Välj sedan filen och klicka på **Ladda upp** .
 
     ![Ladda upp textfil](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Ge din virtuella dator åtkomst till en Azure Storage-container 
 
-Du kan använda den hanterade identiteten på den virtuella datorn till att hämta data i Azure Storage Blob.   
+Du kan använda den hanterade identiteten på den virtuella datorn till att hämta data i Azure Storage Blob.
+
+>[!NOTE]
+> Mer information om de olika roller som du kan använda för att bevilja behörigheter till lagrings granskning ger [åtkomst till blobbar och köer med hjälp av Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)
 
 1. Gå tillbaka till det lagringskonto du nyss skapade.  
 2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.  
 3. Klicka på **+ Lägg till roll tilldelning** ovanpå sidan för att lägga till en ny roll tilldelning för den virtuella datorn.
-4. Under **roll**i list rutan väljer du **Storage BLOB data Reader**. 
-5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator**.  
-6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Under **Resursgrupper** väljer du **Alla resursgrupper**.  
-7. Under **Välj** väljer du din virtuella dator och klickar sedan på **Spara**.
+4. Under **roll** i list rutan väljer du **Storage BLOB data Reader** . 
+5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator** .  
+6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration** . Under **Resursgrupper** väljer du **Alla resursgrupper** .  
+7. Under **Välj** väljer du din virtuella dator och klickar sedan på **Spara** .
 
     ![Tilldela behörigheter](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
@@ -97,7 +100,7 @@ Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilke
 
 För att kunna utföra följande steg måste du arbeta från den virtuella datorn som du skapade tidigare och du behöver en SSH-klient för att ansluta till den. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](/windows/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Så här använder du SSH-nycklar med Windows i Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) eller [How to create and use an SSH public and private key pair for Linux VMs in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md) (Skapa och använda SSH-nyckelpar med privata och offentliga nycklar för virtuella Linux-datorer i Azure).
 
-1. Gå till **Virtuella datorer** i Azure-portalen och sedan till den virtuella Linux-datorn. På sidan **Överblick** klickar du på **Anslut**. Kopiera strängen för anslutning till din virtuella dator.
+1. Gå till **Virtuella datorer** i Azure-portalen och sedan till den virtuella Linux-datorn. På sidan **Överblick** klickar du på **Anslut** . Kopiera strängen för anslutning till din virtuella dator.
 2. **Anslut** till den virtuella datorn med valfri SSH-klient. 
 3. I terminalfönstret skickar du en begäran till den lokala slutpunkten för hanterad identitet för att hämta en åtkomsttoken för Azure Storage.
     

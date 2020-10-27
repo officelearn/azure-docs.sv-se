@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 93a21b627acfb127c98ead465ebeadc8a472bdfd
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: efba69372f46c9b8a7f2857e37b34ec8c88654a0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122712"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546287"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Azure cache för Redis med Azures privata länk (offentlig för hands version)
 I den här artikeln får du lära dig hur du skapar ett virtuellt nätverk och en Azure-cache för Redis-instans med en privat slut punkt med hjälp av Azure Portal. Du får också lära dig hur du lägger till en privat slut punkt i en befintlig Azure-cache för Redis-instansen.
@@ -19,7 +19,7 @@ I den här artikeln får du lära dig hur du skapar ett virtuellt nätverk och e
 Den privata Azure-slutpunkten är ett nätverks gränssnitt som ansluter privat och säkert till Azure cache för Redis som drivs av en privat Azure-länk. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 > [!IMPORTANT]
 > Om du vill använda privata slut punkter måste Azure-cachen för Redis-instansen ha skapats efter 28 juli 2020.
@@ -33,15 +33,15 @@ I det här avsnittet ska du skapa en ny Azure-cache för Redis-instans med en pr
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk 
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Skapa en resurs**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Skapa en resurs** .
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Välj Skapa en resurs.":::
 
-2. Välj **nätverk** på sidan **nytt** och välj sedan **virtuellt nätverk**.
+2. Välj **nätverk** på sidan **nytt** och välj sedan **virtuellt nätverk** .
 
 3. Välj **Lägg till** för att skapa ett virtuellt nätverk.
 
-4. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
+4. I **Skapa virtuellt nätverk** anger eller väljer du den här informationen på fliken **grundläggande** :
 
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -54,11 +54,11 @@ I det här avsnittet ska du skapa en ny Azure-cache för Redis-instans med en pr
 
 6. På fliken **IP-adresser** anger du **IPv4-adress utrymmet** som ett eller flera adressprefix i CIDR-format (t. ex. 192.168.1.0/24).
 
-7. Under **undernäts namn**klickar du på **standard** för att redigera under nätets egenskaper.
+7. Under **undernäts namn** klickar du på **standard** för att redigera under nätets egenskaper.
 
-8. I rutan **Redigera undernät** anger du ett **namn för under nätet** samt **adress intervallet för under nätet**. Under nätets adress intervall ska vara i CIDR-notation (t. ex. 192.168.1.0/24). Det måste finnas i det virtuella nätverkets adress utrymme.
+8. I rutan **Redigera undernät** anger du ett **namn för under nätet** samt **adress intervallet för under nätet** . Under nätets adress intervall ska vara i CIDR-notation (t. ex. 192.168.1.0/24). Det måste finnas i det virtuella nätverkets adress utrymme.
 
-9. Välj **Spara**.
+9. Välj **Spara** .
 
 10. Välj fliken **Granska + skapa** eller klicka på knappen **Granska + skapa** .
 
@@ -67,9 +67,9 @@ I det här avsnittet ska du skapa en ny Azure-cache för Redis-instans med en pr
 ### <a name="create-an-azure-cache-for-redis-instance-with-a-private-endpoint"></a>Skapa en Azure-cache för Redis-instans med en privat slut punkt
 Följ dessa steg om du vill skapa en cache-instans.
 
-1. Gå tillbaka till Azure Portal start sidan eller öppna menyn på panelen och välj sedan **skapa en resurs**. 
+1. Gå tillbaka till Azure Portal start sidan eller öppna menyn på panelen och välj sedan **skapa en resurs** . 
    
-1. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis**.
+1. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis** .
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Välj Skapa en resurs.":::
    
@@ -77,7 +77,7 @@ Följ dessa steg om du vill skapa en cache-instans.
    
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är * \<DNS name> . Redis.cache.Windows.net*. | 
+   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är *\<DNS name> . Redis.cache.Windows.net* . | 
    | **Prenumeration** | List rutan och välj din prenumeration. | Den prenumeration som du vill skapa den här nya Azure-cache för Redis-instansen för. | 
    | **Resursgrupp** | List rutan och välj en resurs grupp, eller Välj **Skapa ny** och ange ett nytt resurs grupp namn. | Namnet på resurs gruppen där du vill skapa cachen och andra resurser. Genom att lägga till alla dina app-resurser i en resurs grupp kan du enkelt hantera eller ta bort dem tillsammans. | 
    | **Plats** | List rutan och välj en plats. | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som ska använda din cache. |
@@ -91,7 +91,7 @@ Följ dessa steg om du vill skapa en cache-instans.
 
     :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Välj Skapa en resurs.":::
 
-1. På sidan **skapa en privat slut punkt** konfigurerar du inställningarna för din privata slut punkt med det virtuella nätverk och undernät som du skapade i det sista avsnittet och väljer **OK**. 
+1. På sidan **skapa en privat slut punkt** konfigurerar du inställningarna för din privata slut punkt med det virtuella nätverk och undernät som du skapade i det sista avsnittet och väljer **OK** . 
 
 1. Välj **Nästa: fliken Avancerat** eller klicka på **Nästa: Avancerat** längst ned på sidan.
 
@@ -104,11 +104,11 @@ Följ dessa steg om du vill skapa en cache-instans.
 
 1. Alternativt går du till fliken **taggar** och anger namn och värde om du vill kategorisera resursen. 
 
-1. Välj **Granska + skapa**. Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
+1. Välj **Granska + skapa** . Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
 
-1. När meddelandet grön verifiering har skickats visas väljer du **skapa**.
+1. När meddelandet grön verifiering har skickats visas väljer du **skapa** .
 
-Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts**sidan för Azure-cache för Redis   . När **statusen**   är **igång**är cacheminnet redo att användas. 
+Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts** sidan för Azure-cache för Redis. När **statusen** är **igång** är cacheminnet redo att användas. 
     
 > [!IMPORTANT]
 > 
@@ -135,13 +135,13 @@ I det här avsnittet ska du lägga till en privat slut punkt till en befintlig A
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk 
 Följ dessa steg om du vill skapa ett virtuellt nätverk.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Skapa en resurs**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och välj **Skapa en resurs** .
 
-2. Välj **nätverk** på sidan **nytt** och välj sedan **virtuellt nätverk**.
+2. Välj **nätverk** på sidan **nytt** och välj sedan **virtuellt nätverk** .
 
 3. Välj **Lägg till** för att skapa ett virtuellt nätverk.
 
-4. I **Skapa virtuellt nätverk**anger eller väljer du den här informationen på fliken **grundläggande** :
+4. I **Skapa virtuellt nätverk** anger eller väljer du den här informationen på fliken **grundläggande** :
 
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -154,11 +154,11 @@ Följ dessa steg om du vill skapa ett virtuellt nätverk.
 
 6. På fliken **IP-adresser** anger du **IPv4-adress utrymmet** som ett eller flera adressprefix i CIDR-format (t. ex. 192.168.1.0/24).
 
-7. Under **undernäts namn**klickar du på **standard** för att redigera under nätets egenskaper.
+7. Under **undernäts namn** klickar du på **standard** för att redigera under nätets egenskaper.
 
-8. I rutan **Redigera undernät** anger du ett **namn för under nätet** samt **adress intervallet för under nätet**. Under nätets adress intervall ska vara i CIDR-notation (t. ex. 192.168.1.0/24). Det måste finnas i det virtuella nätverkets adress utrymme.
+8. I rutan **Redigera undernät** anger du ett **namn för under nätet** samt **adress intervallet för under nätet** . Under nätets adress intervall ska vara i CIDR-notation (t. ex. 192.168.1.0/24). Det måste finnas i det virtuella nätverkets adress utrymme.
 
-9. Välj **Spara**.
+9. Välj **Spara** .
 
 10. Välj fliken **Granska + skapa** eller klicka på knappen **Granska + skapa** .
 
@@ -174,13 +174,13 @@ Följ dessa steg om du vill skapa en privat slut punkt.
 
 2. Välj den cache-instans som du vill lägga till en privat slut punkt till.
 
-3. På vänster sida av skärmen väljer du (för **hands version) privat slut punkt**.
+3. På vänster sida av skärmen väljer du (för **hands version) privat slut punkt** .
 
 4. Klicka på knappen **privat slut punkt** för att skapa din privata slut punkt.
 
     :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Välj Skapa en resurs.":::
 
-5. På **sidan Skapa en privat slut punkt**konfigurerar du inställningarna för din privata slut punkt.
+5. På **sidan Skapa en privat slut punkt** konfigurerar du inställningarna för din privata slut punkt.
 
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -201,12 +201,11 @@ Följ dessa steg om du vill skapa en privat slut punkt.
 
 11. Alternativt går du till fliken **taggar** och anger namn och värde om du vill kategorisera resursen.
 
-12. Välj **Granska + skapa**. Du kommer till fliken **Granska + skapa**   där Azure verifierar konfigurationen.
+12. Välj **Granska + skapa** . Du kommer till fliken **Granska + skapa** där Azure verifierar konfigurationen.
 
-13. När meddelandet grön **verifiering har skickats** visas väljer du **skapa**.
+13. När meddelandet grön **verifiering har skickats** visas väljer du **skapa** .
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om en privat Azure-länk finns i [dokumentationen till Azures privata länkar](https://docs.microsoft.com/azure/private-link/private-link-overview). 
-
+Mer information om en privat Azure-länk finns i [dokumentationen till Azures privata länkar](../private-link/private-link-overview.md).

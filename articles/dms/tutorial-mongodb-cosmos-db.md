@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: b5e335659a26568ae11a17425c4e53c53f02a843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d06b7be7be06d037589e482fe59c4326cbfad29
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282365"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546712"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Självstudie: Migrera MongoDB till Azure Cosmos DB s API för MongoDB offline med DMS
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 I den här självstudien migrerar du en data uppsättning i MongoDB som finns på en virtuell Azure-dator till Azure Cosmos DB API för MongoDB med hjälp av Azure Database Migration Service. Om du inte har konfigurerat någon MongoDB-källa, kan du läsa artikeln [Installera och konfigurera MongoDB på en virtuell Windows-dator i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -56,25 +56,25 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer** .
 
    ![Visa portalprenumerationer](media/tutorial-mongodb-to-cosmosdb/portal-select-subscription1.png)
 
-2. Välj den prenumeration där du vill skapa en instans av Azure Database Migration Service och välj sedan **Resursprovidrar**.
+2. Välj den prenumeration där du vill skapa en instans av Azure Database Migration Service och välj sedan **Resursprovidrar** .
 
     ![Visa resursprovidrar](media/tutorial-mongodb-to-cosmosdb/portal-select-resource-provider.png)
 
-3. Sök efter migrering och välj sedan **Registrera**till höger om **Microsoft. data migration**.
+3. Sök efter migrering och välj sedan **Registrera** till höger om **Microsoft. data migration** .
 
     ![Registrera resursprovider](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Skapa en instans
 
-1. I Azure Portal väljer du + **Skapa en resurs**, söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Service** i listrutan.
+1. I Azure Portal väljer du + **Skapa en resurs** , söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Service** i listrutan.
 
     ![Azure Marketplace](media/tutorial-mongodb-to-cosmosdb/portal-marketplace.png)
 
-2. På sidan **Azure Database Migration Service** väljer du **Skapa**.
+2. På sidan **Azure Database Migration Service** väljer du **Skapa** .
 
     ![Skapa Azure Database Migration Service-instans](media/tutorial-mongodb-to-cosmosdb/dms-create1.png)
   
@@ -100,15 +100,15 @@ För att slutföra den här kursen behöver du:
 
 När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och skapar sedan ett nytt migreringsprojekt.
 
-1. I Azure Portal väljer du **Alla tjänster**, söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Services**.
+1. I Azure Portal väljer du **Alla tjänster** , söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Services** .
 
       ![Hitta alla instanser av Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb/dms-search.png)
 
 2. På skärmen **Azure Database migration Services** söker du efter namnet på Azure Database migration service-instansen som du skapade och väljer sedan instansen.
 
-3. Välj + **Nytt migreringsprojekt**.
+3. Välj + **Nytt migreringsprojekt** .
 
-4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet. I textrutan **Typ av källserver** väljer du **MongoDB**, i textrutan **Målservertyp** väljer du **CosmosDB (MongoDB API)** och i **Välj typ av aktivitet** väljer du sedan **Offline-datamigrering**. 
+4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet. I textrutan **Typ av källserver** väljer du **MongoDB** , i textrutan **Målservertyp** väljer du **CosmosDB (MongoDB API)** och i **Välj typ av aktivitet** väljer du sedan **Offline-datamigrering** . 
 
     ![Skapa ett Database Migration Service-projekt](media/tutorial-mongodb-to-cosmosdb/dms-create-project.png)
 
@@ -136,9 +136,9 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
      
      Tänk också på följande när du använder information om typ dump i Azure Storage:
 
-     * För BSON-dumpar måste data i blob-containern vara i bsondump-format, så att datafilerna placeras i mappar som namnges efter de innehållande databaserna i formatet collection.bson. Metadatafiler (om sådana finns) bör namnges med formatet *samling*.metadata.json.
+     * För BSON-dumpar måste data i blob-containern vara i bsondump-format, så att datafilerna placeras i mappar som namnges efter de innehållande databaserna i formatet collection.bson. Metadatafiler (om sådana finns) bör namnges med formatet *samling* .metadata.json.
 
-     * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling*.json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling*.json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
+     * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling* .json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling* .json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
 
     > [!IMPORTANT]
     > Det rekommenderas inte att använda ett självsignerat certifikat på Mongo-servern. Om ett sådant används måste du dock ansluta till servern med **anslutnings sträng läge** och se till att anslutnings strängen har ""
@@ -151,7 +151,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
    ![Ange källinformation](media/tutorial-mongodb-to-cosmosdb/dms-specify-source.png)
 
-2. Välj **Spara**.
+2. Välj **Spara** .
 
 ## <a name="specify-target-details"></a>Ange målinformation
 
@@ -159,7 +159,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
     ![Ange målinformation](media/tutorial-mongodb-to-cosmosdb/dms-specify-target.png)
 
-2. Välj **Spara**.
+2. Välj **Spara** .
 
 ## <a name="map-to-target-databases"></a>Mappa till måldatabaser
 
@@ -173,7 +173,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
     ![Mappa till måldatabaser](media/tutorial-mongodb-to-cosmosdb/dms-map-target-databases.png)
 
-2. Välj **Spara**.
+2. Välj **Spara** .
 3. På skärmen **Mängdinställning** expanderar du samlingslistan och granskar sedan listan över de samlingar som ska migreras.
 
     Azure Database Migration Service väljer automatiskt alla samlingar som finns på käll MongoDB-instansen som inte finns på mål Azure Cosmos DB kontot. Om du vill migrera samlingar som redan innehåller data på nytt, måste du uttryckligen välja samlingarna på det här bladet.
@@ -187,23 +187,23 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
     ![Välja tabeller för samlingar](media/tutorial-mongodb-to-cosmosdb/dms-collection-setting.png)
 
-4. Välj **Spara**.
+4. Välj **Spara** .
 
-5. På sidan **Migreringssammanfattning**, i textrutan **Aktivitetsnamn** anger du ett namn på migreringsaktiviteten.
+5. På sidan **Migreringssammanfattning** , i textrutan **Aktivitetsnamn** anger du ett namn på migreringsaktiviteten.
 
     ![Migreringssammanfattning](media/tutorial-mongodb-to-cosmosdb/dms-migration-summary.png)
 
 ## <a name="run-the-migration"></a>Köra migreringen
 
-* Välj **Kör migrering**.
+* Välj **Kör migrering** .
 
-    Migreringsaktivitetsfönstret visas och **Status** för aktiviteten är **Inte startad**.
+    Migreringsaktivitetsfönstret visas och **Status** för aktiviteten är **Inte startad** .
 
     ![Aktivitetsstatus](media/tutorial-mongodb-to-cosmosdb/dms-activity-status.png)
 
 ## <a name="monitor-the-migration"></a>Övervaka migreringen
 
-* På migreringsaktivitetssidan väljer du **Uppdatera** för att uppdatera visningen tills **Status** för migreringen är **Slutförd**.
+* På migreringsaktivitetssidan väljer du **Uppdatera** för att uppdatera visningen tills **Status** för migreringen är **Slutförd** .
 
    > [!NOTE]
    > Du kan välja Aktivitet för att få information om databasens och samlingsnivåns migreringsmått.
@@ -214,7 +214,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 * När migreringen är klar kan du kontrollera ditt Azure Cosmos DB-konto för att se om alla samlingar migrerades korrekt.
 
-    ![Aktivitetsstatus Slutförd](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
+    ![Skärm bild som visar var du kan kontrol lera Azure Cosmos DB-kontot för att kontrol lera att alla samlingar har migrerats.](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 
 ## <a name="post-migration-optimization"></a>Optimering efter migrering
 

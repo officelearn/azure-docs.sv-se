@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
-ms.openlocfilehash: b94fb5aba8cc54d9014a01610f467776c3a3784a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ce0f83e4233837d56ba9045a9a356ebd1cc33f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075968"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541822"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Skapa Linux-baserade kluster i HDInsight med hjälp av Azure PowerShell
 
@@ -23,7 +23,7 @@ Azure PowerShell är en kraftfull skript miljö som du kan använda för att sty
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -60,7 +60,7 @@ Det kan ta upp till 20 minuter att skapa ett kluster.
 
 ## <a name="create-cluster-configuration-object"></a>Skapa kluster: konfigurations objekt
 
-Du kan också skapa ett HDInsight-konfigurations objekt med hjälp av [`New-AzHDInsightClusterConfig`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) cmdlet. Du kan sedan ändra detta konfigurations objekt om du vill aktivera ytterligare konfigurations alternativ för klustret. Använd slutligen `-Config` parametern för [`New-AzHDInsightCluster`](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdleten för att använda konfigurationen.
+Du kan också skapa ett HDInsight-konfigurations objekt med hjälp av [`New-AzHDInsightClusterConfig`](/powershell/module/az.hdinsight/new-azhdinsightclusterconfig) cmdlet. Du kan sedan ändra detta konfigurations objekt om du vill aktivera ytterligare konfigurations alternativ för klustret. Använd slutligen `-Config` parametern för [`New-AzHDInsightCluster`](/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdleten för att använda konfigurationen.
 
 Följande skript skapar ett konfigurations objekt för att konfigurera en R Server på HDInsight-kluster typ. Konfigurationen aktiverar en Edge-nod, RStudio och ett ytterligare lagrings konto.
 

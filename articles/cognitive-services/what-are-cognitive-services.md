@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 2cc0ef4ed0e7a63a822efc34e223cbec20815dd9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 82531466c80917087ca007900ca79b3485f38a21
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521483"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546270"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
@@ -31,7 +31,7 @@ Katalogen med kognitiva tjänster som ger kognitiv förståelse kategoriseras i 
 * Tal
 * Språk
 * Beslut
-* Search
+* Sök
 
 Följande avsnitt i den här artikeln innehåller en lista över tjänster som ingår i dessa fem pelare.
 
@@ -60,7 +60,7 @@ Följande avsnitt i den här artikeln innehåller en lista över tjänster som i
 
 |Tjänstens namn|Beskrivning av tjänst|
 |:-----------|:------------------|
-|[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Språkförståelse")|Language Understanding-tjänsten (LUIS) gör så att ditt program kan förstå vad en person vill när den använder egna ord.|
+|[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding-tjänsten (LUIS) gör så att ditt program kan förstå vad en person vill när den använder egna ord.|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|Med QnA Maker kan du bygga en fråge-och svars tjänst från det delvis strukturerade innehållet.|
 |[Textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "Textanalys")| Textanalys tillhandahåller bearbetning av naturligt språk över rå text för sentiment-analys, extrahering av nyckel fraser och språk identifiering.|
 |[Översättare](https://docs.microsoft.com/azure/cognitive-services/translator/ "Översättare")|Translator tillhandahåller datorspecifik text översättning i nära real tid.|
@@ -93,7 +93,18 @@ Följande avsnitt i den här artikeln innehåller en lista över tjänster som i
 |[Bing-sökning efter lokala företag](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing-sökning efter lokala företag")| Med API för lokal sökning i Bing kan dina program hitta kontakt-och plats information om lokala företag baserat på Sök frågor.|
 |[Stavningskontroll i Bing](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Stavningskontroll i Bing")|Med Stavningskontroll i Bing kan du utföra sammanhangsbaserad grammatik och stavnings kontroll.|
 
-## <a name="get-started-with-cognitive-services"></a>Kom igång med Cognitive Services
+## <a name="development-options"></a>Utvecklings alternativ 
+
+Med Azure och Cognitive Services har du till gång till flera utvecklings alternativ, till exempel:
+
+* Automatiserings-och integrations verktyg som Logic Apps och Energis par automatisering.
+* Distributions alternativ som Azure Functions och App Service. 
+* Cognitive Services Docker-behållare för säker åtkomst.
+* Verktyg som Apache Spark, Azure Databricks, Azure Synapse Analytics och Azure Kubernetes-tjänsten för stora data scenarier. 
+
+Läs mer i [Cognitive Services utvecklings alternativ](./cognitive-services-development-options.md).
+
+## <a name="learn-with-the-quickstarts"></a>Lär dig med snabb starter
 
 Börja med att skapa en Cognitive Services-resurs med praktiska snabb starter med hjälp av följande metoder:
 

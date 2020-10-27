@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/24/2020
-ms.openlocfilehash: 6473b6b69ba45138c30e4f2c8a7f1ba1a7f2ae7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 633b6b33bc044b28628cc444227021cd0b4ff377
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816855"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544910"
 ---
 # <a name="authentication-issues-in-azure-hdinsight"></a>Autentiseringsfel i Azure HDInsight
 
@@ -154,7 +154,7 @@ Sätt att hitta `sAMAccountName` :
 
 * Om du kan logga in på Ambari med hjälp av den lokala Ambari-administratören tittar du i listan över användare.
 
-* Om du har en domänansluten [Windows-dator](../../active-directory-domain-services/manage-domain.md)kan du bläddra genom att använda standard verktygen i Windows AD. Detta kräver ett fungerande konto i domänen.
+* Om du har en domänansluten [Windows-dator](../../active-directory-domain-services/tutorial-create-management-vm.md)kan du bläddra genom att använda standard verktygen i Windows AD. Detta kräver ett fungerande konto i domänen.
 
 * Från Head-noden kan du söka genom att använda SAMBA-kommandon. Detta kräver en giltig Kerberos-session (lyckad kinit). NET Ads search (userPrincipalName = Bob *) "
 
@@ -220,4 +220,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

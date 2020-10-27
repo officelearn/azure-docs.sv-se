@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: f0c7b966b9fa7580809d2df0f4d05a7146ca0fd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871974"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535033"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop YARN med Azure HDInsight
 
@@ -24,7 +24,7 @@ Lär dig mer om de vanligaste problemen och deras lösningar när du arbetar med
 
 Använd följande steg i Ambari för att skapa en ny garn-kö och sedan utjämna kapacitets tilldelningen bland alla köer.
 
-I det här exemplet ändras två befintliga köer (**standard** -och **thriftsvr**) från 50% kapacitet till 25% kapacitet, vilket ger den nya kön (Spark) 50% kapacitet.
+I det här exemplet ändras två befintliga köer ( **standard** -och **thriftsvr** ) från 50% kapacitet till 25% kapacitet, vilket ger den nya kön (Spark) 50% kapacitet.
 
 | Kö | Kapacitet | Maximal kapacitet |
 | --- | --- | --- |
@@ -32,7 +32,7 @@ I det här exemplet ändras två befintliga köer (**standard** -och **thriftsvr
 | thrftsvr | 25 % | 50 % |
 | spark | 50 % | 50 % |
 
-1. Välj ikonen **Ambari views** och välj sedan rutnäts mönstret. Välj sedan **garn Queue Manager**.
+1. Välj ikonen **Ambari views** och välj sedan rutnäts mönstret. Välj sedan **garn Queue Manager** .
 
     ![Apache Ambari Dashboard garn Queue Manager](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Välj **standard** kön.
@@ -41,7 +41,7 @@ I det här exemplet ändras två befintliga köer (**standard** -och **thriftsvr
 3. Ändra **kapaciteten** från 50% till 25% för **standard** kön. Ändra **kapaciteten** till 25% för **thriftsvr** -kön.
 
     ![Ändra kapaciteten till 25% för standard-och thriftsvr-köerna](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. Om du vill skapa en ny kö väljer du **Lägg till kö**.
+4. Om du vill skapa en ny kö väljer du **Lägg till kö** .
 
     ![Apache Ambari garn Dashboard Lägg till kö](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -52,7 +52,7 @@ I det här exemplet ändras två befintliga köer (**standard** -och **thriftsvr
 6. Lämna **kapacitets** värden på 50% och välj sedan knappen **åtgärder** .
 
     ![Apache Ambari-garn Välj åtgärd](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. Välj **Spara och uppdatera köer**.
+7. Välj **Spara och uppdatera köer** .
 
     ![Välj Spara och uppdatera köer](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -131,7 +131,7 @@ Dessa ändringar visas omedelbart i användar gränssnittet för garn Scheduler.
 
 ### <a name="additional-reading"></a><a name="additional-reading-2"></a>Mer att läsa
 
-- [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md)
 - [Apache Hadoop garn koncept och program](https://hadoop.apache.org/docs/r2.7.4/hadoop-yarn/hadoop-yarn-site/WritingYarnApplications.html#Concepts_and_Flow)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -142,4 +142,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 - Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

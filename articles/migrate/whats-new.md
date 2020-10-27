@@ -4,12 +4,12 @@ description: Lär dig mer om nyheter och nya uppdateringar i tjänsten Azure Mig
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: b03f3a7e10aa42f3393ecc22cb74f4e565587032
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ed2347d2d322e272b4fb7f4dfd697f3499419124
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314580"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545182"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Vad är nytt i Azure Migrate
 
@@ -22,6 +22,7 @@ ms.locfileid: "92314580"
 - Beroende analys (utan agent) kan nu köras samtidigt på en 1000-VM.
 - Beroende analys (utan agent) kan nu aktive ras eller inaktive ras i skala med hjälp av PowerShell-skript. [Läs mer.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - Visualisera nätverks anslutningar i Power BI att använda data som samlas in med hjälp av beroende analys (utan agent) [Läs mer.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- Migrering av virtuella VMware-datorer med data disk storleken på upp till 32 TB stöds nu med hjälp av Azure Migrate: Server Migration agent utan VMware-migrering. 
 
 ## <a name="update-august-2020"></a>Uppdatering (augusti 2020)
 
@@ -64,17 +65,17 @@ Det finns nu en skript-baserad installation för att konfigurera [Azure Migrate-
 
 Ett antal nya funktioner har lagts till i Azure Migrate:
 
-- **Utvärdering av fysisk server**. Utvärdering av lokala fysiska servrar stöds nu, utöver migrering av fysiska servrar som redan stöds.
-- **Importera-baserad utvärdering**. Utvärdering av datorer som använder metadata-och prestanda data från en CSV-fil stöds nu.
-- **Program identifiering**: Azure Migrate nu stöder identifiering av program nivå för appar, roller och funktioner med hjälp av Azure Migrate-enheten. Detta stöds för närvarande endast för virtuella VMware-datorer och är begränsat till enbart identifiering (utvärderingen stöds inte för närvarande). [Läs mer](how-to-discover-applications.md)
-- **Beroende visualisering för agenter**: du behöver inte längre installera agenter för beroende visualisering. Både agent-och agentbaserade stöds nu.
-- **Virtuellt skriv bord**: Använd ISV-verktyg för att utvärdera och migrera lokala virtuella Skriv bords infrastrukturer (VDI) till virtuella Windows-datorer i Azure.
-- **Webbapp**: Azure App Service Migration Assistant som används för att utvärdera och migrera webbappar är nu integrerat i Azure Migrate.
+- **Utvärdering av fysisk server** . Utvärdering av lokala fysiska servrar stöds nu, utöver migrering av fysiska servrar som redan stöds.
+- **Importera-baserad utvärdering** . Utvärdering av datorer som använder metadata-och prestanda data från en CSV-fil stöds nu.
+- **Program identifiering** : Azure Migrate nu stöder identifiering av program nivå för appar, roller och funktioner med hjälp av Azure Migrate-enheten. Detta stöds för närvarande endast för virtuella VMware-datorer och är begränsat till enbart identifiering (utvärderingen stöds inte för närvarande). [Läs mer](how-to-discover-applications.md)
+- **Beroende visualisering för agenter** : du behöver inte längre installera agenter för beroende visualisering. Både agent-och agentbaserade stöds nu.
+- **Virtuellt skriv bord** : Använd ISV-verktyg för att utvärdera och migrera lokala virtuella Skriv bords infrastrukturer (VDI) till virtuella Windows-datorer i Azure.
+- **Webbapp** : Azure App Service Migration Assistant som används för att utvärdera och migrera webbappar är nu integrerat i Azure Migrate.
 
 Nya verktyg för utvärdering och migrering har lagts till i Azure Migrate:
 
-- **Rackprogram**: erbjuder molnbaserad migrering.
-- Driv **kraft**: erbjudande utvärdering.
+- **Rackprogram** : erbjuder molnbaserad migrering.
+- Driv **kraft** : erbjudande utvärdering.
 
 [Lär dig mer](migrate-services-overview.md) om att använda verktyg och ISV-erbjudanden för utvärdering och migrering i Azure Migrate.
 
@@ -82,21 +83,21 @@ Nya verktyg för utvärdering och migrering har lagts till i Azure Migrate:
 
 Den aktuella versionen av Azure Migrate (lanserades i juli 2019) innehåller ett antal nya funktioner:
 
-- **Plattform för enhetlig migrering**: Azure Migrate nu tillhandahåller en enda portal som centraliserar, hanterar och spårar din migrerings resa till Azure, med ett förbättrat distributions flöde och en portal upplevelse.
-- **Verktyg för utvärdering och migrering**: Azure Migrate tillhandahåller inbyggda verktyg och integreras med andra Azure-tjänster, samt med oberoende program varu leverantörs verktyg (ISV). [Läs mer](migrate-services-overview.md#isv-integration) om ISV-integrering.
-- **Azure Migrate utvärdering**: om du använder verktyget för att utvärdera Azure Migrate Server kan du utvärdera virtuella VMware-datorer och virtuella Hyper-V-datorer för migrering till Azure. Du kan också utvärdera för migrering med andra Azure-tjänster och ISV-verktyg.
-- **Azure Migrate migrering**: med hjälp av verktyget för migrering av Azure Migrate Server kan du migrera lokala virtuella VMware-datorer och virtuella Hyper-V-datorer till Azure, samt fysiska servrar, andra virtualiserade servrar och privata/offentliga virtuella moln. Dessutom kan du migrera till Azure med hjälp av ISV-verktyg.
-- **Azure Migrate-utrustning**: Azure Migrate distribuerar en förenklad installation för identifiering och utvärdering av lokala virtuella VMware-datorer och virtuella Hyper-V-datorer.
+- **Plattform för enhetlig migrering** : Azure Migrate nu tillhandahåller en enda portal som centraliserar, hanterar och spårar din migrerings resa till Azure, med ett förbättrat distributions flöde och en portal upplevelse.
+- **Verktyg för utvärdering och migrering** : Azure Migrate tillhandahåller inbyggda verktyg och integreras med andra Azure-tjänster, samt med oberoende program varu leverantörs verktyg (ISV). [Läs mer](migrate-services-overview.md#isv-integration) om ISV-integrering.
+- **Azure Migrate utvärdering** : om du använder verktyget för att utvärdera Azure Migrate Server kan du utvärdera virtuella VMware-datorer och virtuella Hyper-V-datorer för migrering till Azure. Du kan också utvärdera för migrering med andra Azure-tjänster och ISV-verktyg.
+- **Azure Migrate migrering** : med hjälp av verktyget för migrering av Azure Migrate Server kan du migrera lokala virtuella VMware-datorer och virtuella Hyper-V-datorer till Azure, samt fysiska servrar, andra virtualiserade servrar och privata/offentliga virtuella moln. Dessutom kan du migrera till Azure med hjälp av ISV-verktyg.
+- **Azure Migrate-utrustning** : Azure Migrate distribuerar en förenklad installation för identifiering och utvärdering av lokala virtuella VMware-datorer och virtuella Hyper-V-datorer.
     - Den här enheten används av Azure Migrate Server-utvärdering och migrering av Azure Migrate Server för migrering utan agent.
     - Installations programmet identifierar kontinuerligt serverns metadata och prestanda data, i syfte att utvärdera och migrera.  
-- **VMware VM-migrering**: Azure Migrate Server-migrering innehåller flera metoder för att migrera lokala virtuella VMware-datorer till Azure.  En agent lös migrering med hjälp av Azure Migrate-installationen och en agent-baserad migrering som använder en replikeringsprincip och distribuerar en agent på varje virtuell dator som du vill migrera. [Läs mer](server-migrate-overview.md)
- - **Databas utvärdering och migrering**: från Azure Migrate kan du utvärdera lokala databaser för migrering till Azure med hjälp av azure Database Migration Assistant. Du kan migrera databaser med hjälp av Azure Database Migration Service.
-- **Migrering**av webbappar: du kan utvärdera webbappar med hjälp av en offentlig slut punkts-URL med Azure App Service. För migrering av interna .NET-appar kan du hämta och köra App Service Migration Assistant.
-- **Data Box-enhet**: importera stora mängder offline-data till Azure med Azure Data Box i Azure Migrate.
+- **VMware VM-migrering** : Azure Migrate Server-migrering innehåller flera metoder för att migrera lokala virtuella VMware-datorer till Azure.  En agent lös migrering med hjälp av Azure Migrate-installationen och en agent-baserad migrering som använder en replikeringsprincip och distribuerar en agent på varje virtuell dator som du vill migrera. [Läs mer](server-migrate-overview.md)
+ - **Databas utvärdering och migrering** : från Azure Migrate kan du utvärdera lokala databaser för migrering till Azure med hjälp av azure Database Migration Assistant. Du kan migrera databaser med hjälp av Azure Database Migration Service.
+- **Migrering** av webbappar: du kan utvärdera webbappar med hjälp av en offentlig slut punkts-URL med Azure App Service. För migrering av interna .NET-appar kan du hämta och köra App Service Migration Assistant.
+- **Data Box-enhet** : importera stora mängder offline-data till Azure med Azure Data Box i Azure Migrate.
 
 ## <a name="azure-migrate-previous-version"></a>Azure Migrate föregående version
 
-Om du använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte längre skapa nya Azure Migrate projekt eller utföra nya identifieringar. Du kan fortfarande komma åt befintliga projekt. Om du vill göra detta i Azure Portal > **alla tjänster**söker du efter **Azure Migrate**. I Azure Migrate-meddelanden finns det en länk för att komma åt gamla Azure Migrate-projekt.
+Om du använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöds) bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte längre skapa nya Azure Migrate projekt eller utföra nya identifieringar. Du kan fortfarande komma åt befintliga projekt. Om du vill göra detta i Azure Portal > **alla tjänster** söker du efter **Azure Migrate** . I Azure Migrate-meddelanden finns det en länk för att komma åt gamla Azure Migrate-projekt.
 
 
 

@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/14/2019
-ms.openlocfilehash: 290b541d9b5e86616373d2e426241fca07e780ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032c25969bf477e1163b8db2aca631044c457939
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75887214"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539980"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master (HMaster) kan inte startas i Azure HDInsight
 
@@ -83,7 +83,7 @@ Det här problemet kan uppstå om du har många tabeller och regioner som inte h
 
 ### <a name="resolution"></a>Lösning
 
-1. Gå till **HBase**-konfigurationer från Apache Ambari UI  >  **Configs**. I den anpassade `hbase-site.xml` filen lägger du till följande inställning:
+1. Gå till **HBase** -konfigurationer från Apache Ambari UI  >  **Configs** . I den anpassade `hbase-site.xml` filen lägger du till följande inställning:
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -113,7 +113,7 @@ Lång `regionserver` JVM GC paus. Pausen kommer att leda till att den `regionser
 
 Ändra tids gränsen för Zookeeper-sessionen, inte bara `hbase-site` Ange, `zookeeper.session.timeout` men Zookeeper- `zoo.cfg` inställningen `maxSessionTimeout` måste ändras.
 
-1. Åtkomst till Ambari-gränssnittet, gå till **HBase-> configs – > inställningar**i avsnittet timeouter, ändra värdet för Zookeeper session timeout.
+1. Åtkomst till Ambari-gränssnittet, gå till **HBase-> configs – > inställningar** i avsnittet timeouter, ändra värdet för Zookeeper session timeout.
 
 1. Komma åt Ambari-ANVÄNDARGRÄNSSNITTET, gå till **Zookeeper-> configs – > anpassad** `zoo.cfg` , Lägg till/ändra följande inställning. Kontrol lera att värdet är detsamma som HBase `zookeeper.session.timeout` .
 
@@ -149,4 +149,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

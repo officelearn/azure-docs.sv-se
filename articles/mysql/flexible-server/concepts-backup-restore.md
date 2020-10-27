@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: a72552d8654a45d1ff4c1890c8086d43d7bd801d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44cfe9bc6cd357cc0c649cecd022d3955bb5a2ce
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756542"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545879"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Säkerhets kopiering och återställning i Azure Database for MySQL flexibel Server (för hands version)
 
@@ -24,7 +24,7 @@ Azure Database for MySQL flexibel Server skapar automatiskt Server säkerhets ko
 
 Flexibel server tar ögonblicks bilder av säkerhets kopior av datafilerna och lagrar dem i en lokal redundant lagring. Servern utför också säkerhets kopiering av transaktions loggar och lagrar även dem i lokalt redundant lagring. Med dessa säkerhets kopieringar kan du återställa en server till alla tidpunkter inom den konfigurerade kvarhållningsperioden för säkerhets kopior. Standard kvarhållningsperioden för säkerhets kopiering är sju dagar. Du kan också konfigurera säkerhets kopian av databasen från 1 till 35 dagar. Alla säkerhets kopior krypteras med AES 256-bitars kryptering för data som lagras i vila.
 
-Det går inte att exportera de här säkerhetskopierade filerna. Säkerhets kopiorna kan bara användas för återställnings åtgärder i flexibel Server. Du kan också använda [mysqldump](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   från en MySQL-klient för att kopiera en databas.
+Det går inte att exportera de här säkerhetskopierade filerna. Säkerhets kopiorna kan bara användas för återställnings åtgärder i flexibel Server. Du kan också använda [mysqldump](../concepts-migrate-dump-restore.md#dump-and-restore-using-mysqldump-utility) från en MySQL-klient för att kopiera en databas.
 
 ## <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
 
@@ -40,9 +40,9 @@ Kvarhållningsperioden för säkerhets kopior styr hur långt tillbaka i tiden s
 
 ## <a name="backup-storage-cost"></a>Reserv lagrings kostnad
 
-Flexibel Server ger upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB per månad. Om du till exempel har etablerad en server med 250 GB lagrings utrymme har du 250 GB lagrings utrymme för Server säkerhets kopiering utan extra kostnad. Om den dagliga säkerhets kopierings användningen är 25 GB kan du ha upp till 10 dagars kostnads fri lagring av säkerhets kopior. Förbrukad lagring för säkerhets kopieringar över 250 GB debiteras enligt [pris sättnings modellen](https://azure.microsoft.com/pricing/details/mysql/).
+Flexibel Server ger upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB per månad. Om du till exempel har etablerad en server med 250 GB lagrings utrymme har du 250 GB lagrings utrymme för Server säkerhets kopiering utan extra kostnad. Om den dagliga säkerhets kopierings användningen är 25 GB kan du ha upp till 10 dagars kostnads fri lagring av säkerhets kopior. Förbrukad lagring för säkerhets kopieringar över 250 GB debiteras enligt [pris sättnings modellen](https://azure.microsoft.com/pricing/details/mysql/).
 
-Du kan använda måttet [säkerhets kopierings lagring som används](https://docs.microsoft.com/azure/mysql/concepts-monitoring)   i Azure Monitor tillgängligt i Azure Portal för att övervaka säkerhets kopierings lagringen som används av en server. Måttet mått för **säkerhets kopierings lagring** representerar summan av lagrings utrymme som förbrukas av alla databas säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopierings perioden som angetts för servern. Krävande transaktionsaktivitet på servern kan orsaka att lagringsanvändningen för säkerhetskopior ökar oberoende av databasens totala storlek.
+Du kan använda måttet [säkerhets kopierings lagring som används](../concepts-monitoring.md) i Azure Monitor tillgängligt i Azure Portal för att övervaka säkerhets kopierings lagringen som används av en server. Måttet mått för **säkerhets kopierings lagring** representerar summan av lagrings utrymme som förbrukas av alla databas säkerhets kopior och logg säkerhets kopior som bevaras baserat på den kvarhållna säkerhets kopierings perioden som angetts för servern. Krävande transaktionsaktivitet på servern kan orsaka att lagringsanvändningen för säkerhetskopior ökar oberoende av databasens totala storlek.
 
 Det främsta sättet att kontrol lera lagrings kostnaden för säkerhets kopiering är genom att ställa in lämplig kvarhållningsperiod för säkerhets kopior. Du kan välja en kvarhållningsperiod mellan 1 och 35 dagar.
 
@@ -68,8 +68,8 @@ I Azure Database for MySQL flexibel Server skapar en återställning vid en viss
 
 Du kan välja mellan en senaste återställnings punkt och en anpassad återställnings punkt via [Azure Portal](how-to-restore-server-portal.md).
 
--   **Senaste återställnings punkt**: den senaste återställnings punkten hjälper dig att återställa servern till den senaste säkerhets kopieringen som utförts på käll servern. Tidsstämpeln för återställning visas också på portalen. Det här alternativet är användbart för att snabbt återställa servern till det mest uppdaterade läget.
--   **Anpassad återställnings punkt**: med det här alternativet kan du välja vilken tidpunkt som helst inom den kvarhållningsperiod som definierats för den här flexibla servern. Det här alternativet är användbart för att återställa servern vid den exakta tidpunkten för att återställa från ett användar fel.
+-   **Senaste återställnings punkt** : den senaste återställnings punkten hjälper dig att återställa servern till den senaste säkerhets kopieringen som utförts på käll servern. Tidsstämpeln för återställning visas också på portalen. Det här alternativet är användbart för att snabbt återställa servern till det mest uppdaterade läget.
+-   **Anpassad återställnings punkt** : med det här alternativet kan du välja vilken tidpunkt som helst inom den kvarhållningsperiod som definierats för den här flexibla servern. Det här alternativet är användbart för att återställa servern vid den exakta tidpunkten för att återställa från ett användar fel.
 
 Den uppskattade återställnings tiden beror på flera faktorer, till exempel databas storlek, säkerhets kopierings storlek för transaktions logg, beräknings storlek för SKU: n och även tiden för återställningen. Återställningen av transaktions loggen är den mest tids krävande delen av återställnings processen. Om återställnings tiden väljs närmare säkerhets kopierings schema för fullständig eller differentiell ögonblicks bild är återställningarna snabbare eftersom transaktions logg programmet är minimalt. För att uppskatta den korrekta återställnings tiden för servern rekommenderar vi starkt att du testar den i din miljö eftersom den har för många miljövariabler.
 
@@ -77,7 +77,7 @@ Den uppskattade återställnings tiden beror på flera faktorer, till exempel da
 > Om du återställer en flexibel server som kon figurer ATS med redundant zon hög tillgänglighet, konfigureras den återställda servern i samma region och zon som den primära servern, och distribueras som en enda flexibel server i ett icke-förbrukat läge. Se [zonens redundanta hög tillgänglighet](concepts-high-availability.md) för flexibel Server.
 
 > [!IMPORTANT]
->  **Det går inte**att återställa borttagna servrar   . Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. För att skydda server resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> **Det går inte** att återställa borttagna servrar. Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. För att skydda server resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Utföra uppgifter efter återställning
 
@@ -91,5 +91,5 @@ Efter en återställning från antingen den senaste återställnings **punkten**
 ## <a name="next-steps"></a>Nästa steg
 
 -   Lär dig mer om [verksamhets kontinuitet](./concepts-business-continuity.md)
--   Lär dig mer om [Zone-redundant hög tillgänglighet](./concepts-high-availability.md)
+-   Lär dig mer om [Zone-redundant hög tillgänglighet](./concepts-high-availability.md)
 -   Läs mer om [säkerhets kopiering och återställning](./concepts-backup-restore.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: b7757b5204c9b3b32145667367a71a9acc42c230
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ce5de354583da04905f9f889cfabe36e6da6667
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434664"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546134"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -34,7 +34,7 @@ I följande tabell visas de olika metoder som du kan använda för att skapa ett
 
 | Kluster som skapats med | Webbläsare | Kommandorad | REST-API | SDK |
 | --- |:---:|:---:|:---:|:---:|
-| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure-portalen](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -72,7 +72,7 @@ Du behöver inte ange kluster platsen explicit: klustret är på samma plats som
 Azure HDInsight tillhandahåller för närvarande följande kluster typer, var och en med en uppsättning komponenter för att tillhandahålla vissa funktioner.
 
 > [!IMPORTANT]  
-> HDInsight-kluster är tillgängliga i olika typer, var och en för en enskild arbets belastning eller teknik. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel storm och HBase på ett kluster. Om lösningen kräver tekniker som sprids över flera HDInsight-kluster typer kan ett [virtuellt Azure-nätverk](https://docs.microsoft.com/azure/virtual-network) ansluta de kluster typer som krävs.
+> HDInsight-kluster är tillgängliga i olika typer, var och en för en enskild arbets belastning eller teknik. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel storm och HBase på ett kluster. Om lösningen kräver tekniker som sprids över flera HDInsight-kluster typer kan ett [virtuellt Azure-nätverk](../virtual-network/index.yml) ansluta de kluster typer som krävs.
 
 | Kluster typ | Funktioner |
 | --- | --- |
@@ -92,7 +92,7 @@ Välj HDInsight-versionen för det här klustret. Mer information finns i [HDIns
 
 Med HDInsight-kluster kan du konfigurera två användar konton när klustret skapas:
 
-* Användar namn för kluster inloggning: standard användar namnet är *admin*. Den grundläggande konfigurationen används på Azure Portal. Ibland kallas det "" kluster användare "eller" HTTP-användare ".
+* Användar namn för kluster inloggning: standard användar namnet är *admin* . Den grundläggande konfigurationen används på Azure Portal. Ibland kallas det "" kluster användare "eller" HTTP-användare ".
 * Secure Shell (SSH)-användar namn: används för att ansluta till klustret via SSH. Mer information finns i [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 HTTP-användarnamnet har följande begränsningar:
@@ -120,7 +120,7 @@ HDInsight-kluster kan använda följande lagrings alternativ:
 * Azure Data Lake Storage Gen1
 * Azure Storage Generell användning v2
 * Azure Storage Generell användning v1
-* Azure Storage Block-Blob (**stöds endast som sekundär lagring**)
+* Azure Storage Block-Blob ( **stöds endast som sekundär lagring** )
 
 Mer information om lagrings alternativ med HDInsight finns i [jämföra lagrings alternativ för användning med Azure HDInsight-kluster](hdinsight-hadoop-compare-storage-options.md).
 
@@ -153,7 +153,7 @@ Använd en anpassad metaarkiv om du vill behålla Hive-tabellerna när du har ta
 An-HDInsight metaarkiv som skapas för en HDInsight-kluster version kan inte delas mellan olika HDInsight-kluster versioner. En lista över HDInsight-versioner finns i [HDInsight-versioner som stöds](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
 > [!IMPORTANT]
-> Standard-metaarkiv tillhandahåller en Azure SQL Database med en **grundläggande nivå 5-DTU-gräns (inte uppgraderings bara)**! Lämpligt för grundläggande testnings ändamål. För stora eller produktions arbets belastningar rekommenderar vi att du migrerar till en extern metaarkiv.
+> Standard-metaarkiv tillhandahåller en Azure SQL Database med en **grundläggande nivå 5-DTU-gräns (inte uppgraderings bara)** ! Lämpligt för grundläggande testnings ändamål. För stora eller produktions arbets belastningar rekommenderar vi att du migrerar till en extern metaarkiv.
 
 #### <a name="sql-database-for-oozie"></a>SQL Database för Oozie
 
@@ -172,11 +172,11 @@ Ambari används för att övervaka HDInsight-kluster, göra konfigurations ändr
 
 ### <a name="enterprise-security-package"></a>Säkerhets paket för företag
 
-För Hadoop-, Spark-, HBase-, Kafka-och interaktiv fråga-kluster typer kan du välja att aktivera **Enterprise Security Package**. Det här paketet ger möjlighet att ha en säkrare kluster konfiguration genom att använda Apache Ranger och integrera med Azure Active Directory. Mer information finns i [Översikt över företags säkerhet i Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
+För Hadoop-, Spark-, HBase-, Kafka-och interaktiv fråga-kluster typer kan du välja att aktivera **Enterprise Security Package** . Det här paketet ger möjlighet att ha en säkrare kluster konfiguration genom att använda Apache Ranger och integrera med Azure Active Directory. Mer information finns i [Översikt över företags säkerhet i Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
 
 Med säkerhets paketet för företag kan du integrera HDInsight med Active Directory och Apache Ranger. Flera användare kan skapas med hjälp av Enterprise Security-paketet.
 
-Mer information om hur du skapar domänanslutna HDInsight-kluster finns i avsnittet [skapa domänansluten HDInsight-miljö](./domain-joined/apache-domain-joined-configure.md).
+Mer information om hur du skapar domänanslutna HDInsight-kluster finns i avsnittet [skapa domänansluten HDInsight-miljö](./domain-joined/apache-domain-joined-configure-using-azure-adds.md).
 
 ### <a name="tls"></a>TLS
 
@@ -184,7 +184,7 @@ Mer information finns i [Transport Layer Security](./transport-layer-security.md
 
 ### <a name="virtual-network"></a>Virtuellt nätverk
 
-Om lösningen kräver tekniker som sprids över flera HDInsight-kluster typer kan ett [virtuellt Azure-nätverk](https://docs.microsoft.com/azure/virtual-network) ansluta de kluster typer som krävs. Den här konfigurationen tillåter kluster och all kod som du distribuerar till dem för att kommunicera direkt med varandra.
+Om lösningen kräver tekniker som sprids över flera HDInsight-kluster typer kan ett [virtuellt Azure-nätverk](../virtual-network/index.yml) ansluta de kluster typer som krävs. Den här konfigurationen tillåter kluster och all kod som du distribuerar till dem för att kommunicera direkt med varandra.
 
 Mer information om hur du använder ett virtuellt Azure-nätverk med HDInsight finns i [planera ett virtuellt nätverk för HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
@@ -235,7 +235,7 @@ Olika typer av kluster har olika nodtyper, antal noder och Node-storlekar:
 Om du bara har försökt med HDInsight rekommenderar vi att du använder en arbetsnod. Mer information om priser för HDInsight finns i avsnittet om [priser för HDInsight](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
 > [!NOTE]  
-> Kluster storleks gränsen varierar mellan Azure-prenumerationer. Kontakta [Azures fakturerings support](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) för att öka gränsen.
+> Kluster storleks gränsen varierar mellan Azure-prenumerationer. Kontakta [Azures fakturerings support](../azure-portal/supportability/how-to-create-azure-support-request.md) för att öka gränsen.
 
 När du använder Azure Portal för att konfigurera klustret, är nodens storlek tillgänglig via fliken **konfiguration + prissättning** . I portalen kan du också se kostnaden som är associerad med de olika nodernas storlekar.
 
@@ -243,15 +243,15 @@ När du använder Azure Portal för att konfigurera klustret, är nodens storlek
 
 När du distribuerar kluster väljer du beräknings resurser baserat på den lösning som du planerar att distribuera. Följande virtuella datorer används för HDInsight-kluster:
 
-* Virtuella datorer i och D1-4-serien: [allmänna Linux VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
-* D11 – 14-seriens virtuella datorer: [MINNESOPTIMERADE virtuella Linux-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+* Virtuella datorer i och D1-4-serien: [allmänna Linux VM-storlekar](../virtual-machines/sizes-general.md)
+* D11 – 14-seriens virtuella datorer: [MINNESOPTIMERADE virtuella Linux-storlekar](../virtual-machines/sizes-memory.md)
 
 För att ta reda på vilket värde du ska använda för att ange en VM-storlek när du skapar ett kluster med hjälp av de olika SDK: erna eller när du använder Azure PowerShell, se [storleken på virtuella datorer som används för HDInsight-kluster](../cloud-services/cloud-services-sizes-specs.md#size-tables). I den här länkade artikeln använder du värdet i kolumnen **storlek** i tabellerna.
 
 > [!IMPORTANT]  
 > Om du behöver fler än 32 arbetsnoder i ett kluster måste du välja en huvudnods storlek med minst 8 kärnor och 14 GB RAM.
 
-Mer information finns i [storlekar för virtuella datorer](../virtual-machines/windows/sizes.md). Information om priser för de olika storlekarna finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
+Mer information finns i [storlekar för virtuella datorer](../virtual-machines/sizes.md). Information om priser för de olika storlekarna finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ### <a name="add-application"></a>Lägga till ett program
 
@@ -261,7 +261,7 @@ De flesta av HDInsight-programmen installeras på en tom Edge-nod.  En tom Edge-
 
 ### <a name="script-actions"></a>Skript åtgärder
 
-Du kan installera ytterligare komponenter eller anpassa kluster konfigurationen genom att använda skript när du skapar. Sådana skript anropas via **skript åtgärd**, vilket är ett konfigurations alternativ som kan användas från Azure Portal, HDInsight Windows PowerShell-cmdletar eller HDInsight .NET SDK. Mer information finns i [Anpassa HDInsight-kluster med skript åtgärd](hdinsight-hadoop-customize-cluster-linux.md).
+Du kan installera ytterligare komponenter eller anpassa kluster konfigurationen genom att använda skript när du skapar. Sådana skript anropas via **skript åtgärd** , vilket är ett konfigurations alternativ som kan användas från Azure Portal, HDInsight Windows PowerShell-cmdletar eller HDInsight .NET SDK. Mer information finns i [Anpassa HDInsight-kluster med skript åtgärd](hdinsight-hadoop-customize-cluster-linux.md).
 
 Vissa inbyggda Java-komponenter, t. ex. apache Mahout och överlappande, kan köras på klustret som filer för Java-arkiv (JAR). Dessa JAR-filer kan distribueras till Azure Storage och skickas till HDInsight-kluster med insändnings metoder för Hadoop-jobb. Mer information finns i [skicka Apache Hadoop jobb program mässigt](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

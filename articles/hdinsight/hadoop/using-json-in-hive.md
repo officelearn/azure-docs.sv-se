@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 31fc6fe02559c356f072761c024308f158ae4d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7d3992ecd2c74947eaa1071b97b2032000c749
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085454"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547613"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>Bearbeta och analysera JSON-dokument med hjälp av Apache Hive i Azure HDInsight
 
@@ -129,7 +129,7 @@ Det finns begränsningar för get_json_object UDF:
 * Eftersom varje fält i frågan kräver omparsning av frågan, påverkas prestandan.
 * **Hämta \_ JSON_OBJECT ()** returnerar sträng representationen för en matris. Om du vill konvertera matrisen till en Hive-matris måste du använda reguljära uttryck för att ersätta hakparenteserna "[" och "]" och sedan måste du också anropa Split för att hämta matrisen.
 
-Den här konverteringen är varför Hive-wikin rekommenderar att du använder **json_tuple**.  
+Den här konverteringen är varför Hive-wikin rekommenderar att du använder **json_tuple** .  
 
 ### <a name="use-the-json_tuple-udf"></a>Använd json_tuple UDF
 
@@ -146,7 +146,7 @@ Utdata från det här skriptet i Hive-konsolen:
 
 ![Apache Hive JSON-frågeresultat](./media/using-json-in-hive/hdinsight-json-tuple.png)
 
-`json_tuple`UDF använder syntaxen för [sido visning](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) i Hive, som gör att JSON- \_ tupel kan skapa en virtuell tabell genom att använda UDT-funktionen på varje rad i den ursprungliga tabellen. Komplexa JSON blir för svårhanterligt på grund av den upprepade användningen av **sido visning**. Dessutom går det inte att hantera kapslade JSON- **JSON_TUPLE** .
+`json_tuple`UDF använder syntaxen för [sido visning](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) i Hive, som gör att JSON- \_ tupel kan skapa en virtuell tabell genom att använda UDT-funktionen på varje rad i den ursprungliga tabellen. Komplexa JSON blir för svårhanterligt på grund av den upprepade användningen av **sido visning** . Dessutom går det inte att hantera kapslade JSON- **JSON_TUPLE** .
 
 ### <a name="use-a-custom-serde"></a>Använd en anpassad SerDe
 
@@ -154,11 +154,11 @@ SerDe är det bästa valet för att parsa kapslade JSON-dokument. Du kan definie
 
 ## <a name="summary"></a>Sammanfattning
 
-Vilken typ av JSON-operator i Hive som du väljer beror på ditt scenario. Med ett enkelt JSON-dokument och ett fält att leta upp väljer du registrerings data filen UDF **get_json_object**. Om du har fler än en nyckel att leta efter kan du använda **json_tuple**. För kapslade dokument använder du **JSON-SerDe**.
+Vilken typ av JSON-operator i Hive som du väljer beror på ditt scenario. Med ett enkelt JSON-dokument och ett fält att leta upp väljer du registrerings data filen UDF **get_json_object** . Om du har fler än en nyckel att leta efter kan du använda **json_tuple** . För kapslade dokument använder du **JSON-SerDe** .
 
 ## <a name="next-steps"></a>Nästa steg
 
 Relaterade artiklar finns i:
 
-* [Använda Apache Hive och HiveQL med Apache Hadoop i HDInsight för att analysera ett exempel på Apache log4j-filen](../hdinsight-use-hive.md)
+* [Använda Apache Hive och HiveQL med Apache Hadoop i HDInsight för att analysera ett exempel på Apache log4j-filen](./hdinsight-use-hive.md)
 * [Analysera flyg fördröjnings data med hjälp av interaktiv fråga i HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

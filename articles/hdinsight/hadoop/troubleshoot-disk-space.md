@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/17/2020
-ms.openlocfilehash: 0628033ecf6f2e51cf18f61c6e5b36042557dc7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82044796cca3e135c15e750d6706fe504622ebdb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530169"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540354"
 ---
 # <a name="manage-disk-space-in-azure-hdinsight"></a>Hantera disk utrymme i Azure HDInsight
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver fel söknings steg och möjliga lösningar för prob
 
 1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-1. Navigera till **Hive**  >  -**konfigurationer**  >  **Advanced**  >  **Advanced Hive-log4j**. Granska följande inställningar:
+1. Navigera till **Hive**  >  - **konfigurationer**  >  **Advanced**  >  **Advanced Hive-log4j** . Granska följande inställningar:
 
     * `hive.root.logger=DEBUG,RFA`. Detta är standardvärdet, ändra [logg nivån](https://logging.apache.org/log4j/2.x/log4j-api/apidocs/org/apache/logging/log4j/Level.html) till `INFO` för att skriva ut mindre logg poster.
 
@@ -38,7 +38,7 @@ Granska följande konfigurationer:
 
     1. I en webbläsare går du till `https://CLUSTERNAME.azurehdinsight.net` , där `CLUSTERNAME` är namnet på klustret.
 
-    1. Navigera till **Hive**-  >  **konfigurationer**  >  **Avancerad**  >  **Resource Manager**. Se till att **Aktivera logg agg regering** är markerat. Om det här alternativet är inaktiverat behåller Name-noderna loggarna lokalt och inte samman dem i fjärrarkivet vid slut för ande av program.
+    1. Navigera till **Hive** -  >  **konfigurationer**  >  **Avancerad**  >  **Resource Manager** . Se till att **Aktivera logg agg regering** är markerat. Om det här alternativet är inaktiverat behåller Name-noderna loggarna lokalt och inte samman dem i fjärrarkivet vid slut för ande av program.
 
 * Kontrollera att klusterstorleken är lämplig för arbetsbelastningen. Arbets belastningen kan ha ändrats nyligen eller också har klustret ändrat storlek. [Skala upp](../hdinsight-scaling-best-practices.md) klustret så att det matchar en högre arbets belastning.
 
@@ -52,4 +52,4 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

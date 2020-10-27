@@ -8,24 +8,24 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: a54e950286a37c207d902090f015b3732e0ff10b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 793cab8b37872788da259e45148e314faa00ea15
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88517590"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545148"
 ---
 # <a name="use-java-and-jdbc-with-azure-database-for-mysql"></a>Använda Java och JDBC med Azure Database for MySQL
 
-Det här avsnittet visar hur du skapar ett exempel program som använder Java och [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) för att lagra och hämta information i [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/).
+Det här avsnittet visar hur du skapar ett exempel program som använder Java och [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) för att lagra och hämta information i [Azure Database for MySQL](./index.yml).
 
 JDBC är standard Java-API: et för att ansluta till traditionella Relations databaser.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Ett Azure-konto. Om du inte har någon kan du [få en kostnads fri utvärderings version](https://azure.microsoft.com/free/).
-- [Azure Cloud Shell](/azure/cloud-shell/quickstart) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.
-- En [Java Development Kit](https://aka.ms/azure-jdks)som stöds, version 8 (ingår i Azure Cloud Shell).
+- [Azure Cloud Shell](../cloud-shell/quickstart.md) eller [Azure CLI](/cli/azure/install-azure-cli). Vi rekommenderar Azure Cloud Shell så att du loggas in automatiskt och har åtkomst till alla verktyg du behöver.
+- En [Java Development Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support)som stöds, version 8 (ingår i Azure Cloud Shell).
 - Verktyget [Apache maven](https://maven.apache.org/) build.
 
 ## <a name="prepare-the-working-environment"></a>Förbered arbets miljön
@@ -68,7 +68,7 @@ az group create \
 Det första vi ska skapa är en hanterad MySQL-server.
 
 > [!NOTE]
-> Du kan läsa mer detaljerad information om hur du skapar MySQL-servrar i [skapa en Azure Database for MySQL-server med hjälp av Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+> Du kan läsa mer detaljerad information om hur du skapar MySQL-servrar i [skapa en Azure Database for MySQL-server med hjälp av Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md).
 
 Kör följande skript i [Azure Cloud Shell](https://shell.azure.com/):
 

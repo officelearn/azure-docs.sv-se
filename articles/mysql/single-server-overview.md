@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91564790"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543822"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Azure Database for MySQL-server – enskild server
 
@@ -55,7 +55,7 @@ Tjänsten för enskild server skapar automatiskt Server säkerhets kopior och la
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Justera prestanda och skalning på några sekunder
 
-Tjänsten enskild server är tillgänglig på tre SKU-nivåer: Basic, Generell användning och Minnesoptimerade. Basic-nivån passar bäst för låg kostnads utveckling och låg concurrency-arbetsbelastningar. Generell användning och Minnesoptimerade passar bättre för produktions arbets belastningar som kräver hög concurrency, skalning och förutsägbar prestanda. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Lagrings skalningen är online och har stöd för automatisk utökning av lagring. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du förbrukar. Mer information finns i  [Prisnivåer](concepts-service-tiers.md).
+Tjänsten enskild server är tillgänglig på tre SKU-nivåer: Basic, Generell användning och Minnesoptimerade. Basic-nivån passar bäst för låg kostnads utveckling och låg concurrency-arbetsbelastningar. Generell användning och Minnesoptimerade passar bättre för produktions arbets belastningar som kräver hög concurrency, skalning och förutsägbar prestanda. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Lagrings skalningen är online och har stöd för automatisk utökning av lagring. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du förbrukar. Mer information finns i [Prisnivåer](./concepts-pricing-tiers.md).
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>Säkerhet, efterlevnad och styrning i företags klass
 
@@ -63,7 +63,7 @@ Tjänsten enskild server använder FIPS 140-2-validerade kryptografisk modul fö
 
 Tjänsten tillåter privat åtkomst till servrarna med hjälp av en [privat länk](concepts-data-access-security-private-link.md) och tillhandahåller funktionen [Avancerat skydd](concepts-data-access-and-security-threat-protection.md) . Avancerat skydd identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
-Förutom den interna autentiseringen har tjänsten för enskild server stöd för  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) autentisering. Azure AD-autentisering är en mekanism för att ansluta till MySQL-servrarna med identiteter definierade och hanterade i Azure AD. Med Azure AD-autentisering kan du hantera databasens användar identiteter och andra Azure-tjänster på en central plats, vilket fören klar och centraliserar åtkomst kontrollen.
+Förutom den interna autentiseringen har tjänsten för enskild server stöd för  [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) autentisering. Azure AD-autentisering är en mekanism för att ansluta till MySQL-servrarna med identiteter definierade och hanterade i Azure AD. Med Azure AD-autentisering kan du hantera databasens användar identiteter och andra Azure-tjänster på en central plats, vilket fören klar och centraliserar åtkomst kontrollen.
 
 [Gransknings loggning](concepts-audit-logs.md) är tillgängligt för att spåra alla aktiviteter på databas nivå. 
 
@@ -80,7 +80,7 @@ Tjänsten enskild server är utrustad med inbyggda funktioner för prestanda öv
 Tjänsten kör community-versionen av MySQL. Detta möjliggör fullständig programkompatibilitet och kräver minimal omplanering av kostnader för att migrera befintliga program som utvecklats i MySQL-motorn till en enskild server-tjänst. Migreringen till den enskilda servern kan utföras med hjälp av något av följande alternativ:
 
 - **Dumpa och Återställ** – för offline-migrering, där användarna kan få viss nedtid, dumpa och återställa med hjälp av community-verktyg som mysqldump/dumper kan ge ett snabbast sätt att migrera. Mer information finns i [migrera med dump och Restore](concepts-migrate-dump-restore.md) . 
-- **Azure Database migration service** – för sömlösa och förenklade migreringar till en enskild server med minimal nedtid kan [Azure Database migration service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) utnyttjas. 
+- **Azure Database migration service** – för sömlösa och förenklade migreringar till en enskild server med minimal nedtid kan [Azure Database migration service](../dms/tutorial-mysql-azure-mysql-online.md) utnyttjas. 
 - **Datareplikering** – för minimala nedtid-migreringar kan datareplikering, som förlitar sig på BinLog-baserad replikering, också användas. Datareplikering är att föredra för minimala stillestånds migreringar genom praktiska experter som söker efter mer kontroll över migreringen. Mer information finns i [data-i-replikering](concepts-data-in-replication.md) .
 
 ## <a name="contacts"></a>Kontakter
@@ -108,4 +108,3 @@ Nu när du har läst en introduktion till Azure Database for MySQL distributions
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Kör](./connect-go.md)
-  

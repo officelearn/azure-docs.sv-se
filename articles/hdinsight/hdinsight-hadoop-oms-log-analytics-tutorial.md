@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 5524c7625678d3bacc5fdbe3c295d8392da2280f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 775e2fad573832dd29fc45985c6d6bd0a50fdf3c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491010"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546100"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Använda Azure Monitor-loggar för att övervaka HDInsight-kluster
 
 Lär dig hur du aktiverar Azure Monitor loggar för att övervaka Hadoop-kluster åtgärder i HDInsight. Och hur du lägger till en HDInsight-övervaknings lösning.
 
-[Azure Monitor loggar](../log-analytics/log-analytics-overview.md) är en Azure Monitor tjänst som övervakar molnet och lokala miljöer. Övervakningen är att upprätthålla deras tillgänglighet och prestanda. Den samlar in data som genererats av resurser i molnet, i lokala miljöer och från andra övervaknings verktyg. Data används för att tillhandahålla analyser över flera källor.
+[Azure Monitor loggar](../azure-monitor/log-query/log-query-overview.md) är en Azure Monitor tjänst som övervakar molnet och lokala miljöer. Övervakningen är att upprätthålla deras tillgänglighet och prestanda. Den samlar in data som genererats av resurser i molnet, i lokala miljöer och från andra övervaknings verktyg. Data används för att tillhandahålla analyser över flera källor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
   Instruktioner för hur du skapar ett HDInsight-kluster finns i [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/). Se till att du har den senaste versionen. Om det behövs kör du `Update-Module -Name Az` .
+* Om du använder PowerShell behöver du AZ- [modulen](/powershell/azure/). Se till att du har den senaste versionen. Om det behövs kör du `Update-Module -Name Az` .
 
 * Om du vill använda Azure CLI och du ännu inte har installerat det kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -53,19 +53,19 @@ I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster fö
 
 1. Välj ditt kluster från [Azure Portal](https://portal.azure.com/). Klustret öppnas på en ny Portal sida.
 
-1. Gå till vänster och välj **Azure Monitor**under **övervakning**.
+1. Gå till vänster och välj **Azure Monitor** under **övervakning** .
 
-1. I huvudvyn väljer du **Aktivera**under **Azure Monitor-integration**.
+1. I huvudvyn väljer du **Aktivera** under **Azure Monitor-integration** .
 
 1. I list rutan **Välj en arbets yta** väljer du en befintlig Log Analytics-arbetsyta.
 
-1. Välj **Spara**.  Det tar en stund att spara inställningen.
+1. Välj **Spara** .  Det tar en stund att spara inställningen.
 
     ![Aktivera övervakning för HDInsight-kluster](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Aktivera övervakning för HDInsight-kluster")
 
 ## <a name="enable-azure-monitor-using-azure-powershell"></a>Aktivera Azure Monitor med Azure PowerShell
 
-Du kan aktivera Azure Monitor loggar med hjälp av cmdleten [Enable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) i Azure PowerShell AZ-modulen.
+Du kan aktivera Azure Monitor loggar med hjälp av cmdleten [Enable-AzHDInsightMonitoring](/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) i Azure PowerShell AZ-modulen.
 
 ```powershell
 # Enter user information
@@ -97,7 +97,7 @@ Get-AzHDInsightMonitoring `
     -Name $cluster
 ```
 
-Om du vill inaktivera använder du cmdleten [disable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) :
+Om du vill inaktivera använder du cmdleten [disable-AzHDInsightMonitoring](/powershell/module/az.hdinsight/disable-azhdinsightmonitoring) :
 
 ```powershell
 Disable-AzHDInsightMonitoring -Name "<your-cluster>"
@@ -128,7 +128,7 @@ az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Installera hanterings lösningar för HDInsight-kluster
 
-HDInsight tillhandahåller klusterbaserade hanterings lösningar som du kan lägga till för Azure Monitor loggar. [Hanterings lösningar](../log-analytics/log-analytics-add-solutions.md) lägger till funktioner i Azure Monitor loggar, vilket ger ytterligare data-och analys verktyg. Dessa lösningar samlar in viktiga prestanda mått från dina HDInsight-kluster. Och ange verktyg för att söka i måtten. Dessa lösningar tillhandahåller också visualiseringar och instrument paneler för de flesta kluster typer som stöds i HDInsight. Genom att använda de mått som du samlar in med lösningen kan du skapa anpassade övervaknings regler och aviseringar.
+HDInsight tillhandahåller klusterbaserade hanterings lösningar som du kan lägga till för Azure Monitor loggar. [Hanterings lösningar](../azure-monitor/insights/solutions.md) lägger till funktioner i Azure Monitor loggar, vilket ger ytterligare data-och analys verktyg. Dessa lösningar samlar in viktiga prestanda mått från dina HDInsight-kluster. Och ange verktyg för att söka i måtten. Dessa lösningar tillhandahåller också visualiseringar och instrument paneler för de flesta kluster typer som stöds i HDInsight. Genom att använda de mått som du samlar in med lösningen kan du skapa anpassade övervaknings regler och aviseringar.
 
 Tillgängliga HDInsight-lösningar:
 
@@ -139,7 +139,7 @@ Tillgängliga HDInsight-lösningar:
 * HDInsight Spark-övervakning
 * HDInsight Storm-övervakning
 
-Anvisningar för hanterings lösningen finns [i hanterings lösningar i Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Du kan experimentera genom att installera en HDInsight Hadoop-övervaknings lösning. När den är färdig visas en **HDInsightHadoop** -panel under **Sammanfattning**. Välj panelen **HDInsightHadoop** . HDInsightHadoop-lösningen ser ut så här:
+Anvisningar för hanterings lösningen finns [i hanterings lösningar i Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). Du kan experimentera genom att installera en HDInsight Hadoop-övervaknings lösning. När den är färdig visas en **HDInsightHadoop** -panel under **Sammanfattning** . Välj panelen **HDInsightHadoop** . HDInsightHadoop-lösningen ser ut så här:
 
 ![HDInsight övervaknings lösnings vy](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
@@ -147,7 +147,7 @@ Eftersom klustret är ett helt nytt kluster visas inga aktiviteter i rapporten.
 
 ## <a name="configuring-performance-counters"></a>Konfigurera prestanda räknare
 
-Azure Monitor stöder insamling och analys av prestanda mått för noderna i klustret. Mer information finns i [data källor för Linux-prestanda i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#linux-performance-counters).
+Azure Monitor stöder insamling och analys av prestanda mått för noderna i klustret. Mer information finns i [data källor för Linux-prestanda i Azure Monitor](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Kluster granskning
 

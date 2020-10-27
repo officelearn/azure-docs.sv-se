@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: c3a6f9b5831d4fed377d3f8702dbc0af0663b3a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596506"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544043"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Så här konfigurerar du Azure Database for MySQL Datareplikering
 
@@ -20,7 +20,7 @@ I den här artikeln beskrivs hur du konfigurerar [datareplikering](concepts-data
 > [!NOTE]
 > Kompensations fri kommunikation
 >
-> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_. Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
+> Microsoft stöder en mängd olika och införlivande miljöer. Den här artikeln innehåller referenser till ordet _slav_ . Microsofts [stil guide för en kostnads fri kommunikation](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) känner igen detta som ett undantags ord. Ordet används i den här artikeln för konsekvens eftersom det är det ord som visas i program varan. När program varan har uppdaterats för att ta bort ordet uppdateras den här artikeln som en justering.
 >
 
 För att skapa en replik i Azure Database for MySQL-tjänsten synkroniserar [datareplikering](concepts-data-in-replication.md)  data från en lokal MySQL-server lokalt, i virtuella datorer (VM) eller i moln databas tjänster. Datareplikering baseras på positionsbaserad replikering med en binär loggfil (binlog) som är inbyggd i MySQL. Mer information om BinLog-replikering finns i [Översikt över MySQL BinLog-replikering](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
@@ -51,9 +51,9 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
 
 1. Granska [huvud server kraven](concepts-data-in-replication.md#requirements) innan du fortsätter. 
 
-2. Se till att käll servern tillåter både inkommande och utgående trafik på port 3306 och att käll servern har en **offentlig IP-adress**, att DNS är offentligt tillgänglig eller har ett fullständigt kvalificerat domän namn (FQDN). 
+2. Se till att käll servern tillåter både inkommande och utgående trafik på port 3306 och att käll servern har en **offentlig IP-adress** , att DNS är offentligt tillgänglig eller har ett fullständigt kvalificerat domän namn (FQDN). 
    
-   Testa anslutningen till käll servern genom att försöka ansluta från ett verktyg som till exempel den MySQL-kommandorad som finns på en annan dator eller från den [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) som är tillgänglig i Azure Portal.
+   Testa anslutningen till käll servern genom att försöka ansluta från ett verktyg som till exempel den MySQL-kommandorad som finns på en annan dator eller från den [Azure Cloud Shell](../cloud-shell/overview.md) som är tillgänglig i Azure Portal.
 
    Om din organisation har strikta säkerhets principer och inte tillåter alla IP-adresser på käll servern att möjliggöra kommunikation från Azure till käll servern, kan du använda kommandot nedan för att fastställa IP-adressen för MySQL-servern.
 
@@ -134,7 +134,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
 
    **MySQL Workbench**
 
-   Om du vill skapa en replikeringsprincip i MySQL Workbench öppnar du panelen **användare och privilegier** från **hanterings** panelen. Klicka sedan på **Lägg till konto**. 
+   Om du vill skapa en replikeringsprincip i MySQL Workbench öppnar du panelen **användare och privilegier** från **hanterings** panelen. Klicka sedan på **Lägg till konto** . 
  
    :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Användare och behörigheter":::
 
@@ -142,7 +142,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
 
    :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Användare och behörigheter":::
  
-   Klicka på panelen **administrativa roller** och välj sedan **Replikera slavar** i listan med **globala privilegier**. Klicka sedan på **Verkställ** för att skapa replikeringsprincipen.
+   Klicka på panelen **administrativa roller** och välj sedan **Replikera slavar** i listan med **globala privilegier** . Klicka sedan på **Verkställ** för att skapa replikeringsprincipen.
 
    :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Användare och behörigheter":::
 
@@ -189,7 +189,7 @@ Följande steg förbereder och konfigurerar den MySQL-server som finns lokalt, i
 
 1. Ange käll Server
 
-   Alla Datareplikering funktioner utförs med lagrade procedurer. Du hittar alla procedurer på [datareplikering lagrade procedurer](reference-data-in-stored-procedures.md). De lagrade procedurerna kan köras i MySQL-gränssnittet eller MySQL Workbench. 
+   Alla Datareplikering funktioner utförs med lagrade procedurer. Du hittar alla procedurer på [datareplikering lagrade procedurer](./reference-stored-procedures.md). De lagrade procedurerna kan köras i MySQL-gränssnittet eller MySQL Workbench. 
 
    Om du vill länka två servrar och starta replikering loggar du in på mål replik servern i Azure DB för MySQL-tjänsten och anger den externa instansen som käll Server. Detta görs med hjälp av den `mysql.az_replication_change_master` lagrade proceduren på Azure dB för MySQL-servern.
 
@@ -286,4 +286,4 @@ CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [datareplikering](concepts-data-in-replication.md) för Azure Database for MySQL. 
+- Läs mer om [datareplikering](concepts-data-in-replication.md) för Azure Database for MySQL.

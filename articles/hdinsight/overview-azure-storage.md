@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40e1fdae5cdb1ec806e67dcacc70510a63093a82
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85851375"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539470"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Översikt över Azure Storage i HDInsight
 
@@ -21,7 +21,7 @@ Azure Storage är en robust lagrings lösning för allmänna ändamål som integ
 
 Vi rekommenderar att du använder separata lagrings behållare för standard kluster lagringen och dina affärs data. Separationen är att isolera HDInsight-loggar och temporära filer från dina egna affärs data. Vi rekommenderar också att du tar bort standard-BLOB-behållaren, som innehåller program-och system loggar, efter varje användning för att minska lagrings kostnaderna. Se till att hämta loggarna innan du tar bort containern.
 
-Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsningar för virtuella nätverk** på **valda nätverk**måste du aktivera undantaget **Tillåt betrodda Microsoft-tjänster...**. Undantaget är så att HDInsight kan komma åt ditt lagrings konto.
+Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsningar för virtuella nätverk** på **valda nätverk** måste du aktivera undantaget **Tillåt betrodda Microsoft-tjänster...** . Undantaget är så att HDInsight kan komma åt ditt lagrings konto.
 
 ## <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 
@@ -44,7 +44,7 @@ Tänk på följande principer när du använder ett Azure Storage-konto med HDIn
 * **Offentliga behållare eller offentliga blobbar i lagrings konton som inte är anslutna till ett kluster:** Du har skrivskyddad behörighet till Blobbarna i behållarna.
   
   > [!NOTE]  
-  > Med offentliga behållare kan du hämta en lista över alla blobar som är tillgängliga i behållaren och hämta metadata för behållare. Du kan endast komma åt offentliga blobar om du känner till den exakta webbadressen. Mer information finns i [Hantera anonym Läs behörighet till behållare och blobbar](../storage/blobs/storage-manage-access-to-resources.md).
+  > Med offentliga behållare kan du hämta en lista över alla blobar som är tillgängliga i behållaren och hämta metadata för behållare. Du kan endast komma åt offentliga blobar om du känner till den exakta webbadressen. Mer information finns i [Hantera anonym Läs behörighet till behållare och blobbar](../storage/blobs/anonymous-read-access-configure.md).
 
 * **Privata behållare i lagrings konton som inte är anslutna till något kluster:** Du har inte åtkomst till Blobbarna i behållarna om du inte definierar lagrings kontot när du skickar WebHCat-jobben.
 

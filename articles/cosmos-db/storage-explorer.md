@@ -4,23 +4,24 @@ description: Lär dig hur du ansluter till Azure Cosmos DB och hanterar dess res
 author: deborahc
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 10/23/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 3b5886984d6e3830549e86a7c1ee46cd2483e4b4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: be37ab43db9b5b696a619cb1539981c064b4cb0e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480606"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537804"
 ---
 # <a name="manage-azure-cosmos-db-resources-by-using-azure-storage-explorer"></a>Hantera Azure Cosmos DB resurser med Azure Storage Explorer
 
 Du kan använda Azure Storage Explorer för att ansluta till Azure Cosmos DB. Du kan ansluta till Azure Cosmos DB konton som finns i Azure och suveräna moln från Windows, macOS eller Linux.
 
-Använd samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. Du kan hantera Azure Cosmos DB entiteter, manipulera data, uppdatera lagrade procedurer och utlösare tillsammans med andra Azure-entiteter som lagrings blobbar och köer.
+Använd samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. Du kan hantera Azure Cosmos DB entiteter, manipulera data, uppdatera lagrade procedurer och utlösare tillsammans med andra Azure-entiteter som lagrings blobbar och köer. Azure Storage Explorer stöder Cosmos-konton som kon figurer ATS för SQL-, MongoDB-, Graph-och table API: er.
 
-Azure Storage Explorer stöder Cosmos-konton som kon figurer ATS för SQL-, MongoDB-, Graph-och table API: er. Gå till [Azure Cosmos db i Azure Storage Explorer]() om du vill ha mer information.
+> [!NOTE]
+> Azure Cosmos DB-integreringen med Storage Explorer är inaktuell. Alla befintliga funktioner tas inte bort under minst ett år från den här versionen. Du bör använda [Azure Portal](https://portal.azure.com/), [Azure Portal Desktop-appen](https://portal.azure.com/App/Download) eller den fristående [Azure Cosmos Explorer](data-explorer.md) i stället. De alternativa alternativen innehåller många nya funktioner som för närvarande inte stöds i Storage Explorer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,19 +33,19 @@ Om du vill installera de nyaste Azure Storage Explorer-bitarna, se [Azure Storag
 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
 
-1. När du har installerat **Azure Storage Explorer**väljer du **plugin-** ikonen i det vänstra fönstret.
+1. När du har installerat **Azure Storage Explorer** väljer du **plugin-** ikonen i det vänstra fönstret.
 
    :::image type="content" source="./media/storage-explorer/plug-in-icon.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
-1. Välj **Lägg till ett Azure-konto** och välj sedan **Logga in**.
+1. Välj **Lägg till ett Azure-konto** och välj sedan **Logga in** .
 
    :::image type="content" source="./media/storage-explorer/connect-to-azure-subscription.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
-1. I dialog rutan **Azure-inloggning** väljer du logga in och anger sedan dina autentiseringsuppgifter **för**Azure.
+1. I dialog rutan **Azure-inloggning** väljer du logga in och anger sedan dina autentiseringsuppgifter **för** Azure.
 
     :::image type="content" source="./media/storage-explorer/sign-in.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
-1. Välj din prenumeration i listan och välj sedan **Använd**.
+1. Välj din prenumeration i listan och välj sedan **Använd** .
 
     :::image type="content" source="./media/storage-explorer/apply-subscription.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
@@ -58,14 +59,14 @@ Om du vill installera de nyaste Azure Storage Explorer-bitarna, se [Azure Storag
 
 Du kan använda en anslutnings sträng för att ansluta till en Azure Cosmos DB. Den här metoden stöder endast SQL-och table-API: er. Följ dessa steg för att ansluta till en anslutnings sträng:
 
-1. Hitta **lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB konton**och välj sedan **Anslut till Cosmos DB**.
+1. Hitta **lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB konton** och välj sedan **Anslut till Cosmos DB** .
 
     :::image type="content" source="./media/storage-explorer/connect-to-db-by-connection-string.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 2. I fönstret **Anslut till Cosmos DB** :
    1. Välj API på den nedrullningsbara menyn.
    1. Klistra in anslutnings strängen i rutan **anslutnings sträng** . Information om hur du hämtar den primära anslutnings strängen finns i [Hämta anslutnings strängen](manage-with-powershell.md#list-keys).
-   1. Ange en **konto etikett**och välj sedan **Nästa** för att kontrol lera sammanfattningen.
+   1. Ange en **konto etikett** och välj sedan **Nästa** för att kontrol lera sammanfattningen.
    1. Välj **Anslut** för att ansluta Azure Cosmos DB-kontot.
 
       :::image type="content" source="./media/storage-explorer/connection-string.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
@@ -76,13 +77,13 @@ Använd följande steg för att ansluta till en Azure Cosmos DB med en emulator.
 
 1. Installera Cosmos DB emulator och öppna den. Information om hur du installerar emulatorn finns i [Cosmos DB emulator](./local-emulator.md).
 
-1. Hitta **lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB konton**och välj sedan **Anslut till Cosmos DB emulator**.
+1. Hitta **lokala och anslutna** i det vänstra trädet, högerklicka på **Cosmos DB konton** och välj sedan **Anslut till Cosmos DB emulator** .
 
     :::image type="content" source="./media/storage-explorer/emulator-entry.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
 1. I fönstret **Anslut till Cosmos DB** :
    1. Klistra in anslutnings strängen i rutan **anslutnings sträng** . Information om hur du hämtar den primära anslutnings strängen finns i [Hämta anslutnings strängen](manage-with-powershell.md#list-keys).
-   1. Ange en **konto etikett**och välj sedan **Nästa** för att kontrol lera sammanfattningen.
+   1. Ange en **konto etikett** och välj sedan **Nästa** för att kontrol lera sammanfattningen.
    1. Välj **Anslut** för att ansluta Azure Cosmos DB-kontot.
 
       :::image type="content" source="./media/storage-explorer/emulator-dialog.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
@@ -117,7 +118,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 #### <a name="create-a-database"></a>Skapa en databas
 
-1. Högerklicka på Azure Cosmos DB konto och välj sedan **skapa databas**.
+1. Högerklicka på Azure Cosmos DB konto och välj sedan **skapa databas** .
 
    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
@@ -125,7 +126,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 #### <a name="delete-a-database"></a>Ta bort en databas
 
-1. Högerklicka på databasen och välj sedan **ta bort databas**. 
+1. Högerklicka på databasen och välj sedan **ta bort databas** . 
 
    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
@@ -135,11 +136,11 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 #### <a name="create-a-collection"></a>Skapa en samling
 
-1. Högerklicka på databasen och välj sedan **skapa samling**.
+1. Högerklicka på databasen och välj sedan **skapa samling** .
 
    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
-1. Ange den begärda informationen i fönstret Skapa samling, t. ex. **samlings-ID** och **lagrings kapacitet**och så vidare. Slutför genom att välja **OK**.
+1. Ange den begärda informationen i fönstret Skapa samling, t. ex. **samlings-ID** och **lagrings kapacitet** och så vidare. Slutför genom att välja **OK** .
 
    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
@@ -152,7 +153,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 #### <a name="delete-a-collection"></a>Ta bort en samling
 
-- Högerklicka på samlingen, Välj **ta bort samling**och välj sedan **Ja** i popup-fönstret.
+- Högerklicka på samlingen, Välj **ta bort samling** och välj sedan **Ja** i popup-fönstret.
 
     Samlingsnoden tas bort och databasen uppdateras automatiskt.
 
@@ -162,8 +163,8 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 #### <a name="create-and-modify-documents"></a>Skapa och ändra dokument
 
-- Öppna **dokument** i den vänstra rutan, Välj **nytt dokument**, redigera innehållet i den högra rutan och välj sedan **Spara**.
-- Du kan också uppdatera ett befintligt dokument och sedan välja **Spara**. Om du vill ignorera ändringarna väljer du **Ignorera**.
+- Öppna **dokument** i den vänstra rutan, Välj **nytt dokument** , redigera innehållet i den högra rutan och välj sedan **Spara** .
+- Du kan också uppdatera ett befintligt dokument och sedan välja **Spara** . Om du vill ignorera ändringarna väljer du **Ignorera** .
 
   :::image type="content" source="./media/storage-explorer/document.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
@@ -173,7 +174,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 #### <a name="query-for-documents"></a>Fråga för dokument
 
-* Redigera dokument filtret genom att ange en [SQL-fråga](./sql-query-getting-started.md)och välj sedan **Använd**.
+* Redigera dokument filtret genom att ange en [SQL-fråga](./sql-query-getting-started.md)och välj sedan **Använd** .
 
   :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
@@ -181,7 +182,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 #### <a name="create-and-modify-a-vertex"></a>Skapa och ändra ett hörn
 
-* Om du vill skapa ett nytt hörn öppnar du **Graph** från den vänstra rutan, väljer **nytt hörn**, redigerar innehållet och väljer sedan **OK**.
+* Om du vill skapa ett nytt hörn öppnar du **Graph** från den vänstra rutan, väljer **nytt hörn** , redigerar innehållet och väljer sedan **OK** .
 * Om du vill ändra en befintlig topp markerar du Penn ikonen i den högra rutan.
 
    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
@@ -192,7 +193,7 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 
 #### <a name="filter-for-graph"></a>Filter för graf
 
-* Om du vill redigera graf-filtret anger du en [Gremlin-fråga](gremlin-support.md)och väljer sedan **Använd filter**.
+* Om du vill redigera graf-filtret anger du en [Gremlin-fråga](gremlin-support.md)och väljer sedan **Använd filter** .
 
    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
@@ -201,14 +202,14 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 #### <a name="create-and-modify-a-table"></a>Skapa och ändra en tabell
 
 * Så här skapar du en ny tabell:
-   1. Öppna **entiteter**i den vänstra rutan och välj sedan **Lägg till**.
+   1. Öppna **entiteter** i den vänstra rutan och välj sedan **Lägg till** .
    1. Redigera innehållet i dialog rutan **Lägg till entitet** .
    1. Välj knappen **Lägg till egenskap** för att lägga till en egenskap.
-   1. Välj **Infoga**.
+   1. Välj **Infoga** .
 
       :::image type="content" source="./media/storage-explorer/table.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
 
-* Om du vill ändra en tabell väljer du **Redigera**, ändrar innehållet och väljer sedan **Uppdatera**.
+* Om du vill ändra en tabell väljer du **Redigera** , ändrar innehållet och väljer sedan **Uppdatera** .
 
    
 
@@ -234,15 +235,15 @@ Du kan högerklicka på en prenumeration i fönstret Explorer för att utföra m
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Hantera lagrade procedurer, utlösare och UDF:er
 
 * Så här skapar du en lagrad procedur:
-  1. I det vänstra trädet högerklickar du på **lagrade procedurer**och väljer sedan **skapa lagrad procedur**.
+  1. I det vänstra trädet högerklickar du på **lagrade procedurer** och väljer sedan **skapa lagrad procedur** .
   
      :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Skärm bild som visar plugin-ikonen i det vänstra fönstret.":::
   
-  1. Ange ett namn till vänster, ange skripten för lagrade procedurer i den högra rutan och välj sedan **skapa**.
+  1. Ange ett namn till vänster, ange skripten för lagrade procedurer i den högra rutan och välj sedan **skapa** .
   
 * Om du vill redigera en befintlig lagrad procedur dubbelklickar du på proceduren, gör uppdateringen och väljer sedan **Uppdatera** för att spara. Du kan också välja **Ignorera** för att avbryta ändringen.
 
-* Åtgärderna för **utlösare** och **UDF** liknar **lagrade procedurer**.
+* Åtgärderna för **utlösare** och **UDF** liknar **lagrade procedurer** .
 
 ## <a name="troubleshooting"></a>Felsökning
 
@@ -256,7 +257,7 @@ Starta först om ditt program för att se om det löser problemet. Fortsätt fel
 
 Det finns några orsaker till att du kan se det här felet, de två vanligaste är:
 
-* Du är bakom en *transparent proxy*. Någon, till exempel din IT-avdelning, fångar upp HTTPS-trafik, dekrypterar den och krypterar den sedan med hjälp av ett självsignerat certifikat.
+* Du är bakom en *transparent proxy* . Någon, till exempel din IT-avdelning, fångar upp HTTPS-trafik, dekrypterar den och krypterar den sedan med hjälp av ett självsignerat certifikat.
 
 * Du kör program vara, till exempel antivirus program. Programmet matar in ett självsignerat TLS/SSL-certifikat i de HTTPS-meddelanden som du får.
 
@@ -268,12 +269,12 @@ När Storage Explorer hittar ett självsignerat certifikat vet det inte om HTTPS
      - macOS och Linux: bör ingå i ditt operativ system.
 
 1. Kör OpenSSL:
-    * Windows: gå till installations katalogen, klicka på **/bin/** och dubbelklicka sedan på **openssl.exe**.
+    * Windows: gå till installations katalogen, klicka på **/bin/** och dubbelklicka sedan på **openssl.exe** .
     * Mac och Linux: köra **openssl** från en Terminal.
 1. Kör `s_client -showcerts -connect microsoft.com:443` .
 1. Leta efter självsignerade certifikat. Om du är osäker, som är självsignerad, kan du leta efter var som ämnet ("s:") och utfärdaren ("i:") är samma.
 1. Om du hittar några självsignerade certifikat kan du kopiera och klistra in allt från och inklusive **-----BEGIN certificate-----** för att **-----slut certifikat-----** till en ny. CER-fil för var och en.
-1. Öppna Storage Explorer och gå sedan till **Redigera**  >  **SSL-certifikat**  >  **Importera certifikat**. Använd fil väljaren för att hitta, välja och öppna. CER-filer som du har skapat.
+1. Öppna Storage Explorer och gå sedan till **Redigera**  >  **SSL-certifikat**  >  **Importera certifikat** . Använd fil väljaren för att hitta, välja och öppna. CER-filer som du har skapat.
 
 Om du inte hittar några självsignerade certifikat kan du skicka feedback för mer hjälp.
 
@@ -321,7 +322,7 @@ Om du inte kan ta bort ett konto, eller om länken autentisera inte gör något:
   * ~/.config/StorageExplorer för Linux
   
   > [!NOTE]
-  > Om du tar bort de här filerna **måste du ange alla autentiseringsuppgifter på samma**sätt.
+  > Om du tar bort de här filerna **måste du ange alla autentiseringsuppgifter på samma** sätt.
 
 ### <a name="httphttps-proxy-issue"></a>Problem med HTTP/HTTPS-proxy
 

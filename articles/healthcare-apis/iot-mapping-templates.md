@@ -8,17 +8,17 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: da5eb43f8bc2fc8b4ac213f6ff90464de5995a47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87553656"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558541"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Azure IoT-anslutningsprogram för FHIR (förhandsversion) – mappningsmall
 Den här artikeln beskriver hur du konfigurerar Azure IoT Connector för FHIR * med hjälp av mappning av mallar.
 
-Azure IoT-anslutningen för FHIR kräver två typer av JSON-baserade mappnings-mallar. Den första typen, **enhets mappningen**är ansvarig för att mappa enhetens nytto laster som skickas till `devicedata` slut punkten för Azure Event Hub. Den extraherar typer, enhets identifierare, datum/tid för mätning och mått värden. Den andra typen, **FHIR-mappning**, styr mappningen för FHIR-resursen. Det gör det möjligt att konfigurera längden på observations perioden, FHIR-datatypen som används för att lagra värdena och terminologins kod (er). 
+Azure IoT-anslutningen för FHIR kräver två typer av JSON-baserade mappnings-mallar. Den första typen, **enhets mappningen** är ansvarig för att mappa enhetens nytto laster som skickas till `devicedata` slut punkten för Azure Event Hub. Den extraherar typer, enhets identifierare, datum/tid för mätning och mått värden. Den andra typen, **FHIR-mappning** , styr mappningen för FHIR-resursen. Det gör det möjligt att konfigurera längden på observations perioden, FHIR-datatypen som används för att lagra värdena och terminologins kod (er). 
 
 Mappnings mallarna består av ett JSON-dokument baserat på deras typ. Dessa JSON-dokument läggs sedan till i din Azure IoT-anslutning för FHIR via Azure Portal. Enhets mappnings dokumentet läggs till via sidan **Konfigurera enhets mappning** och FHIR mappnings dokument via sidan **Konfigurera FHIR-mappning** .
 
@@ -71,8 +71,8 @@ JsonPathContentTemplate tillåter matchning av och extrahering av värden från 
 |**TypeMatchExpression**|JSON-sökvägar som utvärderas mot händelsens nytto Last. Om det finns en matchande JToken, betraktas mallen som en matchning. Alla efterföljande uttryck utvärderas mot den extraherade JToken som matchas här.|`$..[?(@heartRate)]`
 |**TimestampExpression**|JSON-sökvägar för att extrahera tidsstämpel-värdet för mätningens OccurenceTimeUtc.|`$.endDate`
 |**DeviceIdExpression**|JSON Path-uttryck för att extrahera enhets identifieraren.|`$.deviceId`
-|**PatientIdExpression**|*Valfritt*: JSON-sökvägar för att extrahera patient-ID.|`$.patientId`
-|**EncounterIdExpression**|*Valfritt*: JSON-sökvägar för att extrahera identifieraren.|`$.encounterId`
+|**PatientIdExpression**|*Valfritt* : JSON-sökvägar för att extrahera patient-ID.|`$.patientId`
+|**EncounterIdExpression**|*Valfritt* : JSON-sökvägar för att extrahera identifieraren.|`$.encounterId`
 |**Värden []. Värdets namn**|Namnet som ska associeras med värdet som extraheras av det efterföljande uttrycket. Används för att binda det obligatoriska värdet/komponenten i mappnings mal len för FHIR. |`hr`
 |**Värden []. ValueExpression**|JSON Path-uttrycket som krävs för att extrahera det nödvändiga värdet.|`$.heartRate`
 |**Värden []. Kunna**|Kräver att värdet finns i nytto lasten.  Om inget värde hittas genereras inte en mätning och en InvalidOperationException kommer att genereras.|`true`
@@ -565,7 +565,7 @@ Representerar data typen [CodeableConcept](http://hl7.org/fhir/datatypes.html#Co
 Ta en titt på vanliga frågor om Azure IoT Connector för FHIR (för hands version).
 
 >[!div class="nextstepaction"]
->[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md)
 
 * I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
 

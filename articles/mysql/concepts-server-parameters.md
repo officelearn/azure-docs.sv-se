@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: 5415446e0211618cfbee917d0df91213d68b7097
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627354"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545165"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Server parametrar i Azure Database for MySQL
 
@@ -57,9 +57,9 @@ Om du vill förbättra prestanda problem med korta frågor i trådpoolen kan du 
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-I Azure Database for MySQL är binära loggar alltid aktiverade (dvs. `log_bin` är inställt på på). Om du vill använda utlösare får du ett fel som liknar att *du inte har behörigheten Super och binär loggning är aktive rad (du kanske vill använda mindre säker `log_bin_trust_function_creators` variabel)*. 
+I Azure Database for MySQL är binära loggar alltid aktiverade (dvs. `log_bin` är inställt på på). Om du vill använda utlösare får du ett fel som liknar att *du inte har behörigheten Super och binär loggning är aktive rad (du kanske vill använda mindre säker `log_bin_trust_function_creators` variabel)* . 
 
-Formatet för binär loggning är alltid **rad** och alla anslutningar till servern använder **alltid** rad-baserad binär loggning. Med en diskbaserad binär loggning finns inte säkerhets problem och binär loggning kan inte brytas, så du kan säkert ange [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **värdet sant**.
+Formatet för binär loggning är alltid **rad** och alla anslutningar till servern använder **alltid** rad-baserad binär loggning. Med en diskbaserad binär loggning finns inte säkerhets problem och binär loggning kan inte brytas, så du kan säkert ange [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) **värdet sant** .
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -69,8 +69,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|872415232|134217728|872415232|
-|Basic|2|2684354560|134217728|2684354560|
+|Grundläggande|1|872415232|134217728|872415232|
+|Grundläggande|2|2684354560|134217728|2684354560|
 |Generell användning|2|3758096384|134217728|3758096384|
 |Generell användning|4|8053063680|134217728|8053063680|
 |Generell användning|8|16106127360|134217728|16106127360|
@@ -87,8 +87,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|872415232|134217728|872415232|
-|Basic|2|2684354560|134217728|2684354560|
+|Grundläggande|1|872415232|134217728|872415232|
+|Grundläggande|2|2684354560|134217728|2684354560|
 |Generell användning|2|7516192768|134217728|7516192768|
 |Generell användning|4|16106127360|134217728|16106127360|
 |Generell användning|8|32212254720|134217728|32212254720|
@@ -108,7 +108,7 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 MySQL lagrar tabellen InnoDB i olika tabell utrymmen baserat på den konfiguration du angav när tabellen skapades. [Systemets tabell utrymme](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) är lagrings utrymmet för data ord listan InnoDB. Ett tabell namn för en [fil per tabell](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) innehåller data och index för en enskild InnoDB-tabell och lagras i fil systemet i en egen datafil. Detta beteende styrs av `innodb_file_per_table` Server parametern. Inställningen `innodb_file_per_table` `OFF` gör att InnoDB skapar tabeller i System register utrymmet. Annars skapar InnoDB tabeller i tabell utrymmen per tabell.
 
-Azure Database for MySQL stöder högst **1 TB**i en enskild datafil. Om databas storleken är större än 1 TB bör du skapa tabellen i [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tabell utrymme. Om du har en enskild tabell storlek som är större än 1 TB bör du använda partitionstabellen.
+Azure Database for MySQL stöder högst **1 TB** i en enskild datafil. Om databas storleken är större än 1 TB bör du skapa tabellen i [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tabell utrymme. Om du har en enskild tabell storlek som är större än 1 TB bör du använda partitionstabellen.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -116,8 +116,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|262144|128|268435455|
 |Generell användning|4|262144|128|536870912|
 |Generell användning|8|262144|128|1073741824|
@@ -134,8 +134,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde**|**Minvärde**|**Maxvärde**|
 |---|---|---|---|---|
-|Basic|1|50|10|50|
-|Basic|2|100|10|100|
+|Grundläggande|1|50|10|50|
+|Grundläggande|2|100|10|100|
 |Generell användning|2|300|10|600|
 |Generell användning|4|625|10|1250|
 |Generell användning|8|1250|10|2500|
@@ -165,8 +165,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|16777216|16384|268435455|
 |Generell användning|4|16777216|16384|536870912|
 |Generell användning|8|16777216|16384|1073741824|
@@ -190,8 +190,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|* * Max värde * *|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|0|0|16777216|
 |Generell användning|4|0|0|33554432|
 |Generell användning|8|0|0|67108864|
@@ -215,9 +215,9 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Om du får ett fel som liknar "rad storleken är för stor (> 8126)" kanske du vill inaktivera parametern **innodb_strict_mode**. Det går inte att ändra server parametern **innodb_strict_mode** globalt på server nivå eftersom data storleken på raden är större än 8k, men data trunkeras utan ett fel som leder till potentiell data förlust. Vi rekommenderar att du ändrar schemat så att det passar sid storleks gränsen. 
+Om du får ett fel som liknar "rad storleken är för stor (> 8126)" kanske du vill inaktivera parametern **innodb_strict_mode** . Det går inte att ändra server parametern **innodb_strict_mode** globalt på server nivå eftersom data storleken på raden är större än 8k, men data trunkeras utan ett fel som leder till potentiell data förlust. Vi rekommenderar att du ändrar schemat så att det passar sid storleks gränsen. 
 
-Den här parametern kan ställas in på en sessionsnyckel med `init_connect` . Om du vill ange **innodb_strict_mode** på sessionsstatus, se [inställnings parameter som inte visas](https://docs.microsoft.com/azure/mysql/howto-server-parameters#setting-parameters-not-listed).
+Den här parametern kan ställas in på en sessionsnyckel med `init_connect` . Om du vill ange **innodb_strict_mode** på sessionsstatus, se [inställnings parameter som inte visas](./howto-server-parameters.md#setting-parameters-not-listed).
 
 > [!NOTE]
 > Om du har en Läs replik Server avbryts replikeringen om du anger **innodb_strict_mode** till av på sessions nivå på en käll Server. Vi rekommenderar att du håller parametern inställt på av om du har Läs repliker.
@@ -228,8 +228,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|524288|32768|4194304|
 |Generell användning|4|524288|32768|8388608|
 |Generell användning|8|524288|32768|16777216|
@@ -248,8 +248,8 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 |**Prisnivå**|**vCore (s)**|**Standardvärde (byte)**|**Minsta värde (byte)**|**Max värde (byte)**|
 |---|---|---|---|---|
-|Basic|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
-|Basic|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|1|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
+|Grundläggande|2|Kan inte konfigureras på Basic-nivå|Saknas|Saknas|
 |Generell användning|2|16777216|1024|67108864|
 |Generell användning|4|16777216|1024|134217728|
 |Generell användning|8|16777216|1024|268435456|

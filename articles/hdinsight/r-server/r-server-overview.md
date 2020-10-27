@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: a8d164dd50ac190d2bc14fea70cde20bfdb89361
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3a6fc2ff45d61d63118edc23f40f69f16db9131
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85849921"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536155"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Vad är ML-tjänster i Azure HDInsight
 
-Microsoft Machine Learning Server är tillgängligt som ett distributions alternativ när du skapar HDInsight-kluster i Azure. Kluster typen som innehåller det här alternativet kallas **ml-tjänster**. Den här funktionen ger åtkomst på begäran till anpassningsbara, distribuerade analys metoder på HDInsight.
+Microsoft Machine Learning Server är tillgängligt som ett distributions alternativ när du skapar HDInsight-kluster i Azure. Kluster typen som innehåller det här alternativet kallas **ml-tjänster** . Den här funktionen ger åtkomst på begäran till anpassningsbara, distribuerade analys metoder på HDInsight.
 
 ML-tjänster i HDInsight tillhandahåller de senaste funktionerna för R-baserade analyser på data uppsättningar i praktiskt taget vilken storlek som helst. Data uppsättningarna kan läsas in till antingen Azure Blob eller Data Lake Storage. Dina R-baserade program kan använda R-paket med 8000 + öppen källkod. Rutinerna i scaler, Microsofts Big data Analytics-paket är också tillgängliga.
 
 Edge-noden är en praktisk plats för att ansluta till klustret och köra R-skript. Edge-noden gör det möjligt att köra skalnings parallellt distribuerade funktioner över serverns kärnor. Du kan också köra dem över noderna i klustret med hjälp av skalnings enhetens Hadoop-mappning minskar. Du kan också använda Apache Spark Compute-kontexter.
 
-De modeller eller förutsägelser som orsakas av analyser kan laddas ned för lokal användning. De kan också vara `operationalized` någon annan stans i Azure. I synnerhet genom [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net)och [webb tjänsten](../../machine-learning/studio/deploy-a-machine-learning-web-service.md).
+De modeller eller förutsägelser som orsakas av analyser kan laddas ned för lokal användning. De kan också vara `operationalized` någon annan stans i Azure. I synnerhet genom [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net)och [webb tjänsten](../../machine-learning/classic/deploy-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>Kom igång med ML-tjänster i HDInsight
 
@@ -35,7 +35,7 @@ ML-tjänster i HDInsight ger följande fördelar:
 
 ### <a name="ai-innovation-from-microsoft-and-open-source"></a>AI-innovation från Microsoft och öppen källkod
 
-  ML-tjänster innehåller en mycket anpassningsbar, distribuerad uppsättning algoritmer som [RevoscaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](https://docs.microsoft.com/machine-learning-server/python-reference/revoscalepy/revoscalepy-package)och [microsoftML](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/microsoftml-package). Dessa algoritmer kan arbeta med data storlekar som är större än storleken på det fysiska minnet. De körs också på en mängd olika plattformar på ett distribuerat sätt. Läs mer om samlingen av Microsofts anpassade R- [paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) och [python-paket](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) som ingår i produkten.
+  ML-tjänster innehåller en mycket anpassningsbar, distribuerad uppsättning algoritmer som [RevoscaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), [revoscalepy](/machine-learning-server/python-reference/revoscalepy/revoscalepy-package)och [microsoftML](/machine-learning-server/python-reference/microsoftml/microsoftml-package). Dessa algoritmer kan arbeta med data storlekar som är större än storleken på det fysiska minnet. De körs också på en mängd olika plattformar på ett distribuerat sätt. Läs mer om samlingen av Microsofts anpassade R- [paket](/machine-learning-server/r-reference/introducing-r-server-r-package-reference) och [python-paket](/machine-learning-server/python-reference/introducing-python-package-reference) som ingår i produkten.
   
   ML-tjänster förenar dessa Microsoft-innovationer och bidrag från communityn för öppen källkod (R, python och AI). Allt ovanpå en enda plattform i företags klass. Ett Machine Learning-paket med R eller python kan fungera sida vid sida med en egen innovation från Microsoft.
 
@@ -43,7 +43,7 @@ ML-tjänster i HDInsight ger följande fördelar:
 
   Företag som förlitar sig på traditionella paradigm och miljöer investerar mycket tid och ansträngning mot driftsättning. Den här åtgärden resulterar i fasta kostnader och fördröjningar, inklusive översättnings tiden för: modeller, iterationer för att hålla dem giltiga och aktuella, regler för godkännande och hantering av behörigheter.
 
-  ML-tjänster erbjuder [driftsättning](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)i företags klass. När en maskin inlärnings modell har slutförts tar det bara några klick att generera API: er för webb tjänster. Dessa [webb tjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services) finns i ett Server rutnät i molnet och kan integreras med branschspecifika program. Möjligheten att distribuera till ett elastiskt rutnät gör att du kan skala sömlöst med företagets behov, både för batch-och real tids resultat. Instruktioner finns i [OPERATIONALISERA ml-tjänster i HDInsight](r-server-operationalize.md).
+  ML-tjänster erbjuder [driftsättning](/machine-learning-server/what-is-operationalization)i företags klass. När en maskin inlärnings modell har slutförts tar det bara några klick att generera API: er för webb tjänster. Dessa [webb tjänster](/machine-learning-server/operationalize/concept-what-are-web-services) finns i ett Server rutnät i molnet och kan integreras med branschspecifika program. Möjligheten att distribuera till ett elastiskt rutnät gör att du kan skala sömlöst med företagets behov, både för batch-och real tids resultat. Instruktioner finns i [OPERATIONALISERA ml-tjänster i HDInsight](r-server-operationalize.md).
 
 <!---
 * **Deep ecosystem engagements to deliver customer success with optimal total cost of ownership**
@@ -60,9 +60,9 @@ Följande funktioner ingår i ML-tjänster i HDInsight.
 
 | Funktions kategori | Beskrivning |
 |------------------|-------------|
-| R-aktiverad | [R-paket](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) för lösningar som är skrivna i R, med en distribution med öppen källkod av R och körnings infrastruktur för skript körning. |
-| Python-aktiverat | [Python-moduler](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) för lösningar som skrivits i python, med en distribution med öppen källkod av python och körnings infrastruktur för skript körning.
-| [Förtränade modeller](https://docs.microsoft.com/machine-learning-server/install/microsoftml-install-pretrained-models) | För analys av visuella analyser och text sentiment är det dags att visa data som du anger. |
+| R-aktiverad | [R-paket](/machine-learning-server/r-reference/introducing-r-server-r-package-reference) för lösningar som är skrivna i R, med en distribution med öppen källkod av R och körnings infrastruktur för skript körning. |
+| Python-aktiverat | [Python-moduler](/machine-learning-server/python-reference/introducing-python-package-reference) för lösningar som skrivits i python, med en distribution med öppen källkod av python och körnings infrastruktur för skript körning.
+| [Förtränade modeller](/machine-learning-server/install/microsoftml-install-pretrained-models) | För analys av visuella analyser och text sentiment är det dags att visa data som du anger. |
 | [Distribuera och förbruka](r-server-operationalize.md) | `Operationalize` servern och distribuerar lösningar som en webb tjänst. |
 | [Fjärrkörning](r-server-hdinsight-manage.md#connect-remotely-to-microsoft-ml-services) | Starta fjärrsessioner på ML Services-kluster i nätverket från din klient dator. |
 
@@ -96,7 +96,7 @@ Om du vill använda Azure Machine Learning använder du det Azure Machine Learni
 
 ### <a name="score-on-premises"></a>Poängen lokalt
 
-Om du vill göra lokala efter att du har skapat din modell: serialisera modellen i R, ladda ned den, deserialisera den och Använd den för att bedöma nya data. Du kan räkna med nya data med hjälp av metoden som beskrivits tidigare i poäng i HDInsight eller med hjälp av [webb tjänster](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Om du vill göra lokala efter att du har skapat din modell: serialisera modellen i R, ladda ned den, deserialisera den och Använd den för att bedöma nya data. Du kan räkna med nya data med hjälp av metoden som beskrivits tidigare i poäng i HDInsight eller med hjälp av [webb tjänster](/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Underhålla klustret
 
@@ -112,7 +112,7 @@ Du kan installera ytterligare paket med en skript åtgärd när du har skapat kl
 
 Tillgängligt minne till ML-tjänster kan ändras när ett MapReduce-jobb körs. Om du vill ändra ett kluster använder du Apache Ambari-ANVÄNDARGRÄNSSNITTET för klustret. Ambari UI-instruktioner finns i [Hantera HDInsight-kluster med hjälp av Ambari-WEBBgränssnittet](../hdinsight-hadoop-manage-ambari.md).
 
-Tillgängligt minne till ML-tjänster kan ändras med hjälp av Hadoop-växlar i anropet till **RxHadoopMR**:
+Tillgängligt minne till ML-tjänster kan ändras med hjälp av Hadoop-växlar i anropet till **RxHadoopMR** :
 
 ```r
 hadoopSwitches = "-libjars /etc/hadoop/conf -Dmapred.job.map.memory.mb=6656"

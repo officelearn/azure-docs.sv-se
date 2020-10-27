@@ -7,22 +7,22 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2017
-ms.openlocfilehash: 7692bfda16ac1b8789ee49469c46ef8276c97f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce77f5074d707da5cfb251a103653b96e4644b5f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213297"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544536"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider av ASP.NET-sessionstillstånd för Azure Cache for Redis
 
-Azure cache för Redis innehåller en provider för sessionstillstånd som du kan använda för att lagra sessionens tillstånd i minnet med Azure cache för Redis i stället för en SQL Server databas. Om du vill använda providern för sessionstillstånd för cachelagring måste du först konfigurera cachen och sedan konfigurera ditt ASP.NET-program för cachelagring med Azure-cache för Redis NuGet-paketet. För ASP.NET Core program, Läs [session-och tillstånds hantering i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/app-state).
+Azure cache för Redis innehåller en provider för sessionstillstånd som du kan använda för att lagra sessionens tillstånd i minnet med Azure cache för Redis i stället för en SQL Server databas. Om du vill använda providern för sessionstillstånd för cachelagring måste du först konfigurera cachen och sedan konfigurera ditt ASP.NET-program för cachelagring med Azure-cache för Redis NuGet-paketet. För ASP.NET Core program, Läs [session-och tillstånds hantering i ASP.net Core](/aspnet/core/fundamentals/app-state).
 
 Det är ofta inte praktiskt i en verklig molnbaserad app att undvika att lagra någon form av tillstånd för en användarsession, men vissa metoder påverkar prestanda och skalbarhet mer än andra. Om du behöver lagra tillstånd är den bästa lösningen att behålla mängden State Small och lagra den i cookies. Om det inte är möjligt är nästa bästa lösning att använda ASP.NET-sessionstillstånd med en provider för distribuerad minnes intern cache. Den värsta lösningen från en prestanda-och skalbarhet är att använda en databas som har säkerhetskopierats i ett sessionstillstånd. Det här avsnittet innehåller information om hur du använder ASP.NET-providern för sessionstillstånd för Azure cache för Redis. Information om andra sessionstillstånds alternativ finns i [ASP.net alternativ för sessionstillstånd](#aspnet-session-state-options).
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>Lagra ASP.NET-sessionstillstånd i cachen
 
-Om du vill konfigurera ett klient program i Visual Studio med hjälp av NuGet-paketet Azure cache för Redis session State, klickar du på **NuGet Package Manager**, **Package Manager-konsolen** på menyn **verktyg** .
+Om du vill konfigurera ett klient program i Visual Studio med hjälp av NuGet-paketet Azure cache för Redis session State, klickar du på **NuGet Package Manager** , **Package Manager-konsolen** på menyn **verktyg** .
 
 Kör följande kommando från fönstret `Package Manager Console`.
     
@@ -122,8 +122,8 @@ När dessa steg har utförts är ditt program konfigurerat för att använda Azu
 ## <a name="aspnet-session-state-options"></a>Tillstånds alternativ för ASP.NET
 
 * I lagringsprovider för sessionstillstånd – den här providern lagrar sessionstillståndet i minnet. Fördelen med att använda den här providern är att det är enkelt och snabbt. Du kan dock inte skala dina Web Apps om du använder i minnes leverantören eftersom den inte är distribuerad.
-* Provider för SQL Server-sessionstillstånd – denna provider lagrar sessionstillståndet i SQL Server. Använd den här providern om du vill lagra sessionstillståndet i beständig lagring. Du kan skala din webbapp, men att använda SQL Server för session har en prestanda påverkan på din webbapp. Du kan också använda providern med en [InMemory OLTP-konfiguration](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) för att förbättra prestanda.
-* Distribuerat i tillstånds leverantör för sessionstillstånd, till exempel Azure cache för Redis-providern för sessionstillstånd – den här leverantören ger dig det bästa av båda världar. Din webbapp kan ha en enkel, snabb och skalbar session för sessionstillstånd. Eftersom den här providern lagrar sessionstillståndet i en cache måste din app ta hänsyn till alla egenskaper som är associerade med att kommunicera med en distribuerad minnes-cache, till exempel tillfälliga nätverks haverier. Bästa praxis om hur du använder cache finns i [Guide för cachelagring](../best-practices-caching.md) från Microsoft patterns & praxis [Azure Cloud Application design och implementerings vägledning](https://github.com/mspnp/azure-guidance).
+* Provider för SQL Server-sessionstillstånd – denna provider lagrar sessionstillståndet i SQL Server. Använd den här providern om du vill lagra sessionstillståndet i beständig lagring. Du kan skala din webbapp, men att använda SQL Server för session har en prestanda påverkan på din webbapp. Du kan också använda providern med en [InMemory OLTP-konfiguration](/archive/blogs/sqlserverstorageengine/asp-net-session-state-with-sql-server-in-memory-oltp) för att förbättra prestanda.
+* Distribuerat i tillstånds leverantör för sessionstillstånd, till exempel Azure cache för Redis-providern för sessionstillstånd – den här leverantören ger dig det bästa av båda världar. Din webbapp kan ha en enkel, snabb och skalbar session för sessionstillstånd. Eftersom den här providern lagrar sessionstillståndet i en cache måste din app ta hänsyn till alla egenskaper som är associerade med att kommunicera med en distribuerad minnes-cache, till exempel tillfälliga nätverks haverier. Bästa praxis om hur du använder cache finns i [Guide för cachelagring](/azure/architecture/best-practices/caching) från Microsoft patterns & praxis [Azure Cloud Application design och implementerings vägledning](https://github.com/mspnp/azure-guidance).
 
 Mer information om sessionstillstånd och andra bästa metoder finns i [metod tips för webb utveckling (skapa Real-World molnappar med Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 

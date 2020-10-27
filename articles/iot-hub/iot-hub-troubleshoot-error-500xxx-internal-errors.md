@@ -8,28 +8,28 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: f83ec4d09389d91c2dd427c9840885c0b829eafb
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1333a135f3e123757e268513f73e8329537e630b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150316"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538212"
 ---
 # <a name="500xxx-internal-errors"></a>500xxx Interna fel
 
-I den här artikeln beskrivs orsaker och lösningar för **500Xxx internt fel**.
+I den här artikeln beskrivs orsaker och lösningar för **500Xxx internt fel** .
 
 ## <a name="symptoms"></a>Symtom
 
 Din begäran om IoT Hub Miss lyckas med ett fel som börjar med 500 och/eller en viss typ av "Server fel". Några möjligheter är:
 
-* **500001 ServerError**: IoT Hub stötte på ett problem på Server sidan.
+* **500001 ServerError** : IoT Hub stötte på ett problem på Server sidan.
 
-* **500008 GenericTimeout**: det gick inte att slutföra anslutningsbegäran innan tids gränsen nåddes för IoT Hub.
+* **500008 GenericTimeout** : det gick inte att slutföra anslutningsbegäran innan tids gränsen nåddes för IoT Hub.
 
-* **ServiceUnavailable (ingen felkod)**: IoT Hub påträffade ett internt fel.
+* **ServiceUnavailable (ingen felkod)** : IoT Hub påträffade ett internt fel.
 
-* **InternalServerError (ingen felkod)**: IoT Hub påträffade ett internt fel.
+* **InternalServerError (ingen felkod)** : IoT Hub påträffade ett internt fel.
 
 ## <a name="cause"></a>Orsak
 
@@ -37,4 +37,4 @@ Det kan finnas ett antal orsaker till ett 500xxx-felsvar. I samtliga fall är pr
 
 ## <a name="solution"></a>Lösning
 
-Om du vill undvika 500xxx-fel skickar du ett nytt försök från enheten. Kontrol lera att du använder den senaste versionen av [Azure IoT SDK](./iot-hub-devguide-sdks.md): er för att [automatiskt hantera återförsök](./iot-hub-reliability-features-in-sdks.md#connection-and-retry). Bästa praxis vid hantering av tillfälliga fel och återförsök finns i [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).  Om problemet kvarstår kontrollerar du [Resource Health](./iot-hub-monitor-resource-health.md#use-azure-resource-health) och Azure- [status](https://status.azure.com/) för att se om IoT Hub har ett känt problem. Du kan också använda [funktionen manuell redundans](./tutorial-manual-failover.md). Om det inte finns några kända problem och problemet kvarstår kan du [kontakta supporten](https://azure.microsoft.com/support/options/) för ytterligare undersökning.
+Om du vill undvika 500xxx-fel skickar du ett nytt försök från enheten. Kontrol lera att du använder den senaste versionen av [Azure IoT SDK](./iot-hub-devguide-sdks.md): er för att [automatiskt hantera återförsök](./iot-hub-reliability-features-in-sdks.md#connection-and-retry). Bästa praxis vid hantering av tillfälliga fel och återförsök finns i [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).  Om problemet kvarstår kontrollerar du [Resource Health](./iot-hub-azure-service-health-integration.md#check-health-of-an-iot-hub-with-azure-resource-health) och Azure- [status](https://status.azure.com/) för att se om IoT Hub har ett känt problem. Du kan också använda [funktionen manuell redundans](./tutorial-manual-failover.md). Om det inte finns några kända problem och problemet kvarstår kan du [kontakta supporten](https://azure.microsoft.com/support/options/) för ytterligare undersökning.

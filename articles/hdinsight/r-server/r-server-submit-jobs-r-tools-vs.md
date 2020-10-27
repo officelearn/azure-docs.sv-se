@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2019
-ms.openlocfilehash: 402092f1667abb49da4521b91ba1f0e7d471f0d1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 08426c74b26c18b15466578d9921520da1e9c923
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490262"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536240"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Skicka jobb från R Tools för Visual Studio
 
-[R Tools för Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) är ett kostnads fritt tillägg med öppen källkod för community (kostnads fri), Professional-och Enterprise-versionerna av både [Visual Studio 2017](https://www.visualstudio.com/downloads/)och [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) eller senare. RTVS är inte tillgängligt för [Visual Studio 2019](https://docs.microsoft.com/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?view=vs-2019&preserve-view=true).
+[R Tools för Visual Studio](https://marketplace.visualstudio.com/items?itemName=MikhailArkhipov007.RTVS2019) (RTVS) är ett kostnads fritt tillägg med öppen källkod för community (kostnads fri), Professional-och Enterprise-versionerna av både [Visual Studio 2017](https://www.visualstudio.com/downloads/)och [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) eller senare. RTVS är inte tillgängligt för [Visual Studio 2019](/visualstudio/porting/port-migrate-and-upgrade-visual-studio-projects?preserve-view=true&view=vs-2019).
 
-RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R Interactive Window](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (repl), IntelliSense (kod komplettering), [Rita visualisering](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) via R-bibliotek som Ggplot2 och ggviz, [R kod fel sökning](https://docs.microsoft.com/visualstudio/rtvs/debugging)med mera.
+RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R Interactive Window](/visualstudio/rtvs/interactive-repl) (repl), IntelliSense (kod komplettering), [Rita visualisering](/visualstudio/rtvs/visualizing-data) via R-bibliotek som Ggplot2 och ggviz, [R kod fel sökning](/visualstudio/rtvs/debugging)med mera.
 
 ## <a name="set-up-your-environment"></a>Konfigurera din miljö
 
@@ -27,19 +27,19 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 
     ![Installera RTVS i Visual Studio 2017](./media/r-server-submit-jobs-r-tools-vs/install-r-tools-for-vs.png)
 
-2. Välj arbets belastningen *data vetenskap och analys program* och välj sedan **stöd för r-språk**, stöd **för körning av r-utveckling**och alternativ för **Microsoft r-klienten** .
+2. Välj arbets belastningen *data vetenskap och analys program* och välj sedan **stöd för r-språk** , stöd **för körning av r-utveckling** och alternativ för **Microsoft r-klienten** .
 
 3. Du måste ha offentliga och privata nycklar för SSH-autentisering.
    <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Installera [ml Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) på din dator. ML Server innehåller- [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) och- `RxSpark` funktionerna.
+4. Installera [ml Server](/previous-versions/machine-learning-server/install/r-server-install-windows) på din dator. ML Server innehåller- [`RevoScaleR`](/machine-learning-server/r-reference/revoscaler/revoscaler) och- `RxSpark` funktionerna.
 
 5. Installera [SparaTillFil](https://www.putty.org/) för att tillhandahålla en beräknings kontext för att köra `RevoScaleR` funktioner från din lokala klient till ditt HDInsight-kluster.
 
 6. Du kan välja att tillämpa inställningarna för data vetenskap i Visual Studio-miljön, vilket ger en ny layout för din arbets yta för R-verktygen.
-   1. Om du vill spara dina aktuella Visual Studio-inställningar använder du kommandot **verktyg > import-och export inställningar** och väljer sedan **Exportera valda miljö inställningar** och anger ett fil namn. Om du vill återställa de inställningarna använder du samma kommando och väljer **Importera valda miljö inställningar**.
+   1. Om du vill spara dina aktuella Visual Studio-inställningar använder du kommandot **verktyg > import-och export inställningar** och väljer sedan **Exportera valda miljö inställningar** och anger ett fil namn. Om du vill återställa de inställningarna använder du samma kommando och väljer **Importera valda miljö inställningar** .
 
-   2. Gå till meny alternativet **R tools** och välj **data science-inställningar...**.
+   2. Gå till meny alternativet **R tools** och välj **data science-inställningar...** .
 
        ![Inställningar för Visual Studio data science](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
@@ -49,7 +49,7 @@ RTVS förbättrar ditt R-arbetsflöde genom att erbjuda verktyg som t. ex. [R In
 ## <a name="execute-local-r-methods"></a>Köra lokala R-metoder
 
 1. Skapa ditt HDInsight ML-tjänst kluster.
-2. Installera [RTVS-tillägget](https://docs.microsoft.com/visualstudio/rtvs/installation).
+2. Installera [RTVS-tillägget](/visualstudio/rtvs/installation).
 3. Ladda ned [zip-filen samples](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Öppna `examples/Examples.sln` för att starta lösningen i Visual Studio.
 5. Öppna `1-Getting Started with R.R` filen i Solution- `A first look at R` mappen.
@@ -121,7 +121,7 @@ Med hjälp av en Microsoft ML Server/Microsoft R-klient från en Windows-dator s
 
         ![Azure HDInsight Storage-behållare](./media/r-server-submit-jobs-r-tools-vs/hdi-storage-containers.png)
 
-    4. Välj klustrets behållar namn, bläddra till mappen **användare** (du kanske måste klicka på *Läs in mer* längst ned i listan) och välj sedan *RevoShare*, sedan **newUser**. `people.json`Filen ska visas i `newUser` mappen.
+    4. Välj klustrets behållar namn, bläddra till mappen **användare** (du kanske måste klicka på *Läs in mer* längst ned i listan) och välj sedan *RevoShare* , sedan **newUser** . `people.json`Filen ska visas i `newUser` mappen.
 
         ![HDInsight kopierad mappsökväg](./media/r-server-submit-jobs-r-tools-vs/hdinsight-copied-file.png)
 

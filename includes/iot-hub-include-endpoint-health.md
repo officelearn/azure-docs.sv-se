@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a0d1de622eefad4ae5e55a427f8b0b1bf4360c0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c05badb3b2292a29b8227c7f03b841474c97ad
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84792105"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548156"
 ---
-Du kan använda REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få hälso status för slut punkterna. Vi rekommenderar att du använder [IoT Hub mått](../articles/iot-hub/iot-hub-metrics.md) som rör svars tiden för routning av meddelanden för att identifiera och felsöka fel när slut punktens hälso tillstånd är död eller ohälsosamt, eftersom fördröjningen blir högre när slut punkten är i något av dessa tillstånd.
-
+Du kan använda REST API [Hämta slut punkts hälsa](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) för att få hälso status för slut punkterna. Vi rekommenderar att du använder [IoT Hub routnings mått](../articles/iot-hub/monitor-iot-hub-reference.md#routing-metrics) som är relaterade till routnings meddelande svars tid för att identifiera och felsöka fel när slut punktens hälso tillstånd är avstängt eller dåligt Mer information om hur du använder IoT Hub mått finns i [övervaka IoT Hub](../articles/iot-hub/monitor-iot-hub.md).
 
 |Hälsostatus|Beskrivning|
 |---|---|

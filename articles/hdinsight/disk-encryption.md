@@ -8,12 +8,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: d37f1c52157d2038d216873150b1d68e669e3392
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9afab87e0d7f0e7a9e5c05b36ace1dfc09c9aa9f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487321"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548038"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Azure HDInsight Double Encryption för vilande data
 
@@ -23,7 +23,7 @@ Det här dokumentet hanterar inte data som lagras i ditt Azure Storage-konto. Di
 
 ## <a name="introduction"></a>Introduktion
 
-Det finns tre huvudsakliga hanterade disk roller i Azure: data disken, OS-disken och den temporära disken. Mer information om olika typer av hanterade diskar finns i [Introduktion till Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview). 
+Det finns tre huvudsakliga hanterade disk roller i Azure: data disken, OS-disken och den temporära disken. Mer information om olika typer av hanterade diskar finns i [Introduktion till Azure Managed disks](../virtual-machines/managed-disks-overview.md). 
 
 HDInsight stöder flera typer av kryptering i två olika lager:
 
@@ -35,8 +35,8 @@ De här typerna sammanfattas i följande tabell.
 
 |Kluster typ |OS-disk (hanterad disk) |Data disk (hanterad disk) |Temporär data disk (lokal SSD) |
 |---|---|---|---|
-|Kafka, HBase med accelererade skrivningar|LAYER1: [SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) som standard|LAYER1: [SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) som standard, layer2: Valfri kryptering i vila med CMK|LAYER1: Valfri kryptering på värden som använder PMK, layer2: Valfri kryptering i vila med CMK|
-|Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|LAYER1: [SSE-kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#encryption) som standard|Ej tillämpligt|LAYER1: Valfri kryptering på värden som använder PMK, layer2: Valfri kryptering i vila med CMK|
+|Kafka, HBase med accelererade skrivningar|LAYER1: [SSE-kryptering](../virtual-machines/managed-disks-overview.md#encryption) som standard|LAYER1: [SSE-kryptering](../virtual-machines/managed-disks-overview.md#encryption) som standard, layer2: Valfri kryptering i vila med CMK|LAYER1: Valfri kryptering på värden som använder PMK, layer2: Valfri kryptering i vila med CMK|
+|Alla andra kluster (Spark, Interactive, Hadoop, HBase utan accelererade skrivningar)|LAYER1: [SSE-kryptering](../virtual-machines/managed-disks-overview.md#encryption) som standard|E.t.|LAYER1: Valfri kryptering på värden som använder PMK, layer2: Valfri kryptering i vila med CMK|
 
 ## <a name="encryption-at-rest-using-customer-managed-keys"></a>Kryptering i vila med Kundhanterade nycklar
 
@@ -73,15 +73,15 @@ Se [skapa en användardefinierad hanterad identitet](../active-directory/managed
 
 Skapa ett nyckelvalv. Se [skapa Azure Key Vault](../key-vault/secrets/quick-create-portal.md) för vissa steg.
 
-HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv kan du importera dina nycklar till Azure Key Vault. Kom ihåg att nyckel valvet måste ha **mjuk borttagning** aktiverat. Mer information om hur du importerar befintliga nycklar finns på [nycklar, hemligheter och certifikat](../key-vault/about-keys-secrets-and-certificates.md).
+HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv kan du importera dina nycklar till Azure Key Vault. Kom ihåg att nyckel valvet måste ha **mjuk borttagning** aktiverat. Mer information om hur du importerar befintliga nycklar finns på [nycklar, hemligheter och certifikat](../key-vault/general/about-keys-secrets-certificates.md).
 
 ### <a name="create-key"></a>Skapa nyckel
 
-1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **nycklar**  >  **+ generera/importera**.
+1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **nycklar**  >  **+ generera/importera** .
 
     ![Generera en ny nyckel i Azure Key Vault](./media/disk-encryption/create-new-key.png "Generera en ny nyckel i Azure Key Vault")
 
-1. Ange ett namn och välj sedan **skapa**. Behåll standard **nyckel typen** för **RSA**.
+1. Ange ett namn och välj sedan **skapa** . Behåll standard **nyckel typen** för **RSA** .
 
     ![genererar nyckel namn](./media/disk-encryption/create-key.png "Generera nyckel namn")
 
@@ -95,7 +95,7 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
 ### <a name="create-access-policy"></a>Skapa åtkomst princip
 
-1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **åtkomst principer**  >  **+ Lägg till åtkomst princip**.
+1. Från det nya nyckel valvet navigerar du till **Inställningar**  >  **åtkomst principer**  >  **+ Lägg till åtkomst princip** .
 
     ![Skapa ny princip för Azure Key Vault åtkomst](./media/disk-encryption/key-vault-access-policy.png)
 
@@ -103,15 +103,15 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
     |Egenskap |Beskrivning|
     |---|---|
-    |Nyckel behörigheter|Välj **Hämta**, **packa upp nyckel**och **Radbryt nyckel**.|
-    |Hemliga behörigheter|Välj **Hämta**, **Ange**och **ta bort**.|
+    |Nyckel behörigheter|Välj **Hämta** , **packa upp nyckel** och **Radbryt nyckel** .|
+    |Hemliga behörigheter|Välj **Hämta** , **Ange** och **ta bort** .|
     |Välj huvud konto|Välj den användare som tilldelats den hanterade identitet som du skapade tidigare.|
 
     ![Ange Välj huvud konto för Azure Key Vault åtkomst princip](./media/disk-encryption/azure-portal-add-access-policy.png)
 
-1. Välj **Lägg till**.
+1. Välj **Lägg till** .
 
-1. Välj **Spara**.
+1. Välj **Spara** .
 
     ![Spara Azure Key Vault åtkomst princip](./media/disk-encryption/add-key-vault-access-policy-save.png)
 
@@ -121,7 +121,7 @@ Nu är du redo att skapa ett nytt HDInsight-kluster. Kundhanterade nycklar kan b
 
 #### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
-Ange den fullständiga **nyckel identifieraren**, inklusive nyckel versionen, när klustret skapas. Till exempel `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
+Ange den fullständiga **nyckel identifieraren** , inklusive nyckel versionen, när klustret skapas. Till exempel `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
 
 ![Skapa nytt kluster](./media/disk-encryption/create-cluster-portal.png)
 
@@ -141,7 +141,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \
 
 #### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager-mallar
 
-I följande exempel visas hur du använder en Azure Resource Manager mall för att skapa ett nytt Apache Spark kluster med disk kryptering aktiverat. Mer information finns i [Vad är arm-mallar?](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview).
+I följande exempel visas hur du använder en Azure Resource Manager mall för att skapa ett nytt Apache Spark kluster med disk kryptering aktiverat. Mer information finns i [Vad är arm-mallar?](../azure-resource-manager/templates/overview.md).
 
 I det här exemplet används PowerShell för att anropa mallen.
 
@@ -359,7 +359,7 @@ Det kan finnas scenarier där du kanske vill ändra de krypterings nycklar som a
 
 #### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
-Om du vill rotera nyckeln behöver du URI för bas nyckel valvet. När du har gjort det går du till avsnittet HDInsight-kluster egenskaper i portalen och klickar på **ändra nyckel** under **URL för disk krypterings nyckel**. Ange den nya nyckel-URL: en och skicka för att rotera nyckeln.
+Om du vill rotera nyckeln behöver du URI för bas nyckel valvet. När du har gjort det går du till avsnittet HDInsight-kluster egenskaper i portalen och klickar på **ändra nyckel** under **URL för disk krypterings nyckel** . Ange den nya nyckel-URL: en och skicka för att rotera nyckeln.
 
 ![rotera disk krypterings nyckel](./media/disk-encryption/change-key.png)
 
@@ -420,7 +420,7 @@ Kryptering på värden kan aktive ras när klustret skapas i Azure Portal.
 
 :::image type="content" source="media/disk-encryption/encryption-at-host.png" alt-text="Aktivera kryptering på värden.":::
 
-Med det här alternativet aktive ras [kryptering på värden](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) för virtuella HDInsight-datorer temporära data diskar som använder PMK. Kryptering på värden stöds bara [på vissa VM SKU: er i begränsade regioner](../virtual-machines/linux/disks-enable-host-based-encryption-portal.md) och HDInsight stöder [följande konfiguration och SKU: er för noden](./hdinsight-supported-node-configuration.md).
+Med det här alternativet aktive ras [kryptering på värden](../virtual-machines/disks-enable-host-based-encryption-portal.md) för virtuella HDInsight-datorer temporära data diskar som använder PMK. Kryptering på värden stöds bara [på vissa VM SKU: er i begränsade regioner](../virtual-machines/disks-enable-host-based-encryption-portal.md) och HDInsight stöder [följande konfiguration och SKU: er för noden](./hdinsight-supported-node-configuration.md).
 
 Om du vill förstå rätt VM-storlek för ditt HDInsight-kluster ser du [välja rätt VM-storlek för ditt Azure HDInsight-kluster](hdinsight-selecting-vm-size.md). Standard-VM-SKU: n för Zookeeper-noden när kryptering på värden är aktive rad kommer att vara DS2V2.
 

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db036752bab7b84b72a37b148eaec7aa5765ef3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88008958"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538603"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Felsöka dataförlust i Azure Cache for Redis
 
@@ -36,7 +36,7 @@ Om du upptäcker att nycklarna har försvunnit från cacheminnet kontrollerar du
 
 ### <a name="key-expiration"></a>Nyckel förfallo datum
 
-Azure cache för Redis tar bort en nyckel automatiskt om nyckeln tilldelas en timeout och den perioden har passerat. Mer information om förfallo datum för Redis-nycklar finns i den [förfallna](https://redis.io/commands/expire) kommando dokumentationen. Timeout-värden kan också anges med hjälp av kommandona [set](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset)och andra ** \* Store** .
+Azure cache för Redis tar bort en nyckel automatiskt om nyckeln tilldelas en timeout och den perioden har passerat. Mer information om förfallo datum för Redis-nycklar finns i den [förfallna](https://redis.io/commands/expire) kommando dokumentationen. Timeout-värden kan också anges med hjälp av kommandona [set](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset)och andra **\* Store** .
 
 Om du vill få statistik om hur många nycklar som har upphört att gälla använder du kommandot [info](https://redis.io/commands/info) . `Stats`Avsnittet visar det totala antalet utgångna nycklar. `Keyspace`Avsnittet innehåller mer information om antalet nycklar med tids gränser och det genomsnittliga timeout-värdet.
 
@@ -106,7 +106,7 @@ cmdstat_flushdb:calls=1,usec=110,usec_per_call=52.00
 
 ### <a name="incorrect-database-selection"></a>Felaktigt databas val
 
-Azure cache för Redis använder **DB0** -databasen som standard. Om du växlar till en annan databas (till exempel **DB1**) och försöker läsa nycklar från den, hittar inte Azure cache för Redis dem där. Varje databas är en logiskt separat enhet och innehåller en annan data uppsättning. Använd kommandot [Välj](https://redis.io/commands/select) för att använda andra tillgängliga databaser och leta efter nycklar i var och en av dem.
+Azure cache för Redis använder **DB0** -databasen som standard. Om du växlar till en annan databas (till exempel **DB1** ) och försöker läsa nycklar från den, hittar inte Azure cache för Redis dem där. Varje databas är en logiskt separat enhet och innehåller en annan data uppsättning. Använd kommandot [Välj](https://redis.io/commands/select) för att använda andra tillgängliga databaser och leta efter nycklar i var och en av dem.
 
 ### <a name="redis-instance-failure"></a>Redis instans-problem
 
@@ -114,7 +114,7 @@ Redis är ett minnes intern data lager. Data lagras på fysiska eller virtuella 
 
 Cacheminnen på standard-och Premium-nivåerna ger mycket högre återhämtning mot data förlust genom att använda två virtuella datorer i en replikerad konfiguration. När den primära noden i en sådan cache Miss lyckas, tar replik noden över för att betjäna data automatiskt. De här virtuella datorerna finns i separata domäner för fel och uppdateringar för att minimera risken för att båda blir otillgängliga samtidigt. Om ett allvarligt Data Center avbrott inträffar kan de virtuella datorerna fortfarande gå ner tillsammans. Dina data kommer att gå förlorade i dessa sällsynta fall.
 
-Överväg att använda [Redis data beständighet](https://redis.io/topics/persistence) och [geo-replikering](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-geo-replication) för att förbättra skyddet av dina data mot de här infrastruktur felen.
+Överväg att använda [Redis data beständighet](https://redis.io/topics/persistence) och [geo-replikering](./cache-how-to-geo-replication.md) för att förbättra skyddet av dina data mot de här infrastruktur felen.
 
 ## <a name="additional-information"></a>Ytterligare information
 

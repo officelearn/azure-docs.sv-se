@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: b5ea227ba75a9ecf6666883603dad97d02385b5c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddd1a6fa2fc25add30664da5b739338e87e7e74f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086491"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547851"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Använd tomma Edge-noder på Apache Hadoop kluster i HDInsight
 
@@ -61,7 +61,7 @@ När du har skapat en Edge-nod kan du ansluta till Edge-noden med SSH och köra 
 > [!WARNING]
 > Anpassade komponenter som är installerade på Edge-noden får kommersiellt skälig support från Microsoft. Detta kan resultera i att lösa problem som du stöter på. Eller så kan du hänvisas till community-resurser för att få hjälp. Följande är några av de mest aktiva webbplatserna för att få hjälp från communityn:
 >
-> * [Microsoft Q&en fråge sida för HDInsight] (https://docs.microsoft.com/answers/topics/azure-hdinsight.html
+> * [Microsoft Q&en fråge sida för HDInsight] (/Answers/topics/azure-hdinsight.html
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
 > Om du använder en Apache-teknik kanske du kan hitta hjälp genom Apache-projekt webbplatser på [https://apache.org](https://apache.org) , till exempel [Apache Hadoop](https://hadoop.apache.org/) webbplats.
@@ -83,10 +83,10 @@ I det här avsnittet använder du en Resource Manager-mall för att lägga till 
     |---|---|
     |Prenumeration|Välj en Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Välj den resurs grupp som används för det befintliga HDInsight-klustret.|
-    |Location|Välj platsen för det befintliga HDInsight-klustret.|
+    |Plats|Välj platsen för det befintliga HDInsight-klustret.|
     |Klusternamn|Ange namnet på ett befintligt HDInsight-kluster.|
 
-1. Kontrol lera **att jag godkänner de allmänna villkoren som anges ovan**och välj sedan  **köp** för att skapa Edge-noden.
+1. Kontrol lera **att jag godkänner de allmänna villkoren som anges ovan** och välj sedan  **köp** för att skapa Edge-noden.
 
 > [!IMPORTANT]  
 > Se till att välja Azure-resurs gruppen för det befintliga HDInsight-klustret.  Annars visas fel meddelandet "det går inte att utföra den begärda åtgärden på en kapslad resurs. Det gick inte att hitta den överordnade resursens &lt; kluster namn>.
@@ -107,17 +107,17 @@ I det här avsnittet använder du en Resource Manager-mall för att skapa HDInsi
     |---|---|
     |Prenumeration|Välj en Azure-prenumeration som används för att skapa klustret.|
     |Resursgrupp|Skapa en ny resurs grupp som används för klustret.|
-    |Location|Välj en plats för resursgruppen.|
+    |Plats|Välj en plats för resursgruppen.|
     |Klusternamn|Ange ett namn för det nya klustret som ska skapas.|
-    |Användarnamn för klusterinloggning|Ange användar namnet för Hadoop HTTP.  Standardnamnet är **admin**.|
+    |Användarnamn för klusterinloggning|Ange användar namnet för Hadoop HTTP.  Standardnamnet är **admin** .|
     |Lösenord för klusterinloggning|Ange användarens lösen ord för Hadoop HTTP.|
-    |Användar namn för SSH|Ange användar namnet för SSH. Standard namnet är **sshuser**.|
+    |Användar namn för SSH|Ange användar namnet för SSH. Standard namnet är **sshuser** .|
     |SSH-lösenord|Ange lösen ordet för SSH-användaren.|
     |Installera skript åtgärd|Behåll standardvärdet för att gå igenom den här artikeln.|
 
     Vissa egenskaper har hårdkodad i mallen: kluster typ, antal kluster arbetsnoder, Edge-nods storlek och kant-Node-namn.
 
-1. Kontrol lera **att jag godkänner villkoren som anges ovan**och välj sedan  **köp** för att skapa klustret med Edge-noden.
+1. Kontrol lera **att jag godkänner villkoren som anges ovan** och välj sedan  **köp** för att skapa klustret med Edge-noden.
 
 ## <a name="add-multiple-edge-nodes"></a>Lägg till flera Edge-noder
 
@@ -133,7 +133,7 @@ Edge-noden visas som ett program på Azure Portal.  Portalen ger dig information
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna HDInsight-klustret med en Edge-nod.
-3. Välj **program**. Du ser noden Edge.  Standard namnet är **New-edgenode**.
+3. Välj **program** . Du ser noden Edge.  Standard namnet är **New-edgenode** .
 4. Välj noden Edge. Du ska se SSH-slutpunkten.
 
 **Använda Hive på Edge-noden**
@@ -158,8 +158,8 @@ Du kan ta bort en Edge-nod från Azure Portal.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Öppna HDInsight-klustret med en Edge-nod.
-3. Välj **program**. Du ska se en lista över Edge-noder.  
-4. Högerklicka på den Edge-nod som du vill ta bort och välj sedan **ta bort**.
+3. Välj **program** . Du ska se en lista över Edge-noder.  
+4. Högerklicka på den Edge-nod som du vill ta bort och välj sedan **ta bort** .
 5. Välj **Ja** för att bekräfta.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -169,6 +169,6 @@ I den här artikeln har du lärt dig hur du lägger till en Edge-nod och hur du 
 * [Installera HDInsight-program](hdinsight-apps-install-applications.md): Läs mer om hur du installerar ett HDInsight-program till dina kluster.
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett opublicerat HDInsight-program till HDInsight.
 * [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
-* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
+* [MSDN: Installera ett HDInsight-program](/rest/api/hdinsight/hdinsight-application): information om hur du definierar HDInsight-program.
 * [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md): information om hur du använder skriptåtgärd till att installera fler program.
 * [Skapa Linux-baserade Apache Hadoop kluster i HDInsight med Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Lär dig hur du anropar Resource Manager-mallar för att skapa HDInsight-kluster.

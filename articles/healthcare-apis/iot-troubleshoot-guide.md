@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90982991"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558524"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Fel söknings guide för Azure IoT Connector för FHIR (för hands version)
 
@@ -31,7 +31,7 @@ I det här avsnittet får du lära dig om validerings processen som Azure IoT Co
 
 **Enhets mappning**
 
-|Element|Krävs|
+|Element|Obligatorisk|
 |:-------|:------|
 |Typnamn|Sant|
 |TypeMatchExpression|Sant|
@@ -47,7 +47,7 @@ I det här avsnittet får du lära dig om validerings processen som Azure IoT Co
 
 **FHIR-mappning**
 
-|Element|Krävs|
+|Element|Obligatorisk|
 |:------|:-------|
 |Typnamn|Sant|
 
@@ -104,7 +104,7 @@ Mappnings filens kopior bör tillhandahållas till teknisk support för Azure n�
 > [!NOTE]
 > Den här processen kan också användas för att kopiera och spara innehållet i JSON-filen **"Konfigurera FHIR-mappning"** .
 
-3. Välj **Konfigurera enhets mappning**.
+3. Välj **Konfigurera enhets mappning** .
 
     :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="IoT-Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
@@ -122,7 +122,7 @@ Mappnings filens kopior bör tillhandahållas till teknisk support för Azure n�
 Ta en titt på vanliga frågor om Azure IoT Connector för FHIR.
 
 >[!div class="nextstepaction"]
->[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md)
 
 * I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
 

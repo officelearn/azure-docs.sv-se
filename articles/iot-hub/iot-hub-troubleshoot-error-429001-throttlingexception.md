@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 3095e398d7e5cfe59085144d5bb4e8dc33618064
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2f12a6982886eeaa375151c5b8a73acc573aab9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76960703"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545369"
 ---
 # <a name="429001-throttlingexception"></a>429001 ThrottlingException
 
@@ -21,7 +21,7 @@ I den här artikeln beskrivs orsaker och lösningar för **429001 ThrottlingExce
 
 ## <a name="symptoms"></a>Symtom
 
-Dina begär anden till IoT Hub fungerar inte med fel **429001-ThrottlingException**.
+Dina begär anden till IoT Hub fungerar inte med fel **429001-ThrottlingException** .
 
 ## <a name="cause"></a>Orsak
 
@@ -29,7 +29,7 @@ IoT Hub [begränsnings gränser](./iot-hub-devguide-quotas-throttling.md) har ö
 
 ## <a name="solution"></a>Lösning
 
-Kontrol lera att du når begränsnings gränsen genom att jämföra dina *telemetri-meddelanden* med de gränser som anges ovan. Du kan också kontrol lera *antalet begränsnings fel* . Mer information om dessa och andra mått som är tillgängliga för IoT Hub finns [IoT Hub mått och hur du använder dem](./iot-hub-metrics.md#iot-hub-metrics-and-how-to-use-them).
+Kontrol lera att du når begränsnings gränsen genom att jämföra dina *telemetri-meddelanden* med de gränser som anges ovan. Du kan också kontrol lera *antalet begränsnings fel* . Information om dessa mått finns i mått för [enhets telemetri](monitor-iot-hub-reference.md#device-telemetry-metrics). Information om hur du använder mått för att övervaka din IoT Hub finns i [övervaka IoT Hub](monitor-iot-hub.md).
 
 IoT Hub returnerar 429 ThrottlingException endast efter att gränsen har överskridits för för lång tid. Detta görs så att dina meddelanden inte försvinner om din IoT Hub får burst-trafik. Under tiden bearbetar IoT Hub meddelandena med begränsad hastighet, vilket kan gå långsamt om det finns för mycket kvarvarande trafik att hantera. Läs mer i [Trafikkvotering](./iot-hub-devguide-quotas-throttling.md#traffic-shaping).
 

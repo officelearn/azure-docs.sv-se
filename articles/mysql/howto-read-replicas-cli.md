@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 74e62c39295d36132abdce0abc033162fa22cb64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 747b8bc1abbf19c861e180faf17e2fa1a143a237
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531640"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546321"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Skapa och hantera Läs repliker i Azure Database for MySQL med hjälp av Azure CLI och REST API
 
@@ -23,7 +23,7 @@ Du kan skapa och hantera Läs repliker med hjälp av Azure CLI.
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Installera Azure CLI 2.0](/cli/azure/install-azure-cli)
 - En [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md) som ska användas som käll Server. 
 
 > [!IMPORTANT]
@@ -42,9 +42,9 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 `az mysql server replica create`Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
+| resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | name | mydemoreplicaserver | Namnet på den nya replik servern som skapas. |
 | source-server | mydemoserver | Namnet eller ID: t för den befintliga käll server som ska replikeras från. |
 
@@ -71,9 +71,9 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 
 `az mysql server replica list`Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
+| resource-group |  myresourcegroup |  Resurs gruppen där replik servern ska skapas.  |
 | server-name | mydemoserver | Namnet eller ID: t för käll servern. |
 
 ### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
@@ -89,9 +89,9 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 `az mysql server replica stop`Kommandot kräver följande parametrar:
 
-| Inställning | Exempelvärde | Beskrivning  |
+| Inställningen | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resurs gruppen där replik servern finns.  |
+| resource-group |  myresourcegroup |  Resurs gruppen där replik servern finns.  |
 | name | mydemoreplicaserver | Namnet på replik servern där replikeringen ska stoppas. |
 
 ### <a name="delete-a-replica-server"></a>Ta bort en replik Server

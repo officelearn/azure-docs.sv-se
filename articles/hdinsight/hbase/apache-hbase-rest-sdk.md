@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: e8bce1ca10e9175b699bd548d9241b78bce3b5cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17c3f07fe553e363d1eb2a997287feb77296a621
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89504867"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540320"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Använd .NET SDK för Apache HBase
 
@@ -38,13 +38,13 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-Ersätt kluster namn med ditt HDInsight HBase-kluster namn och användar namn och lösen ord med de Apache Hadoop autentiseringsuppgifter som angavs när klustret skapades. Standard användar namnet för Hadoop är **admin**.
+Ersätt kluster namn med ditt HDInsight HBase-kluster namn och användar namn och lösen ord med de Apache Hadoop autentiseringsuppgifter som angavs när klustret skapades. Standard användar namnet för Hadoop är **admin** .
 
 ## <a name="create-a-new-table"></a>Skapa en ny tabell
 
-HBase lagrar data i tabeller. En tabell består av en *Rowkey*, den primära nyckeln och en eller flera grupper av kolumner som kallas *kolumn serier*. Data i varje tabell fördelas vågrätt med ett Rowkey intervall i *regioner*. Varje region har en start-och slut nyckel. En tabell kan ha en eller flera regioner. När data i tabellen växer, delar HBase upp stora regioner i mindre regioner. Regioner lagras i *region servrar*där en region Server kan lagra flera regioner.
+HBase lagrar data i tabeller. En tabell består av en *Rowkey* , den primära nyckeln och en eller flera grupper av kolumner som kallas *kolumn serier* . Data i varje tabell fördelas vågrätt med ett Rowkey intervall i *regioner* . Varje region har en start-och slut nyckel. En tabell kan ha en eller flera regioner. När data i tabellen växer, delar HBase upp stora regioner i mindre regioner. Regioner lagras i *region servrar* där en region Server kan lagra flera regioner.
 
-Data lagras fysiskt i *HFiles*. En enda HFile innehåller data för en tabell, en region och en kolumn serie. Rader i HFile lagras sorterade på Rowkey. Varje HFile har ett *B + träd* -index för att hämta rader snabbare.
+Data lagras fysiskt i *HFiles* . En enda HFile innehåller data för en tabell, en region och en kolumn serie. Rader i HFile lagras sorterade på Rowkey. Varje HFile har ett *B + träd* -index för att hämta rader snabbare.
 
 Om du vill skapa en ny tabell anger du en `TableSchema` kolumn och. Följande kod kontrollerar om tabellen "RestSDKTable" redan finns, om inte tabellen skapas.
 
@@ -190,4 +190,4 @@ finally
 ## <a name="next-steps"></a>Nästa steg
 
 * [Kom igång med ett Apache HBase-exempel i HDInsight](apache-hbase-tutorial-get-started-linux.md)
-* Bygg ett program från slut punkt till slut punkt med [Analysera Twitter-sentiment i real tid med Apache HBase](../hdinsight-hbase-analyze-twitter-sentiment.md)
+* Bygg ett program från slut punkt till slut punkt med [Analysera Twitter-sentiment i real tid med Apache HBase](./apache-hbase-tutorial-get-started-linux.md)

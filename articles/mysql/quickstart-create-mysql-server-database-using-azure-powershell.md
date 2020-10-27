@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 4444f86f094d46419d7ff4b2f80609da007c4594
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65ac6b3252b134fa6774c075ebc7d5f2c428a809
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906130"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545131"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Snabb start: skapa en Azure Database for MySQL-server med PowerShell
 
@@ -45,7 +45,7 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en [Azure-resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med cmdlet: en [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp.
+Skapa en [Azure-resurs grupp](../azure-resource-manager/management/overview.md) med cmdlet: en [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) . En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras som en grupp.
 
 I följande exempel skapas en resurs grupp med namnet **myresourcegroup** i regionen **USA, västra** .
 
@@ -70,7 +70,7 @@ Följande tabell innehåller en lista över parametrar och exempel värden som a
 | SslEnforcement             | Enabled          | Om SSL ska vara aktiverat eller inte för den här servern. Tillåtna värden: Enabled, Disabled.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Serverns lagringskapacitet (enheten är megabyte). Giltig StorageInMb är minst 5120 MB och ökar i steg om 1024 MB. Mer information om lagrings storleks gränser finns i [Azure Database for MySQL pris nivåer](./concepts-pricing-tiers.md).                                                                               |
 | Version                    | 5.7              | Huvudversion för MySQL.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | Användarnamnet för administratörsinloggning. Det kan inte vara **azure_superuser** , **admin** , **administrator** , **root** , **guest** eller **public** .                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Lösen ordet för administratörs användaren i form av en säker sträng. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror och icke-alfanumeriska tecken.                                       |
 
 Värdet för **SKU** -parametern följer konventions **pris-nivå \_ beräknings generationens \_ virtuella kärnor** som visas i följande exempel.
@@ -81,7 +81,7 @@ Värdet för **SKU** -parametern följer konventions **pris-nivå \_ beräknings
 
 Information om giltiga **SKU** -värden per region och för nivåer finns i [Azure Database for MySQL pris nivåer](./concepts-pricing-tiers.md).
 
-I följande exempel skapas en MySQL-server i regionen **västra USA** med namnet **mydemoserver** i resurs gruppen **myresourcegroup** med en server Administratörs inloggning för **administratören**. Det är en gen 5-Server i den allmänna pris nivån med 2 virtuella kärnor och geo-redundanta säkerhets kopieringar aktiverade. Dokumentera lösen ordet som används på den första raden i exemplet, eftersom det här är lösen ordet för MySQL-serverns administratörs konto.
+I följande exempel skapas en MySQL-server i regionen **västra USA** med namnet **mydemoserver** i resurs gruppen **myresourcegroup** med en server Administratörs inloggning för **administratören** . Det är en gen 5-Server i den allmänna pris nivån med 2 virtuella kärnor och geo-redundanta säkerhets kopieringar aktiverade. Dokumentera lösen ordet som används på den första raden i exemplet, eftersom det här är lösen ordet för MySQL-serverns administratörs konto.
 
 > [!TIP]
 > Ett servernamn mappar till ett DNS-namn och måste vara globalt unikt i Azure.
@@ -124,7 +124,7 @@ Update-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -SslE
 
 ## <a name="get-the-connection-information"></a>Hämta anslutningsinformationen
 
-För att ansluta till servern måste du ange värddatorinformationen och autentiseringsuppgifterna. Använd följande exempel för att ta reda på anslutnings informationen. Anteckna värdena för **FullyQualifiedDomainName** och **AdministratorLogin**.
+För att ansluta till servern måste du ange värddatorinformationen och autentiseringsuppgifterna. Använd följande exempel för att ta reda på anslutnings informationen. Anteckna värdena för **FullyQualifiedDomainName** och **AdministratorLogin** .
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -199,7 +199,7 @@ Fler kommandon finns i [referenshandboken för MySQL 5.7 – kapitel 4.5.1](http
 
 1. Starta programmet MySQL Workbench på klientdatorn. Information om hur du hämtar och installerar MySQL Workbench finns i [Hämta MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
 
-1. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
+1. I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar** :
 
    :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="konfigurera ny anslutning":::
 

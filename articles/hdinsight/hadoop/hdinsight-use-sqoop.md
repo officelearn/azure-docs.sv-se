@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/06/2019
-ms.openlocfilehash: 165b7d00c3cf307e7996e84a35bb2a202f448cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c09a910ea5f6ac5c66a94c73bda49d1f65630708
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86076886"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545233"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Använda Apache Sqoop med Hadoop i HDInsight
 
@@ -44,7 +44,7 @@ HDInsight-kluster innehåller vissa exempel data. Du använder följande två ex
 
 * En Hive-tabell med namnet `hivesampletable` som refererar till den data fil som finns på `/hive/warehouse/hivesampletable` . Tabellen innehåller vissa mobila enhets data.
   
-  | Field | Datatyp |
+  | Fält | Datatyp |
   | --- | --- |
   | clientid |sträng |
   | querytime |sträng |
@@ -78,11 +78,11 @@ Klustret, SQL-databasen och andra objekt skapas via Azure Portal med hjälp av e
 
 2. Ange följande egenskaper:
 
-    |Field |Värde |
+    |Fält |Värde |
     |---|---|
     |Prenumeration |Välj din Azure-prenumeration i list rutan.|
     |Resursgrupp |Välj din resurs grupp i den nedrullningsbara listan eller skapa en ny|
-    |Location |Välj en region i den nedrullningsbara listan.|
+    |Plats |Välj en region i den nedrullningsbara listan.|
     |Klusternamn |Ange ett namn för Hadoop-klustret. Använd bara gemena bokstäver.|
     |Användarnamn för klusterinloggning |Behåll värdet i förväg `admin` .|
     |Lösenord för klusterinloggning |Ange ett lösen ord.|
@@ -93,13 +93,13 @@ Klustret, SQL-databasen och andra objekt skapas via Azure Portal med hjälp av e
     |_artifacts plats | Använd standardvärdet om du inte vill använda din egen BACPAC-fil på en annan plats.|
     |SAS-token för _artifacts plats |Lämna tomt.|
     |BACPAC fil namn |Använd standardvärdet om du inte vill använda din egen BACPAC-fil.|
-    |Location |Använd standardvärdet.|
+    |Plats |Använd standardvärdet.|
 
     Namnet på den [logiska SQL-servern](../../azure-sql/database/logical-servers.md) är  `<ClusterName>dbserver` . Databas namnet kommer att vara `<ClusterName>db` . Standard namnet för lagrings kontot är `e6qhezrh2pdqu` .
 
-3. Välj **Jag accepterar de villkor som anges ovan**.
+3. Välj **Jag accepterar de villkor som anges ovan** .
 
-4. Välj **Köp**. Du ser en ny panel med rubriken skicka distribution för Malldistribution. Det tar cirka 20 minuter att skapa klustret och SQL Database.
+4. Välj **Köp** . Du ser en ny panel med rubriken skicka distribution för Malldistribution. Det tar cirka 20 minuter att skapa klustret och SQL Database.
 
 ## <a name="run-sqoop-jobs"></a>Kör Sqoop-jobb
 
@@ -120,6 +120,6 @@ HDInsight kan köra Sqoop-jobb genom att använda en mängd olika metoder. Anvä
 
 Nu har du lärt dig hur du använder Sqoop. Mer information finns i:
 
-* [Använda Apache Hive med HDInsight](../hdinsight-use-hive.md)
+* [Använda Apache Hive med HDInsight](./hdinsight-use-hive.md)
 * [Ladda upp data till HDInsight](../hdinsight-upload-data.md): hitta andra metoder för att ladda upp data till HDInsight/Azure Blob Storage.
 * [Använda Apache Sqoop för att importera och exportera data mellan Apache Hadoop på HDInsight och SQL Database](./apache-hadoop-use-sqoop-mac-linux.md)

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 956a676709322860da7f08d032d370ed66f55b3f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92139336"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538501"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>IoT Hub Operations Monitoring (inaktuell)
 
 Med IoT Hub åtgärds övervakning kan du övervaka statusen för åtgärder i IoT Hub i real tid. IoT Hub spårar händelser i flera kategorier av åtgärder. Du kan välja att skicka händelser från en eller flera kategorier till en slut punkt i IoT Hub för bearbetning. Du kan övervaka data för fel eller ställa in mer komplex bearbetning baserat på data mönster.
 
 >[!NOTE]
->IoT Hub **drifts övervakning är föråldrad och har tagits bort från IoT Hub den 10 mars 2019**. Information om hur du övervakar drift och hälsa för IoT Hub finns i [övervaka hälsan för Azure IoT Hub och diagnostisera problem snabbt](iot-hub-monitor-resource-health.md). Mer information om tids linjen för tids linjen finns i [övervaka dina Azure IoT-lösningar med Azure Monitor och Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>IoT Hub **drifts övervakning är föråldrad och har tagits bort från IoT Hub den 10 mars 2019** . Information om hur du övervakar åtgärder och hälsa för IoT Hub finns i [övervaka IoT Hub](monitor-iot-hub.md). Mer information om tids linjen för tids linjen finns i [övervaka dina Azure IoT-lösningar med Azure Monitor och Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 IoT Hub övervakar sex kategorier av händelser:
 
@@ -39,11 +39,11 @@ IoT Hub övervakar sex kategorier av händelser:
 
 1. Skapa en IoT-hubb. Du hittar anvisningar om hur du skapar en IoT Hub i guiden [Kom igång](quickstart-send-telemetry-dotnet.md) .
 
-2. Öppna bladet med din IoT Hub. Därifrån klickar du på **Åtgärds övervakning**.
+2. Öppna bladet med din IoT Hub. Därifrån klickar du på **Åtgärds övervakning** .
 
     ![Åtkomst till övervaknings konfiguration i portalen](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Välj de övervaknings kategorier som du vill övervaka och klicka sedan på **Spara**. Händelserna är tillgängliga för läsning från den Event Hub-kompatibla slut punkten som visas i **övervaknings inställningarna**. IoT Hub slut punkten anropas `messages/operationsmonitoringevents` .
+3. Välj de övervaknings kategorier som du vill övervaka och klicka sedan på **Spara** . Händelserna är tillgängliga för läsning från den Event Hub-kompatibla slut punkten som visas i **övervaknings inställningarna** . IoT Hub slut punkten anropas `messages/operationsmonitoringevents` .
 
     ![Konfigurera drift övervakning på din IoT Hub](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
@@ -197,11 +197,11 @@ Om du vill ansluta till övervaknings slut punkten behöver du en anslutnings st
 
 1. I portalen navigerar du till ditt IoT Hub resurs blad.
 
-2. Välj **Åtgärds övervakning**och anteckna det **Event Hub-kompatibla namn** -och **Event Hub-kompatibla slut punkts** värden:
+2. Välj **Åtgärds övervakning** och anteckna det **Event Hub-kompatibla namn** -och **Event Hub-kompatibla slut punkts** värden:
 
     ![Event Hub-kompatibla slut punkts värden](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-3. Välj **principer för delad åtkomst**och välj sedan **tjänst**. Anteckna värdet för **primär nyckel** :
+3. Välj **principer för delad åtkomst** och välj sedan **tjänst** . Anteckna värdet för **primär nyckel** :
 
     ![Princip primär nyckel för tjänst för delad åtkomst](./media/iot-hub-operations-monitoring/service-key.png)
 

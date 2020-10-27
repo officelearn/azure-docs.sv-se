@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0179fd10e75af0ced55b4bb41f9525dc26b3efe5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462249"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540388"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Använda python-användardefinierade funktioner (UDF) med Apache Hive och Apache-gris i HDInsight
 
@@ -27,11 +27,11 @@ HDInsight innehåller även jython, som är en python-implementering som skrivit
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Ett Hadoop-kluster i HDInsight**. Se [Kom igång med HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md).
-* **En SSH-klient**. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Ett Hadoop-kluster i HDInsight** . Se [Kom igång med HDInsight på Linux](apache-hadoop-linux-tutorial-get-started.md).
+* **En SSH-klient** . Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * [URI-schemat](../hdinsight-hadoop-linux-information.md#URI-and-scheme) för klustrets primära lagring. Detta gäller `wasb://` Azure Storage för `abfs://` Azure Data Lake Storage Gen2 eller adl://för Azure Data Lake Storage gen1. Om säker överföring har Aktiver ATS för Azure Storage skulle URI: n bli wasbs://.  Se även [säker överföring](../../storage/common/storage-require-secure-transfer.md).
 * **Möjlig ändring av lagrings konfigurationen.**  Se [lagrings konfiguration](#storage-configuration) om du använder typ av lagrings konto `BlobStorage` .
-* Valfritt.  Om du planerar att använda PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) installerad.
+* Valfritt.  Om du planerar att använda PowerShell behöver du AZ- [modulen](/powershell/azure/new-azureps-module-az) installerad.
 
 > [!NOTE]  
 > Lagrings kontot som används i den här artikeln var Azure Storage med [säker överföring](../../storage/common/storage-require-secure-transfer.md) aktiverat och `wasbs` används därför i hela artikeln.
@@ -46,7 +46,7 @@ Ingen åtgärd krävs om det lagrings konto som används är av typen `Storage (
 > * Du skapar python-skripten i din lokala utvecklings miljö.
 > * Du överför skripten till HDInsight med antingen `scp` kommandot eller det angivna PowerShell-skriptet.
 >
-> Om du vill använda [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) för att arbeta med HDInsight måste du:
+> Om du vill använda [Azure Cloud Shell (bash)](../../cloud-shell/overview.md) för att arbeta med HDInsight måste du:
 >
 > * Skapa skripten i Cloud Shell-miljön.
 > * Används `scp` för att ladda upp filerna från Cloud Shell till HDInsight.
@@ -100,7 +100,7 @@ Det här skriptet utför följande åtgärder:
 1. Läser en rad med data från STDIN.
 2. Det avslutande rad matnings tecknet tas bort med hjälp av `string.strip(line, "\n ")` .
 3. Vid data bearbetning innehåller en enskild rad alla värden med ett tabbtecken mellan varje värde. `string.split(line, "\t")`Du kan använda den för att dela upp inmatade värden på varje flik och bara returnera fälten.
-4. När bearbetningen är klar måste utdata skrivas till STDOUT som en enskild linje, med en flik mellan varje fält. Exempelvis `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4. När bearbetningen är klar måste utdata skrivas till STDOUT som en enskild linje, med en flik mellan varje fält. Till exempel `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. `while`Loopen upprepas tills ingen `line` läses.
 
 Skriptets utdata är en sammanfogning av indatavärdena för `devicemake` och `devicemodel` , och en hash av det sammanfogade värdet.
@@ -300,8 +300,8 @@ Ett Python-skript kan användas som ett UDF-skript från gris- `GENERATE` instru
 
 Om du vill ange python-tolken använder du `register` när du refererar till python-skriptet. I följande exempel registreras skript med gris som `myfuncs` :
 
-* **Så här använder du jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Använda C python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Så här använder du jython** : `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Använda C python** : `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > När du använder jython kan sökvägen till pig_jython-filen vara antingen en lokal sökväg eller en WASBS://-sökväg. Men när du använder C python måste du referera till en fil i det lokala fil systemet på den nod som du använder för att skicka gris-jobbet.
@@ -343,7 +343,7 @@ def create_structure(input):
 
 I det latinska exemplet i gris `LINE` definieras indatamängden som en chararray eftersom det inte finns något konsekvent schema för indatamängden. Python-skriptet omvandlar data till ett konsekvent schema för utdata.
 
-1. `@outputSchema`Instruktionen definierar formatet på de data som returneras till gris. I det här fallet är det en **data uppsättning**, som är en data typ av gris. Säcken innehåller följande fält, som alla är chararray (strängar):
+1. `@outputSchema`Instruktionen definierar formatet på de data som returneras till gris. I det här fallet är det en **data uppsättning** , som är en data typ av gris. Säcken innehåller följande fält, som alla är chararray (strängar):
 
    * Datum – datum då logg posten skapades
    * tid – tiden då logg posten skapades
@@ -423,7 +423,7 @@ I kommandona nedan ersätter `sshuser` du med det faktiska användar namnet om d
     #from pig_util import outputSchema
     ```
 
-    Den här raden ändrar python-skriptet så att det fungerar med C python i stället för jython. När ändringen har gjorts använder du **CTRL + X** för att avsluta redigeraren. Välj **Y**och sedan **RETUR** för att spara ändringarna.
+    Den här raden ändrar python-skriptet så att det fungerar med C python i stället för jython. När ändringen har gjorts använder du **CTRL + X** för att avsluta redigeraren. Välj **Y** och sedan **RETUR** för att spara ändringarna.
 
 6. Använd `pig` kommandot för att starta gränssnittet igen. När du är i `grunt>` kommando tolken använder du följande för att köra python-skriptet med hjälp av C python-tolken.
 
@@ -594,7 +594,7 @@ Fel informationen (STDERR) och resultatet av jobbet (STDOUT) loggas också i HDI
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 
-Om du behöver läsa in Python-moduler som inte tillhandahålls som standard, se [så här distribuerar du en modul till Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
+Om du behöver läsa in Python-moduler som inte tillhandahålls som standard, se [så här distribuerar du en modul till Azure HDInsight](/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 Andra sätt att använda gris, Hive och lära dig mer om hur du använder MapReduce finns i följande dokument:
 

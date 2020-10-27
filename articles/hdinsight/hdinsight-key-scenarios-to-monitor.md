@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/09/2020
-ms.openlocfilehash: 78ff8adcc2b50f89daa37112b14d219233559dab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1da86e36cf20dc15152aea74be6c43a4cb43d3b4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86075578"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539776"
 ---
 # <a name="monitor-cluster-performance-in-azure-hdinsight"></a>Övervaka kluster prestanda i Azure HDInsight
 
@@ -50,7 +50,7 @@ Hadoop har olika tjänster som körs över sin distribuerade plattform. GARN (ä
 
 GARN delar upp de två ansvars områdena för JobTracker, resurs hantering och schemaläggning av jobb i två daemoner: en global Resource Manager och en ApplicationMaster per program (AM).
 
-Resource Manager är en *ren Scheduler*och endast arbitrates tillgängliga resurser mellan alla konkurrerande program. Resource Manager säkerställer att alla resurser alltid används, optimerar för olika konstanter, till exempel service avtal, kapacitets garantier och så vidare. ApplicationMaster förhandlar resurser från Resource Manager och fungerar med NodeManager (s) för att köra och övervaka behållarna och deras resursförbrukning.
+Resource Manager är en *ren Scheduler* och endast arbitrates tillgängliga resurser mellan alla konkurrerande program. Resource Manager säkerställer att alla resurser alltid används, optimerar för olika konstanter, till exempel service avtal, kapacitets garantier och så vidare. ApplicationMaster förhandlar resurser från Resource Manager och fungerar med NodeManager (s) för att köra och övervaka behållarna och deras resursförbrukning.
 
 När flera klienter delar ett stort kluster finns det konkurrens för klustrets resurser. CapacityScheduler är en anslutnings plan som hjälper till resurs delning genom att köa begär Anden. CapacityScheduler stöder också *hierarkiska köer* för att säkerställa att resurserna delas mellan under köerna i en organisation, innan köer för andra program tillåts använda kostnads fria resurser.
 
@@ -66,15 +66,15 @@ Om du vill ha en mer detaljerad titt på dina köer går du till Ambari-instrume
 
 ![Länkar till Resource Manager-webbgränssnitt](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu-link.png)
 
-I Resource Manager-ANVÄNDARGRÄNSSNITTET väljer du **Scheduler** på menyn till vänster. Du ser en lista över dina köer under *program köer*. Här kan du se kapaciteten som används för var och en av dina köer, hur väl jobben distribueras mellan dem och om några jobb är resurs begränsningar.
+I Resource Manager-ANVÄNDARGRÄNSSNITTET väljer du **Scheduler** på menyn till vänster. Du ser en lista över dina köer under *program köer* . Här kan du se kapaciteten som används för var och en av dina köer, hur väl jobben distribueras mellan dem och om några jobb är resurs begränsningar.
 
 ![Användar gränssnitts menyn Apache HAdoop Resource Manager](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
 ## <a name="storage-throttling"></a>Lagringsbegränsning
 
-Ett klusters prestanda Flask hals kan ske på lagrings nivå. Den här typen av flask hals är oftast på grund av *spärrning* av indata/utdata (i/o)-åtgärder, vilket sker när dina pågående aktiviteter skickar mer i/o än lagrings tjänsten kan hantera. Den här blockeringen skapar en kö med IO-begäranden som väntar på att bearbetas tills aktuell IOs har bearbetats. Blocken är på grund av *lagrings begränsning*, som inte är en fysisk gräns, utan i stället en gräns som har angetts av lagrings tjänsten med ett service avtal (SLA). Den här gränsen säkerställer att ingen enskild klient eller klient organisation kan monopolisera tjänsten. SLA begränsar antalet IOs per sekund (IOPS) för Azure Storage – mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md).
+Ett klusters prestanda Flask hals kan ske på lagrings nivå. Den här typen av flask hals är oftast på grund av *spärrning* av indata/utdata (i/o)-åtgärder, vilket sker när dina pågående aktiviteter skickar mer i/o än lagrings tjänsten kan hantera. Den här blockeringen skapar en kö med IO-begäranden som väntar på att bearbetas tills aktuell IOs har bearbetats. Blocken är på grund av *lagrings begränsning* , som inte är en fysisk gräns, utan i stället en gräns som har angetts av lagrings tjänsten med ett service avtal (SLA). Den här gränsen säkerställer att ingen enskild klient eller klient organisation kan monopolisera tjänsten. SLA begränsar antalet IOs per sekund (IOPS) för Azure Storage – mer information finns i [skalbarhets-och prestanda mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md).
 
-Om du använder Azure Storage, för information om övervakning av lagrings problem, inklusive begränsning, se [övervaka, diagnostisera och felsök Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Om du använder Azure Storage, för information om övervakning av lagrings problem, inklusive begränsning, se [övervaka, diagnostisera och felsök Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
 Om klustrets lagrings plats är Azure Data Lake Storage (ADLS) är din begränsning förmodligen förmodligen på grund av bandbredds gränserna. Du kan identifiera begränsningen i det här fallet genom att iaktta begränsnings fel i aktivitets loggarna. Information om ADLS finns i avsnittet begränsning för lämplig tjänst i de här artiklarna:
 
@@ -126,6 +126,6 @@ Mer information om problem med disk utrymme finns i [slut på disk utrymme](./ha
 
 Besök följande länkar om du vill ha mer information om hur du felsöker och övervakar dina kluster:
 
-* [Analysera HDInsight-loggar](hdinsight-debug-jobs.md)
+* [Analysera HDInsight-loggar](./hdinsight-troubleshoot-guide.md)
 * [Felsöka appar med Apache Hadoop garn loggar](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Aktivera heap-dum par för Apache Hadoop tjänster på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

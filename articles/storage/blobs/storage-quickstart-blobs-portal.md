@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/16/2020
+ms.date: 10/19/2020
 ms.author: tamram
-ms.openlocfilehash: f2e18b060aabcb849fb8e17722c530d199ebdbb8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0bf9d6eb68536588b35df93e13b04841d7868d31
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88067788"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547169"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Azure-portalen
 
@@ -29,13 +29,13 @@ I den här snabbstarten får du lära dig att använda [Azure Portal](https://po
 Följ dessa steg för att skapa en container i Azure Portal:
 
 1. Navigera till ditt nya lagringskonto i Azure Portal.
-2. I den vänstra menyn för lagrings kontot, bläddrar du till avsnittet **BLOB service** och väljer **behållare**.
-3. Välj knappen **+ Container**.
+2. I den vänstra menyn för lagrings kontot, bläddrar du till avsnittet **BLOB service** och väljer **behållare** .
+3. Välj knappen **+ Container** .
 4. Ange ett namn för den nya containern. Containernamnet får bara innehålla gemener, måste börja med en bokstav eller siffra och får bara innehålla bokstäver, siffror och bindestreck (-). Mer information om behållare och blob-namn finns i [namngivning och referens av behållare, blobbar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-5. Ställ in nivån för allmän åtkomst till containern. Standardnivån är **Privat (ingen anonym åtkomst)**.
+5. Ställ in nivån för allmän åtkomst till containern. Standardnivån är **Privat (ingen anonym åtkomst)** .
 6. Klicka på **OK** för att skapa containern.
 
-    ![Skärmbild som visar hur du skapar en container i Azure Portal](media/storage-quickstart-blobs-portal/create-container.png)
+    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Skärmbild som visar hur du skapar en container i Azure Portal":::
 
 ## <a name="upload-a-block-blob"></a>Ladda upp en blockblob
 
@@ -47,7 +47,7 @@ Följ de här stegen för att ladda upp en blockblob till den nya containern i A
 1. Välj containern för att visa en lista över blobar som den innehåller. Den här behållaren är ny, så den kommer ännu inte att innehålla några blobbar.
 1. Välj knappen **överför** för att öppna bladet överför och bläddra i det lokala fil systemet för att hitta en fil som ska laddas upp som en Block-Blob. Du kan också expandera avsnittet **Avancerat** om du vill konfigurera andra inställningar för överförings åtgärden.
 
-    ![Skärmbild som visar uppladdning av en blob från den lokala disken](media/storage-quickstart-blobs-portal/upload-blob.png)
+    :::image type="content" source="media/storage-quickstart-blobs-portal/upload-blob.png" alt-text="Skärmbild som visar hur du skapar en container i Azure Portal":::
 
 1. Välj knappen **överför** för att överföra blobben.
 1. Ladda upp så många blobar du vill på det här sättet. Du kan se att de nya blobarna nu visas i listan i containern.
@@ -57,16 +57,21 @@ Följ de här stegen för att ladda upp en blockblob till den nya containern i A
 Du kan ladda ned en blockblob som ska visas i webbläsaren eller spara den i det lokala filsystemet. Följ de här stegen om du vill ladda ned en blockblob:
 
 1. Gå till listan över blobar som du överförde i föregående avsnitt.
-1. Högerklicka på den blob som du vill ladda ned och välj **Ladda ned**.
+1. Högerklicka på den blob som du vill ladda ned och välj **Ladda ned** .
 
-    ![Skärm bild som visar hur du laddar ned en BLOB](media/storage-quickstart-blobs-portal/download-blob.png)
+    :::image type="content" source="media/storage-quickstart-blobs-portal/download-blob.png" alt-text="Skärmbild som visar hur du skapar en container i Azure Portal":::
 
 ## <a name="delete-a-block-blob"></a>Ta bort en Block-Blob
 
-Du kan ladda ned en blockblob som ska visas i webbläsaren eller spara den i det lokala filsystemet. Följ de här stegen om du vill ladda ned en blockblob:
+Följ dessa steg om du vill ta bort en eller flera blobbar i Azure Portal:
 
-1. Gå till listan över blobar som du överförde i föregående avsnitt.
-1. Välj de blobbar som du vill ta bort och välj **ta bort** i det översta åtgärds fältet.
+1. I Azure Portal navigerar du till behållaren.
+1. Visa listan över blobbar i behållaren.
+1. Använd kryss rutan för att välja en eller flera blobbar från listan.
+1. Klicka på knappen **ta bort** för att ta bort de valda Blobbarna.
+1. I dialog rutan bekräftar du borttagningen och anger om du även vill ta bort BLOB-ögonblicksbilder.
+
+:::image type="content" source="media/storage-quickstart-blobs-portal/delete-blobs.png" alt-text="Skärmbild som visar hur du skapar en container i Azure Portal":::
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -76,12 +81,12 @@ Ta bort containern:
 
 1. Gå till listan med containrar i ditt lagringskonto i Azure Portal.
 1. Välj den container som ska tas bort.
-1. Välj knappen **Mer** (**...**) och välj **Ta bort**.
+1. Välj knappen **Mer** ( **...** ) och välj **Ta bort** .
 1. Bekräfta att du vill ta bort containern.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med hjälp av Azure-portalen. Om du vill veta mer om att arbeta med Blob Storage kan du fortsätta till anvisningarna om Blob Storage.
+I den här snabb starten har du lärt dig hur du skapar en behållare och laddar upp en blob med Azure Portal. Om du vill lära dig mer om att arbeta med Blob Storage från en webbapp fortsätter du till en självstudie som visar hur du laddar upp avbildningar till ett lagrings konto.
 
 > [!div class="nextstepaction"]
-> [Anvisningar för Blob Storage-åtgärder](storage-dotnet-how-to-use-blobs.md)
+> [Självstudie: Ladda upp bilddata i molnet med Azure Storage](storage-upload-process-images.md)

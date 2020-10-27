@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: e0d1f9ad99e1b64560321312a22f61f5a2ef3dea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b34c6fe58873a614ee8502e052c2af5aaed898cd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89016044"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547953"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installera Apache Hadoop program från tredje part i Azure HDInsight
 
@@ -52,9 +52,9 @@ I följande procedur beskriver vi hur du installerar HDInsight-program i ett bef
 **Installera ett HDInsight-program**
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster**.
+2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster** .
 3. Välj ett HDInsight-kluster i listan.  Om du inte har något måste du skapa ett först.  Mer information finns i [Skapa kluster](hadoop/apache-hadoop-linux-tutorial-get-started.md).
-4. Under kategorin **Inställningar** väljer du **program**. Du kan se en lista över installerade program i huvud fönstret. 
+4. Under kategorin **Inställningar** väljer du **program** . Du kan se en lista över installerade program i huvud fönstret. 
    
     ![HDInsight-program – meny på portalen](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Välj **+ Lägg till** på menyn. Du kan se en lista över tillgängliga program.  Om **+ Lägg till** är nedtonad, innebär det att det inte finns några program för den här versionen av HDInsight-klustret.
@@ -66,7 +66,7 @@ Du kan se installations status från Portal meddelanden (Välj klock ikonen öve
 
 ## <a name="install-applications-during-cluster-creation"></a>Installera program när du skapar ett kluster
 
-Du kan välja att installera HDInsight-program när du skapar ett kluster. Under processen installeras HDInsight-program när klustret har skapats och är i körläge. Om du vill installera program när du skapar klustret med hjälp av Azure Portal väljer du **+ Lägg till program**på fliken **konfiguration + prissättning** .
+Du kan välja att installera HDInsight-program när du skapar ett kluster. Under processen installeras HDInsight-program när klustret har skapats och är i körläge. Om du vill installera program när du skapar klustret med hjälp av Azure Portal väljer du **+ Lägg till program** på fliken **konfiguration + prissättning** .
 
 ![Azure Portal kluster konfigurations program](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
 
@@ -76,9 +76,9 @@ På portalen kan du visa en lista över de installerade HDInsight-programmen fö
 **Visa en lista med HDInsight-program och visnings egenskaper**
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster**.
+2. I den vänstra menyn navigerar du till **alla tjänster**  >  **Analytics**  >  **HDInsight-kluster** .
 3. Välj ett HDInsight-kluster i listan.
-4. Under kategorin **Inställningar** väljer du **program**. Du kan se en lista över installerade program i huvud fönstret. 
+4. Under kategorin **Inställningar** väljer du **program** . Du kan se en lista över installerade program i huvud fönstret. 
    
     ![HDInsight-program – installerade appar](./media/hdinsight-apps-install-applications/hdinsight-apps-installed-apps-with-apps.png)
 5. Välj ett av de installerade programmen för att visa egenskapen. Egenskaps listorna:
@@ -104,8 +104,7 @@ Läs [Felsöka installationen](hdinsight-apps-install-custom-applications.md#tro
 ## <a name="next-steps"></a>Nästa steg
 * [Installera anpassade HDInsight-program](hdinsight-apps-install-custom-applications.md): Lär dig hur du distribuerar ett opublicerat HDInsight-program till HDInsight.
 * [Publicera HDInsight-program](hdinsight-apps-publish-applications.md): information om hur du publicerar anpassade HDInsight-program på Azure Marketplace.
-* [MSDN: Installera ett HDInsight-program](https://msdn.microsoft.com/library/mt706515.aspx): information om hur du definierar HDInsight-program.
+* [MSDN: Installera ett HDInsight-program](/rest/api/hdinsight/hdinsight-application): information om hur du definierar HDInsight-program.
 * [Anpassa Linux-baserade HDInsight-kluster med skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md): information om hur du använder skriptåtgärd till att installera fler program.
 * [Skapa Linux-baserade Apache Hadoop kluster i HDInsight med Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md): Lär dig hur du anropar Resource Manager-mallar för att skapa HDInsight-kluster.
 * [Använda tomma edge-noder i HDInsight](hdinsight-apps-use-edge-node.md): Information om hur du använder en tom edge-nod för att få åtkomst till HDInsight-kluster, testa HDInsight-program och vara värd för HDInsight-program.
-

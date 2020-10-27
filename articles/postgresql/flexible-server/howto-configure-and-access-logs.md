@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 0b7b09696cbbe12a57d066e452b4c8ea7a7b8f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 319b7a40a87d29454b22a26088df313ef524dc56
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90941452"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545828"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Konfigurera och få åtkomst till loggar i Azure Database for PostgreSQL-flexibel Server
 
@@ -22,20 +22,20 @@ PostgreSQL-loggar finns på varje nod i en flexibel Server. Du kan leverera logg
 
 ## <a name="configure-diagnostic-settings"></a>Konfigurera diagnostikinställningar
 
-Du kan aktivera diagnostikinställningar för postgres-servern med hjälp av Azure Portal, CLI, REST API och PowerShell. Den logg kategori som ska väljas är **PostgreSQLLogs**.
+Du kan aktivera diagnostikinställningar för postgres-servern med hjälp av Azure Portal, CLI, REST API och PowerShell. Den logg kategori som ska väljas är **PostgreSQLLogs** .
 
 Så här aktiverar du resurs loggar med hjälp av Azure Portal:
 
 1. I portalen går du till *diagnostikinställningar* i navigerings menyn på postgres-servern.
    
-2. Välj *Lägg till diagnostisk inställning*.
+2. Välj *Lägg till diagnostisk inställning* .
    :::image type="content" source="media/howto-logging/diagnostic-settings.png" alt-text="Knappen Lägg till diagnostikinställningar":::
 
 3. Ge den här inställningen ett namn. 
 
 4. Välj önskad slut punkt (lagrings konto, händelsehubben, Log Analytics). 
 
-5. Välj logg typen **PostgreSQLLogs**.
+5. Välj logg typen **PostgreSQLLogs** .
    :::image type="content" source="media/howto-logging/diagnostic-create-setting.png" alt-text="Knappen Lägg till diagnostikinställningar":::
 
 7. Spara inställningen.
@@ -44,7 +44,7 @@ Om du vill aktivera resurs loggar med PowerShell, CLI eller REST API går du til
 
 ### <a name="access-resource-logs"></a>Åtkomst till resurs loggar
 
-Hur du kommer åt loggarna beror på vilken slut punkt du väljer. Information om Azure Storage finns i artikeln [Logga lagrings konto](../../azure-monitor/platform/resource-logs-collect-storage.md) . Information om Event Hubs finns i artikeln [Stream Azure-loggar](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+Hur du kommer åt loggarna beror på vilken slut punkt du väljer. Information om Azure Storage finns i artikeln [Logga lagrings konto](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) . Information om Event Hubs finns i artikeln [Stream Azure-loggar](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs) .
 
 För Azure Monitor loggar skickas loggar till den valda arbets ytan. Postgres-loggarna använder samlings läget **AzureDiagnostics** , så att de kan frågas från AzureDiagnostics-tabellen. Fälten i tabellen beskrivs nedan. Läs mer om frågor och aviseringar i Översikt över [Azure Monitor loggar frågor](../../azure-monitor/log-query/log-query-overview.md) .
 
@@ -71,5 +71,5 @@ Frågan ovan visar resultaten under de senaste 6 timmarna för alla postgres Ser
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kom igång med Log Analytics-frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
-- Lär dig mer om [Azure Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-about)
+- [Kom igång med Log Analytics-frågor](../../azure-monitor/log-query/get-started-portal.md)
+- Lär dig mer om [Azure Event Hub](../../event-hubs/event-hubs-about.md)

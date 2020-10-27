@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 478b53b78fb72a01ad028c7fb6b7683b34cbca14
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 88e433dbfa87d8ea483789b1fd838c62a6a481c0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370805"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536767"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -22,13 +22,13 @@ ms.locfileid: "92370805"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Det här avsnittet visar hur du utför vanliga uppgifter som att skapa, uppdatera och skala Azure-cachen för Redis-instanser, hur du återskapar åtkomst nycklar och hur du visar information om dina cacheminnen. En fullständig lista över Azure-cache för PowerShell-cmdlets för Redis finns i [Azure cache för Redis-cmdletar](https://docs.microsoft.com/powershell/module/az.rediscache).
+Det här avsnittet visar hur du utför vanliga uppgifter som att skapa, uppdatera och skala Azure-cachen för Redis-instanser, hur du återskapar åtkomst nycklar och hur du visar information om dina cacheminnen. En fullständig lista över Azure-cache för PowerShell-cmdlets för Redis finns i [Azure cache för Redis-cmdletar](/powershell/module/az.rediscache).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 Mer information om den klassiska distributions modellen finns i [Azure Resource Manager vs. klassisk distribution: förstå distributions modeller och status för dina resurser](../azure-resource-manager/management/deployment-models.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 Om du redan har installerat Azure PowerShell måste du ha Azure PowerShell version 1.0.0 eller senare. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med det här kommandot i Azure PowerShell kommando tolken.
 
 ```azurepowershell
@@ -94,7 +94,7 @@ Använd någon av följande platser om du vill skapa en cache i Azure Government
 * USGov Virginia
 * USGov Iowa
 
-Mer information om Azure Government molnet finns i [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) och [Microsoft Azure Government Developer Guide](../azure-government-developer-guide.md).
+Mer information om Azure Government molnet finns i [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) och [Microsoft Azure Government Developer Guide](../azure-government/documentation-government-developer-guide.md).
 
 ### <a name="to-connect-to-the-azure-china-cloud"></a>Så här ansluter du till Azure Kina-molnet
 Använd något av följande kommandon för att ansluta till molnet för Azure Kina.
@@ -139,7 +139,7 @@ Mer information om Microsoft Azure Tyskland finns i [Microsoft Azure Tyskland](h
 ### <a name="properties-used-for-azure-cache-for-redis-powershell"></a>Egenskaper som används för Azure cache för Redis PowerShell
 Följande tabell innehåller egenskaper och beskrivningar för vanliga parametrar när du skapar och hanterar Azure-cache för Redis-instanser med hjälp av Azure PowerShell.
 
-| Parameter | Beskrivning | Default |
+| Parameter | Beskrivning | Standard |
 | --- | --- | --- |
 | Namn |Namn på cacheminnet | |
 | Plats |Plats för cachen | |
@@ -172,7 +172,7 @@ Följande tabell innehåller egenskaper och beskrivningar för vanliga parametra
 | databaser |Konfigurerar antalet databaser. Den här egenskapen kan bara konfigureras när cachen skapas. |Standard och Premium |
 
 ## <a name="to-create-an-azure-cache-for-redis"></a>Så här skapar du en Azure-cache för Redis
-Nya Azure cache för Redis-instanser skapas med cmdleten [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) .
+Nya Azure cache för Redis-instanser skapas med cmdleten [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) .
 
 > [!IMPORTANT]
 > Första gången du skapar ett Azure-cacheminne för Redis i en prenumeration med hjälp av Azure Portal, registrerar portalen `Microsoft.Cache` namn området för den prenumerationen. Om du försöker skapa den första Azure-cachen för Redis i en prenumeration med hjälp av PowerShell måste du först registrera det namn området med hjälp av följande kommando. annars-cmdletar som `New-AzRedisCache` och `Get-AzRedisCache` fungerar inte.
@@ -280,16 +280,16 @@ Om du vill ange värden för `RedisConfiguration` parametern omger du värdena i
 <a name="databases"></a>
 
 ## <a name="to-configure-the-databases-setting-during-cache-creation"></a>Konfigurera databas inställningen när cachen skapas
-`databases`Inställningen kan bara konfigureras när cachelagring skapas. I följande exempel skapas en Premium P3-cache (26 GB) med 48-databaser med cmdleten [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCache) .
+`databases`Inställningen kan bara konfigureras när cachelagring skapas. I följande exempel skapas en Premium P3-cache (26 GB) med 48-databaser med cmdleten [New-AzRedisCache](/powershell/module/az.rediscache/New-azRedisCache) .
 
 ```azurepowershell
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 ```
 
-Mer information om `databases` egenskapen finns i [Azure cache för konfiguration av Redis-servern](cache-configure.md#default-redis-server-configuration). Mer information om hur du skapar en cache med cmdleten [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) finns i föregående att skapa en Azure-cache för Redis-avsnittet.
+Mer information om `databases` egenskapen finns i [Azure cache för konfiguration av Redis-servern](cache-configure.md#default-redis-server-configuration). Mer information om hur du skapar en cache med cmdleten [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) finns i föregående att skapa en Azure-cache för Redis-avsnittet.
 
 ## <a name="to-update-an-azure-cache-for-redis"></a>Så här uppdaterar du ett Azure-cacheminne för Redis
-Azure cache för Redis-instanser uppdateras med cmdleten [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/Set-azRedisCache) .
+Azure cache för Redis-instanser uppdateras med cmdleten [set-AzRedisCache](/powershell/module/az.rediscache/Set-azRedisCache) .
 
 Om du vill se en lista över tillgängliga parametrar och deras beskrivningar för `Set-AzRedisCache` kör du följande kommando.
 
@@ -418,7 +418,7 @@ När skalnings åtgärden har slutförts `ProvisioningState` ändras ändringarn
 ```
 
 ## <a name="to-get-information-about-an-azure-cache-for-redis"></a>Hämta information om en Azure-cache för Redis
-Du kan hämta information om en cache med hjälp av cmdleten [Get-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/get-azrediscache) .
+Du kan hämta information om en cache med hjälp av cmdleten [Get-AzRedisCache](/powershell/module/az.rediscache/get-azrediscache) .
 
 Om du vill se en lista över tillgängliga parametrar och deras beskrivningar för `Get-AzRedisCache` kör du följande kommando.
 
@@ -502,7 +502,7 @@ Om du vill returnera information om en speciell cache kör `Get-AzRedisCache` du
 ```
 
 ## <a name="to-retrieve-the-access-keys-for-an-azure-cache-for-redis"></a>Hämta åtkomst nycklar för en Azure-cache för Redis
-Om du vill hämta åtkomst nycklarna för ditt cacheminne kan du använda cmdleten [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-azRedisCacheKey) .
+Om du vill hämta åtkomst nycklarna för ditt cacheminne kan du använda cmdleten [Get-AzRedisCacheKey](/powershell/module/az.rediscache/Get-azRedisCacheKey) .
 
 Om du vill se en lista över tillgängliga parametrar och deras beskrivningar för `Get-AzRedisCacheKey` kör du följande kommando.
 
@@ -546,7 +546,7 @@ Om du vill hämta nycklar för cacheminnet anropar du `Get-AzRedisCacheKey` cmdl
 ```
 
 ## <a name="to-regenerate-access-keys-for-your-azure-cache-for-redis"></a>Återskapa åtkomst nycklar för Azure cache för Redis
-Du kan använda cmdleten [New-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/New-azRedisCacheKey) för att återskapa åtkomst nycklarna för cacheminnet.
+Du kan använda cmdleten [New-AzRedisCacheKey](/powershell/module/az.rediscache/New-azRedisCacheKey) för att återskapa åtkomst nycklarna för cacheminnet.
 
 Om du vill se en lista över tillgängliga parametrar och deras beskrivningar för `New-AzRedisCacheKey` kör du följande kommando.
 
@@ -600,7 +600,7 @@ Om du vill återskapa den primära eller sekundära nyckeln för cacheminnet anr
 ```
 
 ## <a name="to-delete-an-azure-cache-for-redis"></a>Ta bort ett Azure-cacheminne för Redis
-Om du vill ta bort en Azure-cache för Redis använder du cmdleten [Remove-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/remove-azrediscache) .
+Om du vill ta bort en Azure-cache för Redis använder du cmdleten [Remove-AzRedisCache](/powershell/module/az.rediscache/remove-azrediscache) .
 
 Om du vill se en lista över tillgängliga parametrar och deras beskrivningar för `Remove-AzRedisCache` kör du följande kommando.
 
@@ -848,10 +848,9 @@ Följande kommando startar om båda noderna i det angivna cacheminnet.
 ## <a name="next-steps"></a>Nästa steg
 Mer information om hur du använder Windows PowerShell med Azure finns i följande resurser:
 
-* [Dokumentation om Azure cache för Redis-cmdlet på MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
-* [Azure Resource Manager-cmdlet](https://go.microsoft.com/fwlink/?LinkID=394765): ar: Lär dig att använda cmdletarna i modulen Azure Resource Manager.
+* [Dokumentation om Azure cache för Redis-cmdlet på MSDN](/powershell/module/az.rediscache)
+* [Azure Resource Manager-cmdlet](/powershell/module/): ar: Lär dig att använda cmdletarna i modulen Azure Resource Manager.
 * [Använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/templates/deploy-portal.md): Lär dig hur du skapar och hanterar resurs grupper i Azure Portal.
 * [Azure-blogg](https://azure.microsoft.com/blog/): Lär dig om nya funktioner i Azure.
 * [Windows PowerShell-blogg](https://devblogs.microsoft.com/powershell/): Lär dig om nya funktioner i Windows PowerShell.
 * ["Hej, Scripting Guy!" Blogg](https://devblogs.microsoft.com/scripting/tag/hey-scripting-guy/): få tips och knep från Windows PowerShell-communityn.
-

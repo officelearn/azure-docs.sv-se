@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/26/2019
-ms.openlocfilehash: b4f390e6d362895d58be0e8695e72d058a021b34
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c4efb8b4835b7dc828caa49eaf6013a2f58bb081
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485553"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534557"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Använda Apache Kafka på HDInsight med Azure IoT Hub
 
@@ -37,7 +37,7 @@ Mer information om Connect API finns i [https://kafka.apache.org/documentation/#
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* En Azure-IoT Hub och-enhet. I den här artikeln bör du överväga att använda [Anslut Raspberry Pi online Simulator till Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started).
+* En Azure-IoT Hub och-enhet. I den här artikeln bör du överväga att använda [Anslut Raspberry Pi online Simulator till Azure IoT Hub](../../iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md).
 
 * [Scala build-verktyg](https://www.scala-sbt.org/).
 
@@ -123,9 +123,9 @@ Från SSH-anslutningen till Edge-noden använder du följande steg för att konf
     |`bootstrap.servers=localhost:9092`|Ersätt `localhost:9092` värdet med Service Broker-värdarna från föregående steg|Konfigurerar den fristående konfigurationen för Edge-noden för att hitta Kafka-utjämnare.|
     |`key.converter=org.apache.kafka.connect.json.JsonConverter`|`key.converter=org.apache.kafka.connect.storage.StringConverter`|Med den här ändringen kan du testa att använda konsol tillverkaren som ingår i Kafka. Du kan behöva olika konverterare för andra producenter och konsumenter. Information om hur du använder andra konverterings värden finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .|
     |`value.converter=org.apache.kafka.connect.json.JsonConverter`|`value.converter=org.apache.kafka.connect.storage.StringConverter`|Samma som ovan.|
-    |Ej tillämpligt|`consumer.max.poll.records=10`|Lägg till i slutet av filen. Den här ändringen är att förhindra timeout i mottagar anslutningen genom att begränsa den till 10 poster i taget. Mer information finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
+    |E.t.|`consumer.max.poll.records=10`|Lägg till i slutet av filen. Den här ändringen är att förhindra timeout i mottagar anslutningen genom att begränsa den till 10 poster i taget. Mer information finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).|
 
-1. Om du vill spara filen använder du __CTRL + X__, __Y__och __anger__sedan.
+1. Om du vill spara filen använder du __CTRL + X__ , __Y__ och __anger__ sedan.
 
 1. Använd följande kommandon för att skapa ämnen som används av kopplingen:
 
@@ -149,11 +149,11 @@ Använd följande steg för att hämta information om IoT Hub som används av an
 
 1. Hämta den Event Hub-kompatibla slut punkten och det Event Hub-kompatibla slut punkts namnet för din IoT Hub. Använd någon av följande metoder för att hämta den här informationen:
 
-   * Använd följande steg __från [Azure Portal](https://portal.azure.com/)__:
+   * Använd följande steg __från [Azure Portal](https://portal.azure.com/)__ :
 
-     1. Navigera till IoT Hub och välj __slut punkter__.
-     2. Välj __händelser__från __inbyggda slut punkter__.
-     3. Från __Egenskaper__kopierar du värdet för följande fält:
+     1. Navigera till IoT Hub och välj __slut punkter__ .
+     2. Välj __händelser__ från __inbyggda slut punkter__ .
+     3. Från __Egenskaper__ kopierar du värdet för följande fält:
 
          * __Event Hub-kompatibelt namn__
          * __Event Hub – kompatibel slut punkt__
@@ -162,7 +162,7 @@ Använd följande steg för att hämta information om IoT Hub som används av an
         > [!IMPORTANT]  
         > Slut punkt svärdet från portalen kan innehålla extra text som inte behövs i det här exemplet. Extrahera texten som matchar det här mönstret `sb://<randomnamespace>.servicebus.windows.net/` .
 
-   * Använd följande kommando __från [Azure CLI](/cli/azure/get-started-with-azure-cli)__:
+   * Använd följande kommando __från [Azure CLI](/cli/azure/get-started-with-azure-cli)__ :
 
        ```azurecli
        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
@@ -176,15 +176,15 @@ Använd följande steg för att hämta information om IoT Hub som används av an
        "Partitions": 2
        ```
 
-2. Hämta __principen för delad åtkomst__ och __nyckel__. I det här exemplet använder du __tjänst__ nyckeln. Använd någon av följande metoder för att hämta den här informationen:
+2. Hämta __principen för delad åtkomst__ och __nyckel__ . I det här exemplet använder du __tjänst__ nyckeln. Använd någon av följande metoder för att hämta den här informationen:
 
-    * Använd följande steg __från [Azure Portal](https://portal.azure.com/)__:
+    * Använd följande steg __från [Azure Portal](https://portal.azure.com/)__ :
 
-        1. Välj __principer för delad åtkomst__och välj sedan __tjänst__.
+        1. Välj __principer för delad åtkomst__ och välj sedan __tjänst__ .
         2. Kopiera värdet för __primär nyckel__ .
         3. Kopiera __anslutnings strängen – primär nyckel__ värde.
 
-    * Använd följande kommando __från [Azure CLI](/cli/azure/get-started-with-azure-cli)__:
+    * Använd följande kommando __från [Azure CLI](/cli/azure/get-started-with-azure-cli)__ :
 
         1. Använd följande kommando för att hämta värdet för primär nyckel:
 
@@ -233,7 +233,7 @@ Om du vill konfigurera källan så att den fungerar med din IoT Hub utför du f�
 
     En exempel konfiguration finns i [Kafka Connect source Connector för Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
-1. Om du vill spara ändringarna använder du __CTRL + X__, __Y__och __anger__sedan.
+1. Om du vill spara ändringarna använder du __CTRL + X__ , __Y__ och __anger__ sedan.
 
 Mer information om hur du konfigurerar anslutnings källan finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md) .
 
@@ -262,7 +262,7 @@ Om du vill konfigurera Sink-anslutningen så att den fungerar med din IoT Hub ut
 
     En exempel konfiguration finns i [Kafka Connect Sink Connector för Azure IoT Hub](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
-1. Om du vill spara ändringarna använder du __CTRL + X__, __Y__och __anger__sedan.
+1. Om du vill spara ändringarna använder du __CTRL + X__ , __Y__ och __anger__ sedan.
 
 Mer information om hur du konfigurerar anslutnings mottagaren finns i [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md) .
 

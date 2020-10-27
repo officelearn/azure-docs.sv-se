@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e05e89cae8688162c6ac6ded5ad56c85394dc8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5949bab7bdf11b11e0ff71f9054098ed83d95ab4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858802"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539844"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Använda Data Lake Storage Gen1 med Azure HDInsight-kluster
 
@@ -40,14 +40,14 @@ HDInsight-kluster kan använda Data Lake Storage Gen1 på två sätt:
 
 För närvarande stöds endast vissa av HDInsight-kluster typerna/-versionerna med Data Lake Storage Gen1 som standard lagring och ytterligare lagrings konton:
 
-| Typ av HDInsight-kluster | Data Lake Storage Gen1 som standard lagring | Data Lake Storage Gen1 som ytterligare lagrings utrymme| Obs! |
+| Typ av HDInsight-kluster | Data Lake Storage Gen1 som standard lagring | Data Lake Storage Gen1 som ytterligare lagrings utrymme| Kommentarer |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight version 4,0 | Inga | Inga |ADLS Gen1 stöds inte med HDInsight 4,0 |
+| HDInsight version 4,0 | Nej | Nej |ADLS Gen1 stöds inte med HDInsight 4,0 |
 | HDInsight version 3.6 | Ja | Ja | Förutom HBase|
 | HDInsight version 3.5 | Ja | Ja | Förutom HBase|
-| HDInsight version 3.4 | Inga | Ja | |
-| HDInsight version 3.3 | Inga | Inga | |
-| HDInsight version 3.2 | Inga | Ja | |
+| HDInsight version 3.4 | Nej | Ja | |
+| HDInsight version 3.3 | Nej | Nej | |
+| HDInsight version 3.2 | Nej | Ja | |
 | Storm | | |Du kan använda Data Lake Storage Gen1 för att skriva data från en Storm-topologi. Du kan också använda Data Lake Storage Gen1 för referens data som sedan kan läsas av en Storm-topologi.|
 
 > [!WARNING]  
@@ -62,7 +62,7 @@ När HDInsight distribueras med Data Lake Storage Gen1 som standard lagring, lag
 * Cluster1 kan använda sökvägen `adl://mydatalakestore/cluster1storage`
 * Cluster2 kan använda sökvägen `adl://mydatalakestore/cluster2storage`
 
-Observera att båda klustren använder samma Data Lake Storage Gen1-konto **mydatalakestore**. Varje kluster har åtkomst till ett eget rot fil system i Data Lake Storage. I den Azure Portal distributions miljön uppmanas du att använda ett mappnamn, till exempel **/Clusters/ \<clustername> ** för rot Sök vägen.
+Observera att båda klustren använder samma Data Lake Storage Gen1-konto **mydatalakestore** . Varje kluster har åtkomst till ett eget rot fil system i Data Lake Storage. I den Azure Portal distributions miljön uppmanas du att använda ett mappnamn, till exempel **/Clusters/ \<clustername>** för rot Sök vägen.
 
 Om du vill använda Data Lake Storage Gen1 som standard lagring måste du ge tjänstens huvud namn åtkomst till följande sökvägar:
 
@@ -126,7 +126,7 @@ Genom att lägga till ett Data Lake Storage konto som ytterligare och lägga til
 
 ## <a name="configure-data-lake-storage-gen1-access"></a>Konfigurera Data Lake Storage Gen1 åtkomst
 
-Du måste ha ett huvud namn för Azure Active Directory (Azure AD) för att kunna konfigurera Azure Data Lake Storage Gen1 åtkomst från HDInsight-klustret. Det är bara Azure AD-administratörer som kan vara tjänstens huvudnamn. Tjänstens huvudnamn måste skapas med ett certifikat. Mer information finns i [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) och [Create service principal with self-signed-certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate) (Skapa tjänstens huvudnamn med självsignerat certifikat).
+Du måste ha ett huvud namn för Azure Active Directory (Azure AD) för att kunna konfigurera Azure Data Lake Storage Gen1 åtkomst från HDInsight-klustret. Det är bara Azure AD-administratörer som kan vara tjänstens huvudnamn. Tjänstens huvudnamn måste skapas med ett certifikat. Mer information finns i [Snabbstart: Konfigurera kluster i HDInsight](./hdinsight-hadoop-provision-linux-clusters.md) och [Create service principal with self-signed-certificate](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate) (Skapa tjänstens huvudnamn med självsignerat certifikat).
 
 > [!NOTE]  
 > Om du ska använda Azure Data Lake Storage Gen1 som ytterligare lagring för HDInsight-kluster rekommenderar vi starkt att du gör detta när du skapar klustret enligt beskrivningen i den här artikeln. Att lägga till Azure Data Lake Storage Gen1 som ytterligare lagrings utrymme i ett befintligt HDInsight-kluster är inte ett scenario som stöds.
@@ -137,19 +137,19 @@ Mer information om åtkomst kontroll modellen finns i [åtkomst kontroll i Azure
 
 Det finns flera sätt som du kan använda för att komma åt filerna i Data Lake Storage från ett HDInsight-kluster.
 
-* **Via det fullständiga namnet**. Med den här metoden kan du ange den fullständiga sökvägen till filen som du vill öppna.
+* **Via det fullständiga namnet** . Med den här metoden kan du ange den fullständiga sökvägen till filen som du vill öppna.
 
     ```
     adl://<data_lake_account>.azuredatalakestore.net/<cluster_root_path>/<file_path>
     ```
 
-* **Via det förkortade sökvägsformatet**. Med den här metoden ersätter du sökvägen upp till kluster roten med:
+* **Via det förkortade sökvägsformatet** . Med den här metoden ersätter du sökvägen upp till kluster roten med:
 
     ```
     adl:///<file path>
     ```
 
-* **Med den relativa sökvägen**. Med den här metoden anger du bara den relativa sökvägen till den fil som du vill öppna.
+* **Med den relativa sökvägen** . Med den här metoden anger du bara den relativa sökvägen till den fil som du vill öppna.
 
     ```
     /<file.path>/
@@ -214,13 +214,13 @@ LOCATION '/example/data/';
 
 ## <a name="identify-storage-path-from-ambari"></a>Identifiera lagrings Sök väg från Ambari
 
-Om du vill identifiera den fullständiga sökvägen till det konfigurerade standard arkivet navigerar du till **HDFS**-  >  **konfiguration** och anger `fs.defaultFS` i rutan filtrera Indatatyp.
+Om du vill identifiera den fullständiga sökvägen till det konfigurerade standard arkivet navigerar du till **HDFS** -  >  **konfiguration** och anger `fs.defaultFS` i rutan filtrera Indatatyp.
 
 ## <a name="create-hdinsight-clusters-with-access-to-data-lake-storage-gen1"></a>Skapa HDInsight-kluster med åtkomst till Data Lake Storage Gen1
 
 Använd följande länkar om du vill ha detaljerade instruktioner om hur du skapar HDInsight-kluster med åtkomst till Data Lake Storage Gen1.
 
-* [Använda portalen](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Använda portalen](./hdinsight-hadoop-provision-linux-clusters.md)
 * [Använda PowerShell (med Data Lake Storage Gen1 som standard lagring)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [Använda PowerShell (med Data Lake Storage Gen1 som ytterligare lagrings utrymme)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Använda Azure-mallar](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -305,7 +305,7 @@ I den här artikeln har du lärt dig hur du använder HDFS-kompatibla Azure Data
 
 Mer information finns i:
 
-* [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
+* [Snabbstart: Konfigurera kluster i HDInsight](./hdinsight-hadoop-provision-linux-clusters.md)
 * [Skapa ett HDInsight-kluster om du vill använda Data Lake Storage Gen1 med hjälp av Azure PowerShell](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Överföra data till HDInsight](hdinsight-upload-data.md)
 * [Använd signaturer för delad åtkomst för Azure Blob Storage för att begränsa åtkomsten till data med HDInsight](hdinsight-storage-sharedaccesssignature-permissions.md)

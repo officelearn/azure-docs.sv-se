@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: raynew
-ms.openlocfilehash: aa9d776df50306ab1705426c923413b5a5d545a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d441284b265ab11dd5ece42ec3737e455d662435
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68717357"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545811"
 ---
 # <a name="monitor-site-recovery"></a>Övervaka Site Recovery
 
@@ -30,50 +30,50 @@ Du kanske vill se [vanliga övervaknings frågor](monitoring-common-questions.md
 
 ## <a name="monitor-in-the-dashboard"></a>Övervaka på instrument panelen
 
-1. Klicka på **Översikt**i valvet. På instrument panelen för Recovery Services samlas all övervaknings information för valvet in på en enda plats. Det finns sidor för både Site Recovery och Azure Backup-tjänsten och du kan växla mellan dem.
+1. Klicka på **Översikt** i valvet. På instrument panelen för Recovery Services samlas all övervaknings information för valvet in på en enda plats. Det finns sidor för både Site Recovery och Azure Backup-tjänsten och du kan växla mellan dem.
 
     ![Site Recovery instrument panel](./media/site-recovery-monitor-and-troubleshoot/dashboard.png)
 
 2. Gå nedåt i instrument panelen i olika områden. 
 
-    ![Site Recovery instrument panel](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
+    ![Skärm bild som visar områdena på instrument panelen där du kan öka detalj nivån.](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
-3. I **replikerade objekt**klickar du på **Visa alla** för att visa alla servrar i valvet.
+3. I **replikerade objekt** klickar du på **Visa alla** för att visa alla servrar i valvet.
 4. Klicka på status detaljer i varje avsnitt för att öka detalj nivån.
-5. I **vyn infrastruktur**sorterar du övervaknings information efter den typ av datorer som du replikerar.
+5. I **vyn infrastruktur** sorterar du övervaknings information efter den typ av datorer som du replikerar.
 
 ## <a name="monitor-replicated-items"></a>Övervaka replikerade objekt
 
-I **replikerade objekt**övervakar du hälsan för alla datorer i valvet där replikering är aktiverat.
+I **replikerade objekt** övervakar du hälsan för alla datorer i valvet där replikering är aktiverat.
 
-**Tillstånd** | **Information**
+**Låst** | **Detaljer**
 --- | ---
 Felfri | Replikering pågår normalt. Inga fel eller varnings symtom har identifierats.
 Varning | Ett eller flera varnings symtom som kan påverka replikeringen identifieras.
 Kritiskt | Ett eller flera problem med kritisk replikering har upptäckts.<br/><br/> De här fel symptomen är vanligt vis indikatorer som har fastnat eller som inte går upp lika snabbt som data ändrings takten.
-Inte tillämpligt | Servrar som inte är förväntade att replikeras. Detta kan inkludera datorer som har redundansväxlats.
+Ej tillämpligt | Servrar som inte är förväntade att replikeras. Detta kan inkludera datorer som har redundansväxlats.
 
 ## <a name="monitor-test-failovers"></a>Övervaka redundanstest
 
-I redundanstestning **lyckades**övervaka redundansväxlingen för datorer i valvet.
+I redundanstestning **lyckades** övervaka redundansväxlingen för datorer i valvet.
 
 - Vi rekommenderar att du kör en redundanstest på replikerade datorer minst en gång var sjätte månad. Det är ett sätt att kontrol lera att redundansväxlingen fungerar som förväntat, utan att störa produktions miljön. 
 - Ett redundanstest betraktas som lyckat efter redundansväxlingen och rensningen efter redundans har slutförts.
 
-**Tillstånd** | **Information**
+**Låst** | **Detaljer**
 --- | ---
 Test rekommenderas | Datorer som inte har haft en redundanstest sedan skyddet aktiverades.
 Har genomförts | Datorer med eller flera lyckade redundanstest.
-Inte tillämpligt | Datorer som för närvarande inte är berättigade till redundanstest. Till exempel om datorer som inte är redundansväxla, har inledande replikering/redundanstest/redundansväxling pågår.
+Ej tillämpligt | Datorer som för närvarande inte är berättigade till redundanstest. Till exempel om datorer som inte är redundansväxla, har inledande replikering/redundanstest/redundansväxling pågår.
 
 ## <a name="monitor-configuration-issues"></a>Övervaka konfigurations problem
 
-I **konfigurations problem**övervakar du eventuella problem som kan påverka din möjlighet att redundansväxla.
+I **konfigurations problem** övervakar du eventuella problem som kan påverka din möjlighet att redundansväxla.
 
 - Konfigurations problem (förutom för program uppdaterings tillgänglighet) identifieras av en regelbunden validator-åtgärd som körs var 12: e timme som standard. Du kan tvinga validerings åtgärden att köras omedelbart genom att klicka på uppdaterings ikonen bredvid avsnitts rubriken **konfigurations problem** .
 - Klicka på länkarna om du vill ha mer information. För problem som påverkar specifika datorer klickar du på **behöver uppmärksamhet** i kolumnen **mål konfiguration** . Information innehåller reparations rekommendationer.
 
-**Tillstånd** | **Information**
+**Låst** | **Detaljer**
 --- | ---
 Konfigurationer som saknas | En nödvändig inställning saknas, till exempel ett återställnings nätverk eller en resurs grupp.
 Resurser som saknas | Det går inte att hitta en angiven resurs eller så är den inte tillgänglig i prenumerationen. Till exempel har resursen tagits bort eller migrerats. Övervakade resurser inkluderade mål resurs gruppen, målets virtuella nätverk/undernät, logg-/mål lagrings konto, mål tillgänglighets uppsättning, mål-IP-adress.
@@ -83,7 +83,7 @@ Programuppdateringar | Tillgängligheten för nya program uppdateringar och info
 
 ## <a name="monitor-errors"></a>Övervaka fel
 
-I **fel Sammanfattning**kan du övervaka aktuella aktiva fel som kan påverka replikeringen av servrar i valvet och övervaka antalet påverkade datorer.
+I **fel Sammanfattning** kan du övervaka aktuella aktiva fel som kan påverka replikeringen av servrar i valvet och övervaka antalet påverkade datorer.
 
 - Fel som påverkar komponenter för lokal infrastruktur visas i början av avsnittet. Till exempel utebliven pulsslag från Azure Site Recovery-providern på den lokala konfigurations servern eller Hyper-V-värden.
 - Sedan visas fel i replikeringen som påverkar replikerade servrar.
@@ -93,7 +93,7 @@ I **fel Sammanfattning**kan du övervaka aktuella aktiva fel som kan påverka re
 
 ## <a name="monitor-the-infrastructure"></a>Övervaka infrastrukturen.
 
-I **vyn infrastruktur**övervakar du de infrastruktur komponenter som ingår i replikeringen och anslutnings hälsan mellan servrar och Azure-tjänsterna.
+I **vyn infrastruktur** övervakar du de infrastruktur komponenter som ingår i replikeringen och anslutnings hälsan mellan servrar och Azure-tjänsterna.
 
 - En grön linje indikerar att anslutningen är felfri.
 - En röd linje med ikonen för överlappande fel indikerar att det finns ett eller flera fel som påverkar anslutningen.
@@ -107,27 +107,27 @@ I **vyn infrastruktur**övervakar du de infrastruktur komponenter som ingår i r
 - Om du vill använda alla funktioner i vyn infrastruktur ska du köra samlad [uppdatering 22](https://support.microsoft.com/help/4072852) för dessa komponenter.
 - Om du vill använda vyn infrastruktur väljer du lämpligt scenario för replikering i din miljö. Du kan öka detalj nivån i vyn om du vill ha mer information. I följande tabell visas vilka scenarier som visas.
 
-    **Scenario** | **Tillstånd**  | **Vyn är tillgänglig?**
+    **Scenario** | **Låst**  | **Vyn är tillgänglig?**
     --- |--- | ---
-    **Replikering mellan lokala platser** | Alla delstater | Inga 
-    **Azure VM-replikering mellan Azure-regioner**  | Replikering har Aktiver ATS/inledande replikering pågår | Ja
-    **Azure VM-replikering mellan Azure-regioner** | Misslyckad/misslyckad återställning | Inga   
-    **Replikering av VMware till Azure** | Replikering har Aktiver ATS/inledande replikering pågår | Ja     
-    **Replikering av VMware till Azure** | Misslyckad/misslyckad återställning | Inga      
-    **Hyper-V-replikering till Azure** | Misslyckad/misslyckad återställning | Inga
+    **Replikering mellan lokala platser** | Alla delstater | No 
+    **Azure VM-replikering mellan Azure-regioner**  | Replikering har Aktiver ATS/inledande replikering pågår | Yes
+    **Azure VM-replikering mellan Azure-regioner** | Misslyckad/misslyckad återställning | No   
+    **Replikering av VMware till Azure** | Replikering har Aktiver ATS/inledande replikering pågår | Yes     
+    **Replikering av VMware till Azure** | Misslyckad/misslyckad återställning | No      
+    **Hyper-V-replikering till Azure** | Misslyckad/misslyckad återställning | No
 
-- Om du vill se vyn infrastruktur för en enskild replikerande dator klickar du på **replikerade objekt**i menyn valv och väljer en server.  
+- Om du vill se vyn infrastruktur för en enskild replikerande dator klickar du på **replikerade objekt** i menyn valv och väljer en server.  
 
 
 
 
 ## <a name="monitor-recovery-plans"></a>Övervaka återställnings planer
 
-I **återställnings planer**kan du övervaka antalet planer, skapa nya planer och ändra befintliga.  
+I **återställnings planer** kan du övervaka antalet planer, skapa nya planer och ändra befintliga.  
 
 ## <a name="monitor-jobs"></a>Övervaka jobb
 
-I **jobb**övervakar du statusen för Site Recovery åtgärder.
+I **jobb** övervakar du statusen för Site Recovery åtgärder.
 
 - De flesta åtgärder i Azure Site Recovery körs asynkront, med ett spårnings jobb som skapas och används för att spåra förloppet för åtgärden. 
 - Jobbobjektet innehåller all information som du behöver för att spåra status och åtgärdens förlopp. 
@@ -138,14 +138,14 @@ I **jobb**övervakar du statusen för Site Recovery åtgärder.
 2. Klicka på **Visa alla** för att visa alla jobb under de senaste 24 timmarna.
 
     > [!NOTE]
-    > Du kan också komma åt jobb information från menyn valv > **Site Recovery jobb**. 
+    > Du kan också komma åt jobb information från menyn valv > **Site Recovery jobb** . 
 
 2. I listan **Site Recovery jobb** visas en lista över jobb. På den översta menyn kan du få fel information för ett särskilt jobb, filtrera jobb listan baserat på vissa kriterier och Exportera valda jobb Detaljer till Excel.
 3. Du kan öka detalj nivån för ett jobb genom att klicka på det. 
 
 ## <a name="monitor-virtual-machines"></a>Övervakning av virtuella datorer
 
-I **replikerade objekt**hämtar du en lista över replikerade datorer. 
+I **replikerade objekt** hämtar du en lista över replikerade datorer. 
     ![Vy över Site Recovery replikerade objekt](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Du kan visa och filtrera information. På Åtgärd-menyn längst upp kan du utföra åtgärder för en viss dator, inklusive köra ett redundanstest eller visa specifika fel.
@@ -153,13 +153,13 @@ I **replikerade objekt**hämtar du en lista över replikerade datorer.
 4. Klicka på **filter** om du vill visa information som baseras på specifika parametrar, till exempel replikeringsstatus eller en viss replikeringsprincip.
 5. Högerklicka på en dator om du vill initiera åtgärder som redundanstest för den, eller om du vill visa detaljerad fel information som är kopplad till den.
 6. Klicka på en dator om du vill gå vidare till mer information om den. Informationen omfattar:
-   - **Replikeringsinformation**: aktuell status och hälsa för datorn.
+   - **Replikeringsinformation** : aktuell status och hälsa för datorn.
    - **RPO** Återställnings punkt mål: aktuell återställnings punkt för den virtuella datorn och tiden då återställningen senast beräknades.
-   - **Återställnings punkter**: senaste tillgängliga återställnings punkter för datorn.
-   - **Beredskap för redundans**: anger om ett redundanstest har körts för datorn, agent versionen som körs på datorn (för datorer som kör mobilitets tjänsten) och eventuella konfigurations problem.
-   - **Fel**: lista över replikeringsfel som för närvarande observerats på datorn och möjliga orsaker/åtgärder.
-   - **Händelser**: en kronologisk lista över de senaste händelserna som påverkar datorn. Fel information visar de problem som är synliga för närvarande, medan händelser är en historisk post för problem som har påverkat datorn.
-   - **Vyn infrastruktur**: visar infrastrukturens tillstånd för scenariot när datorer replikeras till Azure.
+   - **Återställnings punkter** : senaste tillgängliga återställnings punkter för datorn.
+   - **Beredskap för redundans** : anger om ett redundanstest har körts för datorn, agent versionen som körs på datorn (för datorer som kör mobilitets tjänsten) och eventuella konfigurations problem.
+   - **Fel** : lista över replikeringsfel som för närvarande observerats på datorn och möjliga orsaker/åtgärder.
+   - **Händelser** : en kronologisk lista över de senaste händelserna som påverkar datorn. Fel information visar de problem som är synliga för närvarande, medan händelser är en historisk post för problem som har påverkat datorn.
+   - **Vyn infrastruktur** : visar infrastrukturens tillstånd för scenariot när datorer replikeras till Azure.
 
      ![Information om Site Recovery replikerat objekt/översikt](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
@@ -173,9 +173,9 @@ Du kan prenumerera på att ta emot e-postmeddelanden för följande kritiska hä
 
 Prenumerera på följande sätt:
 
-I avsnittet för valv > **övervakning** klickar du på **Site Recovery händelser**.
-1. Klicka på **E-postmeddelanden**.
-1. I **e-postavisering**aktiverar du meddelanden och anger vem som ska skickas till. Du kan skicka till alla prenumerations administratörer om du vill skicka meddelanden och eventuellt speciella e-postadresser.
+I avsnittet för valv > **övervakning** klickar du på **Site Recovery händelser** .
+1. Klicka på **E-postmeddelanden** .
+1. I **e-postavisering** aktiverar du meddelanden och anger vem som ska skickas till. Du kan skicka till alla prenumerations administratörer om du vill skicka meddelanden och eventuellt speciella e-postadresser.
 
     ![E-postmeddelanden](./media/site-recovery-monitor-and-troubleshoot/email.png)
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8a4b6998d1471a79dd789ed6528e22b07f2015c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830867"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540983"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurera App Service Environment med tvingande dirigering
 
@@ -73,7 +73,7 @@ Utför följande steg för att dirigera all utgående trafik från din ASE, för
 
 2. Aktivera tjänstslutpunkter med Azure SQL och Azure Storage med ASE-undernätet.  När det här steget har slutförts kan du konfigurera ditt virtuella nätverk med tvingad tunneltrafik.
 
-Om du vill skapa ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera all trafik lokalt måste du skapa ASE med en Resource Manager-mall.  Det går inte att skapa en ASE med portalen i ett befintligt undernät.  När du distribuerar ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera utgående trafik lokalt måste du skapa ASE med en Resource Manager-mall, vilket gör att du kan ange ett undernät som redan finns. Mer information om hur du distribuerar ASE med en mall finns i [Skapa en App Service-miljö med hjälp av en mall][template].
+Mer information om hur du distribuerar ASE med en mall finns i [Skapa en App Service-miljö med hjälp av en mall][template].
 
 Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstslutpunkter i dokumentationen [Tjänstslutpunkter för virtuellt nätverk][serviceendpoints]. 
 
@@ -95,7 +95,7 @@ Utför följande steg för att tunnla all utgående trafik från din ASE, förut
 
 3. Hämta de adresser som ska användas för all utgående trafik från din App Service Environment till Internet. Om du dirigerar trafiken lokalt är dessa adresser dina NAT- eller gateway-IP-adresser. Om du vill dirigera den utgående trafiken för App Service Environment genom en NVA är den utgående adressen den offentliga IP-adressen för NVA.
 
-4. _Ange utgående adresser i en befintlig App Service-miljön:_ Gå till resources.azure.com och gå till Subscription/ \<subscription id> /ResourceGroups/ \<ase resource group> /providers/Microsoft.Web/hostingEnvironments/ \<ase name> . Du kan då se den JSON som beskriver App Service Environment. Kontrollera att det står **läsa/skriva** längst upp. Välj **Redigera**. Gå längst ned på sidan. Ändra värdet i **userWhitelistedIpRanges** från **null** till något som liknar följande. Använd de adresser som du vill ange som utgående adressintervall. 
+4. _Ange utgående adresser i en befintlig App Service-miljön:_ Gå till resources.azure.com och gå till Subscription/ \<subscription id> /ResourceGroups/ \<ase resource group> /providers/Microsoft.Web/hostingEnvironments/ \<ase name> . Du kan då se den JSON som beskriver App Service Environment. Kontrollera att det står **läsa/skriva** längst upp. Välj **Redigera** . Gå längst ned på sidan. Ändra värdet i **userWhitelistedIpRanges** från **null** till något som liknar följande. Använd de adresser som du vill ange som utgående adressintervall. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
@@ -103,7 +103,7 @@ Utför följande steg för att tunnla all utgående trafik från din ASE, förut
 
    Välj **PUT** längst upp. Det här alternativet utlöser en skalningsåtgärd i App Service Environment och justerar brandväggen.
 
-_Skapa din ASE med utgående adresser_: Följ instruktionerna i [Skapa en App Service Environment med en mall][template] och hämta lämplig mall.  Redigera avsnittet ”resurser” i filen azuredeploy.json, men inte i blocket ”egenskaper”, och inkludera en rad för **userWhitelistedIpRanges** med dina värden.
+_Skapa din ASE med utgående adresser_ : Följ instruktionerna i [Skapa en App Service Environment med en mall][template] och hämta lämplig mall.  Redigera avsnittet ”resurser” i filen azuredeploy.json, men inte i blocket ”egenskaper”, och inkludera en rad för **userWhitelistedIpRanges** med dina värden.
 
 ```json
 "resources": [

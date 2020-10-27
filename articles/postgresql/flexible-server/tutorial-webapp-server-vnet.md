@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 35f96080d6a931c3491e119fe6866bc51eff4ff4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ab606e357bd911f4d7f266977bd14871f92744a0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490058"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546576"
 ---
 # <a name="tutorial-create-an-azure-database-for-postgresql---flexible-server-with-app-services-web-app-in-virtual-network"></a>Självstudie: skapa en Azure Database for PostgreSQL flexibel server med App Services webbapp i virtuellt nätverk
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL-flexibel Server är i för hands version
 
-Den här självstudien visar hur du skapar en Azure App Service webbapp med Azure Database for PostgreSQL-flexibel Server (för hands version) i ett [virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Den här självstudien visar hur du skapar en Azure App Service webbapp med Azure Database for PostgreSQL-flexibel Server (för hands version) i ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md).
 
 I den här självstudien kommer du att
 >[!div class="checklist"]
@@ -121,4 +121,4 @@ az group delete -n myresourcegroup
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md)

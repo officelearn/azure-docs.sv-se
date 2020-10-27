@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c112896e78c07fafa2d714b0533db1f58dd57ffd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361644"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535611"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Använd en omstart av Azure Infrastructure VM för att uppnå högre tillgänglighet för ett SAP-system
 
@@ -228,7 +228,7 @@ Azure Managed disks placeras automatiskt i fel domänen för den virtuella dator
 
 En exempel arkitektur för ett SAP NetWeaver-system som använder hög tillgänglighets-och lagrings konton i Azure-infrastrukturen kan se ut så här:
 
-![Använd Azure-infrastruktur med hög tillgänglighet för att uppnå SAP-programmet "högre tillgänglighet"][planning-guide-figure-2900]
+![Diagram som visar arkitekturen för ett SAP NetWeaver-system som använder hög tillgänglighets-och lagrings konton i Azure-infrastrukturen.][planning-guide-figure-2900]
 
 En exempel arkitektur för ett SAP NetWeaver-system som använder hög tillgänglighet och hanterade diskar i Azure-infrastrukturen kan se ut så här:
 

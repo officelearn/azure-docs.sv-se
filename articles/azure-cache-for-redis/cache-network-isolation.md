@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: b01e7ca9ff05b6eed51e1c454b8064ab28bda0d5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 0fda0b659dd2500e811fac1f53c99a9987276185
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92223065"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537481"
 ---
 # <a name="azure-cache-for-redis-network-isolation-options"></a>Azure cache för Redis alternativ för nätverks isolering 
 I den här artikeln får du lära dig hur du fastställer den bästa nätverks isolerings lösningen för dina behov. Vi går igenom grunderna i Azures privata länk, Azure Virtual Network-injektering (VNet) och Azure brand Väggs regler med deras fördelar och begränsningar.  
@@ -21,7 +21,7 @@ Azures privata länk ger privat anslutning från ett virtuellt nätverk till Azu
 
 ### <a name="advantages"></a>Fördelar
 * Stöds på Basic-, standard-och Premium Azure-cache för Redis-instanser. 
-* Med hjälp av en [privat Azure-länk](/azure/private-link/private-link-overview)kan du ansluta till en Azure-cache-instans från det virtuella nätverket via en privat slut punkt, som tilldelas en privat IP-adress i ett undernät i det virtuella nätverket. Med det här alternativet är cache-instanser tillgängliga både i VNet och offentligt.  
+* Med hjälp av en [privat Azure-länk](../private-link/private-link-overview.md)kan du ansluta till en Azure-cache-instans från det virtuella nätverket via en privat slut punkt, som tilldelas en privat IP-adress i ett undernät i det virtuella nätverket. Med det här alternativet är cache-instanser tillgängliga både i VNet och offentligt.  
 * När en privat slut punkt har skapats kan åtkomst till det offentliga nätverket begränsas via- `publicNetworkAccess` flaggan. Den här flaggan är inställd på `Enabled` som standard och ger dig möjlighet att tillåta både offentlig och privat länk till cacheminnet. Om detta är inställt på `Disabled` , tillåter det bara åtkomst till privat länk. Du kan ställa in värdet på `Disabled` med en patch-begäran. Mer information finns i [Azure cache för Redis med Azure Private Link (för hands version)](cache-private-link.md). 
 * Alla externa cache-beroenden påverkar inte VNets NSG-regler.
 
@@ -51,7 +51,7 @@ VNet är det grundläggande Bygg blocket för ditt privata nätverk i Azure. VNe
 
 
 ## <a name="azure-firewall-rules"></a>Regler för Azure-brandvägg
-[Azure Firewall](/azure/firewall/overview) är en hanterad, molnbaserad nätverks säkerhets tjänst som skyddar dina Azure VNet-resurser. Det är en fullständigt tillstånds känslig brand vägg som en tjänst med inbyggd hög tillgänglighet och obegränsad moln skalbarhet. Du kan centralt skapa, framtvinga och logga principer för tillämpning och nätverksanslutning över prenumerationer och virtuella nätverk.  
+[Azure Firewall](../firewall/overview.md) är en hanterad, molnbaserad nätverks säkerhets tjänst som skyddar dina Azure VNet-resurser. Det är en fullständigt tillstånds känslig brand vägg som en tjänst med inbyggd hög tillgänglighet och obegränsad moln skalbarhet. Du kan centralt skapa, framtvinga och logga principer för tillämpning och nätverksanslutning över prenumerationer och virtuella nätverk.  
 
 ### <a name="advantages"></a>Fördelar
 * När brand Väggs regler har kon figurer ATS kan endast klient anslutningar från de angivna IP-adressintervall ansluta till cacheminnet. Anslutningar från Azure cache för Redis övervaknings system tillåts alltid, även om brand Väggs regler har kon figurer ATS. NSG-regler som du definierar tillåts också.  
@@ -63,4 +63,4 @@ VNet är det grundläggande Bygg blocket för ditt privata nätverk i Azure. VNe
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du konfigurerar ett [VNet-inmatat cacheminne för en Premium Azure-cache för Redis-instansen](cache-how-to-premium-vnet.md).  
 * Lär dig hur du konfigurerar [brand Väggs regler för alla Azure-cache för Redis-nivåer](cache-configure.md#firewall). 
-* Lär dig hur du [konfigurerar privata slut punkter för alla Azure-cache för Redis-nivåer](cache-private-link.md). 
+* Lär dig hur du [konfigurerar privata slut punkter för alla Azure-cache för Redis-nivåer](cache-private-link.md).

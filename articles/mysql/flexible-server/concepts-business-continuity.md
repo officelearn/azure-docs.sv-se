@@ -1,17 +1,17 @@
 ---
-title: Översikt över affärs kontinuitet med Azure Database for MySQL flexibel Server
+title: Översikt över verksamhets kontinuitet – Azure Database for MySQL flexibel Server
 description: Lär dig mer om begreppen affärs kontinuitet med Azure Database for MySQL flexibel Server
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 0c1afaa7d2d7971b2570914aa7c69fa7c666ae46
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 833031a787f8571a8f8aea8e536410d4abcca298
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92107852"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546423"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Översikt över affärs kontinuitet med Azure Database for MySQL flexibel Server (för hands version)
 
@@ -21,7 +21,6 @@ ms.locfileid: "92107852"
 Azure Database for MySQL flexibla Server ger affärs kontinuitets funktioner som skyddar dina databaser i händelse av ett planerat och oplanerat avbrott. Funktioner som automatiserade säkerhets kopieringar och hög tillgänglighet hanterar olika nivåer av fel skydd med olika återställnings tider och exponeringar för data förlust. När du skapar ditt program för att skydda mot fel bör du överväga återställnings tid målet (RTO) och återställnings punkt mål (återställnings punkt mål) för varje program. RTO är toleransen för stillestånds tiden och driften är data förlust toleransen efter ett avbrott i databas tjänsten.
 
 Tabellen nedan visar de funktioner som flexibla Server erbjuder.
-
 
 | **Funktion** | **Beskrivning** | **Begränsningar** |
 | ---------- | ----------- | ------------ |
@@ -34,17 +33,18 @@ Tabellen nedan visar de funktioner som flexibla Server erbjuder.
 > Ingen drift tid, RTO och återställnings service avtal erbjuds under för hands perioden. Information som anges på den här sidan för din information och planerings syfte.
 
 ## <a name="planned-downtime-mitigation"></a>Minskning av planerad stillestånds tid
+
 Här följer några planerade underhålls scenarier som ådrar sig avbrott:
 
 | **Scenario** | **Process**|
 | :------------ | :----------- |
 | **Beräknings skalning (användare)**| När du utför beräknings skalnings åtgärden etablerades en ny flexibel server med hjälp av den skalade beräknings konfigurationen. I den befintliga databas servern tillåts aktiva kontroll punkter att slutföras, klient anslutningar töms, eventuella obekräftade transaktioner avbryts och sedan stängs den av. Lagringen bifogas sedan till den nya servern och databasen startas, som utför återställningen om det behövs innan klient anslutningarna accepteras. |
 | **Ny program varu distribution (Azure)** | Nya funktioner distribution eller fel korrigeringar sker automatiskt som en del av tjänstens planerade underhåll, och du kan schemalägga när aktiviteterna ska ske. Mer information finns i [dokumentationen](https://aka.ms/servicehealthpm)och kontrol lera även [portalen](https://aka.ms/servicehealthpm) |
-| **Lägre versions uppgraderingar (Azure)** | Azure Database for MySQL automatiskt korrigering av databas servrar till den lägre versionen som bestäms av Azure. Det inträffar som en del av tjänstens planerade underhåll. Detta skulle innebära en kort stillestånds tid i sekunder och databas servern startas automatiskt om med den nya lägre versionen. Mer information finns i [dokumentationen](https://docs.microsoft.com/azure/mysql/concepts-monitoring#planned-maintenance-notification)och kontrol lera även [portalen](https://aka.ms/servicehealthpm).|
+| **Lägre versions uppgraderingar (Azure)** | Azure Database for MySQL automatiskt korrigering av databas servrar till den lägre versionen som bestäms av Azure. Det inträffar som en del av tjänstens planerade underhåll. Detta skulle innebära en kort stillestånds tid i sekunder och databas servern startas automatiskt om med den nya lägre versionen. Mer information finns i [dokumentationen](../concepts-monitoring.md#planned-maintenance-notification)och kontrol lera även [portalen](https://aka.ms/servicehealthpm).|
 
-När den flexibla servern har kon figurer ATS med aktive rad **hög tillgänglighet för zonen**utför den flexibla servern åtgärder på vänte läges servern först och sedan på den primära servern utan redundans. Se [begrepp – hög tillgänglighet](./concepts-high-availability.md) för mer information.
+När den flexibla servern har kon figurer ATS med aktive rad **hög tillgänglighet för zonen** utför den flexibla servern åtgärder på vänte läges servern först och sedan på den primära servern utan redundans. Se [begrepp – hög tillgänglighet](./concepts-high-availability.md) för mer information.
 
-##  <a name="unplanned-downtime-mitigation"></a>Minskning av oplanerade stillestånd
+## <a name="unplanned-downtime-mitigation"></a>Minskning av oplanerade stillestånd
 
 Oplanerade stillestånd kan uppstå på grund av oförutsedda fel, inklusive underliggande maskin varu fel, nätverks problem och program fel. Om databas servern slutar fungera, om den har kon figurer ATS med hög tillgänglighet [HA], aktive ras standby-repliken. Annars tillhandahålls en ny databas server automatiskt. Även om det inte går att undvika ett oplanerat avbrott kan du lösa drift stoppen genom att automatiskt utföra återställnings åtgärder på både databas server och lagrings lager utan mänsklig inblandning.
 
@@ -60,12 +60,10 @@ Här följer några oplanerade haveri-och återställnings processer:
 | **Tillgänglighets zon haveri** | Även om det är en sällsynt händelse, om du vill återställa från ett fel på zon nivå, kan du utföra återställning vid en viss tidpunkt med hjälp av säkerhets kopieringen och välja anpassad återställnings punkt för att komma till den senaste informationen. En ny flexibel server kommer att distribueras i en annan zon. Hur lång tid det tar att återställa beror på den tidigare säkerhets kopian och antalet transaktions loggar som ska återställas. | Flexibel Server utför automatisk redundans på platsen för vänte läge. Mer information finns på [sidan med ha begrepp](./concepts-high-availability.md) . |
 | **Regions haveri** | Replikering mellan regioner och geo-återställnings funktioner stöds inte ännu i för hands versionen. | |
 
-
 > [!IMPORTANT]
->  **Det går inte**att återställa borttagna servrar   . Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. Använd [Azure Resource lock](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)   för att förhindra oavsiktlig borttagning av servern.
-
+> **Det går inte** att återställa borttagna servrar. Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. Använd [Azure Resource lock](../../azure-resource-manager/management/lock-resources.md) för att förhindra oavsiktlig borttagning av servern.
 
 ## <a name="next-steps"></a>Nästa steg
 
--   Lär dig mer om [Zone-redundant hög tillgänglighet](./concepts-high-availability.md)
--   Läs mer om [säkerhets kopiering och återställning](./concepts-backup-restore.md)
+- Lär dig mer om [Zone-redundant hög tillgänglighet](./concepts-high-availability.md)
+- Läs mer om [säkerhets kopiering och återställning](./concepts-backup-restore.md)

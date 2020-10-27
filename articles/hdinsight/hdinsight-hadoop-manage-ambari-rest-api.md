@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 45b9c158aca85d62b02d65282876d5e40129878f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ba1d1e15b1dbb3efb24219b6c09a6827e701d46
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081074"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546083"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
 
@@ -25,11 +25,11 @@ Lär dig hur du använder Apache Ambari-REST API för att hantera och övervaka 
 
 Apache Ambari fören klar hanteringen och övervakningen av Hadoop-kluster genom att tillhandahålla ett lättanvänt webb gränssnitt som stöds av dess [REST-API: er](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Ambari tillhandahålls som standard med Linux-baserade HDInsight-kluster.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* Bash på Ubuntu i Windows 10.  I exemplen i den här artikeln används bash-gränssnittet i Windows 10. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](https://docs.microsoft.com/windows/wsl/install-win10) för installations steg.  Andra [UNIX-gränssnitt](https://www.gnu.org/software/bash/) fungerar också.  Exempel, med vissa små ändringar, kan fungera i en kommando tolk i Windows.  Du kan också använda Windows PowerShell.
+* Bash på Ubuntu i Windows 10.  I exemplen i den här artikeln används bash-gränssnittet i Windows 10. Installations [Guide för Windows-undersystem för Linux finns i Windows 10](/windows/wsl/install-win10) för installations steg.  Andra [UNIX-gränssnitt](https://www.gnu.org/software/bash/) fungerar också.  Exempel, med vissa små ändringar, kan fungera i en kommando tolk i Windows.  Du kan också använda Windows PowerShell.
 
 * JQ, en JSON-processor med kommando rad.  Se [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 
@@ -37,11 +37,11 @@ Apache Ambari fören klar hanteringen och övervakningen av Hadoop-kluster genom
 
 ## <a name="base-uniform-resource-identifier-for-ambari-rest-api"></a>Bas Uniform Resource Identifier för REST-API för Ambari
 
- Bas Uniform Resource Identifier (URI) för Ambari REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga**.  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n () är Skift läges okänsligt `CLUSTERNAME.azurehdinsight.net` , men andra förekomster i URI: n är Skift läges känsliga.
+ Bas Uniform Resource Identifier (URI) för Ambari REST API på HDInsight är `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME` , där `CLUSTERNAME` är namnet på klustret.  Kluster namn i URI: er är Skift läges **känsliga** .  Kluster namnet i det fullständigt kvalificerade domän namnet (FQDN) i URI: n () är Skift läges okänsligt `CLUSTERNAME.azurehdinsight.net` , men andra förekomster i URI: n är Skift läges känsliga.
 
 ## <a name="authentication"></a>Autentisering
 
-För att ansluta till Ambari i HDInsight krävs HTTPS. Använd administratörs konto namnet (standard är **administratör**) och lösen ord som du angav när du skapade klustret.
+För att ansluta till Ambari i HDInsight krävs HTTPS. Använd administratörs konto namnet (standard är **administratör** ) och lösen ord som du angav när du skapade klustret.
 
 För Enterprise Security Package kluster, i stället för `admin` , använder du ett fullständigt kvalificerat användar namn som `username@domain.onmicrosoft.com` .
 
@@ -87,7 +87,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Parsar JSON-data
 
-I följande exempel används [JQ](https://stedolan.github.io/jq/) eller [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) för att parsa JSON Response-dokumentet och bara visa `health_report` informationen från resultaten.
+I följande exempel används [JQ](https://stedolan.github.io/jq/) eller [ConvertFrom-JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json) för att parsa JSON Response-dokumentet och bara visa `health_report` informationen från resultaten.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -253,7 +253,7 @@ Returvärdet liknar något av följande exempel:
     Returvärdet liknar `/clusters/CLUSTERNAME/` . Det här värdet är en sökväg i Data Lake Storage-kontot. Den här sökvägen är roten i det HDFS-kompatibla fil systemet för klustret.  
 
 > [!NOTE]  
-> Cmdleten [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) som tillhandahålls av [Azure PowerShell](/powershell/azure/) även returnera lagrings informationen för klustret.
+> Cmdleten [Get-AzHDInsightCluster](/powershell/module/az.hdinsight/get-azhdinsightcluster) som tillhandahålls av [Azure PowerShell](/powershell/azure/) även returnera lagrings informationen för klustret.
 
 ### <a name="get-all-configurations"></a>Hämta alla konfigurationer
 

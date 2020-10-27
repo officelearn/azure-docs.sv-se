@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/22/2020
-ms.openlocfilehash: 2177e74bd627e80ea1afbcacaf85baf4e030834c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 725b616fec9c2bc4a0540a7941098377e01732e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91928987"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546474"
 ---
 # <a name="reboot-vms-for-hdinsight-clusters"></a>Starta om virtuella datorer för HDInsight-kluster
 
@@ -38,13 +38,13 @@ När en nod startas om kan klustret bli ohälsosamt, och jobben kan bli långsam
 
 Det krävs två steg för att använda åtgärden för att starta om noden: lista noder och starta om noder.
 
-1. Lista noder. Du kan hämta listan över klusternoder på [Get-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsighthost).
+1. Lista noder. Du kan hämta listan över klusternoder på [Get-AzHDInsightHost](/powershell/module/az.hdinsight/get-azhdinsighthost).
 
       ```
       Get-AzHDInsightHost -ClusterName myclustername
       ```
 
-1. Starta om värdar. När du får namnen på de noder som du vill starta om startar du om noderna med hjälp av [restart-AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost).
+1. Starta om värdar. När du får namnen på de noder som du vill starta om startar du om noderna med hjälp av [restart-AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost).
 
       ```
       Restart-AzHDInsightHost -ClusterName myclustername -Name wn0-myclus, wn1-myclus
@@ -54,13 +54,13 @@ Det krävs två steg för att använda åtgärden för att starta om noden: list
 
 Du kan använda funktionen **testa IT** i API-dokumentet för att skicka begär anden till HDInsight. Det krävs två steg för att använda åtgärden för att starta om noden: lista noder och starta om noder.
 
-1. Lista noder. Du kan hämta listan över klusternoder från REST API eller i Ambari. Mer information finns i [HDInsight List hosts REST API operation](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/listhosts).
+1. Lista noder. Du kan hämta listan över klusternoder från REST API eller i Ambari. Mer information finns i [HDInsight List hosts REST API operation](/rest/api/hdinsight/virtualmachines/listhosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/listHosts?api-version=2018-06-01-preview
     ```
 
-1. Starta om värdar. När du har skaffat namnen på de noder som du vill starta om startar du om noderna med hjälp av REST API för att starta om noderna. Nodnamn följer mönstret för *NodeType (ned/HN/ZK/GW)*  +  *x*  +  *första sex tecken i kluster namn*. Mer information finns i [HDInsight restart hosts REST API operation](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines/restarthosts).
+1. Starta om värdar. När du har skaffat namnen på de noder som du vill starta om startar du om noderna med hjälp av REST API för att starta om noderna. Nodnamn följer mönstret för *NodeType (ned/HN/ZK/GW)*  +  *x*  +  *första sex tecken i kluster namn* . Mer information finns i [HDInsight restart hosts REST API operation](/rest/api/hdinsight/virtualmachines/restarthosts).
 
     ```
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/restartHosts?api-version=2018-06-01-preview
@@ -77,6 +77,6 @@ De faktiska namnen på de noder som du vill starta om anges i en JSON-matris i b
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Starta om AzHDInsightHost](https://docs.microsoft.com/powershell/module/az.hdinsight/restart-azhdinsighthost)
-* [Virtuella HDInsight-datorer REST API](https://docs.microsoft.com/rest/api/hdinsight/virtualmachines)
-* [HDInsight-REST API](https://docs.microsoft.com/rest/api/hdinsight/)
+* [Starta om AzHDInsightHost](/powershell/module/az.hdinsight/restart-azhdinsighthost)
+* [Virtuella HDInsight-datorer REST API](/rest/api/hdinsight/virtualmachines)
+* [HDInsight-REST API](/rest/api/hdinsight/)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 05/27/2020
-ms.openlocfilehash: 5495e6c6392ba2e824a0a70717bd19747db9b754
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be33c968499052b2b254754f37e5163012bcadd0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88754964"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547596"
 ---
 # <a name="connect-to-apache-beeline-on-hdinsight-or-install-it-locally"></a>Anslut till Apache Beeline på HDInsight eller installera det lokalt
 
@@ -104,7 +104,7 @@ När du ansluter direkt från klustrets huvud nod, eller från en resurs i samma
 
 ## <a name="install-beeline-client"></a>Installera Beeline-klient
 
-Även om Beeline ingår i head-noderna kanske du vill installera den lokalt.  Installations stegen för en lokal dator baseras på ett Windows- [undersystem för Linux](https://docs.microsoft.com/windows/wsl/install-win10).
+Även om Beeline ingår i head-noderna kanske du vill installera den lokalt.  Installations stegen för en lokal dator baseras på ett Windows- [undersystem för Linux](/windows/wsl/install-win10).
 
 1. Uppdatera paket listor. Ange följande kommando i bash-gränssnittet:
 
@@ -128,7 +128,7 @@ När du ansluter direkt från klustrets huvud nod, eller från en resurs i samma
         export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
         ```
 
-        Tryck sedan på **CTRL + X**, sedan på **Y**och sedan Retur.
+        Tryck sedan på **CTRL + X** , sedan på **Y** och sedan Retur.
 
 1. Hämta Hadoop-och Beeline-Arkiv och ange följande kommandon:
 
@@ -144,7 +144,7 @@ När du ansluter direkt från klustrets huvud nod, eller från en resurs i samma
     tar -xvzf apache-hive-1.2.1-bin.tar.gz
     ```
 
-1. Ändra bashrc-filen ytterligare. Du måste identifiera sökvägen till platsen där arkiven packades upp. Om du använder [Windows-undersystemet för Linux](https://docs.microsoft.com/windows/wsl/install-win10)och du följt stegen exakt, blir sökvägen `/mnt/c/Users/user/` , där `user` är ditt användar namn.
+1. Ändra bashrc-filen ytterligare. Du måste identifiera sökvägen till platsen där arkiven packades upp. Om du använder [Windows-undersystemet för Linux](/windows/wsl/install-win10)och du följt stegen exakt, blir sökvägen `/mnt/c/Users/user/` , där `user` är ditt användar namn.
 
     1. Öppna filen: `nano ~/.bashrc`
 
@@ -156,7 +156,7 @@ När du ansluter direkt från klustrets huvud nod, eller från en resurs i samma
         PATH=$PATH:$HIVE_HOME/bin
         ```
 
-    1. Tryck sedan på **CTRL + X**, sedan på **Y**och sedan Retur.
+    1. Tryck sedan på **CTRL + X** , sedan på **Y** och sedan Retur.
 
 1. Stäng och öppna sedan bash-sessionen igen.
 

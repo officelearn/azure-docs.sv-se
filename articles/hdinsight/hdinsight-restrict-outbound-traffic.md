@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: bc90389e9f600f1411699700989e38c78bee99cc
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dc6412a85beba67551e7683c8127a65730f9218f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103347"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535475"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller anvisningar för att skydda utgående trafik från
 
 HDInsight-kluster distribueras vanligt vis i ett virtuellt nätverk. Klustret har beroenden för tjänster utanför det virtuella nätverket.
 
-Inkommande hanterings trafik kan inte skickas via en brand vägg. Du kan använda NSG service-taggar för inkommande trafik som dokumenteras [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags). 
+Inkommande hanterings trafik kan inte skickas via en brand vägg. Du kan använda NSG service-taggar för inkommande trafik som dokumenteras [här](./hdinsight-service-tags.md). 
 
 De utgående trafik beroendena för HDInsight är nästan helt definierade med FQDN. Som inte har statiska IP-adresser bakom dem. Bristen på statiska adresser innebär att nätverks säkerhets grupper (NSG: er) inte kan låsa utgående trafik från ett kluster. IP-adresserna är ofta tillräckligt många det går inte att ställa in regler som baseras på den aktuella namn matchningen och användningen.
 
@@ -53,7 +53,7 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
 
 1. Välj den nya brand Väggs **test-FW01** från Azure Portal.
 
-1. Gå till **Inställningar**  >  **regler**  >  **program regel samling**  >  **+ Lägg till program regel samling**.
+1. Gå till **Inställningar**  >  **regler**  >  **program regel samling**  >  **+ Lägg till program regel samling** .
 
     ![Rubrik: Lägg till program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -75,21 +75,21 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
 
     **Avsnittet mål-FQDN**
 
-    | Namn | Käll adresser | Protokoll: port | Mål-FQDN | Kommentarer |
+    | Namn | Käll adresser | Protokoll:Port | Mål-FQDN | Kommentarer |
     | --- | --- | --- | --- | --- |
-    | Rule_2 | * | https: 443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
-    | Rule_3 | * | https: 443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
+    | Rule_2 | * | https:443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
+    | Rule_3 | * | https:443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
     | Rule_4 | * | https: 443, http: 80 | storage_account_name. blob. Core. Windows. net | Ersätt `storage_account_name` med det faktiska lagrings konto namnet. Om du bara vill använda HTTPS-anslutningar kontrollerar du att ["säker överföring krävs"](../storage/common/storage-require-secure-transfer.md) är aktiverat på lagrings kontot. Om du använder privat slut punkt för att komma åt lagrings konton behövs inte det här steget och lagrings trafiken vidarebefordras inte till brand väggen.|
 
    ![Rubrik: Ange information om program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
-1. Välj **Lägg till**.
+1. Välj **Lägg till** .
 
 ### <a name="configure-the-firewall-with-network-rules"></a>Konfigurera brand väggen med nätverks regler
 
 Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt.
 
-1. Fortsätt från föregående steg, gå till **regel samling för nätverk**  >  **+ Lägg till nätverks regel samling**.
+1. Fortsätt från föregående steg, gå till **regel samling för nätverk**  >  **+ Lägg till nätverks regel samling** .
 
 1. Ange följande information på skärmen **Lägg till regel samling för nätverk** :
 
@@ -110,23 +110,23 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
     
    ![Rubrik: Ange program regel samling](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
 
-1. Välj **Lägg till**.
+1. Välj **Lägg till** .
 
 ### <a name="create-and-configure-a-route-table"></a>Skapa och konfigurera en routningstabell
 
 Skapa en routningstabell med följande poster:
 
-* Alla IP-adresser från [hälso-och hanterings tjänster](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) med nästa hopp typ av **Internet**. Den bör innehålla 4 IP-adresser för de allmänna regionerna samt två IP-adresser för din speciella region. Den här regeln behövs bara om ResourceProviderConnection är inställt på *inkommande*. Om ResourceProviderConnection är inställt på *utgående* behövs inte dessa IP-adresser i UDR. 
+* Alla IP-adresser från [hälso-och hanterings tjänster](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) med nästa hopp typ av **Internet** . Den bör innehålla 4 IP-adresser för de allmänna regionerna samt två IP-adresser för din speciella region. Den här regeln behövs bara om ResourceProviderConnection är inställt på *inkommande* . Om ResourceProviderConnection är inställt på *utgående* behövs inte dessa IP-adresser i UDR. 
 
 * En virtuell enhets väg för IP-adressen 0.0.0.0/0 med nästa hopp som din Azure Firewall-privata IP-adress.
 
 Om du till exempel vill konfigurera routningstabellen för ett kluster som skapats i regionen USA, östra, använder du följande steg:
 
-1. Välj din Azure Firewall **test-FW01**. Kopiera den **privata IP-adressen** som visas på sidan **Översikt** . I det här exemplet ska vi använda en **exempel adress för 10.0.2.4**.
+1. Välj din Azure Firewall **test-FW01** . Kopiera den **privata IP-adressen** som visas på sidan **Översikt** . I det här exemplet ska vi använda en **exempel adress för 10.0.2.4** .
 
-1. Navigera sedan till **alla tjänster**  >  **nätverks**  >  **flödes tabeller** och **skapa routningstabell**.
+1. Navigera sedan till **alla tjänster**  >  **nätverks**  >  **flödes tabeller** och **skapa routningstabell** .
 
-1. Från din nya väg går du till **Inställningar**  >  **vägar**  >  **+ Lägg till**. Lägg till följande vägar:
+1. Från din nya väg går du till **Inställningar**  >  **vägar**  >  **+ Lägg till** . Lägg till följande vägar:
 
 | Vägnamn | Adressprefix | Nästa hopptyp | Nexthop-adress |
 |---|---|---|---|
@@ -140,13 +140,13 @@ Om du till exempel vill konfigurera routningstabellen för ett kluster som skapa
 
 Slutför konfigureringen av routningstabellen:
 
-1. Tilldela routningstabellen som du skapade i ditt HDInsight-undernät genom att välja **undernät** under **Inställningar**.
+1. Tilldela routningstabellen som du skapade i ditt HDInsight-undernät genom att välja **undernät** under **Inställningar** .
 
-1. Välj **+ associera**.
+1. Välj **+ associera** .
 
 1. På skärmen **associera undernät** väljer du det virtuella nätverk som klustret skapades i. Och **under nätet** som du använde för ditt HDInsight-kluster.
 
-1. Välj **OK**.
+1. Välj **OK** .
 
 ## <a name="edge-node-or-custom-application-traffic"></a>Edge-Node eller anpassad program trafik
 
@@ -160,7 +160,7 @@ Om dina program har andra beroenden måste de läggas till i din Azure-brandväg
 
 ## <a name="logging-and-scale"></a>Loggning och skalning
 
-Azure-brandväggen kan skicka loggar till några olika lagrings system. Anvisningar om hur du konfigurerar loggning för brand väggen finns i [Självstudier: övervaka Azure Firewall-loggar och-mått](../firewall/tutorial-diagnostics.md).
+Azure-brandväggen kan skicka loggar till några olika lagrings system. Anvisningar om hur du konfigurerar loggning för brand väggen finns i [Självstudier: övervaka Azure Firewall-loggar och-mått](../firewall/firewall-diagnostics.md).
 
 När du har slutfört loggnings konfigurationen, om du använder Log Analytics, kan du Visa blockerad trafik med en fråga som:
 

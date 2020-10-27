@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 2cd9f01404a4e33303356dd3f452cd7dbc47a747
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328572"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546678"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Azure privat länk för Azure Data Factory
 
@@ -37,7 +37,7 @@ Du kan också installera en integration runtime med egen värd på en lokal dato
 
 Flera kommunikations kanaler krävs mellan Azure Data Factory och det virtuella kund nätverket, som du ser i följande tabell:
 
-| Domän | Port | Beskrivning |
+| Domain | Port | Beskrivning |
 | ---------- | -------- | --------------- |
 | `adf.azure.com` | 443 | Ett kontroll plan, som krävs för Data Factory redigering och övervakning. |
 | `*.{region}.datafactory.azure.net` | 443 | Krävs av integration runtime med egen värd för att ansluta till tjänsten Data Factory. |
@@ -53,10 +53,10 @@ Kommunikationen med att Azure Data Factory tjänsten går via en privat länk oc
 ![Diagram över privat länk för Azure Data Factory arkitektur.](./media/data-factory-private-link/private-link-architecture.png)
 
 Att aktivera tjänsten för privata Länkar för var och en av de föregående kommunikations kanalerna har följande funktioner:
-- **Stöds**:
+- **Stöds** :
    - Du kan skapa och övervaka data fabriken i det virtuella nätverket, även om du blockerar all utgående kommunikation.
    - Kommando kommunikationen mellan den lokala integrerings körningen och tjänsten Azure Data Factory kan utföras på ett säkert sätt i en privat nätverks miljö. Trafiken mellan den lokala integrerings körningen och Azure Data Factory tjänsten går via en privat länk. 
-- **Stöds inte för närvarande**:
+- **Stöds inte för närvarande** :
    - Interaktiv redigering som använder en lokal integrerings körning, till exempel testa anslutning, bläddra i Mapplista och tabell lista, Hämta schema och förhandsgranska data, går via en privat länk.
    - Den nya versionen av den egna värdbaserade integrerings körningen kan hämtas automatiskt från Microsoft Download Center om du aktiverar AutoUpdate.
 
@@ -67,7 +67,7 @@ Att aktivera tjänsten för privata Länkar för var och en av de föregående k
 > När du skapar en länkad tjänst ser du till att dina autentiseringsuppgifter lagras i ett Azure Key Vault. Annars fungerar inte autentiseringsuppgifterna när du aktiverar privat länk i Azure Data Factory.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Konfigurera en privat länk för Azure Data Factory
-Du kan skapa privata slut punkter med hjälp av [Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal), PowerShell eller Azure CLI.
+Du kan skapa privata slut punkter med hjälp av [Azure Portal](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
 
 Du kan också gå till Azure Data Factory i Azure Portal och skapa en privat slut punkt, som du ser här:
 

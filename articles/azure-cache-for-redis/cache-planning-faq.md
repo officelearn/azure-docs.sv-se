@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 13ba529dd3067ae16167f0d9c14c8f72b982f52c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 398b567e173691068e6dd932e075d6598dcfe601
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010876"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537413"
 ---
 # <a name="azure-cache-for-redis-planning-faqs"></a>Vanliga frågor och svar om Azure cache för Redis-planering
 
@@ -44,7 +44,7 @@ I den här tabellen kan vi Rita följande slut satser:
 | --- | --- | --- | --- | --- | --- |
 | **Standardcache-storlekar** | | |**Megabit per sekund (MB/s)/megabyte per sekund (MB/s)** |**Begär Anden per sekund (RPS) icke-SSL** |**Begär Anden per sekund (RPS) SSL** |
 | CO | 250 MB | Delad | 100/12,5  |  15 000 |   7 500 |
-| C1 |   1 GB | 1      | 500/62,5  |  38 000 |  20 720 |
+| C1 |   1 GB | 1      | 500/62,5  |  38 000 |  20 720 |
 | C2 | 2,5 GB | 2      | 500/62,5  |  41 000 |  37 000 |
 | C3 |   6 GB | 4      | 1000/125  | 100 000 |  90 000 |
 | C4 |  13 GB | 2      | 500/62,5  |  60 000 |  55 000 |
@@ -84,7 +84,7 @@ Ja, Azure cache för Redis finns i Azure Government Cloud, Azure Kina 21Vianet-m
 
 Mer information om att tänka på när du använder Azure cache för Redis med andra moln finns i följande länkar.
 
-- [Azure Government-databaser – Azure cache för Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Azure Government-databaser – Azure cache för Redis](../azure-government/compare-azure-government-global-azure.md)
 - [Azure Kina 21Vianet-moln – Azure cache för Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)
 

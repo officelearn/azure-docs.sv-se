@@ -7,13 +7,13 @@ ms.author: mhopkins
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
-ms.topic: conceptual
-ms.openlocfilehash: 9ab45495283f8751912d93e9799958a8effc887a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.topic: quickstart
+ms.openlocfilehash: 10f16118b37810ed888c0812a30ad276c49803f2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323748"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545794"
 ---
 # <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Snabb start: hantera blobbar med Java V8 SDK
 
@@ -38,15 +38,15 @@ Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet ti
 git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 ```
 
-Det här kommandot klonar lagret till den lokala git-mappen. Öppna projektet genom att starta Eclipse och stänga välkomstskärmen. Välj **Arkiv** och sedan **Öppna projekt, under Filsystem**. Kontrollera att alternativet för att **identifiera och konfigurera projektegenskaper** har markerats. Välj **Katalog** och navigera till den plats där sparade den klonade lagringsplatsen. På den klonade lagringsplatsen väljer du mappen **blobAzureApp**. Kontrollera att projektet **blobAzureApp** visas som ett Eclipse-projekt och välj sedan **Slutför**.
+Det här kommandot klonar lagret till den lokala git-mappen. Öppna projektet genom att starta Eclipse och stänga välkomstskärmen. Välj **Arkiv** och sedan **Öppna projekt, under Filsystem** . Kontrollera att alternativet för att **identifiera och konfigurera projektegenskaper** har markerats. Välj **Katalog** och navigera till den plats där sparade den klonade lagringsplatsen. På den klonade lagringsplatsen väljer du mappen **blobAzureApp** . Kontrollera att projektet **blobAzureApp** visas som ett Eclipse-projekt och välj sedan **Slutför** .
 
-När projektet har importer ATS öppnar du **AzureApp. java** (finns i **blobQuickstart. blobAzureApp** inuti **src/main/Java**) och ersätter `accountname` och `accountkey` inuti `storageConnectionString` strängen. Kör sedan programmet. Specifika anvisningar för att slutföra dessa uppgifter beskrivs i följande avsnitt.
+När projektet har importer ATS öppnar du **AzureApp. java** (finns i **blobQuickstart. blobAzureApp** inuti **src/main/Java** ) och ersätter `accountname` och `accountkey` inuti `storageConnectionString` strängen. Kör sedan programmet. Specifika anvisningar för att slutföra dessa uppgifter beskrivs i följande avsnitt.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 
-Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Öppna filen **AzureApp.Java**. Hitta variabeln `storageConnectionString` och klistra in anslutningssträngens värde som du kopierade i föregående avsnitt. Variabeln `storageConnectionString` bör se ut ungefär som följande kodexempel:
+Du måste ange anslutningssträngen för ditt lagringskonto i programmet. Öppna filen **AzureApp.Java** . Hitta variabeln `storageConnectionString` och klistra in anslutningssträngens värde som du kopierade i föregående avsnitt. Variabeln `storageConnectionString` bör se ut ungefär som följande kodexempel:
 
 ```java
 public static final String storageConnectionString =
@@ -57,7 +57,7 @@ public static final String storageConnectionString =
 
 ## <a name="run-the-sample"></a>Kör exemplet
 
-Det här exempel programmet skapar en test fil i standard katalogen (*C:\Users \<user> \AppData\Local\Temp*, för Windows-användare), laddar upp den till Blob Storage, listar blobarna i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
+Det här exempel programmet skapar en test fil i standard katalogen ( *C:\Users \<user> \AppData\Local\Temp* , för Windows-användare), laddar upp den till Blob Storage, listar blobarna i behållaren och laddar ned filen med ett nytt namn så att du kan jämföra de gamla och nya filerna.
 
 Kör exemplet med hjälp av Maven på kommandoraden. Öppna ett gränssnitt och gå till **blobAzureApp** i den klonade katalogen. Ange sedan `mvn compile exec:java`.
 
@@ -76,7 +76,7 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
-Innan du fortsätter kontrollerar du din standard katalog (*C:\Users \<user> \AppData\Local\Temp*, för Windows-användare) för exempel filen. Kopiera URL:en för blobben från konsolfönstret och klistra in den i en webbläsare om du vill se innehållet i filen i blobblagringen. Om du jämför exempelfilen i katalogen med det innehåll som lagras i bloblagringen märker du att de är likadana.
+Innan du fortsätter kontrollerar du din standard katalog ( *C:\Users \<user> \AppData\Local\Temp* , för Windows-användare) för exempel filen. Kopiera URL:en för blobben från konsolfönstret och klistra in den i en webbläsare om du vill se innehållet i filen i blobblagringen. Om du jämför exempelfilen i katalogen med det innehåll som lagras i bloblagringen märker du att de är likadana.
 
   >[!NOTE]
   >Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att visa filerna i blobblagringen. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot.
@@ -93,22 +93,22 @@ Det första du ska göra är att skapa referenser till objekten som används fö
 
 * Skapa en instans av objektet [CloudStorageAccount](/java/api/com.microsoft.azure.management.storage.storageaccount) som pekar mot lagringskontot.
 
-    Objektet **CloudStorageAccount** är en representation av lagringskontot och gör det möjligt att konfigurera och komma åt egenskaper för lagringskontot programmässigt. Med hjälp av objektet **CloudStorageAccount** kan du skapa en instans av klienten **CloudBlobClient**, som krävs för att komma åt blobbtjänsten.
+    Objektet **CloudStorageAccount** är en representation av lagringskontot och gör det möjligt att konfigurera och komma åt egenskaper för lagringskontot programmässigt. Med hjälp av objektet **CloudStorageAccount** kan du skapa en instans av klienten **CloudBlobClient** , som krävs för att komma åt blobbtjänsten.
 
 * Skapa en instans av **CloudBlobClient** -objektet som pekar på [BLOB service](/java/api/com.microsoft.azure.storage.blob.cloudblobclient) i ditt lagrings konto.
 
-    **CloudBlobClient** ger dig en åtkomstpunkt till blobtjänsten så att du kan konfigurera och komma åt egenskaper för bloblagring programmatiskt. Med hjälp av **CloudBlobClient** kan du skapa en instans av objektet **CloudBlobContainer**, som krävs för att skapa behållare.
+    **CloudBlobClient** ger dig en åtkomstpunkt till blobtjänsten så att du kan konfigurera och komma åt egenskaper för bloblagring programmatiskt. Med hjälp av **CloudBlobClient** kan du skapa en instans av objektet **CloudBlobContainer** , som krävs för att skapa behållare.
 
 * Skapa en instans av objektet [CloudBlobContainer](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer), som representerar den behållare du får åtkomst till. Använd containrar för att organisera blobar på samma sätt som du använder mappar på datorn för att organisera filer.
 
-    När du har **CloudBlobContainer**kan du skapa en instans av [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) -objektet som pekar på den angivna blobben som du är intresse rad av och utföra en uppladdning, hämtning, kopiering eller annan åtgärd.
+    När du har **CloudBlobContainer** kan du skapa en instans av [CloudBlockBlob](/java/api/com.microsoft.azure.storage.blob.cloudblockblob) -objektet som pekar på den angivna blobben som du är intresse rad av och utföra en uppladdning, hämtning, kopiering eller annan åtgärd.
 
 > [!IMPORTANT]
 > Containernamn måste använda gemener. Mer information om containrar finns i [Namnge och referera till containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 ### <a name="create-a-container"></a>Skapa en container
 
-I det här avsnittet skapar du en instans av objekt, skapar en ny container och anger sedan behörigheter för containern så att blobarna är offentliga och går att komma åt med bara en URL. Containern heter **quickstartcontainer**.
+I det här avsnittet skapar du en instans av objekt, skapar en ny container och anger sedan behörigheter för containern så att blobarna är offentliga och går att komma åt med bara en URL. Containern heter **quickstartcontainer** .
 
 Det här exemplet använder [CreateIfNotExists](/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.createifnotexists) eftersom vi vill skapa en ny container varje gång exemplet körs. I en produktionsmiljö där du använder samma container i ett helt program är det bättre att bara anropa **CreateIfNotExists** en gång. Du kan också skapa containern i förväg så att du inte behöver skapa den i koden.
 
@@ -127,7 +127,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 Hämta en referens till bloben i mål behållaren om du vill överföra en fil till en Block-Blob. När du har blobbreferensen kan du ladda upp data till den med hjälp av [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblockblob.upload). Den här åtgärden skapar bloben om den inte redan finns, eller skriver över bloben om den redan finns.
 
-Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar den fil som ska laddas upp som **source** (källa) och namnet på bloben i **blob**. I följande exempel laddas filen upp till containern med namnet **quickstartcontainer**.
+Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar den fil som ska laddas upp som **source** (källa) och namnet på bloben i **blob** . I följande exempel laddas filen upp till containern med namnet **quickstartcontainer** .
 
 ```java
 //Creating a sample file

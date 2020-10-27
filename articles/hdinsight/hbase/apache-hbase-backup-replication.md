@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/19/2019
-ms.openlocfilehash: 5c0694f9ef16de9c69d424b5005ca0d5a277a77f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdd43a017e584a07d61d41e1af06d30db2f30ac7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505037"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542785"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Konfigurera säkerhets kopiering och replikering för Apache HBase och Apache Phoenix på HDInsight
 
@@ -52,7 +52,7 @@ När du har tagit bort klustret kan du antingen lämna data på plats eller kopi
 
 * Skapa en ny HDInsight-instans som pekar på den aktuella lagrings platsen. Den nya instansen skapas med alla befintliga data.
 
-* Kopiera `hbase` mappen till en annan Azure Storage BLOB-behållare eller data Lake Storage plats och starta sedan ett nytt kluster med dessa data. För Azure Storage använder du [AzCopy](../../storage/common/storage-use-azcopy.md)och för data Lake Storage Använd [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Kopiera `hbase` mappen till en annan Azure Storage BLOB-behållare eller data Lake Storage plats och starta sedan ett nytt kluster med dessa data. För Azure Storage använder du [AzCopy](../../storage/common/storage-use-azcopy-v10.md)och för data Lake Storage Använd [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Exportera och importera sedan
 
@@ -173,7 +173,7 @@ I vårt exempel:
 
 ## <a name="snapshots"></a>Ögonblicksbilder
 
-Med [ögonblicks bilder](https://hbase.apache.org/book.html#ops.snapshots) kan du ta en tidpunkts säkerhets kopia av data i ditt HBase-datalager. Ögonblicks bilder har minimala kostnader och har slutförts inom några sekunder, eftersom en ögonblicks bild åtgärd på ett effektivt sätt fångar in namnen på alla filer i lagret. När en ögonblicks bild skapas kopieras inga faktiska data. Ögonblicks bilder är beroende av den oföränderliga typen av data som lagras i HDFS, där uppdateringar, rader och infogningar visas som nya data. Du kan återställa (*klona*) en ögonblicks bild i samma kluster eller exportera en ögonblicks bild till ett annat kluster.
+Med [ögonblicks bilder](https://hbase.apache.org/book.html#ops.snapshots) kan du ta en tidpunkts säkerhets kopia av data i ditt HBase-datalager. Ögonblicks bilder har minimala kostnader och har slutförts inom några sekunder, eftersom en ögonblicks bild åtgärd på ett effektivt sätt fångar in namnen på alla filer i lagret. När en ögonblicks bild skapas kopieras inga faktiska data. Ögonblicks bilder är beroende av den oföränderliga typen av data som lagras i HDFS, där uppdateringar, rader och infogningar visas som nya data. Du kan återställa ( *klona* ) en ögonblicks bild i samma kluster eller exportera en ögonblicks bild till ett annat kluster.
 
 För att skapa en ögonblicks bild, SSH i till Head-noden i ditt HDInsight HBase-kluster och starta `hbase` gränssnittet:
 
@@ -245,4 +245,4 @@ Om du vill aktivera replikering på HDInsight använder du en skript åtgärd f�
 ## <a name="next-steps"></a>Nästa steg
 
 * [Konfigurera Apache HBase-replikering](apache-hbase-replication.md)
-* [Arbeta med verktyget för import och export av HBase](https://blogs.msdn.microsoft.com/data_otaku/2016/12/21/working-with-the-hbase-import-and-export-utility/)
+* [Arbeta med verktyget för import och export av HBase](/archive/blogs/data_otaku/working-with-the-hbase-import-and-export-utility)

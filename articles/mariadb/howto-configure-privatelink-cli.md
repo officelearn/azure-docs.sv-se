@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 565e6fb2def64dd594e1b0018f3378ea09bc63cb
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426211"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537226"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Skapa och hantera en privat länk för Azure Database for MariaDB med CLI
 
@@ -21,7 +21,7 @@ En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azu
 > [!NOTE]
 > Funktionen privat länk är bara tillgänglig för Azure Database for MariaDB servrar i Generell användning eller Minnesoptimerade pris nivåer. Se till att databas servern är på någon av dessa pris nivåer.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att gå igenom den här instruktions guiden behöver du:
 
@@ -40,7 +40,7 @@ az group create --name myResourceGroup --location westeurope
 ```
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
-Skapa en Virtual Network med [AZ Network VNet Create](/cli/azure/network/vnet). I det här exemplet skapas en standard Virtual Network med namnet *myVirtualNetwork* med ett undernät med namnet *undernät*:
+Skapa en Virtual Network med [AZ Network VNet Create](/cli/azure/network/vnet). I det här exemplet skapas en standard Virtual Network med namnet *myVirtualNetwork* med ett undernät med namnet *undernät* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -50,7 +50,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>Inaktivera privata slut punkts principer för undernät 
-Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa eller uppdatera under nätet för att inaktivera [nätverks principer](../private-link/disable-private-endpoint-network-policy.md)för privata slut punkter. Uppdatera en under näts konfiguration med namnet *mitt undernät* med [AZ Network VNet Subnet Update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa eller uppdatera under nätet för att inaktivera [nätverks principer](../private-link/disable-private-endpoint-network-policy.md)för privata slut punkter. Uppdatera en under näts konfiguration med namnet *mitt undernät* med [AZ Network VNet Subnet Update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -60,7 +60,7 @@ az network vnet subnet update \
  --disable-private-endpoint-network-policies true
 ```
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn 
-Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm*: 
+Skapa en virtuell dator med AZ VM Create. När du uppmanas anger du ett lösen ord som ska användas som inloggnings uppgifter för den virtuella datorn. I det här exemplet skapas en virtuell dator med namnet *myVm* : 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
@@ -133,11 +133,11 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Anslut till VM- *myVm* från Internet på följande sätt:
 
-1. I portalens sökfältet anger du *myVm*.
+1. I portalens sökfältet anger du *myVm* .
 
-1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
+1. Välj knappen **Anslut** . När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn** .
 
-1. Välj **Hämta RDP-fil**. Azure skapar en Remote Desktop Protocol-fil (*. RDP*) och laddar ned den till datorn.
+1. Välj **Hämta RDP-fil** . Azure skapar en Remote Desktop Protocol-fil ( *. RDP* ) och laddar ned den till datorn.
 
 1. Öppna den *nedladdade RDP* -filen.
 
@@ -146,9 +146,9 @@ Anslut till VM- *myVm* från Internet på följande sätt:
     1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
-        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+        > Du kan behöva välja **fler alternativ**  >  **Använd ett annat konto** för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
-1. Välj **OK**.
+1. Välj **OK** .
 
 1. Du kan få en certifikatvarning under inloggningen. Välj **Ja** eller **Fortsätt** om du får en certifikatvarning.
 
@@ -156,7 +156,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 ## <a name="access-the-mariadb-server-privately-from-the-vm"></a>Få åtkomst till MariaDB-servern privat från den virtuella datorn
 
-1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
+1. Öppna PowerShell i fjärr skrivbordet för *myVM* .
 
 2. Ange  `nslookup mydemoserver.privatelink.mariadb.database.azure.com`. 
 
@@ -171,9 +171,9 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 3. Testa anslutningen till den privata länken för MariaDB-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) för att utföra åtgärden.
 
-4. I **ny anslutning**anger eller väljer du den här informationen:
+4. I **ny anslutning** anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | Anslutningsnamn| Välj önskat anslutnings namn.|
     | Värdnamn | Välj *mydemoserver.privatelink.MariaDB.Database.Azure.com* |
@@ -181,7 +181,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
     | Lösenord | Ange ett lösen ord som angavs när MariaDB-servern skapades. |
     ||
 
-5. Välj **Testa anslutning** eller **OK**.
+5. Välj **Testa anslutning** eller **OK** .
 
 6. Du kan också Bläddra bland databaser från den vänstra menyn och skapa eller fråga efter information från MariaDB-databasen
 

@@ -3,17 +3,17 @@ title: Reserverade instanser av virtuella Azure EA-datorer
 description: I den här artikeln går vi igenom hur du kan spara pengar i din företagsregistrering med hjälp av reserverade VM-instanser i Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4970852634039bddfb14be579db5dd355fff9740
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 16e325f029fc4c317a61db62df97ded5c213e0e5
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442453"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132541"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Reserverade instanser av virtuella Azure EA-datorer
 
@@ -22,6 +22,12 @@ I den här artikeln går vi igenom hur du kan spara pengar i din företagsregist
 ## <a name="reservation-exchanges-and-refunds"></a>Utbyten och återbetalningar för reservationer
 
 Du kan byta en reservation mot en annan reservation av samma typ. Du kan också få återbetalning för en reservation, upp till 50 000 USD per år, om du inte längre behöver den. Du kan byta ut och få återbetalning för reservationer i Azure-portalen. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](../reservations/exchange-and-refund-azure-reservations.md).
+
+### <a name="partial-refunds"></a>Partiella återbetalningar
+
+Vi utfärdar en partiell återbetalning när EA-kunder returnerar reservationer som köpts med överförbrukning, inte ekonomiskt åtagande.
+
+Återbetalningen visas i EA-portalen som en negativ justering i föregående månad och en positiv justering i aktuell månad. Den visas på ett sätt som liknar ett reservationsutbyte. Kreditnotan refererar till det ursprungliga fakturanumret. För att stämma av det första köpet med kreditnotan bör du därför se det ursprungliga fakturanumret.
 
 ## <a name="reservation-costs-and-usage"></a>Kostnader för och användning av reservationer
 
@@ -59,7 +65,7 @@ Med reserverade instanser kan du minska dina kostnader för virtuella datorer me
 
 Om du vill köpa en reserverad instans för en virtuell Azure-dator måste en Enterprise Azure-registreringsadministratör aktivera köpalternativet _Reserve Instance_ (Reservera instans). Alternativet finns i avsnittet _Enrollment Detail_ (Registreringsinformation) på fliken _Enrollment_ (Registrering) i [Azure EA-portalen](https://ea.azure.com/).
 
-När EA-registreringen har aktiverats för att lägga till reserverade instanser kan alla kontoinnehavare med en aktiv prenumeration associerad kopplad till EA-registreringen köpa en reserverad instans för virtuell dator i [Azure-portalen](https://aka.ms/reservations). Mer information finns i [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](https://go.microsoft.com/fwlink/?linkid=861721) (Förskottsbetala för virtuella datorer och spara pengar med reserverade instanser för virtuell dator).
+När EA-registreringen har aktiverats för att lägga till reserverade instanser kan alla kontoinnehavare med en aktiv prenumeration associerad kopplad till EA-registreringen köpa en reserverad instans för virtuell dator i [Azure-portalen](https://aka.ms/reservations). Mer information finns i [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md) (Förskottsbetala för virtuella datorer och spara pengar med reserverade instanser för virtuell dator).
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>Så här visar du köpinformation om reserverade instanser
 

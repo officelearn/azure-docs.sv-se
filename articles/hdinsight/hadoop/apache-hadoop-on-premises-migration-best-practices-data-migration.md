@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 9794dd47949dc7dea891893dbcf261808ab335fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a2c734b256ad934b7a17d7cefd1783b406e766
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86521385"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537192"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för data migrering
 
@@ -24,15 +24,15 @@ Den här artikeln innehåller rekommendationer för datamigrering till Azure HDI
 Det finns två huvud alternativ för att migrera data från lokala datorer till Azure-miljön:
 
 * Överföra data över nätverk med TLS
-    * Via Internet kan du överföra data till Azure Storage via en vanlig Internet anslutning med något av flera verktyg som: Azure Storage Explorer, AzCopy, Azure PowerShell och Azure CLI. Mer information finns i [Flytta data till och från Azure Storage](../../storage/common/storage-moving-data.md).
+    * Via Internet kan du överföra data till Azure Storage via en vanlig Internet anslutning med något av flera verktyg som: Azure Storage Explorer, AzCopy, Azure PowerShell och Azure CLI. Mer information finns i [Flytta data till och från Azure Storage](../../storage/common/storage-choose-data-transfer-solution.md).
 
     * Express Route-ExpressRoute är en Azure-tjänst som gör att du kan skapa privata anslutningar mellan Microsoft-datacenter och infrastruktur som finns lokalt eller i en samplacerings anläggning. ExpressRoute-anslutningar går inte via det offentliga Internet och ger högre säkerhet, tillförlitlighet och hastighet med lägre fördröjning än vanliga anslutningar via Internet. Mer information finns i [skapa och ändra en ExpressRoute-krets](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
 
-    * Data Box-enhet data överföring online – Data Box Edge och Data Box Gateway är data överförings produkter online som fungerar som nätverks lagrings-gatewayer för att hantera data mellan din plats och Azure. Data Box Edge en lokal nätverks enhet, överför data till och från Azure och använder artificiell intelligens (AI)-aktiverade Edge Compute för att bearbeta data. Data Box Gateway är en virtuell installation med Storage Gateway-funktioner. Mer information finns i [Azure Data Box dokumentation – online-överföring](https://docs.microsoft.com/azure/databox-online/).
+    * Data Box-enhet data överföring online – Data Box Edge och Data Box Gateway är data överförings produkter online som fungerar som nätverks lagrings-gatewayer för att hantera data mellan din plats och Azure. Data Box Edge en lokal nätverks enhet, överför data till och från Azure och använder artificiell intelligens (AI)-aktiverade Edge Compute för att bearbeta data. Data Box Gateway är en virtuell installation med Storage Gateway-funktioner. Mer information finns i [Azure Data Box dokumentation – online-överföring](../../databox-online/index.yml).
 
 * Leverera data offline
 
-    Data Box-enhet data överföring offline – Data Box-enhet, Data Box Disk och Data Box Heavy enheter kan du överföra stora mängder data till Azure när nätverket inte är ett alternativ. De här data överförings enheterna i frånkopplat läge levereras mellan din organisation och Azure-datacentret. De använder AES-kryptering för att hjälpa till att skydda dina data under överföringen och de genomgår en grundlig och mer sanerad rensnings process för att ta bort data från enheten. Mer information om Data Box-enhet frånkopplade överförings enheter finns i [Azure Data Box dokumentation – offline-överföring](https://docs.microsoft.com/azure/databox/). Mer information om migrering av Hadoop-kluster finns i [använda Azure Data box för att migrera från en lokal HDFS-lagring till Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
+    Data Box-enhet data överföring offline – Data Box-enhet, Data Box Disk och Data Box Heavy enheter kan du överföra stora mängder data till Azure när nätverket inte är ett alternativ. De här data överförings enheterna i frånkopplat läge levereras mellan din organisation och Azure-datacentret. De använder AES-kryptering för att hjälpa till att skydda dina data under överföringen och de genomgår en grundlig och mer sanerad rensnings process för att ta bort data från enheten. Mer information om Data Box-enhet frånkopplade överförings enheter finns i [Azure Data Box dokumentation – offline-överföring](../../databox/index.yml). Mer information om migrering av Hadoop-kluster finns i [använda Azure Data box för att migrera från en lokal HDFS-lagring till Azure Storage](../../storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster.md).
 
 Följande tabell innehåller ungefärlig data överförings tid baserat på data volymen och nätverks bandbredden. Använd en data ruta om datamigreringen förväntas ta mer än tre veckor.
 

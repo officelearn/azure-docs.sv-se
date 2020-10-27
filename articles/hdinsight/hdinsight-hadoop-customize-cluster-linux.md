@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 09/02/2020
-ms.openlocfilehash: 23361470fd7b1cdb5b6153580e0240ac2f6c9133
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b3ff84f3f648ad08769a36a791f1679a0a57bc73
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490347"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546253"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -25,8 +25,8 @@ Skript åtgärder kan också publiceras på Azure Marketplace som ett HDInsight-
 
 För ett domänanslutet HDInsight-kluster finns det två Apache Ambari-behörigheter som krävs när du använder skript åtgärder med klustret:
 
-* **AMBARI. KÖR \_ anpassat \_ kommando**. Administratörs rollen Ambari har den här behörigheten som standard.
-* **Kluster. KÖR \_ anpassat \_ kommando**. Både HDInsight-kluster administratören och Ambari-administratören har den här behörigheten som standard.
+* **AMBARI. KÖR \_ anpassat \_ kommando** . Administratörs rollen Ambari har den här behörigheten som standard.
+* **Kluster. KÖR \_ anpassat \_ kommando** . Både HDInsight-kluster administratören och Ambari-administratören har den här behörigheten som standard.
 
 Mer information om hur du arbetar med behörigheter med domänanslutna HDInsight finns i [Hantera HDInsight-kluster med Enterprise Security Package](./domain-joined/apache-domain-joined-manage.md).
 
@@ -34,7 +34,7 @@ Mer information om hur du arbetar med behörigheter med domänanslutna HDInsight
 
 Om du inte är administratör eller ägare av din Azure-prenumeration måste ditt konto ha minst deltagar åtkomst till resurs gruppen som innehåller HDInsight-klustret.
 
-Någon med minst deltagar åtkomst till Azure-prenumerationen måste ha registrerat providern tidigare. Leverantörs registreringen sker när en användare med deltagar åtkomst till prenumerationen skapar en resurs. För utan att skapa en resurs, se [Registrera en Provider med hjälp av rest](https://msdn.microsoft.com/library/azure/dn790548.aspx).
+Någon med minst deltagar åtkomst till Azure-prenumerationen måste ha registrerat providern tidigare. Leverantörs registreringen sker när en användare med deltagar åtkomst till prenumerationen skapar en resurs. För utan att skapa en resurs, se [Registrera en Provider med hjälp av rest](/rest/api/resources/providers#Providers_Register).
 
 Få mer information om hur du arbetar med åtkomst hantering:
 
@@ -110,7 +110,7 @@ Ett skript fel på ett kluster som redan körs medför inte automatiskt att klus
 
 Skript åtgärder körs med rot privilegier. Se till att du förstår vad ett skript gör innan du tillämpar det på klustret.
 
-När du tillämpar ett skript på ett kluster ändras kluster statusen från att **köras** till **godkänd**. Sedan ändras den till **HDInsight-konfigurationen** och slutligen tillbaka till att **köras** för lyckade skript. Skript status loggas i historiken för skript åtgärden. Den här informationen visar om skriptet lyckades eller misslyckades. `Get-AzHDInsightScriptActionHistory`PowerShell-cmdleten visar till exempel status för ett skript. Den returnerar information som liknar följande text:
+När du tillämpar ett skript på ett kluster ändras kluster statusen från att **köras** till **godkänd** . Sedan ändras den till **HDInsight-konfigurationen** och slutligen tillbaka till att **köras** för lyckade skript. Skript status loggas i historiken för skript åtgärden. Den här informationen visar om skriptet lyckades eller misslyckades. `Get-AzHDInsightScriptActionHistory`PowerShell-cmdleten visar till exempel status för ett skript. Den returnerar information som liknar följande text:
 
 ```output
 ScriptExecutionId : 635918532516474303
@@ -145,11 +145,11 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Använd en skript åtgärd när du skapar kluster från Azure Portal
 
-1. Börja skapa ett kluster enligt beskrivningen i [skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md). På fliken **konfiguration och priser** väljer du **+ Lägg till skript åtgärd**.
+1. Börja skapa ett kluster enligt beskrivningen i [skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md). På fliken **konfiguration och priser** väljer du **+ Lägg till skript åtgärd** .
 
     ![Åtgärd för Azure Portal kluster skript](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-configuration-scriptaction.png)
 
-1. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
+1. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__ om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
 
     ![Lägg till ett skript i formuläret Välj skript](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -157,10 +157,10 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
     | Egenskap | Värde |
     | --- | --- |
-    | Välj ett skript | Välj __anpassad__om du vill använda ett eget skript. Annars väljer du något av de angivna skripten. |
+    | Välj ett skript | Välj __anpassad__ om du vill använda ett eget skript. Annars väljer du något av de angivna skripten. |
     | Namn |Ange ett namn för skript åtgärden. |
     | Bash-skript-URI |Ange URI: n för skriptet. |
-    | Head/Worker/ZooKeeper |Ange noderna som skriptet körs på: **Head**, **Work**eller **ZooKeeper**. |
+    | Head/Worker/ZooKeeper |Ange noderna som skriptet körs på: **Head** , **Work** eller **ZooKeeper** . |
     | Parametrar |Ange parametrarna, om det krävs av skriptet. |
 
     Använd posten __Behåll den här skript åtgärden__ för att kontrol lera att skriptet används vid skalnings åtgärder.
@@ -191,13 +191,13 @@ I det här exemplet läggs skript åtgärden till med hjälp av följande kod:
 
 Få mer information om hur du distribuerar en mall:
 
-* [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+* [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
-* [Distribuera resurser med Resource Manager-mallar och Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
+* [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Använd en skript åtgärd när klustret skapas från Azure PowerShell
 
-I det här avsnittet använder du cmdleten [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) för att anropa skript för att anpassa ett kluster. Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure PowerShell. Om du vill använda dessa PowerShell-kommandon behöver du [AZ-modulen](https://docs.microsoft.com/powershell/azure/).
+I det här avsnittet använder du cmdleten [Add-AzHDInsightScriptAction](/powershell/module/az.hdinsight/add-azhdinsightscriptaction) för att anropa skript för att anpassa ett kluster. Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure PowerShell. Om du vill använda dessa PowerShell-kommandon behöver du [AZ-modulen](/powershell/azure/).
 
 Följande skript visar hur du använder en skript åtgärd när du skapar ett kluster med hjälp av PowerShell:
 
@@ -217,13 +217,13 @@ I det här avsnittet beskrivs hur du tillämpar skript åtgärder på ett kluste
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och leta upp klustret.
 
-1. I standardvyn väljer du **skript åtgärder**under **Inställningar**.
+1. I standardvyn väljer du **skript åtgärder** under **Inställningar** .
 
-1. Överst på sidan **skript åtgärder** väljer du **+ Skicka ny**.
+1. Överst på sidan **skript åtgärder** väljer du **+ Skicka ny** .
 
     ![Lägga till ett skript i ett kluster som körs](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
-1. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
+1. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__ om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
 
     ![Lägg till ett skript i formuläret Välj skript](./media/hdinsight-hadoop-customize-cluster-linux/hdinsight-select-script.png)
 
@@ -231,10 +231,10 @@ I det här avsnittet beskrivs hur du tillämpar skript åtgärder på ett kluste
 
     | Egenskap | Värde |
     | --- | --- |
-    | Välj ett skript | Välj __anpassad__om du vill använda ett eget skript. Annars väljer du ett tillhandahållet skript. |
+    | Välj ett skript | Välj __anpassad__ om du vill använda ett eget skript. Annars väljer du ett tillhandahållet skript. |
     | Namn |Ange ett namn för skript åtgärden. |
     | Bash-skript-URI |Ange URI: n för skriptet. |
-    | Head/Worker/Zookeeper |Ange noderna som skriptet körs på: **Head**, **Work**eller **ZooKeeper**. |
+    | Head/Worker/Zookeeper |Ange noderna som skriptet körs på: **Head** , **Work** eller **ZooKeeper** . |
     | Parametrar |Ange parametrarna, om det krävs av skriptet. |
 
     Använd posten __Behåll den här skript åtgärden__ för att kontrol lera att skriptet används vid skalnings åtgärder.
@@ -243,7 +243,7 @@ I det här avsnittet beskrivs hur du tillämpar skript åtgärder på ett kluste
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Tillämpa en skript åtgärd på ett kluster som körs från Azure PowerShell
 
-Om du vill använda dessa PowerShell-kommandon behöver du [AZ-modulen](https://docs.microsoft.com/powershell/azure/). I följande exempel visas hur du använder en skript åtgärd för ett kluster som körs:
+Om du vill använda dessa PowerShell-kommandon behöver du [AZ-modulen](/powershell/azure/). I följande exempel visas hur du använder en skript åtgärd för ett kluster som körs:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
@@ -280,7 +280,7 @@ Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure C
 
 ### <a name="apply-a-script-action-to-a-running-cluster-by-using-rest-api"></a>Tillämpa en skript åtgärd på ett kluster som körs med hjälp av REST API
 
-Se [kluster REST API i Azure HDInsight](https://msdn.microsoft.com/library/azure/mt668441.aspx).
+Se [kluster REST API i Azure HDInsight](/rest/api/hdinsight/hdinsight-cluster).
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Tillämpa en skript åtgärd på ett kluster som körs från HDInsight .NET SDK
 
@@ -292,7 +292,7 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och leta upp klustret.
 
-1. I standardvyn väljer du **skript åtgärder**under **Inställningar**.
+1. I standardvyn väljer du **skript åtgärder** under **Inställningar** .
 
 1. En historik över skript för det här klustret visas i avsnittet skript åtgärder. Den här informationen innehåller en lista över bestående skript. Följande skärm bild visar att solr-skriptet har körts på det här klustret. Skärm bilden visar inte några sparade skript.
 
@@ -302,7 +302,7 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 
     ![Egenskaper för skript åtgärder befordran](./media/hdinsight-hadoop-customize-cluster-linux/promote-script-actions.png)
 
-1. Du kan också välja ellipsen, **...**, till höger om poster i avsnittet skript åtgärder för att utföra åtgärder.
+1. Du kan också välja ellipsen, **...** , till höger om poster i avsnittet skript åtgärder för att utföra åtgärder.
 
     ![Borttagning av beständiga skript åtgärder](./media/hdinsight-hadoop-customize-cluster-linux/hdi-delete-promoted-sa.png)
 

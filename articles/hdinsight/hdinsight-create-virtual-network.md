@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/16/2020
-ms.openlocfilehash: 886e8cb1c5d86c1a61e65fa8cbd54c022f6c1c6b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d4fcf7830250e5e6d2e4255ddb88867023606d0e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92484822"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547562"
 ---
 # <a name="create-virtual-networks-for-azure-hdinsight-clusters"></a>Skapa virtuella nätverk för Azure HDInsight-kluster
 
@@ -27,7 +27,7 @@ Innan du kör något av kod exemplen i den här artikeln har du en förståelse 
 
 Andra krav för exemplen i den här artikeln innehåller följande objekt:
 
-* Om du använder PowerShell måste du installera [AZ-modulen](https://docs.microsoft.com/powershell/azure/).
+* Om du använder PowerShell måste du installera [AZ-modulen](/powershell/azure/).
 * Om du vill använda Azure CLI och ännu inte har installerat det kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
@@ -377,6 +377,6 @@ När du har slutfört de här stegen kan du ansluta till resurser i det virtuell
 * Information om hur du konfigurerar Apache HBase geo-replikering finns i [Konfigurera Apache HBase Cluster Replication i virtuella Azure-nätverk](hbase/apache-hbase-replication.md).
 * Mer information om virtuella Azure-nätverk finns i [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).
 
 * Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: ea61ca42c345fe9df0436a193fb2adcb00ce6195
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 7f450d54a0039f591178ae839fbb404f31d80671
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150810"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537277"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -21,7 +21,7 @@ Azure HDInsight erbjuder ett antal metoder för att lösa företagets säkerhets
 
 Den här artikeln beskriver säkerhetslösningar genom att dela upp säkerhetslösningar i fyra traditionella säkerhets pelare: perimeter säkerhet, autentisering, auktorisering och kryptering.
 
-Den här artikeln beskriver också **Azure HDInsight Enterprise Security Package (ESP)**, som ger Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomst kontroll för HDInsight-kluster.
+Den här artikeln beskriver också **Azure HDInsight Enterprise Security Package (ESP)** , som ger Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomst kontroll för HDInsight-kluster.
 
 ## <a name="enterprise-security-pillars"></a>Företags säkerhets pelare
 
@@ -78,10 +78,10 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 | Säkerhet för data åtkomst | Konfigurera [åtkomst kontrol listor med ACL: er](../../storage/blobs/data-lake-storage-access-control.md) för Azure Data Lake Storage gen1 och Gen2  | Kund |
 |  | Aktivera egenskapen ["säker överföring krävs"](../../storage/common/storage-require-secure-transfer.md) för lagrings konton. | Kund |
 |  | Konfigurera [Azure Storage brand väggar](../../storage/common/storage-network-security.md) och virtuella nätverk | Kund |
-|  | Konfigurera [tjänst slut punkter för Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) för Cosmos DB och [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Kund |
+|  | Konfigurera [tjänst slut punkter för Azure Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md) för Cosmos DB och [Azure SQL DB](../../azure-sql/database/vnet-service-endpoint-rule-overview.md) | Kund |
 |  | Se till att [kryptering i överförings](./encryption-in-transit.md) funktionen är aktive rad för att använda TLS och IPSec för kommunikation mellan kluster. | Kund |
-|  | Konfigurera [Kundhanterade nycklar](../../storage/common/storage-encryption-keys-portal.md) för Azure Storage kryptering | Kund |
-|  | Kontrol lera åtkomsten till dina data med Azure-support med hjälp av [kundsäkerhet](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Kund |
+|  | Konfigurera [Kundhanterade nycklar](../../storage/common/customer-managed-keys-configure-key-vault.md) för Azure Storage kryptering | Kund |
+|  | Kontrol lera åtkomsten till dina data med Azure-support med hjälp av [kundsäkerhet](../../security/fundamentals/customer-lockbox-overview.md) | Kund |
 | Program-och mellanprogram säkerhet | Integrera med AAD-DS och [Konfigurera ESP](apache-domain-joined-configure-using-azure-adds.md) eller Använd [Hib för OAuth-autentisering](identity-broker.md)| Kund |
 |  | Konfigurera [Auktoriseringsprinciper för Apache Ranger](apache-domain-joined-run-hive.md) | Kund |
 |  | Använda [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Kund |
@@ -92,11 +92,11 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 |  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../control-network-traffic.md) eller [privat länk](../hdinsight-private-link.md) | Kund |
 |  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg | Kund |
 |  | Konfigurera [IPSec-kryptering i överföring](encryption-in-transit.md) mellan klusternoder | Kund |
-| Virtualiserad infrastruktur | Saknas | HDInsight (Cloud Provider) |
-| Säkerhet för fysisk infrastruktur | Saknas | HDInsight (Cloud Provider) |
+| Virtualiserad infrastruktur | E.t. | HDInsight (Cloud Provider) |
+| Säkerhet för fysisk infrastruktur | E.t. | HDInsight (Cloud Provider) |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Planera för HDInsight-kluster med ESP](apache-domain-joined-architecture.md)
-* [Konfigurera HDInsight-kluster med ESP](apache-domain-joined-configure.md)
+* [Konfigurera HDInsight-kluster med ESP](./apache-domain-joined-configure-using-azure-adds.md)
 * [Hantera HDInsight-kluster med ESP](apache-domain-joined-manage.md)

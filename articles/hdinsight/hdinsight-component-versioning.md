@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47e2211be478a16238d35eeb5219cf6e785a6979
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89394337"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547579"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Apache-komponenter och versioner som är tillgängliga för Azure HDInsight
 
@@ -96,7 +96,7 @@ I den här tabellen listas de versioner av HDInsight som är tillgängliga i Azu
 | HDInsight 3,6 ML-tjänster      | 9,3               | 31 december 2020                      | 31 december 2020                |
 
 > [!NOTE]
-> När supporten för en kluster version upphör att gälla kanske den inte är tillgänglig via Azure Portal. I vissa fall fortsätter kluster versionerna att vara tillgängliga med hjälp av parametern **version** i kommandot Windows PowerShell [New-AZHDINSIGHTCLUSTER](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) och .NET SDK fram till versionens indragnings datum.
+> När supporten för en kluster version upphör att gälla kanske den inte är tillgänglig via Azure Portal. I vissa fall fortsätter kluster versionerna att vara tillgängliga med hjälp av parametern **version** i kommandot Windows PowerShell [New-AZHDINSIGHTCLUSTER](/powershell/module/az.hdinsight/new-azhdinsightcluster) och .NET SDK fram till versionens indragnings datum.
 
 ### <a name="retired-versions"></a>Återkallade versioner
 
@@ -104,22 +104,22 @@ I den här tabellen listas de versioner av HDInsight som inte är tillgängliga 
 
 | HDInsight-version | HDP-version | OPERATIVSYSTEM FÖR VIRTUELL DATOR | Utgivningsdatum | Förfallo datum för support | Datum för indragning | Hög tillgänglighet |  Tillgänglighet i Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Inga |
-| HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4-LTS |29 mars 2016 |29 december 2016 |9 januari 2018 |Ja |Inga |
-| HDInsight 3,3 |HDP 2,3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Inga |
-| HDInsight 3,3 |HDP 2,3 |Ubuntu 14.0.4-LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Inga |
-| HDInsight 3,2 |HDP 2,2 |Ubuntu 12,04 LTS eller Windows Server 2012 R2 |18 februari 2015 |1 mars 2016 |1 april 2017 |Ja |Inga |
-| HDInsight 3,1 |HDP 2,1 |Windows Server 2012 R2 |24 juni 2014 |18 maj 2015 |30 juni 2016 |Ja |Inga |
-| HDInsight 3,0 |HDP 2,0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Inga |
-| HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 oktober 2013 |12 maj 2014 |31 maj 2015 |Ja |Inga |
-| HDInsight 1,6 |HDP 1,1 | |28 oktober 2013 |26 april 2014 |31 maj 2015 |Inga |Inga |
+| HDInsight 3,5 |HDP 2,5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nej |
+| HDInsight 3,4 |HDP 2,4 |Ubuntu 14.0.4-LTS |29 mars 2016 |29 december 2016 |9 januari 2018 |Ja |Nej |
+| HDInsight 3,3 |HDP 2,3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nej |
+| HDInsight 3,3 |HDP 2,3 |Ubuntu 14.0.4-LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nej |
+| HDInsight 3,2 |HDP 2,2 |Ubuntu 12,04 LTS eller Windows Server 2012 R2 |18 februari 2015 |1 mars 2016 |1 april 2017 |Ja |Nej |
+| HDInsight 3,1 |HDP 2,1 |Windows Server 2012 R2 |24 juni 2014 |18 maj 2015 |30 juni 2016 |Ja |Nej |
+| HDInsight 3,0 |HDP 2,0 |Windows Server 2012 R2 |11 februari 2014 |17 september 2014 |30 juni 2015 |Ja |Nej |
+| HDInsight 2,1 |HDP 1,3 |Windows Server 2012 R2 |28 oktober 2013 |12 maj 2014 |31 maj 2015 |Ja |Nej |
+| HDInsight 1,6 |HDP 1,1 | |28 oktober 2013 |26 april 2014 |31 maj 2015 |Nej |Nej |
 
 > [!NOTE]
 > Kluster med hög tillgänglighet med två head-noder distribueras som standard för HDInsight version 2,1 och senare. De är inte tillgängliga för HDInsight version 1,6-kluster.
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Service nivå avtal för HDInsight-kluster versioner
 
-Service nivå avtalet definieras som ett _support fönster_. Ett support fönster är den tids period som en HDInsight-version stöds av Microsofts kund tjänst och support. Om versionen har passerat _Supportens förfallo datum_är HDInsight-klustret utanför support fönstret. Stöd för förfallo datum för HDInsight version X (när en senare version av X + 1 är tillgänglig) är senare av:
+Service nivå avtalet definieras som ett _support fönster_ . Ett support fönster är den tids period som en HDInsight-version stöds av Microsofts kund tjänst och support. Om versionen har passerat _Supportens förfallo datum_ är HDInsight-klustret utanför support fönstret. Stöd för förfallo datum för HDInsight version X (när en senare version av X + 1 är tillgänglig) är senare av:
 
 - **Formel 1:** Lägg till 180 dagar till det datum då HDInsight-klustrets version X släpptes.
 - **Formel 2:** Lägg till 90 dagar till det datum då HDInsight-klustrets version X + 1 görs tillgänglig i Azure Portal.

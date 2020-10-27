@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 08/24/2020
-ms.openlocfilehash: cae8647d970020a22d59dc49b058d43fe28dd00c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 97cad12ad1854df37b54ff663385fe79ca15b7c2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88816464"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543108"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: fel vid skapande av kluster
 
@@ -24,7 +24,7 @@ I den här artikeln beskrivs lösningar på fel som du kan stöta på när du sk
 
 ## <a name="error-codedeploymentdocument-csmdocument_2_0-failed-the-validation"></a>Felkod: DeploymentDocument ' CsmDocument_2_0 ' misslyckades med verifieringen
 
-**Fel**: "det går inte att komma åt URI för skript åtgärd: \<SCRIPT ACTION URL\> "
+**Fel** : "det går inte att komma åt URI för skript åtgärd: \<SCRIPT ACTION URL\> "
 
 ### <a name="error-message-1"></a>Fel meddelande 1
 
@@ -141,7 +141,7 @@ En brand Väggs regel i nätverks säkerhets gruppen (NSG) blockerar kluster kom
 Om du planerar att använda nätverks säkerhets grupper för att kontrol lera nätverks trafiken vidtar du följande åtgärder innan du installerar HDInsight:
 
 - Identifiera den Azure-region som du planerar att använda för HDInsight.
-- Identifiera de IP-adresser som krävs av HDInsight. Mer information finns i avsnittet om [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+- Identifiera de IP-adresser som krävs av HDInsight. Mer information finns i avsnittet om [IP-adresser för HDInsight-hantering](./hdinsight-management-ip-addresses.md).
   - Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
   - För nätverks säkerhets grupper tillåter du inkommande trafik på port 443 från IP-adresserna. Den här konfigurationen säkerställer att hanterings tjänster för HDInsight kan komma åt klustret utanför det virtuella nätverket.
 
@@ -161,7 +161,7 @@ Du har inte angett de behörigheter som krävs för att hantera identiteten. Den
 
 1. Öppna Azure-portalen.
 1. Gå till ditt lagringskonto.
-1. Titta under **Access Control (IAM)**.
+1. Titta under **Access Control (IAM)** .
 1. Se till att användaren har rollen Storage BLOB data Contributor eller rollen som ägare till lagrings-BLOB-data.
 
 Mer information finns i [Konfigurera behörigheter för den hanterade identiteten på data Lake Storage Gen2-kontot](hdinsight-hadoop-use-data-lake-storage-gen2.md).
@@ -172,7 +172,7 @@ Mer information finns i [Konfigurera behörigheter för den hanterade identitete
 
 ### <a name="error"></a>Fel
 
-"Säkerhets reglerna i nätverks säkerhets gruppen/Subscriptions/ \<SubscriptionID\> /resourceGroups/<resurs grupp namn \> default/providers/Microsoft. Network/networkSecurityGroups/ \<Network Security Group Name\> konfigurerad med Subnet/Subscriptions/ \<SubscriptionID\> /resourceGroups/ \<Resource Group name\> RG-westeurope-VNet-TomTom-default/providers/Microsoft. Network/virtualNetworks/ \<Virtual Network Name\> /subnets/ \<Subnet Name\> tillåter inte obligatorisk inkommande och/eller utgående anslutning. Om du vill ha mer information går du [till planera ett virtuellt nätverk för Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment)eller kontaktar supporten. "
+"Säkerhets reglerna i nätverks säkerhets gruppen/Subscriptions/ \<SubscriptionID\> /resourceGroups/<resurs grupp namn \> default/providers/Microsoft. Network/networkSecurityGroups/ \<Network Security Group Name\> konfigurerad med Subnet/Subscriptions/ \<SubscriptionID\> /resourceGroups/ \<Resource Group name\> RG-westeurope-VNet-TomTom-default/providers/Microsoft. Network/virtualNetworks/ \<Virtual Network Name\> /subnets/ \<Subnet Name\> tillåter inte obligatorisk inkommande och/eller utgående anslutning. Om du vill ha mer information går du [till planera ett virtuellt nätverk för Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md)eller kontaktar supporten. "
 
 ### <a name="cause"></a>Orsak
 
@@ -182,8 +182,8 @@ Om nätverks säkerhets grupper eller användardefinierade vägar (UDR) kontroll
 
 Om du planerar att använda nätverks säkerhets grupper för att kontrol lera nätverks trafiken vidtar du följande åtgärder innan du installerar HDInsight:
 
-- Identifiera den Azure-region som du planerar att använda för HDInsight och skapa en säker lista över IP-adresserna för din region. Mer information finns i [hälso-och hanterings tjänster: vissa regioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses#health-and-management-services-specific-regions).
-- Identifiera de IP-adresser som HDInsight kräver. Mer information finns i avsnittet om [hantering av HDInsight-IP-adresser](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+- Identifiera den Azure-region som du planerar att använda för HDInsight och skapa en säker lista över IP-adresserna för din region. Mer information finns i [hälso-och hanterings tjänster: vissa regioner](./hdinsight-management-ip-addresses.md#health-and-management-services-specific-regions).
+- Identifiera de IP-adresser som HDInsight kräver. Mer information finns i avsnittet om [hantering av HDInsight-IP-adresser](./hdinsight-management-ip-addresses.md).
 - Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i. För nätverks säkerhets grupper tillåter du inkommande trafik på port 443 från IP-adresserna. Den här konfigurationen säkerställer att hanterings tjänster för HDInsight kan komma åt klustret utanför det virtuella nätverket.
 
 ---
@@ -216,7 +216,7 @@ HDInsight-tjänsten kan inte ansluta till klustret vid försök att skapa klustr
 
 ### <a name="resolution"></a>Lösning
 
-Om du använder anpassade säkerhets grupper för VNet-nätverk (NSG: er) och användardefinierade vägar (UDR), måste du se till att klustret kan kommunicera med HDInsight Management Services. Mer information finns i [IP-adresser för HDInsight-hantering](https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses).
+Om du använder anpassade säkerhets grupper för VNet-nätverk (NSG: er) och användardefinierade vägar (UDR), måste du se till att klustret kan kommunicera med HDInsight Management Services. Mer information finns i [IP-adresser för HDInsight-hantering](./hdinsight-management-ip-addresses.md).
 
 ---
 
@@ -240,4 +240,4 @@ Ta bort eller inaktivera den prenumeration som är baserad på Azure Policy till
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du felsöker fel i skapa kluster finns i [Felsöka kluster skapande fel med Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-troubleshoot-cluster-creation-fails).
+Mer information om hur du felsöker fel i skapa kluster finns i [Felsöka kluster skapande fel med Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md).

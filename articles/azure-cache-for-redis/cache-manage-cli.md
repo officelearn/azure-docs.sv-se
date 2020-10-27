@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: db55ac4ce868f2e6ce2afbfbf014aac67653ce4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7643f882d5ac330046c169e0a3f2fa4920331d4e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500512"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537702"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Så här skapar och hanterar du Azure cache för Redis med hjälp av den klassiska Azure-CLI
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ Den klassiska Azure CLI är ett bra sätt att hantera din Azure-infrastruktur fr
 Du måste utföra följande steg för att skapa och hantera Azure cache för Redis-instanser med hjälp av den klassiska Azure-CLI: t.
 
 * Du måste ha ett Azure-konto. Om du inte har någon kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några få minuter.
-* [Installera den klassiska Azure CLI](../cli-install-nodejs.md).
+* [Installera den klassiska Azure CLI](/cli/azure/install-classic-cli).
 * Anslut din Azure CLI-installation med ett personligt Azure-konto eller ett arbets-eller skol Azure-konto och logga in från den klassiska CLI: en med hjälp av `azure login` kommandot.
-* Innan du kör något av följande kommandon, kan du växla klassisk CLI till Resource Manager-läge genom att köra `azure config mode arm` kommandot. Mer information finns i [använda den klassiska Azure-CLI: t för att hantera Azure-resurser och resurs grupper](../xplat-cli-azure-resource-manager.md).
+* Innan du kör något av följande kommandon, kan du växla klassisk CLI till Resource Manager-läge genom att köra `azure config mode arm` kommandot. Mer information finns i [använda den klassiska Azure-CLI: t för att hantera Azure-resurser och resurs grupper](../azure-resource-manager/management/manage-resources-cli.md).
 
 ## <a name="azure-cache-for-redis-properties"></a>Egenskaper för Azure Cache for Redis
 Följande egenskaper används när du skapar och uppdaterar Azure cache för Redis-instanser.
@@ -42,7 +42,7 @@ Följande egenskaper används när du skapar och uppdaterar Azure cache för Red
 | name |-n,--namn |Namnet på Azure-cachen för Redis. |
 | Resursgrupp |-g,--resurs grupp |Namnet på resurs gruppen. |
 | location |-l,--plats |Plats för att skapa cache. |
-| size |-z,--storlek |Storleken på Azure-cachen för Redis. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| ikoner |-z,--storlek |Storleken på Azure-cachen för Redis. Giltiga värden: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x,--SKU |Redis SKU. Ska vara en av: [Basic, standard, Premium] |
 | EnableNonSslPort |-e,--aktivera-icke-SSL-port |Egenskapen EnableNonSslPort för Azure cache för Redis. Lägg till den här flaggan om du vill aktivera en icke-TLS/SSL-port för cacheminnet |
 | Redis-konfiguration |-c,--Redis-Configuration |Redis-konfiguration. Ange en JSON-formaterad sträng med konfigurations nycklar och värden här. Format: "{" ":" "," ":" "}" |

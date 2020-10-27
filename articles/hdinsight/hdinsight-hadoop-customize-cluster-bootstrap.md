@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: cd81a15853f1c3b0eb1b1cdd40cc4c7ebf713308
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 246c5600da3b554ba65872780f0719a58f3f4be2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490313"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547494"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med hjälp av bootstrap
 
@@ -48,14 +48,14 @@ Information om hur du installerar ytterligare komponenter i HDInsight-kluster un
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/).
+* Om du använder PowerShell behöver du AZ- [modulen](/powershell/azure/).
 
 ## <a name="use-azure-powershell"></a>Använda Azure PowerShell
 
 Följande PowerShell-kod anpassar en [Apache Hive](https://hive.apache.org/) -konfiguration:
 
 > [!IMPORTANT]  
-> Parametern `Spark2Defaults` kan behöva användas med [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Du kan skicka tomma värden till parametern som visas i kod exemplet nedan.
+> Parametern `Spark2Defaults` kan behöva användas med [Add-AzHDInsightConfigValue](/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Du kan skicka tomma värden till parametern som visas i kod exemplet nedan.
 
 ```powershell
 # hive-site.xml configuration
@@ -86,9 +86,9 @@ Du hittar ett fullständigt fungerande PowerShell-skript i [bilagan](#appendix-p
 **Så här kontrollerar du ändringen:**
 
 1. Navigera till `https://CLUSTERNAME.azurehdinsight.net/` där `CLUSTERNAME` är namnet på klustret.
-1. I den vänstra menyn navigerar du till **Hive**-  >  **konfigurationer**  >  **Avancerat**.
-1. Expandera **Avancerad Hive-plats**.
-1. Leta upp **Hive. metaarkiv. client. socket. timeout** och bekräfta att värdet är **90s**.
+1. I den vänstra menyn navigerar du till **Hive** -  >  **konfigurationer**  >  **Avancerat** .
+1. Expandera **Avancerad Hive-plats** .
+1. Leta upp **Hive. metaarkiv. client. socket. timeout** och bekräfta att värdet är **90s** .
 
 Några fler exempel på hur du anpassar andra konfigurationsfiler:
 
@@ -143,7 +143,7 @@ Exempel på en Resource Manager-mall för att växla konfiguration i spark2 – 
 * [Skapa Apache Hadoop kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md) innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
 * [Utveckla skript åtgärds skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)
 * [Installera och använda Apache Spark på HDInsight-kluster](spark/apache-spark-jupyter-spark-sql-use-portal.md)
-* [Installera och Använd Apache Giraph i HDInsight-kluster](hdinsight-hadoop-giraph-install.md).
+* [Installera och Använd Apache Giraph i HDInsight-kluster](./hdinsight-hadoop-hue-linux.md).
 
 ## <a name="appendix-powershell-sample"></a>Bilaga: PowerShell-exempel
 

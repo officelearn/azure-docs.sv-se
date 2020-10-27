@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8cdcc60e6eeec22e202d670c3fc057711bd432a6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73241205"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545454"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>Självstudie: skriva till Apache Hadoop HDFS från Apache Storm på Azure HDInsight
 
@@ -30,9 +30,9 @@ I den här guiden får du lära dig att:
 > * Visa utdata
 > * Stoppa topologin
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
-* [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
+* [Java Developer Kit (JDK) version 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
 
 * [Apache maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt versions system för Java-projekt.
 
@@ -160,7 +160,7 @@ Information om hur du använder det här skriptet med klustret finns i avsnittet
     hdfs.url: wasbs:///
     ```
 
-    Om du vill spara filen använder du __CTRL + X__, sedan __Y__och slutligen __RETUR__. Värdena i den här filen anger lagrings-URL: en och katalog namnet som data skrivs till.
+    Om du vill spara filen använder du __CTRL + X__ , sedan __Y__ och slutligen __RETUR__ . Värdena i den här filen anger lagrings-URL: en och katalog namnet som data skrivs till.
 
 1. Använd följande kommando för att starta topologin:
 

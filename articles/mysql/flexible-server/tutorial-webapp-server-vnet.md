@@ -8,27 +8,27 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9cbcbeb9d9e216a0b686cba258288db8439e0a9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b673dc8dfeb2ebf86aec5b7449df91c2ffd635
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90946655"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534064"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Självstudie: skapa en Azure Database for MySQL flexibel Server (för hands version) med App Services webbapp i virtuellt nätverk
 
 > [!IMPORTANT]
 > Azure Database for MySQL-flexibel Server är för närvarande en offentlig för hands version.
 
-Den här självstudien visar hur du skapar en Azure App Service webbapp med MySQL-flexibel Server (för hands version) i ett [virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Den här självstudien visar hur du skapar en Azure App Service webbapp med MySQL-flexibel Server (för hands version) i ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare lokalt. Kör kommandot `az --version` om du vill se vilken version som är installerad. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-Du måste logga in på ditt konto med kommandot [AZ login](https://docs.microsoft.com/cli/azure/reference-index#az-login) . Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
+Du måste logga in på ditt konto med kommandot [AZ login](/cli/azure/reference-index#az-login) . Observera egenskapen **ID** från kommandoutdata för det motsvarande prenumerationsnamnet.
 
 ```azurecli
 az login
@@ -69,7 +69,7 @@ az webapp up --resource-group myresourcegroup --location westus2 --plan testapps
 
 > [!NOTE]
 > - För argumentet--location använder du samma plats som du gjorde för databasen i föregående avsnitt.
-> - Ersätt _ &lt; app-name->_ med ett unikt namn i alla Azure (Server slut punkten är https:// \<app-name> . azurewebsites.net). Tillåtna tecken för <App-Name> är A-Z, 0-9 och-. Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
+> - Ersätt _&lt; app-name->_ med ett unikt namn i alla Azure (Server slut punkten är https:// \<app-name> . azurewebsites.net). Tillåtna tecken för <App-Name> är A-Z, 0-9 och-. Ett utmärkt mönster är att använda en kombination av företagets namn och en app-ID.
 
 Detta kommando utför följande åtgärder, vilket kan ta några minuter:
 
@@ -81,7 +81,7 @@ Detta kommando utför följande åtgärder, vilket kan ta några minuter:
 
 ## <a name="add-the-web-app-to-the-virtual-network"></a>Lägg till webbappen i det virtuella nätverket
 
-Använd **AZ webapp VNet-integration-** kommandot för att lägga till en regional virtuell nätverks integrering i en webapp. Ersätt _ &lt; VNet-Name>_ och _ &lt; Subnet-Name_ med det virtuella nätverk och under nät namn som den flexibla servern använder.
+Använd **AZ webapp VNet-integration-** kommandot för att lägga till en regional virtuell nätverks integrering i en webapp. Ersätt _&lt; VNet-Name>_ och _&lt; Subnet-Name_ med det virtuella nätverk och under nät namn som den flexibla servern använder.
 
 ```azurecli
 az webapp vnet-integration add -g myresourcegroup -n  mywebapp --vnet <vnet-name> --subnet <subnet-name>
@@ -95,8 +95,8 @@ Med koden nu distribuerad till App Service är nästa steg att ansluta appen til
 az webapp config appsettings set --settings DBHOST="<mysql-server-name>.mysql.database.azure.com" DBNAME="flexibleserverdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
-- Ersätt _ &lt; MySQL-Server-Name>_, _ &lt; username>_ och _ &lt; Password>_ för det nyligen skapade flexibla Server-kommandot.
-- Ersätt _ &lt; användar namn>_ och _ &lt; lösen ord>_ med de autentiseringsuppgifter som genereras av kommandot.
+- Ersätt _&lt; MySQL-Server-Name>_ , _&lt; username>_ och _&lt; Password>_ för det nyligen skapade flexibla Server-kommandot.
+- Ersätt _&lt; användar namn>_ och _&lt; lösen ord>_ med de autentiseringsuppgifter som genereras av kommandot.
 - Resurs gruppen och App-namnet hämtas från de cachelagrade värdena i Azure/config-filen.
 - Kommandot skapar inställningarna med namnet DBHOST, DBNAME, DBUSER och DBPASS. Om program koden använder ett annat namn för databas informationen använder du dessa namn för de appinställningar som anges i koden.
 
@@ -111,4 +111,4 @@ az group delete -n myresourcegroup
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Mappa ett befintligt anpassat DNS-namn till Azure App Service](../../app-service/app-service-web-tutorial-custom-domain.md)

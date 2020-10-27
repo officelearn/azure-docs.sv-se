@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 021bfc0b87b0da800728eda26d9f5222bd52bc1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbae7254949eaa642b8344b4e550de4a44b2f33f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086967"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545981"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och lösa fel som tas emot från WebHCat på HDInsight
 
@@ -39,7 +39,7 @@ Om följande standardvärden överskrids kan det försämra WebHCat prestanda el
 
 ## <a name="too-many-requests"></a>För många begär Anden
 
-**Http-status kod**: 429
+**Http-status kod** : 429
 
 | Orsak | Lösning |
 | --- | --- |
@@ -47,7 +47,7 @@ Om följande standardvärden överskrids kan det försämra WebHCat prestanda el
 
 ## <a name="server-unavailable"></a>Servern är inte tillgänglig
 
-**Http-status kod**: 503
+**Http-status kod** : 503
 
 | Orsak | Lösning |
 | --- | --- |
@@ -55,7 +55,7 @@ Om följande standardvärden överskrids kan det försämra WebHCat prestanda el
 
 ## <a name="bad-request-content-could-not-find-job"></a>Felaktigt innehåll i begäran: det gick inte att hitta jobbet
 
-**Http-status kod**: 400
+**Http-status kod** : 400
 
 | Orsak | Lösning |
 | --- | --- |
@@ -65,7 +65,7 @@ Om följande standardvärden överskrids kan det försämra WebHCat prestanda el
 
 ## <a name="bad-gateway"></a>Felaktig gateway
 
-**Http-status kod**: 502
+**Http-status kod** : 502
 
 | Orsak | Lösning |
 | --- | --- |
@@ -83,7 +83,7 @@ Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon a
 
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

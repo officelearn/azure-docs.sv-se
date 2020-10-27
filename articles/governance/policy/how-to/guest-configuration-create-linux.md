@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en princip för Azure Policy gäst konfigura
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 9ecf798a18f28c490d95b28c6ea8f02c6f22eee8
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 9d80ae44e5cc34ec3b3378f8ed4a68cc02464216
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893245"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542904"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Skapa gästkonfigurationsprinciper för Linux
 
@@ -17,15 +17,13 @@ Innan du skapar anpassade principer läser du översikts informationen på [Azur
  
 Information om hur du skapar principer för gäst konfiguration för Windows finns på sidan [så här skapar du principer för gäst konfiguration för Windows](./guest-configuration-create.md)
 
-Vid Linux-granskning använder gästkonfiguration [Chef InSpec](https://www.inspec.io/). InSpec-profilen definierar det tillstånd som datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel**.
+Vid Linux-granskning använder gästkonfiguration [Chef InSpec](https://www.inspec.io/). InSpec-profilen definierar det tillstånd som datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses **auditIfNotExists** för princip inställningen och datorn betraktas som **icke-kompatibel** .
 
 [Azure policy gäst konfiguration](../concepts/guest-configuration.md) kan bara användas för att granska inställningar i datorer. Reparationen av inställningar i datorer är inte tillgänglig ännu.
 
 Använd följande åtgärder för att skapa en egen konfiguration för att verifiera tillstånd för en Azure-eller icke-Azure-dator.
 
 > [!IMPORTANT]
-> Anpassade principer med gäst konfiguration är en förhands gransknings funktion.
->
 > Gästkonfigurationstillägget krävs för att utföra granskningar på virtuella Azure-datorer. Om du vill distribuera tillägget i skala över alla Linux-datorer tilldelar du följande princip definition: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 
 ## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
@@ -157,10 +155,10 @@ De stödfiler som krävs måste paketeras tillsammans. Det slutförda paketet an
 
 `New-GuestConfigurationPackage`Cmdleten skapar paketet. Parametrar för `New-GuestConfigurationPackage` cmdleten vid skapande av Linux-innehåll:
 
-- **Namn**: namn på gäst konfigurations paket.
-- **Konfiguration**: kompilerad fullständig sökväg till konfigurations dokument.
-- **Sökväg**: sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
-- **ChefProfilePath**: fullständig sökväg till INSPEC-profil. Den här parametern stöds bara när du skapar innehåll för att granska Linux.
+- **Namn** : namn på gäst konfigurations paket.
+- **Konfiguration** : kompilerad fullständig sökväg till konfigurations dokument.
+- **Sökväg** : sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
+- **ChefProfilePath** : fullständig sökväg till INSPEC-profil. Den här parametern stöds bara när du skapar innehåll för att granska Linux.
 
 Kör följande kommando för att skapa ett paket med den konfiguration som angavs i föregående steg:
 
@@ -177,9 +175,9 @@ Eftersom agenten faktiskt utvärderar den lokala miljön måste du, i de flesta 
 
 Parametrar för `Test-GuestConfigurationPackage` cmdleten:
 
-- **Namn**: princip namn för gäst konfiguration.
-- **Parameter**: princip parametrar har angetts i hash-format.
-- **Sökväg**: fullständig sökväg till gäst konfigurations paketet.
+- **Namn** : princip namn för gäst konfiguration.
+- **Parameter** : princip parametrar har angetts i hash-format.
+- **Sökväg** : fullständig sökväg till gäst konfigurations paketet.
 
 Kör följande kommando för att testa paketet som skapades i föregående steg:
 
@@ -194,73 +192,23 @@ Cmdleten stöder även inmatade från PowerShell-pipeline. Skicka utdata från `
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-Nästa steg är att publicera filen till Azure Blob Storage. Skriptet nedan innehåller en funktion som du kan använda för att automatisera den här uppgiften. Kommandona som används i `publish` funktionen kräver `Az.Storage` modulen.
+Nästa steg är att publicera filen till Azure Blob Storage.  Kommandot `Publish-GuestConfigurationPackage` kräver `Az.Storage` modulen.
 
 ```azurepowershell-interactive
-function publish {
-    param(
-    [Parameter(Mandatory=$true)]
-    $resourceGroup,
-    [Parameter(Mandatory=$true)]
-    $storageAccountName,
-    [Parameter(Mandatory=$true)]
-    $storageContainerName,
-    [Parameter(Mandatory=$true)]
-    $filePath,
-    [Parameter(Mandatory=$true)]
-    $blobName
-    )
-
-    # Get Storage Context
-    $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-        -Name $storageAccountName | `
-        ForEach-Object { $_.Context }
-
-    # Upload file
-    $Blob = Set-AzStorageBlobContent -Context $Context `
-        -Container $storageContainerName `
-        -File $filePath `
-        -Blob $blobName `
-        -Force
-
-    # Get url with SAS token
-    $StartTime = (Get-Date)
-    $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-    $SAS = New-AzStorageBlobSASToken -Context $Context `
-        -Container $storageContainerName `
-        -Blob $blobName `
-        -StartTime $StartTime `
-        -ExpiryTime $ExpiryTime `
-        -Permission rl `
-        -FullUri
-
-    # Output
-    return $SAS
-}
-
-# replace the $storageAccountName value below, it must be globally unique
-$resourceGroup        = 'policyfiles'
-$storageAccountName   = 'youraccountname'
-$storageContainerName = 'artifacts'
-
-$uri = publish `
-  -resourceGroup $resourceGroup `
-  -storageAccountName $storageAccountName `
-  -storageContainerName $storageContainerName `
-  -filePath ./AuditFilePathExists.zip `
-  -blobName 'AuditFilePathExists'
+Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName myResourceGroupName -StorageAccountName myStorageAccountName
 ```
+
 När ett anpassat princip paket för gäst konfiguration har skapats och överförts skapar du princip definitionen för gäst konfiguration. `New-GuestConfigurationPolicy`Cmdleten tar ett anpassat princip paket och skapar en princip definition.
 
 Parametrar för `New-GuestConfigurationPolicy` cmdleten:
 
-- **ContentUri**: offentlig http (s) URI för innehålls paketet för gäst konfiguration.
-- **DisplayName**: principens visnings namn.
-- **Beskrivning**: princip beskrivning.
-- **Parameter**: princip parametrar har angetts i hash-format.
-- **Version**: princip version.
-- **Sökväg**: mål Sök väg där princip definitioner skapas.
-- **Plattform**: mål plattform (Windows/Linux) för gäst konfigurations princip och innehålls paket.
+- **ContentUri** : offentlig http (s) URI för innehålls paketet för gäst konfiguration.
+- **DisplayName** : principens visnings namn.
+- **Beskrivning** : princip beskrivning.
+- **Parameter** : princip parametrar har angetts i hash-format.
+- **Version** : princip version.
+- **Sökväg** : mål Sök väg där princip definitioner skapas.
+- **Plattform** : mål plattform (Windows/Linux) för gäst konfigurations princip och innehålls paket.
 - **Tag** lägger till ett eller flera märkes filter i princip definitionen
 - **Kategori** anger fältet Kategori metadata i princip definitionen
 
@@ -280,14 +228,12 @@ New-GuestConfigurationPolicy `
 Följande filer skapas av `New-GuestConfigurationPolicy` :
 
 - **auditIfNotExists.jspå**
-- **deployIfNotExists.jspå**
-- **Initiative.jspå**
 
 Cmdlet-utdata returnerar ett objekt som innehåller initiativets visnings namn och sökväg.
 
 Publicera sedan princip definitionerna med hjälp av `Publish-GuestConfigurationPolicy` cmdleten. Cmdleten har bara **Sök vägs** parametern som pekar på platsen för de JSON-filer som skapas av `New-GuestConfigurationPolicy` .
 
-Om du vill köra kommandot Publicera måste du ha åtkomst till skapa principer i Azure. De särskilda kraven för auktorisering finns dokumenterade på sidan [Azure policy översikt](../overview.md) . Den bästa inbyggda rollen är **resurs princip deltagare**.
+Om du vill köra kommandot Publicera måste du ha åtkomst till skapa principer i Azure. De särskilda kraven för auktorisering finns dokumenterade på sidan [Azure policy översikt](../overview.md) . Den bästa inbyggda rollen är **resurs princip deltagare** .
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy `
@@ -305,25 +251,7 @@ Publish-GuestConfigurationPolicy `
  | Publish-GuestConfigurationPolicy
  ```
 
-När den här principen har skapats i Azure är det sista steget att tilldela initiativet. Se hur du tilldelar initiativet till [portalen](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md)och [Azure PowerShell](../assign-policy-powershell.md).
-
-> [!IMPORTANT]
-> Principer för gäst konfiguration måste **alltid** tilldelas med det initiativ som kombinerar principerna _AuditIfNotExists_ och _DeployIfNotExists_ . Om endast _AuditIfNotExists_ -principen tilldelas distribueras kraven och principen visar alltid att "0"-servrar är kompatibla.
-
-För att tilldela en princip definition med _DeployIfNotExists_ -effekter krävs ytterligare åtkomst nivå. Om du vill bevilja den lägsta behörigheten kan du skapa en anpassad roll definition som utökar **resurs princip deltagare**. Exemplet nedan skapar en roll med namnet **Resource policy CONTRIBUTOR DINE** med den ytterligare behörigheten _Microsoft. Authorization/roleAssignments/Write_.
-
-```azurepowershell-interactive
-$subscriptionid = '00000000-0000-0000-0000-000000000000'
-$role = Get-AzRoleDefinition "Resource Policy Contributor"
-$role.Id = $null
-$role.Name = "Resource Policy Contributor DINE"
-$role.Description = "Can assign Policies that require remediation."
-$role.Actions.Clear()
-$role.Actions.Add("Microsoft.Authorization/roleAssignments/write")
-$role.AssignableScopes.Clear()
-$role.AssignableScopes.Add("/subscriptions/$subscriptionid")
-New-AzRoleDefinition -Role $role
-```
+När den här principen har skapats i Azure är det sista steget att tilldela definitionen. Se hur du tilldelar definitionen med [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md)och [Azure PowerShell](../assign-policy-powershell.md).
 
 ### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Använda parametrar i anpassade gäst konfigurations principer
 
@@ -341,7 +269,7 @@ describe file(attr_path) do
 end
 ```
 
-Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **parameter**. Den här parametern tar en hash-mängd inklusive all information om varje parameter och skapar automatiskt alla nödvändiga avsnitt för de filer som används för att skapa varje Azure Policy definition.
+Cmdletarna `New-GuestConfigurationPolicy` och `Test-GuestConfigurationPolicyPackage` innehåller en parameter med namnet **parameter** . Den här parametern tar en hash-mängd inklusive all information om varje parameter och skapar automatiskt alla nödvändiga avsnitt för de filer som används för att skapa varje Azure Policy definition.
 
 I följande exempel skapas en princip definition för att granska en fil Sök väg där användaren anger sökvägen vid tidpunkten för princip tilldelningen.
 
@@ -391,8 +319,8 @@ Configuration AuditFilePathExists
 
 Om du vill frigöra en uppdatering till princip definitionen finns det två fält som kräver åtgärder.
 
-- **Version**: när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat. Egenskapen uppdaterar versionen av gäst konfigurations tilldelningen så att agenten identifierar det uppdaterade paketet.
-- **contentHash**: den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
+- **Version** : när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat. Egenskapen uppdaterar versionen av gäst konfigurations tilldelningen så att agenten identifierar det uppdaterade paketet.
+- **contentHash** : den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
 
 Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen som beskrivs i den här artikeln och ange ett uppdaterat versions nummer. Den processen garanterar att alla egenskaper har uppdaterats korrekt.
 
@@ -436,8 +364,8 @@ Om du vill använda funktionen för signaturverifiering kör du `Protect-GuestCo
 
 Parametrar för `Protect-GuestConfigurationPackage` cmdleten:
 
-- **Sökväg**: fullständig sökväg till gäst konfigurations paketet.
-- **PublicGpgKeyPath**: offentlig GPG-nyckel Sök väg. Den här parametern stöds bara när du signerar innehåll för Linux.
+- **Sökväg** : fullständig sökväg till gäst konfigurations paketet.
+- **PublicGpgKeyPath** : offentlig GPG-nyckel Sök väg. Den här parametern stöds bara när du signerar innehåll för Linux.
 
 En referens för att skapa GPG-nycklar som ska användas med Linux-datorer finns i en artikel på GitHub, vilket [genererar en ny GPG-nyckel](https://help.github.com/en/articles/generating-a-new-gpg-key).
 

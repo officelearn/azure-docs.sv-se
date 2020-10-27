@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
-ms.openlocfilehash: eadc976270888499be1ed01040cc4ff00632e8e4
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e2b106e64aed08b0586575d4d77602329454a673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142271"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536019"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Konfigurera IoT Hub fil överföringar med PowerShell
 
@@ -99,15 +99,15 @@ Nu kan du konfigurera din IoT Hub för att [Ladda upp filer till IoT Hub](iot-hu
 
 Konfigurationen kräver följande värden:
 
-* **Lagrings behållare**: en BLOB-behållare i ett Azure Storage-konto i din aktuella Azure-prenumeration som ska associeras med IoT-hubben. Du har hämtat den nödvändiga lagrings konto informationen i föregående avsnitt. IoT Hub skapar automatiskt SAS-URI: er med Skriv behörighet till den här BLOB-behållaren för enheter som ska användas när de laddar upp filer.
+* **Lagrings behållare** : en BLOB-behållare i ett Azure Storage-konto i din aktuella Azure-prenumeration som ska associeras med IoT-hubben. Du har hämtat den nödvändiga lagrings konto informationen i föregående avsnitt. IoT Hub skapar automatiskt SAS-URI: er med Skriv behörighet till den här BLOB-behållaren för enheter som ska användas när de laddar upp filer.
 
-* **Ta emot meddelanden om överförda filer**: Aktivera eller inaktivera meddelanden om fil uppladdning.
+* **Ta emot meddelanden om överförda filer** : Aktivera eller inaktivera meddelanden om fil uppladdning.
 
-* **SAS-TTL**: den här inställningen är TTL-värdet för de SAS-URI: er som returnerades till enheten med IoT Hub. Ange en timme som standard.
+* **SAS-TTL** : den här inställningen är TTL-värdet för de SAS-URI: er som returnerades till enheten med IoT Hub. Ange en timme som standard.
 
-* **Inställningar för fil meddelanden standard TTL: TTL-värde**för fil överföring innan det upphör att gälla. Ange en dag som standard.
+* **Inställningar för fil meddelanden standard TTL: TTL-värde** för fil överföring innan det upphör att gälla. Ange en dag som standard.
 
-* **Maximalt antal leveranser för fil meddelanden**: antalet gånger som IoT Hub försöker leverera ett meddelande om fil överföring. Ange till 10 som standard.
+* **Maximalt antal leveranser för fil meddelanden** : antalet gånger som IoT Hub försöker leverera ett meddelande om fil överföring. Ange till 10 som standard.
 
 Använd följande PowerShell-cmdlet för att konfigurera fil överförings inställningarna på din IoT-hubb:
 
@@ -130,8 +130,7 @@ Mer information om fil överförings funktionerna i IoT Hub finns i [överföra 
 Följ dessa länkar om du vill veta mer om hur du hanterar Azure-IoT Hub:
 
 * [Masshantera IoT-enheter](iot-hub-bulk-identity-mgmt.md)
-* [IoT Hub mått](iot-hub-metrics.md)
-* [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+* [Övervaka din IoT Hub](monitor-iot-hub.md)
 
 För att ytterligare utforska funktionerna i IoT Hub, se:
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: a5e4b8bbae67e32a5a0c951de583688836eb014b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426394"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547426"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Skydda och isolera Azure HDInsight-kluster med privat länk (förhands granskning)
 
@@ -25,7 +25,7 @@ Du kan skapa privata HDInsight-kluster genom att konfigurera vissa nätverks ege
 
 ## <a name="remove-public-ip-addresses"></a>Ta bort offentliga IP-adresser
 
-Som standard använder HDInsight RP en *inkommande* anslutning till klustret med hjälp av offentliga IP-adresser. När `resourceProviderConnection` nätverks egenskapen är inställd på *utgående*, återställer den anslutningarna till HDInsight RP så att anslutningarna alltid initieras inifrån klustret i RP. Utan en inkommande anslutning behöver inte inkommande tjänst etiketter eller offentliga IP-adresser.
+Som standard använder HDInsight RP en *inkommande* anslutning till klustret med hjälp av offentliga IP-adresser. När `resourceProviderConnection` nätverks egenskapen är inställd på *utgående* , återställer den anslutningarna till HDInsight RP så att anslutningarna alltid initieras inifrån klustret i RP. Utan en inkommande anslutning behöver inte inkommande tjänst etiketter eller offentliga IP-adresser.
 
 De grundläggande belastningsutjämnare som används i standard arkitekturen för virtuella nätverk tillhandahåller automatiskt offentliga NAT (Network Address Translation) för att få åtkomst till nödvändiga utgående beroenden, till exempel HDInsight RP. Om du vill begränsa utgående anslutning till det offentliga Internet kan du [Konfigurera en brand vägg](./hdinsight-restrict-outbound-traffic.md), men det är inget krav.
 
@@ -54,13 +54,13 @@ För att få åtkomst till klustret med hjälp av kluster-FQDN: er kan du anting
 
 Privat länk, som är inaktive rad som standard, kräver omfattande nätverks kunskaper för att konfigurera användardefinierade vägar (UDR) och brand Väggs regler korrekt innan du skapar ett kluster. Privat länk åtkomst till klustret är bara tillgänglig när `resourceProviderConnection` nätverks egenskapen är inställd på *utgående* enligt beskrivningen i föregående avsnitt.
 
-När `privateLink` är inställt på *Enable*skapas interna [standardload Balancer](../load-balancer/load-balancer-overview.md) (SLB) och en Azure Private Link-tjänst tillhandahålls för varje SLB. Med den privata länk tjänsten kan du komma åt HDInsight-klustret från privata slut punkter.
+När `privateLink` är inställt på *Enable* skapas interna [standardload Balancer](../load-balancer/load-balancer-overview.md) (SLB) och en Azure Private Link-tjänst tillhandahålls för varje SLB. Med den privata länk tjänsten kan du komma åt HDInsight-klustret från privata slut punkter.
 
-Standard belastnings utjämning ger inte automatiskt den [offentliga utgående NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) som grundläggande belastnings utjämning. Du måste ange en egen NAT-lösning, till exempel [Virtual Network NAT](../virtual-network/nat-overview.md) eller en [brand vägg](./hdinsight-restrict-outbound-traffic.md), för utgående beroenden. Ditt HDInsight-kluster behöver fortfarande åtkomst till dess utgående beroenden. Om dessa utgående beroenden inte är tillåtna kan skapandet av klustret Miss lyckas.
+Standard belastnings utjämning ger inte automatiskt den [offentliga utgående NAT](../load-balancer/load-balancer-outbound-connections.md) som grundläggande belastnings utjämning. Du måste ange en egen NAT-lösning, till exempel [Virtual Network NAT](../virtual-network/nat-overview.md) eller en [brand vägg](./hdinsight-restrict-outbound-traffic.md), för utgående beroenden. Ditt HDInsight-kluster behöver fortfarande åtkomst till dess utgående beroenden. Om dessa utgående beroenden inte är tillåtna kan skapandet av klustret Miss lyckas.
 
 ### <a name="prepare-your-environment"></a>Förbered din miljö
 
-För att successgfull ska kunna skapas måste du uttryckligen [inaktivera nätverks principer för tjänsten för privata länkar](https://docs.microsoft.com/azure/private-link/disable-private-link-service-network-policy).
+För att successgfull ska kunna skapas måste du uttryckligen [inaktivera nätverks principer för tjänsten för privata länkar](../private-link/disable-private-link-service-network-policy.md).
 
 Följande diagram visar ett exempel på den nätverks konfiguration som krävs innan du skapar ett kluster. I det här exemplet [tvingas](../firewall/forced-tunneling.md) all utgående trafik till Azure-brandväggen med hjälp av UDR och de nödvändiga utgående beroendena ska vara "tillåtna" i brand väggen innan ett kluster skapas. För Enterprise Security Package kluster kan nätverks anslutningen till Azure Active Directory Domain Services tillhandahållas av VNet-peering.
 

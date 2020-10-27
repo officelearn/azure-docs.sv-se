@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 334eaa88ae927ae61ebb445343494cfdce570563
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: b139e2f14379e0cd52ca72c347d49bcb4512c473
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167499"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542088"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>PostgreSQL huvud versioner som stöds i Azure Database for PostgreSQL-flexibel Server
 
@@ -30,7 +30,7 @@ Den aktuella del versionen är 11,9. Läs mer om förbättringar och korrigering
 
 ## <a name="postgresql-version-10-and-older"></a>PostgreSQL version 10 och äldre
 
-Vi stöder inte PostgreSQL version 10 och äldre för Azure Database for PostgreSQL-flexibel Server. Använd distributions alternativet för [enskild server](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) om du behöver äldre versioner.
+Vi stöder inte PostgreSQL version 10 och äldre för Azure Database for PostgreSQL-flexibel Server. Använd distributions alternativet för [enskild server](../concepts-supported-versions.md) om du behöver äldre versioner.
 
 ## <a name="managing-upgrades"></a>Hantera uppgraderingar
 

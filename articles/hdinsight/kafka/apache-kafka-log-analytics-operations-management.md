@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: 593d6861ee5913fffb25bfdea4829e1b1ce6ddc6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5128ac7608dfce08471f7a7f97ed28a7971e62b2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087409"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534455"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analysera loggar för Apache Kafka i HDInsight
 
@@ -25,7 +25,7 @@ Lär dig hur du använder Azure Monitor loggar för att analysera loggar som gen
 
 Apache Kafka loggar i klustret finns på `/var/log/kafka` . Kafka-loggar sparas eller bevaras inte över klustrets livs cykel, oavsett om hanterade diskar används. I följande tabell visas de tillgängliga loggarna.
 
-|Logga |Beskrivning |
+|Loggas |Beskrivning |
 |---|---|
 |Kafka. ut|STDOUT och stderr för Kafka-processen. Du hittar Kafka start-och avslutnings loggar i den här filen.|
 |Server. log|Huvud server loggen för Kafka. Alla Kafka Broker-loggar slutförs här.|
@@ -50,7 +50,7 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
 
 1. Välj arbets ytan Log Analytics från [Azure Portal](https://portal.azure.com).
 
-2. I den vänstra menyn under **Allmänt**väljer du **loggar**. Härifrån kan du söka i data som samlas in från Kafka. Ange en fråga i frågefönstret och välj sedan **Kör**. Följande är några exempel på sökningar:
+2. I den vänstra menyn under **Allmänt** väljer du **loggar** . Härifrån kan du söka i data som samlas in från Kafka. Ange en fråga i frågefönstret och välj sedan **Kör** . Följande är några exempel på sökningar:
 
 * Disk användning:
 
@@ -104,7 +104,7 @@ Stegen för att aktivera Azure Monitor loggar för HDInsight är desamma för al
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Monitor finns i [Azure Monitor översikt](../../log-analytics/log-analytics-get-started.md)och [fråga Azure Monitor loggar för att övervaka HDInsight-kluster](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
+Mer information om Azure Monitor finns i [Azure Monitor översikt](../../azure-monitor/overview.md)och [fråga Azure Monitor loggar för att övervaka HDInsight-kluster](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 
 Mer information om hur du arbetar med Apache Kafka finns i följande dokument:
 

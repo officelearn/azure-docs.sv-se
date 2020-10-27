@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 54109d5889ae2c08f444a3a089386d413bf4262b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9731455edf0afbe4c0768ae40a51316ac71ad94
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650195"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537583"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Distribuera en maskin inlärnings modell till Azure Functions med Azure cache för Redis 
 
@@ -24,10 +24,10 @@ Azure cache för Redis är mycket presterande och skalbart – när de kombinera
 >
 
 ## <a name="prerequisites"></a>Förutsättningar
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
-* En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) .
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
-* En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml) att träna och registrera en.
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
+* En Azure Machine Learning-arbetsyta. Mer information finns i artikeln [skapa en arbets yta](../machine-learning/how-to-manage-workspace.md) .
+* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* En utbildad Machine Learning-modell som registrerats i din arbets yta. Om du inte har någon modell använder du [själv studie kursen om bild klassificering: träna modell](../machine-learning/tutorial-train-models-with-aml.md) att träna och registrera en.
 
 > [!IMPORTANT]
 > Kodfragmenten i den här artikeln förutsätter att du har angett följande variabler:
@@ -36,14 +36,14 @@ Azure cache för Redis är mycket presterande och skalbart – när de kombinera
 > * `model` – Den registrerade modellen som ska distribueras.
 > * `inference_config` – Den här modellens konfigurations konfiguration.
 >
-> Mer information om hur du ställer in dessa variabler finns i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+> Mer information om hur du ställer in dessa variabler finns i [Distribuera modeller med Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Skapa en Azure Cache for Redis-instans 
 Du kommer att kunna distribuera en maskin inlärnings modell till Azure Functions med valfri cache-instans Basic, standard eller Premium. Följ dessa steg om du vill skapa en cache-instans.  
 
-1. Gå till Azure Portal start sida eller öppna menyn på panelen och välj sedan **skapa en resurs**. 
+1. Gå till Azure Portal start sida eller öppna menyn på panelen och välj sedan **skapa en resurs** . 
    
-1. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis**.
+1. Välj **databaser** på sidan **nytt** och välj sedan **Azure cache för Redis** .
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Välj Azure-cache för Redis.":::
    
@@ -51,7 +51,7 @@ Du kommer att kunna distribuera en maskin inlärnings modell till Azure Function
    
    | Inställning      | Föreslaget värde  | Beskrivning |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är * \<DNS name> . Redis.cache.Windows.net*. | 
+   | **DNS-namn** | Ange ett globalt unikt namn. | Cache-namnet måste vara en sträng mellan 1 och 63 tecken som bara innehåller siffror, bokstäver eller bindestreck. Namnet måste börja och sluta med en siffra eller en bokstav och får inte innehålla flera bindestreck i rad. Din cacheposts *värdnamn* är *\<DNS name> . Redis.cache.Windows.net* . | 
    | **Prenumeration** | List rutan och välj din prenumeration. | Den prenumeration som du vill skapa den här nya Azure-cache för Redis-instansen för. | 
    | **Resursgrupp** | List rutan och välj en resurs grupp, eller Välj **Skapa ny** och ange ett nytt resurs grupp namn. | Namnet på resurs gruppen där du vill skapa cachen och andra resurser. Genom att lägga till alla dina app-resurser i en resurs grupp kan du enkelt hantera eller ta bort dem tillsammans. | 
    | **Plats** | List rutan och välj en plats. | Välj en [region](https://azure.microsoft.com/regions/) nära andra tjänster som ska använda din cache. |
@@ -71,24 +71,24 @@ Du kommer att kunna distribuera en maskin inlärnings modell till Azure Function
 
 1. Alternativt går du till fliken **taggar** och anger namn och värde om du vill kategorisera resursen. 
 
-1. Välj **Granska + skapa**. Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
+1. Välj **Granska + skapa** . Du kommer till fliken Granska + skapa där Azure verifierar konfigurationen.
 
-1. När meddelandet grön verifiering har skickats visas väljer du **skapa**.
+1. När meddelandet grön verifiering har skickats visas väljer du **skapa** .
 
-Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts**sidan för Azure-cache för Redis   . När **statusen**   är **igång**är cacheminnet redo att användas. 
+Det tar en stund innan cacheminnet skulle skapas. Du kan övervaka förloppet på **översikts** sidan för Azure-cache för Redis. När **statusen** är **igång** är cacheminnet redo att användas. 
 
 ## <a name="prepare-for-deployment"></a>Förbereda för distribution
 
 Innan du distribuerar måste du definiera vad som behövs för att köra modellen som en webb tjänst. I följande lista beskrivs de kärn objekt som behövs för en-distribution:
 
-* Ett __Entry-skript__. Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
+* Ett __Entry-skript__ . Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
 
     > [!IMPORTANT]
     > Start skriptet är bara för din modell. den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
     >
     > Om begär ande data har ett format som inte kan användas av din modell kan skriptet omvandla det till ett acceptabelt format. Det kan också omvandla svaret innan det returneras till klienten.
     >
-    > Som standard behandlas indatatypen som text när de paketeras för funktioner. Om du är intresse rad av att använda rå byte för indata (till exempel för BLOB-utlösare) bör du använda [AMLRequest för att acceptera rå data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-advanced-entry-script#binary-data).
+    > Som standard behandlas indatatypen som text när de paketeras för funktioner. Om du är intresse rad av att använda rå byte för indata (till exempel för BLOB-utlösare) bör du använda [AMLRequest för att acceptera rå data](../machine-learning/how-to-deploy-advanced-entry-script.md#binary-data).
 
 Se till att den ansluter till en Redis-slutpunkt för att köra funktionen.
 
@@ -106,12 +106,12 @@ def init():
     model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 
-@input_schema('data', NumpyParameterType(input_sample))
+@input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
-        input = azrediscache.get(data)
-        result = model.predict(input)
+        input = azrediscache.get(data)
+        result = model.predict(input)
         data = np.array(json.loads(data))
         result = model.predict(data)
         # You can return any data type, as long as it is JSON serializable.
@@ -121,14 +121,14 @@ def run(data):
         return error
 ```
 
-Mer information om Entry-skript finns i [definiera bedömnings kod.](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-entry-script)
+Mer information om Entry-skript finns i [definiera bedömnings kod.](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-entry-script)
 
-* **Beroenden**, till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
+* **Beroenden** , till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
 
-Dessa entiteter kapslas in i en konfiguration för en __härledning__. Inferenskonfigurationen refererar till startskriptet och andra beroenden.
+Dessa entiteter kapslas in i en konfiguration för en __härledning__ . Inferenskonfigurationen refererar till startskriptet och andra beroenden.
 
 > [!IMPORTANT]
-> När du skapar en konfigurations konfiguration för användning med Azure Functions måste du använda ett [miljö](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) objekt. Observera att om du definierar en anpassad miljö måste du lägga till azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande exempel visas hur du skapar ett miljö objekt och använder det med en konfigurations konfiguration:
+> När du skapar en konfigurations konfiguration för användning med Azure Functions måste du använda ett [miljö](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) objekt. Observera att om du definierar en anpassad miljö måste du lägga till azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande exempel visas hur du skapar ett miljö objekt och använder det med en konfigurations konfiguration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -144,12 +144,12 @@ Dessa entiteter kapslas in i en konfiguration för en __härledning__. Inferensk
 > inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 > ```
 
-Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments).
+Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](../machine-learning/how-to-use-environments.md).
 
-Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where?tabs=python#define-an-inference-configuration).
+Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md?tabs=python#define-an-inference-configuration).
 
 > [!IMPORTANT]
-> När du distribuerar till Functions behöver du inte skapa en __distributions konfiguration__.
+> När du distribuerar till Functions behöver du inte skapa en __distributions konfiguration__ .
 
 ## <a name="install-the-sdk-preview-package-for-functions-support"></a>Installera SDK Preview-paketet för functions-stöd
 
@@ -161,10 +161,10 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Om du vill skapa Docker-avbildningen som distribueras till Azure Functions använder du [azureml. contrib. functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) eller funktionen Package för den utlösare som du är intresse rad av. Följande kodfragment visar hur du skapar ett nytt paket med en HTTP-utlösare från modellen och konfigurationen för konfigurations härledning:
+Om du vill skapa Docker-avbildningen som distribueras till Azure Functions använder du [azureml. contrib. functions. Package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) eller funktionen Package för den utlösare som du är intresse rad av. Följande kodfragment visar hur du skapar ett nytt paket med en HTTP-utlösare från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
-> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att den `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att den `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -178,7 +178,7 @@ print(model_package.location)
 När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` .
 
 > [!NOTE]
-> Paketering för functions stöder HTTP-utlösare, BLOB-utlösare och Service Bus-utlösare Mer information om utlösare finns i [Azure Functions-bindningar](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
+> Paketering för functions stöder HTTP-utlösare, BLOB-utlösare och Service Bus-utlösare Mer information om utlösare finns i [Azure Functions-bindningar](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
 
 > [!IMPORTANT]
 > Spara plats informationen som används när avbildningen distribueras.
@@ -209,7 +209,7 @@ När `show_output=True` visas utdata från Docker-build-processen. När processe
     }
     ```
 
-    Spara värdet för __användar namn__ och ett av __lösen orden__.
+    Spara värdet för __användar namn__ och ett av __lösen orden__ .
 
 1. Om du inte redan har en resurs grupp eller App Service-plan för att distribuera tjänsten visar följande kommandon hur du skapar båda:
 
@@ -288,7 +288,7 @@ I det här läget börjar Function-appen läsa in avbildningen.
 Vi kommer nu att köra och testa vår Azure-funktion HTTP-utlösare.
 
 1. Gå till Azure Function-appen i Azure Portal.
-1. Välj **kod + test**under utvecklare. 
+1. Välj **kod + test** under utvecklare. 
 1. Välj fliken **inmatare** till höger. 
 1. Klicka på knappen **Kör** för att testa Azure-funktionens http-utlösare. 
 
@@ -305,18 +305,17 @@ Annars, om du är klar med snabb starten, kan du ta bort de Azure-resurser som d
 
 ### <a name="to-delete-a-resource-group"></a>Ta bort en resursgrupp
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper** .
 
-2. Skriv namnet på din resursgrupp i rutan **Filtrera efter namn...**. På din resursgrupp i resultatlistan väljer du **...** och sedan **Ta bort resursgrupp**.
+2. Skriv namnet på din resursgrupp i rutan **Filtrera efter namn...** . På din resursgrupp i resultatlistan väljer du **...** och sedan **Ta bort resursgrupp** .
 
-Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och välj sedan **Ta bort**.
+Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och välj sedan **Ta bort** .
 
 Efter en liten stund tas resursgruppen och de resurser som finns i den bort.
 
 ## <a name="next-steps"></a>Nästa steg 
 
-* Läs mer om [Azure cache för Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-overview)
-* Lär dig att konfigurera Functions-appen i [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) -dokumentationen.
-* [API-referens](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) 
-* Skapa en [python-app som använder Azure cache för Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-python-get-started)
-
+* Läs mer om [Azure cache för Redis](./cache-overview.md)
+* Lär dig att konfigurera Functions-appen i [Functions](../azure-functions/functions-create-function-linux-custom-image.md) -dokumentationen.
+* [API-referens](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
+* Skapa en [python-app som använder Azure cache för Redis](./cache-python-get-started.md)

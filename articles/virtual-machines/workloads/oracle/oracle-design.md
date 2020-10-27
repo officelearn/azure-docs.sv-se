@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: kegorman
 ms.reviewer: cynthn
-ms.openlocfilehash: 9ccf7ddb44a25ec123f13b5d7b6cdb5354b63778
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9bfd2330f71b9690e2864968cf51cb438bb23676
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996641"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534081"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Utforma och implementera en Oracle-databas i Azure
 
@@ -101,11 +101,11 @@ En sak som du kan titta på är de fem främsta förgrundade händelserna som vi
 
 I följande diagram är till exempel logg fils synkronisering överst. Det anger det antal väntande vänte tid som krävs innan LGWR skriver till logg filen för att göra om-logg filen. Dessa resultat visar att det krävs bättre lagring eller diskar. Dessutom visar diagrammet också antalet processor kärnor (kärnor) och mängden minne.
 
-![Skärm bild av rapport sidan för AWR](./media/oracle-design/cpu_memory_info.png)
+![Skärm bild som visar logg fils synkroniseringen överst i tabellen.](./media/oracle-design/cpu_memory_info.png)
 
 Följande diagram visar det totala I/O för Läs-och skriv åtgärder. Det fanns 59 GB läst och 247,3 GB som skrevs under rapportens tid.
 
-![Skärm bild av rapport sidan för AWR](./media/oracle-design/io_info.png)
+![Skärm bild som visar det totala I/O för läsning och skrivning.](./media/oracle-design/io_info.png)
 
 #### <a name="2-choose-a-vm"></a>2. Välj en virtuell dator
 
@@ -143,13 +143,13 @@ Utifrån dina krav på nätverks bandbredd finns det olika typer av gatewayer so
 
 ### <a name="disk-types-and-configurations"></a>Disk typer och konfigurationer
 
-- *Standard operativ system diskar*: dessa disk typer erbjuder beständiga data och cachelagring. De är optimerade för åtkomst till operativ systemet vid start och har inte utformats för antingen transaktions-eller informations lager (analytiska) arbets belastningar.
+- *Standard operativ system diskar* : dessa disk typer erbjuder beständiga data och cachelagring. De är optimerade för åtkomst till operativ systemet vid start och har inte utformats för antingen transaktions-eller informations lager (analytiska) arbets belastningar.
 
-- *Ohanterade diskar*: med dessa disk typer hanterar du de lagrings konton som lagrar den virtuella hård disk filen (VHD) som motsvarar dina virtuella dator diskar. VHD-filer lagras som Page blobbar i Azure Storage-konton.
+- *Ohanterade diskar* : med dessa disk typer hanterar du de lagrings konton som lagrar den virtuella hård disk filen (VHD) som motsvarar dina virtuella dator diskar. VHD-filer lagras som Page blobbar i Azure Storage-konton.
 
-- *Hanterade diskar*: Azure hanterar de lagrings konton som du använder för dina virtuella dator diskar. Du anger disk typen (Premium eller standard) och storleken på den disk som du behöver. Azure skapar och hanterar disken åt dig.
+- *Hanterade diskar* : Azure hanterar de lagrings konton som du använder för dina virtuella dator diskar. Du anger disk typen (Premium eller standard) och storleken på den disk som du behöver. Azure skapar och hanterar disken åt dig.
 
-- *Premium Storage-diskar*: dessa disk typer passar bäst för produktions arbets belastningar. Premium Storage stöder VM-diskar som kan kopplas till vissa virtuella datorer i storleks serien, till exempel DS, DSv2, GS och F-seriens virtuella datorer. Premium-disken har olika storlekar och du kan välja mellan diskar som sträcker sig från 32 GB till 4 096 GB. Varje disk storlek har sina egna prestanda krav. Beroende på dina program krav kan du koppla en eller flera diskar till den virtuella datorn.
+- *Premium Storage-diskar* : dessa disk typer passar bäst för produktions arbets belastningar. Premium Storage stöder VM-diskar som kan kopplas till vissa virtuella datorer i storleks serien, till exempel DS, DSv2, GS och F-seriens virtuella datorer. Premium-disken har olika storlekar och du kan välja mellan diskar som sträcker sig från 32 GB till 4 096 GB. Varje disk storlek har sina egna prestanda krav. Beroende på dina program krav kan du koppla en eller flera diskar till den virtuella datorn.
 
 När du skapar en ny hanterad disk från portalen kan du välja **konto typen** för den typ av disk som du vill använda. Tänk på att inte alla tillgängliga diskar visas på den nedrullningsbara menyn. När du har valt en viss VM-storlek visar menyn endast de tillgängliga Premium Storage-SKU: erna som baseras på den virtuella dator storleken.
 
@@ -186,9 +186,9 @@ När du har en tydlig bild av I/O-kraven kan du välja en kombination av enheter
 
 Det finns tre alternativ för cachelagring av värdar:
 
-- *ReadOnly*: alla begär Anden cachelagras för framtida läsningar. Alla skrivningar sparas direkt i Azure Blob Storage.
+- *ReadOnly* : alla begär Anden cachelagras för framtida läsningar. Alla skrivningar sparas direkt i Azure Blob Storage.
 
-- *Readwrite*: det här är en "Read-Ahead"-algoritm. Läsningarna och skrivningarna cachelagras för framtida läsningar. Skrivningar som inte skrivs över sparas i det lokala cacheminnet först. Den ger också den lägsta disk fördröjningen för lätta arbets belastningar. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
+- *Readwrite* : det här är en "Read-Ahead"-algoritm. Läsningarna och skrivningarna cachelagras för framtida läsningar. Skrivningar som inte skrivs över sparas i det lokala cacheminnet först. Den ger också den lägsta disk fördröjningen för lätta arbets belastningar. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
 
 - *Ingen* (inaktive rad): med det här alternativet kan du kringgå cacheminnet. Alla data överförs till disk och sparas i Azure Storage. Med den här metoden får du det högsta I/O-priset för I/O-intensiva arbets belastningar. Du måste också ta med "transaktions kostnader".
 
@@ -196,7 +196,7 @@ Det finns tre alternativ för cachelagring av värdar:
 
 För att maximera data flödet rekommenderar vi att du börjar med **ingen** för cachelagring av värden. Tänk på att du måste inaktivera "barriärer" när du monterar fil systemet med alternativen **ReadOnly** eller **ingen** för Premium Storage. Uppdatera/etc/fstab-filen med UUID: n till diskarna.
 
-![Skärm bild av sidan hanterad disk](./media/oracle-design/premium_disk02.png)
+![Skärm bild av sidan hanterad disk som visar alternativen ReadOnly och ingen.](./media/oracle-design/premium_disk02.png)
 
 - Använd standardcachelagring för **läsning och skrivning** för OS-diskar.
 - För SYSTEM, TEMP och ångra Använd **ingen** för cachelagring.
@@ -208,9 +208,9 @@ När din datadisk-inställning har sparats kan du inte ändra inställningen fö
 
 När du har konfigurerat och konfigurerat Azure-miljön är nästa steg att skydda nätverket. Här följer några rekommendationer:
 
-- *NSG-princip*: NSG kan definieras av ett undernät eller ett nätverkskort. Det är enklare att kontrol lera åtkomst på under näts nivån, både för säkerhet och tvinga framning av saker som program brand väggar.
+- *NSG-princip* : NSG kan definieras av ett undernät eller ett nätverkskort. Det är enklare att kontrol lera åtkomst på under näts nivån, både för säkerhet och tvinga framning av saker som program brand väggar.
 
-- *Hopp*: för säkrare åtkomst bör administratörer inte ansluta direkt till program tjänsten eller databasen. En hoppning används som ett medium mellan administratörs datorn och Azure-resurserna.
+- *Hopp* : för säkrare åtkomst bör administratörer inte ansluta direkt till program tjänsten eller databasen. En hoppning används som ett medium mellan administratörs datorn och Azure-resurserna.
 ![Skärm bild av sidan för bygel-topologin](./media/oracle-design/jumpbox.png)
 
     Administratörs datorn ska endast erbjuda IP-begränsad åtkomst till hoppet. Hoppet ska ha åtkomst till programmet och databasen.

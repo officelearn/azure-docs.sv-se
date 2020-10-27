@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 09/25/2019
-ms.openlocfilehash: 0dbab7db45a9f97db48bbf97aba55b5943f623a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09a568f7cd0b8efaed4ee5210dde4000ca472529
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282450"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546797"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Självstudie: Migrera MongoDB till Azure Cosmos DB s API för MongoDB online med DMS
 
@@ -44,7 +44,7 @@ I den här självstudien migrerar du en data uppsättning i MongoDB som finns p�
 
 I den här artikeln beskrivs en onlinemigrering från MongoDB till Azure Cosmos DB:s API för MongoDB. Läs mer i [Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS](tutorial-mongodb-cosmos-db.md) om offlinemigrering.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här kursen behöver du:
 
@@ -67,25 +67,25 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrera resursprovidern Microsoft.DataMigration
 
-1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer**.
+1. Logga in på Azure Portal och välj **Alla tjänster** och sedan **Prenumerationer** .
 
    ![Visa portalprenumerationer](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
 
-2. Välj den prenumeration där du vill skapa instansen av Azure Database Migration Service och välj sedan **resurs leverantörer**.
+2. Välj den prenumeration där du vill skapa instansen av Azure Database Migration Service och välj sedan **resurs leverantörer** .
 
     ![Visa resursprovidrar](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
 
-3. Sök efter migrering och välj sedan **Registrera**till höger om **Microsoft. data migration**.
+3. Sök efter migrering och välj sedan **Registrera** till höger om **Microsoft. data migration** .
 
     ![Registrera resursprovider](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Skapa en instans
 
-1. I Azure Portal väljer du + **Skapa en resurs**, söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Service** i listrutan.
+1. I Azure Portal väljer du + **Skapa en resurs** , söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Service** i listrutan.
 
     ![Azure Marketplace](media/tutorial-mongodb-to-cosmosdb-online/portal-marketplace.png)
 
-2. På sidan **Azure Database Migration Service** väljer du **Skapa**.
+2. På sidan **Azure Database Migration Service** väljer du **Skapa** .
 
     ![Skapa Azure Database Migration Service-instans](media/tutorial-mongodb-to-cosmosdb-online/dms-create1.png)
   
@@ -112,7 +112,7 @@ För att slutföra den här kursen behöver du:
 
 När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och skapar sedan ett nytt migreringsprojekt.
 
-1. I Azure Portal väljer du **Alla tjänster**, söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Services**.
+1. I Azure Portal väljer du **Alla tjänster** , söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Services** .
 
     ![Hitta alla instanser av Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb-online/dms-search.png)
 
@@ -122,9 +122,9 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
     ![Använda sökrutan i Azure-portalen](media/tutorial-mongodb-to-cosmosdb-online/dms-search-portal.png)
 
-3. Välj + **Nytt migreringsprojekt**.
+3. Välj + **Nytt migreringsprojekt** .
 
-4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet. I textrutan **Typ av källserver** väljer du **MongoDB**, i textrutan **Målservertyp** väljer du **CosmosDB (MongoDB API)** och i **Välj typ av aktivitet** väljer du sedan **Online-datamigrering (förhandsversion)**.
+4. På sidan **Nytt migreringsprojekt** anger du namnet på projektet. I textrutan **Typ av källserver** väljer du **MongoDB** , i textrutan **Målservertyp** väljer du **CosmosDB (MongoDB API)** och i **Välj typ av aktivitet** väljer du sedan **Online-datamigrering (förhandsversion)** .
 
     ![Skapa ett Database Migration Service-projekt](media/tutorial-mongodb-to-cosmosdb-online/dms-create-project1.png)
 
@@ -150,9 +150,9 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
      Tänk också på följande när du använder information om typ dump i Azure Storage:
 
-     * För BSON-dumpar måste data i blob-containern vara i bsondump-format, så att datafilerna placeras i mappar som namnges efter de innehållande databaserna i formatet collection.bson. Metadatafiler (om sådana finns) bör namnges med formatet *samling*.metadata.json.
+     * För BSON-dumpar måste data i blob-containern vara i bsondump-format, så att datafilerna placeras i mappar som namnges efter de innehållande databaserna i formatet collection.bson. Metadatafiler (om sådana finns) bör namnges med formatet *samling* .metadata.json.
 
-     * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling*.json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling*.json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
+     * För JSON-dumpar måste filerna i blob-containern placeras i mappar som namnges efter de innehållande databaserna. I varje databasmapp måste datafiler placeras i en undermapp som heter ”data” och namnges med formatet *samling* .json. Metadatafiler (om sådana finns) måste placeras i en undermapp som heter ”metadata” och namnges med samma format, *samling* .json. Metadatafilerna måste vara i samma format som det som skapas av verktyget MongoDB bsondump.
 
     > [!IMPORTANT]
     > Det rekommenderas inte att använda ett självsignerat certifikat på Mongo-servern. Om ett sådant används måste du dock ansluta till servern med **anslutnings sträng läge** och se till att anslutnings strängen har ""
@@ -165,7 +165,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
    ![Ange källinformation](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 
-2. Välj **Spara**.
+2. Välj **Spara** .
 
    > [!NOTE]
    > Källserveradressen ska vara den primära adressen om källan är en replikuppsättning och routern om källan är ett delat MongoDB-kluster. Azure Database Migration Service måste kunna ansluta till enskilda shards i klustret, vilket kan kräva att brandväggen öppnas på flera datorer vid ett fragmenterat MongoDB-kluster.
@@ -176,7 +176,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
     ![Ange målinformation](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-target1.png)
 
-2. Välj **Spara**.
+2. Välj **Spara** .
 
 ## <a name="map-to-target-databases"></a>Mappa till måldatabaser
 
@@ -190,7 +190,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
    ![Mappa till måldatabaser](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 
-2. Välj **Spara**.
+2. Välj **Spara** .
 
 3. På skärmen **Mängdinställning** expanderar du samlingslistan och granskar sedan listan över de samlingar som ska migreras.
 
@@ -205,15 +205,15 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
    ![Välja tabeller för samlingar](media/tutorial-mongodb-to-cosmosdb-online/dms-collection-setting1.png)
 
-4. Välj **Spara**.
+4. Välj **Spara** .
 
-5. På sidan **Migreringssammanfattning**, i textrutan **Aktivitetsnamn** anger du ett namn på migreringsaktiviteten.
+5. På sidan **Migreringssammanfattning** , i textrutan **Aktivitetsnamn** anger du ett namn på migreringsaktiviteten.
 
     ![Migreringssammanfattning](media/tutorial-mongodb-to-cosmosdb-online/dms-migration-summary1.png)
 
 ## <a name="run-the-migration"></a>Köra migreringen
 
-* Välj **Kör migrering**.
+* Välj **Kör migrering** .
 
    Migreringsaktivitetsfönstret öppnas och **Status** för aktiviteten visas.
 
@@ -221,7 +221,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="monitor-the-migration"></a>Övervaka migreringen
 
-* På migreringsaktivitetssidan väljer du **Uppdatera** för att uppdatera visningen tills **Status** för migreringen är **Spelar upp igen**.
+* På migreringsaktivitetssidan väljer du **Uppdatera** för att uppdatera visningen tills **Status** för migreringen är **Spelar upp igen** .
 
    > [!NOTE]
    > Du kan välja Aktivitet för att få information om databasens och samlingsnivåns migreringsmått.
@@ -233,7 +233,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 1. Gör ändringar i din källdatabas för MongoDB.
 2. Anslut till COSMOS DB för att kontrollera om data replikeras från källservern för MongoDB.
 
-    ![Aktivitetsstatusen spelas upp igen](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
+    ![Skärm bild som visar var du kan kontrol lera att data har repliker ATS.](media/tutorial-mongodb-to-cosmosdb-online/dms-verify-data.png)
 
 ## <a name="complete-the-migration"></a>Slutföra migreringen
 
@@ -241,7 +241,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
     Åtgärden spelar upp alla väntande ändringar igen och slutför migreringen.
 
-    ![Aktivitetsstatusen spelas upp igen](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
+    ![Skärm bild som visar meny alternativet Slutför.](media/tutorial-mongodb-to-cosmosdb-online/dms-finish-migration.png)
 
 ## <a name="post-migration-optimization"></a>Optimering efter migrering
 

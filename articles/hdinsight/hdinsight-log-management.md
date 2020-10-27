@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 95472d53045e23741286188da004eb649570a965
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c2aa33ac9e92f6763c0d89f0a049409c1a6a4049
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487236"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546032"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Hantera loggar för ett HDInsight-kluster
 
@@ -77,11 +77,11 @@ Ett typiskt HDInsight-kluster använder flera tjänster och program varu paket m
 
 Apache Ambari fören klar hanteringen, konfigurationen och övervakningen av ett HDInsight-kluster genom att tillhandahålla ett webb gränssnitt och en REST API. Ambari ingår i Linux-baserade HDInsight-kluster. Välj rutan **kluster instrument panel** på sidan Azure Portal HDInsight för att öppna länk sidan **kluster instrument paneler** .  Välj sedan fönstret **instrument panel för HDInsight-kluster** för att öppna AMBARI-användargränssnittet.  Du uppmanas att ange dina autentiseringsuppgifter för ditt kluster inloggnings konto.
 
-Öppna en lista över tjänstevyer genom att välja fönstret **Ambari vyer** på sidan Azure Portal för HDInsight.  Den här listan varierar beroende på vilka bibliotek som du har installerat.  Du kan till exempel se garn Queue Manager, Hive och Tez vy.  Välj en tjänst länk om du vill visa information om konfigurationen och tjänsten.  Sidan Ambari UI **stack och version** innehåller information om konfigurations historiken för kluster tjänster och tjänster. Om du vill navigera till det här avsnittet i Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan **stackar och versioner**.  Välj fliken **versioner** för att se information om tjänst version.
+Öppna en lista över tjänstevyer genom att välja fönstret **Ambari vyer** på sidan Azure Portal för HDInsight.  Den här listan varierar beroende på vilka bibliotek som du har installerat.  Du kan till exempel se garn Queue Manager, Hive och Tez vy.  Välj en tjänst länk om du vill visa information om konfigurationen och tjänsten.  Sidan Ambari UI **stack och version** innehåller information om konfigurations historiken för kluster tjänster och tjänster. Om du vill navigera till det här avsnittet i Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan **stackar och versioner** .  Välj fliken **versioner** för att se information om tjänst version.
 
 ![Apache Ambari admin stack och versioner](./media/hdinsight-log-management/ambari-stack-versions.png)
 
-Med hjälp av användar gränssnittet för Ambari kan du ladda ned konfigurationen för alla (eller alla) tjänster som körs på en viss värd (eller nod) i klustret.  Välj menyn **värdar** och sedan länken för värden av intresse. På värddatorns sida väljer du knappen **värd åtgärder** och **laddar ned klient konfigurationerna**.
+Med hjälp av användar gränssnittet för Ambari kan du ladda ned konfigurationen för alla (eller alla) tjänster som körs på en viss värd (eller nod) i klustret.  Välj menyn **värdar** och sedan länken för värden av intresse. På värddatorns sida väljer du knappen **värd åtgärder** och **laddar ned klient konfigurationerna** .
 
 ![Apache Ambari Ladda ned värd klient konfigurationerna](./media/hdinsight-log-management/download-client-configs.png)
 
@@ -109,7 +109,7 @@ Nästa steg är att granska loggfilerna för jobb körning för de olika tjänst
 
 ### <a name="access-the-hadoop-log-files"></a>Komma åt Hadoop-loggfilerna
 
-HDInsight lagrar loggfilerna både i kluster fil systemet och i Azure Storage. Du kan granska loggfilerna i klustret genom att öppna en [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) -anslutning till klustret och bläddra i fil systemet, eller genom att använda status portalen för HADOOP-garn på servern för fjärrhead-noden. Du kan granska loggfilerna i Azure Storage med något av de verktyg som kan komma åt och hämta data från Azure Storage. Exempel är [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)och Visual Studio-Server Explorer. Du kan också använda PowerShell och Azure Storage klient bibliotek eller Azure .NET-SDK: er för att komma åt data i Azure Blob Storage.
+HDInsight lagrar loggfilerna både i kluster fil systemet och i Azure Storage. Du kan granska loggfilerna i klustret genom att öppna en [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) -anslutning till klustret och bläddra i fil systemet, eller genom att använda status portalen för HADOOP-garn på servern för fjärrhead-noden. Du kan granska loggfilerna i Azure Storage med något av de verktyg som kan komma åt och hämta data från Azure Storage. Exempel är [AzCopy](../storage/common/storage-use-azcopy-v10.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer)och Visual Studio-Server Explorer. Du kan också använda PowerShell och Azure Storage klient bibliotek eller Azure .NET-SDK: er för att komma åt data i Azure Blob Storage.
 
 Hadoop kör jobbet för jobben som *aktivitets försök* på olika noder i klustret. HDInsight kan initiera spekulativa uppgifts försök och avsluta alla andra uppgifts försök som inte slutförs först. Detta genererar betydande aktivitet som är loggad till Controller-, stderr-och syslog-loggfilerna i farten. Dessutom körs flera aktivitets försök samtidigt, men en loggfil kan bara visa resultat linjärt.
 
@@ -144,13 +144,13 @@ Användar gränssnittet för garn-ResourceManager körs på kluster huvud noden 
 
 1. Gå till `https://CLUSTERNAME.azurehdinsight.net` i en webbläsare. Ersätt KLUSTERNAMN med namnet på ditt HDInsight-kluster.
 2. I listan över tjänster till vänster väljer du garn.
-3. I list rutan snabb länkar väljer du en av klustrets huvud-noder och väljer sedan **ResourceManager-loggar**. En lista med länkar till garn loggar visas.
+3. I list rutan snabb länkar väljer du en av klustrets huvud-noder och väljer sedan **ResourceManager-loggar** . En lista med länkar till garn loggar visas.
 
 ## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>Steg 4: beräkna logg volymens lagrings storlek och kostnader
 
 När du har slutfört föregående steg har du en förståelse för de typer och volymer av loggfiler som dina HDInsight-kluster tillverkar.
 
-Därefter analyserar du volymen av loggdata i nyckel logg lagrings platser under en viss tids period. Du kan till exempel analysera volym och tillväxt över 30-60-90-dagars perioder.  Registrera den här informationen i ett kalkyl blad eller Använd andra verktyg som Visual Studio, Azure Storage Explorer eller Power Query för Excel. Mer information finns i [analysera HDInsight-loggar](hdinsight-debug-jobs.md).  
+Därefter analyserar du volymen av loggdata i nyckel logg lagrings platser under en viss tids period. Du kan till exempel analysera volym och tillväxt över 30-60-90-dagars perioder.  Registrera den här informationen i ett kalkyl blad eller Använd andra verktyg som Visual Studio, Azure Storage Explorer eller Power Query för Excel. ```
 
 Nu har du tillräckligt med information för att skapa en logg hanterings strategi för nyckel loggarna.  Använd ditt kalkyl blad (eller valfritt verktyg) om du vill beräkna storleks ökningen och logg lagringen för Azure-tjänster i loggen.  Överväg även eventuella krav för logg kvarhållning för den uppsättning loggar som du undersöker.  Nu kan du omberäkna framtida logg lagrings kostnader efter att du har fastställt vilka loggfiler som kan tas bort (om det finns några) och vilka loggar som ska behållas och arkiveras för billigare Azure Storage.
 
@@ -186,6 +186,6 @@ Om du vill samla in loggar från alla noder till en central plats kan du skapa e
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Övervaknings-och loggnings praxis för HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
+* [Övervaknings-och loggnings praxis för HDInsight](/previous-versions/msp-n-p/dn749790(v=pandp.10))
 * [Åtkomst Apache Hadoop garn program loggar i Linux-baserade HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Så här kontrollerar du storleken på loggfiler för olika Apache Hadoop-komponenter](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

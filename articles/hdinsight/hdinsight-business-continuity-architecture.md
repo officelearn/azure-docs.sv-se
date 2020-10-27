@@ -8,12 +8,12 @@ keywords: Hadoop hög tillgänglighet
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: c2c5e5d0dc90f8f41882f6a63497a197cd74f0ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c322380d6a41e69baa8f753b84c0bc074f334647
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207588"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547035"
 ---
 # <a name="azure-hdinsight-business-continuity-architectures"></a>Azure HDInsight affärs kontinuitets arkitekturer
 
@@ -54,11 +54,11 @@ I en *aktiv primär klient med sekundär arkitektur på begäran* , skriver prog
 
 #### <a name="hive-active-primary-with-standby-secondary"></a>Hive aktiv primär med sekundär vänte läge
 
-I en *aktiv primär med sekundär vänte läge*kan program skriva till den aktiva primära regionen medan ett vänte läge som skalas ned sekundärt kluster i skrivskyddat läge körs under normal drift. Under normal drift kan du välja att avlasta regions information läs åtgärder till sekundär.
+I en *aktiv primär med sekundär vänte läge* kan program skriva till den aktiva primära regionen medan ett vänte läge som skalas ned sekundärt kluster i skrivskyddat läge körs under normal drift. Under normal drift kan du välja att avlasta regions information läs åtgärder till sekundär.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="Arkitektur för Hive och interaktiv fråga":::
 
-Mer information om Hive-replikering och kod exempel hittar [Apache Hive replikering i Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
+Mer information om Hive-replikering och kod exempel hittar [Apache Hive replikering i Azure HDInsight-kluster](./interactive-query/apache-hive-replication.md)
 
 ## <a name="apache-spark"></a>Apache Spark
 
@@ -97,7 +97,7 @@ Program har Läs-och Skriv behörighet till Spark-och Hive-kluster i den primär
 
 HBase-export och HBase-replikering är vanliga sätt att aktivera affärs kontinuitet mellan HDInsight HBase-kluster.
 
-HBase-export är en batch-replikeringsrelation som använder export verktyget HBase för att exportera tabeller från det primära HBase-klustret till dess underliggande Azure Data Lake Storage gen 2-lagring. Exporterade data kan sedan nås från det sekundära HBase-klustret och importeras till tabeller som måste finnas i den sekundära. Medan HBase export erbjuder granularitet på tabell nivå, i stegvisa uppdaterings situationer, styr export automatiserings motorn intervallet av stegvisa rader som ska inkluderas i varje körning. Mer information finns i [säkerhets kopiering och replikering av HDInsight-HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#export-then-import).
+HBase-export är en batch-replikeringsrelation som använder export verktyget HBase för att exportera tabeller från det primära HBase-klustret till dess underliggande Azure Data Lake Storage gen 2-lagring. Exporterade data kan sedan nås från det sekundära HBase-klustret och importeras till tabeller som måste finnas i den sekundära. Medan HBase export erbjuder granularitet på tabell nivå, i stegvisa uppdaterings situationer, styr export automatiserings motorn intervallet av stegvisa rader som ska inkluderas i varje körning. Mer information finns i [säkerhets kopiering och replikering av HDInsight-HBase](./hbase/apache-hbase-backup-replication.md#export-then-import).
 
 HBase-replikering använder nära real tids replikering mellan HBase-kluster på ett helt automatiserat sätt. Replikeringen görs på tabell nivå. Antingen alla tabeller eller specifika tabeller kan vara riktade till replikering. HBase-replikeringen är till slut konsekvent, vilket innebär att de senaste ändringarna i en tabell i den primära regionen inte är tillgängliga för alla sekundära zoner omedelbart. Sekundära zoner är garanterat att de blir konsekventa med den primära. HBase-replikering kan konfigureras mellan två eller flera HDInsight HBase-kluster om:
 
@@ -105,9 +105,9 @@ HBase-replikering använder nära real tids replikering mellan HBase-kluster på
 * Primär och sekundär finns i olika peer-virtuella nätverk i samma region.
 * Primär och sekundär finns i olika peer-virtuella nätverk i olika regioner.
 
-Mer information finns i [Konfigurera Apache HBase Cluster Replication i Azure Virtual Networks](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-replication).
+Mer information finns i [Konfigurera Apache HBase Cluster Replication i Azure Virtual Networks](./hbase/apache-hbase-replication.md).
 
-Det finns några andra sätt att säkerhetskopiera HBase-kluster, t. ex. [Kopiera mappen HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-the-hbase-folder), [Kopiera tabeller](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#copy-tables) och [ögonblicks bilder](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-backup-replication#snapshots).
+Det finns några andra sätt att säkerhetskopiera HBase-kluster, t. ex. [Kopiera mappen HBase](./hbase/apache-hbase-backup-replication.md#copy-the-hbase-folder), [Kopiera tabeller](./hbase/apache-hbase-backup-replication.md#copy-tables) och [ögonblicks bilder](./hbase/apache-hbase-backup-replication.md#snapshots).
 
 ### <a name="hbase-rpo--rto"></a>HBase & RTO
 
@@ -147,7 +147,7 @@ Modellen för flera regioner/cykliska replikeringar är en utökning av HBase-re
 
 ## <a name="apache-kafka"></a>Apache Kafka
 
-Om du vill aktivera tillgänglighet mellan regioner HDInsight 4,0 stöder Kafka-MirrorMaker som kan användas för att underhålla en sekundär replik av det primära Kafka-klustret i en annan region. MirrorMaker fungerar som ett högnivå konsument-och producent par, använder sig av ett särskilt ämne i det primära klustret och genererar till ett ämne med samma namn i den sekundära. Replikering mellan kluster för haveri beredskap med hög tillgänglighet med hjälp av MirrorMaker medföljer antagandet att producenter och konsumenter måste redundansväxla till replik klustret. Mer information finns i [använda MirrorMaker för att replikera Apache Kafka ämnen med Kafka på HDInsight](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-mirroring)
+Om du vill aktivera tillgänglighet mellan regioner HDInsight 4,0 stöder Kafka-MirrorMaker som kan användas för att underhålla en sekundär replik av det primära Kafka-klustret i en annan region. MirrorMaker fungerar som ett högnivå konsument-och producent par, använder sig av ett särskilt ämne i det primära klustret och genererar till ett ämne med samma namn i den sekundära. Replikering mellan kluster för haveri beredskap med hög tillgänglighet med hjälp av MirrorMaker medföljer antagandet att producenter och konsumenter måste redundansväxla till replik klustret. Mer information finns i [använda MirrorMaker för att replikera Apache Kafka ämnen med Kafka på HDInsight](./kafka/apache-kafka-mirroring.md)
 
 Beroende på ämnets livs längd när replikeringen startades kan MirrorMaker-ämnes replikering leda till olika förskjutningar mellan käll-och replik ämnen. HDInsight Kafka-kluster stöder även avsnitt partition replikering som är en funktion för hög tillgänglighet på den enskilda kluster nivån.
 
@@ -192,7 +192,7 @@ Nackdelar:
 
 ## <a name="hdinsight-enterprise-security-package"></a>HDInsight-Enterprise Security Package
 
-Den här inställningen används för att aktivera funktioner för flera användare i både primär och sekundär, samt för [Azure AD DS-repliker](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-replica-set) för att säkerställa att användarna kan autentisera till båda klustren. Vid normal drift måste Ranger-principer konfigureras i den sekundära för att säkerställa att användarna är begränsade till Läs åtgärder. I nedanstående arkitektur förklaras hur en ESP aktive rad Hive-aktiv primär uppsättning kan se ut.
+Den här inställningen används för att aktivera funktioner för flera användare i både primär och sekundär, samt för [Azure AD DS-repliker](../active-directory-domain-services/tutorial-create-replica-set.md) för att säkerställa att användarna kan autentisera till båda klustren. Vid normal drift måste Ranger-principer konfigureras i den sekundära för att säkerställa att användarna är begränsade till Läs åtgärder. I nedanstående arkitektur förklaras hur en ESP aktive rad Hive-aktiv primär uppsättning kan se ut.
 
 Ranger Metaarkiv-replikering:
 

@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/11/2017
-ms.openlocfilehash: e780ef0b82240ac6771059f8bd239b90395135d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 332233873bfbcb2ae77f5a70b4aaa5a6102cecec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213341"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537855"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure Cache for Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner. När en cache har skapats kan du skala storlek och pris nivå för cachen om kraven för ditt program ändras. Den här artikeln visar hur du skalar cacheminnet med hjälp av Azure Portal och verktyg som Azure PowerShell och Azure CLI.
@@ -30,11 +30,11 @@ Du kan övervaka följande mått för att hjälpa dig att avgöra om du behöver
 Om du fastställer att cachen inte längre uppfyller programmets krav kan du skala till en större eller mindre cache-pris nivå som passar ditt program. Mer information om hur du avgör vilken pris nivå för cache som ska användas finns i [välja rätt nivå](cache-overview.md#choosing-the-right-tier).
 
 ## <a name="scale-a-cache"></a>Skala en cache
-Om du vill skala cacheminnet [bläddrar du till cachen](cache-configure.md#configure-azure-cache-for-redis-settings) i [Azure Portal](https://portal.azure.com) och klickar på **skala** på **resurs-menyn**.
+Om du vill skala cacheminnet [bläddrar du till cachen](cache-configure.md#configure-azure-cache-for-redis-settings) i [Azure Portal](https://portal.azure.com) och klickar på **skala** på **resurs-menyn** .
 
 ![Skala](./media/cache-how-to-scale/redis-cache-scale-menu.png)
 
-Välj önskad pris nivå på bladet **Välj pris nivå** och klicka på **Välj**.
+Välj önskad pris nivå på bladet **Välj pris nivå** och klicka på **Välj** .
 
 ![Prisnivå][redis-cache-pricing-tier-blade]
 
@@ -52,7 +52,7 @@ Medan cachen skalas till den nya pris nivån visas en **skalnings** status i bla
 
 ![Skalning][redis-cache-scaling]
 
-När skalningen är klar ändras statusen från **skalning** till **körs**.
+När skalningen är klar ändras statusen från **skalning** till **körs** .
 
 ## <a name="how-to-automate-a-scaling-operation"></a>Automatisera en skalnings åtgärd
 Förutom att skala dina cache-instanser i Azure Portal kan du skala med hjälp av PowerShell-cmdletar, Azure CLI och med hjälp av Microsoft Azure hanterings bibliotek (MAML). 
@@ -65,7 +65,7 @@ Förutom att skala dina cache-instanser i Azure Portal kan du skala med hjälp a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan skala Azure-cachen för Redis-instanser med PowerShell genom att använda cmdleten [set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) när `Size` `Sku` egenskaperna,, eller `ShardCount` ändras. I följande exempel visas hur du skalar en cache med namnet `myCache` till en 2,5 GB-cache. 
+Du kan skala Azure-cachen för Redis-instanser med PowerShell genom att använda cmdleten [set-AzRedisCache](/powershell/module/az.rediscache/set-azrediscache) när `Size` `Sku` egenskaperna,, eller `ShardCount` ändras. I följande exempel visas hur du skalar en cache med namnet `myCache` till en 2,5 GB-cache. 
 
 ```powershell
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
@@ -174,7 +174,7 @@ Om en skalnings åtgärd Miss lyckas försöker tjänsten återställa åtgärde
 Skalnings tiden beror på hur mycket data som finns i cacheminnet, med större mängder data som tar längre tid att slutföra. Skalning tar cirka 20 minuter. För klustrade cacheminnen tar skalning cirka 20 minuter per Shard.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Hur kan jag se när skalningen är klar?
-I Azure Portal kan du se att skalnings åtgärden pågår. När skalningen är klar ändras statusen för cachen till **körs**.
+I Azure Portal kan du se att skalnings åtgärden pågår. När skalningen är klar ändras statusen för cachen till **körs** .
 
 <!-- IMAGES -->
 

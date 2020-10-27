@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.custom: mvc
-ms.openlocfilehash: b0c0fd1b540251b5a7dfefde5fc33adb2813bb8e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 75d76c64c10bf3ecc28c32452618048119bb9a59
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490075"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547630"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-flexible-server-using-azure-cli"></a>Snabb start: skapa en Azure Database for PostgreSQL flexibel server med Azure CLI
 
-Den här snabb starten visar hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) -kommandon i [Azure Cloud Shell](https://shell.azure.com) för att skapa en Azure Database for PostgreSQL flexibel server på fem minuter. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Den här snabb starten visar hur du använder [Azure CLI](/cli/azure/get-started-with-azure-cli) -kommandon i [Azure Cloud Shell](https://shell.azure.com) för att skapa en Azure Database for PostgreSQL flexibel server på fem minuter. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!IMPORTANT] 
 > Azure Database for PostgreSQL flexibel Server är för närvarande en för hands version.
@@ -46,7 +46,7 @@ az account set --subscription <subscription id>
 
 ## <a name="create-a-flexible-server"></a>Skapa en flexibel server
 
-Skapa en [Azure-resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) med `az group create` kommandot och skapa sedan din postgresql-flexibla server i den här resurs gruppen. Du bör ange ett unikt namn. I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
+Skapa en [Azure-resurs grupp](../../azure-resource-manager/management/overview.md) med `az group create` kommandot och skapa sedan din postgresql-flexibla server i den här resurs gruppen. Du bör ange ett unikt namn. I följande exempel skapas en resursgrupp med namnet `myresourcegroup` på platsen `westus`.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
@@ -79,7 +79,7 @@ För att ansluta till servern måste du ange värddatorinformationen och autenti
 az postgres flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **administratorLogin**.
+Resultatet är i JSON-format. Anteckna **fullyQualifiedDomainName** och **administratorLogin** .
 
 <!--FIXME-->
 ```json

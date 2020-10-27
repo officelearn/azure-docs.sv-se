@@ -63,6 +63,7 @@
           href: protect-with-drm.md
         - name: Innehållsskydd med Azure Active Directory
           href: azure-ad-content-protection.md
+          displayName: 'AAD, Active Directory'
     - name: REST
       items:
         - name: Koda och strömma en fjärrfil – REST
@@ -129,8 +130,8 @@
         - name: Översikt
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyze, analyzing, presets, jobs'
-        - name: Transformeringar och jobb
-          href: transforms-jobs-concept.md
+    - name: Transformeringar och jobb
+      href: transforms-jobs-concept.md
     - name: Liveuppspelning
       items:
         - name: Översikt
@@ -265,6 +266,8 @@
       items:
         - name: Skapa transformeringar
           href: cli-create-transform.md
+        - name: Skapa en grundläggande ljudomvandling med REST
+          href: how-to-create-basic-audio-transform.md
         - name: Skapa jobb
           href: cli-create-jobs.md
         - name: Skapa jobbindata med en lokal fil och .NET

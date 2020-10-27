@@ -1,18 +1,18 @@
 ---
 title: Anslut och fråga – PostgreSQL för en server
-description: Länkar till Azure mina SQL Database snabb starter som visar hur du ansluter till servern och kör frågor.
+description: Länkar till snabb starter som visar hur du ansluter till din Azure Database for PostgreSQL enskild server och kör frågor.
 services: postgresql
 ms.service: postgresql
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
-ms.openlocfilehash: 5c6d6a51887d2912da8d6b4e357a1036596d63d5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490024"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546559"
 ---
 # <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Ansluta och fråga översikt för Azure Database for PostgreSQL – en server
 
@@ -33,13 +33,12 @@ Följande dokument innehåller länkar till exempel som visar hur du ansluter oc
 |[Python](connect-python.md)|Den här snabb starten visar hur du använder python för att ansluta till en databas och hur du använder arbeta med databas objekt för att fråga efter data. |
 |[Ruby](connect-ruby.md)|Den här snabb starten visar hur du använder ruby för att skapa ett program för att ansluta till en databas och använda arbeta med databas objekt för att fråga efter data.|
 
-
 ## <a name="tls-considerations-for-database-connectivity"></a>TLS-överväganden för databas anslutning
 
-Transport Layer Security (TLS) används av alla driv rutiner som Microsoft tillhandahåller eller stöder för att ansluta till databaser i Azure Database for PostgreSQL. Ingen särskild konfiguration krävs, men Använd TLS 1,2 för nyligen skapade servrar. Vi rekommenderar att du använder TLS 1,0 och 1,1 för att uppdatera TLS-versionen för dina servrar. Se [ så här konfigurerar du TLS](howto-tls-configurations.md)
-
+Transport Layer Security (TLS) används av alla driv rutiner som Microsoft tillhandahåller eller stöder för att ansluta till databaser i Azure Database for PostgreSQL. Ingen särskild konfiguration krävs, men Använd TLS 1,2 för nyligen skapade servrar. Vi rekommenderar att du använder TLS 1,0 och 1,1 för att uppdatera TLS-versionen för dina servrar. Se [så här konfigurerar du TLS](howto-tls-configurations.md)
 
 ## <a name="postgresql-extensions"></a>PostgreSQL-tillägg
+
 PostgreSQL ger möjlighet att utöka funktionerna i databasen med hjälp av tillägg. Tillägg samlar flera SQL-objekt i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. När tilläggen har lästs in i databasen fungerar de som inbyggda funktioner.
 
 - [Postgres 11-tillägg](./concepts-extensions.md#postgres-11-extensions)
@@ -49,7 +48,7 @@ PostgreSQL ger möjlighet att utöka funktionerna i databasen med hjälp av till
 
 Mer information finns i [så här använder du postgresql-tillägg på en enskild server](concepts-extensions.md).
 
-## <a name="next-steps"></a>Efterföljande moment 
+## <a name="next-steps"></a>Nästa steg
 
 - [Migrera data med dumpa och Återställ](howto-migrate-using-dump-and-restore.md)
 - [Migrera data med import och export](howto-migrate-using-export-and-import.md)

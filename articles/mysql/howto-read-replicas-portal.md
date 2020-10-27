@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: 6b097aa0adb39e1576e8771bbae8707348351a82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63ce078cc80b856fe09f3d2bbad1c6e96615eae8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91740130"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546814"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for MySQL med hjälp av Azure Portal
 
@@ -35,9 +35,9 @@ Du kan skapa en Läs replik server med följande steg:
 
 2. Välj den befintliga Azure Database for MySQL-server som du vill använda som huvud server. Den här åtgärden öppnar **översikts** sidan.
 
-3. Välj **replikering** på menyn under **Inställningar**.
+3. Välj **replikering** på menyn under **Inställningar** .
 
-4. Välj **Lägg till replik**.
+4. Välj **Lägg till replik** .
 
    :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Azure Database for MySQL-replikering":::
 
@@ -55,7 +55,7 @@ Du kan skapa en Läs replik server med följande steg:
 7. Bekräfta skapandet av repliken genom att klicka på **OK** .
 
 > [!NOTE]
-> Läs repliker skapas med samma server konfiguration som huvud servern. Replik Server konfigurationen kan ändras efter att den har skapats. Replik servern skapas alltid i samma resurs grupp och samma prenumeration som käll servern. Om du vill skapa en replik server till en annan resurs grupp eller en annan prenumeration kan du [Flytta replik servern](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) när du har skapat den. Vi rekommenderar att replik serverns konfiguration måste vara lika med eller större värden än källan för att säkerställa att repliken kan hållas kvar med huvud servern.
+> Läs repliker skapas med samma server konfiguration som huvud servern. Replik Server konfigurationen kan ändras efter att den har skapats. Replik servern skapas alltid i samma resurs grupp och samma prenumeration som käll servern. Om du vill skapa en replik server till en annan resurs grupp eller en annan prenumeration kan du [Flytta replik servern](../azure-resource-manager/management/move-resource-group-and-subscription.md) när du har skapat den. Vi rekommenderar att replik serverns konfiguration måste vara lika med eller större värden än källan för att säkerställa att repliken kan hållas kvar med huvud servern.
 
 När replik servern har skapats kan den visas från bladet **replikering** .
 
@@ -70,17 +70,17 @@ Använd följande steg för att stoppa replikeringen mellan en källa och en rep
 
 1. I Azure Portal väljer du käll Azure Database for MySQL server. 
 
-2. Välj **replikering** på menyn under **Inställningar**.
+2. Välj **replikering** på menyn under **Inställningar** .
 
 3. Välj den replik server som du vill stoppa replikering för.
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Azure Database for MySQL-replikering":::
 
-4. Välj **stoppa replikering**.
+4. Välj **stoppa replikering** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Azure Database for MySQL-replikering":::
 
-5. Bekräfta att du vill stoppa replikeringen genom att klicka på **OK**.
+5. Bekräfta att du vill stoppa replikeringen genom att klicka på **OK** .
 
    :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Azure Database for MySQL-replikering":::
 
@@ -90,7 +90,7 @@ Gör så här om du vill ta bort en Läs replik Server från Azure Portal:
 
 1. I Azure Portal väljer du käll Azure Database for MySQL server.
 
-2. Välj **replikering** på menyn under **Inställningar**.
+2. Välj **replikering** på menyn under **Inställningar** .
 
 3. Välj den replik server som du vill ta bort.
 
@@ -113,7 +113,7 @@ Gör så här om du vill ta bort en käll Server från Azure Portal:
 
 1. I Azure Portal väljer du käll Azure Database for MySQL server.
 
-2. Välj **ta bort**i **översikten**.
+2. Välj **ta bort** i **översikten** .
 
    :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Azure Database for MySQL-replikering":::
 
@@ -125,7 +125,7 @@ Gör så här om du vill ta bort en käll Server från Azure Portal:
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du den replik Azure Database for MySQLs server som du vill övervaka.
 
-2. Under avsnittet **övervakning** på sid panelen väljer du **mått**:
+2. Under avsnittet **övervakning** på sid panelen väljer du **mått** :
 
 3. Välj **replikeringsfördröjning i sekunder** från List rutan med tillgängliga mått.
 

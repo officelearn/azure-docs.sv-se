@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 616e3e6c37faa3c085b8531173b557973e09fbf8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0c14e5537385b7518fd08d9d3599993bc6d82f88
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974574"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535509"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Viktig information om Azure HDInsight
 
@@ -32,11 +32,11 @@ Den här versionen gäller både HDInsight 3,6 och HDInsight 4,0. HDInsight-vers
 HDInsight har nu stöd för att skapa kluster utan offentlig IP och privat länk till kluster i för hands versionen. Kunder kan använda de nya avancerade nätverks inställningarna för att skapa ett fullständigt isolerat kluster utan offentlig IP och använda sina egna privata slut punkter för att få åtkomst till klustret. 
 
 ### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Flytta till skalnings uppsättningar för virtuella Azure-datorer
-HDInsight använder nu virtuella Azure-datorer för att etablera klustret. Från och med den här versionen migrerar tjänsten gradvis till [skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Hela processen kan ta månader. När dina regioner och prenumerationer migreras, kommer nyligen skapade HDInsight-kluster att köras på virtuella datorers skalnings uppsättningar utan kund åtgärder. Ingen avbrytande ändring förväntas.
+HDInsight använder nu virtuella Azure-datorer för att etablera klustret. Från och med den här versionen migrerar tjänsten gradvis till [skalnings uppsättningar för virtuella Azure-datorer](../virtual-machine-scale-sets/overview.md). Hela processen kan ta månader. När dina regioner och prenumerationer migreras, kommer nyligen skapade HDInsight-kluster att köras på virtuella datorers skalnings uppsättningar utan kund åtgärder. Ingen avbrytande ändring förväntas.
 
 ## <a name="deprecation"></a>Utfasning
 #### <a name="deprecation-of-hdinsight-36-ml-services-cluster"></a>Utfasning av HDInsight 3,6 ML Services-kluster
-HDInsight 3,6 ML-kluster typ upphör att fungera med dec 31 2020. Kunder skapar inga nya 3,6 ML-kluster efter detta. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Kontrol lera att support upphör för HDInsight-versioner och kluster typer [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions).
+HDInsight 3,6 ML-kluster typ upphör att fungera med dec 31 2020. Kunder skapar inga nya 3,6 ML-kluster efter detta. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Kontrol lera att support upphör för HDInsight-versioner och kluster typer [här](./hdinsight-component-versioning.md#available-versions).
 
 ## <a name="behavior-changes"></a>Beteende ändringar
 Ingen beteende ändring för den här versionen.
@@ -51,4 +51,4 @@ HDInsight idag stöder inte anpassning av Zookeeper Node-storlek för Spark-, Ha
 HDInsight fortsätter att göra kluster tillförlitlighet och prestanda förbättringar. 
 
 ## <a name="component-version-change"></a>Komponent versions ändring
-Ingen komponent versions ändring för den här versionen. Du hittar de aktuella komponent versionerna för HDInsight 4,0 och HDInsight 3,6 i [det här dokumentet](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
+Ingen komponent versions ändring för den här versionen. Du hittar de aktuella komponent versionerna för HDInsight 4,0 och HDInsight 3,6 i [det här dokumentet](./hdinsight-component-versioning.md).

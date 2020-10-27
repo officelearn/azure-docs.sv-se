@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcc0faa8fdbd61ab3e3e0886256f7c796e5a98e2
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308392"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534693"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3,6 Hive-arbetsbelastningar till HDInsight 4,0
 
@@ -39,7 +39,7 @@ Skapa en ny kopia av din externa metaarkiv. Om du använder en extern metaarkiv 
 ### <a name="3-upgrade-metastore-schema"></a>3. uppgradera metaarkiv-schemat
 När metaarkiv- **kopieringen** är klar kör du ett skript för schema uppgradering i [skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md) på det befintliga HDInsight 3,6-klustret för att uppgradera det nya metaarkiv till Hive 3-schemat. (Det här steget kräver inte att den nya metaarkiv är ansluten till ett kluster.) Detta gör att databasen kan anslutas som HDInsight 4,0 metaarkiv.
 
-Använd värdena i tabellen nedan. Ersätt `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` med lämpliga värden för Hive-metaarkiv **kopian**, avgränsade med blank steg. Ta inte med ". database.windows.net" när du anger SQL Server-namnet.
+Använd värdena i tabellen nedan. Ersätt `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` med lämpliga värden för Hive-metaarkiv **kopian** , avgränsade med blank steg. Ta inte med ". database.windows.net" när du anger SQL Server-namnet.
 
 |Egenskap | Värde |
 |---|---|
@@ -117,7 +117,7 @@ HDInsight 3,6-och 4,0-klustren måste använda samma lagrings konto.
 
 1. Anslut till HDInsight 3,6-klustret med hjälp av en [SSH-klient (Secure Shell)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Från den öppna SSH-sessionen laddar du ned följande skript fil för att skapa en fil med namnet **alltables. HQL**.
+1. Från den öppna SSH-sessionen laddar du ned följande skript fil för att skapa en fil med namnet **alltables. HQL** .
 
     ```bash
     wget https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/exporthive_hdi_3_6.sh
@@ -208,7 +208,7 @@ När du har bekräftat att versionen är slutförd och fullt fungerande kan du t
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Frågekörningen i HDInsight-versioner
 
-Det finns två sätt att köra och felsöka Hive/LLAP-frågor i ett HDInsight 3,6-kluster. HiveCLI tillhandahåller en kommando rad upplevelse och [vyn Tez View/Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) innehåller ett GUI-baserat arbets flöde.
+Det finns två sätt att köra och felsöka Hive/LLAP-frågor i ett HDInsight 3,6-kluster. HiveCLI tillhandahåller en kommando rad upplevelse och [vyn Tez View/Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md) innehåller ett GUI-baserat arbets flöde.
 
 I HDInsight 4,0 har HiveCLI ersatts med Beeline. Vyn Tez View/Hive innehåller ett GUI-baserat arbets flöde. HiveCLI är en Thrift-klient för Hiveserver 1 och Beeline är en JDBC-klient som ger åtkomst till Hiveserver 2. Beeline kan också användas för att ansluta till en annan JDBC-kompatibel databas slut punkt. Beeline är tillgängligt i HDInsight 4,0 utan någon installation.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/24/2019
-ms.openlocfilehash: 327a8a0de0d144a5c1d8494a6dd22a8b89a7bd93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 013eb8215064173e002aea23043bc2e9ba92b525
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081057"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545250"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>Kör Apache Hive frågor med PowerShell
 
@@ -28,7 +28,7 @@ Det här dokumentet innehåller ett exempel på hur du använder Azure PowerShel
 
 * Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* PowerShell- [modulen för AZ](https://docs.microsoft.com/powershell/azure/) är installerad.
+* PowerShell- [modulen för AZ](/powershell/azure/) är installerad.
 
 ## <a name="run-a-hive-query"></a>Köra en Hive-fråga
 
@@ -84,7 +84,7 @@ Följande steg visar hur du använder dessa cmdlets för att köra ett jobb i HD
    >
    > `Invoke-AzHDInsightHiveJob -File "wasbs://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > Mer information om **här – strängar**finns i <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">använda Windows PowerShell här – strängar</a>.
+   > Mer information om **här – strängar** finns [här – strängar](/powershell/module/microsoft.powershell.core/about/about_quoting_rules#here-strings).
 
 ## <a name="troubleshooting"></a>Felsökning
 

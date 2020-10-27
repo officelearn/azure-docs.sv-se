@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 02/05/2020
-ms.openlocfilehash: b5b8c014a7150ad83875b9fd361c3538d865d153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5834d3512c95e77e6ce45472ff8f2e1b4b2ed456
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064157"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545590"
 ---
 # <a name="safely-manage-jar-dependencies"></a>Hantera Jar-beroenden säkert
 
@@ -79,6 +79,6 @@ Sedan kan du köra `sbt clean` och `sbt assembly` skapa den skuggade jar-filen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda HDInsight IntelliJ-verktyg](https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox)
+* [Använda HDInsight IntelliJ-verktyg](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
 
-* [Skapa ett Scala maven-program för Spark i IntelliJ](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-create-standalone-application)
+* [Skapa ett Scala maven-program för Spark i IntelliJ](./apache-spark-create-standalone-application.md)

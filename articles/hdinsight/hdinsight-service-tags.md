@@ -7,16 +7,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/11/2020
-ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a90bc6636dcb3aa81f09b0489850c1a95b3256d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89399964"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535254"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>NSG service-taggar för Azure HDInsight
 
-Azure HDInsight Service-taggar för nätverks säkerhets grupper (NSG: er) är grupper med IP-adresser för hälso-och hanterings tjänster. Dessa grupper bidrar till att minimera komplexiteten vid skapande av säkerhets regler. [Service Taggar](../virtual-network/security-overview.md#service-tags) tillåter inkommande trafik från vissa IP-adresser utan att ange var och en av [hanterings-IP-adresserna](hdinsight-management-ip-addresses.md) i din NSG: er.
+Azure HDInsight Service-taggar för nätverks säkerhets grupper (NSG: er) är grupper med IP-adresser för hälso-och hanterings tjänster. Dessa grupper bidrar till att minimera komplexiteten vid skapande av säkerhets regler. [Service Taggar](../virtual-network/network-security-groups-overview.md#service-tags) tillåter inkommande trafik från vissa IP-adresser utan att ange var och en av [hanterings-IP-adresserna](hdinsight-management-ip-addresses.md) i din NSG: er.
 
 HDInsight-tjänsten hanterar dessa service märken. Du kan inte skapa en egen service tag eller ändra en befintlig tagg. Microsoft hanterar de adressprefix som matchar tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
 
@@ -26,9 +26,9 @@ Om du vill använda en viss region och service tag-numret inte har dokumenterats
 
 Du har två alternativ för att använda tjänst Taggar i dina nätverks säkerhets grupper:
 
-- **Använd en enda global HDInsight-Service tag**: det här alternativet öppnar det virtuella nätverket för alla IP-adresser som HDInsight-tjänsten använder för att övervaka kluster i alla regioner. Det här alternativet är den enklaste metoden, men det kanske inte är lämpligt om du har begränsade säkerhets krav.
+- **Använd en enda global HDInsight-Service tag** : det här alternativet öppnar det virtuella nätverket för alla IP-adresser som HDInsight-tjänsten använder för att övervaka kluster i alla regioner. Det här alternativet är den enklaste metoden, men det kanske inte är lämpligt om du har begränsade säkerhets krav.
 
-- **Använd flera regionala service Taggar**: med det här alternativet öppnas det virtuella nätverket till de IP-adresser som HDInsight använder i den aktuella regionen. Om du använder flera regioner måste du dock lägga till flera service märken i det virtuella nätverket.
+- **Använd flera regionala service Taggar** : med det här alternativet öppnas det virtuella nätverket till de IP-adresser som HDInsight använder i den aktuella regionen. Om du använder flera regioner måste du dock lägga till flera service märken i det virtuella nätverket.
 
 ## <a name="use-a-single-global-hdinsight-service-tag"></a>Använd en enda global HDInsight Service-tagg
 
@@ -36,11 +36,11 @@ Det enklaste sättet att börja använda service märken med ditt HDInsight-klus
 
 1. Välj din nätverks säkerhets grupp från [Azure Portal](https://portal.azure.com/).
 
-1. Under **Inställningar**väljer du **inkommande säkerhets regler**och väljer sedan **+ Lägg till**.
+1. Under **Inställningar** väljer du **inkommande säkerhets regler** och väljer sedan **+ Lägg till** .
 
-1. I list rutan **källa** väljer du **service tag**.
+1. I list rutan **källa** väljer du **service tag** .
 
-1. I list rutan **käll tjänst tag** väljer du **HDInsight**.
+1. I list rutan **käll tjänst tag** väljer du **HDInsight** .
 
     ![Lägg till en service tag från Azure Portal](./media/hdinsight-service-tags/azure-portal-add-service-tag.png)
 
@@ -125,5 +125,5 @@ Kluster i regionerna i Tyskland, *centrala* och *Tyskland nordöstra* måste til
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Nätverks säkerhets grupper: service Taggar](../virtual-network/security-overview.md#security-rules)
+- [Nätverks säkerhets grupper: service Taggar](../virtual-network/network-security-groups-overview.md#security-rules)
 - [Skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md)

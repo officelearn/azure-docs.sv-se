@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: c8cb91aa0c7ce1610320d4107db282d3c34407ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 673a76417739fa59a91979cca7c6807a584868f0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81758720"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538263"
 ---
 # <a name="404104-deviceconnectionclosedremotely"></a>404104 DeviceConnectionClosedRemotely
 
@@ -24,15 +24,15 @@ I den här artikeln beskrivs orsaker och lösningar för **404104 DeviceConnecti
 
 ### <a name="symptom-1"></a>Symptom 1
 
-Enheterna kopplar från med jämna mellanrum (till exempel en gång i 65 minuter) och du ser **404104 DeviceConnectionClosedRemotely** i IoT Hub diagnostikloggar. Ibland kan du också se **401003 IoTHubUnauthorized** och en lyckad enhets anslutnings händelse som är mindre än en minut senare.
+Enheterna kopplar från med jämna mellanrum (till exempel en gång i 65 minuter) och du ser **404104 DeviceConnectionClosedRemotely** i IoT Hub resurs loggar. Ibland kan du också se **401003 IoTHubUnauthorized** och en lyckad enhets anslutnings händelse som är mindre än en minut senare.
 
 ### <a name="symptom-2"></a>Symptom 2
 
-Enheterna kopplar bort slumpmässigt och du ser **404104 DeviceConnectionClosedRemotely** i IoT Hub diagnostikloggar.
+Enheterna kopplar bort slumpmässigt och du ser **404104 DeviceConnectionClosedRemotely** i IoT Hub resurs loggar.
 
 ### <a name="symptom-3"></a>Symptom 3
 
-Många enheter kopplas från samtidigt visas en DIP i [måttet anslutna enheter](iot-hub-metrics.md)och det finns fler **404104-DeviceConnectionClosedRemotely** och [500xxx internt fel](iot-hub-troubleshoot-error-500xxx-internal-errors.md) i diagnostikloggar än vanligt.
+Många enheter kopplas från samtidigt visas en DIP i [connectedDeviceCount-måttet (Connected Devices)](monitor-iot-hub-reference.md)och det finns fler **404104-DeviceConnectionClosedRemotely** och [500Xxx internt fel](iot-hub-troubleshoot-error-500xxx-internal-errors.md) i Azure Monitor loggar än vanligt.
 
 ## <a name="causes"></a>Orsaker
 

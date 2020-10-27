@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/30/2020
-ms.openlocfilehash: 62a34a2dba459c6f65729cd5c6804378ee7f8b52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74aa0bf84c19b9d663b92d529604c08bf5800c45
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902765"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92544859"
 ---
 # <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Använda sys_schema för prestanda justering och databas underhåll i Azure Database for MySQL
 
@@ -29,7 +29,7 @@ Det finns 52 vyer i sys_schema och varje vy har en av följande prefix:
 - Användare: resurser förbrukade och grupperade efter användare. Exempel är fil-I/o, anslutningar och minne.
 - Vänta: vänta händelser grupperade efter värd eller användare.
 
-Nu ska vi titta på några vanliga användnings mönster för sys_schema. För att börja med ska vi gruppera användnings mönstren i två kategorier: **prestanda justering** och **databas underhåll**.
+Nu ska vi titta på några vanliga användnings mönster för sys_schema. För att börja med ska vi gruppera användnings mönstren i två kategorier: **prestanda justering** och **databas underhåll** .
 
 ## <a name="performance-tuning"></a>Prestandajustering
 
@@ -83,4 +83,4 @@ Index är fantastiska verktyg för att förbättra Läs prestanda, men de medfö
 I sammanfattning är sys_schema ett utmärkt verktyg för både prestanda justering och databas underhåll. Se till att dra nytta av den här funktionen i din Azure Database for MySQL. 
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill hitta peer-svar på dina mest aktuella frågor eller publicera en ny fråga/svar kan du besöka [Microsoft Q&en fråge sida](https://docs.microsoft.com/answers/topics/azure-database-mysql.html) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Om du vill hitta peer-svar på dina mest aktuella frågor eller publicera en ny fråga/svar kan du besöka [Microsoft Q&en fråge sida](/answers/topics/azure-database-mysql.html) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

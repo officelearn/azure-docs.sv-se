@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167057"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537957"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Azure Database for MySQL-flexibel Server (för hands version)
 
@@ -66,7 +66,7 @@ Se [säkerhets kopierings begrepp](concepts-backup-restore.md) för mer informat
 
 ## <a name="network-isolation"></a>Nätverksisolering
 
-Du har två nätverks alternativ för att ansluta till din Azure Database for MySQL flexibla Server. Alternativen är **privat åtkomst (VNet-integrering)** och **offentlig åtkomst (tillåtna IP-adresser)**. 
+Du har två nätverks alternativ för att ansluta till din Azure Database for MySQL flexibla Server. Alternativen är **privat åtkomst (VNet-integrering)** och **offentlig åtkomst (tillåtna IP-adresser)** . 
 
 * **Privat åtkomst (VNet-integrering)** – du kan distribuera din flexibla server till [Azure-Virtual Network](../../virtual-network/virtual-networks-overview.md). Virtuella Azure-nätverk tillhandahåller privat och säker nätverkskommunikation. Resurser i ett virtuellt nätverk kan kommunicera via privata IP-adresser.
 
@@ -75,7 +75,7 @@ Du har två nätverks alternativ för att ansluta till din Azure Database for My
    * Använd VPN eller ExpressRoute för att ansluta från icke-Azure-resurser till din flexibla Server
    * Ingen offentlig slut punkt
 
-* **Offentlig åtkomst (tillåtna IP-adresser)** – du kan distribuera din flexibla server med en offentlig slut punkt. Den offentliga slut punkten är en DNS-adress som kan matchas offentligt. Frasen "tillåtna IP-adresser" syftar på ett intervall med IP-adresser som du väljer för att ge åtkomst behörighet till servern. Dessa behörigheter kallas **brand Väggs regler**.
+* **Offentlig åtkomst (tillåtna IP-adresser)** – du kan distribuera din flexibla server med en offentlig slut punkt. Den offentliga slut punkten är en DNS-adress som kan matchas offentligt. Frasen "tillåtna IP-adresser" syftar på ett intervall med IP-adresser som du väljer för att ge åtkomst behörighet till servern. Dessa behörigheter kallas **brand Väggs regler** .
 
 Mer information finns i [nätverks koncept](concepts-networking.md) .
 
@@ -99,7 +99,7 @@ Tjänsten krypterar data i rörelse med säkerhet i transport skikt som används
 
 Mer information finns i [använda krypterade anslutningar till flexibla servrar](https://docs.mongodb.com/manual/tutorial/configure-ssl) .
 
-Flexibla servrar ger fullständig privat åtkomst till servrarna med hjälp av [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) (VNet)-integration. Servrar i Azure Virtual Network kan bara nås och anslutas via privata IP-adresser. Med VNet-integrering nekas offentlig åtkomst och servrar kan inte nås med offentliga slut punkter. 
+Flexibla servrar ger fullständig privat åtkomst till servrarna med hjälp av [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet)-integration. Servrar i Azure Virtual Network kan bara nås och anslutas via privata IP-adresser. Med VNet-integrering nekas offentlig åtkomst och servrar kan inte nås med offentliga slut punkter. 
 
 Mer information finns i [nätverks koncept](concepts-networking.md) .
 
@@ -115,7 +115,7 @@ Mer information finns i [övervaknings begrepp](concepts-monitoring.md) .
 Tjänsten kör community-versionen av MySQL. Detta möjliggör fullständig programkompatibilitet och kräver minimal omplanering av kostnader för att migrera befintliga program som utvecklats i MySQL-motorn till en enskild server-tjänst. Migreringen till den enskilda servern kan utföras med hjälp av något av följande alternativ:
 
 - **Dumpa och Återställ** – för offline-migrering, där användarna kan få viss nedtid, dumpa och återställa med hjälp av community-verktyg som mysqldump/dumper kan ge ett snabbast sätt att migrera. Mer information finns i Migrera med dump och Restore. 
-- **Azure Database migration service** – för sömlösa och förenklade migreringar till en enskild server med minimal nedtid kan [Azure Database migration service](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online) utnyttjas. 
+- **Azure Database migration service** – för sömlösa och förenklade migreringar till en enskild server med minimal nedtid kan [Azure Database migration service](../../dms/tutorial-mysql-azure-mysql-online.md) utnyttjas. 
 
 ## <a name="azure-regions"></a>Azure-regioner
 

@@ -10,12 +10,12 @@ ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Data Analytics'
-ms.openlocfilehash: 9b5463ba789a1bcfb707fb03c70f1a8464cb6b59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c290adea02915db1dc52bd359b4d3165611522
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767350"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547715"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub-frågesyntaxen för meddelandedirigering
 
@@ -23,7 +23,7 @@ Med meddelanderoutning kan användare dirigera olika data typer, nämligen telem
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Med meddelanderoutning kan du fråga efter meddelande egenskaper och meddelande text samt enhetens dubbla Taggar och enhetens dubbla egenskaper. Om meddelande texten inte är JSON kan meddelande routning fortfarande dirigera meddelandet, men det går inte att använda frågor i meddelande texten.  Frågor beskrivs som booleska uttryck där ett booleskt värde gör att frågan lyckas och som dirigerar alla inkommande data och booleska falskt Miss lyckas frågan och inga data vidarebefordras. Om uttrycket utvärderas till null eller odefinierad, behandlas det som falskt och ett fel genereras i diagnostikloggar i händelse av ett fel. Frågesyntaxen måste vara korrekt för att vägen ska kunna sparas och utvärderas.  
+Med meddelanderoutning kan du fråga efter meddelande egenskaper och meddelande text samt enhetens dubbla Taggar och enhetens dubbla egenskaper. Om meddelande texten inte är JSON kan meddelande routning fortfarande dirigera meddelandet, men det går inte att använda frågor i meddelande texten.  Frågor beskrivs som booleska uttryck där ett booleskt värde gör att frågan lyckas och som dirigerar alla inkommande data och booleska falskt Miss lyckas frågan och inga data vidarebefordras. Om uttrycket utvärderas till null eller odefinierad, behandlas det som falskt och ett fel genereras i IoT Hub [vägar resurs loggar](monitor-iot-hub-reference.md#routes) loggar i händelse av fel. Frågesyntaxen måste vara korrekt för att vägen ska kunna sparas och utvärderas.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Meddelande cirkulations fråga baserat på meddelande egenskaper 
 
@@ -62,7 +62,7 @@ System egenskaper hjälper till att identifiera innehåll och källa för meddel
 | DT-dataschema | sträng |  Det här värdet anges av IoT Hub på enhet-till-moln-meddelanden. Det innehåller det enhets modell-ID som angetts i enhets anslutningen. Om du vill fråga använder du `$dt-dataschema` . |
 | DT-ämne | sträng | Namnet på komponenten som skickar meddelanden från enheten till molnet. Om du vill fråga använder du `$dt-subject` . |
 
-Som det beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare system egenskaper i ett meddelande. Utöver egenskaperna ovan i föregående tabell kan du också fråga **connectionDeviceId**, **connectionModuleId**.
+Som det beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare system egenskaper i ett meddelande. Utöver egenskaperna ovan i föregående tabell kan du också fråga **connectionDeviceId** , **connectionModuleId** .
 
 ### <a name="application-properties"></a>Egenskaper för program
 
@@ -146,7 +146,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> Här visas hur du hanterar kodningen för bröd texten i Java Script. Om du vill se ett exempel i C#, laddar du ned [Azure IoT C#-exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Zippa upp master.zip-filen. Filen Program.cs i Visual Studio- *SimulatedDevice*innehåller information om hur du kodar och skickar meddelanden till en IoT Hub. Det här är samma exempel som används för att testa meddelanderoutning, som beskrivs i [själv studie kursen för meddelanderoutning](tutorial-routing.md). Längst ned i Program.cs har det också en metod för att läsa i en av de kodade filerna, avkoda den och skriva tillbaka den som ASCII så att du kan läsa den. 
+> Här visas hur du hanterar kodningen för bröd texten i Java Script. Om du vill se ett exempel i C#, laddar du ned [Azure IoT C#-exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Zippa upp master.zip-filen. Filen Program.cs i Visual Studio- *SimulatedDevice* innehåller information om hur du kodar och skickar meddelanden till en IoT Hub. Det här är samma exempel som används för att testa meddelanderoutning, som beskrivs i [själv studie kursen för meddelanderoutning](tutorial-routing.md). Längst ned i Program.cs har det också en metod för att läsa i en av de kodade filerna, avkoda den och skriva tillbaka den som ASCII så att du kan läsa den. 
 
 
 ### <a name="query-expressions"></a>Frågeuttryck

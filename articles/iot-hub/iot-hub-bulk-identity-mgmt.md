@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d53e0cb92ead0d60ae335e95903cd69ae2700140
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 8e7a725b78fa828ce1286e212ee7de0205968156
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142817"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536087"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Massimportera och massexportera IoT Hub-enhetsidentiteter
 
 Varje IoT-hubb har ett identitets register som du kan använda för att skapa resurser per enhet i tjänsten. I identitets registret kan du också kontrol lera åtkomsten till de enhets riktade slut punkterna. I den här artikeln beskrivs hur du importerar och exporterar enhets identiteter i bulk till och från ett identitets register. Om du vill se ett fungerande exempel i C# och lära dig hur du kan använda den här funktionen när du klonar en hubb till en annan region, se [hur du klonar en IoT Hub](iot-hub-how-to-clone.md).
 
 > [!NOTE]
-> IoT Hub har nyligen lagt till stöd för virtuellt nätverk i ett begränsat antal regioner. Den här funktionen skyddar import-och export åtgärder och eliminerar behovet av att skicka nycklar för autentisering.  I början är stödet för virtuellt nätverk endast tillgängligt i följande regioner: *WestUS2*, *öster*och *usasödracentrala*. Mer information om stöd för virtuella nätverk och API-anrop för att implementera det finns i [IoT Hub stöd för virtuella nätverk](virtual-network-support.md).
+> IoT Hub har nyligen lagt till stöd för virtuellt nätverk i ett begränsat antal regioner. Den här funktionen skyddar import-och export åtgärder och eliminerar behovet av att skicka nycklar för autentisering.  I början är stödet för virtuellt nätverk endast tillgängligt i följande regioner: *WestUS2* , *öster* och *usasödracentrala* . Mer information om stöd för virtuella nätverk och API-anrop för att implementera det finns i [IoT Hub stöd för virtuella nätverk](virtual-network-support.md).
 
 Import-och export åtgärder sker i samband med *jobb* som gör att du kan köra Mass åtgärder mot en IoT-hubb.
 
@@ -61,7 +61,7 @@ Om du vill hitta anslutnings strängen för din IoT-hubb går du till Azure Port
 
 - Gå till IoT-hubben.
 
-- Välj **principer för delad åtkomst**.
+- Välj **principer för delad åtkomst** .
 
 - Välj en princip med hänsyn till de behörigheter som du behöver.
 
@@ -109,7 +109,7 @@ Metoden **ExportDevicesAsync** kräver två parametrar:
      | SharedAccessBlobPermissions.Delete
    ```
 
-* Ett *booleskt värde* som anger om du vill utesluta autentiseringsinställningar från dina export data. Om **värdet är false**inkluderas autentiseringsinställningar i Exportera utdata. Annars exporteras nycklar som **Null**.
+* Ett *booleskt värde* som anger om du vill utesluta autentiseringsinställningar från dina export data. Om **värdet är false** inkluderas autentiseringsinställningar i Exportera utdata. Annars exporteras nycklar som **Null** .
 
 Följande C#-kodfragment visar hur du startar ett export jobb som innehåller nycklar för enhetsautentisering i exportera data och sedan söker efter slut för ande:
 
@@ -134,7 +134,7 @@ while(true)
 }
 ```
 
-I jobbet lagras utdata i den tillhandahållna BLOB-behållaren som en Block-Blob med namnet **devices.txt**. Utdatan består av JSON-serialiserade enhets data, med en enhet per rad.
+I jobbet lagras utdata i den tillhandahållna BLOB-behållaren som en Block-Blob med namnet **devices.txt** . Utdatan består av JSON-serialiserade enhets data, med en enhet per rad.
 
 I följande exempel visas utdata-data:
 
@@ -226,7 +226,7 @@ Metoden **ImportDevicesAsync** tar två parametrar:
    SharedAccessBlobPermissions.Read
    ```
 
-* En *sträng* som innehåller en URI för en [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) BLOB-behållare som ska användas som *utdata* från jobbet. Jobbet skapar en block-BLOB i den här behållaren för att lagra fel information från det slutförda import **jobbet**. SAS-token måste innehålla följande behörigheter:
+* En *sträng* som innehåller en URI för en [Azure Storage](https://azure.microsoft.com/documentation/services/storage/) BLOB-behållare som ska användas som *utdata* från jobbet. Jobbet skapar en block-BLOB i den här behållaren för att lagra fel information från det slutförda import **jobbet** . SAS-token måste innehålla följande behörigheter:
 
    ```csharp
    SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read 
@@ -264,13 +264,13 @@ Använd den valfria egenskapen **importMode** i importens serialiserings data f�
 
 | importMode | Beskrivning |
 | --- | --- |
-| **createOrUpdate** |Om det inte finns någon enhet med det angivna **ID: t**är den nyligen registrerad. <br/>Om enheten redan finns skrivs befintlig information över med angivna indata utan hänsyn till **etag** -värdet. <br> Användaren kan välja att ange dubbla data tillsammans med enhets data. Dubbla etag, om det anges, bearbetas oberoende av enhetens etag. Om det finns ett matchnings fel med de befintliga dubbla etag-filerna skrivs ett fel till logg filen. |
-| **fram** |Om det inte finns någon enhet med det angivna **ID: t**är den nyligen registrerad. <br/>Om enheten redan finns skrivs ett fel till logg filen. <br> Användaren kan välja att ange dubbla data tillsammans med enhets data. Dubbla etag, om det anges, bearbetas oberoende av enhetens etag. Om det finns ett matchnings fel med de befintliga dubbla etag-filerna skrivs ett fel till logg filen. |
-| **uppdatera** |Om det redan finns en enhet med det angivna **ID: t**skrivs befintlig information över med de angivna indata utan hänsyn till **etag** -värdet. <br/>Om enheten inte finns skrivs ett fel till logg filen. |
-| **updateIfMatchETag** |Om det redan finns en enhet med det angivna **ID: t**skrivs befintlig information över med de angivna indata endast om det finns en **etag** -matchning. <br/>Om enheten inte finns skrivs ett fel till logg filen. <br/>Om det finns en **etag** -matchning, skrivs ett fel till logg filen. |
-| **createOrUpdateIfMatchETag** |Om det inte finns någon enhet med det angivna **ID: t**är den nyligen registrerad. <br/>Om enheten redan finns skrivs befintlig information över med angivna indata endast om det finns en **etag** -matchning. <br/>Om det finns en **etag** -matchning, skrivs ett fel till logg filen. <br> Användaren kan välja att ange dubbla data tillsammans med enhets data. Dubbla etag, om det anges, bearbetas oberoende av enhetens etag. Om det finns ett matchnings fel med de befintliga dubbla etag-filerna skrivs ett fel till logg filen. |
-| **ta bort** |Om det redan finns en enhet med det angivna **ID: t**tas den bort utan hänsyn till **etag** -värdet. <br/>Om enheten inte finns skrivs ett fel till logg filen. |
-| **deleteIfMatchETag** |Om det redan finns en enhet med det angivna **ID: t**tas den bara bort om det finns en **etag** -matchning. Om enheten inte finns skrivs ett fel till logg filen. <br/>Om det finns en ETag-matchning, skrivs ett fel till logg filen. |
+| **createOrUpdate** |Om det inte finns någon enhet med det angivna **ID: t** är den nyligen registrerad. <br/>Om enheten redan finns skrivs befintlig information över med angivna indata utan hänsyn till **etag** -värdet. <br> Användaren kan välja att ange dubbla data tillsammans med enhets data. Dubbla etag, om det anges, bearbetas oberoende av enhetens etag. Om det finns ett matchnings fel med de befintliga dubbla etag-filerna skrivs ett fel till logg filen. |
+| **fram** |Om det inte finns någon enhet med det angivna **ID: t** är den nyligen registrerad. <br/>Om enheten redan finns skrivs ett fel till logg filen. <br> Användaren kan välja att ange dubbla data tillsammans med enhets data. Dubbla etag, om det anges, bearbetas oberoende av enhetens etag. Om det finns ett matchnings fel med de befintliga dubbla etag-filerna skrivs ett fel till logg filen. |
+| **uppdatera** |Om det redan finns en enhet med det angivna **ID: t** skrivs befintlig information över med de angivna indata utan hänsyn till **etag** -värdet. <br/>Om enheten inte finns skrivs ett fel till logg filen. |
+| **updateIfMatchETag** |Om det redan finns en enhet med det angivna **ID: t** skrivs befintlig information över med de angivna indata endast om det finns en **etag** -matchning. <br/>Om enheten inte finns skrivs ett fel till logg filen. <br/>Om det finns en **etag** -matchning, skrivs ett fel till logg filen. |
+| **createOrUpdateIfMatchETag** |Om det inte finns någon enhet med det angivna **ID: t** är den nyligen registrerad. <br/>Om enheten redan finns skrivs befintlig information över med angivna indata endast om det finns en **etag** -matchning. <br/>Om det finns en **etag** -matchning, skrivs ett fel till logg filen. <br> Användaren kan välja att ange dubbla data tillsammans med enhets data. Dubbla etag, om det anges, bearbetas oberoende av enhetens etag. Om det finns ett matchnings fel med de befintliga dubbla etag-filerna skrivs ett fel till logg filen. |
+| **ta bort** |Om det redan finns en enhet med det angivna **ID: t** tas den bort utan hänsyn till **etag** -värdet. <br/>Om enheten inte finns skrivs ett fel till logg filen. |
+| **deleteIfMatchETag** |Om det redan finns en enhet med det angivna **ID: t** tas den bara bort om det finns en **etag** -matchning. Om enheten inte finns skrivs ett fel till logg filen. <br/>Om det finns en ETag-matchning, skrivs ett fel till logg filen. |
 
 > [!NOTE]
 > Om serialiserings data inte uttryckligen definierar en **importMode** -flagga för en enhet, används standardvärdet **createOrUpdate** under import åtgärden.
@@ -432,8 +432,7 @@ Klonings artikeln har ett fungerande exempel som är associerat med det, som fin
 
 Om du vill veta mer om hur du hanterar Azure IoT Hub kan du läsa följande artiklar:
 
-* [IoT Hub mått](iot-hub-metrics.md)
-* [IoT Hub loggar](iot-hub-monitor-resource-health.md)
+* [Övervaka IoT Hub](monitor-iot-hub.md)
 
 För att ytterligare utforska funktionerna i IoT Hub, se:
 

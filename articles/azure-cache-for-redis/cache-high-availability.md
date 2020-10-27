@@ -6,18 +6,18 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: yegu
-ms.openlocfilehash: 145be11436eb4d0c4f6b892e5239ccacd838d780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0bb8fd2d0b0ac271a167ad5474a55646bdafc65
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91654221"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536801"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Hög tillgänglighet för Azure cache för Redis
 
 Azure cache för Redis har inbyggd hög tillgänglighet. Målet med en arkitektur med hög tillgänglighet är att se till att den hanterade Redis-instansen fungerar även när de underliggande virtuella datorerna (VM) påverkas av planerade eller oplanerade avbrott. Det ger mycket högre pris taxa än vad som kan uppnås genom att vara värd för Redis på en enda virtuell dator.
 
-Azure cache för Redis implementerar hög tillgänglighet genom att använda flera virtuella datorer, som kallas *noder*, för en cache. Den konfigurerar noderna så att datareplikering och redundans sker på koordinerade sätt. Den dirigerar också underhålls åtgärder som Redis-program uppdatering. Det finns olika alternativ för hög tillgänglighet på nivån standard och Premium:
+Azure cache för Redis implementerar hög tillgänglighet genom att använda flera virtuella datorer, som kallas *noder* , för en cache. Den konfigurerar noderna så att datareplikering och redundans sker på koordinerade sätt. Den dirigerar också underhålls åtgärder som Redis-program uppdatering. Det finns olika alternativ för hög tillgänglighet på nivån standard och Premium:
 
 | Alternativ | Beskrivning | Tillgänglighet | Standard | Premium |
 | ------------------- | ------- | ------- | :------: | :---: |
@@ -28,7 +28,7 @@ Azure cache för Redis implementerar hög tillgänglighet genom att använda fle
 
 ## <a name="standard-replication"></a>Standardreplikering
 
-En Azure-cache för Redis på standard-eller Premium-nivån körs på ett par Redis-servrar som standard. De två servrarna finns på dedikerade virtuella datorer. Med Redis med öppen källkod kan endast en server hantera data skrivnings begär Anden. Den här servern är den *primära* noden, medan den andra *repliken*. När den har etablerat Server noderna tilldelar Azure cache för Redis primär-och replik roller till dem. Den primära noden ansvarar vanligt vis för att underhålla Skriv-och Läs begär Anden från Redis-klienter. Vid en Skriv åtgärd, allokerar den en ny nyckel och en nyckel uppdatering till dess interna minne och svarar omedelbart på klienten. Den vidarebefordrar åtgärden till repliken asynkront.
+En Azure-cache för Redis på standard-eller Premium-nivån körs på ett par Redis-servrar som standard. De två servrarna finns på dedikerade virtuella datorer. Med Redis med öppen källkod kan endast en server hantera data skrivnings begär Anden. Den här servern är den *primära* noden, medan den andra *repliken* . När den har etablerat Server noderna tilldelar Azure cache för Redis primär-och replik roller till dem. Den primära noden ansvarar vanligt vis för att underhålla Skriv-och Läs begär Anden från Redis-klienter. Vid en Skriv åtgärd, allokerar den en ny nyckel och en nyckel uppdatering till dess interna minne och svarar omedelbart på klienten. Den vidarebefordrar åtgärden till repliken asynkront.
 
 :::image type="content" source="media/cache-high-availability/replication.png" alt-text="Installation av datareplikering":::
    
@@ -37,7 +37,7 @@ En Azure-cache för Redis på standard-eller Premium-nivån körs på ett par Re
 >
 >
 
-Om den primära noden i en Redis-cache inte är tillgänglig, kommer repliken att befordra sig själv för att bli den nya primära servern automatiskt. Den här processen kallas för en *redundansväxling*. Repliken väntar i tillräckligt lång tid innan den tar över om den primära noden återställs snabbt. När en redundansväxling sker etablerar Azure cache för Redis en ny virtuell dator och kopplar den till cachen som noden replik. Repliken utför en fullständig datasynkronisering med den primära så att den har en annan kopia av data i cachen.
+Om den primära noden i en Redis-cache inte är tillgänglig, kommer repliken att befordra sig själv för att bli den nya primära servern automatiskt. Den här processen kallas för en *redundansväxling* . Repliken väntar i tillräckligt lång tid innan den tar över om den primära noden återställs snabbt. När en redundansväxling sker etablerar Azure cache för Redis en ny virtuell dator och kopplar den till cachen som noden replik. Repliken utför en fullständig datasynkronisering med den primära så att den har en annan kopia av data i cachen.
 
 En primär nod kan gå ur drift som en del av en planerad underhålls aktivitet, till exempel Redis program vara eller operativ Systems uppdatering. Det kan också sluta fungera på grund av oplanerade händelser, till exempel fel i underliggande maskin vara, program vara eller nätverk. [Redundans och korrigering för Azure cache för Redis](cache-failover.md) innehåller en detaljerad förklaring av olika typer av Redis-redundans. En Azure-cache för Redis kommer att gå igenom många olika redundans under dess livs längd. Arkitekturen för hög tillgänglighet är utformad för att göra dessa ändringar i en cache som transparent för dess klienter som möjligt.
 
@@ -57,7 +57,7 @@ Azure cache för Redis ger ytterligare noder i Premium-nivån. En [cachelagring 
 >
 >
 
-Azure cache för Redis stöder Zone-redundanta konfigurationer på Premium-nivån. En [redundant cache i zonen](cache-how-to-zone-redundancy.md) kan placera sina noder i olika [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) i samma region. Den eliminerar Data Center eller AZ avbrott som en enskild felpunkt och ökar den övergripande tillgängligheten för din cache.
+Azure cache för Redis stöder Zone-redundanta konfigurationer på Premium-nivån. En [redundant cache i zonen](cache-how-to-zone-redundancy.md) kan placera sina noder i olika [Azure-tillgänglighetszoner](../availability-zones/az-overview.md) i samma region. Den eliminerar Data Center eller AZ avbrott som en enskild felpunkt och ökar den övergripande tillgängligheten för din cache.
 
 Följande diagram illustrerar den redundanta zonens konfiguration:
 

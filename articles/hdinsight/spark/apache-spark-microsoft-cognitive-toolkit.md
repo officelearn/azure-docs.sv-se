@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: 659e44ddc13cf093d7e571e904e177136ed21127
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d94a4858b4c4fa99a09acc2bec88f94a64686c2d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084502"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539147"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Använd Microsoft Cognitive Toolkit djup inlärnings modell med Azure HDInsight Spark kluster
 
 I den här artikeln utför du följande steg.
 
-1. Kör ett anpassat skript för att installera [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/) på ett Azure HDInsight Spark-kluster.
+1. Kör ett anpassat skript för att installera [Microsoft Cognitive Toolkit](/cognitive-toolkit/) på ett Azure HDInsight Spark-kluster.
 
 2. Ladda upp en [Jupyter Notebook](https://jupyter.org/) till [Apache Spark](https://spark.apache.org/) -klustret för att se hur du använder en utbildad Microsoft Cognitive Toolkit djup inlärnings modell för filer i ett Azure Blob Storage [-konto med Spark python API (PySpark)](https://spark.apache.org/docs/latest/api/python/index.html)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apache-spark-jupyter-spark-sql-use-portal.md).
 
@@ -54,14 +54,14 @@ Du kan installera Microsoft Cognitive Toolkit på ett Spark-kluster med skript �
 
 I den här artikeln använder vi portalen för att installera verktyget när klustret har skapats. Andra sätt att köra det anpassade skriptet finns i [Anpassa HDInsight-kluster med skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md).
 
-### <a name="using-the-azure-portal"></a>Använda Azure Portal
+### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
 Instruktioner för hur du använder Azure Portal för att köra skript åtgärder finns i [Anpassa HDInsight-kluster med skript åtgärd](../hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation). Se till att du anger följande indata för att installera Microsoft Cognitive Toolkit. Använd följande värden för din skript åtgärd:
 
 |Egenskap |Värde |
 |---|---|
 |Skript typ|– Anpassad|
-|Name| Installera MCT|
+|Namn| Installera MCT|
 |Bash-skript-URI|`https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`|
 |Node-typ (er):|Head, Worker|
 |Parametrar|Ingen|

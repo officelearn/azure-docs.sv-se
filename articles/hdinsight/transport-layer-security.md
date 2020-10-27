@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 6e46cca28c049a794db617797d5f09e9f3b5720d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42c1efa176a6dbf5294e19afe02fd74a53150272
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006899"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538960"
 ---
 # <a name="transport-layer-security-in-azure-hdinsight"></a>Säkerhet på transport nivå i Azure HDInsight
 
-Anslutningar till HDInsight-klustret via den offentliga kluster slut punkten `https://CLUSTERNAME.azurehdinsight.net` är proxy via klusternoder. Dessa anslutningar skyddas med hjälp av ett protokoll som kallas TLS. Att framtvinga högre versioner av TLS på gateways förbättrar säkerheten för dessa anslutningar. Mer information om varför du bör använda nyare versioner av TLS finns i [lösa problemet med tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
+Anslutningar till HDInsight-klustret via den offentliga kluster slut punkten `https://CLUSTERNAME.azurehdinsight.net` är proxy via klusternoder. Dessa anslutningar skyddas med hjälp av ett protokoll som kallas TLS. Att framtvinga högre versioner av TLS på gateways förbättrar säkerheten för dessa anslutningar. Mer information om varför du bör använda nyare versioner av TLS finns i [lösa problemet med tls 1,0](/security/solving-tls1-problem).
 
 Som standard godkänner Azure HDInsight-kluster TLS 1,2-anslutningar på offentliga HTTPS-slutpunkter och äldre versioner för bakåtkompatibilitet. Du kan kontrol lera den lägsta TLS-version som stöds på Gateway-noderna när klustret skapas, antingen med hjälp av Azure Portal eller en Resource Manager-mall. För portalen väljer du TLS-versionen från fliken **säkerhet + nätverk** när klustret skapas. Använd egenskapen **minSupportedTlsVersion** för en Resource Manager-mall vid distributions tiden. En exempel-mall finns i [snabb starts mal len för HDInsight-lägsta TLS 1,2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Den här egenskapen stöder tre värden: "1,0", "1,1" och "1,2", som motsvarar TLS 1.0 +, TLS 1.1 + och TLS 1.2 + respektive.
 
@@ -26,4 +26,4 @@ Som standard godkänner Azure HDInsight-kluster TLS 1,2-anslutningar på offentl
 
 * [Planera ett virtuellt nätverk för Azure HDInsight](./hdinsight-plan-virtual-network-deployment.md)
 * [Skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md).
-* [Nätverks säkerhets grupper](../virtual-network/security-overview.md).
+* [Nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).

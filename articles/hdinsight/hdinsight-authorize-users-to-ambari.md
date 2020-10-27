@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: fc10d385df1dffed07e771d622d9bf9d8bedee39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b1cd6d93ff45d7fb40ae7ca1874343486bd0b8cb
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086542"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547936"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Auktorisera användare för Apache Ambari Views
 
@@ -24,7 +24,7 @@ Active Directory användare kan logga in på klusternoderna med sina domänauten
 > [!WARNING]  
 > Ändra inte lösen ordet för Ambari-hdinsightwatchdog () på ditt Linux-baserade HDInsight-kluster. Om du ändrar lösen ordet bryts möjligheten att använda skript åtgärder eller utföra skalnings åtgärder med klustret.
 
-Om du inte redan har gjort det följer du [de här anvisningarna](./domain-joined/apache-domain-joined-configure.md) för att etablera ett nytt ESP-kluster.
+Om du inte redan har gjort det följer du [de här anvisningarna](./domain-joined/apache-domain-joined-configure-using-azure-adds.md) för att etablera ett nytt ESP-kluster.
 
 ## <a name="access-the-ambari-management-page"></a>Öppna hanterings sidan för Ambari
 
@@ -36,13 +36,13 @@ Om du inte redan har gjort det följer du [de här anvisningarna](./domain-joine
 
 ### <a name="add-users-through-the-portal"></a>Lägg till användare via portalen
 
-1. Välj **användare**på sidan hantering.
+1. Välj **användare** på sidan hantering.
 
     ![Apache Ambari-hanterings sidan användare](./media/hdinsight-authorize-users-to-ambari/apache-ambari-management-page-users.png)
 
-1. Välj **+ skapa lokal användare**.
+1. Välj **+ skapa lokal användare** .
 
-1. Ange **användar namn** och **lösen ord**. Välj **Spara**.
+1. Ange **användar namn** och **lösen ord** . Välj **Spara** .
 
 ### <a name="add-users-through-powershell"></a>Lägg till användare via PowerShell
 
@@ -167,7 +167,7 @@ curl -k -u $user:$userPassword -H "X-Requested-By: ambari" \
 
 ## <a name="grant-permissions-to-apache-hive-views"></a>Bevilja behörighet att Apache Hive vyer
 
-Ambari levereras med View-instanser för [Apache Hive](https://hive.apache.org/) och [Apache TEZ](https://tez.apache.org/), bland annat. Om du vill bevilja åtkomst till en eller flera instanser av Hive-vyn går du till **hanterings sidan för Ambari**.
+Ambari levereras med View-instanser för [Apache Hive](https://hive.apache.org/) och [Apache TEZ](https://tez.apache.org/), bland annat. Om du vill bevilja åtkomst till en eller flera instanser av Hive-vyn går du till **hanterings sidan för Ambari** .
 
 1. På sidan hantering väljer du länken **vyer** under **rubrik menyn till** vänster.
 
@@ -191,14 +191,14 @@ Ambari levereras med View-instanser för [Apache Hive](https://hive.apache.org/)
 
    * Välj eller Skriv klart, användar namnet. Välj knappen **nytt** om du vill lägga till det här användar namnet som en ny användare.
 
-   * Markera **kryss rutan blå**om du vill spara ändringarna.
+   * Markera **kryss rutan blå** om du vill spara ändringarna.
 
      ![Apache Ambari bevilja användar behörighet](./media/hdinsight-authorize-users-to-ambari/user-entered-permissions.png)
 
 1. Välj knappen **Lägg till grupp** om du vill lägga till en grupp.
 
    * Börja skriva grupp namnet. Processen att välja ett befintligt grupp namn eller lägga till en ny grupp är samma som för att lägga till användare.
-   * Markera **kryss rutan blå**om du vill spara ändringarna.
+   * Markera **kryss rutan blå** om du vill spara ändringarna.
 
      ![Apache Ambari Grant-behörighet](./media/hdinsight-authorize-users-to-ambari/ambari-group-entered.png)
 
@@ -224,7 +224,7 @@ Det finns fem säkerhets roller för användare och grupper, som visas i ordning
 * Tjänst operatör
 * Kluster användare
 
-Om du vill hantera roller går du till **hanterings sidan för Ambari**och väljer sedan länken **roller** i meny gruppen *kluster* till vänster.
+Om du vill hantera roller går du till **hanterings sidan för Ambari** och väljer sedan länken **roller** i meny gruppen *kluster* till vänster.
 
 ![Meny länkar för Apache Ambari-roller](./media/hdinsight-authorize-users-to-ambari/cluster-roles-menu-link.png)
 

@@ -7,22 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: c0f5d8cdc7dda72f21fc1cf372e3796b26a3054a
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c831e099eca3cd6e6da20f55ad19980ae8e9ddc5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127428"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545930"
 ---
 # <a name="configure-network-virtual-appliance-in-azure-hdinsight"></a>Konfigurera virtuell nätverks installation i Azure HDInsight
 
 > [!Important]
-> Följande information krävs **bara** om du vill konfigurera en annan virtuell nätverks installation (NVA) än [Azure Firewall](https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic).
+> Följande information krävs **bara** om du vill konfigurera en annan virtuell nätverks installation (NVA) än [Azure Firewall](./hdinsight-restrict-outbound-traffic.md).
 
 Azure Firewall FQDN-taggen konfigureras automatiskt för att tillåta trafik för många av de vanliga viktiga FQDN: erna. Om du använder en annan virtuell nätverks installation måste du konfigurera ett antal ytterligare funktioner. Tänk på följande faktorer när du konfigurerar din virtuella nätverks installation:
 
 * Tjänster för tjänst slut punkt som kan konfigureras med tjänst slut punkter som leder till att NVA kringgås, vanligt vis för kostnads-eller prestanda överväganden.
-* Om ResourceProviderConnection är inställt på *utgående*kan du använda privata slut punkter för lagrings-och SQL-servrar för metastores och du behöver inte lägga till dem i NVA.
+* Om ResourceProviderConnection är inställt på *utgående* kan du använda privata slut punkter för lagrings-och SQL-servrar för metastores och du behöver inte lägga till dem i NVA.
 * IP-adress beroenden är för trafik som inte är HTTP/S (både TCP-och UDP-trafik).
 * FQDN HTTP/HTTPS-slutpunkter kan godkännas i din NVA-enhet.
 * Tilldela den routningstabell som du skapar till ditt HDInsight-undernät.
@@ -41,7 +41,7 @@ Du kan välja att aktivera en eller flera av följande tjänst slut punkter, vil
 
 | **Slutpunkt** | **Detaljer** |
 |---|---|
-| IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | De här IP-adresserna är för HDInsight-resurs leverantör och bör ingå i UDR för att undvika asymmetrisk routning. Den här regeln behövs bara om ResourceProviderConnection är inställt på *inkommande*. Om ResourceProviderConnection är inställt på *utgående* behövs inte dessa IP-adresser i UDR.  |
+| IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | De här IP-adresserna är för HDInsight-resurs leverantör och bör ingå i UDR för att undvika asymmetrisk routning. Den här regeln behövs bara om ResourceProviderConnection är inställt på *inkommande* . Om ResourceProviderConnection är inställt på *utgående* behövs inte dessa IP-adresser i UDR.  |
 | AAD – DS privata IP-adresser | Krävs endast för ESP-kluster, om virtuella nätverk inte är peer-datorer.|
 
 

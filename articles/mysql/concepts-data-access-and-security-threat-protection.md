@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: ccee3b52b0f204561ca790ce364308f81a1db6f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e72cf2cbe17f3a92d3769fb85332f29be038f17
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906602"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547239"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure Database for MySQL Avancerat skydd
 
@@ -34,14 +34,14 @@ Avancerat skydd för Azure Database for MySQL ger ett nytt säkerhets lager som 
 
 ## <a name="advanced-threat-protection-alerts"></a>Aviseringar för avancerat skydd 
 Avancerat skydd för Azure Database for MySQL identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser och kan utlösa följande aviseringar:
-- **Åtkomst från ovanlig plats**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på Azure Database for MySQL servern från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
-- **Åtkomst från ovanliga Azure-datacenter**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på servern från ett ovanligt Azure-datacenter som setts på den här servern under den senaste perioden. I vissa fall identifierar aviseringen en legitim åtgärd (ditt nya program i Azure, Power BI Azure Database for MySQL Frågeredigeraren). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
-- **Åtkomst från okända huvud objekt**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på servern med en ovanlig huvud server (Azure Database for MySQL användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
+- **Åtkomst från ovanlig plats** : den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på Azure Database for MySQL servern från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
+- **Åtkomst från ovanliga Azure-datacenter** : den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på servern från ett ovanligt Azure-datacenter som setts på den här servern under den senaste perioden. I vissa fall identifierar aviseringen en legitim åtgärd (ditt nya program i Azure, Power BI Azure Database for MySQL Frågeredigeraren). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
+- **Åtkomst från okända huvud objekt** : den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MySQL-servern, där någon har loggat in på servern med en ovanlig huvud server (Azure Database for MySQL användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
 - **Access from a potentially harmful application** (Åtkomst från ett potentiellt skadligt program): Den här aviseringen utlöses när ett potentiellt skadligt program används för att få åtkomst till databasen. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen en attack med vanliga angreppsverktyg.
-- **Brute force Azure Database for MySQL autentiseringsuppgifter**: den här aviseringen utlöses när det finns ett onormalt stort antal misslyckade inloggningar med andra autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
+- **Brute force Azure Database for MySQL autentiseringsuppgifter** : den här aviseringen utlöses när det finns ett onormalt stort antal misslyckade inloggningar med andra autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Läs mer om [Azure Security Center](../security-center/security-center-introduction.md)
 * Mer information om priser finns på sidan med [Azure Database for MySQL priser](https://azure.microsoft.com/pricing/details/mysql/) 
-* Konfigurera [Azure Database for MySQL Avancerat skydd](howto-database-threat-protection-portal.md) med hjälp av Azure Portal  
+* Konfigurera [Azure Database for MySQL Avancerat skydd](howto-database-threat-protection-portal.md) med hjälp av Azure Portal

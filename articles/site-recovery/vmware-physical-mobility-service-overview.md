@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 14f0eaee1ede4da3b80ddd94d5c915438e97f8f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90862a74e5fb6521a95292d50fc5cc11bd0082b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530071"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547664"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
 
@@ -52,7 +52,7 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
    - Om alla krav är uppfyllda börjar installationen.
    - Installationen Miss lyckas om en eller flera av [kraven](vmware-physical-azure-support-matrix.md) inte uppfylls.
 1. Som en del av Agent installationen installeras tjänsten Volume Shadow Copy-providern (VSS) för Azure Site Recovery. VSS-providern används för att generera programkonsekventa återställnings punkter. Om installationen av VSS-providern Miss lyckas hoppas det här steget över och Agent installationen fortsätter.
-1. Om installationen av agenten lyckas men installationen av VSS-providern Miss lyckas, markeras jobb statusen som **Varning**. Detta påverkar inte genereringen av krascha återställnings punkter.
+1. Om installationen av agenten lyckas men installationen av VSS-providern Miss lyckas, markeras jobb statusen som **Varning** . Detta påverkar inte genereringen av krascha återställnings punkter.
 
     - Information om hur du skapar programkonsekventa återställnings punkter finns i [rikt linjerna](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) för att slutföra en manuell installation av Site Recovery VSS-providern.
     - Om du inte vill generera programkonsekventa återställnings punkter [ändrar du replikeringsprincipen](vmware-azure-set-up-replication.md#create-a-policy) för att inaktivera programkonsekventa återställnings punkter.
@@ -78,16 +78,16 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 > Använd inte installations metoden för användar gränssnittet om du replikerar en virtuell IaaS-dator (Azure Infrastructure as a Service) från en Azure-region till en annan. Använd [kommando tolks](#install-the-mobility-service-using-command-prompt) installationen.
 
 1. Kopiera installations filen till datorn och kör den.
-1. I **installations alternativ**väljer du **Installera mobilitets tjänsten**.
-1. Välj installations plats och välj **Installera**.
+1. I **installations alternativ** väljer du **Installera mobilitets tjänsten** .
+1. Välj installations plats och välj **Installera** .
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility1.png" alt-text="Sidan installations alternativ för mobilitets tjänsten.":::
 
-1. Övervaka installationen i **installations förloppet**. När installationen är färdig väljer du **Fortsätt till konfiguration** för att registrera tjänsten med konfigurations servern.
+1. Övervaka installationen i **installations förloppet** . När installationen är färdig väljer du **Fortsätt till konfiguration** för att registrera tjänsten med konfigurations servern.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility3.png" alt-text="Sidan installations alternativ för mobilitets tjänsten.":::
 
-1. I **konfigurations Server information**anger du den IP-adress och den lösen fras som du har konfigurerat.
+1. I **konfigurations Server information** anger du den IP-adress och den lösen fras som du har konfigurerat.
 
     :::image type="content" source="./media/vmware-physical-mobility-service-install-manual/mobility4.png" alt-text="Sidan installations alternativ för mobilitets tjänsten.":::
 
@@ -104,7 +104,7 @@ Under en push-installation av mobilitets tjänsten utförs följande steg:
 
 ### <a name="windows-machine"></a>Windows-dator
 
-- Från en kommando tolk kör du följande kommandon för att kopiera installations programmet till en lokal mapp, till exempel _C:\Temp_, på den server som du vill skydda. Ersätt installations programmets fil namn med det faktiska fil namnet.
+- Från en kommando tolk kör du följande kommandon för att kopiera installations programmet till en lokal mapp, till exempel _C:\Temp_ , på den server som du vill skydda. Ersätt installations programmets fil namn med det faktiska fil namnet.
 
   ```cmd
   cd C:\Temp
@@ -134,7 +134,7 @@ Syntax | `UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /
 Installationsloggar | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Obligatorisk installations parameter. Anger om mobilitets tjänsten (MS) eller huvud målet (MT) ska installeras.
 `/InstallLocation`| Valfri parameter. Anger mobilitets tjänstens installations plats (valfri mapp).
-`/Platform` | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad: <br/> **VMware** för virtuella VMware-datorer/fysiska servrar. <br/> Virtuella **Azure** -datorer i Azure.<br/><br/> Om du hanterar virtuella Azure-datorer som fysiska datorer anger du **VMware**.
+`/Platform` | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad: <br/> **VMware** för virtuella VMware-datorer/fysiska servrar. <br/> Virtuella **Azure** -datorer i Azure.<br/><br/> Om du hanterar virtuella Azure-datorer som fysiska datorer anger du **VMware** .
 `/Silent`| Valfritt. Anger om installations programmet ska köras i tyst läge.
 
 #### <a name="registration-settings"></a>Registrerings inställningar
@@ -187,12 +187,12 @@ Syntax | `cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CS
 
 ## <a name="azure-virtual-machine-agent"></a>Agent för virtuell Azure-dator
 
-- **Virtuella Windows-datorer**: från 9.7.0.0 av mobilitets tjänsten installeras [Azure VM-agenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent) av mobilitets tjänstens installations program. Detta säkerställer att den virtuella Azure-datorn uppfyller kraven för agent installation för att använda alla VM-tillägg när datorn växlar över till Azure.
-- **Virtuella Linux-datorer**:  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) måste installeras manuellt på den virtuella Azure-datorn efter redundansväxlingen.
+- **Virtuella Windows-datorer** : från 9.7.0.0 av mobilitets tjänsten installeras [Azure VM-agenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent) av mobilitets tjänstens installations program. Detta säkerställer att den virtuella Azure-datorn uppfyller kraven för agent installation för att använda alla VM-tillägg när datorn växlar över till Azure.
+- **Virtuella Linux-datorer** :  [WALinuxAgent](../virtual-machines/extensions/update-linux-agent.md) måste installeras manuellt på den virtuella Azure-datorn efter redundansväxlingen.
 
 ## <a name="locate-installer-files"></a>Hitta installationsfiler
 
-Gå till mappen _%programdata%\ASR\home\svsystems\pushinstallsvc\repository_på konfigurations servern. Kontrol lera vilka installations program du behöver baserat på operativ systemet. I följande tabell sammanfattas installationsfilerna för varje virtuell VMware-dator och operativ system för fysiska servrar. Innan du börjar kan du granska de [operativ system som stöds](vmware-physical-azure-support-matrix.md#replicated-machines).
+Gå till mappen _%programdata%\ASR\home\svsystems\pushinstallsvc\repository_ på konfigurations servern. Kontrol lera vilka installations program du behöver baserat på operativ systemet. I följande tabell sammanfattas installationsfilerna för varje virtuell VMware-dator och operativ system för fysiska servrar. Innan du börjar kan du granska de [operativ system som stöds](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 > [!NOTE]
 > Fil namnen använder den syntax som visas i följande tabell med _version_ och _datum_ som plats hållare för de verkliga värdena. De faktiska fil namnen kommer att se ut ungefär som i följande exempel:
@@ -232,7 +232,7 @@ Som ett **krav för att uppdatera eller skydda SUSE Linux Enterprise Server 11 S
 3. Gå till konfigurations servern, kopiera installations programmet för SUSE Linux Enterprise Server 11 SP3-agenten på sökvägen – INSTALL_DIR \home\svsystems\pushinstallsvc\repository
 1. När du har kopierat det senaste installations programmet startar du om InMage PushInstall-tjänsten. 
 1. Gå nu till de tillhör ande process servrarna för skalbarhet, upprepa steg 3 och steg 4.
-1. Om **till exempel**installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
+1. Om **till exempel** installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
     1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ### <a name="rhel-5-or-centos-5-server"></a>RHEL 5 eller CentOS 5-Server
@@ -244,7 +244,7 @@ Som ett **krav för att uppdatera eller skydda RHEL 5-datorer från och** med 9,
 3. Gå till konfigurations servern, kopiera RHEL 5-eller CentOS 5-agentens installations program på sökvägen – INSTALL_DIR \home\svsystems\pushinstallsvc\repository
 1. När du har kopierat det senaste installations programmet startar du om InMage PushInstall-tjänsten. 
 1. Gå nu till de tillhör ande process servrarna för skalbarhet, upprepa steg 3 och steg 4.
-1. Om **till exempel**installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
+1. Om **till exempel** installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
     1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="debian-7-server"></a>Debian 7-Server
@@ -256,7 +256,7 @@ Som ett **krav för att uppdatera eller skydda Debian 7-datorer från och** med 
 3. Gå till konfigurations servern, kopiera Debian 7-agentens installations program på sökvägen – INSTALL_DIR \home\svsystems\pushinstallsvc\repository
 1. När du har kopierat det senaste installations programmet startar du om InMage PushInstall-tjänsten. 
 1. Gå nu till de tillhör ande process servrarna för skalbarhet, upprepa steg 3 och steg 4.
-1. Om **till exempel**installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
+1. Om **till exempel** installations Sök väg är C:\Program Files (x86) \Microsoft Azure Site Recovery, kommer ovanstående kataloger att
     1. C:\Program Files (x86) \Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
 ## <a name="next-steps"></a>Nästa steg

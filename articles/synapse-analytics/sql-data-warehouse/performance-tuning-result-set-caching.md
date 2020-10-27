@@ -11,12 +11,12 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: aeeca38afb82e2dcd86e111d1ae5dcb2e7499f42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933ec541e358f1839c1b4d24acd19e439ea26375
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362273"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541289"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Prestandajustering med cachelagring av resultatuppsättningar
 
@@ -36,11 +36,15 @@ När cachelagring av resultat uppsättningar är aktiverat cachelagrar Synapse S
 
 När cachelagring av resultat uppsättningar har Aktiver ATS för en databas cachelagras resultaten för alla frågor tills cachen är full, förutom följande frågor:
 
-- Frågor som använder icke-deterministiska funktioner som DateTime. Now ()
+- Frågor med inbyggda funktioner eller körnings uttryck som är icke-deterministiska även när det inte finns några ändringar i bas tabellens data eller fråga. Till exempel DateTime. Now (), GetDate ().
 - Frågor med användardefinierade funktioner
 - Frågor som använder tabeller med säkerhet på radnivå eller på kolumn nivå har Aktiver ATS
 - Frågor som returnerar data med en rad storlek som är större än 64 KB
 - Frågor som returnerar stora data i storlek (>10 GB) 
+>[!NOTE]
+> - Vissa icke-deterministiska funktioner och körnings uttryck kan vara deterministiska till upprepade frågor mot samma data. Till exempel ROW_NUMBER ().  
+> - Använd ORDER BY i frågan om ordningen/sekvensen med rader i frågeresultatet är viktig för din program logik.
+> - Om data i ORDER BY-kolumnerna inte är unika finns det ingen garanteed rad ordning för rader med samma värden i ORDER BY-kolumnerna, oavsett om cachelagring av resultat uppsättningar är aktiverat eller inaktiverat.
 
 > [!IMPORTANT]
 > Åtgärderna för att skapa en resultat uppsättning cache och hämta data från cachen sker på noden kontroll i en Synapse SQL-instans.

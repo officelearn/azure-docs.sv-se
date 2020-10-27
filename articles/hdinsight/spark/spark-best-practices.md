@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 3818ce9ebae8e6af6ee8bb5ed30c7ab446a6f6b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a93b3e0da7b881b80f7613907e40af509bffadbd
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855182"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545573"
 ---
 # <a name="apache-spark-guidelines"></a>Apache Spark rikt linjer
 
@@ -56,7 +56,7 @@ Den här artikeln innehåller olika rikt linjer för att använda Apache Spark p
 | Apache Hive på HDInsight | [Integrera Apache Spark och Apache Hive med Hive-lagrets koppling](../interactive-query/apache-hive-warehouse-connector.md) |
 | Apache HBase på HDInsight | [Använda Apache Spark för att läsa och skriva Apache HBase-data](../hdinsight-using-spark-query-hbase.md) |
 | Apache Kafka på HDInsight | [Självstudie: Använda Apache Spark Structured Streaming med Apache Kafka i HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
-| Azure Cosmos DB | [Azure Cosmos DB: implementera en lambda-arkitektur på Azure-plattformen](../../cosmos-db/lambda-architecture.md) |
+| Azure Cosmos DB | [Azure Synapse-länk för Azure Cosmos DB](../../cosmos-db/synapse-link.md) |
 
 ## <a name="what-are-my-storage-options"></a>Vad är mina lagrings alternativ?
 

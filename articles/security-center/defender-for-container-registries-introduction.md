@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275961"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558643"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduktion till Azure Defender för behållar register
 
@@ -71,6 +71,12 @@ Ja. Resultaten är under [Underbedömningar REST API](/rest/api/securitycenter/s
 En lista över de typer av behållar register som stöds av Azure Defender för behållar register finns i [tillgänglighet](defender-for-container-registries-usage.md#availability).
 
 Om du ansluter register som inte stöds till din Azure-prenumeration genomsöks de inte och du debiteras inte för dem.
+
+### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>Kan jag anpassa undersöknings resultaten från sårbarhets skannern?
+Ja. Om du har ett organisations behov av att ignorera en sökning i, i stället för att åtgärda det, kan du inaktivera det. Inaktiverade resultat påverkar inte din säkra poäng eller genererar oönskad brus.
+
+[Lär dig mer om att skapa regler för att inaktivera resultat från verktyget Integrated sårbarhets bedömning](defender-for-container-registries-usage.md#disable-specific-findings-preview).
+
 
 
 ## <a name="next-steps"></a>Nästa steg

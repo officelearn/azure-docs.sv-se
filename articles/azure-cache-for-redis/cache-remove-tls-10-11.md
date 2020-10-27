@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 7be987b99c60185647ab976691d42b72236c6364
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: fd0e6f893d152259c46ff06e9ec20af54395c5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496063"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545318"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Ta bort TLS 1,0 och 1,1 från användning med Azure cache för Redis
 
@@ -65,7 +65,7 @@ Redis .NET-klienter använder den tidigaste TLS-versionen som standard på .NET 
 
 Redis .NET Core-klienter är standardvärdet för standard TLS-versionen för OS som är beroende av själva operativ systemet. 
 
-Beroende på operativ system version och eventuella korrigeringar som har tillämpats kan den effektiva standard-TLS-versionen variera. Även om det finns en informations källa om detta, finns [här](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) en artikel för Windows. 
+Beroende på operativ system version och eventuella korrigeringar som har tillämpats kan den effektiva standard-TLS-versionen variera. Även om det finns en informations källa om detta, finns [här](/dotnet/framework/network-programming/tls#support-for-tls-12) en artikel för Windows. 
 
 Men om du använder ett gammalt operativ system eller bara vill vara säker, rekommenderar vi att du konfigurerar den önskade TLS-versionen manuellt via klienten.
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b64fd82ab6050d6f4a9f0f91c2b8336ce03ab1d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3c18fcc0f4ff21eaaea2cbaf664e87d0ff33d60
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88211361"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537073"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Snabb start: använda Azure cache för Redis med ett .NET Framework-program
 
@@ -30,7 +30,7 @@ I den här snabb starten införlivar du Azure cache för Redis i en .NET Framewo
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Skapa en fil på datorn med namnet *CacheSecrets.config* och placera den på en plats där den inte checkas in med källkoden för exempelappen. För den här snabbstarten finns filen *CacheSecrets.config* här: *C:\AppSecrets\CacheSecrets.config*.
+Skapa en fil på datorn med namnet *CacheSecrets.config* och placera den på en plats där den inte checkas in med källkoden för exempelappen. För den här snabbstarten finns filen *CacheSecrets.config* här: *C:\AppSecrets\CacheSecrets.config* .
 
 Redigera filen *CacheSecrets.config* och lägg till följande innehåll:
 
@@ -47,7 +47,7 @@ Ersätt `<access-key>` med primärnyckeln för cachen.
 
 ## <a name="create-a-console-app"></a>Skapa en konsolapp
 
-I Visual Studio klickar du på **fil**  >  **nytt**  >  **projekt**.
+I Visual Studio klickar du på **fil**  >  **nytt**  >  **projekt** .
 
 Välj **konsol program (.NET Framework)** och **bredvid** Konfigurera appen. Ange ett **projekt namn** och klicka på **skapa** för att skapa ett nytt konsol program.
 
@@ -57,18 +57,18 @@ Välj **konsol program (.NET Framework)** och **bredvid** Konfigurera appen. Ang
 
 I det här avsnittet konfigurerar du konsolprogrammet att använda [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)-klienten för .NET.
 
-I Visual Studio klickar du på **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen**och kör följande kommando från fönstret Package Manager-konsol.
+I Visual Studio klickar du på **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen** och kör följande kommando från fönstret Package Manager-konsol.
 
 ```powershell
 Install-Package StackExchange.Redis
 ```
 
-När installationen är klar är *StackExchange.Redis*-cacheklienten tillgänglig för användning med ditt projekt.
+När installationen är klar är *StackExchange.Redis* -cacheklienten tillgänglig för användning med ditt projekt.
 
 
 ## <a name="connect-to-the-cache"></a>Ansluta till cachen
 
-Öppna din *App.config*-fil i Visual Studio och uppdatera den så att den inlkuderar ett `appSettings` `file`-attribut som refererar till filen *CacheSecrets.config*.
+Öppna din *App.config* -fil i Visual Studio och uppdatera den så att den inlkuderar ett `appSettings` `file`-attribut som refererar till filen *CacheSecrets.config* .
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -81,9 +81,9 @@ När installationen är klar är *StackExchange.Redis*-cacheklienten tillgängli
 </configuration>
 ```
 
-I Solution Explorer högerklickar du på **referenser** och klickar på **Lägg till en referens**. Lägg till en referens i sammansättningen **System.Configuration**.
+I Solution Explorer högerklickar du på **referenser** och klickar på **Lägg till en referens** . Lägg till en referens i sammansättningen **System.Configuration** .
 
-Lägg till följande `using`-instruktioner i *Program.cs*:
+Lägg till följande `using`-instruktioner i *Program.cs* :
 
 ```csharp
 using StackExchange.Redis;
@@ -92,9 +92,9 @@ using System.Configuration;
 
 Anslutningen till Azure Cache for Redis hanteras av `ConnectionMultiplexer`-klassen. Den här klassen delas och återanvändas i hela klientprogrammet. Skapa inte en ny anslutning för varje åtgärd. 
 
-Lagra aldrig autentiseringsuppgifterna i källkoden. Om du vill hålla det här exemplet enkelt använder jag endast en config-fil för externa hemligheter. En bättre metod är att använda [Azure Key Vault med certifikat](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
+Lagra aldrig autentiseringsuppgifterna i källkoden. Om du vill hålla det här exemplet enkelt använder jag endast en config-fil för externa hemligheter. En bättre metod är att använda [Azure Key Vault med certifikat](/rest/api/keyvault/certificate-scenarios).
 
-I *Program.cs*, lägger du till följande medlemmar i `Program`-klassen för ditt konsolprogram:
+I *Program.cs* , lägger du till följande medlemmar i `Program`-klassen för ditt konsolprogram:
 
 ```csharp
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -186,19 +186,19 @@ Azure Cache for Redis kan cachelagra både .NET-objekt och basdatatyper, men .NE
 
 Ett enkelt sätt att serialisera objekt är att använda `JsonConvert`-serialiseringsmetoderna i [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) och serialisera till och från JSON. I det här avsnittet ska du lägga till ett .NET-objekt till cachen.
 
-I Visual Studio klickar du på **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen**och kör följande kommando från fönstret Package Manager-konsol.
+I Visual Studio klickar du på **verktyg**  >  **NuGet Package Manager**  >  **Package Manager-konsolen** och kör följande kommando från fönstret Package Manager-konsol.
 
 ```powershell
 Install-Package Newtonsoft.Json
 ```
 
-Lägg till följande `using`-uttryck högst upp i *Program.cs*:
+Lägg till följande `using`-uttryck högst upp i *Program.cs* :
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Lägg till följande `Employee`-klassdefinition i *Program.cs*:
+Lägg till följande `Employee`-klassdefinition i *Program.cs* :
 
 ```csharp
 class Employee
@@ -216,7 +216,7 @@ class Employee
 }
 ```
 
-Längst ned i `Main()`-procedur i *Program.cs*, och innan anropet till `Dispose()`, lägger du till följande rader med kod i cachen och hämtar ett serialiserat .NET-objekt:
+Längst ned i `Main()`-procedur i *Program.cs* , och innan anropet till `Dispose()`, lägger du till följande rader med kod i cachen och hämtar ett serialiserat .NET-objekt:
 
 ```csharp
     // Store .NET object to cache
@@ -247,13 +247,13 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 > Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
-Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
+Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper** .
 
-Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera efter namn...). Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera efter namn...). Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources* . På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp** .
 
 ![Ta bort](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
+Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort** .
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 
@@ -271,4 +271,4 @@ I den här snabbstarten du har lärt dig hur du använder Azure Cache for Redis 
 Vill du optimera och Spara på dina moln utgifter?
 
 > [!div class="nextstepaction"]
-> [Börja analysera kostnaderna med Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Börja analysera kostnaderna med Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

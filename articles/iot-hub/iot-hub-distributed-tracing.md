@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 99a58cdbed10703c64b980af8571bce2d2638e72
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: efc4d07e9e3a64a36f2ecf3fa0000379bef380f9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152155"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538586"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -29,7 +29,7 @@ IoT Hub är en av de första Azure-tjänsterna som stöder distribuerad spårnin
 Genom att aktivera distribuerad spårning för IoT Hub kan du:
 
 - Övervaka flödet av varje meddelande noggrant genom IoT Hub med hjälp av [spårnings kontext](https://github.com/w3c/trace-context). Den här spårnings kontexten innehåller korrelations-ID: n som gör att du kan korrelera händelser från en komponent med händelser från en annan komponent. Den kan användas för en delmängd eller alla IoT-enhets meddelanden med [enhets](iot-hub-devguide-device-twins.md)-till-enhet.
-- Logga automatiskt spårnings kontexten till [Azure Monitor diagnostikloggar](iot-hub-monitor-resource-health.md).
+- Logga automatiskt spårnings kontexten till [Azure Monitor loggar](monitor-iot-hub.md).
 - Mäta och förstå meddelande flöde och svars tid från enheter till IoT Hub och dirigera slut punkter.
 - Börja fundera över hur du vill implementera distribuerad spårning för icke-Azure-tjänster i din IoT-lösning.
 
@@ -55,21 +55,21 @@ I det här avsnittet konfigurerar du en IoT Hub att logga distribuerade tracing-
 
 1. Navigera till din IoT Hub i [Azure Portal](https://portal.azure.com/).
 
-1. Rulla ned till avsnittet **övervakning** i den vänstra rutan för din IoT-hubb och klicka på **diagnostikinställningar**.
+1. Rulla ned till avsnittet **övervakning** i den vänstra rutan för din IoT-hubb och klicka på **diagnostikinställningar** .
 
-1. Om diagnostikinställningar inte redan är aktiverat klickar du på **Aktivera diagnostik**. Om du redan har aktiverat diagnostikinställningar klickar du på **Lägg till diagnostisk inställning**.
+1. Klicka på **Lägg till diagnostisk inställning** .
 
-1. I fältet **namn** anger du ett namn för en ny diagnostisk inställning. Till exempel **DistributedTracingSettings**.
+1. I fältet **namn** anger du ett namn för en ny diagnostisk inställning. Till exempel **DistributedTracingSettings** .
 
 1. Välj ett eller flera av följande alternativ som avgör var loggningen ska skickas:
 
-    - **Arkivera till ett lagrings konto**: Konfigurera ett lagrings konto som innehåller loggnings informationen.
-    - **Strömma till en Event Hub**: Konfigurera en händelsehubben som innehåller loggnings informationen.
-    - **Skicka till Log Analytics**: Konfigurera en Log Analytics-arbetsyta som innehåller loggnings informationen.
+    - **Arkivera till ett lagrings konto** : Konfigurera ett lagrings konto som innehåller loggnings informationen.
+    - **Strömma till en Event Hub** : Konfigurera en händelsehubben som innehåller loggnings informationen.
+    - **Skicka till Log Analytics** : Konfigurera en Log Analytics-arbetsyta som innehåller loggnings informationen.
 
 1. I avsnittet **logg** väljer du de åtgärder som du vill ha loggnings information för.
 
-    Se till att inkludera **DistributedTracing**och konfigurera en **kvarhållning** för hur många dagar du vill att loggningen ska behållas. Logg kvarhållning påverkar lagrings kostnader.
+    Se till att inkludera **DistributedTracing** och konfigurera en **kvarhållning** för hur många dagar du vill att loggningen ska behållas. Logg kvarhållning påverkar lagrings kostnader.
 
     ![Skärm bild som visar var DistributedTracing-kategorin är för IoT Diagnostic-inställningar](./media/iot-hub-distributed-tracing/diag-logs.png)
 
@@ -83,7 +83,7 @@ När loggningen är aktive rad, IoT Hub registrerar en logg när ett meddelande 
 - Meddelandet bearbetas av IoT Hub.
 - Meddelandet dirigeras till anpassade slut punkter. Routning måste vara aktiverat.
 
-Mer information om dessa loggar och deras scheman finns i [distribuerad spårning i IoT Hub diagnostikloggar](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+Mer information om dessa loggar och deras scheman finns i [övervaka IoT Hub](monitor-iot-hub.md) och [distribuerad spårning i IoT Hub resurs loggar](monitor-iot-hub-reference.md#distributed-tracing-preview).
 
 ## <a name="set-up-device"></a>Konfigurera enhet
 
@@ -183,7 +183,7 @@ Dessa anvisningar är till för att bygga exemplet på Windows. Andra miljöer f
 
 Det är **inte enkelt** att förhandsgranska Distributed tracing-funktionen utan att använda C SDK. Därför rekommenderas inte den här metoden.
 
-Först måste du implementera alla primitiva IoT Hub-protokoll i dina meddelanden genom att följa utvecklings guiden [skapa och läsa IoT Hub meddelanden](iot-hub-devguide-messages-construct.md). Redigera sedan protokoll egenskaperna i MQTT/AMQP-meddelanden som ska läggas till `tracestate` som **system egenskap**. Mer specifikt:
+Först måste du implementera alla primitiva IoT Hub-protokoll i dina meddelanden genom att följa utvecklings guiden [skapa och läsa IoT Hub meddelanden](iot-hub-devguide-messages-construct.md). Redigera sedan protokoll egenskaperna i MQTT/AMQP-meddelanden som ska läggas till `tracestate` som **system egenskap** . Mer specifikt:
 
 * För MQTT lägger du till i `%24.tracestate=timestamp%3d1539243209` meddelande ämnet, där `1539243209` ska ersättas med skapande tiden för meddelandet i formatet för Unix-tidsstämpel. Som exempel kan du se implementeringen [i C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * För AMQP lägger du till `key("tracestate")` och `value("timestamp=1539243209")` som meddelande anteckning. En referens implementering finns [här](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527).
@@ -196,19 +196,19 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
 ### <a name="update-using-the-portal"></a>Uppdatera med portalen
 
-1. Navigera till din IoT Hub i [Azure Portal](https://portal.azure.com/)och klicka sedan på **IoT-enheter**.
+1. Navigera till din IoT Hub i [Azure Portal](https://portal.azure.com/)och klicka sedan på **IoT-enheter** .
 
 1. Klicka på din enhet.
 
-1. Leta efter **Aktivera distribuerad spårning (för hands version)** och välj sedan **Aktivera**.
+1. Leta efter **Aktivera distribuerad spårning (för hands version)** och välj sedan **Aktivera** .
 
     ![Aktivera distribuerad spårning i Azure Portal](./media/iot-hub-distributed-tracing/azure-portal.png)
 
 1. Välj en **samplings frekvens** mellan 0% och 100%.
 
-1. Klicka på **Spara**.
+1. Klicka på **Spara** .
 
-1. Vänta några sekunder och klicka på **Uppdatera**, sedan visas en ikon för synkronisering med en bock om enheten har godkänts av enheten.
+1. Vänta några sekunder och klicka på **Uppdatera** , sedan visas en ikon för synkronisering med en bock om enheten har godkänts av enheten.
 
 1. Gå tillbaka till konsol fönstret för appen telemetri-meddelande. Meddelanden som skickas med `tracestate` i program egenskaperna visas.
 
@@ -222,11 +222,11 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
 1. Öppna VS Code och [konfigurera IoT Hub anslutnings sträng](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
-1. Expandera enheten och Sök efter **Distributed tracing-inställning (för hands version)**. Under det klickar du på **Uppdatera Distributed tracing Setting (för hands version)** av undernoden.
+1. Expandera enheten och Sök efter **Distributed tracing-inställning (för hands version)** . Under det klickar du på **Uppdatera Distributed tracing Setting (för hands version)** av undernoden.
 
     ![Aktivera distribuerad spårning i Azure IoT Hub-tillägget](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
-1. I popup-fönstret väljer du **Aktivera**och trycker sedan på RETUR för att bekräfta 100 som samplings frekvens.
+1. I popup-fönstret väljer du **Aktivera** och trycker sedan på RETUR för att bekräfta 100 som samplings frekvens.
 
     ![Uppdatera exempel läge](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
@@ -252,7 +252,7 @@ Om du vill uppdatera den distribuerade spårnings samplings konfigurationen för
 | Elementnamn | Krävs | Typ | Beskrivning |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Ja | Integer | Två läges värden stöds för närvarande för att aktivera och inaktivera sampling. `1` är på och `2` är avstängd. |
-| `sampling_rate` | Ja | Integer | Det här värdet är en procent andel. Endast värden från `0` till `100` (inklusive) tillåts.  |
+| `sampling_rate` | Yes | Integer | Det här värdet är en procent andel. Endast värden från `0` till `100` (inklusive) tillåts.  |
 
 ## <a name="query-and-visualize"></a>Fråga och visualisera
 
@@ -260,7 +260,7 @@ Om du vill se alla spår som loggats av en IoT Hub frågar du logg lagret som du
 
 ### <a name="query-using-log-analytics"></a>Fråga med Log Analytics
 
-Om du har konfigurerat [Log Analytics med diagnostikloggar](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)kan du söka efter loggar i `DistributedTracing` kategorin. Den här frågan visar till exempel alla spår som loggats:
+Om du har konfigurerat [Log Analytics med resurs loggar](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)kan du fråga genom att leta efter loggar i `DistributedTracing` kategorin. Den här frågan visar till exempel alla spår som loggats:
 
 ```Kusto
 // All distributed traces 
@@ -278,7 +278,7 @@ Exempel på loggar som visas i Log Analytics:
 | 2018-02-22T03:28:38.633 Z | DiagnosticIoTHubIngress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled": "false", "parentSpanId": "0144d2590aacd909"} |
 | 2018-02-22T03:28:48.633 Z | DiagnosticIoTHubEgress | DistributedTracing | Information | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType": "EventHub", "endpointName": "myEventHub", "parentSpanId": "0144d2590aacd909"} |
 
-Information om de olika typerna av loggar finns i [Azure IoT Hub diagnostikloggar](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+Information om de olika typerna av loggar finns i [Azure IoT Hub distribuerade spårnings loggar](monitor-iot-hub-reference.md#distributed-tracing-preview).
 
 ### <a name="application-map"></a>Programkarta
 
@@ -313,7 +313,7 @@ När den har Aktiver ATS följer stöd för distribuerad spårning för IoT Hub 
 1. IoT-enheten skickar meddelandet till IoT Hub.
 1. Meddelandet anländer till IoT Hub Gateway.
 1. IoT Hub letar efter `tracestate` i meddelande egenskaperna och kontrollerar om det har rätt format.
-1. I så fall genererar IoT Hub ett globalt unikt `trace-id` för meddelandet, a `span-id` för "hopp" och loggar dem till Azure Monitor diagnostikloggar under åtgärden `DiagnosticIoTHubD2C` .
+1. I så fall genererar IoT Hub ett globalt unikt `trace-id` för meddelandet, a `span-id` för "hopp" och loggar dem i [IoT Hub distribuerade spårnings loggar](monitor-iot-hub-reference.md#distributed-tracing-preview) under åtgärden `DiagnosticIoTHubD2C` .
 1. När meddelande bearbetningen har slutförts genererar IoT Hub en annan `span-id` och loggar den tillsammans med det befintliga `trace-id` under åtgärden `DiagnosticIoTHubIngress` .
 1. Om routning har Aktiver ATS för meddelandet IoT Hub skriver den till den anpassade slut punkten och loggar en annan `span-id` med samma `trace-id` under kategori `DiagnosticIoTHubEgress` .
 1. Stegen ovan upprepas för varje meddelande som genereras.
@@ -330,3 +330,4 @@ När den har Aktiver ATS följer stöd för distribuerad spårning för IoT Hub 
 - Mer information om det allmänna mönstret för spårning i mikrotjänster finns i mönster för [mikrotjänst arkitektur: distribuerad spårning](https://microservices.io/patterns/observability/distributed-tracing.html).
 - Information om hur du konfigurerar konfiguration för att tillämpa distribuerade spårnings inställningar på ett stort antal enheter finns i [Konfigurera och övervaka IoT-enheter i stor skala](./iot-hub-automatic-device-management.md).
 - Mer information om Azure Monitor finns i [Vad är Azure Monitor?](../azure-monitor/overview.md).
+- Mer information om hur du använder Azure Monitor med IoT HUb finns i [övervaka IoT Hub](monitor-iot-hub.md)

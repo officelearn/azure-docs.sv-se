@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 98e062b159b2df639923cb3cd3aac286f6051016
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4fea7719d0aa375aad3d2795d240006222b6486c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490908"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535101"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Felsöka ett jobb som är långsamt eller som inte fungerar i ett HDInsight-kluster
 
@@ -90,8 +90,8 @@ HDInsight förlitar sig på flera Azure-tjänster. Den kör virtuella servrar p�
 
 #### <a name="check-azure-service-usage-limits"></a>Kontrol lera användnings gränser för Azure-tjänsten
 
-Om du startar ett stort kluster eller har lanserat flera kluster samtidigt, kan ett kluster inte köras om du har överskridit en Azure-tjänstegräns. Tjänst gränserna varierar beroende på din Azure-prenumeration. Läs mer i dokumentationen om [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-Du kan begära att Microsoft ökar antalet tillgängliga HDInsight-resurser (till exempel virtuella dator kärnor och VM-instanser) med en [bas kvot för Resource Manager-begäranden](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Om du startar ett stort kluster eller har lanserat flera kluster samtidigt, kan ett kluster inte köras om du har överskridit en Azure-tjänstegräns. Tjänst gränserna varierar beroende på din Azure-prenumeration. Läs mer i dokumentationen om [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](../azure-resource-manager/management/azure-subscription-service-limits.md).
+Du kan begära att Microsoft ökar antalet tillgängliga HDInsight-resurser (till exempel virtuella dator kärnor och VM-instanser) med en [bas kvot för Resource Manager-begäranden](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 #### <a name="check-the-release-version"></a>Kontrol lera slut versionen
 
@@ -115,7 +115,7 @@ I följande avsnitt beskrivs hur du kontrollerar hälsan för varje nod och det 
 
 ### <a name="check-your-webhcat-service"></a>Kontrol lera din WebHCat-tjänst
 
-Ett vanligt scenario för Apache Hive-, Apache gris-eller Apache Sqoop-jobb Miss lyckas är ett problem med [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) -tjänsten (eller *Templeton*). WebHCat är ett REST-gränssnitt för fjärrkörning av jobb, till exempel Hive, gris, bilden och MapReduce. WebHCat översätter jobb sändnings begär anden till Apache Hadoop garn program, och returnerar en status som härletts från form av garn program.  I följande avsnitt beskrivs vanliga status koder för WebHCat HTTP.
+Ett vanligt scenario för Apache Hive-, Apache gris-eller Apache Sqoop-jobb Miss lyckas är ett problem med [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) -tjänsten (eller *Templeton* ). WebHCat är ett REST-gränssnitt för fjärrkörning av jobb, till exempel Hive, gris, bilden och MapReduce. WebHCat översätter jobb sändnings begär anden till Apache Hadoop garn program, och returnerar en status som härletts från form av garn program.  I följande avsnitt beskrivs vanliga status koder för WebHCat HTTP.
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (502 status kod)
 
@@ -172,7 +172,7 @@ På garn nivån finns det två typer av tids gränser:
 
     Om du öppnar `/var/log/webhcat/webhcat.log` logg filen och söker efter "köade jobb" kan du se flera poster där körnings tiden är alltför lång (>2000 MS), med poster som visar ökande vänte tider.
 
-    Tiden för de köade jobben fortsätter att öka eftersom den hastighet med vilken nya jobb skickas är högre än den hastighet med vilken de gamla jobben har slutförts. När garn minnet har 100% använt kan joblauncher- *kön* inte längre låna kapacitet från *standard kön*. Därför kan inga fler nya jobb accepteras i joblauncher-kön. Det här beteendet kan orsaka att vänte tiden blir längre och längre, vilket orsakar ett tids gräns fel som vanligt vis följs av många andra.
+    Tiden för de köade jobben fortsätter att öka eftersom den hastighet med vilken nya jobb skickas är högre än den hastighet med vilken de gamla jobben har slutförts. När garn minnet har 100% använt kan joblauncher- *kön* inte längre låna kapacitet från *standard kön* . Därför kan inga fler nya jobb accepteras i joblauncher-kön. Det här beteendet kan orsaka att vänte tiden blir längre och längre, vilket orsakar ett tids gräns fel som vanligt vis följs av många andra.
 
     Följande bild visar joblauncher-kön vid 714,4% överanvändning. Detta är acceptabelt så länge det fortfarande finns ledig kapacitet i standard kön till låna från. Men när klustret används fullt ut och garn minnet har en kapacitet på 100%, måste nya jobb vänta, vilket kan orsaka timeout.
 
@@ -206,7 +206,7 @@ Så här diagnostiserar du problemen:
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>Steg 4: granska miljö stacken och versionerna
 
-Ambari-GRÄNSSNITTets **stack-och version** -sida innehåller information om kluster tjänstens konfiguration och tjänst versions historik.  Felaktiga Hadoop service Library-versioner kan vara orsaken till kluster fel.  I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan  **stackar och versioner**.  Välj fliken **versioner** på sidan för att se information om tjänst version:
+Ambari-GRÄNSSNITTets **stack-och version** -sida innehåller information om kluster tjänstens konfiguration och tjänst versions historik.  Felaktiga Hadoop service Library-versioner kan vara orsaken till kluster fel.  I Ambari-ANVÄNDARGRÄNSSNITTET väljer du **Administratörs** menyn och sedan  **stackar och versioner** .  Välj fliken **versioner** på sidan för att se information om tjänst version:
 
 ![Apache Ambari stack och versioner](./media/hdinsight-troubleshoot-failed-cluster/ambari-stack-versions.png)
 
@@ -262,7 +262,7 @@ För att diagnostisera källan till ett kluster fel, starta ett nytt kluster med
 ## <a name="next-steps"></a>Nästa steg
 
 * [Hantera HDInsight-kluster med hjälp av Apache Ambari-webbgränssnittet](hdinsight-hadoop-manage-ambari.md)
-* [Analysera HDInsight-loggar](hdinsight-debug-jobs.md)
+* [Analysera HDInsight-loggar](./hdinsight-troubleshoot-guide.md)
 * [Åtkomst Apache Hadoop garn program logga in Linux-baserade HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [Aktivera heap-dum par för Apache Hadoop tjänster på Linux-baserade HDInsight](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Kända problem för Apache Spark kluster i HDInsight](hdinsight-apache-spark-known-issues.md)
+* [Kända problem för Apache Spark kluster i HDInsight](./spark/apache-spark-known-issues.md)

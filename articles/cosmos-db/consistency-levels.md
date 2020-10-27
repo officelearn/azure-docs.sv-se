@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 0f69b30f477f99e2a4cae10edc7443b0630175c9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487814"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547086"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Konsekvensnivåer i Azure Cosmos DB
 
@@ -49,14 +49,14 @@ Azure Cosmos DB garanterar att 100 procent av Läs begär Anden uppfyller konsek
 
 Semantiken för de fem konsekvens nivåerna beskrivs här:
 
-- **Stark**: stark konsekvens erbjuder en linearizability-garanti. Linearizability refererar till att betjäna begär Anden samtidigt. Läsningarna garanterar att du returnerar den senaste allokerade versionen av ett objekt. En klient ser aldrig en obekräftad eller delvis skrivning. Användare är alltid garanterade att läsa den senaste dedikerade skrivningen.
+- **Stark** : stark konsekvens erbjuder en linearizability-garanti. Linearizability refererar till att betjäna begär Anden samtidigt. Läsningarna garanterar att du returnerar den senaste allokerade versionen av ett objekt. En klient ser aldrig en obekräftad eller delvis skrivning. Användare är alltid garanterade att läsa den senaste dedikerade skrivningen.
 
   Följande bild illustrerar en stark konsekvens med noter. När data har skrivits till regionen "USA, västra 2" och du läser data från andra regioner får du det senaste värdet:
 
   :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Konsekvent som ett spektrum" konfigureras på två sätt när du väljer begränsat inaktuellitet:
 
-- Antalet versioner (*KB*) av objektet
-- Tidsintervallet (*T*) läsningar kan vara fördröjningar bakom skrivningar
+- Antalet versioner ( *KB* ) av objektet
+- Tidsintervallet ( *T* ) läsningar kan vara fördröjningar bakom skrivningar
 
 För ett enda region konto är det minsta värdet för *K* och *T* 10 Skriv åtgärder eller 5 sekunder. För konton med flera regioner är det lägsta värdet för *K* och *T* 100 000 Skriv åtgärder eller 300 sekunder.
 
@@ -73,7 +73,7 @@ I inaktuella fönster har den begränsade inaktuellaheten följande konsekvens g
 
   :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Konsekvent som ett spektrum":::
 
-- **Session**: inom ett enda klient-sessions-läsningar garanteras att det följer konsekventa prefix, enkla och enkla Skriv åtgärder, enkla Skriv åtgärder, säkerhets garantier för Skriv åtgärder. Detta förutsätter en enskild "skribent"-session eller delar sessionstoken för flera skrivare.
+- **Session** : inom ett enda klient-sessions-läsningar garanteras att det följer konsekventa prefix, enkla och enkla Skriv åtgärder, enkla Skriv åtgärder, säkerhets garantier för Skriv åtgärder. Detta förutsätter en enskild "skribent"-session eller delar sessionstoken för flera skrivare.
 
 Klienter utanför sessionen som utför skrivningar får följande garantier:
 
@@ -86,7 +86,7 @@ Klienter utanför sessionen som utför skrivningar får följande garantier:
 
   :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Konsekvent som ett spektrum":::
 
-- **Konsekvent prefix**: uppdateringar som returneras innehåller vissa prefix för alla uppdateringar, utan luckor. Konsekvent konsekvens nivå för prefix garanterar att läsning aldrig ser inloggade skrivningar.
+- **Konsekvent prefix** : uppdateringar som returneras innehåller vissa prefix för alla uppdateringar, utan luckor. Konsekvent konsekvens nivå för prefix garanterar att läsning aldrig ser inloggade skrivningar.
 
 Om skrivningar utfördes i beställningen `A, B, C` ser en klient antingen `A` , `A,B` , eller `A,B,C` , men inte i ordning-permutationer som `A,C` eller `B,A,C` . Konsekvent prefix ger Skriv fördröjningar, tillgänglighet och Läs data flöde som är jämförbara med den slutliga konsekvensen, men ger även order garantier som uppfyller behoven i scenarier där ordningen är viktig.
 
@@ -101,7 +101,7 @@ Följande bild illustrerar konsekvens för konsekvens med noter. I alla regioner
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Konsekvent som ett spektrum":::
 
-- **Eventuell**: det finns ingen beställnings garanti för läsningar. Om det inte finns fler skrivningar slås replikerna samman till slut.  
+- **Eventuell** : det finns ingen beställnings garanti för läsningar. Om det inte finns fler skrivningar slås replikerna samman till slut.  
 Eventuell konsekvens är den svagaste typen av konsekvens eftersom en klient kan läsa värdena som är äldre än de som har lästs tidigare. Eventuell konsekvens är idealisk där programmet inte kräver några ordnings garantier. I exemplen ingår antalet retweetar, gillar eller icke-trådade kommentarer. Följande bild illustrerar den slutliga konsekvensen med noter.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Konsekvent som ett spektrum":::
@@ -110,7 +110,7 @@ Eventuell konsekvens är den svagaste typen av konsekvens eftersom en klient kan
 
 I praktiken kan du ofta få bättre konsekvens garantier. Konsekvens garantier för en Läs åtgärd motsvarar aktualiteten och ordningen för det databas tillstånd som du begär. Läs-konsekvens är knutet till beställning och spridning av Skriv-/uppdaterings åtgärder.  
 
-Om det inte finns några Skriv åtgärder i databasen, är det troligt att en Läs **åtgärd med konsekvens nivåer för körning**, **session**eller **konsekvent prefix** ger samma resultat som en Läs åtgärd med stark konsekvens nivå.
+Om det inte finns några Skriv åtgärder i databasen, är det troligt att en Läs **åtgärd med konsekvens nivåer för körning** , **session** eller **konsekvent prefix** ger samma resultat som en Läs åtgärd med stark konsekvens nivå.
 
 Om ditt Azure Cosmos-konto har kon figurer ATS med en annan konsekvens nivå än den starka konsekvensen kan du ta reda på sannolikheten att dina klienter kan få starka och konsekventa läsningar för dina arbets belastningar genom att titta på Probabilistically-måttet ( *Bound* ). Det här måttet visas i Azure Portal. mer information finns i [övervaka Probabilistically-gränser för Inaktuellitet (PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
@@ -150,7 +150,7 @@ Den exakta svars tiden för försvars tid är en funktion av hastigheten-lätt a
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Konsekvens nivåer och data hållbarhet
 
-I en globalt distribuerad databas miljö finns det ett direkt förhållande mellan konsekvens nivån och data hållbarhet i närvaro av ett områdes omfattande avbrott. När du utvecklar din verksamhets kontinuitets plan måste du förstå hur lång tid det tar innan programmet återställs fullständigt efter en störnings händelse. Tiden som krävs för att ett program ska återställas fullständigt kallas för **återställnings tids mål** (**RTO**). Du måste också förstå hur lång tid det tar för nya data uppdateringar som programmet kan tolerera vid återställning efter en störnings händelse. Tids perioden för uppdateringar som du kanske har råd att förlora kallas för **återställnings punkt mål (återställnings punkt mål** ).**RPO**
+I en globalt distribuerad databas miljö finns det ett direkt förhållande mellan konsekvens nivån och data hållbarhet i närvaro av ett områdes omfattande avbrott. När du utvecklar din verksamhets kontinuitets plan måste du förstå hur lång tid det tar innan programmet återställs fullständigt efter en störnings händelse. Tiden som krävs för att ett program ska återställas fullständigt kallas för **återställnings tids mål** ( **RTO** ). Du måste också förstå hur lång tid det tar för nya data uppdateringar som programmet kan tolerera vid återställning efter en störnings händelse. Tids perioden för uppdateringar som du kanske har råd att förlora kallas för **återställnings punkt mål (återställnings punkt mål** ). **RPO**
 
 I tabellen nedan definieras relationen mellan konsekvens modell och data hållbarhet i närvaro av ett brett avbrott i regionen. Det är viktigt att notera att i ett distribuerat system, även med stark konsekvens, är det omöjligt att ha en distribuerad databas med en återställnings-och RTO av noll på grund av [Cap satsen](https://en.wikipedia.org/wiki/CAP_theorem).
 
@@ -189,8 +189,6 @@ Läs mer om konsekvens koncept i följande artiklar:
 
 Mer information om konsekvens nivåer i Azure Cosmos DB finns i följande artiklar:
 
-- [Välj rätt konsekvens nivå för ditt program]()
-- [Konsekvens nivåer i Azure Cosmos DB API: er]()
 - [Konfigurera standardkonsekvensnivån](how-to-manage-consistency.md#configure-the-default-consistency-level)
 - [Åsidosätta standardkonsekvensnivån](how-to-manage-consistency.md#override-the-default-consistency-level)
 - [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/)

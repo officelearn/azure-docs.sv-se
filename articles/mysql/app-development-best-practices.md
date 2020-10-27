@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.openlocfilehash: dc9764ce68d54418578c293833c1fd38080ba0ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afe14bc03f0d12e56e1512aeb788a77c64151b58
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538916"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547256"
 ---
 # <a name="best-practices-for-building-an-application-with-azure-database-for-mysql"></a>Metod tips för att skapa ett program med Azure Database for MySQL 
 
@@ -23,12 +23,12 @@ Här följer några metod tips som hjälper dig att bygga ett moln klart program
 Se till att alla dina beroenden finns i samma region när du distribuerar ditt program i Azure. Genom att sprida instanser över regioner eller tillgänglighets zoner skapas nätverks fördröjning, vilket kan påverka programmets övergripande prestanda. 
 
 ### <a name="keep-your-mysql-server-secure"></a>Skydda MySQL-servern
-Konfigurera MySQL-servern så att den är [säker](https://docs.microsoft.com/azure/mysql/concepts-security) och inte tillgänglig offentligt. Använd något av dessa alternativ för att skydda servern: 
-- [Brandväggsregler](https://docs.microsoft.com/azure/mysql/concepts-firewall-rules)
-- [Virtuella nätverk](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet) 
-- [Azure Private Link](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)
+Konfigurera MySQL-servern så att den är [säker](./concepts-security.md) och inte tillgänglig offentligt. Använd något av dessa alternativ för att skydda servern: 
+- [Brandväggsregler](./concepts-firewall-rules.md)
+- [Virtuella nätverk](./concepts-data-access-and-security-vnet.md) 
+- [Azure Private Link](./concepts-data-access-security-private-link.md)
 
-För säkerhet måste du alltid ansluta till MySQL-servern via SSL och Konfigurera MySQL-servern och ditt program för att använda TLS 1,2. Se [så här konfigurerar du SSL/TLS](https://docs.microsoft.com/azure/mysql/concepts-ssl-connection-security). 
+För säkerhet måste du alltid ansluta till MySQL-servern via SSL och Konfigurera MySQL-servern och ditt program för att använda TLS 1,2. Se [så här konfigurerar du SSL/TLS](./concepts-ssl-connection-security.md). 
 
 ### <a name="tune-your-server-parameters"></a>Justera dina Server parametrar
 För att finjustera Server parametrar med Läs-och hög `tmp_table_size` belastning `max_heap_table_size` kan du optimera för bättre prestanda. Om du vill beräkna de värden som krävs för dessa variabler tittar du på de totala minnes värdena per anslutning och bas minnet. Summan av minnes parametrarna per anslutning, exklusive `tmp_table_size` , tillsammans med de grundläggande minnes kontona för det totala minnet på servern.
@@ -38,15 +38,15 @@ Om du vill beräkna den största möjliga storleken för `tmp_table_size` och `m
 ```(total memory - (base memory + (sum of per-connection memory * # of connections)) / # of connections```
 
 >[!NOTE]
-> Totalt minne anger den totala mängden minne som servern har för den etablerade virtuella kärnor.  Till exempel är det totala minnet 5 GB * 2 i en Generell användning Azure Database for MySQL server med två vCore. Du hittar mer information om minne för varje nivå i [pris nivå](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) dokumentationen.
+> Totalt minne anger den totala mängden minne som servern har för den etablerade virtuella kärnor.  Till exempel är det totala minnet 5 GB * 2 i en Generell användning Azure Database for MySQL server med två vCore. Du hittar mer information om minne för varje nivå i [pris nivå](./concepts-pricing-tiers.md) dokumentationen.
 >
 > I bas minnet anges de minnesmoduler, till exempel `query_cache_size` och `innodb_buffer_pool_size` , som MySQL initierar och allokerar vid Server start. Minne per anslutning, till exempel `sort_buffer_size` och `join_buffer_size` , är minne som tilldelas bara när en fråga behöver det.
 
 ### <a name="create-non-admin-users"></a>Skapa användare som inte är administratörer 
-[Skapa användare som inte är administratörer](https://docs.microsoft.com/azure/mysql/howto-create-users) för varje databas. Normalt identifieras användar namnen som databas namn.
+[Skapa användare som inte är administratörer](./howto-create-users.md) för varje databas. Normalt identifieras användar namnen som databas namn.
 
 ### <a name="reset-your-password"></a>Återställa lösenordet
-Du kan [återställa ditt lösen ord](https://docs.microsoft.com/azure/mysql/howto-create-manage-server-portal#update-admin-password) för MySQL-servern med hjälp av Azure Portal. 
+Du kan [återställa ditt lösen ord](./howto-create-manage-server-portal.md#update-admin-password) för MySQL-servern med hjälp av Azure Portal. 
 
 Om du återställer Server lösen ordet för en produktions databas kan du ta bort programmet. Det är en bra idé att återställa lösen ordet för produktions arbets belastningar vid låg belastnings tider för att minimera påverkan på programmets användare.
 
@@ -54,29 +54,29 @@ Om du återställer Server lösen ordet för en produktions databas kan du ta bo
 Här följer några verktyg och metoder som du kan använda för att felsöka prestanda problem med programmet.
 
 ### <a name="enable-slow-query-logs-to-identify-performance-issues"></a>Aktivera långsamma Query-loggar för att identifiera prestanda problem
-Du kan aktivera [långsamma fråge loggar](https://docs.microsoft.com/azure/mysql/concepts-server-logs) och [gransknings loggar](https://docs.microsoft.com/azure/mysql/concepts-audit-logs) på servern. Analys av långsamma frågeuttryck kan hjälpa dig att identifiera Flask halsar i prestanda för fel sökning. 
+Du kan aktivera [långsamma fråge loggar](./concepts-server-logs.md) och [gransknings loggar](./concepts-audit-logs.md) på servern. Analys av långsamma frågeuttryck kan hjälpa dig att identifiera Flask halsar i prestanda för fel sökning. 
 
-Gransknings loggar är också tillgängliga via Azure-diagnostik loggar i Azure Monitor loggar, Azure Event Hubs och lagrings konton. Se [fel sökning av problem med frågans prestanda](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-query-performance).
+Gransknings loggar är också tillgängliga via Azure-diagnostik loggar i Azure Monitor loggar, Azure Event Hubs och lagrings konton. Se [fel sökning av problem med frågans prestanda](./howto-troubleshoot-query-performance.md).
 
 ### <a name="use-connection-pooling"></a>Använd anslutningspoolen
-Hantering av databas anslutningar kan ha en betydande inverkan på programmets prestanda som helhet. För att optimera prestanda måste du minska antalet gånger som anslutningarna upprättas och tiden för att upprätta anslutningar i nyckel kods Sök vägar. Använd [anslutningspoolen](https://docs.microsoft.com/azure/mysql/concepts-connectivity#access-databases-by-using-connection-pooling-recommended) för att ansluta till Azure Database for MySQL för att förbättra återhämtning och prestanda. 
+Hantering av databas anslutningar kan ha en betydande inverkan på programmets prestanda som helhet. För att optimera prestanda måste du minska antalet gånger som anslutningarna upprättas och tiden för att upprätta anslutningar i nyckel kods Sök vägar. Använd [anslutningspoolen](./concepts-connectivity.md#access-databases-by-using-connection-pooling-recommended) för att ansluta till Azure Database for MySQL för att förbättra återhämtning och prestanda. 
 
 Du kan använda [ProxySQL](https://proxysql.com/) -anslutningspoolen för att effektivt hantera anslutningar. Att använda en anslutningspool kan minska inaktiva anslutningar och återanvända befintliga anslutningar, vilket bidrar till att undvika problem. Mer information finns i [så här konfigurerar du ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/connecting-efficiently-to-azure-database-for-mysql-with-proxysql/ba-p/1279842) . 
 
 ### <a name="retry-logic-to-handle-transient-errors"></a>Försök igen med logik för att hantera tillfälliga fel
-Ditt program kan uppleva [tillfälliga fel](https://docs.microsoft.com/azure/mysql/concepts-connectivity#handling-transient-errors) där anslutningar till databasen släpps eller försvinner tillfälligt. I sådana situationer är servern igång efter en och två nya försök i 5 till 10 sekunder. 
+Ditt program kan uppleva [tillfälliga fel](./concepts-connectivity.md#handling-transient-errors) där anslutningar till databasen släpps eller försvinner tillfälligt. I sådana situationer är servern igång efter en och två nya försök i 5 till 10 sekunder. 
 
-En bra idé är att vänta i 5 sekunder innan ditt första försök. Följ sedan varje nytt försök genom att öka vänte tiden gradvis, upp till 60 sekunder. Begränsa det maximala antalet återförsök som programmet anser att åtgärden misslyckades, så att du kan undersöka dem ytterligare. Mer information finns i [Felsöka anslutnings fel](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-common-connection-issues) . 
+En bra idé är att vänta i 5 sekunder innan ditt första försök. Följ sedan varje nytt försök genom att öka vänte tiden gradvis, upp till 60 sekunder. Begränsa det maximala antalet återförsök som programmet anser att åtgärden misslyckades, så att du kan undersöka dem ytterligare. Mer information finns i [Felsöka anslutnings fel](./howto-troubleshoot-common-connection-issues.md) . 
 
 ### <a name="enable-read-replication-to-mitigate-failovers"></a>Aktivera Läs replikering för att minimera redundans
-Du kan använda [datareplikering](https://docs.microsoft.com/azure/mysql/howto-data-in-replication) för scenarier med växling vid fel. När du använder Läs repliker sker ingen automatisk redundans mellan käll-och replik servrar. 
+Du kan använda [datareplikering](./howto-data-in-replication.md) för scenarier med växling vid fel. När du använder Läs repliker sker ingen automatisk redundans mellan käll-och replik servrar. 
 
 Du ser en fördröjning mellan källan och repliken eftersom replikeringen är asynkron. Nätverks fördröjning kan påverkas av många faktorer, t. ex. storleken på arbets belastningen som körs på käll servern och fördröjningen mellan data Center. I de flesta fall är replik fördröjningen från några sekunder till några minuter.
 
 ## <a name="database-deployment"></a>Databas distribution 
 
 ### <a name="configure-an-azure-database-for-mysql-task-in-your-cicd-deployment-pipeline"></a>Konfigurera en Azure Database för MySQL-aktivitet i din CI/CD distributions pipeline
-Ibland måste du distribuera ändringar i databasen. I sådana fall kan du använda kontinuerlig integrering (CI) och kontinuerlig leverans (CD) via [Azure-pipelines](https://azure.microsoft.com/services/devops/pipelines/) och använda en aktivitet för [MySQL-servern](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops) för att uppdatera databasen genom att köra ett anpassat skript mot den.
+Ibland måste du distribuera ändringar i databasen. I sådana fall kan du använda kontinuerlig integrering (CI) och kontinuerlig leverans (CD) via [Azure-pipelines](https://azure.microsoft.com/services/devops/pipelines/) och använda en aktivitet för [MySQL-servern](/azure/devops/pipelines/tasks/deploy/azure-mysql-deployment?view=azure-devops&preserve-view=true) för att uppdatera databasen genom att köra ett anpassat skript mot den.
 
 ### <a name="use-an-effective-process-for-manual-database-deployment"></a>Använd en effektiv process för manuell databas distribution 
 Under en manuell databas distribution följer du dessa steg för att minimera stillestånds tiden eller minska risken för misslyckad distribution: 
@@ -119,6 +119,4 @@ Genom att använda rätt datatyp baserat på den typ av data som du vill lagra k
 Du kan använda index för att undvika långsamma frågor. Index kan hjälpa dig att snabbt hitta rader med vissa kolumner. Se [hur du använder index i MySQL](https://dev.mysql.com/doc/refman/8.0/en/mysql-indexes.html).
 
 ### <a name="use-explain-for-your-select-queries"></a>Använd förklaring för dina URVALs frågor
-Använd `EXPLAIN` instruktionen för att få insikter om vad MySQL gör för att köra frågan. Det kan hjälpa dig att identifiera Flask halsar eller problem med din fråga. Se [hur du använder förklaring för att profilera frågor om prestanda](https://docs.microsoft.com/azure/mysql/howto-troubleshoot-query-performance).
-
-
+Använd `EXPLAIN` instruktionen för att få insikter om vad MySQL gör för att köra frågan. Det kan hjälpa dig att identifiera Flask halsar eller problem med din fråga. Se [hur du använder förklaring för att profilera frågor om prestanda](./howto-troubleshoot-query-performance.md).

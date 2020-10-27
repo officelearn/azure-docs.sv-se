@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: a9f050bb25873e4b6ede234c800b00f2c34085d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3e2ca2eca0d258a14365edc97b98d0c827b0b6f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085284"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546066"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portar som används av Apache Hadoop Services i HDInsight
 
@@ -158,7 +158,7 @@ Exempel:
 | --- | --- | --- | --- | --- |
 | Utjämning |Arbetsnoder |9092 |Kafka Wire Protocol |Används för klient kommunikation |
 | &nbsp; |Zookeeper-noder |2181 |&nbsp; |Den port som klienter använder för att ansluta till Zookeeper |
-| REST-proxy | Kafka hanterings noder |9400 |HTTPS |[Kafka REST-specifikation](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
+| REST-proxy | Kafka hanterings noder |9400 |HTTPS |[Kafka REST-specifikation](/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### <a name="spark-ports"></a>Spark-portar
 

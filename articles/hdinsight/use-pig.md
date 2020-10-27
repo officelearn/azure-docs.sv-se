@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 01/28/2020
-ms.openlocfilehash: 8fd42169ab6ccb144215e1b6ad2ece09ff55c07f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9474a1845898e3fda0c810314f41f6f4deabc96b
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87072843"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538739"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använda Apache gris med Apache Hadoop på HDInsight
 
 Lär dig hur du använder [Apache gris](https://pig.apache.org/) med HDInsight.
 
-Apache gris är en plattform för att skapa program för Apache Hadoop med hjälp av ett procedur språk som kallas *gris Latin*. Gris är ett alternativ till Java för att skapa *MapReduce* -lösningar och det ingår i Azure HDInsight. Använd följande tabell för att identifiera de olika sätt som gris kan användas med HDInsight:
+Apache gris är en plattform för att skapa program för Apache Hadoop med hjälp av ett procedur språk som kallas *gris Latin* . Gris är ett alternativ till Java för att skapa *MapReduce* -lösningar och det ingår i Azure HDInsight. Använd följande tabell för att identifiera de olika sätt som gris kan användas med HDInsight:
 
 ## <a name="why-use-apache-pig"></a><a id="why"></a>Varför ska man använda Apache gris
 
@@ -30,11 +30,11 @@ Med hjälp av gris kan du definiera bearbetning som en serie med omvandlingar so
 
 Med det latinska språket för svin kan du beskriva data flödet från rå data, via en eller flera transformeringar, för att skapa önskade utdata. De latinska programmen i gris följer detta allmänna mönster:
 
-* **Load**: Läs data som ska hanteras från fil systemet.
+* **Load** : Läs data som ska hanteras från fil systemet.
 
-* **Transform**: manipulera data.
+* **Transform** : manipulera data.
 
-* **Dumpa eller lagra**: mata ut data till skärmen eller lagra den för bearbetning.
+* **Dumpa eller lagra** : mata ut data till skärmen eller lagra den för bearbetning.
 
 ### <a name="user-defined-functions"></a>Användardefinierade funktioner
 
@@ -95,15 +95,15 @@ Nu när du har lärt dig hur du använder gris med HDInsight kan du använda fö
 
 * [Överföra data till HDInsight](hdinsight-upload-data.md)
 * [Använda Apache Hive med HDInsight](./hadoop/hdinsight-use-hive.md)
-* [Använda Apache Sqoop med HDInsight](hdinsight-use-sqoop.md)
+* [Använda Apache Sqoop med HDInsight](./hadoop/hdinsight-use-sqoop.md)
 * [Använda MapReduce-jobb med HDInsight](./hadoop/hdinsight-use-mapreduce.md)
 
 [apachepig-home]: https://pig.apache.org/
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: https://curl.haxx.se/
-[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[pigtask]: /sql/integration-services/control-flow/azure-hdinsight-pig-task?viewFallbackFrom=sql-server-2014
+[connectionmanager]: /sql/integration-services/connection-manager/azure-subscription-connection-manager?viewFallbackFrom=sql-server-2014
+[ssispack]: /sql/integration-services/azure-feature-pack-for-integration-services-ssis?viewFallbackFrom=sql-server-2014
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md

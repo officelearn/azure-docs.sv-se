@@ -8,12 +8,12 @@ keywords: Hadoop hög tillgänglighet
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: f83f5aec264aeae1a729e81932843825a0ce6673
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893653"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546950"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Affärs kontinuitet i Azure HDInsight
 
@@ -39,7 +39,7 @@ I det här avsnittet beskrivs några av de bästa metoderna för att tänka på 
 
 * Använd Azures övervaknings verktyg i HDInsight för att identifiera onormalt beteende i klustret och ange motsvarande aviserings aviseringar. Du kan distribuera förkonfigurerade HDInsight-företagsspecifika hanterings lösningar som samlar in viktiga prestanda mått för den aktuella kluster typen. Mer information finns i [Azure-övervakning för HDInsight](./hdinsight-hadoop-oms-log-analytics-tutorial.md).  
 
-* Prenumerera på Azures hälso aviseringar för att få meddelanden om service problem, planerat underhåll, hälso-och säkerhets rekommendationer för en prenumeration, tjänst eller region. Hälso aviseringar som innehåller orsaken till problemet och Resolute ETA-tjänsten hjälper dig att bättre köra redundans och förlita. Mer information finns i [Azure Service Health-dokumentationen](/azure/service-health/).
+* Prenumerera på Azures hälso aviseringar för att få meddelanden om service problem, planerat underhåll, hälso-och säkerhets rekommendationer för en prenumeration, tjänst eller region. Hälso aviseringar som innehåller orsaken till problemet och Resolute ETA-tjänsten hjälper dig att bättre köra redundans och förlita. Mer information finns i [Azure Service Health-dokumentationen](../service-health/index.yml).
 
 ## <a name="single-region-availability"></a>Tillgänglighet för enskild region
 

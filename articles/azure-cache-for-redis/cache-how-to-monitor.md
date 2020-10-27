@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
-ms.openlocfilehash: 7d703c63ebdc5b70987ead3ed2ccbe5f4843a06f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93ac9a0b8766da70a55ac04f864fe48106fe8774
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88004850"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536750"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Övervaka Azure Cache for Redis
 
@@ -34,13 +34,13 @@ Om du vill visa cache-mått [bläddrar](cache-configure.md#configure-azure-cache
 
 ### <a name="monitoring-charts"></a>Övervaknings diagram
 
-Avsnittet **övervakning** i bladet **Översikt** har **träffar och har träffar**, **hämtar och ställer in**, **anslutningar**och **Totalt antal kommando** diagram.
+Avsnittet **övervakning** i bladet **Översikt** har **träffar och har träffar** , **hämtar och ställer in** , **anslutningar** och **Totalt antal kommando** diagram.
 
 ![Övervaknings diagram](./media/cache-how-to-monitor/redis-cache-monitoring-part.png)
 
 ### <a name="usage-charts"></a>Användnings diagram
 
-**Användnings** avsnittet på bladet **Översikt** har **redis server belastning**, **minnes användning**, **nätverks bandbredd**och **CPU-användning** och visar även **pris nivån** för cache-instansen.
+**Användnings** avsnittet på bladet **Översikt** har **redis server belastning** , **minnes användning** , **nätverks bandbredd** och **CPU-användning** och visar även **pris nivån** för cache-instansen.
 
 ![Användnings diagram](./media/cache-how-to-monitor/redis-cache-usage-part.png)
 
@@ -48,27 +48,27 @@ Avsnittet **övervakning** i bladet **Översikt** har **träffar och har träffa
 
 ## <a name="view-metrics-with-azure-monitor"></a>Visa mått med Azure Monitor
 
-Om du vill visa Redis-mått och skapa anpassade diagram med Azure Monitor klickar du på **mått** på **resurs-menyn**och anpassar ditt diagram med önskade mått, rapporterings intervall, diagram typ med mera.
+Om du vill visa Redis-mått och skapa anpassade diagram med Azure Monitor klickar du på **mått** på **resurs-menyn** och anpassar ditt diagram med önskade mått, rapporterings intervall, diagram typ med mera.
 
 ![Redis mått](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Mer information om hur du arbetar med mått med Azure Monitor finns i [Översikt över mått i Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Mer information om hur du arbetar med mått med Azure Monitor finns i [Översikt över mått i Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exportera cache-mått
 
-Som standard lagras cache-mått i Azure Monitor i [30 dagar](../azure-monitor/platform/data-platform-metrics.md) och tas sedan bort. Om du vill spara dina cache-mått i mer än 30 dagar kan du ange [ett lagrings konto](../azure-monitor/platform/archive-diagnostic-logs.md) och ange en princip för **bevarande (dagar)** för dina cache-mått. 
+Som standard lagras cache-mått i Azure Monitor i [30 dagar](../azure-monitor/platform/data-platform-metrics.md) och tas sedan bort. Om du vill spara dina cache-mått i mer än 30 dagar kan du ange [ett lagrings konto](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) och ange en princip för **bevarande (dagar)** för dina cache-mått. 
 
 Så här konfigurerar du ett lagrings konto för dina cache-mått:
 
-1. På sidan **Azure cache för Redis** , under **övervaknings** rubriken väljer du **diagnostik**.
-2. Välj **+ Lägg till diagnostisk inställning**.
+1. På sidan **Azure cache för Redis** , under **övervaknings** rubriken väljer du **diagnostik** .
+2. Välj **+ Lägg till diagnostisk inställning** .
 3. Ge inställningarna ett namn.
-4. Markera **Arkivera till ett lagringskonto**. Du debiteras normala data avgifter för lagring och transaktioner när du skickar diagnostik till ett lagrings konto.
+4. Markera **Arkivera till ett lagringskonto** . Du debiteras normala data avgifter för lagring och transaktioner när du skickar diagnostik till ett lagrings konto.
 4. Välj **Konfigurera** för att välja det lagrings konto där du vill lagra cache-måtten.
-5. Under tabell rubrikens **mått**markerar du kryss rutan bredvid de rad objekt som du vill lagra, till exempel **AllMetrics**. Ange en princip för **bevarande (dagar)** . Det maximala antalet dagars kvarhållning du kan ange är **365 dagar**. Men om du vill behålla mått data permanent ställer du in **kvarhållning (dagar)** på **0**.
-6. Klicka på **Spara**.
+5. Under tabell rubrikens **mått** markerar du kryss rutan bredvid de rad objekt som du vill lagra, till exempel **AllMetrics** . Ange en princip för **bevarande (dagar)** . Det maximala antalet dagars kvarhållning du kan ange är **365 dagar** . Men om du vill behålla mått data permanent ställer du in **kvarhållning (dagar)** på **0** .
+6. Klicka på **Spara** .
 
 
 ![Redis-diagnostik](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -85,7 +85,7 @@ Du kan få åtkomst till dina mått genom att visa dem i Azure Portal som tidiga
 
 ## <a name="available-metrics-and-reporting-intervals"></a>Tillgängliga mått och rapporterings intervall
 
-Cache-mått rapporteras med hjälp av flera rapport intervall, inklusive den **senaste timmen**, **idag**, **senaste veckan**och **anpassad**. **Mått** bladet för varje mått diagram visar medelvärde, lägsta och högsta värden för varje mått i diagrammet, och vissa mått visar total summan för rapporterings intervallet. 
+Cache-mått rapporteras med hjälp av flera rapport intervall, inklusive den **senaste timmen** , **idag** , **senaste veckan** och **anpassad** . **Mått** bladet för varje mått diagram visar medelvärde, lägsta och högsta värden för varje mått i diagrammet, och vissa mått visar total summan för rapporterings intervallet. 
 
 Varje mått innehåller två versioner. Ett mått mäter prestanda för hela cacheminnet och för cacheminnen som använder [kluster](cache-how-to-premium-clustering.md), en andra version av måttet som inkluderar `(Shard 0-9)` i namnet mäter prestanda för en enskild Shard i en cache. Om till exempel en cache har fyra Shards, `Cache Hits` är det totala antalet träffar för hela cacheminnet och `Cache Hits (Shard 3)` är bara träffarna för Shard i cacheminnet.
 
@@ -125,11 +125,11 @@ Du kan konfigurera för att ta emot varningar baserat på mått och aktivitetslo
 * Anropa en webbhook
 * Anropa en Azure Logic App
 
-Om du vill konfigurera aviserings regler för din cache klickar du på **varnings regler** på **resurs menyn**.
+Om du vill konfigurera aviserings regler för din cache klickar du på **varnings regler** på **resurs menyn** .
 
 ![Övervakning](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Mer information om hur du konfigurerar och använder aviseringar finns i [Översikt över aviseringar](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Mer information om hur du konfigurerar och använder aviseringar finns i [Översikt över aviseringar](../azure-monitor/platform/alerts-classic-portal.md).
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 Aktivitets loggar ger insikt i de åtgärder som utfördes på Azure-cachen för Redis-instanser. Det kallades tidigare för "gransknings loggar" eller "drift loggar". Med aktivitets loggar kan du fastställa "vad, vem och när" för alla Skriv åtgärder (skicka, posta och ta bort) som utförs på Azure-cachen för Redis-instanser. 
@@ -138,6 +138,6 @@ Aktivitets loggar ger insikt i de åtgärder som utfördes på Azure-cachen för
 > Aktivitets loggar innehåller inte Läs åtgärder (GET).
 >
 
-Om du vill visa aktivitets loggar för cacheminnet klickar du på **aktivitets loggar** på **resurs menyn**.
+Om du vill visa aktivitets loggar för cacheminnet klickar du på **aktivitets loggar** på **resurs menyn** .
 
 Mer information om aktivitets loggar finns i [Översikt över Azure aktivitets loggen](../azure-monitor/platform/platform-logs-overview.md).

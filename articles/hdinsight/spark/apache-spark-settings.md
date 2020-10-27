@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: cdef21c69e8f05924097d57bbe78b86d38497b86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ab5cc93d98d7356d47472b7e160ddd3ade790
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82188165"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545947"
 ---
 # <a name="configure-apache-spark-settings"></a>Konfigurera Apache Spark-inställningar
 
@@ -23,13 +23,13 @@ Standard-HDInsight Apache Spark-klustret innehåller följande noder: tre Apache
 
 ![Spark HDInsight-arkitektur](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-Antalet virtuella datorer och VM-storlekar för noderna i HDInsight-klustret kan påverka din spark-konfiguration. Konfigurations värden som inte är standard för HDInsight kräver ofta konfigurations värden som inte är standard. När du skapar ett HDInsight Spark-kluster visar vi föreslagna VM-storlekar för varje komponent. För närvarande är de [minnesoptimerade virtuella Linux-VM-storlekarna](../../virtual-machines/linux/sizes-memory.md) för Azure D12 v2 eller senare.
+Antalet virtuella datorer och VM-storlekar för noderna i HDInsight-klustret kan påverka din spark-konfiguration. Konfigurations värden som inte är standard för HDInsight kräver ofta konfigurations värden som inte är standard. När du skapar ett HDInsight Spark-kluster visar vi föreslagna VM-storlekar för varje komponent. För närvarande är de [minnesoptimerade virtuella Linux-VM-storlekarna](../../virtual-machines/sizes-memory.md) för Azure D12 v2 eller senare.
 
 ## <a name="apache-spark-versions"></a>Apache Spark versioner
 
 Använd den bästa Spark-versionen för klustret.  HDInsight-tjänsten innehåller flera versioner av både Spark och HDInsight.  Varje version av Spark innehåller en uppsättning standard kluster inställningar.  
 
-När du skapar ett nytt kluster finns det flera Spark-versioner att välja mellan. Om du vill se en fullständig lista,  [HDInsight-komponenter och-versioner](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
+När du skapar ett nytt kluster finns det flera Spark-versioner att välja mellan. Om du vill se en fullständig lista,  [HDInsight-komponenter och-versioner](../hdinsight-component-versioning.md).
 
 > [!NOTE]  
 > Standard versionen av Apache Spark i HDInsight-tjänsten kan ändras utan föregående meddelande. Om du har ett versions beroende rekommenderar Microsoft att du anger den specifika versionen när du skapar kluster med .NET SDK, Azure PowerShell och klassisk Azure-CLI.
@@ -60,7 +60,7 @@ Verifiera de aktuella inställningarna för HDInsight-klustret innan du utför p
 
 Apache Ambari Web UI visas med en instrument panel med användnings mått för nyckel kluster resurser.  Ambari-instrumentpanelen visar Apache Spark konfiguration och andra installerade tjänster. På instrument panelen finns fliken **konfigurations historik** där du kan visa information om installerade tjänster, inklusive Spark.
 
-Om du vill se konfigurations värden för Apache Spark väljer du **konfigurations historik**och väljer sedan **Spark2**.  Välj fliken **konfigurationer** och välj sedan `Spark` länken (eller `Spark2` , beroende på din version) i tjänst listan.  Du ser en lista över konfigurations värden för klustret:
+Om du vill se konfigurations värden för Apache Spark väljer du **konfigurations historik** och väljer sedan **Spark2** .  Välj fliken **konfigurationer** och välj sedan `Spark` länken (eller `Spark2` , beroende på din version) i tjänst listan.  Du ser en lista över konfigurations värden för klustret:
 
 ![Spark-konfigurationer](./media/apache-spark-settings/spark-configurations.png)
 

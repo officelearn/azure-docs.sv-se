@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 01/03/2020
-ms.openlocfilehash: 162049c12c0618298695e43dae43f16e9fb50260
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d46f20f33e2627525f8f7f5b08bdaa2875626940
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372199"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92541986"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK för Go (för hands version)
 
@@ -25,7 +25,7 @@ HDInsight SDK för Go tillhandahåller klasser och funktioner som gör att du ka
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Ett [ `go get` verktyg](https://github.com/golang/go/wiki/GoGetTools).
 * [Gå](https://golang.org/dl/).
@@ -39,7 +39,7 @@ Från din GOPATH-plats kör du `go get github.com/Azure/azure-sdk-for-go/tree/ma
 SDK måste först autentiseras med din Azure-prenumeration.  Följ exemplet nedan för att skapa ett huvud namn för tjänsten och använda det för att autentisera. När detta är gjort har du en instans av en `ClustersClient` , som innehåller många funktioner (beskrivs i avsnitten nedan) som kan användas för att utföra hanterings åtgärder.
 
 > [!NOTE]  
-> Det finns andra sätt att autentisera förutom nedanstående exempel som kan vara bättre lämpade för dina behov. Alla funktioner beskrivs här: [autentiserings funktioner i Azure SDK för go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
+> Det finns andra sätt att autentisera förutom nedanstående exempel som kan vara bättre lämpade för dina behov. Alla funktioner beskrivs här: [autentiserings funktioner i Azure SDK för go](/azure/go/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>Autentiserings exempel med ett huvud namn för tjänsten
 
@@ -365,7 +365,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>Aktivera OMS-övervakning
 
 > [!NOTE]  
-> Om du vill aktivera OMS-övervakning måste du ha en befintlig Log Analytics-arbetsyta. Om du inte redan har skapat en, kan du lära dig hur du gör det här: [skapa en Log Analytics arbets yta i Azure Portal](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> Om du vill aktivera OMS-övervakning måste du ha en befintlig Log Analytics-arbetsyta. Om du inte redan har skapat en, kan du lära dig hur du gör det här: [skapa en Log Analytics arbets yta i Azure Portal](../azure-monitor/learn/quick-create-workspace.md).
 
 Aktivera OMS-övervakning i klustret:
 
@@ -394,7 +394,7 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 HDInsight innehåller en konfigurations funktion som kallas skript åtgärder som anropar anpassade skript för att anpassa klustret.
 
 > [!NOTE]  
-> Mer information om hur du använder skript åtgärder hittar du här: [Anpassa Linux-baserade HDInsight-kluster med skript åtgärder](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+> Mer information om hur du använder skript åtgärder hittar du här: [Anpassa Linux-baserade HDInsight-kluster med skript åtgärder](./hdinsight-hadoop-customize-cluster-linux.md)
 
 ### <a name="execute-script-actions"></a>Köra skript åtgärder
 

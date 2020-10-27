@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
-ms.openlocfilehash: 4df3c24c6f0853c1ae7447a8e20e8c2944319686
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21781015aa91c9c953d716b9b3399851f25be9b5
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86087613"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536342"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Alternativ för beräknings kontext för ML-tjänster i HDInsight
 
@@ -23,14 +23,14 @@ Edge-noden i ett kluster är en praktisk plats för att ansluta till klustret oc
 
 ## <a name="ml-services-on-azure-hdinsight"></a>ML-tjänster på Azure HDInsight
 
-[Ml-tjänster i Azure HDInsight](r-server-overview.md) tillhandahåller de senaste funktionerna för R-baserade analyser. Den kan använda data som lagras i en Apache Hadoop HDFS-behållare i ditt [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage") Storage-konto, en data Lake Store eller det lokala Linux-filsystemet. Eftersom ML-tjänster bygger på öppen källkod R kan de R-baserade program som du skapar använda alla R-paket med öppen källkod. De kan också använda rutinerna i [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), Microsofts Big data Analytics-paket som ingår i ml-tjänster.  
+[Ml-tjänster i Azure HDInsight](r-server-overview.md) tillhandahåller de senaste funktionerna för R-baserade analyser. Den kan använda data som lagras i en Apache Hadoop HDFS-behållare i ditt [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Storage") Storage-konto, en data Lake Store eller det lokala Linux-filsystemet. Eftersom ML-tjänster bygger på öppen källkod R kan de R-baserade program som du skapar använda alla R-paket med öppen källkod. De kan också använda rutinerna i [RevoScaleR](/machine-learning-server/r-reference/revoscaler/revoscaler), Microsofts Big data Analytics-paket som ingår i ml-tjänster.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Compute-kontexter för en Edge-nod
 
 I allmänhet körs ett R-skript som körs i ML Services-kluster på Edge-noden i R-tolken på den noden. Undantagen är de steg som anropar en RevoScaleR-funktion. RevoScaleR-anropen körs i en beräknings miljö som bestäms av hur du ställer in beräknings kontexten för RevoScaleR.  När du kör R-skriptet från en Edge-nod, är möjliga värden för beräknings kontexten följande:
 
-- lokal ordning (*lokal*)
-- lokal parallell (*localpar*)
+- lokal ordning ( *lokal* )
+- lokal parallell ( *localpar* )
 - Reducera karta
 - Spark
 
@@ -59,12 +59,12 @@ Med hänsyn till dessa principer, erbjuder följande avsnitt några allmänna re
 
 ### <a name="local"></a>Lokal
 
-- Om mängden data som ska analyseras är liten och inte kräver upprepad analys kan du strömma den direkt till analys rutinen med hjälp av *lokala* eller *localpar*.
-- Om mängden data som ska analyseras är liten eller medels Tor och kräver upprepad analys, kopierar du den sedan till det lokala fil systemet, importerar den till XDF och analyserar den via *lokala* eller *localpar*.
+- Om mängden data som ska analyseras är liten och inte kräver upprepad analys kan du strömma den direkt till analys rutinen med hjälp av *lokala* eller *localpar* .
+- Om mängden data som ska analyseras är liten eller medels Tor och kräver upprepad analys, kopierar du den sedan till det lokala fil systemet, importerar den till XDF och analyserar den via *lokala* eller *localpar* .
 
 ### <a name="apache-spark"></a>Apache Spark
 
-- Om mängden data som ska analyseras är stor importerar du den till en spark-DataFrame med hjälp av **RxHiveData** eller **RxParquetData**, eller till XDF i HDFS (om det inte finns något problem med lagringen) och analyserar den med hjälp av Spark Compute-kontexten.
+- Om mängden data som ska analyseras är stor importerar du den till en spark-DataFrame med hjälp av **RxHiveData** eller **RxParquetData** , eller till XDF i HDFS (om det inte finns något problem med lagringen) och analyserar den med hjälp av Spark Compute-kontexten.
 
 ### <a name="apache-hadoop-map-reduce"></a>Minska Apache Hadoop karta
 
@@ -77,7 +77,7 @@ Mer information och exempel på RevoScaleR Compute-kontexter finns i den infogad
 > ?rxSetComputeContext
 ```
 
-Du kan också läsa [översikten över distribuerade data behandling](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) i [Machine Learning Server-dokumentationen](https://docs.microsoft.com/machine-learning-server/).
+Du kan också läsa [översikten över distribuerade data behandling](/machine-learning-server/r/how-to-revoscaler-distributed-computing) i [Machine Learning Server-dokumentationen](/machine-learning-server/).
 
 ## <a name="next-steps"></a>Nästa steg
 

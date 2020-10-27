@@ -3,15 +3,15 @@ title: Integrerings principer för Azure API Management Dapr | Microsoft Docs
 description: Lär dig mer om Azure API Management-principer för att interagera med Dapr mikrotjänster-tillägg.
 author: vladvino
 ms.author: vlvinogr
-ms.date: 9/13/2020
+ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: d537040be4ed4cbf961a4621980d3d290e306359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345139"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558405"
 ---
 # <a name="api-management-dapr-integration-policies"></a>API Management integrerings principer för Dapr
 
@@ -85,15 +85,15 @@ Följande exempel visar hur du anropar metoden "back" på mikrotjänsten med nam
 
 | Element             | Beskrivning  | Krävs |
 |---------------------|--------------|----------|
-| Set-backend-tjänst | Rot element | Ja      |
+| Set-backend-tjänst | Rot element | Yes      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut        | Beskrivning                     | Krävs | Default |
+| Attribut        | Beskrivning                     | Krävs | Standard |
 |------------------|---------------------------------|----------|---------|
-| backend-ID       | Måste anges till "dapr"           | Ja      | E.t.     |
-| dapr – app-ID      | Namnet på mål-mikrotjänsten. Mappar till [appId](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) -parametern i Dapr.| Ja | E.t. |
-| dapr-metod      | Namnet på metoden eller en URL som ska anropas på mål-mikrotjänsten. Mappar till [metod-namn-](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) parametern i Dapr.| Ja | E.t. |
+| backend-ID       | Måste anges till "dapr"           | Yes      | E.t.     |
+| dapr – app-ID      | Namnet på mål-mikrotjänsten. Mappar till [appId](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) -parametern i Dapr.| Yes | E.t. |
+| dapr-metod      | Namnet på metoden eller en URL som ska anropas på mål-mikrotjänsten. Mappar till [metod-namn-](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) parametern i Dapr.| Yes | E.t. |
 
 ### <a name="usage"></a>Användning
 
@@ -104,14 +104,14 @@ Den här principen kan användas i följande princip [avsnitt](./api-management-
 
 ## <a name="send-message-to-pubsub-topic"></a><a name="pubsub"></a> Skicka meddelande till pub/sub-ämne
 
-Den här principen instruerar API Management Gateway att skicka ett meddelande till ett ämne för publicering/prenumeration av Dapr. Principen utför detta genom att göra en HTTP POST-begäran för att `http://localhost:3500/v1.0/publish/{{pub-name}}/{{topic}}` ersätta mallparametrar och lägga till innehåll som anges i princip instruktionen.
+Den här principen instruerar API Management Gateway att skicka ett meddelande till ett ämne för publicering/prenumeration av Dapr. Principen utför detta genom att göra en HTTP POST-begäran för att `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}` ersätta mallparametrar och lägga till innehåll som anges i princip instruktionen.
 
 Principen förutsätter att Dapr runtime körs i en sidvagn-behållare i samma Pod som gatewayen. Dapr runtime implementerar pub/sub-semantik.
 
 ### <a name="policy-statement"></a>Princip kommentar
 
 ```xml
-<publish-to-dapr topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
+<publish-to-dapr pubsub-name="pubsub-name" topic=”topic-name” ignore-error="false|true" response-variable-name="resp-var-name" timeout="in seconds" template=”Liquid” content-type="application/json">
     <!-- message content -->
 </publish-to-dapr>
 ```
@@ -131,7 +131,8 @@ Avsnittet "backend" är tomt och begäran vidarebefordras inte till Server delen
      <inbound>
         <base />
         <publish-to-dapr
-               topic="@("orders/new")"
+           pubsub-name="orders"
+               topic="new"
                response-variable-name="dapr-response">
             @(context.Request.Body.As<string>())
         </publish-to-dapr>
@@ -152,18 +153,19 @@ Avsnittet "backend" är tomt och begäran vidarebefordras inte till Server delen
 
 | Element             | Beskrivning  | Krävs |
 |---------------------|--------------|----------|
-| publicera-till-dapr     | Rot element | Ja      |
+| publicera-till-dapr     | Rot element | Yes      |
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut        | Beskrivning                     | Krävs | Default |
+| Attribut        | Beskrivning                     | Krävs | Standard |
 |------------------|---------------------------------|----------|---------|
-| ämne            | Namn på mål ämne               | Ja      | E.t.     |
-| Ignorera-fel     | Om alternativet är inställt på `true` anger att principen inte ska utlösa ["på fel"](api-management-error-handling-policies.md) -avsnittet vid mottagning av fel från Dapr runtime | Inga | `false` |
-| svar-variabel-namn | Namnet på den [variabel](api-management-policy-expressions.md#ContextVariables) samlings post som ska användas för att lagra svar från Dapr runtime | Inga | Inget |
-| timeout | Tid (i sekunder) att vänta på att Dapr runtime svarar. Kan vara mellan 1 och 240 sekunder. | Inga | 5 |
-| mall | Mall-motor som används för att transformera meddelande innehållet. "Flytande" är det enda värde som stöds. | Inga | Inget |
-| innehålls typ | Typ av meddelande innehåll. "Application/JSON" är det enda värde som stöds. | Inga | Inget |
+| pubsub-namn      | Namnet på mål PubSub-komponenten. Mappar till [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) -parametern i Dapr. Om det inte finns, måste __ämnets__ attributvärde vara i formatet `pubsub-name/topic-name` .    | No       | Inget    |
+| ämne            | Namnet på ämnet. Mappar till [ämnes](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) parametern i Dapr.               | Yes      | E.t.     |
+| Ignorera-fel     | Om alternativet är inställt på `true` anger att principen inte ska utlösa ["på fel"](api-management-error-handling-policies.md) -avsnittet vid mottagning av fel från Dapr runtime | No | `false` |
+| svar-variabel-namn | Namnet på den [variabel](api-management-policy-expressions.md#ContextVariables) samlings post som ska användas för att lagra svar från Dapr runtime | No | Inget |
+| timeout | Tid (i sekunder) att vänta på att Dapr runtime svarar. Kan vara mellan 1 och 240 sekunder. | No | 5 |
+| mall | Mall-motor som används för att transformera meddelande innehållet. "Flytande" är det enda värde som stöds. | No | Inget |
+| innehålls typ | Typ av meddelande innehåll. "Application/JSON" är det enda värde som stöds. | No | Inget |
 
 ### <a name="usage"></a>Användning
 
@@ -234,22 +236,22 @@ Avsnittet "backend" är tomt och begäran vidarebefordras inte till Server delen
 
 | Element             | Beskrivning  | Krävs |
 |---------------------|--------------|----------|
-| Invoke-dapr-binding | Rot element | Ja      |
-| metadata            | Bindning av vissa metadata i form av nyckel/värde-par. Mappar till egenskapen [metadata](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) i Dapr. | Inga |
-| data            | Meddelandets innehåll. Mappar till [data](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) -egenskapen i Dapr. | Inga |
+| Invoke-dapr-binding | Rot element | Yes      |
+| metadata            | Bindning av vissa metadata i form av nyckel/värde-par. Mappar till egenskapen [metadata](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) i Dapr. | No |
+| data            | Meddelandets innehåll. Mappar till [data](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) -egenskapen i Dapr. | No |
 
 
 ### <a name="attributes"></a>Attribut
 
-| Attribut        | Beskrivning                     | Krävs | Default |
+| Attribut        | Beskrivning                     | Krävs | Standard |
 |------------------|---------------------------------|----------|---------|
-| name            | Mål bindnings namn. Måste matcha namnet på de bindningar som [definierats](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) i Dapr.           | Ja      | E.t.     |
-| operation       | Mål åtgärds namn (bindande specifika). Mappar till egenskapen [operation](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) i Dapr. | Inga | Inget |
-| Ignorera-fel     | Om alternativet är inställt på `true` anger att principen inte ska utlösa ["på fel"](api-management-error-handling-policies.md) -avsnittet vid mottagning av fel från Dapr runtime | Inga | `false` |
-| svar-variabel-namn | Namnet på den [variabel](api-management-policy-expressions.md#ContextVariables) samlings post som ska användas för att lagra svar från Dapr runtime | Inga | Inget |
-| timeout | Tid (i sekunder) att vänta på att Dapr runtime svarar. Kan vara mellan 1 och 240 sekunder. | Inga | 5 |
-| mall | Mall-motor som används för att transformera meddelande innehållet. "Flytande" är det enda värde som stöds. | Inga | Inget |
-| innehålls typ | Typ av meddelande innehåll. "Application/JSON" är det enda värde som stöds. | Inga | Inget |
+| name            | Mål bindnings namn. Måste matcha namnet på de bindningar som [definierats](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) i Dapr.           | Yes      | E.t.     |
+| operation       | Mål åtgärds namn (bindande specifika). Mappar till egenskapen [operation](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) i Dapr. | No | Inget |
+| Ignorera-fel     | Om alternativet är inställt på `true` anger att principen inte ska utlösa ["på fel"](api-management-error-handling-policies.md) -avsnittet vid mottagning av fel från Dapr runtime | No | `false` |
+| svar-variabel-namn | Namnet på den [variabel](api-management-policy-expressions.md#ContextVariables) samlings post som ska användas för att lagra svar från Dapr runtime | No | Inget |
+| timeout | Tid (i sekunder) att vänta på att Dapr runtime svarar. Kan vara mellan 1 och 240 sekunder. | No | 5 |
+| mall | Mall-motor som används för att transformera meddelande innehållet. "Flytande" är det enda värde som stöds. | No | Inget |
+| innehålls typ | Typ av meddelande innehåll. "Application/JSON" är det enda värde som stöds. | No | Inget |
 
 ### <a name="usage"></a>Användning
 

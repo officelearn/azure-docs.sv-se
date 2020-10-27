@@ -13,12 +13,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 17fb1bf8aebe1bd114f970aed997e77ce8a07af1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b194812ef68820a0c310d0bac3b055360c5b5e4a
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150770"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92538433"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Övervaka, diagnostisera och Felsök från koppling med Azure IoT Hub
 
@@ -28,25 +28,25 @@ Anslutnings problem för IoT-enheter kan vara svåra att felsöka eftersom det f
 
 Använd Azure Monitor för att få aviseringar och skriva loggar när enheter kopplas från.
 
-### <a name="turn-on-diagnostic-logs"></a>Aktivera diagnostikloggar
+### <a name="turn-on-logs"></a>Aktivera loggar
 
-Om du vill logga händelser och fel i enhets anslutningen aktiverar du diagnostik för IoT Hub. Vi rekommenderar att du aktiverar dessa loggar så tidigt som möjligt, eftersom om diagnostikloggar inte är aktive rad och det inte går att koppla från enheten, kommer du inte att ha någon information för att felsöka problemet med.
+Om du vill logga anslutnings händelser och fel i enhets anslutning skapar du en diagnostisk inställning för [resurs loggar för IoT Hub-anslutningar](monitor-iot-hub-reference.md#connections). Vi rekommenderar att du skapar den här inställningen så tidigt som möjligt, eftersom dessa loggar inte samlas in som standard och utan att du har någon information om att felsöka enheten från koppling till när de inträffar.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Bläddra till din IoT-hubb.
+1. Bläddra till din IoT-hubb.
 
-3. Välj **diagnostikinställningar**.
+1. Välj **diagnostikinställningar** .
 
-4. Välj **Aktivera diagnostik**.
+1. Välj **Lägg till diagnostisk inställning** .
 
-5. Aktivera **anslutnings** loggar som ska samlas in.
+1. Välj **anslutnings** loggar.
 
-6. För enklare analys aktiverar **du skicka till Log Analytics** ([Se prissättning](https://azure.microsoft.com/pricing/details/log-analytics/)). Se exemplet under [lösa anslutnings fel](#resolve-connectivity-errors).
+1. För enklare analys väljer **du skicka till Log Analytics** ( [Se prissättning](https://azure.microsoft.com/pricing/details/log-analytics/)). Se exemplet under [lösa anslutnings fel](#resolve-connectivity-errors).
 
    ![Rekommenderade inställningar](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
-Mer information finns i [övervaka hälso tillståndet för Azure IoT Hub och diagnostisera problem snabbt](iot-hub-monitor-resource-health.md).
+Mer information finns i [övervaka IoT Hub](monitor-iot-hub.md).
 
 ### <a name="set-up-alerts-for-device-disconnect-at-scale"></a>Konfigurera aviseringar för enhets anslutning i skala
 
@@ -56,11 +56,11 @@ Konfigurera aviseringar på måttet **anslutna enheter (förhands granskning)** 
 
 2. Bläddra till din IoT-hubb.
 
-3. Välj **aviseringar**.
+3. Välj **aviseringar** .
 
-4. Välj **Ny aviseringsregel**.
+4. Välj **Ny aviseringsregel** .
 
-5. Välj **Lägg till villkor**och välj sedan "anslutna enheter (förhands granskning)".
+5. Välj **Lägg till villkor** och välj sedan "anslutna enheter (förhands granskning)".
 
 6. Konfigurera tröskelvärde och aviseringar genom att följa instruktionerna nedan.
 
@@ -72,15 +72,15 @@ Om du vill identifiera koppling *per enhet* , till exempel när du behöver veta
 
 ## <a name="resolve-connectivity-errors"></a>Lösa anslutnings fel
 
-När du aktiverar diagnostikloggar och aviseringar för anslutna enheter får du aviseringar när fel inträffar. I det här avsnittet beskrivs hur du söker efter vanliga problem när du får en avisering. Stegen nedan förutsätter att du har konfigurerat Azure Monitor loggar för dina diagnostikloggar.
+När du aktiverar loggar och aviseringar för anslutna enheter får du aviseringar när fel inträffar. I det här avsnittet beskrivs hur du söker efter vanliga problem när du får en avisering. Stegen nedan förutsätter att du redan har skapat en diagnostisk inställning för att skicka IoT Hub anslutnings loggar till en Log Analytics arbets yta.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Bläddra till din IoT-hubb.
 
-1. Välj **loggar**.
+1. Välj **loggar** .
 
-1. Om du vill isolera anslutnings fel loggar för IoT Hub anger du följande fråga och väljer sedan **Kör**:
+1. Om du vill isolera anslutnings fel loggar för IoT Hub anger du följande fråga och väljer sedan **Kör** :
 
     ```kusto
     AzureDiagnostics

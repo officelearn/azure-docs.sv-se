@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: a97147395d4f877b666f4aa54254c8631400c735
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ead9b775b8c61d0d89abd4821bef2b1aaaea0d76
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855675"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547443"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -44,23 +44,23 @@ Delning av en BLOB-behållare som standard fil system för flera kluster stöds 
 
 ## <a name="access-files-from-within-cluster"></a>Komma åt filer inifrån klustret
 
-Det finns flera sätt som du kan använda för att komma åt filerna i Data Lake Storage från ett HDInsight-kluster. URI-schemat ger okrypterad åtkomst (med *wasb:* prefixet) och TLS-krypterad åtkomst (med *wasbs*). Vi rekommenderar att du använder *wasbs* när det är möjligt, även för åtkomst till data som finns i samma region i Azure.
+Det finns flera sätt som du kan använda för att komma åt filerna i Data Lake Storage från ett HDInsight-kluster. URI-schemat ger okrypterad åtkomst (med *wasb:* prefixet) och TLS-krypterad åtkomst (med *wasbs* ). Vi rekommenderar att du använder *wasbs* när det är möjligt, även för åtkomst till data som finns i samma region i Azure.
 
-* **Via det fullständiga namnet**. Med den här metoden kan du ange den fullständiga sökvägen till filen som du vill öppna.
+* **Via det fullständiga namnet** . Med den här metoden kan du ange den fullständiga sökvägen till filen som du vill öppna.
 
     ```
     wasb://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     wasbs://<containername>@<accountname>.blob.core.windows.net/<file.path>/
     ```
 
-* **Via det förkortade sökvägsformatet**. Med den här metoden ersätter du sökvägen upp till kluster roten med:
+* **Via det förkortade sökvägsformatet** . Med den här metoden ersätter du sökvägen upp till kluster roten med:
 
     ```
     wasb:///<file.path>/
     wasbs:///<file.path>/
     ```
 
-* **Med den relativa sökvägen**. Med den här metoden anger du bara den relativa sökvägen till den fil som du vill öppna.
+* **Med den relativa sökvägen** . Med den här metoden anger du bara den relativa sökvägen till den fil som du vill öppna.
 
     ```
     /<file.path>/
@@ -132,7 +132,7 @@ Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
 
 | Verktyg | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
@@ -151,7 +151,7 @@ Information om hur du hämtar sökvägen med Ambari REST API finns i [Hämta sta
 
 ## <a name="blob-containers"></a>Blobcontainrar
 
-Om du vill använda blobar måste du först skapa ett [Azure Storage-konto](../storage/common/storage-create-storage-account.md). Som en del av det här steget anger du en Azure-region där lagrings kontot skapas. Klustret och lagringskontot måste finnas i samma region. Hive-metaarkiv SQL Server-databasen och Apache Oozie metaarkiv SQL Server-databasen måste finnas i samma region.
+Om du vill använda blobar måste du först skapa ett [Azure Storage-konto](../storage/common/storage-account-create.md). Som en del av det här steget anger du en Azure-region där lagrings kontot skapas. Klustret och lagringskontot måste finnas i samma region. Hive-metaarkiv SQL Server-databasen och Apache Oozie metaarkiv SQL Server-databasen måste finnas i samma region.
 
 Oavsett var den finns tillhör varje blob som du skapar en container på ditt Azure Storage-konto. Den här behållaren kan vara en befintlig blob som skapats utanför HDInsight. Eller så kan det vara en behållare som skapats för ett HDInsight-kluster.
 

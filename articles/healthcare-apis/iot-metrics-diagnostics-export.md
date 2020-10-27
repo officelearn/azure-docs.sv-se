@@ -1,5 +1,5 @@
 ---
-title: Exportera mått för Azure IoT Connector för FHIR (för hands version) via diagnostikinställningar
+title: Exportera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion) via diagnostikinställningar
 description: I den här artikeln förklaras hur du exporterar Azure IoT Connector för FHIR (för hands version) mått via diagnostikinställningar
 services: healthcare-apis
 author: msjasteppe
@@ -8,14 +8,14 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: c81dcdd2e79f5d89a0766415b47ad118874e5ad2
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: d7779c74a562e1237db863d7759b2adcffa2bddf
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210030"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558558"
 ---
-# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportera mått för Azure IoT Connector för FHIR (för hands version) via diagnostikinställningar
+# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Exportera Azure IoT-anslutningsprogram för FHIR-mått (förhandsversion) via diagnostikinställningar
 
 I den här artikeln får du lära dig hur du exporterar Azure IoT Connector för FHIR * Metrics-loggar. Den funktion som möjliggör mått loggning är [**diagnostikinställningar**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) i Azure Portal. 
 
@@ -58,7 +58,7 @@ Att ha åtkomst till mått loggar är viktigt för övervakning och fel sökning
 Ta en titt på vanliga frågor om Azure IoT Connector för FHIR.
 
 >[!div class="nextstepaction"]
->[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md#azure-iot-connector-for-fhir-preview)
+>[Vanliga frågor och svar om Azure IoT Connector för FHIR](fhir-faq.md)
 
 * I Azure Portal kallas Azure IoT Connector för FHIR IoT Connector (för hands version).
 

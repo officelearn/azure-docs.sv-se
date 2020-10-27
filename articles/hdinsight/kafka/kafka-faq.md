@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: d27c648980338b3a9e12bd618eb4620fe9988fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84c48f14ae57cfa4aa3290924d3d170c075fe3a6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80436886"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532540"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Vanliga frågor och svar om Apache Kafka i Azure HDInsight
 
@@ -68,7 +68,7 @@ Om du vill öka mängden utrymme som är tillgängligt för Kafka-meddelanden ka
 
 ## <a name="can-a-kafka-cluster-work-with-databricks"></a>Kan ett Kafka-kluster arbeta med Databricks? 
 
-Ja, Kafka-kluster kan arbeta med Databricks så länge de finns i samma VNet. Om du vill använda ett Kafka-kluster med Databricks skapar du ett VNet med ett HDInsight Kafka-kluster och anger sedan det virtuella nätverket när du skapar din Databricks-arbetsyta och använder VNet-inmatning. Mer information finns i [distribuera Azure Databricks i Azure-Virtual Network (VNet-insprutning)](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Du måste ange namn på Start Broker för Kafka-klustret när du skapar Databricks-arbetsytan. Information om hur du hämtar Kafka Broker-namn finns i [Hämta värd information för Apache Zookeeper och Broker](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-get-started#getkafkainfo).
+Ja, Kafka-kluster kan arbeta med Databricks så länge de finns i samma VNet. Om du vill använda ett Kafka-kluster med Databricks skapar du ett VNet med ett HDInsight Kafka-kluster och anger sedan det virtuella nätverket när du skapar din Databricks-arbetsyta och använder VNet-inmatning. Mer information finns i [distribuera Azure Databricks i Azure-Virtual Network (VNet-insprutning)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Du måste ange namn på Start Broker för Kafka-klustret när du skapar Databricks-arbetsytan. Information om hur du hämtar Kafka Broker-namn finns i [Hämta värd information för Apache Zookeeper och Broker](./apache-kafka-get-started.md#getkafkainfo).
 
 ## <a name="how-can-i-have-maximum-data-durability"></a>Hur kan jag få maximal data hållbarhet?
 

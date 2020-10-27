@@ -6,12 +6,12 @@ ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 06/16/2020
-ms.openlocfilehash: 462358ab967d4ba26a265d7b5f401b995223815e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 92d712aab6dcb52f64af340b3110e475c8da2b10
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959850"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542615"
 ---
 # <a name="saved-queries-in-azure-monitor-log-analytics"></a>Sparade frågor i Azure Monitor Log Analytics
 
@@ -38,7 +38,7 @@ Du kan komma till exempel frågor från två olika platser.
 
 ### <a name="example-query-dialog"></a>Exempel fråga-dialog ruta
 
-När du först anger den Log Analytics upplevelsen visas *dialog rutan exempel frågor* automatiskt.  Du kan också komma åt det genom att klicka längst upp till höger på skärmen i **exempel frågor**.
+När du först anger den Log Analytics upplevelsen visas *dialog rutan exempel frågor* automatiskt.  Du kan också komma åt det genom att klicka längst upp till höger på skärmen i **exempel frågor** .
 
 ![Marginal](media/saved-queries/sidebar-2.png)
 
@@ -54,7 +54,7 @@ Varje exempel fråga representeras av ett kort. Du kan snabbt söka igenom fråg
 
 Alla funktioner i dialog rutan kan nås från fönstret frågor i den vänstra marginal listen för Log Analytics. Du kan hovra över ett frågenamn för att hämta en beskrivning av frågan och ytterligare funktioner.
 
-![Marginal](media/saved-queries/sidebar-3.png)
+![Skärm bild som visar fönstret frågor.](media/saved-queries/sidebar-3.png)
 
 ## <a name="finding-and-filtering-queries"></a>Söka efter och filtrera frågor
 
@@ -80,9 +80,9 @@ Du kan använda vanliga frågor för att ge dig snabbare åtkomst.
 Dialog rutan stöder gruppering av:
 
 - **Resurs typ** – en resurs som definieras i Azure, till exempel en virtuell dator. Se [referensen Azure Monitor tabell](/azure/azure-monitor/reference/tables/tables-resourcetype) för en fullständig mappning av Azure Monitors loggar/Log Analytics tabeller till resurs typ.  
-- **Kategori** – en typ av information som *säkerhet* eller *granskning*. Kategorier är identiska med de kategorier som definierats i tabellens sida fönster. Se [referensen Azure Monitor tabell](/azure/azure-monitor/reference/tables/tables-category) för en fullständig lista över kategorier.  
+- **Kategori** – en typ av information som *säkerhet* eller *granskning* . Kategorier är identiska med de kategorier som definierats i tabellens sida fönster. Se [referensen Azure Monitor tabell](/azure/azure-monitor/reference/tables/tables-category) för en fullständig lista över kategorier.  
 - **Lösning** – en Azure Monitor lösning som är associerad med frågorna
-- **Ämne** – ämnet i exempel frågan, till exempel *aktivitets loggar* eller *app-loggar*. Egenskapen ämne är unik för exempel frågor och kan skilja sig åt beroende på den specifika resurs typen.
+- **Ämne** – ämnet i exempel frågan, till exempel *aktivitets loggar* eller *app-loggar* . Egenskapen ämne är unik för exempel frågor och kan skilja sig åt beroende på den specifika resurs typen.
 
 De grupperade värdena fungerar också som en aktiv innehålls förteckning. Om du klickar på ett av värdena till vänster på skärmen, rullas vyn frågor till objektet som du klickar på.
 

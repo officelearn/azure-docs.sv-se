@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: b9f7e93af61dbcf306f7d6eb105cb113412a423a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e412b82be911f0b4ba2e5cda51495cdcd7826917
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86083108"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542309"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för infrastruktur
 
@@ -27,7 +27,7 @@ De viktigaste alternativen för att planera prestanda för HDInsight-kluster är
 Azure-regionen fastställer var klustret är fysiskt allokerat. För att minimera svars tiden för läsningar och skrivningar bör klustret vara i samma region som data.
 
 **Lagrings plats och storlek**  
-Standard lagringen måste finnas i samma region som klustret.För ett kluster med 48 noder rekommenderar vi att du har 4 till 8 lagrings konton. Även om det kanske redan finns tillräckligt med lagrings utrymme ger varje lagrings konto ytterligare nätverks bandbredd för Compute-noderna. När det finns flera lagrings konton använder du ett slumpmässigt namn för varje lagrings konto utan ett prefix. Syftet med slumpmässig namngivning minskar risken för Flask halsar i lagring (begränsning) eller vanliga läges problem i alla konton. Använd endast en behållare per lagrings konto för bättre prestanda.
+Standard lagringen måste finnas i samma region som klustret. För ett kluster med 48 noder rekommenderar vi att du har 4 till 8 lagrings konton. Även om det kanske redan finns tillräckligt med lagrings utrymme ger varje lagrings konto ytterligare nätverks bandbredd för Compute-noderna. När det finns flera lagrings konton använder du ett slumpmässigt namn för varje lagrings konto utan ett prefix. Syftet med slumpmässig namngivning minskar risken för Flask halsar i lagring (begränsning) eller vanliga läges problem i alla konton. Använd endast en behållare per lagrings konto för bättre prestanda.
 
 **VM-storlek och-typ (stöder nu G-serien)**  
 Varje kluster typ har en uppsättning nodtyper och varje nodtyp har olika alternativ för deras VM-storlek och-typ. VM-storlek och-typ bestäms av processor processor kraft, RAM-storlek och nätverks fördröjning. En simulerad arbets belastning kan användas för att fastställa den optimala storleken och typen för den virtuella datorn för varje Node-typ.
@@ -52,35 +52,35 @@ Program eller komponenter som var tillgängliga i lokala kluster, men som inte i
 |**Program**|**Integrering**
 |---|---|
 |Luft flöde|IaaS-eller HDInsight Edge-nod
-|Alluxio|IaaS  
-|Arcadia|IaaS 
+|Alluxio|IaaS  
+|Arcadia|IaaS 
 |Tamazight|Ingen (endast HDP)
 |Datameer|HDInsight Edge-nod
 |DataStax (Cassandra)|IaaS (CosmosDB ett alternativ i Azure)
-|DataTorrent|IaaS 
-|Drill|IaaS 
+|DataTorrent|IaaS 
+|Drill|IaaS 
 |Ignite|IaaS
-|Jethro|IaaS 
-|Mapador|IaaS 
+|Jethro|IaaS 
+|Mapador|IaaS 
 |Mongo|IaaS (CosmosDB ett alternativ i Azure)
-|NiFi|IaaS 
+|NiFi|IaaS 
 |Presto|IaaS-eller HDInsight Edge-nod
-|Python 2|PaaS 
-|Python 3|PaaS 
-|R|PaaS 
-|SÄKERHETS|IaaS 
+|Python 2|PaaS 
+|Python 3|PaaS 
+|R|PaaS 
+|SÄKERHETS|IaaS 
 |Vertica|IaaS (SQLDW ett alternativ i Azure)
-|Tableau|IaaS 
+|Tableau|IaaS 
 |Linje|HDInsight Edge-nod
-|StreamSets|HDInsight Edge 
-|Palantir|IaaS 
-|Sailpoint|IaaS 
+|StreamSets|HDInsight Edge 
+|Palantir|IaaS 
+|Sailpoint|IaaS 
 
 Mer information finns i artikeln Apache Hadoop- [komponenter som är tillgängliga med olika HDInsight-versioner](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Anpassa HDInsight-kluster med skript åtgärder
 
-HDInsight tillhandahåller en metod för kluster konfiguration som kallas en **skript åtgärd**. En skript åtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster och som kan användas för att installera ytterligare komponenter och ändra konfigurations inställningar.
+HDInsight tillhandahåller en metod för kluster konfiguration som kallas en **skript åtgärd** . En skript åtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster och som kan användas för att installera ytterligare komponenter och ändra konfigurations inställningar.
 
 Skript åtgärder måste lagras på en URI som är tillgänglig från HDInsight-klustret. De kan användas under eller efter att klustret har skapats och kan också begränsas till att endast köras på vissa nodtyper.
 
@@ -109,7 +109,7 @@ Mer information finns i följande artiklar:
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Anpassa HDInsight-konfiguration med start
 
-Ändringar i konfigurationerna i config-filerna som `core-site.xml` `hive-site.xml` och `oozie-env.xml` kan göras med hjälp av bootstrap. Följande skript är ett exempel som använder PowerShell [AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster):
+Ändringar i konfigurationerna i config-filerna som `core-site.xml` `hive-site.xml` och `oozie-env.xml` kan göras med hjälp av bootstrap. Följande skript är ett exempel som använder PowerShell [AZ-modulen](/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](/powershell/module/az.hdinsight/new-azhdinsightcluster):
 
 ```powershell
 # hive-site.xml configuration

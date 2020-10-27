@@ -235,7 +235,7 @@
           displayName: policy
     - name: Skapa och hantera arbetsytor
       items:
-        - name: Använda Azure-portalen
+        - name: Använda Azure-portalen eller Python SDK
           href: how-to-manage-workspace.md
         - name: Använda Azure CLI
           href: how-to-manage-workspace-cli.md

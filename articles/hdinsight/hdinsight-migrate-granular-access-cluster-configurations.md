@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 8ae16e6799d1253b8b070d59414beaee3c7ff332
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d2e9c1fe89866511f8eae0b900563471cd6e52e9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479790"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533316"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -20,16 +20,16 @@ Vi introducerar några viktiga ändringar för att ge stöd för mer detaljerad 
 
 ## <a name="what-is-changing"></a>Vad ändras?
 
-Tidigare kunde hemligheter erhållas via HDInsight-API: t av kluster användare som har rollen ägare, deltagare eller Reader [Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles), som de var tillgängliga för alla med `*/read` behörigheten. Hemligheter definieras som värden som kan användas för att få mer utökad åtkomst än en användares roll ska tillåtas. Detta inkluderar värden som till exempel kluster-gatewayens HTTP-autentiseringsuppgifter, lagrings konto nycklar och autentiseringsuppgifter för databasen.
+Tidigare kunde hemligheter erhållas via HDInsight-API: t av kluster användare som har rollen ägare, deltagare eller Reader [Azure](../role-based-access-control/rbac-and-directory-admin-roles.md), som de var tillgängliga för alla med `*/read` behörigheten. Hemligheter definieras som värden som kan användas för att få mer utökad åtkomst än en användares roll ska tillåtas. Detta inkluderar värden som till exempel kluster-gatewayens HTTP-autentiseringsuppgifter, lagrings konto nycklar och autentiseringsuppgifter för databasen.
 
 Från och med den 3 september 2019 krävs behörigheten för att komma åt dessa hemligheter `Microsoft.HDInsight/clusters/configurations/action` , vilket innebär att de inte längre kan nås av användare med rollen läsare. Rollerna som har den här behörigheten är deltagare, ägare och den nya rollen för HDInsight-klustret (mer information nedan).
 
-Vi introducerar också en ny roll för [HDInsight-kluster](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) som kommer att kunna hämta hemligheter utan att ha behörighet som deltagares eller ägares administrativa behörigheter. Sammanfattningsvis:
+Vi introducerar också en ny roll för [HDInsight-kluster](../role-based-access-control/built-in-roles.md#hdinsight-cluster-operator) som kommer att kunna hämta hemligheter utan att ha behörighet som deltagares eller ägares administrativa behörigheter. Sammanfattningsvis:
 
-| Role                                  | Tidigare                                                                                       | Gå framåt       |
+| Roll                                  | Tidigare                                                                                       | Gå framåt       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | Läsare                                | – Läs behörighet, inklusive hemligheter.                                                                   | -Läs behörighet, **förutom** hemligheter |           |   |   |
-| HDInsight-kluster operator<br>(Ny roll) | Ej tillämpligt                                                                                              | -Läs-/Skriv behörighet, inklusive hemligheter         |   |   |
+| HDInsight-kluster operator<br>(Ny roll) | E.t.                                                                                              | -Läs-/Skriv behörighet, inklusive hemligheter         |   |   |
 | Deltagare                           | – Läs-/skriv åtkomst, inklusive hemligheter.<br>– Skapa och hantera alla typer av Azure-resurser.<br>-Kör skript åtgärder.     | Ingen ändring |
 | Ägare                                 | – Läs-/skriv åtkomst inklusive hemligheter.<br>-Fullständig åtkomst till alla resurser<br>– Delegera åtkomst till andra.<br>-Kör skript åtgärder. | Ingen ändring |
 
@@ -57,23 +57,23 @@ Se de följande avsnitten (eller Använd länkarna ovan) om du vill se migrering
 
 Följande API: er kommer att ändras eller föråldras:
 
-- [**Hämta/Configurations/{ConfigurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (känslig information tas bort)
+- [**Hämta/Configurations/{ConfigurationName}**](/rest/api/hdinsight/hdinsight-cluster#get-configuration) (känslig information tas bort)
     - Användes tidigare för att hämta enskilda konfigurations typer (inklusive hemligheter).
     - Från och med den 3 september 2019 kommer det här API-anropet att returnera enskilda konfigurations typer med hemligheter utelämnade. Om du vill hämta alla konfigurationer, inklusive hemligheter, använder du det nya inlägget/Configurations-anropet. Om du bara vill ha Gateway-inställningar använder du det nya inlägget/getGatewaySettings-anropet.
-- [**Hämta/Configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-configuration) (inaktuellt)
+- [**Hämta/Configurations**](/rest/api/hdinsight/hdinsight-cluster#get-configuration) (inaktuellt)
     - Användes tidigare för att hämta alla konfigurationer (inklusive hemligheter)
     - Från och med den 3 september 2019 är API-anropet inaktuellt och stöds inte längre. Om du vill hämta alla konfigurationer som går framåt använder du det nya inlägget/Configurations-anropet. Om du vill hämta konfigurationer med känsliga parametrar utelämnade använder du GET/configurations/{configurationName}-anropet.
-- [**Publicera/Configurations/{ConfigurationName}**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (inaktuellt)
+- [**Publicera/Configurations/{ConfigurationName}**](/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings) (inaktuellt)
     - Användes tidigare för att uppdatera Gateway-autentiseringsuppgifter.
     - Från och med den 3 september 2019 är API-anropet inaktuellt och stöds inte längre. Använd det nya inlägget/updateGatewaySettings i stället.
 
 Följande ersättnings-API: er har lagts till:</span>
 
-- [**PUBLICERA/Configurations**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#list-configurations)
+- [**PUBLICERA/Configurations**](/rest/api/hdinsight/hdinsight-cluster#list-configurations)
     - Använd det här API: et för att hämta alla konfigurationer, inklusive hemligheter.
-- [**PUBLICERA/getGatewaySettings**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#get-gateway-settings)
+- [**PUBLICERA/getGatewaySettings**](/rest/api/hdinsight/hdinsight-cluster#get-gateway-settings)
     - Använd det här API: et för att hämta Gateway-inställningar.
-- [**PUBLICERA/updateGatewaySettings**](https://docs.microsoft.com/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)
+- [**PUBLICERA/updateGatewaySettings**](/rest/api/hdinsight/hdinsight-cluster#update-gateway-settings)
     - Använd det här API: et för att uppdatera Gateway-inställningar (användar namn och/eller lösen ord).
 
 ### <a name="azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight-verktyg för Visual Studio Code
@@ -86,7 +86,7 @@ Om du använder version 3.20.0 eller lägre kan du uppdatera till den [senaste v
 
 ### <a name="azure-data-lake-and-stream-analytics-tools-for-visual-studio"></a>Azure Data Lake-och Stream Analytics-verktyg för Visual Studio
 
-Uppdatera till version 2.3.9000.1 eller senare av [Azure Data Lake och Stream Analytics verktyg för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) för att undvika avbrott.  Hjälp med att uppdatera finns i vår dokumentation, [uppdatera data Lake verktyg för Visual Studio](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started#update-data-lake-tools-for-visual-studio).
+Uppdatera till version 2.3.9000.1 eller senare av [Azure Data Lake och Stream Analytics verktyg för Visual Studio](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) för att undvika avbrott.  Hjälp med att uppdatera finns i vår dokumentation, [uppdatera data Lake verktyg för Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md#update-data-lake-tools-for-visual-studio).
 
 ### <a name="azure-toolkit-for-eclipse"></a>Azure Toolkit for Eclipse
 
@@ -122,10 +122,10 @@ Uppdatera till [version 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Ma
 
 Uppdatera till [version 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) eller senare av HDInsight SDK för python. Minimala kod ändringar kan krävas om du använder en metod som påverkas av dessa ändringar:
 
-- [`ConfigurationsOperations.get`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) kommer **inte längre att returnera känsliga parametrar** som lagrings nycklar (Core-site) eller http-autentiseringsuppgifter (Gateway).
-    - Om du vill hämta alla konfigurationer, inklusive känsliga parametrar, använder du [`ConfigurationsOperations.list`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) framåt.Observera att användare med rollen läsare inte kommer att kunna använda den här metoden. Detta ger detaljerad kontroll över vilka användare som kan komma åt känslig information för ett kluster. 
-    - Använd för att hämta bara HTTP Gateway-autentiseringsuppgifter [`ClusterOperations.get_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) .
-- [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) är nu föråldrad och har ersatts av [`ClusterOperations.update_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) .
+- [`ConfigurationsOperations.get`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#get-resource-group-name--cluster-name--configuration-name--custom-headers-none--raw-false----operation-config-) kommer **inte längre att returnera känsliga parametrar** som lagrings nycklar (Core-site) eller http-autentiseringsuppgifter (Gateway).
+    - Om du vill hämta alla konfigurationer, inklusive känsliga parametrar, använder du [`ConfigurationsOperations.list`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#list-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) framåt.Observera att användare med rollen läsare inte kommer att kunna använda den här metoden. Detta ger detaljerad kontroll över vilka användare som kan komma åt känslig information för ett kluster. 
+    - Använd för att hämta bara HTTP Gateway-autentiseringsuppgifter [`ClusterOperations.get_gateway_settings`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-) .
+- [`ConfigurationsOperations.update`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.configurationsoperations#update-resource-group-name--cluster-name--configuration-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) är nu föråldrad och har ersatts av [`ClusterOperations.update_gateway_settings`](/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clustersoperations#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-) .
 
 ### <a name="sdk-for-java"></a>SDK för Java
 
@@ -154,7 +154,7 @@ Uppdatera till [AZ PowerShell version 2.0.0](https://www.powershellgallery.com/p
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>Lägg till roll tilldelningen HDInsight-kluster för en användare
 
-En användare med rollen [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) kan tilldela rollen [HDInsight kluster operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) till användare som du vill ha läs-/skriv behörighet till känsliga kluster konfigurations värden för HDInsight (till exempel autentiseringsuppgifter för kluster-gateway och lagrings konto nycklar).
+En användare med rollen [ägare](../role-based-access-control/built-in-roles.md#owner) kan tilldela rollen [HDInsight kluster operatör](../role-based-access-control/built-in-roles.md#hdinsight-cluster-operator) till användare som du vill ha läs-/skriv behörighet till känsliga kluster konfigurations värden för HDInsight (till exempel autentiseringsuppgifter för kluster-gateway och lagrings konto nycklar).
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
 
@@ -183,9 +183,9 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
-Du kan också använda Azure Portal för att lägga till roll tilldelningen HDInsight-kluster för en användare. Se dokumentationen, [Lägg till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal – Lägg till en roll tilldelning](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+Du kan också använda Azure Portal för att lägga till roll tilldelningen HDInsight-kluster för en användare. Se dokumentationen, [Lägg till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal – Lägg till en roll tilldelning](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment).
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>Varför ser jag felet 403 när jag har uppdaterat mina API-förfrågningar och/eller API-verktyg?
 

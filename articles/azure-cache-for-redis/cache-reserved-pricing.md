@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: c4ea8db464c7cae57b80837ced9f8886a8b3cf4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76da267ae14a1f58ee2cadbf48f4b2ec419312b4
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093025"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543533"
 ---
 # <a name="prepay-for-azure-cache-for-redis-compute-resources-with-reserved-capacity"></a>Förskottsbetala för Azure cache för Redis Compute-resurser med reserverad kapacitet
 
@@ -25,7 +25,7 @@ Du kan köpa Azure cache för Redis reserverad kapacitet i [Azure Portal](https:
 * För Enterprise-prenumerationer måste **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Eller, om inställningen är inaktive rad, måste du vara en EA-administratör i prenumerationen.
 * För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa Azure cache för reserverad Redis-kapacitet.
 
-Information om hur företags kunder och kunder som betalar per användning debiteras för reservations köp finns i [förstå Azure reservation-användning för företagets registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) och [förstå Azure reservation-användning för din prenumeration enligt principen betala per](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)användning.
+Information om hur företags kunder och kunder som betalar per användning debiteras för reservations köp finns i [förstå Azure reservation-användning för företagets registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) och [förstå Azure reservation-användning för din prenumeration enligt principen betala per](../cost-management-billing/reservations/understand-reserved-instance-usage.md)användning.
 
 
 ## <a name="determine-the-right-cache-size-before-purchase"></a>Fastställ storleken på rätt cachestorlek innan köpet
@@ -38,7 +38,7 @@ Anta till exempel att du kör två cacheminnen – en till 13 GB och den andra v
 ## <a name="buy-azure-cache-for-redis-reserved-capacity"></a>Köp Azure-cache för Redis reserverad kapacitet
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **Alla tjänster** > **Reservationer**.
+2. Välj **Alla tjänster** > **Reservationer** .
 3. Välj **Lägg till** och sedan i fönstret köp reservationer väljer du **Azure cache för Redis** för att köpa en ny reservation för dina cacheminnen.
 4. Fyll i de obligatoriska fälten. Befintliga eller nya databaser som matchar de attribut du väljer kvalificera för att hämta den reserverade kapacitets rabatten. Det faktiska antalet Azure-cache för Redis-instanser som erhåller rabatten beror på omfattning och kvantitet som valts.
 
@@ -48,10 +48,10 @@ Anta till exempel att du kör två cacheminnen – en till 13 GB och den andra v
 
 I följande tabell beskrivs obligatoriska fält.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | :------------ | :------- |
 | Prenumeration   | Prenumerationen som används för att betala för Azure cache för Redis reserverad kapacitets reservation. Betalnings metoden för prenumerationen debiteras de direkta kostnaderna för Azure-cachen för Redis reserverad kapacitet. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en enskild prenumeration med priset betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.
-| Omfång | Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: </br></br> **Shared**Reservations rabatten tillämpas på Azure cache för Redis-instanser som körs i alla prenumerationer i din fakturerings kontext. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För Betala per användning-kunder gäller den delade omfattningen samtliga Betala per användning-prenumerationer som kontoadministratören har skapat.</br></br> **Enskild prenumeration**tillämpas reservations rabatten på Azure cache för Redis-instanser i den här prenumerationen. </br></br> **En enda resurs grupp**, reservations rabatten tillämpas på Azure cache för Redis-instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen.
+| Omfång | Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: </br></br> **Shared** Reservations rabatten tillämpas på Azure cache för Redis-instanser som körs i alla prenumerationer i din fakturerings kontext. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För Betala per användning-kunder gäller den delade omfattningen samtliga Betala per användning-prenumerationer som kontoadministratören har skapat.</br></br> **Enskild prenumeration** tillämpas reservations rabatten på Azure cache för Redis-instanser i den här prenumerationen. </br></br> **En enda resurs grupp** , reservations rabatten tillämpas på Azure cache för Redis-instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen.
 | Region | Den Azure-region som omfattas av Azure-cachen för Redis reserverad kapacitets reservation.
 | Prisnivå | Tjänst nivån för Azure cache för Redis-servrar.
 | Period | Ett år eller tre år
@@ -59,7 +59,7 @@ I följande tabell beskrivs obligatoriska fält.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="cache-size-flexibility"></a>Storleks flexibilitet för cache
 
@@ -77,10 +77,9 @@ Reservations rabatten tillämpas automatiskt på Azure-cachen för Redis-instans
 
 * Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-    * [Vad är Azure-reservationer?](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)
-    * [Hantera Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
-    * [Förstå reservationsrabatter i Azure](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-    * [Förstå reservationsanvändning för din Betala per användning-prenumeration](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mysql)
-    * [Förstå reservationsanvändning för din Enterprise-registrering](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
-    * [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations)
-
+    * [Vad är Azure-reservationer?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+    * [Hantera Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+    * [Förstå reservationsrabatter i Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+    * [Förstå reservationsanvändning för din Betala per användning-prenumeration](../cost-management-billing/reservations/understand-reservation-charges-mysql.md)
+    * [Förstå reservationsanvändning för din Enterprise-registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
+    * [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](/partner-center/azure-reservations)

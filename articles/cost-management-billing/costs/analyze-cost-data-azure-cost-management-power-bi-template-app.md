@@ -3,17 +3,17 @@ title: Analysera Azure-kostnader med Power BI-appen
 description: Den här artikeln beskriver hur du installerar och använder Azure Cost Management Power BI-appen.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/14/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 0174c8a0c96d884f42aea9b6fb1cb0d9c06ce400
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 7282ef9269c1168214fe57d3faa5488e531af8da
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91447657"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131130"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analysera kostnader med Azure Cost Management Power BI-appen för Enterprise-avtal (EA)
 
@@ -28,25 +28,25 @@ För närvarande kan endast kunder som har ett [Enterprise-avtal](https://azure.
 
 ## <a name="prerequisites"></a>Krav
 
-- En [Power BI Pro-licens](/power-bi/service-self-service-signup-for-power-bi) för att installera och använda appen
-- För att ansluta till data måste du använda ett [företagsadministratörskonto](../manage/understand-ea-roles.md)
+- En [Power BI Pro-licens](/power-bi/service-self-service-signup-for-power-bi) krävs för installation och användning av appen.
+- För att ansluta till data måste du använda ett [företagsadministratörskonto](../manage/understand-ea-roles.md). Rollen företagsadministratör (skrivskyddad) stöds.
 
 ## <a name="installation-steps"></a>Installationssteg
 
 Så här installerar du appen:
 
 1. Öppna [Azure Cost Management Power BI-appen](https://aka.ms/costmgmt/ACMApp).
-2. På sidan Power BI AppSource väljer du **Hämta nu**.
+2. På sidan Power BI AppSource väljer du **Hämta nu** .
 3. Välj **Fortsätt** för att godkänna användningsvillkoren och sekretesspolicyn.
-4. I rutan **Installera den här Power BI-appen** väljer du **Installera**.
-5. Om det behövs skapar du en arbetsyta och väljer **Fortsätt**.
+4. I rutan **Installera den här Power BI-appen** väljer du **Installera** .
+5. Om det behövs skapar du en arbetsyta och väljer **Fortsätt** .
 6. När installationen är klar visas ett meddelande om att din nya app är klar.
-7. Välj **Gå till app**.
-8. I **Kom igång med din nya app**, under **Anslut dina data**, väljer du **Anslut**.  
+7. Välj **Gå till app** .
+8. I **Kom igång med din nya app** , under **Anslut dina data** , väljer du **Anslut** .  
   ![Kom igång med din nya app – Anslut](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
-9. I dialogrutan som visas anger du ditt EA-registreringsnummer för **BillingProfileIdOrEnrollmentNumber**. Ange hur många månaders data som ska hämtas. Lämna **Omfång**-standardvärdet som **Registreringsnummer** och välj **Nästa**.  
+9. I dialogrutan som visas anger du ditt EA-registreringsnummer för **BillingProfileIdOrEnrollmentNumber** . Ange hur många månaders data som ska hämtas. Lämna **Omfång** -standardvärdet som **Registreringsnummer** och välj **Nästa** .  
   ![Ange EA-registreringsinformation](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
-10. I nästa dialogruta görs en anslutning till Azure för att hämta de data som krävs för rekommendationer för reserverad instans. *Lämna standardvärdena som de är* och välj **Logga in**.  
+10. I nästa dialogruta görs en anslutning till Azure för att hämta de data som krävs för rekommendationer för reserverad instans. *Lämna standardvärdena som de är* och välj **Logga in** .  
   ![Skärmbild som visar dialogrutan Anslut till Azure Cost Management-appen med standardvärden.](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/autofit.png)  
 11. I det sista installationssteget görs en anslutning till din EA-registrering och ett [företagsadministratörskonto](../manage/understand-ea-roles.md) krävs. Välj **Logga in** för att autentisera med din EA-registrering. Det här steget startar också en datauppdateringsåtgärd i Power BI.  
   ![Ansluta till EA-registrering](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-auth.png)  
@@ -88,7 +88,7 @@ Rapporten visar om det finns virtuella Windows-datorer som har Hybrid-förmånen
 
 Du kan tillämpa ett filter på _chargetype_ om du vill visa underanvändningsdata för reserverad instans.
 
-Mer information om amorterade data finns i [Hämta kostnader för och användning av EA-reservationer](/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea).
+Mer information om amorterade data finns i [Hämta kostnader för och användning av EA-reservationer](../reservations/understand-reserved-instance-usage-ea.md).
 
 **RI Savings** (RI-besparingar) – rapporten visar besparingar som uppkommit genom reservationer för prenumeration, resursgrupp och resursnivå. Den visar:
 
@@ -204,8 +204,8 @@ Följande information sammanfattar den information som är tillgänglig via appe
 | [**Budgetar**](/rest/api/consumption/budgets/get#definitions) | Budgetinformation som visar de faktiska kostnaderna eller den faktiska användningen jämfört med befintliga budgetmål. |
 | [**Prisdokument**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | Tillämpliga mätarpriser för den angivna faktureringsprofilen eller EA-registreringen. |
 | [**RI-avgifter**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) | Avgifter för reserverade instanser under de senaste 24 månaderna. |
-| [**RI-rekommendationer (delade)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Rekommendationer för köp av reserverad instans utifrån användningstrenderna för alla dina prenumerationer för de senaste 7, 30 eller 60 dagarna. |
-| [**RI-rekommendationer (enskild)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Rekommendationer för köp av reserverad instans utifrån användningstrenderna för en enskild prenumeration för de senaste 7, 30 eller 60 dagarna. |
+| [**RI-rekommendationer (delade)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Rekommendationer för köp av reserverad instans utifrån användningstrenderna för alla dina prenumerationer för de senaste 7, 30 eller 60 dagarna. |
+| [**RI-rekommendationer (enskild)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Rekommendationer för köp av reserverad instans utifrån användningstrenderna för en enskild prenumeration för de senaste 7, 30 eller 60 dagarna. |
 | [**RI-användningsinformation**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) | Förbrukningsinformation för dina befintliga reserverade instanser under den senaste månaden. |
 | [**RI-användningssammanfattning**](/rest/api/consumption/reservationssummaries/list) | Daglig Azure-reservationsanvändning i procent. |
 | [**Användningsinformation**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) | En uppdelning av förbrukade kvantiteter och beräknade avgifter för den aktuella faktureringsprofilen i EA-registreringen. |

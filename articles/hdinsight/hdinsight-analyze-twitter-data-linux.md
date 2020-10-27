@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
-ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe511ed2d6b724c1215f9986c9d6c50aae076935
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86086729"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533299"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analysera Twitter-data med Apache Hive och Apache Hadoop på HDInsight
 
@@ -30,31 +30,31 @@ Med Twitter kan du hämta data för varje tweet som ett JavaScript Object Notati
 
 1. Logga in på i en webbläsare [https://developer.twitter.com/apps/](https://developer.twitter.com/apps/) . Välj länken **Registrera dig nu** om du inte har ett Twitter-konto.
 
-2. Välj **Skapa ny app**.
+2. Välj **Skapa ny app** .
 
-3. Ange **namn**, **Beskrivning**, **webbplats**. Du kan skapa en URL för fältet **webbplats** . I följande tabell visas några exempel värden som du kan använda:
+3. Ange **namn** , **Beskrivning** , **webbplats** . Du kan skapa en URL för fältet **webbplats** . I följande tabell visas några exempel värden som du kan använda:
 
-   | Field | Värde |
+   | Fält | Värde |
    |--- |--- |
    | Namn |MyHDInsightApp |
    | Beskrivning |MyHDInsightApp |
    | Webbplats |`https://www.myhdinsightapp.com` |
 
-4. Välj **Ja, jag accepterar**och välj sedan **skapa ett Twitter-program**.
+4. Välj **Ja, jag accepterar** och välj sedan **skapa ett Twitter-program** .
 
-5. Välj fliken **behörigheter** . Standard behörigheten är **skrivskyddad**.
+5. Välj fliken **behörigheter** . Standard behörigheten är **skrivskyddad** .
 
 6. Välj fliken **nycklar och åtkomst-token** .
 
-7. Välj **skapa min åtkomsttoken**.
+7. Välj **skapa min åtkomsttoken** .
 
 8. Välj **testa OAuth** i det övre högra hörnet på sidan.
 
-9. Skriv ned **konsument nyckel**, **konsument hemlighet**, **åtkomsttoken**och **åtkomst till token Secret**.
+9. Skriv ned **konsument nyckel** , **konsument hemlighet** , **åtkomsttoken** och **åtkomst till token Secret** .
 
 ### <a name="download-tweets"></a>Ladda ned tweets
 
-Följande python-kod laddar ned 10 000 tweets från Twitter och sparar dem till en fil med namnet **tweets.txt**.
+Följande python-kod laddar ned 10 000 tweets från Twitter och sparar dem till en fil med namnet **tweets.txt** .
 
 > [!NOTE]  
 > Följande steg utförs i HDInsight-klustret eftersom python redan har installerats.
@@ -78,7 +78,7 @@ Följande python-kod laddar ned 10 000 tweets från Twitter och sparar dem till 
    pip install tweepy progressbar pyOpenSSL requests[security]
    ```
 
-1. Använd följande kommando för att skapa en fil med namnet **gettweets.py**:
+1. Använd följande kommando för att skapa en fil med namnet **gettweets.py** :
 
    ```bash
    nano gettweets.py
@@ -143,7 +143,7 @@ Följande python-kod laddar ned 10 000 tweets från Twitter och sparar dem till 
     > [!TIP]  
     > Justera ämnena-filtret på den sista raden för att spåra populära nyckelord. Genom att använda nyckelorden populär när du kör skriptet kan du snabbare samla in data.
 
-1. Använd **CTRL + X**och sedan **Y** för att spara filen.
+1. Använd **CTRL + X** och sedan **Y** för att spara filen.
 
 1. Använd följande kommando för att köra filen och hämta tweets:
 
@@ -283,7 +283,7 @@ Dessa kommandon lagrar data på en plats som alla noder i klustret kan komma åt
    WHERE (length(json_response) > 500);
    ```
 
-1. Tryck på **CTRL + X**och tryck sedan på **Y** för att spara filen.
+1. Tryck på **CTRL + X** och tryck sedan på **Y** för att spara filen.
 
 1. Använd följande kommando för att köra HiveQL som finns i filen:
 
@@ -313,4 +313,4 @@ Dessa kommandon lagrar data på en plats som alla noder i klustret kan komma åt
 Du har lärt dig hur du omformar en ostrukturerad JSON-datauppsättning till en strukturerad [Apache Hive](https://hive.apache.org/) tabell. Mer information om Hive i HDInsight finns i följande dokument:
 
 * [Kom igång med HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analysera flyg fördröjnings data med HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [Analysera flyg fördröjnings data med HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

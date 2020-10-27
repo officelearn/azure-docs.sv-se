@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5175575bcd968ab9d9bb9db7e284eb332bc7f675
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127088"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542428"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Självstudie: Bygg en Power BI leverantörs instrument panel
 
@@ -29,7 +29,7 @@ Den grundläggande arkitekturen följer den här strukturen:
 >[!div class="mx-imgBorder"] 
 >![Provider prioritering-instrumentpanel](media/dashboard-architecture.png)
 
-I de här självstudierna får du lära dig att
+I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Exportera data från Azure IoT Central till Azure Event Hubs
@@ -139,7 +139,7 @@ Nästa steg är att parsa de data som kommer från Händelsehubben för att str�
 }
 ```
 
-2. Nu när du har kontrollerat dina JSON-nyttolaster går du tillbaka till din Logic Apps designer och väljer **+ nytt steg**. Sök och Lägg till **initiera variabel** som nästa steg och ange följande parametrar:
+2. Nu när du har kontrollerat dina JSON-nyttolaster går du tillbaka till din Logic Apps designer och väljer **+ nytt steg** . Sök och Lägg till **initiera variabel** som nästa steg och ange följande parametrar:
 
     |Parameter|Värde|
     |---|---|
@@ -148,12 +148,12 @@ Nästa steg är att parsa de data som kommer från Händelsehubben för att str�
 
     Tryck på **Save** (Spara). 
 
-3. Lägg till en annan variabel med namnet **Body** med typen **String**. Din Logic app kommer att ha följande åtgärder tillagda:
+3. Lägg till en annan variabel med namnet **Body** med typen **String** . Din Logic app kommer att ha följande åtgärder tillagda:
 
     >[!div class="mx-imgBorder"]
     >![Initiera variabler](media/initialize-string-variables.png)
     
-4. Välj **+ nytt steg** och Lägg till en **parsa JSON** -åtgärd. Byt namn på detta för att **parsa egenskaper**. För innehållet väljer du **Egenskaper** som kommer från händelsehubben. Välj **Använd exempel nytto last för att generera schemat** längst ned och klistra in exempel nytto lasten från avsnittet Egenskaper ovan.
+4. Välj **+ nytt steg** och Lägg till en **parsa JSON** -åtgärd. Byt namn på detta för att **parsa egenskaper** . För innehållet väljer du **Egenskaper** som kommer från händelsehubben. Välj **Använd exempel nytto last för att generera schemat** längst ned och klistra in exempel nytto lasten från avsnittet Egenskaper ovan.
 
 5. Sedan väljer du åtgärden **Ställ in variabel** och uppdaterar variabeln **gränssnitts namn** med **iothub-Interface-Name** från de parsade JSON-egenskaperna.
 
@@ -168,14 +168,14 @@ Nästa steg är att parsa de data som kommer från Händelsehubben för att str�
 
 9. Lägg till en **uppsättnings variabel** åtgärd och uppdatera **Body** -variabeln med **bröd texten** från den parsade JSON-filen i steg 7.
 
-10. Lägg till en **villkors** kontroll som nästa åtgärd och ange villkoret till **Body**, **innehåller**, **HeartRate**. På så sätt ser du till att du har rätt uppsättning data från den smarta viktiga uppdateringen innan du fyller i Power BI data uppsättningen. Steg 7-9 ser ut så här:
+10. Lägg till en **villkors** kontroll som nästa åtgärd och ange villkoret till **Body** , **innehåller** , **HeartRate** . På så sätt ser du till att du har rätt uppsättning data från den smarta viktiga uppdateringen innan du fyller i Power BI data uppsättningen. Steg 7-9 ser ut så här:
 
     >[!div class="mx-imgBorder"] 
     >![Villkor för smarta viktigare Lägg till](media/smart-vitals-pbi.png)
 
 11. För det **sanna** fallet för villkoret lägger du till en åtgärd som anropar **Lägg till rader i en data uppsättning** Power BI funktion. Du måste logga in på Power BI för detta. Ditt **falska** ärende kan använda **avslutnings** kontrollen igen.
 
-12. Välj lämplig **arbets yta**, **data uppsättning**och **tabell**. Mappa de parametrar som du angav när du skapade din strömmande data uppsättning i Power BI till de parsade JSON-värdena som kommer från Händelsehubben. Dina fyllda åtgärder bör se ut så här:
+12. Välj lämplig **arbets yta** , **data uppsättning** och **tabell** . Mappa de parametrar som du angav när du skapade din strömmande data uppsättning i Power BI till de parsade JSON-värdena som kommer från Händelsehubben. Dina fyllda åtgärder bör se ut så här:
 
     >[!div class="mx-imgBorder"] 
     >![Lägg till rader i Power BI](media/add-rows-yesenia.png)
@@ -183,14 +183,14 @@ Nästa steg är att parsa de data som kommer från Händelsehubben för att str�
 13. Lägg till en **parsa JSON** -åtgärd för att parsa innehållet, på samma sätt som steg 7, för det **smarta Knee** . **Lägg sedan till rader till en data uppsättning** för att uppdatera din Teddy silver-datauppsättning i Power BI.
 
     >[!div class="mx-imgBorder"] 
-    >![Villkor för smarta viktigare Lägg till](media/knee-brace-pbi.png)
+    >![Skärm bild som visar hur du lägger till rader i en data uppsättning.](media/knee-brace-pbi.png)
 
 14. Tryck på **Spara** och kör sedan din Logic app.
 
 ## <a name="build-a-real-time-dashboard-for-patient-vitals"></a>Bygg en real tids instrument panel för patients viktigare
-Gå nu tillbaka till Power BI och välj **+ skapa** för att skapa en ny **instrument panel**. Ge instrument panelen ett namn och tryck på **skapa**.
+Gå nu tillbaka till Power BI och välj **+ skapa** för att skapa en ny **instrument panel** . Ge instrument panelen ett namn och tryck på **skapa** .
 
-Välj de tre punkterna i det övre navigerings fältet och välj sedan **+ Lägg till panel**.
+Välj de tre punkterna i det övre navigerings fältet och välj sedan **+ Lägg till panel** .
 
 >[!div class="mx-imgBorder"] 
 >![Lägg till panel på instrument panelen](media/add-tile.png)
@@ -203,7 +203,7 @@ Om du inte kommer att fortsätta att använda det här programmet tar du bort di
 
 1. Från Azure Portal kan du ta bort Händelsehubben och Logic Apps resurser som du har skapat.
 
-2. För ditt IoT Central-program går du till fliken Administration och väljer **ta bort**.
+2. För ditt IoT Central-program går du till fliken Administration och väljer **ta bort** .
 
 ## <a name="next-steps"></a>Nästa steg
 

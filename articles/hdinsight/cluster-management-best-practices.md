@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: fbfb2aef838dbef6e7403e635f5bce42bf9ec901
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fc2f9e5408dd760b48fc63c4021230446fe40de9
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487270"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542326"
 ---
 # <a name="hdinsight-cluster-management-best-practices"></a>Metod tips för HDInsight-kluster hantering
 
@@ -26,12 +26,12 @@ Lär dig metod tips för att hantera HDInsight-kluster.
 | Azure Data Factory | [Skapa Apache Hadoop-kluster på begäran i HDInsight med hjälp av Azure Data Factory](./hdinsight-hadoop-create-linux-clusters-adf.md) |
 | Anpassad Resource Manager-mall | [Skapa Apache Hadoop kluster i HDInsight med hjälp av Resource Manager-mallar](./hdinsight-hadoop-create-linux-clusters-arm-templates.md) |
 | Snabbstartsmallar | [HDInsight snabb starts mallar](https://azure.microsoft.com/resources/templates/?term=hdinsight) |
-| Azure-exempel | [HDInsight Azure-exempel](https://docs.microsoft.com/samples/browse/?products=azure-hdinsight) |
+| Azure-exempel | [HDInsight Azure-exempel](/samples/browse/?products=azure-hdinsight) |
 | Azure Portal | [Skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](./spark/apache-spark-intellij-tool-plugin.md) |
 | Azure CLI | [Skapa HDInsight-kluster med Azure CLI](./hdinsight-hadoop-create-linux-clusters-azure-cli.md) |
 | Azure PowerShell | [Skapa Linux-baserade kluster i HDInsight med hjälp av Azure PowerShell](./hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |
 | cURL | [Skapa Apache Hadoop kluster med Azure-REST API](./hdinsight-hadoop-create-linux-clusters-curl-rest.md) |
-| SDK: er (.NET, python, Java) | [.Net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [python](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true), [Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable&preserve-view=true), [Go](https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview) |
+| SDK: er (.NET, python, Java) | [.Net](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true), [python](/python/api/overview/azure/hdinsight?preserve-view=true&view=azure-python), [Java](/java/api/overview/azure/hdinsight?preserve-view=true&view=azure-java-stable), [Go](./hdinsight-go-sdk-overview.md) |
 
 > [!Note]
 > Om du skapar ett kluster och återanvänder kluster namnet från ett tidigare skapat kluster väntar du tills föregående kluster borttagning har slutförts innan du skapar klustret.
@@ -62,7 +62,7 @@ Lär dig metod tips för att hantera HDInsight-kluster.
 | Manuell skalning | [Skala Azure HDInsight-kluster](./hdinsight-scaling-best-practices.md) |
 | Övervakning med Ambari| [Övervaka kluster prestanda i Azure HDInsight](./hdinsight-key-scenarios-to-monitor.md) |
 | Övervakning med Azure Monitor loggar | [Använda Azure Monitor-loggar för att övervaka HDInsight-kluster](./hdinsight-hadoop-oms-log-analytics-tutorial.md) |
-| Tjänst problem, planerat underhåll, hälso & säkerhets rådgivare | [Prenumerera på prenumerations aviseringar för viss tjänst](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal) |
+| Tjänst problem, planerat underhåll, hälso & säkerhets rådgivare | [Prenumerera på prenumerations aviseringar för viss tjänst](../service-health/alerts-activity-log-service-notifications-portal.md) |
 
 
 ## <a name="how-do-i-check-on-deleted-hdinsight-clusters"></a>Hur gör jag för att kontroll av borttagna HDInsight-kluster?

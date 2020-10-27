@@ -47,7 +47,7 @@ I den här självstudien får du lära dig om ämnen som:
 Innan du börjar ska du kontrollera att:
 
 * Du har slutfört självstudien [: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md).
-* Kopieringsjobben har slutförts och det finns inga fel på sidan **Anslut och kopiera**. Förbered för att skicka kan inte köras om kopieringsjobb pågår eller om det finns fel på sidan **Anslut och kopiera**.
+* Kopieringsjobben har slutförts och det finns inga fel på sidan **Anslut och kopiera** . Förbered för att skicka kan inte köras om kopieringsjobb pågår eller om det finns fel på sidan **Anslut och kopiera** .
 
 ## <a name="prepare-to-ship"></a>Förbereda för att skicka
 
@@ -92,7 +92,7 @@ Utför följande steg om du returnerar enheten i USA, Kanada eller Europa.
     * Om du inte uppger spårningsnumret kräver UPS att du betalar en extra avgift vid upphämtningen.
 
     I stället för att schemalägga upphämtningen kan du även lämna in Data Box-enheten på närmaste inlämningsställe.
-4. Nära Data Box-enheten hämtas och skannas av transportföretaget uppdateras orderstatusen i portalen till **hämtad**. Du får också ett spårnings-ID.
+4. Nära Data Box-enheten hämtas och skannas av transportföretaget uppdateras orderstatusen i portalen till **hämtad** . Du får också ett spårnings-ID.
 
 ::: zone target="chromeless"
 

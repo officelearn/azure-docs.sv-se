@@ -164,7 +164,7 @@
       href: recovery-plan-overview.md
     - name: Om migrering till Azure
       href: migrate-overview.md
-    - name: Om rollbaserad åtkomstkontroll med Site Recovery
+    - name: Om rollbaserad åtkomstkontroll i Azure med Site Recovery
       href: site-recovery-role-based-linked-access-control.md
     - name: Om haveriberedskap till en sekundär lokal plats
       items:

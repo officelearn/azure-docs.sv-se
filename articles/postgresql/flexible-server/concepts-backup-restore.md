@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: bed196d1be101ffa75affc389d390ec0fa764b05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0e79e42c7c004638336ada23de663bbe74b7e48
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937056"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92532653"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---flexible-server"></a>Säkerhets kopiering och återställning i Azure Database for PostgreSQL-flexibel Server
 
@@ -28,7 +28,7 @@ Om databasen har kon figurer ATS med hög tillgänglighet utförs dagliga ögonb
 > [!IMPORTANT]
 >Säkerhets kopieringar utförs inte på stoppade servrar. Säkerhets kopieringar återupptas dock när databasen antingen startas automatiskt efter sju dagar eller startas av användaren.
 
-Säkerhets kopiorna kan bara användas för återställnings åtgärder i den flexibla servern. Om du vill exportera eller importera data till den flexibla servern använder du [dumpnings-och återställnings](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore)   metodik.
+Säkerhets kopiorna kan bara användas för återställnings åtgärder i den flexibla servern. Om du vill exportera eller importera data till den flexibla servern använder du [dumpnings-och återställnings](../howto-migrate-using-dump-and-restore.md) metodik.
 
 
 ### <a name="backup-retention"></a>Kvarhållningsperiod för säkerhetskopior
@@ -40,9 +40,9 @@ Kvarhållningsperioden för säkerhets kopior styr hur långt tillbaka i tiden e
 
 ### <a name="backup-storage-cost"></a>Reserv lagrings kostnad
 
-Flexibel Server ger upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB per månad. Om du till exempel har etablerad en server med 250 GiB lagrings utrymme har du 250 GiB backup Storage-kapacitet utan extra kostnad. Om den dagliga säkerhets kopierings användningen är 25 GiB kan du ha upp till 10 dagars kostnads fri säkerhets kopierings lagring. Lagrings förbrukningen för säkerhets kopiering som överstiger 250 GiB debiteras enligt [pris sättnings modellen](https://azure.microsoft.com/pricing/details/postgresql/).
+Flexibel Server ger upp till 100% av din etablerade Server lagring som säkerhets kopierings lagring utan extra kostnad. Ytterligare lagrings utrymme för säkerhets kopior debiteras i GB per månad. Om du till exempel har etablerad en server med 250 GiB lagrings utrymme har du 250 GiB backup Storage-kapacitet utan extra kostnad. Om den dagliga säkerhets kopierings användningen är 25 GiB kan du ha upp till 10 dagars kostnads fri säkerhets kopierings lagring. Lagrings förbrukningen för säkerhets kopiering som överstiger 250 GiB debiteras enligt [pris sättnings modellen](https://azure.microsoft.com/pricing/details/postgresql/).
 
-Du kan använda måttet för [säkerhets kopierings lagring som används](https://docs.microsoft.com/azure/postgresql/concepts-monitoring)   i Azure Portal för att övervaka säkerhets kopierings lagringen som används av en server. Måttet för använd säkerhetskopieringslagring representerar summan av det lagringsutrymme som förbrukas av alla databassäkerhetskopior och loggsäkerhetskopior som bevaras baserat på den kvarhållningsperiod för säkerhetskopior som angetts för servern.  Krävande transaktionsaktivitet på servern kan orsaka att lagringsanvändningen för säkerhetskopior ökar oberoende av databasens totala storlek.
+Du kan använda måttet [för använd säkerhetskopieringslagring](../concepts-monitoring.md) i Azure Portal för att övervaka mängden säkerhetskopieringslagring som används av en server. Måttet för använd säkerhetskopieringslagring representerar summan av det lagringsutrymme som förbrukas av alla databassäkerhetskopior och loggsäkerhetskopior som bevaras baserat på den kvarhållningsperiod för säkerhetskopior som angetts för servern.  Krävande transaktionsaktivitet på servern kan orsaka att lagringsanvändningen för säkerhetskopior ökar oberoende av databasens totala storlek.
 
 Det främsta sättet att kontrol lera lagrings kostnaden för säkerhets kopiering är genom att ställa in lämplig kvarhållningsperiod för säkerhets kopior och välja rätt alternativ för säkerhets kopiering för att uppfylla önskade återställnings mål.
 
@@ -71,15 +71,15 @@ De fysiska databasfilerna återställs först från ögonblicks säkerhets kopio
 
 Du kan välja mellan en tidigaste återställnings punkt och en anpassad återställnings punkt.
 
--   **Tidigaste återställnings punkt**: beroende på din kvarhållningsperiod, är det den tidigaste tiden som du kan återställa. Den äldsta säkerhets kopierings tiden kommer automatiskt att väljas och visas på portalen. Detta är användbart om du vill undersöka eller göra några tester som startar den tidpunkten.
+-   **Tidigaste återställnings punkt** : beroende på din kvarhållningsperiod, är det den tidigaste tiden som du kan återställa. Den äldsta säkerhets kopierings tiden kommer automatiskt att väljas och visas på portalen. Detta är användbart om du vill undersöka eller göra några tester som startar den tidpunkten.
 
--   **Anpassad återställnings punkt**: med det här alternativet kan du välja vilken tidpunkt som helst inom den kvarhållningsperiod som definierats för den här flexibla servern. Som standard väljs den senaste tiden i UTC automatiskt och är användbar om du vill återställa till den senaste genomförda transaktionen för ditt test syfte. Du kan också välja andra dagar och tidpunkter. 
+-   **Anpassad återställnings punkt** : med det här alternativet kan du välja vilken tidpunkt som helst inom den kvarhållningsperiod som definierats för den här flexibla servern. Som standard väljs den senaste tiden i UTC automatiskt och är användbar om du vill återställa till den senaste genomförda transaktionen för ditt test syfte. Du kan också välja andra dagar och tidpunkter. 
 
 Den uppskattade tiden som ska återställas beror på flera faktorer, till exempel databas storlek, volym för transaktions loggar som ska bearbetas, nätverks bandbredden och det totala antalet databaser som återställs i samma region på samma gång. Den totala återställnings tiden tar vanligt vis från några minuter upp till några timmar.
 
 
 > [!IMPORTANT]
->  **Det går inte**att återställa borttagna servrar   . Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. För att skydda server resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> **Det går inte** att återställa borttagna servrar. Om du tar bort servern tas även alla databaser som tillhör servern bort och kan inte återställas. För att skydda server resurser, efter distribution, från oavsiktlig borttagning eller oväntade ändringar, kan administratörer utnyttja [hanterings lås](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="perform-post-restore-tasks"></a>Utföra uppgifter efter återställning
 
@@ -101,6 +101,5 @@ När du har återställt databasen kan du utföra följande uppgifter för att f
 ## <a name="next-steps"></a>Nästa steg
 
 -   Lär dig mer om [verksamhets kontinuitet](./concepts-business-continuity.md)
--   Lär dig mer om [Zone-redundant hög tillgänglighet](./concepts-high-availability.md)
+-   Lär dig mer om [Zone-redundant hög tillgänglighet](./concepts-high-availability.md)
 -   Lär dig [hur du återställer](./how-to-restore-server-portal.md)
-

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: 542e4e09949aa3d673f632890bd7ee99adf431d5
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 71ef902e909e552ade5174196f291630bc242ca0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487287"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543244"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Ansluta HDInsight till det lokala nätverket
 
@@ -45,7 +45,7 @@ I följande diagram är gröna rader begär Anden om resurser som slutar med DNS
 ## <a name="prerequisites"></a>Förutsättningar
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
-* Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/).
+* Om du använder PowerShell behöver du AZ- [modulen](/powershell/azure/).
 * Om du vill använda Azure CLI och du ännu inte har installerat det kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Skapa konfiguration av virtuellt nätverk
@@ -65,7 +65,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
   
-1. Välj **+ skapa en resurs**på den översta menyn.
+1. Välj **+ skapa en resurs** på den översta menyn.
 
     ![Skapa en virtuell Ubuntu-dator](./media/connect-on-premises-network/azure-portal-create-resource.png)
 
@@ -77,14 +77,14 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
     | --- | --- |
     |Prenumeration |Välj lämplig prenumeration.|
     |Resursgrupp |Välj den resurs grupp som innehåller det virtuella nätverket som skapades tidigare.|
-    |Namn på virtuell dator | Ange ett eget namn som identifierar den här virtuella datorn. I det här exemplet används **DNSProxy**.|
+    |Namn på virtuell dator | Ange ett eget namn som identifierar den här virtuella datorn. I det här exemplet används **DNSProxy** .|
     |Region | Välj samma region som det virtuella nätverket som skapades tidigare.  Alla VM-storlekar är inte tillgängliga i alla regioner.  |
-    |Alternativ för tillgänglighet |  Välj önskad tillgänglighets nivå.  Azure erbjuder en rad alternativ för att hantera tillgänglighet och återhämtning för dina program.  Skapa din lösning för att använda replikerade virtuella datorer i Tillgänglighetszoner eller tillgänglighets uppsättningar för att skydda dina appar och data från data Center avbrott och underhålls händelser. I det här exemplet används **ingen infrastrukturs-redundans krävs**. |
-    |Avbildning | Lämna på **Ubuntu Server 18,04 LTS**. |
-    |Autentiseringstyp | __Lösen ord__ eller __Offentlig SSH-nyckel__: autentiseringsmetoden för SSH-kontot. Vi rekommenderar att du använder offentliga nycklar eftersom de är säkrare. I det här exemplet används **lösen ord**.  Mer information finns i dokumentet [skapa och använda SSH-nycklar för virtuella Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md) .|
-    |Användarnamn |Ange administratörs användar namnet för den virtuella datorn.  I det här exemplet används **sshuser**.|
-    |Lösen ord eller offentlig SSH-nyckel | Det tillgängliga fältet avgörs av ditt val av **Autentiseringstyp**.  Ange lämpligt värde.|
-    |Offentliga inkommande portar|Välj **Tillåt valda portar**. Välj sedan **SSH (22)** i list rutan **Välj inkommande portar** .|
+    |Alternativ för tillgänglighet |  Välj önskad tillgänglighets nivå.  Azure erbjuder en rad alternativ för att hantera tillgänglighet och återhämtning för dina program.  Skapa din lösning för att använda replikerade virtuella datorer i Tillgänglighetszoner eller tillgänglighets uppsättningar för att skydda dina appar och data från data Center avbrott och underhålls händelser. I det här exemplet används **ingen infrastrukturs-redundans krävs** . |
+    |Bild | Lämna på **Ubuntu Server 18,04 LTS** . |
+    |Autentiseringstyp | __Lösen ord__ eller __Offentlig SSH-nyckel__ : autentiseringsmetoden för SSH-kontot. Vi rekommenderar att du använder offentliga nycklar eftersom de är säkrare. I det här exemplet används **lösen ord** .  Mer information finns i dokumentet [skapa och använda SSH-nycklar för virtuella Linux-datorer](../virtual-machines/linux/mac-create-ssh-keys.md) .|
+    |Användarnamn |Ange administratörs användar namnet för den virtuella datorn.  I det här exemplet används **sshuser** .|
+    |Lösen ord eller offentlig SSH-nyckel | Det tillgängliga fältet avgörs av ditt val av **Autentiseringstyp** .  Ange lämpligt värde.|
+    |Offentliga inkommande portar|Välj **Tillåt valda portar** . Välj sedan **SSH (22)** i list rutan **Välj inkommande portar** .|
 
     ![Grundläggande konfiguration av virtuell dator](./media/connect-on-premises-network/virtual-machine-basics.png)
 
@@ -100,7 +100,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
     ![Inställningar för virtuella HDInsight-nätverk](./media/connect-on-premises-network/virtual-network-settings.png)
 
-    Lämna övriga poster till standardvärdena och välj sedan **Granska + skapa**.
+    Lämna övriga poster till standardvärdena och välj sedan **Granska + skapa** .
 
 5. På fliken **Granska och skapa** väljer du **skapa** för att skapa den virtuella datorn.
 
@@ -108,7 +108,7 @@ De här stegen använder [Azure Portal](https://portal.azure.com) för att skapa
 
 När den virtuella datorn har skapats får du ett meddelande om att **distributionen har slutförts** med knappen **gå till resurs** .  Välj **gå till resurs** för att gå till den nya virtuella datorn.  Följ de här stegen för att identifiera associerade IP-adresser från standardvyn för den nya virtuella datorn:
 
-1. Från **Inställningar**väljer du **Egenskaper**.
+1. Från **Inställningar** väljer du **Egenskaper** .
 
 2. Observera värdena för **offentlig IP-adress/DNS-namn** och **privat IP-adress** för senare användning.
 
@@ -168,7 +168,7 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
     sudo nano /etc/bind/named.conf.options
     ```
 
-    Om du vill spara filen använder du __CTRL + X__, __Y__och __anger__sedan.
+    Om du vill spara filen använder du __CTRL + X__ , __Y__ och __anger__ sedan.
 
 4. Från SSH-sessionen använder du följande kommando:
 
@@ -203,7 +203,7 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
     sudo nano /etc/bind/named.conf.local
     ```
 
-    Om du vill spara filen använder du __CTRL + X__, __Y__och __anger__sedan.
+    Om du vill spara filen använder du __CTRL + X__ , __Y__ och __anger__ sedan.
 
 6. Använd följande kommando för att starta bind:
 
@@ -238,15 +238,15 @@ När den virtuella datorn har skapats får du ett meddelande om att **distributi
 
 Om du vill konfigurera det virtuella nätverket att använda den anpassade DNS-servern i stället för Azures rekursiva matchare, använder du följande steg från [Azure Portal](https://portal.azure.com):
 
-1. I den vänstra menyn navigerar du till **alla tjänster**  >  **nätverk**  >  **virtuella nätverk**.
+1. I den vänstra menyn navigerar du till **alla tjänster**  >  **nätverk**  >  **virtuella nätverk** .
 
 2. Välj ditt virtuella nätverk i listan, så öppnas standardvyn för det virtuella nätverket.  
 
-3. I standardvyn väljer du **DNS-servrar**under **Inställningar**.  
+3. I standardvyn väljer du **DNS-servrar** under **Inställningar** .  
 
-4. Välj __anpassad__och ange den **privata IP-adressen** för den anpassade DNS-servern.
+4. Välj __anpassad__ och ange den **privata IP-adressen** för den anpassade DNS-servern.
 
-5. Välj __Spara__.  <br />  
+5. Välj __Spara__ .  <br />  
 
     ![Ange den anpassade DNS-servern för nätverket](./media/connect-on-premises-network/configure-custom-dns.png)
 
@@ -254,7 +254,7 @@ Om du vill konfigurera det virtuella nätverket att använda den anpassade DNS-s
 
 I föregående avsnitt konfigurerade du den anpassade DNS-servern så att den vidarebefordrar begär anden till den lokala DNS-servern. Sedan måste du konfigurera den lokala DNS-servern så att den vidarebefordrar begär anden till den anpassade DNS-servern.
 
-Mer information om hur du konfigurerar DNS-servern finns i dokumentationen för din DNS-serverprogram vara. Leta efter de steg som krävs för att konfigurera en __villkorlig vidarebefordrare__.
+Mer information om hur du konfigurerar DNS-servern finns i dokumentationen för din DNS-serverprogram vara. Leta efter de steg som krävs för att konfigurera en __villkorlig vidarebefordrare__ .
 
 En villkorlig vidarebefordran vidarebefordrar bara begär Anden för ett bestämt DNS-suffix. I så fall måste du konfigurera en vidarebefordrare för det virtuella nätverkets DNS-suffix. Begär Anden för det här suffixet ska vidarebefordras till den anpassade DNS-serverns IP-adress. 
 
@@ -267,7 +267,7 @@ zone "icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net" {
 };
 ```
 
-Information om hur du använder DNS på **Windows Server 2016**finns i dokumentationen för [Add-DnsServerConditionalForwarderZone](https://technet.microsoft.com/itpro/powershell/windows/dnsserver/add-dnsserverconditionalforwarderzone) ...
+Information om hur du använder DNS på **Windows Server 2016** finns i dokumentationen för [Add-DnsServerConditionalForwarderZone](/powershell/module/dnsserver/add-dnsserverconditionalforwarderzone) ...
 
 När du har konfigurerat den lokala DNS-servern kan du använda `nslookup` från det lokala nätverket för att kontrol lera att du kan matcha namn i det virtuella nätverket. Följande exempel 
 
@@ -288,8 +288,8 @@ Du kan använda nätverks säkerhets grupper (NSG) eller användardefinierade v�
 
 2. För IP-adresserna som identifierades i steg 1, Tillåt inkommande trafik från de IP-adresserna.
 
-   * Om du använder __NSG__: Tillåt __inkommande__ trafik på port __443__ för IP-adresserna.
-   * Om du använder __UDR__: ange __nästa hopp__ typ för vägen till __Internet__ för IP-adresserna.
+   * Om du använder __NSG__ : Tillåt __inkommande__ trafik på port __443__ för IP-adresserna.
+   * Om du använder __UDR__ : ange __nästa hopp__ typ för vägen till __Internet__ för IP-adresserna.
 
 Ett exempel på hur du använder Azure PowerShell eller Azure CLI för att skapa NSG: er finns i dokumentet [utöka HDInsight med Azure Virtual Networks](hdinsight-create-virtual-network.md#hdinsight-nsg) .
 
@@ -347,6 +347,6 @@ Använd följande steg för att ansluta direkt till HDInsight via det virtuella 
 
 * Mer information om virtuella Azure-nätverk finns i [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
 
-* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/network-security-groups-overview.md).
 
 * Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).

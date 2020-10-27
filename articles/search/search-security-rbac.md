@@ -26,7 +26,7 @@ Azure tillhandahåller en [Global rollbaserad verifierings modell](../role-based
 
 För Azure Kognitiv sökning associeras roller med behörighets nivåer som stöder följande hanterings aktiviteter:
 
-| Role | Uppgift |
+| Roll | Uppgift |
 | --- | --- |
 | Ägare |Skapa eller ta bort tjänsten eller ett objekt på tjänsten, inklusive API-nycklar, index, indexerare, data källor för indexerare och index scheman.<p>Visa tjänst status, inklusive antal och lagrings storlek.<p>Lägg till eller ta bort roll medlemskap (endast ägaren kan hantera roll medlemskap).<p>Prenumerations administratörer och tjänst ägare har automatiskt medlemskap i rollen ägare. |
 | Deltagare | Samma åtkomst nivå som ägare, minus hantering av Azure-roller. En deltagare kan till exempel skapa eller ta bort objekt, eller Visa och återskapa [API-nycklar](search-security-api-keys.md), men kan inte ändra roll medlemskap.<br><br>[Search service Contributor](../role-based-access-control/built-in-roles.md#search-service-contributor) motsvarar den inbyggda rollen som är den allmänna rollen. |

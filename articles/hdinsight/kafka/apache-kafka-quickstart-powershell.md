@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 6a01e86f4afe397ed78cd279231a2429b17c60a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 57cbfa356961aca778032b6e3552cffb88b6ab3d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88651394"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533010"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>Snabb start: skapa Apache Kafka kluster i Azure HDInsight med hjälp av PowerShell
 
@@ -31,7 +31,7 @@ Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-* PowerShell- [modulen för AZ](https://docs.microsoft.com/powershell/azure/) är installerad.
+* PowerShell- [modulen för AZ](/powershell/azure/) är installerad.
 
 * En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -176,7 +176,7 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 
 ## <a name="get-the-apache-zookeeper-and-broker-host-information"></a><a id="getkafkainfo"></a>Hämta information om värden i Apache Zookeeper och Broker
 
-När du arbetar med Kafka måste du känna till *Apache Zookeeper*- och *Broker*-värdarna. Dessa värdar används med Kafka-API och många av de verktyg som levereras med Kafka.
+När du arbetar med Kafka måste du känna till *Apache Zookeeper* - och *Broker* -värdarna. Dessa värdar används med Kafka-API och många av de verktyg som levereras med Kafka.
 
 I det här avsnittet hämtar du värdinformation från om värden från Apache Ambari REST API på klustret.
 
@@ -232,7 +232,7 @@ I det här avsnittet hämtar du värdinformation från om värden från Apache A
 
 ## <a name="manage-apache-kafka-topics"></a>Hantera Apache Kafka-ämnen
 
-Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Du kan hantera ämnena med verktyget `kafka-topics.sh`.
+Kafka lagrar dataströmmar i kategorier som kallas *ämnen* . Du kan hantera ämnena med verktyget `kafka-topics.sh`.
 
 * **Du skapar ett ämne** med följande kommando i SSH-anslutningen:
 
@@ -240,7 +240,7 @@ Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Du kan hantera ämn
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Det här kommandot ansluter till Zookeeper med hjälp av värdinformationen som lagras i `$KAFKAZKHOSTS`. Det skapar sedan ett Kafka-ämne med namnet **test**. 
+    Det här kommandot ansluter till Zookeeper med hjälp av värdinformationen som lagras i `$KAFKAZKHOSTS`. Det skapar sedan ett Kafka-ämne med namnet **test** . 
 
     * Data som lagras i det här ämnet partitioneras över åtta partitioner.
 
@@ -250,7 +250,7 @@ Kafka lagrar dataströmmar i kategorier som kallas *ämnen*. Du kan hantera ämn
         
         I områden med tre feldomäner kan replikeringsfaktorn 3 tillåta att repliker sprids till feldomänerna. I områden med två feldomäner kan replikeringsfaktorn 4 tillåta att repliker sprids jämnt över domänerna.
         
-        Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
+        Om du vill ha information om antalet feldomäner i en region läser du dokumentet [Availability of Linux virtual machines](../../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) (Tillgänglighet för virtuella Linux-datorer).
 
         Kafka har ingen information om Azure-feldomäner. När du skapar partitionsrepliker för ämnen kanske det inte distribueras repliker korrekt för hög tillgänglighet.
 
@@ -289,7 +289,7 @@ Om du vill ha mer information om vilka kommandon som är tillgängliga med verkt
 
 ## <a name="produce-and-consume-records"></a>Skapa och använda poster
 
-Kafka lagrar *poster* i ämnen. Poster produceras av *producenter*, och används av *konsumenter*. Producenter och konsumenter kommunicerar med *Kafka-koordinator*tjänsten. Varje arbetsnod i HDInsight-klustret är en Kafka-koordinatorvärd.
+Kafka lagrar *poster* i ämnen. Poster produceras av *producenter* , och används av *konsumenter* . Producenter och konsumenter kommunicerar med *Kafka-koordinator* tjänsten. Varje arbetsnod i HDInsight-klustret är en Kafka-koordinatorvärd.
 
 Använd följande steg för att lagra poster i det testämne som du skapade tidigare och sedan läsa dem med en konsument:
 

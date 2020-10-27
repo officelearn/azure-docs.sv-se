@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 782fa75cee5ffb5f9c86082a86e2b3552914c274
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f1a94ae070419c38efb481e8f3967aec6a212d0
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168230"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92533962"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Begränsningar för Azure App Service åtkomst
 
@@ -61,7 +61,8 @@ Tjänst slut punkter kan inte användas för att begränsa åtkomsten till appar
 Med tjänst slut punkter kan du konfigurera din app med programgatewayer eller andra WAF-enheter. Du kan också konfigurera flera nivåer med säkra server delar. För ytterligare information om några av möjligheterna, läsa [nätverksfunktioner och App Service](networking-features.md) och [Application Gateway-integrering med tjänst slut punkter](networking/app-gateway-with-service-endpoints.md).
 
 > [!NOTE]
-> Tjänst slut punkter stöds för närvarande inte för webb program som använder IP SSL virtuell IP (VIP). 
+> - Tjänst slut punkter stöds för närvarande inte för webb program som använder IP SSL virtuell IP (VIP).
+> - Det finns en gräns på 512 rader med IP-eller tjänst slut punkts begränsningar. Om du behöver mer än 512 rader med begränsningar föreslår vi att du tittar på en fristående säkerhets produkt, till exempel Azure-frontend, Azure App gateway eller en brand vägg för webbaserade program (WAF).
 >
 
 ## <a name="managing-access-restriction-rules"></a>Hantera regler för åtkomst begränsning
@@ -74,7 +75,7 @@ När du redigerar en regel kan du inte ändra typen mellan en IP-serveradress oc
 
 ![Skärm bild av dialog rutan Redigera IP-begränsning i Azure Portal visar inställningarna för en Virtual Network regel.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-Om du vill ta bort en regel klickar du på **...** i regeln och klickar sedan på **ta bort**.
+Om du vill ta bort en regel klickar du på **...** i regeln och klickar sedan på **ta bort** .
 
 ![ta bort regeln för åtkomst begränsning](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
@@ -111,7 +112,7 @@ Värden kan också ställas in manuellt med en åtgärd för att lägga till [Az
 
 Platsen för den här informationen i Resource Manager är:
 
-management.azure.com/subscriptions/**prenumerations-ID**/resourceGroups/**resurs grupper**/providers/Microsoft.Web/Sites/**Web App Name**/config/Web? API-version = 2018-02-01
+management.azure.com/subscriptions/ **prenumerations-ID** /resourceGroups/ **resurs grupper** /providers/Microsoft.Web/Sites/ **Web App Name** /config/Web? API-version = 2018-02-01
 
 JSON-syntaxen för det tidigare exemplet är:
 ```json

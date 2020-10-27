@@ -12,11 +12,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/01/2020
 ms.locfileid: "91631552"
 ---
-När Microsoft tar emot och genomsöker enheten uppdateras orderstatusen till **mottagen**. Sedan görs en fysisk kontroll av skador eller tecken på manipulation.
+När Microsoft tar emot och genomsöker enheten uppdateras orderstatusen till **mottagen** . Sedan görs en fysisk kontroll av skador eller tecken på manipulation.
 
 När kontrollen har slutförts ansluts Data Box till nätverket i Azure-datacentret. Datakopieringen startar automatiskt. Beroende på datastorleken kan kopieringen ta några timmar upp till dagar att slutföra. Du kan övervaka kopieringsförloppet i portalen.
 
-När kopieringen är slutförd uppdateras statusen till **slutförd**.
+När kopieringen är slutförd uppdateras statusen till **slutförd** .
 
 Försäkra dig om att dina data har överförts till Azure innan du tar bort dem från källan. Dina data kan finnas i:
 

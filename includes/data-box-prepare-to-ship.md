@@ -16,11 +16,11 @@ Det sista steget är att förbereda enheten för att skickas. I det här steget 
 > [!IMPORTANT]
 > Förbered för att skicka krävs eftersom det flaggar data som inte följer Azure-namngivningskonventionerna. Det här steget förhindrar potentiella datauppladdningsfel på grund av data som inte uppfyller kraven.
 
-1. Gå till **Förbered för att skicka** och klicka på **Starta förberedelser**. Som standard beräknas kontrollsummor medan data kopieras. ”Förbered för att skicka” slutför beräkningen av kontrollsumman och skapar listan med filer (*BOM-filer*). Beräkningen av kontrollsumma kan ta några timmar till flera dagar beroende på storleken på data. 
+1. Gå till **Förbered för att skicka** och klicka på **Starta förberedelser** . Som standard beräknas kontrollsummor medan data kopieras. ”Förbered för att skicka” slutför beräkningen av kontrollsumman och skapar listan med filer ( *BOM-filer* ). Beräkningen av kontrollsumma kan ta några timmar till flera dagar beroende på storleken på data. 
    
     ![Förbered för att skicka 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
-    Om du behöver stoppa förberedelsen av enheten klickar du på **Stoppa förberedelse**. Du kan återuppta Förbered för att skicka senare.
+    Om du behöver stoppa förberedelsen av enheten klickar du på **Stoppa förberedelse** . Du kan återuppta Förbered för att skicka senare.
         
     ![Förbered för att skicka 2](media/data-box-prepare-to-ship/prepare-to-ship2.png)
     
@@ -30,11 +30,11 @@ Det sista steget är att förbereda enheten för att skickas. I det här steget 
 
     Om du vill kopiera mer data till enheten kan du låsa upp enheten, kopiera mer data och köra Förbered för att skicka igen.
 
-    Om det uppstår fel i det här steget uppdateras statusen till *Skanningen slutfördes med fel*. Lås upp enheten och gå till sidan **Anslut och kopiera**, ladda ned listan med problem och åtgärda felen.
+    Om det uppstår fel i det här steget uppdateras statusen till *Skanningen slutfördes med fel* . Lås upp enheten och gå till sidan **Anslut och kopiera** , ladda ned listan med problem och åtgärda felen.
 
     ![Förbered för att skicka 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 
-    När felen har åtgärdats kör du **Förbered för att skicka**.
+    När felen har åtgärdats kör du **Förbered för att skicka** .
 
 4. När Förbered för att skicka har utförts (utan fel) följer du dessa steg:
 
@@ -45,6 +45,6 @@ Det sista steget är att förbereda enheten för att skickas. I det här steget 
     3. Välj och ladda ned leveransanvisningarna för enheten. Leveransanvisningarna skiljer sig åt beroende på vilket land du befinner dig i.
     4. Om fraktsedeln inte visas på e-bläckskärmen kan du ladda ned returfraktsedeln här. 
 
-5. Stäng av enheten. Gå till sidan **Stäng av eller starta om** och klicka på **Stäng av**. När du uppmanas att bekräfta klickar du på **OK** för att fortsätta.
+5. Stäng av enheten. Gå till sidan **Stäng av eller starta om** och klicka på **Stäng av** . När du uppmanas att bekräfta klickar du på **OK** för att fortsätta.
 
 6. Ta bort kablarna. Nästa steg är att skicka enheten till Microsoft.

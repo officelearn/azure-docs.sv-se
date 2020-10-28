@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: e91fd0d94d6f6d87b5e554e27bf9c2a2ba6ccabd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed8d51adf5a93b470f287383a4d3eeb866b15236
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858480"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791468"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Data Sync-agent för SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,9 +36,9 @@ Om du vill installera Data Sync-agenten tyst från kommando tolken anger du ett 
 
 - Standardvärdet är om du inte anger något värde för **TARGETDIR** `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0` .
 
-- Om du ger `LocalSystem` värdet **SERVICEACCOUNT**använder du SQL Server autentisering när du konfigurerar agenten att ansluta till SQL Server.
+- Om du ger `LocalSystem` värdet **SERVICEACCOUNT** använder du SQL Server autentisering när du konfigurerar agenten att ansluta till SQL Server.
 
-- Om du anger ett domän användar konto eller ett lokalt användar konto som värde för **SERVICEACCOUNT**måste du också ange lösen ordet med argumentet **SERVICEPASSWORD** . Exempelvis `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+- Om du anger ett domän användar konto eller ett lokalt användar konto som värde för **SERVICEACCOUNT** måste du också ange lösen ordet med argumentet **SERVICEPASSWORD** . Till exempel `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
@@ -52,7 +52,7 @@ Om du vill konfigurera DataSync-agenten så att du kan synkronisera data med en 
 
 ### <a name="why-do-i-need-a-client-agent"></a>Varför behöver jag en klient agent
 
-SQL Data Syncs tjänsten kommunicerar med SQL Server-databaser via klient agenten. Den här säkerhetsfunktionen förhindrar direkt kommunikation med databaser bakom en brand vägg. När SQL Data Syncs tjänsten kommunicerar med agenten används krypterade anslutningar och en unik token eller *agent nyckel*. SQL Server-databaser autentiserar agenten med hjälp av anslutnings strängen och Agent nyckeln. Den här designen ger en hög säkerhets nivå för dina data.
+SQL Data Syncs tjänsten kommunicerar med SQL Server-databaser via klient agenten. Den här säkerhetsfunktionen förhindrar direkt kommunikation med databaser bakom en brand vägg. När SQL Data Syncs tjänsten kommunicerar med agenten används krypterade anslutningar och en unik token eller *agent nyckel* . SQL Server-databaser autentiserar agenten med hjälp av anslutnings strängen och Agent nyckeln. Den här designen ger en hög säkerhets nivå för dina data.
 
 ### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Hur många instanser av det lokala agent gränssnittet kan köras
 
@@ -98,9 +98,9 @@ Om du vill köra den lokala agenten från en annan dator än den för närvarand
 
 ### <a name="the-client-agent-install-uninstall-or-repair-fails"></a><a name="agent-install"></a> Installationen, avinstallationen eller reparationen av klient agenten Miss lyckas
 
-- **Orsak**. Många scenarier kan orsaka detta fel. Ta reda på orsaken till felet genom att titta på loggarna.
+- **Orsak** . Många scenarier kan orsaka detta fel. Ta reda på orsaken till felet genom att titta på loggarna.
 
-- **Lösning**. Om du vill hitta den speciella orsaken till felet genererar du och tittar på Windows Installer loggar. Du kan aktivera loggning vid en kommando tolk. Om den nedladdade installations filen t. ex. `SQLDataSyncAgent-2.0-x86-ENU.msi` genererar och undersöker loggfiler med hjälp av följande kommando rader:
+- **Lösning** . Om du vill hitta den speciella orsaken till felet genererar du och tittar på Windows Installer loggar. Du kan aktivera loggning vid en kommando tolk. Om den nedladdade installations filen t. ex. `SQLDataSyncAgent-2.0-x86-ENU.msi` genererar och undersöker loggfiler med hjälp av följande kommando rader:
 
   - För-installationer: `msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
   - För avinstallationer: `msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
@@ -111,9 +111,9 @@ Om du vill köra den lokala agenten från en annan dator än den för närvarand
 
 Klient agenten fungerar inte, även när du har avbrutit avinstallationen.
 
-- **Orsak**. Detta beror på att den SQL Data Sync klient agenten inte lagrar autentiseringsuppgifter.
+- **Orsak** . Detta beror på att den SQL Data Sync klient agenten inte lagrar autentiseringsuppgifter.
 
-- **Lösning**. Du kan prova de här två lösningarna:
+- **Lösning** . Du kan prova de här två lösningarna:
 
     -   Använd Services. msc för att ange autentiseringsuppgifterna för klient agenten igen.
     -   Avinstallera den här klient agenten och installera sedan en ny. Hämta och installera den senaste klient agenten från [Download Center](https://www.microsoft.com/download/details.aspx?id=27693).
@@ -124,16 +124,16 @@ När du försöker lägga till en befintlig SQL Server-databas i en Sync-grupp v
 
 Dessa scenarier kan orsaka det här problemet:
 
-- **Orsak**. Klient agenten och Sync-gruppen finns i olika data Center.
+- **Orsak** . Klient agenten och Sync-gruppen finns i olika data Center.
 
-- **Lösning**. Klient agenten och Sync-gruppen måste finnas i samma data Center. Om du vill konfigurera detta har du två alternativ:
+- **Lösning** . Klient agenten och Sync-gruppen måste finnas i samma data Center. Om du vill konfigurera detta har du två alternativ:
 
     -   Skapa en ny agent i data centret där Sync-gruppen finns. Registrera sedan databasen med den agenten.
     -   Ta bort den aktuella Sync-gruppen. Återskapa sedan synkroniseringsresursen i data centret där agenten finns.
 
-- **Orsak**. Klient agentens lista över databaser är inte aktuell.
+- **Orsak** . Klient agentens lista över databaser är inte aktuell.
 
-- **Lösning**. Stoppa och starta sedan om klient Agent tjänsten.
+- **Lösning** . Stoppa och starta sedan om klient Agent tjänsten.
 
     Den lokala agenten hämtar bara listan över associerade databaser när Agent nyckeln först skickas. Det går inte att hämta listan över associerade databaser för efterföljande agent nyckels under sändningar. Databaser som registreras under en agent flyttning visas inte i den ursprungliga agent instansen.
 
@@ -143,22 +143,22 @@ Du upptäcker att agenten inte körs på en dator som är värd för SQL Server.
 
 ![Dialog rutan Data Sync-fel 1069](./media/sql-data-sync-agent-overview/sync-error-1069.png)
 
-- **Orsak**. En sannolik orsak till det här felet är att lösen ordet på den lokala servern har ändrats sedan du skapade agent-och agent lösen ordet.
+- **Orsak** . En sannolik orsak till det här felet är att lösen ordet på den lokala servern har ändrats sedan du skapade agent-och agent lösen ordet.
 
-- **Lösning**. Uppdatera agentens lösen ord till det aktuella Server lösen ordet:
+- **Lösning** . Uppdatera agentens lösen ord till det aktuella Server lösen ordet:
 
   1. Leta upp tjänsten SQL Data Sync Client Agent.  
-    a. Välj **Starta**.  
-    b. I rutan Sök anger du **Services. msc**.  
-    c. I Sök resultaten väljer du **tjänster**.  
-    d. I fönstret **tjänster** bläddrar du till posten för **SQL Data Sync-agenten**.  
-  1. Högerklicka på **SQL Data Sync agent**och välj sedan **stoppa**.
-  1. Högerklicka på **SQL Data Sync agent**och välj sedan **Egenskaper**.
-  1. Välj fliken **Logga** in på **SQL Data Sync agent egenskaper**.
+    a. Välj **Starta** .  
+    b. I rutan Sök anger du **Services. msc** .  
+    c. I Sök resultaten väljer du **tjänster** .  
+    d. I fönstret **tjänster** bläddrar du till posten för **SQL Data Sync-agenten** .  
+  1. Högerklicka på **SQL Data Sync agent** och välj sedan **stoppa** .
+  1. Högerklicka på **SQL Data Sync agent** och välj sedan **Egenskaper** .
+  1. Välj fliken **Logga** in på **SQL Data Sync agent egenskaper** .
   1. Ange ditt lösen ord i rutan **lösen ord** .
   1. Ange lösen ordet igen i rutan **Bekräfta lösen ord** .
-  1. Tryck på **Tillämpa** och välj sedan **OK**.
-  1. I fönstret **tjänster** högerklickar du på tjänsten **SQL Data Sync agent** och klickar sedan på **Starta**.
+  1. Tryck på **Tillämpa** och välj sedan **OK** .
+  1. I fönstret **tjänster** högerklickar du på tjänsten **SQL Data Sync agent** och klickar sedan på **Starta** .
   1. Stäng fönstret **tjänster** .
 
 ### <a name="i-cant-submit-the-agent-key"></a><a name="agent-key"></a> Jag kan inte skicka Agent nyckeln
@@ -167,7 +167,7 @@ När du har skapat eller återskapat en nyckel för en agent försöker du skick
 
 ![Dialog rutan synkroniseringsfel – det går inte att skicka agent nyckel](./media/sql-data-sync-agent-overview/sync-error-cant-submit-agent-key.png)
 
-- **Krav**. Innan du fortsätter kontrollerar du följande krav:
+- **Krav** . Innan du fortsätter kontrollerar du följande krav:
 
   - SQL Data Sync Windows-tjänsten körs.
 
@@ -177,12 +177,12 @@ När du har skapat eller återskapat en nyckel för en agent försöker du skick
 
   - Den lokala IP-adressen läggs till i Server-eller databas brand Väggs regeln för databasen för synkronisering av metadata.
 
-- **Orsak**. Agent nyckeln identifierar unikt varje lokal agent. Nyckeln måste uppfylla två villkor:
+- **Orsak** . Agent nyckeln identifierar unikt varje lokal agent. Nyckeln måste uppfylla två villkor:
 
   -   Klient Agent nyckeln på SQL Data Sync-servern och den lokala datorn måste vara identisk.
   -   Klient Agent nyckeln kan bara användas en gång.
 
-- **Lösning**. Om agenten inte fungerar beror det på att ett eller båda villkoren inte uppfylls. Så här får du agenten att fungera igen:
+- **Lösning** . Om agenten inte fungerar beror det på att ett eller båda villkoren inte uppfylls. Så här får du agenten att fungera igen:
 
   1. Generera en ny nyckel.
   1. Använd den nya nyckeln till agenten.
@@ -192,30 +192,30 @@ När du har skapat eller återskapat en nyckel för en agent försöker du skick
   1. I Utforskaren går du till din agent installations katalog. Standard katalogen för installationen är C: \\ Program Files (x86) \\ Microsoft SQL Data Sync.
   1. Dubbelklicka på bin-underkatalogen.
   1. Öppna SqlAzureDataSyncAgent-programmet.
-  1. Välj **Skicka agent nyckel**.
+  1. Välj **Skicka agent nyckel** .
   1. I det angivna utrymmet klistrar du in nyckeln från Urklipp.
-  1. Välj **OK**.
+  1. Välj **OK** .
   1. Stäng programmet.
 
 ### <a name="the-client-agent-cant-be-deleted-from-the-portal-if-its-associated-on-premises-database-is-unreachable"></a><a name="agent-delete"></a> Det går inte att ta bort klient agenten från portalen om den associerade lokala databasen inte kan kontaktas
 
 Om en lokal slut punkt (dvs. en databas) som har registrerats med en SQL Data Sync klient agent blir otillgänglig kan klient agenten inte tas bort.
 
-- **Orsak**. Det går inte att ta bort den lokala agenten eftersom den otillgängliga databasen fortfarande är registrerad hos agenten. När du försöker ta bort agenten försöker borttagnings processen att komma åt databasen, vilket Miss lyckas.
+- **Orsak** . Det går inte att ta bort den lokala agenten eftersom den otillgängliga databasen fortfarande är registrerad hos agenten. När du försöker ta bort agenten försöker borttagnings processen att komma åt databasen, vilket Miss lyckas.
 
-- **Lösning**. Använd "framtvinga borttagning" för att ta bort den oåtkomliga databasen.
+- **Lösning** . Använd "framtvinga borttagning" för att ta bort den oåtkomliga databasen.
 
 > [!NOTE]
 > Om Sync metadata-tabeller är kvar efter en "tvångs borttagning" använder `deprovisioningutil.exe` du för att rensa dem.
 
 ### <a name="local-sync-agent-app-cant-connect-to-the-local-sync-service"></a><a name="agent-connect"></a> Den lokala Sync-appen kan inte ansluta till den lokala synkroniseringstjänsten
 
-- **Lösning**. Prova följande steg:
+- **Lösning** . Prova följande steg:
 
   1. Avsluta appen.  
   1. Öppna panelen komponent tjänster.  
-    a. Skriv **Services. msc**i rutan Sök i verktygsfältet.  
-    b. I Sök resultaten, dubbelklicka på **tjänster**.  
+    a. Skriv **Services. msc** i rutan Sök i verktygsfältet.  
+    b. I Sök resultaten, dubbelklicka på **tjänster** .  
   1. Stoppa tjänsten **SQL Data Sync** .
   1. Starta om tjänsten **SQL Data Sync** .  
   1. Öppna appen igen.
@@ -326,7 +326,7 @@ Mer information om SQL Data Sync finns i följande artiklar:
         -  [Använd PowerShell för att synkronisera mellan flera databaser i Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Använda PowerShell för att synkronisera mellan en databas i Azure SQL Database och en databas i en SQL Server instans](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Metodtips – [Metodtips för Azure SQL Data Sync](sql-data-sync-best-practices.md)
--   Övervaka [SQL Data Sync med Azure Monitor loggar](sql-data-sync-monitor-sync.md)
+-   Övervaka [SQL Data Sync med Azure Monitor loggar](./monitor-tune-overview.md)
 -   Felsök-[Felsök problem med Azure SQL Data Sync] SQL-Data-Sync-troubleshoot.md)
 -   Uppdatera synkroniseringsschemat
     -   Med Transact-SQL – [Automatisera replikering av schema ändringar med SQL Data Sync i Azure](sql-data-sync-update-sync-schema.md)

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 10/26/2020
+ms.openlocfilehash: c66845a801b93db4ba718bc0aba5c39eabdd24b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537974"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791978"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
@@ -36,9 +36,6 @@ Ett vanligt scenario är att låta BI och analytiska arbets belastningar använd
 Eftersom repliker är skrivskyddade kan de inte direkt minska Skriv kapacitets bördan på huvud servern. Den här funktionen är inte riktad mot skrivintensiva arbetsbelastningar.
 
 Funktionen Läs replik använder MySQL-asynkron replikering. Funktionen är inte avsedd för synkrona scenarier för replikering. Det kommer att bli en mätbar fördröjning mellan källan och repliken. Data på repliken kommer slutligen att bli konsekventa med data i huvud servern. Använd den här funktionen för arbets belastningar som kan hantera denna fördröjning.
-
-> [!IMPORTANT]
-> Azure Database for MySQL använder **ROW** -baserad binär loggning. Om tabellen inte har någon primärnyckel genomsöks samtliga rader i tabellen efter DML-åtgärder, vilket resulterar i längre replikeringsfördröjning. För att säkerställa att repliken inte halkar efter när källan ändras, rekommenderar vi vanligtvis att du lägger till en primärnyckel i tabeller på källservern innan du skapar replikservern eller återskapar replikservern om du redan har en.
 
 ## <a name="cross-region-replication"></a>Replikering mellan regioner
 Du kan skapa en Läs replik i en annan region än käll servern. Replikering mellan regioner kan vara användbart för scenarier som haveri beredskap planering eller för att hämta data närmare dina användare.
@@ -95,7 +92,7 @@ Ange lösen ordet för användar kontot vid prompten.
 
 Azure Database for MySQL anger måttet för **replikeringsfördröjning i sekunder** i Azure Monitor. Måttet är endast tillgängligt för repliker. Detta mått beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt i MySQL- `SHOW SLAVE STATUS` kommandot. Ange en avisering för att meddela dig när fördröjningen för replikering når ett värde som inte är acceptabelt för din arbets belastning.
 
-Om du ser ökad replikeringsfördröjning kan du läsa [Felsök replikeringsfördröjning](howto-troubleshoot-replication-latency.md) för att felsöka och förstå möjliga orsaker.
+Om du ser ökad replikeringsfördröjning läser du [Felsöka](howto-troubleshoot-replication-latency.md) replikeringsfördröjning för att felsöka och förstå möjliga orsaker.
 
 ## <a name="stop-replication"></a>Stoppa replikering
 
@@ -208,7 +205,7 @@ GTID är inaktive rad som standard. När GTID har Aktiver ATS kan du inte inakti
 
 Om GTID har Aktiver ATS på en käll server kommer nya repliker också ha GTID aktiverat och använda GTID-replikering. Om du vill upprätthålla konsekvent replikering kan du inte uppdatera `gtid_mode` på käll-eller replik servrar.
 
-### <a name="other"></a>Övrigt
+### <a name="other"></a>Annat
 
 - Det finns inte stöd för att skapa en replik av en replik.
 - InMemory-tabeller kan orsaka att repliker blir osynkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) .

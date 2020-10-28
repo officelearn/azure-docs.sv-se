@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: b4458a2b37a3da83591e101344d08c3090868696
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 6ffb6ced6fc828733dd627943a3d4b54e8293ad2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341812"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791910"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>Strömma aviseringar till en SIEM, SOAR eller IT Service Management-lösning
 
@@ -63,14 +63,14 @@ Du kan använda detta API för att strömma aviseringar från **hela din klient 
 - **Power BI**  -  [Anslut till Microsoft Graph Security API i Power BI Desktop](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow**  -  [Följ anvisningarna för att installera och konfigurera Microsoft Graph Security API-programmet från ServiceNow Store](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **QRadar**  -  [IBM: s enhets support modul för Azure Security Center via Microsoft Graph-API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
-- **Palo-nätverk**, **avvikelsei**, **Lookout**, **inspark**och fler- [Microsoft Graph säkerhets-API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
+- **Palo-nätverk** , **avvikelsei** , **Lookout** , **inspark** och fler- [Microsoft Graph säkerhets-API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
 
 [Läs mer om Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api).
 
 
 ## <a name="stream-alerts-with-azure-monitor"></a>Strömma aviseringar med Azure Monitor 
 
-För att strömma varningar till **ArcSight**, **Splunk**, **SumoLogic**, Syslog-servrar, **LogRhythm**, **Logz.io**och andra övervaknings lösningar. Anslut Security Center med Azure monitor via Azure Event Hubs:
+För att strömma varningar till **ArcSight** , **Splunk** , **SumoLogic** , Syslog-servrar, **LogRhythm** , **Logz.io** och andra övervaknings lösningar. Anslut Security Center med Azure monitor via Azure Event Hubs:
 
 1. Aktivera [kontinuerlig export](continuous-export.md) för att strömma Security Center varningar till en dedikerad Azure Event Hub på prenumerations nivån. 
     > [!TIP]
@@ -90,4 +90,4 @@ Den här sidan förklaras hur du ser till att Azure Security Center aviserings d
 
 - [Vad är Azure Sentinel?](../sentinel/overview.md)
 - [Aviserings validering i Azure Security Center](security-center-alert-validation.md) – verifiera att aviseringarna har kon figurer ATS korrekt
-- [Exportera säkerhets aviseringar och rekommendationer kontinuerligt](continuous-export.md)
+- [Exportera Security Center data kontinuerligt](continuous-export.md)

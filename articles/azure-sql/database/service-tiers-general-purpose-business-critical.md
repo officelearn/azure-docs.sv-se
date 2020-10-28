@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
-ms.openlocfilehash: c1f60888a3d1fda50e63c7d11ea5d871f7c1e9fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33c63ffc4220da6d98c462039897067e4ba69491
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321347"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793168"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database-och Azure SQL-hanterade instans tjänst nivåer
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -84,7 +84,7 @@ Följande faktorer påverkar mängden lagrings utrymme som används för data-oc
 > [!IMPORTANT]
 > Du debiteras för den totala lagring som allokerats för MDF-och LDF-filer.
 
-Använd [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)för att övervaka den aktuella totala storleken på dina MDF-och LDF-filer. Använd [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)för att övervaka den aktuella storleken på de enskilda MDF-och ldf-filerna.
+Använd [sp_spaceused](/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)för att övervaka den aktuella totala storleken på dina MDF-och LDF-filer. Använd [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)för att övervaka den aktuella storleken på de enskilda MDF-och ldf-filerna.
 
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](file-space-manage.md).
@@ -93,8 +93,8 @@ Använd [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/syste
 
 Lagring för säkerhets kopiering av databaser allokeras till stöd för PITR (Point-in-Time Restore) och [LTR (långsiktig kvarhållning)](long-term-retention-overview.md) i SQL Database-och SQL-hanterad instans. Den här lagringen allokeras separat för varje databas och faktureras som två separata avgifter per databas.
 
-- **PITR**: enskilda databas säkerhets kopior kopieras till [lagring med Läs åtkomst till geo-REDUNDANT lagring (RA-GRS)](../../storage/common/geo-redundant-design.md) automatiskt. Lagrings storleken ökar dynamiskt när nya säkerhets kopior skapas. Lagringen används av varje veckovis fullständig säkerhets kopiering, dagliga differentiella säkerhets kopieringar och säkerhets kopior av transaktions loggar, som kopieras var femte minut. Lagrings användningen beror på ändrings takten för databasen och kvarhållningsperioden för säkerhets kopieringar. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minsta lagrings mängd som motsvarar 100 procent (1x) av databas storleken tillhandahålls utan extra kostnad. För de flesta databaser räcker det att lagra 7 dagars säkerhets kopieringar.
-- **Brv**: du har också möjlighet att konfigurera långsiktig kvarhållning av fullständiga säkerhets kopieringar i upp till 10 år (den här funktionen finns i [begränsad offentlig för hands version för SQL-hanterad instans](long-term-retention-overview.md#sql-managed-instance-support). Om du konfigurerar en LTR-princip lagras dessa säkerhets kopior i RA-GRS-lagring automatiskt, men du kan styra hur ofta säkerhets kopiorna ska kopieras. För att uppfylla olika krav på efterlevnad kan du välja olika kvarhållningsperiod för säkerhets kopiering varje vecka, månatlig och per år. Konfigurationen du väljer avgör hur mycket lagrings utrymme som ska användas för säkerhets kopieringar med LTR. Om du vill uppskatta kostnaden för den LTR Storage-lagringen kan du använda pris listan för vanlig prissättning. Mer information finns i [SQL Database långsiktig kvarhållning](long-term-retention-overview.md).
+- **PITR** : enskilda databas säkerhets kopior kopieras till [lagring med Läs åtkomst till geo-REDUNDANT lagring (RA-GRS)](../../storage/common/geo-redundant-design.md) automatiskt. Lagrings storleken ökar dynamiskt när nya säkerhets kopior skapas. Lagringen används av varje veckovis fullständig säkerhets kopiering, dagliga differentiella säkerhets kopieringar och säkerhets kopior av transaktions loggar, som kopieras var femte minut. Lagrings användningen beror på ändrings takten för databasen och kvarhållningsperioden för säkerhets kopieringar. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minsta lagrings mängd som motsvarar 100 procent (1x) av databas storleken tillhandahålls utan extra kostnad. För de flesta databaser räcker det att lagra 7 dagars säkerhets kopieringar.
+- **Brv** : du har också möjlighet att konfigurera långsiktig kvarhållning av fullständiga säkerhets kopieringar i upp till 10 år (den här funktionen finns i [begränsad offentlig för hands version för SQL-hanterad instans](long-term-retention-overview.md#sql-managed-instance-support). Om du konfigurerar en LTR-princip lagras dessa säkerhets kopior i RA-GRS-lagring automatiskt, men du kan styra hur ofta säkerhets kopiorna ska kopieras. För att uppfylla olika krav på efterlevnad kan du välja olika kvarhållningsperiod för säkerhets kopiering varje vecka, månatlig och per år. Konfigurationen du väljer avgör hur mycket lagrings utrymme som ska användas för säkerhets kopieringar med LTR. Om du vill uppskatta kostnaden för den LTR Storage-lagringen kan du använda pris listan för vanlig prissättning. Mer information finns i [SQL Database långsiktig kvarhållning](long-term-retention-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -102,5 +102,4 @@ Mer information om de specifika beräknings-och lagrings storlekar som är tillg
 
 - [vCore resurs gränser för Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [vCore resurs gränser för databaser i pooler i Azure SQL Database](resource-limits-vcore-elastic-pools.md).
-- [vCore resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). 
-
+- [vCore resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md).

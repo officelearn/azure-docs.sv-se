@@ -11,24 +11,24 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b9550f365eb11ffff87add041824504488c0de15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d753a90f2a4cb19c9f3933d007fb3d378af6d81
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619941"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793219"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program med flera klienter med elastiska databas verktyg och säkerhet på radnivå
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Elastiska databas verktyg](elastic-scale-get-started.md) och [säkerhet på radnivå (RLS)][rls] för att möjliggöra skalning av data nivån för ett program med flera klienter med Azure SQL Database. Tillsammans hjälper dessa tekniker dig att bygga ett program som har en mycket skalbar data nivå. Data nivån stöder Shards för flera innehavare och använder **ADO.net SqlClient** eller **Entity Framework**. Mer information finns i [design mönster för SaaS-program med flera innehavare med Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md).
+[Elastiska databas verktyg](elastic-scale-get-started.md) och [säkerhet på radnivå (RLS)][rls] för att möjliggöra skalning av data nivån för ett program med flera klienter med Azure SQL Database. Tillsammans hjälper dessa tekniker dig att bygga ett program som har en mycket skalbar data nivå. Data nivån stöder Shards för flera innehavare och använder **ADO.net SqlClient** eller **Entity Framework** . Mer information finns i [design mönster för SaaS-program med flera innehavare med Azure SQL Database](./saas-tenancy-app-design-patterns.md).
 
 - **Elastiska databas verktyg** gör det möjligt för utvecklare att skala ut data nivån med standard horisontell partitionering-metoder, med hjälp av .NET-bibliotek och Azure-tjänstmallar. Genom att hantera Shards med hjälp av [klient biblioteket för Elastic Database][s-d-elastic-database-client-library] kan du automatisera och effektivisera många av de infrastruktur-uppgifter som vanligt vis är kopplade till horisontell partitionering.
 - **Säkerhet på radnivå** gör att utvecklare säkert kan lagra data för flera klienter i samma databas. RLS säkerhets principer filtrera bort rader som inte tillhör klienten som kör en fråga. Att centralisera filter logiken i databasen fören klar underhållet och minskar risken för ett säkerhets fel. Alternativet att förlita dig på all klient kod för att genomdriva säkerheten är riskabelt.
 
 Genom att använda dessa funktioner tillsammans kan ett program lagra data för flera klienter i samma Shard-databas. IT kostar mindre per klient när klienterna delar en databas. Samma program kan också erbjuda sina Premium-klienter möjlighet att betala för sina egna dedikerade Shard för en klient. En fördel med en isolering med enskild klient är att garantera prestanda. Det finns ingen annan klient som konkurrerar för resurser i en databas för en enda klient.
 
-Målet är att använda [data beroende](elastic-scale-data-dependent-routing.md) API: er för klient bibliotekets elastiska databas för att automatiskt ansluta varje klient till rätt Shard-databas. Endast ett Shard innehåller ett visst TenantId-värde för den angivna innehavaren. TenantId är *nyckeln horisontell partitionering*. När anslutningen har upprättats säkerställer en säkerhets princip för RLS i databasen att den angivna innehavaren endast har åtkomst till de data rader som innehåller sitt TenantId.
+Målet är att använda [data beroende](elastic-scale-data-dependent-routing.md) API: er för klient bibliotekets elastiska databas för att automatiskt ansluta varje klient till rätt Shard-databas. Endast ett Shard innehåller ett visst TenantId-värde för den angivna innehavaren. TenantId är *nyckeln horisontell partitionering* . När anslutningen har upprättats säkerställer en säkerhets princip för RLS i databasen att den angivna innehavaren endast har åtkomst till de data rader som innehåller sitt TenantId.
 
 > [!NOTE]
 > Klient-ID: n kan bestå av mer än en kolumn. För att under lätta är den här diskussionen att vi har informerat ett TenantId i en kolumn.
@@ -54,14 +54,14 @@ Skapa och kör programmet. Den här körningen startar starter av elastiska data
 
 Observera att eftersom RLS ännu inte har Aktiver ATS i Shard-databaserna visar var och en av dessa tester ett problem: innehavare kan se Bloggar som inte tillhör dem och programmet hindras inte från att infoga en blogg för fel klient. Resten av den här artikeln beskriver hur du löser problemen genom att tvinga klient isolering med RLS. Det finns två steg:
 
-1. **Program nivå**: ändra program koden så att den alltid anger aktuellt TENANTID i sessionens \_ kontext när du har öppnat en anslutning. Detta exempel projekt anger redan TenantId på det här sättet.
-2. **Datanivå**: skapa en säkerhets princip för RLS i varje Shard-databas för att filtrera rader baserat på det TenantId som lagras i sessionen \_ . Skapa en princip för var och en av dina Shard-databaser, annars filtreras inte rader i Shards med flera innehavare.
+1. **Program nivå** : ändra program koden så att den alltid anger aktuellt TENANTID i sessionens \_ kontext när du har öppnat en anslutning. Detta exempel projekt anger redan TenantId på det här sättet.
+2. **Datanivå** : skapa en säkerhets princip för RLS i varje Shard-databas för att filtrera rader baserat på det TenantId som lagras i sessionen \_ . Skapa en princip för var och en av dina Shard-databaser, annars filtreras inte rader i Shards med flera innehavare.
 
 ## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. program nivå: Ange TenantId i SESSION- \_ kontexten
 
-Först ansluter du till en Shard-databas med hjälp av API: er för data beroende routning i klient biblioteket för Elastic Database. Programmet måste fortfarande meddela databasen som TenantId använder anslutningen. TenantId talar om vilken säkerhets princip för RLS som rader måste filtreras efter som tillhör andra klienter. Lagra aktuellt TenantId i [sessions- \_ kontexten](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) för anslutningen.
+Först ansluter du till en Shard-databas med hjälp av API: er för data beroende routning i klient biblioteket för Elastic Database. Programmet måste fortfarande meddela databasen som TenantId använder anslutningen. TenantId talar om vilken säkerhets princip för RLS som rader måste filtreras efter som tillhör andra klienter. Lagra aktuellt TenantId i [sessions- \_ kontexten](/sql/t-sql/functions/session-context-transact-sql) för anslutningen.
 
-Ett alternativ till SESSION \_ Context är att använda [Sammanhangs \_ information](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Men SESSIONs- \_ kontexten är ett bättre alternativ. \_Det är enklare att använda sessions-kontexten, den returnerar null som standard och stöder nyckel/värde-par.
+Ett alternativ till SESSION \_ Context är att använda [Sammanhangs \_ information](/sql/t-sql/functions/context-info-transact-sql). Men SESSIONs- \_ kontexten är ett bättre alternativ. \_Det är enklare att använda sessions-kontexten, den returnerar null som standard och stöder nyckel/värde-par.
 
 ### <a name="entity-framework"></a>Entity Framework
 
@@ -228,7 +228,7 @@ RLS implementeras i Transact-SQL. En användardefinierad funktion definierar åt
     - Ett BLOCK-predikat förhindrar att rader som inte uppfyller filtret infogas eller uppdateras.
     - Om SESSION \_ context inte har angetts returnerar funktionen null och inga rader är synliga eller kan infogas.
 
-Om du vill aktivera RLS på alla Shards kör du följande T-SQL med hjälp av antingen Visual Studio (SSDT), SSMS eller PowerShell-skriptet som ingår i projektet. Eller om du använder [Elastic Database jobb](../../sql-database/elastic-jobs-overview.md)kan du automatisera körningen av det här T-SQL på alla Shards.
+Om du vill aktivera RLS på alla Shards kör du följande T-SQL med hjälp av antingen Visual Studio (SSDT), SSMS eller PowerShell-skriptet som ingår i projektet. Eller om du använder [Elastic Database jobb](./elastic-jobs-overview.md)kan du automatisera körningen av det här T-SQL på alla Shards.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Underhåll
 
-- **Lägger till nya Shards**: kör T-SQL-skriptet för att aktivera RLS på alla nya Shards, annars filtreras inte frågor på dessa Shards.
-- **Nya tabeller läggs**till: Lägg till ett filter och blockera predikat i säkerhets principen på alla Shards varje gång som en ny tabell skapas. Andra frågor om den nya tabellen filtreras inte. Det här tillägget kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [tillämpa Row-Level säkerhet automatiskt på nyligen skapade tabeller (blogg)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
+- **Lägger till nya Shards** : kör T-SQL-skriptet för att aktivera RLS på alla nya Shards, annars filtreras inte frågor på dessa Shards.
+- **Nya tabeller läggs** till: Lägg till ett filter och blockera predikat i säkerhets principen på alla Shards varje gång som en ny tabell skapas. Andra frågor om den nya tabellen filtreras inte. Det här tillägget kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [tillämpa Row-Level säkerhet automatiskt på nyligen skapade tabeller (blogg)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -352,16 +352,16 @@ Elastiska databas verktyg och säkerhet på radnivå kan användas tillsammans f
 
 - [Vad är en elastisk pool i Azure?](elastic-pool-overview.md)
 - [Skala ut med Azure SQL Database](elastic-scale-introduction.md)
-- [Designmönster för SaaS-program med flera klientorganisationer med Azure SQL Database](../../sql-database/saas-tenancy-app-design-patterns.md)
+- [Designmönster för SaaS-program med flera klientorganisationer med Azure SQL Database](./saas-tenancy-app-design-patterns.md)
 - [Autentisering i appar med flera klienter, med hjälp av Azure AD och OpenID Connect](/azure/architecture/multitenant-identity/authenticate)
 - [Tailspin Surveys-programmet](/azure/architecture/multitenant-identity/tailspin)
 
 ## <a name="questions-and-feature-requests"></a>Frågor och funktions begär Anden
 
-Om du har frågor kan du kontakta oss på [sidan Microsoft Q&en fråga för SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). Och Lägg till eventuella funktions förfrågningar till [forumen SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/).
+Om du har frågor kan du kontakta oss på [sidan Microsoft Q&en fråga för SQL Database](/answers/topics/azure-sql-database.html). Och Lägg till eventuella funktions förfrågningar till [forumen SQL Database feedback](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
-[rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
+[rls]: /sql/relational-databases/security/row-level-security
 [s-d-elastic-database-client-library]:elastic-database-client-library.md

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332992"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791451"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Metodtips för Azure SQL Data Sync 
 
@@ -41,11 +41,11 @@ En översikt över SQL Data Sync finns i [Synkronisera data i flera moln och lok
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Databas konton med minst behörighet som krävs
 
--   **För Sync-installation**. Skapa/ändra tabell; Ändra databas; Skapa procedur; Välj/Ändra schema; Skapa User-Defined typ.
+-   **För Sync-installation** . Skapa/ändra tabell; Ändra databas; Skapa procedur; Välj/Ändra schema; Skapa User-Defined typ.
 
--   **För pågående synkronisering**. Välj/Infoga/uppdatera/ta bort i tabeller som väljs för synkronisering och vid synkronisering av metadata och spårning av tabeller; Kör behörighet för lagrade procedurer som skapats av tjänsten. Kör behörighet för användardefinierade tabell typer.
+-   **För pågående synkronisering** . Välj/Infoga/uppdatera/ta bort i tabeller som väljs för synkronisering och vid synkronisering av metadata och spårning av tabeller; Kör behörighet för lagrade procedurer som skapats av tjänsten. Kör behörighet för användardefinierade tabell typer.
 
--   **För avetablering**. Ändra i tabeller del av synkronisering; Välj/Ta bort i metadata tabeller för synkronisering; Kontroll över synkronisering av spårnings tabeller, lagrade procedurer och användardefinierade typer.
+-   **För avetablering** . Ändra i tabeller del av synkronisering; Välj/Ta bort i metadata tabeller för synkronisering; Kontroll över synkronisering av spårnings tabeller, lagrade procedurer och användardefinierade typer.
 
 Azure SQL Database stöder endast en uppsättning autentiseringsuppgifter. Överväg följande alternativ för att utföra dessa uppgifter i den här begränsningen:
 
@@ -168,7 +168,7 @@ Se till att du undviker synkroniseringsfel, eftersom de orsakar prestanda förs�
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a> Undvik inaktuella databaser och synkronisera grupper
 
-En Sync-grupp eller en databas i en Sync-grupp kan bli inaktuell. När en synkroniseringsstatus-status är **inaktuell**, slutar den att fungera. När en Databass status är **inaktuell**kan data gå förlorade. Det är bäst att undvika det här scenariot i stället för att försöka återställa från det.
+En Sync-grupp eller en databas i en Sync-grupp kan bli inaktuell. När en synkroniseringsstatus-status är **inaktuell** , slutar den att fungera. När en Databass status är **inaktuell** kan data gå förlorade. Det är bäst att undvika det här scenariot i stället för att försöka återställa från det.
 
 #### <a name="avoid-out-of-date-databases"></a>Undvik inaktuella databaser
 
@@ -238,7 +238,7 @@ Mer information om SQL Data Sync finns i:
         -  [Använd PowerShell för att synkronisera mellan flera databaser i Azure SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Använda PowerShell för att synkronisera mellan en databas i SQL Database och en databas i en SQL Server instans](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Datasynkroniseringsagent – [Datasynkroniseringsagent för Azure SQL Data Sync](sql-data-sync-agent-overview.md)
--   Övervaka [SQL Data Sync med Azure Monitor loggar](sql-data-sync-monitor-sync.md)
+-   Övervaka [SQL Data Sync med Azure Monitor loggar](./monitor-tune-overview.md)
 -   Felsökning – [Felsöka problem med Azure SQL Data Sync](sql-data-sync-troubleshoot.md)
 -   Uppdatera synkroniseringsschemat
     -   Med Transact-SQL – [Automatisera replikeringen av schemaändringar i Azure SQL Data Sync](sql-data-sync-update-sync-schema.md)
@@ -247,4 +247,4 @@ Mer information om SQL Data Sync finns i:
 Mer information om SQL Database finns i:
 
 -   [Översikt över SQL Database](sql-database-paas-overview.md)
--   [Databas livs cykel hantering](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Databas livs cykel hantering](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617442"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793117"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Distribuera en hanterad Azure SQL-instans till en instans-pool
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,18 +30,18 @@ I följande tabell visas tillgängliga åtgärder relaterade till instans-pooler
 
 |Kommando|Azure Portal|PowerShell|
 |:---|:---|:---|
-|Skapa en instans-pool|Inga|Ja|
-|Uppdatera en instans-pool (begränsat antal egenskaper)|Inga |Ja |
-|Kontrol lera användning och egenskaper för en instans pool|Inga|Ja |
-|Ta bort en instans-pool|Inga|Ja|
-|Skapa en hanterad instans i en instans-pool|Inga|Ja|
+|Skapa en instans-pool|Nej|Ja|
+|Uppdatera en instans-pool (begränsat antal egenskaper)|Nej |Ja |
+|Kontrol lera användning och egenskaper för en instans pool|Nej|Ja |
+|Ta bort en instans-pool|Nej|Ja|
+|Skapa en hanterad instans i en instans-pool|Nej|Ja|
 |Uppdatera resursanvändningen för en hanterad instans|Ja |Ja|
 |Kontrol lera användning och egenskaper för en hanterad instans|Ja|Ja|
 |Ta bort en hanterad instans från poolen|Ja|Ja|
 |Skapa en databas i en instans inom poolen|Ja|Ja|
 |Ta bort en databas från SQL-hanterad instans|Ja|Ja|
 
-Tillgängliga [PowerShell-kommandon](https://docs.microsoft.com/powershell/module/az.sql/):
+Tillgängliga [PowerShell-kommandon](/powershell/module/az.sql/):
 
 |Cmdlet |Beskrivning |
 |:---|:---|
@@ -52,7 +52,7 @@ Tillgängliga [PowerShell-kommandon](https://docs.microsoft.com/powershell/modul
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Returnerar information om användningen av SQL Managed instance pool. |
 
 
-Om du vill använda PowerShell [installerar du den senaste versionen av PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell)och följer anvisningarna för att [Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Om du vill använda PowerShell [installerar du den senaste versionen av PowerShell Core](/powershell/scripting/install/installing-powershell#powershell)och följer anvisningarna för att [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 För åtgärder relaterade till instanser både i pooler och enskilda instanser använder du standard [kommandon för hanterade instanser](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances), men egenskapen *namn på instanss bassäng* måste fyllas i när du använder dessa kommandon för en instans i en pool.
 

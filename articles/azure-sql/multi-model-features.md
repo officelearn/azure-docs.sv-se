@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073318"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791655"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funktioner för flera modeller i Azure SQL Database & SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ Azure SQL-serien med produkter innehåller följande funktioner för flera model
 - [Nyckel/värde-par](#key-value-pairs) stöds inte uttryckligen som särskilda funktioner eftersom nyckel/värde-par kan modelleras internt som två kolumn tabeller.
 
   > [!Note]
-  > Du kan använda JSON Path-uttryck, XQuery/XPath-uttryck, spatiala funktioner och Graph-frågeuttryck i samma Transact-SQL-fråga för att få åtkomst till alla data som du har lagrat i databasen. Dessutom kan alla verktyg eller programmeringsspråk som kan köra Transact-SQL-frågor även använda det Query-gränssnittet för att få åtkomst till data i flera modeller. Detta är den viktigaste skillnaden jämfört med databaser med flera modeller, till exempel [Azure Cosmos DB](/azure/cosmos-db/) som tillhandahåller specialiserat API för olika data modeller.
+  > Du kan använda JSON Path-uttryck, XQuery/XPath-uttryck, spatiala funktioner och Graph-frågeuttryck i samma Transact-SQL-fråga för att få åtkomst till alla data som du har lagrat i databasen. Dessutom kan alla verktyg eller programmeringsspråk som kan köra Transact-SQL-frågor även använda det Query-gränssnittet för att få åtkomst till data i flera modeller. Detta är den viktigaste skillnaden jämfört med databaser med flera modeller, till exempel [Azure Cosmos DB](../cosmos-db/index.yml) som tillhandahåller specialiserat API för olika data modeller.
 
 I följande avsnitt får du lära dig mer om de viktigaste funktionerna för flera modeller i Azure SQL-serien med produkter.
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 Du kan anpassa den här nyckel värdes strukturen så att den passar dina behov utan begränsningar. Värdet kan till exempel vara XML-dokument i stället för `nvarchar(max)` typ, om värdet är JSON-dokument, kan du ange `CHECK` en begränsning som verifierar att JSON-innehåll är giltigt. Du kan placera ett valfritt antal värden som är relaterade till en nyckel i de ytterligare kolumnerna, lägga till beräknade kolumner och index för att förenkla och optimera data åtkomst, definiera tabellen som en minnes/optimerad schema tabell för att få bättre prestanda osv.
 
-Se [hur bwin använder In-Memory OLTP för att uppnå oöverträffad prestanda och skalning](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) för sin ASP.net caching-lösning som nådde 1.200.000 batchar per sekund, som ett exempel på hur Relations modellen kan användas som nyckel värdes par lösning i praxis.
+Se [hur bwin använder In-Memory OLTP för att uppnå oöverträffad prestanda och skalning](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) för sin ASP.net caching-lösning som nådde 1.200.000 batchar per sekund, som ett exempel på hur Relations modellen kan användas som nyckel värdes par lösning i praxis.
 
 ## <a name="next-steps"></a>Nästa steg
 

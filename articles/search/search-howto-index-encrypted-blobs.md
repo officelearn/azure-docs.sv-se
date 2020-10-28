@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 3330b4d5df366a5e886157e875f40d7e370c7442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91543203"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791995"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Så här indexerar du krypterade blobbar med BLOB-indexerare och färdighetsuppsättningar i Azure Kognitiv sökning
 
@@ -56,7 +56,7 @@ DecryptBlobFile-kompetensen tar till exempel URL: en och SAS-token för varje bl
 
 1. Välj **den prenumeration där Azure Key Vault-instansen finns** (den här guiden fungerar inte om du väljer en annan prenumeration) och antingen väljer en befintlig resurs grupp eller skapar en ny (om du skapar en ny) måste du också välja en region som du vill distribuera till.
 
-1. Välj **Granska + skapa**, se till att du godkänner villkoren och välj sedan **skapa** för att distribuera Azure-funktionen.
+1. Välj **Granska + skapa** , se till att du godkänner villkoren och välj sedan **skapa** för att distribuera Azure-funktionen.
 
     ![ARM-mall i portalen](media/indexing-encrypted-blob-files/arm-template.jpg "ARM-mall i portalen")
 
@@ -64,13 +64,13 @@ DecryptBlobFile-kompetensen tar till exempel URL: en och SAS-token för varje bl
 
 1. Navigera till din Azure Key Vault-instans i portalen. [Skapa en åtkomst princip](../key-vault/general/assign-access-policy-portal.md) i Azure Key Vault som ger nyckel åtkomst till den anpassade kunskapen.
  
-    1. Under **Inställningar**väljer du **åtkomst principer**och väljer sedan **Lägg till åtkomst princip**
+    1. Under **Inställningar** väljer du **åtkomst principer** och väljer sedan **Lägg till åtkomst princip**
      
        ![Nyckel valv Lägg till åtkomst princip](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Åtkomst principer för nyckel valv")
 
-    1. Under **Konfigurera från mall**väljer du **Azure Data Lake Storage eller Azure Storage**.
+    1. Under **Konfigurera från mall** väljer du **Azure Data Lake Storage eller Azure Storage** .
 
-    1. För huvud kontot väljer du den Azure Function-instans som du har distribuerat. Du kan söka efter den med hjälp av det resurs-prefix som användes för att skapa det i steg 2, som har ett standardvärde för **psdbf-Function-app**.
+    1. För huvud kontot väljer du den Azure Function-instans som du har distribuerat. Du kan söka efter den med hjälp av det resurs-prefix som användes för att skapa det i steg 2, som har ett standardvärde för **psdbf-Function-app** .
 
     1. Välj inte något för alternativet för auktoriserade program.
      
@@ -86,7 +86,7 @@ DecryptBlobFile-kompetensen tar till exempel URL: en och SAS-token för varje bl
     
         ![Funktionswebbadress](media/indexing-encrypted-blob-files/function-uri.jpg "Var du hittar URL: en för Azure Function")
 
-    1. Värd nyckel koden, som du hittar genom att navigera till app- **nycklar**, klicka för att visa **standard** nyckeln och kopiera värdet.
+    1. Värd nyckel koden, som du hittar genom att navigera till app- **nycklar** , klicka för att visa **standard** nyckeln och kopiera värdet.
      
         ![Funktions värd nyckel kod](media/indexing-encrypted-blob-files/function-host-key.jpg "Var du hittar nyckel koden för Azure Function Host")
 
@@ -106,9 +106,9 @@ Som med Azure-funktionen kan du ägna en stund åt att samla in administratörs 
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta namnet på din Sök tjänst på sidan **Översikt över** Sök tjänsten. Du kan bekräfta tjänst namnet genom att granska slut punkts-URL: en. Om slut punkts-URL: en var `https://mydemo.search.windows.net` , är tjänstens namn `mydemo` .
 
-2. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+2. I **Inställningar**  >  **nycklar** , hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-   ![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Hämta tjänstens namn och administratör och fråge nycklar](media/search-get-started-javascript/service-name-and-keys.png)
 
 Alla begär Anden kräver en API-nyckel i rubriken för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende per begäran mellan programmet som skickar begäran och tjänsten som hanterar den.
 
@@ -121,7 +121,7 @@ Installera och konfigurera Postman.
 1. Hämta [käll koden för Postman-samlingen](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
 1. Välj **fil**  >  **import** för att importera käll koden till Postman.
 1. Välj fliken **samlingar** och välj sedan knappen **...** (ellips).
-1. Välj **Redigera**. 
+1. Välj **Redigera** . 
    
    ![Postman-app som visar navigering](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Gå till redigerings menyn i Postman")
 1. I dialog rutan **Redigera** väljer du fliken **variabler** . 
@@ -137,24 +137,24 @@ Hämta värdet för genom att `admin-key` använda Azure kognitiv sökning Admin
 |-------------|-----------------|
 | `admin-key` | På sidan **nycklar** i Azure kognitiv sökning-tjänsten.  |
 | `search-service-name` | Namnet på Azure Kognitiv sökning-tjänsten. URL: en är `https://{{search-service-name}}.search.windows.net` . | 
-| `storage-connection-string` | I lagrings kontot går du till fliken **åtkomst nycklar** och väljer **KEY1**-  >  **anslutningssträng**. | 
+| `storage-connection-string` | I lagrings kontot går du till fliken **åtkomst nycklar** och väljer **KEY1** -  >  **anslutningssträng** . | 
 | `storage-container-name` | Namnet på BLOB-behållaren som innehåller de krypterade filerna som ska indexeras. | 
 | `function-uri` |  I Azure-funktionen under **Essentials** på huvud sidan. | 
-| `function-code` | I Azure-funktionen, genom att navigera till **app-nycklar**, klicka för att visa **standard** nyckeln och kopiera värdet. | 
-| `api-version` | Lämna som **2020-06-30**. |
-| `datasource-name` | Lämna som **krypterade-blobbar – DS**. | 
-| `index-name` | Lämna som **Encrypted-blobbar – IDX**. | 
-| `skillset-name` | Lämna as **Encrypted-blobs-SS**. | 
-| `indexer-name` | Lämna som **Encrypted-blobs-IXR**. | 
+| `function-code` | I Azure-funktionen, genom att navigera till **app-nycklar** , klicka för att visa **standard** nyckeln och kopiera värdet. | 
+| `api-version` | Lämna som **2020-06-30** . |
+| `datasource-name` | Lämna som **krypterade-blobbar – DS** . | 
+| `index-name` | Lämna som **Encrypted-blobbar – IDX** . | 
+| `skillset-name` | Lämna as **Encrypted-blobs-SS** . | 
+| `indexer-name` | Lämna som **Encrypted-blobs-IXR** . | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Granska Request-samlingen i Postman
 
 När du kör den här guiden måste du utfärda fyra HTTP-förfrågningar: 
 
-- **Skicka begäran om att skapa indexet**: det här indexet innehåller de data som Azure kognitiv sökning använder och returnerar.
-- **Post-begäran för att skapa data källan**: den här data källan ansluter din Azure kognitiv sökning-tjänst till ditt lagrings konto och därmed krypterade BLOB-filer. 
-- **Skicka begäran om att skapa färdigheter**: färdigheter anger den anpassade kunskaps definitionen för Azure-funktionen som dekrypterar BLOB-fildata och en [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) för att extrahera texten från varje dokument efter att det har dekrypterats.
-- **Skicka begäran om att skapa indexeraren**: att köra indexeraren läser data, tillämpar färdigheter och lagrar resultaten. Du måste köra den här begäran senast.
+- **Skicka begäran om att skapa indexet** : det här indexet innehåller de data som Azure kognitiv sökning använder och returnerar.
+- **Post-begäran för att skapa data källan** : den här data källan ansluter din Azure kognitiv sökning-tjänst till ditt lagrings konto och därmed krypterade BLOB-filer. 
+- **Skicka begäran om att skapa färdigheter** : färdigheter anger den anpassade kunskaps definitionen för Azure-funktionen som dekrypterar BLOB-fildata och en [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) för att extrahera texten från varje dokument efter att det har dekrypterats.
+- **Skicka begäran om att skapa indexeraren** : att köra indexeraren läser data, tillämpar färdigheter och lagrar resultaten. Du måste köra den här begäran senast.
 
 [Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) innehåller en Postman-samling som har fyra förfrågningar, samt några användbara uppföljnings begär Anden. Om du vill utfärda förfrågningarna väljer du fliken för begär anden i Postman och väljer **Skicka** för var och en av dem.
 

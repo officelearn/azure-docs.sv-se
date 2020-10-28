@@ -33,3 +33,7 @@
     - name: Inbyggda Azure Policy-program
       displayName: 'samples, policies, definitions'
       href: policy-reference.md
+- name: Resurser
+  items:
+    - name: Kom igång med Azure Arc
+      href: 'https://github.com/microsoft/azure_arc'

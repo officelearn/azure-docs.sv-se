@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2396aac67a17352987d9d6e3b49535c19ffe8917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86230833"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792386"
 ---
 # <a name="key-vault-versions"></a>Key Vault-versioner
 
@@ -33,7 +33,7 @@ Privata slut punkter finns nu i för hands versionen. Med tjänsten Azure Privat
 ## <a name="2019"></a>2019
 
 - Version av nästa generations Azure Key Vault SDK: er. Exempel på hur de används finns i Azure Key Vault hemliga snabb starter för [python](../secrets/quick-create-python.md), [.net](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md)och [Node.js](../secrets/quick-create-node.md)
-- Nya Azure-principer för att hantera nyckel valvs certifikat. Se [Azure policy inbyggda definitioner för Key Vault](../policy-samples.md).
+- Nya Azure-principer för att hantera nyckel valvs certifikat. Se [Azure policy inbyggda definitioner för Key Vault](../policy-reference.md).
 - Azure Key Vault tillägget för virtuell dator är nu allmänt tillgängligt.  Se [Key Vault tillägg för virtuell dator för Linux](../../virtual-machines/extensions/key-vault-linux.md) och [Key Vault tillägg för virtuell dator för Windows](../../virtual-machines/extensions/key-vault-windows.md).
 - Händelse driven hemligheter hanteras för Azure Key Vault nu tillgängligt i Azure Event Grid. Mer information finns i [Event Grid schema för händelser i Azure Key Vault] (.. /.. /Event-Grid/Event-schema-Key-Vault.MD] och lär dig hur du [tar emot och svarar på nyckel valvs meddelanden med Azure Event Grid](event-grid-tutorial.md).
 
@@ -49,8 +49,8 @@ Nya funktioner och integreringar som lanseras i år:
 
 Nya funktioner som lanseras i år:
 
-- Hanterade lagrings konto nycklar. Funktionen lagrings konto nycklar lades till enklare integrering med Azure Storage. I avsnittet Översikt finns mer information, [Översikt över hanterade lagrings konto nycklar](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Mjuk borttagning. Funktionen mjuk borttagning förbättrar data skyddet för nyckel valven och nyckel valvs objekt. Se översikts avsnittet för mer information, [Översikt över mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Hanterade lagrings konto nycklar. Funktionen lagrings konto nycklar lades till enklare integrering med Azure Storage. I avsnittet Översikt finns mer information, [Översikt över hanterade lagrings konto nycklar](../secrets/overview-storage-keys.md).
+- Mjuk borttagning. Funktionen mjuk borttagning förbättrar data skyddet för nyckel valven och nyckel valvs objekt. Se översikts avsnittet för mer information, [Översikt över mjuk borttagning](./soft-delete-overview.md).
 
 ## <a name="2015"></a>2015
 
@@ -64,7 +64,7 @@ Allmän tillgänglighet (version 2015-06-01) presenterades den 24 juni 2015. Fö
 - Återställa en nyckel-"use"-fält som har tagits bort.     
 - Ändrade "RSA_OAEP" till "RSA-OAEP" för RSA-algoritmer. Se [om nycklar, hemligheter och certifikat](about-keys-secrets-certificates.md).    
  
-Den andra för hands versionen (version 2015-02-01-för hands version) presenterades 20 april 2015. Mer information finns i blogg inlägget [REST API Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) . Följande uppgifter har uppdaterats:
+Den andra för hands versionen (version 2015-02-01-för hands version) presenterades 20 april 2015. Mer information finns i blogg inlägget [REST API Update](/archive/blogs/kv/rest-api-update) . Följande uppgifter har uppdaterats:
  
 - Visa en lista med nycklarna i ett valv som har lagt till stöd för sid brytning.
 - Visar en lista över versioner av en åtgärd som har lagts till för att visa en lista över versioner av en nyckel.  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278642"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791553"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -69,7 +69,7 @@ Se [ordningen för avlyssnings bearbetning](https://docs.microsoft.com/azure/app
 
 Om du använder en offentlig IP-adress som en slut punkt hittar du IP-och DNS-information om den offentliga IP-adressresursen. Eller hitta den i portalen på sidan Översikt för Application Gateway. Om du använder interna IP-adresser hittar du informationen på sidan Översikt.
 
-För v2-SKU: n öppnar du den offentliga IP-resursen och väljer **konfiguration**. Fältet **DNS-namn (valfritt)** är tillgängligt för att konfigurera DNS-namnet.
+För v2-SKU: n öppnar du den offentliga IP-resursen och väljer **konfiguration** . Fältet **DNS-namn (valfritt)** är tillgängligt för att konfigurera DNS-namnet.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Vad är inställningarna för Keep-Alive timeout och timeout för TCP-inaktivitet?
 
@@ -138,7 +138,7 @@ Nej. Application Gateway v2 har inte stöd för proxy-begäranden med NTLM-auten
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Stöder Application Gateway SameSite för tillhörighets-cookie?
 Ja, Chrome- [webbläsarens](https://www.chromium.org/Home) [V80-uppdatering](https://chromiumdash.appspot.com/schedule) introducerade ett mandat på HTTP cookies utan SameSite-attribut som ska behandlas som SameSite = lax. Det innebär att den Application Gateway tillhörighets-cookien inte skickas av webbläsaren i en tredjeparts kontext. 
 
-För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker*. De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-http-settings.md#cookie-based-affinity) .
+För att stödja det här scenariot infogar Application Gateway en annan cookie med namnet *ApplicationGatewayAffinityCORS* förutom den befintliga *ApplicationGatewayAffinity* -cookien.  Dessa cookies liknar varandra, men cookien *ApplicationGatewayAffinityCORS* har två fler attribut som läggs till: *SameSite = none; Säker* . De här attributen upprätthåller tröga sessioner även för frågor mellan ursprung. Mer information finns i [avsnittet cookie-baserad tillhörighet](configuration-http-settings.md#cookie-based-affinity) .
 
 ## <a name="performance"></a>Prestanda
 
@@ -249,11 +249,11 @@ Men om du vill använda Application Gateway v2 med endast privat IP kan du följ
 2. Skapa inga lyssnare för den offentliga IP-adressen för klient delen. Application Gateway lyssnar inte på någon trafik på den offentliga IP-adressen om inga lyssnare har skapats för den.
 3. Skapa och koppla en [nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/security-overview) för Application Gateway under nätet med följande konfiguration i prioritetsordning:
     
-    a. Tillåt trafik från källa som **GatewayManager** service tag och destination som **valfri** port och målport som **65200-65535**. Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av certifikatautentisering. Externa entiteter, inklusive Gateway-användarens administratörer, kan inte påbörja ändringar av dessa slut punkter utan lämpliga certifikat på plats
+    a. Tillåt trafik från källa som **GatewayManager** service tag och destination som **valfri** port och målport som **65200-65535** . Det här port intervallet krävs för kommunikation mellan Azure-infrastrukturen. Dessa portar är skyddade (låsta) av certifikatautentisering. Externa entiteter, inklusive Gateway-användarens administratörer, kan inte påbörja ändringar av dessa slut punkter utan lämpliga certifikat på plats
     
     b. Tillåt trafik från källa som **AzureLoadBalancer** service tag och mål-och mål port som **alla**
     
-    c. Neka all inkommande trafik från källan som **Internet** service tag och mål-och mål port som **en**. Ge den här regeln *lägst prioritet* i reglerna för inkommande trafik
+    c. Neka all inkommande trafik från källan som **Internet** service tag och mål-och mål port som **en** . Ge den här regeln *lägst prioritet* i reglerna för inkommande trafik
     
     d. Behåll standard reglerna som att tillåta VirtualNetwork inkommande så att åtkomsten till den privata IP-adressen inte är blockerad
     
@@ -350,7 +350,7 @@ Webb läsar medlemmar för certifikat utfärdare (CA) har nyligen publicerat rap
 * [Bugg 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
 * [Bugg 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
 
-Som enligt branschens krav på efterlevnad började CA-leverantörer återkallade icke-kompatibla certifikat utfärdare och utfärdande av kompatibla ca: er som kräver att kunderna har återupprättat sina certifikat.Microsoft samarbetar nära dessa leverantörer för att minimera den potentiella påverkan till Azure-tjänster, **men dina självutfärdade certifikat eller certifikat som används i "ta dina egna certifikat" (BYOC) är fortfarande utsatta för att oväntade återkallas**.
+Som enligt branschens krav på efterlevnad började CA-leverantörer återkallade icke-kompatibla certifikat utfärdare och utfärdande av kompatibla ca: er som kräver att kunderna har återupprättat sina certifikat.Microsoft samarbetar nära dessa leverantörer för att minimera den potentiella påverkan till Azure-tjänster, **men dina självutfärdade certifikat eller certifikat som används i "ta dina egna certifikat" (BYOC) är fortfarande utsatta för att oväntade återkallas** .
 
 För att kontrol lera om certifikat som används av ditt program har återkallats referens [DigiCert meddelande](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) och [Spårare för certifikat återkallning](https://misissued.com/#revoked). Om dina certifikat har återkallats eller kommer att återkallas måste du begära nya certifikat från den CA-leverantör som används i dina program. För att undvika att programmets tillgänglighet avbryts på grund av att certifikaten har återkallats, eller om du vill uppdatera ett certifikat som har återkallats, kan du gå till våra Azure updates-uppdateringar för reparations Länkar för olika Azure-tjänster som stöder BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
@@ -434,9 +434,9 @@ Nej, AGIC-tillägg är en hanterad tjänst, vilket innebär att Microsoft automa
 
 Application Gateway innehåller tre loggar: 
 
-* **ApplicationGatewayAccessLog**: åtkomst loggen innehåller varje begäran som skickats till Application Gateway-frontend. Data innehåller anroparens IP, URL begärd, svars fördröjning, retur kod och byte in och ut. Den innehåller en post per Application Gateway.
-* **ApplicationGatewayPerformanceLog**: prestanda loggen samlar in prestanda information för varje Application Gateway. Informationen omfattar data flödet i byte, totalt antal hanterade begär Anden, misslyckade begär Anden och antalet felfria och felaktiga Server dels instanser.
-* **ApplicationGatewayFirewallLog**: för programgatewayer som du konfigurerar med WAF innehåller brand Väggs loggen begär Anden som loggas via antingen identifierings läge eller skydds läge.
+* **ApplicationGatewayAccessLog** : åtkomst loggen innehåller varje begäran som skickats till Application Gateway-frontend. Data innehåller anroparens IP, URL begärd, svars fördröjning, retur kod och byte in och ut. Den innehåller en post per Application Gateway.
+* **ApplicationGatewayPerformanceLog** : prestanda loggen samlar in prestanda information för varje Application Gateway. Informationen omfattar data flödet i byte, totalt antal hanterade begär Anden, misslyckade begär Anden och antalet felfria och felaktiga Server dels instanser.
+* **ApplicationGatewayFirewallLog** : för programgatewayer som du konfigurerar med WAF innehåller brand Väggs loggen begär Anden som loggas via antingen identifierings läge eller skydds läge.
 
 Alla loggar samlas in var 60: e sekund. Mer information finns i [backend-hälsohälsa, diagnostikloggar och mått för Application Gateway](application-gateway-diagnostics.md).
 
@@ -472,6 +472,10 @@ Ja. Om konfigurationen matchar följande scenario visas inte tillåten trafik i 
 - Du har distribuerat Application Gateway v2
 - Du har en NSG på Application Gateway-undernätet
 - Du har aktiverat NSG Flow-loggar på den NSG
+
+### <a name="does-application-gateway-store-customer-data"></a>Lagrar Application Gateway kund information?
+
+Nej, Application Gateway lagrar inte kund information.
 
 ## <a name="next-steps"></a>Nästa steg
 

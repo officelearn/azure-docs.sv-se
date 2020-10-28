@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 93e9ad28b14a51432fd9ccd32d1a155eaff2e190
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c616ba1971fcbb0674a42583b30c25f6ccda6874
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427143"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791791"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Hög tillgänglighet för Azure SQL Database-och SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -63,7 +63,7 @@ Zonens redundanta version av hög tillgänglighets arkitektur för tjänst nivå
 > För uppdaterad information om de regioner som har stöd för zonens redundanta databaser, se [tjänster support per region](../../availability-zones/az-region.md). Zon redundant konfiguration är bara tillgänglig när Gen5 Compute-maskinvaran har valts. Den här funktionen är inte tillgänglig i SQL-hanterad instans.
 
 > [!NOTE]
-> Generell användning-databaser med en storlek på 80 vCore kan orsaka försämrade prestanda med Zone-redundant konfiguration. Åtgärder som säkerhets kopiering, återställning, databas kopiering och konfiguration av Geo-DR-relationer kan uppleva sämre prestanda för enskilda databaser som är större än 1 TB. 
+> Generell användning-databaser med en storlek på 80 vCore kan orsaka försämrade prestanda med Zone-redundant konfiguration. Dessutom kan åtgärder som säkerhets kopiering, återställning, databas kopiering och konfiguration av Geo-DR-relationer uppleva sämre prestanda för alla enskilda databaser som är större än 1 TB. 
 
 ## <a name="premium-and-business-critical-service-tier-locally-redundant-availability"></a>Premium och Affärskritisk Service Tier lokalt redundant tillgänglighet
 
@@ -71,7 +71,7 @@ Premium-och Affärskritisk tjänst nivåerna utnyttjar Premium Availability-mode
 
 ![Kluster med noder i databas motorn](./media/high-availability-sla/business-critical-service-tier.png)
 
-De underliggande databasfilerna (. MDF/. ldf) placeras på den anslutna SSD-lagringen för att tillhandahålla mycket låg latens i/o för din arbets belastning. Hög tillgänglighet implementeras med hjälp av en teknik som liknar SQL Server [Always on-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klustret innehåller en enda primär replik som kan nås av kundens arbets belastningar med Läs-och skriv åtgärder och upp till tre sekundära repliker (data bearbetning och lagring) som innehåller kopior av data. Den primära noden skickar konstanter ändringar till de sekundära noderna i ordning och säkerställer att data synkroniseras till minst en sekundär replik innan varje transaktion bekräftas. Den här processen garanterar att om den primära noden kraschar av någon anledning finns det alltid en helt synkroniserad nod att redundansväxla till. Redundansväxlingen initieras av Azure-Service Fabric. När den sekundära repliken blir den nya primära noden skapas en annan sekundär replik för att säkerställa att klustret har tillräckligt många noder (kvorumkonfigurationen). När redundansväxlingen är klar omdirigeras Azure SQL-anslutningar automatiskt till den nya primära noden.
+De underliggande databasfilerna (. MDF/. ldf) placeras på den anslutna SSD-lagringen för att tillhandahålla mycket låg latens i/o för din arbets belastning. Hög tillgänglighet implementeras med hjälp av en teknik som liknar SQL Server [Always on-tillgänglighetsgrupper](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klustret innehåller en enda primär replik som kan nås av kundens arbets belastningar med Läs-och skriv åtgärder och upp till tre sekundära repliker (data bearbetning och lagring) som innehåller kopior av data. Den primära noden skickar konstanter ändringar till de sekundära noderna i ordning och säkerställer att data synkroniseras till minst en sekundär replik innan varje transaktion bekräftas. Den här processen garanterar att om den primära noden kraschar av någon anledning finns det alltid en helt synkroniserad nod att redundansväxla till. Redundansväxlingen initieras av Azure-Service Fabric. När den sekundära repliken blir den nya primära noden skapas en annan sekundär replik för att säkerställa att klustret har tillräckligt många noder (kvorumkonfigurationen). När redundansväxlingen är klar omdirigeras Azure SQL-anslutningar automatiskt till den nya primära noden.
 
 Som en extra förmån innehåller Premium Availability-modellen möjligheten att omdirigera skrivskyddade Azure SQL-anslutningar till en av de sekundära replikerna. Den här funktionen kallas för [Läs utskalning](read-scale-out.md). Den ger 100% ytterligare beräknings kapacitet utan extra kostnad för att inaktivera Läs åtgärder, till exempel analytiska arbets belastningar, från den primära repliken.
 
@@ -82,7 +82,7 @@ Som standard skapas klustret av noder för Premium Availability-modellen i samma
 Eftersom zonens redundanta databaser har repliker i olika data Center med lite avstånd mellan dem, kan den ökade nätverks fördröjningen öka genomförande tiden och därmed påverka prestanda för vissa OLTP-arbetsbelastningar. Du kan alltid återgå till konfigurationen med en zon genom att inaktivera inställningen zon redundans. Den här processen är en online-åtgärd som liknar uppgraderingen av Service nivån. I slutet av processen migreras databasen eller poolen från en zon redundant ring till en enskild zon ring eller vice versa.
 
 > [!IMPORTANT]
-> Zon redundanta databaser och elastiska pooler stöds för närvarande bara i Premium-och Affärskritisk tjänst nivåerna i utvalda regioner. När du använder Affärskritisk nivån är zonens redundant konfiguration bara tillgänglig när Gen5 Compute-maskinvaran är vald. För uppdaterad information om de regioner som har stöd för zonens redundanta databaser, se [tjänster support per region](../../availability-zones/az-region.md).
+> När du använder Affärskritisk nivån är zonens redundant konfiguration bara tillgänglig när Gen5 Compute-maskinvaran är vald. För uppdaterad information om de regioner som har stöd för zonens redundanta databaser, se [tjänster support per region](../../availability-zones/az-region.md).
 
 > [!NOTE]
 > Den här funktionen är inte tillgänglig i SQL-hanterad instans.
@@ -122,9 +122,9 @@ En redundansväxling kan initieras med PowerShell, REST API eller Azure CLI:
 
 |Distributions typ|PowerShell|REST-API| Azure CLI|
 |:---|:---|:---|:---|
-|Databas|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Redundansväxling av databas](/rest/api/sql/databases(failover)/failover/)|[AZ rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) kan användas för att anropa ett REST API-anrop från Azure CLI|
-|Elastisk pool|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Redundans för elastisk pool](/rest/api/sql/elasticpools(failover)/failover/)|[AZ rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) kan användas för att anropa ett REST API-anrop från Azure CLI|
-|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Hanterade instanser – redundans](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi redundans](/cli/azure/sql/mi/#az-sql-mi-failover)|
+|Databas|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Redundansväxling av databas](/rest/api/sql/databases(failover)/failover/)|[AZ rest](/cli/azure/reference-index#az-rest) kan användas för att anropa ett REST API-anrop från Azure CLI|
+|Elastisk pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Redundans för elastisk pool](/rest/api/sql/elasticpools(failover)/failover/)|[AZ rest](/cli/azure/reference-index#az-rest) kan användas för att anropa ett REST API-anrop från Azure CLI|
+|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Hanterade instanser – redundans](/rest/api/sql/managed%20instances%20-%20failover/failover)|[AZ SQL mi redundans](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > Kommandot redundans är inte tillgängligt för läsbara sekundär repliker av storskaliga databaser.

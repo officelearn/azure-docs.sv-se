@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 24c850b9a5302fd0ac684df6e6f1cc319118a75d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 294adce3dc312003d72336bd0752ba3aba5eaace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488528"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792862"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Överföra data med AzCopy och Blob Storage
 
@@ -31,7 +31,7 @@ Se artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att ladda ne
 >
 > Om du hellre vill använda en SAS-token för att auktorisera åtkomst till BLOB-data kan du lägga till denna token i resurs-URL: en i varje AzCopy-kommando.
 >
-> Till exempel: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
+> Till exempel `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## <a name="create-a-container"></a>Skapa en container
 
@@ -363,7 +363,7 @@ Kommandot [Sync](storage-ref-azcopy-sync.md) jämför fil namn och senaste ändr
 Om du ställer in `--delete-destination` flaggan på `true` AzCopy tar bort filer utan att ange någon prompt. Om du vill att en prompt ska visas innan AzCopy tar bort en fil, ställer du in `--delete-destination` flaggan på `prompt` .
 
 > [!NOTE]
-> För att förhindra oavsiktliga borttagningar, se till att aktivera funktionen för [mjuk borttagning](/azure/storage/blobs/storage-blob-soft-delete) innan du använder `--delete-destination=prompt|true` flaggan.
+> För att förhindra oavsiktliga borttagningar, se till att aktivera funktionen för [mjuk borttagning](../blobs/soft-delete-blob-overview.md) innan du använder `--delete-destination=prompt|true` flaggan.
 
 > [!TIP]
 > Du kan anpassa din synkronisering genom att använda valfria flaggor. Här är några exempel.

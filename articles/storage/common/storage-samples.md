@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d537ba74dad55ea1cb980ea04d20fd0c8494ed0b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: de587483f5dc15b17fa32e044b569ef9d7f007f7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479450"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792964"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage exempel
 
@@ -60,7 +60,7 @@ Om du vill utforska C++-exemplen hämtar du [Azure Storage klient biblioteket f�
 För att utforska Azure CLI-exemplen måste du först [Installera Azure CLI](/cli/azure/install-azure-cli).
 
 * [Komma igång med Azure CLI](/cli/azure/get-started-with-azure-cli)
-* [Azure Storage exempel med hjälp av Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Azure Storage exempel med hjälp av Azure CLI](../blobs/storage-samples-blobs-cli.md)
 * [Populära artiklar om hur du använder Azure CLI med Azure Storage](/cli/azure/popular-articles-using-the-azure-cli#storage)
 
 ## <a name="api-reference-and-source-code"></a>API-referens och käll kod
@@ -83,4 +83,4 @@ Följande artiklar indexerar varje exempel efter tjänst (BLOB, fil, kö, tabell
 * [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * [Azure Storage exempel med python](storage-samples-python.md)
 * [Azure Storage exempel med hjälp av C++](storage-samples-c-plus-plus.md)
-* [Azure Storage exempel med hjälp av Azure CLI](/azure/storage/blobs/storage-samples-blobs-cli)
+* [Azure Storage exempel med hjälp av Azure CLI](../blobs/storage-samples-blobs-cli.md)

@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 2134cf1fda5f0f1699feb46582813d198304f92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84e4ec1e7b3b5ec935bb9d5d819b4562e7fd3e5a
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616388"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791706"
 ---
 # <a name="monitor-in-memory-oltp-storage-in-azure-sql-database-and-azure-sql-managed-instance"></a>Övervaka In-Memory OLTP-lagring i Azure SQL Database och Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -65,7 +65,7 @@ För att lösa det här felet, antingen:
 - Uppgradera tjänst nivån till en med tillräckligt minnes intern lagring för de data du behöver behålla i minnesoptimerade tabeller.
 
 > [!NOTE]
-> I sällsynta fall kan fel 41823 och 41840 vara tillfälliga, vilket innebär att det finns tillräckligt med tillgänglig In-Memory OLTP-lagring och försök igen. Vi rekommenderar därför att både övervaka den övergripande tillgängliga In-Memory OLTP-lagring och att försöka igen när du först påträffar fel 41823 eller 41840. Mer information om logik för omprövning finns i [konflikt identifiering och omprövnings logik med In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
+> I sällsynta fall kan fel 41823 och 41840 vara tillfälliga, vilket innebär att det finns tillräckligt med tillgänglig In-Memory OLTP-lagring och försök igen. Vi rekommenderar därför att både övervaka den övergripande tillgängliga In-Memory OLTP-lagring och att försöka igen när du först påträffar fel 41823 eller 41840. Mer information om logik för omprövning finns i [konflikt identifiering och omprövnings logik med In-Memory OLTP](/sql/relational-databases/In-memory-oltp/transactions-with-memory-optimized-tables#conflict-detection-and-retry-logic).
 
 ## <a name="next-steps"></a>Nästa steg
 

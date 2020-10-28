@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 5fd0f14f4bbc919efd5b3c236b13654574d456d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 488d10906039327d830bfb6bcffc3163d65ad01e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334981"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792046"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Använd Intelligent Insights prestanda-diagnostikloggar för Azure SQL Database och prestanda problem med Azure SQL-hanterad instans
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Den här sidan innehåller information om hur du använder loggen för prestandadiagnostik som genereras av [intelligent Insights](intelligent-insights-overview.md) av Azure SQL Database och prestanda problem i Azure SQL-hanterad instans, dess format och de data som den innehåller för dina anpassade utvecklings behov. Du kan skicka den här Diagnostic-loggen till [Azure Monitor loggar](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
+Den här sidan innehåller information om hur du använder loggen för prestandadiagnostik som genereras av [intelligent Insights](intelligent-insights-overview.md) av Azure SQL Database och prestanda problem i Azure SQL-hanterad instans, dess format och de data som den innehåller för dina anpassade utvecklings behov. Du kan skicka den här Diagnostic-loggen till [Azure Monitor loggar](../../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs), [Azure Storage](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
 > [!NOTE]
 > Intelligenta insikter är en förhands gransknings funktion som inte är tillgänglig i följande regioner: Västeuropa, norra Europa, västra USA 1 och östra USA 1.
@@ -144,5 +144,5 @@ Du kan använda Intelligent Insights prestanda logg med [Azure Monitor loggar]( 
 
 - Lär dig mer om [intelligent Insights](intelligent-insights-overview.md) begrepp.
 - Lär dig hur du [felsöker prestanda problem med intelligent Insights](intelligent-insights-troubleshoot-performance.md).
-- Lär dig hur du [övervakar prestanda problem med Azure SQL-analys](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Lär dig hur du [samlar in och använder loggdata från dina Azure-resurser](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Lär dig hur du [övervakar prestanda problem med Azure SQL-analys](../../azure-monitor/insights/azure-sql.md).
+- Lär dig hur du [samlar in och använder loggdata från dina Azure-resurser](../../azure-monitor/platform/platform-logs-overview.md).

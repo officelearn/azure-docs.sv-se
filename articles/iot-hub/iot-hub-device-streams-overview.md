@@ -11,12 +11,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152159"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792471"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub enhets strömmar (förhands granskning)
 
@@ -56,7 +57,7 @@ Att skapa en enhets ström med hjälp av SDK omfattar följande steg, som också
 
 1. Enhets programmet registrerar ett återanrop i förväg för att bli informerad om när en ny enhets ström initieras till enheten. Det här steget inträffar vanligt vis när enheten startas och ansluter till IoT Hub.
 
-2. Programmet på tjänst sidan initierar en enhets ström vid behov genom att ange enhets-ID: t (_inte_ IP-adressen).
+2. Programmet på tjänst sidan initierar en enhets ström vid behov genom att ange enhets-ID: t ( _inte_ IP-adressen).
 
 3. IoT Hub meddelar programmet på enhets sidan genom att anropa återanropet som registrerades i steg 1. Enheten kan godkänna eller avvisa begäran om data Ströms initiering. Den här logiken kan vara specifik för ditt program scenario. Om Stream-begäran avvisas av enheten, IoT Hub informerar tjänsten enligt detta. i annat fall följer du stegen nedan.
 
@@ -103,7 +104,7 @@ Utdata är ett JSON-objekt för alla slut punkter som din Hubbs enhet och tjäns
 ```
 
 > [!NOTE]
-> Se till att du har installerat Azure CLI-version 2.0.57 eller senare. Du kan ladda ned den senaste versionen från sidan [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Se till att du har installerat Azure CLI-version 2.0.57 eller senare. Du kan ladda ned den senaste versionen från sidan [Installera Azure CLI](/cli/azure/install-azure-cli) .
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Tillåt utgående anslutning till enhetens strömnings slut punkter
@@ -119,28 +120,28 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Se till att du har installerat Azure CLI-version 2.0.57 eller senare. Du kan ladda ned den senaste versionen från sidan [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) .
+> Se till att du har installerat Azure CLI-version 2.0.57 eller senare. Du kan ladda ned den senaste versionen från sidan [Installera Azure CLI](/cli/azure/install-azure-cli) .
 >
 
-## <a name="troubleshoot-via-device-streams-activity-logs"></a>Felsöka via aktivitets loggar för enhets strömmar
+## <a name="troubleshoot-via-device-streams-resource-logs"></a>Felsöka via enhets strömmar resurs loggar
 
-Du kan konfigurera Azure Monitor loggar för att samla in aktivitets loggen för enhets strömmar i IoT Hub. Detta kan vara användbart i fel söknings scenarier.
+Du kan konfigurera Azure Monitor att samla [resurs loggarna för enhets strömmar](monitor-iot-hub-reference.md#device-streams-preview) som genereras av din IoT Hub. Detta kan vara användbart i fel söknings scenarier.
 
-Följ stegen nedan för att konfigurera Azure Monitor loggar för din IoT Hubs enhets Ströms aktiviteter:
+Följ stegen nedan för att skapa en diagnostisk inställning för att skicka loggar för enhets strömmar för IoT Hub till Azure Monitor loggar:
 
-1. Navigera till fliken *diagnostikinställningar* i IoT Hub och klicka på *Aktivera diagnostik* -länk.
+1. I Azure Portal navigerar du till din IoT Hub. I den vänstra rutan, under **övervakning** , väljer du **diagnostikinställningar** . Välj sedan **Lägg till diagnostisk inställning** .
 
-   !["Aktivera diagnostikloggar"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. Ange ett namn för den diagnostiska inställningen och välj **DeviceStreams** i listan över loggar. Välj sedan **Skicka till Log Analytics** . Du är guidad att välja en befintlig Log Analytics arbets yta eller skapa en ny.
 
-2. Ange ett namn för diagnostikinställningar och välj *Skicka till Log Analytics* alternativ. Du kommer att vara guidad att välja en befintlig Log Analytics arbets ytans resurs eller skapa en ny. Dessutom kontrollerar du *DeviceStreams* i listan.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Aktivera enhets strömmar loggar":::
 
-    !["Aktivera enhets strömmar loggar"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. Du kan nu komma åt dina enhets strömmar loggar på fliken *loggar* i din IoT Hubs Portal. Aktivitets loggarna för enhets strömmen visas i `AzureDiagnostics` tabellen och har `Category=DeviceStreams` .
+3. När du har skapat en diagnostisk inställning för att skicka dina enhets strömmar till en Log Analytics arbets yta kan du komma åt loggarna genom att välja **loggar** under **övervakning** i den vänstra rutan i IoT Hub i Azure Portal. Loggar för enhets strömmar visas i `AzureDiagnostics` tabellen och har `Category=DeviceStreams` . Tänk på att det kan ta flera minuter att följa en åtgärd för loggar som ska visas i tabellen.
 
    Som du ser nedan är identiteten för mål enheten och resultatet av åtgärden också tillgänglig i loggarna.
 
    !["Åtkomst till enhets strömmar loggar"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
+
+Mer information om hur du använder Azure Monitor med IoT Hub finns i [övervaka IoT Hub](monitor-iot-hub.md). Information om alla resurs loggar, statistik och tabeller som är tillgängliga för IoT Hub finns i [övervakning av Azure IoT Hub data Reference](monitor-iot-hub-reference.md).
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
@@ -182,7 +183,7 @@ Exemplet på den lokala proxyn visar ett sätt att aktivera tunnlar av ett befin
 
 I det här avsnittet beskrivs hur du använder enhets strömmar för att ge användaren SSH till en enhet över enhets strömmar (fallet för RDP eller andra klient/server-program på samma sätt som med protokollets motsvarande port).
 
-Installations programmet använder två *lokala proxy* -program som visas i bilden nedan, nämligen *enhets lokal Proxy* och *service-lokal Proxy*. De lokala proxy-programmen är ansvariga för att utföra [enhets strömmens hand skakning](#device-stream-creation-flow) med IoT Hub och INTERAGERA med SSH-klienten och SSH-daemon med hjälp av vanliga klient/server-socketar.
+Installations programmet använder två *lokala proxy* -program som visas i bilden nedan, nämligen *enhets lokal Proxy* och *service-lokal Proxy* . De lokala proxy-programmen är ansvariga för att utföra [enhets strömmens hand skakning](#device-stream-creation-flow) med IoT Hub och INTERAGERA med SSH-klienten och SSH-daemon med hjälp av vanliga klient/server-socketar.
 
 !["Installation av proxy för enhets Ströms-proxy för SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 

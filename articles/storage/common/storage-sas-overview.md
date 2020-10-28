@@ -10,12 +10,12 @@ ms.date: 08/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 218946fcfbf2268ff3b06eab839d69e6b370e891
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6c6ac3e6ab6a27e0aca1aa2bebecb86cc1eb3f87
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367915"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792981"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
 
@@ -127,7 +127,7 @@ Följande rekommendationer för att använda signaturer för delad åtkomst kan 
 - **Förstå att ditt konto debiteras för all användning, inklusive via en SAS.** Om du ger skriv åtkomst till en BLOB kan en användare välja att ladda upp en 200 GB-blob. Om du har gett dem Läs behörighet kan de välja att ladda ned det 10 gånger, vilket ger 2 TB i utgående kostnader för dig. På nytt ger du begränsade behörigheter för att minska risken för att skadliga användare kan utföra åtgärder. Använd SAS med kort livs längd för att minska det här hotet (men var mindful klock skevning vid slut tiden).
 - **Verifiera data som skrivits med en SAS.** När ett klient program skriver data till ditt lagrings konto bör du tänka på att det kan finnas problem med dessa data. Om ditt program kräver att data verifieras eller auktoriseras innan de kan användas, bör du utföra den här verifieringen när data har skrivits och innan de används av ditt program. Den här övningen skyddar också mot skadade eller skadliga data som skrivs till ditt konto, antingen av en användare som har förvärvat SAS eller av en användare som utnyttjar en läcka SAS.
 - **Vet när du inte ska använda en SAS.** Ibland uppväger riskerna som är kopplade till en viss åtgärd mot ditt lagrings konto fördelarna med att använda en SAS. För sådana åtgärder skapar du en tjänst på mellan nivå som skriver till ditt lagrings konto när du har utfört verifiering, autentisering och granskning av affärs regler. Ibland är det också enklare att hantera åtkomst på andra sätt. Om du till exempel vill att alla blobbar i en behållare ska kunna läsas offentligt kan du göra behållaren offentlig i stället för att tillhandahålla en SAS för varje klient för åtkomst.
-- **Använd Azure Monitor och Azure Storage loggar för att övervaka ditt program.** Du kan använda Azure Monitor-och Storage Analytics-loggning för att se all insamling vid auktoriseringsfel på grund av ett avbrott i din SAS-tjänstleverantör eller oavsiktlig borttagning av en lagrad åtkomst princip. Mer information finns i [Azure Storage mått i Azure Monitor](monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) och [Azure-lagringsanalys loggning](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- **Använd Azure Monitor och Azure Storage loggar för att övervaka ditt program.** Du kan använda Azure Monitor-och Storage Analytics-loggning för att se all insamling vid auktoriseringsfel på grund av ett avbrott i din SAS-tjänstleverantör eller oavsiktlig borttagning av en lagrad åtkomst princip. Mer information finns i [Azure Storage mått i Azure Monitor](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) och [Azure-lagringsanalys loggning](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="get-started-with-sas"></a>Kom igång med SAS
 

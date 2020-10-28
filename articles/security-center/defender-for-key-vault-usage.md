@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: e3eb6b750c805951a67a2e869c862f1285a342a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a40ffab652a6ae8671d6cd1c0dd9336764ce2c4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448330"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791944"
 ---
 # <a name="respond-to-azure-defender-for-key-vault-alerts"></a>Svara på Azure Defender för Key Vault-aviseringar
 När du får en avisering från Azure Defender för Key Vault rekommenderar vi att du undersöker och svarar på aviseringen enligt beskrivningen nedan. Azure Defender för Key Vault skyddar program och autentiseringsuppgifter, så även om du är van vid det program eller den användare som utlöste aviseringen är det viktigt att kontrol lera att situationen omger varje avisering.  
@@ -72,4 +72,4 @@ På den här sidan förklaras processen att svara på en avisering från Azure D
 
 - [Introduktion till Azure Defender för Key Vault](defender-for-key-vault-introduction.md)
 - [Ignorera aviseringar från Azure Defender](alerts-suppression-rules.md)
-- [Exportera säkerhets aviseringar](continuous-export.md)
+- [Exportera Security Center data kontinuerligt](continuous-export.md)

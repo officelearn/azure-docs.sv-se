@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840497"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792607"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Använda batching för att förbättra Azure SQL Database och prestanda för Azure SQL-hanterad instans program
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ Den första delen av den här artikeln granskar olika batching-tekniker för .NE
 ### <a name="note-about-timing-results-in-this-article"></a>Information om tidtagnings resultat i den här artikeln
 
 > [!NOTE]
-> Resultaten är inte benchmarks, men är avsedda att visa **relativa prestanda**. Tids inställningarna baseras på ett genomsnitt av minst 10 test körningar. Åtgärder infogas i en tom tabell. De här testerna mättes i förväg V12 och de motsvarar inte nödvändigt vis det data flöde som du kan uppleva i en V12-databas med hjälp av de nya [nivåerna för DTU-tjänsten](database/service-tiers-dtu.md) eller [vCore-tjänsten](database/service-tiers-vcore.md). Den relativa fördelen med batch-tekniken bör vara liknande.
+> Resultaten är inte benchmarks, men är avsedda att visa **relativa prestanda** . Tids inställningarna baseras på ett genomsnitt av minst 10 test körningar. Åtgärder infogas i en tom tabell. De här testerna mättes i förväg V12 och de motsvarar inte nödvändigt vis det data flöde som du kan uppleva i en V12-databas med hjälp av de nya [nivåerna för DTU-tjänsten](database/service-tiers-dtu.md) eller [vCore-tjänsten](database/service-tiers-vcore.md). Den relativa fördelen med batch-tekniken bör vara liknande.
 
 ### <a name="transactions"></a>Transaktioner
 
@@ -93,11 +93,11 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Transaktioner används faktiskt i båda dessa exempel. I det första exemplet är varje enskilt anrop en implicit transaktion. I det andra exemplet radbryts alla anrop i en explicit transaktion. I dokumentationen för [transaktions loggen för Skriv](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)åtgärder rensas logg posterna till disken när transaktionen genomförs. Så genom att inkludera fler anrop i en transaktion kan Skriv till transaktions loggen skjuta tills transaktionen är genomförd. I praktiken aktiverar du batching för skrivningar till serverns transaktions logg.
+Transaktioner används faktiskt i båda dessa exempel. I det första exemplet är varje enskilt anrop en implicit transaktion. I det andra exemplet radbryts alla anrop i en explicit transaktion. I dokumentationen för [transaktions loggen för Skriv](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)åtgärder rensas logg posterna till disken när transaktionen genomförs. Så genom att inkludera fler anrop i en transaktion kan Skriv till transaktions loggen skjuta tills transaktionen är genomförd. I praktiken aktiverar du batching för skrivningar till serverns transaktions logg.
 
 I följande tabell visas några ad hoc-testnings resultat. Testerna utförde samma sekventiella infogningar med och utan transaktioner. För mer perspektiv kördes den första uppsättningen tester från en bärbar dator till databasen i Microsoft Azure. Den andra uppsättningen tester kördes från en moln tjänst och databas som båda finns i samma Microsoft Azure Data Center (västra USA). I följande tabell visas varaktigheten i millisekunder av sekventiella infogningar med och utan transaktioner.
 
-**Lokalt till Azure**:
+**Lokalt till Azure** :
 
 | Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
@@ -106,7 +106,7 @@ I följande tabell visas några ad hoc-testnings resultat. Testerna utförde sam
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure till Azure (samma data Center)**:
+**Azure till Azure (samma data Center)** :
 
 | Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
@@ -120,15 +120,15 @@ I följande tabell visas några ad hoc-testnings resultat. Testerna utförde sam
 
 I och med föregående test resultat minskar prestandan med en enda åtgärd i en transaktion. Men när du ökar antalet åtgärder i en enda transaktion blir prestanda förbättringen mer markerad. Prestanda skillnaden är också mer märkbar när alla åtgärder utförs i Microsoft Azure Data centret. Den ökade svars tiden för att använda Azure SQL Database eller Azure SQL-hanterad instans utanför Microsoft Azure Data Center överskuggar prestanda vinsten för att använda transaktioner.
 
-Även om användningen av transaktioner kan öka prestandan bör du fortsätta att [följa bästa praxis för transaktioner och anslutningar](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Se till att transaktionen är så kort som möjligt och Stäng databas anslutningen när arbetet har slutförts. Instruktionen using i föregående exempel ser till att anslutningen stängs när det efterföljande kod blocket är klart.
+Även om användningen av transaktioner kan öka prestandan bör du fortsätta att [följa bästa praxis för transaktioner och anslutningar](/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Se till att transaktionen är så kort som möjligt och Stäng databas anslutningen när arbetet har slutförts. Instruktionen using i föregående exempel ser till att anslutningen stängs när det efterföljande kod blocket är klart.
 
 Föregående exempel visar att du kan lägga till en lokal transaktion till valfri ADO.NET kod med två rader. Transaktioner är ett snabbt sätt att förbättra prestanda för kod som utför sekventiell infognings-, uppdaterings-och borttagnings åtgärder. Men för snabbaste prestanda bör du överväga att ändra koden så att du kan dra nytta av batching på klient sidan, till exempel tabell värdes parametrar.
 
 Mer information om transaktioner i ADO.NET finns i [lokala transaktioner i ADO.net](/dotnet/framework/data/adonet/local-transactions).
 
-### <a name="table-valued-parameters"></a>Tabell värdes parametrar
+### <a name="table-valued-parameters"></a>Tabellvärdesparametrar
 
-Tabell värdes parametrar stöder användardefinierade tabell typer som parametrar i Transact-SQL-uttryck, lagrade procedurer och funktioner. Med den här batching-tekniken på klient sidan kan du skicka flera rader med data i tabell värdes parametern. Om du vill använda tabell värdes parametrar definierar du först en tabell typ. Följande Transact-SQL-instruktion skapar en tabell typ med namnet **MyTableType**.
+Tabell värdes parametrar stöder användardefinierade tabell typer som parametrar i Transact-SQL-uttryck, lagrade procedurer och funktioner. Med den här batching-tekniken på klient sidan kan du skicka flera rader med data i tabell värdes parametern. Om du vill använda tabell värdes parametrar definierar du först en tabell typ. Följande Transact-SQL-instruktion skapar en tabell typ med namnet **MyTableType** .
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-I föregående exempel infogar objektet **SqlCommand** rader från en tabell värdes parameter, ** \@ TestTvp**. Det tidigare skapade **DataTable** -objektet har tilldelats till den här parametern med metoden **SqlCommand. Parameters. Add** . Batching av infogningar i ett anrop ökar markant prestanda över sekventiella infogningar.
+I föregående exempel infogar objektet **SqlCommand** rader från en tabell värdes parameter, **\@ TestTvp** . Det tidigare skapade **DataTable** -objektet har tilldelats till den här parametern med metoden **SqlCommand. Parameters. Add** . Batching av infogningar i ett anrop ökar markant prestanda över sekventiella infogningar.
 
 Om du vill förbättra det tidigare exemplet ytterligare använder du en lagrad procedur i stället för ett textbaserat kommando. Följande Transact-SQL-kommando skapar en lagrad procedur som tar **SimpleTestTableType** tabell värdes parameter.
 
@@ -212,7 +212,7 @@ Mer information om tabell värdes parametrar finns i [tabell värdes parametrar]
 
 ### <a name="sql-bulk-copy"></a>SQL Mass kopiering
 
-SQL Mass kopiering är ett annat sätt att infoga stora mängder data i en mål databas. .NET-program kan använda **SqlBulkCopy** -klassen för att utföra Mass infognings åtgärder. **SqlBulkCopy** liknar kommando rads verktyget **Bcp.exe**eller Transact-SQL-instruktionen **bulk INSERT**. I följande kod exempel visas hur du kopierar raderna i käll- **DataTable**-tabellen till mål tabellen, tabellen.
+SQL Mass kopiering är ett annat sätt att infoga stora mängder data i en mål databas. .NET-program kan använda **SqlBulkCopy** -klassen för att utföra Mass infognings åtgärder. **SqlBulkCopy** liknar kommando rads verktyget **Bcp.exe** eller Transact-SQL-instruktionen **bulk INSERT** . I följande kod exempel visas hur du kopierar raderna i käll- **DataTable** -tabellen till mål tabellen, tabellen.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -293,7 +293,7 @@ Med klassen **DataAdapter** kan du ändra ett **data mängds** objekt och sedan 
 
 ### <a name="entity-framework"></a>Entity Framework
 
-[Entity Framework Core](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) stöder batching.
+[Entity Framework Core](/ef/efcore-and-ef6/#saving-data) stöder batching.
 
 ### <a name="xml"></a>XML
 
@@ -380,7 +380,7 @@ I följande avsnitt beskrivs hur du använder tabell värdes parametrar i tre pr
 
 Anta till exempel ett webb program som spårar navigerings historiken för varje användare. På varje webbdelsbegäran kan programmet göra ett databas anrop för att registrera användarens sid visning. Men högre prestanda och skalbarhet kan uppnås genom att buffra användarnas navigerings aktiviteter och sedan skicka dessa data till databasen i batchar. Du kan utlösa databas uppdateringen efter förfluten tid och/eller buffertstorlek. En regel kan till exempel ange att batchen ska bearbetas efter 20 sekunder eller när bufferten når 1000 objekt.
 
-I följande kod exempel används [reactive Extensions-RX](https://docs.microsoft.com/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) för att bearbeta buffrade händelser som skapats av en övervaknings klass. När buffertens fyllningar eller tids gräns uppnås, skickas batchen med användar data till databasen med en tabell värdes parameter.
+I följande kod exempel används [reactive Extensions-RX](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) för att bearbeta buffrade händelser som skapats av en övervaknings klass. När buffertens fyllningar eller tids gräns uppnås, skickas batchen med användar data till databasen med en tabell värdes parameter.
 
 I följande NavHistoryData-klass modelleras information om användar navigering. Den innehåller grundläggande information, till exempel användar-ID, URL: en och åtkomst tiden.
 

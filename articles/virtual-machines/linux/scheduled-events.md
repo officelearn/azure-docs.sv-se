@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 265b99fb985602604eefee27d722b4dc8d7593a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970392"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792811"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Schemalagda händelser för virtuella Linux-datorer
 
@@ -98,7 +98,7 @@ Om du startar om en virtuell dator är en händelse med typen `Reboot` schemalag
 
 ## <a name="use-the-api"></a>Använda API:et
 
-### <a name="headers"></a>Rubriker
+### <a name="headers"></a>Sidhuvuden
 När du frågar Metadata Service måste du ange rubriken `Metadata:true` för att se till att begäran inte oavsiktligt omdirigeras. `Metadata:true`Rubriken krävs för alla begär Anden om schemalagda händelser. Om du inte tar med rubriken i begäran resulterar det i en "felaktig begäran"-svar från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser
@@ -154,6 +154,10 @@ Varje händelse schemaläggs en minimi period i framtiden baserat på händelse 
 
 > [!NOTE] 
 > I vissa fall kan Azure förutsäga värd felen på grund av försämrad maskin vara och försöka undvika avbrott i tjänsten genom att schemalägga en migrering. Berörda virtuella datorer får en schemalagd händelse med en `NotBefore` som vanligt vis är några dagar i framtiden. Den faktiska tiden varierar beroende på riskbedömningen för förutsägande problem. Azure försöker ge 7 dagars varsel när så är möjligt, men den faktiska tiden varierar och kan vara mindre om förutsägelsen är att det finns en hög chans att maskin varan slutar fungera på ett överhäng. För att minimera risken för din tjänst om maskin varan Miss lyckas innan den systeminitierade migreringen, rekommenderar vi att du distribuerar den virtuella datorn på egen plats så snart som möjligt.
+
+### <a name="polling-frequency"></a>Avsöknings frekvens
+
+Du kan avsöka slut punkten för uppdateringar så ofta eller sällan som du vill. Men den längre tiden mellan begär Anden, desto mer tid kan du förlora för att reagera på en kommande händelse. De flesta händelser har 5 till 15 minuters förvarning, men i vissa fall kan meddelande om förhands meddelande vara så lite som 30 sekunder. För att säkerställa att du har så mycket tid som möjligt för att vidta åtgärder, rekommenderar vi att du avsöker tjänsten en gång per sekund.
 
 ### <a name="start-an-event"></a>Starta en händelse 
 

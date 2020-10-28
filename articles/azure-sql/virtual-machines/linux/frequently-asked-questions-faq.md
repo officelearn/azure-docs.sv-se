@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: afd36eb079b6e5f29fa664050cded3c5ddd17d8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669475"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792556"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Vanliga frågor och svar om SQL Server på Linux virtuella datorer
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +61,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur kan jag installera min licensierade version av SQL Server på en virtuell Azure-dator?**
 
-   Skapa först en virtuell Linux OS-dator. Kör sedan [SQL Server installations stegen](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) för din Linux-distribution. Om du inte installerar någon av de fritt licensierade versionerna av SQL Server måste du också ha en SQL Server licens och [licensmobilitet via Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/).
+   Skapa först en virtuell Linux OS-dator. Kör sedan [SQL Server installations stegen](/sql/linux/sql-server-linux-setup#platforms) för din Linux-distribution. Om du inte installerar någon av de fritt licensierade versionerna av SQL Server måste du också ha en SQL Server licens och [licensmobilitet via Software Assurance på Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 1. **Finns det BYOL virtuella Linux-dator avbildningar för SQL Server?**
 
@@ -75,7 +75,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag hantera en virtuell Linux-dator som kör SQL Server med SQL Server Management Studio (SSMS)?**
 
-   Ja, men SSMS är för närvarande ett Windows-verktyg. Du måste fjärrans luta från en Windows-dator för att kunna använda SSMS med virtuella Linux-datorer som kör SQL Server. Det nya [MSSQL-conf-](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) verktyget kan utföra många administrativa uppgifter lokalt på Linux. En databas hanterings verktyg över plattformar finns i [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+   Ja, men SSMS är för närvarande ett Windows-verktyg. Du måste fjärrans luta från en Windows-dator för att kunna använda SSMS med virtuella Linux-datorer som kör SQL Server. Det nya [MSSQL-conf-](/sql/linux/sql-server-linux-configure-mssql-conf) verktyget kan utföra många administrativa uppgifter lokalt på Linux. En databas hanterings verktyg över plattformar finns i [Azure Data Studio](/sql/azure-data-studio/what-is).
 
 1. **Kan jag ta bort SQL Server helt från en virtuell SQL Server-dator?**
 
@@ -85,7 +85,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur gör jag för att uppgradera till en ny version/utgåva av SQL Server på en virtuell Azure-dator?**
 
-   För närvarande finns det ingen uppgradering på plats för SQL Server som körs på en virtuell dator i Azure. Skapa en ny virtuell Azure-dator med önskad SQL Server version/utgåva och migrera sedan databaserna till den nya servern med hjälp av [standard teknik för data migration](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview).
+   För närvarande finns det ingen uppgradering på plats för SQL Server som körs på en virtuell dator i Azure. Skapa en ny virtuell Azure-dator med önskad SQL Server version/utgåva och migrera sedan databaserna till den nya servern med hjälp av [standard teknik för data migration](/sql/linux/sql-server-linux-migrate-overview).
 
 ## <a name="general"></a>Allmänt
 
@@ -95,13 +95,13 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 ## <a name="resources"></a>Resurser
 
-**Virtuella Linux-datorer**:
+**Virtuella Linux-datorer** :
 
 * [Översikt över SQL Server på en virtuell Linux-dator](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Etablera SQL Server på en virtuell Linux-dator](sql-vm-create-portal-quickstart.md)
-* [SQL Server på Linux dokumentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [SQL Server på Linux dokumentation](/sql/linux/sql-server-linux-overview)
 
-**Virtuella Windows-datorer**:
+**Virtuella Windows-datorer** :
 
 * [Översikt över SQL Server på en virtuell Windows-dator](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Etablera SQL Server på en virtuell Windows-dator](../windows/sql-vm-create-portal-quickstart.md)

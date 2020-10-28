@@ -75,6 +75,6 @@
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=key-vault'
     - name: Blogg
-      href: 'https://blogs.technet.com/b/kv/'
+      href: /archive/blogs/kv/
     - name: Produktfeedback
       href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

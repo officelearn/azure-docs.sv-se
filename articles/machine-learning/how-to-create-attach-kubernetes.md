@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to
+ms.custom: how-to, devx-track-azurecli
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: cade5a4329cdfc11c1b256ba01e9764f60a476a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667868"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792012"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Skapa och ansluta ett Azure Kubernetes service-kluster
 
@@ -34,7 +34,7 @@ Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller til
 
 - Om du behöver ett **standard Load Balancer (SLB)** distribuerat i klustret i stället för en grundläggande load BALANCER (BLB) skapar du ett kluster i AKS-portalen/CLI/SDK och **kopplar** det sedan till AML-arbetsytan.
 
-- Om du har en Azure Policy som begränsar skapandet av offentliga IP-adresser kommer AKS-kluster inte att kunna skapas. AKS kräver en offentlig IP-adress för [utgående trafik](/azure/aks/limit-egress-traffic). Artikeln om den utgående trafiken ger också vägledning för att låsa utgående trafik från klustret via den offentliga IP-adressen, förutom några få fullständigt kvalificerade domän namn. Det finns två sätt att aktivera en offentlig IP-adress:
+- Om du har en Azure Policy som begränsar skapandet av offentliga IP-adresser kommer AKS-kluster inte att kunna skapas. AKS kräver en offentlig IP-adress för [utgående trafik](/azure/aks/limit-egress-traffic). Artikeln om utgående trafik ger också vägledning för att låsa utgående trafik från klustret via den offentliga IP-adressen, förutom några få fullständigt kvalificerade domän namn. Det finns två sätt att aktivera en offentlig IP-adress:
     - Klustret kan använda den offentliga IP-adressen som skapas som standard med BLB eller SLB, eller
     - Klustret kan skapas utan en offentlig IP-adress och en offentlig IP-adress konfigureras med en brand vägg med en användardefinierad väg. Mer information finns i [Anpassa klustret utgående med en användardefinierad väg](/azure/aks/egress-outboundtype).
     
@@ -54,12 +54,12 @@ Azure Machine Learning kan distribuera utbildade maskin inlärnings modeller til
    
  - Om du vill distribuera modeller till **GPU** -noder eller **FPGA** -noder (eller vissa SKU: er) måste du skapa ett kluster med den angivna SKU: n. Det finns inget stöd för att skapa en sekundär Node-pool i ett befintligt kluster och distribuera modeller i den sekundära noden.
  
-- När du skapar eller ansluter ett kluster kan du välja om du vill skapa klustret för __utveckling och testning__ eller __produktion__. Om du vill skapa ett AKS-kluster för __utveckling__, __verifiering__och __testning__ i stället för produktion, ställer du in __kluster syftet__ med __utveckling och testning__. Om du inte anger klustrets syfte skapas ett __produktions__ kluster. 
+- När du skapar eller ansluter ett kluster kan du välja om du vill skapa klustret för __utveckling och testning__ eller __produktion__ . Om du vill skapa ett AKS-kluster för __utveckling__ , __verifiering__ och __testning__ i stället för produktion, ställer du in __kluster syftet__ med __utveckling och testning__ . Om du inte anger klustrets syfte skapas ett __produktions__ kluster. 
 
     > [!IMPORTANT]
     > Ett __dev-test-__ kluster lämpar sig inte för trafik på produktions nivå och kan öka eventuella härlednings tider. Utvecklings-och test kluster garanterar inte heller fel tolerans.
 
-- Om klustret ska användas för __produktion__när du skapar eller ansluter ett kluster måste det innehålla minst 12 __virtuella processorer__. Antalet virtuella processorer kan beräknas genom att multiplicera __antalet noder__ i klustret med __antalet kärnor__ som anges av den virtuella dator storleken som valts. Om du till exempel använder en VM-storlek på "Standard_D3_v2", som har 4 virtuella kärnor, väljer du 3 eller större som antalet noder.
+- Om klustret ska användas för __produktion__ när du skapar eller ansluter ett kluster måste det innehålla minst 12 __virtuella processorer__ . Antalet virtuella processorer kan beräknas genom att multiplicera __antalet noder__ i klustret med __antalet kärnor__ som anges av den virtuella dator storleken som valts. Om du till exempel använder en VM-storlek på "Standard_D3_v2", som har 4 virtuella kärnor, väljer du 3 eller större som antalet noder.
 
     För ett __dev-test-__ kluster ska vi på minst 2 virtuella processorer.
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-Om du vill **kontrol lera om det finns tillgängliga versioner program mässigt**kan du använda [behållar tjänstens klient list Dirigerings](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API. Ta reda på vilka versioner som är tillgängliga genom att titta på posterna där `orchestratorType` är `Kubernetes` . De associerade `orchestrationVersion` posterna innehåller de tillgängliga versioner som kan **kopplas** till din arbets yta.
+Om du vill **kontrol lera om det finns tillgängliga versioner program mässigt** kan du använda [behållar tjänstens klient list Dirigerings](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API. Ta reda på vilka versioner som är tillgängliga genom att titta på posterna där `orchestratorType` är `Kubernetes` . De associerade `orchestrationVersion` posterna innehåller de tillgängliga versioner som kan **kopplas** till din arbets yta.
 
 Om du vill hitta standard versionen som används när du **skapar** ett kluster via Azure Machine Learning söker du efter posten där `orchestratorType` är `Kubernetes` och `default` `true` . Det associerade `orchestratorVersion` värdet är standard versionen. Följande JSON-kodfragment visar ett exempel på en post:
 
@@ -147,7 +147,7 @@ Om du vill hitta standard versionen som används när du **skapar** ett kluster 
 
 ## <a name="create-a-new-aks-cluster"></a>Skapa ett nytt AKS-kluster
 
-**Tids uppskattning**: cirka 10 minuter.
+**Tids uppskattning** : cirka 10 minuter.
 
 Att skapa eller ansluta ett AKS-kluster är en process för arbets ytan. Du kan återanvända det här klustret för flera distributioner. Om du tar bort klustret eller resurs gruppen som innehåller den måste du skapa ett nytt kluster nästa gången du behöver distribuera. Du kan ha flera AKS-kluster kopplade till din arbets yta.
 
@@ -284,7 +284,7 @@ Information om hur du kopplar ett AKS-kluster i portalen finns i [skapa beräkni
 Använd någon av följande metoder för att koppla från ett kluster från din arbets yta:
 
 > [!WARNING]
-> Om du använder Azure Machine Learning Studio, SDK eller Azure CLI-tillägget för Machine Learning för att koppla från ett AKS-kluster **tas inte AKS-klustret bort**. Information om hur du tar bort klustret finns i [använda Azure CLI med AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+> Om du använder Azure Machine Learning Studio, SDK eller Azure CLI-tillägget för Machine Learning för att koppla från ett AKS-kluster **tas inte AKS-klustret bort** . Information om hur du tar bort klustret finns i [använda Azure CLI med AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -302,7 +302,7 @@ az ml computetarget detach -n myaks -g myresourcegroup -w myworkspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-I Azure Machine Learning Studio väljer du __beräknings__-, __härlednings kluster__och det kluster som du vill ta bort. Använd __Koppla från__ -länken för att koppla från klustret.
+I Azure Machine Learning Studio väljer du __beräknings__ -, __härlednings kluster__ och det kluster som du vill ta bort. Använd __Koppla från__ -länken för att koppla från klustret.
 
 ## <a name="next-steps"></a>Nästa steg
 

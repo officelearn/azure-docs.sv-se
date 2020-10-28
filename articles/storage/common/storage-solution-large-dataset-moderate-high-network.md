@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: c88da1c7fba5d7cb51863a580ae420eb6b3298a2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 962bb7a4484f28d52ffd4f0cae985140ec2f0d28
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491282"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792930"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Dataöverföring för stora datamängder med måttlig eller hög nätverksbandbredd
  
@@ -95,16 +95,16 @@ Om du använder data överföring online använder du tabellen i följande avsni
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig hur du överför data med import/export](/azure/storage/common/storage-import-export-data-to-blobs).
+- [Lär dig hur du överför data med import/export](./storage-import-export-data-to-blobs.md).
 - Förstå hur du
 
-    - [Överför data med data Box disk](/azure/databox/data-box-disk-quickstart-portal).
-    - [Överför data med data Box-enhet](/azure/databox/data-box-quickstart-portal).
-- [Överför data med AZCopy](/azure/storage/common/storage-use-azcopy-v10).
+    - [Överför data med data Box disk](../../databox/data-box-disk-quickstart-portal.md).
+    - [Överför data med data Box-enhet](../../databox/data-box-quickstart-portal.md).
+- [Överför data med AZCopy](./storage-use-azcopy-v10.md).
 - Förstå hur du:
-    - [Överför data med data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformera data med data Box Edge innan du skickar dem till Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Lär dig hur du överför data med Azure Data Factory](/azure/data-factory/quickstart-create-data-factory-portal).
+    - [Överför data med data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transformera data med data Box Edge innan du skickar dem till Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Lär dig hur du överför data med Azure Data Factory](../../data-factory/quickstart-create-data-factory-portal.md).
 - Använd REST-API: er för att överföra data
 
     - [I .NET](/dotnet/api/overview/azure/storage)

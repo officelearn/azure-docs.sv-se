@@ -7,12 +7,12 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.topic: conceptual
 ms.date: 09/13/2020
-ms.openlocfilehash: a273b9aaae083bb4566d289e9680b50c686d4e9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0a10744d2b48fa620b48b731144222199f711c7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346062"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792539"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-sql-database--sql-managed-instance"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure SQL Database & SQL-hanterad instans
 
@@ -79,4 +79,4 @@ Eftersom den här uppdateringen är en ändring på klient sidan, om klienten so
 Eftersom den här konfigurationen är på klient sidan är information inte tillgänglig på Server sidan.
 
 ### <a name="what-if-i-have-further-questions"></a>Vad händer om jag har fler frågor?
-Om du har ett support avtal och behöver teknisk hjälp, skapa support förfrågan för Azure, se [så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
+Om du har ett support avtal och behöver teknisk hjälp, skapa support förfrågan för Azure, se [så här skapar du en support förfrågan för Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).

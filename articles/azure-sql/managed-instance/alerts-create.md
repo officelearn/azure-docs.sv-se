@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: dbf5c06adcddb5b3dfa3cdf2e0127f8a36c59885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5a2336728d4507544fa621961c2f346746c2bb9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620111"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792658"
 ---
-# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Skapa aviseringar för Azure SQL-hanterad instans med hjälp av Azure Portal
+# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Skapa aviseringar för Azure SQL Managed Instance i Azure-portalen
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Den här artikeln visar hur du konfigurerar aviseringar för databaser i Azure SQL Managed instance-databasen med hjälp av Azure Portal. Med aviseringar kan du få ett e-postmeddelande, anropa en webhook, köra en Azure-funktion eller en runbook, anropa ett externt ITSM-kompatibelt biljettsystem, bli uppringd på telefonen eller få ett SMS när ett mått, till exempel lagringsstorleken för en instans eller CPU-användning, når ett fördefinierat tröskelvärde. Den här artikeln innehåller också metod tips för att ställa in aviserings perioder.
@@ -145,5 +145,5 @@ Visa, inaktivera, aktivera, ändra och ta bort befintliga aviseringar:
 * Läs mer om Azure Monitor varnings systemet, se [Översikt över aviseringar i Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 * Lär dig mer om mått varningar, se [förstå hur mått varningar fungerar i Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)
 * Läs om hur du konfigurerar en webhook i aviseringar i [anropa en webhook med en klassisk måtta avisering](../../azure-monitor/platform/alerts-webhooks.md)
-* Läs om hur du konfigurerar och hanterar aviseringar med hjälp av PowerShell, se [Åtgärds regler](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)
-* Läs mer om hur du konfigurerar och hanterar aviseringar med hjälp av API, se [Azure Monitor REST API referens](https://docs.microsoft.com/rest/api/monitor/) 
+* Läs om hur du konfigurerar och hanterar aviseringar med hjälp av PowerShell, se [Åtgärds regler](/powershell/module/az.monitor/add-azmetricalertrulev2)
+* Läs mer om hur du konfigurerar och hanterar aviseringar med hjälp av API, se [Azure Monitor REST API referens](/rest/api/monitor/)

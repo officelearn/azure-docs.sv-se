@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c964e3c02148c461c601eab4bc5bfb0abb4ac052
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 6a1a7e19e598980b21ee6c41f6984de38d6a6f2b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013312"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791621"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Självstudie: index från flera data källor med hjälp av .NET SDK
 
@@ -66,11 +66,11 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 1. Logga in på [Azure Portal](https://portal.azure.com)och navigera sedan till översikts sidan för Azure Cosmos DB konto.
 
-1. Välj **datautforskaren** och välj sedan **ny databas**.
+1. Välj **datautforskaren** och välj sedan **ny databas** .
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Skapa en ny databas" border="false":::
 
-1. Ange namnet **hotell-rum-DB**. Acceptera standardvärden för återstående inställningar.
+1. Ange namnet **hotell-rum-DB** . Acceptera standardvärden för återstående inställningar.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Skapa en ny databas" border="false":::
 
@@ -78,7 +78,7 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Skapa en ny databas" border="false":::
 
-1. Välj **objekt** under **hotell**och klicka sedan på **överför objekt** i kommando fältet. Gå till och välj filen **cosmosdb/HotelsDataSubset_CosmosDb.jspå** i projektmappen.
+1. Välj **objekt** under **hotell** och klicka sedan på **överför objekt** i kommando fältet. Gå till och välj filen **cosmosdb/HotelsDataSubset_CosmosDb.jspå** i projektmappen.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Skapa en ny databas" border="false":::
 
@@ -88,13 +88,13 @@ I det här exemplet används två små uppsättningar med data som beskriver sju
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
 
-1. Logga in på [Azure Portal](https://portal.azure.com), navigera till ditt Azure Storage-konto, klicka på **blobbar**och klicka sedan på **+ container**.
+1. Logga in på [Azure Portal](https://portal.azure.com), navigera till ditt Azure Storage-konto, klicka på **blobbar** och klicka sedan på **+ container** .
 
 1. [Skapa en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md) med namnet **hotell-rum** där du kan lagra JSON-filer för hotell rummet. Du kan ställa in den offentliga åtkomst nivån på alla giltiga värden.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Skapa en ny databas" border="false":::
 
-1. När behållaren har skapats öppnar du den och väljer **Ladda upp** i kommando fältet. Navigera till mappen som innehåller exempelfilerna. Markera alla och klicka sedan på **överför**.
+1. När behållaren har skapats öppnar du den och väljer **Ladda upp** i kommando fältet. Navigera till mappen som innehåller exempelfilerna. Markera alla och klicka sedan på **överför** .
 
    :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Skapa en ny databas" border="false":::
 
@@ -110,15 +110,15 @@ Du behöver tjänst-URL och en åtkomst nyckel för att kunna autentisera till d
 
 1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **Inställningar**  >  **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningar**  >  **nycklar** , hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-   :::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Skapa en ny databas" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Skapa en ny databas" border="false":::
 
 En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 ## <a name="2---set-up-your-environment"></a>2 – Konfigurera din miljö
 
-1. Starta Visual Studio och välj **NuGet Package Manager** i **verktyg** -menyn och **Hantera NuGet-paket för lösning...**. 
+1. Starta Visual Studio och välj **NuGet Package Manager** i **verktyg** -menyn och **Hantera NuGet-paket för lösning...** . 
 
 1. På fliken **Bläddra** letar du upp och installerar **Azure.Search.Documents** (version 11,0 eller senare). Du måste klicka på ytterligare dialog rutor för att slutföra installationen.
 
@@ -126,7 +126,7 @@ En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som
 
 1. Sök efter **Microsoft.Extensions.Configuration** och **Microsoft.Extensions.Configuration.Jspå** NuGet-paket och installera dem också.
 
-1. Öppna lösnings filen **/V11/AzureSearchMultipleDataSources.SLN**.
+1. Öppna lösnings filen **/V11/AzureSearchMultipleDataSources.SLN** .
 
 1. I Solution Explorer redigerar du **appsettings.jspå** filen för att lägga till anslutnings information.  
 
@@ -240,7 +240,7 @@ private static async Task CreateAndRunCosmosDbIndexerAsync(string indexName, Sea
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(cosmosDbDataSource);
 ```
 
-När data källan har skapats konfigurerar programmet en Azure Cosmos DB indexerare med namnet **hotell-rum-Cosmos-Indexer**.
+När data källan har skapats konfigurerar programmet en Azure Cosmos DB indexerare med namnet **hotell-rum-Cosmos-Indexer** .
 
 Programmet kommer att uppdatera befintliga indexerare med samma namn och skriva över den befintliga indexeraren med innehållet i ovanstående kod. Den innehåller också återställnings-och körnings åtgärder, om du vill köra det här exemplet mer än en gång.
 
@@ -306,7 +306,7 @@ private static async Task CreateAndRunBlobIndexerAsync(string indexName, SearchI
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(blobDataSource);
 ```
 
-När data källan har skapats konfigurerar programmet en BLOB-indexerare med namnet **hotell-rum-BLOB-Indexer**, som du ser nedan.
+När data källan har skapats konfigurerar programmet en BLOB-indexerare med namnet **hotell-rum-BLOB-Indexer** , som du ser nedan.
 
 JSON-blobbar innehåller ett nyckel fält med namnet **`Id`** i stället för **`HotelId`** . Koden använder `FieldMapping` klassen för att instruera indexeraren att dirigera **`Id`** fältvärdet till **`HotelId`** dokument nyckeln i indexet.
 
@@ -383,7 +383,7 @@ Du kan också använda portalen för att ta bort index, indexerare och data käl
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration är det en bra idé att ta bort de resurser som du inte längre behöver i slutet av projektet. Resurser som fortsätter att köras kostar pengar. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken alla resurser eller resurs grupper i det vänstra navigerings fönstret.
 

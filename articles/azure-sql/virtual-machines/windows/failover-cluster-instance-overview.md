@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165268"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792488"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,8 +30,8 @@ SQL Server på virtuella Azure-datorer använder WSFC-funktioner (Windows Server
 
 Resten av artikeln fokuserar på skillnaderna för kluster instanser för växling vid fel när de används med SQL Server på virtuella Azure-datorer. Mer information om tekniken för redundanskluster finns i: 
 
-- [Windows kluster tekniker](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [SQL Server instanser av redundanskluster](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Windows kluster tekniker](/windows-server/failover-clustering/failover-clustering-overview)
+- [SQL Server instanser av redundanskluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
 ## <a name="quorum"></a>Kvorum
 
@@ -40,7 +40,7 @@ Instanser av redundanskluster med SQL Server på Azure Virtual Machines stöd f�
 Mer information finns i [metod tips för kvorum med SQL Server virtuella datorer i Azure](hadr-cluster-best-practices.md#quorum). 
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 
 I traditionella lokala klustrade miljöer använder ett Windows-redundanskluster en storage area network (SAN) som är tillgänglig för båda noderna som den delade lagringen. SQL Server filer finns i den delade lagringen och bara den aktiva noden kan komma åt filerna samtidigt. 
 
@@ -60,10 +60,10 @@ Resten av det här avsnittet visar fördelarna och begränsningarna för varje l
 
 [Azure delade diskar](../../../virtual-machines/windows/disks-shared.md) är en funktion i [Azure Managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server-redundanskluster stöder användning av Azure delade diskar med en instans av redundanskluster. 
 
-**Operativ system som stöds**: alla   
-**SQL-version som stöds**: alla     
+**Operativ system som stöds** : alla   
+**SQL-version som stöds** : alla     
 
-**Fördelar**: 
+**Fördelar** : 
 - Användbart för program som vill migrera till Azure samtidigt som du behåller HADR-arkitekturen (hög tillgänglighet och haveri beredskap) som är. 
 - Kan migrera klustrade program till Azure på grund av stödet för SCSI-PR (SCSI persistent reservation). 
 - Har stöd för delade Azure-Premium SSD och Azure Ultra disk Storage.
@@ -71,7 +71,7 @@ Resten av det här avsnittet visar fördelarna och begränsningarna för varje l
 - Stöder FILESTREAM.
 
 
-**Begränsningar**: 
+**Begränsningar** : 
 - Virtuella datorer måste placeras i samma tillgänglighets uppsättning och närhets placerings grupp.
 - Tillgänglighets zoner stöds inte.
 - Premium SSD diskcachelagring stöds inte.
@@ -82,8 +82,8 @@ Information om hur du kommer igång finns [SQL Server kluster instans med Azure 
 
 [Lagringsdirigering](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) är en Windows Server-funktion som stöds med kluster för växling vid fel i Azure Virtual Machines. Den innehåller en programvarubaserad virtuell SAN-server.
 
-**Operativ system som stöds**: Windows Server 2016 och senare   
-**SQL-version som stöds**: SQL Server 2016 och senare   
+**Operativ system som stöds** : Windows Server 2016 och senare   
+**SQL-version som stöds** : SQL Server 2016 och senare   
 
 
 **Funktioner** 
@@ -104,8 +104,8 @@ Information om hur du kommer igång finns [SQL Server kluster instans med Lagrin
 
 [Premium File-resurser](../../../storage/files/storage-how-to-create-premium-fileshare.md) är en funktion i [Azure Files](../../../storage/files/index.yml). Premium-filresurserna är SSD-baserade och har en konsekvent låg latens. De stöds fullt ut för användning med kluster instanser för växling vid fel för SQL Server 2012 eller senare på Windows Server 2012 eller senare. Premium-filresurser ger dig större flexibilitet eftersom du kan ändra storlek och skala en fil resurs utan drift avbrott.
 
-**Operativ system som stöds**: Windows Server 2012 och senare   
-**SQL-version som stöds**: SQL Server 2012 och senare   
+**Operativ system som stöds** : Windows Server 2012 och senare   
+**SQL-version som stöds** : SQL Server 2012 och senare   
 
 **Funktioner** 
 - Endast delad lagrings lösning för virtuella datorer sprids över flera tillgänglighets zoner. 
@@ -122,8 +122,8 @@ Information om hur du kommer igång finns [SQL Server kluster instans för växl
 
 Det finns partner kluster lösningar med stöd för lagring. 
 
-**Operativ system som stöds**: alla   
-**SQL-version som stöds**: alla   
+**Operativ system som stöds** : alla   
+**SQL-version som stöds** : alla   
 
 I ett exempel används SIOS DataKeeper som lagrings plats. Mer information finns i blogg inlägget failover- [kluster och SIOS-DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,14 +131,14 @@ I ett exempel används SIOS DataKeeper som lagrings plats. Mer information finns
 
 Du kan också exponera ett iSCSI-mål delat block lagrings utrymme via Azure ExpressRoute. 
 
-**Operativ system som stöds**: alla   
-**SQL-version som stöds**: alla   
+**Operativ system som stöds** : alla   
+**SQL-version som stöds** : alla   
 
 NetApp Private Storage (NPS) visar till exempel ett iSCSI-mål via ExpressRoute med Equinix till virtuella Azure-datorer.
 
 För delade lösningar för lagring och datareplikering från Microsoft-partners kontaktar du leverantören för eventuella problem som rör åtkomst till data vid redundans.
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 Instanser av kluster för växling vid fel med SQL Server på Azure Virtual Machines använda ett [distribuerat nätverks namn (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) eller ett [virtuellt nätverks namn (VNN) med Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) för att dirigera trafik till SQL Server-instansen, oavsett vilken nod som för närvarande äger de klustrade resurserna. Det finns ytterligare överväganden när du använder vissa funktioner och DNN med en SQL Server-FCI. Mer information finns i [DNN-interoperabilitet med SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) . 
 
@@ -155,7 +155,7 @@ Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets
 
 ### <a name="msdtc"></a>MSDTC 
 
-Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och [Azure standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) eller på SQL Server virtuella datorer som använder Azure delade diskar. 
+Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på klusterdelade volymer (CSV) och [Azure standard Load Balancer](../../../load-balancer/load-balancer-overview.md) eller på SQL Server virtuella datorer som använder Azure delade diskar. 
 
 I Azure Virtual Machines stöds inte MSDTC för Windows Server 2016 eller tidigare med klustrade delade volymer på grund av följande:
 
@@ -171,4 +171,3 @@ Mer information finns i:
 
 - [Windows kluster tekniker](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server instanser av redundanskluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-

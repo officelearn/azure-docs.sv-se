@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c62534acdbfbff7fd4e718bad1f07a92c641626
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448143"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792403"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Lägg till Key Vault i ditt webb program med hjälp av Visual Studio Connected Services
 
@@ -24,7 +24,7 @@ Mer information om de ändringar som anslutna tjänster gör i projektet för at
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- **En Azure-prenumeration**. Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
+- **En Azure-prenumeration** . Om du inte har någon prenumeration kan du registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2019 version 16,3** eller senare [Ladda ned den nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 
@@ -32,13 +32,13 @@ Mer information om de ändringar som anslutna tjänster gör i projektet för at
 
 Innan du börjar ska du kontrol lera att du är inloggad i Visual Studio. Logga in med samma konto som du använder för din Azure-prenumeration. Öppna sedan en ASP.NET 4.7.1 eller senare eller ASP.NET Core 2,0-webbprojektet och utför följande steg:
 
-1. I **Solution Explorer**högerklickar du på det projekt som du vill lägga till Key Vault support till och väljer **Lägg till**  >  **ansluten tjänst**  >  **Lägg**till.
+1. I **Solution Explorer** högerklickar du på det projekt som du vill lägga till Key Vault support till och väljer **Lägg till**  >  **ansluten tjänst**  >  **Lägg** till.
    Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
-1. I menyn med tillgängliga tjänster väljer du **Azure Key Vault** och klickar på **Nästa**.
+1. I menyn med tillgängliga tjänster väljer du **Azure Key Vault** och klickar på **Nästa** .
 
    ![Välj "Azure Key Vault"](../media/vs-key-vault-add-connected-service/key-vault-connected-service.png)
 
-1. Välj den prenumeration som du vill använda och välj sedan en befintlig Key Vault och klicka på **Slutför**. 
+1. Välj den prenumeration som du vill använda och välj sedan en befintlig Key Vault och klicka på **Slutför** . 
 
    ![Välj din prenumeration](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
@@ -115,7 +115,7 @@ Du kan konfigurera konfigurationen så att web.config-filen har ett dummy-värde
          <add key="<secretNameInYourKeyVault>" value="dummy"/>
         ```
 
-1. Redigera `About` metoden i *HomeController.cs*för att visa värdet för bekräftelse.
+1. Redigera `About` metoden i *HomeController.cs* för att visa värdet för bekräftelse.
 
    ```csharp
    public ActionResult About()
@@ -131,12 +131,12 @@ Om din Key Vault körs på en annan Microsoft-konto än den som du är inloggad 
 
 1. Gå till [Azure Portal](https://portal.azure.com) och öppna din Key Vault.
 
-1. Välj **åtkomst principer**, **Lägg till åtkomst princip**och välj det konto som du är inloggad på som huvud konto.
+1. Välj **åtkomst principer** , **Lägg till åtkomst princip** och välj det konto som du är inloggad på som huvud konto.
 
-1. I Visual Studio väljer du **fil**  >  **konto inställningar**.
+1. I Visual Studio väljer du **fil**  >  **konto inställningar** .
 Välj **Lägg till ett konto** från avsnittet **alla konton** . Logga in med det konto som du har valt som huvud konto för din åtkomst princip.
 
-1. Välj **verktyg**  >  **alternativ**och leta efter **Azure-tjänsteautentisering**. Välj sedan det konto som du precis har lagt till i Visual Studio.
+1. Välj **verktyg**  >  **alternativ** och leta efter **Azure-tjänsteautentisering** . Välj sedan det konto som du precis har lagt till i Visual Studio.
 
 När du nu felsöker ditt program ansluter Visual Studio till det konto som Key Vault finns på.
 
@@ -204,6 +204,6 @@ Påverkar projekt filens .NET-referenser och `packages.config` (NuGet-referenser
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har följt den här självstudien konfigureras Key Vault behörigheter för att köras med din egen Azure-prenumeration, men det kanske inte är önskvärt för ett produktions scenario. Du kan skapa en hanterad identitet för att hantera Key Vault åtkomst för din app. Se [hur du autentiserar till Key Vault](/azure/key-vault/general/authentication) och [tilldelar en Key Vault åtkomst princip](/azure/key-vault/general/assign-access-policy-portal).
+Om du har följt den här självstudien konfigureras Key Vault behörigheter för att köras med din egen Azure-prenumeration, men det kanske inte är önskvärt för ett produktions scenario. Du kan skapa en hanterad identitet för att hantera Key Vault åtkomst för din app. Se [hur du autentiserar till Key Vault](./authentication.md) och [tilldelar en Key Vault åtkomst princip](./assign-access-policy-portal.md).
 
 Läs mer om hur du Key Vault utveckling genom att läsa [Key Vault Developer ' s guide](developers-guide.md).

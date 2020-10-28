@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165272"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792522"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Skapa en FCI med Lagringsdirigering (SQL Server på virtuella Azure-datorer)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Följande diagram visar den kompletta lösningen, som använder konvergerade Lag
 
 Föregående diagram visar följande resurser i samma resurs grupp:
 
-- Två virtuella datorer i ett Windows Server-redundanskluster. När en virtuell dator finns i ett redundanskluster kallas den även för en *klusternod* eller *nod*.
+- Två virtuella datorer i ett Windows Server-redundanskluster. När en virtuell dator finns i ett redundanskluster kallas den även för en *klusternod* eller *nod* .
 - Varje virtuell dator har två eller flera data diskar.
 - Lagringsdirigering synkroniserar data på data diskarna och presenterar den synkroniserade lagringen som en lagringspool.
 - Lagringspoolen visar en klusterdelad volym (CSV) för redundansklustret.
@@ -68,11 +68,11 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
 
    Om du vill installera kluster för växling vid fel från användar gränssnittet gör du följande på båda de virtuella datorerna:
 
-   1. I **Serverhanteraren**väljer du **Hantera**och väljer sedan **Lägg till roller och funktioner**.
-   1. I guiden **Lägg till roller och funktioner** väljer du **Nästa** tills du kommer igång med att **välja funktioner**.
-   1. I **Välj funktioner**väljer du **kluster för växling vid fel**. Ta med alla nödvändiga funktioner och hanterings verktyg. 
-   1. Välj **Lägg till funktioner**.
-   1. Välj **Nästa**och välj sedan **Slutför** för att installera funktionerna.
+   1. I **Serverhanteraren** väljer du **Hantera** och väljer sedan **Lägg till roller och funktioner** .
+   1. I guiden **Lägg till roller och funktioner** väljer du **Nästa** tills du kommer igång med att **välja funktioner** .
+   1. I **Välj funktioner** väljer du **kluster för växling vid fel** . Ta med alla nödvändiga funktioner och hanterings verktyg. 
+   1. Välj **Lägg till funktioner** .
+   1. Välj **Nästa** och välj sedan **Slutför** för att installera funktionerna.
 
    Om du vill installera kluster för växling vid fel med hjälp av PowerShell kör du följande skript från en administratör PowerShell-session på en av de virtuella datorerna:
 
@@ -81,7 +81,7 @@ Innan du slutför instruktionerna i den här artikeln bör du redan ha:
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Mer information om nästa steg finns i anvisningarna i avsnittet "steg 3: Konfigurera Lagringsdirigering" i den [konvergerade lösningen med Lagringsdirigering i Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Mer information om nästa steg finns i anvisningarna i avsnittet "steg 3: Konfigurera Lagringsdirigering" i den [konvergerade lösningen med Lagringsdirigering i Windows Server 2016](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 
 ## <a name="validate-the-cluster"></a>Verifiera klustret
@@ -90,18 +90,18 @@ Verifiera klustret i användar gränssnittet eller med hjälp av PowerShell.
 
 Verifiera klustret med hjälp av användar gränssnittet genom att göra följande på en av de virtuella datorerna:
 
-1. Under **Serverhanteraren**väljer du **verktyg**och väljer sedan **Klusterhanteraren för växling vid fel**.
-1. Under **Klusterhanteraren för växling vid fel**väljer du **åtgärd**och väljer sedan **Verifiera konfiguration**.
-1. Välj **Nästa**.
-1. Under **Välj servrar eller ett kluster**anger du namnen på de båda virtuella datorerna.
-1. Under **test alternativ**väljer **du kör endast test som jag väljer**. 
-1. Välj **Nästa**.
-1. Under **Val av test**väljer du alla tester förutom **lagring**, som du ser här:
+1. Under **Serverhanteraren** väljer du **verktyg** och väljer sedan **Klusterhanteraren för växling vid fel** .
+1. Under **Klusterhanteraren för växling vid fel** väljer du **åtgärd** och väljer sedan **Verifiera konfiguration** .
+1. Välj **Nästa** .
+1. Under **Välj servrar eller ett kluster** anger du namnen på de båda virtuella datorerna.
+1. Under **test alternativ** väljer **du kör endast test som jag väljer** . 
+1. Välj **Nästa** .
+1. Under **Val av test** väljer du alla tester förutom **lagring** , som du ser här:
 
    ![Välj kluster verifierings test](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. Välj **Nästa**.
-1. Under **bekräftelse**väljer du **Nästa**.
+1. Välj **Nästa** .
+1. Under **bekräftelse** väljer du **Nästa** .
 
     Verifierings testen körs i guiden **Verifiera en konfiguration** .
 
@@ -150,9 +150,9 @@ Konfigurera den kvorumresurs som passar dina affärs behov bäst. Du kan konfigu
 
 ## <a name="add-storage"></a>Lägg till lagringsutrymme
 
-Diskarna för Lagringsdirigering måste vara tomma. De får inte innehålla partitioner eller andra data. Om du vill rensa diskarna följer du anvisningarna i [distribuera Lagringsdirigering](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
+Diskarna för Lagringsdirigering måste vara tomma. De får inte innehålla partitioner eller andra data. Om du vill rensa diskarna följer du anvisningarna i [distribuera Lagringsdirigering](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives).
 
-1. [Aktivera Lagringsdirigering](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Aktivera Lagringsdirigering](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Följande PowerShell-skript aktiverar Lagringsdirigering:  
 
@@ -160,9 +160,9 @@ Diskarna för Lagringsdirigering måste vara tomma. De får inte innehålla part
    Enable-ClusterS2D
    ```
 
-   I **Klusterhanteraren för växling vid fel**kan du nu se lagringspoolen.
+   I **Klusterhanteraren för växling vid fel** kan du nu se lagringspoolen.
 
-1. [Skapa en volym](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Skapa en volym](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
    Lagringsdirigering skapar automatiskt en lagringspool när du aktiverar den. Nu är du redo att skapa en volym. PowerShell-cmdleten `New-Volume` automatiserar skapande processen för volymer. Den här processen inkluderar formatering, tillägg av volymen i klustret och skapande av en CSV-fil. I det här exemplet skapas en 800 gigabyte (GB) CSV:
 
@@ -180,7 +180,7 @@ Diskarna för Lagringsdirigering måste vara tomma. De får inte innehålla part
 
 ## <a name="test-cluster-failover"></a>Testa redundanskluster
 
-Testa redundansväxlingen av klustret. I **Klusterhanteraren för växling vid fel**högerklickar du på klustret, väljer **fler åtgärder**  >  **Flytta kärn kluster resurs**  >  **Välj nod**och välj sedan den andra noden i klustret. Flytta kärn kluster resursen till varje nod i klustret och flytta tillbaka den till den primära noden. Om du kan flytta klustret till varje nod är du redo att installera SQL Server.  
+Testa redundansväxlingen av klustret. I **Klusterhanteraren för växling vid fel** högerklickar du på klustret, väljer **fler åtgärder**  >  **Flytta kärn kluster resurs**  >  **Välj nod** och välj sedan den andra noden i klustret. Flytta kärn kluster resursen till varje nod i klustret och flytta tillbaka den till den primära noden. Om du kan flytta klustret till varje nod är du redo att installera SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testa redundanskluster genom att flytta kärn resursen till de andra noderna":::
 
@@ -190,13 +190,13 @@ När du har konfigurerat redundansklustret och alla kluster komponenter, inklusi
 
 1. Anslut till den första virtuella datorn med hjälp av RDP.
 
-1. I **Klusterhanteraren för växling vid fel**kontrollerar du att alla kärn kluster resurser finns på den första virtuella datorn. Om det behövs flyttar du alla resurser till den virtuella datorn.
+1. I **Klusterhanteraren för växling vid fel** kontrollerar du att alla kärn kluster resurser finns på den första virtuella datorn. Om det behövs flyttar du alla resurser till den virtuella datorn.
 
-1. Leta upp installations mediet. Om den virtuella datorn använder en av Azure Marketplace-avbildningarna finns mediet på `C:\SQLServer_<version number>_Full` . Välj **installation**.
+1. Leta upp installations mediet. Om den virtuella datorn använder en av Azure Marketplace-avbildningarna finns mediet på `C:\SQLServer_<version number>_Full` . Välj **installation** .
 
-1. I **SQL Server installations Center**väljer du **installation**.
+1. I **SQL Server installations Center** väljer du **installation** .
 
-1. Välj **ny SQL Server redundanskluster installationen**. Följ anvisningarna i guiden för att installera SQL Server FCI.
+1. Välj **ny SQL Server redundanskluster installationen** . Följ anvisningarna i guiden för att installera SQL Server FCI.
 
    FCI data kataloger måste finnas i klustrad lagring. Med Lagringsdirigering är det inte en delad disk men en monterings punkt för en volym på varje server. Lagringsdirigering synkroniserar volymen mellan båda noderna. Volymen visas för klustret som en KLUSTERDELAD volym. Använd CSV-monterings punkten för data katalogerna.
 
@@ -206,12 +206,12 @@ När du har konfigurerat redundansklustret och alla kluster komponenter, inklusi
 
 1. När installations programmet har installerat FCI på den första noden ansluter du till den andra noden med hjälp av RDP.
 
-1. Öppna **installations Center för SQL Server**. Välj **installation**.
+1. Öppna **installations Center för SQL Server** . Välj **installation** .
 
-1. Välj **Lägg till nod i ett SQL Server redundanskluster**. Följ anvisningarna i guiden för att installera SQL Server och lägga till servern i FCI.
+1. Välj **Lägg till nod i ett SQL Server redundanskluster** . Följ anvisningarna i guiden för att installera SQL Server och lägga till servern i FCI.
 
    >[!NOTE]
-   >Om du använde en Azure Marketplace-Galleri avbildning som innehåller SQL Server, inkluderades SQL Server verktyg med avbildningen. Om du inte använde någon av dessa avbildningar installerar du SQL Server verktyg separat. Mer information finns i [Ladda ned SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Om du använde en Azure Marketplace-Galleri avbildning som innehåller SQL Server, inkluderades SQL Server verktyg med avbildningen. Om du inte använde någon av dessa avbildningar installerar du SQL Server verktyg separat. Mer information finns i [Ladda ned SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 
@@ -237,7 +237,7 @@ Om du vill dirigera trafiken korrekt till den aktuella primära noden konfigurer
 
 ## <a name="limitations"></a>Begränsningar
 
-- Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på CSV: er och en [standard belastningsutjämnare](../../../load-balancer/load-balancer-standard-overview.md).
+- Azure Virtual Machines stöder Microsoft koordinator för distribuerad transaktion (MSDTC) på Windows Server 2019 med lagring på CSV: er och en [standard belastningsutjämnare](../../../load-balancer/load-balancer-overview.md).
 - Diskar som har bifogats som NTFS-formaterade diskar kan bara användas med Lagringsdirigering om alternativet för disk behörighet är omarkerat eller avmarkerat när lagring läggs till i klustret. 
 - Det finns bara stöd för registrering med den virtuella SQL-resurs leverantören i [läget för förenklad hantering](sql-vm-resource-provider-register.md#management-modes) .
 

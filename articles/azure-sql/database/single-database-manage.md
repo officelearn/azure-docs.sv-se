@@ -4,25 +4,25 @@ description: Lär dig mer om att skapa och hantera servrar och enkla databaser i
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 43e28774625db0217dde1227bad160ba87750c8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c487b5bc5c8d5fa01388b2942a70defa0001253
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85255005"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791536"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Skapa och hantera servrar och enkla databaser i Azure SQL Database
 
 Du kan skapa och hantera servrar och enkla databaser i Azure SQL Database med hjälp av Azure Portal, PowerShell, Azure CLI, REST API och Transact-SQL.
 
-## <a name="the-azure-portal"></a>Azure Portal
+## <a name="the-azure-portal"></a>Azure-portalen
 
 Du kan skapa resurs gruppen för Azure SQL Database i förväg eller när du skapar själva servern.
 
@@ -58,7 +58,7 @@ Om du vill hantera en befintlig databas går du till sidan **SQL-databaser** och
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 Använd följande PowerShell-cmdletar om du vill skapa och hantera servrar, enkla databaser och-brand väggar på server nivå med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell, se [installera Azure PowerShell modul](/powershell/azure/install-az-ps).
 
@@ -74,7 +74,7 @@ Använd följande PowerShell-cmdletar om du vill skapa och hantera servrar, enkl
 |[New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)|Skapar en resurs grupp|
 |[New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)|Skapar en server|
 |[Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver)|Returnerar information om servrar|
-|[Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver)|Ändrar egenskaper för en server|
+|[Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver)|Ändrar egenskaper för en server|
 |[Remove-AzSqlServer](/powershell/module/az.sql/remove-azsqlserver)|Tar bort en server|
 |[New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule)|Skapar en brand Väggs regel på server nivå |
 |[Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule)|Hämtar brand Väggs regler för en server|
@@ -84,7 +84,7 @@ Använd följande PowerShell-cmdletar om du vill skapa och hantera servrar, enkl
 
 ## <a name="the-azure-cli"></a>Azure CLI
 
-Använd följande [Azure CLI](/cli/azure/sql/db) -kommandon om du vill skapa och hantera servrar, databaser och brand väggar med [Azure CLI](/cli/azure). Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
+Använd följande [Azure CLI](/cli/azure/sql/db) -kommandon om du vill skapa och hantera servrar, databaser och brand väggar med [Azure CLI](/cli/azure). Använd [Cloud Shell](../../cloud-shell/overview.md) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Information om hur du skapar och hanterar elastiska pooler finns i [elastiska pooler](elastic-pool-overview.md).
 
 > [!TIP]
 > En snabb start för Azure CLI finns i [skapa en enda Azure SQL Database med hjälp av Azure CLI](az-cli-script-samples-content-guide.md). För Azure CLI-exempel skript, se [Använd CLI för att skapa en databas i Azure SQL Database och konfigurera en SQL Database brand Väggs regel](scripts/create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en databas i Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
@@ -144,22 +144,22 @@ Använd dessa REST API begär Anden för att skapa och hantera servrar, database
 
 | Kommando | Beskrivning |
 | --- | --- |
-|[Servrar-skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Skapar eller uppdaterar en ny server.|
-|[Servrar-ta bort](https://docs.microsoft.com/rest/api/sql/servers/delete)|Tar bort en SQL-Server.|
-|[Servrar-Hämta](https://docs.microsoft.com/rest/api/sql/servers/get)|Hämtar en server.|
-|[Servrar-lista](https://docs.microsoft.com/rest/api/sql/servers/list)|Returnerar en lista med servrar i en prenumeration.|
-|[Servrar – lista efter resurs grupp](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Returnerar en lista med servrar i en resurs grupp.|
-|[Servrar-uppdatera](https://docs.microsoft.com/rest/api/sql/servers/update)|Uppdaterar en befintlig server.|
-|[Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
-|[Databaser-ta bort](https://docs.microsoft.com/rest/api/sql/databases/delete)|Tar bort en databas.|
-|[Databaser – Hämta](https://docs.microsoft.com/rest/api/sql/databases/get)|Hämtar en databas.|
-|[Databaser – lista med elastisk pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista med databaser i en elastisk pool.|
-|[Databaser – lista efter server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returnerar en lista med databaser på en server.|
-|[Databaser – uppdatera](https://docs.microsoft.com/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
-|[Brand Väggs regler – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Skapar eller uppdaterar en brand Väggs regel.|
-|[Brand Väggs regler – ta bort](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Tar bort en brand Väggs regel.|
-|[Brand Väggs regler – Hämta](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Hämtar en brand Väggs regel.|
-|[Brand Väggs regler – lista efter server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Returnerar en lista med brand Väggs regler.|
+|[Servrar-skapa eller uppdatera](/rest/api/sql/servers/createorupdate)|Skapar eller uppdaterar en ny server.|
+|[Servrar-ta bort](/rest/api/sql/servers/delete)|Tar bort en SQL-Server.|
+|[Servrar-Hämta](/rest/api/sql/servers/get)|Hämtar en server.|
+|[Servrar-lista](/rest/api/sql/servers/list)|Returnerar en lista med servrar i en prenumeration.|
+|[Servrar – lista efter resurs grupp](/rest/api/sql/servers/listbyresourcegroup)|Returnerar en lista med servrar i en resurs grupp.|
+|[Servrar-uppdatera](/rest/api/sql/servers/update)|Uppdaterar en befintlig server.|
+|[Databaser – skapa eller uppdatera](/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
+|[Databaser-ta bort](/rest/api/sql/databases/delete)|Tar bort en databas.|
+|[Databaser – Hämta](/rest/api/sql/databases/get)|Hämtar en databas.|
+|[Databaser – lista med elastisk pool](/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista med databaser i en elastisk pool.|
+|[Databaser – lista efter server](/rest/api/sql/databases/listbyserver)|Returnerar en lista med databaser på en server.|
+|[Databaser – uppdatera](/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
+|[Brand Väggs regler – skapa eller uppdatera](/rest/api/sql/firewallrules/createorupdate)|Skapar eller uppdaterar en brand Väggs regel.|
+|[Brand Väggs regler – ta bort](/rest/api/sql/firewallrules/delete)|Tar bort en brand Väggs regel.|
+|[Brand Väggs regler – Hämta](/rest/api/sql/firewallrules/get)|Hämtar en brand Väggs regel.|
+|[Brand Väggs regler – lista efter server](/rest/api/sql/firewallrules/listbyserver)|Returnerar en lista med brand Väggs regler.|
 
 ## <a name="next-steps"></a>Nästa steg
 

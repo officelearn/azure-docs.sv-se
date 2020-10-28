@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443084"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792097"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Fråga över moln databaser med olika scheman (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,10 +36,10 @@ Lodrätt partitionerade databaser använder olika uppsättningar tabeller i olik
 > Till skillnad från vågrät partitionering, är dessa DDL-instruktioner inte beroende av att definiera en data nivå med en Shard-karta via klient biblioteket för Elastic Database.
 >
 
-1. [SKAPA HUVUD NYCKEL](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [SKAPA DATABASENS BEGRÄNSADE AUTENTISERINGSUPPGIFTER](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [SKAPA EXTERN DATA KÄLLA](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [SKAPA EXTERN TABELL](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [SKAPA HUVUD NYCKEL](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [SKAPA DATABASENS BEGRÄNSADE AUTENTISERINGSUPPGIFTER](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [SKAPA EXTERN DATA KÄLLA](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [SKAPA EXTERN TABELL](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Skapa databasens begränsade huvud nyckel och autentiseringsuppgifter
 
@@ -63,7 +63,7 @@ Syntax:
     CREDENTIAL = <credential_name>) [;]
 
 > [!IMPORTANT]
-> TYP parametern måste anges som **RDBMS**.
+> TYP parametern måste anges som **RDBMS** .
 
 ### <a name="example"></a>Exempel
 
@@ -120,8 +120,8 @@ select * from sys.external_tables;
 
 Elastisk fråga utökar den befintliga syntaxen för den externa tabellen för att definiera externa tabeller som använder externa data källor av typen RDBMS. En extern tabell definition för vertikal partitionering omfattar följande aspekter:
 
-* **Schema**: DDL: en för den externa tabellen definierar ett schema som dina frågor kan använda. Det schema som anges i den externa tabell definitionen måste matcha schemat för tabellerna i fjärrdatabasen där faktiska data lagras.
-* **Fjärran sluten databas referens**: det externa tabell-DDL: en refererar till en extern data källa. Den externa data källan anger Server namnet och databas namnet för fjärrdatabasen där de faktiska tabell data lagras.
+* **Schema** : DDL: en för den externa tabellen definierar ett schema som dina frågor kan använda. Det schema som anges i den externa tabell definitionen måste matcha schemat för tabellerna i fjärrdatabasen där faktiska data lagras.
+* **Fjärran sluten databas referens** : det externa tabell-DDL: en refererar till en extern data källa. Den externa data källan anger Server namnet och databas namnet för fjärrdatabasen där de faktiska tabell data lagras.
 
 Med hjälp av en extern data källa som beskrivs i föregående avsnitt är syntaxen för att skapa externa tabeller följande:
 
@@ -135,7 +135,7 @@ Följande DDL-instruktion släpper en befintlig extern tabell definition från d
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Behörigheter för att skapa/släppa extern tabell**: ändra behörigheter för externa data källor krävs för extern tabell-DDL, vilket också krävs för att referera till den underliggande data källan.  
+**Behörigheter för att skapa/släppa extern tabell** : ändra behörigheter för externa data källor krävs för extern tabell-DDL, vilket också krävs för att referera till den underliggande data källan.  
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 
@@ -163,7 +163,7 @@ Följande fråga utför en tre vägs koppling mellan de två lokala tabellerna f
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Lagrad procedur för fjärran sluten T-SQL-körning: SP \_ execute_remote
 
-Elastiska frågor introducerar också en lagrad procedur som ger direkt åtkomst till fjärrdatabasen. Den lagrade proceduren heter [SP \_ execute \_ Remote](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra fjärrlagrade procedurer eller T-SQL-kod i fjärrdatabasen. Det tar följande parametrar:
+Elastiska frågor introducerar också en lagrad procedur som ger direkt åtkomst till fjärrdatabasen. Den lagrade proceduren heter [SP \_ execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) och kan användas för att köra fjärrlagrade procedurer eller T-SQL-kod i fjärrdatabasen. Det tar följande parametrar:
 
 * Data källans namn (nvarchar): namnet på den externa data källan av typen RDBMS.
 * Fråga (nvarchar): T-SQL-frågan som ska köras på fjärrdatabasen.
@@ -195,7 +195,7 @@ Du kan använda vanliga SQL Server anslutnings strängar för att ansluta dina B
 * En lodrät partitionerings guide finns i [komma igång med kors databas fråga (lodrät partitionering)](elastic-query-getting-started-vertical.md).
 * En självstudie för horisontell partitionering (horisontell partitionering) finns i [komma igång med elastisk fråga för horisontell partitionering (horisontell partitionering)](elastic-query-getting-started.md).
 * För syntax och exempel frågor för vågrätt partitionerade data, se [fråga efter vågrätt partitionerade data)](elastic-query-horizontal-partitioning.md)
-* Se [SP \_ execute \_ Remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
+* Se [SP \_ execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
 
 <!--Image references-->
 [1]: ./media/elastic-query-vertical-partitioning/verticalpartitioning.png

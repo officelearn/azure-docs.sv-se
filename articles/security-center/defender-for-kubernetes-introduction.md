@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370516"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791927"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introduktion till Azure Defender för Kubernetes
 
@@ -20,7 +20,7 @@ Azure Kubernetes service (AKS) är Microsofts hanterade tjänst för utveckling,
 
 Azure Security Center och AKS utgör det bästa molnet Kubernetes säkerhets erbjudande och tillsammans de ger miljö härdning, skydd av arbets belastning och kör tids skydd som beskrivs nedan.
 
-För hot identifiering för dina Kubernetes-kluster aktiverar du **Azure Defender för Kubernetes**.
+För hot identifiering för dina Kubernetes-kluster aktiverar du **Azure Defender för Kubernetes** .
 
 Hot identifiering på värdnivå för dina Linux AKS-noder är tillgängligt om du aktiverar [Azure Defender för servrar](defender-for-servers-introduction.md).
 
@@ -72,7 +72,7 @@ Du kan se att de objekt som har tagits emot och analyseras av Security Center in
 - gransknings loggar från API-servern
 - rå säkerhets händelser från Log Analytics agent
 - kluster konfigurations information från AKS-klustret
-- arbets belastnings konfiguration från Azure Policy (via **Azure policy-tillägget för Kubernetes**). [Lär dig mer om bästa metoder för arbets belastnings skydd med Kubernetes-åtkomstkontroll](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+- arbets belastnings konfiguration från Azure Policy (via **Azure policy-tillägget för Kubernetes** ). [Lär dig mer om bästa metoder för arbets belastnings skydd med Kubernetes-åtkomstkontroll](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 :::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Övergripande arkitektur av interaktionen mellan Azure Security Center, Azure Kubernetes-tjänsten och Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
 
@@ -114,5 +114,5 @@ I den här artikeln har du lärt dig om Security Center Kubernetes Protection, i
 Information om relaterade material finns i följande artiklar: 
 
 - [Aktivera Azure Defender](security-center-pricing.md)
-- [Exportera aviseringar till en Azure Sentinel eller en SIEM från tredje part](continuous-export.md)
+- [Strömma aviseringar till en SIEM, SOAR eller IT Service Management-lösning](export-to-siem.md)
 - [Referens tabell för aviseringar](alerts-reference.md)

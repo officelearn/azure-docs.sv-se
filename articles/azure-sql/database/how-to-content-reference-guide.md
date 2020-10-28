@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: 9b151e566f0cc3e086277c101a796e7dde059ef9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19cec1deeef344ea5897061db0fec88066b90b05
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442572"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791774"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Konfigurera och hantera innehålls referens – Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ I den här artikeln hittar du en innehålls referens för olika guider, skript o
 
 - [Manuell inställning](performance-guidance.md)
 - [Använda DMV:er för att övervaka prestanda](monitoring-with-dmvs.md)
-- [Använda Query Store för att övervaka prestanda](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Använda Query Store för att övervaka prestanda](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Aktivera automatisk justering](automatic-tuning-enable.md) för att låta Azure SQL Database optimera arbets Belastningens prestanda.
 - [Aktivera e-postaviseringar för automatisk justering](automatic-tuning-email-notifications-configure.md) för att få information om justerings rekommendationer.
 - [Använd prestanda rekommendationer](database-advisor-find-recommendations-portal.md) och optimera databasen.
@@ -84,7 +84,7 @@ I den här artikeln hittar du en innehålls referens för olika guider, skript o
 - [SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md)
 - [Datasynkroniseringsagent](sql-data-sync-agent-overview.md)
 - [Replikera schemaändringar](sql-data-sync-update-sync-schema.md)
-- [Övervaka med OMS](sql-data-sync-monitor-sync.md)
+- [Övervaka med OMS](./monitor-tune-overview.md)
 - [Metodtips för Data Sync](sql-data-sync-best-practices.md)
 - [Felsöka Data Sync](sql-data-sync-troubleshoot.md)
 

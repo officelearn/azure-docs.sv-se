@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: fa471c201965096c4a0f022ab1199d4853128319
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272029"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793083"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagringskonfiguration för SQL Server VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,15 +46,15 @@ När du konfigurerar en virtuell Azure-dator med hjälp av en SQL Server Galleri
 
 ![SQL Server VM lagrings konfiguration under etableringen](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Välj den typ av arbets belastning som du distribuerar SQL Server för under **lagrings optimering**. Med alternativet **allmän** optimering får du som standard en datadisk med 5000 högsta IOPS och du kommer att använda samma enhet för dina data, transaktions logg och tempdb-lagring. Om du väljer antingen transaktions **bearbetning** (OLTP) eller **data lager** skapas en separat disk för data, en separat disk för transaktions loggen och Använd lokal SSD för tempdb. Det finns inga lagrings skillnader mellan **transaktions bearbetning** och **data lager**hantering, men det ändrar [stripe-konfigurationen och spårnings flaggor](#workload-optimization-settings). Om du väljer Premium Storage konfigureras cachelagringen till *ReadOnly* för data enheten, och *ingen* för logg enheten enligt [SQL Server VM bästa metoder för prestanda](performance-guidelines-best-practices.md). 
+Välj den typ av arbets belastning som du distribuerar SQL Server för under **lagrings optimering** . Med alternativet **allmän** optimering får du som standard en datadisk med 5000 högsta IOPS och du kommer att använda samma enhet för dina data, transaktions logg och tempdb-lagring. Om du väljer antingen transaktions **bearbetning** (OLTP) eller **data lager** skapas en separat disk för data, en separat disk för transaktions loggen och Använd lokal SSD för tempdb. Det finns inga lagrings skillnader mellan **transaktions bearbetning** och **data lager** hantering, men det ändrar [stripe-konfigurationen och spårnings flaggor](#workload-optimization-settings). Om du väljer Premium Storage konfigureras cachelagringen till *ReadOnly* för data enheten, och *ingen* för logg enheten enligt [SQL Server VM bästa metoder för prestanda](performance-guidelines-best-practices.md). 
 
 ![SQL Server VM lagrings konfiguration under etableringen](./media/storage-configuration/sql-vm-storage-configuration.png)
 
-Disk konfigurationen är helt anpassningsbar så att du kan konfigurera lagrings miljön, disktyp och IOPs som du behöver för din SQL Server VM arbets belastning. Du kan också använda UltraSSD (för hands version) som ett alternativ för **disk typen** om din SQL Server VM finns i någon av de regioner som stöds (USA, östra 2, Sydostasien och Europa) och du har aktiverat [Ultra disks för din prenumeration](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+Disk konfigurationen är helt anpassningsbar så att du kan konfigurera lagrings miljön, disktyp och IOPs som du behöver för din SQL Server VM arbets belastning. Du kan också använda UltraSSD (för hands version) som ett alternativ för **disk typen** om din SQL Server VM finns i någon av de regioner som stöds (USA, östra 2, Sydostasien och Europa) och du har aktiverat [Ultra disks för din prenumeration](../../../virtual-machines/disks-enable-ultra-ssd.md).  
 
-Dessutom kan du ange cachelagring för diskarna. Virtuella Azure-datorer har en teknik för cachelagring på flera nivåer som kallas [BLOB-cache](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) vid användning med [Premium-diskar](/azure/virtual-machines/windows/disks-types#premium-ssd). BLOB-cachen använder en kombination av den virtuella datorns RAM-minne och lokal SSD för cachelagring. 
+Dessutom kan du ange cachelagring för diskarna. Virtuella Azure-datorer har en teknik för cachelagring på flera nivåer som kallas [BLOB-cache](../../../virtual-machines/premium-storage-performance.md#disk-caching) vid användning med [Premium-diskar](../../../virtual-machines/disks-types.md#premium-ssd). BLOB-cachen använder en kombination av den virtuella datorns RAM-minne och lokal SSD för cachelagring. 
 
-Diskcachelagring för Premium SSD kan vara *ReadOnly*, *readwrite* eller *none*. 
+Diskcachelagring för Premium SSD kan vara *ReadOnly* , *readwrite* eller *none* . 
 
 - *ReadOnly* -cachelagring är mycket bra för SQL Server datafiler som lagras på Premium Storage. *ReadOnly* -cachelagring ger låg Läs latens, hög Läs-IOPS och data flöde eftersom läsningar utförs från cache, som är inom det virtuella dator minnet och lokal SSD. Dessa läsningar är mycket snabbare än läsningar från datadisk, som är från Azure Blob Storage. Premium Storage räknar inte vilka läsningar som hanteras från cachen mot disken IOPS och data flödet. Därför kan din lämplighet uppnå högre total IOPS och data flöde. 
 - *Ingen* cache-konfiguration ska användas för diskarna som är värd för SQL Server logg filen eftersom logg filen skrivs sekventiellt och inte drar nytta av *ReadOnly* -cachelagring. 
@@ -94,14 +94,14 @@ Du kan använda följande snabb starts mall för att distribuera en SQL Server V
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-För befintliga SQL Server virtuella datorer kan du ändra vissa lagrings inställningar i Azure Portal. Öppna din [resurs för virtuella SQL-datorer](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)och välj **Översikt**. På sidan SQL Server översikt visas den aktuella lagrings användningen för den virtuella datorn. Alla enheter som finns på den virtuella datorn visas i det här diagrammet. För varje enhet visas lagrings utrymmet i fyra delar:
+För befintliga SQL Server virtuella datorer kan du ändra vissa lagrings inställningar i Azure Portal. Öppna din [resurs för virtuella SQL-datorer](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource)och välj **Översikt** . På sidan SQL Server översikt visas den aktuella lagrings användningen för den virtuella datorn. Alla enheter som finns på den virtuella datorn visas i det här diagrammet. För varje enhet visas lagrings utrymmet i fyra delar:
 
 * SQL-data
 * SQL-logg
 * Annat (icke-SQL-lagring)
 * Tillgänglig
 
-Om du vill ändra lagrings inställningarna väljer du **Konfigurera** under **Inställningar**. 
+Om du vill ändra lagrings inställningarna väljer du **Konfigurera** under **Inställningar** . 
 
 ![Konfigurera lagring för befintliga SQL Server VM](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 

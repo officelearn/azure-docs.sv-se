@@ -10,16 +10,21 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: faf66b9a261fd4e8f63779b3d254de4c44d1d731
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8406ee5647d02cc917a0fdb1daf2355611bb781d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92513910"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792216"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Netsuite för automatisk användar etablering
 
 Syftet med den här självstudien är att visa de steg du behöver utföra i Netsuite-OneWorld och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till Netsuite.
+
+> [!NOTE]
+> Den här integrationen autentiseras för närvarande med grundläggande autentisering (användar namn och lösen ord). NetSuite har implementerat ett krav för Multi-Factor Authentication som hindrar kunder från att använda denna integrering, om de inte har ett undantag från detta krav. Vi arbetar med Netsuite för att uppdatera den här integrationen till en nyare autentiseringsmetod så att kunder utan undantag kan använda den igen. Vi kommer att uppdatera det här dokumentet med en ETA när det är tillgängligt.
+
+Rekommenderad åtgärd: vänta tills vi släpper en uppdatering av autentiserings beteendet för den här integreringen eller når ut till Netsuite-stöd för att fråga om ett undantag för Multi-Factor Authentication-kravet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -28,7 +33,7 @@ Det scenario som beskrivs i självstudien förutsätter att du redan har följan
 *   En Azure Active Directory-klient.
 *   En Netsuite OneWorld-prenumeration. Observera att automatisk användar etablering bara stöds med Netsuite-OneWorld.
 *   Ett användar konto i Netsuite med administratörs behörighet.
-*   För integrering med Azure AD krävs ett 2FA undantag. Kontakta support teamet för Netsuite för detta undantag.
+*   För integrering med Azure AD krävs ett 2FA undantag. Kontakta NetSuites support team för att begära detta undantag.
 
 ## <a name="assigning-users-to-netsuite-oneworld"></a>Tilldela användare till Netsuite-OneWorld
 
@@ -61,7 +66,7 @@ Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar 
 
 1. Välj din instans av Netsuite och välj fliken **etablering** .
 
-1. Ange **Etableringsläge** som **Automatiskt**. 
+1. Ange **Etableringsläge** som **Automatiskt** . 
 
     ![Skärm bild som visar Netsuite-etablerings sidan med etablerings läget inställt på automatiskt och andra värden som du kan ange.](./media/netsuite-provisioning-tutorial/provisioning.png)
 

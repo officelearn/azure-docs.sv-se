@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperfq2
-ms.openlocfilehash: fcf06c280a93489b2e958b9baff2e132da37c005
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 81a735966b2a0ebdd7c8fcd9e9aa467d68aac354
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426455"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792760"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -111,11 +111,12 @@ Det finns fyra aspekter att tänka på vid utgående proxy:
 
 Tillåt åtkomst till följande webbadresser:
 
-| URL | Hur den används |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Kommunikation mellan anslutningsprogrammet och molntjänsten för programproxy |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | Anslutnings tjänsten använder dessa URL: er för att verifiera certifikat. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.net <br> *. msauthimages.net<br>*. msecnd.net <br> *. msftauth.net<br>*. msftauthimages.net <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
+| URL | Port |  Hur den används |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Kommunikation mellan anslutningsprogrammet och molntjänsten för programproxy |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | Anslutnings tjänsten använder dessa URL: er för att verifiera certifikat. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;. microsoftonline-p.com<br>&ast;. msauth.net<br>&ast;. msauthimages.net<br>&ast;. msecnd.net<br>&ast;. msftauth.net<br>&ast;. msftauthimages.net<br>&ast;. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
+| ctldl.windowsupdate.com | 80/HTTP | Anslutningen använder denna URL under registrerings processen. |
 
 Om din brand vägg eller proxy låter dig konfigurera listor över tillåtna DNS-listor kan du tillåta anslutningar till \* . msappproxy.net och \* . ServiceBus.Windows.net.
 
@@ -178,7 +179,7 @@ Utför följande steg för inledande fel sökning:
    ![Azure AD-programproxy Connector-tjänsten i Services. msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
 1. Kör Message Analyzer som administratör.
-1. Välj **Starta lokal spårning**.
+1. Välj **Starta lokal spårning** .
 1. Starta tjänsten Azure AD-programproxy Connector.
 1. Stoppa nätverks avbildningen.
 
@@ -188,7 +189,7 @@ Utför följande steg för inledande fel sökning:
 
 Om du har konfigurerat din Application Proxy-anslutning för att kringgå proxyservrarna och ansluta direkt till Application Proxy-tjänsten, vill du söka i nätverks avbildningen efter misslyckade TCP-anslutnings försök.
 
-Använd Message Analyzer-filtret för att identifiera de här försöken. Ange `property.TCPSynRetransmit` i rutan Filter och välj **Använd**.
+Använd Message Analyzer-filtret för att identifiera de här försöken. Ange `property.TCPSynRetransmit` i rutan Filter och välj **Använd** .
 
 Ett SYN paket är det första paket som skickas för att upprätta en TCP-anslutning. Om det här paketet inte returnerar ett svar görs ett nytt försök med tillståndet. Du kan använda föregående filter för att se alla SYNs som har skickats om. Sedan kan du kontrol lera om dessa SYNs motsvarar den kopplings-relaterade trafiken.
 

@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c54da3621df1e5d49e7269781e6ae33fc9c0923
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675667"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791961"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Använda Azure.Search.Documents i ett C# .NET-program
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du skapar och hanterar Sök objekt med C# och [*
 
 ## <a name="about-version-11"></a>Om version 11
 
-Azure SDK för .NET lägger till ett nytt klient bibliotek från Azure SDK-teamet som fungerar som likvärdigt med [Microsoft. Azure. Sök efter](/dotnet/api/overview/azure/search/client10) klient bibliotek, men använder gemensamma metoder och konventioner där det är tillämpligt. Några exempel är [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) autentisering av nycklar och [System.Text.Jspå. Serialisering](/dotnet/api/system.text.json.serialization) för JSON-serialisering.
+Azure SDK för .NET lägger till ett nytt klient bibliotek för [**Azure.Search.Documents**](/dotnet/api/overview/azure/search) från Azure SDK-teamet som fungerar som likvärdigt med [Microsoft. Azure. Sök efter](/dotnet/api/overview/azure/search/client10) klient bibliotek, men använder gemensamma metoder och konventioner där det är tillämpligt. Några exempel är [`AzureKeyCredential`](/dotnet/api/azure.azurekeycredential) autentisering av nycklar och [System.Text.Jspå. Serialisering](/dotnet/api/system.text.json.serialization) för JSON-serialisering.
 
 Precis som med tidigare versioner kan du använda det här biblioteket för att:
 

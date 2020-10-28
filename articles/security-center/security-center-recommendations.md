@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: f3fb31dc7db4808db83f33abdf14179265d147f9
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c0952e0f267f9c2511a2e80fa7106958d8dd0ee5
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425191"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791893"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Säkerhetsrekommendationer i Azure Security Center 
 I det här avsnittet beskrivs hur du visar och förstår rekommendationerna i Azure Security Center som hjälper dig att skydda dina Azure-resurser.
@@ -77,8 +77,8 @@ Ett exempel på en förhands gransknings rekommendation:
 
 I det här dokumentet har du lanserat säkerhets rekommendationer i Security Center. För relaterad information:
 
-- [Åtgärda rekommendationer](security-center-remediate-recommendations.md) – lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper.
+- [Åtgärda rekommendationer](security-center-remediate-recommendations.md)– lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper.
 - [Förhindra felaktig konfiguration med tvinga/neka-rekommendationer](prevent-misconfigurations.md).
-- [Automatisera svar på rekommendationer](workflow-automation.md)
+- [Automatisera svar på Security Center-utlösare](workflow-automation.md)– automatisera svar på rekommendationer
 - [Undanta en resurs från en rekommendation](exempt-resource.md)
 - [Säkerhetsrekommendationer – en referensguide](recommendations-reference.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 67d1979ccbfbffc17ba450600e605a96911c8331
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35738db5b7bd4a1ac7aaf94e2dc5f1d26a075cdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056347"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791842"
 ---
 # <a name="repairing-an-export-job"></a>Reparera ett exportjobb
 När ett export jobb har slutförts kan du köra Microsoft Azure Import/Export-verktyget lokalt för att:  
@@ -24,11 +24,11 @@ När ett export jobb har slutförts kan du köra Microsoft Azure Import/Export-v
   
 Du måste ha anslutning till Azure Storage för att kunna använda den här funktionen.  
   
-Kommandot för att reparera ett import jobb är **RepairExport**.
+Kommandot för att reparera ett import jobb är **RepairExport** .
 
 ## <a name="repairexport-parameters"></a>RepairExport-parametrar
 
-Följande parametrar kan anges med **RepairExport**:  
+Följande parametrar kan anges med **RepairExport** :  
   
 |Parameter|Beskrivning|  
 |---------------|-----------------|  
@@ -81,7 +81,7 @@ Kopierings logg filen indikerar att ett fel uppstod när tjänsten Windows Azure
 ## <a name="using-repairexport-to-validate-drive-contents"></a>Verifiera enhets innehåll med hjälp av RepairExport  
 Du kan också använda Azure import/export med alternativet **RepairExport** för att kontrol lera att innehållet på enheten är korrekt. Manifest filen på varje export enhet innehåller MD5s för innehållet i enheten.  
   
-Azure import/export-tjänsten kan också spara manifest filerna till ett lagrings konto under export processen. Platsen för manifest filen är tillgänglig via åtgärden [Hämta jobb](/rest/api/storageimportexport/jobs) när jobbet har slutförts. För ytterligare information om formatet för en enhets manifest fil, se [import/export-tjänstens manifest fil format](storage-import-export-file-format-metadata-and-properties.md).  
+Azure import/export-tjänsten kan också spara manifest filerna till ett lagrings konto under export processen. Platsen för manifest filen är tillgänglig via åtgärden [Hämta jobb](/rest/api/storageimportexport/jobs) när jobbet har slutförts. För ytterligare information om formatet för en enhets manifest fil, se [import/export-tjänstens manifest fil format](/previous-versions/azure/storage/common/storage-import-export-file-format-metadata-and-properties).  
   
 I följande exempel visas hur du kör Azure import/export-verktyget med parametrarna **/ManifestFile** och **/CopyLogFile** :  
   
@@ -153,6 +153,6 @@ Alla komponenter som inte verifierar kommer att laddas ned av verktyget och skri
 ## <a name="next-steps"></a>Nästa steg
  
 * [Konfigurera verktyget Azure import/export](storage-import-export-tool-setup-v1.md)   
-* [Förbereda hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [Förbereda hårddiskar för ett importjobb](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import-v1)   
 * [Granska jobbstatus med kopiera loggfiler](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparera ett importjobb](storage-import-export-tool-repairing-an-import-job-v1.md)

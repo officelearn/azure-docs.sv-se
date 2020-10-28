@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103007"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793185"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänstnivåer i en DTU-baserad inköpsmodell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,7 +42,7 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 |**Processor**|Låg|Låg, medel, hög|Medel, hög|
 |**IOPS (ungefärlig)**\* |1-4 IOPS per DTU| 1-4 IOPS per DTU | 25 IOPS per DTU|
 |**I/o-latens (ungefärligt)**|5 ms (läsning), 10 ms (Skriv)|5 ms (läsning), 10 ms (Skriv)|2 ms (Läs/skriv)|
-|**Columnstore-indexering** |Saknas|S3 och högre|Stöds|
+|**Columnstore-indexering** |E.t.|S3 och högre|Stöds|
 |**Minnesintern OLTP**|Saknas|Saknas|Stöds|
 
 \* Alla Läs-och skriv-IOPS mot datafiler, inklusive Background IO (Checkpoint och Lazy Writer)
@@ -54,7 +54,7 @@ Att välja en tjänst nivå beror främst på verksamhets kontinuitet, lagring o
 >
 
 > [!TIP]
-> Om du vill se faktiska [resurs styrnings](resource-limits-logical-server.md#resource-governance) gränser för en databas eller elastisk pool, frågar du vyn [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) .
+> Om du vill se faktiska [resurs styrnings](resource-limits-logical-server.md#resource-governance) gränser för en databas eller elastisk pool, frågar du vyn [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) .
 
 > [!NOTE]
 > Du kan få en kostnads fri databas i Azure SQL Database på tjänst nivån Basic tillsammans med ett kostnads fritt Azure-konto för att utforska Azure. Mer information finns i [skapa en hanterad moln databas med ditt kostnads fria Azure-konto](https://azure.microsoft.com/free/services/sql-database/).
@@ -73,7 +73,7 @@ Beräknings storlekar uttrycks i databas transaktions enheter (DTU: er) för ens
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Gränser för eDTU-, lagrings-och databas i elastisk pool
 
-|| **Basic** | **Standard** | **Premium** |
+|| **Basic** | **Standard** | **Denaturering** |
 | :-- | --: | --: | --: |
 | **Maximal lagrings storlek per databas**  | 2 GB | 1 TB | 1 TB |
 | **Maximal lagrings storlek per pool** | 156 GB | 4 TB | 4 TB |

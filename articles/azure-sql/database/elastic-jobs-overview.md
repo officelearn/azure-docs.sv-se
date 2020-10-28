@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409601"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792182"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Skapa, konfigurera och hantera elastiska jobb (för hands version)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,20 +50,20 @@ Jobbet använder [databasbegränsade autentiseringsuppgifter](/sql/t-sql/stateme
 
 Att konfigurera rätt autentiseringsuppgifter för att köra ett jobb kan vara något förvirrande, så tänk på följande punkter:
 
-- Autentiseringsuppgifterna för databasens omfång måste skapas i *jobb databasen*.
-- **Alla mål databaser måste ha en inloggning med [tillräckliga behörigheter](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) för att jobbet ska kunna slutföras** ( `jobuser` i diagrammet nedan).
+- Autentiseringsuppgifterna för databasens omfång måste skapas i *jobb databasen* .
+- **Alla mål databaser måste ha en inloggning med [tillräckliga behörigheter](/sql/relational-databases/security/permissions-database-engine) för att jobbet ska kunna slutföras** ( `jobuser` i diagrammet nedan).
 - Autentiseringsuppgifter kan återanvändas mellan jobb och lösen ord för autentiseringsuppgifter krypteras och skyddas från användare som har skrivskyddad åtkomst till jobb objekt.
 
-Följande bild är utformad för att underlätta förståelse och konfiguration av rätt autentiseringsuppgifter för jobb. **Kom ihåg att skapa användaren i varje databas (alla *målanvändardatabaser*) som jobbet behöver köras mot**.
+Följande bild är utformad för att underlätta förståelse och konfiguration av rätt autentiseringsuppgifter för jobb. **Kom ihåg att skapa användaren i varje databas (alla *målanvändardatabaser* ) som jobbet behöver köras mot** .
 
 ![Autentiseringsuppgifter för elastiska jobb](./media/elastic-jobs-overview/job-credentials.png)
 
-## <a name="security-best-practices"></a>Rekommenderade säkerhetsmetoder
+## <a name="security-best-practices"></a>Metodtips för säkerhet
 
 Några metodtips för att arbeta med elastiska jobb:
 
 - Begränsa användningen av API:er till betrodda personer.
-- Autentiseringsuppgifter ska ha minsta möjliga behörigheter som krävs för att utföra jobbsteget. Mer information finns i [auktorisering och behörigheter](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- Autentiseringsuppgifter ska ha minsta möjliga behörigheter som krävs för att utföra jobbsteget. Mer information finns i [auktorisering och behörigheter](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
 - När du använder en mål grupps medlem för Server och/eller pool, rekommenderar vi starkt att du skapar en separat autentiseringsuppgift med behörighet på huvud databasen för att Visa/lista databaser som används för att expandera databas listor för-servrar och/eller pooler innan jobb körningen.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Agentprestanda, kapacitet och begränsningar

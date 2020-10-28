@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 09498587ad65a8de0935a3a4455bb3b66ed6c3ec
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a0efc6f6f6d4ae6355fbb42fbc7e13ad7c078cf3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491265"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792896"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Lösningar för periodisk dataöverföring
  
@@ -57,7 +57,7 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 | Form faktor                                   | Virtuell enhet             | Fysisk enhet          | Tjänst i Azure Portal, agent lokalt                                                            |
 | Maskinvara                                      | Din hypervisor            | Tillhandahålls av Microsoft    | Ej tillämpligt                                                            |
 | Första installations ansträngning                          | Låg (<30 minuter.)            | Måttlig (~ paret timmar) | Stor (~ dagar)                                                 |
-| Data format                                   | Azure-blobbar, Azure Files   | Azure-blobbar, Azure Files | [Stöd för 70 + data anslutningar för data lager och format](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Data format                                   | Azure-blobbar, Azure Files   | Azure-blobbar, Azure Files | [Stöd för 70 + data anslutningar för data lager och format](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)|
 | För bearbetning av data                           | Nej                         | Ja, via Edge Compute    | Ja                                                           |
 | Lokal cache<br>(för att lagra lokala data)    | Ja                        | Ja                      | Nej                                                            |
 | Överföring från andra moln                    | Nej                         | Nej                       | Ja                                                           |
@@ -65,9 +65,9 @@ I följande tabell sammanfattas skillnaderna mellan viktiga funktioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Överför data med AZCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Överför data med AZCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
 - [Mer information om data överföring med Storage REST-API: er](/dotnet/api/overview/azure/storage).
 - Förstå hur du:
-    - [Överför data med data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformera data med data Box Edge innan du skickar dem till Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Lär dig hur du överför data med Azure Data Factory](/azure/data-factory/tutorial-bulk-copy-portal).
+    - [Överför data med data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Transformera data med data Box Edge innan du skickar dem till Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Lär dig hur du överför data med Azure Data Factory](../../data-factory/tutorial-bulk-copy-portal.md).

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488834"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792998"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Flytta ett Azure Storage-konto till en annan region
 
@@ -55,7 +55,7 @@ Så här exporterar du en mall med Azure-portalen:
 
 2. Välj **alla resurser** och välj sedan ditt lagrings konto.
 
-3. Välj **Settings**  >  **Exportera mall**för > inställningar.
+3. Välj **Settings**  >  **Exportera mall** för > inställningar.
 
 4. Välj **Hämta** på bladet **Exportera mall** .
 
@@ -101,19 +101,19 @@ Exportera en mall med hjälp av PowerShell:
 
 Distribuera mallen med hjälp av Azure Portal:
 
-1. I Azure Portal väljer du **skapa en resurs**.
+1. I Azure Portal väljer du **skapa en resurs** .
 
-2. I **Sök på Marketplace**skriver du **mall distribution**och trycker sedan på **RETUR**.
+2. I **Sök på Marketplace** skriver du **mall distribution** och trycker sedan på **RETUR** .
 
-3. Välj **malldistribution**.
+3. Välj **malldistribution** .
 
     ![Azure Resource Manager-mallbibliotek](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Välj **Skapa**.
+4. Välj **Skapa** .
 
-5. Välj **Bygg en egen mall i redigeraren**.
+5. Välj **Bygg en egen mall i redigeraren** .
 
-6. Välj **Läs in fil**och följ sedan anvisningarna för att läsa in **template.jspå** filen som du laddade ned i det sista avsnittet.
+6. Välj **Läs in fil** och följ sedan anvisningarna för att läsa in **template.jspå** filen som du laddade ned i det sista avsnittet.
 
 7. I **template.js** filen namnger du mål lagrings kontot genom att ange standardvärdet för lagrings konto namnet. I det här exemplet anges standardvärdet för lagrings konto namnet till `mytargetaccount` .
     
@@ -137,7 +137,7 @@ Distribuera mallen med hjälp av Azure Portal:
          "location": "centralus"
          }]          
     ```
-    Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA**  =  **, centrala**.
+    Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är region namnet utan några blank steg, **centrala USA**  =  **, centrala** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -186,11 +186,11 @@ Distribuera mallen för att skapa ett nytt lagringskonto i målregionen.
 
 2. Ange eller Välj egenskaps värden:
 
-- **Prenumeration**: Välj en Azure-prenumeration.
+- **Prenumeration** : Välj en Azure-prenumeration.
 
-- **Resursgrupp**: Välj **Skapa ny** och ge resursgruppen ett namn.
+- **Resursgrupp** : Välj **Skapa ny** och ge resursgruppen ett namn.
 
-- **Plats**: Välj en Azure-plats.
+- **Plats** : Välj en Azure-plats.
 
 3. Klicka på kryss rutan **Jag accepterar villkoren som anges ovan** och klicka sedan på knappen **Välj inköp** .
 
@@ -255,9 +255,9 @@ Så här tar du bort ett lagringskonto med Azure-portalen:
 
 1. I Azure Portal expanderar du menyn på vänster sida för att öppna menyn med tjänster och väljer **lagrings konton** för att visa listan över dina lagrings konton.
 
-2. Leta upp mål lagrings kontot som du vill ta bort och högerklicka på knappen **mer** (**...**) på höger sida av listan.
+2. Leta upp mål lagrings kontot som du vill ta bort och högerklicka på knappen **mer** ( **...** ) på höger sida av listan.
 
-3. Välj **ta bort**och bekräfta.
+3. Välj **ta bort** och bekräfta.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 I den här självstudien har du flyttat ett Azure Storage-konto från en region till en annan och rensade käll resurserna.  Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i:
 
 
-- [Flytta resurser till en ny resursgrupp eller prenumeration](/azure/azure-resource-manager/resource-group-move-resources)
-- [Migrera virtuella Azure-datorer till en annan region](/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Flytta resurser till en ny resursgrupp eller prenumeration](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Migrera virtuella Azure-datorer till en annan region](../../site-recovery/azure-to-azure-tutorial-migrate.md)

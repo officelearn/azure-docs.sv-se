@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: c60bff122b6ad9bef4e9e4558d9858e1243ebd1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d346d1ff30c138667749822b258bab4c6a621f4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321487"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792726"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Använd PowerShell för att uppdatera synkroniseringsschemat i en befintlig synkroniseringsgrupp
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
@@ -58,7 +58,7 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resour
 
 Skriptet **UpdateSyncSchema** innehåller följande parametrar:
 
-| Parameter | Obs! |
+| Parameter | Kommentarer |
 |---|---|
 | $subscriptionId | Den prenumeration där synkroniseringsgruppen skapas. |
 | $resourceGroupName | Den resursgrupp där synkroniseringsgruppen skapas.|
@@ -76,13 +76,13 @@ Skriptet **UpdateSyncSchema** innehåller följande parametrar:
 
 Skriptet **UpdateSyncSchema** använder följande parametrar. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Kommentarer |
 |---|---|
-| [Get-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncgroup) | Returnerar information om en Sync-grupp. |
-| [Uppdatera – AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncgroup) | Uppdaterar en synkroniseringsgrupp. |
-| [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | Returnerar information om en synkroniserad medlem. |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncschema) | Returnerar information om ett synkroniseringsschema. |
-| [Uppdatera – AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | Uppdaterar ett synkroniseringsschema. |
+| [Get-AzSqlSyncGroup](/powershell/module/az.sql/get-azsqlsyncgroup) | Returnerar information om en Sync-grupp. |
+| [Uppdatera – AzSqlSyncGroup](/powershell/module/az.sql/update-azsqlsyncgroup) | Uppdaterar en synkroniseringsgrupp. |
+| [Get-AzSqlSyncMember](/powershell/module/az.sql/get-azsqlsyncmember) | Returnerar information om en synkroniserad medlem. |
+| [Get-AzSqlSyncSchema](/powershell/module/az.sql/get-azsqlsyncschema) | Returnerar information om ett synkroniseringsschema. |
+| [Uppdatera – AzSqlSyncSchema](/powershell/module/az.sql/update-azsqlsyncschema) | Uppdaterar ett synkroniseringsschema. |
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -100,7 +100,7 @@ Mer information om SQL Data Sync finns i:
         -  [Använd PowerShell för att synkronisera data mellan Azure SQL Database och SQL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Data Sync-agent – [Data Sync-agent för SQL Data Sync i Azure](../sql-data-sync-agent-overview.md)
 - Bästa praxis – [metod tips för SQL Data Sync i Azure](../sql-data-sync-best-practices.md)
-- Övervaka [SQL Data Sync med Azure Monitor loggar](../sql-data-sync-monitor-sync.md)
+- Övervaka [SQL Data Sync med Azure Monitor loggar](../monitor-tune-overview.md)
 - Felsök – [Felsök problem med SQL Data Sync i Azure](../sql-data-sync-troubleshoot.md)
 - Uppdatera synkroniseringsschemat
     - Använda Transact-SQL – [automatisera replikeringen av schema ändringar i SQL Data Sync i Azure](../sql-data-sync-update-sync-schema.md)
@@ -108,4 +108,4 @@ Mer information om SQL Data Sync finns i:
 Mer information om SQL Database finns i:
 
 - [Översikt över SQL Database](../sql-database-paas-overview.md)
-- [Livscykelhantering för databas](https://msdn.microsoft.com/library/jj907294.aspx)
+- [Livscykelhantering för databas](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

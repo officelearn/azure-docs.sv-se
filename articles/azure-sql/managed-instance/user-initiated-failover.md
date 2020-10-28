@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617765"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791638"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Användarinitierade manuell redundans på SQL-hanterad instans
 
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Använd PowerShell [-kommandot Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) med följande exempel för att initiera redundansväxlingen av den primära noden, som är tillämpligt på både BC-och GP-tjänstenivå.
+Använd PowerShell [-kommandot Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) med följande exempel för att initiera redundansväxlingen av den primära noden, som är tillämpligt på både BC-och GP-tjänstenivå.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>Använda REST-API
 
-För avancerade användare som kanske behöver automatisera redundans för sina SQL-hanterade instanser för att implementera kontinuerliga test pipelines, eller automatiska prestanda dämpare, kan den här funktionen utföras genom initiering av redundans via ett API-anrop. Mer information finns i [hanterade instanser – redundansväxla REST API](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) .
+För avancerade användare som kanske behöver automatisera redundans för sina SQL-hanterade instanser för att implementera kontinuerliga test pipelines, eller automatiska prestanda dämpare, kan den här funktionen utföras genom initiering av redundans via ett API-anrop. Mer information finns i [hanterade instanser – redundansväxla REST API](/rest/api/sql/managed%20instances%20-%20failover/failover) .
 
 Om du vill initiera redundans med REST API-anrop ska du först skapa en autentiseringstoken med valfri API-klient. Den genererade autentiseringstoken används som Auktoriseringspost i rubriken för API-begäran och är obligatorisk.
 
@@ -140,7 +140,7 @@ Du kommer inte att kunna se samma utdata med GP-tjänstens nivå som den som ang
 
 > [!IMPORTANT]
 > Funktionella begränsningar för manuell redundansväxling i användaren är:
-> - En (1) redundansväxling kan initieras på samma hanterade instans var **30: e minut**.
+> - En (1) redundansväxling kan initieras på samma hanterade instans var **30: e minut** .
 > - För BC-instanser måste det finnas kvorum med repliker för att redundansväxlingen ska godkännas.
 > - För BC-instanser går det inte att ange vilken läsbar sekundär replik som ska initiera redundansväxlingen.
 

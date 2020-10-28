@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: e44fe44285a6693583c1b16645ad0d023428c72b
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: dd7c5da84d6330e0214404f55aad9487c71b0a29
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494668"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792437"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Självstudie: koda med Azure Digitals dubbla API: er
 
@@ -41,11 +41,11 @@ Vad du behöver för att börja:
 
 När du är redo att ansluta till din Azure Digital-instansen börjar du konfigurera klientens program projekt. 
 
-Öppna en kommando tolk eller ett annat konsol fönster på datorn och skapa en tom projekt katalog där du vill lagra ditt arbete under den här självstudien. Namnge katalogen oavsett om du vill (till exempel *DigitalTwinsCodeTutorial*).
+Öppna en kommando tolk eller ett annat konsol fönster på datorn och skapa en tom projekt katalog där du vill lagra ditt arbete under den här självstudien. Namnge katalogen oavsett om du vill (till exempel *DigitalTwinsCodeTutorial* ).
 
 Navigera till den nya katalogen.
 
-Skapa ett tomt program projekt för .NET-konsolen en gång i projekt katalogen. I kommando fönstret kör du följande kommando för att skapa ett minimalt C#-projekt för-konsolen:
+**Skapa ett tomt program projekt för .net-konsolen** en gång i projekt katalogen. I kommando fönstret kan du köra följande kommando för att skapa ett minimalt C#-projekt för-konsolen:
 
 ```cmd/sh
 dotnet new console
@@ -53,16 +53,11 @@ dotnet new console
 
 Detta skapar flera filer i katalogen, inklusive en som kallas *program.cs* där du skriver merparten av koden.
 
-Lägg sedan till två nödvändiga beroenden för att arbeta med Azure Digitals dubbla:
-
-```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity
-```
-
-Det första beroendet är [Azure Digitals sammanflätade SDK för .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). Det andra sambandet innehåller verktyg som hjälper dig med autentisering mot Azure.
-
 Se till att kommando fönstret är öppet, eftersom du fortsätter att använda det i självstudien.
+
+Lägg sedan **till två beroenden i projektet** som behövs för att arbeta med Azure Digital-dubbla. Du kan använda länkarna nedan för att navigera till paketen på NuGet, där du kan hitta konsol kommandona (inklusive för .NET CLI) för att lägga till den senaste versionen av varje till projektet.
+* [**Azure. DigitalTwins. Core**](https://www.nuget.org/packages/Azure.DigitalTwins.Core). Det här är paketet för [Azure Digitals dubbla SDK för .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+* [**Azure. Identity**](https://www.nuget.org/packages/Azure.Identity). Det här biblioteket innehåller verktyg som hjälper dig med autentisering mot Azure.
 
 ## <a name="get-started-with-project-code"></a>Kom igång med projekt kod
 
@@ -108,7 +103,7 @@ Det första du behöver göra är att autentisera mot tjänsten Azure Digitals d
 
 För att kunna autentisera behöver du *värd namnet* för din Azure Digital-instansen.
 
-I *program.cs*klistrar du in följande kod under "Hello, World!" Skriv ut rad i `Main` metoden. Ange värdet för `adtInstanceUrl` till ditt Azure Digital-instansen *värdnamn*.
+I *program.cs* klistrar du in följande kod under "Hello, World!" Skriv ut rad i `Main` metoden. Ange värdet för `adtInstanceUrl` till ditt Azure Digital-instansen *värdnamn* .
 
 ```csharp
 string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
@@ -126,16 +121,16 @@ dotnet run
 ```
 
 Detta kommer att återställa beroendena vid första körningen och sedan köra programmet. 
-* Om inget fel uppstår skrivs *service-klienten som skapats – redo att gå*.
+* Om inget fel uppstår skrivs *service-klienten som skapats – redo att gå* .
 * Eftersom det ännu inte finns någon fel hantering i det här projektet visas ett undantags fel som orsakas av koden.
 
 ### <a name="upload-a-model"></a>Ladda upp en modell
 
-Azure Digital-dubbla har ingen inbyggd vokabulär i domänen. De typer av element i din miljö som du kan representera i Azure Digitals-enheter definieras av dig med hjälp av **modeller**. [Modeller](concepts-models.md) liknar klasser i objektorienterade programmeringsspråk. de ger användardefinierade mallar för [digitala dubbla](concepts-twins-graph.md) och kan följa och instansiera senare. De är skrivna i ett JSON-liknande språk som kallas **DTDL (Digital Definition Language)**.
+Azure Digital-dubbla har ingen inbyggd vokabulär i domänen. De typer av element i din miljö som du kan representera i Azure Digitals-enheter definieras av dig med hjälp av **modeller** . [Modeller](concepts-models.md) liknar klasser i objektorienterade programmeringsspråk. de ger användardefinierade mallar för [digitala dubbla](concepts-twins-graph.md) och kan följa och instansiera senare. De är skrivna i ett JSON-liknande språk som kallas **DTDL (Digital Definition Language)** .
 
 Det första steget i att skapa en Azure digital-lösning med dubbla lösningar är att definiera minst en modell i en DTDL-fil.
 
-Skapa en ny *. JSON* -fil med namnet *SampleModel.jspå*i katalogen där du skapade projektet. Klistra in följande fil text: 
+Skapa en ny *. JSON* -fil med namnet *SampleModel.jspå* i katalogen där du skapade projektet. Klistra in följande fil text: 
 
 ```json
 {
@@ -158,7 +153,7 @@ Skapa en ny *. JSON* -fil med namnet *SampleModel.jspå*i katalogen där du skap
 ```
 
 > [!TIP]
-> Om du använder Visual Studio för den här självstudien kanske du vill välja den nyss skapade JSON-filen och ange egenskapen *Kopiera till utdata-katalog* i egenskapsinspektören för att *Kopiera om* det är nyare eller *Kopiera Always*. Detta gör att Visual Studio kan hitta JSON-filen med standard Sök vägen när du kör programmet med **F5** under resten av självstudien.
+> Om du använder Visual Studio för den här självstudien kanske du vill välja den nyss skapade JSON-filen och ange egenskapen *Kopiera till utdata-katalog* i egenskapsinspektören för att *Kopiera om* det är nyare eller *Kopiera Always* . Detta gör att Visual Studio kan hitta JSON-filen med standard Sök vägen när du kör programmet med **F5** under resten av självstudien.
 
 > [!TIP] 
 > Det finns ett språk-oberoende [DTDL-verifierings exempel](/samples/azure-samples/dtdl-validator/dtdl-validator) som du kan använda för att kontrol lera modell dokument för att kontrol lera att DTDL är giltig. Det bygger på DTDL parser-biblioteket, som du kan läsa mer om i [*instruktion: parsa och validera modeller*](how-to-parse-models.md).
@@ -263,7 +258,7 @@ Från och med nu kommer kursen att figursättas alla anrop till tjänst metoder 
 
 ### <a name="create-digital-twins"></a>Skapa digitala dubbla
 
-Nu när du har laddat upp en modell till Azure Digitals, kan du använda den här modell definitionen för att skapa **digitala dubbla**. [Digitala dubbla](concepts-twins-graph.md) är instanser av en modell och representerar entiteterna i din affärs miljö – saker som sensorer i en grupp, rum i en byggnad eller lampor i en bil. Det här avsnittet skapar några digitala dubbla, baserat på den modell som du laddade upp tidigare.
+Nu när du har laddat upp en modell till Azure Digitals, kan du använda den här modell definitionen för att skapa **digitala dubbla** . [Digitala dubbla](concepts-twins-graph.md) är instanser av en modell och representerar entiteterna i din affärs miljö – saker som sensorer i en grupp, rum i en byggnad eller lampor i en bil. Det här avsnittet skapar några digitala dubbla, baserat på den modell som du laddade upp tidigare.
 
 Lägg till dessa nya `using` instruktioner överst, eftersom det här kod exemplet använder den inbyggda .net JSON-serialiseraren i `System.Text.Json` , och `Serialization` namn området från [Azure Digitals-SDK för .net (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [länk ändrad för för hands version]:
 
@@ -304,7 +299,7 @@ Observera att det inte uppstår något fel när de dubblarna skapas den andra g�
 
 ### <a name="create-relationships"></a>Skapa relationer
 
-Sedan kan du skapa **relationer** mellan de dubbla som du har skapat, för att ansluta dem till ett **dubbel diagram**. [Dubbla grafer](concepts-twins-graph.md) används för att representera hela miljön.
+Sedan kan du skapa **relationer** mellan de dubbla som du har skapat, för att ansluta dem till ett **dubbel diagram** . [Dubbla grafer](concepts-twins-graph.md) används för att representera hela miljön.
 
 För att hjälpa till med att skapa relationer använder det här kod exemplet `Azure.DigitalTwins.Core.Serialization` namn området. Du har lagt till detta i projektet tidigare i avsnittet [*skapa digitala dubbla*](#create-digital-twins) avsnitt.
 

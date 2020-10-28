@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js
-ms.openlocfilehash: af6db76a5d752396ca965c5ed98682ebcab7da6a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9c0ed50cc0f7ef3580d1441fe2f361065e6f8524
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92756098"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886761"
 ---
 <a name="HOLTop"></a>
 
@@ -107,7 +107,7 @@ Definiera sedan en funktion `computerVision` och deklarera en async-serie med fu
 Koden i det här avsnittet analyserar fjärravbildningar för att extrahera olika visuella funktioner. Du kan utföra dessa åtgärder som en del av **analyzeImage** -metoden för klient objekt, eller så kan du anropa dem med hjälp av enskilda metoder. Mer information finns i [referens dokumentationen](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) .
 
 > [!NOTE]
-> Du kan också analysera en lokal avbildning. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) för scenarier som involverar lokala avbildningar.
+> Du kan också analysera en lokal avbildning. Se [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) -metoderna, till exempel **analyzeImageInStream** . Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) för scenarier som involverar lokala avbildningar.
 
 ### <a name="get-image-description"></a>Beskrivning av Hämta avbildning
 
@@ -219,14 +219,14 @@ Definiera hjälp funktionen `describeType` :
 
 Visuellt innehåll kan extrahera synlig text i en bild och konvertera den till en tecken ström. I det här exemplet används Läs åtgärder.
 
-> [!NOTE]
-> Du kan också läsa text från en lokal avbildning. Se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) för scenarier som involverar lokala avbildningar.
-
 ### <a name="set-up-test-images"></a>Konfigurera test avbildningar
 
 Spara en referens till URL: en för de avbildningar som du vill extrahera text från.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
+
+> [!NOTE]
+> Du kan också läsa text från en lokal avbildning. Se [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) -metoderna, till exempel **readInStream** . Eller, se exempel koden på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) för scenarier som involverar lokala avbildningar.
 
 ### <a name="call-the-read-api"></a>Anropa Read API
 
@@ -235,11 +235,11 @@ Definiera följande fält i din funktion för att ange status värden för läsn
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_statuses)]
 
 
-Lägg till koden nedan, som anropar- `readTextFromURL` och- `readTextFromFile` funktionerna för de aktuella avbildningarna.
+Lägg till koden nedan, som anropar `readTextFromURL` funktionen för de aktuella avbildningarna.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-Definiera `readTextFromURL` och- `readTextFromFile` funktionerna. Dessa anropar metoderna **Read** och **readInStream** på klient objekt, som returnerar ett åtgärds-ID och startar en asynkron process för att läsa innehållet i avbildningen. Sedan använder de åtgärds-ID: t för att kontrol lera åtgärds statusen tills resultatet returneras. De returnerar sedan de extraherade resultaten.
+Definiera `readTextFromURL` funktionen. Det här anropet thes **Read** -metoden på klient objekt, som returnerar ett ÅTGÄRDS-ID och startar en asynkron process för att läsa innehållet i avbildningen. Sedan använder den åtgärds-ID: t för att kontrol lera åtgärds statusen tills resultatet returneras. De returnerar de extraherade resultaten.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 

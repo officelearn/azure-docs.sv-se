@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: dd4a7537e01c9e97997be64bb478e86a64f4325b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340894"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792267"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Ytterligare hot skydd i Azure Security Center
 I och med de inbyggda [Azure Defender-skydden](azure-defender.md)erbjuder Azure Security Center även följande hot skydds funktioner.
@@ -48,10 +48,10 @@ En lista över aviseringar om Azure Resource Manager (förhands granskning) finn
 >[!NOTE]
 > Flera av föregående analyser drivs av Microsoft Cloud App Security. Om du vill dra nytta av dessa analyser måste du aktivera en Cloud App Security-licens. Om du har en Cloud App Security licens är de här aviseringarna aktiverade som standard. Så här inaktiverar du aviseringarna:
 >
-> 1. Från Security Center menyn väljer du **pris & inställningar**.
+> 1. Från Security Center menyn väljer du **pris & inställningar** .
 > 1. Välj den prenumeration som du vill ändra.
-> 1. Välj **hot identifiering**.
-> 1. Rensa **tillåt Microsoft Cloud App Security att komma åt mina data**och välj **Spara**.
+> 1. Välj **hot identifiering** .
+> 1. Rensa **tillåt Microsoft Cloud App Security att komma åt mina data** och välj **Spara** .
 
 
 >[!NOTE]
@@ -59,7 +59,7 @@ En lista över aviseringar om Azure Resource Manager (förhands granskning) finn
 
 1. Ange den arbets yta som du vill installera agenten på. Kontrol lera att arbets ytan finns i samma prenumeration som du använder i Security Center och att du har Läs-/Skriv behörighet på arbets ytan.
 
-1. Aktivera **Azure Defender**och välj **Spara**.
+1. Aktivera **Azure Defender** och välj **Spara** .
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Skydd mot Azure Cosmos DB (för hands version)<a name="cosmos-db"></a>
@@ -101,4 +101,4 @@ Mer information om säkerhets aviseringar från dessa hot Protection-funktioner 
 * [Referens tabell för alla Azure Security Center aviseringar](alerts-reference.md)
 * [Säkerhetsaviseringar i Azure Security Center](security-center-alerts-overview.md)
 * [Hantera och besvara säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Exportera säkerhets aviseringar och rekommendationer (för hands version)](continuous-export.md)
+* [Exportera Security Center data kontinuerligt](continuous-export.md)

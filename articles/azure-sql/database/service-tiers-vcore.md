@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 09/30/2020
-ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614435"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793151"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Översikt över vCore-modellen – Azure SQL Database och Azure SQL-hanterad instans 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,8 +34,8 @@ Tjänst nivå alternativ i vCore-modellen omfattar Generell användning, Affärs
 |-|**Generell användning**|**Affärskritisk**|**Hyperskala**|
 |---|---|---|---|
 |Bäst för|De flesta företags arbets belastningar. Erbjuder budgetorienterade, balanserade och skalbara beräknings- och lagringsalternativ. |Erbjuder affärs program den högsta återhämtningen till problem genom att använda flera isolerade repliker och ger den högsta I/O-prestandan per databas replik.|De flesta företags arbets belastningar med mycket skalbara lagrings-och Läs skalnings krav.  Ger högre återhämtning till problem genom att tillåta konfiguration av mer än en isolerad databas replik. |
-|Storage|Använder Fjärrlagring.<br/>**SQL Database etablerings beräkning**:<br/>5 GB – 4 TB<br/>**Server lös beräkning**:<br/>5 GB-3 TB<br/>**SQL-hanterad instans**: 32 GB-8 TB |Använder lokal SSD-lagring.<br/>**SQL Database etablerings beräkning**:<br/>5 GB – 4 TB<br/>**SQL-hanterad instans**:<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
-|IOPS och data flöde (ungefärligt)|**SQL Database**: se resurs gränser för [enskilda databaser](resource-limits-vcore-single-databases.md) och [elastiska pooler](resource-limits-vcore-elastic-pools.md).<br/>**SQL-hanterad instans**: se [Översikt över gränser för Azure SQL Managed Instance-resurser](../managed-instance/resource-limits.md#service-tier-characteristics).|Se resurs gränser för [enskilda databaser](resource-limits-vcore-single-databases.md) och [elastiska pooler](resource-limits-vcore-elastic-pools.md).|Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS och data flöde beror på arbets belastningen.|
+|Lagring|Använder Fjärrlagring.<br/>**SQL Database etablerings beräkning** :<br/>5 GB – 4 TB<br/>**Server lös beräkning** :<br/>5 GB-3 TB<br/>**SQL-hanterad instans** : 32 GB-8 TB |Använder lokal SSD-lagring.<br/>**SQL Database etablerings beräkning** :<br/>5 GB – 4 TB<br/>**SQL-hanterad instans** :<br/>32 GB – 4 TB |Flexibel automatisk storleks ökning av lagring vid behov. Har stöd för upp till 100 TB lagrings utrymme. Använder lokal SSD-lagring för lokal cache för buffring och lokal data lagring. Använder Azure Fjärrlagring som sista långsiktigt långsiktigt data lager. |
+|IOPS och data flöde (ungefärligt)|**SQL Database** : se resurs gränser för [enskilda databaser](resource-limits-vcore-single-databases.md) och [elastiska pooler](resource-limits-vcore-elastic-pools.md).<br/>**SQL-hanterad instans** : se [Översikt över gränser för Azure SQL Managed Instance-resurser](../managed-instance/resource-limits.md#service-tier-characteristics).|Se resurs gränser för [enskilda databaser](resource-limits-vcore-single-databases.md) och [elastiska pooler](resource-limits-vcore-elastic-pools.md).|Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS och data flöde beror på arbets belastningen.|
 |Tillgänglighet|1 replik, inga storskaliga repliker|3 repliker, 1 [storskalig replik](read-scale-out.md),<br/>zon-redundant hög tillgänglighet (HA)|1 Läs-och skriv replik, plus 0-4 storskalig [repliker](read-scale-out.md)|
 |Säkerhetskopior|[Geo-redundant lagring med Läs behörighet (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 dagar (7 dagar som standard)|Ögonblicks bilds säkerhets kopieringar i Azure Remote Storage. Återställningar använder dessa ögonblicks bilder för snabb återställning. Säkerhets kopieringar är omedelbara och påverkar inte beräknings-I/O-prestanda. Återställningar är snabba och är inte en storleks data åtgärd (tar några minuter i stället för timmar eller dagar).|
 |Minnesintern|Stöds inte|Stöds|Stöds inte|
@@ -111,7 +111,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Fsv2-serien     |– Intel® 8168-processorer (Skylake)<br>– Med en hög kärnors klock hastighet på 3,4 GHz och en maximal Turbo Turbo klock hastighet på 3,7 GHz.<br>-Etablera upp till 72 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 1,9 GB per vCore<br>-Etablera upp till 136 GB|
 |M-serien     |– Intel® E7-8890 v3 2,5 GHz och Intel® 8280M 2,7 GHz-processorer (Cascade Lake)<br>-Etablera upp till 128 virtuella kärnor (1 vCore = 1 Hyper-Thread)|– 29 GB per vCore<br>-Etablera upp till 3,7 TB|
 
-\* I vyn [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamisk hantering visas maskin varu generering för databaser som använder Intel® SP-8160-processorer (Skylake) som Gen6, medan maskin varu generation för databaser som använder Intel® 8272CL (Cascade Lake) visas som Gen7. Resurs gränser för alla Gen5-databaser är desamma oavsett processor typ (Broadwell, Skylake eller överlappande sjö).
+\* I vyn [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamisk hantering visas maskin varu generering för databaser som använder Intel® SP-8160-processorer (Skylake) som Gen6, medan maskin varu generation för databaser som använder Intel® 8272CL (Cascade Lake) visas som Gen7. Resurs gränser för alla Gen5-databaser är desamma oavsett processor typ (Broadwell, Skylake eller överlappande sjö).
 
 Mer information om resurs gränser finns i [resurs gränser för enskilda databaser (vCore)](resource-limits-vcore-single-databases.md)eller [resurs gränser för elastiska pooler (vCore)](resource-limits-vcore-elastic-pools.md).
 
@@ -138,7 +138,7 @@ För en databas, på sidan Översikt, väljer du länken **pris nivå** :
 
   ![ändra maskin vara](./media/service-tiers-vcore/change-hardware.png)
 
-Välj **Konfigurera**på sidan Översikt för en pool.
+Välj **Konfigurera** på sidan Översikt för en pool.
 
 Följ stegen för att ändra konfigurationen och välj maskin varu skapande enligt beskrivningen i föregående steg.
 
@@ -168,7 +168,7 @@ Använd följande PowerShell-skript:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Mer information finns i [set-AzSqlInstance-](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) kommandot.
+Mer information finns i [set-AzSqlInstance-](/powershell/module/az.sql/set-azsqlinstance) kommandot.
 
 # <a name="the-azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -178,7 +178,7 @@ Använd följande CLI-kommando:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-Mer information finns i [AZ SQL mi Update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) -kommandot.
+Mer information finns i [AZ SQL mi Update](/cli/azure/sql/mi#az-sql-mi-update) -kommandot.
 
 ---
 
@@ -238,5 +238,4 @@ Mer information om de specifika beräknings-och lagrings storlekar som är tillg
 
 - [vCore resurs gränser för Azure SQL Database](resource-limits-vcore-single-databases.md).
 - [vCore resurs gränser för Azure SQL Database i pooler](resource-limits-vcore-elastic-pools.md).
-- [vCore resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md). 
-
+- [vCore resurs gränser för Azure SQL-hanterad instans](../managed-instance/resource-limits.md).

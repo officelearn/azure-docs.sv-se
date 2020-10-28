@@ -7,18 +7,18 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042804"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793066"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Så här ansluter du ett IoT Plug and Play Bridge-exempel som körs på Linux eller Windows till IoT Hub
 
 Den här instruktionen visar hur du skapar IoT Plug and Play Bridges exempel miljö kort, ansluter det till din IoT-hubb och använder Azure IoT Explorer-verktyget för att Visa telemetri som skickas. IoT Plug and Play-bryggan är skriven i C och innehåller Azure IoT-enhetens SDK för C. I slutet av den här själv studie kursen ska du kunna köra IoT Plug and Play-bryggan och se den rapportera telemetri i Azure IoT Explorer: :::image type="content" source="media/concepts-iot-pnp-bridge/iot-pnp-bridge-explorer-telemetry.png" alt-text="en skärm bild som visar Azure IoT Explorer med en tabell med rapporterade telemetri (fuktighet, temperatur) från IoT plug and Play Bridge.":::
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du kan köra den här snabb starten på Linux eller Windows. Shell-kommandona i den här instruktions guiden följer Windows-konventionen för Sök vägs avgränsare `\` , om du följer med i Linux, se till att byta avgränsare för `/` .
 
@@ -30,14 +30,14 @@ I den här snabb starten förutsätter vi att du använder Ubuntu Linux. Stegen 
 
 För att slutföra den här snabb starten på Linux installerar du följande program vara i din lokala Linux-miljö:
 
-Installera **gcc**, **git**, **cmake**och alla nödvändiga beroenden med `apt-get` kommandot:
+Installera **gcc** , **git** , **cmake** och alla nödvändiga beroenden med `apt-get` kommandot:
 
 ```sh
 sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Kontrol lera att versionen av `cmake` är över **2.8.12** och att versionen av **gcc** är över **4.4.7**.
+Kontrol lera att versionen av `cmake` är över **2.8.12** och att versionen av **gcc** är över **4.4.7** .
 
 ```sh
 cmake --version
@@ -107,9 +107,13 @@ Det kan ta flera minuter att slutföra den här åtgärden.
 
 När du har klonat IoT Plug and Play Bridge-lagrings platsen till din dator, navigerar du till `pnpbridge/docs/schema` katalogen i den klonade lagrings platsen där du hittar [konfigurations-JSON](https://aka.ms/iot-pnp-bridge-env-config) eller `config.json` för miljö sensor exemplet i bryggan. Du kan lära dig mer om config-filer i [IoT plug and Play Bridge Concepts-dokument](concepts-iot-pnp-bridge.md).
 
-För `root-_interface_model_id` fältet måste du kopiera IoT-plug and Play modell-ID som identifierar modellen för enheten. I det här exemplet är det `dtmi:com:example:SampleDevice;1`. Ändra följande parametrar under **pnp_bridge_parameters** nod i `config.json` filen i avsnittet:
+För `root-_interface_model_id` fältet måste du kopiera IoT-plug and Play modell-ID som identifierar modellen för enheten. I det här exemplet är det `dtmi:com:example:SampleDevice;1`. Ändra följande parametrar under **pnp_bridge_parameters** nod i `config.json` filen:
 
-  Använder anslutnings sträng (Obs! symmetric_key måste matcha SAS-nyckeln i anslutnings strängen):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> Symmetric_key måste matcha SAS-nyckeln i anslutnings strängen.
 
   ```JSON
     {
@@ -126,7 +130,7 @@ För `root-_interface_model_id` fältet måste du kopiera IoT-plug and Play mode
   }
   ```
 
- När du har fyllt i `config.json` filen bör filen likna följande:
+ När den har fyllts i `config.json` bör filen likna följande:
 
    ```JSON
     {

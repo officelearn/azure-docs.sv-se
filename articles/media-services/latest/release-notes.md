@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514494"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791604"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -46,6 +46,16 @@ För inställningen för ljud analys innehåller nu en pris nivå för Basic-lä
 Kunder som använder Indexer v1 och Indexer v2 bör migrera till den grundläggande inställningen för ljud analys.
 
 Mer information om Basic Audio Analyzer-läget finns i [analys av video-och ljudfiler](analyzing-video-audio-files-concept.md).  Information om hur du använder Basic Audio Analyzer-läget med REST API finns i [så här skapar du en grundläggande ljud omvandling](how-to-create-basic-audio-transform.md).
+
+## <a name="live-events"></a>Livehändelser
+
+Uppdateringar av de flesta egenskaper tillåts nu när Live-händelser stoppas. Dessutom kan användare ange ett prefix för det statiska värd namnet för Live Events URL: er för inaktuella indatamängds-och för hands versioner. VanityUrl anropas nu `useStaticHostName` för att bättre avspegla syftet med egenskapen.
+
+Live-händelser har nu ett vänte läge.  Se [Live-händelser och Live-utdata i Media Services](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+
+En Live-händelse stöder mottagning av olika proportioner för indataport. Med utsträcknings läge kan kunderna ange utsträcknings beteendet för utdata.
+
+Med Live encoding kan du nu lägga till funktioner för att placera fragment i fasta nyckel intervall mellan 0,5 och 20 sekunder.
 
 ## <a name="august-2020"></a>Augusti 2020
 
@@ -99,7 +109,7 @@ Azure Media Player dokument migrerades till [Azure-dokumentationen](../azure-med
 
 ### <a name="azure-government-cloud-updates"></a>Azure Government moln uppdateringar
 
-Media Services GA'ed i följande Azure Government regioner: *USGov Arizona* och *USGov Texas*.
+Media Services GA'ed i följande Azure Government regioner: *USGov Arizona* och *USGov Texas* .
 
 ## <a name="december-2019"></a>December 2019
 
@@ -163,7 +173,7 @@ Media Services v3 presenterar för hands versionen av 24 timmar x 365 dagar av d
 
 #### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
 
-Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version*. Information om hur datum för indragningen går till finns i artikeln om  [äldre komponenter](../previous/legacy-components.md) . [Azure Media Services video Indexer](../video-indexer/index.yml) ersätter dessa äldre medie processorer.
+Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version* . Information om hur datum för indragningen går till finns i artikeln om  [äldre komponenter](../previous/legacy-components.md) . [Azure Media Services video Indexer](../video-indexer/index.yml) ersätter dessa äldre medie processorer.
 
 Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -265,10 +275,10 @@ Du bör inte ändra eller ta bort MPI-filen, eller ta bort beroendet i din tjän
 
 Uppdateringar från GA-versionen av v3-API: et är:
        
-* **PresentationTimeRange** -egenskaperna är inte längre obligatoriska för **till gångs filter** och **konto filter**. 
+* **PresentationTimeRange** -egenskaperna är inte längre obligatoriska för **till gångs filter** och **konto filter** . 
 * Alternativen $top och $skips fråga för **jobb** och **transformeringar** har tagits bort och $OrderBy lagts till. Som en del av att lägga till nya funktioner för beställning upptäcktes att $top-och $skip alternativen hade kunnat exponeras tidigare trots att de inte har implementerats.
 * Utökningen av uppräkningen aktiverades igen. Den här funktionen har Aktiver ATS i för hands versionerna av SDK och har inaktiverats av misstag i GA-versionen.
-* Två fördefinierade strömmande principer har bytt namn. **SecureStreaming** är nu **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** är nu **Predefined_MultiDrmStreaming**.
+* Två fördefinierade strömmande principer har bytt namn. **SecureStreaming** är nu **MultiDrmCencStreaming** . **SecureStreamingWithFairPlay** är nu **Predefined_MultiDrmStreaming** .
 
 ## <a name="november-2018"></a>November 2018
 

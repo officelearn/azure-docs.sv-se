@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443123"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792114"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Rapportering i utskalade moln databaser (för hands version)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ För icke-shardade databaser, se [fråga över moln databaser med olika scheman]
 
 Dessa uttryck skapar metadata-representationen av shardade-datanivån i den elastiska fråge databasen.
 
-1. [SKAPA HUVUD NYCKEL](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [SKAPA DATABASENS BEGRÄNSADE AUTENTISERINGSUPPGIFTER](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [SKAPA EXTERN DATA KÄLLA](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [SKAPA EXTERN TABELL](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [SKAPA HUVUD NYCKEL](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [SKAPA DATABASENS BEGRÄNSADE AUTENTISERINGSUPPGIFTER](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [SKAPA EXTERN DATA KÄLLA](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [SKAPA EXTERN TABELL](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1,1 Skapa databasens begränsade huvud nyckel och autentiseringsuppgifter
 
@@ -163,7 +163,7 @@ DISTRIBUTIONs satsen anger den data distribution som används för den här tabe
 2. **Replikerad** innebär att identiska kopior av tabellen finns på varje databas. Det är ditt ansvar att se till att replikerna är identiska i databaserna.
 3. **Avrunda \_ ROBIN** innebär att tabellen är vågrätt partitionerad med en program beroende distributions metod.
 
-**Data nivå referens**: det externa tabell-DDL: en refererar till en extern data källa. Den externa data källan anger en Shard-karta som tillhandahåller den externa tabellen med den information som krävs för att hitta alla databaser i data skiktet.
+**Data nivå referens** : det externa tabell-DDL: en refererar till en extern data källa. Den externa data källan anger en Shard-karta som tillhandahåller den externa tabellen med den information som krävs för att hitta alla databaser i data skiktet.
 
 ### <a name="security-considerations"></a>Säkerhetsöverväganden
 
@@ -194,7 +194,7 @@ Följande fråga utför en tre vägs koppling mellan lager, order och order rade
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Lagrad procedur för fjärran sluten T-SQL-körning: SP \_ execute_remote
 
-Elastiska frågor introducerar också en lagrad procedur som ger direkt åtkomst till Shards. Den lagrade proceduren heter [SP \_ execute \_ Remote](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra fjärrlagrade procedurer eller T-SQL-kod på fjärrdatabaserna. Det tar följande parametrar:
+Elastiska frågor introducerar också en lagrad procedur som ger direkt åtkomst till Shards. Den lagrade proceduren heter [SP \_ execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) och kan användas för att köra fjärrlagrade procedurer eller T-SQL-kod på fjärrdatabaserna. Det tar följande parametrar:
 
 * Data källans namn (nvarchar): namnet på den externa data källan av typen RDBMS.
 * Fråga (nvarchar): T-SQL-frågan som ska köras på varje Shard.
@@ -228,7 +228,7 @@ Använd vanliga SQL Server anslutnings strängar för att ansluta dina program, 
 * En lodrät partitionerings guide finns i [komma igång med kors databas fråga (lodrät partitionering)](elastic-query-getting-started-vertical.md).
 * För syntax och exempel frågor för lodrätt partitionerade data, se [fråga lodrätt partitionerade data)](elastic-query-vertical-partitioning.md)
 * En självstudie för horisontell partitionering (horisontell partitionering) finns i [komma igång med elastisk fråga för horisontell partitionering (horisontell partitionering)](elastic-query-getting-started.md).
-* Se [SP \_ execute \_ Remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
+* Se [SP \_ execute \_ Remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
 
 <!--Image references-->
 [1]: ./media/elastic-query-horizontal-partitioning/horizontalpartitioning.png

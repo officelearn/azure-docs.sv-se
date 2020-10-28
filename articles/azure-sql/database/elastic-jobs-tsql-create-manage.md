@@ -11,12 +11,12 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 02/07/2020
-ms.openlocfilehash: bbecfac4bfd3d5ce1510cb671b93df5f4982cbc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c9f5972cdd2690b86610ea585bdd82d736ed163
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803865"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792148"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera Elastic Database jobb (förhands granskning)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -73,7 +73,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 
 ## <a name="exclude-an-individual-database"></a>Undanta en enskild databas
 
-I följande exempel visas hur du kör ett jobb mot alla databaser på en server, förutom databasen med namnet *MappingDB*.  
+I följande exempel visas hur du kör ett jobb mot alla databaser på en server, förutom databasen med namnet *MappingDB* .  
 Anslut till [*jobb databasen*](job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
@@ -179,7 +179,7 @@ Om du till exempel vill gruppera alla resultat från samma jobb körning tillsam
 
 I följande exempel skapas ett nytt jobb för att samla in prestanda data från flera databaser.
 
-Som standard skapar jobb agenten output-tabellen för att lagra returnerade resultat. Därför har databasens huvud namn som är associerat med autentiseringsuppgifterna för utdata minst följande behörigheter: `CREATE TABLE` på-databasen, `ALTER` ,, `SELECT` `INSERT` , `DELETE` i utdatatabellen eller schemat, och `SELECT` i vyn [sys. indexs](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) .
+Som standard skapar jobb agenten output-tabellen för att lagra returnerade resultat. Därför har databasens huvud namn som är associerat med autentiseringsuppgifterna för utdata minst följande behörigheter: `CREATE TABLE` på-databasen, `ALTER` ,, `SELECT` `INSERT` , `DELETE` i utdatatabellen eller schemat, och `SELECT` i vyn [sys. indexs](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql) .
 
 Om du vill skapa tabellen manuellt i förväg måste du ha följande egenskaper:
 
@@ -424,16 +424,16 @@ Lägger till ett nytt jobb.
 
 #### <a name="arguments"></a>Argument  
 
-[ ** \@ job_name =** ] "job_name"  
+[ **\@ job_name =** ] "job_name"  
 Namnet på jobbet. Namnet måste vara unikt och får inte innehålla procent andelen (%) jokerteck. job_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ Description =** ] ' Beskrivning '  
+[ **\@ Description =** ] ' Beskrivning '  
 Jobbets beskrivning. beskrivningen är nvarchar (512), med standardvärdet NULL. Om Beskrivning utelämnas används en tom sträng.
 
-[ ** \@ Enabled =** ] aktiverat  
+[ **\@ Enabled =** ] aktiverat  
 Om jobbets schema är aktiverat. Enabled är bit, med standardvärdet 0 (inaktive rad). Om 0, är jobbet inte aktiverat och körs inte enligt sitt schema. Det kan dock köras manuellt. Om 1, kommer jobbet att köras enligt sitt schema och kan också köras manuellt.
 
-[ ** \@ schedule_interval_type =**] schedule_interval_type  
+[ **\@ schedule_interval_type =** ] schedule_interval_type  
 Värdet anger när jobbet ska köras. schedule_interval_type är nvarchar (50) med standardvärdet en gång och kan vara något av följande värden:
 
 - En gång,
@@ -443,16 +443,16 @@ Värdet anger när jobbet ska köras. schedule_interval_type är nvarchar (50) m
 - Veckor,
 - Månaden
 
-[ ** \@ schedule_interval_count =** ] schedule_interval_count  
+[ **\@ schedule_interval_count =** ] schedule_interval_count  
 Antalet schedule_interval_count perioder som inträffar mellan varje jobb körning. schedule_interval_count är int, med standardvärdet 1. Värdet måste vara större än eller lika med 1.
 
-[ ** \@ schedule_start_time =** ] schedule_start_time  
+[ **\@ schedule_start_time =** ] schedule_start_time  
 Det datum då jobb körningen kan börja. schedule_start_time är DATETIME2, med standardvärdet 0001-01-01 00:00:00.0000000.
 
-[ ** \@ schedule_end_time =** ] schedule_end_time  
+[ **\@ schedule_end_time =** ] schedule_end_time  
 Det datum då jobb körningen kan stoppas. schedule_end_time är DATETIME2, med standardvärdet 9999-12-31 11:59:59.0000000.
 
-[ ** \@ job_id =** ] job_id utdata  
+[ **\@ job_id =** ] job_id utdata  
 Jobb identifierings numret som tilldelats jobbet om det har skapats. job_id är en utgående variabel av typen UniqueIdentifier.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -491,19 +491,19 @@ Uppdaterar ett befintligt jobb.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ job_name =** ] "job_name"  
+[ **\@ job_name =** ] "job_name"  
 Namnet på det jobb som ska uppdateras. job_name är nvarchar (128).
 
-[ ** \@ NEW_NAME =** ] "NEW_NAME"  
+[ **\@ NEW_NAME =** ] "NEW_NAME"  
 Det nya namnet på jobbet. new_name är nvarchar (128).
 
-[ ** \@ Description =** ] ' Beskrivning '  
+[ **\@ Description =** ] ' Beskrivning '  
 Jobbets beskrivning. beskrivningen är nvarchar (512).
 
-[ ** \@ Enabled =** ] aktiverat  
+[ **\@ Enabled =** ] aktiverat  
 Anger om jobbets schema är aktiverat (1) eller inte aktiverat (0). Aktive rad är bit.
 
-[ ** \@ schedule_interval_type =** ] schedule_interval_type  
+[ **\@ schedule_interval_type =** ] schedule_interval_type  
 Värdet anger när jobbet ska köras. schedule_interval_type är nvarchar (50) och kan vara något av följande värden:
 
 - En gång,
@@ -513,13 +513,13 @@ Värdet anger när jobbet ska köras. schedule_interval_type är nvarchar (50) o
 - Veckor,
 - Månaden
 
-[ ** \@ schedule_interval_count =** ] schedule_interval_count  
+[ **\@ schedule_interval_count =** ] schedule_interval_count  
 Antalet schedule_interval_count perioder som inträffar mellan varje jobb körning. schedule_interval_count är int, med standardvärdet 1. Värdet måste vara större än eller lika med 1.
 
-[ ** \@ schedule_start_time =** ] schedule_start_time  
+[ **\@ schedule_start_time =** ] schedule_start_time  
 Det datum då jobb körningen kan börja. schedule_start_time är DATETIME2, med standardvärdet 0001-01-01 00:00:00.0000000.
 
-[ ** \@ schedule_end_time =** ] schedule_end_time  
+[ **\@ schedule_end_time =** ] schedule_end_time  
 Det datum då jobb körningen kan stoppas. schedule_end_time är DATETIME2, med standardvärdet 9999-12-31 11:59:59.0000000.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -551,10 +551,10 @@ Tar bort ett befintligt jobb.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ job_name =** ] "job_name"  
+[ **\@ job_name =** ] "job_name"  
 Namnet på det jobb som ska tas bort. job_name är nvarchar (128).
 
-[ ** \@ Force =** ] Force  
+[ **\@ Force =** ] Force  
 Anger om du vill ta bort om jobbet har pågående körningar och avbryta alla pågående körningar (1) eller om körningen av jobb pågår (0). Force är bit.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -607,79 +607,79 @@ Lägger till ett steg i ett jobb.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ job_name =** ] "job_name"  
+[ **\@ job_name =** ] "job_name"  
 Namnet på det jobb som steget ska läggas till i. job_name är nvarchar (128).
 
-[ ** \@ step_id =** ] step_id  
+[ **\@ step_id =** ] step_id  
 Sekvensens identifierings nummer för jobb steget. Steg identifierings nummer börjar med 1 och ökar utan luckor. Om ett befintligt steg redan har det här ID: t kommer det här steget och alla följande steg ha sina ID: n, så att det här nya steget kan infogas i sekvensen. Om detta inte anges tilldelas step_id automatiskt den sista i sekvensen av steg. step_id är en int.
 
-[ ** \@ step_name =** ] step_name  
+[ **\@ step_name =** ] step_name  
 Namnet på steget. Måste anges, förutom det första steget i ett jobb (för bekvämlighet) har standard namnet ' JobStep '. step_name är nvarchar (128).
 
-[ ** \@ command_type =** ] "command_type"  
+[ **\@ command_type =** ] "command_type"  
 Den typ av kommando som utförs av den här Jobstep. command_type är nvarchar (50), med standardvärdet TSql, vilket innebär att @command_type parameterns värde är ett T-SQL-skript.
 
 Om det anges måste värdet vara TSql.
 
-[ ** \@ command_source =** ] "command_source"  
+[ **\@ command_source =** ] "command_source"  
 Den typ av plats där kommandot lagras. command_source är nvarchar (50), med standardvärdet infogat, vilket innebär att @command_source parameterns värde är den litterala texten för kommandot.
 
 Om det här alternativet anges måste värdet vara infogat.
 
-[ ** \@ Command =** ] "kommando"  
+[ **\@ Command =** ] "kommando"  
 Kommandot måste vara ett giltigt T-SQL-skript och körs sedan av det här jobb steget. kommandot är nvarchar (max), med standardvärdet NULL.
 
-[ ** \@ credential_name =** ] "credential_name"  
+[ **\@ credential_name =** ] "credential_name"  
 Namnet på den databasbaserade autentiseringsuppgiften som lagras i den här jobb kontroll databasen som används för att ansluta till varje mål databas i mål gruppen när det här steget körs. credential_name är nvarchar (128).
 
-[ ** \@ target_group_name =** ] Target-GROUP_NAME  
+[ **\@ target_group_name =** ] Target-GROUP_NAME  
 Namnet på den mål grupp som innehåller mål databaserna som jobb steget ska köras på. target_group_name är nvarchar (128).
 
-[ ** \@ initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@ initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 Fördröjningen före det första försöket, om jobb steget Miss lyckas vid det första körnings försöket. initial_retry_interval_seconds är int, med standardvärdet 1.
 
-[ ** \@ maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@ maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 Maximal fördröjning mellan nya försök. Om fördröjningen mellan återförsök skulle växa större än det här värdet, är det ett tak för detta värde i stället. maximum_retry_interval_seconds är int, med standardvärdet 120.
 
-[ ** \@ retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@ retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 Multiplikatorn som ska användas för fördröjningen för nya försök om flera jobb körnings försök Miss lyckas. Om det första återförsöket hade en fördröjning på 5 sekunder och backoff-multiplikatorn är 2,0, kommer den andra återförsöket att ha en fördröjning på 10 sekunder och det tredje försöket kommer att ha en fördröjning på 20 sekunder. retry_interval_backoff_multiplier är Real, med standardvärdet 2,0.
 
-[ ** \@ retry_attempts =** ] retry_attempts  
+[ **\@ retry_attempts =** ] retry_attempts  
 Antalet gånger som körningen ska göras om det första försöket Miss lyckas. Om retry_attempts svärdet till exempel är 10, kommer det att finnas 1 inledande försök och 10 nya försök, vilket ger totalt 11 försök. Om det slutliga försöket Miss lyckas avslutas jobb körningen med en livs cykel som misslyckades. retry_attempts är int, med standardvärdet 10.
 
-[ ** \@ step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@ step_timeout_seconds =** ] step_timeout_seconds  
 Den maximala tids mängd som tillåts för steget att köra. Om den här tiden överskrids, kommer jobb körningen att avslutas med en livs cykel av stängningsåtgärd. step_timeout_seconds är int, med standardvärdet 43 200 sekunder (12 timmar).
 
-[ ** \@ output_type =** ] "output_type"  
+[ **\@ output_type =** ] "output_type"  
 Om detta inte är null skrivs den typ av mål som kommandots första resultat uppsättning skrivs till. output_type är nvarchar (50), med standardvärdet NULL.
 
 Om det anges måste värdet vara SqlDatabase.
 
-[ ** \@ output_credential_name =** ] "output_credential_name"  
+[ **\@ output_credential_name =** ] "output_credential_name"  
 Om detta inte är null, namnet på databasen som används för att ansluta till mål databasen för utdata. Måste anges om output_type är lika med SqlDatabase. output_credential_name är nvarchar (128) med standardvärdet NULL.
 
-[ ** \@ output_subscription_id =** ] "output_subscription_id"  
+[ **\@ output_subscription_id =** ] "output_subscription_id"  
 Beskrivning av behov.
 
-[ ** \@ output_resource_group_name =** ] "output_resource_group_name"  
+[ **\@ output_resource_group_name =** ] "output_resource_group_name"  
 Beskrivning av behov.
 
-[ ** \@ output_server_name =** ] "output_server_name"  
+[ **\@ output_server_name =** ] "output_server_name"  
 Om detta inte är null är det fullständigt kvalificerade DNS-namnet för den server som innehåller mål databasen för utdata. Måste anges om output_type är lika med SqlDatabase. output_server_name är nvarchar (256), med standardvärdet NULL.
 
-[ ** \@ output_database_name =** ] "output_database_name"  
+[ **\@ output_database_name =** ] "output_database_name"  
 Om detta inte är null, namnet på databasen som innehåller mål tabellen för utdata. Måste anges om output_type är lika med SqlDatabase. output_database_name är nvarchar (128), med standardvärdet NULL.
 
-[ ** \@ output_schema_name =** ] "output_schema_name"  
+[ **\@ output_schema_name =** ] "output_schema_name"  
 Om detta inte är null, namnet på det SQL-schema som innehåller mål tabellen för utdata. Om output_type är lika med SqlDatabase är standardvärdet dbo. output_schema_name är nvarchar (128).
 
-[ ** \@ output_table_name =** ] "output_table_name"  
+[ **\@ output_table_name =** ] "output_table_name"  
 Om detta inte är null skrivs namnet på den tabell som kommandots första resultat uppsättning ska skrivas till. Om tabellen inte redan finns skapas den baserat på schemat för den returnerade resultat uppsättningen. Måste anges om output_type är lika med SqlDatabase. output_table_name är nvarchar (128) med standardvärdet NULL.
 
-[ ** \@ job_version =** ] job_version utdata  
+[ **\@ job_version =** ] job_version utdata  
 Utdataparameter som ska tilldelas det nya jobb versions numret. job_version är int.
 
-[ ** \@ max_parallelism =** ] max_parallelism utdata  
+[ **\@ max_parallelism =** ] max_parallelism utdata  
 Den högsta nivån av parallellitet per elastisk pool. Om det här alternativet är inställt begränsas jobb steget så att det bara körs på maximalt antal databaser per elastisk pool. Detta gäller för varje elastisk pool som antingen ingår direkt i mål gruppen eller finns i en server som ingår i mål gruppen. max_parallelism är int.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -732,79 +732,79 @@ Uppdaterar ett jobb steg.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ job_name =** ] "job_name"  
+[ **\@ job_name =** ] "job_name"  
 Namnet på det jobb som steget tillhör. job_name är nvarchar (128).
 
-[ ** \@ step_id =** ] step_id  
+[ **\@ step_id =** ] step_id  
 Identifierings numret för det jobb steg som ska ändras. Antingen step_id eller step_name måste anges. step_id är en int.
 
-[ ** \@ step_name =** ] "step_name"  
+[ **\@ step_name =** ] "step_name"  
 Namnet på steget som ska ändras. Antingen step_id eller step_name måste anges. step_name är nvarchar (128).
 
-[ ** \@ new_id =** ] new_id  
+[ **\@ new_id =** ] new_id  
 Det nya sekvens identifierings numret för jobb steget. Steg identifierings nummer börjar med 1 och ökar utan luckor. Om ett steg sorteras om, kommer andra steg att numreras om automatiskt.
 
-[ ** \@ NEW_NAME =** ] "NEW_NAME"  
+[ **\@ NEW_NAME =** ] "NEW_NAME"  
 Det nya namnet på steget. new_name är nvarchar (128).
 
-[ ** \@ command_type =** ] "command_type"  
+[ **\@ command_type =** ] "command_type"  
 Den typ av kommando som utförs av den här Jobstep. command_type är nvarchar (50), med standardvärdet TSql, vilket innebär att @command_type parameterns värde är ett T-SQL-skript.
 
 Om det anges måste värdet vara TSql.
 
-[ ** \@ command_source =** ] "command_source"  
+[ **\@ command_source =** ] "command_source"  
 Den typ av plats där kommandot lagras. command_source är nvarchar (50), med standardvärdet infogat, vilket innebär att @command_source parameterns värde är den litterala texten för kommandot.
 
 Om det här alternativet anges måste värdet vara infogat.
 
-[ ** \@ Command =** ] "kommando"  
+[ **\@ Command =** ] "kommando"  
 Kommandona måste vara giltiga T-SQL-skript och körs sedan av det här jobb steget. kommandot är nvarchar (max), med standardvärdet NULL.
 
-[ ** \@ credential_name =** ] "credential_name"  
+[ **\@ credential_name =** ] "credential_name"  
 Namnet på den databasbaserade autentiseringsuppgiften som lagras i den här jobb kontroll databasen som används för att ansluta till varje mål databas i mål gruppen när det här steget körs. credential_name är nvarchar (128).
 
-[ ** \@ target_group_name =** ] Target-GROUP_NAME  
+[ **\@ target_group_name =** ] Target-GROUP_NAME  
 Namnet på den mål grupp som innehåller mål databaserna som jobb steget ska köras på. target_group_name är nvarchar (128).
 
-[ ** \@ initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
+[ **\@ initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 Fördröjningen före det första försöket, om jobb steget Miss lyckas vid det första körnings försöket. initial_retry_interval_seconds är int, med standardvärdet 1.
 
-[ ** \@ maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
+[ **\@ maximum_retry_interval_seconds =** ] maximum_retry_interval_seconds  
 Maximal fördröjning mellan nya försök. Om fördröjningen mellan återförsök skulle växa större än det här värdet, är det ett tak för detta värde i stället. maximum_retry_interval_seconds är int, med standardvärdet 120.
 
-[ ** \@ retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
+[ **\@ retry_interval_backoff_multiplier =** ] retry_interval_backoff_multiplier  
 Multiplikatorn som ska användas för fördröjningen för nya försök om flera jobb körnings försök Miss lyckas. Om det första återförsöket hade en fördröjning på 5 sekunder och backoff-multiplikatorn är 2,0, kommer den andra återförsöket att ha en fördröjning på 10 sekunder och det tredje försöket kommer att ha en fördröjning på 20 sekunder. retry_interval_backoff_multiplier är Real, med standardvärdet 2,0.
 
-[ ** \@ retry_attempts =** ] retry_attempts  
+[ **\@ retry_attempts =** ] retry_attempts  
 Antalet gånger som körningen ska göras om det första försöket Miss lyckas. Om retry_attempts svärdet till exempel är 10, kommer det att finnas 1 inledande försök och 10 nya försök, vilket ger totalt 11 försök. Om det slutliga försöket Miss lyckas avslutas jobb körningen med en livs cykel som misslyckades. retry_attempts är int, med standardvärdet 10.
 
-[ ** \@ step_timeout_seconds =** ] step_timeout_seconds  
+[ **\@ step_timeout_seconds =** ] step_timeout_seconds  
 Den maximala tids mängd som tillåts för steget att köra. Om den här tiden överskrids, kommer jobb körningen att avslutas med en livs cykel av stängningsåtgärd. step_timeout_seconds är int, med standardvärdet 43 200 sekunder (12 timmar).
 
-[ ** \@ output_type =** ] "output_type"  
+[ **\@ output_type =** ] "output_type"  
 Om detta inte är null skrivs den typ av mål som kommandots första resultat uppsättning skrivs till. Om du vill återställa värdet för output_type tillbaka till NULL anger du värdet för parametern till (tom sträng). output_type är nvarchar (50), med standardvärdet NULL.
 
 Om det anges måste värdet vara SqlDatabase.
 
-[ ** \@ output_credential_name =** ] "output_credential_name"  
+[ **\@ output_credential_name =** ] "output_credential_name"  
 Om detta inte är null, namnet på databasen som används för att ansluta till mål databasen för utdata. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_credential_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_credential_name är nvarchar (128) med standardvärdet NULL.
 
-[ ** \@ output_server_name =** ] "output_server_name"  
+[ **\@ output_server_name =** ] "output_server_name"  
 Om detta inte är null är det fullständigt kvalificerade DNS-namnet för den server som innehåller mål databasen för utdata. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_server_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_server_name är nvarchar (256), med standardvärdet NULL.
 
-[ ** \@ output_database_name =** ] "output_database_name"  
+[ **\@ output_database_name =** ] "output_database_name"  
 Om detta inte är null, namnet på databasen som innehåller mål tabellen för utdata. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_database_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_database_name är nvarchar (128), med standardvärdet NULL.
 
-[ ** \@ output_schema_name =** ] "output_schema_name"  
+[ **\@ output_schema_name =** ] "output_schema_name"  
 Om detta inte är null, namnet på det SQL-schema som innehåller mål tabellen för utdata. Om output_type är lika med SqlDatabase är standardvärdet dbo. Om du vill återställa värdet för output_schema_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_schema_name är nvarchar (128).
 
-[ ** \@ output_table_name =** ] "output_table_name"  
+[ **\@ output_table_name =** ] "output_table_name"  
 Om detta inte är null skrivs namnet på den tabell som kommandots första resultat uppsättning ska skrivas till. Om tabellen inte redan finns skapas den baserat på schemat för den returnerade resultat uppsättningen. Måste anges om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_server_name tillbaka till NULL anger du värdet för parametern till (tom sträng). output_table_name är nvarchar (128) med standardvärdet NULL.
 
-[ ** \@ job_version =** ] job_version utdata  
+[ **\@ job_version =** ] job_version utdata  
 Utdataparameter som ska tilldelas det nya jobb versions numret. job_version är int.
 
-[ ** \@ max_parallelism =** ] max_parallelism utdata  
+[ **\@ max_parallelism =** ] max_parallelism utdata  
 Den högsta nivån av parallellitet per elastisk pool. Om det här alternativet är inställt begränsas jobb steget så att det bara körs på maximalt antal databaser per elastisk pool. Detta gäller för varje elastisk pool som antingen ingår direkt i mål gruppen eller finns i en server som ingår i mål gruppen. Om du vill återställa värdet för max_parallelism tillbaka till null anger du värdet för parametern till-1. max_parallelism är int.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -838,16 +838,16 @@ Tar bort ett jobb steg från ett jobb.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ job_name =** ] "job_name"  
+[ **\@ job_name =** ] "job_name"  
 Namnet på det jobb som steget kommer att tas bort från. job_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ step_id =** ] step_id  
+[ **\@ step_id =** ] step_id  
 Identifierings numret för det jobb steg som ska tas bort. Antingen step_id eller step_name måste anges. step_id är en int.
 
-[ ** \@ step_name =** ] "step_name"  
+[ **\@ step_name =** ] "step_name"  
 Namnet på steget som ska tas bort. Antingen step_id eller step_name måste anges. step_name är nvarchar (128).
 
-[ ** \@ job_version =** ] job_version utdata  
+[ **\@ job_version =** ] job_version utdata  
 Utdataparameter som ska tilldelas det nya jobb versions numret. job_version är int.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -881,10 +881,10 @@ Startar körning av ett jobb.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ job_name =** ] "job_name"  
+[ **\@ job_name =** ] "job_name"  
 Namnet på det jobb som steget kommer att tas bort från. job_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ job_execution_id =** ] job_execution_id utdata  
+[ **\@ job_execution_id =** ] job_execution_id utdata  
 Utdataparameter som ska tilldelas jobb körningens ID. job_version är uniqueidentifier.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -915,7 +915,7 @@ Stoppar en jobb körning.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ job_execution_id =** ] job_execution_id  
+[ **\@ job_execution_id =** ] job_execution_id  
 Identifierings numret för jobb körningen som ska stoppas. job_execution_id är uniqueidentifier och standardvärdet är NULL.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -947,10 +947,10 @@ Lägger till en mål grupp.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ target_group_name =** ] "target_group_name"  
+[ **\@ target_group_name =** ] "target_group_name"  
 Namnet på den mål grupp som ska skapas. target_group_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ target_group_id =** ] Target_group_id att ange det identifierings nummer för mål gruppen som har tilldelats jobbet om det har skapats. target_group_id är en utgående variabel av typen UniqueIdentifier, med standardvärdet NULL.
+[ **\@ target_group_id =** ] Target_group_id att ange det identifierings nummer för mål gruppen som har tilldelats jobbet om det har skapats. target_group_id är en utgående variabel av typen UniqueIdentifier, med standardvärdet NULL.
 
 #### <a name="return-code-values"></a>Retur kod värden
 
@@ -980,7 +980,7 @@ Tar bort en mål grupp.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ target_group_name =** ] "target_group_name"  
+[ **\@ target_group_name =** ] "target_group_name"  
 Namnet på den mål grupp som ska tas bort. target_group_name är nvarchar (128), utan standardvärdet.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -1019,31 +1019,31 @@ Lägger till en databas eller grupp med databaser i en mål grupp.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ target_group_name =** ] "target_group_name"  
+[ **\@ target_group_name =** ] "target_group_name"  
 Namnet på den mål grupp som medlemmen ska läggas till i. target_group_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ membership_type =** ] "membership_type"  
+[ **\@ membership_type =** ] "membership_type"  
 Anger om mål grupps medlemmen ska tas med eller undantas. target_group_name är nvarchar (128), med standardvärdet include. Giltiga värden för membership_type är include eller exclude.
 
-[ ** \@ target_type =** ] "target_type"  
+[ **\@ target_type =** ] "target_type"  
 Typ av mål databas eller samling av databaser, inklusive alla databaser på en server, alla databaser i en elastisk pool, alla databaser i en Shard-karta eller en enskild databas. target_type är nvarchar (128), utan standardvärdet. Giltiga värden för target_type är SqlServer, SqlElasticPool, SqlDatabase eller SqlShardMap.
 
-[ ** \@ refresh_credential_name =** ] "refresh_credential_name"  
+[ **\@ refresh_credential_name =** ] "refresh_credential_name"  
 Namnet på databasens begränsade autentiseringsuppgifter. refresh_credential_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ server_name =** ] "server_name"  
+[ **\@ server_name =** ] "server_name"  
 Namnet på den server som ska läggas till i den angivna mål gruppen. server_name ska anges när target_type är SqlServer. server_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ database_name =** ] "database_name"  
+[ **\@ database_name =** ] "database_name"  
 Namnet på databasen som ska läggas till i den angivna mål gruppen. database_name ska anges när target_type är ' SqlDatabase '. database_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ elastic_pool_name =** ] "elastic_pool_name"  
+[ **\@ elastic_pool_name =** ] "elastic_pool_name"  
 Namnet på den elastiska pool som ska läggas till i den angivna mål gruppen. elastic_pool_name ska anges när target_type är ' SqlElasticPool '. elastic_pool_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ shard_map_name =** ] "shard_map_name"  
+[ **\@ shard_map_name =** ] "shard_map_name"  
 Namnet på Shard som ska läggas till i den angivna mål gruppen. elastic_pool_name ska anges när target_type är ' SqlShardMap '. shard_map_name är nvarchar (128), utan standardvärdet.
 
-[ ** \@ target_id =** ] target_group_id utdata  
+[ **\@ target_id =** ] target_group_id utdata  
 Det mål-ID-nummer som tilldelats mål grupps medlemmen om den skapades i mål gruppen. target_id är en utgående variabel av typen UniqueIdentifier, med standardvärdet NULL.
 Returnera kod värden 0 (lyckades) eller 1 (haveri)
 
@@ -1162,13 +1162,13 @@ Tar bort historik poster för ett jobb.
 
 #### <a name="arguments"></a>Argument
 
-[ ** \@ job_name =** ] "job_name"  
+[ **\@ job_name =** ] "job_name"  
 Namnet på det jobb som historik posterna ska tas bort för. job_name är nvarchar (128), med standardvärdet NULL. Antingen job_id eller job_name måste anges, men det går inte att ange båda.
 
-[ ** \@ job_id =** ] job_id  
+[ **\@ job_id =** ] job_id  
  Jobb identifierings numret för jobbet för de poster som ska tas bort. job_id är uniqueidentifier, med standardvärdet NULL. Antingen job_id eller job_name måste anges, men det går inte att ange båda.
 
-[ ** \@ oldest_date =** ] oldest_date  
+[ **\@ oldest_date =** ] oldest_date  
  Den äldsta posten som ska sparas i historiken. oldest_date är DATETIME2, med standardvärdet NULL. När oldest_date anges tar sp_purge_jobhistory bara bort poster som är äldre än det angivna värdet.
 
 #### <a name="return-code-values"></a>Retur kod värden
@@ -1344,9 +1344,9 @@ Visar alla medlemmar i alla mål grupper.
 
 ## <a name="resources"></a>Resurser
 
-- ![Ämnes länks ikon](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Ämnes länk ikon") [konventioner för Transact-SQL-syntax](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+- ![Ämnes länks ikon](/sql/database-engine/configure-windows/media/topic-link.gif "Ämnes länk ikon") [konventioner för Transact-SQL-syntax](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Skapa och hantera elastiska jobb med PowerShell](elastic-jobs-powershell-create.md)
-- [Auktorisering och behörigheter](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
+- [Auktorisering och behörigheter](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)

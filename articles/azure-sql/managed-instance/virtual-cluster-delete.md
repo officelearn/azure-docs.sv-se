@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 0b8ceee1260e4209420778d7f327d771b858a899
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ed8f6dc90debddd17282f8f96962ffd78055030
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617731"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791672"
 ---
 # <a name="delete-a-subnet-after-deleting-a-managed-instance-of-sql-managed-instance"></a>Ta bort ett undernät när en hanterad instans av SQL-hanterad instans har tagits bort
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -29,7 +29,7 @@ Om du inte vill vänta i 12 timmar och vill ta bort det virtuella klustret och d
 
 > [!IMPORTANT]
 > - Det virtuella klustret ska inte innehålla några hanterade instanser för att borttagningen ska lyckas. 
-> - Borttagning av ett virtuellt kluster är en tids krävande åtgärd som varar i cirka 1,5 timmar (se [hanterings åtgärder för hanterade instanser](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) för uppdaterade virtuella kluster borttagnings tider). Det virtuella klustret visas fortfarande i portalen tills den här processen har slutförts.
+> - Borttagning av ett virtuellt kluster är en tids krävande åtgärd som varar i cirka 1,5 timmar (se [hanterings åtgärder för hanterade instanser](./sql-managed-instance-paas-overview.md#management-operations) för uppdaterade virtuella kluster borttagnings tider). Det virtuella klustret visas fortfarande i portalen tills den här processen har slutförts.
 
 ## <a name="delete-a-virtual-cluster-from-the-azure-portal"></a>Ta bort ett virtuellt kluster från Azure Portal
 
@@ -37,7 +37,7 @@ Om du vill ta bort ett virtuellt kluster med hjälp av Azure Portal söker du ef
 
 ![Skärm bild av Azure Portal, där sökrutan är markerad](./media/virtual-cluster-delete/virtual-clusters-search.png)
 
-När du har hittat det virtuella kluster som du vill ta bort väljer du den här resursen och väljer **ta bort**. Du uppmanas att bekräfta borttagningen av det virtuella klustret.
+När du har hittat det virtuella kluster som du vill ta bort väljer du den här resursen och väljer **ta bort** . Du uppmanas att bekräfta borttagningen av det virtuella klustret.
 
 ![Skärm bild av instrument panelen för Azure Portal virtuella kluster med alternativet ta bort markerat](./media/virtual-cluster-delete/virtual-clusters-delete.png)
 
@@ -48,7 +48,7 @@ Azure Portal-aviseringar visar en bekräftelse på att begäran om att ta bort d
 
 ## <a name="delete-a-virtual-cluster-by-using-the-api"></a>Ta bort ett virtuellt kluster med hjälp av API: et
 
-Om du vill ta bort ett virtuellt kluster via API: et använder du URI-parametrarna som anges i [Delete-metoden för virtuella kluster](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
+Om du vill ta bort ett virtuellt kluster via API: et använder du URI-parametrarna som anges i [Delete-metoden för virtuella kluster](/rest/api/sql/virtualclusters/delete).
 
 ## <a name="next-steps"></a>Nästa steg
 

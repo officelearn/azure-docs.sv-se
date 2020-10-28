@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae00703805bef6f5e9758bafcb781eda91cd93f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272165"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793100"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "91272165"
 
 [SQL Server på Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/) kan du använda fullständiga versioner av SQL Server i molnet utan att behöva hantera lokal maskin vara. SQL Server virtuella datorer (VM: ar) fören klar också licens kostnaderna när du betalar per användning.
 
-Virtuella Azure-datorer körs i många olika [geografiska regioner](https://azure.microsoft.com/regions/) runtom i världen. De också erbjuder även en mängd olika [datorstorlekar](../../../virtual-machines/windows/sizes.md). I bildgalleriet för virtuella datorer kan du skapa en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Detta gör virtuella datorer till ett utmärkt alternativ för många olika SQL Server arbets belastningar.
+Virtuella Azure-datorer körs i många olika [geografiska regioner](https://azure.microsoft.com/regions/) runtom i världen. De också erbjuder även en mängd olika [datorstorlekar](../../../virtual-machines/sizes.md). I bildgalleriet för virtuella datorer kan du skapa en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Detta gör virtuella datorer till ett utmärkt alternativ för många olika SQL Server arbets belastningar.
 
 Om du inte har använt SQL Server på virtuella Azure-datorer kan du titta närmare på den *SQL Server på Azures översikt över virtuella Azure-datorer* från vår djupgående [Azure SQL-video serie](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
@@ -42,7 +42,7 @@ SQL Server på Azure Virtual Machines kan använda [Automatisk uppdatering](auto
 
 SQL Server på Azure Virtual Machines kan dra nytta av [Automatisk säkerhets kopiering](automated-backup.md), som regelbundet skapar säkerhets kopior av databasen till Blob Storage. Du kan också använda den här tekniken manuellt. Mer information finns i [Använda Azure Storage för säkerhetskopiering och återställning av SQL Server](azure-storage-sql-server-backup-restore-use.md).
 
-Azure erbjuder också en säkerhets kopierings lösning i företags klass för SQL Server som körs i virtuella Azure-datorer. En fullständigt hanterad säkerhets kopierings lösning som stöder Always on-tillgänglighetsgrupper, långsiktig kvarhållning, tidpunkts återställning och central hantering och övervakning. Mer information finns i [Azure Backup för SQL Server i virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+Azure erbjuder också en säkerhets kopierings lösning i företags klass för SQL Server som körs i virtuella Azure-datorer. En fullständigt hanterad säkerhets kopierings lösning som stöder Always on-tillgänglighetsgrupper, långsiktig kvarhållning, tidpunkts återställning och central hantering och övervakning. Mer information finns i [Azure Backup för SQL Server i virtuella Azure-datorer](../../../backup/backup-azure-sql-database.md).
   
 
 ## <a name="high-availability"></a>Hög tillgänglighet
@@ -80,7 +80,7 @@ Information om tillgängliga SQL Server på Linux avbildningar av virtuella dato
 ### <a name="bring-your-own-license"></a><a id="BYOL"></a> Bring your own license
 Du kan även använda din egen licens (Bring your own license, BYOL). I det här scenariot betalar du bara för den virtuella datorn utan ytterligare avgifter för SQL Server-licensiering.  När du använder din egen licens kan du spara pengar långsiktigt för kontinuerliga arbetsbelastningar under produktion. Kraven för att använda det här alternativet finns i [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md#byol) (Prisvägledning för virtuella SQL Server Azure-datorer).
 
-Om du vill ta med din egen licens kan du antingen konvertera en befintlig SQL Server VM för betalning per användning eller distribuera en avbildning med hjälp av den fasta **{BYOL}**. Mer information om hur du byter licensierings modell mellan betala per användning och BYOL finns i [så här ändrar du licensierings modellen för en SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Om du vill ta med din egen licens kan du antingen konvertera en befintlig SQL Server VM för betalning per användning eller distribuera en avbildning med hjälp av den fasta **{BYOL}** . Mer information om hur du byter licensierings modell mellan betala per användning och BYOL finns i [så här ändrar du licensierings modellen för en SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 | Version | Operativsystem | Utgåva |
 | --- | --- | --- |
@@ -116,11 +116,11 @@ För att komma åt sidan **Azure SQL-resurser** väljer du **azure SQL** på Azu
 > [!NOTE]
 > Azure SQL är ett snabbt och enkelt sätt att få åtkomst till alla dina Azure SQL-databaser, elastiska pooler, logiska servrar, hanterade instanser och virtuella datorer. Azure SQL är inte en tjänst eller resurs. 
 
-Om du vill hantera befintliga resurser väljer du önskat objekt i listan. Om du vill skapa nya Azure SQL-resurser väljer du **+ Lägg till**. 
+Om du vill hantera befintliga resurser väljer du önskat objekt i listan. Om du vill skapa nya Azure SQL-resurser väljer du **+ Lägg till** . 
 
 ![Skapa Azure SQL-resurs](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
-När du har valt **+ Lägg till**, Visa ytterligare information om de olika alternativen genom att välja **Visa information** på valfri panel.
+När du har valt **+ Lägg till** , Visa ytterligare information om de olika alternativen genom att välja **Visa information** på valfri panel.
 
 ![panel information om databaser](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
@@ -135,13 +135,13 @@ Mer information finns i:
 Azure underhåller en avbildning av en virtuell dator för varje kombination av operativsystem, version och utgåva som stöds. Det betyder att avbildningar uppdateras med tiden och att äldre avbildningar tas bort. Mer information finns i avsnittet **Avbildningar** i [Virtuella SQL Server-datorer, vanliga frågor och svar](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>CEIP (Customer Experience Improvement Program)
-CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det skickar periodvisa rapporter till Microsoft för att hjälpa att förbättra SQL Server. Det krävs inga hanteringsaktiviteter för CEIP om du inte vill inaktivera den efter etablering. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server**. Inaktivera rapporteringen genom att följa anvisningarna. Mer information om datainsamling finns i [SQL Server-sekretesspolicyn](https://docs.microsoft.com/sql/sql-server/sql-server-privacy).
+CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det skickar periodvisa rapporter till Microsoft för att hjälpa att förbättra SQL Server. Det krävs inga hanteringsaktiviteter för CEIP om du inte vill inaktivera den efter etablering. Du kan anpassa eller inaktivera CEIP genom att ansluta till den virtuella datorn med Fjärrskrivbord. Kör sedan verktyget **Fel- och användningsrapportering för SQL Server** . Inaktivera rapporteringen genom att följa anvisningarna. Mer information om datainsamling finns i [SQL Server-sekretesspolicyn](/sql/sql-server/sql-server-privacy).
 
 ## <a name="related-products-and-services"></a>Relaterade produkter och tjänster
 ### <a name="windows-virtual-machines"></a>Virtuella Windows-datorer
 * [Översikt över Azure Virtual Machines](../../../virtual-machines/windows/overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Nätverk
@@ -150,7 +150,7 @@ CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det s
 * [Skapa ett fullständigt domännamn i Azure-portalen](../../../virtual-machines/linux/portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
-* [SQL Server dokumentation](https://docs.microsoft.com/sql/index)
+* [SQL Server dokumentation](/sql/index)
 * [Jämförelse med Azure SQL Database](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -165,5 +165,5 @@ Få svar på vanliga frågor om SQL Server virtuella datorer:
 
 Visa referens arkitekturer för att köra program på N-nivå på SQL Server i IaaS
 
-* [Windows N-Tier-program på Azure med SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Köra ett program på N-nivå i flera Azure-regioner för hög tillgänglighet](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Windows N-Tier-program på Azure med SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Köra ett program på N-nivå i flera Azure-regioner för hög tillgänglighet](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

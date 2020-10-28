@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96b6b262765a361befeadd9b5a42d37ca5e66497
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57cda5104551f8b62d157e443a42c5e3c75e4ddf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372063"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792420"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Spara hemliga program inställningar för ett webb program på ett säkert sätt
 
@@ -30,7 +30,7 @@ För att säkerställa att utvecklings processen är säker skapas verktygs-och 
 ## <a name="aspnet-and-net-core-applications"></a>ASP.NET-och .NET Core-program
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Spara hemliga inställningar i användarens hemliga arkiv som ligger utanför käll kontroll mappen
-Om du utför en snabb prototyp eller om du inte har till gång till Internet, börjar du med att flytta dina hemliga inställningar utanför käll kontrollens mapp till användarens hemliga arkiv. Användarens hemliga arkiv är en fil som sparats under mappen User profiler, så hemligheterna är inte incheckade i käll kontrollen. Följande diagram visar hur [användar hemlighet](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) fungerar.
+Om du utför en snabb prototyp eller om du inte har till gång till Internet, börjar du med att flytta dina hemliga inställningar utanför käll kontrollens mapp till användarens hemliga arkiv. Användarens hemliga arkiv är en fil som sparats under mappen User profiler, så hemligheterna är inte incheckade i käll kontrollen. Följande diagram visar hur [användar hemlighet](/aspnet/core/security/app-secrets?tabs=visual-studio) fungerar.
 
 ![Användar hemlighet behåller hemliga inställningar utanför käll kontrollen](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -43,7 +43,7 @@ Om du utvecklar ett projekt och behöver dela käll koden på ett säkert sätt,
 
     ![Skapa Azure Key Vault](../media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Ge dig och ditt team medlemmar åtkomst till Key Vault. Om du har ett stort team kan du skapa en [Azure Active Directory-grupp](../../active-directory/active-directory-groups-create-azure-portal.md) och lägga till den säkerhets gruppen till Key Vault. I list rutan *hemliga behörigheter* kontrollerar du *Hämta* och *lista* under *hemliga hanterings åtgärder*.
+2. Ge dig och ditt team medlemmar åtkomst till Key Vault. Om du har ett stort team kan du skapa en [Azure Active Directory-grupp](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) och lägga till den säkerhets gruppen till Key Vault. I list rutan *hemliga behörigheter* kontrollerar du *Hämta* och *lista* under *hemliga hanterings åtgärder* .
 Om du redan har skapat din webbapp ger du webbappen åtkomst till den Key Vault så att den kan komma åt nyckel valvet utan att lagra hemlig konfiguration i appinställningar eller filer. Sök efter din webbapp med sitt namn och Lägg till den på samma sätt som du beviljar användarna åtkomst.
 
     ![Lägg till Key Vault åtkomst princip](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
@@ -103,7 +103,7 @@ Fortsätt genom att [Ladda ned .NET-4.7.1](https://www.microsoft.com/download/de
 ### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>Spara hemliga inställningar i en hemlig fil utanför käll kontroll mappen
 Om du skriver en snabb prototyp och inte vill etablera Azure-resurser går du till det här alternativet.
 
-1. Högerklicka på projektet och välj **hantera användar hemligheter**. Detta kommer att installera ett NuGet-paket **Microsoft.Configuration.ConfigurationBuilders. UserSecrets** , skapa en fil för att spara hemliga inställningar utanför web.config-filen och lägga till en avsnitts- **ConfigBuilders** i web.configs filen.
+1. Högerklicka på projektet och välj **hantera användar hemligheter** . Detta kommer att installera ett NuGet-paket **Microsoft.Configuration.ConfigurationBuilders. UserSecrets** , skapa en fil för att spara hemliga inställningar utanför web.config-filen och lägga till en avsnitts- **ConfigBuilders** i web.configs filen.
 
 2. Lägg till hemliga inställningar under rot element. nedan visas ett exempel
 

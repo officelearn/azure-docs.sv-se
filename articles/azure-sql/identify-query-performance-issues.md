@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce5bf86073b2c478108e264010bb3c213c214368
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619771"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791757"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Identifierbara typer av flaskhalsar för frågeprestanda i Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,8 +27,8 @@ Du kan använda Azure SQL Database [intelligent Insights](database/intelligent-i
 
 ![Arbets belastnings status](./media/identify-query-performance-issues/workload-states.png)
 
-**Körnings problem**: problem med att köra är i allmänhet relaterade till kompileringsfel som resulterar i en icke-optimal frågeplan eller körnings problem relaterade till otillräckliga eller överanvända resurser.
-**Väntande-relaterade problem**: väntande problem är i allmänhet relaterade till:
+**Körnings problem** : problem med att köra är i allmänhet relaterade till kompileringsfel som resulterar i en icke-optimal frågeplan eller körnings problem relaterade till otillräckliga eller överanvända resurser.
+**Väntande-relaterade problem** : väntande problem är i allmänhet relaterade till:
 
 - Lås (blockerar)
 - I/O
@@ -44,15 +44,15 @@ Ett underoptimerat schema som genereras av SQL Query Optimering kan vara orsaken
   - Använd [intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#missing-index).
   - [Database Advisor](database/database-advisor-implement-performance-recommendations.md) för databaser med enkel och pool.
   - DMV: er. Det här exemplet visar effekten av ett saknat index, hur du identifierar [saknade index](database/performance-guidance.md#identifying-and-adding-missing-indexes) med hjälp av DMV: er och effekten av att implementera den saknade index rekommendationen.
-- Försök att använda [frågetipset](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), [Uppdatera statistik](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql)eller [Återskapa index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) för att få bättre planer. Aktivera [Automatisk plan korrigering](../azure-sql/database/automatic-tuning-overview.md) i Azure SQL Database för att automatiskt minimera de här problemen.
+- Försök att använda [frågetipset](/sql/t-sql/queries/hints-transact-sql-query), [Uppdatera statistik](/sql/t-sql/statements/update-statistics-transact-sql)eller [Återskapa index](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) för att få bättre planer. Aktivera [Automatisk plan korrigering](../azure-sql/database/automatic-tuning-overview.md) i Azure SQL Database för att automatiskt minimera de här problemen.
 
   Det här [exemplet](database/performance-guidance.md#query-tuning-and-hinting) visar effekten av en underoptimerad frågeplan på grund av en parametriserad fråga, hur du identifierar det här villkoret och hur du använder ett frågeuttryck för att lösa problemet.
 
-- Försök ändra kompatibilitetsnivån för databas och implementera intelligent Query-bearbetning. SQL-frågans optimering kan generera en annan frågeplan beroende på kompatibilitetsnivån för din databas. Högre kompatibilitetsnivå ger mer [intelligenta fråge bearbetnings funktioner](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing).
+- Försök ändra kompatibilitetsnivån för databas och implementera intelligent Query-bearbetning. SQL-frågans optimering kan generera en annan frågeplan beroende på kompatibilitetsnivån för din databas. Högre kompatibilitetsnivå ger mer [intelligenta fråge bearbetnings funktioner](/sql/relational-databases/performance/intelligent-query-processing).
 
-  - Mer information om bearbetning av frågor finns i [arkitektur guide för Query Processing](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide).
-  - Om du vill ändra kompatibilitetsnivån för databaser och läsa mer om skillnaderna mellan kompatibilitetsnivån, se [ändra databas](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
-  - Läs mer om beräkning av kardinalitet i [kardinalitet](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server)
+  - Mer information om bearbetning av frågor finns i [arkitektur guide för Query Processing](/sql/relational-databases/query-processing-architecture-guide).
+  - Om du vill ändra kompatibilitetsnivån för databaser och läsa mer om skillnaderna mellan kompatibilitetsnivån, se [ändra databas](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
+  - Läs mer om beräkning av kardinalitet i [kardinalitet](/sql/relational-databases/performance/cardinality-estimation-sql-server)
 
 ## <a name="resolving-queries-with-suboptimal-query-execution-plans"></a>Lösa frågor med under optimala fråge körnings planer
 
@@ -66,19 +66,19 @@ Mer information om parameter-och bearbetning av frågor finns i [arkitektur guid
 
 Flera lösningar kan minimera PSP-problem. Varje lösning har tillhör ande kompromisser och nack delar:
 
-- Använd frågetipset för att [kompilera](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) om frågan vid varje frågekörningen. Den här lösningen för att kompilera den här lösningen och öka CPU-tiden för bättre plan kvalitet. `RECOMPILE`Alternativet är ofta inte möjligt för arbets belastningar som kräver ett högt data flöde.
-- Använd frågetipset [alternativ (Optimize for...)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) för att åsidosätta det faktiska parametervärdet med ett typiskt parameter värde som ger en plan som är tillräckligt stor för de flesta värde för parameter värden. Det här alternativet kräver en god förståelse av optimala parameter värden och associerade plan egenskaper.
-- Använd frågetipset [OPTION (Optimize for UNknown)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) för att åsidosätta det faktiska parametervärdet och Använd i stället densiteten densitet Vector. Du kan också göra detta genom att samla in inkommande parameter värden i lokala variabler och sedan använda de lokala variablerna i predikat i stället för att använda själva parametrarna. För den här korrigeringen måste den genomsnittliga densiteten vara *tillräckligt hög*.
-- Inaktivera parameter identifiering helt och hållet med hjälp av [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) -frågetipset.
-- Använd [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) -frågetipset för att förhindra omkompileringar i cacheminnet. Den här lösningen förutsätter att den tillräckligt höga planen är den som redan finns i cacheminnet. Du kan också inaktivera automatiska statistik uppdateringar för att minska risken för att den bra planen kommer att avlägsnas och en ny dålig plan kompileras.
-- Tvinga planen genom att uttryckligen använda [use plan](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) -frågetipset genom att skriva om frågan och lägga till tipset i frågetexten. Eller ange en speciell plan genom att använda Query Store eller genom att aktivera [Automatisk justering](../azure-sql/database/automatic-tuning-overview.md).
+- Använd frågetipset för att [kompilera](/sql/t-sql/queries/hints-transact-sql-query) om frågan vid varje frågekörningen. Den här lösningen för att kompilera den här lösningen och öka CPU-tiden för bättre plan kvalitet. `RECOMPILE`Alternativet är ofta inte möjligt för arbets belastningar som kräver ett högt data flöde.
+- Använd frågetipset [alternativ (Optimize for...)](/sql/t-sql/queries/hints-transact-sql-query) för att åsidosätta det faktiska parametervärdet med ett typiskt parameter värde som ger en plan som är tillräckligt stor för de flesta värde för parameter värden. Det här alternativet kräver en god förståelse av optimala parameter värden och associerade plan egenskaper.
+- Använd frågetipset [OPTION (Optimize for UNknown)](/sql/t-sql/queries/hints-transact-sql-query) för att åsidosätta det faktiska parametervärdet och Använd i stället densiteten densitet Vector. Du kan också göra detta genom att samla in inkommande parameter värden i lokala variabler och sedan använda de lokala variablerna i predikat i stället för att använda själva parametrarna. För den här korrigeringen måste den genomsnittliga densiteten vara *tillräckligt hög* .
+- Inaktivera parameter identifiering helt och hållet med hjälp av [DISABLE_PARAMETER_SNIFFING](/sql/t-sql/queries/hints-transact-sql-query) -frågetipset.
+- Använd [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query) -frågetipset för att förhindra omkompileringar i cacheminnet. Den här lösningen förutsätter att den tillräckligt höga planen är den som redan finns i cacheminnet. Du kan också inaktivera automatiska statistik uppdateringar för att minska risken för att den bra planen kommer att avlägsnas och en ny dålig plan kompileras.
+- Tvinga planen genom att uttryckligen använda [use plan](/sql/t-sql/queries/hints-transact-sql-query) -frågetipset genom att skriva om frågan och lägga till tipset i frågetexten. Eller ange en speciell plan genom att använda Query Store eller genom att aktivera [Automatisk justering](../azure-sql/database/automatic-tuning-overview.md).
 - Ersätt den gemensamma proceduren med en kapslad uppsättning procedurer som varje kan användas baserat på villkorlig logik och associerade parameter värden.
 - Skapa alternativ för dynamisk sträng körning till en statisk procedur definition.
 
 Mer information om hur du löser PSP-problem finns i följande blogg inlägg:
 
-- [Jag har luktat en parameter](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter)
-- [Conor jämfört med dynamiska SQL vs.-procedurer jämfört med plan kvalitet för parametriserade frågor](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- [Jag har luktat en parameter](/archive/blogs/queryoptteam/i-smell-a-parameter)
+- [Conor jämfört med dynamiska SQL vs.-procedurer jämfört med plan kvalitet för parametriserade frågor](/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)
 - [Metoder för optimering av SQL-frågor i SQL Server: parameter avlyssning](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
 ### <a name="compile-activity-caused-by-improper-parameterization"></a>Kompilera aktivitet som orsakas av felaktig Parameterisering
@@ -137,13 +137,13 @@ Om du använder ett omkompilerings tips cachelagras inte en plan.
 
 En RECOMPILE (eller ny kompilering efter cache-avtagningen) kan fortfarande resultera i att en frågeplan som är identisk med originalet skapas. När planen ändras från föregående eller ursprungliga plan är dessa förklaringar förmodligen följande:
 
-- **Ändrad fysisk design**: till exempel kan nyligen skapade index effektivt hantera kraven för en fråga. Nya index kan användas i en ny kompilering om Query Optimering bestämmer att det nya indexet är mer optimalt än att använda den data struktur som ursprungligen valdes för den första versionen av frågekörningen. Eventuella fysiska ändringar av de refererade objekten kan leda till ett nytt schema val vid kompileringen.
+- **Ändrad fysisk design** : till exempel kan nyligen skapade index effektivt hantera kraven för en fråga. Nya index kan användas i en ny kompilering om Query Optimering bestämmer att det nya indexet är mer optimalt än att använda den data struktur som ursprungligen valdes för den första versionen av frågekörningen. Eventuella fysiska ändringar av de refererade objekten kan leda till ett nytt schema val vid kompileringen.
 
-- **Server resurs skillnader**: när en plan i ett system skiljer sig från planen i ett annat system kan resurs tillgängligheten, till exempel antalet tillgängliga processorer, påverka vilken plan som genereras. Om ett system till exempel har fler processorer kan du välja en parallell plan.
+- **Server resurs skillnader** : när en plan i ett system skiljer sig från planen i ett annat system kan resurs tillgängligheten, till exempel antalet tillgängliga processorer, påverka vilken plan som genereras. Om ett system till exempel har fler processorer kan du välja en parallell plan.
 
-- **Annan statistik**: statistiken som är kopplad till de refererade objekten kan ha ändrats eller vara väsentlig annorlunda än det ursprungliga systemets statistik. Om statistiken ändras och en omkompilering sker, använder Query Optimering statistiken som börjar från när de ändrades. Den reviderade statistikens data distributioner och frekvenser kan skilja sig från de ursprungliga kompileringarna. Dessa ändringar används för att skapa beräkningar av kardinalitet. (*Beräkning av kardinalitet* är antalet rader som förväntas flöda genom det logiska frågeuttrycket.) Ändringar av beräkningar av kardinalitet kan leda till att du väljer olika fysiska operatörer och tillhör ande åtgärder. Även smärre ändringar i statistiken kan resultera i en ändrad frågeplan för frågekörningen.
+- **Annan statistik** : statistiken som är kopplad till de refererade objekten kan ha ändrats eller vara väsentlig annorlunda än det ursprungliga systemets statistik. Om statistiken ändras och en omkompilering sker, använder Query Optimering statistiken som börjar från när de ändrades. Den reviderade statistikens data distributioner och frekvenser kan skilja sig från de ursprungliga kompileringarna. Dessa ändringar används för att skapa beräkningar av kardinalitet. ( *Beräkning av kardinalitet* är antalet rader som förväntas flöda genom det logiska frågeuttrycket.) Ändringar av beräkningar av kardinalitet kan leda till att du väljer olika fysiska operatörer och tillhör ande åtgärder. Även smärre ändringar i statistiken kan resultera i en ändrad frågeplan för frågekörningen.
 
-- **Ändrade kompatibilitetsnivån för databas eller kardinalitet**: ändringar av databasens kompatibilitetsnivå kan möjliggöra nya strategier och funktioner som kan resultera i en annan frågeplan för körning. Utöver kompatibilitetsnivån för databas kan en inaktive rad eller aktive rad spårnings flagga 4199 eller ett ändrat tillstånd för den databasbaserade konfigurationen QUERY_OPTIMIZER_HOTFIXES också påverka val av frågekörning vid kompilering. Spårnings flaggorna 9481 (framtvinga äldre CE) och 2312 (tvinga standard CE) påverkar också planen.
+- **Ändrade kompatibilitetsnivån för databas eller kardinalitet** : ändringar av databasens kompatibilitetsnivå kan möjliggöra nya strategier och funktioner som kan resultera i en annan frågeplan för körning. Utöver kompatibilitetsnivån för databas kan en inaktive rad eller aktive rad spårnings flagga 4199 eller ett ändrat tillstånd för den databasbaserade konfigurationen QUERY_OPTIMIZER_HOTFIXES också påverka val av frågekörning vid kompilering. Spårnings flaggorna 9481 (framtvinga äldre CE) och 2312 (tvinga standard CE) påverkar också planen.
 
 ## <a name="resource-limits-issues"></a>Problem med resurs begränsningar
 
@@ -173,11 +173,11 @@ I sammanfattning, om körnings planen inte kördes annorlunda men CPU-användnin
 
 Det är inte alltid lätt att identifiera en ändring av arbets belastnings volymer som kör ett CPU-problem. Tänk på följande faktorer:
 
-- **Ändrad resursanvändning**: anta till exempel ett scenario där CPU-användningen ökade till 80 procent under en längre tids period. PROCESSOR användningen innebär däremot inte att arbets belastnings volymen har ändrats. Regressioner i fråge körnings planen och ändringar i data distributionen kan också bidra till mer resursanvändning även om programmet kör samma arbets belastning.
+- **Ändrad resursanvändning** : anta till exempel ett scenario där CPU-användningen ökade till 80 procent under en längre tids period. PROCESSOR användningen innebär däremot inte att arbets belastnings volymen har ändrats. Regressioner i fråge körnings planen och ändringar i data distributionen kan också bidra till mer resursanvändning även om programmet kör samma arbets belastning.
 
-- **Utseendet på en ny fråga**: ett program kan köra en ny uppsättning frågor vid olika tidpunkter.
+- **Utseendet på en ny fråga** : ett program kan köra en ny uppsättning frågor vid olika tidpunkter.
 
-- **En ökning eller minskning av antalet begär Anden**: det här scenariot är det mest uppenbara måttet för en arbets belastning. Antalet frågor motsvarar inte alltid mer resursutnyttjande. Detta mått är dock fortfarande en betydande signal, förutsatt att andra faktorer är oförändrade.
+- **En ökning eller minskning av antalet begär Anden** : det här scenariot är det mest uppenbara måttet för en arbets belastning. Antalet frågor motsvarar inte alltid mer resursutnyttjande. Detta mått är dock fortfarande en betydande signal, förutsatt att andra faktorer är oförändrade.
 
 Använd Intelligent Insights för att upptäcka [arbets belastningen ökar](database/intelligent-insights-troubleshoot-performance.md#workload-increase) och [planerar regressioner](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
@@ -185,7 +185,7 @@ Använd Intelligent Insights för att upptäcka [arbets belastningen ökar](data
 
 När du har eliminerat ett underoptimalt schema och *väntande relaterade* problem som är relaterade till körnings problem, är prestanda problemet vanligt vis att frågorna väntar på viss resurs. Väntande-relaterade problem kan orsakas av:
 
-- **Blockerar**:
+- **Blockerar** :
 
   En fråga kan innehålla låset på objekt i databasen medan andra försöker komma åt samma objekt. Du kan identifiera blockerade frågor med hjälp av [DMV: er](database/monitoring-with-dmvs.md#monitoring-blocked-queries) eller [intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking).
 - **I/o-problem**
@@ -203,16 +203,16 @@ När du har eliminerat ett underoptimalt schema och *väntande relaterade* probl
 Dessa metoder används ofta för att visa de översta kategorierna av vänte typer:
 
 - Använd Intelligent Insights för att identifiera frågor med prestanda försämring på grund av [ökad väntan](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
-- Använd [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) för att hitta väntande statistik för varje fråga över tid. I Query Store kombineras vänte typer i väntande kategorier. Du kan hitta mappningen av vänte kategorier till vänte typer i [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Använd [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) för att returnera information om alla väntande processer som körs under en fråga. Du kan använda den här aggregerade vyn för att diagnostisera prestanda problem med Azure SQL Database och även med vissa frågor och batchar. Frågor kan vänta på resurser, kön väntar eller externa vänte tid.
-- Använd [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att returnera information om den kö med aktiviteter som väntar på en resurs.
+- Använd [query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) för att hitta väntande statistik för varje fråga över tid. I Query Store kombineras vänte typer i väntande kategorier. Du kan hitta mappningen av vänte kategorier till vänte typer i [sys.query_store_wait_stats](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Använd [sys.dm_db_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) för att returnera information om alla väntande processer som körs under en fråga. Du kan använda den här aggregerade vyn för att diagnostisera prestanda problem med Azure SQL Database och även med vissa frågor och batchar. Frågor kan vänta på resurser, kön väntar eller externa vänte tid.
+- Använd [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att returnera information om den kö med aktiviteter som väntar på en resurs.
 
 I scenarier med hög processor kan Query Store och väntande statistik avspegla CPU-användning om:
 
 - Frågor med hög processor användning körs fortfarande.
 - Frågor med hög CPU-användning kördes när redundansväxlingen skedde.
 
-DMV: er som spårar Frågearkivet och väntande statistik visar resultat för endast slutförda och uppnådde tids gräns frågor. De visar inga data för körnings instruktioner förrän instruktionerna är slutförda. Använd vyn dynamisk hantering [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att spåra för tillfället att köra frågor och den associerade arbets tiden.
+DMV: er som spårar Frågearkivet och väntande statistik visar resultat för endast slutförda och uppnådde tids gräns frågor. De visar inga data för körnings instruktioner förrän instruktionerna är slutförda. Använd vyn dynamisk hantering [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att spåra för tillfället att köra frågor och den associerade arbets tiden.
 
 > [!TIP]
 > Ytterligare verktyg:

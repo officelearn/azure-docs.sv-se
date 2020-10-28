@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/07/2018
-ms.openlocfilehash: 1545f9cde15f010ba3d7d52c6fea1ef233d2fac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 896f4edb1e94c1eca06b046382727a5042375e3b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619483"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793287"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska ett fristående program med en enda klient som använder Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -60,16 +60,16 @@ Distribuera appen för de tre tillhandahållna klient organisationerna:
     > Vissa autentiserings-och Server brand väggar är avsiktligt oskyddade i demonstrations syfte. **Skapa en ny resurs grupp** för varje program distribution.  Använd inte en befintlig resurs grupp. Använd inte det här programmet eller några resurser som skapas för produktion. Ta bort alla resurs grupper när du är färdig med programmen för att stoppa relaterad fakturering.
 
     Det är bäst att endast använda gemena bokstäver, siffror och bindestreck i resurs namnen.
-    * För **resurs grupp**väljer du skapa ny och anger sedan ett gement namn för resurs gruppen. **Wingtip-sa- \<venueName\> - \<user\> ** är det rekommenderade mönstret.  För \<venueName\> ersätter du platsens namn utan blank steg. För \<user\> ersätter du användar värdet nedan.  Med det här mönstret kan resurs grupp namn vara *Wingtip-sa-contosoconcerthall-AF1*, *Wingtip-sa-dogwooddojo-AF1*, *Wingtip-sa-fabrikamjazzclub-AF1*.
+    * För **resurs grupp** väljer du skapa ny och anger sedan ett gement namn för resurs gruppen. **Wingtip-sa- \<venueName\> - \<user\>** är det rekommenderade mönstret.  För \<venueName\> ersätter du platsens namn utan blank steg. För \<user\> ersätter du användar värdet nedan.  Med det här mönstret kan resurs grupp namn vara *Wingtip-sa-contosoconcerthall-AF1* , *Wingtip-sa-dogwooddojo-AF1* , *Wingtip-sa-fabrikamjazzclub-AF1* .
     * Välj en **plats** i list rutan.
 
-    * För **användare** – vi rekommenderar ett kort användar värde, till exempel dina initialer plus en siffra: till exempel *AF1*.
+    * För **användare** – vi rekommenderar ett kort användar värde, till exempel dina initialer plus en siffra: till exempel *AF1* .
 
 
-3. **Distribuera programmet**.
+3. **Distribuera programmet** .
 
     * Klicka om du vill godkänna de allmänna villkoren.
-    * Klicka på **Köp**.
+    * Klicka på **Köp** .
 
 4. Övervaka status för alla tre distributioner genom att klicka på **aviseringar** (klock ikonen till höger om sökrutan). Det tar cirka fem minuter att distribuera apparna.
 
@@ -109,9 +109,9 @@ Varje klient databas är en *fristående* 50 DTU-databas.
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 <!--
-* Additional [tutorials that build on the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* Additional [tutorials that build on the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * To learn about elastic pools, see [*What is an Azure SQL elastic pool*](elastic-pool-overview.md)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](../../sql-database/elastic-jobs-overview.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](./elastic-jobs-overview.md)
 -->
 
 - Mer information om SaaS-program för flera innehavare finns i [design mönster för SaaS-program med flera innehavare](saas-tenancy-app-design-patterns.md).
@@ -131,5 +131,3 @@ I den här guiden har du lärt dig:
 > * Så här tar du bort exempel resurser för att stoppa relaterad fakturering.
 
 Prova sedan själv studie kursen för [etablering och katalog](saas-standaloneapp-provision-and-catalog.md) där du får utforska användningen av en katalog med klienter som möjliggör flera olika klient scenarier som schema hantering och klient analys.
- 
-

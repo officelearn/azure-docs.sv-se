@@ -6,15 +6,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/08/2020
-ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.date: 10/25/2020
+ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096104"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791587"
 ---
-# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Felsöka replikeringsfördröjning i Azure Database for MySQL
+# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Felsök replikeringsfördröjning i Azure Database for MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
 Med funktionen [Läs replik](concepts-read-replicas.md) kan du replikera data från en Azure Database for MySQL-server till en skrivskyddad replik Server. Du kan skala ut arbets belastningar genom att dirigera Läs-och rapporterings frågor från programmet till replik servrar. Den här installationen minskar belastningen på käll servern. Det förbättrar också programmets övergripande prestanda och svars tid när den skalas. 
 
@@ -31,9 +33,9 @@ I den här artikeln får du lära dig hur du felsöker replikeringsfördröjning
 
 ## <a name="replication-concepts"></a>Metoder för replikering
 
-När en binär logg aktive ras skriver käll servern genomförda transaktioner till den binära loggen. Den binära loggen används för replikering. Den är aktive rad som standard för alla nyligen etablerade servrar som har stöd för upp till 16 TB lagrings utrymme. På replik servrar körs två trådar på varje replik Server. En tråd är *IO-tråden*och den andra är SQL- *tråden*:
+När en binär logg aktive ras skriver käll servern genomförda transaktioner till den binära loggen. Den binära loggen används för replikering. Den är aktive rad som standard för alla nyligen etablerade servrar som har stöd för upp till 16 TB lagrings utrymme. På replik servrar körs två trådar på varje replik Server. En tråd är *IO-tråden* och den andra är SQL- *tråden* :
 
-- IO-tråden ansluter till käll servern och begär uppdaterade binära loggar. Den här tråden tar emot de binära logg uppdateringarna. Uppdateringarna sparas på en replik server i en lokal logg som kallas *relä loggen*.
+- IO-tråden ansluter till käll servern och begär uppdaterade binära loggar. Den här tråden tar emot de binära logg uppdateringarna. Uppdateringarna sparas på en replik server i en lokal logg som kallas *relä loggen* .
 - SQL-tråden läser relä loggen och tillämpar sedan data ändringarna på replik servrarna.
 
 ## <a name="monitoring-replication-latency"></a>Övervaka replikeringsfördröjning

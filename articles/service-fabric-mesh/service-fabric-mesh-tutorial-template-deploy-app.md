@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: cc4912545bedb650268b3d8e4a3e9820b70b5fe2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842537"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745982"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Självstudie: Distribuera ett program till Service Fabric Mesh med hjälp av en mall
 
@@ -34,7 +34,7 @@ I den här självstudieserien får du lära du dig att:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar den här självstudien:
 
@@ -61,7 +61,7 @@ az account set --subscription "<subscriptionName>"
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Använd följande kommando för att skapa en resursgrupp med namnet *myResourceGroup* på platsen *EastUS*.
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Använd följande kommando för att skapa en resursgrupp med namnet *myResourceGroup* på platsen *EastUS* .
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-the-container-registry"></a>Skapa containerregister
 
-Skapa en ACR-instans med hjälp av kommandot `az acr create`. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I följande exempel används namnet *myContainerRegistry*. Om du får ett felmeddelande om att registernamnet redan används väljer du ett annat namn.
+Skapa en ACR-instans med hjälp av kommandot `az acr create`. Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tecken. I följande exempel används namnet *myContainerRegistry* . Om du får ett felmeddelande om att registernamnet redan används väljer du ett annat namn.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry --sku Basic
@@ -156,7 +156,7 @@ seabreeze/azure-mesh-todo-webfrontend
 seabreeze/azure-mesh-todo-service
 ```
 
-I följande exempel visas taggarna för lagringsplatsen **azure-mesh-todo-service**.
+I följande exempel visas taggarna för lagringsplatsen **azure-mesh-todo-service** .
 
 ```azurecli
 az acr repository show-tags --name myContainerRegistry --repository seabreeze/azure-mesh-todo-service --output table
@@ -196,9 +196,9 @@ Ett program för Service Fabric-nät är en Azure-resurs som du kan distribuera 
 Den här självstudien använder exempelprogrammet att göra-lista som ett exempel.  Istället för att skapa nya mall- och parameterfiler kan du hämta filerna [mesh_rp.windows.json-distributionsmallen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) och [mesh_rp.windows.parameter.json-parameterfilen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 ### <a name="parameters"></a>Parametrar
-Om det finns värden i mallen som förväntas ändras när programmet har distribuerats, eller som du vill ha möjlighet att ändra beroende på distribution (om du planerar att återanvända mallen för andra distributioner), bör du parameterisera värdena. Rätt sätt att göra detta på är ett skapa ett ”parameter”-område längst upp i din distributionsmall där du anger parameternamn och -egenskaper som du kan referera till senare i distributionsmallen. Varje parameterdefinition innehåller *typ*, *defaultValue*, och ett valfritt område för *metadata* med en *beskrivning*.
+Om det finns värden i mallen som förväntas ändras när programmet har distribuerats, eller som du vill ha möjlighet att ändra beroende på distribution (om du planerar att återanvända mallen för andra distributioner), bör du parameterisera värdena. Rätt sätt att göra detta på är ett skapa ett ”parameter”-område längst upp i din distributionsmall där du anger parameternamn och -egenskaper som du kan referera till senare i distributionsmallen. Varje parameterdefinition innehåller *typ* , *defaultValue* , och ett valfritt område för *metadata* med en *beskrivning* .
 
-Parameterområdet har definierats överst i din distributionsmall, precis före *resursområdet*:
+Parameterområdet har definierats överst i din distributionsmall, precis före *resursområdet* :
 
 ```json
 {
@@ -342,8 +342,8 @@ Uppdatera följande parametervärden i parameterfilen:
 |registryPassword|Lösenordet som du fick tidigare i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry). Den här parametern i mallen är en säker sträng och visas inte i distributionens status eller `az mesh service show`-kommandon.|
 |registryUserName|Användarnamnet som du fick i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry).|
 |registryServer|Registerservernamnet som du fick i [Hämta autentiseringsuppgifter för registret](#retrieve-credentials-for-the-registry).|
-|frontEndImage|Containeravbildning för klientdelstjänsten.  Exempelvis `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
-|serviceImage|Containeravbildning för serverdelstjänsten.  Exempelvis `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
+|frontEndImage|Containeravbildning för klientdelstjänsten.  Till exempel `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|Containeravbildning för serverdelstjänsten.  Till exempel `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Om du vill distribuera programmet kör du följande:
 

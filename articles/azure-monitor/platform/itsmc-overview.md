@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 344e15d3c15474fc8959b120f86bb86f22217ef6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 5c18a904f0ec0f100312ee3fafb53038bd2ccf19
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677009"
+ms.locfileid: "92745705"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ansluta Azure till ITSM-verktyg med anslutningsprogrammet för hantering av IT-tjänster (ITSM)
 
@@ -125,7 +125,7 @@ Följ dessa steg:
 1. Klicka på  **aviseringar** i Azure Portal.
 2. I den översta rutan klickar du på  **Hantera åtgärder** . Fönstret **Lägg till åtgärds grupp** visas.
 
-    ![Åtgärdsgrupper](media/itsmc-overview/action-groups.png)
+    [![Åtgärds grupper](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
 
 3. Välj den **prenumeration** och **resurs grupp** där du vill skapa en åtgärds grupp. Ange ett **namn** och **visnings namn** för åtgärds gruppen. Klicka på **Nästa: meddelanden** .
 
@@ -135,7 +135,7 @@ Följ dessa steg:
 5. I listan åtgärder väljer du **ITSM** på den nedrullningsbara menyn för **Åtgärds typ** . Ange ett **namn** för åtgärden och klicka på pennan som representerar **redigerings information** .
 6. Välj den **prenumeration** där Log Analytics arbets ytan finns. Välj **anslutnings** namnet (ditt ITSM-anslutningsprogram namn) följt av namnet på din arbets yta. Till exempel "MyITSMMConnector (min arbets yta)".
 
-    ![ITSM åtgärds information](media/itsmc-overview/itsm-action-details.png)
+    ![ITSM åtgärds information](media/itsmc-overview/itsm-action-configuration.png)
 
 7. Välj typ av **arbets objekt** på den nedrullningsbara menyn.
 

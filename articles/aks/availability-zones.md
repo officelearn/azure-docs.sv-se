@@ -2,15 +2,15 @@
 title: Använda tillgänglighets zoner i Azure Kubernetes service (AKS)
 description: Lär dig hur du skapar ett kluster som distribuerar noder över tillgänglighets zoner i Azure Kubernetes service (AKS)
 services: container-service
-ms.custom: fasttrack-edit, references_regions
+ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
 ms.date: 09/04/2020
-ms.openlocfilehash: 5d2c670bc862dadf289171fbf53318e876eff3d3
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7d91491a2f521d974f15878791739a70a31c1bbe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165816"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745813"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Skapa ett Azure Kubernetes service-kluster (AKS) som använder tillgänglighets zoner
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du skapar ett AKS-kluster och distribuerar nodens ko
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI-versionen 2.0.76 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+Du behöver Azure CLI-versionen 2.0.76 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
 ## <a name="limitations-and-region-availability"></a>Begränsningar och region tillgänglighet
 
@@ -56,11 +56,11 @@ Om du måste köra tillstånds känsliga arbets belastningar använder du Pod-sp
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>Översikt över tillgänglighets zoner för AKS-kluster
 
-Tillgänglighets zoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Zoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att garantera återhämtning finns det minst tre separata zoner i alla zoner som är aktiverade. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel.
+Tillgänglighets zoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Zoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att garantera återhämtning finns det alltid mer än en zon i alla zoner som är aktiverade. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel.
 
 Mer information finns i [Vad är tillgänglighets zoner i Azure?][az-overview].
 
-AKS-kluster som distribueras med hjälp av tillgänglighets zoner kan distribuera noder över flera zoner inom en enda region. Ett kluster i regionen *USA, östra 2*   kan till exempel skapa noder i alla tre tillgänglighets zoner i *USA, östra 2*. Den här distributionen av AKS kluster resurser ger bättre kluster tillgänglighet eftersom de är elastiska till fel i en speciell zon.
+AKS-kluster som distribueras med hjälp av tillgänglighets zoner kan distribuera noder över flera zoner inom en enda region. Ett kluster i regionen  *USA, östra 2*   kan till exempel skapa noder i alla tre tillgänglighets zoner i *USA, östra 2* . Den här distributionen av AKS kluster resurser ger bättre kluster tillgänglighet eftersom de är elastiska till fel i en speciell zon.
 
 ![AKS Node-fördelning över tillgänglighets zoner](media/availability-zones/aks-availability-zones.png)
 
@@ -68,11 +68,11 @@ Om en enskild zon blir otillgänglig fortsätter dina program att köras om klus
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Skapa ett AKS-kluster mellan tillgänglighets zoner
 
-När du skapar ett kluster med kommandot [AZ AKS Create][az-aks-create] `--zones` definierar parametern vilka zoner som agent-noder distribueras till. Kontroll Plans komponenterna, till exempel etcd, sprids över tre zoner om du definierar `--zones` parametern i klustrets skapande tid. De specifika zoner som kontroll Plans komponenterna sprids över är oberoende av vilka explicita zoner som väljs för den inledande Node-poolen.
+När du skapar ett kluster med kommandot [AZ AKS Create][az-aks-create] `--zones` definierar parametern vilka zoner som agent-noder distribueras till. Kontroll Plans komponenterna som etcd eller API: t sprids över de tillgängliga zonerna i regionen om du definierar `--zones` parametern vid skapande av klustret. De specifika zoner som kontroll Plans komponenterna sprids över är oberoende av vilka explicita zoner som väljs för den inledande Node-poolen.
 
 Om du inte definierar några zoner för standard agenten när du skapar ett AKS-kluster, garanteras inte kontroll Plans komponenter att spridas över tillgänglighets zoner. Du kan lägga till ytterligare resurspooler med kommandot [AZ AKS nodepool Add][az-aks-nodepool-add] och ange `--zones` för nya noder, men det påverkar inte hur kontroll planet har spridits mellan zoner. Det går bara att definiera inställningar för tillgänglighets zonen i klustret eller i nodens skapande tid.
 
-I följande exempel skapas ett AKS-kluster med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*. Totalt *3* noder skapas – en agent i zon *1*, en i *2*, och sedan en i *3*.
+I följande exempel skapas ett AKS-kluster med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup* . Totalt *3* noder skapas – en agent i zon *1* , en i *2* , och sedan en i *3* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2

@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: c68810e0fd9ee3593aa014243c3f75fb8a63a7fd
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: bbe4d43fde3746e6c992b7f03927f081d3814597
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494524"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745761"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor om Azure Kubernetes Service (AKS)
 
@@ -57,12 +57,12 @@ AKS bygger på ett antal Azure-infrastruktur resurser, inklusive skalnings upps�
 
 För att aktivera den här arkitekturen omfattar varje AKS-distribution två resurs grupper:
 
-1. Du skapar den första resurs gruppen. Den här gruppen innehåller endast Kubernetes-Tjänsteresursen. AKS Resource Provider skapar automatiskt den andra resurs gruppen under distributionen. Ett exempel på den andra resurs gruppen är *MC_myResourceGroup_myAKSCluster_eastus*. Information om hur du anger namnet på den här andra resurs gruppen finns i nästa avsnitt.
-1. Den andra resurs gruppen, som kallas *resurs gruppen för noden*, innehåller alla infrastruktur resurser som är associerade med klustret. Dessa resurser omfattar Kubernetes-nodens virtuella datorer, virtuella nätverk och lagring. Som standard har resurs gruppen ett namn som *MC_myResourceGroup_myAKSCluster_eastus*. AKS tar automatiskt bort nodens resurs när klustret tas bort, så den bör endast användas för resurser som delar klustrets livs cykel.
+1. Du skapar den första resurs gruppen. Den här gruppen innehåller endast Kubernetes-Tjänsteresursen. AKS Resource Provider skapar automatiskt den andra resurs gruppen under distributionen. Ett exempel på den andra resurs gruppen är *MC_myResourceGroup_myAKSCluster_eastus* . Information om hur du anger namnet på den här andra resurs gruppen finns i nästa avsnitt.
+1. Den andra resurs gruppen, som kallas *resurs gruppen för noden* , innehåller alla infrastruktur resurser som är associerade med klustret. Dessa resurser omfattar Kubernetes-nodens virtuella datorer, virtuella nätverk och lagring. Som standard har resurs gruppen ett namn som *MC_myResourceGroup_myAKSCluster_eastus* . AKS tar automatiskt bort nodens resurs när klustret tas bort, så den bör endast användas för resurser som delar klustrets livs cykel.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>Kan jag ange mitt eget namn för AKS-nodens resurs grupp?
 
-Ja. Som standard namnger AKS resurs *MC_resourcegroupname_clustername_location*gruppen för noden, men du kan också ange ett eget namn.
+Ja. Som standard namnger AKS resurs *MC_resourcegroupname_clustername_location* gruppen för noden, men du kan också ange ett eget namn.
 
 Om du vill ange ett eget namn på en resurs grupp installerar du [AKS-Preview][aks-preview-cli] Azure CLI-tillägget version *0.3.2* eller senare. När du skapar ett AKS-kluster med hjälp av kommandot [AZ AKS Create][az-aks-create] använder du parametern *--Node-Resource-Group* och anger ett namn för resurs gruppen. Om du [använder en Azure Resource Manager-mall][aks-rm-template] för att distribuera ett AKS-kluster kan du definiera resurs gruppens namn genom att använda egenskapen *nodeResourceGroup* .
 
@@ -95,6 +95,9 @@ AKS stöder följande [styrenheter för åtkomst][admission-controllers]kontroll
 - *MutatingAdmissionWebhook*
 - *ValidatingAdmissionWebhook*
 - *ResourceQuota*
+- *PodNodeSelector*
+- *PodTolerationRestriction*
+- *ExtendedResourceToleration*
 
 För närvarande kan du inte ändra listan över åtkomst kontrol listor i AKS.
 
@@ -109,9 +112,11 @@ namespaceSelector:
       operator: DoesNotExist
 ```
 
+AKS-brandväggar att API-servern utgångs så du måste ha Webhooks för att kunna nås från klustret.
+
 ## <a name="can-admission-controller-webhooks-impact-kube-system-and-internal-aks-namespaces"></a>Kan inspelade Webhooks påverkar Kube-system och interna AKS-namnområden?
 
-För att skydda systemets stabilitet och förhindra att anpassade kontroll enheter påverkar de interna tjänsterna i Kube-systemet, har namn området AKS en- **tvång**, som automatiskt undantar Kube-system och AKS interna namn områden. Den här tjänsten säkerställer att de anpassade åtkomst kontrol Lanterna inte påverkar de tjänster som körs i Kube-system.
+För att skydda systemets stabilitet och förhindra att anpassade kontroll enheter påverkar de interna tjänsterna i Kube-systemet, har namn området AKS en- **tvång** , som automatiskt undantar Kube-system och AKS interna namn områden. Den här tjänsten säkerställer att de anpassade åtkomst kontrol Lanterna inte påverkar de tjänster som körs i Kube-system.
 
 Om du har ett kritiskt användnings fall där något har distribuerats på Kube (rekommenderas inte) som du behöver omfattas av din anpassade-webhook, kan du lägga till nedanstående etikett eller antecknings anteckning så att inträde-tvång ignorerar den.
 

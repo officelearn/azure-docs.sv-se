@@ -10,13 +10,13 @@ author: gvashishtha
 ms.reviewer: larryfr
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 40d8d4596e7d93b589e44f2dde2d1cb453566d71
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 2642af3490cd69a3e793f020c193d83d2966e1ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999228"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744624"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 
@@ -313,9 +313,9 @@ I följande tabell beskrivs de olika tjänst tillstånden:
 
 | Webservice-tillstånd | Beskrivning | Slutligt tillstånd?
 | ----- | ----- | ----- |
-| Övergår | Tjänsten håller på att distribueras. | Inga |
-| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Inga |
-| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Inga |
+| Övergår | Tjänsten håller på att distribueras. | Nej |
+| Ohälsosamt | Tjänsten har distribuerats men är för närvarande inte tillgänglig.  | Nej |
+| Unschedulable | Det går inte att distribuera tjänsten för tillfället på grund av bristande resurser. | Nej |
 | Misslyckades | Det gick inte att distribuera tjänsten på grund av ett fel eller en krasch. | Ja |
 | Felfri | Tjänsten är felfri och slut punkten är tillgänglig. | Ja |
 

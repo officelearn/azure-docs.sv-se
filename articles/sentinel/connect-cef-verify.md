@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: 643b28b2e88f233d2924270511d3c87fa4d9b767
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631638"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744220"
 ---
 # <a name="step-3-validate-connectivity"></a>STEG 3: verifiera anslutningen
 
@@ -29,18 +29,27 @@ När du har distribuerat din logg vidarebefordrare (i steg 1) och konfigurerat d
 
 - Du måste ha förhöjd behörighet (sudo) på logg vidarebefordraren.
 
-- Du måste ha python installerat på logg vidarebefordraren.<br>
+- Du måste ha **python 2,7** installerat på logg vidarebefordraren.<br>
 Använd `python –version` kommandot för att kontrol lera.
+
+- Du kan behöva arbets ytans ID och primär nyckel för arbets ytan vid något tillfälle i den här processen. Du hittar dem i arbets ytans resurs under **agent hantering** .
 
 ## <a name="how-to-validate-connectivity"></a>Så här verifierar du anslutningen
 
-1. Öppna **loggar**på navigerings menyn i Azure Sentinel. Kör en fråga med **CommonSecurityLog** -schemat för att se om du får loggar från säkerhets lösningen.<br>
-Tänk på att det kan ta ungefär 20 minuter tills loggarna börjar visas i **Log Analytics**. 
+1. Öppna **loggar** på navigerings menyn i Azure Sentinel. Kör en fråga med **CommonSecurityLog** -schemat för att se om du får loggar från säkerhets lösningen.<br>
+Tänk på att det kan ta ungefär 20 minuter tills loggarna börjar visas i **Log Analytics** . 
 
 1. Om du inte ser några resultat från frågan kontrollerar du att händelser genereras från din säkerhetslösning, eller försöker att generera några, och kontrollerar att de vidarebefordras till den syslog forwarder-dator som du har angett. 
 
-1. Kör följande skript på logg vidarebefordraren för att kontrol lera anslutningen mellan säkerhets lösningen, logg vidarebefordraren och Azure Sentinel. Det här skriptet kontrollerar att daemon lyssnar på rätt portar, att vidarebefordran har kon figurer ATS korrekt och att ingenting blockerar kommunikationen mellan daemonen och den Log Analytics agenten. Den skickar även de blå meddelandena "TestCommonEventFormat" för att kontrol lera anslutning från slut punkt till slut punkt. <br>
- `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
+1. Kör följande skript på logg vidarebefordraren (Använd arbetsyte-ID i stället för plats hållaren) för att kontrol lera anslutningen mellan din säkerhetslösning, logg vidarebefordraren och Azure Sentinel. Det här skriptet kontrollerar att daemon lyssnar på rätt portar, att vidarebefordran har kon figurer ATS korrekt och att ingenting blockerar kommunikationen mellan daemonen och den Log Analytics agenten. Den skickar även de blå meddelandena "TestCommonEventFormat" för att kontrol lera anslutning från slut punkt till slut punkt. <br>
+
+    ```bash
+    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
+    ```
+
+   - Du kan få ett meddelande som uppmanar dig att köra ett kommando för att åtgärda ett problem med **mappningen av fältet *dator*** . Mer information finns i [förklaringen i validerings skriptet](#mapping-command) .
+
+    - Du kan få ett meddelande som uppmanar dig att köra ett kommando för att åtgärda ett problem med **parsningen av brand Väggs loggar för Cisco ASA** . Mer information finns i [förklaringen i validerings skriptet](#parsing-command) .
 
 ## <a name="validation-script-explained"></a>Förklaring av validerings skript
 
@@ -72,21 +81,31 @@ Verifierings skriptet utför följande kontroller:
     </filter>
     ```
 
-1. Kontrollerar att Cisco ASA-parsningen för brand Väggs händelser är konfigurerad som förväntat:
+1. Kontrollerar att parsningen av brand Väggs händelser för Cisco ASA är konfigurerad som förväntat med följande kommando: 
 
     ```bash
-    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
-        /opt/microsoft/omsagent/plugin/security_lib.rb && 
-        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Kontrollerar att *dator* fältet i syslog-källan är korrekt mappat i Log Analytics-agenten:
+    - <a name="parsing-command"></a>Om det uppstår ett problem med parsningen genererar skriptet ett fel meddelande som uppmanar dig att **köra följande kommando manuellt** (Använd arbetsytans ID i stället för plats hållaren). Kommandot kontrollerar korrekt parsning och startar om agenten.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Kontrollerar att *dator* fältet i syslog-källan är korrekt mappat i Log Analytics-agenten med hjälp av följande kommando: 
 
     ```bash
-    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command"></a>Om det uppstår ett problem med mappningen genererar skriptet ett fel meddelande som uppmanar dig att **köra följande kommando manuellt** (med hjälp av arbetsyte-ID: t i stället för plats hållaren). Kommandot kontrollerar korrekt mappning och startar om agenten.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Kontrollerar om det finns några säkerhets förbättringar på datorn som kan blockera nätverks trafik (till exempel en värd brand vägg).
 
@@ -155,21 +174,31 @@ Verifierings skriptet utför följande kontroller:
     </filter>
     ```
 
-1. Kontrollerar att Cisco ASA-parsningen för brand Väggs händelser är konfigurerad som förväntat:
+1. Kontrollerar att parsningen av brand Väggs händelser för Cisco ASA är konfigurerad som förväntat med följande kommando: 
 
     ```bash
-    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
-        /opt/microsoft/omsagent/plugin/security_lib.rb && 
-        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "return ident if ident.include?('%ASA')" /opt/microsoft/omsagent/plugin/security_lib.rb
     ```
 
-1. Kontrollerar att *dator* fältet i syslog-källan är korrekt mappat i Log Analytics-agenten:
+    - <a name="parsing-command"></a>Om det uppstår ett problem med parsningen genererar skriptet ett fel meddelande som uppmanar dig att **köra följande kommando manuellt** (Använd arbetsytans ID i stället för plats hållaren). Kommandot kontrollerar korrekt parsning och startar om agenten.
+    
+        ```bash
+        # Cisco ASA parsing fix
+        sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" /opt/microsoft/omsagent/plugin/security_lib.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
+
+1. Kontrollerar att *dator* fältet i syslog-källan är korrekt mappat i Log Analytics-agenten med hjälp av följande kommando: 
 
     ```bash
-    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
     ```
+
+    - <a name="mapping-command"></a>Om det uppstår ett problem med mappningen genererar skriptet ett fel meddelande som uppmanar dig att **köra följande kommando manuellt** (med hjälp av arbetsyte-ID: t i stället för plats hållaren). Kommandot kontrollerar korrekt mappning och startar om agenten.
+
+        ```bash
+        # Computer field mapping fix
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 1. Kontrollerar om det finns några säkerhets förbättringar på datorn som kan blockera nätverks trafik (till exempel en värd brand vägg).
 

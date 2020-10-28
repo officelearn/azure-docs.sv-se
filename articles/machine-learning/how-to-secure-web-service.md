@@ -10,13 +10,13 @@ ms.author: aashishb
 author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: 5d0a86a966cacfdeac291c66fa245a613b383a85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-azurecli
+ms.openlocfilehash: 52344b665b00329c80fb651657fbbd19d5ffd7a4
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629531"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743087"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Använda TLS för att skydda en webbtjänst via Azure Machine Learning
 
@@ -26,11 +26,11 @@ Den här artikeln visar hur du skyddar en webb tjänst som distribueras via Azur
 Du använder [https](https://en.wikipedia.org/wiki/HTTPS) för att begränsa åtkomsten till webb tjänster och säkra de data som klienter skickar. HTTPS skyddar kommunikationen mellan en klient och en webb tjänst genom att kryptera kommunikationen mellan de två. Kryptering använder [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS kallas ibland även *Secure Sockets Layer* (SSL), som var den föregående aktiviteten TLS.
 
 > [!TIP]
-> Azure Machine Learning SDK använder termen "SSL" för egenskaper som är relaterade till säker kommunikation. Detta innebär inte att din webb tjänst inte använder *TLS*. SSL är bara en oftare erkänd term.
+> Azure Machine Learning SDK använder termen "SSL" för egenskaper som är relaterade till säker kommunikation. Detta innebär inte att din webb tjänst inte använder *TLS* . SSL är bara en oftare erkänd term.
 >
 > Mer specifikt distribuerade webb tjänster via Azure Machine Learning endast TLS version 1,1 för ACI och TLS-version 1,2 för AKS.
 
-TLS och SSL är beroende av *digitala certifikat*, som hjälper till med kryptering och identitets verifiering. Mer information om hur digitala certifikat fungerar finns i avsnittet om infrastrukturen för [offentliga nycklar](https://en.wikipedia.org/wiki/Public_key_infrastructure)i Wikipedia-ämnet.
+TLS och SSL är beroende av *digitala certifikat* , som hjälper till med kryptering och identitets verifiering. Mer information om hur digitala certifikat fungerar finns i avsnittet om infrastrukturen för [offentliga nycklar](https://en.wikipedia.org/wiki/Public_key_infrastructure)i Wikipedia-ämnet.
 
 > [!WARNING]
 > Om du inte använder HTTPS för din webb tjänst kan data som skickas till och från tjänsten vara synliga för andra på Internet.
@@ -54,14 +54,14 @@ Det finns små skillnader när du skyddar er över [distributions mål](how-to-d
 
 ## <a name="get-a-domain-name"></a>Skaffa ett domännamn
 
-Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator*. Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till exempel www- \. contoso.com) till den IP-adress som är värd för webb tjänsten.
+Om du inte redan har ett domän namn kan du köpa ett från en *domän namns registrator* . Processen och priset skiljer sig mellan registratorn. Registratorn innehåller verktyg för att hantera domän namnet. Du använder dessa verktyg för att mappa ett fullständigt kvalificerat domän namn (FQDN) (till exempel www- \. contoso.com) till den IP-adress som är värd för webb tjänsten.
 
 ## <a name="get-a-tlsssl-certificate"></a>Hämta ett TLS/SSL-certifikat
 
 Det finns många sätt att hämta ett TLS/SSL-certifikat (digitalt certifikat). Det vanligaste är att köpa en från en *certifikat utfärdare* (ca). Oavsett var du får certifikatet behöver du följande filer:
 
-* Ett **certifikat**. Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
-* En **nyckel**. Nyckeln måste också vara PEM-kodad.
+* Ett **certifikat** . Certifikatet måste innehålla den fullständiga certifikat kedjan och måste vara "PEM-kodad".
+* En **nyckel** . Nyckeln måste också vara PEM-kodad.
 
 När du begär ett certifikat måste du ange det fullständiga domän namnet för den adress som du planerar att använda för webb tjänsten (till exempel www- \. contoso.com). Adressen som stämplas in i certifikatet och den adress som klienterna använder jämförs för att verifiera webb tjänstens identitet. Om dessa adresser inte matchar får klienten ett fel meddelande.
 
@@ -82,12 +82,12 @@ Om du vill distribuera (eller distribuera om) tjänsten med TLS aktiverat, anger
 
 När du distribuerar till AKS kan du skapa ett nytt AKS-kluster eller koppla ett befintligt. Mer information om hur du skapar eller ansluter ett kluster finns i [distribuera en modell till ett Azure Kubernetes service-kluster](how-to-deploy-azure-kubernetes-service.md).
   
--  Om du skapar ett nytt kluster använder du **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)**.
-- Om du ansluter ett befintligt kluster använder du **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)**. Båda returnerar ett konfigurations objekt som har en **enable_ssl** -metod.
+-  Om du skapar ett nytt kluster använder du **[AksCompute.provisioning_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** .
+- Om du ansluter ett befintligt kluster använder du **[AksCompute.attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Båda returnerar ett konfigurations objekt som har en **enable_ssl** -metod.
 
 Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett certifikat som du köper.
 
-  * När du använder ett certifikat från Microsoft måste du använda *leaf_domain_label* -parametern. Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "contoso" domän namnet "contoso \<six-random-characters> . \<azureregion> . cloudapp.azure.com ", där \<azureregion> är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label*.
+  * När du använder ett certifikat från Microsoft måste du använda *leaf_domain_label* -parametern. Den här parametern genererar DNS-namnet för tjänsten. Till exempel skapar värdet "contoso" domän namnet "contoso \<six-random-characters> . \<azureregion> . cloudapp.azure.com ", där \<azureregion> är den region som innehåller tjänsten. Alternativt kan du använda parametern *overwrite_existing_domain* för att skriva över den befintliga *leaf_domain_label* .
 
     Om du vill distribuera (eller distribuera om) tjänsten med TLS aktiverat, anger du parametern *ssl_enabled* till "true" oavsett var den gäller. Ange parametern *ssl_certificate* till värdet för *certifikat* filen. Ange *ssl_key* till *nyckel* filens värde.
 
@@ -115,7 +115,7 @@ Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett cer
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
 
-  * När du använder *ett certifikat som du har köpt*använder du parametrarna *ssl_cert_pem_file*, *ssl_key_pem_file*och *ssl_cname* . Följande exempel visar hur du använder *. pem* -filer för att skapa en konfiguration som använder ett TLS/SSL-certifikat som du har köpt:
+  * När du använder *ett certifikat som du har köpt* använder du parametrarna *ssl_cert_pem_file* , *ssl_key_pem_file* och *ssl_cname* . Följande exempel visar hur du använder *. pem* -filer för att skapa en konfiguration som använder ett TLS/SSL-certifikat som du har köpt:
 
     ```python
     from azureml.core.compute import AksCompute
@@ -130,7 +130,7 @@ Metoden **enable_ssl** kan använda ett certifikat från Microsoft eller ett cer
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-Mer information om *enable_ssl*finns i [AksProvisioningConfiguration.enable_ssl ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) och [AksAttachConfiguration.enable_ssl ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
+Mer information om *enable_ssl* finns i [AksProvisioningConfiguration.enable_ssl ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) och [AksAttachConfiguration.enable_ssl ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
 ### <a name="deploy-on-azure-container-instances"></a>Distribuera på Azure Container Instances
 

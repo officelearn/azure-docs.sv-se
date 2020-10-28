@@ -4,19 +4,19 @@ description: Den här artikeln beskriver den nya server lös beräknings nivån 
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: test sqldbrb=1
+ms.custom: test sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 9/17/2020
-ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a51d2140528e3f6ed6da0ca699d7b71b91638ec
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321415"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743162"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -314,17 +314,17 @@ För resurs gränser, se [Server lös beräknings nivå](resource-limits-vcore-s
 
 Den mängd data som faktureras är det högsta antal CPU-som används och minne som används varje sekund. Om mängden använt CPU och använt minne är mindre än den lägsta mängd som har skapats för varje, faktureras det etablerade beloppet. För att kunna jämföra CPU med minne i fakturerings syfte normaliseras minnet till enheter av virtuella kärnor genom att skala om mängden minne i GB med 3 GB per vCore.
 
-- **Resurs fakturerad**: CPU och minne
-- **Fakturerat belopp**: vCore enhets pris * Max (min virtuella kärnor, virtuella kärnor som används, minimalt minne GB * 1/3, använt minnes utrymme * 1/3) 
-- **Fakturerings frekvens**: per sekund
+- **Resurs fakturerad** : CPU och minne
+- **Fakturerat belopp** : vCore enhets pris * Max (min virtuella kärnor, virtuella kärnor som används, minimalt minne GB * 1/3, använt minnes utrymme * 1/3) 
+- **Fakturerings frekvens** : per sekund
 
 Priset för vCore-enheten är kostnaden per vCore per sekund. Mer information finns på [sidan med Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/single/) för vissa enhets priser i en specifik region.
 
 Den totala mängden data som faktureras exponeras enligt följande mått:
 
-- **Mått**: App_cpu_billed (vCore sekunder)
-- **Definition**: Max (min-virtuella kärnor, virtuella kärnor som används, minimalt minne gb * 1/3, använt minnes utrymme * 1/3)
-- **Rapport frekvens**: per minut
+- **Mått** : App_cpu_billed (vCore sekunder)
+- **Definition** : Max (min-virtuella kärnor, virtuella kärnor som används, minimalt minne gb * 1/3, använt minnes utrymme * 1/3)
+- **Rapport frekvens** : per minut
 
 Den här kvantiteten beräknas varje sekund och sammanställs över 1 minut.
 

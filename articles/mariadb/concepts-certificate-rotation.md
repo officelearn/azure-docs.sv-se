@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2d1122d723058af7b11004589a9ebd14958cc4ef
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 4744b974cd20c15d8abf22f52b64b8d3dc5a7f55
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173112"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742999"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Förstå ändringarna i rot certifikat utfärdarens ändring för Azure Database for MariaDB
 
@@ -52,11 +52,11 @@ Om du vill undvika att programmets tillgänglighet avbryts på grund av att cert
 *   Generera ett kombinerat CA-certifikatarkiv med både **BaltimoreCyberTrustRoot** -och **DigiCertGlobalRootG2** -certifikat ingår.
     *   För Java-användare (MariaDB Connector/J) kör du:
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MariaDBServerCACert  -file D:\BaltimoreCyberTrustRoot.crt.pem  -keystore truststore -storepass password -noprompt
           ```
 
-          ```azurecli-interactive
+          ```console
           keytool -importcert -alias MariaDBServerCACert2  -file D:\DigiCertGlobalRootG2.crt.pem -keystore truststore -storepass password  -noprompt
           ```
 
@@ -149,7 +149,7 @@ Om du använder [data i replikering](concepts-data-in-replication.md) för att a
 För att kontrol lera om du använder SSL-anslutning för att ansluta till servern, se [SSL-verifiering](howto-configure-ssl.md#verify-the-ssl-connection).
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. finns det en åtgärd som behövs om jag redan har DigiCertGlobalRootG2 i min certifikat fil?
-Nej. Ingen åtgärd krävs om certifikat filen redan har **DigiCertGlobalRootG2**.
+Nej. Ingen åtgärd krävs om certifikat filen redan har **DigiCertGlobalRootG2** .
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. Vad händer om jag har fler frågor?
 Om du har frågor kan du få svar från community-experter i [Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). [Kontakta oss](mailto:AzureDatabaseformariadb@service.microsoft.com)om du har en Support plan och behöver teknisk hjälp.

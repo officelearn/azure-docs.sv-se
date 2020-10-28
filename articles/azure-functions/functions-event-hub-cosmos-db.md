@@ -5,13 +5,13 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.custom: devx-track-java
-ms.openlocfilehash: 8ba15047d04d3af25518e8c55a50c55bcacf9037
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: d0c4a6fcdddddc77d4072c2d0d11fe78837d84bc
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103942"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743375"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>Självstudie: skapa en funktion i Java med en Event Hub-utlösare och en Azure Cosmos DB utgående bindning
 
@@ -26,7 +26,7 @@ I den här självstudien får du:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien måste du ha följande installerat:
 
@@ -412,7 +412,7 @@ Efter vissa build-och start meddelanden visas utdata som liknar följande exempe
 [10/22/19 4:01:38 AM] Executed 'Functions.processSensorData' (Succeeded, Id=1cf0382b-0c98-4cc8-9240-ee2a2f71800d)
 ```
 
-Du kan sedan gå till [Azure Portal](https://portal.azure.com) och navigera till ditt Azure Cosmos DB-konto. Välj **datautforskaren**, expandera **TelemetryInfo**och välj sedan **objekt** för att visa dina data när de tas emot.
+Du kan sedan gå till [Azure Portal](https://portal.azure.com) och navigera till ditt Azure Cosmos DB-konto. Välj **datautforskaren** , expandera **TelemetryInfo** och välj sedan **objekt** för att visa dina data när de tas emot.
 
 ![Cosmos DB Datautforskaren](media/functions-event-hub-cosmos-db/data-explorer.png)
 

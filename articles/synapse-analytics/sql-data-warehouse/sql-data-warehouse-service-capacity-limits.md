@@ -11,12 +11,12 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c0fcbe59aa4393f1266c0840cf05c3dc7b1f6d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85204990"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742464"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Kapacitets gränser för Azure Synapse Analytics (tidigare SQL DW)
 
@@ -39,13 +39,13 @@ Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
 | Databas |Max storlek | Gen1:240 TB komprimerat på disk. Detta utrymme är oberoende av tempdb eller logg utrymme, och därför är det här utrymmet dedikerat för permanenta tabeller.  Komprimering av klustrad columnstore uppskattas till 5X.  Med den här komprimeringen kan databasen växa till ungefär 1 PB när alla tabeller är grupperade columnstore (standard tabell typen). <br/><br/> Gen2: obegränsad lagring för columnstore-tabeller.  Rowstore delen av databasen är fortfarande begränsad till 240 TB komprimerat på disk. |
-| Tabell |Max storlek |Obegränsad storlek för columnstore-tabeller. <br>60 TB för rowstore tabeller komprimerade på disk. |
-| Tabell |Tabeller per databas | 100 000 |
-| Tabell |Kolumner per tabell |1024 kolumner |
-| Tabell |Byte per kolumn |Beroende av kolumnens [datatyp](sql-data-warehouse-tables-data-types.md). Limit är 8000 för char-datatyper, 4000 för nvarchar eller 2 GB för högsta antal data typer. |
-| Tabell |Byte per rad, definierad storlek |8060 byte<br/><br/>Antalet byte per rad beräknas på samma sätt som för SQL Server med sid komprimering. Precis som SQL Server stöds rad spill i lagring, vilket gör att **kolumner med varierande längd** kan flyttas bort från rad. När rader med varierande längd flyttas från-raden, lagras bara 24 byte-roten i huvud posten. Mer information finns i [rad spills data som överstiger 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tabell |Partitioner per tabell |15 000<br/><br/>För hög prestanda rekommenderar vi att du minimerar antalet partitioner som du behöver samtidigt som du fortfarande har stöd för dina affärs behov. Allteftersom antalet partitioner växer växer och ger sämre prestanda när det gäller DDL (Data Definition Language) och DML-åtgärder (Data Manipulation Language). |
-| Tabell |Avgränsnings värde för tecken per partition. |4000 |
+| Tabeller |Max storlek |Obegränsad storlek för columnstore-tabeller. <br>60 TB för rowstore tabeller komprimerade på disk. |
+| Tabeller |Tabeller per databas | 100 000 |
+| Tabeller |Kolumner per tabell |1024 kolumner |
+| Tabeller |Byte per kolumn |Beroende av kolumnens [datatyp](sql-data-warehouse-tables-data-types.md). Limit är 8000 för char-datatyper, 4000 för nvarchar eller 2 GB för högsta antal data typer. |
+| Tabeller |Byte per rad, definierad storlek |8060 byte<br/><br/>Antalet byte per rad beräknas på samma sätt som för SQL Server med sid komprimering. Precis som SQL Server stöds rad spill i lagring, vilket gör att **kolumner med varierande längd** kan flyttas bort från rad. När rader med varierande längd flyttas från-raden, lagras bara 24 byte-roten i huvud posten. Mer information finns i [rad spills data som överstiger 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
+| Tabeller |Partitioner per tabell |15 000<br/><br/>För hög prestanda rekommenderar vi att du minimerar antalet partitioner som du behöver samtidigt som du fortfarande har stöd för dina affärs behov. Allteftersom antalet partitioner växer växer och ger sämre prestanda när det gäller DDL (Data Definition Language) och DML-åtgärder (Data Manipulation Language). |
+| Tabeller |Avgränsnings värde för tecken per partition. |4000 |
 | Index |Icke-grupperade index per tabell. |50<br/><br/>Gäller endast för rowstore-tabeller. |
 | Index |Grupperade index per tabell. |1<br><br/>Gäller både rowstore-och columnstore-tabeller. |
 | Index |Index nyckel storlek. |900 byte.<br/><br/>Gäller endast för rowstore-index.<br/><br/>Index på varchar-kolumner med en maximal storlek på fler än 900 byte kan skapas om befintliga data i kolumnerna inte överskrider 900 byte när indexet skapas. Du kan dock infoga eller uppdatera åtgärder i kolumner som orsakar den totala storleken till överskrida 900 byte. |
@@ -61,8 +61,8 @@ Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 
 | Kategori | Beskrivning | Maximal |
 |:--- |:--- |:--- |
-| PolyBase-belastningar |MB per rad |1<br/><br/>PolyBase läser in rader som är mindre än 1 MB. Det går inte att läsa in LOB-datatyper i tabeller med ett grupperat columnstore-index (CCI).<br/><br/> |
-||||
+| PolyBase-belastningar |MB per rad |1<br/><br/>PolyBase läser in rader som är mindre än 1 MB. Det går inte att läsa in LOB-datatyper i tabeller med ett grupperat columnstore-index (CCI).<br/> |
+|PolyBase-belastningar|Totalt antal filer|1,000,000<br/><br/>PolyBase-inläsningar får inte överstiga 1 miljon filer. Följande fel kan uppstå: **åtgärden misslyckades eftersom delat antal överskrider den övre gränsen på 1000000** .|
 
 ## <a name="queries"></a>Frågor
 
@@ -74,10 +74,10 @@ Högsta tillåtna värden för olika komponenter i Azure-Synapse.
 | Söka i data |Maximalt antal parametrar |2098 |
 | Batch |Maximal storlek |65536 * 4096 |
 | Välj resultat |Kolumner per rad |4096<br/><br/>Du kan aldrig ha fler än 4096 kolumner per rad i Välj resultat. Det finns ingen garanti för att du alltid kan ha 4096. Om din frågeplan kräver en temporär tabell, kan kolumnerna 1024 per tabell gälla. |
-| VÄLJ |Kapslade under frågor |32<br/><br/>Du kan aldrig ha fler än 32 kapslade under frågor i en SELECT-instruktion. Det finns ingen garanti för att du alltid kan ha 32. Till exempel kan en koppling introducera en under fråga i frågeuttrycket. Antalet under frågor kan också begränsas av tillgängligt minne. |
-| VÄLJ |Kolumner per koppling |1024 kolumner<br/><br/>Du kan aldrig ha fler än 1024 kolumner i kopplingen. Det finns ingen garanti för att du alltid kan ha 1024. Om JOIN-planen kräver en temporär tabell med fler kolumner än KOPPLINGs resultatet gäller gränsen 1024 för den temporära tabellen. |
-| VÄLJ |Byte per grupp efter kolumner. |8060<br/><br/>Kolumnerna i GROUP BY-satsen får innehålla högst 8060 byte. |
-| VÄLJ |Byte per sortering efter kolumner |8060 byte<br/><br/>Kolumnerna i ORDER BY-satsen får innehålla högst 8060 byte |
+| SELECT |Kapslade under frågor |32<br/><br/>Du kan aldrig ha fler än 32 kapslade under frågor i en SELECT-instruktion. Det finns ingen garanti för att du alltid kan ha 32. Till exempel kan en koppling introducera en under fråga i frågeuttrycket. Antalet under frågor kan också begränsas av tillgängligt minne. |
+| SELECT |Kolumner per koppling |1024 kolumner<br/><br/>Du kan aldrig ha fler än 1024 kolumner i kopplingen. Det finns ingen garanti för att du alltid kan ha 1024. Om JOIN-planen kräver en temporär tabell med fler kolumner än KOPPLINGs resultatet gäller gränsen 1024 för den temporära tabellen. |
+| SELECT |Byte per grupp efter kolumner. |8060<br/><br/>Kolumnerna i GROUP BY-satsen får innehålla högst 8060 byte. |
+| SELECT |Byte per sortering efter kolumner |8060 byte<br/><br/>Kolumnerna i ORDER BY-satsen får innehålla högst 8060 byte |
 | Identifierare per instruktion |Antalet refererade identifierare |65 535<br/><br/> Antalet identifierare som kan ingå i ett enda uttryck i en fråga är begränsat. Om antalet överskrids i SQL Server fel 8632. Mer information finns i [internt fel: en gräns för uttrycks tjänster har nåtts](https://support.microsoft.com/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Strängliteraler | Antal sträng litteraler i en instruktion | 20 000 <br/><br/>Antalet sträng konstanter i ett enda uttryck i en fråga är begränsat. Om antalet överskrids i SQL Server fel 8632.|
 ||||

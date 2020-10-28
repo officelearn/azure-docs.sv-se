@@ -2,15 +2,15 @@
 title: Konfigurera ASP.NET-appar
 description: Lär dig hur du konfigurerar en ASP.NET-app i Azure App Service. I artikeln visas de vanligaste konfigurationsåtgärderna.
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 30fddaec9ca5d0439beadedf7c5ca6b6c7d51d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ed6835583cc4881b19eee14ed392b193324535e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961711"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744167"
 ---
 # <a name="configure-an-aspnet-app-for-azure-app-service"></a>Konfigurera en ASP.NET-app för Azure App Service
 
@@ -71,7 +71,7 @@ ConfigurationManager.ConnectionStrings["MyConnection"];
 }
 ```
 
-Om du konfigurerar en app-inställning med samma namn i App Service och i *web.config*har App Service värdet företräde framför *web.config* svärdet. Med det lokala *web.config* -värdet kan du felsöka appen lokalt, men App Service-värdet låter appen köras i produkt med produktions inställningar. Anslutnings strängar fungerar på samma sätt. På så sätt kan du behålla dina program hemligheter utanför din kod lagrings plats och få till gång till lämpliga värden utan att ändra koden.
+Om du konfigurerar en app-inställning med samma namn i App Service och i *web.config* har App Service värdet företräde framför *web.config* svärdet. Med det lokala *web.config* -värdet kan du felsöka appen lokalt, men App Service-värdet låter appen köras i produkt med produktions inställningar. Anslutnings strängar fungerar på samma sätt. På så sätt kan du behålla dina program hemligheter utanför din kod lagrings plats och få till gång till lämpliga värden utan att ändra koden.
 
 ## <a name="deploy-multi-project-solutions"></a>Distribuera lösningar för flera projekt
 
@@ -91,7 +91,7 @@ När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webb
 </system.web>
 ```
 
-Distribuera om din app med den uppdaterade *Web.config*. Nu bör du se samma detaljerade undantags sida.
+Distribuera om din app med den uppdaterade *Web.config* . Nu bör du se samma detaljerade undantags sida.
 
 ## <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 

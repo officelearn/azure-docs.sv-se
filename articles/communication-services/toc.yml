@@ -84,6 +84,8 @@
       href: concepts/logging-and-diagnostics.md
     - name: Mått
       href: concepts/metrics.md
+    - name: Felsökning
+      href: concepts/troubleshooting-info.md
 - name: Exempel
   items:
     - name: Exempel på gruppsamtal
@@ -105,4 +107,4 @@
 - name: Resurser
   items:
     - name: Viktig information
-      href: 'https://github.com/Azure/Communication/blob/master/releasenotes/2020-September-22.md'
+      href: 'https://github.com/Azure/Communication/blob/master/releasenotes'

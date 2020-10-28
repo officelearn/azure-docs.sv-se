@@ -2,16 +2,16 @@
 title: Konfigurera ASP.NET Core appar
 description: Lär dig hur du konfigurerar en ASP.NET Core-app i de interna Windows-instanserna eller i en fördefinierad Linux-behållare i Azure App Service. I artikeln visas de vanligaste konfigurationsåtgärderna.
 ms.devlang: dotnet
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 3456adc2b143f1f51115183fe4873938d067d267
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f7047638aa2e2b4a9ac6ffade82fdc117b56cfb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961677"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744176"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Konfigurera en ASP.NET Core app för Azure App Service
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-Om du konfigurerar en app-inställning med samma namn i App Service och i *appsettings.jspå*, till exempel, har App Service värdet företräde framför *appsettings.js* svärdet. Med värdet Local *appsettings.json* kan du felsöka appen lokalt, men App Service-värdet låter appen köras i produkt med produktions inställningar. Anslutnings strängar fungerar på samma sätt. På så sätt kan du behålla dina program hemligheter utanför din kod lagrings plats och få till gång till lämpliga värden utan att ändra koden.
+Om du konfigurerar en app-inställning med samma namn i App Service och i *appsettings.jspå* , till exempel, har App Service värdet företräde framför *appsettings.js* svärdet. Med värdet Local *appsettings.json* kan du felsöka appen lokalt, men App Service-värdet låter appen köras i produkt med produktions inställningar. Anslutnings strängar fungerar på samma sätt. På så sätt kan du behålla dina program hemligheter utanför din kod lagrings plats och få till gång till lämpliga värden utan att ändra koden.
 
 > [!NOTE]
 > Observera att [hierarkiska konfigurations data](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) i *appsettings.jspå* nås med hjälp av den `:` avgränsare som är standard för .net Core. Om du vill åsidosätta en viss hierarkisk konfigurations inställning i App Service anger du namnet på appens inställning med samma avgränsat format i nyckeln. Du kan köra följande exempel i [Cloud Shell](https://shell.azure.com):
@@ -175,7 +175,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Identifiera HTTPS-sessionen
 
-I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din app-logik behöver veta om användarnas begär Anden är krypterade eller inte, konfigurerar du de vidarebefordrade rubrikernas mellanprogram i *startup.cs*:
+I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din app-logik behöver veta om användarnas begär Anden är krypterade eller inte, konfigurerar du de vidarebefordrade rubrikernas mellanprogram i *startup.cs* :
 
 - Konfigurera mellanprogram med [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) för att vidarebefordra- `X-Forwarded-For` och- `X-Forwarded-Proto` rubrikerna i `Startup.ConfigureServices` .
 - Lägg till privata IP-adressintervall i de kända nätverken så att mellanprogram kan lita på App Service belastningsutjämnare.

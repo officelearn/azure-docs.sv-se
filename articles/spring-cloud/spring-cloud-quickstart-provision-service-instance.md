@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a248699b47cf99980c9490bf16c10e7196ee6ecf
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 22abdb64a2349045923e148db57f683b4be87636
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091091"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742693"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>Snabb start: etablera Azure våren Cloud service
 
@@ -103,25 +103,25 @@ Följande procedur skapar en instans av Azure våren Cloud med hjälp av Azure P
 
 1. Öppna [Azure Portal](https://ms.portal.azure.com/)på en ny flik. 
 
-2. Sök efter **Azure våren Cloud**i den översta sökrutan.
+2. Sök efter **Azure våren Cloud** i den översta sökrutan.
 
 3. Välj **Azure våren Cloud** från resultaten.
 
     ![ASC-ikon start](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
 
-4. På sidan Azure våren Cloud klickar du på **+ Lägg till**.
+4. På sidan Azure våren Cloud klickar du på **+ Lägg till** .
 
     ![ASC-ikon Lägg till](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Fyll i formuläret på sidan Azure våren Cloud **create** .  Beakta följande rikt linjer:
-    - **Prenumeration**: Välj den prenumeration som du vill fakturera för den här resursen.
-    - **Resurs grupp**: skapa nya resurs grupper för nya resurser är en bra metod. Observera att detta kommer att användas i senare steg som **\<resource group name\>** .
-    - **Tjänst information/namn**: ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
-    - **Plats**: Välj platsen för din tjänst instans.
+    - **Prenumeration** : Välj den prenumeration som du vill fakturera för den här resursen.
+    - **Resurs grupp** : skapa nya resurs grupper för nya resurser är en bra metod. Observera att detta kommer att användas i senare steg som **\<resource group name\>** .
+    - **Tjänst information/namn** : ange **\<service instance name\>** .  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
+    - **Plats** : Välj platsen för din tjänst instans.
 
     ![ASC-portalen börjar](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
-6. Klicka på **Granska och skapa**.
+6. Klicka på **Granska och skapa** .
 
 > [!div class="nextstepaction"]
 > [Jag stötte på ett problem](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

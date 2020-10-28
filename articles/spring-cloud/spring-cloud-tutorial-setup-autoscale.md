@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091074"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742663"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Självstudie: Konfigurera autoskalning för mikrotjänstprogram
 
@@ -34,7 +34,7 @@ Om du vill följa de här procedurerna behöver du:
 2. Gå till **översikts** sidan för Azure våren Cloud.
 3. Välj den resurs grupp som innehåller din tjänst.
 4. Välj fliken **appar** under **Inställningar** i menyn i det vänstra navigerings fönstret.
-5. Välj det program som du vill konfigurera autoskalning för. I det här exemplet väljer du programmet **demonstration**. Du bör sedan se programmets **översikts** sida.
+5. Välj det program som du vill konfigurera autoskalning för. I det här exemplet väljer du programmet **demonstration** . Du bör sedan se programmets **översikts** sida.
 6. Gå till fliken **skala ut** under **Inställningar** i menyn i det vänstra navigerings fönstret.
 7. Välj den distribution som du vill konfigurera autoskalning. Du bör se alternativ för autoskalning som visas i följande avsnitt.
 

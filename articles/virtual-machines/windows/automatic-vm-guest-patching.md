@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: manayar
-ms.openlocfilehash: 0a777b9008864368a6d1731cae0374e55a4c585f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7574daced9cec078b6e98e378212ce30d6f4f6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842877"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744720"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-windows-vms-in-azure"></a>Förhandsversion: Så här konfigurerar du automatisk gästuppdatering för virtuella datorer med Windows i Azure
 
@@ -80,17 +80,20 @@ Virtuella Windows-datorer i Azure har nu stöd för följande säkerhets lägen 
 
 **AutomaticByPlatform:**
 - Det här läget aktiverar automatisk uppdatering av virtuella gäst datorer för den virtuella Windows-datorn och efterföljande korrigerings installation dirigeras av Azure.
+- Det här läget krävs för första korrigering av tillgänglighet.
 - Om du anger det här läget inaktive ras även de inbyggda automatiska uppdateringarna på den virtuella Windows-datorn för att undvika duplicering.
 - Det här läget stöds bara för virtuella datorer som skapas med avbildningar som stöds av OS-plattformen ovan.
 - Om du vill använda det här läget ställer du in egenskapen `osProfile.windowsConfiguration.enableAutomaticUpdates=true` och anger egenskapen  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByPlatfom` i mallen för virtuell dator.
 
 **AutomaticByOS:**
 - Det här läget aktiverar automatiska uppdateringar på den virtuella Windows-datorn och korrigeringsfiler installeras på den virtuella datorn via automatiska uppdateringar.
+- Det här läget stöder inte tillgänglighets-första uppdatering.
 - Det här läget anges som standard om inget annat korrigerings läge anges.
 - Om du vill använda det här läget ställer du in egenskapen `osProfile.windowsConfiguration.enableAutomaticUpdates=true` och anger egenskapen  `osProfile.windowsConfiguration.patchSettings.patchMode=AutomaticByOS` i mallen för virtuell dator.
 
 **Bok**
 - Det här läget inaktiverar automatiska uppdateringar på den virtuella Windows-datorn.
+- Det här läget stöder inte tillgänglighets-första uppdatering.
 - Det här läget ska ställas in när du använder anpassade lösningar för uppdatering.
 - Om du vill använda det här läget ställer du in egenskapen `osProfile.windowsConfiguration.enableAutomaticUpdates=false` och anger egenskapen  `osProfile.windowsConfiguration.patchSettings.patchMode=Manual` i mallen för virtuell dator.
 
@@ -196,7 +199,7 @@ Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $ComputerName
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Använd [AZ VM Create](/cli/azure/vm#az-vm-create) för att aktivera automatisk korrigering av VM-gäster när du skapar en ny virtuell dator. I följande exempel konfigureras automatisk uppdatering av virtuella gäst datorer för en virtuell dator med namnet *myVM* i resurs gruppen med namnet *myResourceGroup*:
+Använd [AZ VM Create](/cli/azure/vm#az-vm-create) för att aktivera automatisk korrigering av VM-gäster när du skapar en ny virtuell dator. I följande exempel konfigureras automatisk uppdatering av virtuella gäst datorer för en virtuell dator med namnet *myVM* i resurs gruppen med namnet *myResourceGroup* :
 
 ```azurecli-interactive
 az vm create --resource-group myResourceGroup --name myVM --image Win2019Datacenter --enable-agent --enable-auto-update --patch-mode AutomaticByPlatform

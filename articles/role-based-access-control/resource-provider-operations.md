@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 10/23/2020
 ms.custom: generated
-ms.openlocfilehash: 955e80f31cf08dd703f089d26a03b7f97242eab0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 905bdf95222a03514b5c5e76e18330cf27da0d3d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631112"
+ms.locfileid: "92745137"
 ---
 # <a name="azure-resource-provider-operations"></a>Azure Resource Provider-åtgärder
 
@@ -158,6 +158,7 @@ Klicka på namnet på resurs leverantören i följande tabell om du vill se en l
 | [Microsoft.Intune](#microsoftintune) |
 | **Övrigt** |
 | [Microsoft. Bingkartssökning](#microsoftbingmaps) |
+| [Microsoft. DigitalTwins](#microsoftdigitaltwins) |
 
 
 ## <a name="general"></a>Allmänt
@@ -9663,6 +9664,45 @@ Azure-tjänst: [Bing Maps](https://docs.microsoft.com/BingMaps/)
 > | Microsoft. Bingkartssökning/mapApis/listSecrets/Action | Visa en lista över hemligheterna för Microsoft. Bingkartssökning/mapApis |
 > | Microsoft. Bingkartssökning/mapApis/listUsageMetrics/Action | Visa måtten för Microsoft. Bingkartssökning/mapApis |
 > | Microsoft. Bingkartssökning/Operations/Read | Visa en lista över åtgärder för Microsoft. Bingkartssökning |
+
+### <a name="microsoftdigitaltwins"></a>Microsoft. DigitalTwins
+
+Azure-tjänst: [Azure Digitals dubbla](../digital-twins/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Åtgärd | Beskrivning |
+> | --- | --- |
+> | Microsoft. DigitalTwins/register/åtgärd | Registrera prenumerationen för den digitala resurs leverantören och gör det möjligt att skapa digitala dubbla instanser. |
+> | Microsoft. DigitalTwins/avregistrera/åtgärd | Avregistrera prenumerationen för den digitala dubbla resurs leverantören |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Read | Läs valfri Microsoft. DigitalTwins/digitalTwinsInstances-resurs |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Write | Skapa eller uppdatera en Microsoft. DigitalTwins/digitalTwinsInstances-resurs |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/Delete | Ta bort en Microsoft. DigitalTwins/digitalTwinsInstances-resurs |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/diagnosticSettings/Read | Hämtar diagnostikinställningar för resursen |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/diagnosticSettings/Write | Anger diagnostiska inställningar för resursen |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/endpoints/Delete | Ta bort alla slut punkter för en Digitals sammanflätad resurs |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/endpoints/Read | Läs alla slut punkter för en Digitals sammanflätade resurs |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/slut punkter/skrivning | Skapa eller uppdatera alla slut punkter för en Digitals sammanflätad resurs |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/logDefinitions/Read | Hämtar logg inställningarna för resursens Azure Monitor |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/metricDefinitions/Read | Hämtar mått inställningarna för resursens Azure Monitor |
+> | Microsoft. DigitalTwins/digitalTwinsInstances/operationsResults/Read | Läs alla åtgärds resultat |
+> | Microsoft. DigitalTwins/locations/checkNameAvailability/Action | Kontrol lera namn tillgänglighet för en resurs i den digitala resurs leverantören |
+> | Microsoft. DigitalTwins/locations/operationsResults/Read | Läs alla åtgärds resultat |
+> | Microsoft. DigitalTwins/Operations/Read | Läs alla åtgärder |
+> | **DataAction** | **Beskrivning** |
+> | Microsoft. DigitalTwins/fråga/åtgärd | Fråga efter ett digitalt flätat diagram |
+> | Microsoft. DigitalTwins/DigitalTwins/Read | Läs alla digitala dubbla |
+> | Microsoft. DigitalTwins/DigitalTwins/Write | Skapa eller uppdatera alla digitala dubbla |
+> | Microsoft. DigitalTwins/DigitalTwins/Delete | Ta bort alla digitala dubbla |
+> | Microsoft. DigitalTwins/DigitalTwins/commands/Action | Anropa ett kommando på en digital, dubbel |
+> | Microsoft. DigitalTwins/DigitalTwins/relationer/läsa | Läs alla digitala dubbla relationer |
+> | Microsoft. DigitalTwins/DigitalTwins/relationer/skrivning | Skapa eller uppdatera en digital, dubbel relation |
+> | Microsoft. DigitalTwins/DigitalTwins/Relationships/Delete | Ta bort alla digitala dubbla relationer |
+> | Microsoft. DigitalTwins/eventroutes/Read | Läs alla händelse vägar |
+> | Microsoft. DigitalTwins/eventroutes/Delete | Ta bort alla händelse vägar |
+> | Microsoft. DigitalTwins/eventroutes/Write | Skapa eller uppdatera alla händelse vägar |
+> | Microsoft. DigitalTwins/modeller/läsa | Läs valfri modell |
+> | Microsoft. DigitalTwins/modeller/Skriv | Skapa eller uppdatera en modell |
+> | Microsoft. DigitalTwins/Models/Delete | Ta bort valfri modell |
 
 ## <a name="next-steps"></a>Nästa steg
 

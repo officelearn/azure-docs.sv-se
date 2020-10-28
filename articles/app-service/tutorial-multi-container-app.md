@@ -6,13 +6,13 @@ author: msangapu-msft
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.custom: cli-validate
-ms.openlocfilehash: 9c984daa380f1d4f0a7b067604ab66ba14a0b70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: cli-validate, devx-track-azurecli
+ms.openlocfilehash: 7945c6c6f834de068665e3400440d2be5dd713ff
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88084762"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743443"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Självstudie: Skapa en app med flera behållare (förhandsversion) med Web App for Containers
 
@@ -21,7 +21,7 @@ ms.locfileid: "88084762"
 
 Med [Web App for Containers](overview.md#app-service-on-linux) får du ett flexibelt sätt att använda Docker-avbildningar. I den här självstudien lär du dig hur du skapar en app med flera container med hjälp av WordPress och MySQL. Du genomför den här självstudiekursen i Cloud Shell men du kan även köra dessa kommandon lokalt med kommandoradsgränssnittet [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 eller senare).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konvertera en Docker Compose-konfiguration så att den fungerar med Web App for Containers
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här självstudien behöver du uppleva [Docker Compose](https://docs.docker.com/compose/).
 
@@ -63,7 +63,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../includes/resource-group.md)]
 
-I Cloud Shell skapar du en resurs grupp med [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) kommandot. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (USA, södra centrala). Om du vill se alla platser som stöds för App Service på Linux på **Standard**-nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+I Cloud Shell skapar du en resurs grupp med [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) kommandot. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (USA, södra centrala). Om du vill se alla platser som stöds för App Service på Linux på **Standard** -nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -148,7 +148,7 @@ Det är inte rekommenderat att använda databascontainrar i en produktionsmiljö
 
 Skapa en Azure Database for MySQL-server med [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) kommandot.
 
-I följande kommando byter du namn på MySQL-servern där du ser plats hållaren _ &lt; MySQL-Server-Name>_ placeholder (giltiga tecken är `a-z` , `0-9` och `-` ). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql-server-name>.database.windows.net`) och den måste vara globalt unik.
+I följande kommando byter du namn på MySQL-servern där du ser plats hållaren _&lt; MySQL-Server-Name>_ placeholder (giltiga tecken är `a-z` , `0-9` och `-` ). Det här namnet är en del av MySQL-serverns värdnamn (`<mysql-server-name>.database.windows.net`) och den måste vara globalt unik.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
@@ -464,17 +464,17 @@ Utför stegen och installera WordPress.
 
 ### <a name="connect-wordpress-to-redis"></a>Ansluta WordPress till Redis
 
-Logga in på WordPress-administratören. I det vänstra navigerings fältet väljer du **plugin**-program och väljer sedan **installerade plugin**-program.
+Logga in på WordPress-administratören. I det vänstra navigerings fältet väljer du **plugin** -program och väljer sedan **installerade plugin** -program.
 
 ![Välj WordPress-plugin-program][2]
 
 Visa alla plugin-program här
 
-På sidan för plugin-program letar du rätt på **Redis Object Cache** och klickar på **Aktivera**.
+På sidan för plugin-program letar du rätt på **Redis Object Cache** och klickar på **Aktivera** .
 
 ![Aktivera Redis][3]
 
-Klicka på **Inställningar**.
+Klicka på **Inställningar** .
 
 ![Klicka på Inställningar][4]
 
@@ -486,7 +486,7 @@ WordPress ansluter till Redis-servern. Anslutningens **status** visas på samma 
 
 ![WordPress ansluter till Redis-servern. Anslutningens **status** visas på samma sida.][6]
 
-**Gratulerar!** Du har anslutit WordPress till Redis. Den produktionsklara appen använder nu **Azure Database for MySQL, beständig lagring och Redis**. Nu kan du skala ut din App Service-plan till flera instanser.
+**Gratulerar!** Du har anslutit WordPress till Redis. Den produktionsklara appen använder nu **Azure Database for MySQL, beständig lagring och Redis** . Nu kan du skala ut din App Service-plan till flera instanser.
 
 ## <a name="find-docker-container-logs"></a>Hitta loggar för Docker-containrar
 

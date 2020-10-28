@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 986db4edbf7b8856a12067fb66a370627642e970
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 556aec071ccb59a0223bc07d134f3427755117f3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078365"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745795"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Använda CSI-drivrutiner (Azure Files container Storage Interface) i Azure Kubernetes service (AKS) (för hands version)
 
@@ -33,13 +33,13 @@ Mer information om Kubernetes-volymer finns i [lagrings alternativ för program 
 
 ## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Skapa Azure Files PVs dynamiskt med hjälp av de inbyggda lagrings klasserna
 
-En lagrings klass används för att definiera hur en Azure Files resurs skapas. Ett lagrings konto skapas automatiskt i [resurs gruppen resurs][node-resource-group] för användning med lagrings klassen som innehåller Azure Files resurser. Välj någon av följande [redundans-SKU: er för Azure Storage][storage-skus] för *skuName*:
+En lagrings klass används för att definiera hur en Azure Files resurs skapas. Ett lagrings konto skapas automatiskt i [resurs gruppen resurs][node-resource-group] för användning med lagrings klassen som innehåller Azure Files resurser. Välj någon av följande [redundans-SKU: er för Azure Storage][storage-skus] för *skuName* :
 
-* **Standard_LRS**: standard lokalt redundant lagring
-* **Standard_GRS**: standard Geo-redundant lagring
-* **Standard_ZRS**: standard zon – redundant lagring
-* **Standard_RAGRS**: standard Geo-redundant lagring med Läs behörighet
-* **Premium_LRS**: Premium lokalt redundant lagring
+* **Standard_LRS** : standard lokalt redundant lagring
+* **Standard_GRS** : standard Geo-redundant lagring
+* **Standard_ZRS** : standard zon – redundant lagring
+* **Standard_RAGRS** : standard Geo-redundant lagring med Läs behörighet
+* **Premium_LRS** : Premium lokalt redundant lagring
 
 > [!NOTE]
 > Azure Files stöder Azure Premium Storage. Den minsta Premium fil resursen är 100 GB.
@@ -212,7 +212,7 @@ Registrera `AllowNfsFileShares` funktions flaggan med hjälp av kommandot [AZ Fe
 az feature register --namespace "Microsoft.Storage" --name "AllowNfsFileShares"
 ```
 
-Det tar några minuter för statusen att visa *registrerad*. Verifiera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
+Det tar några minuter för statusen att visa *registrerad* . Verifiera registrerings statusen med hjälp av kommandot [AZ feature list][az-feature-list] :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Storage/AllowNfsFileShares')].{Name:name,State:properties.state}"
@@ -259,7 +259,7 @@ storageclass.storage.k8s.io/azurefile-csi created
 Du kan distribuera en exempel [tillstånds känslig uppsättning](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) som sparar tidsstämplar i en fil `data.txt` genom att distribuera följande kommando med kommandot [kubectl Apply][kubectl-apply] :
 
  ```console
-$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/statefulset.yaml
 
 statefulset.apps/statefulset-azurefile created
 ```

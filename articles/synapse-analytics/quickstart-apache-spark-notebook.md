@@ -8,13 +8,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 04/15/2020
-ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91651725"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742526"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en Apache Spark pool i Azure Synapse Analytics med hjälp av webb verktyg
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -41,15 +41,16 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 En antecknings bok är en interaktiv miljö som har stöd för olika programmeringsspråk. Med antecknings boken kan du interagera med dina data, kombinera kod med markdown, text och utföra enkla visualiseringar.
 
-1. Från vyn Azure Portal för den Azure Synapse-arbetsyta som du vill använda väljer du **Starta Synapse Studio**.
-2. När Synapse Studio har lanserats väljer du **utveckla**. Hovra sedan över posten för **antecknings boken** . Välj ellipsen (**...**).
-3. Därifrån väljer du **ny antecknings bok**. En ny antecknings bok skapas och öppnas med ett automatiskt genererat namn.
-  ![Ny antecknings bok](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Ny antecknings bok")
+1. Från vyn Azure Portal för den Azure Synapse-arbetsyta som du vill använda väljer du **Starta Synapse Studio** .
+2. När Synapse Studio har lanserats väljer du **utveckla** . Välj sedan **+** ikonen "" om du vill lägga till en ny resurs.
+3. Därifrån väljer du **antecknings bok** . En ny antecknings bok skapas och öppnas med ett automatiskt genererat namn.
+ 
+     ![Ny antecknings bok](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Ny antecknings bok")
 
 4. I fönstret **Egenskaper** anger du ett namn för antecknings boken.
-5. Klicka på **publicera**i verktygsfältet.
+5. Klicka på **publicera** i verktygsfältet.
 6. Om det bara finns en Apache Spark pool i din arbets yta, är den markerad som standard. Använd List rutan för att välja rätt Apache Spark pool om ingen är markerad.
-7. Klicka på **Lägg till kod**. Standard språket är `Pyspark` . Du kommer att använda en blandning av Pyspark och Spark SQL, så att standard valet är bra. Andra språk som stöds är Scala och .NET för Spark.
+7. Klicka på **Lägg till kod** . Standard språket är `Pyspark` . Du kommer att använda en blandning av Pyspark och Spark SQL, så att standard valet är bra. Andra språk som stöds är Scala och .NET för Spark.
 8. Därefter skapar du ett enkelt Spark DataFrame-objekt som du kan ändra. I det här fallet skapar du den från kod. Det finns tre rader och tre kolumner:
 
    ```python
@@ -60,15 +61,15 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
 
 9. Kör nu cellen med någon av följande metoder:
 
-   - Tryck på **SKIFT + RETUR**.
+   - Tryck på **SKIFT + RETUR** .
    - Välj den blå uppspelnings ikonen till vänster om cellen.
    - Välj knappen **Kör alla** i verktygsfältet.
 
-   ![Skapa data ram objekt](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Utdata från Spark-jobbet")
+       ![Skapa data ram objekt](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png)
 
 10. Om instansen av Apache Spark-poolen inte redan körs startas den automatiskt. Du kan se instans status för Apache Spark bassäng under den cell som du kör och även på status panelen längst ned i antecknings boken. Beroende på Poolens storlek bör det ta 2-5 minuter att starta. När koden har körts visas informationen i cellen som visar hur lång tid det tog att köra och dess körning. I utmatnings cellen visas utdata.
 
-    ![Utdata från att köra en cell](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Utdata från Spark-jobbet")
+    ![Utdata från att köra en cell](./media/quickstart-apache-spark-notebook/run-cell-with-output.png)
 
 11. Informationen finns nu i en DataFrame där du kan använda data på många olika sätt. Du kommer att behöva den i olika format för resten av den här snabb starten.
 12. Ange koden nedan i en annan cell och kör den. då skapas en spark-tabell, en CSV-fil och en Parquet-fil med kopior av data:
@@ -113,13 +114,13 @@ Structured Query Language (SQL) är det vanligaste språket som används för at
 
     ![Fråga utdata i Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Fråga utdata i Azure Synapse Spark")
 
-3. I **vyn** växlaren väljer du **diagram**.
+3. I **vyn** växlaren väljer du **diagram** .
 4. Välj ikonen **visnings alternativ** längst till höger.
 5. I fältet **diagram typ** väljer du stapeldiagram.
 6. I kolumn fältet X-axel väljer du "State".
 7. I kolumn fältet Y-axel väljer du "lön".
 8. I fältet **agg regering** väljer du till "medel".
-9. Välj **Tillämpa**.
+9. Välj **Tillämpa** .
 
    ![Diagramets utdata i Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Diagramets utdata i Azure Synapse Spark")
 
@@ -129,7 +130,7 @@ Structured Query Language (SQL) är det vanligaste språket som används för at
     display(spark.sql('SELECT * FROM demo_df'))
     ```
 
-11. Varje cell som kördes tidigare hade alternativet att gå till **Historik Server** och **övervakning**. Genom att klicka på länkarna går du till olika delar av användar upplevelsen.
+11. Varje cell som kördes tidigare hade alternativet att gå till **Historik Server** och **övervakning** . Genom att klicka på länkarna går du till olika delar av användar upplevelsen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
-ms.custom: avverma
-ms.openlocfilehash: fae86e13be624d7a5304aa04b82432e1163b1244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: avverma, devx-track-azurecli
+ms.openlocfilehash: f94a68833347d662f427fa0944dd83d33458bd14
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84629542"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745993"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med en Azure-mall
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här guiden får du lära du dig hur man:
@@ -33,7 +33,7 @@ Om du väljer att installera och använda CLI lokalt, måste du köra Azure CLI 
 
 
 ## <a name="define-an-autoscale-profile"></a>Definiera en autoskalningsprofil
-Du definierar en profil för automatisk skalning i en Azure-mall med resursprovidern *Microsoft.insights/autoscalesettings*. En *profil* ger information om skalningsuppsättningens kapacitet och alla associerade regler. Följande exempel definierar en profil med namnet *Automatisk skalning efter procent baserat på CPU-användning* och ställer in standard och minimum kapacitet för *2* VM-instanser och högst *10*:
+Du definierar en profil för automatisk skalning i en Azure-mall med resursprovidern *Microsoft.insights/autoscalesettings* . En *profil* ger information om skalningsuppsättningens kapacitet och alla associerade regler. Följande exempel definierar en profil med namnet *Automatisk skalning efter procent baserat på CPU-användning* och ställer in standard och minimum kapacitet för *2* VM-instanser och högst *10* :
 
 ```json
 {
@@ -180,7 +180,7 @@ SSH till din första virtuella datorinstans. Ange din egen offentliga IP-adress 
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-När du är inloggad, installerar du **stress**-verktyget. Starta *10* **stress**-arbetare som genererar CPU-belastning. De här arbetarna kör i *420* sekunder, vilket räcker för att få reglerna för automatisk skalning att implementera den önskade åtgärden.
+När du är inloggad, installerar du **stress** -verktyget. Starta *10* **stress** -arbetare som genererar CPU-belastning. De här arbetarna kör i *420* sekunder, vilket räcker för att få reglerna för automatisk skalning att implementera den önskade åtgärden.
 
 ```console
 sudo apt-get update
@@ -188,15 +188,15 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, trycker du på *Retur* för att återgå till prompten.
+När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , trycker du på *Retur* för att återgå till prompten.
 
-Kontrollera att **stress** genererar CPU-belastning genom att granska den aktiva systembelastningen med **top**-verktyget:
+Kontrollera att **stress** genererar CPU-belastning genom att granska den aktiva systembelastningen med **top** -verktyget:
 
 ```console
 top
 ```
 
-Avsluta **top**, stäng sedan anslutningen till den virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
+Avsluta **top** , stäng sedan anslutningen till den virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
 
 ```console
 Ctrl-c
@@ -216,7 +216,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-När **stress** återigen visar utdata som liknar *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, trycker du på *Retur* för att återgå till prompten.
+När **stress** återigen visar utdata som liknar *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , trycker du på *Retur* för att återgå till prompten.
 
 Stäng din anslutning till den andra virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
 
@@ -225,7 +225,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Övervaka de aktiva reglerna för automatisk skalning
-Du övervakar antalet virtuella datorinstanser i din skalningsuppsättning med **watch**. Det tar 5 minuter för reglerna för automatisk skalning att börja utskalningsprocessen till svar på den CPU-belastning som skapas av **stress** på var och en av de virtuella datorinstanserna:
+Du övervakar antalet virtuella datorinstanser i din skalningsuppsättning med **watch** . Det tar 5 minuter för reglerna för automatisk skalning att börja utskalningsprocessen till svar på den CPU-belastning som skapas av **stress** på var och en av de virtuella datorinstanserna:
 
 ```azurecli-interactive
 watch az vmss list-instances \

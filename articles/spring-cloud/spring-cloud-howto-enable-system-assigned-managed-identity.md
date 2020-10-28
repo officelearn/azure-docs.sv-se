@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 1802708c3b9e15a2459f29d15da72f2dc1da1a4f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 2fbdd46b872c4c70999355d457045f4aac8aa34c
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093998"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742808"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Så här aktiverar du systemtilldelad hanterad identitet för Azure våren Cloud Application
 
@@ -34,8 +34,8 @@ Om du vill konfigurera en hanterad identitet i [Azure Portal](https://portal.azu
 
 1. Skapa en app i portalen på vanligt sätt. Gå till den i portalen.
 2. Rulla ned till **inställnings** gruppen i det vänstra navigerings fönstret.
-3. Välj **identitet**.
-4. Växla **status** till *på på*fliken **systemtilldelad** . Klicka på **Spara**.
+3. Välj **identitet** .
+4. Växla **status** till *på på* fliken **systemtilldelad** . Klicka på **Spara** .
 
  ![Hanterad identitet i portalen](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -72,8 +72,8 @@ Om du tar bort en tilldelad identitet tas även den bort från Azure AD. Om du t
 Ta bort systemtilldelad hanterad identitet från en app som inte längre behöver den:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) med ett konto som är kopplat till Azure-prenumerationen som innehåller Azure våren Cloud-instansen.
-1. Navigera till önskad virtuell dator och välj **identitet**.
-1. Under **systemtilldelad** / **status**väljer du **av** och klickar sedan på **Spara**:
+1. Navigera till önskad virtuell dator och välj **identitet** .
+1. Under **systemtilldelad** / **status** väljer du **av** och klickar sedan på **Spara** :
 
  ![Hanterad identitet](./media/spring-cloud-managed-identity/remove-identity.png)
 

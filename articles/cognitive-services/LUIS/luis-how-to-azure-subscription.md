@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: adc0c253648ed7ae869a20b92c42e7f6478501b7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: eecc93558625d3ae891ca589424aec218036adae
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151586"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744707"
 ---
 # <a name="create-luis-resources"></a>Skapa LUIS-resurser
 
@@ -29,7 +29,7 @@ LUIS tillåter tre typer av Azure-resurser och en icke-Azure-resurs:
 
 |Resurs|Syfte|Kognitiv tjänst `kind`|Kognitiv tjänst `type`|
 |--|--|--|--|
-|Skapar resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. [Skapa en Luis Authoring-resurs](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) om du tänker redigera Luis Apps programtically eller från Luis-portalen. Du måste först [migrera ditt Luis-konto](luis-migration-authoring.md#what-is-migration) för att kunna länka dina Azure authroring-resurser till ditt program. Du kan kontrol lera behörigheter till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors). <br><br> Det finns en nivå avialable för LUIS Authoring-resursen:<br> * **Kostnads fri F0 Authoring-resurs** som ger dig 1 miljon kostnads fria redigerings transaktioner och 1000 kostnads fria utvärderings slut punkt förfrågningar varje månad. |`LUIS.Authoring`|`Cognitive Services`|
+|Skapar resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. [Skapa en Luis Authoring-resurs](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) om du tänker redigera Luis Apps programtically eller från Luis-portalen. Du måste först [migrera ditt Luis-konto](luis-migration-authoring.md#what-is-migration) för att kunna länka dina Azures redigerings resurser till ditt program. Du kan kontrol lera behörigheter till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors). <br><br> Det finns en tillgänglig nivå för LUIS Authoring-resursen:<br> * **Kostnads fri F0 Authoring-resurs** som ger dig 1 miljon kostnads fria redigerings transaktioner och 1000 kostnads fria utvärderings slut punkt förfrågningar varje månad. |`LUIS.Authoring`|`Cognitive Services`|
 |Förutsägelse resurs| När du har publicerat ditt LUIS-program använder du förutsägelse resurs/nyckel för att fråga förutsägelse slut punkts begär Anden. Skapa en LUIS förutsägelse resurs innan klient programmet begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av redigeringen eller start resursen. <br><br> Det finns två nivåer avialble för förutsägelse resursen:<br> * **Kostnads fri F0 förutsägelse resurs** som ger dig 10 000 kostnads fri förutsägelse slut punkt begär Anden varje månad<br> * **Standard S0 förutsägelse resurs** som är den betalda nivån. [Läs mer om pris information](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
 |Start/utvärderings resurs|Gör att du kan skapa, hantera, träna, testa och publicera dina program. Detta skapas av standardvärde om du väljer alternativet Start resurs när du först registrerar TP-LUIS. Start nyckeln kommer dock att bli föråldrad och alla LUIS-användare kommer att behöva [migrera sina konton](luis-migration-authoring.md#what-is-migration) och länka sina Luis-program till en redigerings resurs. Den här resursen ger dig inte behörighet för rollbaserad åtkomst kontroll i Azure som redigerings resurs. <br><br> Precis som för att skapa resurser ger start resursen 1 miljon utan att skapa transaktioner och 1000 kostnads fria test slut punkts begär Anden.|-|Inte en Azure-resurs|
 |[Resurs nyckel för multi-service för kognitiva tjänster](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Slut punkts begär Anden för förfrågan som delas med LUIS och andra Cognitive Services som stöds.|`CognitiveServices`|`Cognitive Services`|
@@ -190,20 +190,20 @@ Resurs `kind` :
 
     Då öppnas en webbläsare så att du kan välja rätt konto och tillhandahålla autentisering.
 
-1. Skapa en **Luis Authoring-resurs**, av typen `LUIS.Authoring` , med namnet `my-luis-authoring-resource` i den _befintliga_ resurs gruppen med namnet `my-resource-group` för `westus` regionen.
+1. Skapa en **Luis Authoring-resurs** , av typen `LUIS.Authoring` , med namnet `my-luis-authoring-resource` i den _befintliga_ resurs gruppen med namnet `my-resource-group` för `westus` regionen.
 
     ```azurecli
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. Skapa en **resurs av typen Luis förutsägelse-slutpunkt**med `LUIS` namnet `my-luis-prediction-resource` i den _befintliga_ resurs gruppen med namnet `my-resource-group` för `westus` regionen. Ändra till om du vill ha ett högre data flöde än den kostnads fria nivån `F0` `S0` . Läs mer om [pris nivåer och data flöde](luis-limits.md#key-limits).
+1. Skapa en **resurs av typen Luis förutsägelse-slutpunkt** med `LUIS` namnet `my-luis-prediction-resource` i den _befintliga_ resurs gruppen med namnet `my-resource-group` för `westus` regionen. Ändra till om du vill ha ett högre data flöde än den kostnads fria nivån `F0` `S0` . Läs mer om [pris nivåer och data flöde](luis-limits.md#key-limits).
 
     ```azurecli
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
     > [!Note]
-    > De här nycklarna används **inte** av Luis-portalen förrän de har tilldelats i Luis-portalen på **Azure-resurserna för hanterings >**.
+    > De här nycklarna används **inte** av Luis-portalen förrän de har tilldelats i Luis-portalen på **Azure-resurserna för hanterings >** .
 
 <a name="assign-an-authoring-resource-in-the-luis-portal-for-all-apps"></a>
 
@@ -212,8 +212,8 @@ Resurs `kind` :
 Du kan tilldela en redigerings resurs för en enskild app eller för alla appar i LUIS. Följande procedur tilldelar alla appar till en enda redigerings resurs.
 
 1. Logga in på [Luis-portalen](https://www.luis.ai).
-1. I det övre navigerings fältet längst till höger väljer du ditt användar konto och väljer sedan **Inställningar**.
-1. På sidan **användar inställningar** väljer du **Lägg till Authoring-resurs** och väljer sedan en befintlig redigerings resurs. Välj **Spara**.
+1. I det övre navigerings fältet längst till höger väljer du ditt användar konto och väljer sedan **Inställningar** .
+1. På sidan **användar inställningar** väljer du **Lägg till Authoring-resurs** och väljer sedan en befintlig redigerings resurs. Välj **Spara** .
 
 ## <a name="assign-a-resource-to-an-app"></a>Tilldela en resurs till en app
 
@@ -292,7 +292,7 @@ Se [data lagring och borttagning](luis-concept-data-storage.md#accounts) för in
 ## <a name="viewing-azure-resource-metrics"></a>Visa Azures resurs mått
 
 ### <a name="viewing-azure-resource-summary-usage"></a>Visa användning av Azure-resurs Sammanfattning
-Du kan visa LUIS användnings information i Azure. På sidan **Översikt** visas senaste sammanfattnings information, inklusive anrop och fel. Om du gör en LUIS kan du omedelbart titta på **sidan Översikt**, tillåta upp till fem minuter innan användningen visas.
+Du kan visa LUIS användnings information i Azure. På sidan **Översikt** visas senaste sammanfattnings information, inklusive anrop och fel. Om du gör en LUIS kan du omedelbart titta på **sidan Översikt** , tillåta upp till fem minuter innan användningen visas.
 
 ![Visa sammanfattnings användning](./media/luis-usage-tiers/overview.png)
 

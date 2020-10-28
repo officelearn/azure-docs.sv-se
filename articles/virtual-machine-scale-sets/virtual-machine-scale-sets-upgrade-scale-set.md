@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 03/10/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: f7a61ed039a3d8ed643e3b1b3d79384e35847986
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 7577c8510746d1140c1f8b70081f600d992ae512
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87029305"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745831"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
@@ -354,7 +354,7 @@ Vissa egenskaper kan ändras, med undantag beroende på det aktuella värdet. Bl
 ### <a name="properties-that-require-deallocation-to-change"></a>Egenskaper som kräver att tilldelningen ändras
 Vissa egenskaper kan bara ändras till vissa värden om de virtuella datorerna i skalnings uppsättningen är friallokerade. Bland dessa egenskaper finns:
 
-- **SKU-namn**– om den nya VM-SKU: n inte stöds på den maskin vara som skalnings uppsättningen är på, måste du frigöra de virtuella datorerna i skalnings uppsättningen innan du ändrar SKU-namnet. Mer information finns i [så här ändrar du storlek på en virtuell Azure-dator](../virtual-machines/windows/resize-vm.md).
+- **SKU-namn** – om den nya VM-SKU: n inte stöds på den maskin vara som skalnings uppsättningen är på, måste du frigöra de virtuella datorerna i skalnings uppsättningen innan du ändrar SKU-namnet. Mer information finns i [så här ändrar du storlek på en virtuell Azure-dator](../virtual-machines/windows/resize-vm.md).
 
 
 ## <a name="vm-specific-updates"></a>VM-/regionsspecifika uppdateringar
@@ -364,7 +364,7 @@ Vissa ändringar kan tillämpas på specifika virtuella datorer i stället för 
 ## <a name="scenarios"></a>Scenarier
 
 ### <a name="application-updates"></a>Program uppdateringar
-Om ett program distribueras till en skalnings uppsättning via tillägg, gör en uppdatering av tilläggs konfigurationen att programmet uppdateras i enlighet med uppgraderings principen. Om du till exempel har en ny version av ett skript som ska köras i ett anpassat skript tillägg kan du uppdatera egenskapen *fileUris* så att den pekar på det nya skriptet. I vissa fall kanske du vill framtvinga en uppdatering även om tilläggs konfigurationen är oförändrad (till exempel om du uppdaterade skriptet utan att ändra URI för skriptet). I dessa fall kan du ändra *forceUpdateTag* för att framtvinga en uppdatering. Azure-plattformen tolkar inte den här egenskapen. Om du ändrar värdet finns det ingen påverkan på hur tillägget körs. En ändring tvingar bara tillägget att köras igen. Mer information om *forceUpdateTag*finns i [REST API dokumentationen för tillägg](/rest/api/compute/virtualmachineextensions/createorupdate). Observera att *forceUpdateTag* kan användas med alla tillägg, inte bara det anpassade skript tillägget.
+Om ett program distribueras till en skalnings uppsättning via tillägg, gör en uppdatering av tilläggs konfigurationen att programmet uppdateras i enlighet med uppgraderings principen. Om du till exempel har en ny version av ett skript som ska köras i ett anpassat skript tillägg kan du uppdatera egenskapen *fileUris* så att den pekar på det nya skriptet. I vissa fall kanske du vill framtvinga en uppdatering även om tilläggs konfigurationen är oförändrad (till exempel om du uppdaterade skriptet utan att ändra URI för skriptet). I dessa fall kan du ändra *forceUpdateTag* för att framtvinga en uppdatering. Azure-plattformen tolkar inte den här egenskapen. Om du ändrar värdet finns det ingen påverkan på hur tillägget körs. En ändring tvingar bara tillägget att köras igen. Mer information om *forceUpdateTag* finns i [REST API dokumentationen för tillägg](/rest/api/compute/virtualmachineextensions/createorupdate). Observera att *forceUpdateTag* kan användas med alla tillägg, inte bara det anpassade skript tillägget.
 
 Det är också vanligt att program distribueras via en anpassad avbildning. Det här scenariot beskrivs i följande avsnitt.
 
@@ -379,7 +379,7 @@ Om du använder anpassade avbildningar kan du uppdatera avbildningen genom att u
 ## <a name="examples"></a>Exempel
 
 ### <a name="update-the-os-image-for-your-scale-set"></a>Uppdatera operativ system avbildningen för din skalnings uppsättning
-Du kan ha en skalnings uppsättning som kör en gammal version av Ubuntu LTS 16,04. Du vill uppdatera till en nyare version av Ubuntu LTS 16,04, till exempel version *16.04.201801090*. Egenskapen bild referens version är inte en del av en lista, så du kan ändra dessa egenskaper direkt med något av följande kommandon:
+Du kan ha en skalnings uppsättning som kör en gammal version av Ubuntu LTS 16,04. Du vill uppdatera till en nyare version av Ubuntu LTS 16,04, till exempel version *16.04.201801090* . Egenskapen bild referens version är inte en del av en lista, så du kan ändra dessa egenskaper direkt med något av följande kommandon:
 
 - Azure PowerShell med [Update-AzVmss](/powershell/module/az.compute/update-azvmss) på följande sätt:
 
@@ -447,7 +447,7 @@ Anta att du har en skalnings uppsättning med en Azure Load Balancer och att du 
     ```
 
 >[!NOTE]
-> Dessa kommandon förutsätter att det bara finns en IP-konfiguration och belastningsutjämnare på skalnings uppsättningen. Om det finns flera kan du behöva använda ett List index som inte är *0*.
+> Dessa kommandon förutsätter att det bara finns en IP-konfiguration och belastningsutjämnare på skalnings uppsättningen. Om det finns flera kan du behöva använda ett List index som inte är *0* .
 
 
 ## <a name="next-steps"></a>Nästa steg

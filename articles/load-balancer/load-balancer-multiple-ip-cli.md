@@ -5,7 +5,7 @@ description: Lär dig hur du tilldelar flera IP-adresser till en virtuell dator 
 services: virtual-network
 documentationcenter: na
 author: asudbring
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 9e9a74690108c0e089e99f9cd7f0f62e7a7d1778
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc1e477882f3d065dfe89e8511259732129cec30
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809148"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746030"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>Belastnings utjämning på flera IP-konfigurationer med Azure CLI
 
@@ -43,14 +43,14 @@ Slutför följande steg för att uppnå det scenario som beskrivs i den här art
     az vm availability-set create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
     ```
 
-4. [Skapa ett virtuellt nätverk](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) med namnet *myVNet* och ett undernät som kallas för *undernät*:
+4. [Skapa ett virtuellt nätverk](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) med namnet *myVNet* och ett undernät som kallas för *undernät* :
 
     ```azurecli
     az network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location westcentralus --subnet-name MySubnet --subnet-prefix 10.0.0.0/24
 
     ```
 
-5. [Skapa belastningsutjämnaren med](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) namnet *mylb*:
+5. [Skapa belastningsutjämnaren med](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) namnet *mylb* :
 
     ```azurecli
     az network lb create --resource-group contosofabrikam --location westcentralus --name mylb
@@ -71,7 +71,7 @@ Slutför följande steg för att uppnå det scenario som beskrivs i den här art
     az network lb frontend-ip create --resource-group contosofabrikam --lb-name mylb --public-ip-name PublicIp2 --name fabrkamfe
     ```
 
-8. Skapa dina backend-adresspooler – *contosopool* och *fabrikampool*, en [avsöknings](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  -  *-http*och dina belastnings Utjämnings regler – *HTTPc* och *HTTPf*:
+8. Skapa dina backend-adresspooler – *contosopool* och *fabrikampool* , en [avsöknings](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  -  *-http* och dina belastnings Utjämnings regler – *HTTPc* och *HTTPf* :
 
     ```azurecli
     az network lb address-pool create --resource-group contosofabrikam --lb-name mylb --name contosopool
@@ -89,7 +89,7 @@ Slutför följande steg för att uppnå det scenario som beskrivs i den här art
     az network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. [Skapa ett offentligt IP-](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address), *myPublicIp*-och [lagrings konto](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json), *mystorageaccont1* för din första virtuella dator VM1 enligt följande:
+10. [Skapa ett offentligt IP-](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address), *myPublicIp* -och [lagrings konto](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json), *mystorageaccont1* för din första virtuella dator VM1 enligt följande:
 
     ```azurecli
     az network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -97,7 +97,7 @@ Slutför följande steg för att uppnå det scenario som beskrivs i den här art
     az storage account create --location westcentralus --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. [Skapa nätverks gränssnitten](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) för VM1 och Lägg till en andra IP-konfiguration, *VM1-ipconfig2*och [skapa den virtuella datorn](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-vm) på följande sätt:
+11. [Skapa nätverks gränssnitten](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) för VM1 och Lägg till en andra IP-konfiguration, *VM1-ipconfig2* och [skapa den virtuella datorn](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-vm) på följande sätt:
 
     ```azurecli
     az network nic create --resource-group contosofabrikam --location westcentralus --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1

@@ -4,13 +4,13 @@ description: Lär dig hur du använder Azure Portal för att skapa ett AKS-klust
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 0fe8c4753cef9fa829a2cb696e164dbdf5f2b8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: aaada79855b07e390ce3d30a20cd08dc484481c9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297577"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745472"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder i Azure Portal
 
@@ -28,7 +28,7 @@ Om du inte tidigare har använt ACI registrerar du tjänst leverantören med din
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
 ```
 
-*Microsoft. ContainerInstance* -providern ska rapportera som *registrerad*, vilket visas i följande exempel på utdata:
+*Microsoft. ContainerInstance* -providern ska rapportera som *registrerad* , vilket visas i följande exempel på utdata:
 
 ```output
 Namespace                    RegistrationState    RegistrationPolicy
@@ -36,7 +36,7 @@ Namespace                    RegistrationState    RegistrationPolicy
 Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
-Om providern visas som *NotRegistered*registrerar du providern med [AZ-providerns register][az-provider-register] som visas i följande exempel:
+Om providern visas som *NotRegistered* registrerar du providern med [AZ-providerns register][az-provider-register] som visas i följande exempel:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -76,18 +76,18 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs**  >  **Kubernetes-tjänst**.
+I det övre vänstra hörnet av Azure Portal väljer du **skapa en resurs**  >  **Kubernetes-tjänst** .
 
 På sidan **Grunder** konfigurerar du följande alternativ:
 
-- *PROJEKTINFORMATION*: Välj en Azure-prenumeration och välj sedan eller skapa en Azure-resursgrupp, till exempel *myResourceGroup*. Ange ett **Kubernetes-klusternamn**, till exempel *myAKSCluster*.
-- *KLUSTERINFORMATION*: Välj en region, en Kubernetes-version och ett DNS-namnprefix för AKS-klustret.
-- *Primär Node-pool*: Välj en VM-storlek för AKS-noderna. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats.
-     - Välj även det antal noder som ska distribueras till klustret. I den här artikeln ställer du in **antal noder** på *1*. Antalet noder **kan** justeras efter att klustret har distribuerats.
+- *PROJEKTINFORMATION* : Välj en Azure-prenumeration och välj sedan eller skapa en Azure-resursgrupp, till exempel *myResourceGroup* . Ange ett **Kubernetes-klusternamn** , till exempel *myAKSCluster* .
+- *KLUSTERINFORMATION* : Välj en region, en Kubernetes-version och ett DNS-namnprefix för AKS-klustret.
+- *Primär Node-pool* : Välj en VM-storlek för AKS-noderna. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats.
+     - Välj även det antal noder som ska distribueras till klustret. I den här artikeln ställer du in **antal noder** på *1* . Antalet noder **kan** justeras efter att klustret har distribuerats.
 
-Klicka på **Nästa: skala**.
+Klicka på **Nästa: skala** .
 
-På sidan **skala** väljer du *aktive rad* under **virtuella noder**.
+På sidan **skala** väljer du *aktive rad* under **virtuella noder** .
 
 ![Skapa AKS-kluster och aktivera de virtuella noderna](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -95,7 +95,7 @@ Som standard skapas en Azure Active Directory tjänstens huvud namn. Tjänstens 
 
 Klustret är också konfigurerat för avancerade nätverk. De virtuella noderna har kon figurer ATS för att använda sina egna Azure Virtual Network-undernät. Det här under nätet har delegerade behörigheter för att ansluta Azure-resurser mellan AKS-klustret. Om du inte redan har ett delegerat undernät skapar och konfigurerar Azure Portal det virtuella Azure-nätverket och under nätet för användning med de virtuella noderna.
 
-Välj **Granska + skapa**. När verifieringen är klar väljer du **skapa**.
+Välj **Granska + skapa** . När verifieringen är klar väljer du **skapa** .
 
 Det tar några minuter för AKS-klustret att skapas och bli redo för användning.
 
@@ -103,9 +103,9 @@ Det tar några minuter för AKS-klustret att skapas och bli redo för användnin
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Hantera Kubernetes-kluster med [kubectl][kubectl], Kubernetes kommandoradsklient. `kubectl`-klienten är förinstallerad i Azure Cloud Shell.
 
-Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash) . Kopiera kodblocket genom att välja **Kopiera** , klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
-Använd kommandot [az aks get-credentials][az-aks-get-credentials] för att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster. I följande exempel hämtas autentiseringsuppgifterna för klusternamnet *myAKSCluster* i den resursgrupp som heter *myResourceGroup*:
+Använd kommandot [az aks get-credentials][az-aks-get-credentials] för att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster. I följande exempel hämtas autentiseringsuppgifterna för klusternamnet *myAKSCluster* i den resursgrupp som heter *myResourceGroup* :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -117,7 +117,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-Följande exempel på utdata visar att den enskilda VM-noden har skapats och sedan den virtuella noden för Linux, *virtuell-Node-ACI-Linux*:
+Följande exempel på utdata visar att den enskilda VM-noden har skapats och sedan den virtuella noden för Linux, *virtuell-Node-ACI-Linux* :
 
 ```output
 NAME                           STATUS    ROLES     AGE       VERSION

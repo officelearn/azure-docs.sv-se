@@ -1,17 +1,17 @@
 ---
 title: Konfigurera Node.js appar
 description: Lär dig hur du konfigurerar en Node.js-app i de interna Windows-instanserna eller i en fördefinierad Linux-behållare i Azure App Service. I artikeln visas de vanligaste konfigurationsåtgärderna.
-ms.custom: devx-track-js
+ms.custom: devx-track-js, devx-track-azurecli
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f925854f4ef09ccc74c0ec1e8fdcca6b71d1437
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311843"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744059"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Konfigurera en Node.js app för Azure App Service
 
@@ -93,8 +93,8 @@ Om du distribuerar din app med hjälp av git-eller zip-paket med build-automatis
 
 1. Kör anpassat skript om det anges av `PRE_BUILD_SCRIPT_PATH` .
 1. Kör `npm install` utan några flaggor, som innehåller NPM `preinstall` och `postinstall` skript och som också installeras `devDependencies` .
-1. Kör `npm run build` om ett build-skript anges i *package.jspå*.
-1. Kör `npm run build:azure` om en version: Azure-skript anges i *package.jspå*.
+1. Kör `npm run build` om ett build-skript anges i *package.jspå* .
+1. Kör `npm run build:azure` om en version: Azure-skript anges i *package.jspå* .
 1. Kör anpassat skript om det anges av `POST_BUILD_SCRIPT_PATH` .
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Node.js behållare levereras med [PM2](https://pm2.keymetrics.io/), en produktio
 
 ### <a name="run-custom-command"></a>Kör anpassat kommando
 
-App Service kan starta din app med ett anpassat kommando, till exempel en körbar fil som *Run.sh*. Om du till exempel vill köra kör du `npm run start:prod` följande kommando i [Cloud Shell](https://shell.azure.com):
+App Service kan starta din app med ett anpassat kommando, till exempel en körbar fil som *Run.sh* . Om du till exempel vill köra kör du `npm run start:prod` följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
@@ -164,7 +164,7 @@ Behållaren startar automatiskt appen med PM2 när en av de vanliga Node.js-file
 Du kan också konfigurera en anpassad start fil med följande fil namns tillägg:
 
 - En *. js* -fil
-- En [PM2-fil](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) med fil namns tillägget *. JSON*, *.config.js*, *. yaml*eller *. yml*
+- En [PM2-fil](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) med fil namns tillägget *. JSON* , *.config.js* , *. yaml* eller *. yml*
 
 Om du vill lägga till en anpassad start fil kör du följande kommando i [Cloud Shell](https://shell.azure.com):
 
@@ -177,7 +177,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > Fjärrfelsökning är för närvarande en för hands version.
 
-Du kan felsöka Node.js-appen via fjärr anslutning i [Visual Studio Code](https://code.visualstudio.com/) om du konfigurerar den att [köras med PM2](#run-with-pm2), förutom när du kör den med hjälp av * .config.js, *. yml eller *. yaml*.
+Du kan felsöka Node.js-appen via fjärr anslutning i [Visual Studio Code](https://code.visualstudio.com/) om du konfigurerar den att [köras med PM2](#run-with-pm2), förutom när du kör den med hjälp av * .config.js, *. yml eller *. yaml* .
 
 I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs med en *process.jspå* fil (standard eller anpassad), måste den ha en `script` egenskap i JSON-roten. Exempel:
 
@@ -191,9 +191,9 @@ I de flesta fall krävs ingen extra konfiguration för din app. Om din app körs
 
 Om du vill konfigurera Visual Studio Code för fjärrfelsökning, installerar du [App Service-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice). Följ instruktionerna på sidan anknytning och logga in på Azure i Visual Studio Code.
 
-I Azure Explorer letar du reda på den app som du vill felsöka, högerklickar på den och väljer **Starta fjärrfelsökning**. Klicka på **Ja** för att aktivera den för din app. App Service startar en tunnel-proxy för dig och kopplar fel söknings programmet. Du kan sedan göra förfrågningar till appen och se fel söknings verktyget pausas vid Bryt punkter.
+I Azure Explorer letar du reda på den app som du vill felsöka, högerklickar på den och väljer **Starta fjärrfelsökning** . Klicka på **Ja** för att aktivera den för din app. App Service startar en tunnel-proxy för dig och kopplar fel söknings programmet. Du kan sedan göra förfrågningar till appen och se fel söknings verktyget pausas vid Bryt punkter.
 
-När du är färdig med fel sökningen stoppar du fel sökningen genom att välja **Koppla från**. När du uppmanas bör du klicka på **Ja** om du vill inaktivera fjärrfelsökning. Om du vill inaktivera det senare högerklickar du på din app igen i Azure Explorer och väljer **inaktivera fjärrfelsökning**.
+När du är färdig med fel sökningen stoppar du fel sökningen genom att välja **Koppla från** . När du uppmanas bör du klicka på **Ja** om du vill inaktivera fjärrfelsökning. Om du vill inaktivera det senare högerklickar du på din app igen i Azure Explorer och väljer **inaktivera fjärrfelsökning** .
 
 ::: zone-end
 
@@ -227,7 +227,7 @@ npm install kuduscript -g
 kuduscript --node --scriptType bash --suppressPrompt
 ```
 
-Din databas rot har nu två ytterligare filer: *. distribution* och *Deploy.sh*.
+Din databas rot har nu två ytterligare filer: *. distribution* och *Deploy.sh* .
 
 Öppna *Deploy.sh* och hitta `Deployment` avsnittet som ser ut så här:
 
@@ -318,7 +318,7 @@ Prova följande när en fungerande Node.js-app fungerar annorlunda i App Service
 
 - [Åtkomst till logg strömmen](#access-diagnostic-logs).
 - Testa appen lokalt i produktions läge. App Service kör dina Node.js appar i produktions läge, så du måste se till att projektet fungerar som förväntat i produktions läge lokalt. Exempel:
-    - Beroende på din *package.js*kan olika paket installeras i produktions läge ( `dependencies` vs. `devDependencies` ).
+    - Beroende på din *package.js* kan olika paket installeras i produktions läge ( `dependencies` vs. `devDependencies` ).
     - Vissa webb ramverk kan distribuera statiska filer på ett annat sätt i produktions läge.
     - Vissa webb ramverk kan använda anpassade Start skript när de körs i produktions läge.
 - Kör din app i App Service i utvecklings läge. I [MEAN.js](https://meanjs.org/)kan du till exempel ställa in appen i utvecklings läge i körningen genom [att ställa in `NODE_ENV` appens inställning](configure-common.md).

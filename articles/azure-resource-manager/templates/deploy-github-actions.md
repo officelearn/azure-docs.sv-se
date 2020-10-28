@@ -3,13 +3,13 @@ title: Distribuera Resource Manager-mallar med GitHub-åtgärder
 description: Beskriver hur du distribuerar Azure Resource Manager-mallar med hjälp av GitHub-åtgärder.
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.custom: github-actions-azure,subject-armqs
-ms.openlocfilehash: f982ecd208dfd30757050df48c783718ed2b917a
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.custom: github-actions-azure
+ms.openlocfilehash: 69974a8db30f12b255a4bab57ebfa32ba78f67ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282845"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746107"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Distribuera Azure Resource Manager-mallar med GitHub-åtgärder
 
@@ -75,7 +75,7 @@ Du måste skapa hemligheter för dina Azure-autentiseringsuppgifter, resurs grup
 
 1. I [GitHub](https://github.com/)bläddrar du till din lagrings plats.
 
-1. Välj **inställningar > hemligheter > ny hemlighet**.
+1. Välj **inställningar > hemligheter > ny hemlighet** .
 
 1. Klistra in hela JSON-utdata från Azure CLI-kommandot i fältet hemligt värde. Ge hemligheten namnet `AZURE_CREDENTIALS` .
 
@@ -91,16 +91,16 @@ Lägg till en Resource Manager-mall i GitHub-lagringsplatsen. Med den här malle
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Du kan lagra filen var som helst på lagrings platsen. Arbets flödes exemplet i nästa avsnitt förutsätter att mallfilen heter **azuredeploy.jspå**och lagras i roten på din lagrings plats.
+Du kan lagra filen var som helst på lagrings platsen. Arbets flödes exemplet i nästa avsnitt förutsätter att mallfilen heter **azuredeploy.jspå** och lagras i roten på din lagrings plats.
 
-## <a name="create-workflow"></a>Skapa arbets flöde
+## <a name="create-workflow"></a>Skapa arbetsflöde
 
-Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten på din lagrings plats. Arbets flödets fil namns tillägg kan vara antingen **. yml** eller **. yaml**.
+Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten på din lagrings plats. Arbets flödets fil namns tillägg kan vara antingen **. yml** eller **. yaml** .
 
 1. Från din GitHub-lagringsplats väljer du **åtgärder** på den översta menyn.
-1. Välj **nytt arbets flöde**.
-1. Välj **Konfigurera ett arbets flöde själv**.
-1. Byt namn på arbets flödes filen om du vill ha ett annat namn än **main. yml**. Till exempel: **deployStorageAccount. yml**.
+1. Välj **nytt arbets flöde** .
+1. Välj **Konfigurera ett arbets flöde själv** .
+1. Byt namn på arbets flödes filen om du vill ha ett annat namn än **main. yml** . Till exempel: **deployStorageAccount. yml** .
 1. Ersätt innehållet i YML-filen med följande:
 
     ```yml
@@ -136,12 +136,12 @@ Arbets flödes filen måste lagras i mappen **. GitHub/arbets flöden** i roten 
 
     Det första avsnittet i arbets flödes filen innehåller:
 
-    - **namn**: namnet på arbets flödet.
-    - **på**: namnet på de GitHub-händelser som utlöser arbets flödet. Arbets flödet utlöses när det finns en push-händelse på huvud grenen, vilket ändrar minst en av de angivna två filerna. De två filerna är arbets flödes filen och mallfilen.
+    - **namn** : namnet på arbets flödet.
+    - **på** : namnet på de GitHub-händelser som utlöser arbets flödet. Arbets flödet utlöses när det finns en push-händelse på huvud grenen, vilket ändrar minst en av de angivna två filerna. De två filerna är arbets flödes filen och mallfilen.
 
-1. Välj **Starta genomförande**.
-1. Välj **genomför direkt på huvud grenen**.
-1. Välj **genomför ny fil** (eller **genomför ändringar**).
+1. Välj **Starta genomförande** .
+1. Välj **genomför direkt på huvud grenen** .
+1. Välj **genomför ny fil** (eller **genomför ändringar** ).
 
 Eftersom arbets flödet har kon figurer ATS för att utlösas av antingen arbets flödes filen eller mallfilen som uppdateras, startar arbets flödet direkt efter att du har bekräftat ändringarna.
 

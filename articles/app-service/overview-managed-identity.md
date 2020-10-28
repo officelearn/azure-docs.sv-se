@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: d6b9ebd8401151d57f103e639e70dd213bde6e33
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
+ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152085"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742494"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -27,23 +27,23 @@ Det här avsnittet visar hur du skapar en hanterad identitet för App Service oc
 
 Att skapa en app med en tilldelad identitet kräver att ytterligare en egenskap anges för programmet.
 
-### <a name="using-the-azure-portal"></a>Använda Azure Portal
+### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
 För att konfigurera en hanterad identitet i portalen skapar du först ett program som vanligt och aktiverar sedan funktionen.
 
 1. Skapa en app i portalen på vanligt sätt. Gå till den i portalen.
 
-2. Om du använder en Function-app navigerar du till **plattforms funktioner**. För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
+2. Om du använder en Function-app navigerar du till **plattforms funktioner** . För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
 
-3. Välj **identitet**.
+3. Välj **identitet** .
 
-4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Spara**.
+4. Växla **status** till **på på** fliken **systemtilldelad** . Klicka på **Spara** .
 
     ![Hanterad identitet i App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
-> Om du vill hitta den hanterade identiteten för din webbapp eller fack-app i Azure Portal, under **företags program**, tittar du i avsnittet **användar inställningar** . Normalt liknar plats namnet `<app name>/slots/<slot name>` .
+> Om du vill hitta den hanterade identiteten för din webbapp eller fack-app i Azure Portal, under **företags program** , tittar du i avsnittet **användar inställningar** . Normalt liknar plats namnet `<app name>/slots/<slot name>` .
 
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
@@ -190,7 +190,7 @@ Om du behöver referera till dessa egenskaper i ett senare skede i mallen kan du
 
 Om du skapar en app med en användardefinierad identitet måste du skapa identiteten och sedan lägga till dess resurs-ID i appens konfiguration.
 
-### <a name="using-the-azure-portal"></a>Använda Azure Portal
+### <a name="using-the-azure-portal"></a>Använda Azure-portalen
 
 Först måste du skapa en användardefinierad identitets resurs.
 
@@ -198,13 +198,13 @@ Först måste du skapa en användardefinierad identitets resurs.
 
 2. Skapa en app i portalen på vanligt sätt. Gå till den i portalen.
 
-3. Om du använder en Function-app navigerar du till **plattforms funktioner**. För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
+3. Om du använder en Function-app navigerar du till **plattforms funktioner** . För andra typer av appar rullar du ned till **inställnings** gruppen i det vänstra navigerings fältet.
 
-4. Välj **identitet**.
+4. Välj **identitet** .
 
-5. Klicka på **Lägg till**i fliken **tilldelade användare** .
+5. Klicka på **Lägg till** i fliken **tilldelade användare** .
 
-6. Sök efter den identitet som du skapade tidigare och markera den. Klicka på **Lägg till**.
+6. Sök efter den identitet som du skapade tidigare och markera den. Klicka på **Lägg till** .
 
     ![Hanterad identitet i App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
 
@@ -395,7 +395,7 @@ public async Task<HttpResponseMessage> GetToken(string resource)  {
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const rp = require('request-promise');
+const rp = require('request-promise');
 const getToken = function(resource, cb) {
     let options = {
         uri: `${process.env["IDENTITY_ENDPOINT"]}/?resource=${resource}&api-version=2019-08-01`,

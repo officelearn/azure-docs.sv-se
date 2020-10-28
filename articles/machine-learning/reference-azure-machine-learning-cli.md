@@ -9,13 +9,13 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
-ms.custom: seodec18
-ms.openlocfilehash: 50ac8ede9f8272d6956d1ac29e57a9c26d2c0bd9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 8ce32ab1e7dac6fd1a154fc6e730113428a8291b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708279"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744483"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installera & Använd CLI-tillägget för Azure Machine Learning
 
@@ -32,9 +32,9 @@ CLI är inte en ersättning för Azure Machine Learning SDK. Det är ett komplet
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-* Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö** behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
     Om du använder [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/)kan CLI nås via webbläsaren och finns i molnet.
 
@@ -411,7 +411,7 @@ Följande tabell innehåller information om varje översta fält i JSON-filen, d
 
 | JSON-fält | Typ | Beskrivning |
 |---|---|---|
-| `name` | `string` | Miljöns namn. Starta inte namn med **Microsoft** eller **azureml**. |
+| `name` | `string` | Miljöns namn. Starta inte namn med **Microsoft** eller **azureml** . |
 | `version` | `string` | Version av miljön. |
 | `environmentVariables` | `{string: string}` | En hash-mappning av miljö variabel namn och-värden. |
 | `python` | [`PythonSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true)Hat definierar den python-miljö och-tolk som ska användas på mål beräknings resurser. |

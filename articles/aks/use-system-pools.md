@@ -5,17 +5,17 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: fasttrack-edit, devx-track-azurecli
+ms.openlocfilehash: b567ebfc2cb13aa0db6f8dd32db79cb7e031b710
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888959"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745735"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera system-nodkonfigurationer i Azure Kubernetes service (AKS)
 
-I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler*. Node-pooler innehåller de underliggande virtuella datorer som kör dina program. System-nodkonfigurationer och användar-Node-pooler är två olika lägen för resurspooler för dina AKS-kluster. System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel `CoreDNS` och `metrics-server` . Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Varje AKS-kluster måste innehålla minst en adresspool för system med minst en nod.
+I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsammans i *noder i pooler* . Node-pooler innehåller de underliggande virtuella datorer som kör dina program. System-nodkonfigurationer och användar-Node-pooler är två olika lägen för resurspooler för dina AKS-kluster. System Node-pooler fungerar som ett primärt syfte att vara värd för kritiska system poddar, till exempel `CoreDNS` och `metrics-server` . Pooler för användar-noder fungerar som ett primärt syfte att vara värd för din applikations poddar. Programpoddar kan dock schemaläggas på system-nodkonfigurationer om du bara vill ha en pool i ditt AKS-kluster. Varje AKS-kluster måste innehålla minst en adresspool för system med minst en nod.
 
 > [!Important]
 > Om du kör en pool med en enda pool för AKS-klustret i en produktions miljö rekommenderar vi att du använder minst tre noder för Node-poolen.

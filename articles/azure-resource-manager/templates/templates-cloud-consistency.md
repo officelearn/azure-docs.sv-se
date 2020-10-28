@@ -5,13 +5,13 @@ author: marcvaneijk
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
-ms.custom: seodec18
-ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: ea010a625c3e3cd6228513299d878733bf3775ce
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91356893"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744755"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Utveckla ARM-mallar för moln konsekvens
 
@@ -205,7 +205,7 @@ För att skapa en artefakts absoluta URI är den bästa metoden att använda fun
 }
 ```
 
-Med den här metoden kan alla distributions artefakter, inklusive konfigurations skript, lagras på samma plats med själva mallen. Om du vill ändra platsen för alla länkar behöver du bara ange en annan bas-URL för ArtifactsLocation- _parametrarna_.
+Med den här metoden kan alla distributions artefakter, inklusive konfigurations skript, lagras på samma plats med själva mallen. Om du vill ändra platsen för alla länkar behöver du bara ange en annan bas-URL för ArtifactsLocation- _parametrarna_ .
 
 ## <a name="factor-in-differing-regional-capabilities"></a>Faktor i olika regionala funktioner
 
@@ -641,7 +641,7 @@ Varje enskilt tillägg är också en version. Den här versionen visas i `typeHa
         ...
 ```
 
-Om du vill hämta en lista över tillgängliga versioner för ett angivet VM-tillägg använder du cmdleten [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) . I följande exempel hämtas tillgängliga versioner för PowerShell DSC (Desired State Configuration) VM-tillägg från min **plats**:
+Om du vill hämta en lista över tillgängliga versioner för ett angivet VM-tillägg använder du cmdleten [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) . I följande exempel hämtas tillgängliga versioner för PowerShell DSC (Desired State Configuration) VM-tillägg från min **plats** :
 
 ```azurepowershell-interactive
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT

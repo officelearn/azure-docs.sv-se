@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 19eb5ae89598a0ebe040f1ffda5afd2b9e3d5e7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 357d3aaa9cf9e324f8dd27636b9f34f503f566de
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059247"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746019"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Självstudie: Installera program i VM-skalningsuppsättningar med en Azure-mall
 Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. I en föregående självstudie fick du lära dig hur du skapar och använder en anpassad virtuell datoravbildning för att distribuera dina virtuella datorinstanser. Den här anpassade avbildningen inkluderade programinstallationer och konfigurationer. Du kan också automatisera installationen av programmen till en skalningsuppsättning efter att varje virtuell datorinstans distribueras, eller uppdatera ett program som redan körs på en skalningsuppsättning. I den här guiden får du lära du dig hur man:
@@ -40,9 +40,9 @@ Om du vill se hur det anpassade skripttillägget, skapar du en skalningsuppsätt
 
 
 ## <a name="create-custom-script-extension-definition"></a>Skapa en anpassad skripttilläggsdefinition
-När du definierar en VM-skalningsuppsättning med en Azure-mall, kan resursprovidern *Microsoft.Compute/virtualMachineScaleSets* inkludera ett avsnitt om tillägg. *extensionsProfile* går igenom vad som tillämpas till de virtuella datorinstanserna i en skalningsuppsättning. Om du vill använda det anpassade skripttillägget så anger du en utgivare för *Microsoft.Azure.Extensions* och en typ av *CustomScript*.
+När du definierar en VM-skalningsuppsättning med en Azure-mall, kan resursprovidern *Microsoft.Compute/virtualMachineScaleSets* inkludera ett avsnitt om tillägg. *extensionsProfile* går igenom vad som tillämpas till de virtuella datorinstanserna i en skalningsuppsättning. Om du vill använda det anpassade skripttillägget så anger du en utgivare för *Microsoft.Azure.Extensions* och en typ av *CustomScript* .
 
-Egenskapen *fileUris* används för att definiera källan för installationsskripten eller paketen. Om du vill starta installationsprocessen, definieras de nödvändiga skripten i *commandToExecute*. Följande exempel definierar ett exempelskript från GitHub som installerar och konfigurerar NGINX-webbservern:
+Egenskapen *fileUris* används för att definiera källan för installationsskripten eller paketen. Om du vill starta installationsprocessen, definieras de nödvändiga skripten i *commandToExecute* . Följande exempel definierar ett exempelskript från GitHub som installerar och konfigurerar NGINX-webbservern:
 
 ```json
 "extensionProfile": {
@@ -108,7 +108,7 @@ Lämna webbläsaren öppen så att du kan se en uppdaterad version i nästa steg
 
 
 ## <a name="update-app-deployment"></a>Uppdatera appdistributionen
-Under livscykeln för en skalningsuppsättning, kan du behöva distribuera en uppdaterad version av ditt program. Med det anpassade skripttillägget, kan du referera till ett uppdaterat distributionsskript och sedan tillämpa tillägget till din skalningsuppsättning igen. När skalnings uppsättningen skapades i ett föregående steg var *upgradePolicy* inställd på *Automatisk*. Den här inställningen låter virtuella datorinstanser i skalningsuppsättningen att automatiskt uppdatera och tillämpa den senaste versionen av ditt program.
+Under livscykeln för en skalningsuppsättning, kan du behöva distribuera en uppdaterad version av ditt program. Med det anpassade skripttillägget, kan du referera till ett uppdaterat distributionsskript och sedan tillämpa tillägget till din skalningsuppsättning igen. När skalnings uppsättningen skapades i ett föregående steg var *upgradePolicy* inställd på *Automatisk* . Den här inställningen låter virtuella datorinstanser i skalningsuppsättningen att automatiskt uppdatera och tillämpa den senaste versionen av ditt program.
 
 Om du vill uppdatera definitionen för ditt anpassade skripttillägg, redigerar du din mall för att referera till ett nytt installationsskript. Det nya filnamnet måste användas för att det anpassade skripttillägget ska identifiera ändringen. Det anpassade skripttillägget utvärderar inte innehållet i skriptet för att avgöra om ändringar gjorts. Följande definition använder ett uppdaterat installationsskript med *_v2* i slutet av namnet:
 
@@ -134,7 +134,7 @@ Om du vill uppdatera definitionen för ditt anpassade skripttillägg, redigerar 
 }
 ```
 
-Tillämpa konfigurationen det anpassade skripttillägget till de virtuella datorinstanser i din skalningsuppsättning med [az group deployment create](/cli/azure/group/deployment). Den här *azuredeployv2.json*-mallen används för att tillämpa den uppdaterade versionen av programmet. I praktiken, redigerar du den befintliga *azuredeploy.json*-mallen så den refererar till det uppdaterade installationsskriptet, som det visas i föregående avsnitt. När du uppmanas, anger du samma användarnamn och lösenord som används när du först skapade skalningsuppsättningen:
+Tillämpa konfigurationen det anpassade skripttillägget till de virtuella datorinstanser i din skalningsuppsättning med [az group deployment create](/cli/azure/group/deployment). Den här *azuredeployv2.json* -mallen används för att tillämpa den uppdaterade versionen av programmet. I praktiken, redigerar du den befintliga *azuredeploy.json* -mallen så den refererar till det uppdaterade installationsskriptet, som det visas i föregående avsnitt. När du uppmanas, anger du samma användarnamn och lösenord som används när du först skapade skalningsuppsättningen:
 
 ```azurecli-interactive
 az group deployment create \

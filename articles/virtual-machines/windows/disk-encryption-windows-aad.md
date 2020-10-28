@@ -7,13 +7,13 @@ ms.subservice: security
 ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
-ms.custom: seodec18
-ms.openlocfilehash: 0e8ea218aa9c557fb109aee0dba318cfd5f605c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 352c8848b98bfb463c03ceea89ebe3f4b6ad6d5b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87836249"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742431"
 ---
 # <a name="azure-disk-encryption-with-azure-ad-for-windows-vms-previous-release"></a>Azure Disk Encryption med Azure AD för virtuella Windows-datorer (tidigare version)
 
@@ -31,7 +31,7 @@ Du kan aktivera många disk krypterings scenarier och stegen kan variera beroend
 ## <a name="enable-encryption-on-new-iaas-vms-created-from-the-marketplace"></a>Aktivera kryptering på nya virtuella IaaS-datorer som skapats från Marketplace
 Du kan aktivera disk kryptering på nya IaaS virtuella Windows-datorer från Marketplace i Azure med hjälp av en Resource Manager-mall. Mallen skapar en ny krypterad virtuell Windows-dator med hjälp av Windows Server 2012 Gallery-avbildningen.
 
-1. Klicka på **distribuera till Azure**i [Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
+1. Klicka på **distribuera till Azure** i [Resource Manager-mallen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).
 
 2. Välj prenumeration, resurs grupp, plats för resurs grupp, parametrar, juridiska villkor och avtal. Klicka på **köp** för att distribuera en ny virtuell IaaS-dator där kryptering är aktiverat.
 
@@ -48,7 +48,7 @@ Du kan aktivera disk kryptering på nya IaaS virtuella Windows-datorer från Mar
          Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
          ```
 
-     -  Välj den virtuella datorn och klicka sedan på **diskar** under **inställnings** rubriken för att kontrol lera krypterings status i portalen. I diagrammet under **kryptering**ser du om det är aktiverat. 
+     -  Välj den virtuella datorn och klicka sedan på **diskar** under **inställnings** rubriken för att kontrol lera krypterings status i portalen. I diagrammet under **kryptering** ser du om det är aktiverat. 
            ![Azure Portal disk kryptering aktiverat](../media/disk-encryption/disk-encryption-fig2.png)
 
 I följande tabell visas parametrarna för Resource Manager-mallen för nya virtuella datorer från Marketplace-scenariot med Azure AD-klient-ID:
@@ -156,7 +156,7 @@ Använd kommandot [AZ VM Encryption Enable](/cli/azure/vm/encryption#az-vm-encry
 Du kan aktivera disk kryptering på befintliga eller köra IaaS virtuella Windows-datorer i Azure med hjälp av [Resource Manager-mallen för att kryptera en Windows-VM som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm).
 
 
-1. I mallen för Azure snabb start klickar **du på distribuera till Azure**.
+1. I mallen för Azure snabb start klickar **du på distribuera till Azure** .
 
 2. Välj prenumeration, resurs grupp, plats för resurs grupp, parametrar, juridiska villkor och avtal. Klicka på **köp** för att aktivera kryptering på den befintliga eller aktiva virtuella IaaS-datorn.
 
@@ -168,7 +168,7 @@ I följande tabell visas parametrarna för Resource Manager-mallen för befintli
 | AADClientSecret | Klient hemlighet för Azure AD-programmet som har behörighet att skriva hemligheter till nyckel valvet. |
 | keyVaultName | Namnet på nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI-kommandot `az keyvault list --resource-group "MySecureGroup"`|
 |  keyEncryptionKeyURL | URL till den nyckel krypterings nyckel som används för att kryptera den genererade BitLocker-nyckeln. Den här parametern är valfri om du väljer **nokek** i list rutan UseExistingKek. Om du väljer **KEK** i list rutan UseExistingKek måste du ange värdet _keyEncryptionKeyURL_ . |
-| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_, _data_och _alla_. |
+| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_ , _data_ och _alla_ . |
 | sequenceVersion | Sekvens-version av BitLocker-åtgärden. Öka det här versions numret varje gång en disk krypterings åtgärd utförs på samma virtuella dator. |
 | vmName | Namnet på den virtuella dator som krypterings åtgärden ska utföras på. |
 

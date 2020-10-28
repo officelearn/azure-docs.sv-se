@@ -5,13 +5,13 @@ description: Lär dig hur du använder Azure CLI för att skapa ett AKS-kluster 
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.custom: references_regions
-ms.openlocfilehash: 1e62af4f2ab8233125777bf6edf713758e4f2ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions, devx-track-azurecli
+ms.openlocfilehash: 96c47ed59fd904f1523347d9f0ef7bc00edb866f
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543086"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745660"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder med Azure CLI
 
@@ -29,7 +29,7 @@ Om du inte tidigare har använt ACI registrerar du tjänst leverantören med din
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
 ```
 
-*Microsoft. ContainerInstance* -providern ska rapportera som *registrerad*, vilket visas i följande exempel på utdata:
+*Microsoft. ContainerInstance* -providern ska rapportera som *registrerad* , vilket visas i följande exempel på utdata:
 
 ```output
 Namespace                    RegistrationState    RegistrationPolicy
@@ -37,7 +37,7 @@ Namespace                    RegistrationState    RegistrationPolicy
 Microsoft.ContainerInstance  Registered           RegistrationRequired
 ```
 
-Om providern visas som *NotRegistered*registrerar du providern med [AZ-providerns register][az-provider-register] som visas i följande exempel:
+Om providern visas som *NotRegistered* registrerar du providern med [AZ-providerns register][az-provider-register] som visas i följande exempel:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -75,13 +75,13 @@ Funktioner för virtuella noder är kraftigt beroende av ACI funktions uppsättn
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto.
 
-Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash) . Kopiera kodblocket genom att välja **Kopiera** , klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 Om du föredrar att installera och använda CLI lokalt kräver den här artikeln Azure CLI version 2.0.49 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *westus*.
+En Azure-resursgrupp är en logisk grupp där Azure-resurser distribueras och hanteras. Skapa en resursgrupp med kommandot [az group create][az-group-create]. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *westus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med hjälp av kommandot [AZ Network VNet Create][az-network-vnet-create] . I följande exempel skapas ett virtuellt nätverks namn *myVnet* med adressprefixet *10.0.0.0/8*och ett undernät med namnet *myAKSSubnet*. Adressprefixet för det här under nätet är som standard *10.240.0.0/16*:
+Skapa ett virtuellt nätverk med hjälp av kommandot [AZ Network VNet Create][az-network-vnet-create] . I följande exempel skapas ett virtuellt nätverks namn *myVnet* med adressprefixet *10.0.0.0/8* och ett undernät med namnet *myAKSSubnet* . Adressprefixet för det här under nätet är som standard *10.240.0.0/16* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Skapa nu ytterligare ett undernät för virtuella noder med kommandot [AZ Network VNet Subnet Create][az-network-vnet-subnet-create] . I följande exempel skapas ett undernät med namnet *myVirtualNodeSubnet* med adressprefixet för *10.241.0.0/16*.
+Skapa nu ytterligare ett undernät för virtuella noder med kommandot [AZ Network VNet Subnet Create][az-network-vnet-subnet-create] . I följande exempel skapas ett undernät med namnet *myVirtualNodeSubnet* med adressprefixet för *10.241.0.0/16* .
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -132,7 +132,7 @@ Utdata ser ut ungefär så här:
 }
 ```
 
-Anteckna värdena för *appId* och *password*. De här värdena används i senare steg.
+Anteckna värdena för *appId* och *password* . De här värdena används i senare steg.
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>Tilldela behörigheter till det virtuella nätverket
 
@@ -202,7 +202,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-Följande exempel på utdata visar att den enskilda VM-noden har skapats och sedan den virtuella noden för Linux, *virtuell-Node-ACI-Linux*:
+Följande exempel på utdata visar att den enskilda VM-noden har skapats och sedan den virtuella noden för Linux, *virtuell-Node-ACI-Linux* :
 
 ```output
 NAME                          STATUS    ROLES     AGE       VERSION

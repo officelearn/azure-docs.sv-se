@@ -3,13 +3,13 @@ title: Självstudie – Bygg avbildning vid kod genomförande
 description: I självstudien får du lära dig att konfigurera en Azure Container Registry-uppgift till att utlösa containeravbildningsversioner i molnet automatiskt när du checkar in källkod på en Git-lagringsplats.
 ms.topic: tutorial
 ms.date: 05/04/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 2f70b829e2202c3d28adcfbbb07338923c43e8a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: a4d0a2d3d98bec28e4d6389c9069db3e7b395597
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402840"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92745551"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Självstudier: Automatisera containeravbildningar i molnet när du checkar in källkod
 

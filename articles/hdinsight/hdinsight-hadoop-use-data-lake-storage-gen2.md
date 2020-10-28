@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
+ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
 ms.date: 04/24/2020
-ms.openlocfilehash: 0675f77acbdecfe74634a6734b83c5b74019b8ab
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: cc17cd23ae197db25fed440eb249f2cf069d4859
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332033"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744581"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -28,7 +28,7 @@ En fullständig jämförelse av alternativen för att skapa kluster med hjälp a
 Data Lake Storage Gen2 är tillgängligt som ett lagrings alternativ för nästan alla Azure HDInsight-kluster typer som både standard och ytterligare lagrings konton. HBase kan dock ha endast ett konto med Data Lake Storage Gen2.
 
 > [!Note]  
-> När du har valt Data Lake Storage Gen2 som **primär lagrings typ**kan du inte välja en data Lake Storage gen1 som ytterligare lagrings utrymme.
+> När du har valt Data Lake Storage Gen2 som **primär lagrings typ** kan du inte välja en data Lake Storage gen1 som ytterligare lagrings utrymme.
 
 ## <a name="create-hdinsight-clusters-using-data-lake-storage-gen2"></a>Skapa HDInsight-kluster med hjälp av Data Lake Storage Gen2
 
@@ -66,19 +66,19 @@ Om du vill ange behörigheter för användare för att fråga data använder du 
 
 Det finns flera sätt som du kan använda för att komma åt filerna i Data Lake Storage Gen2 från ett HDInsight-kluster.
 
-* **Via det fullständiga namnet**. Med den här metoden kan du ange den fullständiga sökvägen till filen som du vill öppna.
+* **Via det fullständiga namnet** . Med den här metoden kan du ange den fullständiga sökvägen till filen som du vill öppna.
 
     ```
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Via det förkortade sökvägsformatet**. Med den här metoden ersätter du sökvägen upp till kluster roten med:
+* **Via det förkortade sökvägsformatet** . Med den här metoden ersätter du sökvägen upp till kluster roten med:
 
     ```
     abfs:///<file.path>/
     ```
 
-* **Med den relativa sökvägen**. Med den här metoden anger du bara den relativa sökvägen till den fil som du vill öppna.
+* **Med den relativa sökvägen** . Med den här metoden anger du bara den relativa sökvägen till den fil som du vill öppna.
 
     ```
     /<file.path>/

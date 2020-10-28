@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 4db53b806adc2e29ae9c9a950faf8fc822c9d66b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: how-to, devx-track-python, devx-track-azurecli
+ms.openlocfilehash: 5a7d33e163c10a6d56416ea474d7e3a9e8624219
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743989"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744414"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Skapa & använda program varu miljöer i Azure Machine Learning
 
@@ -110,7 +110,7 @@ När du aktiverar Docker skapar Azure Machine Learning en Docker-avbildning och 
 myenv.docker.enabled = True
 ```
 
-Som standard visas den nyligen inbyggda Docker-avbildningen i behållar registret som är kopplat till arbets ytan.  Databas namnet har formatet *azureml/azureml_ \<uuid\> *. Den unika identifieraren (*UUID*) i namnet motsvarar en hash som beräknas från miljö konfigurationen. Den här korrespondensen gör att tjänsten kan avgöra om det redan finns en avbildning för den aktuella miljön för åter användning.
+Som standard visas den nyligen inbyggda Docker-avbildningen i behållar registret som är kopplat till arbets ytan.  Databas namnet har formatet *azureml/azureml_ \<uuid\>* . Den unika identifieraren ( *UUID* ) i namnet motsvarar en hash som beräknas från miljö konfigurationen. Den här korrespondensen gör att tjänsten kan avgöra om det redan finns en avbildning för den aktuella miljön för åter användning.
 
 #### <a name="use-a-prebuilt-docker-image"></a>Använd en fördefinierad Docker-avbildning
 
@@ -259,7 +259,7 @@ myenv.environment_variables = {"MESSAGE":"Hello from Azure Machine Learning"}
 ```
 
 >[!IMPORTANT]
-> Om du använder samma miljö definition för en annan körning återanvänds den cachelagrade avbildningen av miljön i Azure Machine Learnings tjänsten. Om du skapar en miljö med ett ej fixerat paket beroende kan du till exempel ```numpy``` använda paket versionen som är installerad _när miljön skapades_. Dessutom fortsätter all framtida miljö med matchnings definition att använda den gamla versionen. Mer information finns i [miljö utveckling, cachelagring och åter användning](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
+> Om du använder samma miljö definition för en annan körning återanvänds den cachelagrade avbildningen av miljön i Azure Machine Learnings tjänsten. Om du skapar en miljö med ett ej fixerat paket beroende kan du till exempel ```numpy``` använda paket versionen som är installerad _när miljön skapades_ . Dessutom fortsätter all framtida miljö med matchnings definition att använda den gamla versionen. Mer information finns i [miljö utveckling, cachelagring och åter användning](https://docs.microsoft.com/azure/machine-learning/concept-environments#environment-building-caching-and-reuse).
 
 ### <a name="private-python-packages"></a>Privata python-paket
 

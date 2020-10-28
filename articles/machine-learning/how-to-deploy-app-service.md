@@ -10,13 +10,13 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 2f1eddf33dc02b1afaffdc200ed8b79b18f77aa4
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
+ms.openlocfilehash: 31c9f203a8602b6c078fe2e9c672c539140f9990
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999202"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92744439"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 
@@ -56,7 +56,7 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
 
 Innan du distribuerar måste du definiera vad som behövs för att köra modellen som en webb tjänst. I följande lista beskrivs de huvud objekt som behövs för en-distribution:
 
-* Ett __Entry-skript__. Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
+* Ett __Entry-skript__ . Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
 
     > [!IMPORTANT]
     > Start skriptet är bara för din modell. den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
@@ -70,9 +70,9 @@ Innan du distribuerar måste du definiera vad som behövs för att köra modelle
 
     Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
-* **Beroenden**, till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
+* **Beroenden** , till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
 
-Dessa entiteter kapslas in i en konfiguration för en __härledning__. Inferenskonfigurationen refererar till startskriptet och andra beroenden.
+Dessa entiteter kapslas in i en konfiguration för en __härledning__ . Inferenskonfigurationen refererar till startskriptet och andra beroenden.
 
 > [!IMPORTANT]
 > När du skapar en konfigurations konfiguration för användning med Azure App Service måste du använda ett [miljö](https://docs.microsoft.com//python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) objekt. Observera att om du definierar en anpassad miljö måste du lägga till azureml-defaults med version >= 1.0.45 som ett pip-beroende. Det här paketet innehåller de funktioner som krävs för att vara värd för modellen som en webb tjänst. I följande exempel visas hur du skapar ett miljö objekt och använder det med en konfigurations konfiguration:
@@ -97,7 +97,7 @@ Mer information om miljöer finns i [skapa och hantera miljöer för utbildning 
 Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
-> När du distribuerar till Azure App Service behöver du inte skapa en __distributions konfiguration__.
+> När du distribuerar till Azure App Service behöver du inte skapa en __distributions konfiguration__ .
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
@@ -115,7 +115,7 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Exempelvis `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
+När `show_output=True` visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i formatet `<acrinstance>.azurecr.io/package@sha256:<imagename>` . Till exempel `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Spara plats informationen som används när avbildningen distribueras.
@@ -146,7 +146,7 @@ När `show_output=True` visas utdata från Docker-build-processen. När processe
     }
     ```
 
-    Spara värdet för __användar namn__ och ett av __lösen orden__.
+    Spara värdet för __användar namn__ och ett av __lösen orden__ .
 
 1. Om du inte redan har en resurs grupp eller App Service-plan för att distribuera tjänsten visar följande kommandon hur du skapar båda:
 
@@ -247,7 +247,7 @@ Det här kommandot returnerar information som liknar följande hostname- `<app-n
 
 ## <a name="use-the-web-app"></a>Använda webbapp
 
-Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score` . Exempelvis `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
+Webb tjänsten som skickar begär anden till modellen finns på `{baseurl}/score` . Till exempel `https://<app-name>.azurewebsites.net/score`. Följande python-kod visar hur du skickar data till URL: en och visar svaret:
 
 ```python
 import requests

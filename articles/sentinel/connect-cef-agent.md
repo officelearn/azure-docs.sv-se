@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: a54dfa0f2b072d30cac605937a1b623ef9d4051d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab02cc7e60870852666c8c01ccc17a1b1102a62
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631502"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742829"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Steg 1: Distribuera logg vidarebefordraren
 
 
 I det här steget ska du ange och konfigurera Linux-datorn som kommer att vidarebefordra loggarna från din säkerhets lösning till din Azure Sentinel-arbetsyta. Den här datorn kan vara en fysisk eller virtuell dator i din lokala miljö, en virtuell Azure-dator eller en virtuell dator i ett annat moln. Med hjälp av den angivna länken kör du ett skript på den avsedda datorn som utför följande uppgifter:
+
 - Installerar Log Analytics agent för Linux (kallas även OMS-agenten) och konfigurerar den i följande syfte:
     - Lyssna efter CEF-meddelanden från den inbyggda Linux syslog-daemonen på TCP-port 25226
     - skicka meddelanden säkert över TLS till din Azure Sentinel-arbetsyta, där de är parsade och berikade
@@ -36,18 +37,25 @@ I det här steget ska du ange och konfigurera Linux-datorn som kommer att vidare
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha förhöjd behörighet (sudo) på den utsedda Linux-datorn.
-- Du måste ha python installerat på Linux-datorn.<br>Använd `python -version` kommandot för att kontrol lera.
+
+- Du måste ha **python 2,7** installerat på Linux-datorn.<br>Använd `python -version` kommandot för att kontrol lera.
+
 - Linux-datorn får inte vara ansluten till några Azure-arbetsytor innan du installerar Log Analytics agenten.
+
+- Du kan behöva arbets ytans ID och primär nyckel för arbets ytan vid något tillfälle i den här processen. Du hittar dem i arbets ytans resurs under **agent hantering** .
 
 ## <a name="run-the-deployment-script"></a>Kör distributionsskriptet
  
-1. Klicka på **data kopplingar**på navigerings menyn i Azure Sentinel. I listan över anslutningar klickar du på panelen **common Event format (CEF)** och sedan på knappen **Öppna kopplings sida** längst ned till höger. 
+1. Klicka på **data kopplingar** på navigerings menyn i Azure Sentinel. I listan över anslutningar klickar du på panelen **common Event format (CEF)** och sedan på knappen **Öppna kopplings sida** längst ned till höger. 
 
-1. Under **1,2 installerar du CEF-insamlaren på Linux-datorn**, kopierar länken som finns under **Kör följande skript för att installera och tillämpa CEF-insamlaren**eller från texten nedan:
+1. Under **1,2 installerar du CEF-insamlaren på Linux-datorn** , kopierar länken som anges under **Kör följande skript för att installera och tillämpa CEF-insamlaren** , eller från texten nedan (Använd arbetsyte-ID och primär nyckel i plats för plats hållarna):
 
-     `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```bash
+    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```
 
 1. Kontrol lera att du inte får några fel eller varnings meddelanden medan skriptet körs.
+    - Du kan få ett meddelande som uppmanar dig att köra ett kommando för att åtgärda ett problem med mappningen av fältet *dator* . Mer information finns i [förklaringen i distributions skriptet](#mapping-command) .
 
 > [!NOTE]
 > **Använda samma dator för att vidarebefordra både vanliga syslog- *och* CEF-meddelanden**
@@ -122,12 +130,15 @@ Välj en syslog-daemon för att se lämplig beskrivning.
 
 1. **Verifiera mappningen av *dator* fältet som förväntat:**
 
-    - Säkerställer att *dator* fältet i syslog-källan är korrekt mappat i Log Analytics agent genom att köra det här kommandot och starta om agenten.
+    - Säkerställer att *dator* fältet i syslog-källan är korrekt mappat i Log Analytics-agenten med hjälp av följande kommando: 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
+        ```
+    - <a name="mapping-command"></a>Om det uppstår ett problem med mappningen genererar skriptet ett fel meddelande som uppmanar dig att **köra följande kommando manuellt** (med hjälp av arbetsyte-ID: t i stället för plats hållaren). Kommandot kontrollerar korrekt mappning och startar om agenten.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
         ```
 
 # <a name="syslog-ng-daemon"></a>[syslog-ng-daemon](#tab/syslogng)
@@ -187,15 +198,16 @@ Välj en syslog-daemon för att se lämplig beskrivning.
 
 1. **Verifiera mappningen av *dator* fältet som förväntat:**
 
-    - Säkerställer att *dator* fältet i syslog-källan är korrekt mappat i Log Analytics agent genom att köra det här kommandot och starta om agenten.
+    - Säkerställer att *dator* fältet i syslog-källan är korrekt mappat i Log Analytics-agenten med hjälp av följande kommando: 
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-
-
+    - <a name="mapping-command"></a>Om det uppstår ett problem med mappningen genererar skriptet ett fel meddelande som uppmanar dig att **köra följande kommando manuellt** (med hjälp av arbetsyte-ID: t i stället för plats hållaren). Kommandot kontrollerar korrekt mappning och startar om agenten.
+    
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du distribuerar Log Analytics agent för att ansluta CEF-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
